@@ -1,3 +1,4 @@
+export const dynamic = 'force-static';
 import type { MetadataRoute } from 'next';
 import { productsEU, ingredients, guides, euCountries } from '@nootropic/data';
 
