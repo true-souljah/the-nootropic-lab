@@ -1,0 +1,15 @@
+{
+  "name": "nootropics-monorepo",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:us": "npm run dev --workspace=apps/us",
+    "dev:eu": "npm run dev --workspace=apps/eu",
+    "build:us": "npm run build --workspace=apps/us",
+    "build:eu": "npm run build --workspace=apps/eu",
+    "build": "npm run build:us && npm run build:eu"
+  }
+}
