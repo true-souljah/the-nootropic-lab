@@ -8,8 +8,20 @@
   "scripts": {
     "dev:us": "npm run dev --workspace=apps/us",
     "dev:eu": "npm run dev --workspace=apps/eu",
+    "dev:ca": "npm run dev --workspace=apps/ca",
+    "dev:au": "npm run dev --workspace=apps/au",
+    "dev:jp": "npm run dev --workspace=apps/jp",
+    "dev:latam": "npm run dev --workspace=apps/latam",
+    "dev:gcc": "npm run dev --workspace=apps/gcc",
+    "dev:sea": "npm run dev --workspace=apps/sea",
     "build:us": "npm run build --workspace=apps/us",
     "build:eu": "npm run build --workspace=apps/eu",
-    "build": "npm run build:us && npm run build:eu"
+    "build:ca": "npm run build --workspace=apps/ca",
+    "build:au": "npm run build --workspace=apps/au",
+    "build:jp": "npm run build --workspace=apps/jp",
+    "build:latam": "npm run build --workspace=apps/latam",
+    "build:gcc": "npm run build --workspace=apps/gcc",
+    "build:sea": "npm run build --workspace=apps/sea",
+    "build": "npm run build:us && npm run build:eu && npm run build:ca && npm run build:au && npm run build:jp && npm run build:latam && npm run build:gcc && npm run build:sea"
   }
 }
