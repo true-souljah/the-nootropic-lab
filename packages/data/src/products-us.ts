@@ -79,7 +79,7 @@ export const productsUS: Product[] = [
       { name: 'Rhodiola Rosea (3% rosavins)', doseInProduct: '50mg', clinicalDose: '200mg', adequatelyDosed: false },
       { name: 'L-Theanine', doseInProduct: '100mg', clinicalDose: '100-200mg', adequatelyDosed: true },
       { name: 'Phosphatidylserine (Sharp-PS)', doseInProduct: '100mg', clinicalDose: '100mg', adequatelyDosed: true },
-      { name: 'L-Tyrosine (NALT)', doseInProduct: '175mg', clinicalDose: '300-500mg as NALT', adequatelyDosed: true },
+      { name: 'L-Tyrosine (NALT)', doseInProduct: '175mg', clinicalDose: '300-500mg as NALT', adequatelyDosed: false },
     ],
     servingsPerContainer: 30,
     capsulesPerServing: 4,

@@ -53,7 +53,7 @@ export const ingredients: Ingredient[] = [
     studySummary: "A 2009 double-blind, placebo-controlled trial (Mori et al.) found significant improvements in cognitive function scores in mild cognitive impairment subjects after 16 weeks of 3g/day. A 2020 study found measurable nerve regeneration effects at 500mg standardised extract. Evidence is strongest for long-term neuroprotection rather than acute effects.",
     benefits: ['Long-term memory support', 'Neuroprotection', 'Nerve regeneration (NGF)', 'Mood support via gut-brain axis'],
     sideEffects: ['Generally well tolerated', 'Rare: mild GI discomfort at high doses', 'Possible mushroom allergy in sensitive individuals'],
-    productsContaining: ['mind-lab-pro-review', 'alpha-brain-review', 'hunter-focus-review'],
+    productsContaining: ['mind-lab-pro-review', 'onnit-alpha-brain-review', 'hunter-focus-review'],
     humanEffects: [
       { effect: 'Memory & Learning', evidenceStrength: 'moderate', magnitude: 'moderate', studies: 4, notes: 'Most pronounced after 8+ weeks; effects on mild cognitive impairment stronger than healthy adults.' },
       { effect: 'NGF Synthesis', evidenceStrength: 'moderate', magnitude: 'large', studies: 3, notes: 'Well established in cell and animal studies; human NGF data emerging.' },
@@ -89,7 +89,7 @@ export const ingredients: Ingredient[] = [
     studySummary: 'A meta-analysis of 9 RCTs (Kongkeaw et al., 2014) found Bacopa significantly improved attention, cognitive processing, and working memory versus placebo. Effects are cumulative — most studies measure outcomes at 8–12 weeks. Best evidence is for memory consolidation rather than acute recall.',
     benefits: ['Memory consolidation', 'Reduced cognitive decline', 'Anxiety reduction', 'Antioxidant neuroprotection'],
     sideEffects: ['GI discomfort at high doses (take with food)', 'Slowed information processing initially', 'Not recommended during pregnancy'],
-    productsContaining: ['mind-lab-pro-review', 'noocube-review', 'alpha-brain-review', 'hunter-focus-review', 'braineffect-focus-review', 'brainzyme-focus-pro-review'],
+    productsContaining: ['mind-lab-pro-review', 'noocube-review', 'onnit-alpha-brain-review', 'hunter-focus-review', 'braineffect-focus-review', 'brainzyme-focus-pro-review'],
     humanEffects: [
       { effect: 'Memory Consolidation', evidenceStrength: 'strong', magnitude: 'moderate', studies: 9, notes: 'Meta-analysis of 9 RCTs confirms effects on new memory formation; long-term recall improves more than immediate recall.' },
       { effect: 'Anxiety Reduction', evidenceStrength: 'moderate', magnitude: 'moderate', studies: 5, notes: 'Significant in anxious populations; more modest in healthy low-stress subjects.' },
@@ -160,7 +160,7 @@ export const ingredients: Ingredient[] = [
     studySummary: 'A 2008 RCT (Haskell et al.) found the L-theanine + caffeine combination significantly improved attention and alertness vs. either compound alone. Multiple studies confirm alpha wave induction within 45 minutes. It is one of the best-evidenced acute nootropics for calm focus without sedation.',
     benefits: ['Calm focus without sedation', 'Reduced caffeine jitteriness', 'Stress reduction', 'Improved sleep quality'],
     sideEffects: ['Extremely well tolerated', 'Possible mild sedation at high doses', 'Generally considered very safe'],
-    productsContaining: ['mind-lab-pro-review', 'noocube-review', 'thesis-review', 'brainzyme-focus-pro-review'],
+    productsContaining: ['mind-lab-pro-review', 'noocube-review', 'thesis-nootropics-review', 'brainzyme-focus-pro-review'],
     humanEffects: [
       { effect: 'Calm Focus (Alpha Waves)', evidenceStrength: 'strong', magnitude: 'moderate', studies: 12, notes: 'Robust EEG evidence showing alpha wave increase within 45 minutes. One of the most replicable effects in nootropic research.' },
       { effect: 'Anxiety Reduction', evidenceStrength: 'strong', magnitude: 'moderate', studies: 10, notes: 'Significant in both healthy and anxious populations. Effect is notable at 200mg and above.' },
@@ -174,7 +174,7 @@ export const ingredients: Ingredient[] = [
       forms: 'Capsule or powder. Suntheanine is the most studied branded L-Theanine (from enzymatic synthesis, identical to tea-derived theanine). Bulk L-Theanine powder dissolves in water but is subtly sweet and easy to mix.',
     },
     stacksWith: [
-      { ingredient: 'Caffeine', slug: 'l-theanine', reason: 'The most studied nootropic stack. Use a 2:1 L-Theanine:caffeine ratio (e.g. 200mg theanine + 100mg caffeine). L-Theanine removes the jitteriness and crash while caffeine provides stimulation. This pairing is found in virtually every quality pre-work stack.' },
+      { ingredient: 'Caffeine', slug: 'caffeine', reason: 'The most studied nootropic stack. Use a 2:1 L-Theanine:caffeine ratio (e.g. 200mg theanine + 100mg caffeine). L-Theanine removes the jitteriness and crash while caffeine provides stimulation. This pairing is found in virtually every quality pre-work stack.' },
       { ingredient: 'Bacopa Monnieri', slug: 'bacopa-monnieri', reason: 'Both have anxiolytic properties working via different mechanisms. L-Theanine provides immediate calm; Bacopa builds sustained stress tolerance over weeks. A gentle, non-sedating anxiety-reduction combination.' },
       { ingredient: 'Ashwagandha', slug: 'ashwagandha', reason: 'Both reduce cortisol and anxiety through distinct pathways (alpha waves + GABA for theanine; HPA axis for ashwagandha). Good daytime anxiety stack without sedation.' },
     ],
@@ -267,7 +267,7 @@ export const ingredients: Ingredient[] = [
     studySummary: "Italian multicenter trials (De Jesus Moreno, 2003) in Alzheimer's patients found Alpha-GPC improved memory scores more than placebo over 90 days. Sports studies (Bellar et al., 2015) confirm power output increases in athletes at 600mg. Of all choline sources, Alpha-GPC has the strongest acute cognitive data.",
     benefits: ['Acetylcholine synthesis', 'Memory encoding', 'Athletic power output', 'Neuroprotection'],
     sideEffects: ['Well tolerated', 'Headache if combined with other cholinergics', 'Potential cardiovascular concern at very high doses (>1200mg/day)'],
-    productsContaining: ['noocube-review', 'qualia-mind-review', 'alpha-brain-review', 'thesis-review'],
+    productsContaining: ['noocube-review', 'qualia-mind-review', 'onnit-alpha-brain-review', 'thesis-nootropics-review'],
     humanEffects: [
       { effect: 'Acetylcholine Synthesis', evidenceStrength: 'strong', magnitude: 'large', studies: 9, notes: 'Among the most bioavailable choline sources. Brain choline levels measurably increase within 1 hour of ingestion.' },
       { effect: 'Memory Encoding', evidenceStrength: 'strong', magnitude: 'moderate', studies: 7, notes: 'Strong evidence in Alzheimer\'s trials; effects in healthy adults confirmed at 400–600mg.' },
@@ -302,7 +302,7 @@ export const ingredients: Ingredient[] = [
     studySummary: "A 2019 RCT (Choudhary et al.) found KSM-66 at 300mg twice daily significantly improved memory, attention, and information processing speed versus placebo over 8 weeks. A 2012 RCT showed 27.9% reduction in cortisol. KSM-66 has the most clinical trials of any ashwagandha extract (>24 gold-standard studies).",
     benefits: ['Cortisol reduction', 'Cognitive function under stress', 'Sleep quality', 'Muscle strength and recovery'],
     sideEffects: ['Generally safe', 'GI upset in some users', 'Contraindicated in thyroid conditions', 'Avoid during pregnancy'],
-    productsContaining: ['thesis-review', 'hunter-focus-review'],
+    productsContaining: ['thesis-nootropics-review', 'hunter-focus-review'],
     humanEffects: [
       { effect: 'Cortisol Reduction', evidenceStrength: 'strong', magnitude: 'large', studies: 11, notes: '27.9% cortisol reduction (Chandrasekhar 2012) is one of the largest effect sizes in the adaptogen literature.' },
       { effect: 'Anxiety & Stress', evidenceStrength: 'strong', magnitude: 'large', studies: 10, notes: 'Consistently significant in both clinical anxiety populations and healthy high-stress subjects.' },
@@ -372,7 +372,7 @@ export const ingredients: Ingredient[] = [
     studySummary: 'Military research (Neri et al., 1995; Deijen et al., 1999) shows tyrosine supplementation significantly reduced performance decrements from sleep deprivation and cold stress. A 2015 meta-analysis confirmed benefits specifically during multitasking and high-demand cognitive scenarios. Benefits are most pronounced under stress, not in rested baseline conditions.',
     benefits: ['Cognitive performance under stress', 'Working memory under multitasking', 'Mood under sleep deprivation', 'Focus in demanding conditions'],
     sideEffects: ['Generally safe', 'Avoid with MAO inhibitors', 'Possible hyperthyroid effects at very high doses', 'May interact with thyroid medications'],
-    productsContaining: ['mind-lab-pro-review', 'performance-lab-mind-review', 'alpha-brain-review'],
+    productsContaining: ['mind-lab-pro-review', 'performance-lab-mind-review', 'onnit-alpha-brain-review'],
     humanEffects: [
       { effect: 'Cognitive Performance Under Stress', evidenceStrength: 'strong', magnitude: 'moderate', studies: 9, notes: 'Military studies in sleep-deprived and cold-stressed subjects show consistent, significant cognitive maintenance.' },
       { effect: 'Working Memory Under Multitasking', evidenceStrength: 'moderate', magnitude: 'moderate', studies: 6, notes: 'Benefits in multitasking scenarios are well replicated. Effects in low-demand tasks are minimal.' },
@@ -388,7 +388,7 @@ export const ingredients: Ingredient[] = [
     stacksWith: [
       { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'L-Tyrosine supplies dopamine/norepinephrine substrate for focus and drive; L-Theanine keeps you calm and prevents the cortisol spike from stress or caffeine. Together they produce focused, calm high-performance state under demanding conditions.' },
       { ingredient: 'Rhodiola Rosea', slug: 'rhodiola-rosea', reason: 'Rhodiola modulates monoamine availability and HPA axis; Tyrosine replenishes the substrate for those monoamines. Both work best under stress conditions — they target the same problem (cognitive decline under stress) via complementary mechanisms.' },
-      { ingredient: 'Caffeine', slug: 'l-tyrosine', reason: "Caffeine depletes dopamine precursors over time. Taking L-Tyrosine with caffeine may reduce the 'caffeine crash' by maintaining dopamine substrate levels. A practical stack for anyone using caffeine for performance." },
+      { ingredient: 'Caffeine', slug: 'caffeine', reason: "Caffeine depletes dopamine precursors over time. Taking L-Tyrosine with caffeine may reduce the 'caffeine crash' by maintaining dopamine substrate levels. A practical stack for anyone using caffeine for performance." },
     ],
     faqs: [
       { question: 'Does L-Tyrosine work if I am not stressed or sleep-deprived?', answer: "Probably not meaningfully. This is the key nuance of tyrosine. The evidence shows it prevents cognitive decline under stress — it restores depleted catecholamines. In a rested, non-stressed baseline state, catecholamine levels are already sufficient, so adding precursor does not produce a noticeable effect. Think of it as an insurance policy for demanding days, not a daily cognitive enhancer." },
