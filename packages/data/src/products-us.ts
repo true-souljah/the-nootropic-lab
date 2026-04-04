@@ -1,5 +1,5 @@
 export type EUCompliance = 'compliant' | 'reformulated' | 'verify';
-export type Market = 'us' | 'eu' | 'both';
+export type Market = 'us' | 'eu' | 'ca' | 'au' | 'jp' | 'latam' | 'gcc' | 'sea' | 'both';
 
 export interface IngredientDosage {
   name: string;

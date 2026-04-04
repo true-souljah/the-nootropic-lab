@@ -12,7 +12,14 @@ const navLinks = [
   { href: '/methodology', label: 'Methodology' },
 ];
 
-export default function SiteHeader({ market }: { market: 'us' | 'eu' }) {
+type MarketKey = 'us' | 'eu' | 'ca' | 'au' | 'jp' | 'latam' | 'gcc' | 'sea';
+
+const marketLabel: Record<MarketKey, string> = {
+  us: '', eu: 'EU', ca: 'Canada', au: 'Australia',
+  jp: 'Japan', latam: 'Latam', gcc: 'GCC', sea: 'SEA',
+};
+
+export default function SiteHeader({ market }: { market: MarketKey }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
@@ -43,8 +50,8 @@ export default function SiteHeader({ market }: { market: 'us' | 'eu' }) {
             <span className="font-bold text-gray-900 text-base tracking-tight leading-none">
               The Nootropic<br />
               <span className="text-green-700">Lab</span>
-              {market === 'eu' && (
-                <span className="text-xs font-normal text-gray-400 ml-1">EU</span>
+              {marketLabel[market] && (
+                <span className="text-xs font-normal text-gray-400 ml-1">{marketLabel[market]}</span>
               )}
             </span>
           </Link>

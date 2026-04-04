@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        <SiteHeader market="us" />
+        <SiteHeader market="gcc" />
         <div className="bg-amber-50 border-b border-amber-200 px-4 py-2 text-center text-sm text-amber-800">
           <strong>GCC Import Note:</strong> Verify supplement import status with your local customs
           authority before ordering. All products listed are caffeine-free unless otherwise noted.

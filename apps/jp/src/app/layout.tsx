@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ja">
       <body>
-        <SiteHeader market="us" />
+        <SiteHeader market="jp" />
         <div className="bg-amber-50 border-b border-amber-200 px-4 py-2 text-center text-sm text-amber-800">
           <strong>Japan Import Note:</strong> Personal import limit is ¥16,000 duty-free.
           Orders above ¥16,000 may attract customs duties. Keep orders under 2 months supply.

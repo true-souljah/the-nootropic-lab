@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        <SiteHeader market="us" />
+        <SiteHeader market="au" />
         <main className="min-h-screen">{children}</main>
         <SiteFooter />
         <CookieBanner />
