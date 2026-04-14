@@ -24,6 +24,9 @@ export interface Product {
   };
   priceMonthlyUSD?: number;
   priceMonthlyEUR?: number;
+  priceMonthlyCAD?: number;
+  priceMonthlyAUD?: number;
+  priceMonthlyJPY?: number;
   pricingModel: 'one-time' | 'subscription' | 'both';
   moneyBackDays: number;
   caffeineFree: boolean;
