@@ -20,12 +20,14 @@ export default function ScoreTooltip({ score, breakdown }: Props) {
   return (
     <div className="relative inline-block">
       <button
+        onClick={() => setOpen(o => !o)}
         onMouseEnter={() => setOpen(true)}
         onMouseLeave={() => setOpen(false)}
         onFocus={() => setOpen(true)}
         onBlur={() => setOpen(false)}
         className="font-bold text-green-700 cursor-help border-b border-dashed border-green-700"
-        aria-label={`Score ${score} out of 10 — hover for breakdown`}
+        aria-label={`Score ${score} out of 10 — tap or hover for breakdown`}
+        aria-expanded={open}
       >
         {score}/10
       </button>

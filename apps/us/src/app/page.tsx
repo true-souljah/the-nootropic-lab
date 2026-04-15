@@ -3,17 +3,38 @@ import type { Metadata } from 'next';
 import { SchemaOrg } from '@nootropic/ui';
 
 export const metadata: Metadata = {
-  title: 'NootropicGuide US — Independent Cognitive Supplement Reviews',
+  title: 'The Nootropic Lab — Independent Cognitive Supplement Reviews',
   description:
     'The independent nootropic comparison platform for US buyers. Evidence-graded reviews, clinical dosing audits, and transparent affiliate disclosure.',
+  openGraph: {
+    title: 'The Nootropic Lab — Independent Cognitive Supplement Reviews',
+    description: 'Evidence-graded nootropic reviews. Clinical dosing audits. Transparent affiliate disclosure.',
+    url: 'https://thenootropiclab.com',
+    siteName: 'The Nootropic Lab',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'The Nootropic Lab — Independent Cognitive Supplement Reviews',
+    description: 'Evidence-graded nootropic reviews. Clinical dosing audits. Transparent affiliate disclosure.',
+  },
 };
 
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'NootropicGuide',
+  name: 'The Nootropic Lab',
   url: 'https://thenootropiclab.com',
   description: 'Independent cognitive supplement reviews for US buyers.',
+};
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'The Nootropic Lab',
+  url: 'https://thenootropiclab.com',
+  logo: 'https://thenootropiclab.com/logo.png',
+  description: 'Independent cognitive supplement reviews with clinical dosing audits and transparent affiliate disclosure.',
 };
 
 const features = [
@@ -56,6 +77,7 @@ export default function HomePage() {
   return (
     <>
       <SchemaOrg schema={websiteSchema} />
+      <SchemaOrg schema={orgSchema} />
 
       {/* Hero */}
       <section className="bg-gradient-to-b from-green-50 to-white py-16 px-4">

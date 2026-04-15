@@ -10,6 +10,14 @@ export const metadata: Metadata = {
   description:
     'Independent cognitive supplement reviews for Southeast Asia buyers. Singapore, Malaysia, Thailand, Philippines, Indonesia, Vietnam — evidence-graded with regulatory notes.',
   metadataBase: new URL('https://sea.thenootropiclab.com'),
+  openGraph: {
+    type: 'website',
+    siteName: 'The Nootropic Lab',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

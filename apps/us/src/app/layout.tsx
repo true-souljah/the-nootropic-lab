@@ -4,12 +4,20 @@ import { SiteHeader, SiteFooter, CookieBanner } from '@nootropic/ui';
 
 export const metadata: Metadata = {
   title: {
-    default: 'NootropicGuide US — Independent Cognitive Supplement Reviews',
-    template: '%s | NootropicGuide',
+    default: 'The Nootropic Lab — Independent Cognitive Supplement Reviews',
+    template: '%s | The Nootropic Lab',
   },
   description:
     'Evidence-graded nootropic reviews for US buyers. Independent comparisons, clinical dosing audits, and transparent affiliate disclosure.',
   metadataBase: new URL('https://thenootropiclab.com'),
+  openGraph: {
+    type: 'website',
+    siteName: 'The Nootropic Lab',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
   alternates: {
     languages: {
       'en-US': '/',

@@ -10,6 +10,14 @@ export const metadata: Metadata = {
   description:
     'Reseñas independientes de nootrópicos para compradores en Latinoamérica. Comparaciones basadas en evidencia y divulgación de afiliados completa.',
   metadataBase: new URL('https://latam.thenootropiclab.com'),
+  openGraph: {
+    type: 'website',
+    siteName: 'The Nootropic Lab',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

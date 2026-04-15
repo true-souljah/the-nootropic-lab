@@ -84,6 +84,13 @@ export default async function ProductReviewPage({
           <span>{product.name} Review</span>
         </nav>
 
+        {/* Author + date */}
+        <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 mb-4">
+          <span>Reviewed by <strong className="text-gray-700">The Nootropic Lab Editorial Team</strong></span>
+          <span>·</span>
+          <span>Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+        </div>
+
         <div className="mb-6">
           <div className="flex flex-wrap items-center gap-2 mb-2">
             {product.editorChoice && (
@@ -110,6 +117,20 @@ export default async function ProductReviewPage({
         <p className="text-lg text-gray-600 mb-8 leading-relaxed">{product.summary}</p>
 
         <AffiliateDisclosure />
+
+        {/* Table of Contents */}
+        <nav className="bg-gray-50 rounded-lg p-4 mb-8 text-sm">
+          <div className="font-semibold text-gray-700 mb-2">In this review</div>
+          <ul className="space-y-1 text-gray-600">
+            <li><a href="#what-is-it" className="hover:text-green-700">What is {product.name}?</a></li>
+            <li><a href="#how-it-works" className="hover:text-green-700">How does it work?</a></li>
+            <li><a href="#what-to-expect" className="hover:text-green-700">What to expect</a></li>
+            <li><a href="#dosing-audit" className="hover:text-green-700">Clinical Dosing Audit</a></li>
+            <li><a href="#score-breakdown" className="hover:text-green-700">Score Breakdown</a></li>
+            <li><a href="#pros-cons" className="hover:text-green-700">Pros &amp; Cons</a></li>
+            <li><a href="#alternatives" className="hover:text-green-700">Similar Alternatives</a></li>
+          </ul>
+        </nav>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 my-8">
           <div className="bg-gray-50 rounded-lg p-3">
@@ -143,21 +164,21 @@ export default async function ProductReviewPage({
 
         <section className="mb-8 space-y-6">
           <div>
-            <h2 className="text-xl font-bold text-gray-900 mb-2">What is {product.name}?</h2>
+            <h2 id="what-is-it" className="text-xl font-bold text-gray-900 mb-2">What is {product.name}?</h2>
             <p className="text-gray-700 leading-relaxed">{product.whatItIs}</p>
           </div>
           <div>
-            <h2 className="text-xl font-bold text-gray-900 mb-2">How does it work?</h2>
+            <h2 id="how-it-works" className="text-xl font-bold text-gray-900 mb-2">How does it work?</h2>
             <p className="text-gray-700 leading-relaxed">{product.howItWorks}</p>
           </div>
           <div>
-            <h2 className="text-xl font-bold text-gray-900 mb-2">What to expect</h2>
+            <h2 id="what-to-expect" className="text-xl font-bold text-gray-900 mb-2">What to expect</h2>
             <p className="text-gray-700 leading-relaxed">{product.whatToExpect}</p>
           </div>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Clinical Dosing Audit</h2>
+          <h2 id="dosing-audit" className="text-xl font-bold text-gray-900 mb-4">Clinical Dosing Audit</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
               <thead>
@@ -187,7 +208,7 @@ export default async function ProductReviewPage({
         </section>
 
         <section className="mb-8">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Score Breakdown</h2>
+          <h2 id="score-breakdown" className="text-xl font-bold text-gray-900 mb-4">Score Breakdown</h2>
           <div className="space-y-3">
             {(Object.entries(product.scoreBreakdown) as [string, number][]).map(([key, val]) => (
               <div key={key}>
@@ -204,7 +225,7 @@ export default async function ProductReviewPage({
         </section>
 
         <section className="mb-8">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Pros &amp; Cons</h2>
+          <h2 id="pros-cons" className="text-xl font-bold text-gray-900 mb-4">Pros &amp; Cons</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="bg-green-50 rounded-xl p-4">
               <h3 className="font-semibold text-green-900 mb-3">Pros</h3>
@@ -226,6 +247,46 @@ export default async function ProductReviewPage({
                 ))}
               </ul>
             </div>
+          </div>
+        </section>
+
+        {/* Similar Alternatives */}
+        <section id="alternatives" className="mb-8">
+          <h2 className="text-xl font-bold text-gray-900 mb-4">Similar Alternatives</h2>
+          <div className="grid sm:grid-cols-3 gap-3">
+            {productsLatam
+              .filter(p => p.slug !== product.slug)
+              .sort((a, b) => b.score - a.score)
+              .slice(0, 3)
+              .map(alt => (
+                <a
+                  key={alt.slug}
+                  href={`/${alt.slug}`}
+                  className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 hover:shadow-sm transition-all"
+                >
+                  <div className="font-semibold text-gray-900 text-sm mb-1">{alt.name}</div>
+                  <div className="text-xs text-gray-500 mb-2">{alt.brand}</div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-green-700 font-bold text-sm">{alt.score}/10</span>
+                    {alt.priceMonthlyUSD && (
+                      <span className="text-xs text-gray-500">${alt.priceMonthlyUSD}/mo</span>
+                    )}
+                  </div>
+                </a>
+              ))}
+          </div>
+        </section>
+
+        {/* Explore Ingredients */}
+        <section className="mb-8">
+          <div className="bg-green-50 border border-green-200 rounded-lg p-4 flex flex-col sm:flex-row items-start sm:items-center gap-3">
+            <div className="flex-1">
+              <div className="font-semibold text-green-900 text-sm">Want to understand the ingredients?</div>
+              <div className="text-xs text-green-800">Explore our evidence-graded ingredient database with clinical dosing guides.</div>
+            </div>
+            <a href="/ingredients" className="text-sm font-semibold text-green-700 hover:text-green-600 shrink-0">
+              Browse Ingredients →
+            </a>
           </div>
         </section>
 

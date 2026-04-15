@@ -10,6 +10,14 @@ export const metadata: Metadata = {
   description:
     'Evidence-graded nootropic reviews for Australian buyers. TGA import notes, independent comparisons, and clinical dosing audits.',
   metadataBase: new URL('https://au.thenootropiclab.com'),
+  openGraph: {
+    type: 'website',
+    siteName: 'The Nootropic Lab',
+    locale: 'en_AU',
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

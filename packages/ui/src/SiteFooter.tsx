@@ -5,10 +5,10 @@ export default function SiteFooter() {
     <footer className="border-t border-gray-200 bg-gray-50 mt-16 py-10 text-sm text-gray-500">
       <div className="max-w-5xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6">
         <div>
-          <div className="font-bold text-gray-700 mb-2">NootropicGuide</div>
+          <div className="font-bold text-gray-700 mb-2">The Nootropic Lab</div>
           <p className="text-xs leading-relaxed">
-            Independent cognitive supplement reviews for US and EU buyers. Evidence-graded.
-            Affiliate-disclosed.
+            Independent cognitive supplement reviews. Evidence-graded.
+            Affiliate-disclosed. 8 markets worldwide.
           </p>
         </div>
         <div>
@@ -16,12 +16,7 @@ export default function SiteFooter() {
           <ul className="space-y-1 text-xs">
             <li>
               <Link href="/best-nootropics" className="hover:text-green-700">
-                Best Nootropics US
-              </Link>
-            </li>
-            <li>
-              <Link href="/best-nootropics-europe" className="hover:text-green-700">
-                Best Nootropics EU
+                Best Nootropics
               </Link>
             </li>
             <li>
@@ -29,24 +24,34 @@ export default function SiteFooter() {
                 Compare All
               </Link>
             </li>
+            <li>
+              <Link href="/ingredients" className="hover:text-green-700">
+                Ingredients
+              </Link>
+            </li>
+            <li>
+              <Link href="/guides" className="hover:text-green-700">
+                Guides
+              </Link>
+            </li>
           </ul>
         </div>
         <div>
-          <div className="font-semibold text-gray-700 mb-2">Languages</div>
+          <div className="font-semibold text-gray-700 mb-2">Learn</div>
           <ul className="space-y-1 text-xs">
             <li>
-              <Link href="/" className="hover:text-green-700">
-                🇺🇸 English (US)
+              <Link href="/guides/what-are-nootropics" className="hover:text-green-700">
+                What Are Nootropics?
               </Link>
             </li>
             <li>
-              <Link href="/de/beste-nootropika" className="hover:text-green-700">
-                🇩🇪 Deutsch
+              <Link href="/guides/how-to-stack-nootropics" className="hover:text-green-700">
+                How to Stack
               </Link>
             </li>
             <li>
-              <Link href="/fr/meilleurs-nootropiques" className="hover:text-green-700">
-                🇫🇷 Français
+              <Link href="/methodology" className="hover:text-green-700">
+                Methodology
               </Link>
             </li>
           </ul>
@@ -72,12 +77,22 @@ export default function SiteFooter() {
           </ul>
         </div>
       </div>
-      <div className="max-w-5xl mx-auto px-4 mt-8 pt-6 border-t border-gray-200 text-xs text-gray-400">
-        © {new Date().getFullYear()} NootropicGuide. All rights reserved. This site contains
-        affiliate links. We earn a commission if you purchase through our links. Our editorial
-        reviews are independent. This content is for informational purposes only and does not
-        constitute medical advice. Always consult a qualified healthcare professional before taking
-        any supplement.
+
+      {/* Health disclaimer */}
+      <div className="max-w-5xl mx-auto px-4 mt-8 pt-6 border-t border-gray-200">
+        <p className="text-xs text-gray-400 leading-relaxed mb-3">
+          <strong className="text-gray-500">Health Disclaimer:</strong> The information on this
+          website is for educational purposes only and is not intended as medical advice. Nootropic
+          supplements are not approved by the FDA to diagnose, treat, cure, or prevent any disease.
+          Always consult a qualified healthcare professional before starting any supplement regimen,
+          especially if you are pregnant, nursing, taking medication, or have a medical condition.
+          Individual results may vary.
+        </p>
+        <p className="text-xs text-gray-400">
+          © {new Date().getFullYear()} The Nootropic Lab. All rights reserved. This site contains
+          affiliate links. We earn a commission if you purchase through our links. Our editorial
+          reviews are independent and not influenced by affiliate relationships.
+        </p>
       </div>
     </footer>
   );

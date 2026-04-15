@@ -16,6 +16,15 @@ const websiteSchema = {
   description: 'Independent cognitive supplement reviews for Canadian buyers.',
 };
 
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'The Nootropic Lab',
+  url: 'https://ca.thenootropiclab.com',
+  logo: 'https://ca.thenootropiclab.com/logo.png',
+  description: 'Independent cognitive supplement reviews with clinical dosing audits and transparent affiliate disclosure.',
+};
+
 const features = [
   {
     icon: '🔬',
@@ -56,6 +65,7 @@ export default function HomePage() {
   return (
     <>
       <SchemaOrg schema={websiteSchema} />
+      <SchemaOrg schema={orgSchema} />
 
       <section className="bg-gradient-to-b from-green-50 to-white py-16 px-4">
         <div className="max-w-3xl mx-auto text-center">

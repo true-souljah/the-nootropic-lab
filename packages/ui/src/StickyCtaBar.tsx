@@ -8,18 +8,41 @@ interface Props {
 
 export default function StickyCtaBar({ productName, affiliateUrl }: Props) {
   const [visible, setVisible] = useState(false);
+  const [cookieDismissed, setCookieDismissed] = useState(false);
 
   useEffect(() => {
+    const consent = localStorage.getItem('cookie-consent');
+    if (consent) setCookieDismissed(true);
+
+    function onStorage() {
+      if (localStorage.getItem('cookie-consent')) setCookieDismissed(true);
+    }
+    window.addEventListener('storage', onStorage);
+
     function onScroll() {
       const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
       setVisible(pct > 0.3);
     }
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+
+    const interval = setInterval(() => {
+      if (localStorage.getItem('cookie-consent')) {
+        setCookieDismissed(true);
+        clearInterval(interval);
+      }
+    }, 500);
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('storage', onStorage);
+      clearInterval(interval);
+    };
   }, []);
 
+  const show = visible && cookieDismissed;
+
   return (
-    <div className={`sticky-cta-bar ${visible ? 'visible' : ''}`}>
+    <div className={`sticky-cta-bar ${show ? 'visible' : ''}`}>
       <span className="text-sm font-medium">Our #1 Pick: {productName}</span>
       <a
         href={affiliateUrl}

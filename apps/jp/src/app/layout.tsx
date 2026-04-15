@@ -10,6 +10,14 @@ export const metadata: Metadata = {
   description:
     'Independent cognitive supplement reviews for Japan buyers. MHLW import compliance notes, evidence-graded reviews, and full affiliate disclosure.',
   metadataBase: new URL('https://jp.thenootropiclab.com'),
+  openGraph: {
+    type: 'website',
+    siteName: 'The Nootropic Lab',
+    locale: 'ja_JP',
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

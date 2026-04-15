@@ -10,6 +10,14 @@ export const metadata: Metadata = {
   description:
     'Independent cognitive supplement reviews for GCC buyers (Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, Oman). Evidence-graded with import compliance notes.',
   metadataBase: new URL('https://gcc.thenootropiclab.com'),
+  openGraph: {
+    type: 'website',
+    siteName: 'The Nootropic Lab',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
