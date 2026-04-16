@@ -86,7 +86,7 @@ export const productsEU: Product[] = [
   {
     id: 'performance-lab-mind',
     name: 'Performance Lab Mind',
-    brand: 'Opti-Nutra',
+    brand: 'Performance Lab',
     slug: 'performance-lab-mind-review',
     bestFor: ['Professionals', 'Minimalist stacks', 'Stacking with MLP'],
     score: 8.6,
