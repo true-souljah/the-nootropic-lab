@@ -32,7 +32,7 @@ export default function ScoreTooltip({ score, breakdown }: Props) {
         {score}/10
       </button>
       {open && (
-        <div className="absolute z-20 bottom-full left-0 mb-2 bg-white border border-gray-200 shadow-lg rounded p-3 w-52 text-xs">
+        <div role="tooltip" className="absolute z-20 bottom-full left-0 mb-2 bg-white border border-gray-200 shadow-lg rounded p-3 w-52 text-xs">
           <div className="font-bold text-gray-700 mb-2">Score breakdown</div>
           {(Object.entries(breakdown) as [string, number][]).map(([key, val]) => (
             <div key={key} className="flex items-center gap-2 mb-1">

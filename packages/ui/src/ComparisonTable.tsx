@@ -25,7 +25,7 @@ function SortBtn({ col, sortKey, sortDir, onSort }: SortBtnProps) {
     <button
       onClick={() => onSort(col)}
       className={`ml-1 text-xs ${active ? 'text-green-700 font-bold' : 'text-gray-400'}`}
-      aria-label={`Sort by ${col}`}
+      aria-label={active ? `Sort by ${col}, currently ${sortDir === 'desc' ? 'descending' : 'ascending'}` : `Sort by ${col}`}
     >
       {active ? (sortDir === 'desc' ? '▼' : '▲') : '⇅'}
     </button>

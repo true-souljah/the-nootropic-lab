@@ -33,7 +33,7 @@ const searchItems: SearchItem[] = [
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body>
         <SiteHeader market="latam" searchItems={searchItems} />
         <main className="min-h-screen">{children}</main>

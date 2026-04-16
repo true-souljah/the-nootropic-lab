@@ -48,7 +48,7 @@ export const productsJP: Product[] = [
     slug: 'noocube-review',
     bestFor: ['Focus', 'Mental clarity', 'Study sessions'],
     score: 7.8,
-    scoreBreakdown: { ingredients: 7, dosing: 7, transparency: 7, value: 8, trust: 7 },
+    scoreBreakdown: { ingredients: 8, dosing: 7, transparency: 7, value: 9, trust: 7 },
     priceMonthlyUSD: 59,
     priceMonthlyJPY: 8850,
     pricingModel: 'both',

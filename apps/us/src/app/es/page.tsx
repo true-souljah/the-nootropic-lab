@@ -27,7 +27,7 @@ export default function EsHomePage() {
     <div lang="es">
       <SchemaOrg schema={websiteSchema} />
 
-      {/* Hero — PLACEHOLDER: replace with Spanish copy */}
+      {/* Hero */}
       <section className="bg-gradient-to-b from-green-50 to-white py-16 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full mb-4">

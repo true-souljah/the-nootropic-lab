@@ -108,6 +108,22 @@ export default function SearchModal({ items }: Props) {
           <div
             className="relative w-full max-w-lg bg-white rounded-xl shadow-2xl overflow-hidden"
             onClick={e => e.stopPropagation()}
+            onKeyDown={e => {
+              if (e.key === 'Tab') {
+                const focusable = e.currentTarget.querySelectorAll<HTMLElement>(
+                  'input, button, a[href]'
+                );
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+                if (e.shiftKey && document.activeElement === first) {
+                  e.preventDefault();
+                  last?.focus();
+                } else if (!e.shiftKey && document.activeElement === last) {
+                  e.preventDefault();
+                  first?.focus();
+                }
+              }
+            }}
           >
             {/* Search input */}
             <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-200">
