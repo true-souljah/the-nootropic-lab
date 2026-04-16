@@ -90,6 +90,7 @@ export default function ComparisonTable({ products, market }: Props) {
           <button
             key={f.key}
             onClick={() => toggleFilter(f.key)}
+            aria-pressed={activeFilters.has(f.key)}
             className={`px-3 py-1 rounded-full text-sm border transition-colors ${
               activeFilters.has(f.key)
                 ? 'bg-green-700 text-white border-green-700'

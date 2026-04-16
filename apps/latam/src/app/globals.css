@@ -65,8 +65,19 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 50;
+  z-index: 40;
   transform: translateY(100%);
   transition: transform 0.3s ease;
 }
 .sticky-cta-bar.visible { transform: translateY(0); }
+
+/* Focus indicators for accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+details > summary:focus-visible {
+  outline: 2px solid #059669;
+  outline-offset: 2px;
+  border-radius: 4px;
+}

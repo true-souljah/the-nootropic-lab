@@ -548,7 +548,7 @@ export const ingredients: Ingredient[] = [
     studySummary: 'A 2003 meta-analysis (Montgomery et al.) of 21 RCTs found ALCAR produced significant improvement in cognitive function and reduced cognitive deterioration in mild cognitive impairment and early Alzheimer\'s. Dose range across studies was 1500-3000mg/day. In healthy young adults, evidence is thinner — a few small trials show modest improvements in mental energy and processing speed. ALCAR is better supported as a neuroprotective agent for aging brains than as an acute cognitive enhancer.',
     benefits: ['Mitochondrial energy support', 'Acetylcholine precursor', 'Neuroprotection in aging', 'May support mood'],
     sideEffects: ['Fishy body odour at high doses (TMAO pathway)', 'GI discomfort', 'Insomnia if taken late', 'Rare: increased agitation in some individuals'],
-    productsContaining: [],
+    productsContaining: ['qualia-mind-review'],
     humanEffects: [
       { effect: 'Cognitive Function (MCI/Aging)', evidenceStrength: 'strong', magnitude: 'moderate', studies: 21, notes: 'Meta-analysis of 21 RCTs confirms benefit for mild cognitive impairment. Effect strongest in early-stage decline.' },
       { effect: 'Mental Energy & Fatigue', evidenceStrength: 'moderate', magnitude: 'moderate', studies: 6, notes: 'Consistent reduction in mental fatigue in aging populations. Less clear in healthy young adults.' },

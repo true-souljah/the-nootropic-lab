@@ -135,7 +135,9 @@ export default async function ProductReviewPage({
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 my-8">
           <div className="bg-gray-50 rounded-lg p-3">
             <div className="text-xs text-gray-500 mb-0.5">Price / month</div>
-            <div className="font-bold text-gray-900">${product.priceMonthlyUSD} USD</div>
+            <div className="font-bold text-gray-900">
+              {product.priceMonthlyCAD ? `CA$${product.priceMonthlyCAD}` : `$${product.priceMonthlyUSD} USD`}
+            </div>
           </div>
           <div className="bg-gray-50 rounded-lg p-3">
             <div className="text-xs text-gray-500 mb-0.5">Money-back</div>
