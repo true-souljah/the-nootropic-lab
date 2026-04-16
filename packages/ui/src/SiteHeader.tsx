@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+import SearchModal from './SearchModal';
+import type { SearchItem } from './SearchModal';
 
 const navLinks = [
   { href: '/best-nootropics', label: 'Best Nootropics' },
@@ -19,7 +21,7 @@ const marketLabel: Record<MarketKey, string> = {
   jp: 'Japan', latam: 'Latam', gcc: 'GCC', sea: 'SEA',
 };
 
-export default function SiteHeader({ market }: { market: MarketKey }) {
+export default function SiteHeader({ market, searchItems = [] }: { market: MarketKey; searchItems?: SearchItem[] }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
@@ -75,6 +77,9 @@ export default function SiteHeader({ market }: { market: MarketKey }) {
               );
             })}
           </nav>
+
+          {/* Search */}
+          {searchItems.length > 0 && <SearchModal items={searchItems} />}
 
           {/* Desktop CTA */}
           <Link

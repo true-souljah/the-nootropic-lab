@@ -17,9 +17,21 @@ export async function generateMetadata({
   const { slug } = await params;
   const product = productsUS.find(p => p.slug === slug);
   if (!product) return {};
+  const title = `${product.name} Review 2026 — Independent Score & Ingredient Audit`;
+  const description = `Independent review of ${product.name}. Score: ${product.score}/10. Clinical dosing audit, pros and cons, and full affiliate disclosure.`;
   return {
-    title: `${product.name} Review 2026 — Independent Score & Ingredient Audit`,
-    description: `Independent review of ${product.name}. Score: ${product.score}/10. Clinical dosing audit, pros and cons, and full affiliate disclosure.`,
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary',
+      title,
+      description,
+    },
   };
 }
 

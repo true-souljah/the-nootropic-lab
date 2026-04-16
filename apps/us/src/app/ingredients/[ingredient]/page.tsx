@@ -83,11 +83,26 @@ export default async function IngredientPage({
     })),
   };
 
+  const howToSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: `How to Take ${ing.name}`,
+    description: `Dosing, timing, and form guidance for ${ing.name} based on clinical evidence.`,
+    step: [
+      { '@type': 'HowToStep', name: 'Dosage', text: ing.howToTake.dosage },
+      { '@type': 'HowToStep', name: 'Timing', text: ing.howToTake.timing },
+      { '@type': 'HowToStep', name: 'With Food', text: ing.howToTake.withFood },
+      { '@type': 'HowToStep', name: 'Best Form', text: ing.howToTake.forms },
+      ...(ing.howToTake.cycling ? [{ '@type': 'HowToStep', name: 'Cycling', text: ing.howToTake.cycling }] : []),
+    ],
+  };
+
   return (
     <>
       <SchemaOrg schema={articleSchema} />
       <SchemaOrg schema={breadcrumbSchema} />
       <SchemaOrg schema={faqSchema} />
+      <SchemaOrg schema={howToSchema} />
 
       <article className="max-w-3xl mx-auto px-4 py-10">
         {/* Breadcrumb */}

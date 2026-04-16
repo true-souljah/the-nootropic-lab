@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { SiteHeader, SiteFooter, CookieBanner } from '@nootropic/ui';
+import type { SearchItem } from '@nootropic/ui';
+import { productsGCC, ingredients, guides } from '@nootropic/data';
 
 export const metadata: Metadata = {
   title: {
@@ -20,11 +22,20 @@ export const metadata: Metadata = {
   },
 };
 
+const searchItems: SearchItem[] = [
+  ...productsGCC.map(p => ({ title: p.name, href: `/${p.slug}`, type: 'product' as const, description: p.summary.slice(0, 100) })),
+  ...ingredients.map(i => ({ title: i.name, href: `/ingredients/${i.slug}`, type: 'ingredient' as const, description: `${i.category} — ${i.clinicalDose}` })),
+  ...guides.map(g => ({ title: g.title, href: `/guides/${g.slug}`, type: 'guide' as const, description: g.description })),
+  { title: 'Best Nootropics', href: '/best-nootropics', type: 'page', description: 'Full comparison' },
+  { title: 'Compare All', href: '/nootropic-comparison', type: 'page', description: 'Interactive comparison tool' },
+  { title: 'Methodology', href: '/methodology', type: 'page', description: 'How we score supplements' },
+];
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <SiteHeader market="gcc" />
+        <SiteHeader market="gcc" searchItems={searchItems} />
         <div className="bg-amber-50 border-b border-amber-200 px-4 py-2 text-center text-sm text-amber-800">
           <strong>GCC Import Note:</strong> Verify supplement import status with your local customs
           authority before ordering. All products listed are caffeine-free unless otherwise noted.
