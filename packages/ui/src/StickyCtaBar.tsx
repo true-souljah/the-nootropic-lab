@@ -42,7 +42,7 @@ export default function StickyCtaBar({ productName, affiliateUrl }: Props) {
   const show = visible && cookieDismissed;
 
   return (
-    <div className={`sticky-cta-bar ${show ? 'visible' : ''}`}>
+    <div className={`sticky-cta-bar ${show ? 'visible' : ''}`} role="complementary" aria-live="polite" aria-label="Top pick recommendation">
       <span className="text-sm font-medium">Our #1 Pick: {productName}</span>
       <a
         href={affiliateUrl}

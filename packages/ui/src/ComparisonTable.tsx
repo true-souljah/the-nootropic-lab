@@ -120,26 +120,26 @@ export default function ComparisonTable({ products, market }: Props) {
         <table className="w-full text-sm">
           <thead className="bg-gray-50 sticky top-16 z-10">
             <tr>
-              <th className="text-left p-3 w-8 font-semibold text-gray-600">#</th>
-              <th className="text-left p-3 font-semibold text-gray-600">Product</th>
-              <th className="text-left p-3 font-semibold text-gray-600">Best For</th>
-              <th className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">
+              <th scope="col" className="text-left p-3 w-8 font-semibold text-gray-600">#</th>
+              <th scope="col" className="text-left p-3 font-semibold text-gray-600">Product</th>
+              <th scope="col" className="text-left p-3 font-semibold text-gray-600">Best For</th>
+              <th scope="col" className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">
                 Score <SortBtn col="score" sortKey={sortKey} sortDir={sortDir} onSort={handleSort} />
               </th>
-              <th className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">
+              <th scope="col" className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">
                 Price/mo <SortBtn col={priceField as SortKey} sortKey={sortKey} sortDir={sortDir} onSort={handleSort} />
               </th>
-              <th className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">Caffeine-Free</th>
+              <th scope="col" className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">Caffeine-Free</th>
               {market === 'eu' && (
-                <th className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">EU Status</th>
+                <th scope="col" className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">EU Status</th>
               )}
-              <th className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">
+              <th scope="col" className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">
                 Money-Back <SortBtn col="moneyBackDays" sortKey={sortKey} sortDir={sortDir} onSort={handleSort} />
               </th>
-              <th className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">
+              <th scope="col" className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">
                 Trustpilot <SortBtn col="trustpilotScore" sortKey={sortKey} sortDir={sortDir} onSort={handleSort} />
               </th>
-              <th className="p-3" />
+              <th scope="col" className="p-3"><span className="sr-only">Actions</span></th>
             </tr>
           </thead>
           <tbody>

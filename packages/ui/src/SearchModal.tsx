@@ -17,6 +17,7 @@ export default function SearchModal({ items }: Props) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
 
   const filtered = query.length < 2
     ? []
@@ -37,6 +38,7 @@ export default function SearchModal({ items }: Props) {
   const handleClose = useCallback(() => {
     setOpen(false);
     setQuery('');
+    setTimeout(() => triggerRef.current?.focus(), 0);
   }, []);
 
   useEffect(() => {
@@ -68,6 +70,7 @@ export default function SearchModal({ items }: Props) {
     <>
       {/* Search trigger button */}
       <button
+        ref={triggerRef}
         onClick={handleOpen}
         className="hidden md:flex items-center gap-2 text-sm text-gray-400 hover:text-gray-600 bg-gray-100 hover:bg-gray-200 px-3 py-1.5 rounded-lg transition-colors"
         aria-label="Search site (Ctrl+K)"

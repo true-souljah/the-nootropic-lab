@@ -400,7 +400,7 @@ export const ingredients: Ingredient[] = [
   {
     slug: 'caffeine',
     name: 'Caffeine',
-    category: 'amino',
+    category: 'herb',
     mechanism: 'Caffeine is an adenosine receptor antagonist. By blocking adenosine (the neurotransmitter responsible for drowsiness), caffeine increases dopamine, norepinephrine, and acetylcholine signalling — producing wakefulness, elevated mood, and enhanced focus. It also increases cyclic AMP levels, which amplify downstream catecholamine effects.',
     clinicalDose: '100–200mg for cognitive enhancement',
     timeToEffect: '15–45 minutes (acute)',
@@ -471,7 +471,7 @@ export const ingredients: Ingredient[] = [
   {
     slug: 'dha-omega-3',
     name: 'DHA (Omega-3)',
-    category: 'vitamin',
+    category: 'herb',
     mechanism: 'Docosahexaenoic acid (DHA) is the primary structural omega-3 fatty acid in the brain, constituting ~40% of polyunsaturated fatty acids in neuronal membranes. DHA maintains membrane fluidity, enabling proper receptor function, ion channel activity, and synaptic vesicle dynamics. It also resolves neuroinflammation via specialised pro-resolving mediators (SPMs) and supports BDNF (brain-derived neurotrophic factor) expression for neuroplasticity.',
     clinicalDose: '500–1000mg DHA/day (often combined with EPA)',
     timeToEffect: '8–12 weeks for cognitive effects',

@@ -220,9 +220,9 @@ export const productsEU: Product[] = [
     trustpilotScore: 4.0,
     trustpilotCount: 1050,
     affiliateUrl: 'https://www.hunterfocus.com/',
-    affiliateNetwork: 'Direct',
-    commissionRate: 'Contact brand',
-    cookieDays: 30,
+    affiliateNetwork: 'Hunter Direct',
+    commissionRate: '0%',
+    cookieDays: 0,
     heroIngredients: ["Lion's Mane", 'Bacopa Monnieri', 'Ashwagandha', 'Phosphatidylserine', 'Acetyl-L-Carnitine'],
     ingredientDosages: [
       { name: "Lion's Mane (fruiting body)", doseInProduct: '500mg', clinicalDose: '500mg', adequatelyDosed: true },
