@@ -58,7 +58,7 @@ export const productsJP: Product[] = [
     euCompliance: 'verify',
     trustpilotScore: 1.9,
     trustpilotCount: 850,
-    affiliateUrl: 'https://noocube.com/',
+    affiliateUrl: 'https://www.noocube.com/',
     affiliateNetwork: 'FanFuel',
     commissionRate: '31.5%',
     cookieDays: 30,

@@ -60,11 +60,6 @@ export default function SiteFooter() {
           <div className="font-semibold text-gray-700 mb-2">Legal</div>
           <ul className="space-y-1 text-xs">
             <li>
-              <Link href="/methodology" className="hover:text-green-700">
-                Methodology
-              </Link>
-            </li>
-            <li>
               <Link href="/privacy-policy" className="hover:text-green-700">
                 Privacy Policy
               </Link>

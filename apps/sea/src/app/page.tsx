@@ -21,7 +21,6 @@ const orgSchema = {
   '@type': 'Organization',
   name: 'The Nootropic Lab',
   url: 'https://sea.thenootropiclab.com',
-  logo: 'https://sea.thenootropiclab.com/logo.png',
   description: 'Independent cognitive supplement reviews with clinical dosing audits and transparent affiliate disclosure.',
 };
 

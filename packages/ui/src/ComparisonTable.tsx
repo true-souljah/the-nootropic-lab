@@ -190,20 +190,26 @@ export default function ComparisonTable({ products, market }: Props) {
                 )}
                 <td className="p-3">{p.moneyBackDays} days</td>
                 <td className="p-3">
-                  <span
-                    className={
-                      p.trustpilotScore >= 4
-                        ? 'text-green-700 font-semibold'
-                        : p.trustpilotScore >= 3
-                        ? 'text-amber-600 font-semibold'
-                        : 'text-red-600 font-semibold'
-                    }
-                  >
-                    {p.trustpilotScore}/5
-                  </span>
-                  <span className="text-xs text-gray-400 ml-1">
-                    ({p.trustpilotCount.toLocaleString()})
-                  </span>
+                  {p.trustpilotScore > 0 ? (
+                    <>
+                      <span
+                        className={
+                          p.trustpilotScore >= 4
+                            ? 'text-green-700 font-semibold'
+                            : p.trustpilotScore >= 3
+                            ? 'text-amber-600 font-semibold'
+                            : 'text-red-600 font-semibold'
+                        }
+                      >
+                        {p.trustpilotScore}/5
+                      </span>
+                      <span className="text-xs text-gray-400 ml-1">
+                        ({p.trustpilotCount.toLocaleString()})
+                      </span>
+                    </>
+                  ) : (
+                    <span className="text-gray-400 text-sm">N/A</span>
+                  )}
                 </td>
                 <td className="p-3">
                   <a
@@ -266,17 +272,21 @@ export default function ComparisonTable({ products, market }: Props) {
                 </div>
                 <div>
                   <span className="text-gray-500">Trustpilot: </span>
-                  <strong
-                    className={
-                      p.trustpilotScore >= 4
-                        ? 'text-green-700'
-                        : p.trustpilotScore >= 3
-                        ? 'text-amber-600'
-                        : 'text-red-600'
-                    }
-                  >
-                    {p.trustpilotScore}/5
-                  </strong>
+                  {p.trustpilotScore > 0 ? (
+                    <strong
+                      className={
+                        p.trustpilotScore >= 4
+                          ? 'text-green-700'
+                          : p.trustpilotScore >= 3
+                          ? 'text-amber-600'
+                          : 'text-red-600'
+                      }
+                    >
+                      {p.trustpilotScore}/5
+                    </strong>
+                  ) : (
+                    <span className="text-gray-400">N/A</span>
+                  )}
                 </div>
               </div>
               {market === 'eu' && (
