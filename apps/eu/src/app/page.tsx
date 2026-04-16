@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { SchemaOrg } from '@nootropic/ui';
 
 export const metadata: Metadata = {
-  title: 'NootropicGuide EU — Independent Cognitive Supplement Reviews for Europe',
+  title: 'The Nootropic Lab EU — Independent Cognitive Supplement Reviews for Europe',
   description:
     'The independent nootropic comparison platform for EU buyers. EUR pricing, EU-compliant products, and full regulatory guidance.',
 };
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'NootropicGuide EU',
+  name: 'The Nootropic Lab EU',
   url: 'https://eu.thenootropiclab.com',
   description: 'Independent cognitive supplement reviews for EU buyers.',
 };

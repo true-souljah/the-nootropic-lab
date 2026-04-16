@@ -48,7 +48,7 @@ export default async function ProductReviewEUPage({
     review: {
       '@type': 'Review',
       reviewRating: { '@type': 'Rating', ratingValue: String(product.score), bestRating: '10' },
-      author: { '@type': 'Organization', name: 'NootropicGuide Editorial Team' },
+      author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team' },
       reviewBody: product.summary,
     },
     aggregateRating: {

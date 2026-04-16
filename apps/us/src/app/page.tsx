@@ -114,7 +114,7 @@ export default function HomePage() {
       {/* Feature grid */}
       <section className="max-w-5xl mx-auto px-4 py-16">
         <h2 className="text-2xl font-bold text-center text-gray-900 mb-10">
-          Why NootropicGuide is different
+          Why The Nootropic Lab is different
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           {features.map(f => (

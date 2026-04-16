@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { SchemaOrg } from '@nootropic/ui';
 
 export const metadata: Metadata = {
-  title: 'NootropicGuide — Suplementos Cognitivos Independientes',
+  title: 'The Nootropic Lab — Suplementos Cognitivos Independientes',
   description:
     'Comparativa independiente de suplementos nootrópicos para compradores en EE. UU. Análisis de dosificación clínica y divulgación transparente de afiliados.',
   alternates: {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'NootropicGuide',
+  name: 'The Nootropic Lab',
   url: 'https://thenootropiclab.com/es',
   description: 'Independent cognitive supplement reviews for US buyers — Spanish.',
 };

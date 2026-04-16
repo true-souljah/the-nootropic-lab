@@ -60,7 +60,7 @@ export default async function IngredientPage({
     '@type': 'Article',
     headline: `${ing.name} — Nootropic Ingredient Guide`,
     description: ing.studySummary,
-    author: { '@type': 'Organization', name: 'NootropicGuide Editorial Team' },
+    author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team' },
   };
 
   const breadcrumbSchema = {
@@ -300,6 +300,26 @@ export default async function IngredientPage({
             </div>
           </section>
         )}
+
+        {/* Related Ingredients */}
+        <section className="mb-8">
+          <h2 className="text-xl font-bold text-gray-900 mb-4">Related Ingredients</h2>
+          <div className="grid sm:grid-cols-3 gap-3">
+            {ingredients
+              .filter(other => other.slug !== ing.slug)
+              .slice(0, 6)
+              .map(other => (
+                <a
+                  key={other.slug}
+                  href={`/ingredients/${other.slug}`}
+                  className="block border border-gray-200 rounded-lg p-3 hover:border-green-700 hover:shadow-sm transition-all"
+                >
+                  <div className="font-semibold text-gray-900 text-sm">{other.name}</div>
+                  <div className="text-xs text-gray-500 capitalize">{other.category}</div>
+                </a>
+              ))}
+          </div>
+        </section>
 
         <div className="text-sm text-gray-500 mt-8">
           <a href="/ingredients" className="text-green-700 underline">

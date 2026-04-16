@@ -18,7 +18,7 @@ export async function generateMetadata({
   const g = guides.find(x => x.slug === guide);
   if (!g) return {};
   return {
-    title: `${g.title} — NootropicGuide`,
+    title: `${g.title} — The Nootropic Lab`,
     description: g.description,
   };
 }
@@ -37,7 +37,7 @@ export default async function GuidePage({
     '@type': 'Article',
     headline: g.title,
     description: g.description,
-    author: { '@type': 'Organization', name: 'NootropicGuide Editorial Team' },
+    author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team' },
     timeRequired: `PT${g.readingTimeMin}M`,
   };
 

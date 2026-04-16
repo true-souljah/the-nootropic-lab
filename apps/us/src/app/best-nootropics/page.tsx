@@ -32,8 +32,8 @@ export default function BestNootropicsUSPage() {
     headline: 'Best Nootropics 2026: Expert-Tested & Ranked',
     datePublished: '2026-01-15',
     dateModified: new Date().toISOString().split('T')[0],
-    author: { '@type': 'Organization', name: 'NootropicGuide Editorial Team' },
-    publisher: { '@type': 'Organization', name: 'NootropicGuide' },
+    author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team' },
+    publisher: { '@type': 'Organization', name: 'The Nootropic Lab' },
   };
 
   const faqSchema = {
@@ -136,6 +136,29 @@ export default function BestNootropicsUSPage() {
                 <p className="text-sm text-gray-600 leading-relaxed">{item.a}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Recommended Reading */}
+        <section className="mt-12 bg-green-50 border border-green-200 rounded-xl p-6">
+          <h2 className="text-xl font-bold text-green-900 mb-4">Recommended Reading</h2>
+          <div className="grid sm:grid-cols-2 gap-3">
+            <a href="/guides/what-are-nootropics" className="block bg-white rounded-lg p-4 border border-green-100 hover:border-green-300 transition-colors">
+              <div className="font-semibold text-gray-900 text-sm mb-1">What Are Nootropics?</div>
+              <div className="text-xs text-gray-500">A beginner&apos;s guide to cognitive supplements</div>
+            </a>
+            <a href="/guides/how-to-stack-nootropics" className="block bg-white rounded-lg p-4 border border-green-100 hover:border-green-300 transition-colors">
+              <div className="font-semibold text-gray-900 text-sm mb-1">How to Stack Nootropics</div>
+              <div className="text-xs text-gray-500">Combine ingredients safely for better results</div>
+            </a>
+            <a href="/ingredients" className="block bg-white rounded-lg p-4 border border-green-100 hover:border-green-300 transition-colors">
+              <div className="font-semibold text-gray-900 text-sm mb-1">Ingredient Database</div>
+              <div className="text-xs text-gray-500">Evidence-graded profiles for 15 key nootropics</div>
+            </a>
+            <a href="/guides/nootropics-for-focus-vs-memory" className="block bg-white rounded-lg p-4 border border-green-100 hover:border-green-300 transition-colors">
+              <div className="font-semibold text-gray-900 text-sm mb-1">Focus vs. Memory</div>
+              <div className="text-xs text-gray-500">Which nootropics work best for your goal?</div>
+            </a>
           </div>
         </section>
       </article>

@@ -4,7 +4,7 @@ import { SchemaOrg } from '@nootropic/ui';
 export const metadata: Metadata = {
   title: 'How We Review Nootropics — Our Methodology',
   description:
-    'NootropicGuide scoring methodology: 5-pillar framework, clinical dosing audit process, and full affiliate disclosure.',
+    'The Nootropic Lab scoring methodology: 5-pillar framework, clinical dosing audit process, and full affiliate disclosure.',
 };
 
 const pillars = [

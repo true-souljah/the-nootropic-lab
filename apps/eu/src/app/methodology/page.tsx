@@ -4,7 +4,7 @@ import { SchemaOrg } from '@nootropic/ui';
 export const metadata: Metadata = {
   title: 'How We Review Nootropics — Our Methodology (EU Edition)',
   description:
-    'NootropicGuide EU scoring methodology: 5-pillar framework, EU regulatory compliance checks, clinical dosing audit process, and affiliate disclosure.',
+    'The Nootropic Lab EU scoring methodology: 5-pillar framework, EU regulatory compliance checks, clinical dosing audit process, and affiliate disclosure.',
 };
 
 const pillars = [
@@ -20,8 +20,8 @@ export default function MethodologyEUPage() {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: 'How We Review Nootropics — Methodology (EU)',
-    author: { '@type': 'Organization', name: 'NootropicGuide Editorial Team' },
-    publisher: { '@type': 'Organization', name: 'NootropicGuide EU' },
+    author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team' },
+    publisher: { '@type': 'Organization', name: 'The Nootropic Lab EU' },
   };
 
   return (
@@ -30,7 +30,7 @@ export default function MethodologyEUPage() {
       <article className="max-w-3xl mx-auto px-4 py-10">
         <h1 className="text-3xl font-bold text-gray-900 mb-6">Our Methodology</h1>
         <p className="text-gray-600 mb-8 text-lg leading-relaxed">
-          NootropicGuide uses a 5-pillar scoring framework applied consistently to every product.
+          The Nootropic Lab uses a 5-pillar scoring framework applied consistently to every product.
           No brand pays for a review or influences our scores.
         </p>
 
@@ -69,7 +69,7 @@ export default function MethodologyEUPage() {
         <section className="mb-10">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Affiliate Disclosure</h2>
           <p className="text-sm text-gray-600 leading-relaxed">
-            NootropicGuide earns affiliate commissions when readers purchase products through our links.
+            The Nootropic Lab earns affiliate commissions when readers purchase products through our links.
             This does not influence our editorial scores or rankings. All affiliate relationships are
             disclosed on every page where they apply.
           </p>
@@ -78,7 +78,7 @@ export default function MethodologyEUPage() {
         <section>
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Medical Disclaimer</h2>
           <p className="text-sm text-gray-600 leading-relaxed">
-            Content on NootropicGuide is for informational purposes only and does not constitute medical
+            Content on The Nootropic Lab is for informational purposes only and does not constitute medical
             advice. Always consult a qualified healthcare professional before taking any supplement.
           </p>
         </section>

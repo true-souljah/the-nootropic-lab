@@ -42,7 +42,7 @@ export default async function CountryPage({
     '@type': 'Article',
     headline: `Best Nootropics in ${c.name} 2026`,
     description: `Guide to buying nootropics in ${c.name}. EU compliance, EUR pricing, and top-rated stacks.`,
-    author: { '@type': 'Organization', name: 'NootropicGuide Editorial Team' },
+    author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team' },
   };
 
   const breadcrumbSchema = {
