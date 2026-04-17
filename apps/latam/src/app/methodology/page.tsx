@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import { SchemaOrg } from '@nootropic/ui';
 
 export const metadata: Metadata = {
-  title: 'How We Review Nootropics — Our Methodology',
+  title: 'Cómo Evaluamos los Nootrópicos — Nuestra Metodología',
   description:
-    'The Nootropic Lab scoring methodology: 5-pillar framework, clinical dosing audit process, and full affiliate disclosure.',
+    'Metodología de puntuación de The Nootropic Lab: marco de 5 pilares, proceso de auditoría de dosificación clínica y divulgación completa de afiliados.',
 };
 
 const pillars = [

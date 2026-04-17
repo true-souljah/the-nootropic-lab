@@ -20,6 +20,12 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
   },
+  alternates: {
+    languages: {
+      'en': '/',
+      'ja': '/ja',
+    },
+  },
 };
 
 const searchItems = buildSearchIndex(productsJP, ingredients, guides);

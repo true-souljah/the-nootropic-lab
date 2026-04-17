@@ -83,7 +83,7 @@ export default function JaHomePage() {
             <br />
             <span className="text-green-700">認知機能サプリメント</span>
           </h1>
-          <p className="text-base text-gray-400 mb-2">Independent Cognitive Supplement Reviews for Japan</p>
+          <p className="text-base text-gray-400 mb-2">日本向け独立系認知機能サプリメントレビュー</p>
           <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
             海外および国内のノートロピクスを比較します。すべての成分の投与量を臨床エビデンスと照合。
             厚生労働省の輸入ガイドラインを明確に記載。

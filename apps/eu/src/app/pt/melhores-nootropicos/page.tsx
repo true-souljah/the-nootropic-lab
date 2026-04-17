@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ComparisonTable, AffiliateDisclosure } from '@nootropic/ui';
+import { ComparisonTable, AffiliateDisclosure, SchemaOrg } from '@nootropic/ui';
 import { productsEU } from '@nootropic/data';
 
 export const metadata: Metadata = {
@@ -16,8 +16,33 @@ export const metadata: Metadata = {
 };
 
 export default function MelhoresNootropicosPT() {
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'Os Melhores Nootrópicos na Europa 2026',
+    dateModified: new Date().toISOString().split('T')[0],
+    author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team' },
+    publisher: { '@type': 'Organization', name: 'The Nootropic Lab EU' },
+    inLanguage: 'pt-PT',
+  };
+
+  const itemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Melhores Nootrópicos Europa 2026',
+    itemListElement: productsEU.map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: p.name,
+      url: `https://eu.thenootropiclab.com/${p.slug}`,
+    })),
+  };
+
   return (
-    <article className="max-w-5xl mx-auto px-4 py-10" lang="pt-PT">
+    <>
+      <SchemaOrg schema={articleSchema} />
+      <SchemaOrg schema={itemListSchema} />
+      <article className="max-w-5xl mx-auto px-4 py-10" lang="pt-PT">
       <div className="mb-2 text-xs text-gray-500">
         Última actualização:{' '}
         {new Date().toLocaleDateString('pt-PT', {
@@ -60,9 +85,10 @@ export default function MelhoresNootropicosPT() {
 
       <div className="mt-8 text-sm text-gray-500">
         <Link href="/best-nootropics" className="text-green-700 underline">
-          → English version: Best Nootropics Europe 2026
+          → Versão em inglês: Best Nootropics Europe 2026
         </Link>
       </div>
     </article>
+    </>
   );
 }

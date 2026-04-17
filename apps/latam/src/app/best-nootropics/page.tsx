@@ -3,9 +3,9 @@ import { ComparisonTable, AffiliateDisclosure, StickyCtaBar, SchemaOrg } from '@
 import { productsLatam } from '@nootropic/data';
 
 export const metadata: Metadata = {
-  title: 'Best Nootropics in Latin America 2026 — Latam Buyer\'s Guide',
+  title: 'Los Mejores Nootrópicos en Latinoamérica 2026 — Guía del Comprador',
   description:
-    'Top nootropic supplements for Latin American buyers. International shipping confirmed for Mexico, Brazil, Argentina, Colombia, Chile, Peru.',
+    'Los mejores suplementos nootrópicos para compradores en Latinoamérica. Envío internacional confirmado a México, Brasil, Argentina, Colombia, Chile y Perú.',
 };
 
 const faqItems = [
