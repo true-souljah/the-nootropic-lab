@@ -3,18 +3,18 @@ import { SchemaOrg } from '@nootropic/ui';
 import { ingredients } from '@nootropic/data';
 
 export const metadata: Metadata = {
-  title: 'Nootropic Ingredients Guide 2026 — EU Edition, Clinical Doses & Evidence',
+  title: 'Guía de Ingredientes Notrópicos 2026 — Dosis Clínicas y Evidencia',
   description:
-    'Compare 10 evidence-backed nootropic ingredients available in the EU. Clinical doses, mechanisms, time to effect, and which EU-compliant products contain them.',
+    'Compara 10 ingredientes notrópicos respaldados por evidencia disponibles en Latam. Dosis clínicas, mecanismos, tiempo de efecto y qué productos los contienen.',
 };
 
 const categoryLabels: Record<string, string> = {
-  adaptogen: 'Adaptogen',
-  cholinergic: 'Cholinergic',
-  mushroom: 'Mushroom',
-  amino: 'Amino Acid',
-  herb: 'Herb',
-  vitamin: 'Vitamin',
+  adaptogen: 'Adaptógeno',
+  cholinergic: 'Colinérgico',
+  mushroom: 'Hongo',
+  amino: 'Aminoácido',
+  herb: 'Hierba',
+  vitamin: 'Vitamina',
 };
 
 const categoryColors: Record<string, string> = {
@@ -30,7 +30,7 @@ export default function IngredientsPage() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Nootropic Ingredients Comparison — EU',
+    name: 'Comparación de Ingredientes Notrópicos — Latam',
     numberOfItems: ingredients.length,
     itemListElement: ingredients.map((ing, i) => ({
       '@type': 'ListItem',
@@ -45,29 +45,29 @@ export default function IngredientsPage() {
       <SchemaOrg schema={schema} />
       <div className="max-w-6xl mx-auto px-4 py-10">
         <nav className="text-xs text-gray-500 mb-6">
-          <a href="/" className="hover:text-green-700">Home</a>
+          <a href="/" className="hover:text-green-700">Inicio</a>
           {' / '}
-          <span>Ingredients</span>
+          <span>Ingredientes</span>
         </nav>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-          Nootropic Ingredients Guide 2026
+          Guía de Ingredientes Notrópicos 2026
         </h1>
         <p className="text-lg text-gray-600 mb-10 max-w-2xl">
-          Evidence-based breakdown of the most studied nootropic compounds available in the EU.
-          Clinical doses, mechanisms of action, and which EU-compliant stacks contain each ingredient.
+          Análisis basado en evidencia de los compuestos notrópicos más estudiados disponibles en Latam.
+          Dosis clínicas, mecanismos de acción y qué combinaciones contienen cada ingrediente.
         </p>
 
         <div className="overflow-x-auto">
           <table className="w-full text-sm border-collapse">
             <thead>
               <tr className="bg-gray-100 text-left">
-                <th className="px-4 py-3 font-semibold text-gray-700">Ingredient</th>
-                <th className="px-4 py-3 font-semibold text-gray-700">Category</th>
-                <th className="px-4 py-3 font-semibold text-gray-700">Clinical dose</th>
-                <th className="px-4 py-3 font-semibold text-gray-700">Time to effect</th>
-                <th className="px-4 py-3 font-semibold text-gray-700 hidden md:table-cell">Evidence summary</th>
-                <th className="px-4 py-3 font-semibold text-gray-700">Products</th>
+                <th className="px-4 py-3 font-semibold text-gray-700">Ingrediente</th>
+                <th className="px-4 py-3 font-semibold text-gray-700">Categoría</th>
+                <th className="px-4 py-3 font-semibold text-gray-700">Dosis clínica</th>
+                <th className="px-4 py-3 font-semibold text-gray-700">Tiempo de efecto</th>
+                <th className="px-4 py-3 font-semibold text-gray-700 hidden md:table-cell">Resumen de evidencia</th>
+                <th className="px-4 py-3 font-semibold text-gray-700">Productos</th>
               </tr>
             </thead>
             <tbody>
@@ -125,8 +125,8 @@ export default function IngredientsPage() {
               </div>
               <p className="text-sm text-gray-600 mb-3 line-clamp-2">{ing.studySummary}</p>
               <div className="flex gap-4 text-xs text-gray-500">
-                <span>Dose: <strong className="text-gray-700">{ing.clinicalDose}</strong></span>
-                <span>Effect: <strong className="text-gray-700">{ing.timeToEffect}</strong></span>
+                <span>Dosis: <strong className="text-gray-700">{ing.clinicalDose}</strong></span>
+                <span>Efecto: <strong className="text-gray-700">{ing.timeToEffect}</strong></span>
               </div>
             </a>
           ))}

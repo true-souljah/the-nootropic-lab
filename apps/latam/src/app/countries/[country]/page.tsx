@@ -18,8 +18,8 @@ export async function generateMetadata({
   const c = latamCountries.find(x => x.slug === country);
   if (!c) return {};
   return {
-    title: `Best Nootropics in ${c.name} 2026 — Latam Buyer's Guide`,
-    description: `Buy nootropics in ${c.name}: import regulations, shipping info, customs notes, and top-rated stacks for ${c.name} residents.`,
+    title: `Los Mejores Nootrópicos en ${c.name} 2026 — Guía de Compra Latam`,
+    description: `Compra nootrópicos en ${c.name}: regulaciones de importación, información de envío, notas de aduana y los mejores stacks para residentes de ${c.name}.`,
   };
 }
 
@@ -37,7 +37,7 @@ export default async function CountryPage({
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: `Best Nootropics in ${c.name} 2026`,
+    headline: `Los Mejores Nootrópicos en ${c.name} 2026`,
     author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team' },
   };
 
@@ -46,30 +46,30 @@ export default async function CountryPage({
       <SchemaOrg schema={schema} />
       <article className="max-w-3xl mx-auto px-4 py-10">
         <nav className="text-xs text-gray-500 mb-6">
-          <a href="/" className="hover:text-green-700">Home</a>
+          <a href="/" className="hover:text-green-700">Inicio</a>
           {' / '}
-          <a href="/best-nootropics" className="hover:text-green-700">Best Nootropics Latam</a>
+          <a href="/best-nootropics" className="hover:text-green-700">Los Mejores Nootrópicos Latam</a>
           {' / '}
           <span>{c.name}</span>
         </nav>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-          Best Nootropics in {c.name} 2026
+          Los Mejores Nootrópicos en {c.name} 2026
         </h1>
-        <p className="text-sm text-gray-500 mb-8">Currency: {c.currency} &nbsp;·&nbsp; Language: {c.language}</p>
+        <p className="text-sm text-gray-500 mb-8">Moneda: {c.currency} &nbsp;·&nbsp; Idioma: {c.language}</p>
 
         <div className="bg-gray-50 rounded-xl p-5 mb-6">
-          <h2 className="font-bold text-gray-900 mb-2">Shipping to {c.name}</h2>
+          <h2 className="font-bold text-gray-900 mb-2">Envío a {c.name}</h2>
           <p className="text-sm text-gray-700 leading-relaxed">{c.shippingNote}</p>
         </div>
 
         <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 mb-8">
-          <h2 className="font-bold text-amber-900 mb-2">Customs & Import Duties</h2>
+          <h2 className="font-bold text-amber-900 mb-2">Aduanas y Derechos de Importación</h2>
           <p className="text-sm text-amber-800 leading-relaxed">{c.customsNote}</p>
         </div>
 
         <section className="mb-8">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Top Picks for {c.name} Buyers</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-4">Mejores Opciones para Compradores en {c.name}</h2>
           <div className="space-y-4">
             {topProducts.map((product, i) => (
               <a
@@ -100,7 +100,7 @@ export default async function CountryPage({
 
         <div className="text-sm text-gray-500">
           <a href="/best-nootropics" className="text-green-700 underline">
-            ← Back to Best Nootropics Latin America 2026
+            ← Volver a Los Mejores Nootrópicos Latam 2026
           </a>
         </div>
       </article>

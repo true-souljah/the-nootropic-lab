@@ -18,28 +18,28 @@ export async function generateMetadata({
   const ing = ingredients.find(i => i.slug === ingredient);
   if (!ing) return {};
   return {
-    title: `${ing.name} — EU Nootropic Guide, Dosing, Effects & FAQs`,
-    description: `${ing.name}: mechanism of action, clinical dose (${ing.clinicalDose}), human effect matrix, how to take, stacking guide, and consumer FAQs — EU-available products included.`,
+    title: `${ing.name} — Guía Notrópica Latam, Dosificación, Efectos y Preguntas Frecuentes`,
+    description: `${ing.name}: mecanismo de acción, dosis clínica (${ing.clinicalDose}), matriz de efectos en humanos, cómo tomarlo, guía de combinación y preguntas frecuentes — productos disponibles en Latam incluidos.`,
   };
 }
 
 const evidenceConfig = {
-  strong:      { dots: '●●●', label: 'Strong',      className: 'text-green-700 bg-green-50 border-green-200' },
-  moderate:    { dots: '●●○', label: 'Moderate',    className: 'text-amber-700 bg-amber-50 border-amber-200' },
-  preliminary: { dots: '●○○', label: 'Preliminary', className: 'text-gray-500 bg-gray-50 border-gray-200' },
-  mixed:       { dots: '◐◐○', label: 'Mixed',       className: 'text-orange-700 bg-orange-50 border-orange-200' },
+  strong:      { dots: '●●●', label: 'Fuerte',      className: 'text-green-700 bg-green-50 border-green-200' },
+  moderate:    { dots: '●●○', label: 'Moderado',    className: 'text-amber-700 bg-amber-50 border-amber-200' },
+  preliminary: { dots: '●○○', label: 'Preliminar', className: 'text-gray-500 bg-gray-50 border-gray-200' },
+  mixed:       { dots: '◐◐○', label: 'Mixto',       className: 'text-orange-700 bg-orange-50 border-orange-200' },
 };
 
 const magnitudeConfig = {
-  large:      { label: 'Large',      barWidth: 'w-4/4', color: 'bg-green-500' },
-  moderate:   { label: 'Moderate',   barWidth: 'w-3/4', color: 'bg-amber-400' },
-  small:      { label: 'Small',      barWidth: 'w-2/4', color: 'bg-gray-400' },
-  negligible: { label: 'Negligible', barWidth: 'w-1/4', color: 'bg-gray-300' },
+  large:      { label: 'Grande',      barWidth: 'w-4/4', color: 'bg-green-500' },
+  moderate:   { label: 'Moderado',   barWidth: 'w-3/4', color: 'bg-amber-400' },
+  small:      { label: 'Pequeño',      barWidth: 'w-2/4', color: 'bg-gray-400' },
+  negligible: { label: 'Insignificante', barWidth: 'w-1/4', color: 'bg-gray-300' },
 };
 
 const categoryLabels: Record<string, string> = {
-  adaptogen: 'Adaptogen', cholinergic: 'Cholinergic', mushroom: 'Mushroom',
-  amino: 'Amino Acid', herb: 'Herb', vitamin: 'Vitamin',
+  adaptogen: 'Adaptógeno', cholinergic: 'Colinérgico', mushroom: 'Hongo',
+  amino: 'Aminoácido', herb: 'Hierba', vitamin: 'Vitamina',
 };
 
 export default async function IngredientPage({
@@ -107,9 +107,9 @@ export default async function IngredientPage({
       <article className="max-w-3xl mx-auto px-4 py-10">
         {/* Breadcrumb */}
         <nav className="text-xs text-gray-500 mb-6">
-          <a href="/" className="hover:text-green-700">Home</a>
+          <a href="/" className="hover:text-green-700">Inicio</a>
           {' / '}
-          <a href="/ingredients" className="hover:text-green-700">Ingredients</a>
+          <a href="/ingredients" className="hover:text-green-700">Ingredientes</a>
           {' / '}
           <span>{ing.name}</span>
         </nav>
@@ -121,22 +121,22 @@ export default async function IngredientPage({
             {categoryLabels[ing.category]}
           </span>
           <span className="text-sm bg-blue-50 text-blue-800 border border-blue-200 px-3 py-1 rounded-full">
-            Clinical dose: <strong>{ing.clinicalDose}</strong>
+            Dosis clínica: <strong>{ing.clinicalDose}</strong>
           </span>
           <span className="text-sm bg-amber-50 text-amber-800 border border-amber-200 px-3 py-1 rounded-full">
-            Time to effect: <strong>{ing.timeToEffect}</strong>
+            Tiempo de efecto: <strong>{ing.timeToEffect}</strong>
           </span>
         </div>
 
         {/* Mechanism */}
         <section className="mb-8">
-          <h2 className="text-xl font-bold text-gray-900 mb-3">Mechanism of Action</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-3">Mecanismo de Acción</h2>
           <p className="text-gray-700 leading-relaxed">{ing.mechanism}</p>
         </section>
 
         {/* Clinical Evidence */}
         <section className="mb-8">
-          <h2 className="text-xl font-bold text-gray-900 mb-3">Clinical Evidence Summary</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-3">Resumen de Evidencia Clínica</h2>
           <div className="bg-blue-50 border border-blue-200 rounded-xl p-5">
             <p className="text-blue-900 leading-relaxed">{ing.studySummary}</p>
           </div>
@@ -144,17 +144,17 @@ export default async function IngredientPage({
 
         {/* Human Effect Matrix */}
         <section className="mb-8">
-          <h2 className="text-xl font-bold text-gray-900 mb-1">Human Effect Matrix</h2>
-          <p className="text-sm text-gray-500 mb-4">Based on human clinical trials only. Animal and in-vitro data excluded.</p>
+          <h2 className="text-xl font-bold text-gray-900 mb-1">Matriz de Efectos en Humanos</h2>
+          <p className="text-sm text-gray-500 mb-4">Basado únicamente en ensayos clínicos en humanos. Se excluyen datos en animales e in vitro.</p>
           <div className="overflow-x-auto rounded-xl border border-gray-200">
             <table className="w-full text-sm border-collapse">
               <thead>
                 <tr className="bg-gray-50 text-left">
-                  <th className="px-4 py-3 font-semibold text-gray-700 border-b border-gray-200">Effect</th>
-                  <th className="px-4 py-3 font-semibold text-gray-700 border-b border-gray-200">Evidence</th>
-                  <th className="px-4 py-3 font-semibold text-gray-700 border-b border-gray-200">Magnitude</th>
-                  <th className="px-4 py-3 font-semibold text-gray-700 border-b border-gray-200 text-center">Studies</th>
-                  <th className="px-4 py-3 font-semibold text-gray-700 border-b border-gray-200 hidden md:table-cell">Notes</th>
+                  <th className="px-4 py-3 font-semibold text-gray-700 border-b border-gray-200">Efecto</th>
+                  <th className="px-4 py-3 font-semibold text-gray-700 border-b border-gray-200">Evidencia</th>
+                  <th className="px-4 py-3 font-semibold text-gray-700 border-b border-gray-200">Magnitud</th>
+                  <th className="px-4 py-3 font-semibold text-gray-700 border-b border-gray-200 text-center">Estudios</th>
+                  <th className="px-4 py-3 font-semibold text-gray-700 border-b border-gray-200 hidden md:table-cell">Notas</th>
                 </tr>
               </thead>
               <tbody>
@@ -186,14 +186,14 @@ export default async function IngredientPage({
             </table>
           </div>
           <p className="text-xs text-gray-400 mt-2">
-            Evidence key: ●●● Strong = multiple consistent RCTs &nbsp;|&nbsp; ●●○ Moderate = smaller/fewer RCTs &nbsp;|&nbsp; ●○○ Preliminary = early trials or small n &nbsp;|&nbsp; ◐◐○ Mixed = conflicting results
+            Clave de evidencia: ●●● Fuerte = múltiples ECAs consistentes &nbsp;|&nbsp; ●●○ Moderado = ECAs más pequeños/escasos &nbsp;|&nbsp; ●○○ Preliminar = ensayos tempranos o muestra pequeña &nbsp;|&nbsp; ◐◐○ Mixto = resultados contradictorios
           </p>
         </section>
 
         {/* Benefits / Side Effects */}
         <div className="grid sm:grid-cols-2 gap-6 mb-8">
           <section>
-            <h2 className="text-xl font-bold text-gray-900 mb-3">Documented Benefits</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-3">Beneficios Documentados</h2>
             <ul className="space-y-2">
               {ing.benefits.map(b => (
                 <li key={b} className="flex gap-2 text-sm text-gray-700">
@@ -204,7 +204,7 @@ export default async function IngredientPage({
             </ul>
           </section>
           <section>
-            <h2 className="text-xl font-bold text-gray-900 mb-3">Side Effects & Cautions</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-3">Efectos Secundarios y Precauciones</h2>
             <ul className="space-y-2">
               {ing.sideEffects.map(s => (
                 <li key={s} className="flex gap-2 text-sm text-gray-700">
@@ -218,28 +218,28 @@ export default async function IngredientPage({
 
         {/* How to Take */}
         <section className="mb-8">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">How to Take</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-4">Cómo Tomar</h2>
           <div className="bg-gray-50 rounded-xl border border-gray-200 divide-y divide-gray-200">
             <div className="px-5 py-4 grid grid-cols-[120px_1fr] gap-3 items-start">
-              <span className="text-xs font-semibold text-gray-500 uppercase tracking-wide pt-0.5">Dosage</span>
+              <span className="text-xs font-semibold text-gray-500 uppercase tracking-wide pt-0.5">Dosis</span>
               <span className="text-sm text-gray-800">{ing.howToTake.dosage}</span>
             </div>
             <div className="px-5 py-4 grid grid-cols-[120px_1fr] gap-3 items-start">
-              <span className="text-xs font-semibold text-gray-500 uppercase tracking-wide pt-0.5">Timing</span>
+              <span className="text-xs font-semibold text-gray-500 uppercase tracking-wide pt-0.5">Momento</span>
               <span className="text-sm text-gray-800">{ing.howToTake.timing}</span>
             </div>
             <div className="px-5 py-4 grid grid-cols-[120px_1fr] gap-3 items-start">
-              <span className="text-xs font-semibold text-gray-500 uppercase tracking-wide pt-0.5">With food</span>
+              <span className="text-xs font-semibold text-gray-500 uppercase tracking-wide pt-0.5">Con Alimentos</span>
               <span className="text-sm text-gray-800">{ing.howToTake.withFood}</span>
             </div>
             {ing.howToTake.cycling && (
               <div className="px-5 py-4 grid grid-cols-[120px_1fr] gap-3 items-start">
-                <span className="text-xs font-semibold text-amber-600 uppercase tracking-wide pt-0.5">Cycling</span>
+                <span className="text-xs font-semibold text-amber-600 uppercase tracking-wide pt-0.5">Ciclado</span>
                 <span className="text-sm text-gray-800 font-medium">{ing.howToTake.cycling}</span>
               </div>
             )}
             <div className="px-5 py-4 grid grid-cols-[120px_1fr] gap-3 items-start">
-              <span className="text-xs font-semibold text-gray-500 uppercase tracking-wide pt-0.5">Forms</span>
+              <span className="text-xs font-semibold text-gray-500 uppercase tracking-wide pt-0.5">Formas</span>
               <span className="text-sm text-gray-800">{ing.howToTake.forms}</span>
             </div>
           </div>
@@ -247,8 +247,8 @@ export default async function IngredientPage({
 
         {/* Stacking */}
         <section className="mb-8">
-          <h2 className="text-xl font-bold text-gray-900 mb-2">Stacking Recommendations</h2>
-          <p className="text-sm text-gray-500 mb-4">Ingredients that pair well with {ing.name} and why.</p>
+          <h2 className="text-xl font-bold text-gray-900 mb-2">Recomendaciones de Combinación</h2>
+          <p className="text-sm text-gray-500 mb-4">Ingredientes que combinan bien con {ing.name} y por qué.</p>
           <div className="space-y-3">
             {ing.stacksWith.map(pair => (
               <div key={pair.ingredient} className="flex gap-4 bg-white border border-gray-200 rounded-xl p-4">
@@ -268,7 +268,7 @@ export default async function IngredientPage({
 
         {/* FAQ */}
         <section className="mb-8">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-4">Preguntas Frecuentes</h2>
           <div className="space-y-2">
             {ing.faqs.map(faq => (
               <details
@@ -291,7 +291,7 @@ export default async function IngredientPage({
         {containingProducts.length > 0 && (
           <section className="mb-8">
             <h2 className="text-xl font-bold text-gray-900 mb-4">
-              EU Stacks Containing {ing.name}
+              Stacks con {ing.name}
             </h2>
             <div className="grid sm:grid-cols-2 gap-4">
               {containingProducts.map(p => (
@@ -318,7 +318,7 @@ export default async function IngredientPage({
 
         {/* Related Ingredients */}
         <section className="mb-8">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Related Ingredients</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-4">Ingredientes Relacionados</h2>
           <div className="grid sm:grid-cols-3 gap-3">
             {ingredients
               .filter(other => other.slug !== ing.slug)
@@ -338,7 +338,7 @@ export default async function IngredientPage({
 
         <div className="text-sm text-gray-500 mt-8">
           <a href="/ingredients" className="text-green-700 underline">
-            ← Back to Ingredients Guide
+            ← Volver a la Guía de Ingredientes
           </a>
         </div>
       </article>

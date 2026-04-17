@@ -18,17 +18,17 @@ export async function generateMetadata({
   const product = productsLatam.find(p => p.slug === slug);
   if (!product) return {};
   return {
-    title: `${product.name} Review 2026 — Latin America Buyer's Guide`,
-    description: `Independent Latin America review of ${product.name}. Score: ${product.score}/10. Clinical dosing audit and full affiliate disclosure.`,
+    title: `Reseña de ${product.name} 2026 — Guía de Compra para América Latina`,
+    description: `Reseña independiente para América Latina de ${product.name}. Puntuación: ${product.score}/10. Auditoría de dosificación clínica y divulgación completa de afiliados.`,
   };
 }
 
 const pillarLabels: Record<string, string> = {
-  ingredients: 'Ingredient quality',
-  dosing: 'Dosing vs. clinical evidence',
-  transparency: 'Formula transparency',
-  value: 'Value for money',
-  trust: 'Brand trust',
+  ingredients: 'Calidad de ingredientes',
+  dosing: 'Dosificación vs. evidencia clínica',
+  transparency: 'Transparencia de la fórmula',
+  value: 'Valor por dinero',
+  trust: 'Confianza en la marca',
 };
 
 export default async function ProductReviewPage({
@@ -63,9 +63,9 @@ export default async function ProductReviewPage({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://latam.thenootropiclab.com' },
-      { '@type': 'ListItem', position: 2, name: 'Best Nootropics', item: 'https://latam.thenootropiclab.com/best-nootropics' },
-      { '@type': 'ListItem', position: 3, name: `${product.name} Review` },
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://latam.thenootropiclab.com' },
+      { '@type': 'ListItem', position: 2, name: 'Los Mejores Nootrópicos', item: 'https://latam.thenootropiclab.com/best-nootropics' },
+      { '@type': 'ListItem', position: 3, name: `Reseña de ${product.name}` },
     ],
   };
 
@@ -77,29 +77,29 @@ export default async function ProductReviewPage({
 
       <article className="max-w-3xl mx-auto px-4 py-10">
         <nav className="text-xs text-gray-500 mb-6">
-          <a href="/" className="hover:text-green-700">Home</a>
+          <a href="/" className="hover:text-green-700">Inicio</a>
           {' / '}
-          <a href="/best-nootropics" className="hover:text-green-700">Best Nootropics</a>
+          <a href="/best-nootropics" className="hover:text-green-700">Los Mejores Nootrópicos</a>
           {' / '}
-          <span>{product.name} Review</span>
+          <span>Reseña de {product.name}</span>
         </nav>
 
         {/* Author + date */}
         <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 mb-4">
-          <span>Reviewed by <strong className="text-gray-700">The Nootropic Lab Editorial Team</strong></span>
+          <span>Revisado por <strong className="text-gray-700">The Nootropic Lab Editorial Team</strong></span>
           <span>·</span>
-          <span>Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+          <span>Última actualización: {new Date().toLocaleDateString('es-419', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
         </div>
 
         <div className="mb-6">
           <div className="flex flex-wrap items-center gap-2 mb-2">
             {product.editorChoice && (
-              <span className="editor-badge">Editor&apos;s Choice — Latin America 2026</span>
+              <span className="editor-badge">Elección del Editor — América Latina 2026</span>
             )}
             <span className="text-xs text-gray-500">{product.brand}</span>
           </div>
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-            {product.name} Review 2026
+            Reseña de {product.name} 2026
           </h1>
           <div className="flex items-center gap-3">
             <span className="text-4xl font-black text-green-700">{product.score}</span>
@@ -120,33 +120,33 @@ export default async function ProductReviewPage({
 
         {/* Table of Contents */}
         <nav className="bg-gray-50 rounded-lg p-4 mb-8 text-sm">
-          <div className="font-semibold text-gray-700 mb-2">In this review</div>
+          <div className="font-semibold text-gray-700 mb-2">En esta reseña</div>
           <ul className="space-y-1 text-gray-600">
-            <li><a href="#what-is-it" className="hover:text-green-700">What is {product.name}?</a></li>
-            <li><a href="#how-it-works" className="hover:text-green-700">How does it work?</a></li>
-            <li><a href="#what-to-expect" className="hover:text-green-700">What to expect</a></li>
-            <li><a href="#dosing-audit" className="hover:text-green-700">Clinical Dosing Audit</a></li>
-            <li><a href="#score-breakdown" className="hover:text-green-700">Score Breakdown</a></li>
-            <li><a href="#pros-cons" className="hover:text-green-700">Pros &amp; Cons</a></li>
-            <li><a href="#alternatives" className="hover:text-green-700">Similar Alternatives</a></li>
+            <li><a href="#what-is-it" className="hover:text-green-700">¿Qué es {product.name}?</a></li>
+            <li><a href="#how-it-works" className="hover:text-green-700">¿Cómo funciona?</a></li>
+            <li><a href="#what-to-expect" className="hover:text-green-700">Qué esperar</a></li>
+            <li><a href="#dosing-audit" className="hover:text-green-700">Auditoría de Dosificación Clínica</a></li>
+            <li><a href="#score-breakdown" className="hover:text-green-700">Desglose de Puntuación</a></li>
+            <li><a href="#pros-cons" className="hover:text-green-700">Pros y Contras</a></li>
+            <li><a href="#alternatives" className="hover:text-green-700">Alternativas Similares</a></li>
           </ul>
         </nav>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 my-8">
           <div className="bg-gray-50 rounded-lg p-3">
-            <div className="text-xs text-gray-500 mb-0.5">Price / month</div>
+            <div className="text-xs text-gray-500 mb-0.5">Precio / mes</div>
             <div className="font-bold text-gray-900">${product.priceMonthlyUSD} USD</div>
           </div>
           <div className="bg-gray-50 rounded-lg p-3">
-            <div className="text-xs text-gray-500 mb-0.5">Money-back</div>
-            <div className="font-bold text-gray-900">{product.moneyBackDays} days</div>
+            <div className="text-xs text-gray-500 mb-0.5">Devolución</div>
+            <div className="font-bold text-gray-900">{product.moneyBackDays} días</div>
           </div>
           <div className="bg-gray-50 rounded-lg p-3">
-            <div className="text-xs text-gray-500 mb-0.5">Caffeine</div>
-            <div className="font-bold text-gray-900">{product.caffeineFree ? 'Free' : 'Contains caffeine'}</div>
+            <div className="text-xs text-gray-500 mb-0.5">Cafeína</div>
+            <div className="font-bold text-gray-900">{product.caffeineFree ? 'Sin cafeína' : 'Contiene cafeína'}</div>
           </div>
           <div className="bg-gray-50 rounded-lg p-3">
-            <div className="text-xs text-gray-500 mb-0.5">Capsules / serving</div>
+            <div className="text-xs text-gray-500 mb-0.5">Cápsulas / porción</div>
             <div className="font-bold text-gray-900">{product.capsulesPerServing}</div>
           </div>
           {product.trustpilotScore > 0 && (
@@ -164,29 +164,29 @@ export default async function ProductReviewPage({
 
         <section className="mb-8 space-y-6">
           <div>
-            <h2 id="what-is-it" className="text-xl font-bold text-gray-900 mb-2">What is {product.name}?</h2>
+            <h2 id="what-is-it" className="text-xl font-bold text-gray-900 mb-2">¿Qué es {product.name}?</h2>
             <p className="text-gray-700 leading-relaxed">{product.whatItIs}</p>
           </div>
           <div>
-            <h2 id="how-it-works" className="text-xl font-bold text-gray-900 mb-2">How does it work?</h2>
+            <h2 id="how-it-works" className="text-xl font-bold text-gray-900 mb-2">¿Cómo funciona?</h2>
             <p className="text-gray-700 leading-relaxed">{product.howItWorks}</p>
           </div>
           <div>
-            <h2 id="what-to-expect" className="text-xl font-bold text-gray-900 mb-2">What to expect</h2>
+            <h2 id="what-to-expect" className="text-xl font-bold text-gray-900 mb-2">Qué esperar</h2>
             <p className="text-gray-700 leading-relaxed">{product.whatToExpect}</p>
           </div>
         </section>
 
         <section className="mb-8">
-          <h2 id="dosing-audit" className="text-xl font-bold text-gray-900 mb-4">Clinical Dosing Audit</h2>
+          <h2 id="dosing-audit" className="text-xl font-bold text-gray-900 mb-4">Auditoría de Dosificación Clínica</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
               <thead>
                 <tr className="bg-gray-100 text-left">
-                  <th className="px-3 py-2 font-semibold text-gray-700">Ingredient</th>
-                  <th className="px-3 py-2 font-semibold text-gray-700">Product dose</th>
-                  <th className="px-3 py-2 font-semibold text-gray-700">Clinical dose</th>
-                  <th className="px-3 py-2 font-semibold text-gray-700 text-center">Adequate</th>
+                  <th className="px-3 py-2 font-semibold text-gray-700">Ingrediente</th>
+                  <th className="px-3 py-2 font-semibold text-gray-700">Dosis del producto</th>
+                  <th className="px-3 py-2 font-semibold text-gray-700">Dosis clínica</th>
+                  <th className="px-3 py-2 font-semibold text-gray-700 text-center">Adecuado</th>
                 </tr>
               </thead>
               <tbody>
@@ -208,7 +208,7 @@ export default async function ProductReviewPage({
         </section>
 
         <section className="mb-8">
-          <h2 id="score-breakdown" className="text-xl font-bold text-gray-900 mb-4">Score Breakdown</h2>
+          <h2 id="score-breakdown" className="text-xl font-bold text-gray-900 mb-4">Desglose de Puntuación</h2>
           <div className="space-y-3">
             {(Object.entries(product.scoreBreakdown) as [string, number][]).map(([key, val]) => (
               <div key={key}>
@@ -225,10 +225,10 @@ export default async function ProductReviewPage({
         </section>
 
         <section className="mb-8">
-          <h2 id="pros-cons" className="text-xl font-bold text-gray-900 mb-4">Pros &amp; Cons</h2>
+          <h2 id="pros-cons" className="text-xl font-bold text-gray-900 mb-4">Pros y Contras</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="bg-green-50 rounded-xl p-4">
-              <h3 className="font-semibold text-green-900 mb-3">Pros</h3>
+              <h3 className="font-semibold text-green-900 mb-3">Ventajas</h3>
               <ul className="space-y-2">
                 {product.pros.map(pro => (
                   <li key={pro} className="flex gap-2 text-sm text-green-800">
@@ -238,7 +238,7 @@ export default async function ProductReviewPage({
               </ul>
             </div>
             <div className="bg-red-50 rounded-xl p-4">
-              <h3 className="font-semibold text-red-900 mb-3">Cons</h3>
+              <h3 className="font-semibold text-red-900 mb-3">Desventajas</h3>
               <ul className="space-y-2">
                 {product.cons.map(con => (
                   <li key={con} className="flex gap-2 text-sm text-red-800">
@@ -252,7 +252,7 @@ export default async function ProductReviewPage({
 
         {/* Similar Alternatives */}
         <section id="alternatives" className="mb-8">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Similar Alternatives</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-4">Alternativas Similares</h2>
           <div className="grid sm:grid-cols-3 gap-3">
             {productsLatam
               .filter(p => p.slug !== product.slug)
@@ -281,19 +281,19 @@ export default async function ProductReviewPage({
         <section className="mb-8">
           <div className="bg-green-50 border border-green-200 rounded-lg p-4 flex flex-col sm:flex-row items-start sm:items-center gap-3">
             <div className="flex-1">
-              <div className="font-semibold text-green-900 text-sm">Want to understand the ingredients?</div>
-              <div className="text-xs text-green-800">Explore our evidence-graded ingredient database with clinical dosing guides.</div>
+              <div className="font-semibold text-green-900 text-sm">¿Quieres entender los ingredientes?</div>
+              <div className="text-xs text-green-800">Explora nuestra base de datos de ingredientes con calificación basada en evidencia y guías de dosificación clínica.</div>
             </div>
             <a href="/ingredients" className="text-sm font-semibold text-green-700 hover:text-green-600 shrink-0">
-              Browse Ingredients →
+              Ver Ingredientes →
             </a>
           </div>
         </section>
 
         <div className="bg-gray-50 rounded-xl p-6 mb-8 text-center">
           <p className="text-sm text-gray-600 mb-4">
-            Affiliate disclosure: we earn a commission if you purchase via the link below.
-            This does not affect our score.
+            Divulgación de afiliados: ganamos una comisión si realizas una compra a través del enlace a continuación.
+            Esto no afecta nuestra puntuación.
           </p>
           <a
             href={product.affiliateUrl}
@@ -302,14 +302,14 @@ export default async function ProductReviewPage({
             className="inline-block bg-green-700 hover:bg-green-600 text-white font-bold px-8 py-3 rounded-lg text-base transition-colors"
           >
             {product.affiliateNetwork.includes('Amazon')
-              ? 'View on Amazon Japan →'
-              : `Check Price ($${product.priceMonthlyUSD}/mo) →`}
+              ? 'Ver en Amazon →'
+              : `Ver Precio Actual ($${product.priceMonthlyUSD}/mes) →`}
           </a>
         </div>
 
         <div className="text-sm text-gray-500">
           <a href="/best-nootropics" className="text-green-700 underline">
-            ← Back to Best Nootropics Latin America 2026
+            ← Volver a Los Mejores Nootrópicos América Latina 2026
           </a>
         </div>
       </article>

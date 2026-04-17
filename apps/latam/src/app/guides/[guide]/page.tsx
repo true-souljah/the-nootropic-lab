@@ -18,7 +18,7 @@ export async function generateMetadata({
   const g = guides.find(x => x.slug === guide);
   if (!g) return {};
   return {
-    title: `${g.title} — The Nootropic Lab EU`,
+    title: `${g.title} — The Nootropic Lab Latam`,
     description: g.description,
   };
 }
@@ -57,9 +57,9 @@ export default async function GuidePage({
       <SchemaOrg schema={breadcrumbSchema} />
       <article className="max-w-3xl mx-auto px-4 py-10">
         <nav className="text-xs text-gray-500 mb-6">
-          <a href="/" className="hover:text-green-700">Home</a>
+          <a href="/" className="hover:text-green-700">Inicio</a>
           {' / '}
-          <a href="/guides" className="hover:text-green-700">Guides</a>
+          <a href="/guides" className="hover:text-green-700">Guías</a>
           {' / '}
           <span>{g.title}</span>
         </nav>
@@ -68,7 +68,7 @@ export default async function GuidePage({
           <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full capitalize">
             {g.category}
           </span>
-          <span className="text-xs text-gray-400">{g.readingTimeMin} min read</span>
+          <span className="text-xs text-gray-400">{g.readingTimeMin} min de lectura</span>
         </div>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{g.title}</h1>
@@ -83,7 +83,7 @@ export default async function GuidePage({
 
         <div className="mt-10 text-sm text-gray-500">
           <a href="/guides" className="text-green-700 underline">
-            ← Back to Guides
+            ← Volver a las Guías
           </a>
         </div>
       </article>

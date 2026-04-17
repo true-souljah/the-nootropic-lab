@@ -1,93 +1,97 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy',
-  description: 'Privacy policy for The Nootropic Lab. How we collect, use, and protect your data.',
+  title: 'Política de Privacidad',
+  description: 'Política de privacidad de The Nootropic Lab. Cómo recopilamos, usamos y protegemos tus datos.',
 };
 
 export default function PrivacyPolicyPage() {
   return (
     <article className="max-w-3xl mx-auto px-4 py-10">
-      <h1 className="text-3xl font-bold text-gray-900 mb-6">Privacy Policy</h1>
-      <p className="text-sm text-gray-500 mb-8">Last updated: January 15, 2026</p>
+      <h1 className="text-3xl font-bold text-gray-900 mb-6">Política de Privacidad</h1>
+      <p className="text-sm text-gray-500 mb-8">Última actualización: 15 de enero de 2026</p>
 
       <div className="prose prose-gray prose-sm max-w-none space-y-6">
         <section>
-          <h2 className="text-xl font-bold text-gray-900 mb-3">1. Who We Are</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-3">1. Quiénes Somos</h2>
           <p className="text-gray-700 leading-relaxed">
-            The Nootropic Lab is an independent cognitive supplement review platform. We provide
-            evidence-graded reviews, clinical dosing audits, and product comparisons. We are an
-            affiliate site — we earn commissions when you purchase through our links. This policy
-            explains how we handle your data.
+            The Nootropic Lab es una plataforma independiente de reseñas de suplementos cognitivos.
+            Ofrecemos reseñas con evidencia clínica, auditorías de dosificación y comparaciones de
+            productos. Somos un sitio afiliado — ganamos comisiones cuando realizas compras a través
+            de nuestros enlaces. Esta política explica cómo manejamos tus datos.
           </p>
         </section>
 
         <section>
-          <h2 className="text-xl font-bold text-gray-900 mb-3">2. Data We Collect</h2>
-          <p className="text-gray-700 leading-relaxed mb-3">We collect minimal data:</p>
+          <h2 className="text-xl font-bold text-gray-900 mb-3">2. Datos que Recopilamos</h2>
+          <p className="text-gray-700 leading-relaxed mb-3">Recopilamos datos mínimos:</p>
           <ul className="list-disc list-inside text-gray-700 space-y-1">
-            <li><strong>Analytics data</strong> (only after cookie consent): page views, referrer, device type, country. We use privacy-focused analytics. No personally identifiable information is collected.</li>
-            <li><strong>Cookie consent preference:</strong> stored in your browser&apos;s localStorage to remember your choice.</li>
-            <li><strong>Affiliate click data:</strong> when you click an affiliate link, the destination site may set tracking cookies. We do not control third-party cookies.</li>
+            <li><strong>Datos analíticos</strong> (solo tras aceptar las cookies): páginas vistas, referente, tipo de dispositivo, país. Usamos análisis enfocados en la privacidad. No se recopila información de identificación personal.</li>
+            <li><strong>Preferencia de consentimiento de cookies:</strong> almacenada en el localStorage de tu navegador para recordar tu elección.</li>
+            <li><strong>Datos de clics en enlaces de afiliados:</strong> cuando haces clic en un enlace de afiliado, el sitio de destino puede instalar cookies de seguimiento. No controlamos las cookies de terceros.</li>
           </ul>
         </section>
 
         <section>
-          <h2 className="text-xl font-bold text-gray-900 mb-3">3. Data We Do NOT Collect</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-3">3. Datos que NO Recopilamos</h2>
           <ul className="list-disc list-inside text-gray-700 space-y-1">
-            <li>We do not collect names, email addresses, or personal information</li>
-            <li>We do not require account creation</li>
-            <li>We do not sell or share data with third parties for advertising</li>
-            <li>We do not use advertising cookies or retargeting pixels</li>
+            <li>No recopilamos nombres, direcciones de correo electrónico ni información personal</li>
+            <li>No requerimos la creación de una cuenta</li>
+            <li>No vendemos ni compartimos datos con terceros para publicidad</li>
+            <li>No usamos cookies publicitarias ni píxeles de retargeting</li>
           </ul>
         </section>
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 mb-3">4. Cookies</h2>
           <p className="text-gray-700 leading-relaxed">
-            We use two types of cookies: <strong>necessary cookies</strong> (cookie consent
-            preference, stored in localStorage) which are always active, and <strong>analytics
-            cookies</strong> which are only activated after you click &quot;Accept Analytics&quot; on our
-            cookie banner. You can decline analytics cookies with no impact on site functionality.
-            See our <a href="/cookie-policy" className="text-green-700 underline">Cookie Policy</a> for
-            full details.
+            Usamos dos tipos de cookies: <strong>cookies necesarias</strong> (preferencia de
+            consentimiento de cookies, almacenadas en localStorage) que siempre están activas, y{' '}
+            <strong>cookies analíticas</strong> que solo se activan cuando haces clic en
+            &quot;Aceptar Analíticas&quot; en nuestro banner de cookies. Puedes rechazar las cookies
+            analíticas sin afectar la funcionalidad del sitio. Consulta nuestra{' '}
+            <a href="/cookie-policy" className="text-green-700 underline">Política de Cookies</a> para
+            más detalles.
           </p>
         </section>
 
         <section>
-          <h2 className="text-xl font-bold text-gray-900 mb-3">5. Affiliate Links</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-3">5. Enlaces de Afiliados</h2>
           <p className="text-gray-700 leading-relaxed">
-            This site contains affiliate links. When you click these links and make a purchase, we
-            may earn a commission at no additional cost to you. Affiliate relationships do not
-            influence our editorial scores or recommendations. All affiliate links are clearly
-            marked with <code className="bg-gray-100 px-1 rounded text-xs">rel=&quot;nofollow sponsored&quot;</code> attributes.
+            Este sitio contiene enlaces de afiliados. Cuando haces clic en estos enlaces y realizas
+            una compra, podemos ganar una comisión sin costo adicional para ti. Las relaciones de
+            afiliado no influyen en nuestras puntuaciones editoriales ni recomendaciones. Todos los
+            enlaces de afiliado están claramente marcados con los atributos{' '}
+            <code className="bg-gray-100 px-1 rounded text-xs">rel=&quot;nofollow sponsored&quot;</code>.
           </p>
         </section>
 
         <section>
-          <h2 className="text-xl font-bold text-gray-900 mb-3">6. Third-Party Services</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-3">6. Servicios de Terceros</h2>
           <p className="text-gray-700 leading-relaxed">
-            This site is hosted on Cloudflare Pages. Cloudflare may collect standard web server
-            logs (IP address, user agent, timestamps) as part of their infrastructure. See
-            Cloudflare&apos;s privacy policy for details. We do not use Google Analytics, Facebook
-            Pixel, or any advertising tracking services.
+            Este sitio está alojado en Cloudflare Pages. Cloudflare puede recopilar registros
+            estándar de servidor web (dirección IP, agente de usuario, marcas de tiempo) como parte
+            de su infraestructura. Consulta la política de privacidad de Cloudflare para más
+            detalles. No usamos Google Analytics, Facebook Pixel ni ningún servicio de seguimiento
+            publicitario.
           </p>
         </section>
 
         <section>
-          <h2 className="text-xl font-bold text-gray-900 mb-3">7. Your Rights</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-3">7. Sus Derechos</h2>
           <p className="text-gray-700 leading-relaxed">
-            Under GDPR (EU), CCPA (California), and equivalent privacy laws, you have the right to
-            access, correct, delete, or restrict processing of your personal data. Since we collect
-            minimal data with no account system, there is typically no personal data to request.
-            For any privacy-related questions, contact us at the email below.
+            Según el RGPD (UE), la CCPA (California) y leyes de privacidad equivalentes, tienes
+            derecho a acceder, corregir, eliminar o restringir el procesamiento de tus datos
+            personales. Dado que recopilamos datos mínimos sin sistema de cuentas, generalmente no
+            hay datos personales que solicitar. Para cualquier consulta relacionada con la
+            privacidad, contáctanos al correo electrónico indicado a continuación.
           </p>
         </section>
 
         <section>
-          <h2 className="text-xl font-bold text-gray-900 mb-3">8. Contact</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-3">8. Contacto</h2>
           <p className="text-gray-700 leading-relaxed">
-            For privacy inquiries: <strong>privacy@thenootropiclab.com</strong>
+            Para consultas sobre privacidad: <strong>privacy@thenootropiclab.com</strong>
           </p>
         </section>
       </div>
