@@ -19,7 +19,7 @@ export default function MethodologyPage() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: 'How We Review Nootropics — Methodology',
+    headline: 'Cómo Evaluamos los Nootrópicos — Metodología',
     author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team' },
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab' },
   };

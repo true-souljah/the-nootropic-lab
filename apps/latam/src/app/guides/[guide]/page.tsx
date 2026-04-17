@@ -45,8 +45,8 @@ export default async function GuidePage({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://eu.thenootropiclab.com' },
-      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://eu.thenootropiclab.com/guides' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://latam.thenootropiclab.com' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://latam.thenootropiclab.com/guides' },
       { '@type': 'ListItem', position: 3, name: g.title },
     ],
   };

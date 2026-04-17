@@ -18,8 +18,8 @@ export async function generateMetadata({
   const ing = ingredients.find(i => i.slug === ingredient);
   if (!ing) return {};
   return {
-    title: `${ing.name} — EU Nootropic Guide, Dosing, Effects & FAQs`,
-    description: `${ing.name}: mechanism of action, clinical dose (${ing.clinicalDose}), human effect matrix, how to take, stacking guide, and consumer FAQs — EU-available products included.`,
+    title: `${ing.name} — Nootropic Guide, Dosing, Effects & FAQs`,
+    description: `${ing.name}: mechanism of action, clinical dose (${ing.clinicalDose}), human effect matrix, how to take, stacking guide, and consumer FAQs — products with international shipping.`,
   };
 }
 
@@ -58,7 +58,7 @@ export default async function IngredientPage({
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: `${ing.name} — EU Nootropic Ingredient Guide`,
+    headline: `${ing.name} — Nootropic Ingredient Guide`,
     description: ing.studySummary,
     author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team' },
   };
@@ -67,8 +67,8 @@ export default async function IngredientPage({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://eu.thenootropiclab.com' },
-      { '@type': 'ListItem', position: 2, name: 'Ingredients', item: 'https://eu.thenootropiclab.com/ingredients' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://gcc.thenootropiclab.com' },
+      { '@type': 'ListItem', position: 2, name: 'Ingredients', item: 'https://gcc.thenootropiclab.com/ingredients' },
       { '@type': 'ListItem', position: 3, name: ing.name },
     ],
   };

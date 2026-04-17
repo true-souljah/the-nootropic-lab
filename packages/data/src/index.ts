@@ -27,3 +27,5 @@ export type { JPPrefecture } from './jp-prefectures';
 export { jpPrefectures } from './jp-prefectures';
 export type { SearchItem } from './search';
 export { buildSearchIndex } from './search';
+export type { Locale, UIStrings } from './i18n';
+export { getStrings, getLocaleForMarket } from './i18n';

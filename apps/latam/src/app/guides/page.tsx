@@ -32,7 +32,7 @@ export default function GuidesPage() {
       '@type': 'ListItem',
       position: i + 1,
       name: g.title,
-      url: `https://eu.thenootropiclab.com/guides/${g.slug}`,
+      url: `https://latam.thenootropiclab.com/guides/${g.slug}`,
     })),
   };
 

@@ -3,7 +3,7 @@ import { SchemaOrg } from '@nootropic/ui';
 import { ingredients } from '@nootropic/data';
 
 export const metadata: Metadata = {
-  title: 'Nootropic Ingredients Guide 2026 — EU Edition, Clinical Doses & Evidence',
+  title: 'Nootropic Ingredients Guide 2026 — SEA, Clinical Doses & Evidence',
   description:
     'Compare 10 evidence-backed nootropic ingredients available in the EU. Clinical doses, mechanisms, time to effect, and which EU-compliant products contain them.',
 };
@@ -30,13 +30,13 @@ export default function IngredientsPage() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Nootropic Ingredients Comparison — EU',
+    name: 'Nootropic Ingredients Comparison — SEA',
     numberOfItems: ingredients.length,
     itemListElement: ingredients.map((ing, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       name: ing.name,
-      url: `https://eu.thenootropiclab.com/ingredients/${ing.slug}`,
+      url: `https://sea.thenootropiclab.com/ingredients/${ing.slug}`,
     })),
   };
 

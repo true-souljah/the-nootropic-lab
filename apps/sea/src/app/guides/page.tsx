@@ -3,7 +3,7 @@ import { SchemaOrg } from '@nootropic/ui';
 import { guides } from '@nootropic/data';
 
 export const metadata: Metadata = {
-  title: 'Nootropics Guides 2026 — EU Edition, Beginner to Advanced',
+  title: 'Nootropics Guides 2026 — SEA, Beginner to Advanced',
   description:
     'Learn everything about nootropics available in the EU: what they are, how they work, how to stack them safely, and what to realistically expect.',
 };
@@ -26,13 +26,13 @@ export default function GuidesPage() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Nootropics Guides — EU',
+    name: 'Nootropics Guides — SEA',
     numberOfItems: guides.length,
     itemListElement: guides.map((g, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       name: g.title,
-      url: `https://eu.thenootropiclab.com/guides/${g.slug}`,
+      url: `https://sea.thenootropiclab.com/guides/${g.slug}`,
     })),
   };
 

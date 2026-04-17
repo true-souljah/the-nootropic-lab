@@ -1,6 +1,6 @@
 'use client';
 import { useId, useState, useMemo } from 'react';
-import type { Product } from '@nootropic/data';
+import type { Product, UIStrings } from '@nootropic/data';
 import ScoreTooltip from './ScoreTooltip';
 import EUBadge from './EUBadge';
 
@@ -10,6 +10,7 @@ type SortDir = 'asc' | 'desc';
 interface Props {
   products: Product[];
   market: 'us' | 'eu';
+  strings?: UIStrings;
 }
 
 interface SortBtnProps {
@@ -17,27 +18,24 @@ interface SortBtnProps {
   sortKey: SortKey;
   sortDir: SortDir;
   onSort: (key: SortKey) => void;
+  t?: UIStrings['table'];
 }
 
-function SortBtn({ col, sortKey, sortDir, onSort }: SortBtnProps) {
+function SortBtn({ col, sortKey, sortDir, onSort, t }: SortBtnProps) {
   const active = sortKey === col;
   return (
     <button
       onClick={() => onSort(col)}
       className={`ml-1 text-xs ${active ? 'text-green-700 font-bold' : 'text-gray-400'}`}
-      aria-label={active ? `Sort by ${col}, currently ${sortDir === 'desc' ? 'descending' : 'ascending'}` : `Sort by ${col}`}
+      aria-label={active ? `${t?.sortBy || 'Sort by'} ${col}, currently ${sortDir === 'desc' ? (t?.descending || 'descending') : (t?.ascending || 'ascending')}` : `${t?.sortBy || 'Sort by'} ${col}`}
     >
       {active ? (sortDir === 'desc' ? '▼' : '▲') : '⇅'}
     </button>
   );
 }
 
-const FILTERS = [
-  { key: 'caffeineFree', label: 'Caffeine-Free' },
-  { key: 'euStorefront', label: 'EU Storefront' },
-];
-
-export default function ComparisonTable({ products, market }: Props) {
+export default function ComparisonTable({ products, market, strings }: Props) {
+  const t = strings?.table;
   const uid = useId();
   const [activeFilters, setActiveFilters] = useState<Set<string>>(new Set());
   const [priceMax, setPriceMax] = useState(200);
@@ -46,6 +44,11 @@ export default function ComparisonTable({ products, market }: Props) {
 
   const currency = market === 'eu' ? '€' : '$';
   const priceField = market === 'eu' ? 'priceMonthlyEUR' : 'priceMonthlyUSD';
+
+  const FILTERS = [
+    { key: 'caffeineFree', label: t?.caffeineFree || 'Caffeine-Free' },
+    { key: 'euStorefront', label: 'EU Storefront' },
+  ];
 
   function toggleFilter(key: string) {
     setActiveFilters(prev => {
@@ -121,23 +124,23 @@ export default function ComparisonTable({ products, market }: Props) {
           <thead className="bg-gray-50 sticky top-16 z-10">
             <tr>
               <th scope="col" className="text-left p-3 w-8 font-semibold text-gray-600">#</th>
-              <th scope="col" className="text-left p-3 font-semibold text-gray-600">Product</th>
-              <th scope="col" className="text-left p-3 font-semibold text-gray-600">Best For</th>
+              <th scope="col" className="text-left p-3 font-semibold text-gray-600">{t?.product || 'Product'}</th>
+              <th scope="col" className="text-left p-3 font-semibold text-gray-600">{t?.bestFor || 'Best For'}</th>
               <th scope="col" className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">
-                Score <SortBtn col="score" sortKey={sortKey} sortDir={sortDir} onSort={handleSort} />
+                {t?.score || 'Score'} <SortBtn col="score" sortKey={sortKey} sortDir={sortDir} onSort={handleSort} t={t} />
               </th>
               <th scope="col" className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">
-                Price/mo <SortBtn col={priceField as SortKey} sortKey={sortKey} sortDir={sortDir} onSort={handleSort} />
+                {t?.priceMo || 'Price/mo'} <SortBtn col={priceField as SortKey} sortKey={sortKey} sortDir={sortDir} onSort={handleSort} t={t} />
               </th>
-              <th scope="col" className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">Caffeine-Free</th>
+              <th scope="col" className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">{t?.caffeineFree || 'Caffeine-Free'}</th>
               {market === 'eu' && (
-                <th scope="col" className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">EU Status</th>
+                <th scope="col" className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">{t?.euStatus || 'EU Status'}</th>
               )}
               <th scope="col" className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">
-                Money-Back <SortBtn col="moneyBackDays" sortKey={sortKey} sortDir={sortDir} onSort={handleSort} />
+                {t?.moneyBack || 'Money-Back'} <SortBtn col="moneyBackDays" sortKey={sortKey} sortDir={sortDir} onSort={handleSort} t={t} />
               </th>
               <th scope="col" className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">
-                Trustpilot <SortBtn col="trustpilotScore" sortKey={sortKey} sortDir={sortDir} onSort={handleSort} />
+                {t?.trustpilot || 'Trustpilot'} <SortBtn col="trustpilotScore" sortKey={sortKey} sortDir={sortDir} onSort={handleSort} t={t} />
               </th>
               <th scope="col" className="p-3"><span className="sr-only">Actions</span></th>
             </tr>
@@ -208,7 +211,7 @@ export default function ComparisonTable({ products, market }: Props) {
                       </span>
                     </>
                   ) : (
-                    <span className="text-gray-400 text-sm">N/A</span>
+                    <span className="text-gray-400 text-sm">{t?.na || 'N/A'}</span>
                   )}
                 </td>
                 <td className="p-3">
@@ -218,7 +221,7 @@ export default function ComparisonTable({ products, market }: Props) {
                     rel="nofollow sponsored noopener noreferrer"
                     className="bg-green-700 hover:bg-green-600 text-white text-xs font-bold px-3 py-1.5 rounded whitespace-nowrap"
                   >
-                    Check Price →
+                    {t?.checkPrice || 'Check Price →'}
                   </a>
                 </td>
               </tr>
@@ -226,7 +229,7 @@ export default function ComparisonTable({ products, market }: Props) {
             {filtered.length === 0 && (
               <tr>
                 <td colSpan={10} className="p-8 text-center text-gray-500">
-                  No products match your filters. Try removing one.
+                  {t?.noResults || 'No products match your filters. Try removing one.'}
                 </td>
               </tr>
             )}
@@ -257,21 +260,21 @@ export default function ComparisonTable({ products, market }: Props) {
               </div>
               <div className="grid grid-cols-2 gap-2 text-sm mb-3">
                 <div>
-                  <span className="text-gray-500">Price: </span>
+                  <span className="text-gray-500">{t?.priceMo ? `${t.priceMo}:` : 'Price:'} </span>
                   <strong>
                     {p[priceField] !== undefined ? `${currency}${p[priceField]}/mo` : '—'}
                   </strong>
                 </div>
                 <div>
-                  <span className="text-gray-500">Money-back: </span>
+                  <span className="text-gray-500">{t?.moneyBack ? `${t.moneyBack}:` : 'Money-back:'} </span>
                   <strong>{p.moneyBackDays}d</strong>
                 </div>
                 <div>
-                  <span className="text-gray-500">Caffeine-free: </span>
-                  <strong>{p.caffeineFree ? 'Yes' : 'No'}</strong>
+                  <span className="text-gray-500">{t?.caffeineFree ? `${t.caffeineFree}:` : 'Caffeine-free:'} </span>
+                  <strong>{p.caffeineFree ? (t?.yes || 'Yes') : (t?.no || 'No')}</strong>
                 </div>
                 <div>
-                  <span className="text-gray-500">Trustpilot: </span>
+                  <span className="text-gray-500">{t?.trustpilot ? `${t.trustpilot}:` : 'Trustpilot:'} </span>
                   {p.trustpilotScore > 0 ? (
                     <strong
                       className={
@@ -285,7 +288,7 @@ export default function ComparisonTable({ products, market }: Props) {
                       {p.trustpilotScore}/5
                     </strong>
                   ) : (
-                    <span className="text-gray-400">N/A</span>
+                    <span className="text-gray-400">{t?.na || 'N/A'}</span>
                   )}
                 </div>
               </div>
@@ -300,13 +303,13 @@ export default function ComparisonTable({ products, market }: Props) {
                 rel="nofollow sponsored noopener noreferrer"
                 className="block w-full bg-green-700 hover:bg-green-600 text-white text-sm font-bold py-2 rounded text-center"
               >
-                Check Current Price →
+                {t?.checkPrice || 'Check Current Price →'}
               </a>
             </div>
           </div>
         ))}
         {filtered.length === 0 && (
-          <p className="text-center text-gray-500 py-8">No products match your filters.</p>
+          <p className="text-center text-gray-500 py-8">{t?.noResults || 'No products match your filters.'}</p>
         )}
       </div>
     </div>

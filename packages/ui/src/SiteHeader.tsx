@@ -5,14 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import SearchModal from './SearchModal';
 import type { SearchItem } from './SearchModal';
-
-const navLinks = [
-  { href: '/best-nootropics', label: 'Best Nootropics' },
-  { href: '/nootropic-comparison', label: 'Compare' },
-  { href: '/ingredients', label: 'Ingredients' },
-  { href: '/guides', label: 'Guides' },
-  { href: '/methodology', label: 'Methodology' },
-];
+import type { UIStrings } from '@nootropic/data';
 
 type MarketKey = 'us' | 'eu' | 'ca' | 'au' | 'jp' | 'latam' | 'gcc' | 'sea';
 
@@ -21,7 +14,15 @@ const marketLabel: Record<MarketKey, string> = {
   jp: 'Japan', latam: 'Latam', gcc: 'GCC', sea: 'SEA',
 };
 
-export default function SiteHeader({ market, searchItems = [] }: { market: MarketKey; searchItems?: SearchItem[] }) {
+export default function SiteHeader({ market, searchItems = [], strings }: { market: MarketKey; searchItems?: SearchItem[]; strings?: UIStrings }) {
+  const t = strings?.nav;
+  const navLinks = [
+    { href: '/best-nootropics', label: t?.bestNootropics || 'Best Nootropics' },
+    { href: '/nootropic-comparison', label: t?.compare || 'Compare' },
+    { href: '/ingredients', label: t?.ingredients || 'Ingredients' },
+    { href: '/guides', label: t?.guides || 'Guides' },
+    { href: '/methodology', label: t?.methodology || 'Methodology' },
+  ];
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
@@ -86,7 +87,7 @@ export default function SiteHeader({ market, searchItems = [] }: { market: Marke
             href="/best-nootropics"
             className="hidden md:inline-flex items-center gap-1.5 bg-green-700 hover:bg-green-600 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors shrink-0"
           >
-            Top Picks
+            {t?.topPicks || 'Top Picks'}
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -96,7 +97,7 @@ export default function SiteHeader({ market, searchItems = [] }: { market: Marke
           <button
             className="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
             onClick={() => setOpen(o => !o)}
-            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-label={open ? (t?.closeMenu || 'Close menu') : (t?.openMenu || 'Open menu')}
             aria-expanded={open}
           >
             {open ? (
@@ -155,7 +156,7 @@ export default function SiteHeader({ market, searchItems = [] }: { market: Marke
               onClick={() => setOpen(false)}
               className="mt-2 flex items-center justify-center gap-1.5 bg-green-700 hover:bg-green-600 text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition-colors"
             >
-              Top Picks →
+              {t?.topPicks || 'Top Picks'} →
             </Link>
           </nav>
         </div>

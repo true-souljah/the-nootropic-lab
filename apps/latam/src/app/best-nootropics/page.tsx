@@ -29,7 +29,7 @@ export default function BestNootropicsLatamPage() {
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: 'Best Nootropics in Latin America 2026',
+    headline: 'Los Mejores Nootrópicos en Latinoamérica 2026',
     datePublished: '2026-01-15',
     dateModified: new Date().toISOString().split('T')[0],
     author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team' },

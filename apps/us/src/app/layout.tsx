@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import './globals.css';
 import { SiteHeader, SiteFooter, CookieBanner } from '@nootropic/ui';
-import { productsUS, ingredients, guides, buildSearchIndex } from '@nootropic/data';
+import { productsUS, ingredients, guides, buildSearchIndex, getStrings } from '@nootropic/data';
+import type { Locale } from '@nootropic/data';
 
 export const metadata: Metadata = {
   title: {
@@ -29,15 +30,16 @@ export const metadata: Metadata = {
 };
 
 const searchItems = buildSearchIndex(productsUS, ingredients, guides);
+const strings = getStrings('en');
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <SiteHeader market="us" searchItems={searchItems} />
+        <SiteHeader market="us" searchItems={searchItems} strings={strings} />
         <main className="min-h-screen">{children}</main>
-        <SiteFooter />
-        <CookieBanner />
+        <SiteFooter strings={strings} />
+        <CookieBanner strings={strings} />
         <Script
           defer
           src="https://static.cloudflareinsights.com/beacon.min.js"

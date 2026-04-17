@@ -58,7 +58,7 @@ export default async function IngredientPage({
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: `${ing.name} — EU Nootropic Ingredient Guide`,
+    headline: `${ing.name} — Guía de Ingredientes Nootrópicos`,
     description: ing.studySummary,
     author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team' },
   };
@@ -67,8 +67,8 @@ export default async function IngredientPage({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://eu.thenootropiclab.com' },
-      { '@type': 'ListItem', position: 2, name: 'Ingredients', item: 'https://eu.thenootropiclab.com/ingredients' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://latam.thenootropiclab.com' },
+      { '@type': 'ListItem', position: 2, name: 'Ingredients', item: 'https://latam.thenootropiclab.com/ingredients' },
       { '@type': 'ListItem', position: 3, name: ing.name },
     ],
   };
