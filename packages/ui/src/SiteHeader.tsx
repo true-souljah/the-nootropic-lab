@@ -114,7 +114,24 @@ export default function SiteHeader({ market, searchItems = [] }: { market: Marke
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden border-t border-gray-100 bg-white px-4 pb-4">
+        <div
+          className="md:hidden border-t border-gray-100 bg-white px-4 pb-4"
+          onKeyDown={e => {
+            if (e.key === 'Tab') {
+              const focusable = e.currentTarget.querySelectorAll<HTMLElement>('a, button');
+              const first = focusable[0];
+              const last = focusable[focusable.length - 1];
+              if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last?.focus();
+              } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first?.focus();
+              }
+            }
+            if (e.key === 'Escape') setOpen(false);
+          }}
+        >
           <nav className="flex flex-col gap-1 pt-2">
             {navLinks.map(({ href, label }) => {
               const active = pathname === href || pathname.startsWith(href + '/');

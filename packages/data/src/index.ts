@@ -25,3 +25,5 @@ export type { AUState } from './au-states';
 export { auStates } from './au-states';
 export type { JPPrefecture } from './jp-prefectures';
 export { jpPrefectures } from './jp-prefectures';
+export type { SearchItem } from './search';
+export { buildSearchIndex } from './search';
