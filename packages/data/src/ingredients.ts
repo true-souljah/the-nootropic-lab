@@ -89,7 +89,7 @@ export const ingredients: Ingredient[] = [
     studySummary: 'A meta-analysis of 9 RCTs (Kongkeaw et al., 2014) found Bacopa significantly improved attention, cognitive processing, and working memory versus placebo. Effects are cumulative — most studies measure outcomes at 8–12 weeks. Best evidence is for memory consolidation rather than acute recall.',
     benefits: ['Memory consolidation', 'Reduced cognitive decline', 'Anxiety reduction', 'Antioxidant neuroprotection'],
     sideEffects: ['GI discomfort at high doses (take with food)', 'Slowed information processing initially', 'Not recommended during pregnancy'],
-    productsContaining: ['mind-lab-pro-review', 'noocube-review', 'onnit-alpha-brain-review', 'hunter-focus-review', 'braineffect-focus-review', 'brainzyme-focus-pro-review'],
+    productsContaining: ['mind-lab-pro-review', 'noocube-review', 'onnit-alpha-brain-review', 'hunter-focus-review', 'braineffect-focus-review', 'brainzyme-focus-pro-review', 'herbamz-neuromax-review', 'life-pharmacy-neuro-shield-review', 'blackmores-brain-active-review', 'natures-own-brain-fuel-review'],
     humanEffects: [
       { effect: 'Memory Consolidation', evidenceStrength: 'strong', magnitude: 'moderate', studies: 9, notes: 'Meta-analysis of 9 RCTs confirms effects on new memory formation; long-term recall improves more than immediate recall.' },
       { effect: 'Anxiety Reduction', evidenceStrength: 'moderate', magnitude: 'moderate', studies: 5, notes: 'Significant in anxious populations; more modest in healthy low-stress subjects.' },
@@ -232,7 +232,7 @@ export const ingredients: Ingredient[] = [
     studySummary: "FDA allows a qualified health claim for PS and reduced risk of dementia. Multiple RCTs (Crook et al., 1991; Cenacchi et al., 1993) show improvements in memory, learning, and concentration in age-related cognitive decline. The 2010 soy-free sunflower-derived form shows equivalent bioavailability to the original bovine-cortex-derived PS used in older trials.",
     benefits: ['Memory recall speed', 'Cortisol reduction under stress', 'Age-related cognitive support', 'Focus and processing speed'],
     sideEffects: ['Well tolerated', 'Mild GI discomfort in some users', 'Blood-thinning interaction possible at high doses'],
-    productsContaining: ['mind-lab-pro-review', 'qualia-mind-review', 'performance-lab-mind-review', 'hunter-focus-review'],
+    productsContaining: ['mind-lab-pro-review', 'qualia-mind-review', 'performance-lab-mind-review', 'hunter-focus-review', 'fancl-brains-review', 'herbamz-neuromax-review', 'nahdi-brain-boost-review', 'blackmores-brain-active-review'],
     humanEffects: [
       { effect: 'Memory Recall', evidenceStrength: 'strong', magnitude: 'moderate', studies: 11, notes: 'Particularly strong in age-related memory decline populations; effects in young healthy adults are more modest.' },
       { effect: 'Cortisol Reduction', evidenceStrength: 'moderate', magnitude: 'moderate', studies: 6, notes: 'Significant blunting of cortisol response to exercise and psychological stress. Onset within 1–2 weeks.' },
@@ -302,7 +302,7 @@ export const ingredients: Ingredient[] = [
     studySummary: "A 2019 RCT (Choudhary et al.) found KSM-66 at 300mg twice daily significantly improved memory, attention, and information processing speed versus placebo over 8 weeks. A 2012 RCT showed 27.9% reduction in cortisol. KSM-66 has the most clinical trials of any ashwagandha extract (>24 gold-standard studies).",
     benefits: ['Cortisol reduction', 'Cognitive function under stress', 'Sleep quality', 'Muscle strength and recovery'],
     sideEffects: ['Generally safe', 'GI upset in some users', 'Contraindicated in thyroid conditions', 'Avoid during pregnancy'],
-    productsContaining: ['thesis-nootropics-review', 'hunter-focus-review'],
+    productsContaining: ['thesis-nootropics-review', 'hunter-focus-review', 'life-pharmacy-neuro-shield-review'],
     humanEffects: [
       { effect: 'Cortisol Reduction', evidenceStrength: 'strong', magnitude: 'large', studies: 11, notes: '27.9% cortisol reduction (Chandrasekhar 2012) is one of the largest effect sizes in the adaptogen literature.' },
       { effect: 'Anxiety & Stress', evidenceStrength: 'strong', magnitude: 'large', studies: 10, notes: 'Consistently significant in both clinical anxiety populations and healthy high-stress subjects.' },
@@ -443,7 +443,7 @@ export const ingredients: Ingredient[] = [
     studySummary: 'Ginkgo is one of the most studied herbal nootropics with over 400 clinical trials. The landmark GEM trial (2008, n=3,069) found no benefit for dementia prevention in healthy elderly. However, meta-analyses of shorter trials (Tan et al., 2015) show modest improvements in cognitive function and daily living in existing mild cognitive impairment. EGb 761 is the most studied extract form. Benefits are most consistent in populations with existing cognitive decline rather than healthy young adults.',
     benefits: ['Improved cerebral blood flow', 'Memory support in older adults', 'Antioxidant neuroprotection', 'May reduce cognitive decline progression'],
     sideEffects: ['Headache', 'GI discomfort', 'Increased bleeding risk (avoid with blood thinners)', 'Rare: allergic skin reactions'],
-    productsContaining: ['fancl-brains-review'],
+    productsContaining: ['fancl-brains-review', 'naturebell-ginkgo-ginseng-review', 'genomma-lab-neuriplus-review', 'nahdi-brain-boost-review', 'life-pharmacy-neuro-shield-review', 'blackmores-brain-active-review', 'natures-own-brain-fuel-review'],
     humanEffects: [
       { effect: 'Cerebral Blood Flow', evidenceStrength: 'strong', magnitude: 'moderate', studies: 15, notes: 'Well-established vasodilatory effect. Acute increase measurable via Doppler within 2 hours of dosing.' },
       { effect: 'Memory (Cognitive Decline)', evidenceStrength: 'moderate', magnitude: 'moderate', studies: 20, notes: 'Consistent benefits in mild cognitive impairment populations. Less clear in healthy adults.' },
@@ -478,7 +478,7 @@ export const ingredients: Ingredient[] = [
     studySummary: 'DHA is essential for brain development and maintenance. Observational studies consistently link higher omega-3 intake to reduced cognitive decline risk. However, RCT results are mixed: a 2012 Cochrane review found no benefit of omega-3 supplementation for preventing cognitive decline in healthy elderly. More targeted research (Yurko-Mauro et al., 2010) showed 900mg DHA/day improved episodic memory in age-related cognitive decline. Benefits are most consistent in populations with low baseline omega-3 status and existing cognitive concerns.',
     benefits: ['Neuronal membrane integrity', 'Reduced neuroinflammation', 'Supports BDNF for neuroplasticity', 'Cardiovascular co-benefits'],
     sideEffects: ['Fishy aftertaste or burps', 'Mild GI discomfort at high doses', 'Potential blood-thinning effect at very high doses (>3g/day)', 'Generally very well tolerated'],
-    productsContaining: ['fancl-brains-review', 'suntory-dha-epa-sesamin-review'],
+    productsContaining: ['fancl-brains-review', 'suntory-dha-epa-sesamin-review', 'genomma-lab-neuriplus-review', 'blackmores-brain-active-review'],
     humanEffects: [
       { effect: 'Memory (Age-Related Decline)', evidenceStrength: 'moderate', magnitude: 'moderate', studies: 10, notes: '900mg DHA/day showed episodic memory improvements in adults with age-related cognitive concerns (Yurko-Mauro et al., 2010).' },
       { effect: 'Memory (Healthy Adults)', evidenceStrength: 'mixed', magnitude: 'small', studies: 8, notes: 'Less consistent in healthy young adults. Benefits may be most pronounced in those with low baseline omega-3 intake.' },
