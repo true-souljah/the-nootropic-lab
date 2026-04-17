@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { ComparisonTable, AffiliateDisclosure, SchemaOrg } from '@nootropic/ui';
-import { productsLatam } from '@nootropic/data';
+import { productsLatam, getStrings } from '@nootropic/data';
+
+const strings = getStrings('es');
 
 export const metadata: Metadata = {
   title: 'Herramienta de Comparación de Nootrópicos — América Latina',
@@ -32,9 +34,9 @@ export default function ComparisonToolPage() {
           Compara todas las marcas principales disponibles en América Latina lado a lado. Ordena por puntuación, precio o
           garantía de devolución. Filtra por libre de cafeína.
         </p>
-        <AffiliateDisclosure />
+        <AffiliateDisclosure strings={strings} />
         <div className="mt-8">
-          <ComparisonTable products={productsLatam} market="us" />
+          <ComparisonTable products={productsLatam} market="us" strings={strings} />
         </div>
       </div>
     </>

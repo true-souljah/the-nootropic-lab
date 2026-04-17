@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { AffiliateDisclosure, SchemaOrg, StickyCtaBar } from '@nootropic/ui';
-import { productsLatam } from '@nootropic/data';
+import { productsLatam, getStrings } from '@nootropic/data';
+
+const strings = getStrings('es');
 
 export const dynamicParams = false;
 
@@ -116,7 +118,7 @@ export default async function ProductReviewPage({
 
         <p className="text-lg text-gray-600 mb-8 leading-relaxed">{product.summary}</p>
 
-        <AffiliateDisclosure />
+        <AffiliateDisclosure strings={strings} />
 
         {/* Table of Contents */}
         <nav className="bg-gray-50 rounded-lg p-4 mb-8 text-sm">

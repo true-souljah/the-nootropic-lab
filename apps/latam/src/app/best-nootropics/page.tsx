@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { ComparisonTable, AffiliateDisclosure, StickyCtaBar, SchemaOrg } from '@nootropic/ui';
-import { productsLatam } from '@nootropic/data';
+import { productsLatam, getStrings } from '@nootropic/data';
 
 export const metadata: Metadata = {
   title: 'Los Mejores Nootrópicos en Latinoamérica 2026 — Guía del Comprador',
@@ -22,6 +22,8 @@ const faqItems = [
     a: 'Brasil aplica hasta un 60% de impuesto de importación sobre suplementos, el más alto de Latinoamérica. México suele estar libre de aranceles en compras menores a 50 dólares. Argentina, Colombia, Chile y Perú cobran entre el 6 y el 20% según la clasificación del producto. Pedir un suministro de 1 mes te mantiene dentro de los límites de importación personal.',
   },
 ];
+
+const strings = getStrings('es');
 
 export default function BestNootropicsLatamPage() {
   const winner = productsLatam.find(p => p.editorChoice)!;
@@ -70,7 +72,7 @@ export default function BestNootropicsLatamPage() {
           </p>
         </div>
 
-        <AffiliateDisclosure />
+        <AffiliateDisclosure strings={strings} />
 
         <div className="bg-yellow-50 border border-yellow-300 rounded-xl p-5 mb-10 mt-6">
           <div className="editor-badge mb-2 inline-block">Elección del Editor — Latam 2026</div>
@@ -88,7 +90,7 @@ export default function BestNootropicsLatamPage() {
 
         <section id="comparison-table">
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Comparativa de Nootrópicos en Latam 2026</h2>
-          <ComparisonTable products={productsLatam} market="us" />
+          <ComparisonTable products={productsLatam} market="us" strings={strings} />
         </section>
 
         <section className="mt-12">

@@ -3,6 +3,7 @@ import type { UIStrings } from '@nootropic/data';
 
 export default function SiteFooter({ strings }: { strings?: UIStrings }) {
   const t = strings?.footer;
+  const n = strings?.nav;
   return (
     <footer className="border-t border-gray-200 bg-gray-50 mt-16 py-10 text-sm text-gray-500">
       <div className="max-w-5xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -17,22 +18,22 @@ export default function SiteFooter({ strings }: { strings?: UIStrings }) {
           <ul className="space-y-1 text-xs">
             <li>
               <Link href="/best-nootropics" className="hover:text-green-700">
-                Best Nootropics
+                {n?.bestNootropics || 'Best Nootropics'}
               </Link>
             </li>
             <li>
               <Link href="/nootropic-comparison" className="hover:text-green-700">
-                Compare All
+                {n?.compare || 'Compare All'}
               </Link>
             </li>
             <li>
               <Link href="/ingredients" className="hover:text-green-700">
-                Ingredients
+                {n?.ingredients || 'Ingredients'}
               </Link>
             </li>
             <li>
               <Link href="/guides" className="hover:text-green-700">
-                Guides
+                {n?.guides || 'Guides'}
               </Link>
             </li>
           </ul>
