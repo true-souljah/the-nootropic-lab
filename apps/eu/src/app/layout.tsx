@@ -25,6 +25,7 @@ export const metadata: Metadata = {
       'en': '/',
       'de-DE': '/de/beste-nootropika',
       'fr-FR': '/fr/meilleurs-nootropiques',
+      'pt-PT': '/pt/melhores-nootropicos',
     },
   },
 };

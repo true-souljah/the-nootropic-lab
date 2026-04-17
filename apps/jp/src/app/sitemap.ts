@@ -16,6 +16,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/methodology`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
     { url: `${BASE}/privacy-policy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE}/cookie-policy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
+    // Japanese locale pages
+    { url: `${BASE}/ja`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${BASE}/ja/best-nootropics`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${BASE}/ja/hikaku`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
   ];
 
   const productPages: MetadataRoute.Sitemap = productsJP.map(p => ({

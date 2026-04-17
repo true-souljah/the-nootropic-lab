@@ -1,118 +1,117 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { SchemaOrg } from '@nootropic/ui';
+import { productsEU } from '@nootropic/data';
 
 export const metadata: Metadata = {
-  title: 'The Nootropic Lab EU — Independent Cognitive Supplement Reviews for Europe',
+  title: 'The Nootropic Lab UE — Avaliações Independentes de Suplementos Cognitivos na Europa',
   description:
-    'The independent nootropic comparison platform for EU buyers. EUR pricing, EU-compliant products, and full regulatory guidance.',
+    'A plataforma independente de comparação de nootrópicos para compradores europeus. Preços em EUR, produtos com conformidade UE e orientação regulamentar completa.',
+  alternates: {
+    languages: {
+      en: '/',
+      'pt-PT': '/pt',
+    },
+  },
 };
 
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'The Nootropic Lab EU',
-  url: 'https://eu.thenootropiclab.com',
-  description: 'Independent cognitive supplement reviews for EU buyers.',
-};
-
-const orgSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'The Nootropic Lab',
-  url: 'https://eu.thenootropiclab.com',
-  description: 'Independent cognitive supplement reviews with clinical dosing audits and transparent affiliate disclosure.',
+  name: 'The Nootropic Lab UE',
+  url: 'https://eu.thenootropiclab.com/pt',
+  description: 'Avaliações independentes de suplementos cognitivos para compradores europeus.',
+  inLanguage: 'pt-PT',
 };
 
 const features = [
   {
     icon: '🔬',
-    title: 'Clinical dosing audits',
-    desc: 'Every product review includes a dosing-vs-evidence table comparing each ingredient to the minimum effective dose from peer-reviewed trials.',
+    title: 'Auditorias de dosagem clínica',
+    desc: 'Cada avaliação inclui uma tabela comparativa entre a dosagem utilizada e as doses mínimas eficazes encontradas em estudos clínicos revistos por pares.',
   },
   {
     icon: '🇪🇺',
-    title: 'EU compliance verified',
-    desc: 'We check every product against EU Directive 2002/46/EC and EFSA health claim Regulation (EC) 1924/2006. No US-only formulas recommended.',
+    title: 'Conformidade UE verificada',
+    desc: 'Verificamos cada produto em função da Directiva UE 2002/46/CE e do Regulamento (CE) n.º 1924/2006 da EFSA sobre alegações de saúde. Não recomendamos fórmulas disponíveis apenas nos EUA.',
   },
   {
     icon: '💶',
-    title: 'EUR pricing & EU shipping',
-    desc: 'Only products with dedicated EU storefronts are featured — no import duties, EUR pricing, and local shipping.',
+    title: 'Preços em EUR e envio na UE',
+    desc: 'Apenas produtos com lojas UE dedicadas são apresentados — sem direitos aduaneiros, com preços em EUR e envio local.',
   },
 ];
 
 const quickLinks = [
   {
-    href: '/best-nootropics',
-    title: 'Best Nootropics 2026 (EU)',
-    desc: 'Full EU comparison with clinical dosing audit and EUR prices.',
+    href: '/pt/melhores-nootropicos',
+    title: 'Os Melhores Nootrópicos 2026 (UE)',
+    desc: 'Comparação completa para a UE com auditoria de dosagem clínica e preços em EUR.',
   },
   {
     href: '/nootropic-comparison',
-    title: 'Interactive Comparison Tool',
-    desc: 'Sort and filter every EU-available brand side-by-side.',
+    title: 'Ferramenta de Comparação Interactiva',
+    desc: 'Ordene e filtre todas as marcas disponíveis na UE lado a lado.',
   },
   {
     href: '/methodology',
-    title: 'Our Methodology',
-    desc: 'How we score and review cognitive supplements.',
+    title: 'A Nossa Metodologia',
+    desc: 'Como avaliamos os nootrópicos.',
   },
 ];
 
-export default function EUHomePage() {
+export default function PTHomePage() {
   return (
     <>
       <SchemaOrg schema={websiteSchema} />
-      <SchemaOrg schema={orgSchema} />
 
       {/* Hero */}
-      <section className="bg-gradient-to-b from-green-50 to-white py-16 px-4">
+      <section className="bg-gradient-to-b from-green-50 to-white py-16 px-4" lang="pt-PT">
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full mb-4">
-            EU Market · EUR Pricing · EU-Compliant Products
+            Mercado UE · Preços em EUR · Produtos com Conformidade UE
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
-            The Independent EU Guide to
+            O Guia Independente da UE para
             <br />
-            <span className="text-green-700">Cognitive Supplements</span>
+            <span className="text-green-700">Suplementos Cognitivos</span>
           </h1>
           <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
-            We review nootropics specifically for European buyers. EUR pricing, EU regulatory
-            compliance, and no hidden import costs.
+            Avaliamos nootrópicos especificamente para compradores europeus. Preços em EUR,
+            conformidade regulamentar da UE e sem custos ocultos de importação.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
-              href="/best-nootropics"
+              href="/pt/melhores-nootropicos"
               className="bg-green-700 hover:bg-green-600 text-white font-bold px-8 py-3 rounded-lg transition-colors"
             >
-              Best Nootropics EU 2026 →
+              Os Melhores Nootrópicos na Europa 2026 →
             </Link>
             <Link
               href="/nootropic-comparison"
               className="bg-white hover:bg-gray-50 text-gray-800 font-bold px-8 py-3 rounded-lg border border-gray-300 transition-colors"
             >
-              Compare All EU Brands
+              Comparar Todas as Marcas UE
             </Link>
           </div>
           <div className="mt-4 flex gap-4 justify-center text-sm text-gray-500">
+            <Link href="/" className="text-green-700 underline">
+              🇬🇧 English
+            </Link>
             <Link href="/de/beste-nootropika" className="text-green-700 underline">
               🇩🇪 Deutsch
             </Link>
             <Link href="/fr/meilleurs-nootropiques" className="text-green-700 underline">
               🇫🇷 Français
             </Link>
-            <Link href="/pt/melhores-nootropicos" className="text-green-700 underline">
-              🇵🇹 Português
-            </Link>
           </div>
         </div>
       </section>
 
       {/* Feature grid */}
-      <section className="max-w-5xl mx-auto px-4 py-16">
+      <section className="max-w-5xl mx-auto px-4 py-16" lang="pt-PT">
         <h2 className="text-2xl font-bold text-center text-gray-900 mb-10">
-          Built for European buyers
+          Concebido para compradores europeus
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           {features.map(f => (
@@ -126,8 +125,8 @@ export default function EUHomePage() {
       </section>
 
       {/* Quick links */}
-      <section className="max-w-5xl mx-auto px-4 pb-16">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Start your research</h2>
+      <section className="max-w-5xl mx-auto px-4 pb-16" lang="pt-PT">
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">Inicie a sua pesquisa</h2>
         <div className="grid md:grid-cols-3 gap-4">
           {quickLinks.map(l => (
             <Link

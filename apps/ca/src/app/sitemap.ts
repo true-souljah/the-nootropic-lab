@@ -19,6 +19,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/methodology`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
     { url: `${BASE}/privacy-policy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE}/cookie-policy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
+    // French Canadian locale
+    { url: `${BASE}/fr`, lastModified: now, changeFrequency: 'weekly', priority: 1.0 },
+    { url: `${BASE}/fr/meilleurs-nootropiques`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${BASE}/fr/comparer`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
   ];
 
   const productPages: MetadataRoute.Sitemap = productsCA.map(p => ({

@@ -16,6 +16,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/cookie-policy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE}/de/beste-nootropika`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE}/fr/meilleurs-nootropiques`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE}/pt`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE}/pt/melhores-nootropicos`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
   ];
 
   const productPages: MetadataRoute.Sitemap = productsEU.map(p => ({
