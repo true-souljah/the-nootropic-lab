@@ -57,7 +57,7 @@ const features = [
 const quickLinks = [
   {
     href: '/best-nootropics',
-    title: 'Best Nootropics 2026 (US)',
+    title: `Best Nootropics ${new Date().getFullYear()} (US)`,
     desc: 'Full comparison of top US brands with clinical dosing audit.',
   },
   {
@@ -98,7 +98,7 @@ export default function HomePage() {
               href="/best-nootropics"
               className="bg-green-700 hover:bg-green-600 text-white font-bold px-8 py-3 rounded-lg transition-colors"
             >
-              Best Nootropics 2026 →
+              Best Nootropics {new Date().getFullYear()} →
             </Link>
             <Link
               href="/nootropic-comparison"
@@ -127,7 +127,7 @@ export default function HomePage() {
       </section>
 
       {/* Quick links */}
-      <section className="max-w-5xl mx-auto px-4 pb-16">
+      <section className="max-w-5xl mx-auto px-4 pb-12">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">Start your research</h2>
         <div className="grid md:grid-cols-3 gap-4">
           {quickLinks.map(l => (
@@ -140,6 +140,55 @@ export default function HomePage() {
               <div className="text-sm text-gray-500">{l.desc}</div>
             </Link>
           ))}
+        </div>
+      </section>
+
+      {/* Browse by goal */}
+      <section className="max-w-5xl mx-auto px-4 pb-12">
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">Browse by goal</h2>
+        <p className="text-sm text-gray-500 mb-6">Different ingredients suit different cognitive goals.</p>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <Link href="/best-nootropics-for-focus/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+            <div className="font-semibold text-gray-900 text-sm mb-1">For focus</div>
+            <div className="text-xs text-gray-500">L-theanine + caffeine, citicoline</div>
+          </Link>
+          <Link href="/best-nootropics-for-memory/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+            <div className="font-semibold text-gray-900 text-sm mb-1">For memory</div>
+            <div className="text-xs text-gray-500">Bacopa, Lion&apos;s Mane, PS</div>
+          </Link>
+          <Link href="/best-nootropics-for-studying/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+            <div className="font-semibold text-gray-900 text-sm mb-1">For studying</div>
+            <div className="text-xs text-gray-500">Sustained focus + retention</div>
+          </Link>
+          <Link href="/best-nootropics-for-aging/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+            <div className="font-semibold text-gray-900 text-sm mb-1">For aging brain</div>
+            <div className="text-xs text-gray-500">PS FDA qualified claim</div>
+          </Link>
+          <Link href="/best-nootropics-for-adhd/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+            <div className="font-semibold text-gray-900 text-sm mb-1">ADHD-adjacent focus</div>
+            <div className="text-xs text-gray-500">Honest editorial — NOT a substitute for treatment</div>
+          </Link>
+          <Link href="/natural-adderall-alternatives/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+            <div className="font-semibold text-gray-900 text-sm mb-1">Natural Adderall alternatives</div>
+            <div className="text-xs text-gray-500">No supplement is equivalent — what evidence shows</div>
+          </Link>
+        </div>
+      </section>
+
+      {/* Compare top brands */}
+      <section className="max-w-5xl mx-auto px-4 pb-16">
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">Compare top brands</h2>
+        <p className="text-sm text-gray-500 mb-6">Side-by-side dosing audits + verdict.</p>
+        <div className="grid sm:grid-cols-3 gap-3">
+          <Link href="/mind-lab-pro-vs-alpha-brain/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+            <div className="font-semibold text-gray-900 text-sm">Mind Lab Pro vs Alpha Brain</div>
+          </Link>
+          <Link href="/mind-lab-pro-vs-qualia-mind/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+            <div className="font-semibold text-gray-900 text-sm">Mind Lab Pro vs Qualia Mind</div>
+          </Link>
+          <Link href="/alpha-brain-vs-qualia-mind/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+            <div className="font-semibold text-gray-900 text-sm">Alpha Brain vs Qualia Mind</div>
+          </Link>
         </div>
       </section>
     </>

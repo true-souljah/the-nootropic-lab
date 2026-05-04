@@ -2,8 +2,9 @@ import type { Metadata } from 'next';
 import { SchemaOrg } from '@nootropic/ui';
 import { guides } from '@nootropic/data';
 
+const CURRENT_YEAR = new Date().getFullYear();
 export const metadata: Metadata = {
-  title: 'Guías de Nootrópicos 2026 — De Principiante a Avanzado',
+  title: `Guías de Nootrópicos ${CURRENT_YEAR} — De Principiante a Avanzado`,
   description:
     'Aprende todo sobre los nootrópicos disponibles en Latam: qué son, cómo funcionan, cómo combinarlos de forma segura y qué esperar de manera realista.',
 };
@@ -47,7 +48,7 @@ export default function GuidesPage() {
         </nav>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-          Guías de Nootrópicos 2026
+          Guías de Nootrópicos {CURRENT_YEAR}
         </h1>
         <p className="text-lg text-gray-600 mb-10">
           Guías prácticas y basadas en evidencia para entender y usar los nootrópicos de forma efectiva.

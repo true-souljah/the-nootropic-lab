@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { ComparisonTable, AffiliateDisclosure, SchemaOrg } from '@nootropic/ui';
 import { productsUS } from '@nootropic/data';
 
+const CURRENT_YEAR = new Date().getFullYear();
 export const metadata: Metadata = {
   title: 'Nootropic Comparison: Side-by-Side Table for Every Major US Brand',
   description:
@@ -12,7 +13,7 @@ export default function ComparisonToolPage() {
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Best Nootropic Supplements 2026',
+    name: `Best Nootropic Supplements ${CURRENT_YEAR}`,
     itemListElement: productsUS.map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,

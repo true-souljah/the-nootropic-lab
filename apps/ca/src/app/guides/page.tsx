@@ -2,8 +2,9 @@ import type { Metadata } from 'next';
 import { SchemaOrg } from '@nootropic/ui';
 import { guides } from '@nootropic/data';
 
+const CURRENT_YEAR = new Date().getFullYear();
 export const metadata: Metadata = {
-  title: 'Nootropics Guides 2026 — Canada, Beginner to Advanced',
+  title: `Nootropics Guides ${CURRENT_YEAR} — Canada, Beginner to Advanced`,
   description:
     'Learn everything about nootropics available in the EU: what they are, how they work, how to stack them safely, and what to realistically expect.',
 };

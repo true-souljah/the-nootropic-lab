@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { ComparisonTable, AffiliateDisclosure, SchemaOrg } from '@nootropic/ui';
 import { productsJP } from '@nootropic/data';
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 export const metadata: Metadata = {
   title: 'ノートロピクス比較 — 日本向け全ブランド比較表',
   description:
@@ -18,7 +20,7 @@ export default function JaHikakuPage() {
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: '2026年 日本向け最高のノートロピクスサプリメント',
+    name: `${CURRENT_YEAR}年 日本向け最高のノートロピクスサプリメント`,
     itemListElement: productsJP.map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,

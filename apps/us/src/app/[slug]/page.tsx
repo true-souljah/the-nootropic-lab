@@ -1,7 +1,11 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { AffiliateDisclosure, SchemaOrg, StickyCtaBar } from '@nootropic/ui';
-import { productsUS } from '@nootropic/data';
+import { productsUS, getAuthorBySlug, buildPersonAuthorReference } from '@nootropic/data';
+
+const SITE_URL = 'https://thenootropiclab.com';
+const CURRENT_YEAR = new Date().getFullYear();
+const EDITORIAL_AUTHOR = getAuthorBySlug('stephan-kulik')!;
 
 export const dynamicParams = false;
 
@@ -17,11 +21,12 @@ export async function generateMetadata({
   const { slug } = await params;
   const product = productsUS.find(p => p.slug === slug);
   if (!product) return {};
-  const title = `${product.name} Review 2026 — Independent Score & Ingredient Audit`;
+  const title = `${product.name} Review ${CURRENT_YEAR} — Independent Score & Ingredient Audit`;
   const description = `Independent review of ${product.name}. Score: ${product.score}/10. Clinical dosing audit, pros and cons, and full affiliate disclosure.`;
   return {
     title,
     description,
+    alternates: { canonical: `${SITE_URL}/${product.slug}/` },
     openGraph: {
       title,
       description,
@@ -60,14 +65,9 @@ export default async function ProductReviewPage({
     review: {
       '@type': 'Review',
       reviewRating: { '@type': 'Rating', ratingValue: String(product.score), bestRating: '10' },
-      author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team' },
+      author: buildPersonAuthorReference(EDITORIAL_AUTHOR, SITE_URL),
+      publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
       reviewBody: product.summary,
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: String(product.score),
-      bestRating: '10',
-      ratingCount: '1',
     },
   };
 
@@ -75,8 +75,8 @@ export default async function ProductReviewPage({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://thenootropiclab.com' },
-      { '@type': 'ListItem', position: 2, name: 'Best Nootropics', item: 'https://thenootropiclab.com/best-nootropics' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: 'Best Nootropics', item: `${SITE_URL}/best-nootropics/` },
       { '@type': 'ListItem', position: 3, name: `${product.name} Review` },
     ],
   };
@@ -99,21 +99,32 @@ export default async function ProductReviewPage({
 
         {/* Author + date */}
         <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 mb-4">
-          <span>Reviewed by <strong className="text-gray-700">The Nootropic Lab Editorial Team</strong></span>
+          <span>
+            Reviewed by{' '}
+            <a href={`/authors/${EDITORIAL_AUTHOR.slug}/`} className="text-gray-700 hover:text-green-700 underline">
+              <strong>{EDITORIAL_AUTHOR.name}</strong>
+            </a>
+          </span>
           <span>·</span>
-          <span>Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+          <span>
+            Last updated:{' '}
+            {(product.updatedAt
+              ? new Date(product.updatedAt)
+              : new Date()
+            ).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </span>
         </div>
 
         {/* Header */}
         <div className="mb-6">
           <div className="flex flex-wrap items-center gap-2 mb-2">
             {product.editorChoice && (
-              <span className="editor-badge">Editor&apos;s Choice 2026</span>
+              <span className="editor-badge">Editor&apos;s Choice {CURRENT_YEAR}</span>
             )}
             <span className="text-xs text-gray-500">{product.brand}</span>
           </div>
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-            {product.name} Review 2026
+            {product.name} Review {CURRENT_YEAR}
           </h1>
           <div className="flex items-center gap-3">
             <span className="text-4xl font-black text-green-700">{product.score}</span>
@@ -317,6 +328,68 @@ export default async function ProductReviewPage({
           </div>
         </section>
 
+        {/* Head-to-head comparisons featuring this product */}
+        {(() => {
+          const headToHeads: { url: string; label: string }[] = [];
+          if (product.slug === 'mind-lab-pro-review') {
+            headToHeads.push(
+              { url: '/mind-lab-pro-vs-alpha-brain/', label: 'Mind Lab Pro vs Alpha Brain' },
+              { url: '/mind-lab-pro-vs-qualia-mind/', label: 'Mind Lab Pro vs Qualia Mind' },
+            );
+          }
+          if (product.slug === 'onnit-alpha-brain-review') {
+            headToHeads.push(
+              { url: '/mind-lab-pro-vs-alpha-brain/', label: 'Alpha Brain vs Mind Lab Pro' },
+              { url: '/alpha-brain-vs-qualia-mind/', label: 'Alpha Brain vs Qualia Mind' },
+            );
+          }
+          if (product.slug === 'qualia-mind-review') {
+            headToHeads.push(
+              { url: '/mind-lab-pro-vs-qualia-mind/', label: 'Qualia Mind vs Mind Lab Pro' },
+              { url: '/alpha-brain-vs-qualia-mind/', label: 'Qualia Mind vs Alpha Brain' },
+            );
+          }
+          if (headToHeads.length === 0) return null;
+          return (
+            <section className="mb-8">
+              <h2 className="text-xl font-bold text-gray-900 mb-3">
+                Compare {product.name} head-to-head
+              </h2>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {headToHeads.map(h => (
+                  <a
+                    key={h.url}
+                    href={h.url}
+                    className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 hover:shadow-sm transition-all"
+                  >
+                    <div className="font-semibold text-gray-900 text-sm mb-1">{h.label}</div>
+                    <div className="text-xs text-gray-500">Side-by-side clinical dosing audit + verdict</div>
+                  </a>
+                ))}
+              </div>
+            </section>
+          );
+        })()}
+
+        {/* Browse by goal */}
+        <section className="mb-8">
+          <h2 className="text-xl font-bold text-gray-900 mb-3">Browse by goal instead</h2>
+          <div className="grid sm:grid-cols-3 gap-3">
+            <a href="/best-nootropics-for-focus/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+              <div className="font-semibold text-gray-900 text-sm mb-1">For focus</div>
+              <div className="text-xs text-gray-500">L-theanine, citicoline, L-tyrosine</div>
+            </a>
+            <a href="/best-nootropics-for-memory/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+              <div className="font-semibold text-gray-900 text-sm mb-1">For memory</div>
+              <div className="text-xs text-gray-500">Bacopa, Lion&apos;s Mane, PS</div>
+            </a>
+            <a href="/best-nootropics-for-aging/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+              <div className="font-semibold text-gray-900 text-sm mb-1">For aging brain</div>
+              <div className="text-xs text-gray-500">PS FDA qualified claim</div>
+            </a>
+          </div>
+        </section>
+
         {/* Explore Ingredients */}
         <section className="mb-8">
           <div className="bg-green-50 border border-green-200 rounded-lg p-4 flex flex-col sm:flex-row items-start sm:items-center gap-3">
@@ -350,7 +423,7 @@ export default async function ProductReviewPage({
 
         <div className="text-sm text-gray-500">
           <a href="/best-nootropics" className="text-green-700 underline">
-            ← Back to Best Nootropics 2026
+            ← Back to Best Nootropics {CURRENT_YEAR}
           </a>
         </div>
       </article>

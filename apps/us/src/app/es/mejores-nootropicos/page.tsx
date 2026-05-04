@@ -2,10 +2,11 @@ import type { Metadata } from 'next';
 import { ComparisonTable, AffiliateDisclosure, SchemaOrg } from '@nootropic/ui';
 import { productsUS } from '@nootropic/data';
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 export const metadata: Metadata = {
-  title: 'Mejores Nootrópicos 2026: Comparativa Experta para EE. UU.',
-  description:
-    'Comparativa independiente de los mejores suplementos nootrópicos en 2026. Cada ingrediente auditado frente a ensayos clínicos. Puntuación transparente y divulgación de afiliados.',
+  title: `Mejores Nootrópicos ${CURRENT_YEAR}: Comparativa Experta para EE. UU.`,
+  description: `Comparativa independiente de los mejores suplementos nootrópicos en ${CURRENT_YEAR}. Cada ingrediente auditado frente a ensayos clínicos. Puntuación transparente y divulgación de afiliados.`,
   alternates: {
     languages: {
       'en-US': '/best-nootropics',
@@ -18,7 +19,7 @@ export default function EsMejoresNootropicosPage() {
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Mejores Suplementos Nootrópicos 2026',
+    name: `Mejores Suplementos Nootrópicos ${CURRENT_YEAR}`,
     itemListElement: productsUS.map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,
@@ -40,7 +41,7 @@ export default function EsMejoresNootropicosPage() {
           })}
         </div>
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          Mejores Nootrópicos 2026:
+          Mejores Nootrópicos {CURRENT_YEAR}:
           <br />
           Comparativa Experta para EE. UU.
         </h1>
@@ -61,7 +62,7 @@ export default function EsMejoresNootropicosPage() {
 
         <section id="comparison-table">
           <h2 className="text-2xl font-bold text-gray-900 mb-2">
-            Comparativa de Nootrópicos 2026
+            Comparativa de Nootrópicos {CURRENT_YEAR}
           </h2>
           <p className="text-sm text-gray-500 mb-4">
             Ordena por puntuación, precio, garantía de devolución del dinero o valoración de Trustpilot.
@@ -71,7 +72,7 @@ export default function EsMejoresNootropicosPage() {
 
         <div className="mt-10 text-sm text-gray-500">
           <a href="/best-nootropics" className="text-green-700 underline">
-            🇺🇸 Versión en inglés: Best Nootropics 2026
+            🇺🇸 Versión en inglés: Best Nootropics {CURRENT_YEAR}
           </a>
         </div>
       </article>

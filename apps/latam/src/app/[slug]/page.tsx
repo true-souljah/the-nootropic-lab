@@ -1,9 +1,12 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { AffiliateDisclosure, SchemaOrg, StickyCtaBar } from '@nootropic/ui';
-import { productsLatam, getStrings } from '@nootropic/data';
+import { productsLatam, getStrings, getAuthorBySlug, buildPersonAuthorReference } from '@nootropic/data';
 
 const strings = getStrings('es');
+const SITE_URL = 'https://latam.thenootropiclab.com';
+const CURRENT_YEAR = new Date().getFullYear();
+const EDITORIAL_AUTHOR = getAuthorBySlug('stephan-kulik')!;
 
 export const dynamicParams = false;
 
@@ -20,8 +23,9 @@ export async function generateMetadata({
   const product = productsLatam.find(p => p.slug === slug);
   if (!product) return {};
   return {
-    title: `Reseña de ${product.name} 2026 — Guía de Compra para América Latina`,
+    title: `Reseña de ${product.name} ${CURRENT_YEAR} — Guía de Compra para América Latina`,
     description: `Reseña independiente para América Latina de ${product.name}. Puntuación: ${product.score}/10. Auditoría de dosificación clínica y divulgación completa de afiliados.`,
+    alternates: { canonical: `${SITE_URL}/${product.slug}/` },
   };
 }
 
@@ -50,14 +54,9 @@ export default async function ProductReviewPage({
     review: {
       '@type': 'Review',
       reviewRating: { '@type': 'Rating', ratingValue: String(product.score), bestRating: '10' },
-      author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team' },
+      author: buildPersonAuthorReference(EDITORIAL_AUTHOR, SITE_URL),
+      publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
       reviewBody: product.summary,
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: String(product.score),
-      bestRating: '10',
-      ratingCount: '1',
     },
   };
 
@@ -65,8 +64,8 @@ export default async function ProductReviewPage({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://latam.thenootropiclab.com' },
-      { '@type': 'ListItem', position: 2, name: 'Los Mejores Nootrópicos', item: 'https://latam.thenootropiclab.com/best-nootropics' },
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: 'Los Mejores Nootrópicos', item: `${SITE_URL}/best-nootropics/` },
       { '@type': 'ListItem', position: 3, name: `Reseña de ${product.name}` },
     ],
   };
@@ -88,20 +87,31 @@ export default async function ProductReviewPage({
 
         {/* Author + date */}
         <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 mb-4">
-          <span>Revisado por <strong className="text-gray-700">The Nootropic Lab Editorial Team</strong></span>
+          <span>
+            Revisado por{' '}
+            <a href={`/authors/${EDITORIAL_AUTHOR.slug}/`} className="text-gray-700 hover:text-green-700 underline">
+              <strong>{EDITORIAL_AUTHOR.name}</strong>
+            </a>
+          </span>
           <span>·</span>
-          <span>Última actualización: {new Date().toLocaleDateString('es-419', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+          <span>
+            Última actualización:{' '}
+            {(product.updatedAt
+              ? new Date(product.updatedAt)
+              : new Date()
+            ).toLocaleDateString('es-419', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </span>
         </div>
 
         <div className="mb-6">
           <div className="flex flex-wrap items-center gap-2 mb-2">
             {product.editorChoice && (
-              <span className="editor-badge">Elección del Editor — América Latina 2026</span>
+              <span className="editor-badge">Elección del Editor — América Latina {CURRENT_YEAR}</span>
             )}
             <span className="text-xs text-gray-500">{product.brand}</span>
           </div>
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-            Reseña de {product.name} 2026
+            Reseña de {product.name} {CURRENT_YEAR}
           </h1>
           <div className="flex items-center gap-3">
             <span className="text-4xl font-black text-green-700">{product.score}</span>
@@ -311,7 +321,7 @@ export default async function ProductReviewPage({
 
         <div className="text-sm text-gray-500">
           <a href="/best-nootropics" className="text-green-700 underline">
-            ← Volver a Los Mejores Nootrópicos América Latina 2026
+            ← Volver a Los Mejores Nootrópicos América Latina {CURRENT_YEAR}
           </a>
         </div>
       </article>

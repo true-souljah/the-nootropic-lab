@@ -1,10 +1,14 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ComparisonTable, AffiliateDisclosure, SchemaOrg } from '@nootropic/ui';
-import { productsEU } from '@nootropic/data';
+import { productsEU, getAuthorBySlug, buildPersonAuthorReference } from '@nootropic/data';
+
+const SITE_URL = 'https://eu.thenootropiclab.com';
+const CURRENT_YEAR = new Date().getFullYear();
+const EDITORIAL_AUTHOR = getAuthorBySlug('stephan-kulik')!;
 
 export const metadata: Metadata = {
-  title: 'Melhores Nootrópicos 2026 Europa: Comparação Completa',
+  title: `Melhores Nootrópicos ${CURRENT_YEAR} Europa: Comparação Completa`,
   description:
     'Comparação independente dos melhores nootrópicos disponíveis na Europa. Preços em EUR, conformidade regulamentar da UE, auditoria clínica de cada ingrediente.',
   alternates: {
@@ -19,22 +23,22 @@ export default function MelhoresNootropicosPT() {
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: 'Os Melhores Nootrópicos na Europa 2026',
+    headline: `Os Melhores Nootrópicos na Europa ${CURRENT_YEAR}`,
     dateModified: new Date().toISOString().split('T')[0],
-    author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team' },
-    publisher: { '@type': 'Organization', name: 'The Nootropic Lab EU' },
+    author: buildPersonAuthorReference(EDITORIAL_AUTHOR, SITE_URL),
+    publisher: { '@type': 'Organization', name: 'The Nootropic Lab EU', url: SITE_URL },
     inLanguage: 'pt-PT',
   };
 
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Melhores Nootrópicos Europa 2026',
+    name: `Melhores Nootrópicos Europa ${CURRENT_YEAR}`,
     itemListElement: productsEU.map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       name: p.name,
-      url: `https://eu.thenootropiclab.com/${p.slug}`,
+      url: `https://eu.thenootropiclab.com/${p.slug}/`,
     })),
   };
 
@@ -52,7 +56,7 @@ export default function MelhoresNootropicosPT() {
         })}
       </div>
       <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-        Os Melhores Nootrópicos 2026:
+        Os Melhores Nootrópicos {CURRENT_YEAR}:
         <br />
         Comparação Completa para a Europa
       </h1>
@@ -78,14 +82,14 @@ export default function MelhoresNootropicosPT() {
 
       <div className="mt-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">
-          Comparação de Nootrópicos — Europa 2026
+          Comparação de Nootrópicos — Europa {CURRENT_YEAR}
         </h2>
         <ComparisonTable products={productsEU} market="eu" />
       </div>
 
       <div className="mt-8 text-sm text-gray-500">
         <Link href="/best-nootropics" className="text-green-700 underline">
-          → Versão em inglês: Best Nootropics Europe 2026
+          → Versão em inglês: Best Nootropics Europe {CURRENT_YEAR}
         </Link>
       </div>
     </article>

@@ -1,7 +1,11 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SchemaOrg } from '@nootropic/ui';
-import { latamCountries, productsLatam } from '@nootropic/data';
+import { latamCountries, productsLatam, getAuthorBySlug, buildPersonAuthorReference } from '@nootropic/data';
+
+const SITE_URL = 'https://latam.thenootropiclab.com';
+const CURRENT_YEAR = new Date().getFullYear();
+const EDITORIAL_AUTHOR = getAuthorBySlug('stephan-kulik')!;
 
 export const dynamicParams = false;
 
@@ -18,8 +22,9 @@ export async function generateMetadata({
   const c = latamCountries.find(x => x.slug === country);
   if (!c) return {};
   return {
-    title: `Los Mejores Nootrópicos en ${c.name} 2026 — Guía de Compra Latam`,
+    title: `Los Mejores Nootrópicos en ${c.name} ${CURRENT_YEAR} — Guía de Compra Latam`,
     description: `Compra nootrópicos en ${c.name}: regulaciones de importación, información de envío, notas de aduana y los mejores stacks para residentes de ${c.name}.`,
+    alternates: { canonical: `${SITE_URL}/countries/${c.slug}/` },
   };
 }
 
@@ -37,8 +42,9 @@ export default async function CountryPage({
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: `Los Mejores Nootrópicos en ${c.name} 2026`,
-    author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team' },
+    headline: `Los Mejores Nootrópicos en ${c.name} ${CURRENT_YEAR}`,
+    author: buildPersonAuthorReference(EDITORIAL_AUTHOR, SITE_URL),
+    publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   };
 
   return (
@@ -54,7 +60,7 @@ export default async function CountryPage({
         </nav>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-          Los Mejores Nootrópicos en {c.name} 2026
+          Los Mejores Nootrópicos en {c.name} {CURRENT_YEAR}
         </h1>
         <p className="text-sm text-gray-500 mb-8">Moneda: {c.currency} &nbsp;·&nbsp; Idioma: {c.language}</p>
 
@@ -100,7 +106,7 @@ export default async function CountryPage({
 
         <div className="text-sm text-gray-500">
           <a href="/best-nootropics" className="text-green-700 underline">
-            ← Volver a Los Mejores Nootrópicos Latam 2026
+            ← Volver a Los Mejores Nootrópicos Latam {CURRENT_YEAR}
           </a>
         </div>
       </article>

@@ -1,6 +1,6 @@
 export const dynamic = 'force-static';
 import type { MetadataRoute } from 'next';
-import { productsJP, ingredients, guides } from '@nootropic/data';
+import { productsJP, ingredients, guides, authors } from '@nootropic/data';
 
 const BASE = 'https://jp.thenootropiclab.com';
 
@@ -12,8 +12,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     { url: BASE, lastModified: now, changeFrequency: 'weekly', priority: 1.0 },
     { url: `${BASE}/best-nootropics`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${BASE}/best-nootropics-for-focus`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
+    { url: `${BASE}/best-nootropics-for-memory`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
+    { url: `${BASE}/best-nootropics-for-studying`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
+    { url: `${BASE}/best-nootropics-for-aging`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
     { url: `${BASE}/nootropic-comparison`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE}/methodology`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${BASE}/about`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${BASE}/contact`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${BASE}/authors`, lastModified: now, changeFrequency: 'monthly', priority: 0.4 },
     { url: `${BASE}/privacy-policy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE}/cookie-policy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
     // Japanese locale pages
@@ -21,6 +28,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/ja/best-nootropics`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${BASE}/ja/hikaku`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
   ];
+
+  const authorPages: MetadataRoute.Sitemap = authors.map(a => ({
+    url: `${BASE}/authors/${a.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.5,
+  }));
 
   const productPages: MetadataRoute.Sitemap = productsJP.map(p => ({
     url: `${BASE}/${p.slug}`,
@@ -56,5 +70,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...productPages, ...ingredientPages, ...guidePages, ...prefecturePages];
+  return [...staticPages, ...authorPages, ...productPages, ...ingredientPages, ...guidePages, ...prefecturePages];
 }

@@ -51,7 +51,7 @@ const features = [
 const quickLinks = [
   {
     href: '/fr/meilleurs-nootropiques',
-    title: 'Les meilleurs nootropiques au Canada 2026',
+    title: `Les meilleurs nootropiques au Canada ${new Date().getFullYear()}`,
     desc: 'Comparatif complet des meilleures marques avec livraison au Canada confirmée.',
   },
   {
@@ -93,7 +93,7 @@ export default function FrHomePage() {
               href="/fr/meilleurs-nootropiques"
               className="bg-green-700 hover:bg-green-600 text-white font-bold px-8 py-3 rounded-lg transition-colors"
             >
-              Les meilleurs nootropiques 2026 →
+              Les meilleurs nootropiques {new Date().getFullYear()} →
             </Link>
             <Link
               href="/fr/comparer"

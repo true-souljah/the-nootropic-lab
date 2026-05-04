@@ -1,7 +1,11 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SchemaOrg } from '@nootropic/ui';
-import { gccCountries, productsGCC } from '@nootropic/data';
+import { gccCountries, productsGCC, getAuthorBySlug, buildPersonAuthorReference } from '@nootropic/data';
+
+const SITE_URL = 'https://gcc.thenootropiclab.com';
+const CURRENT_YEAR = new Date().getFullYear();
+const EDITORIAL_AUTHOR = getAuthorBySlug('stephan-kulik')!;
 
 export const dynamicParams = false;
 
@@ -18,8 +22,9 @@ export async function generateMetadata({
   const c = gccCountries.find(x => x.slug === country);
   if (!c) return {};
   return {
-    title: `Best Nootropics in ${c.name} 2026 — GCC Buyer's Guide`,
+    title: `Best Nootropics in ${c.name} ${CURRENT_YEAR} — GCC Buyer's Guide`,
     description: `Buy nootropics in ${c.name}: import regulations, VAT notes, and top-rated stacks for ${c.name} residents.`,
+    alternates: { canonical: `${SITE_URL}/countries/${c.slug}/` },
   };
 }
 
@@ -37,8 +42,9 @@ export default async function CountryPage({
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: `Best Nootropics in ${c.name} 2026`,
-    author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team' },
+    headline: `Best Nootropics in ${c.name} ${CURRENT_YEAR}`,
+    author: buildPersonAuthorReference(EDITORIAL_AUTHOR, SITE_URL),
+    publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   };
 
   return (
@@ -54,7 +60,7 @@ export default async function CountryPage({
         </nav>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-          Best Nootropics in {c.name} 2026
+          Best Nootropics in {c.name} {CURRENT_YEAR}
         </h1>
         <p className="text-sm text-gray-500 mb-8">Currency: {c.currency} &nbsp;·&nbsp; VAT: {c.vatRate}</p>
 
@@ -103,7 +109,7 @@ export default async function CountryPage({
 
         <div className="text-sm text-gray-500">
           <a href="/best-nootropics" className="text-green-700 underline">
-            ← Back to Best Nootropics GCC 2026
+            ← Back to Best Nootropics GCC {CURRENT_YEAR}
           </a>
         </div>
       </article>

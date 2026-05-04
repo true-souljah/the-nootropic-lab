@@ -1,7 +1,11 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SchemaOrg } from '@nootropic/ui';
-import { euCountries, productsEU } from '@nootropic/data';
+import { euCountries, productsEU, getAuthorBySlug, buildPersonAuthorReference } from '@nootropic/data';
+
+const SITE_URL = 'https://eu.thenootropiclab.com';
+const CURRENT_YEAR = new Date().getFullYear();
+const EDITORIAL_AUTHOR = getAuthorBySlug('stephan-kulik')!;
 
 export const dynamicParams = false;
 
@@ -18,7 +22,7 @@ export async function generateMetadata({
   const c = euCountries.find(x => x.slug === country);
   if (!c) return {};
   return {
-    title: `Best Nootropics in ${c.name} 2026 — EU Buyer's Guide`,
+    title: `Best Nootropics in ${c.name} ${CURRENT_YEAR} — EU Buyer's Guide`,
     description: `Buy nootropics in ${c.name}: EU-compliant products, EUR pricing, regulatory notes, and shipping info for ${c.name} residents.`,
   };
 }
@@ -40,9 +44,10 @@ export default async function CountryPage({
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: `Best Nootropics in ${c.name} 2026`,
+    headline: `Best Nootropics in ${c.name} ${CURRENT_YEAR}`,
     description: `Guide to buying nootropics in ${c.name}. EU compliance, EUR pricing, and top-rated stacks.`,
-    author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team' },
+    author: buildPersonAuthorReference(EDITORIAL_AUTHOR, SITE_URL),
+    publisher: { '@type': 'Organization', name: 'The Nootropic Lab EU', url: SITE_URL },
   };
 
   const breadcrumbSchema = {

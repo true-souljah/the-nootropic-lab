@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import { SchemaOrg } from '@nootropic/ui';
 import { productsEU } from '@nootropic/data';
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 export const metadata: Metadata = {
   title: 'The Nootropic Lab UE — Avaliações Independentes de Suplementos Cognitivos na Europa',
   description:
@@ -45,7 +47,7 @@ const features = [
 const quickLinks = [
   {
     href: '/pt/melhores-nootropicos',
-    title: 'Os Melhores Nootrópicos 2026 (UE)',
+    title: `Os Melhores Nootrópicos ${CURRENT_YEAR} (UE)`,
     desc: 'Comparação completa para a UE com auditoria de dosagem clínica e preços em EUR.',
   },
   {
@@ -85,7 +87,7 @@ export default function PTHomePage() {
               href="/pt/melhores-nootropicos"
               className="bg-green-700 hover:bg-green-600 text-white font-bold px-8 py-3 rounded-lg transition-colors"
             >
-              Os Melhores Nootrópicos na Europa 2026 →
+              Os Melhores Nootrópicos na Europa {CURRENT_YEAR} →
             </Link>
             <Link
               href="/nootropic-comparison"

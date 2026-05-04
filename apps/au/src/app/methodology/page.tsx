@@ -1,10 +1,15 @@
 import type { Metadata } from 'next';
 import { SchemaOrg } from '@nootropic/ui';
+import { getAuthorBySlug, buildPersonAuthorReference } from '@nootropic/data';
+
+const SITE_URL = 'https://au.thenootropiclab.com';
+const EDITORIAL_AUTHOR = getAuthorBySlug('stephan-kulik')!;
 
 export const metadata: Metadata = {
   title: 'How We Review Nootropics — Our Methodology',
   description:
     'The Nootropic Lab scoring methodology: 5-pillar framework, clinical dosing audit process, and full affiliate disclosure.',
+  alternates: { canonical: `${SITE_URL}/methodology/` },
 };
 
 const pillars = [
@@ -20,8 +25,8 @@ export default function MethodologyPage() {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: 'How We Review Nootropics — Methodology',
-    author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team' },
-    publisher: { '@type': 'Organization', name: 'The Nootropic Lab' },
+    author: buildPersonAuthorReference(EDITORIAL_AUTHOR, SITE_URL),
+    publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   };
 
   return (

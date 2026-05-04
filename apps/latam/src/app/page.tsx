@@ -52,7 +52,7 @@ const features = [
 const quickLinks = [
   {
     href: '/best-nootropics',
-    title: 'Los Mejores Nootrópicos en Latam 2026',
+    title: `Los Mejores Nootrópicos en Latam ${new Date().getFullYear()}`,
     desc: 'Mejores opciones con envío internacional a América Latina confirmado.',
   },
   {
@@ -94,7 +94,7 @@ export default function HomePage() {
               href="/best-nootropics"
               className="bg-green-700 hover:bg-green-600 text-white font-bold px-8 py-3 rounded-lg transition-colors"
             >
-              Los Mejores Nootrópicos 2026 →
+              Los Mejores Nootrópicos {new Date().getFullYear()} →
             </Link>
             <Link
               href="/nootropic-comparison"
@@ -121,7 +121,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="max-w-5xl mx-auto px-4 pb-16">
+      <section className="max-w-5xl mx-auto px-4 pb-12">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">Comience su investigación</h2>
         <div className="grid md:grid-cols-3 gap-4">
           {quickLinks.map(l => (
@@ -134,6 +134,32 @@ export default function HomePage() {
               <div className="text-sm text-gray-500">{l.desc}</div>
             </Link>
           ))}
+        </div>
+      </section>
+
+      {/* Explorar por objetivo */}
+      <section className="max-w-5xl mx-auto px-4 pb-16">
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">Explorar por objetivo</h2>
+        <p className="text-sm text-gray-500 mb-6">
+          Diferentes ingredientes se ajustan a diferentes objetivos cognitivos.
+        </p>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          <Link href="/best-nootropics-for-focus/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+            <div className="font-semibold text-gray-900 text-sm mb-1">Para concentración</div>
+            <div className="text-xs text-gray-500">L-teanina + cafeína, citicolina</div>
+          </Link>
+          <Link href="/best-nootropics-for-memory/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+            <div className="font-semibold text-gray-900 text-sm mb-1">Para memoria</div>
+            <div className="text-xs text-gray-500">Bacopa, Melena de León, PS</div>
+          </Link>
+          <Link href="/best-nootropics-for-studying/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+            <div className="font-semibold text-gray-900 text-sm mb-1">Para estudiar</div>
+            <div className="text-xs text-gray-500">Concentración sostenida + retención</div>
+          </Link>
+          <Link href="/best-nootropics-for-aging/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+            <div className="font-semibold text-gray-900 text-sm mb-1">Para cerebro adulto mayor</div>
+            <div className="text-xs text-gray-500">Declaración calificada de la FDA para PS</div>
+          </Link>
         </div>
       </section>
     </>

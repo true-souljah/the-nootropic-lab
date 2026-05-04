@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SchemaOrg } from '@nootropic/ui';
-import { ingredients, productsSEA } from '@nootropic/data';
+import { ingredients, productsSEA, getAuthorBySlug, buildPersonAuthorReference } from '@nootropic/data';
+
+const SITE_URL = 'https://sea.thenootropiclab.com';
+const EDITORIAL_AUTHOR = getAuthorBySlug('stephan-kulik')!;
 
 export const dynamicParams = false;
 
@@ -60,7 +63,7 @@ export default async function IngredientPage({
     '@type': 'Article',
     headline: `${ing.name} — Nootropic Ingredient Guide`,
     description: ing.studySummary,
-    author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team' },
+    author: buildPersonAuthorReference(EDITORIAL_AUTHOR, SITE_URL),
   };
 
   const breadcrumbSchema = {
@@ -92,7 +95,7 @@ export default async function IngredientPage({
       { '@type': 'HowToStep', name: 'Dosage', text: ing.howToTake.dosage },
       { '@type': 'HowToStep', name: 'Timing', text: ing.howToTake.timing },
       { '@type': 'HowToStep', name: 'With Food', text: ing.howToTake.withFood },
-      { '@type': 'Best Form', name: 'Best Form', text: ing.howToTake.forms },
+      { '@type': 'HowToStep', name: 'Best Form', text: ing.howToTake.forms },
       ...(ing.howToTake.cycling ? [{ '@type': 'HowToStep', name: 'Cycling', text: ing.howToTake.cycling }] : []),
     ],
   };
@@ -287,11 +290,11 @@ export default async function IngredientPage({
           </div>
         </section>
 
-        {/* EU Products */}
+        {/* SEA Products */}
         {containingProducts.length > 0 && (
           <section className="mb-8">
             <h2 className="text-xl font-bold text-gray-900 mb-4">
-              EU Stacks Containing {ing.name}
+              SEA Stacks Containing {ing.name}
             </h2>
             <div className="grid sm:grid-cols-2 gap-4">
               {containingProducts.map(p => (

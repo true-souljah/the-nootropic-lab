@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SchemaOrg } from '@nootropic/ui';
-import { ingredients, productsCA } from '@nootropic/data';
+import { ingredients, productsCA, getAuthorBySlug, buildPersonAuthorReference } from '@nootropic/data';
+
+const SITE_URL = 'https://ca.thenootropiclab.com';
+const EDITORIAL_AUTHOR = getAuthorBySlug('stephan-kulik')!;
 
 export const dynamicParams = false;
 
@@ -60,7 +63,7 @@ export default async function IngredientPage({
     '@type': 'Article',
     headline: `${ing.name} — Nootropic Ingredient Guide`,
     description: ing.studySummary,
-    author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team' },
+    author: buildPersonAuthorReference(EDITORIAL_AUTHOR, SITE_URL),
   };
 
   const breadcrumbSchema = {
@@ -92,7 +95,7 @@ export default async function IngredientPage({
       { '@type': 'HowToStep', name: 'Dosage', text: ing.howToTake.dosage },
       { '@type': 'HowToStep', name: 'Timing', text: ing.howToTake.timing },
       { '@type': 'HowToStep', name: 'With Food', text: ing.howToTake.withFood },
-      { '@type': 'Best Form', name: 'Best Form', text: ing.howToTake.forms },
+      { '@type': 'HowToStep', name: 'Best Form', text: ing.howToTake.forms },
       ...(ing.howToTake.cycling ? [{ '@type': 'HowToStep', name: 'Cycling', text: ing.howToTake.cycling }] : []),
     ],
   };

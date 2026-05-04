@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SchemaOrg } from '@nootropic/ui';
-import { ingredients, productsLatam } from '@nootropic/data';
+import { ingredients, productsLatam, getAuthorBySlug, buildPersonAuthorReference } from '@nootropic/data';
+
+const SITE_URL = 'https://latam.thenootropiclab.com';
+const EDITORIAL_AUTHOR = getAuthorBySlug('stephan-kulik')!;
 
 export const dynamicParams = false;
 
@@ -60,15 +63,15 @@ export default async function IngredientPage({
     '@type': 'Article',
     headline: `${ing.name} — Guía de Ingredientes Nootrópicos`,
     description: ing.studySummary,
-    author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team' },
+    author: buildPersonAuthorReference(EDITORIAL_AUTHOR, SITE_URL),
   };
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://latam.thenootropiclab.com' },
-      { '@type': 'ListItem', position: 2, name: 'Ingredients', item: 'https://latam.thenootropiclab.com/ingredients' },
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: 'Ingredientes', item: `${SITE_URL}/ingredients/` },
       { '@type': 'ListItem', position: 3, name: ing.name },
     ],
   };
@@ -92,7 +95,7 @@ export default async function IngredientPage({
       { '@type': 'HowToStep', name: 'Dosage', text: ing.howToTake.dosage },
       { '@type': 'HowToStep', name: 'Timing', text: ing.howToTake.timing },
       { '@type': 'HowToStep', name: 'With Food', text: ing.howToTake.withFood },
-      { '@type': 'Best Form', name: 'Best Form', text: ing.howToTake.forms },
+      { '@type': 'HowToStep', name: 'Best Form', text: ing.howToTake.forms },
       ...(ing.howToTake.cycling ? [{ '@type': 'HowToStep', name: 'Cycling', text: ing.howToTake.cycling }] : []),
     ],
   };

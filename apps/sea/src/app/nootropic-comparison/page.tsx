@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { ComparisonTable, AffiliateDisclosure, SchemaOrg } from '@nootropic/ui';
 import { productsSEA } from '@nootropic/data';
 
+const CURRENT_YEAR = new Date().getFullYear();
 export const metadata: Metadata = {
   title: 'Nootropic Comparison Tool — Southeast Asia',
   description:
@@ -12,7 +13,7 @@ export default function ComparisonToolPage() {
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Best Nootropic Supplements Southeast Asia 2026',
+    name: `Best Nootropic Supplements Southeast Asia ${CURRENT_YEAR}`,
     itemListElement: productsSEA.map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,

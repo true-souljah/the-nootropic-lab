@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { ComparisonTable, AffiliateDisclosure, SchemaOrg } from '@nootropic/ui';
 import { productsUS } from '@nootropic/data';
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 export const metadata: Metadata = {
   title: 'Comparativa de Nootrópicos: Tabla Completa de Marcas en EE. UU.',
   description:
@@ -18,7 +20,7 @@ export default function EsCompararPage() {
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Comparativa de Nootrópicos 2026',
+    name: `Comparativa de Nootrópicos ${CURRENT_YEAR}`,
     itemListElement: productsUS.map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,

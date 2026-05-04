@@ -1,17 +1,21 @@
 import type { Metadata } from 'next';
 import { ComparisonTable, AffiliateDisclosure, StickyCtaBar, SchemaOrg } from '@nootropic/ui';
-import { productsUS } from '@nootropic/data';
+import { productsUS, getAuthorBySlug, buildPersonAuthorReference } from '@nootropic/data';
+
+const SITE_URL = 'https://thenootropiclab.com';
+const CURRENT_YEAR = new Date().getFullYear();
+const EDITORIAL_AUTHOR = getAuthorBySlug('stephan-kulik')!;
 
 export const metadata: Metadata = {
-  title: 'Best Nootropics 2026: Expert-Tested & Ranked for Focus, Memory and Energy',
-  description:
-    'Independent comparison of the best nootropic supplements in 2026. Every ingredient audited against clinical trials. Transparent scoring and affiliate disclosure.',
+  title: `Best Nootropics ${CURRENT_YEAR}: Expert-Tested & Ranked for Focus, Memory and Energy`,
+  description: `Independent comparison of the best nootropic supplements in ${CURRENT_YEAR}. Every ingredient audited against clinical trials. Transparent scoring and affiliate disclosure.`,
+  alternates: { canonical: `${SITE_URL}/best-nootropics/` },
 };
 
 const faqItems = [
   {
-    q: 'What is the best nootropic supplement in 2026?',
-    a: 'Based on our clinical dosing audit, Mind Lab Pro is the best overall nootropic in 2026. It contains 11 clinically-backed ingredients at effective doses, is caffeine-free, and ships worldwide.',
+    q: `What is the best nootropic supplement in ${CURRENT_YEAR}?`,
+    a: `Based on our clinical dosing audit, Mind Lab Pro is the best overall nootropic in ${CURRENT_YEAR}. It contains 11 clinically-backed ingredients at effective doses, is caffeine-free, and ships worldwide.`,
   },
   {
     q: 'Are nootropics safe?',
@@ -29,11 +33,11 @@ export default function BestNootropicsUSPage() {
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: 'Best Nootropics 2026: Expert-Tested & Ranked',
+    headline: `Best Nootropics ${CURRENT_YEAR}: Expert-Tested & Ranked`,
     datePublished: '2026-01-15',
     dateModified: new Date().toISOString().split('T')[0],
-    author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team' },
-    publisher: { '@type': 'Organization', name: 'The Nootropic Lab' },
+    author: buildPersonAuthorReference(EDITORIAL_AUTHOR, SITE_URL),
+    publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   };
 
   const faqSchema = {
@@ -49,12 +53,12 @@ export default function BestNootropicsUSPage() {
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Best Nootropic Supplements 2026',
+    name: `Best Nootropic Supplements ${CURRENT_YEAR}`,
     itemListElement: productsUS.map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       name: p.name,
-      url: `https://thenootropiclab.com/${p.slug}`,
+      url: `${SITE_URL}/${p.slug}/`,
     })),
   };
 
@@ -71,7 +75,7 @@ export default function BestNootropicsUSPage() {
           {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
         </div>
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          Best Nootropics 2026: Expert-Tested &amp; Ranked for Focus, Memory and Energy
+          Best Nootropics {CURRENT_YEAR}: Expert-Tested &amp; Ranked for Focus, Memory and Energy
         </h1>
         <p className="text-lg text-gray-600 mb-6 leading-relaxed">
           We reviewed {productsUS.length} nootropic supplements, auditing every ingredient dose
@@ -88,7 +92,7 @@ export default function BestNootropicsUSPage() {
         </div>
 
         <div className="bg-yellow-50 border border-yellow-300 rounded-xl p-5 mb-10">
-          <div className="editor-badge mb-2 inline-block">Editor&apos;s Choice 2026</div>
+          <div className="editor-badge mb-2 inline-block">Editor&apos;s Choice {CURRENT_YEAR}</div>
           <h2 className="text-xl font-bold text-gray-900 mb-1">{winner.name}</h2>
           <p className="text-sm text-gray-600 mb-4">{winner.summary}</p>
           <div className="flex flex-wrap gap-2 mb-4">
@@ -109,11 +113,67 @@ export default function BestNootropicsUSPage() {
         </div>
 
         <section id="comparison-table">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">2026 Nootropic Comparison — US</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">{CURRENT_YEAR} Nootropic Comparison — US</h2>
           <p className="text-sm text-gray-500 mb-4">
             Sort by score, price, money-back guarantee, or Trustpilot rating.
           </p>
           <ComparisonTable products={productsUS} market="us" />
+        </section>
+
+        {/* Browse by goal */}
+        <section className="mt-12">
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Browse by goal</h2>
+          <p className="text-sm text-gray-500 mb-6">
+            Different ingredients suit different cognitive goals. Each picks list ranks the products in our coverage that contain the right ingredient at clinical dose.
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            <a href="/best-nootropics-for-focus/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+              <div className="font-semibold text-gray-900 text-sm mb-1">Best Nootropics for Focus</div>
+              <div className="text-xs text-gray-500">L-theanine + caffeine, citicoline, L-tyrosine, Alpha-GPC</div>
+            </a>
+            <a href="/best-nootropics-for-memory/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+              <div className="font-semibold text-gray-900 text-sm mb-1">Best Nootropics for Memory</div>
+              <div className="text-xs text-gray-500">Bacopa Monnieri, Lion&apos;s Mane, phosphatidylserine</div>
+            </a>
+            <a href="/best-nootropics-for-studying/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+              <div className="font-semibold text-gray-900 text-sm mb-1">Best Nootropics for Studying</div>
+              <div className="text-xs text-gray-500">Sustained focus + memory consolidation</div>
+            </a>
+            <a href="/best-nootropics-for-aging/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+              <div className="font-semibold text-gray-900 text-sm mb-1">Best Nootropics for Aging Brain</div>
+              <div className="text-xs text-gray-500">Phosphatidylserine FDA qualified claim, plus PS, Bacopa, Lion&apos;s Mane</div>
+            </a>
+            <a href="/best-nootropics-for-adhd/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+              <div className="font-semibold text-gray-900 text-sm mb-1">Nootropics for ADHD-Adjacent Focus</div>
+              <div className="text-xs text-gray-500">Honest editorial: NOT a substitute for prescription treatment</div>
+            </a>
+            <a href="/natural-adderall-alternatives/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+              <div className="font-semibold text-gray-900 text-sm mb-1">Natural Adderall Alternatives</div>
+              <div className="text-xs text-gray-500">No supplement is equivalent. What the science actually shows.</div>
+            </a>
+          </div>
+        </section>
+
+        {/* Compare top brands */}
+        <section className="mt-12">
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Compare top brands head-to-head</h2>
+          <p className="text-sm text-gray-500 mb-6">
+            Side-by-side clinical dosing audits + score breakdowns + verdict for the most-asked-about brand pairs.
+          </p>
+          <div className="grid sm:grid-cols-3 gap-3">
+            <a href="/mind-lab-pro-vs-alpha-brain/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+              <div className="font-semibold text-gray-900 text-sm mb-1">Mind Lab Pro vs Alpha Brain</div>
+              <div className="text-xs text-gray-500">Open formula vs proprietary blends</div>
+            </a>
+            <a href="/mind-lab-pro-vs-qualia-mind/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+              <div className="font-semibold text-gray-900 text-sm mb-1">Mind Lab Pro vs Qualia Mind</div>
+              <div className="text-xs text-gray-500">11 ingredients vs 28 megadose</div>
+            </a>
+            <a href="/alpha-brain-vs-qualia-mind/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+              <div className="font-semibold text-gray-900 text-sm mb-1">Alpha Brain vs Qualia Mind</div>
+              <div className="text-xs text-gray-500">Mainstream brand vs premium megadose</div>
+            </a>
+          </div>
         </section>
 
         <section className="mt-12 bg-gray-50 rounded-xl p-6">

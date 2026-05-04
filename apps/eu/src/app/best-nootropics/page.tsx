@@ -1,15 +1,21 @@
 import type { Metadata } from 'next';
 import { ComparisonTable, AffiliateDisclosure, StickyCtaBar, SchemaOrg } from '@nootropic/ui';
-import { productsEU } from '@nootropic/data';
+import { productsEU, getAuthorBySlug, buildPersonAuthorReference } from '@nootropic/data';
+
+const SITE_URL = 'https://eu.thenootropiclab.com';
+const CURRENT_YEAR = new Date().getFullYear();
+const EDITORIAL_AUTHOR = getAuthorBySlug('stephan-kulik')!;
 
 export const metadata: Metadata = {
-  title: 'Best Nootropics in Europe 2026: EU-Compliant, EUR-Priced, Evidence-Graded',
+  title: `Best Nootropics in Europe ${CURRENT_YEAR}: EU-Compliant, EUR-Priced, Evidence-Graded`,
   description:
     'The only nootropic comparison platform built for EU buyers. EUR pricing, EU regulatory compliance status (Directive 2002/46/EC), and full ingredient dosing audit.',
   alternates: {
+    canonical: `${SITE_URL}/best-nootropics/`,
     languages: {
       'de-DE': '/de/beste-nootropika',
       'fr-FR': '/fr/meilleurs-nootropiques',
+      'pt-PT': '/pt/melhores-nootropicos',
     },
   },
 };
@@ -35,11 +41,11 @@ export default function BestNootropicsEUPage() {
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: 'Best Nootropics in Europe 2026: EU-Compliant, EUR-Priced, Evidence-Graded',
-    datePublished: '2026-01-15',
+    headline: `Best Nootropics in Europe ${CURRENT_YEAR}: EU-Compliant, EUR-Priced, Evidence-Graded`,
+    datePublished: `${CURRENT_YEAR}-01-15`,
     dateModified: new Date().toISOString().split('T')[0],
-    author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team' },
-    publisher: { '@type': 'Organization', name: 'The Nootropic Lab EU' },
+    author: buildPersonAuthorReference(EDITORIAL_AUTHOR, SITE_URL),
+    publisher: { '@type': 'Organization', name: 'The Nootropic Lab EU', url: SITE_URL },
   };
 
   const faqSchema = {
@@ -55,12 +61,12 @@ export default function BestNootropicsEUPage() {
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Best Nootropic Supplements Europe 2026',
+    name: `Best Nootropic Supplements Europe ${CURRENT_YEAR}`,
     itemListElement: productsEU.map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       name: p.name,
-      url: `https://eu.thenootropiclab.com/${p.slug}`,
+      url: `${SITE_URL}/${p.slug}/`,
     })),
   };
 
@@ -81,7 +87,7 @@ export default function BestNootropicsEUPage() {
           })}
         </div>
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          Best Nootropics in Europe 2026:
+          Best Nootropics in Europe {CURRENT_YEAR}:
           <br />
           EU-Compliant, EUR-Priced, Evidence-Graded
         </h1>
@@ -115,7 +121,7 @@ export default function BestNootropicsEUPage() {
 
         {/* Editor's Choice */}
         <div className="bg-yellow-50 border border-yellow-300 rounded-xl p-5 mb-10">
-          <div className="editor-badge mb-2 inline-block">Editor&apos;s Choice — EU 2026</div>
+          <div className="editor-badge mb-2 inline-block">Editor&apos;s Choice — EU {CURRENT_YEAR}</div>
           <h2 className="text-xl font-bold text-gray-900 mb-1">{winner.name}</h2>
           <p className="text-sm text-gray-600 mb-3">{winner.summary}</p>
           <div className="flex flex-wrap gap-2 mb-4">
@@ -141,12 +147,38 @@ export default function BestNootropicsEUPage() {
 
         {/* Table */}
         <section id="comparison-table">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">EU Nootropic Comparison 2026</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">EU Nootropic Comparison {CURRENT_YEAR}</h2>
           <p className="text-sm text-gray-500 mb-4">
             Prices in EUR. EU Compliance column: green = fully compliant, amber = EU-reformulated,
             red = verify before ordering.
           </p>
           <ComparisonTable products={productsEU} market="eu" />
+        </section>
+
+        {/* Browse by goal */}
+        <section className="mt-12">
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Browse by goal</h2>
+          <p className="text-sm text-gray-500 mb-6">
+            Different ingredients suit different cognitive goals. Each picks list ranks the EU-storefront products in our coverage that contain the right ingredient at clinical dose.
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            <a href="/best-nootropics-for-focus/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+              <div className="font-semibold text-gray-900 text-sm mb-1">Best Nootropics for Focus</div>
+              <div className="text-xs text-gray-500">L-theanine + caffeine, citicoline, L-tyrosine</div>
+            </a>
+            <a href="/best-nootropics-for-memory/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+              <div className="font-semibold text-gray-900 text-sm mb-1">Best Nootropics for Memory</div>
+              <div className="text-xs text-gray-500">Bacopa, Lion&apos;s Mane, phosphatidylserine</div>
+            </a>
+            <a href="/best-nootropics-for-studying/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+              <div className="font-semibold text-gray-900 text-sm mb-1">Best Nootropics for Studying</div>
+              <div className="text-xs text-gray-500">Sustained focus + memory consolidation</div>
+            </a>
+            <a href="/best-nootropics-for-aging/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+              <div className="font-semibold text-gray-900 text-sm mb-1">Best Nootropics for Aging Brain</div>
+              <div className="text-xs text-gray-500">Phosphatidylserine, citicoline, Lion&apos;s Mane</div>
+            </a>
+          </div>
         </section>
 
         <section className="mt-12 bg-gray-50 rounded-xl p-6">

@@ -2,8 +2,9 @@ import type { Metadata } from 'next';
 import { SchemaOrg } from '@nootropic/ui';
 import { ingredients } from '@nootropic/data';
 
+const CURRENT_YEAR = new Date().getFullYear();
 export const metadata: Metadata = {
-  title: 'Guía de Ingredientes Notrópicos 2026 — Dosis Clínicas y Evidencia',
+  title: `Guía de Ingredientes Notrópicos ${CURRENT_YEAR} — Dosis Clínicas y Evidencia`,
   description:
     'Compara 10 ingredientes notrópicos respaldados por evidencia disponibles en Latam. Dosis clínicas, mecanismos, tiempo de efecto y qué productos los contienen.',
 };

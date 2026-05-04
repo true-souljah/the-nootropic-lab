@@ -1,7 +1,11 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SchemaOrg } from '@nootropic/ui';
-import { productsJP, jpPrefectures } from '@nootropic/data';
+import { productsJP, jpPrefectures, getAuthorBySlug, buildPersonAuthorReference } from '@nootropic/data';
+
+const SITE_URL = 'https://jp.thenootropiclab.com';
+const CURRENT_YEAR = new Date().getFullYear();
+const EDITORIAL_AUTHOR = getAuthorBySlug('stephan-kulik')!;
 
 export const dynamicParams = false;
 
@@ -20,7 +24,7 @@ export async function generateMetadata({
   const p = prefectures.find(x => x.slug === prefecture);
   if (!p) return {};
   return {
-    title: `Best Nootropics in ${p.name} 2026 — Japan Buyer's Guide`,
+    title: `Best Nootropics in ${p.name} ${CURRENT_YEAR} — Japan Buyer's Guide`,
     description: `Buy nootropics in ${p.name} (${p.nameJa}): MHLW import notes, delivery times, and top-rated stacks.`,
   };
 }
@@ -39,8 +43,9 @@ export default async function PrefecturePage({
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: `Best Nootropics in ${p.name} 2026`,
-    author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team' },
+    headline: `Best Nootropics in ${p.name} ${CURRENT_YEAR}`,
+    author: buildPersonAuthorReference(EDITORIAL_AUTHOR, SITE_URL),
+    publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   };
 
   return (
@@ -56,7 +61,7 @@ export default async function PrefecturePage({
         </nav>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-          Best Nootropics in {p.name} 2026
+          Best Nootropics in {p.name} {CURRENT_YEAR}
         </h1>
         <p className="text-sm text-gray-400 mb-6">{p.nameJa}</p>
 
@@ -107,7 +112,7 @@ export default async function PrefecturePage({
 
         <div className="text-sm text-gray-500">
           <a href="/best-nootropics" className="text-green-700 underline">
-            ← Back to Best Nootropics Japan 2026
+            ← Back to Best Nootropics Japan {CURRENT_YEAR}
           </a>
         </div>
       </article>

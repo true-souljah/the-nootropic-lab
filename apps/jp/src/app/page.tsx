@@ -2,10 +2,14 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { SchemaOrg } from '@nootropic/ui';
 
+const SITE_URL = 'https://jp.thenootropiclab.com';
+const CURRENT_YEAR = new Date().getFullYear();
+
 export const metadata: Metadata = {
   title: 'The Nootropic Lab JP — Japan Nootropic Reviews (ノートロピクス)',
   description:
     'Independent cognitive supplement reviews for Japan buyers. MHLW import compliance notes, evidence-graded reviews, and domestic Japanese brands included.',
+  alternates: { canonical: `${SITE_URL}/` },
 };
 
 const websiteSchema = {
@@ -45,7 +49,7 @@ const features = [
 const quickLinks = [
   {
     href: '/best-nootropics',
-    title: 'Best Nootropics in Japan 2026',
+    title: `Best Nootropics in Japan ${CURRENT_YEAR}`,
     desc: 'Top picks with Japan shipping confirmed and MHLW import notes.',
   },
   {
@@ -86,7 +90,7 @@ export default function HomePage() {
               href="/best-nootropics"
               className="bg-green-700 hover:bg-green-600 text-white font-bold px-8 py-3 rounded-lg transition-colors"
             >
-              Best Nootropics 2026 →
+              Best Nootropics {CURRENT_YEAR} →
             </Link>
             <Link
               href="/nootropic-comparison"
@@ -113,7 +117,32 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="max-w-5xl mx-auto px-4 pb-16">
+      <section className="max-w-5xl mx-auto px-4 pb-4">
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">Browse by goal</h2>
+        <p className="text-sm text-gray-500 mb-6">
+          Different ingredients suit different cognitive goals. Each list ranks the products available in Japan — imported stacks plus FFC-notified (機能性表示食品) domestic brands.
+        </p>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          <Link href="/best-nootropics-for-focus" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+            <div className="font-semibold text-gray-900 text-sm mb-1">Focus</div>
+            <div className="text-xs text-gray-500">L-theanine + caffeine, citicoline, L-tyrosine</div>
+          </Link>
+          <Link href="/best-nootropics-for-memory" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+            <div className="font-semibold text-gray-900 text-sm mb-1">Memory</div>
+            <div className="text-xs text-gray-500">Bacopa, Lion&apos;s Mane (ヤマブシタケ), DHA, PS</div>
+          </Link>
+          <Link href="/best-nootropics-for-studying" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+            <div className="font-semibold text-gray-900 text-sm mb-1">Studying</div>
+            <div className="text-xs text-gray-500">Sustained focus + memory consolidation for students</div>
+          </Link>
+          <Link href="/best-nootropics-for-aging" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+            <div className="font-semibold text-gray-900 text-sm mb-1">Aging Brain</div>
+            <div className="text-xs text-gray-500">FFC-notified DHA + Ginkgo, plus PS and citicoline</div>
+          </Link>
+        </div>
+      </section>
+
+      <section className="max-w-5xl mx-auto px-4 pb-16 pt-12">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">Start your research</h2>
         <div className="grid md:grid-cols-3 gap-4">
           {quickLinks.map(l => (

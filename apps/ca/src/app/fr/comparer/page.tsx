@@ -18,7 +18,7 @@ export default function FrComparerPage() {
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Les meilleurs suppléments nootropiques au Canada 2026',
+    name: `Les meilleurs suppléments nootropiques au Canada ${new Date().getFullYear()}`,
     itemListElement: productsCA.map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,

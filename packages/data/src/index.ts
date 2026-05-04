@@ -29,3 +29,5 @@ export type { SearchItem } from './search';
 export { buildSearchIndex } from './search';
 export type { Locale, UIStrings } from './i18n';
 export { getStrings, getLocaleForMarket } from './i18n';
+export type { Author } from './authors';
+export { authors, getAuthorBySlug, buildPersonSchema, buildPersonAuthorReference } from './authors';

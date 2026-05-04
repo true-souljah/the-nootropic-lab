@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SchemaOrg } from '@nootropic/ui';
-import { guides } from '@nootropic/data';
+import { guides, getAuthorBySlug, buildPersonAuthorReference } from '@nootropic/data';
+
+const SITE_URL = 'https://latam.thenootropiclab.com';
+const EDITORIAL_AUTHOR = getAuthorBySlug('stephan-kulik')!;
 
 export const dynamicParams = false;
 
@@ -37,7 +40,7 @@ export default async function GuidePage({
     '@type': 'Article',
     headline: g.title,
     description: g.description,
-    author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team' },
+    author: buildPersonAuthorReference(EDITORIAL_AUTHOR, SITE_URL),
     timeRequired: `PT${g.readingTimeMin}M`,
   };
 
@@ -45,8 +48,8 @@ export default async function GuidePage({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://latam.thenootropiclab.com' },
-      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://latam.thenootropiclab.com/guides' },
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: 'Guías', item: `${SITE_URL}/guides/` },
       { '@type': 'ListItem', position: 3, name: g.title },
     ],
   };

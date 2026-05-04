@@ -2,6 +2,8 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { SchemaOrg } from '@nootropic/ui';
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 export const metadata: Metadata = {
   title: 'The Nootropic Lab JP — 日本向けノートロピクス独立比較レビュー',
   description:
@@ -51,7 +53,7 @@ const features = [
 const quickLinks = [
   {
     href: '/ja/best-nootropics',
-    title: '2026年 日本向け最高のノートロピクス',
+    title: `${CURRENT_YEAR}年 日本向け最高のノートロピクス`,
     desc: '日本への発送確認済みおよび厚生労働省輸入注意を含むトップ製品。',
   },
   {
@@ -93,7 +95,7 @@ export default function JaHomePage() {
               href="/ja/best-nootropics"
               className="bg-green-700 hover:bg-green-600 text-white font-bold px-8 py-3 rounded-lg transition-colors"
             >
-              最高のノートロピクス 2026 →
+              最高のノートロピクス {CURRENT_YEAR} →
             </Link>
             <Link
               href="/ja/hikaku"

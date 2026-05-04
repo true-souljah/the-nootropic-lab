@@ -1,11 +1,16 @@
 import type { Metadata } from 'next';
 import { ComparisonTable, AffiliateDisclosure, StickyCtaBar, SchemaOrg } from '@nootropic/ui';
-import { productsAU } from '@nootropic/data';
+import { productsAU, getAuthorBySlug, buildPersonAuthorReference } from '@nootropic/data';
+
+const SITE_URL = 'https://au.thenootropiclab.com';
+const CURRENT_YEAR = new Date().getFullYear();
+const EDITORIAL_AUTHOR = getAuthorBySlug('stephan-kulik')!;
 
 export const metadata: Metadata = {
-  title: 'Best Nootropics in Australia 2026 — TGA Import Guide',
+  title: `Best Nootropics in Australia ${CURRENT_YEAR} — TGA Import Guide`,
   description:
     'Top-rated nootropic supplements for Australian buyers. TGA personal import rules, evidence-graded reviews, and clinical dosing audits.',
+  alternates: { canonical: `${SITE_URL}/best-nootropics/` },
 };
 
 const faqItems = [
@@ -29,11 +34,11 @@ export default function BestNootropicsAUPage() {
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: 'Best Nootropics in Australia 2026',
+    headline: `Best Nootropics in Australia ${CURRENT_YEAR}`,
     datePublished: '2026-01-15',
     dateModified: new Date().toISOString().split('T')[0],
-    author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team' },
-    publisher: { '@type': 'Organization', name: 'The Nootropic Lab AU' },
+    author: buildPersonAuthorReference(EDITORIAL_AUTHOR, SITE_URL),
+    publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   };
 
   const faqSchema = {
@@ -49,12 +54,12 @@ export default function BestNootropicsAUPage() {
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Best Nootropic Supplements Australia 2026',
+    name: `Best Nootropic Supplements Australia ${CURRENT_YEAR}`,
     itemListElement: productsAU.map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       name: p.name,
-      url: `https://au.thenootropiclab.com/${p.slug}`,
+      url: `${SITE_URL}/${p.slug}/`,
     })),
   };
 
@@ -71,7 +76,7 @@ export default function BestNootropicsAUPage() {
           {new Date().toLocaleDateString('en-AU', { year: 'numeric', month: 'long', day: 'numeric' })}
         </div>
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          Best Nootropics in Australia 2026:
+          Best Nootropics in Australia {CURRENT_YEAR}:
           <br />
           TGA Import Guide, Evidence-Graded
         </h1>
@@ -93,7 +98,7 @@ export default function BestNootropicsAUPage() {
         <AffiliateDisclosure />
 
         <div className="bg-yellow-50 border border-yellow-300 rounded-xl p-5 mb-10 mt-6">
-          <div className="editor-badge mb-2 inline-block">Editor&apos;s Choice — Australia 2026</div>
+          <div className="editor-badge mb-2 inline-block">Editor&apos;s Choice — Australia {CURRENT_YEAR}</div>
           <h2 className="text-xl font-bold text-gray-900 mb-1">{winner.name}</h2>
           <p className="text-sm text-gray-600 mb-3">{winner.summary}</p>
           <a
@@ -107,8 +112,34 @@ export default function BestNootropicsAUPage() {
         </div>
 
         <section id="comparison-table">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Australia Nootropic Comparison 2026</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Australia Nootropic Comparison {CURRENT_YEAR}</h2>
           <ComparisonTable products={productsAU} market="us" />
+        </section>
+
+        {/* Browse by goal */}
+        <section className="mt-12">
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Browse by goal</h2>
+          <p className="text-sm text-gray-500 mb-6">
+            Different ingredients suit different cognitive goals. Each picks list ranks the products available to Australian buyers that contain the right ingredient at clinical dose.
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-3">
+            <a href="/best-nootropics-for-focus/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+              <div className="font-semibold text-gray-900 text-sm mb-1">Best Nootropics for Focus (AU)</div>
+              <div className="text-xs text-gray-500">L-theanine + caffeine, citicoline, L-tyrosine, Alpha-GPC</div>
+            </a>
+            <a href="/best-nootropics-for-memory/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+              <div className="font-semibold text-gray-900 text-sm mb-1">Best Nootropics for Memory (AU)</div>
+              <div className="text-xs text-gray-500">Bacopa Monnieri, Lion&apos;s Mane, phosphatidylserine</div>
+            </a>
+            <a href="/best-nootropics-for-studying/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+              <div className="font-semibold text-gray-900 text-sm mb-1">Best Nootropics for Studying (AU)</div>
+              <div className="text-xs text-gray-500">Sustained focus + memory consolidation for Australian students</div>
+            </a>
+            <a href="/best-nootropics-for-aging/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+              <div className="font-semibold text-gray-900 text-sm mb-1">Best Nootropics for Aging Brain (AU)</div>
+              <div className="text-xs text-gray-500">Phosphatidylserine, Bacopa, Lion&apos;s Mane, ginkgo — TGA-listed and imported options</div>
+            </a>
+          </div>
         </section>
 
         <section className="mt-12">

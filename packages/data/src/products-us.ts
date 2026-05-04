@@ -50,6 +50,7 @@ export interface Product {
   cons: string[];
   editorChoice: boolean;
   market: Market;
+  updatedAt?: string;
 }
 
 export const productsUS: Product[] = [

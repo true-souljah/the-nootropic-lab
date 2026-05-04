@@ -47,7 +47,7 @@ export default function EsHomePage() {
               href="/es/mejores-nootropicos"
               className="bg-green-700 hover:bg-green-600 text-white font-bold px-8 py-3 rounded-lg transition-colors"
             >
-              Mejores Nootrópicos 2026 →
+              Mejores Nootrópicos {new Date().getFullYear()} →
             </Link>
             <Link
               href="/es/comparar"

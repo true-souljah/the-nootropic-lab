@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import { ComparisonTable, AffiliateDisclosure, SchemaOrg } from '@nootropic/ui';
 import { productsUS } from '@nootropic/data';
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 interface StateData {
   slug: string;
   name: string;
@@ -231,8 +233,8 @@ export async function generateMetadata({
   const state = states.find(s => s.slug === slug);
   if (!state) return {};
   return {
-    title: `Best Nootropics in ${state.name} 2026 — Expert Ranked`,
-    description: `Independent comparison of the best nootropic supplements available in ${state.name} in 2026. Every ingredient audited against clinical trials. Transparent scoring and affiliate disclosure.`,
+    title: `Best Nootropics in ${state.name} ${CURRENT_YEAR} — Expert Ranked`,
+    description: `Independent comparison of the best nootropic supplements available in ${state.name} in ${CURRENT_YEAR}. Every ingredient audited against clinical trials. Transparent scoring and affiliate disclosure.`,
     alternates: {
       languages: {
         'en-US': `/${state.slug}/best-nootropics`,
@@ -259,7 +261,7 @@ export default async function StateNootropicsPage({
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: `Best Nootropic Supplements in ${state.name} 2026`,
+    name: `Best Nootropic Supplements in ${state.name} ${CURRENT_YEAR}`,
     itemListElement: productsUS.map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,
@@ -305,7 +307,7 @@ export default async function StateNootropicsPage({
           })}
         </div>
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          Best Nootropics in {state.name} 2026
+          Best Nootropics in {state.name} {CURRENT_YEAR}
         </h1>
         <p className="text-lg text-gray-600 mb-6 leading-relaxed">
           We reviewed {productsUS.length} nootropic supplements for {state.name} buyers, auditing
@@ -434,7 +436,7 @@ export default async function StateNootropicsPage({
 
         <div className="mt-10 text-sm text-gray-500">
           <a href="/best-nootropics" className="text-green-700 underline">
-            → View national comparison: Best Nootropics 2026
+            → View national comparison: Best Nootropics {new Date().getFullYear()}
           </a>
         </div>
       </article>

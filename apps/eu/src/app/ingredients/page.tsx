@@ -2,8 +2,9 @@ import type { Metadata } from 'next';
 import { SchemaOrg } from '@nootropic/ui';
 import { ingredients } from '@nootropic/data';
 
+const CURRENT_YEAR = new Date().getFullYear();
 export const metadata: Metadata = {
-  title: 'Nootropic Ingredients Guide 2026 — EU Edition, Clinical Doses & Evidence',
+  title: `Nootropic Ingredients Guide ${CURRENT_YEAR} — EU Edition, Clinical Doses & Evidence`,
   description:
     'Compare 10 evidence-backed nootropic ingredients available in the EU. Clinical doses, mechanisms, time to effect, and which EU-compliant products contain them.',
 };

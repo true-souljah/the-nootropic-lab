@@ -2,8 +2,10 @@ import type { Metadata } from 'next';
 import { ComparisonTable, AffiliateDisclosure, StickyCtaBar, SchemaOrg } from '@nootropic/ui';
 import { productsJP } from '@nootropic/data';
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 export const metadata: Metadata = {
-  title: '2026年 日本向け最高のノートロピクス — 厚生労働省輸入ガイド',
+  title: `${CURRENT_YEAR}年 日本向け最高のノートロピクス — 厚生労働省輸入ガイド`,
   description:
     '日本の購入者向けトップノートロピクスサプリメント。日本発送対応の海外ブランドとファンケル・サントリーの国内オプション。厚生労働省輸入コンプライアンス注意事項。',
   alternates: {
@@ -35,7 +37,7 @@ export default function JaBestNootropicsPage() {
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: '2026年 日本向け最高のノートロピクス',
+    headline: `${CURRENT_YEAR}年 日本向け最高のノートロピクス`,
     datePublished: '2026-01-15',
     dateModified: new Date().toISOString().split('T')[0],
     author: { '@type': 'Organization', name: 'The Nootropic Lab 編集チーム' },
@@ -63,9 +65,9 @@ export default function JaBestNootropicsPage() {
           最終更新: {new Date().toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' })}
         </div>
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-          2026年 日本向け最高のノートロピクス
+          {CURRENT_YEAR}年 日本向け最高のノートロピクス
         </h1>
-        <p className="text-base text-gray-400 mb-4">2026年 日本向けノートロピクスガイド — 厚生労働省輸入情報</p>
+        <p className="text-base text-gray-400 mb-4">{CURRENT_YEAR}年 日本向けノートロピクスガイド — 厚生労働省輸入情報</p>
 
         <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 mb-6">
           <h2 className="font-bold text-amber-900 mb-2">厚生労働省 輸入に関する注意</h2>
@@ -80,7 +82,7 @@ export default function JaBestNootropicsPage() {
         <AffiliateDisclosure />
 
         <div className="bg-yellow-50 border border-yellow-300 rounded-xl p-5 mb-10 mt-6">
-          <div className="editor-badge mb-2 inline-block">編集者の選択 — Japan 2026</div>
+          <div className="editor-badge mb-2 inline-block">編集者の選択 — Japan {CURRENT_YEAR}</div>
           <h2 className="text-xl font-bold text-gray-900 mb-1">{winner.name}</h2>
           <p className="text-sm text-gray-600 mb-3">{winner.summary}</p>
           <div className="flex flex-wrap gap-2 mb-4">
@@ -104,7 +106,7 @@ export default function JaBestNootropicsPage() {
         </div>
 
         <section id="comparison-table">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">2026年 日本ノートロピクス比較</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">{CURRENT_YEAR}年 日本ノートロピクス比較</h2>
           <p className="text-sm text-gray-500 mb-4">
             価格はUSD表示。緑バッジ = カフェインフリー（厚生労働省輸入準拠）。国内ブランドはAmazon Japanリンク。
           </p>
@@ -148,7 +150,7 @@ export default function JaBestNootropicsPage() {
 
         <div className="mt-10 text-sm text-gray-500">
           <a href="/best-nootropics" className="text-green-700 underline">
-            🇬🇧 English version: Best Nootropics in Japan 2026
+            🇬🇧 English version: Best Nootropics in Japan {CURRENT_YEAR}
           </a>
         </div>
       </article>

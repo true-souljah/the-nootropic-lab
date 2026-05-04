@@ -1,9 +1,13 @@
 import type { Metadata } from 'next';
 import { ComparisonTable, AffiliateDisclosure, StickyCtaBar, SchemaOrg } from '@nootropic/ui';
-import { productsCA } from '@nootropic/data';
+import { productsCA, getAuthorBySlug, buildPersonAuthorReference } from '@nootropic/data';
+
+const SITE_URL = 'https://ca.thenootropiclab.com';
+const CURRENT_YEAR = new Date().getFullYear();
+const EDITORIAL_AUTHOR = getAuthorBySlug('stephan-kulik')!;
 
 export const metadata: Metadata = {
-  title: 'Les meilleurs nootropiques au Canada 2026 — Guide de l\'acheteur canadien',
+  title: `Les meilleurs nootropiques au Canada ${new Date().getFullYear()} — Guide de l'acheteur canadien`,
   description:
     'Les suppléments nootropiques les mieux notés pour les acheteurs canadiens. Livraison au Canada confirmée, analyses fondées sur les données probantes et audit complet de dosage clinique.',
   alternates: {
@@ -35,11 +39,11 @@ export default function FrMeilleursNootropiquesPage() {
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: 'Les meilleurs nootropiques au Canada 2026',
+    headline: `Les meilleurs nootropiques au Canada ${CURRENT_YEAR}`,
     datePublished: '2026-01-15',
     dateModified: new Date().toISOString().split('T')[0],
-    author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team' },
-    publisher: { '@type': 'Organization', name: 'The Nootropic Lab CA' },
+    author: buildPersonAuthorReference(EDITORIAL_AUTHOR, SITE_URL),
+    publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   };
 
   const faqSchema = {
@@ -55,12 +59,12 @@ export default function FrMeilleursNootropiquesPage() {
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Les meilleurs suppléments nootropiques au Canada 2026',
+    name: `Les meilleurs suppléments nootropiques au Canada ${CURRENT_YEAR}`,
     itemListElement: productsCA.map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       name: p.name,
-      url: `https://ca.thenootropiclab.com/${p.slug}`,
+      url: `${SITE_URL}/${p.slug}/`,
     })),
   };
 
@@ -81,7 +85,7 @@ export default function FrMeilleursNootropiquesPage() {
           })}
         </div>
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          Les meilleurs nootropiques au Canada 2026
+          Les meilleurs nootropiques au Canada {CURRENT_YEAR}
         </h1>
         <p className="text-lg text-gray-600 mb-6 leading-relaxed">
           Tous les produits listés ci-dessous sont expédiés directement au Canada. Nous vérifions
@@ -108,7 +112,7 @@ export default function FrMeilleursNootropiquesPage() {
         </div>
 
         <div className="bg-yellow-50 border border-yellow-300 rounded-xl p-5 mb-10">
-          <div className="editor-badge mb-2 inline-block">Choix de la rédaction — Canada 2026</div>
+          <div className="editor-badge mb-2 inline-block">Choix de la rédaction — Canada {CURRENT_YEAR}</div>
           <h2 className="text-xl font-bold text-gray-900 mb-1">{winner.name}</h2>
           <p className="text-sm text-gray-600 mb-3">{winner.summary}</p>
           <a
@@ -123,7 +127,7 @@ export default function FrMeilleursNootropiquesPage() {
 
         <section id="comparison-table">
           <h2 className="text-2xl font-bold text-gray-900 mb-2">
-            Comparatif de nootropiques au Canada 2026
+            Comparatif de nootropiques au Canada {CURRENT_YEAR}
           </h2>
           <p className="text-sm text-gray-500 mb-4">
             Prix en USD (les marques internationales affichent leurs prix en USD pour les commandes canadiennes).
@@ -179,7 +183,7 @@ export default function FrMeilleursNootropiquesPage() {
 
         <div className="mt-10 text-sm text-gray-500">
           <a href="/best-nootropics" className="text-green-700 underline">
-            🇨🇦 Version anglaise : Best Nootropics in Canada 2026
+            🇨🇦 Version anglaise : Best Nootropics in Canada {CURRENT_YEAR}
           </a>
         </div>
       </article>

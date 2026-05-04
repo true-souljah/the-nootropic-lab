@@ -14,7 +14,7 @@ export default function ComparisonToolPage() {
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Los Mejores Suplementos Nootrópicos en América Latina 2026',
+    name: `Los Mejores Suplementos Nootrópicos en América Latina ${new Date().getFullYear()}`,
     itemListElement: productsLatam.map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,

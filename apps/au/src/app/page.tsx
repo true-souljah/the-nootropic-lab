@@ -2,17 +2,33 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { SchemaOrg } from '@nootropic/ui';
 
+const SITE_URL = 'https://au.thenootropiclab.com';
+const CURRENT_YEAR = new Date().getFullYear();
+
 export const metadata: Metadata = {
   title: 'The Nootropic Lab AU — Independent Cognitive Supplement Reviews',
   description:
     'The independent nootropic comparison platform for Australian buyers. TGA import notes, evidence-graded reviews, and transparent affiliate disclosure.',
+  alternates: { canonical: `${SITE_URL}/` },
+  openGraph: {
+    title: 'The Nootropic Lab AU — Independent Cognitive Supplement Reviews',
+    description: 'Evidence-graded nootropic reviews. TGA import guidance. Transparent affiliate disclosure.',
+    url: SITE_URL,
+    siteName: 'The Nootropic Lab AU',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'The Nootropic Lab AU — Independent Cognitive Supplement Reviews',
+    description: 'Evidence-graded nootropic reviews. TGA import guidance. Transparent affiliate disclosure.',
+  },
 };
 
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'The Nootropic Lab AU',
-  url: 'https://au.thenootropiclab.com',
+  url: SITE_URL,
   description: 'Independent cognitive supplement reviews for Australian buyers.',
 };
 
@@ -20,7 +36,7 @@ const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'The Nootropic Lab',
-  url: 'https://au.thenootropiclab.com',
+  url: SITE_URL,
   description: 'Independent cognitive supplement reviews with clinical dosing audits and transparent affiliate disclosure.',
 };
 
@@ -45,7 +61,7 @@ const features = [
 const quickLinks = [
   {
     href: '/best-nootropics',
-    title: 'Best Nootropics 2026 (Australia)',
+    title: `Best Nootropics ${CURRENT_YEAR} (Australia)`,
     desc: 'Full comparison with TGA import notes and Australian shipping info.',
   },
   {
@@ -85,7 +101,7 @@ export default function HomePage() {
               href="/best-nootropics"
               className="bg-green-700 hover:bg-green-600 text-white font-bold px-8 py-3 rounded-lg transition-colors"
             >
-              Best Nootropics 2026 →
+              Best Nootropics {CURRENT_YEAR} →
             </Link>
             <Link
               href="/nootropic-comparison"
@@ -112,7 +128,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="max-w-5xl mx-auto px-4 pb-16">
+      <section className="max-w-5xl mx-auto px-4 pb-12">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">Start your research</h2>
         <div className="grid md:grid-cols-3 gap-4">
           {quickLinks.map(l => (
@@ -125,6 +141,30 @@ export default function HomePage() {
               <div className="text-sm text-gray-500">{l.desc}</div>
             </Link>
           ))}
+        </div>
+      </section>
+
+      {/* Browse by goal */}
+      <section className="max-w-5xl mx-auto px-4 pb-16">
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">Browse by goal</h2>
+        <p className="text-sm text-gray-500 mb-6">Different ingredients suit different cognitive goals. TGA Personal Importation Scheme guidance included on every page.</p>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-3">
+          <Link href="/best-nootropics-for-focus/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+            <div className="font-semibold text-gray-900 text-sm mb-1">For focus</div>
+            <div className="text-xs text-gray-500">L-theanine + caffeine, citicoline</div>
+          </Link>
+          <Link href="/best-nootropics-for-memory/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+            <div className="font-semibold text-gray-900 text-sm mb-1">For memory</div>
+            <div className="text-xs text-gray-500">Bacopa, Lion&apos;s Mane, PS</div>
+          </Link>
+          <Link href="/best-nootropics-for-studying/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+            <div className="font-semibold text-gray-900 text-sm mb-1">For studying</div>
+            <div className="text-xs text-gray-500">Sustained focus + retention for Australian students</div>
+          </Link>
+          <Link href="/best-nootropics-for-aging/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+            <div className="font-semibold text-gray-900 text-sm mb-1">For aging brain</div>
+            <div className="text-xs text-gray-500">PS, Bacopa, Lion&apos;s Mane, ginkgo — TGA-listed + imported options</div>
+          </Link>
         </div>
       </section>
     </>

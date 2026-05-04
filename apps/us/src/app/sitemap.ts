@@ -1,6 +1,6 @@
 export const dynamic = 'force-static';
 import type { MetadataRoute } from 'next';
-import { productsUS, ingredients, guides } from '@nootropic/data';
+import { productsUS, ingredients, guides, authors } from '@nootropic/data';
 
 const BASE = 'https://thenootropiclab.com';
 
@@ -21,14 +21,40 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     { url: BASE, lastModified: now, changeFrequency: 'weekly', priority: 1.0 },
     { url: `${BASE}/best-nootropics`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${BASE}/mind-lab-pro-vs-alpha-brain`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
+    { url: `${BASE}/mind-lab-pro-vs-qualia-mind`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE}/alpha-brain-vs-qualia-mind`, lastModified: now, changeFrequency: 'weekly', priority: 0.75 },
+    { url: `${BASE}/mind-lab-pro-vs-noocube`, lastModified: now, changeFrequency: 'weekly', priority: 0.75 },
+    { url: `${BASE}/mind-lab-pro-vs-thesis`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${BASE}/best-nootropics-for-focus`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
+    { url: `${BASE}/best-nootropics-for-adhd`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
+    { url: `${BASE}/best-nootropics-for-memory`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE}/best-nootropics-for-studying`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE}/best-nootropics-for-aging`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE}/best-nootropics-for-mood`, lastModified: now, changeFrequency: 'weekly', priority: 0.75 },
+    { url: `${BASE}/best-nootropics-for-energy`, lastModified: now, changeFrequency: 'weekly', priority: 0.75 },
+    { url: `${BASE}/natural-adderall-alternatives`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
+    { url: `${BASE}/cancel-onnit-subscription`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE}/cancel-thesis-subscription`, lastModified: now, changeFrequency: 'monthly', priority: 0.65 },
+    { url: `${BASE}/cancel-qualia-subscription`, lastModified: now, changeFrequency: 'monthly', priority: 0.65 },
     { url: `${BASE}/nootropic-comparison`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE}/methodology`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${BASE}/about`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${BASE}/contact`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${BASE}/authors`, lastModified: now, changeFrequency: 'monthly', priority: 0.4 },
     { url: `${BASE}/privacy-policy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE}/cookie-policy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE}/es`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
     { url: `${BASE}/es/mejores-nootropicos`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
     { url: `${BASE}/es/comparar`, lastModified: now, changeFrequency: 'weekly', priority: 0.6 },
   ];
+
+  const authorPages: MetadataRoute.Sitemap = authors.map(a => ({
+    url: `${BASE}/authors/${a.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.5,
+  }));
 
   const productPages: MetadataRoute.Sitemap = productsUS.map(p => ({
     url: `${BASE}/${p.slug}`,
@@ -64,5 +90,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 
-  return [...staticPages, ...productPages, ...statePages, ...ingredientPages, ...guidePages];
+  return [...staticPages, ...authorPages, ...productPages, ...statePages, ...ingredientPages, ...guidePages];
 }

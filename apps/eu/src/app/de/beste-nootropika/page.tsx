@@ -3,8 +3,10 @@ import Link from 'next/link';
 import { ComparisonTable, AffiliateDisclosure } from '@nootropic/ui';
 import { productsEU } from '@nootropic/data';
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 export const metadata: Metadata = {
-  title: 'Beste Nootropika 2026: Getestet & Verglichen für Deutschland',
+  title: `Beste Nootropika ${CURRENT_YEAR}: Getestet & Verglichen für Deutschland`,
   description:
     'Unabhängiger Nootropika Vergleich für Deutschland, Österreich und die Schweiz. EU-konforme Produkte, EUR-Preise, klinische Dosierungsanalyse.',
   alternates: {
@@ -27,7 +29,7 @@ export default function BestNootropikaDE() {
         })}
       </div>
       <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-        Beste Nootropika 2026:
+        Beste Nootropika {CURRENT_YEAR}:
         <br />
         Getestet &amp; Verglichen für Deutschland
       </h1>
@@ -52,14 +54,14 @@ export default function BestNootropikaDE() {
 
       <div className="mt-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">
-          Nootropika Vergleich — EU/DACH 2026
+          Nootropika Vergleich — EU/DACH {CURRENT_YEAR}
         </h2>
         <ComparisonTable products={productsEU} market="eu" />
       </div>
 
       <div className="mt-8 text-sm text-gray-500">
         <Link href="/best-nootropics" className="text-green-700 underline">
-          → English version: Best Nootropics Europe 2026
+          → English version: Best Nootropics Europe {CURRENT_YEAR}
         </Link>
       </div>
     </article>

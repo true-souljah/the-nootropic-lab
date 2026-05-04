@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SchemaOrg } from '@nootropic/ui';
-import { guides } from '@nootropic/data';
+import { guides, getAuthorBySlug, buildPersonAuthorReference } from '@nootropic/data';
+
+const SITE_URL = 'https://sea.thenootropiclab.com';
+const EDITORIAL_AUTHOR = getAuthorBySlug('stephan-kulik')!;
 
 export const dynamicParams = false;
 
@@ -18,7 +21,7 @@ export async function generateMetadata({
   const g = guides.find(x => x.slug === guide);
   if (!g) return {};
   return {
-    title: `${g.title} — The Nootropic Lab EU`,
+    title: `${g.title} — The Nootropic Lab SEA`,
     description: g.description,
   };
 }
@@ -37,7 +40,7 @@ export default async function GuidePage({
     '@type': 'Article',
     headline: g.title,
     description: g.description,
-    author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team' },
+    author: buildPersonAuthorReference(EDITORIAL_AUTHOR, SITE_URL),
     timeRequired: `PT${g.readingTimeMin}M`,
   };
 

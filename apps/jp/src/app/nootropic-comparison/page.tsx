@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { ComparisonTable, AffiliateDisclosure, SchemaOrg } from '@nootropic/ui';
 import { productsJP } from '@nootropic/data';
 
+const CURRENT_YEAR = new Date().getFullYear();
 export const metadata: Metadata = {
   title: 'Nootropic Comparison Tool — Japan',
   description:
@@ -12,7 +13,7 @@ export default function ComparisonToolPage() {
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Best Nootropic Supplements Japan 2026',
+    name: `Best Nootropic Supplements Japan ${CURRENT_YEAR}`,
     itemListElement: productsJP.map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,

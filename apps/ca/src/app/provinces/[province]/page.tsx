@@ -1,7 +1,11 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SchemaOrg } from '@nootropic/ui';
-import { productsCA, caProvinces } from '@nootropic/data';
+import { productsCA, caProvinces, getAuthorBySlug, buildPersonAuthorReference } from '@nootropic/data';
+
+const SITE_URL = 'https://ca.thenootropiclab.com';
+const CURRENT_YEAR = new Date().getFullYear();
+const EDITORIAL_AUTHOR = getAuthorBySlug('stephan-kulik')!;
 
 export const dynamicParams = false;
 
@@ -20,7 +24,7 @@ export async function generateMetadata({
   const p = provinces.find(x => x.slug === province);
   if (!p) return {};
   return {
-    title: `Best Nootropics in ${p.name} 2026 — Canadian Buyer's Guide`,
+    title: `Best Nootropics in ${p.name} ${CURRENT_YEAR} — Canadian Buyer's Guide`,
     description: `Buy nootropics in ${p.name}: Health Canada notes, shipping info, and top-rated stacks for ${p.name} residents.`,
   };
 }
@@ -39,8 +43,8 @@ export default async function ProvincePage({
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: `Best Nootropics in ${p.name} 2026`,
-    author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team' },
+    headline: `Best Nootropics in ${p.name} ${CURRENT_YEAR}`,
+    author: buildPersonAuthorReference(EDITORIAL_AUTHOR, SITE_URL),
   };
 
   return (
@@ -56,7 +60,7 @@ export default async function ProvincePage({
         </nav>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          Best Nootropics in {p.name} 2026
+          Best Nootropics in {p.name} {CURRENT_YEAR}
         </h1>
 
         <div className="bg-green-50 border border-green-200 rounded-xl p-5 mb-8">
@@ -107,7 +111,7 @@ export default async function ProvincePage({
 
         <div className="text-sm text-gray-500">
           <a href="/best-nootropics" className="text-green-700 underline">
-            ← Back to Best Nootropics Canada 2026
+            ← Back to Best Nootropics Canada {CURRENT_YEAR}
           </a>
         </div>
       </article>
