@@ -1,11 +1,10 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SchemaOrg } from '@nootropic/ui';
-import { seaCountries, productsSEA, getAuthorBySlug, buildPersonAuthorReference } from '@nootropic/data';
+import { seaCountries, productsSEA, buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://sea.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
-const EDITORIAL_AUTHOR = getAuthorBySlug('stephan-kulik')!;
 
 export const dynamicParams = false;
 
@@ -43,7 +42,7 @@ export default async function CountryPage({
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: `Best Nootropics in ${c.name} ${CURRENT_YEAR}`,
-    author: buildPersonAuthorReference(EDITORIAL_AUTHOR, SITE_URL),
+    author: buildPersonAuthorReference(undefined, SITE_URL),
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   };
 

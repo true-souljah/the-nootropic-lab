@@ -28,7 +28,7 @@ interface Props {
   /** Site URL (no trailing slash) */
   siteUrl: string;
   /** Editorial author */
-  author: Author;
+  author?: Author;
   /** SEO title */
   pageTitle: string;
   /** SEO description */
@@ -52,7 +52,6 @@ export default function SubscriptionCancellationPage({
   productReviewSlug,
   pageSlug,
   siteUrl,
-  author,
   pageTitle,
   pageDescription,
   heroParagraph,
@@ -71,7 +70,7 @@ export default function SubscriptionCancellationPage({
     name: pageTitle,
     description: pageDescription,
     totalTime: `PT${totalTimeMinutes}M`,
-    author: buildPersonAuthorReference(author, siteUrl),
+    author: buildPersonAuthorReference(undefined, siteUrl),
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: siteUrl },
     step: steps.map((s, i) => ({
       '@type': 'HowToStep',
@@ -120,9 +119,7 @@ export default function SubscriptionCancellationPage({
         <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 mb-4">
           <span>
             Reviewed by{' '}
-            <Link href={`/authors/${author.slug}/`} className="text-gray-700 hover:text-green-700 underline">
-              <strong>{author.name}</strong>
-            </Link>
+            <strong className="text-gray-700">The Nootropic Lab Editorial Team</strong>
           </span>
           <span>·</span>
           <span>

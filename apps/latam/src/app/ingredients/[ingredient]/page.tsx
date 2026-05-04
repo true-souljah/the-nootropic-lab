@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SchemaOrg } from '@nootropic/ui';
-import { ingredients, productsLatam, getAuthorBySlug, buildPersonAuthorReference } from '@nootropic/data';
+import { ingredients, productsLatam, buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://latam.thenootropiclab.com';
-const EDITORIAL_AUTHOR = getAuthorBySlug('stephan-kulik')!;
 
 export const dynamicParams = false;
 
@@ -63,7 +62,7 @@ export default async function IngredientPage({
     '@type': 'Article',
     headline: `${ing.name} — Guía de Ingredientes Nootrópicos`,
     description: ing.studySummary,
-    author: buildPersonAuthorReference(EDITORIAL_AUTHOR, SITE_URL),
+    author: buildPersonAuthorReference(undefined, SITE_URL),
   };
 
   const breadcrumbSchema = {

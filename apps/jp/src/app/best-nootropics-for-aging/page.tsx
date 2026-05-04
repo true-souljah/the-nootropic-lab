@@ -2,11 +2,10 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { UseCaseListPage } from '@nootropic/ui';
 import type { UseCaseFAQ, IngredientMechanism, UseCasePick } from '@nootropic/ui';
-import { productsJP, getAuthorBySlug } from '@nootropic/data';
+import { productsJP } from '@nootropic/data';
 
 const SITE_URL = 'https://jp.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
-const author = getAuthorBySlug('stephan-kulik')!;
 
 export const metadata: Metadata = {
   title: `Best Nootropics for Aging Brain in Japan ${CURRENT_YEAR}: Evidence-Graded Picks`,
@@ -114,7 +113,6 @@ export default function Page() {
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}
-      author={author}
     />
   );
 }

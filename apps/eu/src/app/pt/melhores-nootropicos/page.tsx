@@ -1,11 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ComparisonTable, AffiliateDisclosure, SchemaOrg } from '@nootropic/ui';
-import { productsEU, getAuthorBySlug, buildPersonAuthorReference } from '@nootropic/data';
+import { productsEU, buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://eu.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
-const EDITORIAL_AUTHOR = getAuthorBySlug('stephan-kulik')!;
 
 export const metadata: Metadata = {
   title: `Melhores Nootrópicos ${CURRENT_YEAR} Europa: Comparação Completa`,
@@ -25,7 +24,7 @@ export default function MelhoresNootropicosPT() {
     '@type': 'Article',
     headline: `Os Melhores Nootrópicos na Europa ${CURRENT_YEAR}`,
     dateModified: new Date().toISOString().split('T')[0],
-    author: buildPersonAuthorReference(EDITORIAL_AUTHOR, SITE_URL),
+    author: buildPersonAuthorReference(undefined, SITE_URL),
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab EU', url: SITE_URL },
     inLanguage: 'pt-PT',
   };

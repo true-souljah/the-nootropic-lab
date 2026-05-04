@@ -4,7 +4,6 @@ import type { CancellationStep, CancellationFAQ } from '@nootropic/ui';
 import { getAuthorBySlug } from '@nootropic/data';
 
 const SITE_URL = 'https://thenootropiclab.com';
-const author = getAuthorBySlug('stephan-kulik')!;
 
 export const metadata: Metadata = {
   title: 'How to Cancel Onnit Subscription (Alpha Brain) — Step-by-Step Guide',
@@ -93,7 +92,6 @@ export default function Page() {
       productReviewSlug="onnit-alpha-brain-review"
       pageSlug="cancel-onnit-subscription"
       siteUrl={SITE_URL}
-      author={author}
       pageTitle="How to Cancel Your Onnit Subscription (Step-by-Step)"
       pageDescription="Cancel your Onnit Alpha Brain or any Onnit subscription. Step-by-step instructions, friction points, and FTC complaint path if it doesn&apos;t work."
       heroParagraph="Onnit's subscription cancellation flow is documented as friction-heavy — retention pop-ups, hidden cancel links, and confusingly-labeled buttons. This guide walks you through the actual steps, what to watch for, and where to escalate if the cancellation doesn't go through. ~6 minutes total."

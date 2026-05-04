@@ -2,11 +2,10 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { UseCaseListPage } from '@nootropic/ui';
 import type { UseCaseFAQ, IngredientMechanism, UseCasePick } from '@nootropic/ui';
-import { productsEU, getAuthorBySlug } from '@nootropic/data';
+import { productsEU } from '@nootropic/data';
 
 const SITE_URL = 'https://eu.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
-const author = getAuthorBySlug('stephan-kulik')!;
 
 export const metadata: Metadata = {
   title: `Best Nootropics for Focus ${CURRENT_YEAR} (EU): EU-Compliant Picks at Clinical Doses`,
@@ -120,7 +119,6 @@ export default function Page() {
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}
-      author={author}
     />
   );
 }

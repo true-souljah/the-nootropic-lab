@@ -1,11 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SchemaOrg, AffiliateDisclosure } from '@nootropic/ui';
-import { getAuthorBySlug, buildPersonAuthorReference } from '@nootropic/data';
+import { buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
-const author = getAuthorBySlug('stephan-kulik')!;
 
 export const metadata: Metadata = {
   title: `Nootropics vs Adderall ${CURRENT_YEAR}: An Honest Comparison (NOT Equivalents)`,
@@ -27,7 +26,7 @@ const articleSchema = {
   description: 'Adderall is a prescription stimulant; nootropics are supplements. They are not equivalents.',
   datePublished: `${CURRENT_YEAR}-04-30`,
   dateModified: new Date().toISOString().split('T')[0],
-  author: buildPersonAuthorReference(author, SITE_URL),
+  author: buildPersonAuthorReference(undefined, SITE_URL),
   publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
 };
 
@@ -101,9 +100,7 @@ export default function Page() {
         <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 mb-4">
           <span>
             Reviewed by{' '}
-            <Link href={`/authors/${author.slug}/`} className="text-gray-700 hover:text-green-700 underline">
-              <strong>{author.name}</strong>
-            </Link>
+            <strong className="text-gray-700">The Nootropic Lab Editorial Team</strong>
           </span>
           <span>·</span>
           <span>

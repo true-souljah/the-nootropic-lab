@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SchemaOrg } from '@nootropic/ui';
-import { guides, getAuthorBySlug, buildPersonAuthorReference } from '@nootropic/data';
+import { guides, buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://au.thenootropiclab.com';
-const EDITORIAL_AUTHOR = getAuthorBySlug('stephan-kulik')!;
 
 export const dynamicParams = false;
 
@@ -40,7 +39,7 @@ export default async function GuidePage({
     '@type': 'Article',
     headline: g.title,
     description: g.description,
-    author: buildPersonAuthorReference(EDITORIAL_AUTHOR, SITE_URL),
+    author: buildPersonAuthorReference(undefined, SITE_URL),
     timeRequired: `PT${g.readingTimeMin}M`,
   };
 

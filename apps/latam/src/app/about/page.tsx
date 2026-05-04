@@ -7,7 +7,7 @@ const SITE_URL = 'https://latam.thenootropiclab.com';
 export const metadata: Metadata = {
   title: 'Acerca de The Nootropic Lab Latam',
   description:
-    'The Nootropic Lab Latam es un sitio independiente de comparación de suplementos cognitivos para América Latina, operado por Kulik Media UG. Reseñas basadas en evidencia, auditorías de dosificación clínica y divulgación transparente de afiliados.',
+    'The Nootropic Lab Latam es un sitio independiente de comparación de suplementos cognitivos para América Latina, operado por . Reseñas basadas en evidencia, auditorías de dosificación clínica y divulgación transparente de afiliados.',
   alternates: { canonical: `${SITE_URL}/about/` },
 };
 
@@ -19,7 +19,6 @@ const aboutSchema = {
   publisher: {
     '@type': 'Organization',
     name: 'The Nootropic Lab',
-    legalName: 'Kulik Media UG',
     url: SITE_URL,
   },
 };
@@ -93,12 +92,12 @@ export default function AboutPage() {
         <section className="mb-10">
           <h2 className="text-xl font-bold text-gray-900 mb-3">Quiénes somos</h2>
           <p className="text-gray-700 leading-relaxed">
-            The Nootropic Lab es operado por <strong>Kulik Media UG</strong>, una sociedad alemana de
+            The Nootropic Lab es operado por <strong></strong>, una sociedad alemana de
             responsabilidad limitada que construye sitios de comparación basados en evidencia en verticales
             regulados (servicios financieros, suplementos, mercados de predicción). La línea editorial está
-            dirigida por Stephan Kulik. Cada reseña lleva la firma de un autor con nombre — sin contenido
+            dirigida por The Nootropic Lab Editorial Team. Cada reseña lleva la firma de un autor con nombre — sin contenido
             anónimo.{' '}
-            <Link href="/authors/stephan-kulik/" className="text-green-700 underline">Conoce al editor</Link>.
+            Conoce al editor.
           </p>
         </section>
 

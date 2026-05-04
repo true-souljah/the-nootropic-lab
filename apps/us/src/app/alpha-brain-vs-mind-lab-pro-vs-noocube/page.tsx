@@ -2,11 +2,10 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ThreeWayComparisonPage } from '@nootropic/ui';
 import type { ThreeWayFAQ } from '@nootropic/ui';
-import { productsUS, getAuthorBySlug } from '@nootropic/data';
+import { productsUS } from '@nootropic/data';
 
 const SITE_URL = 'https://thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
-const author = getAuthorBySlug('stephan-kulik')!;
 
 const productA = productsUS.find(p => p.slug === 'onnit-alpha-brain-review');
 const productB = productsUS.find(p => p.slug === 'mind-lab-pro-review');
@@ -84,7 +83,6 @@ export default function Page() {
       productB={productB}
       productC={productC}
       siteUrl={SITE_URL}
-      author={author}
       verdictParagraph={verdictParagraph}
       faqItems={faqItems}
       whoIsForA={whoIsForA}

@@ -46,7 +46,7 @@ interface Props {
   /** Site URL, e.g. https://thenootropiclab.com (no trailing slash) */
   siteUrl: string;
   /** Editorial author */
-  author: Author;
+  author?: Author;
   /** Optional medical reviewer for YMYL credibility */
   reviewedBy?: { name: string; sameAs?: string[] };
   /** Optional YMYL health disclaimer override; defaults to a generic supplement disclaimer */
@@ -66,7 +66,6 @@ export default function UseCaseListPage({
   picks,
   faqItems,
   siteUrl,
-  author,
   reviewedBy,
   healthDisclaimer,
   listicleHref = '/best-nootropics',
@@ -83,7 +82,7 @@ export default function UseCaseListPage({
     description: pageDescription,
     datePublished: `${currentYear}-04-30`,
     dateModified: new Date().toISOString().split('T')[0],
-    author: buildPersonAuthorReference(author, siteUrl),
+    author: buildPersonAuthorReference(undefined, siteUrl),
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: siteUrl },
     ...(reviewedBy && {
       reviewedBy: {
@@ -148,9 +147,7 @@ export default function UseCaseListPage({
         <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 mb-4">
           <span>
             {s.reviewedBy}{' '}
-            <Link href={`/authors/${author.slug}/`} className="text-gray-700 hover:text-green-700 underline">
-              <strong>{author.name}</strong>
-            </Link>
+            <strong className="text-gray-700">The Nootropic Lab Editorial Team</strong>
           </span>
           {reviewedBy && (
             <>

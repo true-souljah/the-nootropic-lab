@@ -7,7 +7,7 @@ const SITE_URL = 'https://eu.thenootropiclab.com';
 export const metadata: Metadata = {
   title: 'About The Nootropic Lab EU',
   description:
-    'The Nootropic Lab EU is an independent cognitive-supplement comparison site for European buyers, operated by Kulik Media UG. EUR pricing, EU regulatory compliance, transparent affiliate disclosure.',
+    'The Nootropic Lab EU is an independent cognitive-supplement comparison site for European buyers, EUR pricing, EU regulatory compliance, transparent affiliate disclosure.',
   alternates: { canonical: `${SITE_URL}/about/` },
 };
 
@@ -19,7 +19,6 @@ const aboutSchema = {
   publisher: {
     '@type': 'Organization',
     name: 'The Nootropic Lab EU',
-    legalName: 'Kulik Media UG',
     url: SITE_URL,
   },
 };
@@ -58,12 +57,12 @@ export default function AboutPage() {
         <section className="mb-10">
           <h2 className="text-xl font-bold text-gray-900 mb-3">Who we are</h2>
           <p className="text-gray-700 leading-relaxed">
-            The Nootropic Lab EU is operated by{' '}
-            <strong>Kulik Media UG</strong>, a German limited-liability company building
+            The Nootropic Lab EU is editorially independent.{' '}
+            <strong>The Nootropic Lab</strong> is an independent editorial team building
             evidence-graded comparison sites in regulated verticals (financial services, supplements,
-            prediction markets). Editorial is led by Stephan Kulik. Every review carries a named
+            prediction markets). Editorial is led by The Nootropic Lab Editorial Team. Every review carries a named
             author byline — no anonymous content.{' '}
-            <Link href="/authors/stephan-kulik/" className="text-green-700 underline">Meet the editor</Link>.
+            Meet the editor.
           </p>
         </section>
 

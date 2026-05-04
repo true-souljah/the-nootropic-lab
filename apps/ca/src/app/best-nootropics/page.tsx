@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
 import { ComparisonTable, AffiliateDisclosure, StickyCtaBar, SchemaOrg } from '@nootropic/ui';
-import { productsCA, getAuthorBySlug, buildPersonAuthorReference } from '@nootropic/data';
+import { productsCA, buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://ca.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
-const EDITORIAL_AUTHOR = getAuthorBySlug('stephan-kulik')!;
 
 export const metadata: Metadata = {
   title: `Best Nootropics in Canada ${CURRENT_YEAR} — Canadian Buyer's Guide`,
@@ -36,7 +35,7 @@ export default function BestNootropicsCAPage() {
     headline: `Best Nootropics in Canada ${CURRENT_YEAR}`,
     datePublished: '2026-01-15',
     dateModified: new Date().toISOString().split('T')[0],
-    author: buildPersonAuthorReference(EDITORIAL_AUTHOR, SITE_URL),
+    author: buildPersonAuthorReference(undefined, SITE_URL),
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   };
 

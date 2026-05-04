@@ -4,7 +4,6 @@ import type { CancellationStep, CancellationFAQ } from '@nootropic/ui';
 import { getAuthorBySlug } from '@nootropic/data';
 
 const SITE_URL = 'https://thenootropiclab.com';
-const author = getAuthorBySlug('stephan-kulik')!;
 
 export const metadata: Metadata = {
   title: 'How to Cancel Thesis Nootropics Subscription — Step-by-Step Guide',
@@ -97,7 +96,6 @@ export default function Page() {
       productReviewSlug="thesis-nootropics-review"
       pageSlug="cancel-thesis-subscription"
       siteUrl={SITE_URL}
-      author={author}
       pageTitle="How to Cancel Your Thesis Nootropics Subscription"
       pageDescription="Cancel your Thesis Nootropics subscription per-formula. Step-by-step, with the friction points and FTC complaint path."
       heroParagraph="Thesis bills $59/month per formula. If you signed up for the starter and continued with 2-3 formulas, each is its own subscription that must be cancelled separately. This guide walks through the per-formula cancellation flow and what to do if you want a refund on unopened packets."

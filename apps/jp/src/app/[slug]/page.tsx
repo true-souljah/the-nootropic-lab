@@ -1,11 +1,10 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { AffiliateDisclosure, SchemaOrg, StickyCtaBar } from '@nootropic/ui';
-import { productsJP, getAuthorBySlug, buildPersonAuthorReference } from '@nootropic/data';
+import { productsJP, buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://jp.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
-const EDITORIAL_AUTHOR = getAuthorBySlug('stephan-kulik')!;
 
 export const dynamicParams = false;
 
@@ -65,7 +64,7 @@ export default async function ProductReviewPage({
     review: {
       '@type': 'Review',
       reviewRating: { '@type': 'Rating', ratingValue: String(product.score), bestRating: '10' },
-      author: buildPersonAuthorReference(EDITORIAL_AUTHOR, SITE_URL),
+      author: buildPersonAuthorReference(undefined, SITE_URL),
       publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
       reviewBody: product.summary,
     },
@@ -100,8 +99,8 @@ export default async function ProductReviewPage({
         <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 mb-4">
           <span>
             Reviewed by{' '}
-            <a href={`/authors/${EDITORIAL_AUTHOR.slug}/`} className="text-gray-700 hover:text-green-700 underline">
-              <strong>{EDITORIAL_AUTHOR.name}</strong>
+            <a href={`/authors/editorial-team/`} className="text-gray-700 hover:text-green-700 underline">
+              <strong>{'The Nootropic Lab Editorial Team'}</strong>
             </a>
           </span>
           <span>·</span>

@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
 import { ComparisonTable, AffiliateDisclosure, StickyCtaBar, SchemaOrg } from '@nootropic/ui';
-import { productsAU, getAuthorBySlug, buildPersonAuthorReference } from '@nootropic/data';
+import { productsAU, buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://au.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
-const EDITORIAL_AUTHOR = getAuthorBySlug('stephan-kulik')!;
 
 export const metadata: Metadata = {
   title: `Best Nootropics in Australia ${CURRENT_YEAR} — TGA Import Guide`,
@@ -37,7 +36,7 @@ export default function BestNootropicsAUPage() {
     headline: `Best Nootropics in Australia ${CURRENT_YEAR}`,
     datePublished: '2026-01-15',
     dateModified: new Date().toISOString().split('T')[0],
-    author: buildPersonAuthorReference(EDITORIAL_AUTHOR, SITE_URL),
+    author: buildPersonAuthorReference(undefined, SITE_URL),
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   };
 

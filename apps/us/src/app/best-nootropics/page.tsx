@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
 import { ComparisonTable, AffiliateDisclosure, StickyCtaBar, SchemaOrg } from '@nootropic/ui';
-import { productsUS, getAuthorBySlug, buildPersonAuthorReference } from '@nootropic/data';
+import { productsUS, buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
-const EDITORIAL_AUTHOR = getAuthorBySlug('stephan-kulik')!;
 
 export const metadata: Metadata = {
   title: `Best Nootropics ${CURRENT_YEAR}: Expert-Tested & Ranked for Focus, Memory and Energy`,
@@ -36,7 +35,7 @@ export default function BestNootropicsUSPage() {
     headline: `Best Nootropics ${CURRENT_YEAR}: Expert-Tested & Ranked`,
     datePublished: '2026-01-15',
     dateModified: new Date().toISOString().split('T')[0],
-    author: buildPersonAuthorReference(EDITORIAL_AUTHOR, SITE_URL),
+    author: buildPersonAuthorReference(undefined, SITE_URL),
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   };
 

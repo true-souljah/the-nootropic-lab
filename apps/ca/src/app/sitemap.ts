@@ -1,6 +1,6 @@
 export const dynamic = 'force-static';
 import type { MetadataRoute } from 'next';
-import { productsCA, ingredients, guides, authors } from '@nootropic/data';
+import { productsCA, ingredients, guides } from '@nootropic/data';
 
 const BASE = 'https://ca.thenootropiclab.com';
 
@@ -23,7 +23,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/methodology`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
     { url: `${BASE}/about`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
     { url: `${BASE}/contact`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
-    { url: `${BASE}/authors`, lastModified: now, changeFrequency: 'monthly', priority: 0.4 },
     { url: `${BASE}/privacy-policy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE}/cookie-policy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
     // French Canadian locale
@@ -31,14 +30,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/fr/meilleurs-nootropiques`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${BASE}/fr/comparer`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
   ];
-
-  const authorPages: MetadataRoute.Sitemap = authors.map(a => ({
-    url: `${BASE}/authors/${a.slug}`,
-    lastModified: now,
-    changeFrequency: 'monthly' as const,
-    priority: 0.5,
-  }));
-
   const productPages: MetadataRoute.Sitemap = productsCA.map(p => ({
     url: `${BASE}/${p.slug}`,
     lastModified: now,
@@ -73,5 +64,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...authorPages, ...productPages, ...ingredientPages, ...guidePages, ...provincePages];
+  return [...staticPages, ...productPages, ...ingredientPages, ...guidePages, ...provincePages];
 }

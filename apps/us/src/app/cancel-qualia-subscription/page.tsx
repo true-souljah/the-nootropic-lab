@@ -4,7 +4,6 @@ import type { CancellationStep, CancellationFAQ } from '@nootropic/ui';
 import { getAuthorBySlug } from '@nootropic/data';
 
 const SITE_URL = 'https://thenootropiclab.com';
-const author = getAuthorBySlug('stephan-kulik')!;
 
 export const metadata: Metadata = {
   title: 'How to Cancel Qualia Mind Subscription (Neurohacker Collective) — Step-by-Step',
@@ -93,7 +92,6 @@ export default function Page() {
       productReviewSlug="qualia-mind-review"
       pageSlug="cancel-qualia-subscription"
       siteUrl={SITE_URL}
-      author={author}
       pageTitle="How to Cancel Your Qualia Mind / Neurohacker Subscription"
       pageDescription="Cancel your Qualia Mind subscription before the $39 intro auto-converts to $139/month. Step-by-step + friction points + refund path."
       heroParagraph="Qualia Mind's introductory rate ($39 first month) auto-converts to $139/month at month two — this is the most common reason buyers want to cancel. The flow is straightforward but has retention friction at the final step. This guide walks through cancellation + the refund path if you missed the deadline."

@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
 import { ComparisonTable, AffiliateDisclosure, StickyCtaBar, SchemaOrg } from '@nootropic/ui';
-import { productsCA, getAuthorBySlug, buildPersonAuthorReference } from '@nootropic/data';
+import { productsCA, buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://ca.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
-const EDITORIAL_AUTHOR = getAuthorBySlug('stephan-kulik')!;
 
 export const metadata: Metadata = {
   title: `Les meilleurs nootropiques au Canada ${new Date().getFullYear()} — Guide de l'acheteur canadien`,
@@ -42,7 +41,7 @@ export default function FrMeilleursNootropiquesPage() {
     headline: `Les meilleurs nootropiques au Canada ${CURRENT_YEAR}`,
     datePublished: '2026-01-15',
     dateModified: new Date().toISOString().split('T')[0],
-    author: buildPersonAuthorReference(EDITORIAL_AUTHOR, SITE_URL),
+    author: buildPersonAuthorReference(undefined, SITE_URL),
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   };
 

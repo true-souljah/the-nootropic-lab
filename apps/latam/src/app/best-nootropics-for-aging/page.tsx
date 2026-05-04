@@ -2,11 +2,10 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { UseCaseListPage, useCaseListPageEsStrings } from '@nootropic/ui';
 import type { UseCaseFAQ, IngredientMechanism, UseCasePick } from '@nootropic/ui';
-import { productsLatam, getAuthorBySlug } from '@nootropic/data';
+import { productsLatam } from '@nootropic/data';
 
 const SITE_URL = 'https://latam.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
-const author = getAuthorBySlug('stephan-kulik')!;
 
 export const metadata: Metadata = {
   title: `Mejores Nootrópicos para el Cerebro Adulto Mayor ${CURRENT_YEAR}: Selección Basada en Evidencia`,
@@ -120,7 +119,6 @@ export default function Page() {
       faqItems={faqItems}
       strings={useCaseListPageEsStrings}
       siteUrl={SITE_URL}
-      author={author}
     />
   );
 }

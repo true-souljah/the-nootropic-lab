@@ -16,7 +16,7 @@ interface Props {
   productB: Product;
   /** e.g. https://thenootropiclab.com — no trailing slash */
   siteUrl: string;
-  author: Author;
+  author?: Author;
   /** Optional override; defaults to a computed winner-vs-loser explanation */
   verdictParagraph?: string;
   faqItems: HeadToHeadFAQ[];
@@ -45,7 +45,6 @@ export default function HeadToHeadPage({
   productA,
   productB,
   siteUrl,
-  author,
   verdictParagraph,
   faqItems,
   whoIsForA,
@@ -65,7 +64,7 @@ export default function HeadToHeadPage({
     headline: `${productA.name} vs ${productB.name} ${currentYear}: Head-to-Head Clinical Dosing Audit`,
     datePublished: `${currentYear}-04-30`,
     dateModified: new Date().toISOString().split('T')[0],
-    author: buildPersonAuthorReference(author, siteUrl),
+    author: buildPersonAuthorReference(undefined, siteUrl),
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: siteUrl },
   };
 
@@ -160,9 +159,7 @@ export default function HeadToHeadPage({
         <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 mb-4">
           <span>
             {s.reviewedBy}{' '}
-            <Link href={`/authors/${author.slug}/`} className="text-gray-700 hover:text-green-700 underline">
-              <strong>{author.name}</strong>
-            </Link>
+            <strong className="text-gray-700">The Nootropic Lab Editorial Team</strong>
           </span>
           <span>·</span>
           <span>

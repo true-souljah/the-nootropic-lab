@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
 import { SchemaOrg } from '@nootropic/ui';
-import { getAuthorBySlug, buildPersonAuthorReference } from '@nootropic/data';
+import { buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://thenootropiclab.com';
-const EDITORIAL_AUTHOR = getAuthorBySlug('stephan-kulik')!;
 
 export const metadata: Metadata = {
   title: 'How We Review Nootropics — Our Methodology',
@@ -25,7 +24,7 @@ export default function MethodologyPage() {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: 'How We Review Nootropics — Methodology',
-    author: buildPersonAuthorReference(EDITORIAL_AUTHOR, SITE_URL),
+    author: buildPersonAuthorReference(undefined, SITE_URL),
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   };
 

@@ -2,11 +2,10 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { HeadToHeadPage } from '@nootropic/ui';
 import type { HeadToHeadFAQ } from '@nootropic/ui';
-import { productsUS, getAuthorBySlug } from '@nootropic/data';
+import { productsUS } from '@nootropic/data';
 
 const SITE_URL = 'https://thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
-const author = getAuthorBySlug('stephan-kulik')!;
 
 const productA = productsUS.find(p => p.slug === 'mind-lab-pro-review');
 const productB = productsUS.find(p => p.slug === 'qualia-mind-review');
@@ -84,7 +83,6 @@ export default function Page() {
       productA={productA}
       productB={productB}
       siteUrl={SITE_URL}
-      author={author}
       verdictParagraph={verdictParagraph}
       faqItems={faqItems}
       whoIsForA={whoIsForA}
