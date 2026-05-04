@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { UseCaseListPage } from '@nootropic/ui';
+import { UseCaseListPage, useCaseListPageEsStrings } from '@nootropic/ui';
 import type { UseCaseFAQ, IngredientMechanism, UseCasePick } from '@nootropic/ui';
 import { productsLatam, getAuthorBySlug } from '@nootropic/data';
 
@@ -118,6 +118,7 @@ export default function Page() {
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}
+      strings={useCaseListPageEsStrings}
       siteUrl={SITE_URL}
       author={author}
     />

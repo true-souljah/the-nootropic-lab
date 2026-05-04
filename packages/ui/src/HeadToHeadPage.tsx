@@ -3,6 +3,8 @@ import type { Product, Author } from '@nootropic/data';
 import { buildPersonAuthorReference } from '@nootropic/data';
 import AffiliateDisclosure from './AffiliateDisclosure';
 import SchemaOrg from './SchemaOrg';
+import { headToHeadPageEnDefaults, tpl } from './templateStrings';
+import type { HeadToHeadPageStrings } from './templateStrings';
 
 export interface HeadToHeadFAQ {
   q: string;
@@ -26,6 +28,8 @@ interface Props {
   listicleHref?: string;
   /** Currency formatter — defaults to USD */
   formatPrice?: (product: Product) => string;
+  /** Optional locale-specific overrides for chrome strings (English defaults are used otherwise) */
+  strings?: Partial<HeadToHeadPageStrings>;
 }
 
 function defaultPriceFormat(p: Product) {
@@ -48,7 +52,9 @@ export default function HeadToHeadPage({
   whoIsForB,
   listicleHref = '/best-nootropics',
   formatPrice = defaultPriceFormat,
+  strings,
 }: Props) {
+  const s: HeadToHeadPageStrings = { ...headToHeadPageEnDefaults, ...strings };
   const currentYear = new Date().getFullYear();
   const winner = productA.score >= productB.score ? productA : productB;
   const loser = winner === productA ? productB : productA;
@@ -144,23 +150,23 @@ export default function HeadToHeadPage({
 
       <article className="max-w-4xl mx-auto px-4 py-10">
         <nav className="text-xs text-gray-500 mb-6">
-          <a href="/" className="hover:text-green-700">Home</a>
+          <a href="/" className="hover:text-green-700">{s.home}</a>
           {' / '}
-          <a href={`${listicleHref}/`} className="hover:text-green-700">Best Nootropics</a>
+          <a href={`${listicleHref}/`} className="hover:text-green-700">{s.bestNootropics}</a>
           {' / '}
           <span>{productA.name} vs {productB.name}</span>
         </nav>
 
         <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 mb-4">
           <span>
-            Reviewed by{' '}
+            {s.reviewedBy}{' '}
             <Link href={`/authors/${author.slug}/`} className="text-gray-700 hover:text-green-700 underline">
               <strong>{author.name}</strong>
             </Link>
           </span>
           <span>·</span>
           <span>
-            Last updated:{' '}
+            {s.lastUpdated}{' '}
             {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
           </span>
         </div>
@@ -176,8 +182,8 @@ export default function HeadToHeadPage({
         <AffiliateDisclosure />
 
         <section className="bg-yellow-50 border border-yellow-300 rounded-xl p-5 my-8">
-          <div className="editor-badge mb-2 inline-block">Verdict</div>
-          <h2 className="text-xl font-bold text-gray-900 mb-2">{winner.name} wins on score</h2>
+          <div className="editor-badge mb-2 inline-block">{s.verdict}</div>
+          <h2 className="text-xl font-bold text-gray-900 mb-2">{tpl(s.winnerHeadline, { name: winner.name })}</h2>
           <p className="text-sm text-gray-700 leading-relaxed mb-3">{computedVerdict}</p>
           <div className="flex gap-3 flex-wrap">
             <a
@@ -186,7 +192,7 @@ export default function HeadToHeadPage({
               rel="nofollow sponsored noopener noreferrer"
               className="bg-green-700 hover:bg-green-600 text-white text-sm font-bold px-5 py-2 rounded-lg"
             >
-              Check {productA.name} ({formatPrice(productA)}/mo) →
+              {tpl(s.checkProductWithPrice, { name: productA.name, price: formatPrice(productA) })}
             </a>
             <a
               href={productB.affiliateUrl}
@@ -194,59 +200,59 @@ export default function HeadToHeadPage({
               rel="nofollow sponsored noopener noreferrer"
               className="bg-white hover:bg-gray-50 text-gray-800 text-sm font-bold px-5 py-2 rounded-lg border border-gray-300"
             >
-              Check {productB.name} →
+              {tpl(s.checkProduct, { name: productB.name })}
             </a>
           </div>
         </section>
 
         <section className="my-10">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Quick specs side-by-side</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">{s.quickSpecsHeading}</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
               <thead>
                 <tr className="bg-gray-100 text-left">
-                  <th className="px-3 py-2 font-semibold text-gray-700">Spec</th>
+                  <th className="px-3 py-2 font-semibold text-gray-700">{s.spec}</th>
                   <th className="px-3 py-2 font-semibold text-gray-700">{productA.name}</th>
                   <th className="px-3 py-2 font-semibold text-gray-700">{productB.name}</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="bg-white">
-                  <td className="px-3 py-2 font-medium text-gray-900">Score</td>
+                  <td className="px-3 py-2 font-medium text-gray-900">{s.scoreLabel}</td>
                   <td className="px-3 py-2 font-bold text-green-700">{productA.score}/10</td>
                   <td className="px-3 py-2 font-bold text-green-700">{productB.score}/10</td>
                 </tr>
                 <tr className="bg-gray-50">
-                  <td className="px-3 py-2 font-medium text-gray-900">Price / month</td>
+                  <td className="px-3 py-2 font-medium text-gray-900">{s.pricePerMonth}</td>
                   <td className="px-3 py-2 text-gray-700">{formatPrice(productA)}</td>
                   <td className="px-3 py-2 text-gray-700">{formatPrice(productB)}</td>
                 </tr>
                 <tr className="bg-white">
-                  <td className="px-3 py-2 font-medium text-gray-900">Caffeine-free</td>
-                  <td className="px-3 py-2 text-gray-700">{productA.caffeineFree ? 'Yes' : 'No'}</td>
-                  <td className="px-3 py-2 text-gray-700">{productB.caffeineFree ? 'Yes' : 'No'}</td>
+                  <td className="px-3 py-2 font-medium text-gray-900">{s.caffeineFreeLabel}</td>
+                  <td className="px-3 py-2 text-gray-700">{productA.caffeineFree ? s.yes : s.no}</td>
+                  <td className="px-3 py-2 text-gray-700">{productB.caffeineFree ? s.yes : s.no}</td>
                 </tr>
                 <tr className="bg-gray-50">
-                  <td className="px-3 py-2 font-medium text-gray-900">Capsules / serving</td>
+                  <td className="px-3 py-2 font-medium text-gray-900">{s.capsulesPerServing}</td>
                   <td className="px-3 py-2 text-gray-700">{productA.capsulesPerServing}</td>
                   <td className="px-3 py-2 text-gray-700">{productB.capsulesPerServing}</td>
                 </tr>
                 <tr className="bg-white">
-                  <td className="px-3 py-2 font-medium text-gray-900">Money-back</td>
-                  <td className="px-3 py-2 text-gray-700">{productA.moneyBackDays} days</td>
-                  <td className="px-3 py-2 text-gray-700">{productB.moneyBackDays} days</td>
+                  <td className="px-3 py-2 font-medium text-gray-900">{s.moneyBack}</td>
+                  <td className="px-3 py-2 text-gray-700">{productA.moneyBackDays} {s.daysSuffix}</td>
+                  <td className="px-3 py-2 text-gray-700">{productB.moneyBackDays} {s.daysSuffix}</td>
                 </tr>
                 <tr className="bg-gray-50">
-                  <td className="px-3 py-2 font-medium text-gray-900">Trustpilot</td>
+                  <td className="px-3 py-2 font-medium text-gray-900">{s.trustpilot}</td>
                   <td className="px-3 py-2 text-gray-700">
                     {productA.trustpilotScore
                       ? `${productA.trustpilotScore}/5 (${productA.trustpilotCount?.toLocaleString() ?? 'n/a'})`
-                      : 'Not tracked'}
+                      : s.notTracked}
                   </td>
                   <td className="px-3 py-2 text-gray-700">
                     {productB.trustpilotScore
                       ? `${productB.trustpilotScore}/5 (${productB.trustpilotCount?.toLocaleString() ?? 'n/a'})`
-                      : 'Not tracked'}
+                      : s.notTracked}
                   </td>
                 </tr>
               </tbody>
@@ -255,17 +261,14 @@ export default function HeadToHeadPage({
         </section>
 
         <section className="my-10">
-          <h2 className="text-2xl font-bold text-gray-900 mb-3">Clinical dosing audit</h2>
-          <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-            Each disclosed ingredient dose vs. minimum effective dose from peer-reviewed human clinical trials.
-            Underdosed ingredients flagged. Ingredients hidden inside proprietary blends cannot be evaluated.
-          </p>
+          <h2 className="text-2xl font-bold text-gray-900 mb-3">{s.clinicalDosingHeading}</h2>
+          <p className="text-sm text-gray-600 mb-4 leading-relaxed">{s.clinicalDosingIntro}</p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
               <thead>
                 <tr className="bg-gray-100 text-left">
-                  <th className="px-3 py-2 font-semibold text-gray-700">Ingredient</th>
-                  <th className="px-3 py-2 font-semibold text-gray-700">Clinical dose</th>
+                  <th className="px-3 py-2 font-semibold text-gray-700">{s.ingredient}</th>
+                  <th className="px-3 py-2 font-semibold text-gray-700">{s.clinicalDose}</th>
                   <th className="px-3 py-2 font-semibold text-gray-700">{productA.name}</th>
                   <th className="px-3 py-2 font-semibold text-gray-700">{productB.name}</th>
                 </tr>
@@ -301,13 +304,13 @@ export default function HeadToHeadPage({
             </table>
           </div>
           <p className="text-xs text-gray-500 mt-3 italic">
-            Clinical-dose anchors sourced from PubMed-indexed human RCTs and Examine.com syntheses. See our{' '}
-            <Link href="/methodology/" className="text-green-700 underline">methodology</Link>.
+            {s.citationFooter}{' '}
+            <Link href="/methodology/" className="text-green-700 underline">{s.methodologyLink}</Link>.
           </p>
         </section>
 
         <section className="my-10">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Score breakdown across 5 pillars</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">{s.scoreBreakdownHeading}</h2>
           <div className="grid sm:grid-cols-2 gap-6">
             {[productA, productB].map(p => (
               <div key={p.id}>
@@ -331,13 +334,13 @@ export default function HeadToHeadPage({
         </section>
 
         <section className="my-10">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Pros &amp; cons each</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">{s.prosConsHeading}</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {[productA, productB].map(p => (
               <div key={p.id}>
                 <div className="font-bold text-gray-900 mb-3">{p.name}</div>
                 <div className="bg-green-50 rounded-xl p-4 mb-3">
-                  <h3 className="font-semibold text-green-900 mb-2 text-sm">Pros</h3>
+                  <h3 className="font-semibold text-green-900 mb-2 text-sm">{s.prosLabel}</h3>
                   <ul className="space-y-2">
                     {p.pros.map(pro => (
                       <li key={pro} className="flex gap-2 text-sm text-green-800">
@@ -347,7 +350,7 @@ export default function HeadToHeadPage({
                   </ul>
                 </div>
                 <div className="bg-red-50 rounded-xl p-4">
-                  <h3 className="font-semibold text-red-900 mb-2 text-sm">Cons</h3>
+                  <h3 className="font-semibold text-red-900 mb-2 text-sm">{s.consLabel}</h3>
                   <ul className="space-y-2">
                     {p.cons.map(con => (
                       <li key={con} className="flex gap-2 text-sm text-red-800">
@@ -362,16 +365,16 @@ export default function HeadToHeadPage({
         </section>
 
         <section className="my-10">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Who is each one for?</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">{s.whoIsForHeading}</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="border border-gray-200 rounded-xl p-5">
-              <h3 className="font-bold text-gray-900 mb-2">Choose {productA.name} if you...</h3>
+              <h3 className="font-bold text-gray-900 mb-2">{tpl(s.chooseIfYou, { name: productA.name })}</h3>
               <ul className="space-y-2 text-sm text-gray-700">
                 {whoIsForA.map(line => <li key={line}>· {line}</li>)}
               </ul>
             </div>
             <div className="border border-gray-200 rounded-xl p-5">
-              <h3 className="font-bold text-gray-900 mb-2">Choose {productB.name} if you...</h3>
+              <h3 className="font-bold text-gray-900 mb-2">{tpl(s.chooseIfYou, { name: productB.name })}</h3>
               <ul className="space-y-2 text-sm text-gray-700">
                 {whoIsForB.map(line => <li key={line}>· {line}</li>)}
               </ul>
@@ -380,7 +383,7 @@ export default function HeadToHeadPage({
         </section>
 
         <section className="my-10">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Frequently asked questions</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">{s.faqHeading}</h2>
           <div className="space-y-4">
             {faqItems.map(item => (
               <div key={item.q} className="border border-gray-200 rounded-lg p-5">
@@ -392,30 +395,30 @@ export default function HeadToHeadPage({
         </section>
 
         <section className="my-10 bg-green-50 border border-green-200 rounded-xl p-6">
-          <h2 className="text-xl font-bold text-green-900 mb-4">Read the individual reviews</h2>
+          <h2 className="text-xl font-bold text-green-900 mb-4">{s.readReviewsHeading}</h2>
           <div className="grid sm:grid-cols-2 gap-3">
             <Link href={`/${productA.slug}/`} className="block bg-white rounded-lg p-4 border border-green-100 hover:border-green-300 transition-colors">
-              <div className="font-semibold text-gray-900 text-sm mb-1">{productA.name} review</div>
-              <div className="text-xs text-gray-500">Score: {productA.score}/10 · Full clinical dosing audit</div>
+              <div className="font-semibold text-gray-900 text-sm mb-1">{tpl(s.productReviewCard, { name: productA.name })}</div>
+              <div className="text-xs text-gray-500">{tpl(s.scoreCardLine, { score: productA.score })}</div>
             </Link>
             <Link href={`/${productB.slug}/`} className="block bg-white rounded-lg p-4 border border-green-100 hover:border-green-300 transition-colors">
-              <div className="font-semibold text-gray-900 text-sm mb-1">{productB.name} review</div>
-              <div className="text-xs text-gray-500">Score: {productB.score}/10 · Full clinical dosing audit</div>
+              <div className="font-semibold text-gray-900 text-sm mb-1">{tpl(s.productReviewCard, { name: productB.name })}</div>
+              <div className="text-xs text-gray-500">{tpl(s.scoreCardLine, { score: productB.score })}</div>
             </Link>
             <Link href={`${listicleHref}/`} className="block bg-white rounded-lg p-4 border border-green-100 hover:border-green-300 transition-colors">
-              <div className="font-semibold text-gray-900 text-sm mb-1">Best Nootropics {currentYear}</div>
-              <div className="text-xs text-gray-500">Full ranked comparison</div>
+              <div className="font-semibold text-gray-900 text-sm mb-1">{tpl(s.bestNootropicsCard, { year: currentYear })}</div>
+              <div className="text-xs text-gray-500">{s.fullRankedComparison}</div>
             </Link>
             <Link href="/methodology/" className="block bg-white rounded-lg p-4 border border-green-100 hover:border-green-300 transition-colors">
-              <div className="font-semibold text-gray-900 text-sm mb-1">Methodology</div>
-              <div className="text-xs text-gray-500">How we audit clinical doses</div>
+              <div className="font-semibold text-gray-900 text-sm mb-1">{s.methodologyCard}</div>
+              <div className="text-xs text-gray-500">{s.howWeAuditDoses}</div>
             </Link>
           </div>
         </section>
 
         <div className="text-sm text-gray-500 mt-10">
           <Link href={`${listicleHref}/`} className="text-green-700 underline">
-            ← Back to Best Nootropics {currentYear}
+            {tpl(s.backToBest, { year: currentYear })}
           </Link>
         </div>
       </article>

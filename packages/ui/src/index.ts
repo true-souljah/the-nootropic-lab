@@ -15,3 +15,19 @@ export { default as UseCaseListPage } from './UseCaseListPage';
 export type { UseCaseFAQ, IngredientMechanism, UseCasePick } from './UseCaseListPage';
 export { default as SubscriptionCancellationPage } from './SubscriptionCancellationPage';
 export type { CancellationStep, CancellationFAQ } from './SubscriptionCancellationPage';
+export { default as ThreeWayComparisonPage } from './ThreeWayComparisonPage';
+export type { ThreeWayFAQ } from './ThreeWayComparisonPage';
+export {
+  useCaseListPageEnDefaults,
+  useCaseListPageEsStrings,
+  getUseCaseListStrings,
+  headToHeadPageEnDefaults,
+  headToHeadPageEsStrings,
+  getHeadToHeadStrings,
+  tpl,
+} from './templateStrings';
+export type {
+  UseCaseListPageStrings,
+  HeadToHeadPageStrings,
+  TemplateLocale,
+} from './templateStrings';
