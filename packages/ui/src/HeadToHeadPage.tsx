@@ -3,6 +3,9 @@ import type { Product, Author } from '@nootropic/data';
 import { buildPersonAuthorReference } from '@nootropic/data';
 import AffiliateDisclosure from './AffiliateDisclosure';
 import SchemaOrg from './SchemaOrg';
+import Sources from './Sources';
+import type { Source } from './Sources';
+import TrackedAffiliateLink from './TrackedAffiliateLink';
 import { headToHeadPageEnDefaults, tpl } from './templateStrings';
 import type { HeadToHeadPageStrings } from './templateStrings';
 
@@ -30,6 +33,12 @@ interface Props {
   formatPrice?: (product: Product) => string;
   /** Optional locale-specific overrides for chrome strings (English defaults are used otherwise) */
   strings?: Partial<HeadToHeadPageStrings>;
+  /** Optional medical reviewer for YMYL credibility */
+  reviewedBy?: { name: string; sameAs?: string[] };
+  /** Optional region-specific YMYL disclaimer; pages should pass getRegionalHealthDisclaimer(market) */
+  healthDisclaimer?: string;
+  /** Optional Sources block rendered before the read-individual-reviews section */
+  sources?: Source[];
 }
 
 function defaultPriceFormat(p: Product) {
@@ -52,6 +61,9 @@ export default function HeadToHeadPage({
   listicleHref = '/best-nootropics',
   formatPrice = defaultPriceFormat,
   strings,
+  reviewedBy,
+  healthDisclaimer,
+  sources,
 }: Props) {
   const s: HeadToHeadPageStrings = { ...headToHeadPageEnDefaults, ...strings };
   const currentYear = new Date().getFullYear();
@@ -66,6 +78,17 @@ export default function HeadToHeadPage({
     dateModified: new Date().toISOString().split('T')[0],
     author: buildPersonAuthorReference(undefined, siteUrl),
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: siteUrl },
+    reviewedBy: reviewedBy
+      ? {
+          '@type': 'Person',
+          name: reviewedBy.name,
+          ...(reviewedBy.sameAs && { sameAs: reviewedBy.sameAs }),
+        }
+      : { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: siteUrl },
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['#hero-paragraph', '.faq-question'],
+    },
   };
 
   const faqSchema = {
@@ -161,6 +184,12 @@ export default function HeadToHeadPage({
             {s.reviewedBy}{' '}
             <strong className="text-gray-700">The Nootropic Lab Editorial Team</strong>
           </span>
+          {reviewedBy && (
+            <>
+              <span>·</span>
+              <span>{s.medicallyReviewedBy ?? 'Medically reviewed by'} <strong className="text-gray-700">{reviewedBy.name}</strong></span>
+            </>
+          )}
           <span>·</span>
           <span>
             {s.lastUpdated}{' '}
@@ -171,10 +200,17 @@ export default function HeadToHeadPage({
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
           {productA.name} vs {productB.name} — Independent Head-to-Head
         </h1>
-        <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+        <p id="hero-paragraph" className="text-lg text-gray-600 mb-6 leading-relaxed">
           Below is the side-by-side breakdown using the same clinical-dose methodology applied to every review on
           this site.
         </p>
+
+        {healthDisclaimer && (
+          <aside className="bg-amber-50 border-l-4 border-amber-400 rounded-r-lg p-4 mb-6 text-sm text-amber-900">
+            <strong className="block mb-1">Health & regulatory note</strong>
+            {healthDisclaimer}
+          </aside>
+        )}
 
         <AffiliateDisclosure />
 
@@ -183,22 +219,22 @@ export default function HeadToHeadPage({
           <h2 className="text-xl font-bold text-gray-900 mb-2">{tpl(s.winnerHeadline, { name: winner.name })}</h2>
           <p className="text-sm text-gray-700 leading-relaxed mb-3">{computedVerdict}</p>
           <div className="flex gap-3 flex-wrap">
-            <a
-              href={productA.affiliateUrl}
-              target="_blank"
-              rel="nofollow sponsored noopener noreferrer"
+            <TrackedAffiliateLink
+              product={productA}
+              position={1}
+              surface="h2h"
               className="bg-green-700 hover:bg-green-600 text-white text-sm font-bold px-5 py-2 rounded-lg"
             >
               {tpl(s.checkProductWithPrice, { name: productA.name, price: formatPrice(productA) })}
-            </a>
-            <a
-              href={productB.affiliateUrl}
-              target="_blank"
-              rel="nofollow sponsored noopener noreferrer"
+            </TrackedAffiliateLink>
+            <TrackedAffiliateLink
+              product={productB}
+              position={2}
+              surface="h2h"
               className="bg-white hover:bg-gray-50 text-gray-800 text-sm font-bold px-5 py-2 rounded-lg border border-gray-300"
             >
               {tpl(s.checkProduct, { name: productB.name })}
-            </a>
+            </TrackedAffiliateLink>
           </div>
         </section>
 
@@ -215,11 +251,28 @@ export default function HeadToHeadPage({
               </thead>
               <tbody>
                 <tr className="bg-white">
+                  <td className="px-3 py-2 font-medium text-gray-900">Editorial coverage</td>
+                  <td className="px-3 py-2">
+                    {productA.handsOnTested ? (
+                      <span className="inline-flex items-center text-[11px] font-semibold uppercase tracking-wide bg-green-100 text-green-800 px-2 py-0.5 rounded">✓ Hands-on tested</span>
+                    ) : (
+                      <span className="inline-flex items-center text-[11px] font-semibold uppercase tracking-wide bg-gray-100 text-gray-600 px-2 py-0.5 rounded">Catalog only</span>
+                    )}
+                  </td>
+                  <td className="px-3 py-2">
+                    {productB.handsOnTested ? (
+                      <span className="inline-flex items-center text-[11px] font-semibold uppercase tracking-wide bg-green-100 text-green-800 px-2 py-0.5 rounded">✓ Hands-on tested</span>
+                    ) : (
+                      <span className="inline-flex items-center text-[11px] font-semibold uppercase tracking-wide bg-gray-100 text-gray-600 px-2 py-0.5 rounded">Catalog only</span>
+                    )}
+                  </td>
+                </tr>
+                <tr className="bg-gray-50">
                   <td className="px-3 py-2 font-medium text-gray-900">{s.scoreLabel}</td>
                   <td className="px-3 py-2 font-bold text-green-700">{productA.score}/10</td>
                   <td className="px-3 py-2 font-bold text-green-700">{productB.score}/10</td>
                 </tr>
-                <tr className="bg-gray-50">
+                <tr className="bg-white">
                   <td className="px-3 py-2 font-medium text-gray-900">{s.pricePerMonth}</td>
                   <td className="px-3 py-2 text-gray-700">{formatPrice(productA)}</td>
                   <td className="px-3 py-2 text-gray-700">{formatPrice(productB)}</td>
@@ -384,12 +437,14 @@ export default function HeadToHeadPage({
           <div className="space-y-4">
             {faqItems.map(item => (
               <div key={item.q} className="border border-gray-200 rounded-lg p-5">
-                <h3 className="font-semibold text-gray-900 mb-2">{item.q}</h3>
+                <h3 className="faq-question font-semibold text-gray-900 mb-2">{item.q}</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">{item.a}</p>
               </div>
             ))}
           </div>
         </section>
+
+        {sources && sources.length > 0 && <Sources sources={sources} />}
 
         <section className="my-10 bg-green-50 border border-green-200 rounded-xl p-6">
           <h2 className="text-xl font-bold text-green-900 mb-4">{s.readReviewsHeading}</h2>

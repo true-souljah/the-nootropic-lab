@@ -17,6 +17,13 @@ export { default as SubscriptionCancellationPage } from './SubscriptionCancellat
 export type { CancellationStep, CancellationFAQ } from './SubscriptionCancellationPage';
 export { default as ThreeWayComparisonPage } from './ThreeWayComparisonPage';
 export type { ThreeWayFAQ } from './ThreeWayComparisonPage';
+export { default as ImprintPage } from './ImprintPage';
+export { default as Sources } from './Sources';
+export type { Source } from './Sources';
+export { default as EditorialStandardsSection } from './EditorialStandardsSection';
+export { trackAffiliateClick } from './trackAffiliateClick';
+export type { AffiliateClickContext } from './trackAffiliateClick';
+export { default as TrackedAffiliateLink } from './TrackedAffiliateLink';
 export {
   useCaseListPageEnDefaults,
   useCaseListPageEsStrings,

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { UseCaseListPage } from '@nootropic/ui';
 import type { UseCaseFAQ, IngredientMechanism, UseCasePick } from '@nootropic/ui';
-import { productsSEA } from '@nootropic/data';
+import { productsSEA, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const SITE_URL = 'https://sea.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
@@ -119,6 +119,7 @@ export default function Page() {
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}
+      healthDisclaimer={getRegionalHealthDisclaimer('sea')}
     />
   );
 }

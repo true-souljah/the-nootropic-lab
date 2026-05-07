@@ -9,5 +9,8 @@
   "peerDependencies": {
     "next": "*",
     "react": "*"
+  },
+  "dependencies": {
+    "klaro": "^0.7.21"
   }
 }

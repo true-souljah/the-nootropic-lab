@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { SchemaOrg } from '@nootropic/ui';
+import { SchemaOrg, EditorialStandardsSection } from '@nootropic/ui';
 import { buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://au.thenootropiclab.com';
@@ -70,6 +70,7 @@ export default function MethodologyPage() {
             supplement.
           </p>
         </section>
+        <EditorialStandardsSection />
       </article>
     </>
   );

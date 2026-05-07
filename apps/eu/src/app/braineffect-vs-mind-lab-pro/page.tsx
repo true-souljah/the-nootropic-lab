@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { HeadToHeadPage } from '@nootropic/ui';
 import type { HeadToHeadFAQ } from '@nootropic/ui';
-import { productsEU } from '@nootropic/data';
+import { productsEU, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const SITE_URL = 'https://eu.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
@@ -86,6 +86,7 @@ export default function Page() {
       faqItems={faqItems}
       whoIsForA={whoIsForA}
       whoIsForB={whoIsForB}
+      healthDisclaimer={getRegionalHealthDisclaimer('eu')}
     />
   );
 }

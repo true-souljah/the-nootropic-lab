@@ -57,12 +57,45 @@ export default async function IngredientPage({
     ing.productsContaining.includes(p.slug)
   );
 
+  const currentYear = new Date().getFullYear();
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: `${ing.name} — EU Nootropic Ingredient Guide`,
     description: ing.studySummary,
+    datePublished: `${currentYear}-04-30`,
+    dateModified: new Date().toISOString().split('T')[0],
     author: buildPersonAuthorReference(undefined, SITE_URL),
+    publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
+    reviewedBy: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['#hero-paragraph', '.faq-question'],
+    },
+  };
+
+  const datasetSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Dataset',
+    name: `${ing.name} — Human Clinical Effect Matrix`,
+    description: `Structured human-clinical-trial evidence summary for ${ing.name}: per-effect evidence strength, magnitude, and study count. Sourced from PubMed-indexed RCTs and Examine.com syntheses.`,
+    url: `${SITE_URL}/ingredients/${ing.slug}/`,
+    keywords: [ing.name, ing.category, 'nootropic', 'cognitive supplement', 'clinical trial'],
+    isAccessibleForFree: true,
+    license: 'https://creativecommons.org/licenses/by/4.0/',
+    creator: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
+    distribution: {
+      '@type': 'DataDownload',
+      encodingFormat: 'text/html',
+      contentUrl: `${SITE_URL}/ingredients/${ing.slug}/`,
+    },
+    variableMeasured: ing.humanEffects.map(e => ({
+      '@type': 'PropertyValue',
+      name: e.effect,
+      description: `${e.effect}: ${e.evidenceStrength} evidence (${e.studies} studies), ${e.magnitude} effect size. ${e.notes}`,
+      additionalType: e.evidenceStrength,
+    })),
+    citation: ing.studySummary,
   };
 
   const breadcrumbSchema = {
@@ -102,6 +135,7 @@ export default async function IngredientPage({
   return (
     <>
       <SchemaOrg schema={articleSchema} />
+      <SchemaOrg schema={datasetSchema} />
       <SchemaOrg schema={breadcrumbSchema} />
       <SchemaOrg schema={faqSchema} />
       <SchemaOrg schema={howToSchema} />
@@ -133,7 +167,7 @@ export default async function IngredientPage({
         {/* Mechanism */}
         <section className="mb-8">
           <h2 className="text-xl font-bold text-gray-900 mb-3">Mechanism of Action</h2>
-          <p className="text-gray-700 leading-relaxed">{ing.mechanism}</p>
+          <p id="hero-paragraph" className="text-gray-700 leading-relaxed">{ing.mechanism}</p>
         </section>
 
         {/* Clinical Evidence */}
@@ -278,7 +312,7 @@ export default async function IngredientPage({
                 className="group bg-white border border-gray-200 rounded-xl overflow-hidden"
               >
                 <summary className="flex items-center justify-between px-5 py-4 cursor-pointer list-none font-semibold text-gray-900 hover:bg-gray-50 transition-colors">
-                  <span className="pr-4 text-sm md:text-base">{faq.question}</span>
+                  <span className="faq-question pr-4 text-sm md:text-base">{faq.question}</span>
                   <span className="shrink-0 text-gray-400 group-open:rotate-180 transition-transform duration-200 text-lg">▾</span>
                 </summary>
                 <div className="px-5 pb-5 pt-1">

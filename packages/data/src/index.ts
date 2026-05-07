@@ -31,3 +31,12 @@ export type { Locale, UIStrings } from './i18n';
 export { getStrings, getLocaleForMarket } from './i18n';
 export type { Author } from './authors';
 export { authors, getAuthorBySlug, buildPersonSchema, buildPersonAuthorReference } from './authors';
+export type { DisclaimerMarket } from './regional-disclaimers';
+export { getRegionalHealthDisclaimer } from './regional-disclaimers';
+export type { AnmatProhibitedCompound } from './anmat-prohibited';
+export {
+  anmatProhibitedCompounds,
+  findAnmatBannedIngredients,
+  productContainsAnmatBanned,
+  auditProductsForAnmat,
+} from './anmat-prohibited';

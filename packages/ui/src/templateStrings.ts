@@ -111,6 +111,8 @@ export interface HeadToHeadPageStrings {
   home: string;
   bestNootropics: string;
   reviewedBy: string;
+  /** "Medically reviewed by" — only rendered when a Person reviewer is passed */
+  medicallyReviewedBy: string;
   lastUpdated: string;
   /** "Verdict" badge */
   verdict: string;
@@ -176,6 +178,7 @@ export const headToHeadPageEnDefaults: HeadToHeadPageStrings = {
   home: 'Home',
   bestNootropics: 'Best Nootropics',
   reviewedBy: 'Reviewed by',
+  medicallyReviewedBy: 'Medically reviewed by',
   lastUpdated: 'Last updated:',
   verdict: 'Verdict',
   winnerHeadline: '{name} wins on score',
@@ -221,6 +224,7 @@ export const headToHeadPageEsStrings: Partial<HeadToHeadPageStrings> = {
   home: 'Inicio',
   bestNootropics: 'Mejores Nootrópicos',
   reviewedBy: 'Revisado por',
+  medicallyReviewedBy: 'Revisado médicamente por',
   lastUpdated: 'Actualizado:',
   verdict: 'Veredicto',
   winnerHeadline: '{name} gana en puntuación',

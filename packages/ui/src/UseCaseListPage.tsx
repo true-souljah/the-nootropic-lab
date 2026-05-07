@@ -3,6 +3,9 @@ import type { Product, Author } from '@nootropic/data';
 import { buildPersonAuthorReference } from '@nootropic/data';
 import AffiliateDisclosure from './AffiliateDisclosure';
 import SchemaOrg from './SchemaOrg';
+import Sources from './Sources';
+import type { Source } from './Sources';
+import TrackedAffiliateLink from './TrackedAffiliateLink';
 import { useCaseListPageEnDefaults, tpl } from './templateStrings';
 import type { UseCaseListPageStrings } from './templateStrings';
 
@@ -55,6 +58,8 @@ interface Props {
   listicleHref?: string;
   /** Optional locale-specific overrides for chrome strings (English defaults are used otherwise) */
   strings?: Partial<UseCaseListPageStrings>;
+  /** Optional Sources block rendered before the methodology section */
+  sources?: Source[];
 }
 
 export default function UseCaseListPage({
@@ -70,6 +75,7 @@ export default function UseCaseListPage({
   healthDisclaimer,
   listicleHref = '/best-nootropics',
   strings,
+  sources,
 }: Props) {
   const s: UseCaseListPageStrings = { ...useCaseListPageEnDefaults, ...strings };
   const currentYear = new Date().getFullYear();
@@ -84,13 +90,17 @@ export default function UseCaseListPage({
     dateModified: new Date().toISOString().split('T')[0],
     author: buildPersonAuthorReference(undefined, siteUrl),
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: siteUrl },
-    ...(reviewedBy && {
-      reviewedBy: {
-        '@type': 'Person',
-        name: reviewedBy.name,
-        ...(reviewedBy.sameAs && { sameAs: reviewedBy.sameAs }),
-      },
-    }),
+    reviewedBy: reviewedBy
+      ? {
+          '@type': 'Person',
+          name: reviewedBy.name,
+          ...(reviewedBy.sameAs && { sameAs: reviewedBy.sameAs }),
+        }
+      : { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: siteUrl },
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['#hero-paragraph', '.faq-question'],
+    },
   };
 
   const faqSchema = {
@@ -165,7 +175,7 @@ export default function UseCaseListPage({
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
           {pageTitle} {currentYear}
         </h1>
-        <p className="text-lg text-gray-600 mb-6 leading-relaxed">{heroParagraph}</p>
+        <p id="hero-paragraph" className="text-lg text-gray-600 mb-6 leading-relaxed">{heroParagraph}</p>
 
         {/* Health disclaimer — first, prominent */}
         <aside className="bg-amber-50 border-l-4 border-amber-400 rounded-r-lg p-4 mb-6 text-sm text-amber-900">
@@ -215,6 +225,15 @@ export default function UseCaseListPage({
                   <div className="flex-1">
                     <div className="flex flex-wrap items-center gap-2 mb-1">
                       {i === 0 && <span className="editor-badge">{s.topPick}</span>}
+                      {pick.product.handsOnTested ? (
+                        <span className="inline-flex items-center gap-1 text-[11px] font-semibold uppercase tracking-wide bg-green-100 text-green-800 px-2 py-0.5 rounded">
+                          ✓ Hands-on tested
+                        </span>
+                      ) : (
+                        <span className="inline-flex items-center gap-1 text-[11px] font-semibold uppercase tracking-wide bg-gray-100 text-gray-600 px-2 py-0.5 rounded" title="Catalog entry: data sourced from public product information; we have not independently tested this product.">
+                          Catalog only
+                        </span>
+                      )}
                       <span className="text-xs text-gray-500">{pick.product.brand}</span>
                     </div>
                     <h3 className="text-xl font-bold text-gray-900">{pick.product.name}</h3>
@@ -233,14 +252,14 @@ export default function UseCaseListPage({
                 </p>
 
                 <div className="flex gap-3 flex-wrap">
-                  <a
-                    href={pick.product.affiliateUrl}
-                    target="_blank"
-                    rel="nofollow sponsored noopener noreferrer"
+                  <TrackedAffiliateLink
+                    product={pick.product}
+                    position={pick.rank ?? i + 1}
+                    surface="listicle"
                     className="bg-green-700 hover:bg-green-600 text-white text-sm font-bold px-5 py-2 rounded-lg"
                   >
                     {tpl(s.checkProduct, { name: pick.product.name })}
-                  </a>
+                  </TrackedAffiliateLink>
                   <Link
                     href={`/${pick.product.slug}/`}
                     className="bg-white hover:bg-gray-50 text-gray-800 text-sm font-bold px-5 py-2 rounded-lg border border-gray-300"
@@ -259,12 +278,14 @@ export default function UseCaseListPage({
           <div className="space-y-4">
             {faqItems.map(item => (
               <div key={item.q} className="border border-gray-200 rounded-lg p-5">
-                <h3 className="font-semibold text-gray-900 mb-2">{item.q}</h3>
+                <h3 className="faq-question font-semibold text-gray-900 mb-2">{item.q}</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">{item.a}</p>
               </div>
             ))}
           </div>
         </section>
+
+        {sources && sources.length > 0 && <Sources sources={sources} />}
 
         {/* Methodology + back link */}
         <section className="my-10 bg-green-50 border border-green-200 rounded-xl p-6">

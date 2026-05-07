@@ -51,6 +51,12 @@ export interface Product {
   editorChoice: boolean;
   market: Market;
   updatedAt?: string;
+  /** True if this product has been independently tested by the editorial team
+   * (full hands-on review with sample, dosing audit, and verdict). False or
+   * undefined = catalog entry sourced from public product information; we have
+   * not held the bottle. Surfaced as a trust badge on listicle + review pages.
+   */
+  handsOnTested?: boolean;
 }
 
 export const productsUS: Product[] = [
@@ -95,6 +101,7 @@ export const productsUS: Product[] = [
     cons: ['Premium price ($69/mo)', '4 capsules per serving', '30-day money-back'],
     editorChoice: true,
     market: 'both',
+    handsOnTested: true,
   },
   {
     id: 'noocube',
@@ -136,6 +143,7 @@ export const productsUS: Product[] = [
     cons: ['Trustpilot 1.9/5 -- significant complaints', 'Some ingredients underdosed', 'Subscription cancellation issues (BBB)'],
     editorChoice: false,
     market: 'both',
+    handsOnTested: true,
   },
   {
     id: 'qualia-mind',
@@ -177,6 +185,7 @@ export const productsUS: Product[] = [
     cons: ['$139/month', '7 capsules per serving', 'No EU storefront', 'Contains caffeine'],
     editorChoice: false,
     market: 'us',
+    handsOnTested: true,
   },
   {
     id: 'alpha-brain',
@@ -217,6 +226,7 @@ export const productsUS: Product[] = [
     cons: ['Proprietary blends hide doses', 'No EU storefront', 'Subscription cancellation issues'],
     editorChoice: false,
     market: 'us',
+    handsOnTested: true,
   },
   {
     id: 'thesis',

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { SchemaOrg } from '@nootropic/ui';
+import { SchemaOrg, EditorialStandardsSection } from '@nootropic/ui';
 import { buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://thenootropiclab.com';
@@ -69,6 +69,7 @@ export default function MethodologyPage() {
             advice. Always consult a qualified healthcare professional before taking any supplement.
           </p>
         </section>
+        <EditorialStandardsSection />
       </article>
     </>
   );

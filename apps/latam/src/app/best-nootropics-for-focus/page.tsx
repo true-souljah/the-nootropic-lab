@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { UseCaseListPage, useCaseListPageEsStrings } from '@nootropic/ui';
 import type { UseCaseFAQ, IngredientMechanism, UseCasePick } from '@nootropic/ui';
-import { productsLatam } from '@nootropic/data';
+import { productsLatam, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const SITE_URL = 'https://latam.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
@@ -115,6 +115,7 @@ export default function Page() {
       faqItems={faqItems}
       strings={useCaseListPageEsStrings}
       siteUrl={SITE_URL}
+      healthDisclaimer={getRegionalHealthDisclaimer('latam')}
     />
   );
 }

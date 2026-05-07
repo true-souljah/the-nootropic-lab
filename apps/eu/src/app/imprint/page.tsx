@@ -1,0 +1,23 @@
+import type { Metadata } from 'next';
+import { ImprintPage } from '@nootropic/ui';
+
+const SITE_URL = 'https://eu.thenootropiclab.com';
+const CONTACT_EMAIL = 'editorial@thenootropiclab.com';
+
+export const metadata: Metadata = {
+  title: 'Impressum — The Nootropic Lab',
+  description:
+    'Impressum / Imprint for the EU edition of The Nootropic Lab. Publisher information, contact details, editorial standards, and affiliate-disclosure policy.',
+  alternates: { canonical: `${SITE_URL}/imprint/` },
+};
+
+export default function Page() {
+  return (
+    <ImprintPage
+      siteUrl={SITE_URL}
+      marketLabel="European Union edition"
+      contactEmail={CONTACT_EMAIL}
+      regionNote="Health claims about cognitive supplements published in the EU are governed by Regulation (EC) No 1924/2006. Editorial copy on this site describes ingredient mechanisms studied in clinical trials and does not assert label-grade health claims. Only EFSA-approved health claims may appear on product labelling."
+    />
+  );
+}

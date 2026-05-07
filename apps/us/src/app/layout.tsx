@@ -41,11 +41,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteFooter strings={strings} />
         <CookieBanner strings={strings} />
         <Script
+          type="text/plain"
+          data-name="cloudflare-insights"
           defer
           src="https://static.cloudflareinsights.com/beacon.min.js"
           data-cf-beacon='{"token": "REPLACE_WITH_CF_ANALYTICS_TOKEN_US"}'
           strategy="afterInteractive"
         />
+        <Script
+          type="text/plain"
+          data-name="google-analytics"
+          src="https://www.googletagmanager.com/gtag/js?id=G-98VGHD6G4X"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" type="text/plain" data-name="google-analytics" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-98VGHD6G4X');`}
+        </Script>
       </body>
     </html>
   );

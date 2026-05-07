@@ -1,57 +1,41 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import 'klaro/dist/klaro.css';
 import type { UIStrings } from '@nootropic/data';
+import { klaroConfig } from './klaro-config';
 
-export default function CookieBanner({ strings }: { strings?: UIStrings }) {
-  const t = strings?.cookie;
-  const [visible, setVisible] = useState(false);
+interface KlaroModule {
+  setup: (config: unknown) => void;
+}
 
+// Backwards-compatible signature: existing layouts pass `strings` to the
+// banner for the legacy binary accept/decline UI. Klaro has its own
+// translations baked into klaroConfig; the prop is accepted but unused.
+//
+// Klaro mounts itself into <div id="klaro" />. The script-control mechanism:
+// any <Script type="text/plain" data-name="X" /> in the page is loaded only
+// after the user grants consent for the matching service entry in klaroConfig.
+//
+// Layouts pass type="text/plain" + data-name="cloudflare-insights" or
+// data-name="google-analytics" on their analytics <Script> tags so Klaro
+// gates them behind the user's consent decision.
+export default function CookieBanner(_props?: { strings?: UIStrings }) {
   useEffect(() => {
-    const consent = localStorage.getItem('cookie-consent');
-    if (!consent) setVisible(true);
+    if (typeof window === 'undefined') return;
+    let cancelled = false;
+    (async () => {
+      // Klaro ships no .d.ts; cast the dynamic import once at the boundary.
+      const Klaro = (await import(
+        /* webpackIgnore: true */ 'klaro/dist/klaro-no-translations' as string
+      )) as unknown as KlaroModule;
+      if (cancelled) return;
+      // @ts-expect-error Klaro reads window.klaroConfig as a fallback.
+      window.klaroConfig = klaroConfig;
+      Klaro.setup(klaroConfig);
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, []);
-
-  function accept() {
-    localStorage.setItem('cookie-consent', 'accepted');
-    setVisible(false);
-  }
-
-  function decline() {
-    localStorage.setItem('cookie-consent', 'declined');
-    setVisible(false);
-  }
-
-  if (!visible) return null;
-
-  return (
-    <div className="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-50 shadow-lg">
-      <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-start sm:items-center gap-4">
-        <p className="text-sm flex-1">
-          {t?.message || 'We use analytics cookies to improve your experience. We do not use advertising cookies.'}
-          {' '}See our{' '}
-          <a href="/privacy-policy" className="underline text-green-400">
-            {t?.privacyPolicy || 'privacy policy'}
-          </a>
-          .
-          <span className="block text-xs text-gray-400 mt-1">
-            {t?.gdprNote || 'GDPR: Analytics fires only after you accept. Necessary cookies are always active.'}
-          </span>
-        </p>
-        <div className="flex gap-3 shrink-0">
-          <button
-            onClick={accept}
-            className="bg-green-600 hover:bg-green-500 text-white text-sm font-semibold px-4 py-2 rounded"
-          >
-            {t?.accept || 'Accept Analytics'}
-          </button>
-          <button
-            onClick={decline}
-            className="bg-gray-700 hover:bg-gray-600 text-white text-sm px-4 py-2 rounded"
-          >
-            {t?.decline || 'Decline'}
-          </button>
-        </div>
-      </div>
-    </div>
-  );
+  return <div id="klaro" />;
 }

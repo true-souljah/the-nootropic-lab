@@ -72,6 +72,10 @@ export default function SubscriptionCancellationPage({
     totalTime: `PT${totalTimeMinutes}M`,
     author: buildPersonAuthorReference(undefined, siteUrl),
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: siteUrl },
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['#hero-paragraph', '.faq-question'],
+    },
     step: steps.map((s, i) => ({
       '@type': 'HowToStep',
       position: i + 1,
@@ -129,7 +133,7 @@ export default function SubscriptionCancellationPage({
         </div>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">{pageTitle}</h1>
-        <p className="text-lg text-gray-600 mb-6 leading-relaxed">{heroParagraph}</p>
+        <p id="hero-paragraph" className="text-lg text-gray-600 mb-6 leading-relaxed">{heroParagraph}</p>
 
         {/* Quick stats */}
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 my-6">
@@ -212,7 +216,7 @@ export default function SubscriptionCancellationPage({
           <div className="space-y-4">
             {faqItems.map(item => (
               <div key={item.q} className="border border-gray-200 rounded-lg p-5">
-                <h3 className="font-semibold text-gray-900 mb-2">{item.q}</h3>
+                <h3 className="faq-question font-semibold text-gray-900 mb-2">{item.q}</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">{item.a}</p>
               </div>
             ))}

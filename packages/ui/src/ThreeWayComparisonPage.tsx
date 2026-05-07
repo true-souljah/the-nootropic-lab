@@ -3,6 +3,9 @@ import type { Product, Author } from '@nootropic/data';
 import { buildPersonAuthorReference } from '@nootropic/data';
 import AffiliateDisclosure from './AffiliateDisclosure';
 import SchemaOrg from './SchemaOrg';
+import Sources from './Sources';
+import type { Source } from './Sources';
+import TrackedAffiliateLink from './TrackedAffiliateLink';
 
 export interface ThreeWayFAQ {
   q: string;
@@ -24,6 +27,12 @@ interface Props {
   whoIsForC: string[];
   listicleHref?: string;
   formatPrice?: (product: Product) => string;
+  /** Optional medical reviewer for YMYL credibility */
+  reviewedBy?: { name: string; sameAs?: string[] };
+  /** Optional region-specific YMYL disclaimer; pages should pass getRegionalHealthDisclaimer(market) */
+  healthDisclaimer?: string;
+  /** Optional Sources block rendered after FAQ */
+  sources?: Source[];
 }
 
 function defaultPriceFormat(p: Product) {
@@ -47,6 +56,9 @@ export default function ThreeWayComparisonPage({
   whoIsForC,
   listicleHref = '/best-nootropics',
   formatPrice = defaultPriceFormat,
+  reviewedBy,
+  healthDisclaimer,
+  sources,
 }: Props) {
   const currentYear = new Date().getFullYear();
   const products = [productA, productB, productC];
@@ -60,6 +72,17 @@ export default function ThreeWayComparisonPage({
     dateModified: new Date().toISOString().split('T')[0],
     author: buildPersonAuthorReference(undefined, siteUrl),
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: siteUrl },
+    reviewedBy: reviewedBy
+      ? {
+          '@type': 'Person',
+          name: reviewedBy.name,
+          ...(reviewedBy.sameAs && { sameAs: reviewedBy.sameAs }),
+        }
+      : { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: siteUrl },
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['#hero-paragraph', '.faq-question'],
+    },
   };
 
   const faqSchema = {
@@ -178,6 +201,12 @@ export default function ThreeWayComparisonPage({
             Reviewed by{' '}
             <strong className="text-gray-700">The Nootropic Lab Editorial Team</strong>
           </span>
+          {reviewedBy && (
+            <>
+              <span>·</span>
+              <span>Medically reviewed by <strong className="text-gray-700">{reviewedBy.name}</strong></span>
+            </>
+          )}
           <span>·</span>
           <span>
             Last updated:{' '}
@@ -188,9 +217,16 @@ export default function ThreeWayComparisonPage({
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
           {productA.name} vs {productB.name} vs {productC.name}
         </h1>
-        <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+        <p id="hero-paragraph" className="text-lg text-gray-600 mb-6 leading-relaxed">
           Three-way clinical-dose comparison using the same 5-pillar methodology applied to every review on this site.
         </p>
+
+        {healthDisclaimer && (
+          <aside className="bg-amber-50 border-l-4 border-amber-400 rounded-r-lg p-4 mb-6 text-sm text-amber-900">
+            <strong className="block mb-1">Health & regulatory note</strong>
+            {healthDisclaimer}
+          </aside>
+        )}
 
         <AffiliateDisclosure />
 
@@ -200,11 +236,11 @@ export default function ThreeWayComparisonPage({
           <p className="text-sm text-gray-700 leading-relaxed mb-3">{computedVerdict}</p>
           <div className="flex gap-2 flex-wrap">
             {products.map((p, i) => (
-              <a
+              <TrackedAffiliateLink
                 key={p.slug}
-                href={p.affiliateUrl}
-                target="_blank"
-                rel="nofollow sponsored noopener noreferrer"
+                product={p}
+                position={i + 1}
+                surface="three_way"
                 className={`text-sm font-bold px-4 py-2 rounded-lg ${
                   p === winner
                     ? 'bg-green-700 hover:bg-green-600 text-white'
@@ -212,7 +248,7 @@ export default function ThreeWayComparisonPage({
                 }`}
               >
                 Check {p.name} ({formatPrice(p)}/mo) →
-              </a>
+              </TrackedAffiliateLink>
             ))}
           </div>
         </section>
@@ -358,7 +394,7 @@ export default function ThreeWayComparisonPage({
           <div className="space-y-4">
             {faqItems.map(item => (
               <div key={item.q} className="border border-gray-200 rounded-lg p-5">
-                <h3 className="font-semibold text-gray-900 mb-2">{item.q}</h3>
+                <h3 className="faq-question font-semibold text-gray-900 mb-2">{item.q}</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">{item.a}</p>
               </div>
             ))}
@@ -380,6 +416,8 @@ export default function ThreeWayComparisonPage({
             ))}
           </div>
         </section>
+
+        {sources && sources.length > 0 && <Sources sources={sources} />}
 
         <div className="text-sm text-gray-500 mt-10">
           <Link href={`${listicleHref}/`} className="text-green-700 underline">

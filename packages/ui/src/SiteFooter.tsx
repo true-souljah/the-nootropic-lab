@@ -71,6 +71,16 @@ export default function SiteFooter({ strings }: { strings?: UIStrings }) {
                 {t?.cookiePolicy || 'Cookie Policy'}
               </Link>
             </li>
+            <li>
+              <Link href="/imprint" className="hover:text-green-700">
+                Imprint
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact" className="hover:text-green-700">
+                Contact
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
