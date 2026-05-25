@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { UseCaseListPage } from '@nootropic/ui';
-import type { UseCaseFAQ, IngredientMechanism, UseCasePick } from '@nootropic/ui';
+import { Listicle } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
+import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const SITE_URL = 'https://thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
+
 
 export const metadata: Metadata = {
   title: `Best Nootropics for Mood ${CURRENT_YEAR}: NOT a Substitute for Mental Health Treatment`,
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
   twitter: { card: 'summary' },
 };
 
-const ingredientMechanism: IngredientMechanism[] = [
+const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Rhodiola Rosea — stress + mild fatigue-related low mood',
     evidence:
@@ -47,7 +49,7 @@ const ingredientMechanism: IngredientMechanism[] = [
   },
 ];
 
-const picks: UseCasePick[] = [
+const picks: ListiclePick[] = [
   {
     product: productsUS.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
@@ -74,7 +76,7 @@ const picks: UseCasePick[] = [
   },
 ];
 
-const faqItems: UseCaseFAQ[] = [
+const faqItems: ListicleFAQ[] = [
   {
     q: 'Can nootropics replace antidepressants?',
     a: 'No. Antidepressants (SSRIs, SNRIs, etc.) are prescription medications for clinical depression and other mental health conditions. Nootropic supplements are not pharmacologically equivalent and should not be marketed as substitutes. If you have or suspect depression or anxiety, see a clinician — supplements may complement (not replace) treatment under clinician supervision.',
@@ -107,7 +109,7 @@ const moodDisclaimer =
 export default function Page() {
   if (picks.some(p => !p.product)) notFound();
   return (
-    <UseCaseListPage
+    <Listicle
       useCase="mood"
       pageTitle="Best Nootropics for Mood Support"
       pageDescription="Independent ranking of nootropics with mood-adjacent benefits in healthy adults. NOT a treatment for depression or anxiety."
@@ -117,6 +119,8 @@ export default function Page() {
       faqItems={faqItems}
       siteUrl={SITE_URL}
       healthDisclaimer={moodDisclaimer}
+      searchItems={searchItems}
+      uiStrings={uiStrings}
     />
   );
 }

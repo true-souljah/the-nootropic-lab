@@ -15,6 +15,8 @@ import {
 const SITE_URL = 'https://latam.thenootropiclab.com';
 const PAGE_URL = `${SITE_URL}/anmat-disposicion-2105-2022-prohibidos/`;
 
+import LegacyShell from "@/components/LegacyShell";
+
 export const metadata: Metadata = {
   title: 'ANMAT Disposición 2105/2022: Nootrópicos prohibidos en Argentina',
   description:
@@ -134,7 +136,7 @@ const compoundClassLabels: Record<string, string> = {
 
 export default function Page() {
   return (
-    <>
+    <LegacyShell>
       <SchemaOrg schema={articleSchema} />
       <SchemaOrg schema={datasetSchema} />
       <SchemaOrg schema={faqSchema} />
@@ -371,6 +373,6 @@ export default function Page() {
           <Link href="/imprint/" className="text-green-700 underline">Imprint</Link>
         </div>
       </article>
-    </>
+    </LegacyShell>
   );
 }

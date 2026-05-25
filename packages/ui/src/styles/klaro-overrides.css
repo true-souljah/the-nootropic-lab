@@ -1,0 +1,129 @@
+/*
+ * Klaro CMP — restyle to Stack design tokens (M6 deferred → finished).
+ *
+ * Klaro exposes a set of CSS custom properties consumed by its own
+ * stylesheet (loaded via `klaro/dist/klaro.css`). We remap them to
+ * ds-* tokens so the consent surface matches the rest of the app.
+ *
+ * Per the M6 a11y review:
+ *   - Do NOT change display / visibility / focus outlines.
+ *   - Verify focus-ring contrast against the new palette (3:1 min).
+ *   - Klaro's own dialog semantics (role=dialog, labelled headings) stay
+ *     intact because we only override colors / borders / radii.
+ */
+
+/* Scope to .klaro so we don't accidentally hit unrelated CSS variables */
+.klaro {
+  /* Type */
+  --font-family: var(--font-ds-sans);
+  --font-size: 13.5px;
+  --title-font-family: var(--font-ds-sans);
+
+  /* Shape */
+  --border-radius: 12px;
+  --border-style: solid;
+  --border-width: 1px;
+  --box-shadow-color: rgba(15, 22, 35, 0.12);
+
+  /* Surface palette — Klaro's "light" + "white" + "dark" buckets remap
+     to our card / ink / muted tokens. We keep enough contrast for the
+     primary text against the panel background. */
+  --white1: var(--color-ds-card);
+  --white2: var(--color-ds-card-sub);
+  --white3: var(--color-ds-bg);
+  --light1: var(--color-ds-border);
+  --light2: var(--color-ds-border-strong);
+  --light3: var(--color-ds-border-input);
+  --dark1: var(--color-ds-ink);
+  --dark2: var(--color-ds-ink-soft);
+  --dark3: var(--color-ds-muted);
+
+  /* Action palette — Klaro uses "green" for accept and "blue" for
+     learn-more / info. Remap to ds-accent (indigo). The "green" name
+     is historical — we don't want literal green on accept. */
+  --green1: var(--color-ds-accent);
+  --green2: var(--color-ds-accent-press);
+  --green3: var(--color-ds-accent-soft);
+  --blue1: var(--color-ds-accent);
+  --blue2: var(--color-ds-accent-press);
+
+  --button-text-color: #ffffff;
+
+  /* Notice positioning — bottom-anchored, max 720px centered */
+  --notice-position: fixed;
+  --notice-bottom: 20px;
+  --notice-left: 50%;
+  --notice-right: auto;
+  --notice-top: auto;
+  --notice-max-width: 720px;
+}
+
+/* Center the notice horizontally (notice-left=50% needs a transform) */
+.klaro .cookie-notice:not(.cookie-modal-notice) {
+  transform: translateX(-50%);
+  box-shadow: 0 12px 36px var(--box-shadow-color);
+}
+
+/* Cookie modal sits above the page; ensure scrim picks up our dark tone */
+.klaro .cookie-modal .cm-bg {
+  background: rgba(11, 22, 35, 0.55);
+}
+
+/* Buttons — ensure tap target ≥ 44px on mobile and proper focus ring */
+.klaro .cn-button,
+.klaro .cm-btn {
+  min-height: 36px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.klaro .cn-button:focus-visible,
+.klaro .cm-btn:focus-visible {
+  outline: 2px solid var(--color-ds-focus-ring);
+  outline-offset: 2px;
+}
+
+/* Primary "Accept all" — solid indigo */
+.klaro .cm-btn.cm-btn-success {
+  background: var(--color-ds-accent);
+  color: #ffffff;
+}
+.klaro .cm-btn.cm-btn-success:hover {
+  background: var(--color-ds-accent-press);
+}
+
+/* Secondary "Decline" / "Learn more" — outlined */
+.klaro .cm-btn.cm-btn-decline,
+.klaro .cm-btn.cm-btn-info {
+  background: var(--color-ds-card);
+  color: var(--color-ds-ink);
+  border: 1px solid var(--color-ds-border);
+}
+.klaro .cm-btn.cm-btn-decline:hover,
+.klaro .cm-btn.cm-btn-info:hover {
+  background: var(--color-ds-card-sub);
+}
+
+/* Switch (toggle) — track + thumb match our ToggleSwitch primitive */
+.klaro .cm-list-input + .cm-list-label .slider {
+  background-color: var(--color-ds-border-strong);
+}
+.klaro .cm-list-input:checked + .cm-list-label .slider {
+  background-color: var(--color-ds-accent);
+}
+
+/* Body text contrast — push muted text to ink-soft so 4.5:1 holds */
+.klaro .cookie-notice p,
+.klaro .cookie-modal p {
+  color: var(--color-ds-ink-soft);
+}
+.klaro .cookie-modal .cm-list-description {
+  color: var(--color-ds-muted);
+}
+
+/* Headings */
+.klaro .cookie-modal .cm-modal-title,
+.klaro .cookie-notice .cn-title {
+  color: var(--color-ds-ink);
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}

@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { UseCaseListPage } from '@nootropic/ui';
-import type { UseCaseFAQ, IngredientMechanism, UseCasePick } from '@nootropic/ui';
+import { Listicle } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
+import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsGCC, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const SITE_URL = 'https://gcc.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
+
 
 export const metadata: Metadata = {
   title: `Best Nootropics for Memory in the GCC ${CURRENT_YEAR}: Halal-Friendly Picks for Saudi, UAE & Gulf Buyers`,
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
   twitter: { card: 'summary' },
 };
 
-const ingredientMechanism: IngredientMechanism[] = [
+const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Bacopa Monnieri',
     evidence:
@@ -47,7 +49,7 @@ const ingredientMechanism: IngredientMechanism[] = [
   },
 ];
 
-const picks: UseCasePick[] = [
+const picks: ListiclePick[] = [
   {
     product: productsGCC.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
@@ -80,7 +82,7 @@ const picks: UseCasePick[] = [
   },
 ];
 
-const faqItems: UseCaseFAQ[] = [
+const faqItems: ListicleFAQ[] = [
   {
     q: 'Are these supplements halal?',
     a: 'All five picks on this page use plant-based HPMC or pullulan capsules with no porcine gelatin. None of the imported brands (Mind Lab Pro, Qualia Mind, Eu Yan Sang BrainMAX+, Nootropics Depot) carry formal halal certification (HALAL India, JAKIM, MUI, ESMA), so observant buyers should verify each brand\'s latest ingredient sourcing. Nahdi Brain Boost is SFDA-registered with halal-compliant sourcing as standard. Note on phosphatidylserine: most products use soy-derived PS (halal); some use bovine-derived PS (would need halal-slaughter verification) or sunflower-derived PS (always halal).',
@@ -110,7 +112,7 @@ const faqItems: UseCaseFAQ[] = [
 export default function Page() {
   if (picks.some(p => !p.product)) notFound();
   return (
-    <UseCaseListPage
+    <Listicle
       useCase="memory"
       pageTitle="Best Nootropics for Memory in the GCC"
       pageDescription="Independent ranking of the best memory nootropics available in the GCC, with halal status and SFDA/MOHAP registration noted per pick."
@@ -120,6 +122,8 @@ export default function Page() {
       faqItems={faqItems}
       siteUrl={SITE_URL}
       healthDisclaimer={getRegionalHealthDisclaimer('gcc')}
+      searchItems={searchItems}
+      uiStrings={uiStrings}
     />
   );
 }

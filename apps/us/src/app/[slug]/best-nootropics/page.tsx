@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ComparisonTable, AffiliateDisclosure, SchemaOrg } from '@nootropic/ui';
+import { BestOf, SchemaOrg, Card, Chip, ScorePill } from '@nootropic/ui';
 import { productsUS } from '@nootropic/data';
+import { searchItems, uiStrings } from '@/lib/search';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -297,149 +299,144 @@ export default async function StateNootropicsPage({
     <>
       <SchemaOrg schema={itemListSchema} />
       <SchemaOrg schema={faqSchema} />
-      <article className="max-w-5xl mx-auto px-4 py-10">
-        <div className="mb-2 text-xs text-gray-500">
-          Last updated:{' '}
-          {new Date().toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          })}
-        </div>
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          Best Nootropics in {state.name} {CURRENT_YEAR}
-        </h1>
-        <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-          We reviewed {productsUS.length} nootropic supplements for {state.name} buyers, auditing
-          every ingredient dose against peer-reviewed clinical trials. Below is our ranked
-          comparison with full scoring breakdown.
-        </p>
-
-        {state.prop65 && (
-          <div className="bg-amber-50 border border-amber-300 rounded-xl p-5 mb-6">
-            <h2 className="font-bold text-amber-900 mb-2">
-              ⚠ California Proposition 65 Notice
-            </h2>
-            <p className="text-sm text-amber-800 leading-relaxed">
-              California&apos;s Proposition 65 requires businesses to provide warnings about
-              significant exposures to chemicals that cause cancer, birth defects, or other
-              reproductive harm. Some nootropic supplements sold in California may carry Prop 65
-              warnings for trace minerals or herbal compounds. Check the product label and
-              manufacturer&apos;s website for the most current California-specific labeling before
-              purchasing.
-            </p>
-          </div>
-        )}
-
-        <AffiliateDisclosure />
-
-        {/* Top 3 picks */}
-        <section className="my-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">
-            Top 3 Picks for {state.name} Buyers
-          </h2>
-          <p className="text-sm text-gray-500 mb-5">
-            Ranked by our independent score. All ship to {state.name} directly from the brand.
-          </p>
-          <div className="space-y-4">
-            {topProducts.map((p, i) => (
-              <a
-                key={p.slug}
-                href={`/${p.slug}`}
-                className="flex items-start gap-4 bg-white border border-gray-200 rounded-xl p-5 hover:border-green-400 hover:shadow-md transition-all"
+      <BestOf
+        products={productsUS}
+        breadcrumbs={[
+          { label: 'Best of', href: '/best-nootropics' },
+          { label: state.name },
+        ]}
+        hero={{
+          eyebrow: `${state.name} · Audited ${CURRENT_YEAR}`,
+          h1: `Best Nootropics in ${state.name} ${CURRENT_YEAR}`,
+          dek: `We reviewed ${productsUS.length} nootropic supplements for ${state.name} buyers, auditing every ingredient dose against peer-reviewed clinical trials. Below is our ranked comparison with full scoring breakdown.`,
+        }}
+        searchItems={searchItems}
+        uiStrings={uiStrings}
+        trackingSurface="best_of_state"
+        preList={
+          <div className="flex flex-col gap-5">
+            {state.prop65 && (
+              <Card
+                variant="subdued"
+                padding={20}
+                className="border-l-[3px] border-l-ds-warn"
+                as="aside"
+                aria-labelledby="prop65-heading"
               >
-                <span className="text-3xl font-black text-gray-200 shrink-0 leading-none mt-0.5">
-                  #{i + 1}
-                </span>
-                <div className="flex-1 min-w-0">
-                  <div className="flex flex-wrap items-center gap-2 mb-1">
-                    <h3 className="font-bold text-gray-900">{p.name}</h3>
-                    {p.editorChoice && (
-                      <span className="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full">
-                        Editor&apos;s Choice
+                <h2
+                  id="prop65-heading"
+                  className="text-[16px] font-bold text-ds-warn-ink m-0 mb-2"
+                >
+                  California Proposition 65 Notice
+                </h2>
+                <p className="text-[13.5px] text-ds-ink-soft m-0 leading-[1.6]">
+                  California&apos;s Proposition 65 requires businesses to provide warnings about
+                  significant exposures to chemicals that cause cancer, birth defects, or other
+                  reproductive harm. Some nootropic supplements sold in California may carry Prop 65
+                  warnings for trace minerals or herbal compounds. Check the product label and the
+                  manufacturer&apos;s website for the most current California-specific labeling
+                  before purchasing.
+                </p>
+              </Card>
+            )}
+
+            <Card variant="subdued" padding={20}>
+              <h2 className="text-[18px] font-bold text-ds-ink m-0 mb-1 tracking-[-0.01em]">
+                Top 3 picks for {state.name} buyers
+              </h2>
+              <p className="text-[13px] text-ds-muted mb-4 m-0">
+                Ranked by our independent score. All ship to {state.name} directly from the brand.
+              </p>
+              <ol className="list-none p-0 m-0 flex flex-col gap-3">
+                {topProducts.map((p, i) => (
+                  <li key={p.slug}>
+                    <Link
+                      href={`/${p.slug}`}
+                      className="flex items-start gap-4 bg-ds-card border border-ds-border rounded-[10px] p-4 hover:border-ds-accent-border focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 transition-colors"
+                    >
+                      <span
+                        className="text-[28px] font-bold text-ds-faint shrink-0 leading-none mt-1 ds-tabular"
+                        aria-hidden="true"
+                      >
+                        #{i + 1}
                       </span>
-                    )}
-                  </div>
-                  <p className="text-sm text-gray-600 mb-2 line-clamp-2">{p.summary}</p>
-                  <div className="flex flex-wrap gap-4 text-xs text-gray-500">
-                    <span>Score: <strong className="text-green-700">{p.score}/10</strong></span>
-                    {p.priceMonthlyUSD && <span>${p.priceMonthlyUSD}/mo</span>}
-                    <span>{p.moneyBackDays}-day money-back</span>
-                    <span>Trustpilot {p.trustpilotScore}/5</span>
-                  </div>
-                </div>
-                <span className="text-green-700 text-sm font-semibold shrink-0 hidden sm:block">
-                  View review →
-                </span>
-              </a>
-            ))}
+                      <div className="flex-1 min-w-0">
+                        <div className="flex flex-wrap items-center gap-2 mb-1">
+                          <h3 className="font-bold text-[15px] text-ds-ink m-0">{p.name}</h3>
+                          {p.editorChoice && <Chip tone="accent">★ Editor&apos;s pick</Chip>}
+                        </div>
+                        <p className="text-[13px] text-ds-ink-soft m-0 mb-2 line-clamp-2 leading-[1.55]">
+                          {p.summary}
+                        </p>
+                        <div className="flex flex-wrap gap-4 text-[12px] text-ds-muted ds-tabular">
+                          {p.priceMonthlyUSD && <span>${p.priceMonthlyUSD}/mo</span>}
+                          <span>{p.moneyBackDays}-day MBG</span>
+                          <span>Trustpilot {p.trustpilotScore}/5</span>
+                        </div>
+                      </div>
+                      <ScorePill score={p.score} />
+                    </Link>
+                  </li>
+                ))}
+              </ol>
+            </Card>
           </div>
-        </section>
+        }
+        postList={
+          <div className="flex flex-col gap-6">
+            <Card variant="subdued" padding={24}>
+              <h2 className="text-[18px] font-bold text-ds-ink m-0 mb-3 tracking-[-0.01em]">
+                Buying nootropics in {state.name}
+              </h2>
+              <p className="text-[14px] text-ds-ink-soft m-0 leading-[1.65]">{state.buyingNote}</p>
+            </Card>
 
-        {/* Buying in this state */}
-        <section className="my-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-3">
-            Buying Nootropics in {state.name}
-          </h2>
-          <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
-            <p className="text-sm text-gray-700 leading-relaxed">{state.buyingNote}</p>
-          </div>
-
-          {/* Legality FAQ */}
-          <div className="mt-4 space-y-2">
-            <details className="group bg-white border border-gray-200 rounded-xl overflow-hidden">
-              <summary className="flex items-center justify-between px-5 py-4 cursor-pointer list-none font-semibold text-gray-900 hover:bg-gray-50 transition-colors">
-                <span className="text-sm">Are nootropics legal in {state.name}?</span>
-                <span className="shrink-0 text-gray-400 group-open:rotate-180 transition-transform duration-200">▾</span>
-              </summary>
-              <div className="px-5 pb-4 pt-1">
-                <p className="text-sm text-gray-700 leading-relaxed">
-                  Yes. All products in our ranking are sold legally in {state.name} as dietary supplements
-                  regulated under the FDA&apos;s DSHEA (Dietary Supplement Health and Education Act) framework.
-                  No prescription is required. Manufacturers must follow FDA current Good Manufacturing Practice
-                  (cGMP) guidelines. None of the ingredients in our ranked products are controlled substances.
-                </p>
+            <section>
+              <h2 className="text-[18px] font-bold text-ds-ink m-0 mb-3 tracking-[-0.01em]">
+                Legality &amp; sourcing
+              </h2>
+              <div className="flex flex-col gap-3">
+                <details className="border border-ds-border rounded-[10px] p-5 group open:bg-ds-card-sub">
+                  <summary className="font-semibold text-ds-ink text-[14px] cursor-pointer list-none flex justify-between items-center gap-3 focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded">
+                    <h3 className="font-semibold text-[14px] text-ds-ink m-0">
+                      Are nootropics legal in {state.name}?
+                    </h3>
+                    <span aria-hidden="true" className="text-ds-muted group-open:rotate-180 transition-transform">▾</span>
+                  </summary>
+                  <p className="text-[13.5px] text-ds-ink-soft leading-[1.65] mt-3 mb-0">
+                    Yes. All products in our ranking are sold legally in {state.name} as dietary
+                    supplements regulated under the FDA&apos;s DSHEA (Dietary Supplement Health and
+                    Education Act) framework. No prescription is required. Manufacturers must follow
+                    FDA current Good Manufacturing Practice (cGMP) guidelines. None of the
+                    ingredients in our ranked products are controlled substances.
+                  </p>
+                </details>
+                <details className="border border-ds-border rounded-[10px] p-5 group open:bg-ds-card-sub">
+                  <summary className="font-semibold text-ds-ink text-[14px] cursor-pointer list-none flex justify-between items-center gap-3 focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded">
+                    <h3 className="font-semibold text-[14px] text-ds-ink m-0">
+                      Should I buy from Amazon or the brand&apos;s website?
+                    </h3>
+                    <span aria-hidden="true" className="text-ds-muted group-open:rotate-180 transition-transform">▾</span>
+                  </summary>
+                  <p className="text-[13.5px] text-ds-ink-soft leading-[1.65] mt-3 mb-0">
+                    Brand website is consistently better: lower price (brand sites offer loyalty
+                    discounts and subscribe-and-save), guaranteed authenticity, access to the full
+                    money-back guarantee, and direct access to third-party Certificate of Analysis
+                    (COA) documentation. Amazon third-party sellers may stock older batches and
+                    frequently do not honour the manufacturer&apos;s return policy.
+                  </p>
+                </details>
               </div>
-            </details>
-            <details className="group bg-white border border-gray-200 rounded-xl overflow-hidden">
-              <summary className="flex items-center justify-between px-5 py-4 cursor-pointer list-none font-semibold text-gray-900 hover:bg-gray-50 transition-colors">
-                <span className="text-sm">Should I buy from Amazon or the brand&apos;s website?</span>
-                <span className="shrink-0 text-gray-400 group-open:rotate-180 transition-transform duration-200">▾</span>
-              </summary>
-              <div className="px-5 pb-4 pt-1">
-                <p className="text-sm text-gray-700 leading-relaxed">
-                  Brand website is consistently better: lower price (brand sites offer loyalty discounts and
-                  subscribe-and-save), guaranteed authenticity, access to the full money-back guarantee, and
-                  direct access to third-party Certificate of Analysis (COA) documentation. Amazon third-party
-                  sellers may stock older batches and frequently do not honour the manufacturer&apos;s return policy.
-                </p>
-              </div>
-            </details>
+            </section>
+
+            <div className="text-[13px] text-ds-muted">
+              <Link href="/best-nootropics" className="text-ds-accent underline font-semibold">
+                ← View national comparison: Best Nootropics {CURRENT_YEAR}
+              </Link>
+            </div>
           </div>
-        </section>
-
-        <div className="mb-4">
-          <a href="#comparison-table" className="text-green-700 underline text-sm font-medium">
-            → Jump to full comparison table
-          </a>
-        </div>
-
-        <section id="comparison-table">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">
-            2026 Nootropic Comparison — {state.name}
-          </h2>
-          <p className="text-sm text-gray-500 mb-4">
-            Sort by score, price, money-back guarantee, or Trustpilot rating.
-          </p>
-          <ComparisonTable products={productsUS} market="us" />
-        </section>
-
-        <div className="mt-10 text-sm text-gray-500">
-          <a href="/best-nootropics" className="text-green-700 underline">
-            → View national comparison: Best Nootropics {new Date().getFullYear()}
-          </a>
-        </div>
-      </article>
+        }
+      />
     </>
   );
 }

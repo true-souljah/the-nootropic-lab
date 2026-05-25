@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { UseCaseListPage } from '@nootropic/ui';
-import type { UseCaseFAQ, IngredientMechanism, UseCasePick } from '@nootropic/ui';
+import { Listicle } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
+import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsSEA, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const SITE_URL = 'https://sea.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
+
 
 export const metadata: Metadata = {
   title: `Best Nootropics for Memory ${CURRENT_YEAR}: SEA Buyer's Guide`,
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
   twitter: { card: 'summary' },
 };
 
-const ingredientMechanism: IngredientMechanism[] = [
+const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Bacopa Monnieri (Brahmi)',
     evidence:
@@ -47,7 +49,7 @@ const ingredientMechanism: IngredientMechanism[] = [
   },
 ];
 
-const picks: UseCasePick[] = [
+const picks: ListiclePick[] = [
   {
     product: productsSEA.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
@@ -80,7 +82,7 @@ const picks: UseCasePick[] = [
   },
 ];
 
-const faqItems: UseCaseFAQ[] = [
+const faqItems: ListicleFAQ[] = [
   {
     q: 'Are these memory nootropics halal-certified?',
     a: 'Imported brands (Mind Lab Pro, Qualia Mind, Nootropics Depot Lion\'s Mane) do not carry BPJPH (Indonesia) or JAKIM (Malaysia) halal certification. Capsules are gelatin-based with vendor disclosure varying. For halal-certified options: some Blackmores SKUs carry JAKIM certification — verify on the specific product label, and consult the JAKIM halal verification portal (verify.halal.gov.my) or BPJPH portal (halal.go.id) for the latest status. Eu Yan Sang BrainMAX+ uses vegetarian capsules and is positioned for Chinese-heritage buyers but is not halal-certified. When uncertain, contact the brand or check the local halal database before purchase.',
@@ -110,7 +112,7 @@ const faqItems: UseCaseFAQ[] = [
 export default function Page() {
   if (picks.some(p => !p.product)) notFound();
   return (
-    <UseCaseListPage
+    <Listicle
       useCase="memory"
       pageTitle="Best Nootropics for Memory in SEA"
       pageDescription="Independent ranking of memory nootropics available to buyers across Southeast Asia. Bacopa, Lion's Mane, PS, citicoline."
@@ -120,6 +122,8 @@ export default function Page() {
       faqItems={faqItems}
       siteUrl={SITE_URL}
       healthDisclaimer={getRegionalHealthDisclaimer('sea')}
+      searchItems={searchItems}
+      uiStrings={uiStrings}
     />
   );
 }

@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { UseCaseListPage } from '@nootropic/ui';
-import type { UseCaseFAQ, IngredientMechanism, UseCasePick } from '@nootropic/ui';
+import { Listicle } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
+import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const SITE_URL = 'https://thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
+
 
 export const metadata: Metadata = {
   title: `Best Nootropics for ADHD-Adjacent Focus ${CURRENT_YEAR}: Independent Picks (NOT a Substitute for Medical Treatment)`,
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
   twitter: { card: 'summary' },
 };
 
-const ingredientMechanism: IngredientMechanism[] = [
+const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Tyrosine (and NALT)',
     evidence:
@@ -47,7 +49,7 @@ const ingredientMechanism: IngredientMechanism[] = [
   },
 ];
 
-const picks: UseCasePick[] = [
+const picks: ListiclePick[] = [
   {
     product: productsUS.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
@@ -74,7 +76,7 @@ const picks: UseCasePick[] = [
   },
 ];
 
-const faqItems: UseCaseFAQ[] = [
+const faqItems: ListicleFAQ[] = [
   {
     q: 'Can nootropics replace Adderall or other ADHD medication?',
     a: 'No. Adderall, Vyvanse, and Ritalin are prescription stimulants with documented efficacy for ADHD. Nootropic supplements are not pharmacologically equivalent and should not be marketed as substitutes. If you have or suspect ADHD, work with a qualified clinician on diagnosis and treatment. Supplements may complement (not replace) treatment under clinician supervision.',
@@ -107,7 +109,7 @@ const ymylDisclaimer =
 export default function Page() {
   if (picks.some(p => !p.product)) notFound();
   return (
-    <UseCaseListPage
+    <Listicle
       useCase="adhd"
       pageTitle="Best Nootropics for ADHD-Adjacent Focus"
       pageDescription="Independent ranking of nootropics that may support attention. NOT a replacement for prescription ADHD medication. Always consult a clinician."
@@ -117,6 +119,8 @@ export default function Page() {
       faqItems={faqItems}
       siteUrl={SITE_URL}
       healthDisclaimer={ymylDisclaimer}
+      searchItems={searchItems}
+      uiStrings={uiStrings}
     />
   );
 }

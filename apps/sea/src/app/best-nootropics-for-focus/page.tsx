@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { UseCaseListPage } from '@nootropic/ui';
-import type { UseCaseFAQ, IngredientMechanism, UseCasePick } from '@nootropic/ui';
+import { Listicle } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
+import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsSEA, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const SITE_URL = 'https://sea.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
+
 
 export const metadata: Metadata = {
   title: `Best Nootropics for Focus ${CURRENT_YEAR}: SEA Buyer's Guide`,
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
   twitter: { card: 'summary' },
 };
 
-const ingredientMechanism: IngredientMechanism[] = [
+const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Theanine + Caffeine (1:2 to 2:1 ratio)',
     evidence:
@@ -47,7 +49,7 @@ const ingredientMechanism: IngredientMechanism[] = [
   },
 ];
 
-const picks: UseCasePick[] = [
+const picks: ListiclePick[] = [
   {
     product: productsSEA.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
@@ -80,7 +82,7 @@ const picks: UseCasePick[] = [
   },
 ];
 
-const faqItems: UseCaseFAQ[] = [
+const faqItems: ListicleFAQ[] = [
   {
     q: 'Are these focus nootropics halal-certified?',
     a: 'None of the imported brands on this list (Mind Lab Pro, NooCube, Qualia Mind, Onnit Alpha Brain, Thesis) carry BPJPH (Indonesia) or JAKIM (Malaysia) halal certification. Capsules are typically gelatin-based (often bovine, occasionally porcine — vendor disclosure varies). Buyers in Indonesia and Malaysia who require halal certification should look at TGA-AU domestic options like Blackmores and Nature\'s Own (some SKUs are halal-certified — check the specific label) or Eu Yan Sang BrainMAX+ (TCM-based, vegetarian capsule). Always verify the current halal status on the product packaging or with the brand directly before purchase.',
@@ -110,7 +112,7 @@ const faqItems: UseCaseFAQ[] = [
 export default function Page() {
   if (picks.some(p => !p.product)) notFound();
   return (
-    <UseCaseListPage
+    <Listicle
       useCase="focus"
       pageTitle="Best Nootropics for Focus in SEA"
       pageDescription="Independent ranking of nootropics for focus and attention available across Southeast Asia."
@@ -120,6 +122,8 @@ export default function Page() {
       faqItems={faqItems}
       siteUrl={SITE_URL}
       healthDisclaimer={getRegionalHealthDisclaimer('sea')}
+      searchItems={searchItems}
+      uiStrings={uiStrings}
     />
   );
 }

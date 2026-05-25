@@ -5,6 +5,8 @@ import { getAuthorBySlug } from '@nootropic/data';
 
 const SITE_URL = 'https://thenootropiclab.com';
 
+import LegacyShell from "@/components/LegacyShell";
+
 export const metadata: Metadata = {
   title: 'How to Cancel Qualia Mind Subscription (Neurohacker Collective) — Step-by-Step',
   description:
@@ -87,6 +89,7 @@ const ftcComplaintNote =
 
 export default function Page() {
   return (
+    <LegacyShell>
     <SubscriptionCancellationPage
       brandName="Qualia Mind"
       productReviewSlug="qualia-mind-review"
@@ -101,5 +104,6 @@ export default function Page() {
       faqItems={faqItems}
       ftcComplaintNote={ftcComplaintNote}
     />
+    </LegacyShell>
   );
 }

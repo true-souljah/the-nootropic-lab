@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { UseCaseListPage } from '@nootropic/ui';
-import type { UseCaseFAQ, IngredientMechanism, UseCasePick } from '@nootropic/ui';
+import { Listicle } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
+import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsGCC, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const SITE_URL = 'https://gcc.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
+
 
 export const metadata: Metadata = {
   title: `Best Nootropics for Focus in the GCC ${CURRENT_YEAR}: Halal-Friendly Picks for Saudi, UAE & Gulf Buyers`,
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
   twitter: { card: 'summary' },
 };
 
-const ingredientMechanism: IngredientMechanism[] = [
+const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Theanine + Caffeine (1:2 to 2:1 ratio)',
     evidence:
@@ -47,7 +49,7 @@ const ingredientMechanism: IngredientMechanism[] = [
   },
 ];
 
-const picks: UseCasePick[] = [
+const picks: ListiclePick[] = [
   {
     product: productsGCC.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
@@ -80,7 +82,7 @@ const picks: UseCasePick[] = [
   },
 ];
 
-const faqItems: UseCaseFAQ[] = [
+const faqItems: ListicleFAQ[] = [
   {
     q: 'Are these supplements halal?',
     a: 'Most picks on this page (Mind Lab Pro, Qualia Mind, Alpha Brain, NooCube, Life Pharmacy NeuroShield) use plant-based HPMC or pullulan capsules with no porcine gelatin. None of the imported brands carry formal halal certification (HALAL India, JAKIM, MUI, ESMA), so observant buyers should verify the latest ingredient sourcing on each brand\'s website before ordering. Life Pharmacy NeuroShield is MOHAP-registered in the UAE and the most predictable halal-compliant choice. Always check the capsule source: HPMC and pullulan are plant-derived; gelatin is typically bovine or porcine.',
@@ -110,7 +112,7 @@ const faqItems: UseCaseFAQ[] = [
 export default function Page() {
   if (picks.some(p => !p.product)) notFound();
   return (
-    <UseCaseListPage
+    <Listicle
       useCase="focus"
       pageTitle="Best Nootropics for Focus in the GCC"
       pageDescription="Independent ranking of the best nootropics for focus available in the GCC. Halal status and SFDA/MOHAP registration noted per pick."
@@ -120,6 +122,8 @@ export default function Page() {
       faqItems={faqItems}
       siteUrl={SITE_URL}
       healthDisclaimer={getRegionalHealthDisclaimer('gcc')}
+      searchItems={searchItems}
+      uiStrings={uiStrings}
     />
   );
 }

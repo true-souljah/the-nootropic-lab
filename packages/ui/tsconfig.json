@@ -5,7 +5,11 @@
     "strict": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "module": "esnext",
     "moduleResolution": "bundler",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
     "paths": {
       "@nootropic/data": ["../../data/src/index.ts"]
     }

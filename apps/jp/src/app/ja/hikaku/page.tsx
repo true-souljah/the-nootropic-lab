@@ -4,6 +4,8 @@ import { productsJP } from '@nootropic/data';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
+import LegacyShell from "@/components/LegacyShell";
+
 export const metadata: Metadata = {
   title: 'ノートロピクス比較 — 日本向け全ブランド比較表',
   description:
@@ -30,6 +32,7 @@ export default function JaHikakuPage() {
   };
 
   return (
+    <LegacyShell>
     <div lang="ja">
       <SchemaOrg schema={itemListSchema} />
       <div className="max-w-5xl mx-auto px-4 py-10">
@@ -51,5 +54,6 @@ export default function JaHikakuPage() {
         </div>
       </div>
     </div>
+    </LegacyShell>
   );
 }

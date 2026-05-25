@@ -1,6 +1,7 @@
 'use client';
 import { useEffect } from 'react';
 import 'klaro/dist/klaro.css';
+import './styles/klaro-overrides.css';
 import type { UIStrings } from '@nootropic/data';
 import { klaroConfig } from './klaro-config';
 

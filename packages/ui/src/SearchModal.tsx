@@ -1,13 +1,11 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
+import type { SearchItem } from '@nootropic/data';
 
-export interface SearchItem {
-  title: string;
-  href: string;
-  type: 'product' | 'ingredient' | 'guide' | 'page';
-  description?: string;
-}
+// Re-export so existing callers (SiteHeader, FPHeader, CommandPalette)
+// keep importing `SearchItem` from this module unchanged.
+export type { SearchItem, SearchItemMeta } from '@nootropic/data';
 
 interface Props {
   items: SearchItem[];

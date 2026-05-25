@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { UseCaseListPage } from '@nootropic/ui';
-import type { UseCaseFAQ, IngredientMechanism, UseCasePick } from '@nootropic/ui';
+import { Listicle } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
+import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const SITE_URL = 'https://thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
+
 
 export const metadata: Metadata = {
   title: `Best Nootropics for Energy ${CURRENT_YEAR}: Sustained Cognitive Energy Without the Crash`,
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
   twitter: { card: 'summary' },
 };
 
-const ingredientMechanism: IngredientMechanism[] = [
+const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Caffeine + L-Theanine — the foundation',
     evidence:
@@ -47,7 +49,7 @@ const ingredientMechanism: IngredientMechanism[] = [
   },
 ];
 
-const picks: UseCasePick[] = [
+const picks: ListiclePick[] = [
   {
     product: productsUS.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
@@ -74,7 +76,7 @@ const picks: UseCasePick[] = [
   },
 ];
 
-const faqItems: UseCaseFAQ[] = [
+const faqItems: ListicleFAQ[] = [
   {
     q: 'How is "nootropic energy" different from energy drinks?',
     a: 'Energy drinks deliver high-dose caffeine + sugar + sometimes B-vitamins for an acute lift, often followed by a crash. Nootropic stacks layer caffeine (where present) with L-theanine to smooth the curve, plus longer-acting ingredients (Rhodiola, citicoline) that support sustained cognitive output without the spike-and-crash pattern.',
@@ -104,7 +106,7 @@ const faqItems: UseCaseFAQ[] = [
 export default function Page() {
   if (picks.some(p => !p.product)) notFound();
   return (
-    <UseCaseListPage
+    <Listicle
       useCase="energy"
       pageTitle="Best Nootropics for Energy"
       pageDescription="Independent ranking of nootropics for sustained cognitive energy. Caffeine + L-theanine, Rhodiola, citicoline."
@@ -114,6 +116,8 @@ export default function Page() {
       faqItems={faqItems}
       siteUrl={SITE_URL}
       healthDisclaimer={getRegionalHealthDisclaimer('us')}
+      searchItems={searchItems}
+      uiStrings={uiStrings}
     />
   );
 }

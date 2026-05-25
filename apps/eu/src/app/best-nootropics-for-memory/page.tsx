@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { UseCaseListPage } from '@nootropic/ui';
-import type { UseCaseFAQ, IngredientMechanism, UseCasePick } from '@nootropic/ui';
+import { Listicle } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
+import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsEU, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const SITE_URL = 'https://eu.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
+
 
 export const metadata: Metadata = {
   title: `Best Nootropics for Memory ${CURRENT_YEAR} (EU): EU-Compliant Picks at Clinical Doses`,
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
   twitter: { card: 'summary' },
 };
 
-const ingredientMechanism: IngredientMechanism[] = [
+const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Bacopa Monnieri',
     evidence:
@@ -47,7 +49,7 @@ const ingredientMechanism: IngredientMechanism[] = [
   },
 ];
 
-const picks: UseCasePick[] = [
+const picks: ListiclePick[] = [
   {
     product: productsEU.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
@@ -74,7 +76,7 @@ const picks: UseCasePick[] = [
   },
 ];
 
-const faqItems: UseCaseFAQ[] = [
+const faqItems: ListicleFAQ[] = [
   {
     q: 'What is the most evidence-backed nootropic for memory available in the EU?',
     a: 'Bacopa Monnieri at 300mg standardised to 50% bacosides has the most replicated RCT evidence for memory consolidation in healthy adults. Citicoline (Cognizin) has Novel Food authorisation in the EU and good evidence for older adults with age-related memory complaints. Lion\'s Mane fruiting-body extract has smaller but promising RCT evidence.',
@@ -108,7 +110,7 @@ const faqItems: UseCaseFAQ[] = [
 export default function Page() {
   if (picks.some(p => !p.product)) notFound();
   return (
-    <UseCaseListPage
+    <Listicle
       useCase="memory"
       pageTitle="Best Nootropics for Memory (EU)"
       pageDescription="Independent EU ranking of nootropics for memory and recall, based on clinical evidence. EU storefronts only."
@@ -118,6 +120,8 @@ export default function Page() {
       faqItems={faqItems}
       siteUrl={SITE_URL}
       healthDisclaimer={getRegionalHealthDisclaimer('eu')}
+      searchItems={searchItems}
+      uiStrings={uiStrings}
     />
   );
 }

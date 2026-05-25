@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { UseCaseListPage } from '@nootropic/ui';
-import type { UseCaseFAQ, IngredientMechanism, UseCasePick } from '@nootropic/ui';
+import { Listicle } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
+import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsJP, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const SITE_URL = 'https://jp.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
+
 
 export const metadata: Metadata = {
   title: `Best Nootropics for Focus in Japan ${CURRENT_YEAR}: Independent Picks Backed by Clinical Evidence`,
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
   twitter: { card: 'summary' },
 };
 
-const ingredientMechanism: IngredientMechanism[] = [
+const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Theanine + Caffeine (1:2 to 2:1 ratio)',
     evidence:
@@ -47,7 +49,7 @@ const ingredientMechanism: IngredientMechanism[] = [
   },
 ];
 
-const picks: UseCasePick[] = [
+const picks: ListiclePick[] = [
   {
     product: productsJP.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
@@ -74,7 +76,7 @@ const picks: UseCasePick[] = [
   },
 ];
 
-const faqItems: UseCaseFAQ[] = [
+const faqItems: ListicleFAQ[] = [
   {
     q: 'Are any of these focus nootropics notified under Japan\'s FFC (機能性表示食品) system?',
     a: 'No — the international stacks above (Mind Lab Pro, Performance Lab Mind, Hunter Focus, NooCube) are not notified under Japan\'s Food with Function Claims framework administered by the Consumer Affairs Agency (消費者庁). They ship under the personal-import route. Domestic FFC-notified options like FANCL BRAINs and Suntory DHA & EPA + Sesamin EX target memory and brain health rather than acute focus, and are covered on our memory and aging pages.',
@@ -104,7 +106,7 @@ const faqItems: UseCaseFAQ[] = [
 export default function Page() {
   if (picks.some(p => !p.product)) notFound();
   return (
-    <UseCaseListPage
+    <Listicle
       useCase="focus"
       pageTitle="Best Nootropics for Focus in Japan"
       pageDescription="Independent ranking of the best nootropics for focus and attention available in Japan. Each pick must contain a clinically-dosed focus ingredient."
@@ -114,6 +116,8 @@ export default function Page() {
       faqItems={faqItems}
       siteUrl={SITE_URL}
       healthDisclaimer={getRegionalHealthDisclaimer('jp')}
+      searchItems={searchItems}
+      uiStrings={uiStrings}
     />
   );
 }

@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
 
+import { PublicShell } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
+
 export const metadata: Metadata = {
   title: 'Política de Cookies',
   description: 'Política de cookies de The Nootropic Lab. Qué cookies usamos y cómo controlarlas.',
@@ -7,6 +10,7 @@ export const metadata: Metadata = {
 
 export default function CookiePolicyPage() {
   return (
+    <PublicShell searchItems={searchItems} uiStrings={uiStrings} hideDisclosure>
     <article className="max-w-3xl mx-auto px-4 py-10">
       <h1 className="text-3xl font-bold text-gray-900 mb-6">Política de Cookies</h1>
       <p className="text-sm text-gray-500 mb-8">Última actualización: 15 de enero de 2026</p>
@@ -89,5 +93,6 @@ export default function CookiePolicyPage() {
         </section>
       </div>
     </article>
+    </PublicShell>
   );
 }

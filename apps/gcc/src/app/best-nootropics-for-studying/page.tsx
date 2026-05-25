@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { UseCaseListPage } from '@nootropic/ui';
-import type { UseCaseFAQ, IngredientMechanism, UseCasePick } from '@nootropic/ui';
+import { Listicle } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
+import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsGCC, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const SITE_URL = 'https://gcc.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
+
 
 export const metadata: Metadata = {
   title: `Best Nootropics for Studying in the GCC ${CURRENT_YEAR}: Halal-Friendly Picks for Students in Saudi, UAE & Gulf`,
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
   twitter: { card: 'summary' },
 };
 
-const ingredientMechanism: IngredientMechanism[] = [
+const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Theanine + Caffeine — sustained focus',
     evidence:
@@ -47,7 +49,7 @@ const ingredientMechanism: IngredientMechanism[] = [
   },
 ];
 
-const picks: UseCasePick[] = [
+const picks: ListiclePick[] = [
   {
     product: productsGCC.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
@@ -80,7 +82,7 @@ const picks: UseCasePick[] = [
   },
 ];
 
-const faqItems: UseCaseFAQ[] = [
+const faqItems: ListicleFAQ[] = [
   {
     q: 'Are these supplements halal?',
     a: 'All five picks use plant-based HPMC or pullulan capsules with no porcine gelatin. None of these brands carry formal halal certification (HALAL India, JAKIM, MUI, ESMA), so observant student buyers should verify each brand\'s latest ingredient sourcing. The most predictable halal-compliant option for KSA students is to add a locally-regulated brand like Nahdi Brain Boost (SFDA-registered) for memory-consolidation support and stack with a single-ingredient L-theanine capsule for acute focus.',
@@ -110,7 +112,7 @@ const faqItems: UseCaseFAQ[] = [
 export default function Page() {
   if (picks.some(p => !p.product)) notFound();
   return (
-    <UseCaseListPage
+    <Listicle
       useCase="studying"
       pageTitle="Best Nootropics for Studying in the GCC"
       pageDescription="Independent ranking of nootropics for sustained study sessions for GCC students. Caffeine-free options prioritised; halal status noted."
@@ -120,6 +122,8 @@ export default function Page() {
       faqItems={faqItems}
       siteUrl={SITE_URL}
       healthDisclaimer={getRegionalHealthDisclaimer('gcc')}
+      searchItems={searchItems}
+      uiStrings={uiStrings}
     />
   );
 }

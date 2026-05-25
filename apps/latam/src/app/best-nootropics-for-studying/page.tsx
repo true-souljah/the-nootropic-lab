@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { UseCaseListPage, useCaseListPageEsStrings } from '@nootropic/ui';
-import type { UseCaseFAQ, IngredientMechanism, UseCasePick } from '@nootropic/ui';
+import { Listicle, useCaseListPageEsStrings } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
+import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsLatam, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const SITE_URL = 'https://latam.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
+
 
 export const metadata: Metadata = {
   title: `Mejores Nootrópicos para Estudiar ${CURRENT_YEAR}: Selección Independiente para Estudiantes en Latam`,
@@ -21,7 +23,7 @@ export const metadata: Metadata = {
   twitter: { card: 'summary' },
 };
 
-const ingredientMechanism: IngredientMechanism[] = [
+const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Teanina + Cafeína — concentración sostenida',
     evidence:
@@ -48,7 +50,7 @@ const ingredientMechanism: IngredientMechanism[] = [
   },
 ];
 
-const picks: UseCasePick[] = [
+const picks: ListiclePick[] = [
   {
     product: productsLatam.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
@@ -75,7 +77,7 @@ const picks: UseCasePick[] = [
   },
 ];
 
-const faqItems: UseCaseFAQ[] = [
+const faqItems: ListicleFAQ[] = [
   {
     q: '¿Cuándo debería empezar a tomar nootrópicos para estudiar?',
     a: 'Para ingredientes de efecto agudo (L-teanina + cafeína), 30 minutos antes de una sesión de estudio. Para Bacopa y citicolina (consolidación de memoria), empieza al inicio del cuatrimestre — necesitan 4–8 semanas de uso diario para mostrar efecto. La noche antes del examen es demasiado tarde para Bacopa. Considera además 10–18 días de envío internacional si pides desde EE.UU. o Reino Unido.',
@@ -105,7 +107,7 @@ const faqItems: UseCaseFAQ[] = [
 export default function Page() {
   if (picks.some(p => !p.product)) notFound();
   return (
-    <UseCaseListPage
+    <Listicle
       useCase="studying"
       pageTitle="Mejores Nootrópicos para Estudiar"
       pageDescription="Ranking independiente de nootrópicos para sesiones de estudio prolongadas para estudiantes en Latinoamérica. Concentración + consolidación de memoria + seguridad para uso diario."
@@ -116,6 +118,8 @@ export default function Page() {
       strings={useCaseListPageEsStrings}
       siteUrl={SITE_URL}
       healthDisclaimer={getRegionalHealthDisclaimer('latam')}
+      searchItems={searchItems}
+      uiStrings={uiStrings}
     />
   );
 }

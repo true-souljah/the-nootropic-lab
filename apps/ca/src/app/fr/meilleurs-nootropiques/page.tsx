@@ -5,6 +5,8 @@ import { productsCA, buildPersonAuthorReference } from '@nootropic/data';
 const SITE_URL = 'https://ca.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
 
+import LegacyShell from "@/components/LegacyShell";
+
 export const metadata: Metadata = {
   title: `Les meilleurs nootropiques au Canada ${new Date().getFullYear()} — Guide de l'acheteur canadien`,
   description:
@@ -68,6 +70,7 @@ export default function FrMeilleursNootropiquesPage() {
   };
 
   return (
+    <LegacyShell>
     <div lang="fr-CA">
       <SchemaOrg schema={articleSchema} />
       <SchemaOrg schema={faqSchema} />
@@ -187,5 +190,6 @@ export default function FrMeilleursNootropiquesPage() {
         </div>
       </article>
     </div>
+    </LegacyShell>
   );
 }

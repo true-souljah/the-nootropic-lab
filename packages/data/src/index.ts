@@ -25,7 +25,7 @@ export type { AUState } from './au-states';
 export { auStates } from './au-states';
 export type { JPPrefecture } from './jp-prefectures';
 export { jpPrefectures } from './jp-prefectures';
-export type { SearchItem } from './search';
+export type { SearchItem, SearchItemMeta } from './search';
 export { buildSearchIndex } from './search';
 export type { Locale, UIStrings } from './i18n';
 export { getStrings, getLocaleForMarket } from './i18n';

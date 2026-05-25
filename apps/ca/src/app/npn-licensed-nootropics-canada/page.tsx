@@ -7,6 +7,8 @@ const SITE_URL = 'https://ca.thenootropiclab.com';
 const PAGE_URL = `${SITE_URL}/npn-licensed-nootropics-canada/`;
 const auditDateIso = new Date().toISOString().split('T')[0];
 
+import LegacyShell from "@/components/LegacyShell";
+
 export const metadata: Metadata = {
   title: 'NPN-Licensed Nootropics in Canada: Health Canada NHP Framework + Verification Guide',
   description:
@@ -83,7 +85,7 @@ const faqSchema = {
 
 export default function Page() {
   return (
-    <>
+    <LegacyShell>
       <SchemaOrg schema={articleSchema} />
       <SchemaOrg schema={datasetSchema} />
       <SchemaOrg schema={faqSchema} />
@@ -206,6 +208,6 @@ export default function Page() {
           <Link href="/methodology/" className="text-green-700 underline">Methodology</Link>
         </div>
       </article>
-    </>
+    </LegacyShell>
   );
 }

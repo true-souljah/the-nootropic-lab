@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { HeadToHeadPage } from '@nootropic/ui';
+import { HeadToHead } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
 import type { HeadToHeadFAQ } from '@nootropic/ui';
 import { productsEU, getRegionalHealthDisclaimer } from '@nootropic/data';
 
@@ -9,6 +10,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 
 const productA = productsEU.find(p => p.slug === 'braineffect-focus-review');
 const productB = productsEU.find(p => p.slug === 'mind-lab-pro-review');
+
 
 export const metadata: Metadata = {
   title: `BRAINEFFECT FOCUS vs Mind Lab Pro ${CURRENT_YEAR}: DACH-Native vs International`,
@@ -78,7 +80,7 @@ const verdictParagraph =
 export default function Page() {
   if (!productA || !productB) notFound();
   return (
-    <HeadToHeadPage
+    <HeadToHead
       productA={productA}
       productB={productB}
       siteUrl={SITE_URL}
@@ -87,6 +89,8 @@ export default function Page() {
       whoIsForA={whoIsForA}
       whoIsForB={whoIsForB}
       healthDisclaimer={getRegionalHealthDisclaimer('eu')}
+      searchItems={searchItems}
+      uiStrings={uiStrings}
     />
   );
 }

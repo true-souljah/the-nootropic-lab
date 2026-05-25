@@ -1,9 +1,15 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
+import { Inter } from 'next/font/google';
 import './globals.css';
-import { SiteHeader, SiteFooter, CookieBanner } from '@nootropic/ui';
-import { productsUS, ingredients, guides, buildSearchIndex, getStrings } from '@nootropic/data';
-import type { Locale } from '@nootropic/data';
+import { CookieBanner } from '@nootropic/ui';
+import { getStrings } from '@nootropic/data';
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
 
 export const metadata: Metadata = {
   title: {
@@ -29,16 +35,20 @@ export const metadata: Metadata = {
   },
 };
 
-const searchItems = buildSearchIndex(productsUS, ingredients, guides);
 const strings = getStrings('en');
 
+/**
+ * Root layout — minimal shell. Provides <html>/<body>, font, the
+ * Klaro CookieBanner (overlay), and analytics scripts. Page chrome
+ * (header/footer) is provided per-page by either <LegacyShell> for
+ * un-migrated pages or by a redesigned template (Listicle, HeadToHead,
+ * etc.) for migrated pages.
+ */
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable}>
       <body>
-        <SiteHeader market="us" searchItems={searchItems} strings={strings} />
-        <main className="min-h-screen">{children}</main>
-        <SiteFooter strings={strings} />
+        {children}
         <CookieBanner strings={strings} />
         <Script
           type="text/plain"

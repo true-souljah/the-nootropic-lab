@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { UseCaseListPage } from '@nootropic/ui';
-import type { UseCaseFAQ, IngredientMechanism, UseCasePick } from '@nootropic/ui';
+import { Listicle } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
+import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsJP, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const SITE_URL = 'https://jp.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
+
 
 export const metadata: Metadata = {
   title: `Best Nootropics for Aging Brain in Japan ${CURRENT_YEAR}: Evidence-Graded Picks`,
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
   twitter: { card: 'summary' },
 };
 
-const ingredientMechanism: IngredientMechanism[] = [
+const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'DHA — Japan\'s most-notified FFC ingredient for older adults',
     evidence:
@@ -47,7 +49,7 @@ const ingredientMechanism: IngredientMechanism[] = [
   },
 ];
 
-const picks: UseCasePick[] = [
+const picks: ListiclePick[] = [
   {
     product: productsJP.find(p => p.slug === 'fancl-brains-review')!,
     rank: 1,
@@ -74,7 +76,7 @@ const picks: UseCasePick[] = [
   },
 ];
 
-const faqItems: UseCaseFAQ[] = [
+const faqItems: ListicleFAQ[] = [
   {
     q: 'Will these prevent dementia (認知症) or Alzheimer\'s?',
     a: 'No. No supplement — Japanese FFC-notified or otherwise — is approved to prevent or treat dementia (認知症) or Alzheimer\'s disease. The ingredients on this page have evidence for age-related cognitive support in healthy older adults, distinct from disease prevention. If you or a family member is experiencing significant memory changes, see a Japanese neurologist (神経内科) for evaluation. The MHLW Long-Term Care Insurance system (介護保険) provides screening and support resources.',
@@ -104,7 +106,7 @@ const faqItems: UseCaseFAQ[] = [
 export default function Page() {
   if (picks.some(p => !p.product)) notFound();
   return (
-    <UseCaseListPage
+    <Listicle
       useCase="aging"
       pageTitle="Best Nootropics for Aging Brain in Japan"
       pageDescription="Independent ranking of nootropics for adults in Japan concerned about age-related cognitive changes."
@@ -114,6 +116,8 @@ export default function Page() {
       faqItems={faqItems}
       siteUrl={SITE_URL}
       healthDisclaimer={getRegionalHealthDisclaimer('jp')}
+      searchItems={searchItems}
+      uiStrings={uiStrings}
     />
   );
 }

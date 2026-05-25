@@ -1,9 +1,12 @@
 import type { Metadata } from 'next';
+import { Inter } from "next/font/google";
 import Script from 'next/script';
 import './globals.css';
-import { SiteHeader, SiteFooter, CookieBanner } from '@nootropic/ui';
-import { productsJP, ingredients, guides, buildSearchIndex, getStrings } from '@nootropic/data';
+import { CookieBanner } from "@nootropic/ui";
+import { getStrings } from "@nootropic/data";
 import type { Locale } from '@nootropic/data';
+
+const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: {
@@ -29,20 +32,13 @@ export const metadata: Metadata = {
   },
 };
 
-const searchItems = buildSearchIndex(productsJP, ingredients, guides);
 const strings = getStrings('en');
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ja">
+    <html lang="ja" className={inter.variable}>
       <body>
-        <SiteHeader market="jp" searchItems={searchItems} strings={strings} />
-        <div className="bg-amber-50 border-b border-amber-200 px-4 py-2 text-center text-sm text-amber-800">
-          <strong>Japan Import Note:</strong> Personal import limit is ¥16,000 duty-free.
-          Orders above ¥16,000 may attract customs duties. Keep orders under 2 months supply.
-        </div>
-        <main className="min-h-screen">{children}</main>
-        <SiteFooter strings={strings} />
+        {children}
         <CookieBanner strings={strings} />
         <Script
           type="text/plain"

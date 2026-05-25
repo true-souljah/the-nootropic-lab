@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { UseCaseListPage, useCaseListPageEsStrings } from '@nootropic/ui';
-import type { UseCaseFAQ, IngredientMechanism, UseCasePick } from '@nootropic/ui';
+import { Listicle, useCaseListPageEsStrings } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
+import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsLatam, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const SITE_URL = 'https://latam.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
+
 
 export const metadata: Metadata = {
   title: `Mejores Nootrópicos para el Cerebro Adulto Mayor ${CURRENT_YEAR}: Selección Basada en Evidencia`,
@@ -21,7 +23,7 @@ export const metadata: Metadata = {
   twitter: { card: 'summary' },
 };
 
-const ingredientMechanism: IngredientMechanism[] = [
+const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Fosfatidilserina (PS) — declaración calificada de la FDA',
     evidence:
@@ -48,7 +50,7 @@ const ingredientMechanism: IngredientMechanism[] = [
   },
 ];
 
-const picks: UseCasePick[] = [
+const picks: ListiclePick[] = [
   {
     product: productsLatam.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
@@ -75,7 +77,7 @@ const picks: UseCasePick[] = [
   },
 ];
 
-const faqItems: UseCaseFAQ[] = [
+const faqItems: ListicleFAQ[] = [
   {
     q: '¿Estos productos previenen la demencia o el Alzheimer?',
     a: 'No. Ningún suplemento está aprobado para prevenir o tratar demencia o Alzheimer. Los ingredientes de esta página tienen evidencia de apoyo cognitivo asociado a la edad en adultos mayores sanos — distinto de la prevención de enfermedades. Si tú o un familiar experimentan cambios significativos en la memoria, consulta a un neurólogo para una evaluación.',
@@ -109,7 +111,7 @@ const faqItems: UseCaseFAQ[] = [
 export default function Page() {
   if (picks.some(p => !p.product)) notFound();
   return (
-    <UseCaseListPage
+    <Listicle
       useCase="aging"
       pageTitle="Mejores Nootrópicos para el Cerebro Adulto Mayor"
       pageDescription="Ranking independiente de nootrópicos para adultos en Latinoamérica preocupados por cambios cognitivos asociados a la edad."
@@ -120,6 +122,8 @@ export default function Page() {
       strings={useCaseListPageEsStrings}
       siteUrl={SITE_URL}
       healthDisclaimer={getRegionalHealthDisclaimer('latam')}
+      searchItems={searchItems}
+      uiStrings={uiStrings}
     />
   );
 }

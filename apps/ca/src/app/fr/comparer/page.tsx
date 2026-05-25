@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { ComparisonTable, AffiliateDisclosure, SchemaOrg } from '@nootropic/ui';
 import { productsCA } from '@nootropic/data';
 
+import LegacyShell from "@/components/LegacyShell";
+
 export const metadata: Metadata = {
   title: 'Outil de comparaison de nootropiques — Canada',
   description:
@@ -28,6 +30,7 @@ export default function FrComparerPage() {
   };
 
   return (
+    <LegacyShell>
     <div lang="fr-CA">
       <SchemaOrg schema={itemListSchema} />
       <div className="max-w-5xl mx-auto px-4 py-10">
@@ -49,5 +52,6 @@ export default function FrComparerPage() {
         </div>
       </div>
     </div>
+    </LegacyShell>
   );
 }

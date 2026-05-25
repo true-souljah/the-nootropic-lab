@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { UseCaseListPage } from '@nootropic/ui';
-import type { UseCaseFAQ, IngredientMechanism, UseCasePick } from '@nootropic/ui';
+import { Listicle } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
+import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsAU, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const SITE_URL = 'https://au.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
+
 
 export const metadata: Metadata = {
   title: `Best Nootropics for Memory Australia ${CURRENT_YEAR}: TGA-Aware Picks Backed by Clinical Evidence`,
@@ -21,7 +23,7 @@ export const metadata: Metadata = {
   twitter: { card: 'summary' },
 };
 
-const ingredientMechanism: IngredientMechanism[] = [
+const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Bacopa Monnieri',
     evidence:
@@ -48,7 +50,7 @@ const ingredientMechanism: IngredientMechanism[] = [
   },
 ];
 
-const picks: UseCasePick[] = [
+const picks: ListiclePick[] = [
   {
     product: productsAU.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
@@ -81,7 +83,7 @@ const picks: UseCasePick[] = [
   },
 ];
 
-const faqItems: UseCaseFAQ[] = [
+const faqItems: ListicleFAQ[] = [
   {
     q: 'What is the most evidence-backed nootropic for memory?',
     a: 'Bacopa Monnieri at 300mg standardised to 50% bacosides has the most replicated RCT evidence for memory consolidation in healthy adults. Phosphatidylserine has good evidence for memory in older adults. Citicoline has good evidence for older adults with age-related memory complaints.',
@@ -115,7 +117,7 @@ const faqItems: UseCaseFAQ[] = [
 export default function Page() {
   if (picks.some(p => !p.product)) notFound();
   return (
-    <UseCaseListPage
+    <Listicle
       useCase="memory"
       pageTitle="Best Nootropics for Memory in Australia"
       pageDescription="Independent ranking of nootropics for memory and recall available to Australian buyers, based on clinical evidence and TGA Personal Importation rules."
@@ -125,6 +127,8 @@ export default function Page() {
       faqItems={faqItems}
       siteUrl={SITE_URL}
       healthDisclaimer={getRegionalHealthDisclaimer('au')}
+      searchItems={searchItems}
+      uiStrings={uiStrings}
     />
   );
 }

@@ -1,9 +1,12 @@
 import type { Metadata } from 'next';
+import { Inter } from "next/font/google";
 import Script from 'next/script';
 import './globals.css';
-import { SiteHeader, SiteFooter, CookieBanner } from '@nootropic/ui';
-import { productsLatam, ingredients, guides, buildSearchIndex, getStrings } from '@nootropic/data';
+import { CookieBanner } from "@nootropic/ui";
+import { getStrings } from "@nootropic/data";
 import type { Locale } from '@nootropic/data';
+
+const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: {
@@ -23,16 +26,13 @@ export const metadata: Metadata = {
   },
 };
 
-const searchItems = buildSearchIndex(productsLatam, ingredients, guides);
 const strings = getStrings('es');
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es">
+    <html lang="es" className={inter.variable}>
       <body>
-        <SiteHeader market="latam" searchItems={searchItems} strings={strings} />
-        <main className="min-h-screen">{children}</main>
-        <SiteFooter strings={strings} />
+        {children}
         <CookieBanner strings={strings} />
         <Script
           type="text/plain"

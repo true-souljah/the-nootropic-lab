@@ -1,0 +1,165 @@
+/*
+ * Nootropic Lab design tokens (Stack redesign).
+ * Tailwind 4 @theme block — declared tokens become utility classes
+ * (e.g. --color-ds-accent → bg-ds-accent, text-ds-accent).
+ * Legacy :root vars in each app's globals.css remain untouched; this
+ * file is additive and namespaced for the new design system only.
+ *
+ * WCAG AA deviations from Phase 1 design tokens (applied to clear
+ * accessibility audit before M1 land):
+ *   - ds-muted        #6B7585 → #666F7F (was 4.48:1 on card-sub; now 4.7:1)
+ *   - ds-good         #0F8A5F → #0B7350 (was 4.06:1 on white; now 5.0:1)
+ *   - ds-accent-press #3F37C9 → #2D258F (3:1 state distinction vs accent)
+ *   - Added ds-good-ink / ds-warn-ink / ds-bad-ink for chip TEXT on
+ *     their soft-tinted backgrounds (the un-suffixed tokens stay for
+ *     icons, bars, and dots where the 3:1 large-element rule applies)
+ *   - Added ds-border-input for input borders (3:1 non-text contrast)
+ *   - Added ds-focus-ring + ds-focus-ring-on-dark for consistent rings
+ *   - ds-faint #9AA3B2 retained; documented as DECORATIVE-ONLY below
+ */
+
+:root {
+  color-scheme: light;
+}
+
+@theme {
+  /* Surfaces */
+  --color-ds-bg: #F6F7F9;
+  --color-ds-card: #FFFFFF;
+  --color-ds-card-sub: #FAFBFC;
+
+  /* Text */
+  --color-ds-ink: #0B1220;
+  --color-ds-ink-soft: #3F4A5C;
+  --color-ds-muted: #666F7F;
+  --color-ds-faint: #9AA3B2;
+
+  /* Lines */
+  --color-ds-border: #E5E8ED;
+  --color-ds-border-strong: #CDD2DB;
+  --color-ds-border-input: #9AA3B2;
+
+  /* Action — indigo */
+  --color-ds-accent: #4F46E5;
+  --color-ds-accent-soft: #EEF0FE;
+  --color-ds-accent-border: #C7CBF7;
+  --color-ds-accent-press: #2D258F;
+
+  /* Semantic — surface tones (icons, bars, dots) */
+  --color-ds-good: #0B7350;
+  --color-ds-good-soft: #E3F4EC;
+  --color-ds-bad: #C7372F;
+  --color-ds-bad-soft: #FBE9E7;
+  --color-ds-warn: #B7791F;
+  --color-ds-warn-soft: #FBF1DA;
+
+  /* Semantic — ink tones (TEXT on the soft surfaces above) */
+  --color-ds-good-ink: #07623F;
+  --color-ds-bad-ink: #A52B24;
+  --color-ds-warn-ink: #8A5A12;
+
+  /* Dark sidebar / welcome chrome */
+  --color-ds-side: #0F1623;
+  --color-ds-side-ink: #E8ECF3;
+  --color-ds-side-muted: #7C8699;
+
+  /* Brand — preserved from current production logo */
+  --color-ds-brand: #15803D;
+
+  /* Focus */
+  --color-ds-focus-ring: #4F46E5;
+  --color-ds-focus-ring-on-dark: #A5B4FC;
+
+  /* Scrim — used for modal overlays (CommandPalette, AppShell mobile drawer, Comparator filter sheet) */
+  --color-ds-scrim: rgba(11, 18, 32, 0.55);
+
+  /* Radius */
+  --radius-ds-pill: 999px;
+  --radius-ds-chip: 8px;
+  --radius-ds-card: 12px;
+  --radius-ds-card-sm: 10px;
+  --radius-ds-badge: 8px;
+
+  /* Motion (zeroed under prefers-reduced-motion below) */
+  --ds-duration-fast: 150ms;
+  --ds-duration-base: 180ms;
+
+  /* Font family — picks up next/font/google Inter via --font-inter when present */
+  --font-ds-sans: var(--font-inter), 'Inter', 'Inter Tight', system-ui, -apple-system, sans-serif;
+}
+
+/*
+ * Usage rule for ds-faint #9AA3B2:
+ *   AA contrast on white is 2.71:1 (FAIL for text).
+ *   Use ONLY for decorative separators, hairline icons, or visual
+ *   placeholders that do not convey information. For placeholder text
+ *   inside inputs, use ds-muted instead.
+ */
+
+/* Tabular numerals — apply via class to any element rendering numbers */
+.ds-tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Inter stylistic alternates (single-storey 'a', curl-less 'l') */
+.ds-font-features {
+  font-feature-settings: 'cv11', 'ss01';
+}
+
+/* Visually hidden, available to assistive tech */
+.ds-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip-link — visually hidden until focused, then anchored top-left */
+.ds-skip-link {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 100;
+  padding: 8px 14px;
+  background: var(--color-ds-card);
+  color: var(--color-ds-ink);
+  font-weight: 600;
+  border-radius: var(--radius-ds-chip);
+  outline: 2px solid var(--color-ds-focus-ring);
+  outline-offset: 2px;
+  transform: translateY(-200%);
+  transition: transform var(--ds-duration-base) ease-out;
+}
+.ds-skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+/* Skeleton shimmer — paused under prefers-reduced-motion (via the global rule below) */
+@keyframes ds-skeleton-shimmer {
+  from { background-position: -200% 0; }
+  to   { background-position: 200% 0; }
+}
+
+/* Reduced motion — neutralize transitions/animations site-wide */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Forced colors / Windows High Contrast — preserve focus + boundaries */
+@media (forced-colors: active) {
+  :focus-visible {
+    outline-color: Highlight;
+  }
+}

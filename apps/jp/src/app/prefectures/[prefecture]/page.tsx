@@ -6,6 +6,9 @@ import { productsJP, jpPrefectures, buildPersonAuthorReference } from '@nootropi
 const SITE_URL = 'https://jp.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
 
+import { PublicShell } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
+
 export const dynamicParams = false;
 
 const prefectures = jpPrefectures;
@@ -48,7 +51,7 @@ export default async function PrefecturePage({
   };
 
   return (
-    <>
+    <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
       <SchemaOrg schema={schema} />
       <article className="max-w-3xl mx-auto px-4 py-10">
         <nav className="text-xs text-gray-500 mb-6">
@@ -115,6 +118,6 @@ export default async function PrefecturePage({
           </a>
         </div>
       </article>
-    </>
+    </PublicShell>
   );
 }

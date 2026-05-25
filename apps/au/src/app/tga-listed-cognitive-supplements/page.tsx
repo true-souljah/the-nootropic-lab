@@ -7,6 +7,8 @@ const SITE_URL = 'https://au.thenootropiclab.com';
 const PAGE_URL = `${SITE_URL}/tga-listed-cognitive-supplements/`;
 const auditDateIso = new Date().toISOString().split('T')[0];
 
+import LegacyShell from "@/components/LegacyShell";
+
 export const metadata: Metadata = {
   title: 'TGA-Listed Cognitive Supplements (Australia): AUST L vs AUST R + Permitted Indications Guide',
   description:
@@ -84,7 +86,7 @@ const faqSchema = {
 
 export default function Page() {
   return (
-    <>
+    <LegacyShell>
       <SchemaOrg schema={articleSchema} />
       <SchemaOrg schema={datasetSchema} />
       <SchemaOrg schema={faqSchema} />
@@ -191,6 +193,6 @@ export default function Page() {
           <Link href="/methodology/" className="text-green-700 underline">Methodology</Link>
         </div>
       </article>
-    </>
+    </LegacyShell>
   );
 }

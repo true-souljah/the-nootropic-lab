@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { UseCaseListPage, useCaseListPageEsStrings } from '@nootropic/ui';
-import type { UseCaseFAQ, IngredientMechanism, UseCasePick } from '@nootropic/ui';
+import { Listicle, useCaseListPageEsStrings } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
+import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsLatam, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const SITE_URL = 'https://latam.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
+
 
 export const metadata: Metadata = {
   title: `Mejores Nootrópicos para Memoria ${CURRENT_YEAR}: Selección Independiente Basada en Evidencia Clínica`,
@@ -21,7 +23,7 @@ export const metadata: Metadata = {
   twitter: { card: 'summary' },
 };
 
-const ingredientMechanism: IngredientMechanism[] = [
+const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Bacopa Monnieri',
     evidence:
@@ -48,7 +50,7 @@ const ingredientMechanism: IngredientMechanism[] = [
   },
 ];
 
-const picks: UseCasePick[] = [
+const picks: ListiclePick[] = [
   {
     product: productsLatam.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
@@ -75,7 +77,7 @@ const picks: UseCasePick[] = [
   },
 ];
 
-const faqItems: UseCaseFAQ[] = [
+const faqItems: ListicleFAQ[] = [
   {
     q: '¿Cuál es el nootrópico para memoria con más evidencia?',
     a: 'Bacopa Monnieri a 300mg estandarizado al 50% de bacósidos tiene la evidencia más replicada en ensayos clínicos para consolidación de memoria en adultos sanos. La fosfatidilserina cuenta con la declaración de salud calificada por la FDA para función cognitiva en adultos mayores. La citicolina tiene buena evidencia en adultos mayores con quejas de memoria asociadas a la edad.',
@@ -105,7 +107,7 @@ const faqItems: UseCaseFAQ[] = [
 export default function Page() {
   if (picks.some(p => !p.product)) notFound();
   return (
-    <UseCaseListPage
+    <Listicle
       useCase="memory"
       pageTitle="Mejores Nootrópicos para Memoria"
       pageDescription="Ranking independiente de los mejores nootrópicos para memoria y recordación disponibles en Latinoamérica, basado en evidencia clínica."
@@ -116,6 +118,8 @@ export default function Page() {
       strings={useCaseListPageEsStrings}
       siteUrl={SITE_URL}
       healthDisclaimer={getRegionalHealthDisclaimer('latam')}
+      searchItems={searchItems}
+      uiStrings={uiStrings}
     />
   );
 }

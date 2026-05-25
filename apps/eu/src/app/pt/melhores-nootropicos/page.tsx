@@ -6,6 +6,8 @@ import { productsEU, buildPersonAuthorReference } from '@nootropic/data';
 const SITE_URL = 'https://eu.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
 
+import LegacyShell from "@/components/LegacyShell";
+
 export const metadata: Metadata = {
   title: `Melhores Nootrópicos ${CURRENT_YEAR} Europa: Comparação Completa`,
   description:
@@ -42,7 +44,7 @@ export default function MelhoresNootropicosPT() {
   };
 
   return (
-    <>
+    <LegacyShell>
       <SchemaOrg schema={articleSchema} />
       <SchemaOrg schema={itemListSchema} />
       <article className="max-w-5xl mx-auto px-4 py-10" lang="pt-PT">
@@ -92,6 +94,6 @@ export default function MelhoresNootropicosPT() {
         </Link>
       </div>
     </article>
-    </>
+    </LegacyShell>
   );
 }
