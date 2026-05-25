@@ -6,13 +6,11 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.1",
-    "tailwindcss": "^4",
     "typescript": "^5"
   },
   "scripts": {
@@ -33,5 +31,9 @@
     "build:gcc": "npm run build --workspace=apps/gcc",
     "build:sea": "npm run build --workspace=apps/sea",
     "build": "npm run build:us && npm run build:eu && npm run build:ca && npm run build:au && npm run build:jp && npm run build:latam && npm run build:gcc && npm run build:sea"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4"
   }
 }
