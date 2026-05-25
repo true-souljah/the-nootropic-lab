@@ -1,0 +1,57 @@
+name: build
+
+# Runs on every push and pull request. Builds all 8 region apps in parallel
+# using the same `npm ci` flow Cloudflare Pages uses, so any CI-only
+# breakage (production install, missing build deps, etc.) surfaces here
+# before it reaches the deploy.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: build-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  typecheck:
+    name: packages/ui typecheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npx tsc --noEmit -p packages/ui/tsconfig.json
+
+  build:
+    name: build ${{ matrix.app }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        app: [us, eu, ca, au, jp, latam, gcc, sea]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # Mirror Cloudflare's prod install so CI fails the same way prod does.
+      # If you drop a build-time dep into devDependencies, this catches it here.
+      - run: npm ci --omit=dev
+        env:
+          NODE_ENV: production
+
+      - run: npm run build:${{ matrix.app }}
+        env:
+          NODE_ENV: production
