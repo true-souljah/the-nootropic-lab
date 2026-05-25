@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
 
+import { PublicShell } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
+
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: 'Privacy policy for The Nootropic Lab. How we collect, use, and protect your data.',
@@ -7,6 +10,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
+    <PublicShell searchItems={searchItems} uiStrings={uiStrings} hideDisclosure>
     <article className="max-w-3xl mx-auto px-4 py-10">
       <h1 className="text-3xl font-bold text-gray-900 mb-6">Privacy Policy</h1>
       <p className="text-sm text-gray-500 mb-8">Last updated: January 15, 2026</p>
@@ -92,5 +96,6 @@ export default function PrivacyPolicyPage() {
         </section>
       </div>
     </article>
+    </PublicShell>
   );
 }

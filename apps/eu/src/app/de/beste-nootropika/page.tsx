@@ -5,6 +5,8 @@ import { productsEU } from '@nootropic/data';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
+import LegacyShell from "@/components/LegacyShell";
+
 export const metadata: Metadata = {
   title: `Beste Nootropika ${CURRENT_YEAR}: Getestet & Verglichen für Deutschland`,
   description:
@@ -19,6 +21,7 @@ export const metadata: Metadata = {
 
 export default function BestNootropikaDE() {
   return (
+    <LegacyShell>
     <article className="max-w-5xl mx-auto px-4 py-10" lang="de">
       <div className="mb-2 text-xs text-gray-500">
         Zuletzt aktualisiert:{' '}
@@ -65,5 +68,6 @@ export default function BestNootropikaDE() {
         </Link>
       </div>
     </article>
+    </LegacyShell>
   );
 }

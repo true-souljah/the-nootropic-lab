@@ -7,6 +7,9 @@ const SITE_URL = 'https://thenootropiclab.com';
 const PAGE_URL = `${SITE_URL}/are-nootropics-fda-approved/`;
 const auditDateIso = new Date().toISOString().split('T')[0];
 
+import { PublicShell } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
+
 export const metadata: Metadata = {
   title: 'Are Nootropics FDA Approved? DSHEA Framework, Structure-Function Claims & What FDA Approval Actually Means',
   description:
@@ -80,7 +83,7 @@ const faqSchema = {
 
 export default function Page() {
   return (
-    <>
+    <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
       <SchemaOrg schema={articleSchema} />
       <SchemaOrg schema={datasetSchema} />
       <SchemaOrg schema={faqSchema} />
@@ -223,6 +226,6 @@ export default function Page() {
           <Link href="/best-nootropics/" className="text-green-700 underline">Best Nootropics</Link>
         </div>
       </article>
-    </>
+    </PublicShell>
   );
 }

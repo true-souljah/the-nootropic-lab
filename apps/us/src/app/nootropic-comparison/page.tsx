@@ -1,12 +1,15 @@
 import type { Metadata } from 'next';
-import { ComparisonTable, AffiliateDisclosure, SchemaOrg } from '@nootropic/ui';
+import { Comparator, SchemaOrg } from '@nootropic/ui';
 import { productsUS } from '@nootropic/data';
+import { searchItems, uiStrings } from '@/lib/search';
 
+const SITE_URL = 'https://thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
+
 export const metadata: Metadata = {
-  title: 'Nootropic Comparison: Side-by-Side Table for Every Major US Brand',
+  title: 'Nootropic Comparator: Filter & Compare Every Major US Brand Side-by-Side',
   description:
-    'Sort and filter every major nootropic brand side-by-side. Compare score, price (USD), caffeine content, money-back guarantee, and Trustpilot rating.',
+    'Filter by goal, price, grade, caffeine, EU compliance, and hands-on testing. Sort the table by score, price, value, or Trustpilot. Pick up to 3 to compare side-by-side.',
 };
 
 export default function ComparisonToolPage() {
@@ -18,24 +21,19 @@ export default function ComparisonToolPage() {
       '@type': 'ListItem',
       position: i + 1,
       name: p.name,
-      url: `https://thenootropiclab.com/${p.slug}`,
+      url: `${SITE_URL}/${p.slug}`,
     })),
   };
 
   return (
     <>
       <SchemaOrg schema={itemListSchema} />
-      <div className="max-w-5xl mx-auto px-4 py-10">
-        <h1 className="text-3xl font-bold text-gray-900 mb-3">Nootropic Comparison Tool — US</h1>
-        <p className="text-gray-600 mb-6">
-          Compare every major US brand side-by-side. Sort by score, price, or money-back guarantee.
-          Filter by caffeine-free.
-        </p>
-        <AffiliateDisclosure />
-        <div className="mt-8">
-          <ComparisonTable products={productsUS} market="us" />
-        </div>
-      </div>
+      <Comparator
+        products={productsUS}
+        siteUrl={SITE_URL}
+        searchItems={searchItems}
+        uiStrings={uiStrings}
+      />
     </>
   );
 }

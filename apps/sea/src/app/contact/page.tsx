@@ -3,6 +3,9 @@ import { SchemaOrg } from '@nootropic/ui';
 
 const SITE_URL = 'https://sea.thenootropiclab.com';
 
+import { PublicShell } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
+
 export const metadata: Metadata = {
   title: 'Contact The Nootropic Lab SEA',
   description:
@@ -19,7 +22,7 @@ const contactSchema = {
 
 export default function ContactPage() {
   return (
-    <>
+    <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
       <SchemaOrg schema={contactSchema} />
 
       <article className="max-w-2xl mx-auto px-4 py-10">
@@ -82,6 +85,6 @@ export default function ContactPage() {
           </p>
         </section>
       </article>
-    </>
+    </PublicShell>
   );
 }

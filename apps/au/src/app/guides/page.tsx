@@ -3,6 +3,9 @@ import { SchemaOrg } from '@nootropic/ui';
 import { guides } from '@nootropic/data';
 
 const CURRENT_YEAR = new Date().getFullYear();
+import { PublicShell } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
+
 export const metadata: Metadata = {
   title: `Nootropics Guides ${CURRENT_YEAR} — Australia, Beginner to Advanced`,
   description:
@@ -38,7 +41,7 @@ export default function GuidesPage() {
   };
 
   return (
-    <>
+    <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
       <SchemaOrg schema={schema} />
       <div className="max-w-4xl mx-auto px-4 py-10">
         <nav className="text-xs text-gray-500 mb-6">
@@ -77,6 +80,6 @@ export default function GuidesPage() {
           ))}
         </div>
       </div>
-    </>
+    </PublicShell>
   );
 }

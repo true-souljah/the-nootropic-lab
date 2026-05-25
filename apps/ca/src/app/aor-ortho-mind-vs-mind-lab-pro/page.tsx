@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { HeadToHeadPage } from '@nootropic/ui';
+import { HeadToHead } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
 import type { HeadToHeadFAQ } from '@nootropic/ui';
 import { productsCA, getRegionalHealthDisclaimer } from '@nootropic/data';
 
@@ -9,6 +10,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 
 const productA = productsCA.find(p => p.slug === 'aor-ortho-mind-review');
 const productB = productsCA.find(p => p.slug === 'mind-lab-pro-review');
+
 
 export const metadata: Metadata = {
   title: `AOR Ortho•Mind vs Mind Lab Pro ${CURRENT_YEAR}: NPN-Licensed vs International`,
@@ -79,7 +81,7 @@ const verdictParagraph =
 export default function Page() {
   if (!productA || !productB) notFound();
   return (
-    <HeadToHeadPage
+    <HeadToHead
       productA={productA}
       productB={productB}
       siteUrl={SITE_URL}
@@ -88,6 +90,8 @@ export default function Page() {
       whoIsForA={whoIsForA}
       whoIsForB={whoIsForB}
       healthDisclaimer={getRegionalHealthDisclaimer('ca')}
+      searchItems={searchItems}
+      uiStrings={uiStrings}
     />
   );
 }

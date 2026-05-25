@@ -1,41 +1,38 @@
 import type { Metadata } from 'next';
-import { ComparisonTable, AffiliateDisclosure, SchemaOrg } from '@nootropic/ui';
+import { Comparator, SchemaOrg } from '@nootropic/ui';
 import { productsEU } from '@nootropic/data';
+import { searchItems, uiStrings } from '@/lib/search';
 
+const SITE_URL = 'https://eu.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
+
 export const metadata: Metadata = {
-  title: 'Nootropic Comparison: Side-by-Side Table for Every Major EU Brand',
-  description:
-    'Sort and filter every major EU nootropic brand side-by-side. Compare score, price (EUR), caffeine content, money-back guarantee, EU compliance, and Trustpilot rating.',
+  title: 'Nootropic Comparator — Filter and Compare Side-by-Side (EU)',
+  description: 'Filter by goal, price, grade, caffeine, EU compliance, and hands-on testing. Sort by score, price, value, or Trustpilot. Pick up to 3 products to compare side-by-side.',
 };
 
-export default function ComparisonToolEUPage() {
+export default function ComparisonToolPage() {
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: `Best Nootropic Supplements Europe ${CURRENT_YEAR}`,
+    name: `Best Nootropic Supplements ${CURRENT_YEAR}`,
     itemListElement: productsEU.map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       name: p.name,
-      url: `https://eu.thenootropiclab.com/${p.slug}`,
+      url: `${SITE_URL}/${p.slug}`,
     })),
   };
 
   return (
     <>
       <SchemaOrg schema={itemListSchema} />
-      <div className="max-w-5xl mx-auto px-4 py-10">
-        <h1 className="text-3xl font-bold text-gray-900 mb-3">Nootropic Comparison Tool — EU</h1>
-        <p className="text-gray-600 mb-6">
-          Compare every major EU-available brand side-by-side. Sort by score, price, or money-back
-          guarantee. Filter by caffeine-free. All prices in EUR.
-        </p>
-        <AffiliateDisclosure />
-        <div className="mt-8">
-          <ComparisonTable products={productsEU} market="eu" />
-        </div>
-      </div>
+      <Comparator
+        products={productsEU}
+        siteUrl={SITE_URL}
+        searchItems={searchItems}
+        uiStrings={uiStrings}
+      />
     </>
   );
 }

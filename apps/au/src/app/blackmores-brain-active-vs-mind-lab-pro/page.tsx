@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { HeadToHeadPage } from '@nootropic/ui';
+import { HeadToHead } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
 import type { HeadToHeadFAQ } from '@nootropic/ui';
 import { productsAU, getRegionalHealthDisclaimer } from '@nootropic/data';
 
@@ -9,6 +10,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 
 const productA = productsAU.find(p => p.slug === 'blackmores-brain-active-review');
 const productB = productsAU.find(p => p.slug === 'mind-lab-pro-review');
+
 
 export const metadata: Metadata = {
   title: `Blackmores Brain Active vs Mind Lab Pro ${CURRENT_YEAR}: TGA-Listed vs Personal Import`,
@@ -79,7 +81,7 @@ const verdictParagraph =
 export default function Page() {
   if (!productA || !productB) notFound();
   return (
-    <HeadToHeadPage
+    <HeadToHead
       productA={productA}
       productB={productB}
       siteUrl={SITE_URL}
@@ -88,6 +90,8 @@ export default function Page() {
       whoIsForA={whoIsForA}
       whoIsForB={whoIsForB}
       healthDisclaimer={getRegionalHealthDisclaimer('au')}
+      searchItems={searchItems}
+      uiStrings={uiStrings}
     />
   );
 }

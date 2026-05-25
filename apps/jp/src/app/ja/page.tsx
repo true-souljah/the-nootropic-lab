@@ -4,6 +4,8 @@ import { SchemaOrg } from '@nootropic/ui';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
+import LegacyShell from "@/components/LegacyShell";
+
 export const metadata: Metadata = {
   title: 'The Nootropic Lab JP — 日本向けノートロピクス独立比較レビュー',
   description:
@@ -70,6 +72,7 @@ const quickLinks = [
 
 export default function JaHomePage() {
   return (
+    <LegacyShell>
     <div lang="ja">
       <SchemaOrg schema={websiteSchema} />
       <SchemaOrg schema={orgSchema} />
@@ -143,5 +146,6 @@ export default function JaHomePage() {
         </div>
       </section>
     </div>
+    </LegacyShell>
   );
 }

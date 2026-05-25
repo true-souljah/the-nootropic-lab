@@ -4,6 +4,8 @@ import { productsUS } from '@nootropic/data';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
+import LegacyShell from "@/components/LegacyShell";
+
 export const metadata: Metadata = {
   title: `Mejores Nootrópicos ${CURRENT_YEAR}: Comparativa Experta para EE. UU.`,
   description: `Comparativa independiente de los mejores suplementos nootrópicos en ${CURRENT_YEAR}. Cada ingrediente auditado frente a ensayos clínicos. Puntuación transparente y divulgación de afiliados.`,
@@ -29,6 +31,7 @@ export default function EsMejoresNootropicosPage() {
   };
 
   return (
+    <LegacyShell>
     <div lang="es">
       <SchemaOrg schema={itemListSchema} />
       <article className="max-w-5xl mx-auto px-4 py-10">
@@ -77,5 +80,6 @@ export default function EsMejoresNootropicosPage() {
         </div>
       </article>
     </div>
+    </LegacyShell>
   );
 }

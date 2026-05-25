@@ -5,6 +5,8 @@ import { productsEU } from '@nootropic/data';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
+import LegacyShell from "@/components/LegacyShell";
+
 export const metadata: Metadata = {
   title: 'The Nootropic Lab UE — Avaliações Independentes de Suplementos Cognitivos na Europa',
   description:
@@ -64,7 +66,7 @@ const quickLinks = [
 
 export default function PTHomePage() {
   return (
-    <>
+    <LegacyShell>
       <SchemaOrg schema={websiteSchema} />
 
       {/* Hero */}
@@ -142,6 +144,6 @@ export default function PTHomePage() {
           ))}
         </div>
       </section>
-    </>
+    </LegacyShell>
   );
 }

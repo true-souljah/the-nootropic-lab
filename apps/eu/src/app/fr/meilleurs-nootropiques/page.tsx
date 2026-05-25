@@ -5,6 +5,8 @@ import { productsEU } from '@nootropic/data';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
+import LegacyShell from "@/components/LegacyShell";
+
 export const metadata: Metadata = {
   title: `Meilleurs Nootropiques ${CURRENT_YEAR} Europe: Comparatif Complet`,
   description:
@@ -19,6 +21,7 @@ export const metadata: Metadata = {
 
 export default function MeilleursNootropiquesFR() {
   return (
+    <LegacyShell>
     <article className="max-w-5xl mx-auto px-4 py-10" lang="fr">
       <div className="mb-2 text-xs text-gray-500">
         Dernière mise à jour :{' '}
@@ -64,5 +67,6 @@ export default function MeilleursNootropiquesFR() {
         </Link>
       </div>
     </article>
+    </LegacyShell>
   );
 }

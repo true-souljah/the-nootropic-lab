@@ -6,6 +6,9 @@ import { gccCountries, productsGCC, buildPersonAuthorReference } from '@nootropi
 const SITE_URL = 'https://gcc.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
 
+import { PublicShell } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
+
 export const dynamicParams = false;
 
 export function generateStaticParams() {
@@ -47,7 +50,7 @@ export default async function CountryPage({
   };
 
   return (
-    <>
+    <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
       <SchemaOrg schema={schema} />
       <article className="max-w-3xl mx-auto px-4 py-10">
         <nav className="text-xs text-gray-500 mb-6">
@@ -112,6 +115,6 @@ export default async function CountryPage({
           </a>
         </div>
       </article>
-    </>
+    </PublicShell>
   );
 }

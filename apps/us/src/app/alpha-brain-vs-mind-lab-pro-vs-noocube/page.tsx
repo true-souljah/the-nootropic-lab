@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { ThreeWayComparisonPage } from '@nootropic/ui';
+import { ThreeWay } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
 import type { ThreeWayFAQ } from '@nootropic/ui';
 import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
 
@@ -10,6 +11,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 const productA = productsUS.find(p => p.slug === 'onnit-alpha-brain-review');
 const productB = productsUS.find(p => p.slug === 'mind-lab-pro-review');
 const productC = productsUS.find(p => p.slug === 'noocube-review');
+
 
 export const metadata: Metadata = {
   title: `Alpha Brain vs Mind Lab Pro vs NooCube ${CURRENT_YEAR}: 3-Way Comparison`,
@@ -78,7 +80,7 @@ const verdictParagraph =
 export default function Page() {
   if (!productA || !productB || !productC) notFound();
   return (
-    <ThreeWayComparisonPage
+    <ThreeWay
       productA={productA}
       productB={productB}
       productC={productC}
@@ -89,6 +91,8 @@ export default function Page() {
       whoIsForB={whoIsForB}
       whoIsForC={whoIsForC}
       healthDisclaimer={getRegionalHealthDisclaimer('us')}
+      searchItems={searchItems}
+      uiStrings={uiStrings}
     />
   );
 }

@@ -1,44 +1,38 @@
 import type { Metadata } from 'next';
-import { ComparisonTable, AffiliateDisclosure, SchemaOrg } from '@nootropic/ui';
-import { productsLatam, getStrings } from '@nootropic/data';
+import { Comparator, SchemaOrg } from '@nootropic/ui';
+import { productsLatam } from '@nootropic/data';
+import { searchItems, uiStrings } from '@/lib/search';
 
-const strings = getStrings('es');
+const SITE_URL = 'https://latam.thenootropiclab.com';
+const CURRENT_YEAR = new Date().getFullYear();
 
 export const metadata: Metadata = {
-  title: 'Herramienta de Comparación de Nootrópicos — América Latina',
-  description:
-    'Ordena y filtra todas las marcas principales de nootrópicos disponibles en América Latina lado a lado. Compara puntuación, precio, contenido de cafeína, garantía de devolución y calificación en Trustpilot.',
+  title: 'Nootropic Comparator — Filter and Compare Side-by-Side (LATAM)',
+  description: 'Filter by goal, price, grade, caffeine, EU compliance, and hands-on testing. Sort by score, price, value, or Trustpilot. Pick up to 3 products to compare side-by-side.',
 };
 
 export default function ComparisonToolPage() {
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: `Los Mejores Suplementos Nootrópicos en América Latina ${new Date().getFullYear()}`,
+    name: `Best Nootropic Supplements ${CURRENT_YEAR}`,
     itemListElement: productsLatam.map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       name: p.name,
-      url: `https://latam.thenootropiclab.com/${p.slug}`,
+      url: `${SITE_URL}/${p.slug}`,
     })),
   };
 
   return (
     <>
       <SchemaOrg schema={itemListSchema} />
-      <div className="max-w-5xl mx-auto px-4 py-10">
-        <h1 className="text-3xl font-bold text-gray-900 mb-3">
-          Herramienta de Comparación de Nootrópicos — América Latina
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Compara todas las marcas principales disponibles en América Latina lado a lado. Ordena por puntuación, precio o
-          garantía de devolución. Filtra por libre de cafeína.
-        </p>
-        <AffiliateDisclosure strings={strings} />
-        <div className="mt-8">
-          <ComparisonTable products={productsLatam} market="us" strings={strings} />
-        </div>
-      </div>
+      <Comparator
+        products={productsLatam}
+        siteUrl={SITE_URL}
+        searchItems={searchItems}
+        uiStrings={uiStrings}
+      />
     </>
   );
 }

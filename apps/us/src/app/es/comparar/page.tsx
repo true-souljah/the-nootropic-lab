@@ -4,6 +4,8 @@ import { productsUS } from '@nootropic/data';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
+import LegacyShell from "@/components/LegacyShell";
+
 export const metadata: Metadata = {
   title: 'Comparativa de Nootrópicos: Tabla Completa de Marcas en EE. UU.',
   description:
@@ -30,6 +32,7 @@ export default function EsCompararPage() {
   };
 
   return (
+    <LegacyShell>
     <div lang="es">
       <SchemaOrg schema={itemListSchema} />
       <div className="max-w-5xl mx-auto px-4 py-10">
@@ -52,5 +55,6 @@ export default function EsCompararPage() {
         </div>
       </div>
     </div>
+    </LegacyShell>
   );
 }

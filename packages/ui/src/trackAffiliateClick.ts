@@ -11,7 +11,24 @@ export interface AffiliateClickContext {
   /** 1-based ranking position in the surface (listicle row, h2h winner-loser, etc.) */
   position?: number;
   /** Where the click originated — used to segment conversion data */
-  surface: 'listicle' | 'h2h' | 'three_way' | 'review' | 'cancellation';
+  surface:
+    | 'listicle'
+    | 'h2h'
+    | 'three_way'
+    | 'review'
+    | 'cancellation'
+    | 'best_of'
+    | 'best_of_us'
+    | 'best_of_eu'
+    | 'best_of_ca'
+    | 'best_of_au'
+    | 'best_of_jp'
+    | 'best_of_latam'
+    | 'best_of_gcc'
+    | 'best_of_sea'
+    | 'best_of_state'
+    | 'discover'
+    | 'product_detail';
 }
 
 declare global {

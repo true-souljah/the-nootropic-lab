@@ -6,6 +6,9 @@ import { buildPersonAuthorReference } from '@nootropic/data';
 const SITE_URL = 'https://thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
 
+import { PublicShell } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
+
 export const metadata: Metadata = {
   title: `Best Nootropic Stack for Beginners ${CURRENT_YEAR}: Start Here`,
   description:
@@ -79,7 +82,7 @@ const faqSchema = {
 
 export default function Page() {
   return (
-    <>
+    <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
       <SchemaOrg schema={articleSchema} />
       <SchemaOrg schema={faqSchema} />
       <SchemaOrg schema={breadcrumbSchema} />
@@ -232,6 +235,6 @@ export default function Page() {
           </div>
         </section>
       </article>
-    </>
+    </PublicShell>
   );
 }

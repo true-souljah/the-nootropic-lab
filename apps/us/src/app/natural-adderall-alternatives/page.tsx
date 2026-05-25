@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { UseCaseListPage } from '@nootropic/ui';
-import type { UseCaseFAQ, IngredientMechanism, UseCasePick } from '@nootropic/ui';
+import { Listicle } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
+import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const SITE_URL = 'https://thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
+
 
 export const metadata: Metadata = {
   title: `Natural Adderall Alternatives ${CURRENT_YEAR}: An Honest Editorial (NOT Equivalents)`,
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
   twitter: { card: 'summary' },
 };
 
-const ingredientMechanism: IngredientMechanism[] = [
+const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Tyrosine (and NALT) — partial dopamine pathway overlap',
     evidence:
@@ -47,7 +49,7 @@ const ingredientMechanism: IngredientMechanism[] = [
   },
 ];
 
-const picks: UseCasePick[] = [
+const picks: ListiclePick[] = [
   {
     product: productsUS.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
@@ -74,7 +76,7 @@ const picks: UseCasePick[] = [
   },
 ];
 
-const faqItems: UseCaseFAQ[] = [
+const faqItems: ListicleFAQ[] = [
   {
     q: 'Are any supplements actually equivalent to Adderall?',
     a: 'No. Adderall is a Schedule II prescription stimulant containing amphetamine salts. No over-the-counter supplement matches its pharmacology, efficacy for ADHD, or DEA scheduling. Anything claiming to be a "natural Adderall" is either marketing puffery or a misbranded supplement and should be treated with skepticism.',
@@ -107,7 +109,7 @@ const adderallDisclaimer =
 export default function Page() {
   if (picks.some(p => !p.product)) notFound();
   return (
-    <UseCaseListPage
+    <Listicle
       useCase="natural-adderall-alternatives"
       pageTitle="Natural Adderall Alternatives — Honest Editorial"
       pageDescription="No supplement is equivalent to Adderall. This page covers what the evidence actually shows about over-the-counter ingredients with any mechanistic adjacency to prescription stimulants."
@@ -117,6 +119,8 @@ export default function Page() {
       faqItems={faqItems}
       siteUrl={SITE_URL}
       healthDisclaimer={adderallDisclaimer}
+      searchItems={searchItems}
+      uiStrings={uiStrings}
     />
   );
 }

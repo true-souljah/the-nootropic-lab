@@ -5,6 +5,9 @@ import { guides, buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://eu.thenootropiclab.com';
 
+import { PublicShell } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
+
 export const dynamicParams = false;
 
 export function generateStaticParams() {
@@ -54,7 +57,7 @@ export default async function GuidePage({
   };
 
   return (
-    <>
+    <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
       <SchemaOrg schema={schema} />
       <SchemaOrg schema={breadcrumbSchema} />
       <article className="max-w-3xl mx-auto px-4 py-10">
@@ -89,6 +92,6 @@ export default async function GuidePage({
           </a>
         </div>
       </article>
-    </>
+    </PublicShell>
   );
 }

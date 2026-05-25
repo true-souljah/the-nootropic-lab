@@ -1,43 +1,38 @@
 import type { Metadata } from 'next';
-import { ComparisonTable, AffiliateDisclosure, SchemaOrg } from '@nootropic/ui';
+import { Comparator, SchemaOrg } from '@nootropic/ui';
 import { productsAU } from '@nootropic/data';
+import { searchItems, uiStrings } from '@/lib/search';
 
+const SITE_URL = 'https://au.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
+
 export const metadata: Metadata = {
-  title: 'Nootropic Comparison Tool — Australia',
-  description:
-    'Sort and filter every major nootropic brand available in Australia side-by-side. Compare score, price, caffeine content, money-back guarantee, and Trustpilot rating.',
+  title: 'Nootropic Comparator — Filter and Compare Side-by-Side (AU)',
+  description: 'Filter by goal, price, grade, caffeine, EU compliance, and hands-on testing. Sort by score, price, value, or Trustpilot. Pick up to 3 products to compare side-by-side.',
 };
 
 export default function ComparisonToolPage() {
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: `Best Nootropic Supplements Australia ${CURRENT_YEAR}`,
+    name: `Best Nootropic Supplements ${CURRENT_YEAR}`,
     itemListElement: productsAU.map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       name: p.name,
-      url: `https://au.thenootropiclab.com/${p.slug}`,
+      url: `${SITE_URL}/${p.slug}`,
     })),
   };
 
   return (
     <>
       <SchemaOrg schema={itemListSchema} />
-      <div className="max-w-5xl mx-auto px-4 py-10">
-        <h1 className="text-3xl font-bold text-gray-900 mb-3">
-          Nootropic Comparison Tool — Australia
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Compare every major brand available in Australia side-by-side. Sort by score, price, or
-          money-back guarantee. Filter by caffeine-free.
-        </p>
-        <AffiliateDisclosure />
-        <div className="mt-8">
-          <ComparisonTable products={productsAU} market="us" />
-        </div>
-      </div>
+      <Comparator
+        products={productsAU}
+        siteUrl={SITE_URL}
+        searchItems={searchItems}
+        uiStrings={uiStrings}
+      />
     </>
   );
 }

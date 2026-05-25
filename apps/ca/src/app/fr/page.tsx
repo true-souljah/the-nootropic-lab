@@ -2,6 +2,8 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { SchemaOrg } from '@nootropic/ui';
 
+import LegacyShell from "@/components/LegacyShell";
+
 export const metadata: Metadata = {
   title: 'The Nootropic Lab CA — Comparatifs Indépendants de Suppléments Cognitifs',
   description:
@@ -68,6 +70,7 @@ const quickLinks = [
 
 export default function FrHomePage() {
   return (
+    <LegacyShell>
     <div lang="fr-CA">
       <SchemaOrg schema={websiteSchema} />
       <SchemaOrg schema={orgSchema} />
@@ -141,5 +144,6 @@ export default function FrHomePage() {
         </div>
       </section>
     </div>
+    </LegacyShell>
   );
 }

@@ -5,6 +5,8 @@ import { getAuthorBySlug } from '@nootropic/data';
 
 const SITE_URL = 'https://thenootropiclab.com';
 
+import LegacyShell from "@/components/LegacyShell";
+
 export const metadata: Metadata = {
   title: 'How to Cancel Thesis Nootropics Subscription — Step-by-Step Guide',
   description:
@@ -91,6 +93,7 @@ const ftcComplaintNote =
 
 export default function Page() {
   return (
+    <LegacyShell>
     <SubscriptionCancellationPage
       brandName="Thesis"
       productReviewSlug="thesis-nootropics-review"
@@ -105,5 +108,6 @@ export default function Page() {
       faqItems={faqItems}
       ftcComplaintNote={ftcComplaintNote}
     />
+    </LegacyShell>
   );
 }

@@ -7,6 +7,8 @@ const SITE_URL = 'https://gcc.thenootropiclab.com';
 const PAGE_URL = `${SITE_URL}/halal-certified-nootropics/`;
 const auditDateIso = new Date().toISOString().split('T')[0];
 
+import LegacyShell from "@/components/LegacyShell";
+
 export const metadata: Metadata = {
   title: 'Halal-Certified Cognitive Supplements (GCC): Capsule Source, Certifying Authorities & SFDA Status',
   description:
@@ -87,7 +89,7 @@ const faqSchema = {
 
 export default function Page() {
   return (
-    <>
+    <LegacyShell>
       <SchemaOrg schema={articleSchema} />
       <SchemaOrg schema={datasetSchema} />
       <SchemaOrg schema={faqSchema} />
@@ -222,6 +224,6 @@ export default function Page() {
           <Link href="/methodology/" className="text-green-700 underline">Methodology</Link>
         </div>
       </article>
-    </>
+    </LegacyShell>
   );
 }

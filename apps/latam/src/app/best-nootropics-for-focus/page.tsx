@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { UseCaseListPage, useCaseListPageEsStrings } from '@nootropic/ui';
-import type { UseCaseFAQ, IngredientMechanism, UseCasePick } from '@nootropic/ui';
+import { Listicle, useCaseListPageEsStrings } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
+import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsLatam, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const SITE_URL = 'https://latam.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
+
 
 export const metadata: Metadata = {
   title: `Mejores Nootrópicos para Concentración ${CURRENT_YEAR}: Selección Independiente Basada en Evidencia Clínica`,
@@ -21,7 +23,7 @@ export const metadata: Metadata = {
   twitter: { card: 'summary' },
 };
 
-const ingredientMechanism: IngredientMechanism[] = [
+const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Teanina + Cafeína (proporción 1:2 a 2:1)',
     evidence:
@@ -48,7 +50,7 @@ const ingredientMechanism: IngredientMechanism[] = [
   },
 ];
 
-const picks: UseCasePick[] = [
+const picks: ListiclePick[] = [
   {
     product: productsLatam.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
@@ -75,7 +77,7 @@ const picks: UseCasePick[] = [
   },
 ];
 
-const faqItems: UseCaseFAQ[] = [
+const faqItems: ListicleFAQ[] = [
   {
     q: '¿Cuál es el nootrópico para concentración con más evidencia?',
     a: 'L-teanina combinada con cafeína (proporción 1:2 a 2:1) tiene la evidencia más replicada en adultos sanos — Owen et al. 2008 y múltiples seguimientos. Citicolina a 250–500mg también cuenta con varios ensayos clínicos. Los suplementos de un solo ingrediente que prometen "concentración potente" sin estos componentes suelen estar sobrevalorados por marketing.',
@@ -105,7 +107,7 @@ const faqItems: UseCaseFAQ[] = [
 export default function Page() {
   if (picks.some(p => !p.product)) notFound();
   return (
-    <UseCaseListPage
+    <Listicle
       useCase="focus"
       pageTitle="Mejores Nootrópicos para Concentración"
       pageDescription="Ranking independiente de los mejores nootrópicos para concentración y atención disponibles en Latinoamérica. Cada selección contiene un ingrediente con dosis clínica."
@@ -116,6 +118,8 @@ export default function Page() {
       strings={useCaseListPageEsStrings}
       siteUrl={SITE_URL}
       healthDisclaimer={getRegionalHealthDisclaimer('latam')}
+      searchItems={searchItems}
+      uiStrings={uiStrings}
     />
   );
 }

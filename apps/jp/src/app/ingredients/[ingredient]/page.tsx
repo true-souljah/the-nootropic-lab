@@ -5,6 +5,8 @@ import { ingredients, productsJP, buildPersonAuthorReference } from '@nootropic/
 
 const SITE_URL = 'https://jp.thenootropiclab.com';
 
+import LegacyShell from "@/components/LegacyShell";
+
 export const dynamicParams = false;
 
 export function generateStaticParams() {
@@ -133,7 +135,7 @@ export default async function IngredientPage({
   };
 
   return (
-    <>
+    <LegacyShell>
       <SchemaOrg schema={articleSchema} />
       <SchemaOrg schema={datasetSchema} />
       <SchemaOrg schema={breadcrumbSchema} />
@@ -378,6 +380,6 @@ export default async function IngredientPage({
           </a>
         </div>
       </article>
-    </>
+    </LegacyShell>
   );
 }

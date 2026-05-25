@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "../../../../packages/ui/src/styles/tokens.css";
+@source "../../../../packages/ui/src";
 
 :root {
   --bg: #ffffff;

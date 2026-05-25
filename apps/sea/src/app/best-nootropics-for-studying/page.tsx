@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { UseCaseListPage } from '@nootropic/ui';
-import type { UseCaseFAQ, IngredientMechanism, UseCasePick } from '@nootropic/ui';
+import { Listicle } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
+import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsSEA, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const SITE_URL = 'https://sea.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
+
 
 export const metadata: Metadata = {
   title: `Best Nootropics for Studying ${CURRENT_YEAR}: SEA Student Guide`,
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
   twitter: { card: 'summary' },
 };
 
-const ingredientMechanism: IngredientMechanism[] = [
+const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Theanine + Caffeine — sustained focus',
     evidence:
@@ -47,7 +49,7 @@ const ingredientMechanism: IngredientMechanism[] = [
   },
 ];
 
-const picks: UseCasePick[] = [
+const picks: ListiclePick[] = [
   {
     product: productsSEA.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
@@ -80,7 +82,7 @@ const picks: UseCasePick[] = [
   },
 ];
 
-const faqItems: UseCaseFAQ[] = [
+const faqItems: ListicleFAQ[] = [
   {
     q: 'Are these student-friendly nootropics halal-certified?',
     a: 'For Muslim students in Indonesia, Malaysia, southern Thailand, southern Philippines, and Brunei: imported brands (Mind Lab Pro, NooCube, Qualia Mind, Onnit Alpha Brain) do not carry BPJPH or JAKIM halal certification — gelatin capsules are typically animal-derived without halal disclosure. Halal-friendlier options: some Blackmores SKUs carry JAKIM certification (verify the specific product), Eu Yan Sang BrainMAX+ uses vegetarian capsules (not halal-certified but no porcine concern), and single-ingredient L-theanine or Brahmi from Halal-certified local brands on Lazada/Shopee. Check verify.halal.gov.my (Malaysia) or halal.go.id (Indonesia) for current status before ordering.',
@@ -110,7 +112,7 @@ const faqItems: UseCaseFAQ[] = [
 export default function Page() {
   if (picks.some(p => !p.product)) notFound();
   return (
-    <UseCaseListPage
+    <Listicle
       useCase="studying"
       pageTitle="Best Nootropics for Studying in SEA"
       pageDescription="Independent ranking of nootropics for sustained study sessions across Southeast Asia. Focus + memory consolidation + safety for daily use."
@@ -120,6 +122,8 @@ export default function Page() {
       faqItems={faqItems}
       siteUrl={SITE_URL}
       healthDisclaimer={getRegionalHealthDisclaimer('sea')}
+      searchItems={searchItems}
+      uiStrings={uiStrings}
     />
   );
 }

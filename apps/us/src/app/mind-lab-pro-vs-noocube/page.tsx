@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { HeadToHeadPage } from '@nootropic/ui';
+import { HeadToHead } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
 import type { HeadToHeadFAQ } from '@nootropic/ui';
 import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
 
@@ -9,6 +10,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 
 const productA = productsUS.find(p => p.slug === 'mind-lab-pro-review');
 const productB = productsUS.find(p => p.slug === 'noocube-review');
+
 
 export const metadata: Metadata = {
   title: `Mind Lab Pro vs NooCube ${CURRENT_YEAR}: Open Formula Comparison`,
@@ -76,7 +78,7 @@ const verdictParagraph =
 export default function Page() {
   if (!productA || !productB) notFound();
   return (
-    <HeadToHeadPage
+    <HeadToHead
       productA={productA}
       productB={productB}
       siteUrl={SITE_URL}
@@ -85,6 +87,8 @@ export default function Page() {
       whoIsForA={whoIsForA}
       whoIsForB={whoIsForB}
       healthDisclaimer={getRegionalHealthDisclaimer('us')}
+      searchItems={searchItems}
+      uiStrings={uiStrings}
     />
   );
 }

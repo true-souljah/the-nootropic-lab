@@ -1,11 +1,11 @@
 'use client';
 import type { Product } from '@nootropic/data';
-import { trackAffiliateClick } from './trackAffiliateClick';
+import { trackAffiliateClick, type AffiliateClickContext } from './trackAffiliateClick';
 
 interface Props {
   product: Product;
   position?: number;
-  surface: 'listicle' | 'h2h' | 'three_way' | 'review' | 'cancellation';
+  surface: AffiliateClickContext['surface'];
   className?: string;
   children: React.ReactNode;
 }

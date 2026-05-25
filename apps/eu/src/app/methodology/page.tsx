@@ -4,6 +4,9 @@ import { buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://eu.thenootropiclab.com';
 
+import { PublicShell } from "@nootropic/ui";
+import { searchItems, uiStrings } from "@/lib/search";
+
 export const metadata: Metadata = {
   title: 'How We Review Nootropics — Our Methodology (EU Edition)',
   description:
@@ -29,7 +32,7 @@ export default function MethodologyEUPage() {
   };
 
   return (
-    <>
+    <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
       <SchemaOrg schema={schema} />
       <article className="max-w-3xl mx-auto px-4 py-10">
         <h1 className="text-3xl font-bold text-gray-900 mb-6">Our Methodology</h1>
@@ -88,6 +91,6 @@ export default function MethodologyEUPage() {
         </section>
         <EditorialStandardsSection />
       </article>
-    </>
+    </PublicShell>
   );
 }
