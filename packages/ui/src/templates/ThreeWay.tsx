@@ -270,9 +270,9 @@ export default function ThreeWay({
       <main className="max-w-[1200px] mx-auto px-6 pt-7">
         <nav aria-label="Breadcrumb" className="text-[12.5px] text-ds-muted mb-[14px]">
           <ol className="flex items-center gap-2 list-none p-0 m-0">
-            <li><Link href="/" className="hover:text-ds-ink">Home</Link></li>
+            <li><Link href="/" className="hover:text-ds-ink">{uiStrings?.breadcrumb.home ?? 'Home'}</Link></li>
             <li aria-hidden="true" className="text-ds-faint">/</li>
-            <li><Link href={`${listicleHref}/`} className="hover:text-ds-ink">Best Nootropics</Link></li>
+            <li><Link href={`${listicleHref}/`} className="hover:text-ds-ink">{uiStrings?.nav.bestNootropics ?? 'Best Nootropics'}</Link></li>
             <li aria-hidden="true" className="text-ds-faint">/</li>
             <li aria-current="page" className="text-ds-ink font-medium">
               {productA.name} vs {productB.name} vs {productC.name}
@@ -509,7 +509,7 @@ export default function ThreeWay({
 
         <div className="text-[13px] text-ds-muted mt-10 pb-10">
           <Link href={`${listicleHref}/`} className="text-ds-accent underline font-semibold">
-            ← Back to Best Nootropics {currentYear}
+            {uiStrings?.breadcrumb.backToBestNootropics ?? '← Back to Best Nootropics'} {currentYear}
           </Link>
         </div>
       </main>

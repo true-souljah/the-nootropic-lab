@@ -177,9 +177,9 @@ export default function IngredientDetail({
       <main className="max-w-[1100px] mx-auto px-6 pt-7">
         <nav aria-label="Breadcrumb" className="text-[12.5px] text-ds-muted mb-[18px]">
           <ol className="flex items-center gap-2 list-none p-0 m-0">
-            <li><Link href="/" className="hover:text-ds-ink">Home</Link></li>
+            <li><Link href="/" className="hover:text-ds-ink">{uiStrings?.breadcrumb.home ?? 'Home'}</Link></li>
             <li aria-hidden="true" className="text-ds-faint">/</li>
-            <li><Link href="/ingredients" className="hover:text-ds-ink">Ingredients</Link></li>
+            <li><Link href="/ingredients" className="hover:text-ds-ink">{uiStrings?.breadcrumb.ingredients ?? 'Ingredients'}</Link></li>
             <li aria-hidden="true" className="text-ds-faint">/</li>
             <li aria-current="page" className="text-ds-ink font-medium">{ing.name}</li>
           </ol>
@@ -413,7 +413,7 @@ export default function IngredientDetail({
 
             <div className="text-[13px] text-ds-muted mt-10 pb-10">
               <Link href="/ingredients" className="text-ds-accent underline font-semibold">
-                ← Back to Ingredients Guide
+                {uiStrings?.breadcrumb.backToIngredientsGuide ?? '← Back to Ingredients Guide'}
               </Link>
             </div>
           </article>

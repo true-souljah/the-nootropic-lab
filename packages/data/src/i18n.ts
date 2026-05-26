@@ -54,6 +54,13 @@ export interface UIStrings {
     ascending: string;
     descending: string;
   };
+  breadcrumb: {
+    home: string;
+    ingredients: string;
+    /** Components append " {currentYear}" after this string. */
+    backToBestNootropics: string;
+    backToIngredientsGuide: string;
+  };
 }
 
 const en: UIStrings = {
@@ -109,6 +116,12 @@ const en: UIStrings = {
     sortBy: 'Sort by',
     ascending: 'ascending',
     descending: 'descending',
+  },
+  breadcrumb: {
+    home: 'Home',
+    ingredients: 'Ingredients',
+    backToBestNootropics: '← Back to Best Nootropics',
+    backToIngredientsGuide: '← Back to Ingredients Guide',
   },
 };
 
@@ -166,6 +179,12 @@ const es: UIStrings = {
     ascending: 'ascendente',
     descending: 'descendente',
   },
+  breadcrumb: {
+    home: 'Inicio',
+    ingredients: 'Ingredientes',
+    backToBestNootropics: '← Volver a Los Mejores Nootrópicos',
+    backToIngredientsGuide: '← Volver a la Guía de Ingredientes',
+  },
 };
 
 const fr: UIStrings = {
@@ -221,6 +240,12 @@ const fr: UIStrings = {
     sortBy: 'Trier par',
     ascending: 'croissant',
     descending: 'décroissant',
+  },
+  breadcrumb: {
+    home: 'Accueil',
+    ingredients: 'Ingrédients',
+    backToBestNootropics: '← Retour aux Meilleurs Nootropiques',
+    backToIngredientsGuide: '← Retour au Guide des Ingrédients',
   },
 };
 
@@ -278,6 +303,12 @@ const ja: UIStrings = {
     ascending: '昇順',
     descending: '降順',
   },
+  breadcrumb: {
+    home: 'ホーム',
+    ingredients: '成分',
+    backToBestNootropics: '← ベストノートロピクスに戻る',
+    backToIngredientsGuide: '← 成分ガイドに戻る',
+  },
 };
 
 const pt: UIStrings = {
@@ -333,6 +364,12 @@ const pt: UIStrings = {
     sortBy: 'Ordenar por',
     ascending: 'ascendente',
     descending: 'descendente',
+  },
+  breadcrumb: {
+    home: 'Início',
+    ingredients: 'Ingredientes',
+    backToBestNootropics: '← Voltar aos Melhores Nootrópicos',
+    backToIngredientsGuide: '← Voltar ao Guia de Ingredientes',
   },
 };
 
