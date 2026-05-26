@@ -1,0 +1,54 @@
+# Dependabot keeps npm + GitHub Actions deps current.
+# The npm ecosystem is configured at the workspace root only — npm workspaces
+# resolves through one shared lockfile, so a single Dependabot entry covers
+# the root, all 8 apps/* region apps, and packages/*.
+
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: Etc/UTC
+    open-pull-requests-limit: 5
+    labels:
+      - dependencies
+    commit-message:
+      prefix: chore(deps)
+      prefix-development: chore(deps-dev)
+      include: scope
+    groups:
+      next-ecosystem:
+        patterns:
+          - next
+          - eslint-config-next
+          - "@next/*"
+      react-ecosystem:
+        patterns:
+          - react
+          - react-dom
+          - "@types/react"
+          - "@types/react-dom"
+      tailwind-ecosystem:
+        patterns:
+          - tailwindcss
+          - "@tailwindcss/*"
+      types:
+        patterns:
+          - "@types/*"
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: Etc/UTC
+    labels:
+      - dependencies
+      - github-actions
+    commit-message:
+      prefix: ci
+      include: scope
