@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { SchemaOrg, buildAlternates} from '@nootropic/ui';
+import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 
 import LegacyShell from "@/components/LegacyShell";
 
@@ -9,6 +9,8 @@ export const metadata: Metadata = {
   description:
     'La plateforme indépendante de comparaison de nootropiques pour les acheteurs canadiens. Analyses fondées sur les données probantes, audits de dosage clinique et divulgation transparente des affiliés.',
   alternates: buildAlternates({ regionCode: 'ca', path: '/fr/', availableInRegions: ['ca'] }),
+  openGraph: buildOpenGraph({ regionCode: 'ca', path: '/fr/', title: 'The Nootropic Lab CA — Comparatifs Indépendants de Suppléments Cognitifs', description: 'La plateforme indépendante de comparaison de nootropiques pour les acheteurs canadiens. Analyses fondées sur les données probantes, audits de dosage clinique et divulgation transparente des affiliés.' }),
+  twitter: buildTwitter({ title: 'The Nootropic Lab CA — Comparatifs Indépendants de Suppléments Cognitifs', description: 'La plateforme indépendante de comparaison de nootropiques pour les acheteurs canadiens. Analyses fondées sur les données probantes, audits de dosage clinique et divulgation transparente des affiliés.' }),
 };
 
 const websiteSchema = {

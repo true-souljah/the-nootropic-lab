@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { SchemaOrg, buildAlternates} from '@nootropic/ui';
+import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 
 const SITE_URL = 'https://jp.thenootropiclab.com';
 
@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description:
     'The Nootropic Lab Japan is an independent cognitive-supplement comparison site FFC (機能性表示食品) regulatory framework, MHLW oversight, and domestic JP brand priority.',
   alternates: buildAlternates({ regionCode: 'jp', path: '/about/' }),
+  openGraph: buildOpenGraph({ regionCode: 'jp', path: '/about/', title: 'About The Nootropic Lab Japan', description: 'The Nootropic Lab Japan is an independent cognitive-supplement comparison site FFC (機能性表示食品) regulatory framework, MHLW oversight, and domestic JP brand priority.' }),
+  twitter: buildTwitter({ title: 'About The Nootropic Lab Japan', description: 'The Nootropic Lab Japan is an independent cognitive-supplement comparison site FFC (機能性表示食品) regulatory framework, MHLW oversight, and domestic JP brand priority.' }),
 };
 
 const aboutSchema = {

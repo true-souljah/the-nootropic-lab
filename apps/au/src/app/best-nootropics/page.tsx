@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { BestOf, SchemaOrg, Card, Chip, FaqAccordion, buildAlternates} from '@nootropic/ui';
+import { BestOf, SchemaOrg, Card, Chip, FaqAccordion, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { productsAU, buildPersonAuthorReference } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 
@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   title: `Best Nootropics in Australia ${CURRENT_YEAR} — TGA Import Guide`,
   description: 'Top-rated nootropic supplements for Australian buyers. TGA personal import rules, evidence-graded reviews, and clinical dosing audits.',
   alternates: buildAlternates({ regionCode: 'au', path: '/best-nootropics/' }),
+  openGraph: buildOpenGraph({ regionCode: 'au', path: '/best-nootropics/', title: `Best Nootropics in Australia ${CURRENT_YEAR} — TGA Import Guide`, description: 'Top-rated nootropic supplements for Australian buyers. TGA personal import rules, evidence-graded reviews, and clinical dosing audits.' }),
+  twitter: buildTwitter({ title: `Best Nootropics in Australia ${CURRENT_YEAR} — TGA Import Guide`, description: 'Top-rated nootropic supplements for Australian buyers. TGA personal import rules, evidence-graded reviews, and clinical dosing audits.' }),
 };
 
 const faqItems = [

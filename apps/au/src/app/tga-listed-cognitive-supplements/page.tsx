@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { AffiliateDisclosure, SchemaOrg, Sources, buildAlternates} from '@nootropic/ui';
+import { AffiliateDisclosure, SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { productsAU, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const SITE_URL = 'https://au.thenootropiclab.com';
@@ -14,6 +14,8 @@ export const metadata: Metadata = {
   description:
     'Therapeutic goods sold in Australia must be entered in the ARTG with an AUST L (listed) or AUST R (registered) number. Full explainer of TGA listing categories, permitted indications, advertising code compliance, and audit of our Australian catalog.',
   alternates: buildAlternates({ regionCode: 'au', path: '/tga-listed-cognitive-supplements/', availableInRegions: ['au'] }),
+  openGraph: buildOpenGraph({ regionCode: 'au', path: '/tga-listed-cognitive-supplements/', title: 'TGA-Listed Cognitive Supplements (Australia): AUST L vs AUST R + Permitted Indications Guide', description: 'Therapeutic goods sold in Australia must be entered in the ARTG with an AUST L (listed) or AUST R (registered) number. Full explainer of TGA listing categories, permitted indications, advertising code compliance, and audit of our Australian catalog.' }),
+  twitter: buildTwitter({ title: 'TGA-Listed Cognitive Supplements (Australia): AUST L vs AUST R + Permitted Indications Guide', description: 'Therapeutic goods sold in Australia must be entered in the ARTG with an AUST L (listed) or AUST R (registered) number. Full explainer of TGA listing categories, permitted indications, advertising code compliance, and audit of our Australian catalog.' }),
 };
 
 interface ListingCategory {

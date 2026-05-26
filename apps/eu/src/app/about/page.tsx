@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { SchemaOrg, buildAlternates} from '@nootropic/ui';
+import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 
 const SITE_URL = 'https://eu.thenootropiclab.com';
 
@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description:
     'The Nootropic Lab EU is an independent cognitive-supplement comparison site for European buyers, EUR pricing, EU regulatory compliance, transparent affiliate disclosure.',
   alternates: buildAlternates({ regionCode: 'eu', path: '/about/' }),
+  openGraph: buildOpenGraph({ regionCode: 'eu', path: '/about/', title: 'About The Nootropic Lab EU', description: 'The Nootropic Lab EU is an independent cognitive-supplement comparison site for European buyers, EUR pricing, EU regulatory compliance, transparent affiliate disclosure.' }),
+  twitter: buildTwitter({ title: 'About The Nootropic Lab EU', description: 'The Nootropic Lab EU is an independent cognitive-supplement comparison site for European buyers, EUR pricing, EU regulatory compliance, transparent affiliate disclosure.' }),
 };
 
 const aboutSchema = {

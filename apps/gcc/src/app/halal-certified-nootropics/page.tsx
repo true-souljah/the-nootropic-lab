@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { AffiliateDisclosure, SchemaOrg, Sources, buildAlternates} from '@nootropic/ui';
+import { AffiliateDisclosure, SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { productsGCC, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const SITE_URL = 'https://gcc.thenootropiclab.com';
@@ -14,6 +14,8 @@ export const metadata: Metadata = {
   description:
     'GCC consumers expect Halal-certified supplements. Capsule shells (gelatin vs HPMC vegetable cellulose) are a meaningful differentiator. Full guide to Halal certifying authorities accepted in Saudi Arabia, UAE, and the broader GCC, plus audit of our nootropic catalog.',
   alternates: buildAlternates({ regionCode: 'gcc', path: '/halal-certified-nootropics/', availableInRegions: ['gcc'] }),
+  openGraph: buildOpenGraph({ regionCode: 'gcc', path: '/halal-certified-nootropics/', title: 'Halal-Certified Cognitive Supplements (GCC): Capsule Source, Certifying Authorities & SFDA Status', description: 'GCC consumers expect Halal-certified supplements. Capsule shells (gelatin vs HPMC vegetable cellulose) are a meaningful differentiator. Full guide to Halal certifying authorities accepted in Saudi Arabia, UAE, and the broader GCC, plus audit of our nootropic catalog.' }),
+  twitter: buildTwitter({ title: 'Halal-Certified Cognitive Supplements (GCC): Capsule Source, Certifying Authorities & SFDA Status', description: 'GCC consumers expect Halal-certified supplements. Capsule shells (gelatin vs HPMC vegetable cellulose) are a meaningful differentiator. Full guide to Halal certifying authorities accepted in Saudi Arabia, UAE, and the broader GCC, plus audit of our nootropic catalog.' }),
 };
 
 interface HalalAuthority {

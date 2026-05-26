@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { SchemaOrg, buildAlternates} from '@nootropic/ui';
+import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 
 const SITE_URL = 'https://sea.thenootropiclab.com';
 
@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description:
     'The Nootropic Lab SEA is an independent cognitive-supplement comparison site for Southeast Asia, Per-country regulatory notes for HSA, NPRA, BPOM, FDA, VFA — Halal certification flagged for ID/MY.',
   alternates: buildAlternates({ regionCode: 'sea', path: '/about/' }),
+  openGraph: buildOpenGraph({ regionCode: 'sea', path: '/about/', title: 'About The Nootropic Lab SEA', description: 'The Nootropic Lab SEA is an independent cognitive-supplement comparison site for Southeast Asia, Per-country regulatory notes for HSA, NPRA, BPOM, FDA, VFA — Halal certification flagged for ID/MY.' }),
+  twitter: buildTwitter({ title: 'About The Nootropic Lab SEA', description: 'The Nootropic Lab SEA is an independent cognitive-supplement comparison site for Southeast Asia, Per-country regulatory notes for HSA, NPRA, BPOM, FDA, VFA — Halal certification flagged for ID/MY.' }),
 };
 
 const aboutSchema = {

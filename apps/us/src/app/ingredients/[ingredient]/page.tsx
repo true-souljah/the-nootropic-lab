@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { IngredientDetail, buildAlternates} from '@nootropic/ui';
+import { IngredientDetail, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { ingredients, productsUS } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 
@@ -24,6 +24,8 @@ export async function generateMetadata({
     title: `${ing.name} — Nootropic Ingredient Guide, Dosing, Effects & FAQs`,
     description: `${ing.name}: mechanism of action, clinical dose (${ing.clinicalDose}), human effect matrix, how to take, stacking guide, and consumer FAQs — backed by clinical evidence.`,
     alternates: buildAlternates({ regionCode: 'us', path: `/ingredients/${ingredient}/` }),
+    openGraph: buildOpenGraph({ regionCode: 'us', path: `/ingredients/${ingredient}/`, title: `${ing.name} — Nootropic Ingredient Guide, Dosing, Effects & FAQs`, description: `${ing.name}: mechanism of action, clinical dose (${ing.clinicalDose}), human effect matrix, how to take, stacking guide, and consumer FAQs — backed by clinical evidence.` }),
+    twitter: buildTwitter({ title: `${ing.name} — Nootropic Ingredient Guide, Dosing, Effects & FAQs`, description: `${ing.name}: mechanism of action, clinical dose (${ing.clinicalDose}), human effect matrix, how to take, stacking guide, and consumer FAQs — backed by clinical evidence.` }),
   };
 }
 

@@ -62,3 +62,67 @@ export function buildAlternates({
 
   return { canonical, languages };
 }
+
+export interface BuildOpenGraphParams {
+  regionCode: RegionCode;
+  path: string;
+  title: string;
+  description: string;
+  type?: 'website' | 'article';
+}
+
+export interface OpenGraphOutput {
+  title: string;
+  description: string;
+  url: string;
+  siteName: string;
+  type: 'website' | 'article';
+}
+
+/**
+ * Build a Next.js `Metadata.openGraph` value. Uses the page's title +
+ * description verbatim, sets the canonical URL for `url`, and a shared
+ * siteName across the network. `type` defaults to `website`; pass `article`
+ * for guides and editorial content.
+ */
+export function buildOpenGraph({
+  regionCode,
+  path,
+  title,
+  description,
+  type = 'website',
+}: BuildOpenGraphParams): OpenGraphOutput {
+  return {
+    title,
+    description,
+    url: `${REGIONS[regionCode].siteUrl}${path}`,
+    siteName: 'The Nootropic Lab',
+    type,
+  };
+}
+
+export interface BuildTwitterParams {
+  title: string;
+  description: string;
+  /**
+   * Twitter card type. Use `summary` (default) until OG images are deployed —
+   * `summary_large_image` requires an actual image and renders broken
+   * without one. Flip to `summary_large_image` in a follow-up PR after
+   * opengraph-image.* files exist per region.
+   */
+  card?: 'summary' | 'summary_large_image';
+}
+
+export interface TwitterOutput {
+  card: 'summary' | 'summary_large_image';
+  title: string;
+  description: string;
+}
+
+export function buildTwitter({
+  title,
+  description,
+  card = 'summary',
+}: BuildTwitterParams): TwitterOutput {
+  return { card, title, description };
+}

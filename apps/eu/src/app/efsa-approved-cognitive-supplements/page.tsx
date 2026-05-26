@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { AffiliateDisclosure, SchemaOrg, Sources, buildAlternates} from '@nootropic/ui';
+import { AffiliateDisclosure, SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { productsEU, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const SITE_URL = 'https://eu.thenootropiclab.com';
@@ -15,6 +15,8 @@ export const metadata: Metadata = {
   description:
     'Under Regulation (EC) No 1924/2006, only EFSA-authorised health claims may appear on supplement labels in the EU. Very few cognitive claims are on the approved list. Full breakdown of what EFSA has authorised for cognition + audit of our EU catalog.',
   alternates: buildAlternates({ regionCode: 'eu', path: '/efsa-approved-cognitive-supplements/', availableInRegions: ['eu'] }),
+  openGraph: buildOpenGraph({ regionCode: 'eu', path: '/efsa-approved-cognitive-supplements/', title: 'EFSA-Approved Cognitive Supplement Claims (EU): The Authorised List + What It Actually Permits', description: 'Under Regulation (EC) No 1924/2006, only EFSA-authorised health claims may appear on supplement labels in the EU. Very few cognitive claims are on the approved list. Full breakdown of what EFSA has authorised for cognition + audit of our EU catalog.' }),
+  twitter: buildTwitter({ title: 'EFSA-Approved Cognitive Supplement Claims (EU): The Authorised List + What It Actually Permits', description: 'Under Regulation (EC) No 1924/2006, only EFSA-authorised health claims may appear on supplement labels in the EU. Very few cognitive claims are on the approved list. Full breakdown of what EFSA has authorised for cognition + audit of our EU catalog.' }),
 };
 
 interface EfsaClaim {

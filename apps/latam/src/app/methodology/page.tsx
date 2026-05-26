@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { SchemaOrg, EditorialStandardsSection, buildAlternates} from '@nootropic/ui';
+import { SchemaOrg, EditorialStandardsSection, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://latam.thenootropiclab.com';
@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description:
     'Metodología de puntuación de The Nootropic Lab: marco de 5 pilares, proceso de auditoría de dosificación clínica y divulgación completa de afiliados.',
   alternates: buildAlternates({ regionCode: 'latam', path: '/methodology/' }),
+  openGraph: buildOpenGraph({ regionCode: 'latam', path: '/methodology/', title: 'Cómo Evaluamos los Nootrópicos — Nuestra Metodología', description: 'Metodología de puntuación de The Nootropic Lab: marco de 5 pilares, proceso de auditoría de dosificación clínica y divulgación completa de afiliados.' }),
+  twitter: buildTwitter({ title: 'Cómo Evaluamos los Nootrópicos — Nuestra Metodología', description: 'Metodología de puntuación de The Nootropic Lab: marco de 5 pilares, proceso de auditoría de dosificación clínica y divulgación completa de afiliados.' }),
 };
 
 const pillars = [

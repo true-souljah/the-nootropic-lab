@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { SchemaOrg, buildAlternates} from '@nootropic/ui';
+import { SchemaOrg, buildAlternates, buildTwitter} from '@nootropic/ui';
 
 import LegacyShell from "@/components/LegacyShell";
 
@@ -16,6 +16,7 @@ export const metadata: Metadata = {
     type: 'website',
   },
   alternates: buildAlternates({ regionCode: 'latam', path: '/' }),
+  twitter: buildTwitter({ title: 'The Nootropic Lab Latam — Comparación Independiente de Suplementos Cognitivos', description: 'La plataforma independiente de comparación de nootrópicos para compradores en Latinoamérica. Reseñas basadas en evidencia, auditorías de dosificación clínica y divulgación completa de afiliados.' }),
 };
 
 const websiteSchema = {

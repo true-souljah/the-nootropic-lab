@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { ComparisonTable, AffiliateDisclosure, SchemaOrg, buildAlternates} from '@nootropic/ui';
+import { ComparisonTable, AffiliateDisclosure, SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { productsCA } from '@nootropic/data';
 
 import LegacyShell from "@/components/LegacyShell";
@@ -9,6 +9,8 @@ export const metadata: Metadata = {
   description:
     'Comparez côte à côte toutes les grandes marques de nootropiques disponibles au Canada. Filtrez par score, prix, teneur en caféine, garantie de remboursement et cote Trustpilot.',
   alternates: buildAlternates({ regionCode: 'ca', path: '/fr/comparer/', availableInRegions: ['ca'] }),
+  openGraph: buildOpenGraph({ regionCode: 'ca', path: '/fr/comparer/', title: 'Outil de comparaison de nootropiques — Canada', description: 'Comparez côte à côte toutes les grandes marques de nootropiques disponibles au Canada. Filtrez par score, prix, teneur en caféine, garantie de remboursement et cote Trustpilot.' }),
+  twitter: buildTwitter({ title: 'Outil de comparaison de nootropiques — Canada', description: 'Comparez côte à côte toutes les grandes marques de nootropiques disponibles au Canada. Filtrez par score, prix, teneur en caféine, garantie de remboursement et cote Trustpilot.' }),
 };
 
 export default function FrComparerPage() {

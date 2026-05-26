@@ -166,10 +166,14 @@ export type {
   TemplateLocale,
 } from './templateStrings';
 
-// SEO foundation — hreflang + canonical helper used by every page's metadata
-export { REGIONS, buildAlternates } from './seo';
+// SEO foundation — hreflang + canonical + OG + Twitter helpers
+export { REGIONS, buildAlternates, buildOpenGraph, buildTwitter } from './seo';
 export type {
   RegionCode,
   BuildAlternatesParams,
   AlternatesOutput,
+  BuildOpenGraphParams,
+  OpenGraphOutput,
+  BuildTwitterParams,
+  TwitterOutput,
 } from './seo';

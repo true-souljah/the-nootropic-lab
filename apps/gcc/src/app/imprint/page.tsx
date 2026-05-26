@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { ImprintPage, buildAlternates} from '@nootropic/ui';
+import { ImprintPage, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 
 const SITE_URL = 'https://gcc.thenootropiclab.com';
 const CONTACT_EMAIL = 'editorial@thenootropiclab.com';
@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description:
     'Imprint for the GCC edition of The Nootropic Lab. Publisher information, contact details, editorial standards, and affiliate-disclosure policy.',
   alternates: buildAlternates({ regionCode: 'gcc', path: '/imprint/' }),
+  openGraph: buildOpenGraph({ regionCode: 'gcc', path: '/imprint/', title: 'Imprint — The Nootropic Lab GCC', description: 'Imprint for the GCC edition of The Nootropic Lab. Publisher information, contact details, editorial standards, and affiliate-disclosure policy.' }),
+  twitter: buildTwitter({ title: 'Imprint — The Nootropic Lab GCC', description: 'Imprint for the GCC edition of The Nootropic Lab. Publisher information, contact details, editorial standards, and affiliate-disclosure policy.' }),
 };
 
 export default function Page() {

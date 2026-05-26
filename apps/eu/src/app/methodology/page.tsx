@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { SchemaOrg, EditorialStandardsSection, buildAlternates} from '@nootropic/ui';
+import { SchemaOrg, EditorialStandardsSection, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://eu.thenootropiclab.com';
@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description:
     'The Nootropic Lab EU scoring methodology: 5-pillar framework, EU regulatory compliance checks, clinical dosing audit process, and affiliate disclosure.',
   alternates: buildAlternates({ regionCode: 'eu', path: '/methodology/' }),
+  openGraph: buildOpenGraph({ regionCode: 'eu', path: '/methodology/', title: 'How We Review Nootropics — Our Methodology (EU Edition)', description: 'The Nootropic Lab EU scoring methodology: 5-pillar framework, EU regulatory compliance checks, clinical dosing audit process, and affiliate disclosure.' }),
+  twitter: buildTwitter({ title: 'How We Review Nootropics — Our Methodology (EU Edition)', description: 'The Nootropic Lab EU scoring methodology: 5-pillar framework, EU regulatory compliance checks, clinical dosing audit process, and affiliate disclosure.' }),
 };
 
 const pillars = [

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { SchemaOrg, buildAlternates} from '@nootropic/ui';
+import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { euCountries, productsEU, buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://eu.thenootropiclab.com';
@@ -27,6 +27,8 @@ export async function generateMetadata({
     title: `Best Nootropics in ${c.name} ${CURRENT_YEAR} — EU Buyer's Guide`,
     description: `Buy nootropics in ${c.name}: EU-compliant products, EUR pricing, regulatory notes, and shipping info for ${c.name} residents.`,
     alternates: buildAlternates({ regionCode: 'eu', path: `/countries/${country}/`, availableInRegions: ['eu'] }),
+    openGraph: buildOpenGraph({ regionCode: 'eu', path: `/countries/${country}/`, title: `Best Nootropics in ${c.name} ${CURRENT_YEAR} — EU Buyer's Guide`, description: `Buy nootropics in ${c.name}: EU-compliant products, EUR pricing, regulatory notes, and shipping info for ${c.name} residents.` }),
+    twitter: buildTwitter({ title: `Best Nootropics in ${c.name} ${CURRENT_YEAR} — EU Buyer's Guide`, description: `Buy nootropics in ${c.name}: EU-compliant products, EUR pricing, regulatory notes, and shipping info for ${c.name} residents.` }),
   };
 }
 

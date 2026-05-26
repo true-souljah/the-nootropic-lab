@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { SchemaOrg, buildAlternates} from '@nootropic/ui';
+import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 
 import LegacyShell from "@/components/LegacyShell";
 
@@ -9,6 +9,8 @@ export const metadata: Metadata = {
   description:
     'Comparativa independiente de suplementos nootrópicos para compradores en EE. UU. Análisis de dosificación clínica y divulgación transparente de afiliados.',
   alternates: buildAlternates({ regionCode: 'us', path: '/es/', availableInRegions: ['us'] }),
+  openGraph: buildOpenGraph({ regionCode: 'us', path: '/es/', title: 'The Nootropic Lab — Suplementos Cognitivos Independientes', description: 'Comparativa independiente de suplementos nootrópicos para compradores en EE. UU. Análisis de dosificación clínica y divulgación transparente de afiliados.' }),
+  twitter: buildTwitter({ title: 'The Nootropic Lab — Suplementos Cognitivos Independientes', description: 'Comparativa independiente de suplementos nootrópicos para compradores en EE. UU. Análisis de dosificación clínica y divulgación transparente de afiliados.' }),
 };
 
 const websiteSchema = {

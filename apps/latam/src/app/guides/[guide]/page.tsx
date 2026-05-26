@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { SchemaOrg, buildAlternates} from '@nootropic/ui';
+import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { guides, buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://latam.thenootropiclab.com';
@@ -26,6 +26,8 @@ export async function generateMetadata({
     title: `${g.title} — The Nootropic Lab Latam`,
     description: g.description,
     alternates: buildAlternates({ regionCode: 'latam', path: `/guides/${guide}/` }),
+    openGraph: buildOpenGraph({ regionCode: 'latam', path: `/guides/${guide}/`, title: `${g.title} — The Nootropic Lab Latam`, description: g.description }),
+    twitter: buildTwitter({ title: `${g.title} — The Nootropic Lab Latam`, description: g.description }),
   };
 }
 

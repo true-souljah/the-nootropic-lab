@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { SchemaOrg, buildAlternates} from '@nootropic/ui';
+import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 
 const SITE_URL = 'https://gcc.thenootropiclab.com';
 
@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description:
     'The Nootropic Lab GCC is an independent cognitive-supplement comparison site for buyers in Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, and Oman. Operated by . Evidence-graded reviews, clinical dosing audits, transparent affiliate disclosure.',
   alternates: buildAlternates({ regionCode: 'gcc', path: '/about/' }),
+  openGraph: buildOpenGraph({ regionCode: 'gcc', path: '/about/', title: 'About The Nootropic Lab GCC', description: 'The Nootropic Lab GCC is an independent cognitive-supplement comparison site for buyers in Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, and Oman. Operated by . Evidence-graded reviews, clinical dosing audits, transparent affiliate disclosure.' }),
+  twitter: buildTwitter({ title: 'About The Nootropic Lab GCC', description: 'The Nootropic Lab GCC is an independent cognitive-supplement comparison site for buyers in Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, and Oman. Operated by . Evidence-graded reviews, clinical dosing audits, transparent affiliate disclosure.' }),
 };
 
 const aboutSchema = {
