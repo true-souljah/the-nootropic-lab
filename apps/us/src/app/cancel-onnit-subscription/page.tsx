@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { SubscriptionCancellationPage } from '@nootropic/ui';
+import { SubscriptionCancellationPage, buildAlternates} from '@nootropic/ui';
 import type { CancellationStep, CancellationFAQ } from '@nootropic/ui';
 import { getAuthorBySlug } from '@nootropic/data';
 
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: 'How to Cancel Onnit Subscription (Alpha Brain) — Step-by-Step Guide',
   description:
     'Step-by-step instructions to cancel your Onnit Alpha Brain (or any Onnit) subscription. Includes the friction points to watch for and FTC Click-to-Cancel context.',
-  alternates: { canonical: `${SITE_URL}/cancel-onnit-subscription/` },
+  alternates: buildAlternates({ regionCode: 'us', path: '/cancel-onnit-subscription/', availableInRegions: ['us'] }),
   openGraph: {
     title: 'How to Cancel Onnit Subscription — Step-by-Step',
     description: 'Onnit subscription cancellation has documented friction. Here is the actual flow + what to watch for.',

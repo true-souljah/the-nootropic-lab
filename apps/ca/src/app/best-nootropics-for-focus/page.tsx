@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Listicle } from "@nootropic/ui";
+import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsCA, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Best Nootropics for Focus in Canada ${CURRENT_YEAR}: Independent Picks Backed by Clinical Evidence`,
   description:
     'Independent ranking of the best nootropics for focus and attention available to Canadian buyers. Each pick must contain a clinically-dosed focus ingredient (L-theanine + caffeine, citicoline, or L-tyrosine).',
-  alternates: { canonical: `${SITE_URL}/best-nootropics-for-focus/` },
+  alternates: buildAlternates({ regionCode: 'ca', path: '/best-nootropics-for-focus/' }),
   openGraph: {
     title: 'Best Nootropics for Focus in Canada — Evidence-Graded Picks',
     description: 'Clinical-dose audit of every focus pick. Canadian shipping verified. No proprietary blends, no anonymous bylines.',

@@ -4,6 +4,7 @@ import {
   AffiliateDisclosure,
   SchemaOrg,
   Sources,
+  buildAlternates,
 } from '@nootropic/ui';
 import {
   anmatProhibitedCompounds,
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
   title: 'ANMAT Disposición 2105/2022: Nootrópicos prohibidos en Argentina',
   description:
     'Lista completa de nootrópicos prohibidos por ANMAT bajo la Disposición 2105/2022 (Noopept, racetams, fenibut, tianeptina, adrafinilo). Auditoría de nuestro catálogo LATAM contra esta lista. Guía para consumidores argentinos.',
-  alternates: { canonical: PAGE_URL },
+  alternates: buildAlternates({ regionCode: 'latam', path: '/anmat-disposicion-2105-2022-prohibidos/', availableInRegions: ['latam'] }),
   openGraph: {
     title: 'Nootrópicos prohibidos en Argentina — ANMAT 2105/2022',
     description: 'Auditoría independiente de nuestro catálogo LATAM contra los compuestos prohibidos por ANMAT.',

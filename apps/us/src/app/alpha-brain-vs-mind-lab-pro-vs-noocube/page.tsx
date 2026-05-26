@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { ThreeWay } from "@nootropic/ui";
+import { ThreeWay, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ThreeWayFAQ } from '@nootropic/ui';
 import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: `Alpha Brain vs Mind Lab Pro vs NooCube ${CURRENT_YEAR}: 3-Way Comparison`,
   description:
     'Independent 3-way comparison of Onnit Alpha Brain, Mind Lab Pro, and NooCube. Side-by-side ingredient dosing, score breakdown, price, and verdict.',
-  alternates: { canonical: `${SITE_URL}/alpha-brain-vs-mind-lab-pro-vs-noocube/` },
+  alternates: buildAlternates({ regionCode: 'us', path: '/alpha-brain-vs-mind-lab-pro-vs-noocube/', availableInRegions: ['us'] }),
   openGraph: {
     title: 'Alpha Brain vs Mind Lab Pro vs NooCube — 3-Way Comparison',
     description: 'Three of the most-asked-about US nootropics. Side-by-side dosing audit + verdict.',

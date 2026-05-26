@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { AffiliateDisclosure, SchemaOrg, Sources } from '@nootropic/ui';
+import { AffiliateDisclosure, SchemaOrg, Sources, buildAlternates} from '@nootropic/ui';
 import { productsSEA, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const SITE_URL = 'https://sea.thenootropiclab.com';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'Halal Nootropic Supplements in SEA: BPJPH (Indonesia) + JAKIM (Malaysia) Mandatory Compliance Guide',
   description:
     'Halal certification is mandatory for supplements marketed to consumers in Indonesia (BPJPH federal law) and Malaysia (JAKIM federal law). Full guide to per-country regulators (HSA Singapore, NPRA Malaysia, BPOM Indonesia, FDA Philippines, FDA Thailand) + audit of our SEA catalog.',
-  alternates: { canonical: PAGE_URL },
+  alternates: buildAlternates({ regionCode: 'sea', path: '/halal-nootropics-indonesia-bpjph/' }),
 };
 
 interface SeaRegulator {

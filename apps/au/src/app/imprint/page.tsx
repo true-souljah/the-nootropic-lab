@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { ImprintPage } from '@nootropic/ui';
+import { ImprintPage, buildAlternates} from '@nootropic/ui';
 
 const SITE_URL = 'https://au.thenootropiclab.com';
 const CONTACT_EMAIL = 'editorial@thenootropiclab.com';
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: 'Imprint — The Nootropic Lab Australia',
   description:
     'Imprint for the Australian edition of The Nootropic Lab. Publisher information, contact details, editorial standards, and affiliate-disclosure policy.',
-  alternates: { canonical: `${SITE_URL}/imprint/` },
+  alternates: buildAlternates({ regionCode: 'au', path: '/imprint/' }),
 };
 
 export default function Page() {

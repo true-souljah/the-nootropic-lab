@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ComparisonTable, AffiliateDisclosure } from '@nootropic/ui';
+import { ComparisonTable, AffiliateDisclosure, buildAlternates} from '@nootropic/ui';
 import { productsEU } from '@nootropic/data';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -11,12 +11,7 @@ export const metadata: Metadata = {
   title: `Beste Nootropika ${CURRENT_YEAR}: Getestet & Verglichen für Deutschland`,
   description:
     'Unabhängiger Nootropika Vergleich für Deutschland, Österreich und die Schweiz. EU-konforme Produkte, EUR-Preise, klinische Dosierungsanalyse.',
-  alternates: {
-    languages: {
-      en: '/best-nootropics',
-      'de-DE': '/de/beste-nootropika',
-    },
-  },
+  alternates: buildAlternates({ regionCode: 'eu', path: '/de/beste-nootropika/', availableInRegions: ['eu'] }),
 };
 
 export default function BestNootropikaDE() {

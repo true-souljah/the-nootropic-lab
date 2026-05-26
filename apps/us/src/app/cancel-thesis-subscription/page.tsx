@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { SubscriptionCancellationPage } from '@nootropic/ui';
+import { SubscriptionCancellationPage, buildAlternates} from '@nootropic/ui';
 import type { CancellationStep, CancellationFAQ } from '@nootropic/ui';
 import { getAuthorBySlug } from '@nootropic/data';
 
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: 'How to Cancel Thesis Nootropics Subscription — Step-by-Step Guide',
   description:
     'Step-by-step instructions to cancel your Thesis Nootropics subscription. Includes the per-formula cancellation flow and what to do if you want a refund on unopened formulas.',
-  alternates: { canonical: `${SITE_URL}/cancel-thesis-subscription/` },
+  alternates: buildAlternates({ regionCode: 'us', path: '/cancel-thesis-subscription/', availableInRegions: ['us'] }),
   openGraph: {
     title: 'How to Cancel Thesis Subscription — Step-by-Step',
     description: 'Thesis bills per-formula. Here is how to cancel one or all.',

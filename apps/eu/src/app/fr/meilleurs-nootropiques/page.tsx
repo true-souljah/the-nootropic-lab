@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ComparisonTable, AffiliateDisclosure } from '@nootropic/ui';
+import { ComparisonTable, AffiliateDisclosure, buildAlternates} from '@nootropic/ui';
 import { productsEU } from '@nootropic/data';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -11,12 +11,7 @@ export const metadata: Metadata = {
   title: `Meilleurs Nootropiques ${CURRENT_YEAR} Europe: Comparatif Complet`,
   description:
     'Comparatif indépendant des meilleurs nootropiques disponibles en Europe. Prix en EUR, conformité réglementaire UE, audit clinique de chaque ingrédient.',
-  alternates: {
-    languages: {
-      en: '/best-nootropics',
-      'fr-FR': '/fr/meilleurs-nootropiques',
-    },
-  },
+  alternates: buildAlternates({ regionCode: 'eu', path: '/fr/meilleurs-nootropiques/', availableInRegions: ['eu'] }),
 };
 
 export default function MeilleursNootropiquesFR() {

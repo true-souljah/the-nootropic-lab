@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Listicle } from "@nootropic/ui";
+import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsGCC, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Best Nootropics for Aging Brain in the GCC ${CURRENT_YEAR}: Halal-Friendly Picks for Saudi, UAE & Gulf Buyers`,
   description:
     'Independent ranking of nootropics for adults concerned about age-related cognitive changes, available in the GCC. Halal status and SFDA/MOHAP registration noted. NOT a treatment for dementia.',
-  alternates: { canonical: `${SITE_URL}/best-nootropics-for-aging/` },
+  alternates: buildAlternates({ regionCode: 'gcc', path: '/best-nootropics-for-aging/' }),
   openGraph: {
     title: 'Best Nootropics for Aging Brain — GCC Buyer\'s Guide',
     description: 'Phosphatidylserine, Bacopa, citicoline, Lion\'s Mane — age-related cognitive support for GCC buyers, with halal and registration notes.',

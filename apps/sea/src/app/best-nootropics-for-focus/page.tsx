@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Listicle } from "@nootropic/ui";
+import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsSEA, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Best Nootropics for Focus ${CURRENT_YEAR}: SEA Buyer's Guide`,
   description:
     'Independent ranking of nootropics for focus available to buyers in Singapore, Malaysia, Thailand, Philippines, Indonesia, and Vietnam. Regulatory + halal notes per pick.',
-  alternates: { canonical: `${SITE_URL}/best-nootropics-for-focus/` },
+  alternates: buildAlternates({ regionCode: 'sea', path: '/best-nootropics-for-focus/' }),
   openGraph: {
     title: 'Best Nootropics for Focus in SEA — Evidence-Graded',
     description: 'Clinical-dose audit of every focus pick. Shopee, Lazada, Watsons, Guardian + cross-border iHerb routes confirmed.',

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { SchemaOrg } from '@nootropic/ui';
+import { SchemaOrg, buildAlternates} from '@nootropic/ui';
 
 const SITE_URL = 'https://thenootropiclab.com';
 
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: 'About The Nootropic Lab',
   description:
     'The Nootropic Lab is an independent cognitive-supplement comparison site. Evidence-graded reviews, clinical dosing audits, transparent affiliate disclosure.',
-  alternates: { canonical: `${SITE_URL}/about/` },
+  alternates: buildAlternates({ regionCode: 'us', path: '/about/' }),
 };
 
 const aboutSchema = {

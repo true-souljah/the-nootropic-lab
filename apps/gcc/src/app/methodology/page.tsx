@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { SchemaOrg, EditorialStandardsSection } from '@nootropic/ui';
+import { SchemaOrg, EditorialStandardsSection, buildAlternates} from '@nootropic/ui';
 import { buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://gcc.thenootropiclab.com';
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: 'How We Review Nootropics — Our Methodology',
   description:
     'The Nootropic Lab scoring methodology: 5-pillar framework, clinical dosing audit process, and full affiliate disclosure.',
-  alternates: { canonical: `${SITE_URL}/methodology/` },
+  alternates: buildAlternates({ regionCode: 'gcc', path: '/methodology/' }),
 };
 
 const pillars = [

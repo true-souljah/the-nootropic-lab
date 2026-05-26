@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { SchemaOrg } from '@nootropic/ui';
+import { SchemaOrg, buildAlternates} from '@nootropic/ui';
 
 import LegacyShell from "@/components/LegacyShell";
 
@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     siteName: 'The Nootropic Lab',
     type: 'website',
   },
+  alternates: buildAlternates({ regionCode: 'latam', path: '/' }),
 };
 
 const websiteSchema = {

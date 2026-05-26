@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Listicle } from "@nootropic/ui";
+import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsJP, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Best Nootropics for Studying in Japan ${CURRENT_YEAR}: Independent Picks for Students`,
   description:
     'Independent ranking of nootropics for sustained study sessions in Japan. Picks judged on focus + memory consolidation + safety profile for daily use. Includes both imported stacks and domestic FFC-notified options.',
-  alternates: { canonical: `${SITE_URL}/best-nootropics-for-studying/` },
+  alternates: buildAlternates({ regionCode: 'jp', path: '/best-nootropics-for-studying/' }),
   openGraph: {
     title: 'Best Nootropics for Studying in Japan — Evidence-Graded',
     description: 'Sustained focus + memory consolidation. What students in Japan should actually take, and what to avoid.',

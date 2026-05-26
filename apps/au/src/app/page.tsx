@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { SchemaOrg } from '@nootropic/ui';
+import { SchemaOrg, buildAlternates} from '@nootropic/ui';
 
 const SITE_URL = 'https://au.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: 'The Nootropic Lab AU — Independent Cognitive Supplement Reviews',
   description:
     'The independent nootropic comparison platform for Australian buyers. TGA import notes, evidence-graded reviews, and transparent affiliate disclosure.',
-  alternates: { canonical: `${SITE_URL}/` },
+  alternates: buildAlternates({ regionCode: 'au', path: '/' }),
   openGraph: {
     title: 'The Nootropic Lab AU — Independent Cognitive Supplement Reviews',
     description: 'Evidence-graded nootropic reviews. TGA import guidance. Transparent affiliate disclosure.',

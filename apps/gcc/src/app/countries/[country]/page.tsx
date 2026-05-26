@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { SchemaOrg } from '@nootropic/ui';
+import { SchemaOrg, buildAlternates} from '@nootropic/ui';
 import { gccCountries, productsGCC, buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://gcc.thenootropiclab.com';
@@ -26,7 +26,7 @@ export async function generateMetadata({
   return {
     title: `Best Nootropics in ${c.name} ${CURRENT_YEAR} — GCC Buyer's Guide`,
     description: `Buy nootropics in ${c.name}: import regulations, VAT notes, and top-rated stacks for ${c.name} residents.`,
-    alternates: { canonical: `${SITE_URL}/countries/${c.slug}/` },
+    alternates: buildAlternates({ regionCode: 'gcc', path: `/countries/${country}/` }),
   };
 }
 

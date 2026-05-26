@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Listicle } from "@nootropic/ui";
+import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsEU, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Best Nootropics for Studying ${CURRENT_YEAR} (EU): Independent Picks for European Students`,
   description:
     'Independent EU ranking of nootropics for sustained study sessions. EUR pricing, EU storefronts, EFSA-compliant ingredients. Picks judged on focus + memory consolidation + safety for daily use.',
-  alternates: { canonical: `${SITE_URL}/best-nootropics-for-studying/` },
+  alternates: buildAlternates({ regionCode: 'eu', path: '/best-nootropics-for-studying/' }),
   openGraph: {
     title: 'Best Nootropics for Studying (EU) — Evidence-Graded',
     description: 'Sustained focus + memory consolidation. What European students should actually take.',

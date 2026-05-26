@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 
-import { PublicShell } from "@nootropic/ui";
+import { PublicShell, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: 'Privacy policy for The Nootropic Lab. How we collect, use, and protect your data.',
+  alternates: buildAlternates({ regionCode: 'us', path: '/privacy-policy/' }),
 };
 
 export default function PrivacyPolicyPage() {

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Listicle } from "@nootropic/ui";
+import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsGCC, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Best Nootropics for Studying in the GCC ${CURRENT_YEAR}: Halal-Friendly Picks for Students in Saudi, UAE & Gulf`,
   description:
     'Independent ranking of nootropics for sustained study sessions for GCC students. Caffeine-free options prioritised. Halal status and SFDA/MOHAP registration noted.',
-  alternates: { canonical: `${SITE_URL}/best-nootropics-for-studying/` },
+  alternates: buildAlternates({ regionCode: 'gcc', path: '/best-nootropics-for-studying/' }),
   openGraph: {
     title: 'Best Nootropics for Studying — GCC Student\'s Guide',
     description: 'Sustained focus + memory consolidation for GCC students. Halal-friendly, caffeine-free options for Ramadan-compatible use.',

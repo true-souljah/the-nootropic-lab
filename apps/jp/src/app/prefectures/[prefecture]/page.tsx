@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { SchemaOrg } from '@nootropic/ui';
+import { SchemaOrg, buildAlternates} from '@nootropic/ui';
 import { productsJP, jpPrefectures, buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://jp.thenootropiclab.com';
@@ -28,6 +28,7 @@ export async function generateMetadata({
   return {
     title: `Best Nootropics in ${p.name} ${CURRENT_YEAR} — Japan Buyer's Guide`,
     description: `Buy nootropics in ${p.name} (${p.nameJa}): MHLW import notes, delivery times, and top-rated stacks.`,
+    alternates: buildAlternates({ regionCode: 'jp', path: `/prefectures/${prefecture}/` }),
   };
 }
 

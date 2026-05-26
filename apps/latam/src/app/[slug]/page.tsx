@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { ProductDetail, SchemaOrg } from '@nootropic/ui';
+import { ProductDetail, SchemaOrg, buildAlternates} from '@nootropic/ui';
 import { productsLatam, buildPersonAuthorReference } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 
@@ -26,7 +26,7 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: { canonical: `${SITE_URL}/${product.slug}/` },
+    alternates: buildAlternates({ regionCode: 'latam', path: `/${slug}/` }),
     openGraph: { title, description, type: 'article' },
     twitter: { card: 'summary', title, description },
   };

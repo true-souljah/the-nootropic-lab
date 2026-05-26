@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { HeadToHead } from "@nootropic/ui";
+import { HeadToHead, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { HeadToHeadFAQ } from '@nootropic/ui';
 import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: `Mind Lab Pro vs Thesis ${CURRENT_YEAR}: Universal Formula vs Personalised Stack`,
   description:
     'Independent comparison of Mind Lab Pro vs Thesis Nootropics. One universal formula vs personalised quiz-based stack — which approach works for you?',
-  alternates: { canonical: `${SITE_URL}/mind-lab-pro-vs-thesis/` },
+  alternates: buildAlternates({ regionCode: 'us', path: '/mind-lab-pro-vs-thesis/', availableInRegions: ['us'] }),
   openGraph: {
     title: 'Mind Lab Pro vs Thesis — Universal vs Personalised',
     description: 'Lean universal formula vs questionnaire-based personalisation. Which actually delivers?',

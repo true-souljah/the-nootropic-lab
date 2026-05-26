@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Listicle } from "@nootropic/ui";
+import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsGCC, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Best Nootropics for Focus in the GCC ${CURRENT_YEAR}: Halal-Friendly Picks for Saudi, UAE & Gulf Buyers`,
   description:
     'Independent ranking of the best nootropics for focus available in the GCC. Halal status and SFDA/MOHAP registration noted per pick. Caffeine-free options prioritised.',
-  alternates: { canonical: `${SITE_URL}/best-nootropics-for-focus/` },
+  alternates: buildAlternates({ regionCode: 'gcc', path: '/best-nootropics-for-focus/' }),
   openGraph: {
     title: 'Best Nootropics for Focus — GCC Buyer\'s Guide',
     description: 'Halal-friendly focus supplements for Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, Oman. Capsule sources disclosed.',

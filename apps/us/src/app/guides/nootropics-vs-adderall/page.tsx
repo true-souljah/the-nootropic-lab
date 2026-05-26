@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { SchemaOrg, AffiliateDisclosure } from '@nootropic/ui';
+import { SchemaOrg, AffiliateDisclosure, buildAlternates} from '@nootropic/ui';
 import { buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://thenootropiclab.com';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Nootropics vs Adderall ${CURRENT_YEAR}: An Honest Comparison (NOT Equivalents)`,
   description:
     'Adderall is a Schedule II prescription stimulant. Nootropics are dietary supplements. They are not equivalents. This guide explains the actual differences in mechanism, evidence, and regulation.',
-  alternates: { canonical: `${SITE_URL}/guides/nootropics-vs-adderall/` },
+  alternates: buildAlternates({ regionCode: 'us', path: '/guides/nootropics-vs-adderall/' }),
   openGraph: {
     title: 'Nootropics vs Adderall — Honest Comparison',
     description: 'Different mechanisms. Different regulation. Different efficacy. Here is what the science actually says.',

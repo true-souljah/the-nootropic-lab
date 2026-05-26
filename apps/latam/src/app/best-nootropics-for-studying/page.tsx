@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Listicle, useCaseListPageEsStrings } from "@nootropic/ui";
+import { Listicle, useCaseListPageEsStrings, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsLatam, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Mejores Nootrópicos para Estudiar ${CURRENT_YEAR}: Selección Independiente para Estudiantes en Latam`,
   description:
     'Ranking independiente de nootrópicos para sesiones de estudio prolongadas para estudiantes en Latinoamérica. Selecciones evaluadas por concentración + consolidación de memoria + perfil de seguridad para uso diario.',
-  alternates: { canonical: `${SITE_URL}/best-nootropics-for-studying/` },
+  alternates: buildAlternates({ regionCode: 'latam', path: '/best-nootropics-for-studying/' }),
   openGraph: {
     title: 'Mejores Nootrópicos para Estudiar — Basados en Evidencia',
     description:

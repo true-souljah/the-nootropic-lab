@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { SchemaOrg } from '@nootropic/ui';
+import { SchemaOrg, buildAlternates} from '@nootropic/ui';
 
 import LegacyShell from "@/components/LegacyShell";
 
@@ -8,12 +8,7 @@ export const metadata: Metadata = {
   title: 'The Nootropic Lab — Suplementos Cognitivos Independientes',
   description:
     'Comparativa independiente de suplementos nootrópicos para compradores en EE. UU. Análisis de dosificación clínica y divulgación transparente de afiliados.',
-  alternates: {
-    languages: {
-      'en-US': '/',
-      'es-US': '/es',
-    },
-  },
+  alternates: buildAlternates({ regionCode: 'us', path: '/es/', availableInRegions: ['us'] }),
 };
 
 const websiteSchema = {

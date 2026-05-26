@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { SchemaOrg } from '@nootropic/ui';
+import { SchemaOrg, buildAlternates} from '@nootropic/ui';
 
 const SITE_URL = 'https://gcc.thenootropiclab.com';
 
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: 'About The Nootropic Lab GCC',
   description:
     'The Nootropic Lab GCC is an independent cognitive-supplement comparison site for buyers in Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, and Oman. Operated by . Evidence-graded reviews, clinical dosing audits, transparent affiliate disclosure.',
-  alternates: { canonical: `${SITE_URL}/about/` },
+  alternates: buildAlternates({ regionCode: 'gcc', path: '/about/' }),
 };
 
 const aboutSchema = {

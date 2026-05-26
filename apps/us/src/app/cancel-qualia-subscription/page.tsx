@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { SubscriptionCancellationPage } from '@nootropic/ui';
+import { SubscriptionCancellationPage, buildAlternates} from '@nootropic/ui';
 import type { CancellationStep, CancellationFAQ } from '@nootropic/ui';
 import { getAuthorBySlug } from '@nootropic/data';
 
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: 'How to Cancel Qualia Mind Subscription (Neurohacker Collective) — Step-by-Step',
   description:
     'Step-by-step instructions to cancel your Qualia Mind / Neurohacker Collective subscription. Includes the introductory-rate trap and what to watch for at month two.',
-  alternates: { canonical: `${SITE_URL}/cancel-qualia-subscription/` },
+  alternates: buildAlternates({ regionCode: 'us', path: '/cancel-qualia-subscription/', availableInRegions: ['us'] }),
   openGraph: {
     title: 'How to Cancel Qualia Mind Subscription — Step-by-Step',
     description: 'The intro $39 first month auto-converts to $139/month. Here is how to cancel before that happens.',

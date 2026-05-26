@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { SchemaOrg } from '@nootropic/ui';
+import { SchemaOrg, buildAlternates} from '@nootropic/ui';
 
 import LegacyShell from "@/components/LegacyShell";
 
@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: 'The Nootropic Lab EU — Independent Cognitive Supplement Reviews for Europe',
   description:
     'The independent nootropic comparison platform for EU buyers. EUR pricing, EU-compliant products, and full regulatory guidance.',
+  alternates: buildAlternates({ regionCode: 'eu', path: '/' }),
 };
 
 const websiteSchema = {

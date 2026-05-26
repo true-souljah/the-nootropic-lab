@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Listicle } from "@nootropic/ui";
+import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Natural Adderall Alternatives ${CURRENT_YEAR}: An Honest Editorial (NOT Equivalents)`,
   description:
     'No supplement is equivalent to Adderall. This is an honest editorial about which over-the-counter nootropics share any mechanism with prescription stimulants and what the evidence actually shows.',
-  alternates: { canonical: `${SITE_URL}/natural-adderall-alternatives/` },
+  alternates: buildAlternates({ regionCode: 'us', path: '/natural-adderall-alternatives/', availableInRegions: ['us'] }),
   openGraph: {
     title: 'Natural Adderall Alternatives — Honest Editorial',
     description: 'No supplement replaces Adderall. Here is what the science actually says about over-the-counter focus options.',

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Listicle } from "@nootropic/ui";
+import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsJP, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Best Nootropics for Aging Brain in Japan ${CURRENT_YEAR}: Evidence-Graded Picks`,
   description:
     'Independent ranking of nootropics for adults in Japan concerned about age-related cognitive changes. FFC-notified domestic options (FANCL BRAINs, Suntory) plus phosphatidylserine and citicoline international stacks. NOT a treatment for dementia or Alzheimer\'s.',
-  alternates: { canonical: `${SITE_URL}/best-nootropics-for-aging/` },
+  alternates: buildAlternates({ regionCode: 'jp', path: '/best-nootropics-for-aging/' }),
   openGraph: {
     title: 'Best Nootropics for Aging Brain in Japan — Evidence-Graded',
     description: 'Domestic FFC-notified DHA + Ginkgo plus international Phosphatidylserine and citicoline picks. Japan\'s aging-population context.',

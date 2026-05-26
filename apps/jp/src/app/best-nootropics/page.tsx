@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { BestOf, SchemaOrg, Card, Chip, FaqAccordion } from '@nootropic/ui';
+import { BestOf, SchemaOrg, Card, Chip, FaqAccordion, buildAlternates} from '@nootropic/ui';
 import { productsJP, buildPersonAuthorReference } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 
@@ -10,7 +10,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 export const metadata: Metadata = {
   title: `Best Nootropics in Japan ${CURRENT_YEAR} (日本) — MHLW Import Guide`,
   description: 'Top nootropic supplements for Japan buyers. International brands with Japan shipping + domestic FANCL and Suntory options. MHLW import compliance notes.',
-  alternates: { canonical: `${SITE_URL}/best-nootropics/` },
+  alternates: buildAlternates({ regionCode: 'jp', path: '/best-nootropics/' }),
 };
 
 const faqItems = [

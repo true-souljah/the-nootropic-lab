@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { BestOf, SchemaOrg, Card, Chip, FaqAccordion } from '@nootropic/ui';
+import { BestOf, SchemaOrg, Card, Chip, FaqAccordion, buildAlternates} from '@nootropic/ui';
 import { productsEU, buildPersonAuthorReference } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 
@@ -11,14 +11,7 @@ export const metadata: Metadata = {
   title: `Best Nootropics in Europe ${CURRENT_YEAR}: EU-Compliant, EUR-Priced, Evidence-Graded`,
   description:
     'The only nootropic comparison platform built for EU buyers. EUR pricing, EU regulatory compliance status (Directive 2002/46/EC), and full ingredient dosing audit.',
-  alternates: {
-    canonical: `${SITE_URL}/best-nootropics/`,
-    languages: {
-      'de-DE': '/de/beste-nootropika',
-      'fr-FR': '/fr/meilleurs-nootropiques',
-      'pt-PT': '/pt/melhores-nootropicos',
-    },
-  },
+  alternates: buildAlternates({ regionCode: 'eu', path: '/best-nootropics/' }),
 };
 
 const faqItems = [

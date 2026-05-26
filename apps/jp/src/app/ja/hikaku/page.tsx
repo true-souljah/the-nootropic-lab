@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { ComparisonTable, AffiliateDisclosure, SchemaOrg } from '@nootropic/ui';
+import { ComparisonTable, AffiliateDisclosure, SchemaOrg, buildAlternates} from '@nootropic/ui';
 import { productsJP } from '@nootropic/data';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -10,12 +10,7 @@ export const metadata: Metadata = {
   title: 'ノートロピクス比較 — 日本向け全ブランド比較表',
   description:
     '日本で購入可能なすべての主要ノートロピクスブランドを横並びで比較。スコア、価格、カフェイン含有量、返金保証、Trustpilot評価でフィルタリング。',
-  alternates: {
-    languages: {
-      'en-JP': '/nootropic-comparison',
-      'ja-JP': '/ja/hikaku',
-    },
-  },
+  alternates: buildAlternates({ regionCode: 'jp', path: '/ja/hikaku/' }),
 };
 
 export default function JaHikakuPage() {

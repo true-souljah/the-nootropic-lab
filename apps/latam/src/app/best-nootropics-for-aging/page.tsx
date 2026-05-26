@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Listicle, useCaseListPageEsStrings } from "@nootropic/ui";
+import { Listicle, useCaseListPageEsStrings, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsLatam, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Mejores Nootrópicos para el Cerebro Adulto Mayor ${CURRENT_YEAR}: Selección Basada en Evidencia`,
   description:
     'Ranking independiente de nootrópicos para adultos en Latinoamérica preocupados por cambios cognitivos asociados a la edad. Fosfatidilserina, Bacopa, citicolina. NO es un tratamiento para demencia ni Alzheimer.',
-  alternates: { canonical: `${SITE_URL}/best-nootropics-for-aging/` },
+  alternates: buildAlternates({ regionCode: 'latam', path: '/best-nootropics-for-aging/' }),
   openGraph: {
     title: 'Mejores Nootrópicos para el Cerebro Adulto Mayor — Basados en Evidencia',
     description:

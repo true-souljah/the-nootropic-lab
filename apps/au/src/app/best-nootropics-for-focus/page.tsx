@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Listicle } from "@nootropic/ui";
+import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsAU, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Best Nootropics for Focus Australia ${CURRENT_YEAR}: TGA-Aware Picks Backed by Clinical Evidence`,
   description:
     'Independent ranking of the best nootropics for focus available to Australian buyers. Each pick must contain a clinically-dosed focus ingredient (L-theanine + caffeine, citicoline, or L-tyrosine). TGA Personal Importation Scheme guidance included.',
-  alternates: { canonical: `${SITE_URL}/best-nootropics-for-focus/` },
+  alternates: buildAlternates({ regionCode: 'au', path: '/best-nootropics-for-focus/' }),
   openGraph: {
     title: 'Best Nootropics for Focus Australia — Evidence-Graded',
     description:

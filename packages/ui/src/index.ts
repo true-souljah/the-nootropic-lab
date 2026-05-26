@@ -165,3 +165,11 @@ export type {
   HeadToHeadPageStrings,
   TemplateLocale,
 } from './templateStrings';
+
+// SEO foundation — hreflang + canonical helper used by every page's metadata
+export { REGIONS, buildAlternates } from './seo';
+export type {
+  RegionCode,
+  BuildAlternatesParams,
+  AlternatesOutput,
+} from './seo';

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Listicle } from "@nootropic/ui";
+import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsSEA, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Best Nootropics for Memory ${CURRENT_YEAR}: SEA Buyer's Guide`,
   description:
     'Independent ranking of nootropics for memory available to buyers in Singapore, Malaysia, Thailand, Philippines, Indonesia, and Vietnam. Bacopa, Lion\'s Mane, PS, citicoline. Halal + import notes.',
-  alternates: { canonical: `${SITE_URL}/best-nootropics-for-memory/` },
+  alternates: buildAlternates({ regionCode: 'sea', path: '/best-nootropics-for-memory/' }),
   openGraph: {
     title: 'Best Nootropics for Memory in SEA — Evidence-Graded',
     description: 'Bacopa, Lion\'s Mane, Phosphatidylserine — what the science says, plus which products clear customs into SG/MY/TH/PH/ID/VN.',

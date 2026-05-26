@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { BestOf, SchemaOrg, Card, Chip, FaqAccordion } from '@nootropic/ui';
+import { BestOf, SchemaOrg, Card, Chip, FaqAccordion, buildAlternates} from '@nootropic/ui';
 import { productsUS, buildPersonAuthorReference } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 
@@ -10,7 +10,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 export const metadata: Metadata = {
   title: `Best Nootropics ${CURRENT_YEAR}: Expert-Tested & Ranked for Focus, Memory and Energy`,
   description: `Independent comparison of the best nootropic supplements in ${CURRENT_YEAR}. Every ingredient audited against clinical trials. Transparent scoring and affiliate disclosure.`,
-  alternates: { canonical: `${SITE_URL}/best-nootropics/` },
+  alternates: buildAlternates({ regionCode: 'us', path: '/best-nootropics/' }),
 };
 
 const faqItems = [

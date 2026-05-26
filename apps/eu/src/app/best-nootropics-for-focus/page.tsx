@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Listicle } from "@nootropic/ui";
+import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsEU, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Best Nootropics for Focus ${CURRENT_YEAR} (EU): EU-Compliant Picks at Clinical Doses`,
   description:
     'Independent EU ranking of nootropics for focus and attention. EUR pricing, EU storefronts only, EFSA-aware framing. Each pick contains a clinically-dosed focus ingredient.',
-  alternates: { canonical: `${SITE_URL}/best-nootropics-for-focus/` },
+  alternates: buildAlternates({ regionCode: 'eu', path: '/best-nootropics-for-focus/' }),
   openGraph: {
     title: 'Best Nootropics for Focus (EU) — Evidence-Graded Picks',
     description: 'EU-storefront focus picks. EUR pricing. EFSA-compliant ingredient framing. No proprietary blends.',

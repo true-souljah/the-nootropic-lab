@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { BestOf, SchemaOrg, Card, Chip, FaqAccordion } from '@nootropic/ui';
+import { BestOf, SchemaOrg, Card, Chip, FaqAccordion, buildAlternates} from '@nootropic/ui';
 import { productsCA, buildPersonAuthorReference } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 
@@ -10,7 +10,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 export const metadata: Metadata = {
   title: `Best Nootropics in Canada ${CURRENT_YEAR} — Canadian Buyer's Guide`,
   description: `Top-rated nootropic supplements for Canadian buyers in ${CURRENT_YEAR}. Canadian shipping confirmed, evidence-graded reviews, and full clinical dosing audit.`,
-  alternates: { canonical: `${SITE_URL}/best-nootropics/` },
+  alternates: buildAlternates({ regionCode: 'ca', path: '/best-nootropics/' }),
 };
 
 const faqItems = [

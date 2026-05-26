@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { SchemaOrg, EditorialStandardsSection } from '@nootropic/ui';
+import { SchemaOrg, EditorialStandardsSection, buildAlternates} from '@nootropic/ui';
 import { buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://eu.thenootropiclab.com';
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: 'How We Review Nootropics — Our Methodology (EU Edition)',
   description:
     'The Nootropic Lab EU scoring methodology: 5-pillar framework, EU regulatory compliance checks, clinical dosing audit process, and affiliate disclosure.',
-  alternates: { canonical: `${SITE_URL}/methodology/` },
+  alternates: buildAlternates({ regionCode: 'eu', path: '/methodology/' }),
 };
 
 const pillars = [
