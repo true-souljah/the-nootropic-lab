@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, type ReactNode } from 'react';
+import { useState, useEffect, useRef, type ReactNode } from 'react';
 import { Menu, X, Search } from 'lucide-react';
 import Link from 'next/link';
 import { Sidebar, type SidebarGroup } from '../primitives/Sidebar';
@@ -69,17 +69,54 @@ export default function AppShell({
   const showInline = sidebarOpen;
   const isOverlay = sidebarOpen;
 
+  // Track viewport to know whether the mobile drawer is actually visible.
+  // The overlay div has `lg:hidden`, so on desktop the drawer is rendered
+  // but display:none — we must NOT trap focus or set inert in that case.
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const mql = window.matchMedia('(max-width: 1023.98px)');
+    setIsMobile(mql.matches);
+    const onChange = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mql.addEventListener('change', onChange);
+    return () => mql.removeEventListener('change', onChange);
+  }, []);
+
+  const drawerVisible = isOverlay && isMobile;
+
+  // Focus management on drawer open/close. Restore focus to the trigger
+  // only after the drawer was open at some point — guard against firing
+  // on initial mount where drawerVisible starts false.
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const drawerRef = useRef<HTMLDivElement>(null);
+  const wasDrawerVisibleRef = useRef(false);
+  useEffect(() => {
+    if (drawerVisible) {
+      wasDrawerVisibleRef.current = true;
+      const closeBtn = drawerRef.current?.querySelector<HTMLButtonElement>('button[aria-label="Close menu"]');
+      closeBtn?.focus();
+    } else if (wasDrawerVisibleRef.current) {
+      wasDrawerVisibleRef.current = false;
+      triggerRef.current?.focus();
+    }
+  }, [drawerVisible]);
+
   return (
     <div className="bg-ds-bg text-ds-ink min-h-screen ds-font-features" style={{ fontFamily: 'var(--font-ds-sans)' }}>
-      <a href="#main-content" className="ds-skip-link">
-        Skip to main content
-      </a>
+      {/* When the mobile drawer is visible, `inert` keeps the keyboard +
+          AT focus inside the drawer — prevents Tab from escaping into the
+          obscured page. Only applied at the mobile breakpoint; desktop
+          ignores it. */}
+      <div {...(drawerVisible ? { inert: '' as unknown as undefined } : {})}>
+        <a href="#main-content" className="ds-skip-link">
+          Skip to main content
+        </a>
 
-      <div
-        className={`grid items-start ${
-          showInline ? 'lg:grid-cols-[240px_1fr]' : 'lg:grid-cols-[1fr]'
-        } grid-cols-[1fr]`}
-      >
+        <div
+          className={`grid items-start ${
+            showInline ? 'lg:grid-cols-[240px_1fr]' : 'lg:grid-cols-[1fr]'
+          } grid-cols-[1fr]`}
+        >
         {/* Inline sidebar — only mounted at lg+ AND when toggled open */}
         {showInline && (
           <div className="hidden lg:block">
@@ -95,10 +132,12 @@ export default function AppShell({
                   - On desktop (lg+): only shown for mode="collapsed"
                   - On mobile (<lg): always shown */}
               <button
+                ref={triggerRef}
                 type="button"
                 onClick={() => setSidebarOpen((v) => !v)}
                 aria-label={sidebarOpen ? 'Close menu' : 'Open menu'}
                 aria-expanded={sidebarOpen}
+                aria-controls="appshell-mobile-drawer"
                 className={`w-9 h-9 grid place-items-center text-ds-ink-soft hover:bg-ds-bg rounded-md focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 ${
                   mode === 'persistent' ? 'lg:hidden' : ''
                 }`}
@@ -151,11 +190,13 @@ export default function AppShell({
           <main id="main-content">{children}</main>
         </div>
       </div>
+      </div>
 
       {/* Mobile overlay drawer (<lg). Renders alongside the inline lg sidebar so opening on mobile
-          doesn't unmount the desktop instance. */}
+          doesn't unmount the desktop instance. Sits outside the `inert` wrapper above so it stays
+          interactive while the rest of the page is inert. */}
       {isOverlay && (
-        <div className="lg:hidden fixed inset-0 z-40 flex" role="dialog" aria-modal="true" aria-label="Primary navigation">
+        <div ref={drawerRef} id="appshell-mobile-drawer" className="lg:hidden fixed inset-0 z-40 flex" role="dialog" aria-modal="true" aria-label="Primary navigation">
           <button
             type="button"
             aria-label="Close menu"

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState, useCallback, type ReactNode } from 'react';
+import { useEffect, useMemo, useState, useCallback, useRef, type ReactNode } from 'react';
 import Link from 'next/link';
 import { Download, Save, X, SlidersHorizontal } from 'lucide-react';
 import AppShell from './AppShell';
@@ -9,6 +9,7 @@ import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
 import { Bar } from '../primitives/Bar';
 import { ToggleSwitch } from '../primitives/ToggleSwitch';
+import { LiveRegion } from '../primitives/LiveRegion';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 
@@ -76,6 +77,23 @@ export default function Comparator({
   const [selected, setSelected] = useState<string[]>([]);
   const [savedNotice, setSavedNotice] = useState<string | null>(null);
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const filtersTriggerRef = useRef<HTMLButtonElement>(null);
+  const filterSheetRef = useRef<HTMLDivElement>(null);
+
+  // Move focus into the filter sheet on open; restore to the trigger on close.
+  // The wasOpenRef guard prevents stealing focus on initial mount when the
+  // sheet has never been open.
+  const wasFiltersOpenRef = useRef(false);
+  useEffect(() => {
+    if (mobileFiltersOpen) {
+      wasFiltersOpenRef.current = true;
+      const close = filterSheetRef.current?.querySelector<HTMLButtonElement>('button[aria-label="Close filters"]');
+      close?.focus();
+    } else if (wasFiltersOpenRef.current) {
+      wasFiltersOpenRef.current = false;
+      filtersTriggerRef.current?.focus();
+    }
+  }, [mobileFiltersOpen]);
 
   // One-shot URL → state rehydration on mount. After hydration, "Save view"
   // writes back to the URL; we don't sync on every state change to avoid
@@ -337,7 +355,13 @@ export default function Comparator({
           idPrefix keeps form ids unique between the two renderings. */}
       {(() => null)()}
 
-      <div className="grid items-start grid-cols-1 lg:grid-cols-[260px_1fr]">
+      {/* When the mobile filter sheet is open, `inert` removes everything
+          else from tab order + AT focus — keyboard users can't escape the
+          dialog into obscured content. */}
+      <div
+        {...(mobileFiltersOpen ? { inert: '' as unknown as undefined } : {})}
+        className="grid items-start grid-cols-1 lg:grid-cols-[260px_1fr]"
+      >
         {/* Desktop filter sidebar — sticky column on lg+ */}
         <div className="hidden lg:block bg-ds-card border-r border-ds-border p-5 sticky top-[60px] self-start min-h-[calc(100vh-60px)]">
           {renderFilters('d')}
@@ -355,15 +379,21 @@ export default function Comparator({
               </div>
             </div>
             <div className="flex gap-[6px] items-center flex-wrap">
+              <LiveRegion message={savedNotice ?? ''} />
               {savedNotice && (
-                <span className="text-[12px] text-ds-good-ink bg-ds-good-soft px-3 py-[7px] rounded-[8px] font-medium">
+                <span
+                  aria-hidden="true"
+                  className="text-[12px] text-ds-good-ink bg-ds-good-soft px-3 py-[7px] rounded-[8px] font-medium"
+                >
                   {savedNotice}
                 </span>
               )}
               <button
+                ref={filtersTriggerRef}
                 type="button"
                 onClick={() => setMobileFiltersOpen(true)}
                 aria-expanded={mobileFiltersOpen}
+                aria-controls="comparator-mobile-filters"
                 className="lg:hidden bg-ds-accent text-white px-3 py-[7px] rounded-[8px] text-[12px] font-semibold cursor-pointer inline-flex items-center gap-[6px] focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
               >
                 <SlidersHorizontal size={12} strokeWidth={2.4} aria-hidden={true} />
@@ -390,10 +420,16 @@ export default function Comparator({
 
           {/* Table */}
           <div className="bg-ds-card border border-ds-border rounded-[10px] overflow-x-auto">
-            <div className="min-w-[1024px]">
+            <div
+              role="grid"
+              aria-label="Products comparison"
+              aria-rowcount={rows.length + 1}
+              className="min-w-[1024px]"
+            >
             {/* Header */}
             <div
               role="row"
+              aria-rowindex={1}
               className="flex border-b border-ds-border bg-ds-card-sub text-[11px] text-ds-muted uppercase tracking-[0.08em] font-bold"
             >
               {COLUMNS.map((c) => {
@@ -447,15 +483,17 @@ export default function Comparator({
 
             {/* Rows */}
             {rows.length === 0 ? (
-              <div className="p-9 text-center text-ds-muted text-[13px]">
-                No products match.{' '}
-                <button
-                  type="button"
-                  onClick={reset}
-                  className="bg-transparent text-ds-accent border-0 cursor-pointer font-semibold underline focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded"
-                >
-                  Reset filters
-                </button>
+              <div role="row" aria-rowindex={2}>
+                <div role="gridcell" className="p-9 text-center text-ds-muted text-[13px]">
+                  No products match.{' '}
+                  <button
+                    type="button"
+                    onClick={reset}
+                    className="bg-transparent text-ds-accent border-0 cursor-pointer font-semibold underline focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded"
+                  >
+                    Reset filters
+                  </button>
+                </div>
               </div>
             ) : (
               rows.map((p, idx) => {
@@ -463,11 +501,14 @@ export default function Comparator({
                 return (
                   <div
                     key={p.slug}
+                    role="row"
+                    aria-rowindex={idx + 2}
+                    aria-selected={isSelected}
                     className={`flex border-b border-ds-border last:border-b-0 items-center ${
                       isSelected ? 'bg-ds-accent-soft' : 'bg-transparent'
                     }`}
                   >
-                    <div className="px-[14px] py-3 flex justify-center" style={{ flex: '0 0 44px' }}>
+                    <div role="gridcell" className="px-[14px] py-3 flex justify-center" style={{ flex: '0 0 44px' }}>
                       <input
                         type="checkbox"
                         checked={isSelected}
@@ -478,12 +519,14 @@ export default function Comparator({
                       />
                     </div>
                     <div
+                      role="gridcell"
                       className="px-[14px] py-3 text-ds-muted font-medium ds-tabular"
                       style={{ flex: '0 0 50px' }}
                     >
                       {String(idx + 1).padStart(2, '0')}
                     </div>
                     <div
+                      role="gridcell"
                       className="px-[14px] py-3 flex items-center gap-[10px]"
                       style={{ flex: '0 0 260px' }}
                     >
@@ -506,22 +549,25 @@ export default function Comparator({
                         </div>
                       </div>
                     </div>
-                    <div className="px-[14px] py-3" style={{ flex: '0 0 110px' }}>
+                    <div role="gridcell" className="px-[14px] py-3" style={{ flex: '0 0 110px' }}>
                       <ScorePill score={p.score} />
                     </div>
                     <div
+                      role="gridcell"
                       className="px-[14px] py-3 text-right text-ds-ink-soft ds-tabular"
                       style={{ flex: '0 0 80px' }}
                     >
                       {p.scoreBreakdown.value}/10
                     </div>
                     <div
+                      role="gridcell"
                       className="px-[14px] py-3 text-right font-semibold ds-tabular"
                       style={{ flex: '0 0 80px' }}
                     >
                       {p.priceMonthlyUSD ? `$${p.priceMonthlyUSD}` : '—'}
                     </div>
                     <div
+                      role="gridcell"
                       className={`px-[14px] py-3 text-right ds-tabular ${
                         p.trustpilotScore >= 4
                           ? 'text-ds-good-ink font-semibold'
@@ -537,6 +583,7 @@ export default function Comparator({
                       </span>
                     </div>
                     <div
+                      role="gridcell"
                       className="px-[14px] py-3 text-ds-muted text-[12px]"
                       style={{ flex: '0 0 180px' }}
                     >
@@ -544,15 +591,17 @@ export default function Comparator({
                     </div>
                     {showCommission && (
                       <div
+                        role="gridcell"
                         className="px-[14px] py-3 text-right font-semibold text-ds-accent"
                         style={{ flex: '0 0 90px' }}
                       >
                         {p.commissionRate}
                       </div>
                     )}
-                    <div className="px-[14px] py-3 text-right" style={{ flex: '0 0 80px' }}>
+                    <div role="gridcell" className="px-[14px] py-3 text-right" style={{ flex: '0 0 80px' }}>
                       <Link
                         href={`/${p.slug}`}
+                        aria-label={`View ${p.name}`}
                         className="bg-transparent text-ds-accent border-0 text-[12px] font-semibold no-underline hover:text-ds-accent-press focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded"
                       >
                         View →
@@ -658,6 +707,8 @@ export default function Comparator({
       {/* Mobile bottom-sheet for filters */}
       {mobileFiltersOpen && (
         <div
+          ref={filterSheetRef}
+          id="comparator-mobile-filters"
           className="lg:hidden fixed inset-0 z-40"
           role="dialog"
           aria-modal="true"

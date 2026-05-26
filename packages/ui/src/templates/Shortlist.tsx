@@ -7,6 +7,7 @@ import AppShell from './AppShell';
 import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
+import { LiveRegion } from '../primitives/LiveRegion';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
 import { useShortlist, useShortlistNote } from './useShortlist';
 import type { Product, UIStrings } from '@nootropic/data';
@@ -176,8 +177,12 @@ export default function Shortlist({
                 </div>
               </div>
               <div className="flex gap-[6px] items-center flex-wrap">
+                <LiveRegion message={notice ?? ''} />
                 {notice && (
-                  <span className="text-[12px] text-ds-good-ink bg-ds-good-soft px-3 py-[7px] rounded-[8px] font-medium">
+                  <span
+                    aria-hidden="true"
+                    className="text-[12px] text-ds-good-ink bg-ds-good-soft px-3 py-[7px] rounded-[8px] font-medium"
+                  >
                     {notice}
                   </span>
                 )}
