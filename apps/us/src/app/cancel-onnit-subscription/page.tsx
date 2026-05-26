@@ -1,11 +1,10 @@
 import type { Metadata } from 'next';
-import { SubscriptionCancellationPage, buildAlternates} from '@nootropic/ui';
+import { SubscriptionCancellationPage, PublicShell, buildAlternates } from '@nootropic/ui';
 import type { CancellationStep, CancellationFAQ } from '@nootropic/ui';
 import { getAuthorBySlug } from '@nootropic/data';
+import { searchItems, uiStrings } from '@/lib/search';
 
 const SITE_URL = 'https://thenootropiclab.com';
-
-import LegacyShell from "@/components/LegacyShell";
 
 export const metadata: Metadata = {
   title: 'How to Cancel Onnit Subscription (Alpha Brain) — Step-by-Step Guide',
@@ -89,7 +88,7 @@ const ftcComplaintNote =
 
 export default function Page() {
   return (
-    <LegacyShell>
+    <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
     <SubscriptionCancellationPage
       brandName="Onnit"
       productReviewSlug="onnit-alpha-brain-review"
@@ -104,6 +103,6 @@ export default function Page() {
       faqItems={faqItems}
       ftcComplaintNote={ftcComplaintNote}
     />
-    </LegacyShell>
+    </PublicShell>
   );
 }
