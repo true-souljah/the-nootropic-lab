@@ -9,14 +9,10 @@ export { default as SiteHeader } from './SiteHeader';
 export { default as StickyCtaBar } from './StickyCtaBar';
 export { default as SearchModal } from './SearchModal';
 export type { SearchItem } from './SearchModal';
-export { default as HeadToHeadPage } from './HeadToHeadPage';
-export type { HeadToHeadFAQ } from './HeadToHeadPage';
 export { default as UseCaseListPage } from './UseCaseListPage';
 export type { UseCaseFAQ, IngredientMechanism, UseCasePick } from './UseCaseListPage';
 export { default as SubscriptionCancellationPage } from './SubscriptionCancellationPage';
 export type { CancellationStep, CancellationFAQ } from './SubscriptionCancellationPage';
-export { default as ThreeWayComparisonPage } from './ThreeWayComparisonPage';
-export type { ThreeWayFAQ } from './ThreeWayComparisonPage';
 export { default as ImprintPage } from './ImprintPage';
 export { default as Sources } from './Sources';
 export type { Source } from './Sources';
@@ -75,9 +71,12 @@ export type {
 } from './templates/Listicle';
 
 // Public templates (Stack redesign — M2C)
+// HeadToHeadFAQ keeps its bare name for back-compat with apps; the
+// HeadToHeadFAQItem alias predated this consolidation.
 export { default as HeadToHead } from './templates/HeadToHead';
 export type {
   HeadToHeadProps,
+  HeadToHeadFAQ,
   HeadToHeadFAQ as HeadToHeadFAQItem,
 } from './templates/HeadToHead';
 
@@ -85,6 +84,7 @@ export type {
 export { default as ThreeWay } from './templates/ThreeWay';
 export type {
   ThreeWayProps,
+  ThreeWayFAQ,
   ThreeWayFAQ as ThreeWayFAQItem,
 } from './templates/ThreeWay';
 
