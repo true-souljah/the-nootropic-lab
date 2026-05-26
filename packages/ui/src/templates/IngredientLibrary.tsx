@@ -98,7 +98,7 @@ export default function IngredientLibrary({
   return (
     <AppShell
       mode="persistent"
-      breadcrumbs={[{ label: 'Ingredients' }]}
+      breadcrumbs={[{ label: uiStrings?.breadcrumb.ingredients ?? 'Ingredients' }]}
       searchItems={searchItems}
       uiStrings={uiStrings}
       sidebarMeta={`${ingredients.length} ingredients`}
