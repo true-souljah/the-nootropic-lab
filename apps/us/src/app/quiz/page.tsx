@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { QuizFlow } from '@nootropic/ui';
+import { QuizFlow, buildAlternates} from '@nootropic/ui';
 import { productsUS } from '@nootropic/data';
 
 export const metadata: Metadata = {
@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     'Five quick questions about your goals, caffeine tolerance, budget, and money-back preference. We match you against our full audited catalog and surface the best fit.',
   robots: { index: false },
+  alternates: buildAlternates({ regionCode: 'us', path: '/quiz/' }),
 };
 
 export default function QuizPage() {

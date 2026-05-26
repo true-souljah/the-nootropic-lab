@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { SchemaOrg } from '@nootropic/ui';
+import { SchemaOrg, buildAlternates} from '@nootropic/ui';
 import { guides, buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://gcc.thenootropiclab.com';
@@ -25,6 +25,7 @@ export async function generateMetadata({
   return {
     title: `${g.title} — The Nootropic Lab GCC`,
     description: g.description,
+    alternates: buildAlternates({ regionCode: 'gcc', path: `/guides/${guide}/` }),
   };
 }
 

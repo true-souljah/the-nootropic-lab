@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Listicle } from "@nootropic/ui";
+import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsJP, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Best Nootropics for Memory in Japan ${CURRENT_YEAR}: Independent Picks Backed by Clinical Evidence`,
   description:
     'Independent ranking of the best nootropics for memory and recall available in Japan. Includes domestic FFC-notified brands (FANCL, Suntory) alongside international stacks shipping to Japan. MHLW-aware buyer notes throughout.',
-  alternates: { canonical: `${SITE_URL}/best-nootropics-for-memory/` },
+  alternates: buildAlternates({ regionCode: 'jp', path: '/best-nootropics-for-memory/' }),
   openGraph: {
     title: 'Best Nootropics for Memory in Japan — Evidence-Graded',
     description: 'Bacopa, Lion\'s Mane, Phosphatidylserine, DHA — what the science says + which products in Japan actually deliver them at clinical dose.',

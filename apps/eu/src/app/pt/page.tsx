@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { SchemaOrg } from '@nootropic/ui';
+import { SchemaOrg, buildAlternates} from '@nootropic/ui';
 import { productsEU } from '@nootropic/data';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -11,12 +11,7 @@ export const metadata: Metadata = {
   title: 'The Nootropic Lab UE — Avaliações Independentes de Suplementos Cognitivos na Europa',
   description:
     'A plataforma independente de comparação de nootrópicos para compradores europeus. Preços em EUR, produtos com conformidade UE e orientação regulamentar completa.',
-  alternates: {
-    languages: {
-      en: '/',
-      'pt-PT': '/pt',
-    },
-  },
+  alternates: buildAlternates({ regionCode: 'eu', path: '/pt/', availableInRegions: ['eu'] }),
 };
 
 const websiteSchema = {

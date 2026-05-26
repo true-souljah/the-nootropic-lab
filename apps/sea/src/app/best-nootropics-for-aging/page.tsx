@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Listicle } from "@nootropic/ui";
+import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsSEA, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Best Nootropics for Aging Brain ${CURRENT_YEAR}: SEA Buyer's Guide`,
   description:
     'Independent ranking of nootropics for SEA adults concerned about age-related cognitive changes. Phosphatidylserine, Bacopa/Brahmi, citicoline. NOT a treatment for dementia.',
-  alternates: { canonical: `${SITE_URL}/best-nootropics-for-aging/` },
+  alternates: buildAlternates({ regionCode: 'sea', path: '/best-nootropics-for-aging/' }),
   openGraph: {
     title: 'Best Nootropics for Aging Brain in SEA — Evidence-Graded',
     description: 'Phosphatidylserine has the FDA qualified claim. Plus Bacopa/Brahmi, citicoline, Lion\'s Mane, TCM heritage formulas. What the evidence says for SEA buyers.',

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { AffiliateDisclosure, SchemaOrg, Sources } from '@nootropic/ui';
+import { AffiliateDisclosure, SchemaOrg, Sources, buildAlternates} from '@nootropic/ui';
 import { productsJP, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const SITE_URL = 'https://jp.thenootropiclab.com';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'FFC-Notified Cognitive Supplements (Japan) — 機能性表示食品 + FOSHU Framework Guide',
   description:
     'Japan regulates cognitive supplements through Foods with Function Claims (FFC / 機能性表示食品) and Foods for Specified Health Uses (FOSHU). Both require Consumer Affairs Agency notification or approval. Full explainer + audit of our Japanese catalog + the personal-import threshold for non-domestic brands.',
-  alternates: { canonical: PAGE_URL },
+  alternates: buildAlternates({ regionCode: 'jp', path: '/ffc-notified-cognitive-supplements/' }),
 };
 
 interface JpRegulatoryCategory {

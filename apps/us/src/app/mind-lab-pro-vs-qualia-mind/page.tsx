@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { HeadToHead } from "@nootropic/ui";
+import { HeadToHead, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { HeadToHeadFAQ } from '@nootropic/ui';
 import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: `Mind Lab Pro vs Qualia Mind ${CURRENT_YEAR}: 11 Ingredients vs 28 — Which Wins?`,
   description:
     'Independent comparison of Mind Lab Pro vs Qualia Mind. Open 11-ingredient formula vs 28-ingredient megadose. Side-by-side dosing, price, and verdict.',
-  alternates: { canonical: `${SITE_URL}/mind-lab-pro-vs-qualia-mind/` },
+  alternates: buildAlternates({ regionCode: 'us', path: '/mind-lab-pro-vs-qualia-mind/', availableInRegions: ['us'] }),
   openGraph: {
     title: 'Mind Lab Pro vs Qualia Mind — Independent Head-to-Head',
     description: 'Lean open formula vs 28-ingredient megadose. Which approach actually delivers?',

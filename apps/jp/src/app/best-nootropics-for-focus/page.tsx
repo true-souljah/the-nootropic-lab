@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Listicle } from "@nootropic/ui";
+import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsJP, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Best Nootropics for Focus in Japan ${CURRENT_YEAR}: Independent Picks Backed by Clinical Evidence`,
   description:
     'Independent ranking of the best nootropics for focus and attention available in Japan. Each pick must contain a clinically-dosed focus ingredient (L-theanine + caffeine, citicoline, or L-tyrosine). Includes both international stacks shipping to Japan and domestic FFC (機能性表示食品) brands.',
-  alternates: { canonical: `${SITE_URL}/best-nootropics-for-focus/` },
+  alternates: buildAlternates({ regionCode: 'jp', path: '/best-nootropics-for-focus/' }),
   openGraph: {
     title: 'Best Nootropics for Focus in Japan — Evidence-Graded Picks',
     description: 'Clinical-dose audit of every focus pick available in Japan. Imported stacks plus domestic FFC-notified brands.',

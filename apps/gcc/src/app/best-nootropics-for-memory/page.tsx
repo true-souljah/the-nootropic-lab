@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Listicle } from "@nootropic/ui";
+import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsGCC, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Best Nootropics for Memory in the GCC ${CURRENT_YEAR}: Halal-Friendly Picks for Saudi, UAE & Gulf Buyers`,
   description:
     'Independent ranking of the best memory nootropics available in the GCC. Halal status, SFDA/MOHAP registration, and capsule sources disclosed for each pick.',
-  alternates: { canonical: `${SITE_URL}/best-nootropics-for-memory/` },
+  alternates: buildAlternates({ regionCode: 'gcc', path: '/best-nootropics-for-memory/' }),
   openGraph: {
     title: 'Best Nootropics for Memory — GCC Buyer\'s Guide',
     description: 'Bacopa, Lion\'s Mane, phosphatidylserine — clinically-dosed memory picks for GCC buyers, with halal and registration notes.',

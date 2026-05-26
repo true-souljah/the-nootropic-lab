@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { HeadToHead } from "@nootropic/ui";
+import { HeadToHead, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { HeadToHeadFAQ } from '@nootropic/ui';
 import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: `Mind Lab Pro vs NooCube ${CURRENT_YEAR}: Open Formula Comparison`,
   description:
     'Independent comparison of Mind Lab Pro vs NooCube — both open-formula nootropics. Side-by-side ingredient dosing, pricing, brand-trust scoring, and verdict.',
-  alternates: { canonical: `${SITE_URL}/mind-lab-pro-vs-noocube/` },
+  alternates: buildAlternates({ regionCode: 'us', path: '/mind-lab-pro-vs-noocube/', availableInRegions: ['us'] }),
   openGraph: {
     title: 'Mind Lab Pro vs NooCube — Open Formula Comparison',
     description: 'Two open-formula nootropics, very different brand positioning. Which actually delivers?',

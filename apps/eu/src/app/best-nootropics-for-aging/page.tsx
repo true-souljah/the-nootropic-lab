@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Listicle } from "@nootropic/ui";
+import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsEU, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Best Nootropics for Aging Brain ${CURRENT_YEAR} (EU): Evidence-Graded Picks for Older Adults`,
   description:
     'Independent EU ranking of nootropics for adults concerned about age-related cognitive changes. EUR pricing, EU storefronts. Phosphatidylserine, Bacopa, citicoline, Lion\'s Mane. NOT a treatment for dementia.',
-  alternates: { canonical: `${SITE_URL}/best-nootropics-for-aging/` },
+  alternates: buildAlternates({ regionCode: 'eu', path: '/best-nootropics-for-aging/' }),
   openGraph: {
     title: 'Best Nootropics for Aging Brain (EU) — Evidence-Graded',
     description: 'Phosphatidylserine, citicoline, Lion\'s Mane, Bacopa. EU-storefront picks for older European adults.',

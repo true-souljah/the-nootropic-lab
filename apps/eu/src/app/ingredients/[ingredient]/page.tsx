@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { SchemaOrg } from '@nootropic/ui';
+import { SchemaOrg, buildAlternates} from '@nootropic/ui';
 import { ingredients, productsEU, buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://eu.thenootropiclab.com';
@@ -24,6 +24,7 @@ export async function generateMetadata({
   return {
     title: `${ing.name} — EU Nootropic Guide, Dosing, Effects & FAQs`,
     description: `${ing.name}: mechanism of action, clinical dose (${ing.clinicalDose}), human effect matrix, how to take, stacking guide, and consumer FAQs — EU-available products included.`,
+    alternates: buildAlternates({ regionCode: 'eu', path: `/ingredients/${ingredient}/` }),
   };
 }
 

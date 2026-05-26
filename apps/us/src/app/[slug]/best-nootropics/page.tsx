@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { BestOf, SchemaOrg, Card, Chip, ScorePill } from '@nootropic/ui';
+import { BestOf, SchemaOrg, Card, Chip, ScorePill, buildAlternates} from '@nootropic/ui';
 import { productsUS } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 
@@ -237,12 +237,7 @@ export async function generateMetadata({
   return {
     title: `Best Nootropics in ${state.name} ${CURRENT_YEAR} — Expert Ranked`,
     description: `Independent comparison of the best nootropic supplements available in ${state.name} in ${CURRENT_YEAR}. Every ingredient audited against clinical trials. Transparent scoring and affiliate disclosure.`,
-    alternates: {
-      languages: {
-        'en-US': `/${state.slug}/best-nootropics`,
-        'es-US': '/es/mejores-nootropicos',
-      },
-    },
+    alternates: buildAlternates({ regionCode: 'us', path: `/${slug}/best-nootropics/`, availableInRegions: ['us'] }),
   };
 }
 

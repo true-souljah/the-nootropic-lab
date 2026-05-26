@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { SchemaOrg } from '@nootropic/ui';
+import { SchemaOrg, buildAlternates} from '@nootropic/ui';
 
 const SITE_URL = 'https://jp.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: 'The Nootropic Lab JP — Japan Nootropic Reviews (ノートロピクス)',
   description:
     'Independent cognitive supplement reviews for Japan buyers. MHLW import compliance notes, evidence-graded reviews, and domestic Japanese brands included.',
-  alternates: { canonical: `${SITE_URL}/` },
+  alternates: buildAlternates({ regionCode: 'jp', path: '/' }),
 };
 
 const websiteSchema = {

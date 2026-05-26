@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Listicle } from "@nootropic/ui";
+import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Best Nootropics for Memory ${CURRENT_YEAR}: Independent Picks Backed by Clinical Evidence`,
   description:
     'Independent ranking of the best nootropics for memory and recall. Each pick contains at least one ingredient with peer-reviewed memory evidence at clinical dose.',
-  alternates: { canonical: `${SITE_URL}/best-nootropics-for-memory/` },
+  alternates: buildAlternates({ regionCode: 'us', path: '/best-nootropics-for-memory/' }),
   openGraph: {
     title: 'Best Nootropics for Memory — Evidence-Graded',
     description: 'Bacopa, Lion\'s Mane, Phosphatidylserine — what the science says + which products actually deliver them at clinical dose.',

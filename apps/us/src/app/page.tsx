@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { Discover, SchemaOrg, Card } from '@nootropic/ui';
+import { Discover, SchemaOrg, Card, buildAlternates} from '@nootropic/ui';
 import { productsUS } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 
@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     title: 'The Nootropic Lab — Independent Cognitive Supplement Reviews',
     description: 'Evidence-graded nootropic reviews. Clinical dosing audits. Transparent affiliate disclosure.',
   },
+  alternates: buildAlternates({ regionCode: 'us', path: '/' }),
 };
 
 const websiteSchema = {

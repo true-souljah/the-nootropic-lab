@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Listicle } from "@nootropic/ui";
+import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsAU, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Best Nootropics for Studying Australia ${CURRENT_YEAR}: Independent Picks for Australian Students`,
   description:
     'Independent ranking of nootropics for sustained study sessions available to Australian university students. Picks judged on focus + memory consolidation + safety profile. TGA Personal Importation Scheme rules included.',
-  alternates: { canonical: `${SITE_URL}/best-nootropics-for-studying/` },
+  alternates: buildAlternates({ regionCode: 'au', path: '/best-nootropics-for-studying/' }),
   openGraph: {
     title: 'Best Nootropics for Studying Australia — Evidence-Graded',
     description:

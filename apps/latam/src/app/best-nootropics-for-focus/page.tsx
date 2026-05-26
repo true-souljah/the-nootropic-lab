@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Listicle, useCaseListPageEsStrings } from "@nootropic/ui";
+import { Listicle, useCaseListPageEsStrings, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsLatam, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Mejores Nootrópicos para Concentración ${CURRENT_YEAR}: Selección Independiente Basada en Evidencia Clínica`,
   description:
     'Ranking independiente de los mejores nootrópicos para concentración y atención disponibles en Latinoamérica. Cada selección debe contener un ingrediente para concentración con dosis clínica (L-teanina + cafeína, citicolina o L-tirosina).',
-  alternates: { canonical: `${SITE_URL}/best-nootropics-for-focus/` },
+  alternates: buildAlternates({ regionCode: 'latam', path: '/best-nootropics-for-focus/' }),
   openGraph: {
     title: 'Mejores Nootrópicos para Concentración — Selección Basada en Evidencia',
     description:

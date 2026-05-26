@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Listicle, useCaseListPageEsStrings } from "@nootropic/ui";
+import { Listicle, useCaseListPageEsStrings, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsLatam, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Mejores Nootrópicos para Memoria ${CURRENT_YEAR}: Selección Independiente Basada en Evidencia Clínica`,
   description:
     'Ranking independiente de los mejores nootrópicos para memoria y recordación disponibles en Latinoamérica. Cada selección contiene al menos un ingrediente con evidencia clínica revisada por pares en dosis adecuada.',
-  alternates: { canonical: `${SITE_URL}/best-nootropics-for-memory/` },
+  alternates: buildAlternates({ regionCode: 'latam', path: '/best-nootropics-for-memory/' }),
   openGraph: {
     title: 'Mejores Nootrópicos para Memoria — Basados en Evidencia',
     description:

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { HeadToHead } from "@nootropic/ui";
+import { HeadToHead, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { HeadToHeadFAQ } from '@nootropic/ui';
 import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: `Alpha Brain vs Qualia Mind ${CURRENT_YEAR}: Mainstream Brand vs Premium Megadose`,
   description:
     'Independent comparison of Onnit Alpha Brain vs Qualia Mind. Mainstream retail-distributed nootropic vs premium 28-ingredient stack. Side-by-side dosing audit and verdict.',
-  alternates: { canonical: `${SITE_URL}/alpha-brain-vs-qualia-mind/` },
+  alternates: buildAlternates({ regionCode: 'us', path: '/alpha-brain-vs-qualia-mind/', availableInRegions: ['us'] }),
   openGraph: {
     title: 'Alpha Brain vs Qualia Mind — Independent Head-to-Head',
     description: 'Mainstream Onnit nootropic vs premium Qualia megadose. Which makes more sense?',

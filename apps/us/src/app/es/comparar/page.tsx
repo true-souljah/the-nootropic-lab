@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { ComparisonTable, AffiliateDisclosure, SchemaOrg } from '@nootropic/ui';
+import { ComparisonTable, AffiliateDisclosure, SchemaOrg, buildAlternates} from '@nootropic/ui';
 import { productsUS } from '@nootropic/data';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -10,12 +10,7 @@ export const metadata: Metadata = {
   title: 'Comparativa de Nootrópicos: Tabla Completa de Marcas en EE. UU.',
   description:
     'Compara todas las principales marcas de nootrópicos una al lado de la otra. Filtra por precio, puntuación, garantía de devolución y contenido de cafeína.',
-  alternates: {
-    languages: {
-      'en-US': '/nootropic-comparison',
-      'es-US': '/es/comparar',
-    },
-  },
+  alternates: buildAlternates({ regionCode: 'us', path: '/es/comparar/', availableInRegions: ['us'] }),
 };
 
 export default function EsCompararPage() {

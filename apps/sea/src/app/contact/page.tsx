@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { SchemaOrg } from '@nootropic/ui';
+import { SchemaOrg, buildAlternates} from '@nootropic/ui';
 
 const SITE_URL = 'https://sea.thenootropiclab.com';
 
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: 'Contact The Nootropic Lab SEA',
   description:
     'Editorial corrections, partnership inquiries, reader feedback. Reach The Nootropic Lab SEA editorial team.',
-  alternates: { canonical: `${SITE_URL}/contact/` },
+  alternates: buildAlternates({ regionCode: 'sea', path: '/contact/' }),
 };
 
 const contactSchema = {

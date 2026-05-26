@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { ComparisonTable, AffiliateDisclosure, StickyCtaBar, SchemaOrg } from '@nootropic/ui';
+import { ComparisonTable, AffiliateDisclosure, StickyCtaBar, SchemaOrg, buildAlternates} from '@nootropic/ui';
 import { productsJP } from '@nootropic/data';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -8,12 +8,7 @@ export const metadata: Metadata = {
   title: `${CURRENT_YEAR}年 日本向け最高のノートロピクス — 厚生労働省輸入ガイド`,
   description:
     '日本の購入者向けトップノートロピクスサプリメント。日本発送対応の海外ブランドとファンケル・サントリーの国内オプション。厚生労働省輸入コンプライアンス注意事項。',
-  alternates: {
-    languages: {
-      'en-JP': '/best-nootropics',
-      'ja-JP': '/ja/best-nootropics',
-    },
-  },
+  alternates: buildAlternates({ regionCode: 'jp', path: '/ja/best-nootropics/' }),
 };
 
 const faqItems = [

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Listicle } from "@nootropic/ui";
+import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Best Nootropics for ADHD-Adjacent Focus ${CURRENT_YEAR}: Independent Picks (NOT a Substitute for Medical Treatment)`,
   description:
     'Independent ranking of nootropics that support attention in adults whose ADHD-like focus difficulties are clinically managed. NOT a replacement for prescription stimulants. Always consult a clinician.',
-  alternates: { canonical: `${SITE_URL}/best-nootropics-for-adhd/` },
+  alternates: buildAlternates({ regionCode: 'us', path: '/best-nootropics-for-adhd/' }),
   openGraph: {
     title: 'Nootropics for ADHD-Adjacent Focus — What the Evidence Says',
     description: 'Honest editorial: supplements are not a substitute for ADHD treatment. Here is what they may help with on the margin.',

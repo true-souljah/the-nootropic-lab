@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { SchemaOrg } from '@nootropic/ui';
+import { SchemaOrg, buildAlternates} from '@nootropic/ui';
 
 const SITE_URL = 'https://sea.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: 'The Nootropic Lab SEA — Independent Cognitive Supplement Reviews',
   description:
     'Independent nootropic reviews for Southeast Asia buyers. Singapore, Malaysia, Thailand, Philippines, Indonesia, Vietnam — evidence-graded with regulatory notes.',
-  alternates: { canonical: `${SITE_URL}/` },
+  alternates: buildAlternates({ regionCode: 'sea', path: '/' }),
   openGraph: {
     title: 'The Nootropic Lab SEA — Independent Cognitive Supplement Reviews',
     description: 'Evidence-graded nootropic reviews for Southeast Asia. Clinical dosing audits. Regulatory import notes for HSA, NPRA, BPOM, FDA, VFA.',

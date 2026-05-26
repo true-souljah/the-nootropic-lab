@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Listicle } from "@nootropic/ui";
+import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsSEA, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Best Nootropics for Studying ${CURRENT_YEAR}: SEA Student Guide`,
   description:
     'Independent ranking of nootropics for SEA students — NUS, NTU, UM, UI, Chula, Mahidol, UP. Sustained focus + memory consolidation, halal + import notes per pick.',
-  alternates: { canonical: `${SITE_URL}/best-nootropics-for-studying/` },
+  alternates: buildAlternates({ regionCode: 'sea', path: '/best-nootropics-for-studying/' }),
   openGraph: {
     title: 'Best Nootropics for Studying in SEA — Evidence-Graded',
     description: 'Sustained focus + memory consolidation for SEA students. What works, what to avoid, and how to actually get it.',

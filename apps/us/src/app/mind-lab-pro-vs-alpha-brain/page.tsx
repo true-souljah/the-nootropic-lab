@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { HeadToHead } from "@nootropic/ui";
+import { HeadToHead, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { HeadToHeadFAQ } from '@nootropic/ui';
 import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: `Mind Lab Pro vs Alpha Brain ${CURRENT_YEAR}: Head-to-Head Clinical Dosing Audit`,
   description:
     'Independent comparison of Mind Lab Pro vs Onnit Alpha Brain. Side-by-side ingredient dosing, score breakdown, price, and verdict — based on the same 5-pillar methodology.',
-  alternates: { canonical: `${SITE_URL}/mind-lab-pro-vs-alpha-brain/` },
+  alternates: buildAlternates({ regionCode: 'us', path: '/mind-lab-pro-vs-alpha-brain/', availableInRegions: ['us'] }),
   openGraph: {
     title: 'Mind Lab Pro vs Alpha Brain — Independent Head-to-Head',
     description: 'Which nootropic actually delivers? Clinical dosing audit + score breakdown + verdict.',

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { HeadToHead } from "@nootropic/ui";
+import { HeadToHead, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { HeadToHeadFAQ } from '@nootropic/ui';
 import { productsEU, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: `BRAINEFFECT FOCUS vs Mind Lab Pro ${CURRENT_YEAR}: DACH-Native vs International`,
   description:
     'Independent comparison of BRAINEFFECT FOCUS vs Mind Lab Pro for EU buyers. Berlin-based 4-ingredient acute focus formula vs international 11-ingredient daily stack.',
-  alternates: { canonical: `${SITE_URL}/braineffect-vs-mind-lab-pro/` },
+  alternates: buildAlternates({ regionCode: 'eu', path: '/braineffect-vs-mind-lab-pro/', availableInRegions: ['eu'] }),
   openGraph: {
     title: 'BRAINEFFECT FOCUS vs Mind Lab Pro — Independent Head-to-Head',
     description: 'Lean caffeine + L-theanine vs broad daily stack. Which makes sense for EU buyers?',

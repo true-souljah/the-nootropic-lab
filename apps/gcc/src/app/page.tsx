@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { SchemaOrg } from '@nootropic/ui';
+import { SchemaOrg, buildAlternates} from '@nootropic/ui';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -22,6 +22,7 @@ export const metadata: Metadata = {
     title: 'The Nootropic Lab GCC — Independent Cognitive Supplement Reviews',
     description: 'Evidence-graded nootropic reviews for GCC buyers. Clinical dosing audits. Halal-friendly options.',
   },
+  alternates: buildAlternates({ regionCode: 'gcc', path: '/' }),
 };
 
 const websiteSchema = {

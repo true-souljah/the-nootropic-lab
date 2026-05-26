@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { BestOf, SchemaOrg, Card, Chip, FaqAccordion } from '@nootropic/ui';
+import { BestOf, SchemaOrg, Card, Chip, FaqAccordion, buildAlternates} from '@nootropic/ui';
 import { productsGCC, buildPersonAuthorReference } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 
@@ -10,7 +10,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 export const metadata: Metadata = {
   title: `Best Nootropics in the GCC ${CURRENT_YEAR} — Saudi, UAE, Qatar Buyer's Guide`,
   description: 'Top nootropic supplements for GCC buyers. Caffeine-free options prioritised. Import and VAT notes for Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, Oman.',
-  alternates: { canonical: `${SITE_URL}/best-nootropics/` },
+  alternates: buildAlternates({ regionCode: 'gcc', path: '/best-nootropics/' }),
 };
 
 const faqItems = [

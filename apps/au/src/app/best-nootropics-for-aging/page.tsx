@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Listicle } from "@nootropic/ui";
+import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsAU, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Best Nootropics for Aging Brain Australia ${CURRENT_YEAR}: Evidence-Graded Picks`,
   description:
     'Independent ranking of nootropics for Australian adults concerned about age-related cognitive changes. Phosphatidylserine, Bacopa, citicoline, ginkgo. NOT a treatment for dementia or Alzheimer\'s. TGA Personal Importation Scheme guidance included.',
-  alternates: { canonical: `${SITE_URL}/best-nootropics-for-aging/` },
+  alternates: buildAlternates({ regionCode: 'au', path: '/best-nootropics-for-aging/' }),
   openGraph: {
     title: 'Best Nootropics for Aging Brain Australia — Evidence-Graded',
     description:

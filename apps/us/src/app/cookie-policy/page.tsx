@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 
-import { PublicShell } from "@nootropic/ui";
+import { PublicShell, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 
 export const metadata: Metadata = {
   title: 'Cookie Policy',
   description: 'Cookie policy for The Nootropic Lab. What cookies we use and how to control them.',
+  alternates: buildAlternates({ regionCode: 'us', path: '/cookie-policy/' }),
 };
 
 export default function CookiePolicyPage() {

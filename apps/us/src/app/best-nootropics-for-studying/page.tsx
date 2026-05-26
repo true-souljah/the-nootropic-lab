@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Listicle } from "@nootropic/ui";
+import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Best Nootropics for Studying ${CURRENT_YEAR}: Independent Picks for Students`,
   description:
     'Independent ranking of nootropics for sustained study sessions. Picks judged on focus + memory consolidation + safety profile for daily use.',
-  alternates: { canonical: `${SITE_URL}/best-nootropics-for-studying/` },
+  alternates: buildAlternates({ regionCode: 'us', path: '/best-nootropics-for-studying/' }),
   openGraph: {
     title: 'Best Nootropics for Studying — Evidence-Graded',
     description: 'Sustained focus + memory consolidation. What students should actually take, and what to avoid.',

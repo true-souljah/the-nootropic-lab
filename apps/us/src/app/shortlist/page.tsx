@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Shortlist } from '@nootropic/ui';
+import { Shortlist, buildAlternates} from '@nootropic/ui';
 import { productsUS } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 
@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   description:
     'The nootropics you are considering. Stored on this device — share a copy-link to import the same picks on another device or browser. No account required.',
   robots: { index: false },
+  alternates: buildAlternates({ regionCode: 'us', path: '/shortlist/' }),
 };
 
 export default function ShortlistPage() {

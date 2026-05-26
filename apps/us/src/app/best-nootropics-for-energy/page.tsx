@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Listicle } from "@nootropic/ui";
+import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Best Nootropics for Energy ${CURRENT_YEAR}: Sustained Cognitive Energy Without the Crash`,
   description:
     'Independent ranking of nootropics for sustained cognitive energy. Caffeine + L-theanine, Rhodiola, B-vitamins, citicoline — what actually works without the crash.',
-  alternates: { canonical: `${SITE_URL}/best-nootropics-for-energy/` },
+  alternates: buildAlternates({ regionCode: 'us', path: '/best-nootropics-for-energy/' }),
   openGraph: {
     title: 'Best Nootropics for Energy — Evidence-Graded',
     description: 'Sustained cognitive energy without the caffeine crash. What evidence actually shows.',

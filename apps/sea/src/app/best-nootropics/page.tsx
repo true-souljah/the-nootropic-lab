@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { BestOf, SchemaOrg, Card, Chip, FaqAccordion } from '@nootropic/ui';
+import { BestOf, SchemaOrg, Card, Chip, FaqAccordion, buildAlternates} from '@nootropic/ui';
 import { productsSEA, buildPersonAuthorReference } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 
@@ -10,7 +10,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 export const metadata: Metadata = {
   title: `Best Nootropics in Southeast Asia ${CURRENT_YEAR} — SEA Buyer's Guide`,
   description: 'Top nootropic supplements for SEA buyers. Singapore, Malaysia, Thailand, Philippines, Indonesia, Vietnam — regulatory notes and shipping confirmed.',
-  alternates: { canonical: `${SITE_URL}/best-nootropics/` },
+  alternates: buildAlternates({ regionCode: 'sea', path: '/best-nootropics/' }),
 };
 
 const faqItems = [

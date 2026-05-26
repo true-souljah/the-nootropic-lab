@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { AffiliateDisclosure, SchemaOrg, Sources } from '@nootropic/ui';
+import { AffiliateDisclosure, SchemaOrg, Sources, buildAlternates} from '@nootropic/ui';
 import { productsEU, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const SITE_URL = 'https://eu.thenootropiclab.com';
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: 'EFSA-Approved Cognitive Supplement Claims (EU): The Authorised List + What It Actually Permits',
   description:
     'Under Regulation (EC) No 1924/2006, only EFSA-authorised health claims may appear on supplement labels in the EU. Very few cognitive claims are on the approved list. Full breakdown of what EFSA has authorised for cognition + audit of our EU catalog.',
-  alternates: { canonical: PAGE_URL },
+  alternates: buildAlternates({ regionCode: 'eu', path: '/efsa-approved-cognitive-supplements/', availableInRegions: ['eu'] }),
 };
 
 interface EfsaClaim {

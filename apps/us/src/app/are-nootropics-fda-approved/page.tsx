@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { AffiliateDisclosure, SchemaOrg, Sources } from '@nootropic/ui';
+import { AffiliateDisclosure, SchemaOrg, Sources, buildAlternates} from '@nootropic/ui';
 import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const SITE_URL = 'https://thenootropiclab.com';
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: 'Are Nootropics FDA Approved? DSHEA Framework, Structure-Function Claims & What FDA Approval Actually Means',
   description:
     'The FDA does not approve dietary supplements before market. Under DSHEA (1994), nootropic supplements operate in a different regulatory category from drugs. Full explainer + audit of every product in our US catalog against the DSHEA structure-function claim framework.',
-  alternates: { canonical: PAGE_URL },
+  alternates: buildAlternates({ regionCode: 'us', path: '/are-nootropics-fda-approved/', availableInRegions: ['us'] }),
 };
 
 const dsheaCompliantClaims = [

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { DoseCalculator } from '@nootropic/ui';
+import { DoseCalculator, buildAlternates} from '@nootropic/ui';
 import { ingredients, productsUS } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 
@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   description:
     'Build a custom nootropic stack and check each ingredient against the clinical-trial dose. Get a stack score and see the closest off-the-shelf product.',
   robots: { index: false },
+  alternates: buildAlternates({ regionCode: 'us', path: '/dose-calculator/' }),
 };
 
 export default function DoseCalculatorPage() {

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { SchemaOrg } from '@nootropic/ui';
+import { SchemaOrg, buildAlternates} from '@nootropic/ui';
 import { guides, buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://au.thenootropiclab.com';
@@ -25,6 +25,7 @@ export async function generateMetadata({
   return {
     title: `${g.title} — The Nootropic Lab AU`,
     description: g.description,
+    alternates: buildAlternates({ regionCode: 'au', path: `/guides/${guide}/` }),
   };
 }
 

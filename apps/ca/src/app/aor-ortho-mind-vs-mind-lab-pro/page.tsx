@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { HeadToHead } from "@nootropic/ui";
+import { HeadToHead, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { HeadToHeadFAQ } from '@nootropic/ui';
 import { productsCA, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: `AOR Ortho•Mind vs Mind Lab Pro ${CURRENT_YEAR}: NPN-Licensed vs International`,
   description:
     'Independent comparison of AOR Ortho•Mind vs Mind Lab Pro for Canadian buyers. Calgary-based, Health Canada NPN-licensed Canadian product vs international personal-import.',
-  alternates: { canonical: `${SITE_URL}/aor-ortho-mind-vs-mind-lab-pro/` },
+  alternates: buildAlternates({ regionCode: 'ca', path: '/aor-ortho-mind-vs-mind-lab-pro/', availableInRegions: ['ca'] }),
   openGraph: {
     title: 'AOR Ortho•Mind vs Mind Lab Pro — NPN vs International',
     description: 'Health Canada-licensed Canadian formula vs international personal-import. Which makes sense for CA buyers?',

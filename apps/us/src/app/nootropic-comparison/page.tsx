@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Comparator, SchemaOrg } from '@nootropic/ui';
+import { Comparator, SchemaOrg, buildAlternates} from '@nootropic/ui';
 import { productsUS } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 
@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: 'Nootropic Comparator: Filter & Compare Every Major US Brand Side-by-Side',
   description:
     'Filter by goal, price, grade, caffeine, EU compliance, and hands-on testing. Sort the table by score, price, value, or Trustpilot. Pick up to 3 to compare side-by-side.',
+  alternates: buildAlternates({ regionCode: 'us', path: '/nootropic-comparison/' }),
 };
 
 export default function ComparisonToolPage() {

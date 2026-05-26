@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { SchemaOrg } from '@nootropic/ui';
+import { SchemaOrg, buildAlternates} from '@nootropic/ui';
 
 const SITE_URL = 'https://sea.thenootropiclab.com';
 
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: 'About The Nootropic Lab SEA',
   description:
     'The Nootropic Lab SEA is an independent cognitive-supplement comparison site for Southeast Asia, Per-country regulatory notes for HSA, NPRA, BPOM, FDA, VFA — Halal certification flagged for ID/MY.',
-  alternates: { canonical: `${SITE_URL}/about/` },
+  alternates: buildAlternates({ regionCode: 'sea', path: '/about/' }),
 };
 
 const aboutSchema = {
