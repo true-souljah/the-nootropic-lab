@@ -1,12 +1,14 @@
 import type { Metadata } from 'next';
 
-import { PublicShell, buildAlternates} from "@nootropic/ui";
+import { PublicShell, buildAlternates, buildOpenGraph, buildTwitter} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: 'Privacy policy for The Nootropic Lab. How we collect, use, and protect your data.',
   alternates: buildAlternates({ regionCode: 'sea', path: '/privacy-policy/' }),
+  openGraph: buildOpenGraph({ regionCode: 'sea', path: '/privacy-policy/', title: 'Privacy Policy', description: 'Privacy policy for The Nootropic Lab. How we collect, use, and protect your data.' }),
+  twitter: buildTwitter({ title: 'Privacy Policy', description: 'Privacy policy for The Nootropic Lab. How we collect, use, and protect your data.' }),
 };
 
 export default function PrivacyPolicyPage() {

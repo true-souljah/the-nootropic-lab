@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { SchemaOrg, buildAlternates} from '@nootropic/ui';
+import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { guides } from '@nootropic/data';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   description:
     'Learn everything about nootropics available in the EU: what they are, how they work, how to stack them safely, and what to realistically expect.',
   alternates: buildAlternates({ regionCode: 'ca', path: '/guides/' }),
+  openGraph: buildOpenGraph({ regionCode: 'ca', path: '/guides/', title: `Nootropics Guides ${CURRENT_YEAR} — Canada, Beginner to Advanced`, description: 'Learn everything about nootropics available in the EU: what they are, how they work, how to stack them safely, and what to realistically expect.' }),
+  twitter: buildTwitter({ title: `Nootropics Guides ${CURRENT_YEAR} — Canada, Beginner to Advanced`, description: 'Learn everything about nootropics available in the EU: what they are, how they work, how to stack them safely, and what to realistically expect.' }),
 };
 
 const categoryLabels: Record<string, string> = {

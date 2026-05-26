@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { SchemaOrg, buildAlternates} from '@nootropic/ui';
+import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 
 const SITE_URL = 'https://latam.thenootropiclab.com';
 
@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description:
     'The Nootropic Lab Latam es un sitio independiente de comparación de suplementos cognitivos para América Latina, operado por . Reseñas basadas en evidencia, auditorías de dosificación clínica y divulgación transparente de afiliados.',
   alternates: buildAlternates({ regionCode: 'latam', path: '/about/' }),
+  openGraph: buildOpenGraph({ regionCode: 'latam', path: '/about/', title: 'Acerca de The Nootropic Lab Latam', description: 'The Nootropic Lab Latam es un sitio independiente de comparación de suplementos cognitivos para América Latina, operado por . Reseñas basadas en evidencia, auditorías de dosificación clínica y divulgación transparente de afiliados.' }),
+  twitter: buildTwitter({ title: 'Acerca de The Nootropic Lab Latam', description: 'The Nootropic Lab Latam es un sitio independiente de comparación de suplementos cognitivos para América Latina, operado por . Reseñas basadas en evidencia, auditorías de dosificación clínica y divulgación transparente de afiliados.' }),
 };
 
 const aboutSchema = {

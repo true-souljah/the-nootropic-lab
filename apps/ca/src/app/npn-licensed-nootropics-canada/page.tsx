@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { AffiliateDisclosure, SchemaOrg, Sources, buildAlternates} from '@nootropic/ui';
+import { AffiliateDisclosure, SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { productsCA, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const SITE_URL = 'https://ca.thenootropiclab.com';
@@ -14,6 +14,8 @@ export const metadata: Metadata = {
   description:
     'Natural Health Products in Canada must hold an NPN (Natural Product Number) issued by Health Canada to be legally sold. Full explainer of NHP regulations, NPN verification process, and audit of nootropic products in our Canadian catalog.',
   alternates: buildAlternates({ regionCode: 'ca', path: '/npn-licensed-nootropics-canada/', availableInRegions: ['ca'] }),
+  openGraph: buildOpenGraph({ regionCode: 'ca', path: '/npn-licensed-nootropics-canada/', title: 'NPN-Licensed Nootropics in Canada: Health Canada NHP Framework + Verification Guide', description: 'Natural Health Products in Canada must hold an NPN (Natural Product Number) issued by Health Canada to be legally sold. Full explainer of NHP regulations, NPN verification process, and audit of nootropic products in our Canadian catalog.' }),
+  twitter: buildTwitter({ title: 'NPN-Licensed Nootropics in Canada: Health Canada NHP Framework + Verification Guide', description: 'Natural Health Products in Canada must hold an NPN (Natural Product Number) issued by Health Canada to be legally sold. Full explainer of NHP regulations, NPN verification process, and audit of nootropic products in our Canadian catalog.' }),
 };
 
 interface NhpEvidenceCategory {

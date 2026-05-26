@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { BestOf, SchemaOrg, Card, Chip, FaqAccordion, buildAlternates} from '@nootropic/ui';
+import { BestOf, SchemaOrg, Card, Chip, FaqAccordion, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { productsJP, buildPersonAuthorReference } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 
@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   title: `Best Nootropics in Japan ${CURRENT_YEAR} (日本) — MHLW Import Guide`,
   description: 'Top nootropic supplements for Japan buyers. International brands with Japan shipping + domestic FANCL and Suntory options. MHLW import compliance notes.',
   alternates: buildAlternates({ regionCode: 'jp', path: '/best-nootropics/' }),
+  openGraph: buildOpenGraph({ regionCode: 'jp', path: '/best-nootropics/', title: `Best Nootropics in Japan ${CURRENT_YEAR} (日本) — MHLW Import Guide`, description: 'Top nootropic supplements for Japan buyers. International brands with Japan shipping + domestic FANCL and Suntory options. MHLW import compliance notes.' }),
+  twitter: buildTwitter({ title: `Best Nootropics in Japan ${CURRENT_YEAR} (日本) — MHLW Import Guide`, description: 'Top nootropic supplements for Japan buyers. International brands with Japan shipping + domestic FANCL and Suntory options. MHLW import compliance notes.' }),
 };
 
 const faqItems = [

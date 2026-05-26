@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { ImprintPage, buildAlternates} from '@nootropic/ui';
+import { ImprintPage, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 
 const SITE_URL = 'https://eu.thenootropiclab.com';
 const CONTACT_EMAIL = 'editorial@thenootropiclab.com';
@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description:
     'Impressum / Imprint for the EU edition of The Nootropic Lab. Publisher information, contact details, editorial standards, and affiliate-disclosure policy.',
   alternates: buildAlternates({ regionCode: 'eu', path: '/imprint/' }),
+  openGraph: buildOpenGraph({ regionCode: 'eu', path: '/imprint/', title: 'Impressum — The Nootropic Lab', description: 'Impressum / Imprint for the EU edition of The Nootropic Lab. Publisher information, contact details, editorial standards, and affiliate-disclosure policy.' }),
+  twitter: buildTwitter({ title: 'Impressum — The Nootropic Lab', description: 'Impressum / Imprint for the EU edition of The Nootropic Lab. Publisher information, contact details, editorial standards, and affiliate-disclosure policy.' }),
 };
 
 export default function Page() {

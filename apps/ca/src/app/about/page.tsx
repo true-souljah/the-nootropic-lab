@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { SchemaOrg, buildAlternates} from '@nootropic/ui';
+import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 
 const SITE_URL = 'https://ca.thenootropiclab.com';
 
@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description:
     'The Nootropic Lab Canada is an independent cognitive-supplement comparison site Bilingual (en-CA / fr-CA), Health Canada NPN-aware reviews, transparent affiliate disclosure.',
   alternates: buildAlternates({ regionCode: 'ca', path: '/about/' }),
+  openGraph: buildOpenGraph({ regionCode: 'ca', path: '/about/', title: 'About The Nootropic Lab Canada', description: 'The Nootropic Lab Canada is an independent cognitive-supplement comparison site Bilingual (en-CA / fr-CA), Health Canada NPN-aware reviews, transparent affiliate disclosure.' }),
+  twitter: buildTwitter({ title: 'About The Nootropic Lab Canada', description: 'The Nootropic Lab Canada is an independent cognitive-supplement comparison site Bilingual (en-CA / fr-CA), Health Canada NPN-aware reviews, transparent affiliate disclosure.' }),
 };
 
 const aboutSchema = {

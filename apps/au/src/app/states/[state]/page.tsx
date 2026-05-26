@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { SchemaOrg, buildAlternates} from '@nootropic/ui';
+import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { productsAU, auStates, buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://au.thenootropiclab.com';
@@ -29,6 +29,8 @@ export async function generateMetadata({
     title: `Best Nootropics in ${s.name} ${CURRENT_YEAR} — Australian Buyer's Guide`,
     description: `Buy nootropics in ${s.name}: TGA import notes, shipping info, and top-rated stacks for ${s.name} residents.`,
     alternates: buildAlternates({ regionCode: 'au', path: `/states/${state}/`, availableInRegions: ['au'] }),
+    openGraph: buildOpenGraph({ regionCode: 'au', path: `/states/${state}/`, title: `Best Nootropics in ${s.name} ${CURRENT_YEAR} — Australian Buyer's Guide`, description: `Buy nootropics in ${s.name}: TGA import notes, shipping info, and top-rated stacks for ${s.name} residents.` }),
+    twitter: buildTwitter({ title: `Best Nootropics in ${s.name} ${CURRENT_YEAR} — Australian Buyer's Guide`, description: `Buy nootropics in ${s.name}: TGA import notes, shipping info, and top-rated stacks for ${s.name} residents.` }),
   };
 }
 

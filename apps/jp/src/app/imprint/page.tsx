@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { ImprintPage, buildAlternates} from '@nootropic/ui';
+import { ImprintPage, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 
 const SITE_URL = 'https://jp.thenootropiclab.com';
 const CONTACT_EMAIL = 'editorial@thenootropiclab.com';
@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description:
     'Imprint for the Japanese edition of The Nootropic Lab. Publisher information, contact details, editorial standards, and affiliate-disclosure policy.',
   alternates: buildAlternates({ regionCode: 'jp', path: '/imprint/' }),
+  openGraph: buildOpenGraph({ regionCode: 'jp', path: '/imprint/', title: 'Imprint / 運営者情報 — The Nootropic Lab Japan', description: 'Imprint for the Japanese edition of The Nootropic Lab. Publisher information, contact details, editorial standards, and affiliate-disclosure policy.' }),
+  twitter: buildTwitter({ title: 'Imprint / 運営者情報 — The Nootropic Lab Japan', description: 'Imprint for the Japanese edition of The Nootropic Lab. Publisher information, contact details, editorial standards, and affiliate-disclosure policy.' }),
 };
 
 export default function Page() {

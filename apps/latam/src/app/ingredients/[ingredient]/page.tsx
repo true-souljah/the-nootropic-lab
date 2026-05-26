@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { SchemaOrg, buildAlternates} from '@nootropic/ui';
+import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { ingredients, productsLatam, buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://latam.thenootropiclab.com';
@@ -25,6 +25,8 @@ export async function generateMetadata({
     title: `${ing.name} — Guía Notrópica Latam, Dosificación, Efectos y Preguntas Frecuentes`,
     description: `${ing.name}: mecanismo de acción, dosis clínica (${ing.clinicalDose}), matriz de efectos en humanos, cómo tomarlo, guía de combinación y preguntas frecuentes — productos disponibles en Latam incluidos.`,
     alternates: buildAlternates({ regionCode: 'latam', path: `/ingredients/${ingredient}/` }),
+    openGraph: buildOpenGraph({ regionCode: 'latam', path: `/ingredients/${ingredient}/`, title: `${ing.name} — Guía Notrópica Latam, Dosificación, Efectos y Preguntas Frecuentes`, description: `${ing.name}: mecanismo de acción, dosis clínica (${ing.clinicalDose}), matriz de efectos en humanos, cómo tomarlo, guía de combinación y preguntas frecuentes — productos disponibles en Latam incluidos.` }),
+    twitter: buildTwitter({ title: `${ing.name} — Guía Notrópica Latam, Dosificación, Efectos y Preguntas Frecuentes`, description: `${ing.name}: mecanismo de acción, dosis clínica (${ing.clinicalDose}), matriz de efectos en humanos, cómo tomarlo, guía de combinación y preguntas frecuentes — productos disponibles en Latam incluidos.` }),
   };
 }
 

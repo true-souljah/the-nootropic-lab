@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { SchemaOrg, buildAlternates} from '@nootropic/ui';
+import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 
 const SITE_URL = 'https://latam.thenootropiclab.com';
 
@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   description:
     'Correcciones editoriales, consultas de asociación, comentarios de lectores. Contacta al equipo editorial de The Nootropic Lab Latam.',
   alternates: buildAlternates({ regionCode: 'latam', path: '/contact/' }),
+  openGraph: buildOpenGraph({ regionCode: 'latam', path: '/contact/', title: 'Contacta a The Nootropic Lab Latam', description: 'Correcciones editoriales, consultas de asociación, comentarios de lectores. Contacta al equipo editorial de The Nootropic Lab Latam.' }),
+  twitter: buildTwitter({ title: 'Contacta a The Nootropic Lab Latam', description: 'Correcciones editoriales, consultas de asociación, comentarios de lectores. Contacta al equipo editorial de The Nootropic Lab Latam.' }),
 };
 
 const contactSchema = {

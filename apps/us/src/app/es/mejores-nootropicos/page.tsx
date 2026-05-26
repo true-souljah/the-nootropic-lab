@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { ComparisonTable, AffiliateDisclosure, SchemaOrg, buildAlternates} from '@nootropic/ui';
+import { ComparisonTable, AffiliateDisclosure, SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { productsUS } from '@nootropic/data';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   title: `Mejores Nootrópicos ${CURRENT_YEAR}: Comparativa Experta para EE. UU.`,
   description: `Comparativa independiente de los mejores suplementos nootrópicos en ${CURRENT_YEAR}. Cada ingrediente auditado frente a ensayos clínicos. Puntuación transparente y divulgación de afiliados.`,
   alternates: buildAlternates({ regionCode: 'us', path: '/es/mejores-nootropicos/', availableInRegions: ['us'] }),
+  openGraph: buildOpenGraph({ regionCode: 'us', path: '/es/mejores-nootropicos/', title: `Mejores Nootrópicos ${CURRENT_YEAR}: Comparativa Experta para EE. UU.`, description: `Comparativa independiente de los mejores suplementos nootrópicos en ${CURRENT_YEAR}. Cada ingrediente auditado frente a ensayos clínicos. Puntuación transparente y divulgación de afiliados.` }),
+  twitter: buildTwitter({ title: `Mejores Nootrópicos ${CURRENT_YEAR}: Comparativa Experta para EE. UU.`, description: `Comparativa independiente de los mejores suplementos nootrópicos en ${CURRENT_YEAR}. Cada ingrediente auditado frente a ensayos clínicos. Puntuación transparente y divulgación de afiliados.` }),
 };
 
 export default function EsMejoresNootropicosPage() {

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { SchemaOrg, buildAlternates} from '@nootropic/ui';
+import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { guides } from '@nootropic/data';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   description:
     'Aprende todo sobre los nootrópicos disponibles en Latam: qué son, cómo funcionan, cómo combinarlos de forma segura y qué esperar de manera realista.',
   alternates: buildAlternates({ regionCode: 'latam', path: '/guides/' }),
+  openGraph: buildOpenGraph({ regionCode: 'latam', path: '/guides/', title: `Guías de Nootrópicos ${CURRENT_YEAR} — De Principiante a Avanzado`, description: 'Aprende todo sobre los nootrópicos disponibles en Latam: qué son, cómo funcionan, cómo combinarlos de forma segura y qué esperar de manera realista.' }),
+  twitter: buildTwitter({ title: `Guías de Nootrópicos ${CURRENT_YEAR} — De Principiante a Avanzado`, description: 'Aprende todo sobre los nootrópicos disponibles en Latam: qué son, cómo funcionan, cómo combinarlos de forma segura y qué esperar de manera realista.' }),
 };
 
 const categoryLabels: Record<string, string> = {

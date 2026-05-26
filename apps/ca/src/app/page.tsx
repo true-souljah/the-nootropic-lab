@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { SchemaOrg, buildAlternates} from '@nootropic/ui';
+import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 
 import LegacyShell from "@/components/LegacyShell";
 
@@ -9,6 +9,8 @@ export const metadata: Metadata = {
   description:
     'The independent nootropic comparison platform for Canadian buyers. Evidence-graded reviews, clinical dosing audits, and transparent affiliate disclosure.',
   alternates: buildAlternates({ regionCode: 'ca', path: '/' }),
+  openGraph: buildOpenGraph({ regionCode: 'ca', path: '/', title: 'The Nootropic Lab CA — Independent Cognitive Supplement Reviews', description: 'The independent nootropic comparison platform for Canadian buyers. Evidence-graded reviews, clinical dosing audits, and transparent affiliate disclosure.' }),
+  twitter: buildTwitter({ title: 'The Nootropic Lab CA — Independent Cognitive Supplement Reviews', description: 'The independent nootropic comparison platform for Canadian buyers. Evidence-graded reviews, clinical dosing audits, and transparent affiliate disclosure.' }),
 };
 
 const websiteSchema = {

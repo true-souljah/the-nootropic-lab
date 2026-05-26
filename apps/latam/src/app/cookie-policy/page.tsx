@@ -1,12 +1,14 @@
 import type { Metadata } from 'next';
 
-import { PublicShell, buildAlternates} from "@nootropic/ui";
+import { PublicShell, buildAlternates, buildOpenGraph, buildTwitter} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 
 export const metadata: Metadata = {
   title: 'Política de Cookies',
   description: 'Política de cookies de The Nootropic Lab. Qué cookies usamos y cómo controlarlas.',
   alternates: buildAlternates({ regionCode: 'latam', path: '/cookie-policy/' }),
+  openGraph: buildOpenGraph({ regionCode: 'latam', path: '/cookie-policy/', title: 'Política de Cookies', description: 'Política de cookies de The Nootropic Lab. Qué cookies usamos y cómo controlarlas.' }),
+  twitter: buildTwitter({ title: 'Política de Cookies', description: 'Política de cookies de The Nootropic Lab. Qué cookies usamos y cómo controlarlas.' }),
 };
 
 export default function CookiePolicyPage() {

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { SchemaOrg, buildAlternates} from '@nootropic/ui';
+import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { productsEU } from '@nootropic/data';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description:
     'A plataforma independente de comparação de nootrópicos para compradores europeus. Preços em EUR, produtos com conformidade UE e orientação regulamentar completa.',
   alternates: buildAlternates({ regionCode: 'eu', path: '/pt/', availableInRegions: ['eu'] }),
+  openGraph: buildOpenGraph({ regionCode: 'eu', path: '/pt/', title: 'The Nootropic Lab UE — Avaliações Independentes de Suplementos Cognitivos na Europa', description: 'A plataforma independente de comparação de nootrópicos para compradores europeus. Preços em EUR, produtos com conformidade UE e orientação regulamentar completa.' }),
+  twitter: buildTwitter({ title: 'The Nootropic Lab UE — Avaliações Independentes de Suplementos Cognitivos na Europa', description: 'A plataforma independente de comparação de nootrópicos para compradores europeus. Preços em EUR, produtos com conformidade UE e orientação regulamentar completa.' }),
 };
 
 const websiteSchema = {

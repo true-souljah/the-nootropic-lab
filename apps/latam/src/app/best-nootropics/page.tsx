@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { BestOf, SchemaOrg, Card, Chip, FaqAccordion, buildAlternates} from '@nootropic/ui';
+import { BestOf, SchemaOrg, Card, Chip, FaqAccordion, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { productsLatam, buildPersonAuthorReference } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 
@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   title: `Los Mejores Nootrópicos en Latinoamérica ${CURRENT_YEAR} — Guía del Comprador`,
   description: 'Los mejores suplementos nootrópicos para compradores en Latinoamérica. Envío internacional confirmado a México, Brasil, Argentina, Colombia, Chile y Perú.',
   alternates: buildAlternates({ regionCode: 'latam', path: '/best-nootropics/' }),
+  openGraph: buildOpenGraph({ regionCode: 'latam', path: '/best-nootropics/', title: `Los Mejores Nootrópicos en Latinoamérica ${CURRENT_YEAR} — Guía del Comprador`, description: 'Los mejores suplementos nootrópicos para compradores en Latinoamérica. Envío internacional confirmado a México, Brasil, Argentina, Colombia, Chile y Perú.' }),
+  twitter: buildTwitter({ title: `Los Mejores Nootrópicos en Latinoamérica ${CURRENT_YEAR} — Guía del Comprador`, description: 'Los mejores suplementos nootrópicos para compradores en Latinoamérica. Envío internacional confirmado a México, Brasil, Argentina, Colombia, Chile y Perú.' }),
 };
 
 const faqItems = [

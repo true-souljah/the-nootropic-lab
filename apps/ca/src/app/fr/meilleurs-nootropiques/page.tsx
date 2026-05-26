@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { ComparisonTable, AffiliateDisclosure, StickyCtaBar, SchemaOrg, buildAlternates} from '@nootropic/ui';
+import { ComparisonTable, AffiliateDisclosure, StickyCtaBar, SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { productsCA, buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://ca.thenootropiclab.com';
@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description:
     'Les suppléments nootropiques les mieux notés pour les acheteurs canadiens. Livraison au Canada confirmée, analyses fondées sur les données probantes et audit complet de dosage clinique.',
   alternates: buildAlternates({ regionCode: 'ca', path: '/fr/meilleurs-nootropiques/', availableInRegions: ['ca'] }),
+  openGraph: buildOpenGraph({ regionCode: 'ca', path: '/fr/meilleurs-nootropiques/', title: `Les meilleurs nootropiques au Canada ${new Date().getFullYear()} — Guide de l'acheteur canadien`, description: 'Les suppléments nootropiques les mieux notés pour les acheteurs canadiens. Livraison au Canada confirmée, analyses fondées sur les données probantes et audit complet de dosage clinique.' }),
+  twitter: buildTwitter({ title: `Les meilleurs nootropiques au Canada ${new Date().getFullYear()} — Guide de l'acheteur canadien`, description: 'Les suppléments nootropiques les mieux notés pour les acheteurs canadiens. Livraison au Canada confirmée, analyses fondées sur les données probantes et audit complet de dosage clinique.' }),
 };
 
 const faqItems = [

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { SchemaOrg, buildAlternates} from '@nootropic/ui';
+import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 
 const SITE_URL = 'https://thenootropiclab.com';
 
@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description:
     'The Nootropic Lab is an independent cognitive-supplement comparison site. Evidence-graded reviews, clinical dosing audits, transparent affiliate disclosure.',
   alternates: buildAlternates({ regionCode: 'us', path: '/about/' }),
+  openGraph: buildOpenGraph({ regionCode: 'us', path: '/about/', title: 'About The Nootropic Lab', description: 'The Nootropic Lab is an independent cognitive-supplement comparison site. Evidence-graded reviews, clinical dosing audits, transparent affiliate disclosure.' }),
+  twitter: buildTwitter({ title: 'About The Nootropic Lab', description: 'The Nootropic Lab is an independent cognitive-supplement comparison site. Evidence-graded reviews, clinical dosing audits, transparent affiliate disclosure.' }),
 };
 
 const aboutSchema = {

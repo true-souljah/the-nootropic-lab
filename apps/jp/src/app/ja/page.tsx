@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { SchemaOrg, buildAlternates} from '@nootropic/ui';
+import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   description:
     '日本の購入者向けの認知機能サプリメント独立比較レビュー。臨床投与量監査、厚生労働省輸入ガイドライン、透明なアフィリエイト開示。',
   alternates: buildAlternates({ regionCode: 'jp', path: '/ja/' }),
+  openGraph: buildOpenGraph({ regionCode: 'jp', path: '/ja/', title: 'The Nootropic Lab JP — 日本向けノートロピクス独立比較レビュー', description: '日本の購入者向けの認知機能サプリメント独立比較レビュー。臨床投与量監査、厚生労働省輸入ガイドライン、透明なアフィリエイト開示。' }),
+  twitter: buildTwitter({ title: 'The Nootropic Lab JP — 日本向けノートロピクス独立比較レビュー', description: '日本の購入者向けの認知機能サプリメント独立比較レビュー。臨床投与量監査、厚生労働省輸入ガイドライン、透明なアフィリエイト開示。' }),
 };
 
 const websiteSchema = {

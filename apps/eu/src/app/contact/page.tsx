@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { SchemaOrg, buildAlternates} from '@nootropic/ui';
+import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 
 const SITE_URL = 'https://eu.thenootropiclab.com';
 
@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   description:
     'Editorial corrections, partnership inquiries, reader feedback. Reach The Nootropic Lab EU editorial team.',
   alternates: buildAlternates({ regionCode: 'eu', path: '/contact/' }),
+  openGraph: buildOpenGraph({ regionCode: 'eu', path: '/contact/', title: 'Contact The Nootropic Lab EU', description: 'Editorial corrections, partnership inquiries, reader feedback. Reach The Nootropic Lab EU editorial team.' }),
+  twitter: buildTwitter({ title: 'Contact The Nootropic Lab EU', description: 'Editorial corrections, partnership inquiries, reader feedback. Reach The Nootropic Lab EU editorial team.' }),
 };
 
 const contactSchema = {

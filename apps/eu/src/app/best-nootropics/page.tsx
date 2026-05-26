@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { BestOf, SchemaOrg, Card, Chip, FaqAccordion, buildAlternates} from '@nootropic/ui';
+import { BestOf, SchemaOrg, Card, Chip, FaqAccordion, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { productsEU, buildPersonAuthorReference } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 
@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description:
     'The only nootropic comparison platform built for EU buyers. EUR pricing, EU regulatory compliance status (Directive 2002/46/EC), and full ingredient dosing audit.',
   alternates: buildAlternates({ regionCode: 'eu', path: '/best-nootropics/' }),
+  openGraph: buildOpenGraph({ regionCode: 'eu', path: '/best-nootropics/', title: `Best Nootropics in Europe ${CURRENT_YEAR}: EU-Compliant, EUR-Priced, Evidence-Graded`, description: 'The only nootropic comparison platform built for EU buyers. EUR pricing, EU regulatory compliance status (Directive 2002/46/EC), and full ingredient dosing audit.' }),
+  twitter: buildTwitter({ title: `Best Nootropics in Europe ${CURRENT_YEAR}: EU-Compliant, EUR-Priced, Evidence-Graded`, description: 'The only nootropic comparison platform built for EU buyers. EUR pricing, EU regulatory compliance status (Directive 2002/46/EC), and full ingredient dosing audit.' }),
 };
 
 const faqItems = [

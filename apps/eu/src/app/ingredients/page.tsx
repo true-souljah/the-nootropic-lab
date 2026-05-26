@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { IngredientLibrary, SchemaOrg, buildAlternates} from '@nootropic/ui';
+import { IngredientLibrary, SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { ingredients } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 
@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   description:
     'Compare evidence-backed nootropic ingredients. Clinical doses, mechanisms, time to effect, and which products contain them.',
   alternates: buildAlternates({ regionCode: 'eu', path: '/ingredients/' }),
+  openGraph: buildOpenGraph({ regionCode: 'eu', path: '/ingredients/', title: `Nootropic Ingredients Guide ${CURRENT_YEAR} — Clinical Doses & Evidence`, description: 'Compare evidence-backed nootropic ingredients. Clinical doses, mechanisms, time to effect, and which products contain them.' }),
+  twitter: buildTwitter({ title: `Nootropic Ingredients Guide ${CURRENT_YEAR} — Clinical Doses & Evidence`, description: 'Compare evidence-backed nootropic ingredients. Clinical doses, mechanisms, time to effect, and which products contain them.' }),
 };
 
 export default function IngredientsPage() {

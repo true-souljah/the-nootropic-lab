@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { SchemaOrg, buildAlternates} from '@nootropic/ui';
+import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { latamCountries, productsLatam, buildPersonAuthorReference } from '@nootropic/data';
 
 const SITE_URL = 'https://latam.thenootropiclab.com';
@@ -27,6 +27,8 @@ export async function generateMetadata({
     title: `Los Mejores Nootrópicos en ${c.name} ${CURRENT_YEAR} — Guía de Compra Latam`,
     description: `Compra nootrópicos en ${c.name}: regulaciones de importación, información de envío, notas de aduana y los mejores stacks para residentes de ${c.name}.`,
     alternates: buildAlternates({ regionCode: 'latam', path: `/countries/${country}/` }),
+    openGraph: buildOpenGraph({ regionCode: 'latam', path: `/countries/${country}/`, title: `Los Mejores Nootrópicos en ${c.name} ${CURRENT_YEAR} — Guía de Compra Latam`, description: `Compra nootrópicos en ${c.name}: regulaciones de importación, información de envío, notas de aduana y los mejores stacks para residentes de ${c.name}.` }),
+    twitter: buildTwitter({ title: `Los Mejores Nootrópicos en ${c.name} ${CURRENT_YEAR} — Guía de Compra Latam`, description: `Compra nootrópicos en ${c.name}: regulaciones de importación, información de envío, notas de aduana y los mejores stacks para residentes de ${c.name}.` }),
   };
 }
 
