@@ -7,6 +7,7 @@ import AppShell from './AppShell';
 import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
+import { LiveRegion } from '../primitives/LiveRegion';
 import type { Ingredient, Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 import { parseClinicalDose, statusFor, defaultDoseFor, type DoseStatus, type ParsedDose } from './doseRange';
@@ -208,8 +209,12 @@ export default function DoseCalculator({
             </p>
           </div>
           <div className="flex gap-[6px] items-center flex-wrap">
+            <LiveRegion message={notice ?? ''} />
             {notice && (
-              <span className="text-[12px] text-ds-good-ink bg-ds-good-soft px-3 py-[7px] rounded-[8px] font-medium">
+              <span
+                aria-hidden="true"
+                className="text-[12px] text-ds-good-ink bg-ds-good-soft px-3 py-[7px] rounded-[8px] font-medium"
+              >
                 {notice}
               </span>
             )}

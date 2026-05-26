@@ -52,6 +52,8 @@ export { FaqAccordion } from './primitives/FaqAccordion';
 export type { FaqAccordionProps, FaqItem } from './primitives/FaqAccordion';
 export { BrandMark } from './primitives/BrandMark';
 export type { BrandMarkProps } from './primitives/BrandMark';
+export { LiveRegion } from './primitives/LiveRegion';
+export type { LiveRegionProps } from './primitives/LiveRegion';
 
 // Public-surface chrome (Stack redesign — M2A foundation)
 export { FPDisclosure } from './public-chrome/FPDisclosure';
