@@ -77,6 +77,7 @@ export interface OpenGraphOutput {
   url: string;
   siteName: string;
   type: 'website' | 'article';
+  images: string[];
 }
 
 /**
@@ -84,6 +85,12 @@ export interface OpenGraphOutput {
  * description verbatim, sets the canonical URL for `url`, and a shared
  * siteName across the network. `type` defaults to `website`; pass `article`
  * for guides and editorial content.
+ *
+ * The `images` array points at the region's static `opengraph-image` route
+ * (Next.js generates this PNG at build time from `apps/{region}/src/app/
+ * opengraph-image.tsx`). We set this explicitly because Next.js's
+ * automatic file-based metadata merging only fires for inline `openGraph:
+ * { ... }` literals, not for objects returned from a helper call.
  */
 export function buildOpenGraph({
   regionCode,
@@ -98,6 +105,7 @@ export function buildOpenGraph({
     url: `${REGIONS[regionCode].siteUrl}${path}`,
     siteName: 'The Nootropic Lab',
     type,
+    images: [`${REGIONS[regionCode].siteUrl}/opengraph-image`],
   };
 }
 
@@ -105,10 +113,9 @@ export interface BuildTwitterParams {
   title: string;
   description: string;
   /**
-   * Twitter card type. Use `summary` (default) until OG images are deployed —
-   * `summary_large_image` requires an actual image and renders broken
-   * without one. Flip to `summary_large_image` in a follow-up PR after
-   * opengraph-image.* files exist per region.
+   * Twitter card type. Defaults to `summary_large_image` now that
+   * per-region `opengraph-image.tsx` files generate the required image at
+   * build time.
    */
   card?: 'summary' | 'summary_large_image';
 }
@@ -122,7 +129,7 @@ export interface TwitterOutput {
 export function buildTwitter({
   title,
   description,
-  card = 'summary',
+  card = 'summary_large_image',
 }: BuildTwitterParams): TwitterOutput {
   return { card, title, description };
 }
