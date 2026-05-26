@@ -39,7 +39,7 @@ export default function SiteHeader({ market, searchItems = [], strings }: { mark
           >
             {/* Lab flask mark */}
             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-              <rect width="28" height="28" rx="6" fill="#15803d" />
+              <rect width="28" height="28" rx="6" className="fill-ds-brand" />
               <path
                 d="M10 7h8M11 7v6l-4 7a1 1 0 00.9 1.5h12.2A1 1 0 0021 20l-4-7V7"
                 stroke="white"
