@@ -73,7 +73,9 @@ export function ComparatorCompareCard({ selectedProducts, onClear }: ComparatorC
                 ['Caps', `${p.capsulesPerServing}/day`],
                 ['MBG', `${p.moneyBackDays} days`],
                 ['Caffeine', p.caffeineFree ? 'Free' : 'Yes'],
-                ['Trustpilot', `${p.trustpilotScore} (${p.trustpilotCount?.toLocaleString() ?? 'n/a'})`],
+                ['Trustpilot', p.trustpilotScore === null
+                  ? 'N/A'
+                  : `${p.trustpilotScore} (${p.trustpilotCount?.toLocaleString() ?? 'n/a'})`],
               ].map(([k, v]) => (
                 <div
                   key={k}
