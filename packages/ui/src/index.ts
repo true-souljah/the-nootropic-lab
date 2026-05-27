@@ -96,12 +96,6 @@ export type { IngredientDetailProps } from './templates/IngredientDetail';
 export { default as PublicShell } from './templates/PublicShell';
 export type { PublicShellProps } from './templates/PublicShell';
 
-// Legacy shell — wraps un-migrated pages with the legacy SiteHeader + SiteFooter.
-// Each region app re-exports via a thin local wrapper that supplies the
-// region-specific market code + search index + strings.
-export { default as LegacyShell } from './templates/LegacyShell';
-export type { LegacyShellProps, LegacyShellMarket } from './templates/LegacyShell';
-
 // App shell + surfaces (Stack redesign — M3)
 export { default as AppShell } from './templates/AppShell';
 export type { AppShellProps, AppShellMode } from './templates/AppShell';
