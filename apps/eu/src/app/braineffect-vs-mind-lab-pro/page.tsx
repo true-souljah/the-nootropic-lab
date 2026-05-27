@@ -4,8 +4,8 @@ import { HeadToHead, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { HeadToHeadFAQ } from '@nootropic/ui';
 import { productsEU, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { SITE_URL } from '@/lib/region';
 
-const SITE_URL = 'https://eu.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
 
 const productA = productsEU.find(p => p.slug === 'braineffect-focus-review');

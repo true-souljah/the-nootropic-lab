@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { BestOf, SchemaOrg, Card, Chip, FaqAccordion, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { productsJP, buildPersonAuthorReference } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
+import { SITE_URL } from '@/lib/region';
 
-const SITE_URL = 'https://jp.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
 
 export const metadata: Metadata = {

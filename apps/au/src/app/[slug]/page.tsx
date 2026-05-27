@@ -3,8 +3,8 @@ import { notFound } from 'next/navigation';
 import { ProductDetail, SchemaOrg, buildAlternates} from '@nootropic/ui';
 import { productsAU, buildPersonAuthorReference } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
+import { SITE_URL } from '@/lib/region';
 
-const SITE_URL = 'https://au.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
 
 export const dynamicParams = false;

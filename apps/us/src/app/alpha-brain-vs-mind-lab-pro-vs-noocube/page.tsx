@@ -4,8 +4,8 @@ import { ThreeWay, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ThreeWayFAQ } from '@nootropic/ui';
 import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { SITE_URL } from '@/lib/region';
 
-const SITE_URL = 'https://thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
 
 const productA = productsUS.find(p => p.slug === 'onnit-alpha-brain-review');

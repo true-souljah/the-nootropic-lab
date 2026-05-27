@@ -4,8 +4,8 @@ import { Listicle, useCaseListPageEsStrings, buildAlternates} from "@nootropic/u
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsLatam, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { SITE_URL } from '@/lib/region';
 
-const SITE_URL = 'https://latam.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
 
 

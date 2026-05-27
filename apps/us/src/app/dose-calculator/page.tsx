@@ -2,8 +2,7 @@ import type { Metadata } from 'next';
 import { DoseCalculator, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { ingredients, productsUS } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
-
-const SITE_URL = 'https://thenootropiclab.com';
+import { SITE_URL } from '@/lib/region';
 
 export const metadata: Metadata = {
   title: 'Dose calculator — Nootropic Lab',

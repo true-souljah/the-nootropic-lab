@@ -2,8 +2,8 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { SchemaOrg, buildAlternates, PublicShell} from '@nootropic/ui';
 import { searchItems, uiStrings } from '@/lib/search';
+import { SITE_URL } from '@/lib/region';
 
-const SITE_URL = 'https://sea.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
 
 

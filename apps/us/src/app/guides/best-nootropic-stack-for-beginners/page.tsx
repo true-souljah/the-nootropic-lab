@@ -3,11 +3,11 @@ import Link from 'next/link';
 import { SchemaOrg, AffiliateDisclosure, buildAlternates} from '@nootropic/ui';
 import { buildPersonAuthorReference } from '@nootropic/data';
 
-const SITE_URL = 'https://thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
 
 import { PublicShell } from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
+import { SITE_URL } from '@/lib/region';
 
 export const metadata: Metadata = {
   title: `Best Nootropic Stack for Beginners ${CURRENT_YEAR}: Start Here`,

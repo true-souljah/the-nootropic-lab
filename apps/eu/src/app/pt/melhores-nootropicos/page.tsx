@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { ComparisonTable, AffiliateDisclosure, SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
 import { productsEU, buildPersonAuthorReference } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
+import { SITE_URL } from '@/lib/region';
 
-const SITE_URL = 'https://eu.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
 
 

@@ -2,10 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 
-const SITE_URL = 'https://thenootropiclab.com';
-
 import { PublicShell } from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
+import { SITE_URL } from '@/lib/region';
 
 export const metadata: Metadata = {
   title: 'About The Nootropic Lab',

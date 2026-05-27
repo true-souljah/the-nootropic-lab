@@ -3,12 +3,12 @@ import Link from 'next/link';
 import { AffiliateDisclosure, SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
 
-const SITE_URL = 'https://thenootropiclab.com';
 const PAGE_URL = `${SITE_URL}/are-nootropics-fda-approved/`;
 const auditDateIso = new Date().toISOString().split('T')[0];
 
 import { PublicShell } from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
+import { SITE_URL } from '@/lib/region';
 
 export const metadata: Metadata = {
   title: 'Are Nootropics FDA Approved? DSHEA Framework, Structure-Function Claims & What FDA Approval Actually Means',

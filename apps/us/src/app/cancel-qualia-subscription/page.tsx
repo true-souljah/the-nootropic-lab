@@ -3,8 +3,7 @@ import { SubscriptionCancellationPage, PublicShell, buildAlternates } from '@noo
 import type { CancellationStep, CancellationFAQ } from '@nootropic/ui';
 import { getAuthorBySlug } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
-
-const SITE_URL = 'https://thenootropiclab.com';
+import { SITE_URL } from '@/lib/region';
 
 export const metadata: Metadata = {
   title: 'How to Cancel Qualia Mind Subscription (Neurohacker Collective) — Step-by-Step',

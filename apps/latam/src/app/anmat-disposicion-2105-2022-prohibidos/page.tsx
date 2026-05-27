@@ -15,8 +15,8 @@ import {
   getRegionalHealthDisclaimer,
 } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
+import { SITE_URL } from '@/lib/region';
 
-const SITE_URL = 'https://latam.thenootropiclab.com';
 const PAGE_URL = `${SITE_URL}/anmat-disposicion-2105-2022-prohibidos/`;
 
 

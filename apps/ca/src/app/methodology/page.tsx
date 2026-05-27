@@ -2,10 +2,9 @@ import type { Metadata } from 'next';
 import { SchemaOrg, EditorialStandardsSection, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { buildPersonAuthorReference } from '@nootropic/data';
 
-const SITE_URL = 'https://ca.thenootropiclab.com';
-
 import { PublicShell } from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
+import { SITE_URL } from '@/lib/region';
 
 export const metadata: Metadata = {
   title: 'How We Review Nootropics — Our Methodology',
