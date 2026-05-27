@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
-import { ComparisonTable, AffiliateDisclosure, SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
+import { ComparisonTable, AffiliateDisclosure, SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
 import { productsJP } from '@nootropic/data';
+import { searchItems, uiStrings } from '@/lib/search';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
-import LegacyShell from "@/components/LegacyShell";
 
 export const metadata: Metadata = {
   title: 'ノートロピクス比較 — 日本向け全ブランド比較表',
@@ -29,8 +29,8 @@ export default function JaHikakuPage() {
   };
 
   return (
-    <LegacyShell>
-    <div lang="ja">
+    <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
+    
       <SchemaOrg schema={itemListSchema} />
       <div className="max-w-5xl mx-auto px-4 py-10">
         <h1 className="text-3xl font-bold text-gray-900 mb-3">
@@ -50,7 +50,6 @@ export default function JaHikakuPage() {
           </a>
         </div>
       </div>
-    </div>
-    </LegacyShell>
+    </PublicShell>
   );
 }

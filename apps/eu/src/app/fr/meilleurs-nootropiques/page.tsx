@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ComparisonTable, AffiliateDisclosure, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
+import { ComparisonTable, AffiliateDisclosure, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
 import { productsEU } from '@nootropic/data';
+import { searchItems, uiStrings } from '@/lib/search';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
-import LegacyShell from "@/components/LegacyShell";
 
 export const metadata: Metadata = {
   title: `Meilleurs Nootropiques ${CURRENT_YEAR} Europe: Comparatif Complet`,
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function MeilleursNootropiquesFR() {
   return (
-    <LegacyShell>
+    <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
     <article className="max-w-5xl mx-auto px-4 py-10" lang="fr">
       <div className="mb-2 text-xs text-gray-500">
         Dernière mise à jour :{' '}
@@ -64,6 +64,6 @@ export default function MeilleursNootropiquesFR() {
         </Link>
       </div>
     </article>
-    </LegacyShell>
+    </PublicShell>
   );
 }
