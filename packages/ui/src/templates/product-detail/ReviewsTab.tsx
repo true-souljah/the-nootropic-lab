@@ -6,6 +6,38 @@ export interface ReviewsTabProps {
 }
 
 export function ReviewsTab({ product: p }: ReviewsTabProps) {
+  // When the vendor has no Trustpilot profile (Amazon-only listings, Lazada,
+  // regional pharmacy chains, some major JP brands), render an "N/A" card
+  // instead of showing a literal 0/5 with 0 reviews. The composite editorial
+  // score already feeds into the Trust pillar elsewhere.
+  if (p.trustpilotScore === null) {
+    return (
+      <div className="grid gap-4 items-start grid-cols-1">
+        <Card padding={28}>
+          <div className="flex flex-col items-center text-center max-w-[480px] mx-auto">
+            <div
+              className="w-16 h-16 bg-ds-card-sub text-ds-muted rounded-full grid place-items-center text-[28px] font-bold mb-4"
+              aria-hidden="true"
+            >
+              —
+            </div>
+            <h3 className="text-[20px] font-bold tracking-[-0.01em] m-0 mb-2 text-ds-ink">
+              No Trustpilot profile
+            </h3>
+            <p className="text-[13.5px] text-ds-ink-soft m-0 mb-2 leading-[1.6]">
+              {p.brand} doesn&apos;t have an active Trustpilot listing — this is common for
+              Amazon-only sellers, marketplace brands, and regional pharmacy chains.
+            </p>
+            <p className="text-[13.5px] text-ds-ink-soft m-0 leading-[1.6]">
+              The Trust pillar in our editorial score still applies and reflects brand reputation,
+              third-party testing, and refund track record.
+            </p>
+          </div>
+        </Card>
+      </div>
+    );
+  }
+
   const trustpilotHost = (() => {
     try {
       return new URL(p.affiliateUrl).host;
@@ -13,6 +45,7 @@ export function ReviewsTab({ product: p }: ReviewsTabProps) {
       return p.affiliateUrl;
     }
   })();
+  const reviewCount = p.trustpilotCount ?? 0;
 
   return (
     <div className="grid gap-4 items-start grid-cols-1 lg:grid-cols-[320px_1fr]">
@@ -34,14 +67,14 @@ export function ReviewsTab({ product: p }: ReviewsTabProps) {
             <span
               key={star}
               aria-hidden="true"
-              className={star <= Math.round(p.trustpilotScore) ? 'text-ds-warn' : 'text-ds-faint'}
+              className={star <= Math.round(p.trustpilotScore as number) ? 'text-ds-warn' : 'text-ds-faint'}
             >
               ★
             </span>
           ))}
         </div>
         <div className="text-[12px] text-ds-muted mt-2">
-          {p.trustpilotCount.toLocaleString()} reviews on Trustpilot
+          {reviewCount.toLocaleString()} reviews on Trustpilot
         </div>
       </Card>
 
@@ -54,7 +87,7 @@ export function ReviewsTab({ product: p }: ReviewsTabProps) {
             ★
           </div>
           <h3 className="text-[20px] font-bold tracking-[-0.01em] m-0 mb-2 text-ds-ink">
-            {p.trustpilotCount.toLocaleString()} verified reviews
+            {reviewCount.toLocaleString()} verified reviews
           </h3>
           <p className="text-[13.5px] text-ds-ink-soft m-0 mb-5 leading-[1.6]">
             We don&apos;t embed cherry-picked quotes here. Trustpilot is the canonical source —
@@ -66,7 +99,7 @@ export function ReviewsTab({ product: p }: ReviewsTabProps) {
             rel="noopener noreferrer"
             className="inline-block bg-ds-accent hover:bg-ds-accent-press text-white px-5 py-[10px] rounded-[8px] text-[13px] font-semibold no-underline focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
           >
-            Read all {p.trustpilotCount.toLocaleString()} reviews on Trustpilot →
+            Read all {reviewCount.toLocaleString()} reviews on Trustpilot →
           </a>
         </div>
       </Card>

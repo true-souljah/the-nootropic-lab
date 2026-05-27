@@ -248,14 +248,18 @@ export default function BestOf({
                     <span>Trustpilot</span>
                     <span
                       className={
-                        p.trustpilotScore >= 4
-                          ? 'text-ds-good-ink font-semibold'
-                          : p.trustpilotScore < 3.5
-                            ? 'text-ds-bad-ink font-semibold'
-                            : 'text-ds-ink'
+                        p.trustpilotScore === null
+                          ? 'text-ds-muted'
+                          : p.trustpilotScore >= 4
+                            ? 'text-ds-good-ink font-semibold'
+                            : p.trustpilotScore < 3.5
+                              ? 'text-ds-bad-ink font-semibold'
+                              : 'text-ds-ink'
                       }
                     >
-                      {p.trustpilotScore} ({p.trustpilotCount?.toLocaleString() ?? 'n/a'})
+                      {p.trustpilotScore === null
+                        ? 'N/A'
+                        : `${p.trustpilotScore} (${p.trustpilotCount?.toLocaleString() ?? 'n/a'})`}
                     </span>
                   </div>
                   <div className="flex justify-between">

@@ -569,18 +569,26 @@ export default function Comparator({
                     <div
                       role="gridcell"
                       className={`px-[14px] py-3 text-right ds-tabular ${
-                        p.trustpilotScore >= 4
-                          ? 'text-ds-good-ink font-semibold'
-                          : p.trustpilotScore < 3.5
-                            ? 'text-ds-bad-ink font-semibold'
-                            : 'text-ds-ink'
+                        p.trustpilotScore === null
+                          ? 'text-ds-muted'
+                          : p.trustpilotScore >= 4
+                            ? 'text-ds-good-ink font-semibold'
+                            : p.trustpilotScore < 3.5
+                              ? 'text-ds-bad-ink font-semibold'
+                              : 'text-ds-ink'
                       }`}
                       style={{ flex: '0 0 130px' }}
                     >
-                      {p.trustpilotScore}{' '}
-                      <span className="text-ds-muted font-normal">
-                        · {p.trustpilotCount?.toLocaleString() ?? 'n/a'}
-                      </span>
+                      {p.trustpilotScore === null ? (
+                        <span className="text-ds-muted">N/A</span>
+                      ) : (
+                        <>
+                          {p.trustpilotScore}{' '}
+                          <span className="text-ds-muted font-normal">
+                            · {p.trustpilotCount?.toLocaleString() ?? 'n/a'}
+                          </span>
+                        </>
+                      )}
                     </div>
                     <div
                       role="gridcell"
@@ -669,7 +677,9 @@ export default function Comparator({
                         ['Caps', `${p.capsulesPerServing}/day`],
                         ['MBG', `${p.moneyBackDays} days`],
                         ['Caffeine', p.caffeineFree ? 'Free' : 'Yes'],
-                        ['Trustpilot', `${p.trustpilotScore} (${p.trustpilotCount?.toLocaleString() ?? 'n/a'})`],
+                        ['Trustpilot', p.trustpilotScore === null
+                          ? 'N/A'
+                          : `${p.trustpilotScore} (${p.trustpilotCount?.toLocaleString() ?? 'n/a'})`],
                       ].map(([k, v]) => (
                         <div
                           key={k}
