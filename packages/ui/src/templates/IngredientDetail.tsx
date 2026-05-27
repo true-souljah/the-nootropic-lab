@@ -176,10 +176,13 @@ export default function IngredientDetail({
       <SchemaOrg schema={faqSchema} />
       <SchemaOrg schema={howToSchema} />
 
+      <a href="#main-content" className="ds-skip-link">
+        Skip to main content
+      </a>
       <FPDisclosure methodologyHref="/methodology" />
       <FPHeader searchItems={searchItems} strings={uiStrings} />
 
-      <main className="max-w-[1100px] mx-auto px-6 pt-7">
+      <main id="main-content" className="max-w-[1100px] mx-auto px-6 pt-7">
         <nav aria-label="Breadcrumb" className="text-[12.5px] text-ds-muted mb-[18px]">
           <ol className="flex items-center gap-2 list-none p-0 m-0">
             <li><Link href="/" className="hover:text-ds-ink">{uiStrings?.breadcrumb.home ?? 'Home'}</Link></li>

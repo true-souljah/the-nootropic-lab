@@ -6,6 +6,7 @@ import AppShell from './AppShell';
 import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { SparkBars } from '../primitives/SparkBars';
+import { LiveRegion } from '../primitives/LiveRegion';
 import type { Ingredient, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 
@@ -95,6 +96,11 @@ export default function IngredientLibrary({
     [graded, grade]
   );
 
+  const filterAnnouncement =
+    grade === 'All'
+      ? `Showing all ${visible.length} ingredients`
+      : `Showing ${visible.length} grade-${grade} ingredient${visible.length === 1 ? '' : 's'}`;
+
   return (
     <AppShell
       mode="persistent"
@@ -103,6 +109,7 @@ export default function IngredientLibrary({
       uiStrings={uiStrings}
       sidebarMeta={`${ingredients.length} ingredients`}
     >
+      <LiveRegion message={filterAnnouncement} />
       <div className="px-7 pt-7 pb-10">
         {/* Header */}
         <div className="flex justify-between items-end mb-[18px] flex-wrap gap-4">
