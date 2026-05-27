@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { AffiliateDisclosure, SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
+import { AffiliateDisclosure, SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
 import { productsJP, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { searchItems, uiStrings } from '@/lib/search';
 
 const SITE_URL = 'https://jp.thenootropiclab.com';
 const PAGE_URL = `${SITE_URL}/ffc-notified-cognitive-supplements/`;
 const auditDateIso = new Date().toISOString().split('T')[0];
 
-import LegacyShell from "@/components/LegacyShell";
 
 export const metadata: Metadata = {
   title: 'FFC-Notified Cognitive Supplements (Japan) — 機能性表示食品 + FOSHU Framework Guide',
@@ -90,7 +90,7 @@ const faqSchema = {
 
 export default function Page() {
   return (
-    <LegacyShell>
+    <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
       <SchemaOrg schema={articleSchema} />
       <SchemaOrg schema={datasetSchema} />
       <SchemaOrg schema={faqSchema} />
@@ -214,6 +214,6 @@ export default function Page() {
           <Link href="/methodology/" className="text-green-700 underline">Methodology</Link>
         </div>
       </article>
-    </LegacyShell>
+    </PublicShell>
   );
 }
