@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { AffiliateDisclosure, SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
 import { productsGCC, getRegionalHealthDisclaimer } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
+import { SITE_URL } from '@/lib/region';
 
-const SITE_URL = 'https://gcc.thenootropiclab.com';
 const PAGE_URL = `${SITE_URL}/halal-certified-nootropics/`;
 const auditDateIso = new Date().toISOString().split('T')[0];
 

@@ -3,10 +3,9 @@ import { notFound } from 'next/navigation';
 import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { guides, buildPersonAuthorReference } from '@nootropic/data';
 
-const SITE_URL = 'https://ca.thenootropiclab.com';
-
 import { PublicShell } from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
+import { SITE_URL } from '@/lib/region';
 
 export const dynamicParams = false;
 

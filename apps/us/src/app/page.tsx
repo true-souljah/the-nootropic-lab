@@ -3,10 +3,9 @@ import type { Metadata } from 'next';
 import { Discover, SchemaOrg, Card, buildAlternates} from '@nootropic/ui';
 import { productsUS } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
+import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
-const SITE_URL = 'https://thenootropiclab.com';
-
 export const metadata: Metadata = {
   title: 'The Nootropic Lab — Independent Cognitive Supplement Reviews',
   description:

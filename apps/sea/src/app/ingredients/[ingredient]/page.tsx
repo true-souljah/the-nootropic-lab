@@ -3,8 +3,7 @@ import { notFound } from 'next/navigation';
 import { IngredientDetail, buildAlternates, buildOpenGraph, buildTwitter } from '@nootropic/ui';
 import { ingredients, productsSEA } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
-
-const SITE_URL = 'https://sea.thenootropiclab.com';
+import { SITE_URL } from '@/lib/region';
 
 export const dynamicParams = false;
 

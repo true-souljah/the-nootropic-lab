@@ -4,8 +4,8 @@ import { HeadToHead, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { HeadToHeadFAQ } from '@nootropic/ui';
 import { productsCA, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { SITE_URL } from '@/lib/region';
 
-const SITE_URL = 'https://ca.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
 
 const productA = productsCA.find(p => p.slug === 'aor-ortho-mind-review');

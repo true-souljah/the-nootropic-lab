@@ -3,12 +3,12 @@ import Link from 'next/link';
 import { AffiliateDisclosure, SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { productsEU, getRegionalHealthDisclaimer } from '@nootropic/data';
 
-const SITE_URL = 'https://eu.thenootropiclab.com';
 const PAGE_URL = `${SITE_URL}/efsa-approved-cognitive-supplements/`;
 const auditDateIso = new Date().toISOString().split('T')[0];
 
 import { PublicShell } from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
+import { SITE_URL } from '@/lib/region';
 
 export const metadata: Metadata = {
   title: 'EFSA-Approved Cognitive Supplement Claims (EU): The Authorised List + What It Actually Permits',
