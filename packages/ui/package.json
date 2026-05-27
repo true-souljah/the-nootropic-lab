@@ -10,6 +10,9 @@
     "next": "*",
     "react": "^19.2.6"
   },
+  "scripts": {
+    "test": "vitest run"
+  },
   "dependencies": {
     "klaro": "^0.7.21",
     "lucide-react": "^0.469.0"

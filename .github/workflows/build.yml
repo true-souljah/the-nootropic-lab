@@ -32,6 +32,18 @@ jobs:
       - run: npm ci
       - run: npx tsc --noEmit -p packages/ui/tsconfig.json
 
+  test:
+    name: packages/ui unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm test
+
   build:
     name: build ${{ matrix.app }}
     runs-on: ubuntu-latest
