@@ -15,6 +15,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/best-nootropics-for-studying`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
     { url: `${BASE}/best-nootropics-for-aging`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
     { url: `${BASE}/nootropic-comparison`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE}/anmat-disposicion-2105-2022-prohibidos`, lastModified: now, changeFrequency: 'monthly', priority: 0.75 },
+    { url: `${BASE}/imprint`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE}/methodology`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
     { url: `${BASE}/about`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
     { url: `${BASE}/contact`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
