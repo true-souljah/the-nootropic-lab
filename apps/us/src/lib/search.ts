@@ -1,13 +1,5 @@
-import {
-  productsUS,
-  ingredients,
-  guides,
-  buildSearchIndex,
-  getStrings,
-} from '@nootropic/data';
+import { productsUS, buildRegionSearchContext } from '@nootropic/data';
 
-/** Site search index used by the embedded SearchModal in FPHeader. */
-export const searchItems = buildSearchIndex(productsUS, ingredients, guides);
-
-/** UI strings (en) used by chrome that exposes translated copy. */
-export const uiStrings = getStrings('en');
+// Region-specific SearchModal index + UIStrings, built once at module load.
+// Both exports are consumed by FPHeader / PublicShell / templates.
+export const { searchItems, uiStrings } = buildRegionSearchContext(productsUS, 'en');

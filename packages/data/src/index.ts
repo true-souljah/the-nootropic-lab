@@ -29,6 +29,8 @@ export type { SearchItem, SearchItemMeta } from './search';
 export { buildSearchIndex } from './search';
 export type { Locale, UIStrings } from './i18n';
 export { getStrings, getLocaleForMarket } from './i18n';
+export { buildRegionSearchContext } from './region-search';
+export type { RegionSearchContext } from './region-search';
 export type { Author } from './authors';
 export { authors, getAuthorBySlug, buildPersonSchema, buildPersonAuthorReference } from './authors';
 export type { DisclaimerMarket } from './regional-disclaimers';

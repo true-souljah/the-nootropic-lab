@@ -1,10 +1,5 @@
-import {
-  productsSEA,
-  ingredients,
-  guides,
-  buildSearchIndex,
-  getStrings,
-} from '@nootropic/data';
+import { productsSEA, buildRegionSearchContext } from '@nootropic/data';
 
-export const searchItems = buildSearchIndex(productsSEA, ingredients, guides);
-export const uiStrings = getStrings('en');
+// Region-specific SearchModal index + UIStrings, built once at module load.
+// Both exports are consumed by FPHeader / PublicShell / templates.
+export const { searchItems, uiStrings } = buildRegionSearchContext(productsSEA, 'en');
