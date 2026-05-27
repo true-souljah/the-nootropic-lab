@@ -61,6 +61,66 @@ export interface UIStrings {
     backToBestNootropics: string;
     backToIngredientsGuide: string;
   };
+  ingredientDetail: {
+    chips: {
+      clinicalDose: string;
+      onset: string;
+    };
+    sections: {
+      mechanism: string;
+      evidence: string;
+      effects: string;
+      benefits: string;
+      sideEffects: string;
+      howTo: string;
+      stacking: string;
+      faq: string;
+      related: string;
+    };
+    /** TOC labels in the sidebar Quick facts card. */
+    toc: {
+      mechanism: string;
+      evidence: string;
+      effects: string;
+      benefits: string;
+      howTo: string;
+      stacking: string;
+      faq: string;
+      products: string;
+      related: string;
+    };
+    table: {
+      effect: string;
+      evidence: string;
+      magnitude: string;
+      studies: string;
+      notes: string;
+    };
+    magnitude: {
+      large: string;
+      moderate: string;
+      small: string;
+      negligible: string;
+    };
+    category: {
+      adaptogen: string;
+      cholinergic: string;
+      mushroom: string;
+      amino: string;
+      herb: string;
+      vitamin: string;
+    };
+    sidebar: {
+      quickFacts: string;
+      onThisPage: string;
+      category: string;
+      dose: string;
+      onset: string;
+      trials: string;
+    };
+    /** Template with {name} placeholder. */
+    stackingLede: string;
+  };
 }
 
 const en: UIStrings = {
@@ -122,6 +182,56 @@ const en: UIStrings = {
     ingredients: 'Ingredients',
     backToBestNootropics: '← Back to Best Nootropics',
     backToIngredientsGuide: '← Back to Ingredients Guide',
+  },
+  ingredientDetail: {
+    chips: { clinicalDose: 'Clinical dose', onset: 'Onset' },
+    sections: {
+      mechanism: 'Mechanism of action',
+      evidence: 'Clinical evidence summary',
+      effects: 'Human effect matrix',
+      benefits: 'Documented benefits',
+      sideEffects: 'Side effects & cautions',
+      howTo: 'How to take',
+      stacking: 'Stacking recommendations',
+      faq: 'Frequently asked questions',
+      related: 'Related ingredients',
+    },
+    toc: {
+      mechanism: 'Mechanism',
+      evidence: 'Clinical evidence',
+      effects: 'Effect matrix',
+      benefits: 'Benefits & side effects',
+      howTo: 'How to take',
+      stacking: 'Stacking',
+      faq: 'FAQ',
+      products: 'Products with it',
+      related: 'Related ingredients',
+    },
+    table: {
+      effect: 'Effect',
+      evidence: 'Evidence',
+      magnitude: 'Magnitude',
+      studies: 'Studies',
+      notes: 'Notes',
+    },
+    magnitude: { large: 'Large', moderate: 'Moderate', small: 'Small', negligible: 'Negligible' },
+    category: {
+      adaptogen: 'Adaptogen',
+      cholinergic: 'Cholinergic',
+      mushroom: 'Mushroom',
+      amino: 'Amino Acid',
+      herb: 'Herb',
+      vitamin: 'Vitamin',
+    },
+    sidebar: {
+      quickFacts: 'Quick facts',
+      onThisPage: 'On this page',
+      category: 'Category',
+      dose: 'Dose',
+      onset: 'Onset',
+      trials: 'Trials',
+    },
+    stackingLede: 'Ingredients that pair well with {name} and why.',
   },
 };
 
@@ -185,6 +295,56 @@ const es: UIStrings = {
     backToBestNootropics: '← Volver a Los Mejores Nootrópicos',
     backToIngredientsGuide: '← Volver a la Guía de Ingredientes',
   },
+  ingredientDetail: {
+    chips: { clinicalDose: 'Dosis clínica', onset: 'Inicio de acción' },
+    sections: {
+      mechanism: 'Mecanismo de acción',
+      evidence: 'Resumen de evidencia clínica',
+      effects: 'Matriz de efectos en humanos',
+      benefits: 'Beneficios documentados',
+      sideEffects: 'Efectos secundarios y precauciones',
+      howTo: 'Cómo tomarlo',
+      stacking: 'Recomendaciones de combinación',
+      faq: 'Preguntas frecuentes',
+      related: 'Ingredientes relacionados',
+    },
+    toc: {
+      mechanism: 'Mecanismo',
+      evidence: 'Evidencia clínica',
+      effects: 'Matriz de efectos',
+      benefits: 'Beneficios y efectos secundarios',
+      howTo: 'Cómo tomarlo',
+      stacking: 'Combinación',
+      faq: 'Preguntas frecuentes',
+      products: 'Productos que lo contienen',
+      related: 'Ingredientes relacionados',
+    },
+    table: {
+      effect: 'Efecto',
+      evidence: 'Evidencia',
+      magnitude: 'Magnitud',
+      studies: 'Estudios',
+      notes: 'Notas',
+    },
+    magnitude: { large: 'Grande', moderate: 'Moderado', small: 'Pequeño', negligible: 'Insignificante' },
+    category: {
+      adaptogen: 'Adaptógeno',
+      cholinergic: 'Colinérgico',
+      mushroom: 'Hongo',
+      amino: 'Aminoácido',
+      herb: 'Hierba',
+      vitamin: 'Vitamina',
+    },
+    sidebar: {
+      quickFacts: 'Datos rápidos',
+      onThisPage: 'En esta página',
+      category: 'Categoría',
+      dose: 'Dosis',
+      onset: 'Inicio',
+      trials: 'Ensayos',
+    },
+    stackingLede: 'Ingredientes que se combinan bien con {name} y por qué.',
+  },
 };
 
 const fr: UIStrings = {
@@ -246,6 +406,56 @@ const fr: UIStrings = {
     ingredients: 'Ingrédients',
     backToBestNootropics: '← Retour aux Meilleurs Nootropiques',
     backToIngredientsGuide: '← Retour au Guide des Ingrédients',
+  },
+  ingredientDetail: {
+    chips: { clinicalDose: 'Dose clinique', onset: 'Délai d\'action' },
+    sections: {
+      mechanism: 'Mécanisme d\'action',
+      evidence: 'Résumé des preuves cliniques',
+      effects: 'Matrice des effets humains',
+      benefits: 'Bénéfices documentés',
+      sideEffects: 'Effets indésirables et précautions',
+      howTo: 'Comment le prendre',
+      stacking: 'Recommandations de combinaison',
+      faq: 'Questions fréquentes',
+      related: 'Ingrédients connexes',
+    },
+    toc: {
+      mechanism: 'Mécanisme',
+      evidence: 'Preuves cliniques',
+      effects: 'Matrice des effets',
+      benefits: 'Bénéfices et effets indésirables',
+      howTo: 'Comment le prendre',
+      stacking: 'Combinaison',
+      faq: 'FAQ',
+      products: 'Produits qui en contiennent',
+      related: 'Ingrédients connexes',
+    },
+    table: {
+      effect: 'Effet',
+      evidence: 'Preuves',
+      magnitude: 'Ampleur',
+      studies: 'Études',
+      notes: 'Notes',
+    },
+    magnitude: { large: 'Grand', moderate: 'Modéré', small: 'Petit', negligible: 'Négligeable' },
+    category: {
+      adaptogen: 'Adaptogène',
+      cholinergic: 'Cholinergique',
+      mushroom: 'Champignon',
+      amino: 'Acide aminé',
+      herb: 'Plante',
+      vitamin: 'Vitamine',
+    },
+    sidebar: {
+      quickFacts: 'Faits clés',
+      onThisPage: 'Sur cette page',
+      category: 'Catégorie',
+      dose: 'Dose',
+      onset: 'Délai',
+      trials: 'Essais',
+    },
+    stackingLede: 'Ingrédients qui se combinent bien avec {name} et pourquoi.',
   },
 };
 
@@ -309,6 +519,56 @@ const ja: UIStrings = {
     backToBestNootropics: '← ベストノートロピクスに戻る',
     backToIngredientsGuide: '← 成分ガイドに戻る',
   },
+  ingredientDetail: {
+    chips: { clinicalDose: '臨床用量', onset: '効果発現時間' },
+    sections: {
+      mechanism: '作用機序',
+      evidence: '臨床エビデンスの概要',
+      effects: 'ヒト効果マトリクス',
+      benefits: '実証された効果',
+      sideEffects: '副作用と注意事項',
+      howTo: '摂取方法',
+      stacking: 'スタッキングの推奨',
+      faq: 'よくある質問',
+      related: '関連成分',
+    },
+    toc: {
+      mechanism: '作用機序',
+      evidence: '臨床エビデンス',
+      effects: '効果マトリクス',
+      benefits: '効果と副作用',
+      howTo: '摂取方法',
+      stacking: 'スタッキング',
+      faq: 'FAQ',
+      products: '含有製品',
+      related: '関連成分',
+    },
+    table: {
+      effect: '効果',
+      evidence: 'エビデンス',
+      magnitude: '効果の大きさ',
+      studies: '研究数',
+      notes: '備考',
+    },
+    magnitude: { large: '大', moderate: '中', small: '小', negligible: 'ごくわずか' },
+    category: {
+      adaptogen: 'アダプトゲン',
+      cholinergic: 'コリン作動性',
+      mushroom: 'きのこ類',
+      amino: 'アミノ酸',
+      herb: 'ハーブ',
+      vitamin: 'ビタミン',
+    },
+    sidebar: {
+      quickFacts: '基本情報',
+      onThisPage: '目次',
+      category: 'カテゴリ',
+      dose: '用量',
+      onset: '効果発現',
+      trials: '試験数',
+    },
+    stackingLede: '{name}と相性の良い成分とその理由。',
+  },
 };
 
 const pt: UIStrings = {
@@ -370,6 +630,56 @@ const pt: UIStrings = {
     ingredients: 'Ingredientes',
     backToBestNootropics: '← Voltar aos Melhores Nootrópicos',
     backToIngredientsGuide: '← Voltar ao Guia de Ingredientes',
+  },
+  ingredientDetail: {
+    chips: { clinicalDose: 'Dose clínica', onset: 'Início de ação' },
+    sections: {
+      mechanism: 'Mecanismo de ação',
+      evidence: 'Resumo de evidências clínicas',
+      effects: 'Matriz de efeitos em humanos',
+      benefits: 'Benefícios documentados',
+      sideEffects: 'Efeitos colaterais e precauções',
+      howTo: 'Como tomar',
+      stacking: 'Recomendações de combinação',
+      faq: 'Perguntas frequentes',
+      related: 'Ingredientes relacionados',
+    },
+    toc: {
+      mechanism: 'Mecanismo',
+      evidence: 'Evidências clínicas',
+      effects: 'Matriz de efeitos',
+      benefits: 'Benefícios e efeitos colaterais',
+      howTo: 'Como tomar',
+      stacking: 'Combinação',
+      faq: 'Perguntas frequentes',
+      products: 'Produtos que contêm',
+      related: 'Ingredientes relacionados',
+    },
+    table: {
+      effect: 'Efeito',
+      evidence: 'Evidência',
+      magnitude: 'Magnitude',
+      studies: 'Estudos',
+      notes: 'Notas',
+    },
+    magnitude: { large: 'Grande', moderate: 'Moderado', small: 'Pequeno', negligible: 'Insignificante' },
+    category: {
+      adaptogen: 'Adaptógeno',
+      cholinergic: 'Colinérgico',
+      mushroom: 'Cogumelo',
+      amino: 'Aminoácido',
+      herb: 'Erva',
+      vitamin: 'Vitamina',
+    },
+    sidebar: {
+      quickFacts: 'Dados rápidos',
+      onThisPage: 'Nesta página',
+      category: 'Categoria',
+      dose: 'Dose',
+      onset: 'Início',
+      trials: 'Ensaios',
+    },
+    stackingLede: 'Ingredientes que combinam bem com {name} e por quê.',
   },
 };
 

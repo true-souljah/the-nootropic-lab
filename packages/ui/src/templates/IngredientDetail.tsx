@@ -23,7 +23,9 @@ export interface IngredientDetailProps {
   readTime?: string;
 }
 
-const CATEGORY_LABELS: Record<Ingredient['category'], string> = {
+// English defaults — used when `uiStrings` prop is omitted. When present, the
+// per-locale UIStrings.ingredientDetail.* values override these in-component.
+const DEFAULT_CATEGORY_LABELS: Record<Ingredient['category'], string> = {
   adaptogen: 'Adaptogen',
   cholinergic: 'Cholinergic',
   mushroom: 'Mushroom',
@@ -46,24 +48,12 @@ const MAGNITUDE_WIDTH: Record<string, number> = {
   negligible: 25,
 };
 
-const MAGNITUDE_LABEL: Record<string, string> = {
+const DEFAULT_MAGNITUDE_LABEL: Record<string, string> = {
   large: 'Large',
   moderate: 'Moderate',
   small: 'Small',
   negligible: 'Negligible',
 };
-
-const TOC_SECTIONS = [
-  { id: 'mechanism', label: 'Mechanism' },
-  { id: 'evidence', label: 'Clinical evidence' },
-  { id: 'effects', label: 'Effect matrix' },
-  { id: 'benefits', label: 'Benefits & side effects' },
-  { id: 'how-to', label: 'How to take' },
-  { id: 'stacking', label: 'Stacking' },
-  { id: 'faq', label: 'FAQ' },
-  { id: 'products', label: 'Products with it' },
-  { id: 'related', label: 'Related ingredients' },
-];
 
 /**
  * IngredientDetail — public/SEO template for /ingredients/[slug] pages.
@@ -83,6 +73,21 @@ export default function IngredientDetail({
   uiStrings,
   readTime = '8 min',
 }: IngredientDetailProps) {
+  const t = uiStrings?.ingredientDetail;
+  const categoryLabels = t?.category ?? DEFAULT_CATEGORY_LABELS;
+  const magnitudeLabel = t?.magnitude ?? DEFAULT_MAGNITUDE_LABEL;
+  const tocSections = [
+    { id: 'mechanism', label: t?.toc.mechanism ?? 'Mechanism' },
+    { id: 'evidence', label: t?.toc.evidence ?? 'Clinical evidence' },
+    { id: 'effects', label: t?.toc.effects ?? 'Effect matrix' },
+    { id: 'benefits', label: t?.toc.benefits ?? 'Benefits & side effects' },
+    { id: 'how-to', label: t?.toc.howTo ?? 'How to take' },
+    { id: 'stacking', label: t?.toc.stacking ?? 'Stacking' },
+    { id: 'faq', label: t?.toc.faq ?? 'FAQ' },
+    { id: 'products', label: t?.toc.products ?? 'Products with it' },
+    { id: 'related', label: t?.toc.related ?? 'Related ingredients' },
+  ];
+
   const currentYear = new Date().getFullYear();
   const today = new Date();
   const updatedDisplay = today.toLocaleDateString('en-US', {
@@ -188,9 +193,9 @@ export default function IngredientDetail({
         <div className="grid gap-12 items-start" style={{ gridTemplateColumns: '1fr 280px' }}>
           <article>
             <div className="flex items-center gap-2 mb-3 flex-wrap">
-              <Chip tone="neutral">{CATEGORY_LABELS[ing.category]}</Chip>
-              <Chip tone="accent">Clinical dose · {ing.clinicalDose}</Chip>
-              <Chip tone="warn">Onset · {ing.timeToEffect}</Chip>
+              <Chip tone="neutral">{categoryLabels[ing.category]}</Chip>
+              <Chip tone="accent">{t?.chips.clinicalDose ?? 'Clinical dose'} · {ing.clinicalDose}</Chip>
+              <Chip tone="warn">{t?.chips.onset ?? 'Onset'} · {ing.timeToEffect}</Chip>
             </div>
 
             <h1 className="text-[44px] font-bold leading-[1.05] tracking-[-0.025em] mt-2 mb-[10px] text-ds-ink">
@@ -206,19 +211,19 @@ export default function IngredientDetail({
             <FPByline updated={updatedDisplay} read={readTime} />
 
             <section id="mechanism" className="mt-9">
-              <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-3 text-ds-ink">Mechanism of action</h2>
+              <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-3 text-ds-ink">{t?.sections.mechanism ?? 'Mechanism of action'}</h2>
               <p className="text-[15.5px] text-ds-ink-soft m-0 leading-[1.65]">{ing.mechanism}</p>
             </section>
 
             <section id="evidence" className="mt-8">
-              <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-3 text-ds-ink">Clinical evidence summary</h2>
+              <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-3 text-ds-ink">{t?.sections.evidence ?? 'Clinical evidence summary'}</h2>
               <Card variant="subdued" padding={18}>
                 <p className="text-[15px] text-ds-ink-soft m-0 leading-[1.65]">{ing.studySummary}</p>
               </Card>
             </section>
 
             <section id="effects" className="mt-8">
-              <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-1 text-ds-ink">Human effect matrix</h2>
+              <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-1 text-ds-ink">{t?.sections.effects ?? 'Human effect matrix'}</h2>
               <p className="text-[13px] text-ds-muted mb-4">
                 Based on human clinical trials only. Animal and in-vitro data excluded.
               </p>
@@ -227,18 +232,18 @@ export default function IngredientDetail({
                   <table className="w-full text-[13.5px] border-collapse">
                     <thead>
                       <tr className="bg-ds-card-sub text-left">
-                        <th className="px-4 py-3 font-semibold text-ds-muted text-[11px] uppercase tracking-[0.1em]">Effect</th>
-                        <th className="px-4 py-3 font-semibold text-ds-muted text-[11px] uppercase tracking-[0.1em]">Evidence</th>
-                        <th className="px-4 py-3 font-semibold text-ds-muted text-[11px] uppercase tracking-[0.1em]">Magnitude</th>
-                        <th className="px-4 py-3 font-semibold text-ds-muted text-[11px] uppercase tracking-[0.1em] text-center">Studies</th>
-                        <th className="px-4 py-3 font-semibold text-ds-muted text-[11px] uppercase tracking-[0.1em] hidden md:table-cell">Notes</th>
+                        <th className="px-4 py-3 font-semibold text-ds-muted text-[11px] uppercase tracking-[0.1em]">{t?.table.effect ?? 'Effect'}</th>
+                        <th className="px-4 py-3 font-semibold text-ds-muted text-[11px] uppercase tracking-[0.1em]">{t?.table.evidence ?? 'Evidence'}</th>
+                        <th className="px-4 py-3 font-semibold text-ds-muted text-[11px] uppercase tracking-[0.1em]">{t?.table.magnitude ?? 'Magnitude'}</th>
+                        <th className="px-4 py-3 font-semibold text-ds-muted text-[11px] uppercase tracking-[0.1em] text-center">{t?.table.studies ?? 'Studies'}</th>
+                        <th className="px-4 py-3 font-semibold text-ds-muted text-[11px] uppercase tracking-[0.1em] hidden md:table-cell">{t?.table.notes ?? 'Notes'}</th>
                       </tr>
                     </thead>
                     <tbody>
                       {ing.humanEffects.map((effect) => {
                         const ev = EVIDENCE_TONE[effect.evidenceStrength];
                         const magWidth = MAGNITUDE_WIDTH[effect.magnitude] ?? 50;
-                        const magLabel = MAGNITUDE_LABEL[effect.magnitude] ?? '—';
+                        const magLabel = magnitudeLabel[effect.magnitude] ?? '—';
                         return (
                           <tr key={effect.effect} className="border-t border-ds-border">
                             <td className="px-4 py-3 font-semibold text-ds-ink">{effect.effect}</td>
@@ -280,7 +285,7 @@ export default function IngredientDetail({
             <section id="benefits" className="mt-9">
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
-                  <h2 className="text-[20px] font-bold text-ds-ink mb-3">Documented benefits</h2>
+                  <h2 className="text-[20px] font-bold text-ds-ink mb-3">{t?.sections.benefits ?? 'Documented benefits'}</h2>
                   <ul className="list-none p-0 m-0 flex flex-col gap-2">
                     {ing.benefits.map((b) => (
                       <li key={b} className="flex gap-2 text-[13.5px] text-ds-ink-soft">
@@ -291,7 +296,7 @@ export default function IngredientDetail({
                   </ul>
                 </div>
                 <div>
-                  <h2 className="text-[20px] font-bold text-ds-ink mb-3">Side effects &amp; cautions</h2>
+                  <h2 className="text-[20px] font-bold text-ds-ink mb-3">{t?.sections.sideEffects ?? 'Side effects & cautions'}</h2>
                   <ul className="list-none p-0 m-0 flex flex-col gap-2">
                     {ing.sideEffects.map((s) => (
                       <li key={s} className="flex gap-2 text-[13.5px] text-ds-ink-soft">
@@ -305,7 +310,7 @@ export default function IngredientDetail({
             </section>
 
             <section id="how-to" className="mt-9">
-              <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-4 text-ds-ink">How to take</h2>
+              <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-4 text-ds-ink">{t?.sections.howTo ?? 'How to take'}</h2>
               <Card variant="subdued" padding={0}>
                 {(
                   [
@@ -339,8 +344,8 @@ export default function IngredientDetail({
             </section>
 
             <section id="stacking" className="mt-9">
-              <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-1 text-ds-ink">Stacking recommendations</h2>
-              <p className="text-[13px] text-ds-muted mb-4">Ingredients that pair well with {ing.name} and why.</p>
+              <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-1 text-ds-ink">{t?.sections.stacking ?? 'Stacking recommendations'}</h2>
+              <p className="text-[13px] text-ds-muted mb-4">{(t?.stackingLede ?? 'Ingredients that pair well with {name} and why.').replace('{name}', ing.name)}</p>
               <div className="flex flex-col gap-3">
                 {ing.stacksWith.map((pair) => (
                   <Card key={pair.ingredient} padding={16}>
@@ -361,7 +366,7 @@ export default function IngredientDetail({
             </section>
 
             <section id="faq" className="mt-9">
-              <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-4 text-ds-ink">Frequently asked questions</h2>
+              <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-4 text-ds-ink">{t?.sections.faq ?? 'Frequently asked questions'}</h2>
               <FaqAccordion
                 items={ing.faqs.map((faq) => ({ q: faq.question, a: faq.answer }))}
               />
@@ -396,7 +401,7 @@ export default function IngredientDetail({
             )}
 
             <section id="related" className="mt-9">
-              <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-4 text-ds-ink">Related ingredients</h2>
+              <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-4 text-ds-ink">{t?.sections.related ?? 'Related ingredients'}</h2>
               <div className="grid sm:grid-cols-3 gap-3">
                 {relatedIngredients.slice(0, 6).map((other) => (
                   <Link
@@ -421,14 +426,14 @@ export default function IngredientDetail({
           <aside className="sticky top-[90px] self-start flex flex-col gap-[14px]">
             <Card padding={16}>
               <div className="text-[11px] tracking-[0.12em] uppercase font-bold text-ds-muted mb-[10px]">
-                Quick facts
+                {t?.sidebar.quickFacts ?? 'Quick facts'}
               </div>
               <dl className="text-[13px] m-0">
                 {[
-                  ['Category', CATEGORY_LABELS[ing.category]],
-                  ['Dose', ing.clinicalDose],
-                  ['Onset', ing.timeToEffect],
-                  ['Trials', `${ing.humanEffects.reduce((sum, e) => sum + e.studies, 0)}`],
+                  [t?.sidebar.category ?? 'Category', categoryLabels[ing.category]],
+                  [t?.sidebar.dose ?? 'Dose', ing.clinicalDose],
+                  [t?.sidebar.onset ?? 'Onset', ing.timeToEffect],
+                  [t?.sidebar.trials ?? 'Trials', `${ing.humanEffects.reduce((sum, e) => sum + e.studies, 0)}`],
                 ].map(([k, v], i, arr) => (
                   <div
                     key={k}
@@ -442,10 +447,10 @@ export default function IngredientDetail({
             </Card>
             <Card padding={16}>
               <div className="text-[11px] tracking-[0.12em] uppercase font-bold text-ds-muted mb-[10px]">
-                On this page
+                {t?.sidebar.onThisPage ?? 'On this page'}
               </div>
               <ul className="list-none p-0 m-0 flex flex-col">
-                {TOC_SECTIONS.map((sec) => (
+                {tocSections.map((sec) => (
                   <li key={sec.id} className="text-[13px]">
                     <a
                       href={`#${sec.id}`}
