@@ -1,7 +1,8 @@
 export { default as AffiliateDisclosure } from './AffiliateDisclosure';
 export { default as CookieBanner } from './CookieBanner';
 export { default as ComparisonTable } from './ComparisonTable';
-export { default as EUBadge } from './EUBadge';
+// `EUBadge` is consumed only by `ComparisonTable` internally — kept on disk
+// but no longer exported from the public surface.
 export { default as SchemaOrg } from './SchemaOrg';
 export { default as ScoreTooltip } from './ScoreTooltip';
 export { default as SiteFooter } from './SiteFooter';
@@ -9,8 +10,15 @@ export { default as SiteHeader } from './SiteHeader';
 export { default as StickyCtaBar } from './StickyCtaBar';
 export { default as SearchModal } from './SearchModal';
 export type { SearchItem } from './SearchModal';
-export { default as UseCaseListPage } from './UseCaseListPage';
-export type { UseCaseFAQ, IngredientMechanism, UseCasePick } from './UseCaseListPage';
+// Back-compat type aliases. The legacy `UseCaseListPage` component was
+// deleted (replaced by `Listicle` in `./templates/Listicle.tsx`), but ~36
+// app files still import the legacy type names. We re-route them onto the
+// identical Listicle types so no app-side change is needed.
+export type {
+  ListicleFAQ as UseCaseFAQ,
+  ListicleIngredientMechanism as IngredientMechanism,
+  ListiclePick as UseCasePick,
+} from './templates/Listicle';
 export { default as SubscriptionCancellationPage } from './SubscriptionCancellationPage';
 export type { CancellationStep, CancellationFAQ } from './SubscriptionCancellationPage';
 export { default as ImprintPage } from './ImprintPage';
@@ -166,8 +174,9 @@ export type {
   TemplateLocale,
 } from './templateStrings';
 
-// SEO foundation — hreflang + canonical + OG + Twitter helpers
+// SEO foundation — hreflang + canonical + OG + Twitter helpers + robots
 export { REGIONS, buildAlternates, buildOpenGraph, buildTwitter } from './seo';
+export { buildRobotsConfig } from './robotsConfig';
 export type {
   RegionCode,
   BuildAlternatesParams,

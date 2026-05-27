@@ -9,6 +9,15 @@ interface KlaroModule {
   setup: (config: unknown) => void;
 }
 
+// Klaro reads `window.klaroConfig` as a fallback. The package ships no types
+// for this global, so we declare it locally rather than reaching for
+// `@ts-expect-error` at the assignment site.
+declare global {
+  interface Window {
+    klaroConfig?: unknown;
+  }
+}
+
 // Backwards-compatible signature: existing layouts pass `strings` to the
 // banner for the legacy binary accept/decline UI. Klaro has its own
 // translations baked into klaroConfig; the prop is accepted but unused.
@@ -30,7 +39,6 @@ export default function CookieBanner(_props?: { strings?: UIStrings }) {
         /* webpackIgnore: true */ 'klaro/dist/klaro-no-translations' as string
       )) as unknown as KlaroModule;
       if (cancelled) return;
-      // @ts-expect-error Klaro reads window.klaroConfig as a fallback.
       window.klaroConfig = klaroConfig;
       Klaro.setup(klaroConfig);
     })();
