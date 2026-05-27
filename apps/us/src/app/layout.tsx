@@ -40,9 +40,8 @@ const strings = getStrings('en');
 /**
  * Root layout — minimal shell. Provides <html>/<body>, font, the
  * Klaro CookieBanner (overlay), and analytics scripts. Page chrome
- * (header/footer) is provided per-page by either <LegacyShell> for
- * un-migrated pages or by a redesigned template (Listicle, HeadToHead,
- * etc.) for migrated pages.
+ * (header/footer) is supplied per-page by a template (PublicShell,
+ * Listicle, HeadToHead, IngredientDetail, etc.).
  */
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

@@ -28,9 +28,9 @@ export interface PublicShellProps {
 
 /**
  * PublicShell — the bare public/SEO chrome (FPDisclosure + FPHeader +
- * main slot + FPFooter). Use as a drop-in replacement for LegacyShell
- * on pages that should adopt the new chrome but keep their existing
- * inline content unchanged.
+ * main slot + FPFooter). Wrap pages that need the public chrome but
+ * supply their own inline content (cancel-* guides, legal pages, region
+ * regulatory pages, language-variant landings, etc.).
  */
 export default function PublicShell({
   children,
