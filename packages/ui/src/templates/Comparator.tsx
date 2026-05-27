@@ -1,17 +1,18 @@
 'use client';
 
-import { useEffect, useMemo, useState, useCallback, useRef, type ReactNode } from 'react';
+import { useEffect, useMemo, useState, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import { Download, Save, X, SlidersHorizontal } from 'lucide-react';
 import AppShell from './AppShell';
-import { Card } from '../primitives/Card';
-import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
-import { Bar } from '../primitives/Bar';
-import { ToggleSwitch } from '../primitives/ToggleSwitch';
 import { LiveRegion } from '../primitives/LiveRegion';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
+import { COLUMNS, MAX_SELECTED } from './comparator/constants';
+import type { SortKey, SortDir, Goal, Grade } from './comparator/constants';
+import { parseUrlState, buildViewQueryString, exportRowsToCsv } from './comparator/utils';
+import { ComparatorFilters } from './comparator/ComparatorFilters';
+import { ComparatorCompareCard } from './comparator/ComparatorCompareCard';
 
 export interface ComparatorProps {
   products: Product[];
@@ -19,37 +20,6 @@ export interface ComparatorProps {
   searchItems?: SearchItem[];
   uiStrings?: UIStrings;
 }
-
-type SortKey = 'rank' | 'score' | 'price' | 'trust' | 'value';
-type SortDir = 'asc' | 'desc';
-type Goal = 'Any' | 'Focus' | 'Memory' | 'Energy' | 'Beginners' | 'Budget';
-type Grade = 'All' | 'Recommended' | 'Worth a look' | 'Skip';
-
-const GOALS: Goal[] = ['Any', 'Focus', 'Memory', 'Energy', 'Beginners', 'Budget'];
-const GRADES: Array<{ id: Grade; tone?: 'good' | 'warn' | 'bad' }> = [
-  { id: 'All' },
-  { id: 'Recommended', tone: 'good' },
-  { id: 'Worth a look', tone: 'warn' },
-  { id: 'Skip', tone: 'bad' },
-];
-
-const MAX_SELECTED = 3;
-
-const COLUMNS: Array<{
-  key: SortKey | null;
-  label: string;
-  width: number;
-  align?: 'right' | 'center';
-}> = [
-  { key: null, label: '', width: 44 },
-  { key: 'rank', label: '#', width: 50 },
-  { key: null, label: 'Product', width: 260 },
-  { key: 'score', label: 'Score', width: 110 },
-  { key: 'value', label: 'Value', width: 80, align: 'right' },
-  { key: 'price', label: '$/mo', width: 80, align: 'right' },
-  { key: 'trust', label: 'Trustpilot', width: 130, align: 'right' },
-  { key: null, label: 'Best for', width: 180 },
-];
 
 /**
  * Comparator — Phase 1's interactive flagship surface. 260px filter
@@ -100,34 +70,17 @@ export default function Comparator({
   // a noisy initial paint per the M6 a11y review.
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const params = new URLSearchParams(window.location.search);
-    const s = params.get('sort');
-    if (s === 'score' || s === 'price' || s === 'trust' || s === 'value' || s === 'rank') setSortKey(s);
-    const d = params.get('dir');
-    if (d === 'asc' || d === 'desc') setSortDir(d);
-    const m = Number(params.get('max'));
-    if (Number.isFinite(m) && m >= 20 && m <= 100) setMaxPrice(m);
-    if (params.get('caf') === '1') setCaffeineFreeOnly(true);
-    if (params.get('eu') === '1') setEuCompliantOnly(true);
-    if (params.get('hands') === '1') setHandsOnOnly(true);
-    if (params.get('comm') === '0') setShowCommission(false);
-    const f = params.get('for');
-    if (f === 'Any' || f === 'Focus' || f === 'Memory' || f === 'Energy' || f === 'Beginners' || f === 'Budget') {
-      setBestFor(f);
-    }
-    const g = params.get('grade');
-    if (g === 'All' || g === 'Recommended' || g === 'Worth a look' || g === 'Skip') {
-      setGrade(g);
-    }
-    const cmp = params.get('cmp');
-    if (cmp) {
-      const slugs = cmp
-        .split(',')
-        .map((s) => s.trim())
-        .filter((s) => products.some((p) => p.slug === s))
-        .slice(0, MAX_SELECTED);
-      if (slugs.length > 0) setSelected(slugs);
-    }
+    const state = parseUrlState(new URLSearchParams(window.location.search), products);
+    if (state.sortKey !== undefined) setSortKey(state.sortKey);
+    if (state.sortDir !== undefined) setSortDir(state.sortDir);
+    if (state.maxPrice !== undefined) setMaxPrice(state.maxPrice);
+    if (state.caffeineFreeOnly !== undefined) setCaffeineFreeOnly(state.caffeineFreeOnly);
+    if (state.euCompliantOnly !== undefined) setEuCompliantOnly(state.euCompliantOnly);
+    if (state.handsOnOnly !== undefined) setHandsOnOnly(state.handsOnOnly);
+    if (state.showCommission !== undefined) setShowCommission(state.showCommission);
+    if (state.bestFor !== undefined) setBestFor(state.bestFor);
+    if (state.grade !== undefined) setGrade(state.grade);
+    if (state.selected !== undefined) setSelected(state.selected);
   }, [products]);
 
   const reset = useCallback(() => {
@@ -200,18 +153,19 @@ export default function Comparator({
     .filter((p): p is Product => Boolean(p));
 
   function saveView() {
-    const params = new URLSearchParams();
-    if (sortKey !== 'score') params.set('sort', sortKey);
-    if (sortDir !== 'desc') params.set('dir', sortDir);
-    if (maxPrice !== 100) params.set('max', String(maxPrice));
-    if (caffeineFreeOnly) params.set('caf', '1');
-    if (euCompliantOnly) params.set('eu', '1');
-    if (handsOnOnly) params.set('hands', '1');
-    if (!showCommission) params.set('comm', '0');
-    if (bestFor !== 'Any') params.set('for', bestFor);
-    if (grade !== 'All') params.set('grade', grade);
-    if (selected.length > 0) params.set('cmp', selected.join(','));
-    const url = `${siteUrl}/nootropic-comparison${params.toString() ? `?${params.toString()}` : ''}`;
+    const qs = buildViewQueryString({
+      sortKey,
+      sortDir,
+      maxPrice,
+      caffeineFreeOnly,
+      euCompliantOnly,
+      handsOnOnly,
+      showCommission,
+      bestFor,
+      grade,
+      selected,
+    });
+    const url = `${siteUrl}/nootropic-comparison${qs}`;
     if (typeof navigator !== 'undefined' && navigator.clipboard) {
       navigator.clipboard.writeText(url).then(() => {
         setSavedNotice('Link copied to clipboard');
@@ -223,123 +177,23 @@ export default function Comparator({
     }
   }
 
-  function exportCsv() {
-    const headers = ['Rank', 'Name', 'Brand', 'Score', 'Price USD/mo', 'Caps/day', 'MBG days', 'Trustpilot', 'Best for'];
-    const lines = rows.map((p, i) => [
-      i + 1,
-      p.name,
-      p.brand,
-      p.score,
-      p.priceMonthlyUSD ?? '',
-      p.capsulesPerServing,
-      p.moneyBackDays,
-      p.trustpilotScore ?? '',
-      p.bestFor.join('; '),
-    ]);
-    const csv = [headers, ...lines]
-      .map((row) => row.map((cell) => `"${String(cell).replace(/"/g, '""')}"`).join(','))
-      .join('\n');
-    if (typeof document === 'undefined') return;
-    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `nootropic-comparison-${new Date().toISOString().slice(0, 10)}.csv`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  }
-
-  // Shared filter UI — rendered into both the desktop sidebar and the
-  // mobile bottom-sheet. idPrefix keeps form ids unique between renderings.
-  function renderFilters(idPrefix: 'd' | 'm'): ReactNode {
-    return (
-      <>
-        <div className="text-[11px] uppercase tracking-[0.14em] text-ds-muted font-semibold mb-3">
-          Filters
-        </div>
-        <div className="mb-[22px]">
-          <div className="text-[12px] font-semibold mb-2 text-ds-ink">Goal</div>
-          <div role="group" aria-label="Filter by goal" className="flex flex-wrap gap-[6px]">
-            {GOALS.map((g) => (
-              <Chip key={g} active={bestFor === g} onClick={() => setBestFor(g)}>
-                {g}
-              </Chip>
-            ))}
-          </div>
-        </div>
-        <div className="mb-[22px]">
-          <div className="flex justify-between mb-2">
-            <label htmlFor={`${idPrefix}-max-price`} className="text-[12px] font-semibold text-ds-ink">
-              Max $/month
-            </label>
-            <span className="text-[12px] font-bold text-ds-accent ds-tabular">${maxPrice}</span>
-          </div>
-          <input
-            id={`${idPrefix}-max-price`}
-            type="range"
-            min={20}
-            max={100}
-            value={maxPrice}
-            onChange={(e) => setMaxPrice(Number(e.target.value))}
-            className="w-full"
-            style={{ accentColor: 'var(--color-ds-accent)' }}
-          />
-          <div className="flex justify-between text-[10px] text-ds-muted mt-[2px] ds-tabular">
-            <span>$20</span>
-            <span>$100</span>
-          </div>
-        </div>
-        <fieldset className="mb-[22px] m-0 p-0 border-0">
-          <legend className="text-[12px] font-semibold mb-2 text-ds-ink">Our grade</legend>
-          <div className="flex flex-col gap-1">
-            {GRADES.map(({ id, tone }) => {
-              const dotClass =
-                tone === 'good'
-                  ? 'bg-ds-good'
-                  : tone === 'warn'
-                    ? 'bg-ds-warn'
-                    : tone === 'bad'
-                      ? 'bg-ds-bad'
-                      : '';
-              return (
-                <label key={id} className="flex gap-2 items-center cursor-pointer py-1">
-                  <input
-                    type="radio"
-                    name={`${idPrefix}-grade`}
-                    checked={grade === id}
-                    onChange={() => setGrade(id)}
-                    style={{ accentColor: 'var(--color-ds-accent)' }}
-                  />
-                  {dotClass && <span aria-hidden="true" className={`w-2 h-2 rounded-full ${dotClass}`} />}
-                  <span className="text-[13px] text-ds-ink">{id}</span>
-                </label>
-              );
-            })}
-          </div>
-        </fieldset>
-        <div className="mb-[22px] pt-[14px] border-t border-ds-border flex flex-col gap-[14px]">
-          <ToggleSwitch checked={caffeineFreeOnly} onChange={setCaffeineFreeOnly} label="Caffeine-free only" />
-          <ToggleSwitch checked={euCompliantOnly} onChange={setEuCompliantOnly} label="EU-compliant only" />
-          <ToggleSwitch checked={handsOnOnly} onChange={setHandsOnOnly} label="★ Hands-on tested only" />
-          <ToggleSwitch
-            checked={showCommission}
-            onChange={setShowCommission}
-            label="Show our commission"
-            description="Doesn't change scores"
-          />
-        </div>
-        <button
-          type="button"
-          onClick={reset}
-          className="w-full bg-transparent text-ds-muted border border-ds-border py-2 rounded-[8px] text-[12px] font-medium cursor-pointer hover:bg-ds-card-sub focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
-        >
-          Reset all filters
-        </button>
-      </>
-    );
-  }
+  const filterProps = {
+    bestFor,
+    setBestFor,
+    maxPrice,
+    setMaxPrice,
+    grade,
+    setGrade,
+    caffeineFreeOnly,
+    setCaffeineFreeOnly,
+    euCompliantOnly,
+    setEuCompliantOnly,
+    handsOnOnly,
+    setHandsOnOnly,
+    showCommission,
+    setShowCommission,
+    onReset: reset,
+  };
 
   return (
     <AppShell
@@ -350,11 +204,6 @@ export default function Comparator({
       hideStackCta
       sidebarMeta={`${products.length} products`}
     >
-      {/* Shared filter body — rendered in both the desktop sticky column and
-          the mobile bottom-sheet overlay. State flows via closure. The
-          idPrefix keeps form ids unique between the two renderings. */}
-      {(() => null)()}
-
       {/* When the mobile filter sheet is open, `inert` removes everything
           else from tab order + AT focus — keyboard users can't escape the
           dialog into obscured content. */}
@@ -364,7 +213,7 @@ export default function Comparator({
       >
         {/* Desktop filter sidebar — sticky column on lg+ */}
         <div className="hidden lg:block bg-ds-card border-r border-ds-border p-5 sticky top-[60px] self-start min-h-[calc(100vh-60px)]">
-          {renderFilters('d')}
+          <ComparatorFilters idPrefix="d" {...filterProps} />
         </div>
 
         {/* Main content */}
@@ -401,7 +250,7 @@ export default function Comparator({
               </button>
               <button
                 type="button"
-                onClick={exportCsv}
+                onClick={() => exportRowsToCsv(rows)}
                 className="bg-ds-card border border-ds-border px-3 py-[7px] rounded-[8px] text-[12px] text-ds-ink-soft font-medium cursor-pointer flex items-center gap-[6px] hover:bg-ds-card-sub focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
               >
                 <Download size={12} strokeWidth={2.2} aria-hidden={true} />
@@ -623,94 +472,10 @@ export default function Comparator({
           </div>
 
           {/* Compare drawer */}
-          {selectedProducts.length > 0 && (
-            <Card
-              padding={18}
-              className="mt-4 mb-6 border-ds-accent-border"
-              style={{ borderColor: 'var(--color-ds-accent-border)', boxShadow: '0 4px 16px rgba(15,22,35,0.06)' }}
-            >
-              <div className="flex justify-between items-center mb-[14px] flex-wrap gap-2">
-                <div>
-                  <div className="text-[11px] text-ds-accent tracking-[0.14em] uppercase font-bold">
-                    Compare
-                  </div>
-                  <div className="font-semibold text-[15px] mt-[2px]">
-                    {selectedProducts.length} selected · side by side
-                  </div>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setSelected([])}
-                  className="inline-flex items-center gap-1 bg-transparent text-ds-muted border border-ds-border px-3 py-[6px] rounded-[6px] text-[12px] cursor-pointer hover:bg-ds-card-sub focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
-                >
-                  <X size={12} strokeWidth={2.4} aria-hidden={true} />
-                  Clear
-                </button>
-              </div>
-              <div
-                className="grid gap-[14px]"
-                style={{ gridTemplateColumns: `repeat(${selectedProducts.length}, 1fr)` }}
-              >
-                {selectedProducts.map((p) => (
-                  <Card key={p.slug} variant="subdued" padding={14}>
-                    <div className="flex items-center gap-[10px]">
-                      <div
-                        className="w-8 h-8 bg-ds-ink rounded-[7px] grid place-items-center text-white font-bold text-[13px] flex-shrink-0"
-                        aria-hidden="true"
-                      >
-                        {p.name[0]}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <Link
-                          href={`/${p.slug}`}
-                          className="font-semibold text-[14px] truncate block text-ds-ink hover:text-ds-accent focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded"
-                        >
-                          {p.name}
-                        </Link>
-                        <div className="text-[11px] text-ds-muted">{p.brand}</div>
-                      </div>
-                      <ScorePill score={p.score} />
-                    </div>
-                    <dl className="mt-3 text-[12px] text-ds-ink-soft m-0">
-                      {[
-                        ['Price', p.priceMonthlyUSD ? `$${p.priceMonthlyUSD}/mo` : '—'],
-                        ['Caps', `${p.capsulesPerServing}/day`],
-                        ['MBG', `${p.moneyBackDays} days`],
-                        ['Caffeine', p.caffeineFree ? 'Free' : 'Yes'],
-                        ['Trustpilot', p.trustpilotScore === null
-                          ? 'N/A'
-                          : `${p.trustpilotScore} (${p.trustpilotCount?.toLocaleString() ?? 'n/a'})`],
-                      ].map(([k, v]) => (
-                        <div
-                          key={k}
-                          className="flex justify-between py-[5px] border-b border-ds-border last:border-b-0"
-                        >
-                          <dt className="text-ds-muted m-0">{k}</dt>
-                          <dd className="font-medium text-ds-ink m-0">{v}</dd>
-                        </div>
-                      ))}
-                    </dl>
-                    <div className="mt-[10px]">
-                      {(['ingredients', 'dosing', 'transparency'] as const).map((k) => {
-                        const v = p.scoreBreakdown[k];
-                        return (
-                          <div
-                            key={k}
-                            className="grid items-center gap-[6px] py-[2px]"
-                            style={{ gridTemplateColumns: '70px 1fr 22px' }}
-                          >
-                            <span className="text-[11px] text-ds-muted capitalize">{k}</span>
-                            <Bar value={v} label={`${p.name} ${k} score`} height={5} />
-                            <span className="text-[11px] text-ds-ink text-right ds-tabular">{v}</span>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </Card>
-                ))}
-              </div>
-            </Card>
-          )}
+          <ComparatorCompareCard
+            selectedProducts={selectedProducts}
+            onClear={() => setSelected([])}
+          />
         </div>
       </div>
 
@@ -742,7 +507,7 @@ export default function Comparator({
                 <X size={18} strokeWidth={2} aria-hidden={true} />
               </button>
             </div>
-            {renderFilters('m')}
+            <ComparatorFilters idPrefix="m" {...filterProps} />
             <button
               type="button"
               onClick={() => setMobileFiltersOpen(false)}
