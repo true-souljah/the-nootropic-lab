@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
+import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
+import { searchItems, uiStrings } from '@/lib/search';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
-import LegacyShell from "@/components/LegacyShell";
 
 export const metadata: Metadata = {
   title: 'The Nootropic Lab JP — 日本向けノートロピクス独立比較レビュー',
@@ -69,8 +69,8 @@ const quickLinks = [
 
 export default function JaHomePage() {
   return (
-    <LegacyShell>
-    <div lang="ja">
+    <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
+    
       <SchemaOrg schema={websiteSchema} />
       <SchemaOrg schema={orgSchema} />
 
@@ -142,7 +142,6 @@ export default function JaHomePage() {
           ))}
         </div>
       </section>
-    </div>
-    </LegacyShell>
+    </PublicShell>
   );
 }

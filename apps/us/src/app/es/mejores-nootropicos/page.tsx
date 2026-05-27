@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
-import { ComparisonTable, AffiliateDisclosure, SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
+import { ComparisonTable, AffiliateDisclosure, SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
 import { productsUS } from '@nootropic/data';
+import { searchItems, uiStrings } from '@/lib/search';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
-import LegacyShell from "@/components/LegacyShell";
 
 export const metadata: Metadata = {
   title: `Mejores Nootrópicos ${CURRENT_YEAR}: Comparativa Experta para EE. UU.`,
@@ -28,8 +28,8 @@ export default function EsMejoresNootropicosPage() {
   };
 
   return (
-    <LegacyShell>
-    <div lang="es">
+    <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
+    
       <SchemaOrg schema={itemListSchema} />
       <article className="max-w-5xl mx-auto px-4 py-10">
         <div className="mb-2 text-xs text-gray-500">
@@ -76,7 +76,6 @@ export default function EsMejoresNootropicosPage() {
           </a>
         </div>
       </article>
-    </div>
-    </LegacyShell>
+    </PublicShell>
   );
 }

@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
-import { ComparisonTable, AffiliateDisclosure, StickyCtaBar, SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
+import { ComparisonTable, AffiliateDisclosure, StickyCtaBar, SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
 import { productsCA, buildPersonAuthorReference } from '@nootropic/data';
+import { searchItems, uiStrings } from '@/lib/search';
 
 const SITE_URL = 'https://ca.thenootropiclab.com';
 const CURRENT_YEAR = new Date().getFullYear();
 
-import LegacyShell from "@/components/LegacyShell";
 
 export const metadata: Metadata = {
   title: `Les meilleurs nootropiques au Canada ${new Date().getFullYear()} — Guide de l'acheteur canadien`,
@@ -67,8 +67,8 @@ export default function FrMeilleursNootropiquesPage() {
   };
 
   return (
-    <LegacyShell>
-    <div lang="fr-CA">
+    <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
+    
       <SchemaOrg schema={articleSchema} />
       <SchemaOrg schema={faqSchema} />
       <SchemaOrg schema={itemListSchema} />
@@ -186,7 +186,6 @@ export default function FrMeilleursNootropiquesPage() {
           </a>
         </div>
       </article>
-    </div>
-    </LegacyShell>
+    </PublicShell>
   );
 }

@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
+import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
 import { productsEU } from '@nootropic/data';
+import { searchItems, uiStrings } from '@/lib/search';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
-import LegacyShell from "@/components/LegacyShell";
 
 export const metadata: Metadata = {
   title: 'The Nootropic Lab UE — Avaliações Independentes de Suplementos Cognitivos na Europa',
@@ -63,7 +63,7 @@ const quickLinks = [
 
 export default function PTHomePage() {
   return (
-    <LegacyShell>
+    <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
       <SchemaOrg schema={websiteSchema} />
 
       {/* Hero */}
@@ -141,6 +141,6 @@ export default function PTHomePage() {
           ))}
         </div>
       </section>
-    </LegacyShell>
+    </PublicShell>
   );
 }
