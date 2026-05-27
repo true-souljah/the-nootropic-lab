@@ -250,9 +250,12 @@ export default function HeadToHead({
       <SchemaOrg schema={breadcrumbSchema} />
 
       <FPDisclosure methodologyHref="/methodology" />
+      <a href="#main-content" className="ds-skip-link">
+        Skip to main content
+      </a>
       <FPHeader searchItems={searchItems} strings={uiStrings} />
 
-      <main className="max-w-[1100px] mx-auto px-4 sm:px-6 pt-7">
+      <main id="main-content" className="max-w-[1100px] mx-auto px-4 sm:px-6 pt-7">
         <nav aria-label="Breadcrumb" className="text-[12.5px] text-ds-muted mb-[14px]">
           <ol className="flex items-center gap-2 list-none p-0 m-0">
             <li><Link href="/" className="hover:text-ds-ink">{s.home}</Link></li>
@@ -345,9 +348,9 @@ export default function HeadToHead({
           <div className="text-[11.5px] tracking-[0.14em] uppercase font-bold text-ds-muted mb-2">
             {s.verdict}
           </div>
-          <h3 className="text-[22px] font-bold tracking-[-0.02em] m-0 mb-2">
+          <h2 className="text-[22px] font-bold tracking-[-0.02em] m-0 mb-2">
             <span className="text-ds-accent">{tpl(s.winnerHeadline, { name: winner.name })}</span>
-          </h3>
+          </h2>
           <p className="text-[14px] text-ds-ink-soft m-0 leading-[1.65]">{computedVerdict}</p>
         </Card>
 

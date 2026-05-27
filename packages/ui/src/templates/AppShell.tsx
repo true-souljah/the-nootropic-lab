@@ -103,15 +103,18 @@ export default function AppShell({
 
   return (
     <div className="bg-ds-bg text-ds-ink min-h-screen ds-font-features" style={{ fontFamily: 'var(--font-ds-sans)' }}>
+      {/* Skip link sits outside the inert wrapper so keyboard users can
+          still escape to main content even when the mobile drawer is open
+          (otherwise `inert` would propagate to the link and disable it). */}
+      <a href="#main-content" className="ds-skip-link">
+        Skip to main content
+      </a>
+
       {/* When the mobile drawer is visible, `inert` keeps the keyboard +
           AT focus inside the drawer — prevents Tab from escaping into the
           obscured page. Only applied at the mobile breakpoint; desktop
           ignores it. */}
       <div {...(drawerVisible ? { inert: '' as unknown as undefined } : {})}>
-        <a href="#main-content" className="ds-skip-link">
-          Skip to main content
-        </a>
-
         <div
           className={`grid items-start ${
             showInline ? 'lg:grid-cols-[240px_1fr]' : 'lg:grid-cols-[1fr]'
