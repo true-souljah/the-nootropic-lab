@@ -76,8 +76,8 @@ export default function ComparisonTable({ products, market, strings }: Props) {
       return price === undefined || price <= priceMax;
     });
     list.sort((a, b) => {
-      const va = ((a[sortKey] as number | undefined) ?? 0);
-      const vb = ((b[sortKey] as number | undefined) ?? 0);
+      const va = ((a[sortKey] as number | null | undefined) ?? 0);
+      const vb = ((b[sortKey] as number | null | undefined) ?? 0);
       return sortDir === 'desc' ? vb - va : va - vb;
     });
     return list;
@@ -193,7 +193,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                 )}
                 <td className="p-3">{p.moneyBackDays} days</td>
                 <td className="p-3">
-                  {p.trustpilotScore > 0 ? (
+                  {p.trustpilotScore !== null && p.trustpilotScore > 0 ? (
                     <>
                       <span
                         className={
@@ -206,9 +206,11 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                       >
                         {p.trustpilotScore}/5
                       </span>
-                      <span className="text-xs text-gray-400 ml-1">
-                        ({p.trustpilotCount.toLocaleString()})
-                      </span>
+                      {p.trustpilotCount !== null && (
+                        <span className="text-xs text-gray-400 ml-1">
+                          ({p.trustpilotCount.toLocaleString()})
+                        </span>
+                      )}
                     </>
                   ) : (
                     <span className="text-gray-400 text-sm">{t?.na || 'N/A'}</span>
@@ -275,7 +277,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                 </div>
                 <div>
                   <span className="text-gray-500">{t?.trustpilot ? `${t.trustpilot}:` : 'Trustpilot:'} </span>
-                  {p.trustpilotScore > 0 ? (
+                  {p.trustpilotScore !== null && p.trustpilotScore > 0 ? (
                     <strong
                       className={
                         p.trustpilotScore >= 4

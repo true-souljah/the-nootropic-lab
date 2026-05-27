@@ -220,7 +220,11 @@ export default function HeadToHead({
       b: productB.trustpilotScore
         ? `${productB.trustpilotScore}/5 (${productB.trustpilotCount?.toLocaleString() ?? 'n/a'})`
         : s.notTracked,
-      winner: productA.trustpilotScore > productB.trustpilotScore ? 'a' : productA.trustpilotScore < productB.trustpilotScore ? 'b' : 'tie',
+      winner: (productA.trustpilotScore ?? 0) > (productB.trustpilotScore ?? 0)
+        ? 'a'
+        : (productA.trustpilotScore ?? 0) < (productB.trustpilotScore ?? 0)
+          ? 'b'
+          : 'tie',
     },
     {
       label: 'Ingredients pillar',

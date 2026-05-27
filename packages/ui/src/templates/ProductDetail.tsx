@@ -115,7 +115,9 @@ export default function ProductDetail({
               ['MBG', `${p.moneyBackDays} days`],
               [
                 'Trustpilot',
-                `${p.trustpilotScore} (${p.trustpilotCount.toLocaleString()})`,
+                p.trustpilotScore === null
+                  ? 'N/A'
+                  : `${p.trustpilotScore} (${(p.trustpilotCount ?? 0).toLocaleString()})`,
               ],
               ['Our cut', p.commissionRate],
             ].map(([k, v]) => (

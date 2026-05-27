@@ -32,8 +32,16 @@ export interface Product {
   caffeineFree: boolean;
   euStorefront: boolean;
   euCompliance: EUCompliance;
-  trustpilotScore: number;
-  trustpilotCount: number;
+  /**
+   * Vendor's Trustpilot rating (0..5) or `null` when no Trustpilot profile
+   * exists for this vendor — e.g. Amazon-only listings (NatureBell), Lazada
+   * brands, regional pharmacy chains, and some major JP brands.
+   * Renderers MUST handle `null` and show "N/A" / hide the row instead of
+   * displaying a literal 0 (which previously leaked into Product JSON-LD as
+   * `reviewRating.ratingValue: '0'` — bad SEO).
+   */
+  trustpilotScore: number | null;
+  trustpilotCount: number | null;
   affiliateUrl: string;
   affiliateNetwork: string;
   commissionRate: string;
@@ -316,8 +324,8 @@ export const productsUS: Product[] = [
     caffeineFree: true,
     euStorefront: false,
     euCompliance: 'verify',
-    trustpilotScore: 0,
-    trustpilotCount: 0,
+    trustpilotScore: null,
+    trustpilotCount: null,
     affiliateUrl: 'https://www.amazon.com/Naturebell-Capsules-GinkoVida-Strength-Supplement/dp/B09F4ML3FF',
     affiliateNetwork: 'Amazon Associates',
     commissionRate: '4%',
@@ -441,8 +449,8 @@ export const productsUS: Product[] = [
     caffeineFree: true,
     euStorefront: false,
     euCompliance: 'verify',
-    trustpilotScore: 0,
-    trustpilotCount: 0,
+    trustpilotScore: 2.3,
+    trustpilotCount: 16,
     affiliateUrl: 'https://brainmd.com/brain-memory-power-boost',
     affiliateNetwork: 'ShareASale',
     commissionRate: '20%',
