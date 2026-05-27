@@ -23,7 +23,8 @@
     "build:gcc": "npm run build --workspace=apps/gcc",
     "build:sea": "npm run build --workspace=apps/sea",
     "build": "npm run build:us && npm run build:eu && npm run build:ca && npm run build:au && npm run build:jp && npm run build:latam && npm run build:gcc && npm run build:sea",
-    "test": "npm test --workspace=packages/ui"
+    "test": "npm test --workspace=packages/ui",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4",
@@ -36,6 +37,8 @@
     "typescript": "^5"
   },
   "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "serve": "^14.2.6",
     "vitest": "^4.1.7"
   },
   "overrides": {
