@@ -22,7 +22,8 @@
     "build:latam": "npm run build --workspace=apps/latam",
     "build:gcc": "npm run build --workspace=apps/gcc",
     "build:sea": "npm run build --workspace=apps/sea",
-    "build": "npm run build:us && npm run build:eu && npm run build:ca && npm run build:au && npm run build:jp && npm run build:latam && npm run build:gcc && npm run build:sea"
+    "build": "npm run build:us && npm run build:eu && npm run build:ca && npm run build:au && npm run build:jp && npm run build:latam && npm run build:gcc && npm run build:sea",
+    "test": "npm test --workspace=packages/ui"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4",
@@ -34,7 +35,9 @@
     "tailwindcss": "^4",
     "typescript": "^5"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "vitest": "^4.1.7"
+  },
   "overrides": {
     "postcss": "^8.5.10"
   }
