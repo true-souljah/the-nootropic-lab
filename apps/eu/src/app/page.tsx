@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
+import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
+import { searchItems, uiStrings } from '@/lib/search';
 
-import LegacyShell from "@/components/LegacyShell";
 
 export const metadata: Metadata = {
   title: 'The Nootropic Lab EU — Independent Cognitive Supplement Reviews for Europe',
@@ -67,7 +67,7 @@ const quickLinks = [
 
 export default function EUHomePage() {
   return (
-    <LegacyShell>
+    <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
       <SchemaOrg schema={websiteSchema} />
       <SchemaOrg schema={orgSchema} />
 
@@ -170,6 +170,6 @@ export default function EUHomePage() {
           </Link>
         </div>
       </section>
-    </LegacyShell>
+    </PublicShell>
   );
 }
