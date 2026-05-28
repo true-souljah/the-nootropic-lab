@@ -8,6 +8,7 @@ import { Bar } from '../primitives/Bar';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
 import ShortlistButton from './ShortlistButton';
 import type { AffiliateClickContext } from '../trackAffiliateClick';
+import { getStrings } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 
@@ -40,6 +41,14 @@ export interface BestOfProps {
   postList?: ReactNode;
   /** Affiliate-tracking surface tag used on product CTAs. */
   trackingSurface?: AffiliateClickContext['surface'];
+  /**
+   * YMYL regulatory disclaimer rendered at the bottom of the page.
+   * Pass `getRegionalHealthDisclaimer(market)` from @nootropic/data;
+   * the text varies by region (Health Canada for CA, FDA for US,
+   * EFSA for EU, etc.). Omit on legacy pages — the disclaimer
+   * section will simply not render.
+   */
+  healthDisclaimer?: string;
 }
 
 const MONTHS_SHORT = [
@@ -71,7 +80,9 @@ export default function BestOf({
   preList,
   postList,
   trackingSurface = 'best_of',
+  healthDisclaimer,
 }: BestOfProps) {
+  const pd = (uiStrings ?? getStrings('en')).productDetail;
   const sorted = [...products].sort((a, b) => b.score - a.score);
   const audited = products.length;
   const recommended = products.filter((p) => p.score >= recommendedCutoff).length;
@@ -287,6 +298,23 @@ export default function BestOf({
         </Card>
 
         {postList && <div className="mt-10">{postList}</div>}
+
+        {/* Regional YMYL disclaimer (Health Canada / FDA / EFSA / etc.).
+            Passed via the healthDisclaimer prop; render only when supplied. */}
+        {healthDisclaimer && (
+          <section
+            aria-labelledby="bestof-health-disclaimer-heading"
+            className="mt-10 pt-6 border-t border-ds-border"
+          >
+            <h2
+              id="bestof-health-disclaimer-heading"
+              className="text-[13px] uppercase tracking-[0.1em] text-ds-muted font-semibold m-0 mb-2"
+            >
+              {pd.healthDisclaimerHeading}
+            </h2>
+            <p className="text-[12px] text-ds-ink leading-relaxed">{healthDisclaimer}</p>
+          </section>
+        )}
       </div>
     </AppShell>
   );
