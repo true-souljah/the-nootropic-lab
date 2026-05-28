@@ -11,6 +11,7 @@ export type { Ingredient, HumanEffect, HowToTake, StackPair, FAQ } from './ingre
 export { ingredients } from './ingredients';
 export type { Guide, GuideSection } from './guides';
 export { guides } from './guides';
+export { guidesEs } from './guides-es';
 export type { EUCountry } from './eu-countries';
 export { euCountries } from './eu-countries';
 export type { LatamCountry } from './latam-countries';
