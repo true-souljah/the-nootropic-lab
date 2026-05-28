@@ -129,9 +129,12 @@ export default function QuizFlow({
       className="bg-ds-bg text-ds-ink min-h-screen ds-font-features"
       style={{ fontFamily: 'var(--font-ds-sans)' }}
     >
+      <a href="#quiz-main-content" className="ds-skip-link">
+        Skip to main content
+      </a>
       <QuizHeader skipHref={skipHref} />
 
-      <main className="max-w-[720px] mx-auto px-6 pt-7 pb-12">
+      <main id="quiz-main-content" className="max-w-[720px] mx-auto px-6 pt-7 pb-12">
         <ProgressIndicator step={step} total={STEP_COUNT} />
 
         {step === 1 && (
