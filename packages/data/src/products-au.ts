@@ -340,5 +340,6 @@ export const productsAU: Product[] = [
     ],
     editorChoice: false,
     market: 'au',
+    austl: '246877',
   },
 ];

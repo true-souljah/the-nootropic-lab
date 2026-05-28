@@ -90,6 +90,14 @@ export interface Product {
     notified: boolean;
     notificationNumber?: string;
   };
+  /**
+   * Australian Therapeutic Goods Administration AUST L (Listed Medicine)
+   * number. Only meaningful on products served by the AU market app. When
+   * present, the product is TGA-listed and can be sold at any Australian
+   * pharmacy without import friction. Undefined for products imported via
+   * the TGA Personal Importation Scheme (3-month personal-use supply).
+   */
+  austl?: string;
 }
 
 export const productsUS: Product[] = [
