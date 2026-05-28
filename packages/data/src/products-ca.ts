@@ -42,6 +42,7 @@ export const productsCA: Product[] = [
     cons: ['Premium price ($69/mo USD)', '4 capsules per serving', '30-day money-back', 'Ships from US -- import duties may apply for large orders'],
     editorChoice: true,
     market: 'both',
+    npnStatus: { status: 'pip' },
   },
   {
     id: 'noocube',
@@ -83,6 +84,7 @@ export const productsCA: Product[] = [
     cons: ['Trustpilot 1.9/5 -- significant complaints', 'Some ingredients underdosed', 'Subscription cancellation issues (BBB)', 'Ships from US -- import duties may apply for large orders'],
     editorChoice: false,
     market: 'both',
+    npnStatus: { status: 'pip' },
   },
   {
     id: 'performance-lab-mind',
@@ -122,6 +124,7 @@ export const productsCA: Product[] = [
     cons: ['Fewer total ingredients', 'Pricey per capsule', 'Ships from US -- import duties may apply for large orders'],
     editorChoice: false,
     market: 'both',
+    npnStatus: { status: 'pip' },
   },
   {
     id: 'hunter-focus',
@@ -162,6 +165,7 @@ export const productsCA: Product[] = [
     cons: ['Contains caffeine', 'No affiliate commission', 'Very expensive ($90/mo USD)', 'Ships from US -- import duties may apply for large orders'],
     editorChoice: false,
     market: 'both',
+    npnStatus: { status: 'pip' },
   },
   {
     id: 'alpha-brain',
@@ -203,6 +207,7 @@ export const productsCA: Product[] = [
     cons: ['Proprietary blends hide doses', 'Subscription cancellation issues', 'Ships from US -- import duties may apply for large orders'],
     editorChoice: false,
     market: 'both',
+    npnStatus: { status: 'pip' },
   },
   {
     id: 'qualia-mind',
@@ -245,6 +250,7 @@ export const productsCA: Product[] = [
     cons: ['$139/month USD', '7 capsules per serving', 'Contains caffeine', 'Ships from US -- import duties may apply for large orders'],
     editorChoice: false,
     market: 'both',
+    npnStatus: { status: 'pip' },
   },
   {
     id: 'naturebell-ginkgo-ginseng',
@@ -282,6 +288,7 @@ export const productsCA: Product[] = [
     cons: ['Ginseng severely underdosed', 'Not Health Canada NHP-registered', 'No third-party CoA published', 'Two-ingredient formula only'],
     editorChoice: false,
     market: 'both',
+    npnStatus: { status: 'pip' },
   },
   {
     id: 'aor-ortho-mind',
@@ -339,5 +346,6 @@ export const productsCA: Product[] = [
     ],
     editorChoice: false,
     market: 'ca',
+    npnStatus: { status: 'licensed', npn: '80037243' },
   },
 ];

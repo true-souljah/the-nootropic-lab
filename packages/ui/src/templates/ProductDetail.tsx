@@ -24,6 +24,14 @@ export interface ProductDetailProps {
   siteUrl: string;
   searchItems?: SearchItem[];
   uiStrings?: UIStrings;
+  /**
+   * YMYL regulatory disclaimer rendered at the bottom of the page.
+   * Pass `getRegionalHealthDisclaimer(market)` from @nootropic/data;
+   * the text varies by region (Health Canada framing for CA, FDA
+   * framing for US, EFSA for EU, etc.). Omit on legacy pages — the
+   * disclaimer section will simply not render.
+   */
+  healthDisclaimer?: string;
 }
 
 /**
@@ -39,6 +47,7 @@ export default function ProductDetail({
   siteUrl: _siteUrl,
   searchItems,
   uiStrings,
+  healthDisclaimer,
 }: ProductDetailProps) {
   const [tab, setTab] = useState<TabId>('overview');
 
@@ -211,6 +220,23 @@ export default function ProductDetail({
                 </Link>
               ))}
             </div>
+          </section>
+        )}
+
+        {/* Regional YMYL disclaimer (Health Canada / FDA / EFSA / etc.).
+            Passed via the healthDisclaimer prop; render only when supplied. */}
+        {healthDisclaimer && (
+          <section
+            aria-labelledby="product-health-disclaimer-heading"
+            className="mt-10 pt-6 border-t border-ds-border"
+          >
+            <h2
+              id="product-health-disclaimer-heading"
+              className="text-[13px] uppercase tracking-[0.1em] text-ds-muted font-semibold m-0 mb-2"
+            >
+              Health disclaimer
+            </h2>
+            <p className="text-[12px] text-ds-ink leading-relaxed">{healthDisclaimer}</p>
           </section>
         )}
       </div>
