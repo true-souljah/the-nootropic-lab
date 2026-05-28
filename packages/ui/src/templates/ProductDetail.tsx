@@ -98,7 +98,7 @@ export default function ProductDetail({
             <div className="flex-1 min-w-0">
               <div
                 role="group"
-                aria-label="Product attributes"
+                aria-label={pd.chipGroupLabel}
                 className="flex flex-wrap gap-[6px] mb-2"
               >
                 {p.editorChoice && (
@@ -258,7 +258,7 @@ export default function ProductDetail({
               id="product-health-disclaimer-heading"
               className="text-[13px] uppercase tracking-[0.1em] text-ds-muted font-semibold m-0 mb-2"
             >
-              Health disclaimer
+              {pd.healthDisclaimerHeading}
             </h2>
             <p className="text-[12px] text-ds-ink leading-relaxed">{healthDisclaimer}</p>
           </section>
