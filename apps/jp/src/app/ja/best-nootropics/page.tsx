@@ -105,9 +105,9 @@ export default function JaBestNootropicsPage() {
         <section id="comparison-table">
           <h2 className="text-2xl font-bold text-gray-900 mb-2">{CURRENT_YEAR}年 日本ノートロピクス比較</h2>
           <p className="text-sm text-gray-500 mb-4">
-            価格はUSD表示。緑バッジ = カフェインフリー（厚生労働省輸入準拠）。国内ブランドはAmazon Japanリンク。
+            価格は円表示。緑バッジ = カフェインフリー（厚生労働省輸入準拠）。国内ブランドはAmazon Japanリンク。
           </p>
-          <ComparisonTable products={productsJP} market="us" />
+          <ComparisonTable products={productsJP} market="jp" />
         </section>
 
         <section className="mt-12">

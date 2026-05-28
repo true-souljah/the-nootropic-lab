@@ -42,7 +42,7 @@ export default function JaHikakuPage() {
         </p>
         <AffiliateDisclosure />
         <div className="mt-8">
-          <ComparisonTable products={productsJP} market="us" />
+          <ComparisonTable products={productsJP} market="jp" />
         </div>
         <div className="mt-8 text-sm text-gray-500">
           <a href="/nootropic-comparison" className="text-green-700 underline">
