@@ -121,6 +121,58 @@ export interface UIStrings {
     /** Template with {name} placeholder. */
     stackingLede: string;
   };
+  productDetail: {
+    chips: {
+      editorPick: string;
+      caffeineFree: string;
+      hasCaffeine: string;
+      allClinicalDoses: string;
+      handsOnTested: string;
+    };
+    meta: {
+      /** Prefix before brand name in the meta line: "By {brand}". */
+      by: string;
+      /** Static descriptor between brand and serving count. */
+      productDescriptor: string;
+      /** Short label for capsule count, e.g. "ct" / "Stück". */
+      countSuffix: string;
+      /** Prefix before the updated date, e.g. "Updated" / "Aktualisiert". */
+      updated: string;
+    };
+    /** BCP-47 locale code passed to Intl.DateTimeFormat for the meta-line date. */
+    dateLocale: string;
+    score: {
+      label: string;
+      outOf10: string;
+    };
+    stats: {
+      price: string;
+      /** Monthly-price suffix, e.g. "/mo" / "/Monat". */
+      perMonth: string;
+      capsules: string;
+      /** Per-day suffix, e.g. "/day" / "/Tag". */
+      perDay: string;
+      moneyBack: string;
+      /** "days" suffix for the money-back-guarantee value. */
+      days: string;
+      trustpilot: string;
+      notAvailable: string;
+      ourCut: string;
+    };
+    /** CTA label inside the header card, e.g. "Visit brand →". */
+    visitBrand: string;
+    tabs: {
+      overview: string;
+      dosing: string;
+      pillars: string;
+      reviews: string;
+      pricing: string;
+      /** Tab-bar accessible name. */
+      ariaLabel: string;
+    };
+    /** Heading for the bottom alternatives rail. */
+    alternatives: string;
+  };
 }
 
 const en: UIStrings = {
@@ -232,6 +284,47 @@ const en: UIStrings = {
       trials: 'Trials',
     },
     stackingLede: 'Ingredients that pair well with {name} and why.',
+  },
+  productDetail: {
+    chips: {
+      editorPick: 'Editor\'s pick',
+      caffeineFree: 'Caffeine-free',
+      hasCaffeine: 'Caffeine',
+      allClinicalDoses: 'All clinical doses',
+      handsOnTested: 'Hands-on tested',
+    },
+    meta: {
+      by: 'By',
+      productDescriptor: 'daily nootropic capsule',
+      countSuffix: 'ct',
+      updated: 'Updated',
+    },
+    dateLocale: 'en-US',
+    score: {
+      label: 'Our score',
+      outOf10: 'of 10.0',
+    },
+    stats: {
+      price: 'Price',
+      perMonth: '/mo',
+      capsules: 'Caps',
+      perDay: '/day',
+      moneyBack: 'MBG',
+      days: 'days',
+      trustpilot: 'Trustpilot',
+      notAvailable: 'N/A',
+      ourCut: 'Our cut',
+    },
+    visitBrand: 'Visit brand →',
+    tabs: {
+      overview: 'Overview',
+      dosing: 'Dosing audit',
+      pillars: 'Pillars',
+      reviews: 'Reviews',
+      pricing: 'Pricing',
+      ariaLabel: 'Product sections',
+    },
+    alternatives: 'Similar alternatives',
   },
 };
 
@@ -345,6 +438,47 @@ const es: UIStrings = {
     },
     stackingLede: 'Ingredientes que se combinan bien con {name} y por qué.',
   },
+  productDetail: {
+    chips: {
+      editorPick: 'Elección editorial',
+      caffeineFree: 'Sin cafeína',
+      hasCaffeine: 'Con cafeína',
+      allClinicalDoses: 'Todas las dosis clínicas',
+      handsOnTested: 'Probado en persona',
+    },
+    meta: {
+      by: 'Por',
+      productDescriptor: 'cápsula nootrópica diaria',
+      countSuffix: 'cáps.',
+      updated: 'Actualizado',
+    },
+    dateLocale: 'es-419',
+    score: {
+      label: 'Nuestra puntuación',
+      outOf10: 'sobre 10,0',
+    },
+    stats: {
+      price: 'Precio',
+      perMonth: '/mes',
+      capsules: 'Cáps.',
+      perDay: '/día',
+      moneyBack: 'Garantía',
+      days: 'días',
+      trustpilot: 'Trustpilot',
+      notAvailable: 'N/D',
+      ourCut: 'Nuestra comisión',
+    },
+    visitBrand: 'Visitar marca →',
+    tabs: {
+      overview: 'Resumen',
+      dosing: 'Auditoría de dosis',
+      pillars: 'Pilares',
+      reviews: 'Opiniones',
+      pricing: 'Precios',
+      ariaLabel: 'Secciones del producto',
+    },
+    alternatives: 'Alternativas similares',
+  },
 };
 
 const fr: UIStrings = {
@@ -456,6 +590,47 @@ const fr: UIStrings = {
       trials: 'Essais',
     },
     stackingLede: 'Ingrédients qui se combinent bien avec {name} et pourquoi.',
+  },
+  productDetail: {
+    chips: {
+      editorPick: 'Choix de la rédaction',
+      caffeineFree: 'Sans caféine',
+      hasCaffeine: 'Contient de la caféine',
+      allClinicalDoses: 'Toutes les doses cliniques',
+      handsOnTested: 'Testé en main',
+    },
+    meta: {
+      by: 'Par',
+      productDescriptor: 'capsule nootropique quotidienne',
+      countSuffix: 'caps.',
+      updated: 'Mis à jour',
+    },
+    dateLocale: 'fr-FR',
+    score: {
+      label: 'Notre note',
+      outOf10: 'sur 10,0',
+    },
+    stats: {
+      price: 'Prix',
+      perMonth: '/mois',
+      capsules: 'Caps.',
+      perDay: '/jour',
+      moneyBack: 'Garantie',
+      days: 'jours',
+      trustpilot: 'Trustpilot',
+      notAvailable: 'N/D',
+      ourCut: 'Notre commission',
+    },
+    visitBrand: 'Visiter la marque →',
+    tabs: {
+      overview: 'Aperçu',
+      dosing: 'Audit du dosage',
+      pillars: 'Piliers',
+      reviews: 'Avis',
+      pricing: 'Tarification',
+      ariaLabel: 'Sections du produit',
+    },
+    alternatives: 'Alternatives similaires',
   },
 };
 
@@ -569,6 +744,47 @@ const ja: UIStrings = {
     },
     stackingLede: '{name}と相性の良い成分とその理由。',
   },
+  productDetail: {
+    chips: {
+      editorPick: '編集部のおすすめ',
+      caffeineFree: 'カフェインフリー',
+      hasCaffeine: 'カフェイン含有',
+      allClinicalDoses: '全成分が臨床用量',
+      handsOnTested: '実機テスト済み',
+    },
+    meta: {
+      by: '販売：',
+      productDescriptor: '毎日のノートロピクスカプセル',
+      countSuffix: '粒',
+      updated: '更新日：',
+    },
+    dateLocale: 'ja-JP',
+    score: {
+      label: '当社の評価',
+      outOf10: '10.0点満点',
+    },
+    stats: {
+      price: '価格',
+      perMonth: '/月',
+      capsules: 'カプセル',
+      perDay: '/日',
+      moneyBack: '返金保証',
+      days: '日間',
+      trustpilot: 'Trustpilot',
+      notAvailable: 'N/A',
+      ourCut: '当社の手数料',
+    },
+    visitBrand: 'ブランドサイトへ →',
+    tabs: {
+      overview: '概要',
+      dosing: '用量チェック',
+      pillars: '柱',
+      reviews: 'レビュー',
+      pricing: '価格',
+      ariaLabel: '製品セクション',
+    },
+    alternatives: '類似の代替品',
+  },
 };
 
 const pt: UIStrings = {
@@ -681,6 +897,47 @@ const pt: UIStrings = {
     },
     stackingLede: 'Ingredientes que combinam bem com {name} e por quê.',
   },
+  productDetail: {
+    chips: {
+      editorPick: 'Escolha editorial',
+      caffeineFree: 'Sem cafeína',
+      hasCaffeine: 'Com cafeína',
+      allClinicalDoses: 'Todas as doses clínicas',
+      handsOnTested: 'Testado pessoalmente',
+    },
+    meta: {
+      by: 'Por',
+      productDescriptor: 'cápsula nootrópica diária',
+      countSuffix: 'cáps.',
+      updated: 'Atualizado',
+    },
+    dateLocale: 'pt-PT',
+    score: {
+      label: 'Nossa pontuação',
+      outOf10: 'em 10,0',
+    },
+    stats: {
+      price: 'Preço',
+      perMonth: '/mês',
+      capsules: 'Cáps.',
+      perDay: '/dia',
+      moneyBack: 'Garantia',
+      days: 'dias',
+      trustpilot: 'Trustpilot',
+      notAvailable: 'N/D',
+      ourCut: 'Nossa comissão',
+    },
+    visitBrand: 'Visitar marca →',
+    tabs: {
+      overview: 'Visão geral',
+      dosing: 'Auditoria de dosagem',
+      pillars: 'Pilares',
+      reviews: 'Avaliações',
+      pricing: 'Preços',
+      ariaLabel: 'Secções do produto',
+    },
+    alternatives: 'Alternativas semelhantes',
+  },
 };
 
 const de: UIStrings = {
@@ -792,6 +1049,47 @@ const de: UIStrings = {
       trials: 'Studien',
     },
     stackingLede: 'Inhaltsstoffe, die gut mit {name} kombinieren — und warum.',
+  },
+  productDetail: {
+    chips: {
+      editorPick: 'Empfehlung der Redaktion',
+      caffeineFree: 'Koffeinfrei',
+      hasCaffeine: 'Koffeinhaltig',
+      allClinicalDoses: 'Alle klinischen Dosen',
+      handsOnTested: 'Praxistest absolviert',
+    },
+    meta: {
+      by: 'Von',
+      productDescriptor: 'tägliche Nootropika-Kapsel',
+      countSuffix: 'Stück',
+      updated: 'Aktualisiert',
+    },
+    dateLocale: 'de-DE',
+    score: {
+      label: 'Unsere Bewertung',
+      outOf10: 'von 10,0',
+    },
+    stats: {
+      price: 'Preis',
+      perMonth: '/Monat',
+      capsules: 'Kapseln',
+      perDay: '/Tag',
+      moneyBack: 'Geld-zurück',
+      days: 'Tage',
+      trustpilot: 'Trustpilot',
+      notAvailable: 'k. A.',
+      ourCut: 'Unsere Provision',
+    },
+    visitBrand: 'Zur Marke →',
+    tabs: {
+      overview: 'Übersicht',
+      dosing: 'Dosierungsprüfung',
+      pillars: 'Säulen',
+      reviews: 'Bewertungen',
+      pricing: 'Preise',
+      ariaLabel: 'Produktbereiche',
+    },
+    alternatives: 'Ähnliche Alternativen',
   },
 };
 

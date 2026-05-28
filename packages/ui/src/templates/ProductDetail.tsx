@@ -7,6 +7,7 @@ import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { Tabs, TabPanel } from '../primitives/Tabs';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
+import { getStrings } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 import type { TabId } from './product-detail/constants';
@@ -41,7 +42,10 @@ export default function ProductDetail({
 }: ProductDetailProps) {
   const [tab, setTab] = useState<TabId>('overview');
 
-  const formattedDate = (p.updatedAt ? new Date(p.updatedAt) : new Date()).toLocaleDateString('en-US', {
+  const t = uiStrings ?? getStrings('en');
+  const pd = t.productDetail;
+
+  const formattedDate = (p.updatedAt ? new Date(p.updatedAt) : new Date()).toLocaleDateString(pd.dateLocale, {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
@@ -52,11 +56,11 @@ export default function ProductDetail({
   const allAdequate = totalDoses > 0 && adequateCount === totalDoses;
 
   const tabItems: Array<{ id: TabId; label: string }> = [
-    { id: 'overview', label: 'Overview' },
-    { id: 'dosing', label: 'Dosing audit' },
-    { id: 'pillars', label: 'Pillars' },
-    { id: 'reviews', label: 'Reviews' },
-    { id: 'pricing', label: 'Pricing' },
+    { id: 'overview', label: pd.tabs.overview },
+    { id: 'dosing', label: pd.tabs.dosing },
+    { id: 'pillars', label: pd.tabs.pillars },
+    { id: 'reviews', label: pd.tabs.reviews },
+    { id: 'pricing', label: pd.tabs.pricing },
   ];
 
   const scoreColor =
@@ -84,48 +88,61 @@ export default function ProductDetail({
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex flex-wrap gap-[6px] mb-2">
-                {p.editorChoice && <Chip tone="accent">★ Editor&apos;s pick</Chip>}
-                {p.caffeineFree ? <Chip tone="good">Caffeine-free</Chip> : <Chip tone="warn">Caffeine</Chip>}
-                {allAdequate && <Chip tone="good">All clinical doses</Chip>}
-                {p.handsOnTested && <Chip tone="accent">Hands-on tested</Chip>}
+                {p.editorChoice && (
+                  <Chip tone="accent">
+                    <span aria-hidden="true">★ </span>
+                    {pd.chips.editorPick}
+                  </Chip>
+                )}
+                {p.caffeineFree ? (
+                  <Chip tone="good">{pd.chips.caffeineFree}</Chip>
+                ) : (
+                  <Chip tone="warn">{pd.chips.hasCaffeine}</Chip>
+                )}
+                {allAdequate && <Chip tone="good">{pd.chips.allClinicalDoses}</Chip>}
+                {p.handsOnTested && <Chip tone="accent">{pd.chips.handsOnTested}</Chip>}
               </div>
               <h1 className="text-[24px] sm:text-[32px] font-bold tracking-[-0.025em] leading-[1.05] m-0 text-ds-ink">
                 {p.name}
               </h1>
               <div className="text-ds-muted text-[14px] mt-1">
-                By {p.brand} · daily nootropic capsule · {p.servingsPerContainer} ct ·{' '}
-                <span className="text-ds-muted">Updated {formattedDate}</span>
+                {pd.meta.by} {p.brand} · {pd.meta.productDescriptor} · {p.servingsPerContainer}{' '}
+                {pd.meta.countSuffix} ·{' '}
+                <span className="text-ds-muted">
+                  {pd.meta.updated} {formattedDate}
+                </span>
               </div>
             </div>
             <div className="text-right">
               <div className="text-[11px] uppercase tracking-[0.12em] font-semibold text-ds-muted">
-                Our score
+                {pd.score.label}
               </div>
               <div className={`text-[48px] font-bold tracking-[-0.03em] leading-none ${scoreColor} ds-tabular`}>
                 {p.score.toFixed(1)}
               </div>
-              <div className="text-[11px] text-ds-muted">of 10.0</div>
+              <div className="text-[11px] text-ds-muted">{pd.score.outOf10}</div>
             </div>
           </div>
 
           <div className="mt-[22px] pt-[18px] border-t border-ds-border grid gap-[18px] items-center grid-cols-2 sm:grid-cols-3 lg:grid-cols-[repeat(5,1fr)_auto]">
             {[
-              ['Price', p.priceMonthlyUSD ? `$${p.priceMonthlyUSD}/mo` : '—'],
-              ['Caps', `${p.capsulesPerServing}/day`],
-              ['MBG', `${p.moneyBackDays} days`],
+              [pd.stats.price, p.priceMonthlyUSD ? `$${p.priceMonthlyUSD}${pd.stats.perMonth}` : '—', false],
+              [pd.stats.capsules, `${p.capsulesPerServing}${pd.stats.perDay}`, false],
+              [pd.stats.moneyBack, `${p.moneyBackDays} ${pd.stats.days}`, false],
               [
-                'Trustpilot',
+                pd.stats.trustpilot,
                 p.trustpilotScore === null
-                  ? 'N/A'
-                  : `${p.trustpilotScore} (${(p.trustpilotCount ?? 0).toLocaleString()})`,
+                  ? pd.stats.notAvailable
+                  : `${p.trustpilotScore} (${(p.trustpilotCount ?? 0).toLocaleString(pd.dateLocale)})`,
+                false,
               ],
-              ['Our cut', p.commissionRate],
-            ].map(([k, v]) => (
-              <div key={k}>
+              [pd.stats.ourCut, p.commissionRate, true],
+            ].map(([k, v, isOurCut]) => (
+              <div key={k as string}>
                 <div className="text-[11px] uppercase tracking-[0.1em] text-ds-muted">{k}</div>
                 <div
                   className={`text-[14px] font-semibold mt-[2px] ${
-                    k === 'Our cut' ? 'text-ds-accent' : 'text-ds-ink'
+                    isOurCut ? 'text-ds-accent' : 'text-ds-ink'
                   }`}
                 >
                   {v}
@@ -138,7 +155,7 @@ export default function ProductDetail({
               surface="review"
               className="inline-block bg-ds-accent hover:bg-ds-accent-press text-white border-0 px-[18px] py-[10px] rounded-[8px] text-[13px] font-semibold focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
             >
-              Visit brand →
+              {pd.visitBrand}
             </TrackedAffiliateLink>
           </div>
         </Card>
@@ -148,7 +165,7 @@ export default function ProductDetail({
           items={tabItems}
           value={tab}
           onChange={setTab}
-          ariaLabel="Product sections"
+          ariaLabel={pd.tabs.ariaLabel}
           idPrefix="product"
         />
 
@@ -174,7 +191,7 @@ export default function ProductDetail({
         {alternatives.length > 0 && (
           <section className="mt-10">
             <h2 className="text-[18px] font-bold tracking-[-0.01em] m-0 mb-4 text-ds-ink">
-              Similar alternatives
+              {pd.alternatives}
             </h2>
             <div className="grid gap-3 sm:grid-cols-3">
               {alternatives.slice(0, 3).map((alt) => (
@@ -188,7 +205,7 @@ export default function ProductDetail({
                   <div className="flex items-center gap-2">
                     <span className="text-ds-good-ink font-bold text-[13px] ds-tabular">{alt.score}/10</span>
                     {alt.priceMonthlyUSD && (
-                      <span className="text-[12px] text-ds-muted ds-tabular">${alt.priceMonthlyUSD}/mo</span>
+                      <span className="text-[12px] text-ds-muted ds-tabular">${alt.priceMonthlyUSD}{pd.stats.perMonth}</span>
                     )}
                   </div>
                 </Link>
