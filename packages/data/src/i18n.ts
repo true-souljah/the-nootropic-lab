@@ -128,6 +128,16 @@ export interface UIStrings {
       hasCaffeine: string;
       allClinicalDoses: string;
       handsOnTested: string;
+      /** Health Canada NPN-licensed. Number appended after the label in JSX. */
+      npnLicensed: string;
+      /** Reaches CA via Personal Importation Program (not Health Canada licensed). */
+      personalImport: string;
+      /** JP Foods with Function Claims (機能性表示食品) notified to the Consumer Affairs Agency. */
+      ffcNotified: string;
+      /** AU TGA Listed Medicine. Number appended after the label in JSX. */
+      austListed: string;
+      /** Halal-certified by a verifiable body (JAKIM, MUI, BPJPH, IFANCA, GAC, etc.). */
+      halalCertified: string;
     };
     meta: {
       /** Prefix before brand name in the meta line: "By {brand}". */
@@ -292,6 +302,11 @@ const en: UIStrings = {
       hasCaffeine: 'Caffeine',
       allClinicalDoses: 'All clinical doses',
       handsOnTested: 'Hands-on tested',
+      npnLicensed: 'Health Canada NPN',
+      personalImport: 'Personal Import',
+      ffcNotified: 'FFC notified',
+      austListed: 'AUST L',
+      halalCertified: 'Halal certified',
     },
     meta: {
       by: 'By',
@@ -445,6 +460,11 @@ const es: UIStrings = {
       hasCaffeine: 'Con cafeína',
       allClinicalDoses: 'Todas las dosis clínicas',
       handsOnTested: 'Probado en persona',
+      npnLicensed: 'NPN de Health Canada',
+      personalImport: 'Importación personal',
+      ffcNotified: 'Notificado al FFC',
+      austListed: 'AUST L',
+      halalCertified: 'Certificado halal',
     },
     meta: {
       by: 'Por',
@@ -598,6 +618,11 @@ const fr: UIStrings = {
       hasCaffeine: 'Contient de la caféine',
       allClinicalDoses: 'Toutes les doses cliniques',
       handsOnTested: 'Testé en main',
+      npnLicensed: 'NPN Santé Canada',
+      personalImport: 'Importation personnelle',
+      ffcNotified: 'Notifié FFC',
+      austListed: 'AUST L',
+      halalCertified: 'Certifié halal',
     },
     meta: {
       by: 'Par',
@@ -751,6 +776,11 @@ const ja: UIStrings = {
       hasCaffeine: 'カフェイン含有',
       allClinicalDoses: '全成分が臨床用量',
       handsOnTested: '実機テスト済み',
+      npnLicensed: 'カナダ保健省 NPN',
+      personalImport: '個人輸入',
+      ffcNotified: '機能性表示食品',
+      austListed: 'AUST L',
+      halalCertified: 'ハラール認証',
     },
     meta: {
       by: '販売：',
@@ -904,6 +934,11 @@ const pt: UIStrings = {
       hasCaffeine: 'Com cafeína',
       allClinicalDoses: 'Todas as doses clínicas',
       handsOnTested: 'Testado pessoalmente',
+      npnLicensed: 'NPN Health Canada',
+      personalImport: 'Importação pessoal',
+      ffcNotified: 'Notificado FFC',
+      austListed: 'AUST L',
+      halalCertified: 'Certificado halal',
     },
     meta: {
       by: 'Por',
@@ -1057,6 +1092,11 @@ const de: UIStrings = {
       hasCaffeine: 'Koffeinhaltig',
       allClinicalDoses: 'Alle klinischen Dosen',
       handsOnTested: 'Praxistest absolviert',
+      npnLicensed: 'Health-Canada-NPN',
+      personalImport: 'Privatimport',
+      ffcNotified: 'FFC-notifiziert',
+      austListed: 'AUST L',
+      halalCertified: 'Halal-zertifiziert',
     },
     meta: {
       by: 'Von',

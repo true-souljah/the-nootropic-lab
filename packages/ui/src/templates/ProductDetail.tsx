@@ -96,7 +96,11 @@ export default function ProductDetail({
               {p.name[0]}
             </div>
             <div className="flex-1 min-w-0">
-              <div className="flex flex-wrap gap-[6px] mb-2">
+              <div
+                role="group"
+                aria-label="Product attributes"
+                className="flex flex-wrap gap-[6px] mb-2"
+              >
                 {p.editorChoice && (
                   <Chip tone="accent">
                     <span aria-hidden="true">★ </span>
@@ -110,6 +114,26 @@ export default function ProductDetail({
                 )}
                 {allAdequate && <Chip tone="good">{pd.chips.allClinicalDoses}</Chip>}
                 {p.handsOnTested && <Chip tone="accent">{pd.chips.handsOnTested}</Chip>}
+                {p.npnStatus?.status === 'licensed' && (
+                  <Chip tone="good">
+                    {pd.chips.npnLicensed}
+                    {p.npnStatus.npn ? ` ${p.npnStatus.npn}` : ''}
+                  </Chip>
+                )}
+                {p.npnStatus?.status === 'pip' && (
+                  <Chip tone="warn">{pd.chips.personalImport}</Chip>
+                )}
+                {p.ffcStatus?.notified === true && (
+                  <Chip tone="good">{pd.chips.ffcNotified}</Chip>
+                )}
+                {p.austl && (
+                  <Chip tone="good">
+                    {pd.chips.austListed} {p.austl}
+                  </Chip>
+                )}
+                {p.halalCertified === true && (
+                  <Chip tone="good">{pd.chips.halalCertified}</Chip>
+                )}
               </div>
               <h1 className="text-[24px] sm:text-[32px] font-bold tracking-[-0.025em] leading-[1.05] m-0 text-ds-ink">
                 {p.name}
