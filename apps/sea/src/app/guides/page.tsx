@@ -9,10 +9,10 @@ import { searchItems, uiStrings } from "@/lib/search";
 export const metadata: Metadata = {
   title: `Nootropics Guides ${CURRENT_YEAR} — SEA, Beginner to Advanced`,
   description:
-    'Learn everything about nootropics available in the EU: what they are, how they work, how to stack them safely, and what to realistically expect.',
+    'Learn everything about nootropics available in Southeast Asia: what they are, how they work, how to stack them safely, and what to realistically expect.',
   alternates: buildAlternates({ regionCode: 'sea', path: '/guides/' }),
-  openGraph: buildOpenGraph({ regionCode: 'sea', path: '/guides/', title: `Nootropics Guides ${CURRENT_YEAR} — SEA, Beginner to Advanced`, description: 'Learn everything about nootropics available in the EU: what they are, how they work, how to stack them safely, and what to realistically expect.' }),
-  twitter: buildTwitter({ title: `Nootropics Guides ${CURRENT_YEAR} — SEA, Beginner to Advanced`, description: 'Learn everything about nootropics available in the EU: what they are, how they work, how to stack them safely, and what to realistically expect.' }),
+  openGraph: buildOpenGraph({ regionCode: 'sea', path: '/guides/', title: `Nootropics Guides ${CURRENT_YEAR} — SEA, Beginner to Advanced`, description: 'Learn everything about nootropics available in Southeast Asia: what they are, how they work, how to stack them safely, and what to realistically expect.' }),
+  twitter: buildTwitter({ title: `Nootropics Guides ${CURRENT_YEAR} — SEA, Beginner to Advanced`, description: 'Learn everything about nootropics available in Southeast Asia: what they are, how they work, how to stack them safely, and what to realistically expect.' }),
 };
 
 const categoryLabels: Record<string, string> = {
@@ -58,7 +58,7 @@ export default function GuidesPage() {
         </h1>
         <p className="text-lg text-gray-600 mb-10">
           Practical, evidence-based guides to understanding and using nootropics effectively.
-          All information is relevant to EU-available products and compliant with EU standards.
+          All information is relevant to products available across SEA (Indonesia, Malaysia, Singapore, Thailand, Philippines), with BPOM / NPRA / HSA / Thai FDA regulatory context and halal certification where applicable.
         </p>
 
         <div className="grid sm:grid-cols-2 gap-6">
