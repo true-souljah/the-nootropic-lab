@@ -34,6 +34,7 @@ export { buildRegionSearchContext } from './region-search';
 export type { RegionSearchContext } from './region-search';
 export type { Author } from './authors';
 export { authors, getAuthorBySlug, buildPersonSchema, buildPersonAuthorReference } from './authors';
+export { buildProductSchema } from './product-schema';
 export type { DisclaimerMarket } from './regional-disclaimers';
 export { getRegionalHealthDisclaimer } from './regional-disclaimers';
 export type { AnmatProhibitedCompound } from './anmat-prohibited';
