@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ComparisonTable, AffiliateDisclosure, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
 import { productsEU } from '@nootropic/data';
-import { searchItems, uiStrings } from '@/lib/search';
+import { searchItems, uiStrings } from '@/lib/search-fr';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
