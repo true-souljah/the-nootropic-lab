@@ -88,9 +88,9 @@ function CookiePolicyBody() {
           <h2 className="text-xl font-bold text-gray-900 mb-3">We Do Not Use</h2>
           <ul className="list-disc list-inside text-gray-700 space-y-1">
             <li>Advertising cookies or retargeting pixels</li>
-            <li>Google Analytics (we use privacy-focused alternatives)</li>
             <li>Facebook Pixel or social media tracking</li>
             <li>Cross-site tracking of any kind</li>
+            <li>Personalized advertising or data sales to third parties</li>
           </ul>
         </section>
 
@@ -126,7 +126,7 @@ function PrivacyPolicyBody() {
           <h2 className="text-xl font-bold text-gray-900 mb-3">2. Data We Collect</h2>
           <p className="text-gray-700 leading-relaxed mb-3">We collect minimal data:</p>
           <ul className="list-disc list-inside text-gray-700 space-y-1">
-            <li><strong>Analytics data</strong> (only after cookie consent): page views, referrer, device type, country. We use privacy-focused analytics. No personally identifiable information is collected.</li>
+            <li><strong>Analytics data</strong> (only after cookie consent): page views, referrer, device type, country. Collected via Google Analytics 4 and Cloudflare Web Analytics. No personally identifiable information is collected. Advertising features are disabled, and data is not used for personalized advertising or sold to third parties.</li>
             <li><strong>Cookie consent preference:</strong> stored in your browser&apos;s localStorage to remember your choice.</li>
             <li><strong>Affiliate click data:</strong> when you click an affiliate link, the destination site may set tracking cookies. We do not control third-party cookies.</li>
           </ul>
@@ -168,9 +168,12 @@ function PrivacyPolicyBody() {
           <h2 className="text-xl font-bold text-gray-900 mb-3">6. Third-Party Services</h2>
           <p className="text-gray-700 leading-relaxed">
             This site is hosted on Cloudflare Pages. Cloudflare may collect standard web server
-            logs (IP address, user agent, timestamps) as part of their infrastructure. See
-            Cloudflare&apos;s privacy policy for details. We do not use Google Analytics, Facebook
-            Pixel, or any advertising tracking services.
+            logs (IP address, user agent, timestamps) as part of their infrastructure. After you
+            accept analytics cookies, we use <strong>Google Analytics 4</strong> and{' '}
+            <strong>Cloudflare Web Analytics</strong> to measure site usage. Neither uses
+            personalized-advertising features, and IP addresses are anonymized. We do not use
+            Facebook Pixel or any advertising-tracking services. See Cloudflare&apos;s and
+            Google&apos;s respective privacy policies for details.
           </p>
         </section>
 
