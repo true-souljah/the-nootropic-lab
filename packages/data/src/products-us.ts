@@ -98,6 +98,18 @@ export interface Product {
    * the TGA Personal Importation Scheme (3-month personal-use supply).
    */
   austl?: string;
+  /**
+   * Halal certification status. Meaningful primarily on products served by
+   * the SEA + GCC market apps, where halal is a federal-law requirement for
+   * Indonesian (BPJPH) and Malaysian (JAKIM) consumers and a strong trust
+   * signal across GCC. `true` only when a verifiable certification body has
+   * issued one (JAKIM, MUI, BPJPH, IFANCA, GAC, etc.); `false` is a
+   * confident "not certified" claim (no body has issued one and we have
+   * sufficient evidence — e.g. Western imports with gelatin capsules and
+   * no halal claim). Undefined means we have not verified — UI should
+   * render no chip rather than guess.
+   */
+  halalCertified?: boolean;
 }
 
 export const productsUS: Product[] = [
