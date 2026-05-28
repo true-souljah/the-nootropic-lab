@@ -23,14 +23,6 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
   },
-  alternates: {
-    languages: {
-      'en': '/',
-      'de-DE': '/de/beste-nootropika',
-      'fr-FR': '/fr/meilleurs-nootropiques',
-      'pt-PT': '/pt/melhores-nootropicos',
-    },
-  },
 };
 
 const strings = getStrings('en');

@@ -27,12 +27,6 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
   },
-  alternates: {
-    languages: {
-      'en-US': '/',
-      'es-US': '/es',
-    },
-  },
 };
 
 const strings = getStrings('en');
