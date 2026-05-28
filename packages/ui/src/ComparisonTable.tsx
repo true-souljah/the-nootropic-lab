@@ -4,12 +4,12 @@ import type { Product, UIStrings } from '@nootropic/data';
 import ScoreTooltip from './ScoreTooltip';
 import EUBadge from './EUBadge';
 
-type SortKey = 'score' | 'priceMonthlyUSD' | 'priceMonthlyEUR' | 'moneyBackDays' | 'trustpilotScore';
+type SortKey = 'score' | 'priceMonthlyUSD' | 'priceMonthlyEUR' | 'priceMonthlyJPY' | 'moneyBackDays' | 'trustpilotScore';
 type SortDir = 'asc' | 'desc';
 
 interface Props {
   products: Product[];
-  market: 'us' | 'eu';
+  market: 'us' | 'eu' | 'jp';
   strings?: UIStrings;
 }
 
@@ -42,8 +42,9 @@ export default function ComparisonTable({ products, market, strings }: Props) {
   const [sortKey, setSortKey] = useState<SortKey>('score');
   const [sortDir, setSortDir] = useState<SortDir>('desc');
 
-  const currency = market === 'eu' ? '€' : '$';
-  const priceField = market === 'eu' ? 'priceMonthlyEUR' : 'priceMonthlyUSD';
+  const currency = market === 'eu' ? '€' : market === 'jp' ? '¥' : '$';
+  const priceField =
+    market === 'eu' ? 'priceMonthlyEUR' : market === 'jp' ? 'priceMonthlyJPY' : 'priceMonthlyUSD';
 
   const FILTERS = [
     { key: 'caffeineFree', label: t?.caffeineFree || 'Caffeine-Free' },

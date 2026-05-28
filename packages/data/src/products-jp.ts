@@ -40,6 +40,7 @@ export const productsJP: Product[] = [
     cons: ['Premium price', 'Bacopa slightly underdosed'],
     editorChoice: true,
     market: 'both',
+    ffcStatus: { notified: false },
   },
   {
     id: 'noocube',
@@ -81,6 +82,7 @@ export const productsJP: Product[] = [
     cons: ['Smaller ingredient count', 'No cycling guidance'],
     editorChoice: false,
     market: 'both',
+    ffcStatus: { notified: false },
   },
   {
     id: 'performance-lab-mind',
@@ -120,6 +122,7 @@ export const productsJP: Product[] = [
     cons: ['Fewer total ingredients', 'Pricey per capsule'],
     editorChoice: false,
     market: 'both',
+    ffcStatus: { notified: false },
   },
   {
     id: 'hunter-focus',
@@ -160,6 +163,7 @@ export const productsJP: Product[] = [
     cons: ['Contains caffeine (label in English only)', 'No affiliate commission', 'Very expensive'],
     editorChoice: false,
     market: 'both',
+    ffcStatus: { notified: false },
   },
   {
     id: 'fancl-brains',
@@ -198,6 +202,7 @@ export const productsJP: Product[] = [
     cons: ['Lower clinical doses', 'No money-back guarantee', 'Amazon-only affiliate'],
     editorChoice: false,
     market: 'both',
+    ffcStatus: { notified: true },
   },
   {
     id: 'suntory-dha-epa-sesamin',
@@ -236,5 +241,6 @@ export const productsJP: Product[] = [
     cons: ['Not a nootropic stack', 'Very low commission', 'No clinical-dose nootropics'],
     editorChoice: false,
     market: 'both',
+    ffcStatus: { notified: false },
   },
 ];
