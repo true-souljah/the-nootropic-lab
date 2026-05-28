@@ -5,7 +5,6 @@ export { default as ComparisonTable } from './ComparisonTable';
 // but no longer exported from the public surface.
 export { default as SchemaOrg } from './SchemaOrg';
 export { default as ScoreTooltip } from './ScoreTooltip';
-export { default as SiteFooter } from './SiteFooter';
 export { default as SiteHeader } from './SiteHeader';
 export { default as StickyCtaBar } from './StickyCtaBar';
 export { default as SearchModal } from './SearchModal';
