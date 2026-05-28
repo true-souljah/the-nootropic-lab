@@ -1,4 +1,4 @@
-export type Locale = 'en' | 'es' | 'fr' | 'ja' | 'pt';
+export type Locale = 'en' | 'es' | 'fr' | 'ja' | 'pt' | 'de';
 
 export interface UIStrings {
   nav: {
@@ -683,7 +683,119 @@ const pt: UIStrings = {
   },
 };
 
-const translations: Record<Locale, UIStrings> = { en, es, fr, ja, pt };
+const de: UIStrings = {
+  nav: {
+    bestNootropics: 'Beste Nootropika',
+    compare: 'Vergleichen',
+    ingredients: 'Inhaltsstoffe',
+    guides: 'Ratgeber',
+    methodology: 'Methodik',
+    topPicks: 'Top-Empfehlungen',
+    search: 'Suchen',
+    openMenu: 'Menü öffnen',
+    closeMenu: 'Menü schließen',
+  },
+  footer: {
+    brand: 'The Nootropic Lab',
+    tagline: 'Unabhängige Tests kognitiver Nahrungsergänzungsmittel. Evidenzbasiert. Affiliate-transparent.',
+    reviews: 'Tests',
+    learn: 'Wissen',
+    legal: 'Rechtliches',
+    whatAreNootropics: 'Was sind Nootropika?',
+    howToStack: 'Wie kombinieren',
+    privacyPolicy: 'Datenschutzerklärung',
+    cookiePolicy: 'Cookie-Richtlinie',
+    healthDisclaimer: 'Gesundheitshinweis: Die Informationen auf dieser Website dienen ausschließlich Bildungszwecken und stellen keine medizinische Beratung dar. Nootropika sind nicht von der FDA zur Diagnose, Behandlung, Heilung oder Vorbeugung von Krankheiten zugelassen. Konsultieren Sie immer eine qualifizierte medizinische Fachkraft, bevor Sie mit der Einnahme von Nahrungsergänzungsmitteln beginnen, insbesondere wenn Sie schwanger sind, stillen, Medikamente einnehmen oder eine Erkrankung haben. Individuelle Ergebnisse können variieren.',
+    copyright: 'Alle Rechte vorbehalten. Diese Seite enthält Affiliate-Links. Wir erhalten eine Provision, wenn Sie über unsere Links kaufen. Unsere redaktionellen Tests sind unabhängig und werden nicht durch Affiliate-Beziehungen beeinflusst.',
+  },
+  cookie: {
+    message: 'Wir verwenden Analyse-Cookies, um Ihre Erfahrung zu verbessern. Wir verwenden keine Werbe-Cookies.',
+    gdprNote: 'DSGVO: Analytics wird erst nach Ihrer Zustimmung aktiviert. Notwendige Cookies sind immer aktiv.',
+    accept: 'Analyse akzeptieren',
+    decline: 'Ablehnen',
+    privacyPolicy: 'Datenschutzerklärung',
+  },
+  disclosure: {
+    text: 'Affiliate-Hinweis: Diese Seite enthält Affiliate-Links. Wenn Sie über unsere Links kaufen, erhalten wir eine Provision ohne zusätzliche Kosten für Sie. Unsere redaktionellen Meinungen sind unabhängig — wir empfehlen nur Produkte, die wir unabhängig recherchiert haben.',
+    methodology: 'Methodik lesen',
+  },
+  table: {
+    product: 'Produkt',
+    bestFor: 'Geeignet für',
+    score: 'Bewertung',
+    priceMo: 'Preis/Monat',
+    caffeineFree: 'Koffeinfrei',
+    euStatus: 'EU-Status',
+    moneyBack: 'Geld-zurück',
+    trustpilot: 'Trustpilot',
+    checkPrice: 'Preis prüfen →',
+    noResults: 'Keine Produkte entsprechen Ihren Filtern. Bitte einen Filter entfernen.',
+    yes: 'Ja',
+    no: 'Nein',
+    na: 'k. A.',
+    sortBy: 'Sortieren nach',
+    ascending: 'aufsteigend',
+    descending: 'absteigend',
+  },
+  breadcrumb: {
+    home: 'Start',
+    ingredients: 'Inhaltsstoffe',
+    backToBestNootropics: '← Zurück zu Beste Nootropika',
+    backToIngredientsGuide: '← Zurück zum Inhaltsstoff-Ratgeber',
+  },
+  ingredientDetail: {
+    chips: { clinicalDose: 'Klinische Dosis', onset: 'Wirkungseintritt' },
+    sections: {
+      mechanism: 'Wirkmechanismus',
+      evidence: 'Zusammenfassung klinischer Evidenz',
+      effects: 'Effekt-Matrix beim Menschen',
+      benefits: 'Dokumentierte Vorteile',
+      sideEffects: 'Nebenwirkungen und Vorsichtsmaßnahmen',
+      howTo: 'Einnahme',
+      stacking: 'Kombinationsempfehlungen',
+      faq: 'Häufig gestellte Fragen',
+      related: 'Verwandte Inhaltsstoffe',
+    },
+    toc: {
+      mechanism: 'Wirkmechanismus',
+      evidence: 'Klinische Evidenz',
+      effects: 'Effekt-Matrix',
+      benefits: 'Vorteile und Nebenwirkungen',
+      howTo: 'Einnahme',
+      stacking: 'Kombination',
+      faq: 'FAQ',
+      products: 'Produkte mit diesem Inhaltsstoff',
+      related: 'Verwandte Inhaltsstoffe',
+    },
+    table: {
+      effect: 'Effekt',
+      evidence: 'Evidenz',
+      magnitude: 'Ausmaß',
+      studies: 'Studien',
+      notes: 'Anmerkungen',
+    },
+    magnitude: { large: 'Groß', moderate: 'Mäßig', small: 'Klein', negligible: 'Vernachlässigbar' },
+    category: {
+      adaptogen: 'Adaptogen',
+      cholinergic: 'Cholinergikum',
+      mushroom: 'Pilz',
+      amino: 'Aminosäure',
+      herb: 'Heilkraut',
+      vitamin: 'Vitamin',
+    },
+    sidebar: {
+      quickFacts: 'Kurzfakten',
+      onThisPage: 'Auf dieser Seite',
+      category: 'Kategorie',
+      dose: 'Dosis',
+      onset: 'Wirkungseintritt',
+      trials: 'Studien',
+    },
+    stackingLede: 'Inhaltsstoffe, die gut mit {name} kombinieren — und warum.',
+  },
+};
+
+const translations: Record<Locale, UIStrings> = { en, es, fr, ja, pt, de };
 
 export function getStrings(locale: Locale): UIStrings {
   return translations[locale] || translations.en;
