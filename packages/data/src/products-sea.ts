@@ -42,6 +42,7 @@ export const productsSEA: Product[] = [
     cons: ['Premium price ($69/mo)', '4 capsules per serving', '30-day money-back', 'HSA (Singapore) / BPOM (Indonesia) registration not confirmed -- imported as personal use supplement'],
     editorChoice: true,
     market: 'both',
+    halalCertified: false,
   },
   {
     id: 'noocube',
@@ -83,6 +84,7 @@ export const productsSEA: Product[] = [
     cons: ['Trustpilot 1.9/5 -- significant complaints', 'Some ingredients underdosed', 'Subscription cancellation issues (BBB)', 'HSA (Singapore) / BPOM (Indonesia) registration not confirmed -- imported as personal use supplement'],
     editorChoice: false,
     market: 'both',
+    halalCertified: false,
   },
   {
     id: 'qualia-mind',
@@ -124,6 +126,7 @@ export const productsSEA: Product[] = [
     cons: ['$139/month', '7 capsules per serving', 'Contains caffeine', 'HSA (Singapore) / BPOM (Indonesia) registration not confirmed -- imported as personal use supplement'],
     editorChoice: false,
     market: 'both',
+    halalCertified: false,
   },
   {
     id: 'alpha-brain',
@@ -164,6 +167,7 @@ export const productsSEA: Product[] = [
     cons: ['Proprietary blends hide doses', 'Subscription cancellation issues', 'HSA (Singapore) / BPOM (Indonesia) registration not confirmed -- imported as personal use supplement'],
     editorChoice: false,
     market: 'both',
+    halalCertified: false,
   },
   {
     id: 'thesis',
@@ -203,6 +207,7 @@ export const productsSEA: Product[] = [
     cons: ['Subscription only', 'Requires experimentation', 'HSA (Singapore) / BPOM (Indonesia) registration not confirmed -- imported as personal use supplement'],
     editorChoice: false,
     market: 'both',
+    halalCertified: false,
   },
   {
     id: 'nootropics-depot-lions-mane',
@@ -238,6 +243,7 @@ export const productsSEA: Product[] = [
     cons: ['Single ingredient only', 'HSA (Singapore) / BPOM (Indonesia) registration not confirmed -- imported as personal use supplement'],
     editorChoice: false,
     market: 'both',
+    halalCertified: false,
   },
   {
     id: 'blackmores-brain-active',
@@ -276,6 +282,7 @@ export const productsSEA: Product[] = [
     cons: ['Below clinical doses for all ingredients', 'No money-back guarantee', 'No affiliate commission', 'Lower potency than imported stacks'],
     editorChoice: false,
     market: 'both',
+    halalCertified: false,
   },
   {
     id: 'brand-brain-fuel-sg',
@@ -387,5 +394,6 @@ export const productsSEA: Product[] = [
     cons: ['Ginseng severely underdosed', 'Not HSA/NPRA registered', 'No third-party CoA published', 'Two-ingredient formula only'],
     editorChoice: false,
     market: 'both',
+    halalCertified: false,
   },
 ];
