@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { HeadToHead, buildAlternates} from "@nootropic/ui";
+import { HeadToHead, buildAlternates, buildOpenGraph, buildTwitter } from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { HeadToHeadFAQ } from '@nootropic/ui';
 import { productsAU, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -12,17 +12,22 @@ const productA = productsAU.find(p => p.slug === 'blackmores-brain-active-review
 const productB = productsAU.find(p => p.slug === 'mind-lab-pro-review');
 
 
+const META_TITLE = `Blackmores Brain Active vs Mind Lab Pro ${CURRENT_YEAR}: TGA-Listed vs Personal Import`;
+const META_DESCRIPTION =
+  'Independent comparison of Blackmores Brain Active vs Mind Lab Pro for Australian buyers. TGA-listed pharmacy supplement vs international personal-import.';
+
 export const metadata: Metadata = {
-  title: `Blackmores Brain Active vs Mind Lab Pro ${CURRENT_YEAR}: TGA-Listed vs Personal Import`,
-  description:
-    'Independent comparison of Blackmores Brain Active vs Mind Lab Pro for Australian buyers. TGA-listed pharmacy supplement vs international personal-import.',
+  title: META_TITLE,
+  description: META_DESCRIPTION,
   alternates: buildAlternates({ regionCode: 'au', path: '/blackmores-brain-active-vs-mind-lab-pro/', availableInRegions: ['au'] }),
-  openGraph: {
-    title: 'Blackmores Brain Active vs Mind Lab Pro — TGA vs Personal Import',
-    description: 'Pharmacy-shelf TGA-listed vs international personal-import. Which makes sense for Australian buyers?',
+  openGraph: buildOpenGraph({
+    regionCode: 'au',
+    path: '/blackmores-brain-active-vs-mind-lab-pro/',
+    title: META_TITLE,
+    description: META_DESCRIPTION,
     type: 'article',
-  },
-  twitter: { card: 'summary' },
+  }),
+  twitter: buildTwitter({ title: META_TITLE, description: META_DESCRIPTION }),
 };
 
 const faqItems: HeadToHeadFAQ[] = [
