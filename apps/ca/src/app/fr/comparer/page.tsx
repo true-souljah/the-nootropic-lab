@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { ComparisonTable, AffiliateDisclosure, SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
 import { productsCA } from '@nootropic/data';
-import { searchItems, uiStrings } from '@/lib/search';
+import { searchItems, uiStrings } from '@/lib/search-fr-ca';
 
 
 export const metadata: Metadata = {
