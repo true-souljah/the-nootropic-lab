@@ -131,7 +131,7 @@ export default function FrMeilleursNootropiquesPage() {
           <p className="text-sm text-gray-500 mb-4">
             Prix en USD (les marques internationales affichent leurs prix en USD pour les commandes canadiennes).
           </p>
-          <ComparisonTable products={productsCA} market="us" />
+          <ComparisonTable products={productsCA} market="ca" />
         </section>
 
         <section className="mt-12 bg-gray-50 rounded-xl p-6">

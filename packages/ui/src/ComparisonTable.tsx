@@ -4,12 +4,12 @@ import type { Product, UIStrings } from '@nootropic/data';
 import ScoreTooltip from './ScoreTooltip';
 import EUBadge from './EUBadge';
 
-type SortKey = 'score' | 'priceMonthlyUSD' | 'priceMonthlyEUR' | 'priceMonthlyJPY' | 'moneyBackDays' | 'trustpilotScore';
+type SortKey = 'score' | 'priceMonthlyUSD' | 'priceMonthlyEUR' | 'priceMonthlyJPY' | 'priceMonthlyCAD' | 'moneyBackDays' | 'trustpilotScore';
 type SortDir = 'asc' | 'desc';
 
 interface Props {
   products: Product[];
-  market: 'us' | 'eu' | 'jp';
+  market: 'us' | 'eu' | 'jp' | 'ca';
   strings?: UIStrings;
 }
 
@@ -38,13 +38,29 @@ export default function ComparisonTable({ products, market, strings }: Props) {
   const t = strings?.table;
   const uid = useId();
   const [activeFilters, setActiveFilters] = useState<Set<string>>(new Set());
-  const [priceMax, setPriceMax] = useState(200);
+  // Per-market price slider bounds. JPY products span ~¥4,000-10,000 — a
+  // 20-200 slider would filter every JP product out by default.
+  const sliderBounds =
+    market === 'jp' ? { min: 1000, max: 20000, step: 500 } : { min: 20, max: 200, step: 5 };
+  const [priceMax, setPriceMax] = useState(sliderBounds.max);
   const [sortKey, setSortKey] = useState<SortKey>('score');
   const [sortDir, setSortDir] = useState<SortDir>('desc');
 
-  const currency = market === 'eu' ? '€' : market === 'jp' ? '¥' : '$';
+  const currency =
+    market === 'eu' ? '€' : market === 'jp' ? '¥' : '$';
   const priceField =
-    market === 'eu' ? 'priceMonthlyEUR' : market === 'jp' ? 'priceMonthlyJPY' : 'priceMonthlyUSD';
+    market === 'eu'
+      ? 'priceMonthlyEUR'
+      : market === 'jp'
+        ? 'priceMonthlyJPY'
+        : market === 'ca'
+          ? 'priceMonthlyCAD'
+          : 'priceMonthlyUSD';
+  // Locale-aware thousand-separator formatting. Currently only JPY needs
+  // it (¥4,750 vs ¥4750); USD/EUR/CAD prices stay sub-thousand so the
+  // call is a no-op for them.
+  const formatPrice = (val: number) =>
+    market === 'jp' ? val.toLocaleString('ja-JP') : String(val);
 
   const FILTERS = [
     { key: 'caffeineFree', label: t?.caffeineFree || 'Caffeine-Free' },
@@ -105,14 +121,15 @@ export default function ComparisonTable({ products, market, strings }: Props) {
           </button>
         ))}
         <div className="flex items-center gap-2 ml-auto text-sm text-gray-600">
-          <label htmlFor={priceInputId}>Max {currency}{priceMax}/mo</label>
+          <label htmlFor={priceInputId}>Max {currency}{formatPrice(priceMax)}/mo</label>
           <input
             id={priceInputId}
             type="range"
-            min={20}
-            max={200}
-            step={5}
+            min={sliderBounds.min}
+            max={sliderBounds.max}
+            step={sliderBounds.step}
             value={priceMax}
+            aria-valuetext={`${currency}${formatPrice(priceMax)} per month`}
             onChange={e => setPriceMax(Number(e.target.value))}
             className="w-28 accent-green-700"
           />
@@ -178,7 +195,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                   <ScoreTooltip score={p.score} breakdown={p.scoreBreakdown} />
                 </td>
                 <td className="p-3 font-semibold">
-                  {p[priceField] !== undefined ? `${currency}${p[priceField]}` : '—'}
+                  {p[priceField] !== undefined ? `${currency}${formatPrice(p[priceField] as number)}` : '—'}
                 </td>
                 <td className="p-3 text-center">
                   {p.caffeineFree ? (
@@ -265,7 +282,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                 <div>
                   <span className="text-gray-500">{t?.priceMo ? `${t.priceMo}:` : 'Price:'} </span>
                   <strong>
-                    {p[priceField] !== undefined ? `${currency}${p[priceField]}/mo` : '—'}
+                    {p[priceField] !== undefined ? `${currency}${formatPrice(p[priceField] as number)}/mo` : '—'}
                   </strong>
                 </div>
                 <div>
