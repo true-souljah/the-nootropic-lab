@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { ComparisonTable, AffiliateDisclosure, StickyCtaBar, SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
 import { productsCA, buildPersonAuthorReference } from '@nootropic/data';
-import { searchItems, uiStrings } from '@/lib/search';
+import { searchItems, uiStrings } from '@/lib/search-fr-ca';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
