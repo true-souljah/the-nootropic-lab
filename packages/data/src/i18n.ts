@@ -182,6 +182,10 @@ export interface UIStrings {
     };
     /** Heading for the bottom alternatives rail. */
     alternatives: string;
+    /** Eyebrow heading + section name for the YMYL regulatory disclaimer. */
+    healthDisclaimerHeading: string;
+    /** aria-label for the chip row above the product name (groups Editor's pick, Caffeine-free, regulatory chips, etc.). */
+    chipGroupLabel: string;
   };
 }
 
@@ -340,6 +344,8 @@ const en: UIStrings = {
       ariaLabel: 'Product sections',
     },
     alternatives: 'Similar alternatives',
+    healthDisclaimerHeading: 'Health disclaimer',
+    chipGroupLabel: 'Product attributes',
   },
 };
 
@@ -498,6 +504,8 @@ const es: UIStrings = {
       ariaLabel: 'Secciones del producto',
     },
     alternatives: 'Alternativas similares',
+    healthDisclaimerHeading: 'Aviso de salud',
+    chipGroupLabel: 'Atributos del producto',
   },
 };
 
@@ -656,6 +664,8 @@ const fr: UIStrings = {
       ariaLabel: 'Sections du produit',
     },
     alternatives: 'Alternatives similaires',
+    healthDisclaimerHeading: 'Avis de santé',
+    chipGroupLabel: 'Attributs du produit',
   },
 };
 
@@ -814,6 +824,8 @@ const ja: UIStrings = {
       ariaLabel: '製品セクション',
     },
     alternatives: '類似の代替品',
+    healthDisclaimerHeading: '健康に関する免責事項',
+    chipGroupLabel: '製品の属性',
   },
 };
 
@@ -972,6 +984,8 @@ const pt: UIStrings = {
       ariaLabel: 'Secções do produto',
     },
     alternatives: 'Alternativas semelhantes',
+    healthDisclaimerHeading: 'Aviso de saúde',
+    chipGroupLabel: 'Atributos do produto',
   },
 };
 
@@ -1130,6 +1144,8 @@ const de: UIStrings = {
       ariaLabel: 'Produktbereiche',
     },
     alternatives: 'Ähnliche Alternativen',
+    healthDisclaimerHeading: 'Gesundheitshinweis',
+    chipGroupLabel: 'Produktmerkmale',
   },
 };
 
