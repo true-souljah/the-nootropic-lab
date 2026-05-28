@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     siteName: 'The Nootropic Lab',
-    locale: 'en_US',
+    locale: 'es_419',
   },
   twitter: {
     card: 'summary_large_image',
