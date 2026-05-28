@@ -51,9 +51,12 @@ export default function QuizResults({
       className="bg-ds-bg text-ds-ink min-h-screen ds-font-features"
       style={{ fontFamily: 'var(--font-ds-sans)' }}
     >
+      <a href="#quiz-results-main-content" className="ds-skip-link">
+        Skip to main content
+      </a>
       <ResultsHeader quizHref={quizHref} />
 
-      <main className="max-w-[760px] mx-auto px-6 pt-7 pb-12">
+      <main id="quiz-results-main-content" className="max-w-[760px] mx-auto px-6 pt-7 pb-12">
         <div className="mb-4">
           <Chip tone="accent">Your match · {result.confidence}% confidence</Chip>
         </div>
@@ -259,8 +262,11 @@ function NoMatch({ quizHref }: { quizHref: string }) {
       className="bg-ds-bg text-ds-ink min-h-screen ds-font-features"
       style={{ fontFamily: 'var(--font-ds-sans)' }}
     >
+      <a href="#quiz-nomatch-main-content" className="ds-skip-link">
+        Skip to main content
+      </a>
       <ResultsHeader quizHref={quizHref} />
-      <main className="max-w-[640px] mx-auto px-6 pt-16 text-center">
+      <main id="quiz-nomatch-main-content" className="max-w-[640px] mx-auto px-6 pt-16 text-center">
         <h1 className="text-[28px] font-bold tracking-[-0.01em] text-ds-ink m-0 mb-3">
           No clear match.
         </h1>
