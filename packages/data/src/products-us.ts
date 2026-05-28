@@ -65,6 +65,18 @@ export interface Product {
    * not held the bottle. Surfaced as a trust badge on listicle + review pages.
    */
   handsOnTested?: boolean;
+  /**
+   * Canadian Natural Health Products Directorate licensing status. Only set on
+   * products served by the CA market app. `licensed` = Health Canada has issued
+   * an NPN (Natural Product Number); the `npn` field carries it. `pip` = the
+   * product reaches Canadian buyers via the Personal Importation Program — not
+   * Health Canada licensed, but legally imported in personal-use quantities.
+   * Undefined for products not surfaced to the CA market.
+   */
+  npnStatus?: {
+    status: 'licensed' | 'pip';
+    npn?: string;
+  };
 }
 
 export const productsUS: Product[] = [
