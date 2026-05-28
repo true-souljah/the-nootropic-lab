@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ProductDetail, SchemaOrg, buildAlternates} from '@nootropic/ui';
-import { productsEU, buildPersonAuthorReference } from '@nootropic/data';
+import { productsEU, buildProductSchema } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
 
@@ -46,19 +46,7 @@ export default async function ProductReviewPage({
     .sort((a, b) => b.score - a.score)
     .slice(0, 3);
 
-  const productSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: product.name,
-    brand: { '@type': 'Brand', name: product.brand },
-    review: {
-      '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: String(product.score), bestRating: '10' },
-      author: buildPersonAuthorReference(undefined, SITE_URL),
-      publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
-      reviewBody: product.summary,
-    },
-  };
+  const productSchema = buildProductSchema(product, SITE_URL);
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
