@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
-import { guides } from '@nootropic/data';
+import { guidesEs as guides } from '@nootropic/data';
 
 const CURRENT_YEAR = new Date().getFullYear();
 import { PublicShell } from "@nootropic/ui";
