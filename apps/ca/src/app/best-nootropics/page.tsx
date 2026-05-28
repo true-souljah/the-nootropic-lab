@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { BestOf, SchemaOrg, Card, Chip, FaqAccordion, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
-import { productsCA, buildPersonAuthorReference } from '@nootropic/data';
+import { productsCA, buildPersonAuthorReference, getRegionalHealthDisclaimer } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
 
@@ -73,6 +73,7 @@ export default function BestNootropicsCAPage() {
         searchItems={searchItems}
         uiStrings={uiStrings}
         trackingSurface="best_of_ca"
+        healthDisclaimer={getRegionalHealthDisclaimer('ca')}
         preList={
           <div className="flex flex-col gap-5">
             <Card variant="subdued" padding={20} className="border-l-[3px] border-l-ds-good" as="aside" aria-labelledby="ca-note-heading">
