@@ -28,6 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/ja`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${BASE}/ja/best-nootropics`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${BASE}/ja/hikaku`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE}/ja/yakkan-shoumei`, lastModified: now, changeFrequency: 'monthly', priority: 0.75 },
   ];
   const productPages: MetadataRoute.Sitemap = productsJP.map(p => ({
     url: `${BASE}/${p.slug}`,

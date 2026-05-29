@@ -72,7 +72,7 @@ export default function JaBestNootropicsPage() {
             <li>• 掲載されているすべての海外製品は日本に直接発送されます。</li>
             <li>• 日本国内ブランド（ファンケル、サントリー）は<strong>Amazon Japan</strong>でご購入いただけます — 通関不要。</li>
             <li>• 海外ブランドは英国または米国から発送 — 7〜14営業日をお見込みください。</li>
-            <li>• 通関税を避けるため1注文あたり<strong>¥16,000</strong>以下でご注文ください。</li>
+            <li>• 通関税を避けるため1注文あたり<strong>¥16,000</strong>以下でご注文ください（<a href="/ja/yakkan-shoumei" className="text-green-700 underline">薬監証明制度の詳細</a>）。</li>
           </ul>
         </div>
 
