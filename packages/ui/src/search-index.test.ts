@@ -11,6 +11,7 @@ import {
   productsSEA,
   ingredients,
   guides,
+  getStrings,
 } from '@nootropic/data';
 import type {
   Product,
@@ -134,6 +135,66 @@ describe('buildSearchIndex — output shape', () => {
     expect(hrefs).toContain('/best-nootropics');
     expect(hrefs).toContain('/nootropic-comparison');
     expect(hrefs).toContain('/methodology');
+  });
+});
+
+describe('buildSearchIndex — localization (PR-Q10 WCAG 3.1.2)', () => {
+  // Before PR-Q10, buildSearchIndex appended 3 hardcoded English page
+  // items into every region's search index. They were visible in the
+  // ⌘K SearchModal on LATAM /, CA /fr/*, JP /ja/, etc., violating
+  // WCAG 3.1.2 Language of Parts. PR-Q10 adds an optional strings
+  // parameter; buildRegionSearchContext always passes the locale bundle.
+
+  test('falls back to English when no strings are passed (backward compatible)', () => {
+    const items = buildSearchIndex([], [], []);
+    const pageItems = items.filter((i) => i.type === 'page');
+    expect(pageItems.map((p) => p.title)).toEqual([
+      'Best Nootropics',
+      'Compare All',
+      'Methodology',
+    ]);
+    expect(pageItems.map((p) => p.description)).toEqual([
+      'Full comparison of top brands',
+      'Interactive comparison tool',
+      'How we score supplements',
+    ]);
+  });
+
+  test.each([
+    ['es', ['Los Mejores Nootrópicos', 'Comparar Todos', 'Metodología']],
+    ['fr', ['Meilleurs Nootropiques', 'Comparer Tout', 'Méthodologie']],
+    ['ja', ['ベストノートロピクス', 'すべて比較', '評価方法']],
+    ['pt', ['Melhores Nootrópicos', 'Comparar Todos', 'Metodologia']],
+    ['de', ['Beste Nootropika', 'Alle vergleichen', 'Methodik']],
+    ['fr-CA', ['Meilleurs Nootropiques', 'Comparer Tout', 'Méthodologie']],
+  ] as const)('emits %s-localized page titles when strings is passed', (locale, expected) => {
+    const items = buildSearchIndex([], [], [], getStrings(locale));
+    const pageItems = items.filter((i) => i.type === 'page');
+    expect(pageItems.map((p) => p.title)).toEqual(expected);
+  });
+
+  test('page hrefs are stable across locales (URLs do not translate)', () => {
+    const expectedHrefs = ['/best-nootropics', '/nootropic-comparison', '/methodology'];
+    for (const locale of ['en', 'es', 'fr', 'ja', 'pt', 'de', 'fr-CA'] as const) {
+      const items = buildSearchIndex([], [], [], getStrings(locale));
+      const hrefs = items.filter((i) => i.type === 'page').map((i) => i.href);
+      expect(hrefs, `${locale} hrefs`).toEqual(expectedHrefs);
+    }
+  });
+
+  test('non-English page items never leak an English title (WCAG 3.1.2 regression guard)', () => {
+    const englishTitles = new Set(['Best Nootropics', 'Compare All', 'Methodology']);
+    for (const locale of ['es', 'ja', 'pt', 'de'] as const) {
+      const items = buildSearchIndex([], [], [], getStrings(locale));
+      const pageItems = items.filter((i) => i.type === 'page');
+      for (const item of pageItems) {
+        // fr / fr-CA happen to share "Méthodologie" with the EN "Methodology"
+        // only in spelling-collision terms — but the actual EN string is
+        // exactly "Methodology" with no accent; covered above. For the four
+        // non-Romance locales here, no overlap is possible.
+        expect(englishTitles.has(item.title), `${locale} ${item.title}`).toBe(false);
+      }
+    }
   });
 });
 

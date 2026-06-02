@@ -159,3 +159,38 @@ test.describe('LATAM FPFooter localization (PR-Q9 — WCAG 3.1.2)', () => {
     expect(footerText).toContain('La información no es asesoramiento médico');
   });
 });
+
+test.describe('LATAM breadcrumb + search-index localization (PR-Q10 — WCAG 3.1.2)', () => {
+  // Before PR-Q10:
+  //   - <nav aria-label="Breadcrumb"> hardcoded EN landmark name (mispronounced
+  //     under <html lang="es"> by screen readers).
+  //   - buildSearchIndex appended 3 hardcoded English page items into the ⌘K
+  //     SearchModal even when the page locale was 'es'.
+  // PR-Q10 adds strings.breadcrumb.ariaLabel + strings.search.pages.* and
+  // threads strings={uiStrings} through buildSearchIndex.
+
+  test('Listicle breadcrumb landmark renders the Spanish accessible name', async ({ page }) => {
+    // LATAM /guides/ uses PublicShell (no built-in breadcrumb); the
+    // Listicle template renders the localized breadcrumb instead. Use a
+    // /best-nootropics-for-*/ route which is Listicle-backed.
+    await page.goto('/best-nootropics-for-focus/');
+    const breadcrumb = page.locator('nav[aria-label="Ruta de navegación"]');
+    await expect(breadcrumb).toBeAttached();
+    // Negative: catches a regression of the hardcoded EN landmark.
+    await expect(page.locator('nav[aria-label="Breadcrumb"]')).toHaveCount(0);
+  });
+
+  test('search index serializes Spanish page titles for the ⌘K modal', async ({ page }) => {
+    await page.goto('/');
+    // The 3 hardcoded page items (Best Nootropics / Compare All / Methodology)
+    // are passed into the SearchModal as searchItems. They appear inside the
+    // serialized RSC payload before the user opens the modal — assert that
+    // payload carries the Spanish titles, not the English ones.
+    const html = await page.content();
+    expect(html).toContain('Los Mejores Nootrópicos');
+    expect(html).toContain('Comparar Todos');
+    expect(html).toContain('Metodología');
+    // Spanish description for the 'Methodology' page entry.
+    expect(html).toContain('Cómo puntuamos los suplementos');
+  });
+});

@@ -26,9 +26,10 @@ test.describe('JP /ingredients/[slug] (post-migration smoke)', () => {
   test('breadcrumb renders Japanese strings (uiStrings.breadcrumb)', async ({ page }) => {
     await page.goto(`/ingredients/${INGREDIENT_SLUG}/`);
     // PR #18 added breadcrumb translations; PR #21 migrated the route to
-    // IngredientDetail which consumes them. If either regressed, the
-    // breadcrumb would render in English instead.
-    const breadcrumb = page.locator('nav[aria-label="Breadcrumb"]');
+    // IngredientDetail which consumes them. PR-Q10 (#74) also localized the
+    // landmark aria-label itself — the Japanese name is "パンくずリスト".
+    // If either regressed, the breadcrumb would render in English.
+    const breadcrumb = page.locator('nav[aria-label="パンくずリスト"]');
     await expect(breadcrumb.getByText('ホーム')).toBeVisible();
     await expect(breadcrumb.getByText('成分')).toBeVisible();
   });

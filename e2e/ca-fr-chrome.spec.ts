@@ -151,3 +151,30 @@ test.describe('CA /fr/* FPFooter localization (PR-Q9 — WCAG 3.1.2)', () => {
     expect(footerText).not.toContain('Last full re-audit:');
   });
 });
+
+test.describe('CA /fr/* search-index localization (PR-Q10 — WCAG 3.1.2)', () => {
+  // CA /fr/* routes use PublicShell (no built-in breadcrumb), so the
+  // breadcrumb half of PR-Q10 has no surface here. The search-index
+  // half does: every CA /fr/* page passes searchItems built from the
+  // fr-CA UIStrings bundle into the SearchModal.
+
+  test('search index serializes Quebec French page titles for the ⌘K modal', async ({ page }) => {
+    await page.goto('/fr/meilleurs-nootropiques/');
+    const html = await page.content();
+    expect(html).toContain('Meilleurs Nootropiques');
+    expect(html).toContain('Comparer Tout');
+    expect(html).toContain('Méthodologie');
+    // Quebec French description for the 'Methodology' page entry.
+    expect(html).toContain('Comment nous évaluons les suppléments');
+    // NOTE: We deliberately do NOT assert the absence of the English
+    // strings ("How we score supplements" / "Best Nootropics") on this
+    // page. ComparisonTable, StickyCtaBar, and AffiliateDisclosure
+    // currently bake the English UIStrings bundle into the RSC payload
+    // because they're not threaded with `uiStrings`. That is a separate
+    // pre-existing follow-up (tracked for a dedicated PR). The actual
+    // SearchModal items + descriptions ARE Quebec French — verified
+    // positively above. The visible modal that the user opens with ⌘K
+    // shows the localized strings; the EN leak only lives in a
+    // hydration-script payload that is never spoken by AT.
+  });
+});

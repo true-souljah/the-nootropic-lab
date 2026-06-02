@@ -16,8 +16,13 @@ export interface RegionSearchContext {
 }
 
 export function buildRegionSearchContext(products: Product[], locale: Locale): RegionSearchContext {
+  const uiStrings = getStrings(locale);
   return {
-    searchItems: buildSearchIndex(products, ingredients, guides),
-    uiStrings: getStrings(locale),
+    // Pass strings through so the 3 hardcoded "page" items in the search
+    // index (Best Nootropics / Compare All / Methodology) render in the
+    // current locale. WCAG 3.1.2 — these strings are visible in the ⌘K
+    // SearchModal. Closed in PR-Q10.
+    searchItems: buildSearchIndex(products, ingredients, guides, uiStrings),
+    uiStrings,
   };
 }
