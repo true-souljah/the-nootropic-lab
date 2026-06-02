@@ -2,7 +2,6 @@
 import { useEffect } from 'react';
 import 'klaro/dist/klaro.css';
 import './styles/klaro-overrides.css';
-import type { UIStrings } from '@nootropic/data';
 import { klaroConfig } from './klaro-config';
 
 interface KlaroModule {
@@ -18,10 +17,6 @@ declare global {
   }
 }
 
-// Backwards-compatible signature: existing layouts pass `strings` to the
-// banner for the legacy binary accept/decline UI. Klaro has its own
-// translations baked into klaroConfig; the prop is accepted but unused.
-//
 // Klaro mounts itself into <div id="klaro" />. The script-control mechanism:
 // any <Script type="text/plain" data-name="X" /> in the page is loaded only
 // after the user grants consent for the matching service entry in klaroConfig.
@@ -29,7 +24,15 @@ declare global {
 // Layouts pass type="text/plain" + data-name="cloudflare-insights" or
 // data-name="google-analytics" on their analytics <Script> tags so Klaro
 // gates them behind the user's consent decision.
-export default function CookieBanner(_props?: { strings?: UIStrings }) {
+//
+// The component takes no arguments. A previous `strings?: UIStrings` prop
+// was accepted but never read (Klaro carries its own translations baked
+// into `klaroConfig`). PR-Q11 (#75) removed it because every region's
+// root layout was passing the full UIStrings bundle, which Next.js
+// serialized into the RSC payload of every page (~5 KB of dead JSON
+// per page across 8 apps) and on CA `/fr/*` + future EU non-EN routes
+// produced a WCAG 3.1.2 lang-of-parts leak in the hydration script.
+export default function CookieBanner() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
     let cancelled = false;
