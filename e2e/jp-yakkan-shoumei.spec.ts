@@ -53,14 +53,22 @@ test.describe('JP /ja/yakkan-shoumei/ (PR-C3b)', () => {
 
   test('cross-link to /ffc-notified-cognitive-supplements/ is wired', async ({ page }) => {
     await page.goto('/ja/yakkan-shoumei/');
-    const ffcLink = page.locator('a[href="/ffc-notified-cognitive-supplements"]');
+    // Next.js with trailingSlash: true normalizes Link hrefs at build time
+    // (e.g. /foo → /foo/), so use a starts-with attribute selector that
+    // tolerates both /ffc-notified-cognitive-supplements and the trailing-
+    // slash variant.
+    const ffcLink = page.locator('a[href^="/ffc-notified-cognitive-supplements"]');
     await expect(ffcLink).toBeVisible();
     await expect(ffcLink).toContainText('機能性表示食品ガイド');
   });
 
   test('cross-link to /ja/best-nootropics/ is wired', async ({ page }) => {
     await page.goto('/ja/yakkan-shoumei/');
-    const bestNootropicsLink = page.locator('a[href="/ja/best-nootropics"]');
+    // The /ja/best-nootropics link appears in two places (breadcrumb +
+    // recommendations section). starts-with selector matches both with
+    // and without trailing-slash; .first() picks the first one (the
+    // breadcrumb instance) for the visibility check.
+    const bestNootropicsLink = page.locator('a[href^="/ja/best-nootropics"]');
     await expect(bestNootropicsLink.first()).toBeVisible();
   });
 
