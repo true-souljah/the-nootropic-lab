@@ -117,7 +117,7 @@ export default function PTHomePage() {
         <div className="grid md:grid-cols-3 gap-6">
           {features.map(f => (
             <div key={f.title} className="bg-gray-50 rounded-xl p-6">
-              <div className="text-3xl mb-3">{f.icon}</div>
+              <div className="text-3xl mb-3" aria-hidden="true">{f.icon}</div>
               <h3 className="font-bold text-gray-900 mb-2">{f.title}</h3>
               <p className="text-sm text-gray-600 leading-relaxed">{f.desc}</p>
             </div>
