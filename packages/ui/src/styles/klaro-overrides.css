@@ -127,3 +127,31 @@
   font-weight: 700;
   letter-spacing: -0.005em;
 }
+
+/*
+ * Inline links inside the cookie NOTICE (".cm-link" — the "Configure" /
+ * "Learn more" affordance). The notice background uses `--dark1` which we
+ * remap to `--color-ds-ink` (#0B1220). Klaro's default link color is
+ * `--blue1` which we remap to `--color-ds-accent` (#4F46E5 indigo) — that
+ * gives 2.97:1 contrast against the dark notice and fails WCAG AA.
+ *
+ * Override to `--color-ds-accent-border` (#C7CBF7) — a lighter tint in the
+ * same indigo family. Against `#0B1220` this is ~11:1, well above AA 4.5:1,
+ * and stays recognizable as the brand accent. PR-Q14 (#78) made Klaro
+ * actually mount in production; PR-Q16 (#79) closes the contrast bug it
+ * surfaced. (Pre-PR-Q14 the .cm-link rule never rendered because Klaro
+ * itself never mounted — the contrast bug was latent for the lifetime of
+ * the override file.)
+ *
+ * The cookie MODAL has the same `--dark1` background but its own modal-
+ * scoped rules; covered here too via the second selector.
+ */
+.klaro .cookie-notice .cm-link,
+.klaro .cookie-notice .cm-link:hover,
+.klaro .cookie-notice .cm-link:focus,
+.klaro .cookie-modal .cm-link,
+.klaro .cookie-modal .cm-link:hover,
+.klaro .cookie-modal .cm-link:focus {
+  color: var(--color-ds-accent-border);
+  text-decoration: underline;
+}
