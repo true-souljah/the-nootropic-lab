@@ -517,7 +517,7 @@ export default function ThreeWay({
         </div>
       </main>
 
-      <FPFooter />
+      <FPFooter strings={uiStrings} />
     </div>
   );
 }

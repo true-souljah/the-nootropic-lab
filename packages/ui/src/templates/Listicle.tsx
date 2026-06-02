@@ -386,7 +386,7 @@ export default function Listicle({
         </div>
       </main>
 
-      <FPFooter />
+      <FPFooter strings={uiStrings} />
     </div>
   );
 }
