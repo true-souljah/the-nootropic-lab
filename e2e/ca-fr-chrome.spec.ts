@@ -6,12 +6,10 @@ import { test, expect } from '@playwright/test';
 // hardcoded 'en'); PR-C2b added a fr-CA bundle + per-locale search-
 // fr-ca.ts module + swapped the 3 page imports.
 //
-// SCOPE NOTE: These tests verify what PR-C2b actually fixed — the
-// page metadata, page-specific content, and the page lang wrapper. They
-// do NOT assert FPHeader nav text localization because that's blocked
-// by a separate hardcoded-English regression in FPHeader.tsx
-// (`DEFAULT_NAV` constant) that affects all non-English pages portfolio-
-// wide. See PR-Q7 description for the follow-up issue.
+// The PR-Q8 follow-up (#72, 2026-06-02) also fixed the FPHeader
+// DEFAULT_NAV regression that PR-Q7 surfaced, so the chrome assertions
+// at the bottom of this file now run against localized Quebec French
+// chrome.
 //
 // This spec runs against the prebuilt apps/ca/out/ static export
 // served on http://127.0.0.1:4175.
@@ -68,5 +66,43 @@ test.describe('CA /fr/comparer/ Quebec French rendering (PR-C2b)', () => {
     await page.goto('/fr/comparer/');
     const frWrapper = page.locator('div[lang="fr-CA"]');
     await expect(frWrapper).toBeAttached();
+  });
+});
+
+test.describe('CA /fr/* chrome localization (PR-Q8 #72 — WCAG 3.1.2)', () => {
+  // Before PR-Q8, CA /fr/meilleurs-nootropiques/ rendered an English
+  // FPHeader nav even though the page wrapped its content in
+  // <div lang="fr-CA"> and the fr-CA UIStrings bundle was wired.
+  // PR-Q8 derives FPHeader nav from strings.nav and adds localized
+  // aria-label / openComparator / skipToContent strings to UIStrings.
+
+  test('FPHeader nav renders Quebec French labels (not English)', async ({ page }) => {
+    await page.goto('/fr/meilleurs-nootropiques/');
+    const nav = page.locator('nav[aria-label="Navigation principale"]');
+    await expect(nav).toBeAttached();
+    await expect(nav.getByRole('link', { name: 'Meilleurs Nootropiques' })).toBeAttached();
+    await expect(nav.getByRole('link', { name: 'Ingrédients' })).toBeAttached();
+    // 'Guides' in French is a real word coincidentally identical to
+    // English — we accept that and just assert the link exists.
+    await expect(nav.getByRole('link', { name: 'Guides' })).toBeAttached();
+    await expect(nav.getByRole('link', { name: 'Méthodologie' })).toBeAttached();
+    await expect(nav.getByRole('link', { name: 'À propos' })).toBeAttached();
+  });
+
+  test('FPHeader CTA renders the French "Ouvrir le comparateur" label', async ({ page }) => {
+    await page.goto('/fr/meilleurs-nootropiques/');
+    await expect(page.getByRole('link', { name: /Ouvrir le comparateur/ })).toBeAttached();
+  });
+
+  test('Skip-link renders the French "Aller au contenu principal" string', async ({ page }) => {
+    await page.goto('/fr/meilleurs-nootropiques/');
+    await expect(page.getByRole('link', { name: 'Aller au contenu principal' })).toBeAttached();
+  });
+
+  test('FPHeader does NOT render the English "Best of 2026" or "About" labels in chrome', async ({ page }) => {
+    await page.goto('/fr/meilleurs-nootropiques/');
+    const nav = page.locator('nav[aria-label="Navigation principale"]');
+    await expect(nav.getByRole('link', { name: 'Best of 2026' })).toHaveCount(0);
+    await expect(nav.getByRole('link', { name: 'About', exact: true })).toHaveCount(0);
   });
 });

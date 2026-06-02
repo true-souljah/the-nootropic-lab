@@ -7,10 +7,18 @@ export interface UIStrings {
     ingredients: string;
     guides: string;
     methodology: string;
+    /** Public chrome "About" link — consumed by FPHeader's localized default nav. */
+    about: string;
     topPicks: string;
     search: string;
     openMenu: string;
     closeMenu: string;
+    /** aria-label for the primary `<nav>` landmark in public chrome. WCAG 3.1.2. */
+    primaryLandmark: string;
+    /** Label on the indigo "Open comparator" CTA in FPHeader. WCAG 3.1.2. */
+    openComparator: string;
+    /** Skip-link target text in PublicShell (first focusable element). WCAG 3.1.2 + 2.4.1. */
+    skipToContent: string;
   };
   footer: {
     brand: string;
@@ -196,10 +204,14 @@ const en: UIStrings = {
     ingredients: 'Ingredients',
     guides: 'Guides',
     methodology: 'Methodology',
+    about: 'About',
     topPicks: 'Top Picks',
     search: 'Search',
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
+    primaryLandmark: 'Primary',
+    openComparator: 'Open comparator →',
+    skipToContent: 'Skip to main content',
   },
   footer: {
     brand: 'The Nootropic Lab',
@@ -356,10 +368,14 @@ const es: UIStrings = {
     ingredients: 'Ingredientes',
     guides: 'Guías',
     methodology: 'Metodología',
+    about: 'Acerca de',
     topPicks: 'Mejores Opciones',
     search: 'Buscar',
     openMenu: 'Abrir menú',
     closeMenu: 'Cerrar menú',
+    primaryLandmark: 'Navegación principal',
+    openComparator: 'Abrir comparador →',
+    skipToContent: 'Saltar al contenido principal',
   },
   footer: {
     brand: 'The Nootropic Lab',
@@ -516,10 +532,14 @@ const fr: UIStrings = {
     ingredients: 'Ingrédients',
     guides: 'Guides',
     methodology: 'Méthodologie',
+    about: 'À propos',
     topPicks: 'Nos Choix',
     search: 'Rechercher',
     openMenu: 'Ouvrir le menu',
     closeMenu: 'Fermer le menu',
+    primaryLandmark: 'Navigation principale',
+    openComparator: 'Ouvrir le comparateur →',
+    skipToContent: 'Aller au contenu principal',
   },
   footer: {
     brand: 'The Nootropic Lab',
@@ -676,10 +696,14 @@ const ja: UIStrings = {
     ingredients: '成分',
     guides: 'ガイド',
     methodology: '評価方法',
+    about: '運営者情報',
     topPicks: 'おすすめ',
     search: '検索',
     openMenu: 'メニューを開く',
     closeMenu: 'メニューを閉じる',
+    primaryLandmark: 'メインナビゲーション',
+    openComparator: '比較ツールを開く →',
+    skipToContent: 'メインコンテンツへスキップ',
   },
   footer: {
     brand: 'The Nootropic Lab',
@@ -836,10 +860,14 @@ const pt: UIStrings = {
     ingredients: 'Ingredientes',
     guides: 'Guias',
     methodology: 'Metodologia',
+    about: 'Sobre',
     topPicks: 'Melhores Escolhas',
     search: 'Pesquisar',
     openMenu: 'Abrir menu',
     closeMenu: 'Fechar menu',
+    primaryLandmark: 'Navegação principal',
+    openComparator: 'Abrir comparador →',
+    skipToContent: 'Ir para o conteúdo principal',
   },
   footer: {
     brand: 'The Nootropic Lab',
@@ -996,10 +1024,14 @@ const de: UIStrings = {
     ingredients: 'Inhaltsstoffe',
     guides: 'Ratgeber',
     methodology: 'Methodik',
+    about: 'Über uns',
     topPicks: 'Top-Empfehlungen',
     search: 'Suchen',
     openMenu: 'Menü öffnen',
     closeMenu: 'Menü schließen',
+    primaryLandmark: 'Hauptnavigation',
+    openComparator: 'Vergleichstool öffnen →',
+    skipToContent: 'Zum Hauptinhalt springen',
   },
   footer: {
     brand: 'The Nootropic Lab',
@@ -1161,10 +1193,14 @@ const frCa: UIStrings = {
     ingredients: 'Ingrédients',
     guides: 'Guides',
     methodology: 'Méthodologie',
+    about: 'À propos',
     topPicks: 'Nos coups de cœur',
     search: 'Rechercher',
     openMenu: 'Ouvrir le menu',
     closeMenu: 'Fermer le menu',
+    primaryLandmark: 'Navigation principale',
+    openComparator: 'Ouvrir le comparateur →',
+    skipToContent: 'Aller au contenu principal',
   },
   footer: {
     brand: 'The Nootropic Lab',
