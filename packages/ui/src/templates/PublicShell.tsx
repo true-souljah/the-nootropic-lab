@@ -47,7 +47,7 @@ export default function PublicShell({
       style={{ fontFamily: 'var(--font-ds-sans)' }}
     >
       <a href="#public-main-content" className="ds-skip-link">
-        Skip to main content
+        {uiStrings?.nav.skipToContent ?? 'Skip to main content'}
       </a>
       {!hideDisclosure && <FPDisclosure methodologyHref={methodologyHref} />}
       <FPHeader searchItems={searchItems} strings={uiStrings} />

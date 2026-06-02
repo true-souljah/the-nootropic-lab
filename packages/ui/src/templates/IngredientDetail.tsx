@@ -177,7 +177,7 @@ export default function IngredientDetail({
       <SchemaOrg schema={howToSchema} />
 
       <a href="#main-content" className="ds-skip-link">
-        Skip to main content
+        {uiStrings?.nav.skipToContent ?? 'Skip to main content'}
       </a>
       <FPDisclosure methodologyHref="/methodology" />
       <FPHeader searchItems={searchItems} strings={uiStrings} />
