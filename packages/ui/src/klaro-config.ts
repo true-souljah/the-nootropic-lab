@@ -149,6 +149,31 @@ export const klaroConfig: KlaroConfig = {
         statistics: { title: 'Analyse et statistiques', description: 'Mesure de l’utilisation du site.' },
       },
     },
+    // Quebec French (fr-CA). OQLF-compliant: "témoins" not "cookies",
+    // "politique de confidentialité" stays as-is (already correct).
+    // Used by the CA app's /fr/* nested routes per PR-C2b.
+    'fr-CA': {
+      consentNotice: {
+        title: 'Nous utilisons des outils d’analyse pour améliorer ce site',
+        description:
+          'Nous utilisons des outils d’analyse respectueux de la vie privée pour comprendre quels contenus sont utiles. Nous n’utilisons pas de témoins publicitaires et ne vendons pas de données à des tiers.',
+        learnMore: 'Configurer',
+      },
+      consentModal: {
+        title: 'Préférences de témoins et d’analyse',
+        description: 'Choisissez quels services d’analyse peuvent s’exécuter sur ce site.',
+      },
+      acceptAll: 'Tout accepter',
+      acceptSelected: 'Accepter la sélection',
+      decline: 'Tout refuser',
+      ok: 'Enregistrer',
+      save: 'Enregistrer',
+      close: 'Fermer',
+      privacyPolicy: { name: 'politique de confidentialité', text: 'Pour plus d’informations, consultez notre {privacyPolicy}.' },
+      purposes: {
+        statistics: { title: 'Analyse et statistiques', description: 'Mesure de l’utilisation du site.' },
+      },
+    },
     pt: {
       consentNotice: {
         title: 'Usamos análise para melhorar este site',

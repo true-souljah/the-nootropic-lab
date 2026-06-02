@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import 'klaro/dist/klaro.css';
 import './styles/klaro-overrides.css';
 import { klaroConfig } from './klaro-config';
+import { applyActiveLangToKlaroConfig } from './klaro-lang';
 
 interface KlaroModule {
   setup: (config: unknown) => void;
@@ -42,6 +43,11 @@ export default function CookieBanner() {
         /* webpackIgnore: true */ 'klaro/dist/klaro-no-translations' as string
       )) as unknown as KlaroModule;
       if (cancelled) return;
+      // PR-Q13 (#77): set `klaroConfig.lang` BEFORE Klaro.setup() so the
+      // consent banner renders in the active page locale. Detects from
+      // the DOM (`<div lang="...">` nested layouts → `<html lang>` →
+      // `'en'`). Strictly synchronous so there's no English-flash race.
+      applyActiveLangToKlaroConfig(klaroConfig);
       window.klaroConfig = klaroConfig;
       Klaro.setup(klaroConfig);
     })();
