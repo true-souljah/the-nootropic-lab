@@ -7,7 +7,6 @@ import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { Tabs, TabPanel } from '../primitives/Tabs';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
-import { getStrings } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 import type { TabId } from './product-detail/constants';
@@ -23,7 +22,14 @@ export interface ProductDetailProps {
   alternatives: Product[];
   siteUrl: string;
   searchItems?: SearchItem[];
-  uiStrings?: UIStrings;
+  /**
+   * Locale UIStrings bundle. Required — PR-Q12 (#76) removed the
+   * `?? getStrings('en')` defensive fallback because it produced a
+   * latent WCAG 3.1.2 leak: a future caller could silently render
+   * English content under a non-EN `<html lang>`. Pass the bundle
+   * from `buildRegionSearchContext(productsX, locale)` at the page.
+   */
+  uiStrings: UIStrings;
   /**
    * YMYL regulatory disclaimer rendered at the bottom of the page.
    * Pass `getRegionalHealthDisclaimer(market)` from @nootropic/data;
@@ -51,8 +57,7 @@ export default function ProductDetail({
 }: ProductDetailProps) {
   const [tab, setTab] = useState<TabId>('overview');
 
-  const t = uiStrings ?? getStrings('en');
-  const pd = t.productDetail;
+  const pd = uiStrings.productDetail;
 
   const formattedDate = (p.updatedAt ? new Date(p.updatedAt) : new Date()).toLocaleDateString(pd.dateLocale, {
     year: 'numeric',

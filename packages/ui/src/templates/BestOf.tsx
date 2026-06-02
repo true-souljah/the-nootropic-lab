@@ -8,7 +8,6 @@ import { Bar } from '../primitives/Bar';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
 import ShortlistButton from './ShortlistButton';
 import type { AffiliateClickContext } from '../trackAffiliateClick';
-import { getStrings } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 
@@ -34,7 +33,14 @@ export interface BestOfProps {
    */
   recommendedCutoff?: number;
   searchItems?: SearchItem[];
-  uiStrings?: UIStrings;
+  /**
+   * Locale UIStrings bundle. Required — PR-Q12 (#76) removed the
+   * `?? getStrings('en')` defensive fallback because it produced a
+   * latent WCAG 3.1.2 leak: a future caller could silently render
+   * English content under a non-EN `<html lang>`. Pass the bundle
+   * from `buildRegionSearchContext(productsX, locale)` at the page.
+   */
+  uiStrings: UIStrings;
   /** Rendered above the ranked list (editor's choice, intro paragraph). */
   preList?: ReactNode;
   /** Rendered below the ranked list (browse-by-goal, FAQ, methodology). */
@@ -82,7 +88,7 @@ export default function BestOf({
   trackingSurface = 'best_of',
   healthDisclaimer,
 }: BestOfProps) {
-  const pd = (uiStrings ?? getStrings('en')).productDetail;
+  const pd = uiStrings.productDetail;
   const sorted = [...products].sort((a, b) => b.score - a.score);
   const audited = products.length;
   const recommended = products.filter((p) => p.score >= recommendedCutoff).length;
