@@ -42,6 +42,7 @@ export const productsAU: Product[] = [
     cons: ['Premium price ($69/mo USD)', '4 capsules per serving', '30-day money-back', 'TGA listing required for therapeutic claims -- imported as food supplement'],
     editorChoice: true,
     market: 'both',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'noocube',
@@ -83,6 +84,7 @@ export const productsAU: Product[] = [
     cons: ['Trustpilot 1.9/5 -- significant complaints', 'Some ingredients underdosed', 'Subscription cancellation issues (BBB)', 'TGA listing required for therapeutic claims -- imported as food supplement'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'performance-lab-mind',
@@ -122,6 +124,7 @@ export const productsAU: Product[] = [
     cons: ['Fewer total ingredients', 'Pricey per capsule', 'TGA listing required for therapeutic claims -- imported as food supplement'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'hunter-focus',
@@ -162,6 +165,7 @@ export const productsAU: Product[] = [
     cons: ['Contains caffeine', 'No affiliate commission', 'Very expensive ($90/mo USD)', 'TGA listing required for therapeutic claims -- imported as food supplement'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'alpha-brain',
@@ -203,6 +207,7 @@ export const productsAU: Product[] = [
     cons: ['Proprietary blends hide doses', 'Subscription cancellation issues', 'TGA listing required for therapeutic claims -- imported as food supplement'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'qualia-mind',
@@ -245,6 +250,7 @@ export const productsAU: Product[] = [
     cons: ['$139/month USD', '7 capsules per serving', 'Contains caffeine', 'TGA listing required for therapeutic claims -- imported as food supplement'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'naturebell-ginkgo-ginseng',
@@ -282,6 +288,7 @@ export const productsAU: Product[] = [
     cons: ['Ginseng severely underdosed', 'Not TGA-registered', 'No third-party CoA published', 'Two-ingredient formula only'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'blackmores-brain-active',
@@ -340,6 +347,7 @@ export const productsAU: Product[] = [
     ],
     editorChoice: false,
     market: 'au',
+    updatedAt: '2026-05-28',
     austl: '246877',
   },
 ];

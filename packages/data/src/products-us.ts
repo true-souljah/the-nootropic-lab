@@ -154,6 +154,7 @@ export const productsUS: Product[] = [
     cons: ['Premium price ($69/mo)', '4 capsules per serving', '30-day money-back'],
     editorChoice: true,
     market: 'both',
+    updatedAt: '2026-05-28',
     handsOnTested: true,
   },
   {
@@ -196,6 +197,7 @@ export const productsUS: Product[] = [
     cons: ['Trustpilot 1.9/5 -- significant complaints', 'Some ingredients underdosed', 'Subscription cancellation issues (BBB)'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
     handsOnTested: true,
   },
   {
@@ -238,6 +240,7 @@ export const productsUS: Product[] = [
     cons: ['$139/month', '7 capsules per serving', 'No EU storefront', 'Contains caffeine'],
     editorChoice: false,
     market: 'us',
+    updatedAt: '2026-05-28',
     handsOnTested: true,
   },
   {
@@ -279,6 +282,7 @@ export const productsUS: Product[] = [
     cons: ['Proprietary blends hide doses', 'No EU storefront', 'Subscription cancellation issues'],
     editorChoice: false,
     market: 'us',
+    updatedAt: '2026-05-28',
     handsOnTested: true,
   },
   {
@@ -319,6 +323,7 @@ export const productsUS: Product[] = [
     cons: ['Subscription only', 'No EU storefront', 'Requires experimentation'],
     editorChoice: false,
     market: 'us',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'nootropics-depot-lions-mane',
@@ -354,6 +359,7 @@ export const productsUS: Product[] = [
     cons: ['US only', 'Single ingredient only'],
     editorChoice: false,
     market: 'us',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'naturebell-ginkgo-ginseng',
@@ -390,6 +396,7 @@ export const productsUS: Product[] = [
     cons: ['Ginseng severely underdosed (10mg vs 200mg clinical)', 'Chinese-manufactured — limited transparency', 'No third-party CoA published', 'Two-ingredient formula only'],
     editorChoice: false,
     market: 'us',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'performance-lab-mind',
@@ -428,6 +435,7 @@ export const productsUS: Product[] = [
     cons: ['Only 6 Trustpilot reviews — limited social proof', '4-ingredient formula will feel sparse versus 11+ ingredient competitors', 'No Amazon or retail availability', 'Tyrosine slightly under clinical range', 'Less brand recognition than sister product Mind Lab Pro'],
     editorChoice: false,
     market: 'us',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'hunter-focus',
@@ -479,6 +487,7 @@ export const productsUS: Product[] = [
     cons: ['$90/month at single-bottle price — premium positioning', '6 capsules per serving — highest pill burden in this review', 'Contains 100mg caffeine — not stim-free', 'No subscription option, only multi-month bundles', 'Limited Trustpilot footprint — minimal independent social proof', 'Folate, NAC, ginseng, and rhodiola underdosed versus clinical evidence'],
     editorChoice: false,
     market: 'us',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'brainmd-brain-memory-power-boost',
@@ -520,6 +529,7 @@ export const productsUS: Product[] = [
     cons: ['Vinpocetine, NAC, and Alpha Lipoic Acid significantly underdosed versus clinical evidence', '$89.95 for 120 capsules works out to ~$90/month at 4 capsules per day', '4 capsules per serving', 'Transparency note: Dr. Amen\'s SPECT-imaging diagnostic claims have been criticized by mainstream psychiatry — buy on the formula, not the founder narrative', 'No Trustpilot footprint to verify customer experience', '30-day money-back is shorter than competitors'],
     editorChoice: false,
     market: 'us',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'trubrain',
@@ -560,5 +570,6 @@ export const productsUS: Product[] = [
     cons: ['Trustpilot 2.6/5 — significant complaints about billing and customer service', 'Aggressive autoship enrollment; cancellation reportedly difficult', 'No money-back guarantee on most products', 'Magnesium dose below Magtein clinical trial level (full 2g)', 'Taste divisive — thick and medicinal per reviews', 'Premium per-serving price ($3.75/shot) versus capsules', 'Customer support response times reportedly up to a week', 'Some CBD-labeled product variants raise compliance flags'],
     editorChoice: false,
     market: 'us',
+    updatedAt: '2026-05-28',
   },
 ];

@@ -42,6 +42,7 @@ export const productsGCC: Product[] = [
     cons: ['Premium price ($69/mo)', '4 capsules per serving', '30-day money-back', 'Verify import status with your local customs -- some GCC states restrict certain supplements'],
     editorChoice: true,
     market: 'both',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'noocube',
@@ -83,6 +84,7 @@ export const productsGCC: Product[] = [
     cons: ['Trustpilot 1.9/5 -- significant complaints', 'Some ingredients underdosed', 'Subscription cancellation issues (BBB)', 'Verify import status with your local customs -- some GCC states restrict certain supplements'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'qualia-mind',
@@ -124,6 +126,7 @@ export const productsGCC: Product[] = [
     cons: ['$139/month', '7 capsules per serving', 'Contains caffeine -- not preferred for conservative GCC market', 'Verify import status with your local customs -- some GCC states restrict certain supplements'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'alpha-brain',
@@ -164,6 +167,7 @@ export const productsGCC: Product[] = [
     cons: ['Proprietary blends hide doses', 'Subscription cancellation issues', 'Verify import status with your local customs -- some GCC states restrict certain supplements'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'thesis',
@@ -203,6 +207,7 @@ export const productsGCC: Product[] = [
     cons: ['Subscription only', 'Requires experimentation', 'Contains caffeine in default blends -- not preferred for conservative GCC market', 'Verify import status with your local customs -- some GCC states restrict certain supplements'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'nootropics-depot-lions-mane',
@@ -238,6 +243,7 @@ export const productsGCC: Product[] = [
     cons: ['Single ingredient only', 'Verify import status with your local customs -- some GCC states restrict certain supplements'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'nahdi-brain-boost',
@@ -276,6 +282,7 @@ export const productsGCC: Product[] = [
     cons: ['Below clinical doses', 'No money-back guarantee', 'Limited to Saudi Arabia primarily', 'No affiliate commission available'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'life-pharmacy-neuro-shield',
@@ -314,6 +321,7 @@ export const productsGCC: Product[] = [
     cons: ['Below clinical doses for core nootropics', 'No money-back guarantee', 'No affiliate commission', 'Limited independent quality testing'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'eu-yan-sang-brainmax',
@@ -351,5 +359,6 @@ export const productsGCC: Product[] = [
     cons: ['Premium price (~$67 USD/month)', 'No money-back guarantee', 'Ginseng underdosed', 'No affiliate commission', '7-14 day shipping from Singapore'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
   },
 ];
