@@ -1,3 +1,10 @@
+// Triple-slash reference to the local Klaro type shim. Klaro ships no
+// .d.ts; the shim in `./klaro.d.ts` declares the minimal `setup` shape
+// we consume. This reference pulls the `declare module` block into the
+// type-resolution context for the dynamic import below — important
+// because consuming apps' tsconfig doesn't auto-discover .d.ts files
+// inside packages/ui without explicit help.
+/// <reference path="./klaro.d.ts" />
 'use client';
 import { useEffect } from 'react';
 import 'klaro/dist/klaro.css';
@@ -39,8 +46,15 @@ export default function CookieBanner() {
     let cancelled = false;
     (async () => {
       // Klaro ships no .d.ts; cast the dynamic import once at the boundary.
+      // PR-Q14 (#78) removed `/* webpackIgnore: true */` which was telling
+      // the bundler to leave the import path as a literal at build time.
+      // In a Next.js static export, `klaro/dist/klaro-no-translations`
+      // isn't a resolvable HTTP route, so Klaro never actually mounted —
+      // `<div id="klaro">` stayed empty on every page across every region.
+      // Removing the directive lets turbopack/webpack bundle Klaro as a
+      // lazy chunk loaded on the client when CookieBanner mounts.
       const Klaro = (await import(
-        /* webpackIgnore: true */ 'klaro/dist/klaro-no-translations' as string
+        'klaro/dist/klaro-no-translations'
       )) as unknown as KlaroModule;
       if (cancelled) return;
       // PR-Q13 (#77): set `klaroConfig.lang` BEFORE Klaro.setup() so the

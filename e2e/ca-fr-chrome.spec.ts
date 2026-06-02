@@ -168,18 +168,15 @@ test.describe('CA /fr/* search-index localization (PR-Q10 — WCAG 3.1.2)', () =
     expect(html).toContain('Comment nous évaluons les suppléments');
   });
 
-  // SKIPPED until a separate follow-up fixes a pre-existing infra issue:
-  // CookieBanner.tsx does `await import('klaro/dist/klaro-no-translations',
-  // { webpackIgnore: true })`. In a Next.js static export that path is not
-  // a resolvable HTTP route, so Klaro never actually mounts in production
-  // — `<div id="klaro">` stays empty on every page across every region.
-  //
-  // PR-Q13's actual fix (synchronous DOM lang detection + klaroConfig.lang
-  // assignment before Klaro.setup) is covered by the unit tests in
-  // packages/ui/src/klaro-lang.test.ts. Once the Klaro mount is restored
-  // by a dedicated infra PR, un-skip this assertion to validate the full
-  // chain (DOM lang → klaroConfig.lang → rendered fr-CA "témoins" banner).
-  test.skip('Klaro consent banner renders OQLF Quebec French "témoins" (PR-Q13 #77)', async ({ page }) => {
+  test('Klaro consent banner renders OQLF Quebec French "témoins" (PR-Q13 #77 + PR-Q14 #78)', async ({ page }) => {
+    // Validates the full chain end-to-end:
+    //   PR-Q13: applyActiveLangToKlaroConfig reads <div lang="fr-CA"> and
+    //           sets klaroConfig.lang = 'fr-CA' before Klaro.setup().
+    //   PR-Q14: Klaro now bundles into the JS chunks (was previously
+    //           `webpackIgnore: true` which meant Klaro never mounted
+    //           in any static-export build).
+    // Result: the Klaro banner injected into `#klaro` carries the
+    // OQLF fr-CA bundle copy with "témoins" instead of "cookies".
     await page.goto('/fr/meilleurs-nootropiques/');
     const banner = page.locator('#klaro').getByText(/témoins/);
     await expect(banner).toBeVisible({ timeout: 5000 });
