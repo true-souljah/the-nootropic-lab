@@ -42,6 +42,7 @@ export const productsCA: Product[] = [
     cons: ['Premium price ($69/mo USD)', '4 capsules per serving', '30-day money-back', 'Ships from US -- import duties may apply for large orders'],
     editorChoice: true,
     market: 'both',
+    updatedAt: '2026-05-28',
     npnStatus: { status: 'pip' },
   },
   {
@@ -84,6 +85,7 @@ export const productsCA: Product[] = [
     cons: ['Trustpilot 1.9/5 -- significant complaints', 'Some ingredients underdosed', 'Subscription cancellation issues (BBB)', 'Ships from US -- import duties may apply for large orders'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
     npnStatus: { status: 'pip' },
   },
   {
@@ -124,6 +126,7 @@ export const productsCA: Product[] = [
     cons: ['Fewer total ingredients', 'Pricey per capsule', 'Ships from US -- import duties may apply for large orders'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
     npnStatus: { status: 'pip' },
   },
   {
@@ -165,6 +168,7 @@ export const productsCA: Product[] = [
     cons: ['Contains caffeine', 'No affiliate commission', 'Very expensive ($90/mo USD)', 'Ships from US -- import duties may apply for large orders'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
     npnStatus: { status: 'pip' },
   },
   {
@@ -207,6 +211,7 @@ export const productsCA: Product[] = [
     cons: ['Proprietary blends hide doses', 'Subscription cancellation issues', 'Ships from US -- import duties may apply for large orders'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
     npnStatus: { status: 'pip' },
   },
   {
@@ -250,6 +255,7 @@ export const productsCA: Product[] = [
     cons: ['$139/month USD', '7 capsules per serving', 'Contains caffeine', 'Ships from US -- import duties may apply for large orders'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
     npnStatus: { status: 'pip' },
   },
   {
@@ -288,6 +294,7 @@ export const productsCA: Product[] = [
     cons: ['Ginseng severely underdosed', 'Not Health Canada NHP-registered', 'No third-party CoA published', 'Two-ingredient formula only'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
     npnStatus: { status: 'pip' },
   },
   {
@@ -346,6 +353,7 @@ export const productsCA: Product[] = [
     ],
     editorChoice: false,
     market: 'ca',
+    updatedAt: '2026-05-28',
     npnStatus: { status: 'licensed', npn: '80037243' },
   },
 ];

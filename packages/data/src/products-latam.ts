@@ -42,6 +42,7 @@ export const productsLatam: Product[] = [
     cons: ['Premium price ($69/mo)', '4 capsules per serving', '30-day money-back', 'International shipping to Latam -- allow 7-14 days delivery', 'Customs/import taxes may apply depending on destination country'],
     editorChoice: true,
     market: 'both',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'noocube',
@@ -83,6 +84,7 @@ export const productsLatam: Product[] = [
     cons: ['Trustpilot 1.9/5 -- significant complaints', 'Some ingredients underdosed', 'Subscription cancellation issues (BBB)', 'International shipping to Latam -- allow 7-14 days delivery', 'Customs/import taxes may apply depending on destination country'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'qualia-mind',
@@ -124,6 +126,7 @@ export const productsLatam: Product[] = [
     cons: ['$139/month', '7 capsules per serving', 'Contains caffeine', 'International shipping to Latam -- allow 7-14 days delivery', 'Customs/import taxes may apply depending on destination country'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'alpha-brain',
@@ -164,6 +167,7 @@ export const productsLatam: Product[] = [
     cons: ['Proprietary blends hide doses', 'Subscription cancellation issues', 'International shipping to Latam -- allow 7-14 days delivery', 'Customs/import taxes may apply depending on destination country'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'thesis',
@@ -203,6 +207,7 @@ export const productsLatam: Product[] = [
     cons: ['Subscription only', 'Requires experimentation', 'International shipping to Latam -- allow 7-14 days delivery', 'Customs/import taxes may apply depending on destination country'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'nootropics-depot-lions-mane',
@@ -238,6 +243,7 @@ export const productsLatam: Product[] = [
     cons: ['Single ingredient only', 'International shipping to Latam -- allow 7-14 days delivery', 'Customs/import taxes may apply depending on destination country'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'herbamz-neuromax',
@@ -276,6 +282,7 @@ export const productsLatam: Product[] = [
     cons: ['Below clinical doses', 'Limited to Brazilian market', 'No international quality certifications', 'No Trustpilot presence'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'genomma-lab-neuriplus',
@@ -314,5 +321,6 @@ export const productsLatam: Product[] = [
     cons: ['Well below clinical doses for all ingredients', 'No money-back guarantee', 'Limited ingredient profile', 'No third-party testing published'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
   },
 ];

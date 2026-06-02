@@ -42,6 +42,7 @@ export const productsEU: Product[] = [
     cons: ['Premium price (€65/mo)', '4 capsules per serving', '30-day money-back'],
     editorChoice: true,
     market: 'both',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'noocube',
@@ -82,6 +83,7 @@ export const productsEU: Product[] = [
     cons: ['Trustpilot 1.9/5 -- subscription cancellation complaints', 'Some ingredients underdosed'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'performance-lab-mind',
@@ -121,6 +123,7 @@ export const productsEU: Product[] = [
     cons: ['Narrower formula than MLP', '30-day money-back'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'braineffect-focus',
@@ -161,6 +164,7 @@ export const productsEU: Product[] = [
     cons: ['Contains caffeine', 'Only 14-day money-back', 'Lower dosing scores vs. MLP'],
     editorChoice: false,
     market: 'eu',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'brainzyme-focus-pro',
@@ -201,6 +205,7 @@ export const productsEU: Product[] = [
     cons: ['Contains caffeine', 'Narrower formula than MLP', 'UK/EU only'],
     editorChoice: false,
     market: 'eu',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'hunter-focus',
@@ -242,6 +247,7 @@ export const productsEU: Product[] = [
     cons: ['6 capsules per serving', 'Contains caffeine', 'Premium price (€85/mo)'],
     editorChoice: false,
     market: 'both',
+    updatedAt: '2026-05-28',
   },
   {
     id: 'braineffect',
@@ -296,5 +302,6 @@ export const productsEU: Product[] = [
     ],
     editorChoice: false,
     market: 'eu',
+    updatedAt: '2026-05-28',
   },
 ];
