@@ -95,17 +95,17 @@ export default function PTHomePage() {
               Comparar Todas as Marcas UE
             </Link>
           </div>
-          <div className="mt-4 flex gap-4 justify-center text-sm text-gray-500">
-            <Link href="/" className="text-green-700 underline">
+          <nav aria-label="Selector de idioma" className="mt-4 flex gap-4 justify-center text-sm text-gray-500">
+            <Link href="/" className="text-green-700 underline" hrefLang="en" lang="en">
               🇬🇧 English
             </Link>
-            <Link href="/de/beste-nootropika" className="text-green-700 underline">
+            <Link href="/de" className="text-green-700 underline" hrefLang="de" lang="de">
               🇩🇪 Deutsch
             </Link>
-            <Link href="/fr/meilleurs-nootropiques" className="text-green-700 underline">
+            <Link href="/fr" className="text-green-700 underline" hrefLang="fr" lang="fr">
               🇫🇷 Français
             </Link>
-          </div>
+          </nav>
         </div>
       </section>
 
