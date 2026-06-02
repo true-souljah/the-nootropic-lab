@@ -260,7 +260,7 @@ export default function HeadToHead({
       <FPHeader searchItems={searchItems} strings={uiStrings} />
 
       <main id="main-content" className="max-w-[1100px] mx-auto px-4 sm:px-6 pt-7">
-        <nav aria-label="Breadcrumb" className="text-[12.5px] text-ds-muted mb-[14px]">
+        <nav aria-label={uiStrings?.breadcrumb.ariaLabel ?? 'Breadcrumb'} className="text-[12.5px] text-ds-muted mb-[14px]">
           <ol className="flex items-center gap-2 list-none p-0 m-0">
             <li><Link href="/" className="hover:text-ds-ink">{s.home}</Link></li>
             <li aria-hidden="true" className="text-ds-faint">/</li>

@@ -107,7 +107,7 @@ export default function AppShell({
           still escape to main content even when the mobile drawer is open
           (otherwise `inert` would propagate to the link and disable it). */}
       <a href="#main-content" className="ds-skip-link">
-        Skip to main content
+        {uiStrings?.nav.skipToContent ?? 'Skip to main content'}
       </a>
 
       {/* When the mobile drawer is visible, `inert` keeps the keyboard +
@@ -148,7 +148,7 @@ export default function AppShell({
                 {sidebarOpen ? <X size={18} strokeWidth={2} aria-hidden={true} /> : <Menu size={18} strokeWidth={2} aria-hidden={true} />}
               </button>
               {breadcrumbs.length > 0 && (
-                <nav aria-label="Breadcrumb" className="min-w-0 overflow-hidden">
+                <nav aria-label={uiStrings?.breadcrumb.ariaLabel ?? 'Breadcrumb'} className="min-w-0 overflow-hidden">
                   <ol className="flex items-center gap-2 text-[13px] text-ds-muted m-0 p-0 list-none whitespace-nowrap overflow-x-auto">
                     {breadcrumbs.map((item, i) => {
                       const isLast = i === breadcrumbs.length - 1;

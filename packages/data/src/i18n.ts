@@ -101,6 +101,22 @@ export interface UIStrings {
     /** Components append " {currentYear}" after this string. */
     backToBestNootropics: string;
     backToIngredientsGuide: string;
+    /** aria-label for every `<nav>` breadcrumb landmark across the template
+     * library. WCAG 3.1.2 — landmark accessible name must match the page lang. */
+    ariaLabel: string;
+  };
+  /** SearchModal page items + descriptions injected by buildSearchIndex. */
+  search: {
+    pages: {
+      bestNootropics: string;
+      compareAll: string;
+      methodology: string;
+    };
+    descriptions: {
+      bestNootropics: string;
+      compareAll: string;
+      methodology: string;
+    };
   };
   ingredientDetail: {
     chips: {
@@ -320,6 +336,19 @@ const en: UIStrings = {
     ingredients: 'Ingredients',
     backToBestNootropics: '← Back to Best Nootropics',
     backToIngredientsGuide: '← Back to Ingredients Guide',
+    ariaLabel: 'Breadcrumb',
+  },
+  search: {
+    pages: {
+      bestNootropics: 'Best Nootropics',
+      compareAll: 'Compare All',
+      methodology: 'Methodology',
+    },
+    descriptions: {
+      bestNootropics: 'Full comparison of top brands',
+      compareAll: 'Interactive comparison tool',
+      methodology: 'How we score supplements',
+    },
   },
   ingredientDetail: {
     chips: { clinicalDose: 'Clinical dose', onset: 'Onset' },
@@ -511,6 +540,19 @@ const es: UIStrings = {
     ingredients: 'Ingredientes',
     backToBestNootropics: '← Volver a Los Mejores Nootrópicos',
     backToIngredientsGuide: '← Volver a la Guía de Ingredientes',
+    ariaLabel: 'Ruta de navegación',
+  },
+  search: {
+    pages: {
+      bestNootropics: 'Los Mejores Nootrópicos',
+      compareAll: 'Comparar Todos',
+      methodology: 'Metodología',
+    },
+    descriptions: {
+      bestNootropics: 'Comparación completa de las marcas principales',
+      compareAll: 'Herramienta de comparación interactiva',
+      methodology: 'Cómo puntuamos los suplementos',
+    },
   },
   ingredientDetail: {
     chips: { clinicalDose: 'Dosis clínica', onset: 'Inicio de acción' },
@@ -702,6 +744,19 @@ const fr: UIStrings = {
     ingredients: 'Ingrédients',
     backToBestNootropics: '← Retour aux Meilleurs Nootropiques',
     backToIngredientsGuide: '← Retour au Guide des Ingrédients',
+    ariaLabel: "Fil d'Ariane",
+  },
+  search: {
+    pages: {
+      bestNootropics: 'Meilleurs Nootropiques',
+      compareAll: 'Comparer Tout',
+      methodology: 'Méthodologie',
+    },
+    descriptions: {
+      bestNootropics: 'Comparaison complète des principales marques',
+      compareAll: 'Outil de comparaison interactif',
+      methodology: 'Comment nous évaluons les suppléments',
+    },
   },
   ingredientDetail: {
     chips: { clinicalDose: 'Dose clinique', onset: 'Délai d\'action' },
@@ -893,6 +948,19 @@ const ja: UIStrings = {
     ingredients: '成分',
     backToBestNootropics: '← ベストノートロピクスに戻る',
     backToIngredientsGuide: '← 成分ガイドに戻る',
+    ariaLabel: 'パンくずリスト',
+  },
+  search: {
+    pages: {
+      bestNootropics: 'ベストノートロピクス',
+      compareAll: 'すべて比較',
+      methodology: '評価方法',
+    },
+    descriptions: {
+      bestNootropics: 'トップブランドの完全比較',
+      compareAll: 'インタラクティブな比較ツール',
+      methodology: 'サプリメントの評価方法',
+    },
   },
   ingredientDetail: {
     chips: { clinicalDose: '臨床用量', onset: '効果発現時間' },
@@ -1084,6 +1152,19 @@ const pt: UIStrings = {
     ingredients: 'Ingredientes',
     backToBestNootropics: '← Voltar aos Melhores Nootrópicos',
     backToIngredientsGuide: '← Voltar ao Guia de Ingredientes',
+    ariaLabel: 'Caminho de navegação',
+  },
+  search: {
+    pages: {
+      bestNootropics: 'Melhores Nootrópicos',
+      compareAll: 'Comparar Todos',
+      methodology: 'Metodologia',
+    },
+    descriptions: {
+      bestNootropics: 'Comparação completa das principais marcas',
+      compareAll: 'Ferramenta de comparação interativa',
+      methodology: 'Como avaliamos os suplementos',
+    },
   },
   ingredientDetail: {
     chips: { clinicalDose: 'Dose clínica', onset: 'Início de ação' },
@@ -1275,6 +1356,19 @@ const de: UIStrings = {
     ingredients: 'Inhaltsstoffe',
     backToBestNootropics: '← Zurück zu Beste Nootropika',
     backToIngredientsGuide: '← Zurück zum Inhaltsstoff-Ratgeber',
+    ariaLabel: 'Brotkrümelnavigation',
+  },
+  search: {
+    pages: {
+      bestNootropics: 'Beste Nootropika',
+      compareAll: 'Alle vergleichen',
+      methodology: 'Methodik',
+    },
+    descriptions: {
+      bestNootropics: 'Vollständiger Vergleich der Top-Marken',
+      compareAll: 'Interaktives Vergleichswerkzeug',
+      methodology: 'Wie wir Nahrungsergänzungsmittel bewerten',
+    },
   },
   ingredientDetail: {
     chips: { clinicalDose: 'Klinische Dosis', onset: 'Wirkungseintritt' },
@@ -1471,6 +1565,19 @@ const frCa: UIStrings = {
     ingredients: 'Ingrédients',
     backToBestNootropics: '← Retour aux meilleurs nootropiques',
     backToIngredientsGuide: '← Retour au guide des ingrédients',
+    ariaLabel: "Fil d'Ariane",
+  },
+  search: {
+    pages: {
+      bestNootropics: 'Meilleurs Nootropiques',
+      compareAll: 'Comparer Tout',
+      methodology: 'Méthodologie',
+    },
+    descriptions: {
+      bestNootropics: 'Comparaison complète des principales marques',
+      compareAll: 'Outil de comparaison interactif',
+      methodology: 'Comment nous évaluons les suppléments',
+    },
   },
   ingredientDetail: {
     chips: { clinicalDose: 'Dose clinique', onset: 'Délai d\'action' },

@@ -1,6 +1,7 @@
 import type { Product } from './products-us';
 import type { Ingredient } from './ingredients';
 import type { Guide } from './guides';
+import type { UIStrings } from './i18n';
 
 export interface SearchItemMeta {
   /** Product score 0..10, surfaced as a ScorePill in result rows. */
@@ -26,11 +27,30 @@ function deriveIngredientGrade(ing: Ingredient): 'A' | 'B' | 'C' {
   return 'C';
 }
 
+// Hardcoded English fallback. Used only when no `strings` bundle is passed
+// (e.g. tests that don't care about i18n, or pre-PR-Q10 call sites still
+// upgrading). Production call sites go through buildRegionSearchContext
+// which always passes the locale bundle through.
+const EN_PAGES = {
+  bestNootropics: 'Best Nootropics',
+  compareAll: 'Compare All',
+  methodology: 'Methodology',
+} as const;
+const EN_DESCRIPTIONS = {
+  bestNootropics: 'Full comparison of top brands',
+  compareAll: 'Interactive comparison tool',
+  methodology: 'How we score supplements',
+} as const;
+
 export function buildSearchIndex(
   products: Product[],
   ingredients: Ingredient[],
-  guides: Guide[]
+  guides: Guide[],
+  strings?: UIStrings
 ): SearchItem[] {
+  const pages = strings?.search.pages ?? EN_PAGES;
+  const descriptions = strings?.search.descriptions ?? EN_DESCRIPTIONS;
+
   return [
     ...products.map(p => ({
       title: p.name,
@@ -52,8 +72,23 @@ export function buildSearchIndex(
       type: 'guide' as const,
       description: g.description,
     })),
-    { title: 'Best Nootropics', href: '/best-nootropics', type: 'page', description: 'Full comparison of top brands' },
-    { title: 'Compare All', href: '/nootropic-comparison', type: 'page', description: 'Interactive comparison tool' },
-    { title: 'Methodology', href: '/methodology', type: 'page', description: 'How we score supplements' },
+    {
+      title: pages.bestNootropics,
+      href: '/best-nootropics',
+      type: 'page',
+      description: descriptions.bestNootropics,
+    },
+    {
+      title: pages.compareAll,
+      href: '/nootropic-comparison',
+      type: 'page',
+      description: descriptions.compareAll,
+    },
+    {
+      title: pages.methodology,
+      href: '/methodology',
+      type: 'page',
+      description: descriptions.methodology,
+    },
   ];
 }
