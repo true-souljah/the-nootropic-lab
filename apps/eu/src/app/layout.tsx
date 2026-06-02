@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import Script from 'next/script';
 import './globals.css';
 import { CookieBanner } from '@nootropic/ui';
-import { getStrings } from '@nootropic/data';
 
 const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
 
@@ -25,14 +24,12 @@ export const metadata: Metadata = {
   },
 };
 
-const strings = getStrings('en');
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.variable}>
       <body>
         {children}
-        <CookieBanner strings={strings} />
+        <CookieBanner />
         <Script
           type="text/plain"
           data-name="cloudflare-insights"

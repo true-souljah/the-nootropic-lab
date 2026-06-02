@@ -3,7 +3,6 @@ import Script from 'next/script';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { CookieBanner } from '@nootropic/ui';
-import { getStrings } from '@nootropic/data';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -29,8 +28,6 @@ export const metadata: Metadata = {
   },
 };
 
-const strings = getStrings('en');
-
 /**
  * Root layout — minimal shell. Provides <html>/<body>, font, the
  * Klaro CookieBanner (overlay), and analytics scripts. Page chrome
@@ -42,7 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={inter.variable}>
       <body>
         {children}
-        <CookieBanner strings={strings} />
+        <CookieBanner />
         <Script
           type="text/plain"
           data-name="cloudflare-insights"

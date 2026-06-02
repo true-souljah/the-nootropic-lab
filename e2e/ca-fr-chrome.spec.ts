@@ -166,15 +166,24 @@ test.describe('CA /fr/* search-index localization (PR-Q10 — WCAG 3.1.2)', () =
     expect(html).toContain('Méthodologie');
     // Quebec French description for the 'Methodology' page entry.
     expect(html).toContain('Comment nous évaluons les suppléments');
-    // NOTE: We deliberately do NOT assert the absence of the English
-    // strings ("How we score supplements" / "Best Nootropics") on this
-    // page. ComparisonTable, StickyCtaBar, and AffiliateDisclosure
-    // currently bake the English UIStrings bundle into the RSC payload
-    // because they're not threaded with `uiStrings`. That is a separate
-    // pre-existing follow-up (tracked for a dedicated PR). The actual
-    // SearchModal items + descriptions ARE Quebec French — verified
-    // positively above. The visible modal that the user opens with ⌘K
-    // shows the localized strings; the EN leak only lives in a
-    // hydration-script payload that is never spoken by AT.
+  });
+
+  test('RSC hydration payload does NOT carry an EN UIStrings bundle (PR-Q11 #75)', async ({ page }) => {
+    // Before PR-Q11, the CA root layout did:
+    //   const strings = getStrings('en');
+    //   <CookieBanner strings={strings} />
+    // CookieBanner is a 'use client' component, so Next.js serialized
+    // the full English UIStrings bundle into the RSC hydration payload
+    // of every page — including CA /fr/*, which violates WCAG 3.1.2
+    // Language of Parts inside the hydration script.
+    //
+    // The PR-Q11 fix removes the dead `strings` prop entirely. After
+    // the fix, none of the EN-only UIStrings.search.descriptions
+    // values should appear anywhere in the page HTML.
+    await page.goto('/fr/meilleurs-nootropiques/');
+    const html = await page.content();
+    expect(html).not.toContain('How we score supplements');
+    expect(html).not.toContain('Full comparison of top brands');
+    expect(html).not.toContain('Interactive comparison tool');
   });
 });
