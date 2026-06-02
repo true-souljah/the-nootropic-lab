@@ -106,3 +106,48 @@ test.describe('CA /fr/* chrome localization (PR-Q8 #72 — WCAG 3.1.2)', () => {
     await expect(nav.getByRole('link', { name: 'About', exact: true })).toHaveCount(0);
   });
 });
+
+test.describe('CA /fr/* FPFooter localization (PR-Q9 — WCAG 3.1.2)', () => {
+  // Before PR-Q9, the CA /fr/* pages rendered FPFooter with hardcoded
+  // English DEFAULT_COLUMNS even though the page-level UIStrings was
+  // fr-CA. PR-Q9 reshapes UIStrings.footer + threads strings={uiStrings}
+  // through to FPFooter so the rendered DOM matches the fr-CA bundle.
+
+  test('all 4 footer column headings render in Quebec French', async ({ page }) => {
+    await page.goto('/fr/meilleurs-nootropiques/');
+    const footer = page.locator('footer[role="contentinfo"]');
+    await expect(footer).toBeAttached();
+    await expect(footer.getByRole('heading', { name: 'Meilleurs par objectif' })).toBeAttached();
+    await expect(footer.getByRole('heading', { name: 'Face-à-face' })).toBeAttached();
+    await expect(footer.getByRole('heading', { name: 'Par région' })).toBeAttached();
+    await expect(footer.getByRole('heading', { name: 'À propos' })).toBeAttached();
+  });
+
+  test('by-region links render translated country names', async ({ page }) => {
+    await page.goto('/fr/meilleurs-nootropiques/');
+    const footer = page.locator('footer[role="contentinfo"]');
+    await expect(footer.getByRole('link', { name: 'États-Unis' })).toBeAttached();
+    await expect(footer.getByRole('link', { name: 'Union européenne' })).toBeAttached();
+    await expect(footer.getByRole('link', { name: 'Amérique latine' })).toBeAttached();
+    await expect(footer.getByRole('link', { name: 'United States' })).toHaveCount(0);
+  });
+
+  test('about-column uses OQLF "Témoins" not "Cookies" (Quebec French convention)', async ({ page }) => {
+    await page.goto('/fr/meilleurs-nootropiques/');
+    const footer = page.locator('footer[role="contentinfo"]');
+    // Same convention as PR-C2b: Quebec French uses "témoins" for cookies.
+    // The /cookie-policy link in the About column should read "Témoins".
+    await expect(footer.getByRole('link', { name: 'Témoins' })).toBeAttached();
+  });
+
+  test('last-audit string is French-labelled with fr-CA locale date format', async ({ page }) => {
+    await page.goto('/fr/meilleurs-nootropiques/');
+    const footer = page.locator('footer[role="contentinfo"]');
+    const footerText = await footer.textContent();
+    expect(footerText).toContain('Dernière vérification complète :');
+    expect(footerText).toContain('Méthodologie v3.2');
+    // fr-CA Intl.DateTimeFormat short-form: "28 avr. 2026" (with period in "avr.")
+    expect(footerText).toMatch(/28 avr\. 2026/);
+    expect(footerText).not.toContain('Last full re-audit:');
+  });
+});

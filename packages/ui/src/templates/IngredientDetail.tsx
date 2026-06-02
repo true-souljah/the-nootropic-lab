@@ -469,7 +469,7 @@ export default function IngredientDetail({
         </div>
       </main>
 
-      <FPFooter />
+      <FPFooter strings={uiStrings} />
     </div>
   );
 }

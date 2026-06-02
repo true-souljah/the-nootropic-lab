@@ -52,7 +52,7 @@ export default function PublicShell({
       {!hideDisclosure && <FPDisclosure methodologyHref={methodologyHref} />}
       <FPHeader searchItems={searchItems} strings={uiStrings} />
       <main id="public-main-content" className="min-h-[60vh]">{children}</main>
-      <FPFooter />
+      <FPFooter strings={uiStrings} />
     </div>
   );
 }

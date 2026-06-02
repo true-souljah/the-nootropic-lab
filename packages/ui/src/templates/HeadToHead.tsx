@@ -570,7 +570,7 @@ export default function HeadToHead({
         </div>
       </main>
 
-      <FPFooter />
+      <FPFooter strings={uiStrings} />
     </div>
   );
 }

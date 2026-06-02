@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { BrandMark } from '../primitives/BrandMark';
+import type { UIStrings } from '@nootropic/data';
 
 export interface FPFooterLink {
   label: string;
@@ -7,22 +8,31 @@ export interface FPFooterLink {
 }
 
 export interface FPFooterColumn {
+  /** Stable id used to wire `<h2 id={id}>` with `<nav aria-labelledby={id}>`. */
+  id: string;
   heading: string;
   links: FPFooterLink[];
 }
 
 export interface FPFooterProps {
-  /** Column groups. Default = the Phase-2 English set (Best by goal, Head-to-head, By region, About). */
+  /** Column groups. When omitted, derived from `strings.footer` if present, else English DEFAULT_COLUMNS. */
   columns?: FPFooterColumn[];
-  /** Brand line shown in the left tagline column. */
+  /** Localized UI strings. When passed, replaces every English DEFAULT with its locale equivalent. */
+  strings?: UIStrings;
+  /** Date of the last full re-audit (ISO 8601 / RFC-3339). Rendered locale-aware via `strings.dateLocale`. */
+  lastAuditDate?: string;
+  /** Methodology version stamp (e.g. "v3.2"). Language-neutral by design. */
+  methodologyVersion?: string;
+  /** Override the left-column tagline paragraph. */
   tagline?: string;
   brandLabel?: string;
-  copyright?: string;
-  lastAudit?: string;
+  /** Override the bottom-row copyright line. Supports the `{year}` placeholder. */
+  copyrightLine?: string;
 }
 
 const DEFAULT_COLUMNS: FPFooterColumn[] = [
   {
+    id: 'footer-col-best-by-goal',
     heading: 'Best by goal',
     links: [
       { label: 'For focus', href: '/best-nootropics-for-focus' },
@@ -35,6 +45,7 @@ const DEFAULT_COLUMNS: FPFooterColumn[] = [
     ],
   },
   {
+    id: 'footer-col-head-to-head',
     heading: 'Head-to-head',
     links: [
       { label: 'Mind Lab Pro vs NooCube', href: '/mind-lab-pro-vs-noocube' },
@@ -44,6 +55,7 @@ const DEFAULT_COLUMNS: FPFooterColumn[] = [
     ],
   },
   {
+    id: 'footer-col-by-region',
     heading: 'By region',
     links: [
       { label: 'United States', href: 'https://thenootropiclab.com' },
@@ -55,6 +67,7 @@ const DEFAULT_COLUMNS: FPFooterColumn[] = [
     ],
   },
   {
+    id: 'footer-col-about',
     heading: 'About',
     links: [
       { label: 'Methodology', href: '/methodology' },
@@ -67,21 +80,128 @@ const DEFAULT_COLUMNS: FPFooterColumn[] = [
   },
 ];
 
+/**
+ * Build the 4-column FPFooter structure from a UIStrings bundle. Brand-name
+ * link labels in the Head-to-head column stay English (proper nouns); only
+ * "All comparisons →" is translated. URLs are identical across locales
+ * (canonical English slugs — non-EN locales use rel="alternate" not different
+ * paths, so localizing the path here would create dead links).
+ *
+ * Exported so unit tests can verify the mapping in isolation.
+ */
+export function columnsFromStrings(strings: UIStrings): FPFooterColumn[] {
+  const f = strings.footer;
+  return [
+    {
+      id: 'footer-col-best-by-goal',
+      heading: f.bestByGoal.heading,
+      links: [
+        { label: f.bestByGoal.focus, href: '/best-nootropics-for-focus' },
+        { label: f.bestByGoal.memory, href: '/best-nootropics-for-memory' },
+        { label: f.bestByGoal.adhd, href: '/best-nootropics-for-adhd' },
+        { label: f.bestByGoal.aging, href: '/best-nootropics-for-aging' },
+        { label: f.bestByGoal.energy, href: '/best-nootropics-for-energy' },
+        { label: f.bestByGoal.mood, href: '/best-nootropics-for-mood' },
+        { label: f.bestByGoal.studying, href: '/best-nootropics-for-studying' },
+      ],
+    },
+    {
+      id: 'footer-col-head-to-head',
+      heading: f.headToHead.heading,
+      links: [
+        // Brand-vs-brand link labels stay English by design (allowlist).
+        { label: 'Mind Lab Pro vs NooCube', href: '/mind-lab-pro-vs-noocube' },
+        { label: 'Alpha Brain vs Qualia Mind', href: '/alpha-brain-vs-qualia-mind' },
+        { label: 'Thesis vs Mind Lab Pro', href: '/mind-lab-pro-vs-thesis' },
+        { label: f.headToHead.allComparisons, href: '/nootropic-comparison' },
+      ],
+    },
+    {
+      id: 'footer-col-by-region',
+      heading: f.byRegion.heading,
+      links: [
+        { label: f.byRegion.us, href: 'https://thenootropiclab.com' },
+        { label: f.byRegion.eu, href: 'https://eu.thenootropiclab.com' },
+        { label: f.byRegion.ca, href: 'https://ca.thenootropiclab.com' },
+        { label: f.byRegion.au, href: 'https://au.thenootropiclab.com' },
+        { label: f.byRegion.jp, href: 'https://jp.thenootropiclab.com' },
+        { label: f.byRegion.latam, href: 'https://latam.thenootropiclab.com' },
+      ],
+    },
+    {
+      id: 'footer-col-about',
+      heading: f.about.heading,
+      links: [
+        { label: f.about.methodology, href: '/methodology' },
+        { label: f.about.disclosures, href: '/methodology#disclosures' },
+        { label: f.about.privacy, href: '/privacy-policy' },
+        { label: f.about.cookies, href: '/cookie-policy' },
+        { label: f.about.imprint, href: '/imprint' },
+        { label: f.about.contact, href: '/contact' },
+      ],
+    },
+  ];
+}
+
 const CURRENT_YEAR = new Date().getFullYear();
+const DEFAULT_LAST_AUDIT_ISO = '2026-04-28';
+const DEFAULT_METHODOLOGY_VERSION = 'v3.2';
+
+function formatAuditDate(iso: string, dateLocale: string): string {
+  try {
+    const d = new Date(iso);
+    if (Number.isNaN(d.getTime())) return iso;
+    return new Intl.DateTimeFormat(dateLocale, {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    }).format(d);
+  } catch {
+    return iso;
+  }
+}
 
 /**
  * FPFooter — dark slate footer used across all public surfaces. WCAG:
  * sidebar-text colors (ds-side-ink, ds-side-muted) verified at AA
- * against the ds-side background. The nav is labeled so screen-reader
- * users can skip the cluster.
+ * against the ds-side background. Each `<nav>` column is labeled via
+ * `aria-labelledby` pointing at its `<h2>` so screen readers announce
+ * the column once (the PR-Q8 nav uses the same precedence pattern).
+ *
+ * Resolution precedence:
+ *   columns / tagline / copyrightLine / lastAuditDate explicit prop
+ *   → derived from strings.footer when strings is passed
+ *   → hardcoded English fallback (only when strings is also absent)
+ *
+ * `brandLabel="Nootropic Lab"` is intentionally not derived from strings
+ * — proper noun, listed in the non-translatable allowlist per Stage 9
+ * § Translation Completeness Rule (same call as FPHeader.brandLabel).
  */
 export function FPFooter({
-  columns = DEFAULT_COLUMNS,
-  tagline = "We audit every nootropic against its clinical-trial doses. Affiliate commissions are disclosed inline and don't move scores.",
+  columns,
+  strings,
+  lastAuditDate = DEFAULT_LAST_AUDIT_ISO,
+  methodologyVersion = DEFAULT_METHODOLOGY_VERSION,
+  tagline,
   brandLabel = 'Nootropic Lab',
-  copyright = `© ${CURRENT_YEAR} Nootropic Lab · Information is not medical advice. Consult a clinician before starting any supplement.`,
-  lastAudit = 'Last full re-audit: 28 Apr 2026 · Methodology v3.2',
+  copyrightLine,
 }: FPFooterProps) {
+  const resolvedColumns =
+    columns ?? (strings ? columnsFromStrings(strings) : DEFAULT_COLUMNS);
+  const resolvedTagline =
+    tagline ??
+    strings?.footer.tagline ??
+    "We audit every nootropic against its clinical-trial doses. Affiliate commissions are disclosed inline and don't move scores.";
+  const resolvedCopyrightTemplate =
+    copyrightLine ??
+    strings?.footer.copyrightLine ??
+    '© {year} Nootropic Lab · Information is not medical advice. Consult a clinician before starting any supplement.';
+  const resolvedCopyright = resolvedCopyrightTemplate.replace('{year}', String(CURRENT_YEAR));
+  const lastAuditLabel = strings?.footer.lastAuditLabel ?? 'Last full re-audit:';
+  const methodologyLabel = strings?.footer.methodologyLabel ?? 'Methodology';
+  const dateLocale = strings?.productDetail?.dateLocale ?? 'en-US';
+  const formattedDate = formatAuditDate(lastAuditDate, dateLocale);
+
   return (
     <footer
       role="contentinfo"
@@ -99,12 +219,15 @@ export function FPFooter({
               <div className="font-bold text-[15px]">{brandLabel}</div>
             </div>
             <p className="text-ds-side-muted text-[12.5px] leading-[1.65] m-0 max-w-[280px]">
-              {tagline}
+              {resolvedTagline}
             </p>
           </div>
-          {columns.map((col) => (
-            <nav key={col.heading} aria-label={col.heading}>
-              <h2 className="text-[11px] tracking-[0.14em] uppercase text-ds-side-muted font-semibold mb-[10px] m-0">
+          {resolvedColumns.map((col) => (
+            <nav key={col.id} aria-labelledby={col.id}>
+              <h2
+                id={col.id}
+                className="text-[11px] tracking-[0.14em] uppercase text-ds-side-muted font-semibold mb-[10px] m-0"
+              >
                 {col.heading}
               </h2>
               <ul className="list-none p-0 m-0">
@@ -123,8 +246,10 @@ export function FPFooter({
           ))}
         </div>
         <div className="mt-9 pt-5 border-t border-white/10 flex justify-between gap-4 flex-wrap text-[11.5px] text-ds-side-muted">
-          <span>{copyright}</span>
-          <span>{lastAudit}</span>
+          <span>{resolvedCopyright}</span>
+          <span>
+            {lastAuditLabel} {formattedDate} · {methodologyLabel} {methodologyVersion}
+          </span>
         </div>
       </div>
     </footer>

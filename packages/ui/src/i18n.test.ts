@@ -78,7 +78,9 @@ describe('getStrings', () => {
   test('fr-CA strings use Quebec French (smoke test for PR-C2b OQLF conventions)', () => {
     const frCa = getStrings('fr-CA');
     // OQLF: "témoin" not "cookie", "RGPD" not "GDPR", "Santé Canada" not "Health Canada"
-    expect(frCa.footer.cookiePolicy).toContain('témoins');
+    // PR-Q9 reshape: footer.cookiePolicy was removed (dead) and the user-
+    // visible OQLF cookies term moved to footer.about.cookies.
+    expect(frCa.footer.about.cookies).toBe('Témoins');
     expect(frCa.cookie.gdprNote).toContain('RGPD');
     expect(frCa.productDetail.chips.npnLicensed).toContain('Santé Canada');
   });

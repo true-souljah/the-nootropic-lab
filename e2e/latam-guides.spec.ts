@@ -107,3 +107,55 @@ test.describe('LATAM chrome localization (PR-Q8 #72 — WCAG 3.1.2)', () => {
     await expect(nav.getByRole('link', { name: 'About', exact: true })).toHaveCount(0);
   });
 });
+
+test.describe('LATAM FPFooter localization (PR-Q9 — WCAG 3.1.2)', () => {
+  // Before PR-Q9, FPFooter rendered a hardcoded English DEFAULT_COLUMNS
+  // array on every public page across all 8 region apps, regardless of
+  // locale. PR-Q9 reshapes UIStrings.footer to match the current
+  // FPFooter structure, derives columns from strings.footer via
+  // columnsFromStrings, and parameterizes the last-audit date for
+  // locale-aware formatting via Intl.DateTimeFormat.
+
+  test('all 4 footer column headings render in Spanish', async ({ page }) => {
+    await page.goto('/');
+    const footer = page.locator('footer[role="contentinfo"]');
+    await expect(footer).toBeAttached();
+    // The 4 column <h2>s now drive both the visible heading AND the
+    // landmark aria-labelledby — single source of truth.
+    await expect(footer.getByRole('heading', { name: 'Mejores por objetivo' })).toBeAttached();
+    await expect(footer.getByRole('heading', { name: 'Frente a frente' })).toBeAttached();
+    await expect(footer.getByRole('heading', { name: 'Por región' })).toBeAttached();
+    await expect(footer.getByRole('heading', { name: 'Acerca de' })).toBeAttached();
+  });
+
+  test('by-region links render translated country names (not English)', async ({ page }) => {
+    await page.goto('/');
+    const footer = page.locator('footer[role="contentinfo"]');
+    await expect(footer.getByRole('link', { name: 'Estados Unidos' })).toBeAttached();
+    await expect(footer.getByRole('link', { name: 'Unión Europea' })).toBeAttached();
+    await expect(footer.getByRole('link', { name: 'América Latina' })).toBeAttached();
+    // Negative: catches a regression of the English DEFAULT_COLUMNS
+    // by-region labels.
+    await expect(footer.getByRole('link', { name: 'United States' })).toHaveCount(0);
+    await expect(footer.getByRole('link', { name: 'Latin America' })).toHaveCount(0);
+  });
+
+  test('last-audit string is Spanish-labelled with a locale-formatted date', async ({ page }) => {
+    await page.goto('/');
+    const footer = page.locator('footer[role="contentinfo"]');
+    const footerText = await footer.textContent();
+    expect(footerText).toContain('Última auditoría completa:');
+    expect(footerText).toContain('Metodología v3.2');
+    // es-419 Intl.DateTimeFormat short-form: "28 abr 2026" (NOT "28 Apr 2026").
+    expect(footerText).toMatch(/28 abr 2026/);
+    expect(footerText).not.toContain('Last full re-audit:');
+  });
+
+  test('copyright line is rendered in Spanish with the current year', async ({ page }) => {
+    await page.goto('/');
+    const footer = page.locator('footer[role="contentinfo"]');
+    const footerText = await footer.textContent();
+    expect(footerText).toContain('© 2026 Nootropic Lab');
+    expect(footerText).toContain('La información no es asesoramiento médico');
+  });
+});

@@ -21,17 +21,50 @@ export interface UIStrings {
     skipToContent: string;
   };
   footer: {
-    brand: string;
+    /** Left-column tagline paragraph. */
     tagline: string;
-    reviews: string;
-    learn: string;
-    legal: string;
-    whatAreNootropics: string;
-    howToStack: string;
-    privacyPolicy: string;
-    cookiePolicy: string;
-    healthDisclaimer: string;
-    copyright: string;
+    /** Bottom-row copyright sentence. `{year}` is interpolated at render time. */
+    copyrightLine: string;
+    /** Prefix shown before the audit date in the bottom-right meta line. */
+    lastAuditLabel: string;
+    /** Label between the date and the version (e.g. "Methodology"). */
+    methodologyLabel: string;
+    /** Column 1: best-by-goal. */
+    bestByGoal: {
+      heading: string;
+      focus: string;
+      memory: string;
+      adhd: string;
+      aging: string;
+      energy: string;
+      mood: string;
+      studying: string;
+    };
+    /** Column 2: head-to-head comparisons. Brand-vs-brand link labels stay English (proper nouns); only "All comparisons →" translates. */
+    headToHead: {
+      heading: string;
+      allComparisons: string;
+    };
+    /** Column 3: regional cross-domain links. Country/region names translate (WCAG 3.1.2 — these are natural language, not proper nouns). */
+    byRegion: {
+      heading: string;
+      us: string;
+      eu: string;
+      ca: string;
+      au: string;
+      jp: string;
+      latam: string;
+    };
+    /** Column 4: about/legal/policy. */
+    about: {
+      heading: string;
+      methodology: string;
+      disclosures: string;
+      privacy: string;
+      cookies: string;
+      imprint: string;
+      contact: string;
+    };
   };
   cookie: {
     message: string;
@@ -214,17 +247,44 @@ const en: UIStrings = {
     skipToContent: 'Skip to main content',
   },
   footer: {
-    brand: 'The Nootropic Lab',
-    tagline: 'Independent cognitive supplement reviews. Evidence-graded. Affiliate-disclosed.',
-    reviews: 'Reviews',
-    learn: 'Learn',
-    legal: 'Legal',
-    whatAreNootropics: 'What Are Nootropics?',
-    howToStack: 'How to Stack',
-    privacyPolicy: 'Privacy Policy',
-    cookiePolicy: 'Cookie Policy',
-    healthDisclaimer: 'Health Disclaimer: The information on this website is for educational purposes only and is not intended as medical advice. Nootropic supplements are not approved by the FDA to diagnose, treat, cure, or prevent any disease. Always consult a qualified healthcare professional before starting any supplement regimen, especially if you are pregnant, nursing, taking medication, or have a medical condition. Individual results may vary.',
-    copyright: 'All rights reserved. This site contains affiliate links. We earn a commission if you purchase through our links. Our editorial reviews are independent and not influenced by affiliate relationships.',
+    tagline:
+      "We audit every nootropic against its clinical-trial doses. Affiliate commissions are disclosed inline and don't move scores.",
+    copyrightLine:
+      '© {year} Nootropic Lab · Information is not medical advice. Consult a clinician before starting any supplement.',
+    lastAuditLabel: 'Last full re-audit:',
+    methodologyLabel: 'Methodology',
+    bestByGoal: {
+      heading: 'Best by goal',
+      focus: 'For focus',
+      memory: 'For memory',
+      adhd: 'For ADHD',
+      aging: 'For aging',
+      energy: 'For energy',
+      mood: 'For mood',
+      studying: 'For studying',
+    },
+    headToHead: {
+      heading: 'Head-to-head',
+      allComparisons: 'All comparisons →',
+    },
+    byRegion: {
+      heading: 'By region',
+      us: 'United States',
+      eu: 'European Union',
+      ca: 'Canada',
+      au: 'Australia',
+      jp: 'Japan',
+      latam: 'Latin America',
+    },
+    about: {
+      heading: 'About',
+      methodology: 'Methodology',
+      disclosures: 'Disclosures',
+      privacy: 'Privacy',
+      cookies: 'Cookies',
+      imprint: 'Imprint',
+      contact: 'Contact',
+    },
   },
   cookie: {
     message: 'We use analytics cookies to improve your experience. We do not use advertising cookies.',
@@ -378,17 +438,44 @@ const es: UIStrings = {
     skipToContent: 'Saltar al contenido principal',
   },
   footer: {
-    brand: 'The Nootropic Lab',
-    tagline: 'Reseñas independientes de suplementos cognitivos. Basadas en evidencia. Afiliados divulgados.',
-    reviews: 'Reseñas',
-    learn: 'Aprender',
-    legal: 'Legal',
-    whatAreNootropics: '¿Qué son los nootrópicos?',
-    howToStack: 'Cómo combinar',
-    privacyPolicy: 'Política de Privacidad',
-    cookiePolicy: 'Política de Cookies',
-    healthDisclaimer: 'Aviso de salud: La información en este sitio web es solo con fines educativos y no pretende ser un consejo médico. Los suplementos nootrópicos no están aprobados por la FDA para diagnosticar, tratar, curar o prevenir ninguna enfermedad. Siempre consulte a un profesional de la salud calificado antes de comenzar cualquier régimen de suplementos, especialmente si está embarazada, amamantando, tomando medicamentos o tiene una condición médica. Los resultados individuales pueden variar.',
-    copyright: 'Todos los derechos reservados. Este sitio contiene enlaces de afiliados. Ganamos una comisión si compra a través de nuestros enlaces. Nuestras reseñas editoriales son independientes y no están influenciadas por relaciones de afiliados.',
+    tagline:
+      'Auditamos cada nootrópico contra sus dosis de ensayos clínicos. Las comisiones de afiliados se divulgan en línea y no afectan las puntuaciones.',
+    copyrightLine:
+      '© {year} Nootropic Lab · La información no es asesoramiento médico. Consulte a un médico antes de comenzar cualquier suplemento.',
+    lastAuditLabel: 'Última auditoría completa:',
+    methodologyLabel: 'Metodología',
+    bestByGoal: {
+      heading: 'Mejores por objetivo',
+      focus: 'Para concentración',
+      memory: 'Para memoria',
+      adhd: 'Para TDAH',
+      aging: 'Para envejecimiento',
+      energy: 'Para energía',
+      mood: 'Para estado de ánimo',
+      studying: 'Para estudio',
+    },
+    headToHead: {
+      heading: 'Frente a frente',
+      allComparisons: 'Todas las comparaciones →',
+    },
+    byRegion: {
+      heading: 'Por región',
+      us: 'Estados Unidos',
+      eu: 'Unión Europea',
+      ca: 'Canadá',
+      au: 'Australia',
+      jp: 'Japón',
+      latam: 'América Latina',
+    },
+    about: {
+      heading: 'Acerca de',
+      methodology: 'Metodología',
+      disclosures: 'Divulgaciones',
+      privacy: 'Privacidad',
+      cookies: 'Cookies',
+      imprint: 'Aviso legal',
+      contact: 'Contacto',
+    },
   },
   cookie: {
     message: 'Usamos cookies de análisis para mejorar su experiencia. No usamos cookies publicitarias.',
@@ -542,17 +629,44 @@ const fr: UIStrings = {
     skipToContent: 'Aller au contenu principal',
   },
   footer: {
-    brand: 'The Nootropic Lab',
-    tagline: 'Avis indépendants sur les suppléments cognitifs. Basés sur des preuves. Affiliations divulguées.',
-    reviews: 'Avis',
-    learn: 'Apprendre',
-    legal: 'Mentions légales',
-    whatAreNootropics: 'Que sont les nootropiques?',
-    howToStack: 'Comment combiner',
-    privacyPolicy: 'Politique de confidentialité',
-    cookiePolicy: 'Politique de cookies',
-    healthDisclaimer: 'Avis de santé : Les informations sur ce site sont à des fins éducatives uniquement et ne constituent pas un avis médical. Les suppléments nootropiques ne sont pas approuvés par la FDA pour diagnostiquer, traiter, guérir ou prévenir une maladie. Consultez toujours un professionnel de la santé qualifié avant de commencer tout régime de suppléments. Les résultats individuels peuvent varier.',
-    copyright: 'Tous droits réservés. Ce site contient des liens affiliés. Nous gagnons une commission si vous achetez via nos liens. Nos avis éditoriaux sont indépendants.',
+    tagline:
+      "Nous auditons chaque nootropique selon les doses des essais cliniques. Les commissions d'affiliation sont divulguées en ligne et n'influencent pas les notes.",
+    copyrightLine:
+      "© {year} Nootropic Lab · Les informations ne constituent pas un avis médical. Consultez un clinicien avant de commencer tout supplément.",
+    lastAuditLabel: 'Dernier audit complet :',
+    methodologyLabel: 'Méthodologie',
+    bestByGoal: {
+      heading: 'Meilleurs par objectif',
+      focus: 'Pour la concentration',
+      memory: 'Pour la mémoire',
+      adhd: 'Pour le TDAH',
+      aging: 'Pour le vieillissement',
+      energy: "Pour l'énergie",
+      mood: "Pour l'humeur",
+      studying: "Pour l'étude",
+    },
+    headToHead: {
+      heading: 'Face-à-face',
+      allComparisons: 'Toutes les comparaisons →',
+    },
+    byRegion: {
+      heading: 'Par région',
+      us: 'États-Unis',
+      eu: 'Union européenne',
+      ca: 'Canada',
+      au: 'Australie',
+      jp: 'Japon',
+      latam: 'Amérique latine',
+    },
+    about: {
+      heading: 'À propos',
+      methodology: 'Méthodologie',
+      disclosures: 'Divulgations',
+      privacy: 'Confidentialité',
+      cookies: 'Cookies',
+      imprint: 'Mentions légales',
+      contact: 'Contact',
+    },
   },
   cookie: {
     message: 'Nous utilisons des cookies analytiques pour améliorer votre expérience. Nous n\'utilisons pas de cookies publicitaires.',
@@ -706,17 +820,44 @@ const ja: UIStrings = {
     skipToContent: 'メインコンテンツへスキップ',
   },
   footer: {
-    brand: 'The Nootropic Lab',
-    tagline: '独立系認知機能サプリメントレビュー。エビデンスに基づく評価。アフィリエイト広告を含みます。',
-    reviews: 'レビュー',
-    learn: '学ぶ',
-    legal: '法的情報',
-    whatAreNootropics: 'ノートロピクスとは？',
-    howToStack: '組み合わせ方',
-    privacyPolicy: 'プライバシーポリシー',
-    cookiePolicy: 'Cookieポリシー',
-    healthDisclaimer: '健康に関する免責事項：このウェブサイトの情報は教育目的のみであり、医学的アドバイスを意図するものではありません。ノートロピクスサプリメントは、疾病の診断、治療、治癒、予防のためにFDAによって承認されていません。サプリメントを開始する前に、必ず資格のある医療専門家にご相談ください。個人の結果は異なる場合があります。',
-    copyright: '全著作権所有。このサイトにはアフィリエイトリンクが含まれています。当社のリンクを通じて購入された場合、コミッションを受け取ります。編集レビューは独立しており、アフィリエイト関係の影響を受けません。',
+    tagline:
+      'すべてのノートロピクスを臨床試験の用量で監査しています。アフィリエイト報酬はインラインで開示され、評価には影響しません。',
+    copyrightLine:
+      '© {year} Nootropic Lab · 情報は医学的助言ではありません。サプリメントを開始する前に医師に相談してください。',
+    lastAuditLabel: '最終全面監査:',
+    methodologyLabel: '評価方法',
+    bestByGoal: {
+      heading: '目的別ベスト',
+      focus: '集中力向上',
+      memory: '記憶力向上',
+      adhd: 'ADHD対策',
+      aging: 'エイジングケア',
+      energy: 'エネルギー向上',
+      mood: '気分改善',
+      studying: '学習サポート',
+    },
+    headToHead: {
+      heading: '直接比較',
+      allComparisons: 'すべての比較 →',
+    },
+    byRegion: {
+      heading: '地域別',
+      us: 'アメリカ',
+      eu: '欧州連合',
+      ca: 'カナダ',
+      au: 'オーストラリア',
+      jp: '日本',
+      latam: 'ラテンアメリカ',
+    },
+    about: {
+      heading: '運営者情報',
+      methodology: '評価方法',
+      disclosures: '開示事項',
+      privacy: 'プライバシー',
+      cookies: 'Cookie',
+      imprint: '特定商取引法に基づく表記',
+      contact: 'お問い合わせ',
+    },
   },
   cookie: {
     message: '体験向上のために分析Cookieを使用しています。広告Cookieは使用していません。',
@@ -870,17 +1011,44 @@ const pt: UIStrings = {
     skipToContent: 'Ir para o conteúdo principal',
   },
   footer: {
-    brand: 'The Nootropic Lab',
-    tagline: 'Análises independentes de suplementos cognitivos. Baseadas em evidências. Afiliações divulgadas.',
-    reviews: 'Análises',
-    learn: 'Aprender',
-    legal: 'Legal',
-    whatAreNootropics: 'O que são nootrópicos?',
-    howToStack: 'Como combinar',
-    privacyPolicy: 'Política de Privacidade',
-    cookiePolicy: 'Política de Cookies',
-    healthDisclaimer: 'Aviso de saúde: As informações neste website são apenas para fins educativos e não pretendem constituir aconselhamento médico. Os suplementos nootrópicos não são aprovados pela FDA para diagnosticar, tratar, curar ou prevenir qualquer doença. Consulte sempre um profissional de saúde qualificado antes de iniciar qualquer regime de suplementos. Os resultados individuais podem variar.',
-    copyright: 'Todos os direitos reservados. Este site contém links de afiliados. Ganhamos uma comissão se comprar através dos nossos links. As nossas análises editoriais são independentes.',
+    tagline:
+      'Auditamos cada nootrópico contra as suas doses de ensaios clínicos. As comissões de afiliados são divulgadas em linha e não influenciam as pontuações.',
+    copyrightLine:
+      '© {year} Nootropic Lab · As informações não são aconselhamento médico. Consulte um clínico antes de iniciar qualquer suplemento.',
+    lastAuditLabel: 'Última auditoria completa:',
+    methodologyLabel: 'Metodologia',
+    bestByGoal: {
+      heading: 'Melhores por objetivo',
+      focus: 'Para foco',
+      memory: 'Para memória',
+      adhd: 'Para TDAH',
+      aging: 'Para envelhecimento',
+      energy: 'Para energia',
+      mood: 'Para humor',
+      studying: 'Para estudo',
+    },
+    headToHead: {
+      heading: 'Frente a frente',
+      allComparisons: 'Todas as comparações →',
+    },
+    byRegion: {
+      heading: 'Por região',
+      us: 'Estados Unidos',
+      eu: 'União Europeia',
+      ca: 'Canadá',
+      au: 'Austrália',
+      jp: 'Japão',
+      latam: 'América Latina',
+    },
+    about: {
+      heading: 'Sobre',
+      methodology: 'Metodologia',
+      disclosures: 'Divulgações',
+      privacy: 'Privacidade',
+      cookies: 'Cookies',
+      imprint: 'Aviso legal',
+      contact: 'Contacto',
+    },
   },
   cookie: {
     message: 'Utilizamos cookies de análise para melhorar a sua experiência. Não utilizamos cookies de publicidade.',
@@ -1034,17 +1202,44 @@ const de: UIStrings = {
     skipToContent: 'Zum Hauptinhalt springen',
   },
   footer: {
-    brand: 'The Nootropic Lab',
-    tagline: 'Unabhängige Tests kognitiver Nahrungsergänzungsmittel. Evidenzbasiert. Affiliate-transparent.',
-    reviews: 'Tests',
-    learn: 'Wissen',
-    legal: 'Rechtliches',
-    whatAreNootropics: 'Was sind Nootropika?',
-    howToStack: 'Wie kombinieren',
-    privacyPolicy: 'Datenschutzerklärung',
-    cookiePolicy: 'Cookie-Richtlinie',
-    healthDisclaimer: 'Gesundheitshinweis: Die Informationen auf dieser Website dienen ausschließlich Bildungszwecken und stellen keine medizinische Beratung dar. Nootropika sind nicht von der FDA zur Diagnose, Behandlung, Heilung oder Vorbeugung von Krankheiten zugelassen. Konsultieren Sie immer eine qualifizierte medizinische Fachkraft, bevor Sie mit der Einnahme von Nahrungsergänzungsmitteln beginnen, insbesondere wenn Sie schwanger sind, stillen, Medikamente einnehmen oder eine Erkrankung haben. Individuelle Ergebnisse können variieren.',
-    copyright: 'Alle Rechte vorbehalten. Diese Seite enthält Affiliate-Links. Wir erhalten eine Provision, wenn Sie über unsere Links kaufen. Unsere redaktionellen Tests sind unabhängig und werden nicht durch Affiliate-Beziehungen beeinflusst.',
+    tagline:
+      'Wir prüfen jedes Nootropikum gegen die Dosen aus klinischen Studien. Affiliate-Provisionen werden inline offengelegt und beeinflussen die Bewertungen nicht.',
+    copyrightLine:
+      '© {year} Nootropic Lab · Informationen sind keine medizinische Beratung. Konsultieren Sie einen Arzt, bevor Sie ein Nahrungsergänzungsmittel einnehmen.',
+    lastAuditLabel: 'Letzte vollständige Prüfung:',
+    methodologyLabel: 'Methodik',
+    bestByGoal: {
+      heading: 'Beste nach Ziel',
+      focus: 'Für Konzentration',
+      memory: 'Für Gedächtnis',
+      adhd: 'Für ADHS',
+      aging: 'Für Altern',
+      energy: 'Für Energie',
+      mood: 'Für Stimmung',
+      studying: 'Für das Lernen',
+    },
+    headToHead: {
+      heading: 'Direktvergleich',
+      allComparisons: 'Alle Vergleiche →',
+    },
+    byRegion: {
+      heading: 'Nach Region',
+      us: 'Vereinigte Staaten',
+      eu: 'Europäische Union',
+      ca: 'Kanada',
+      au: 'Australien',
+      jp: 'Japan',
+      latam: 'Lateinamerika',
+    },
+    about: {
+      heading: 'Über uns',
+      methodology: 'Methodik',
+      disclosures: 'Offenlegungen',
+      privacy: 'Datenschutz',
+      cookies: 'Cookies',
+      imprint: 'Impressum',
+      contact: 'Kontakt',
+    },
   },
   cookie: {
     message: 'Wir verwenden Analyse-Cookies, um Ihre Erfahrung zu verbessern. Wir verwenden keine Werbe-Cookies.',
@@ -1203,17 +1398,44 @@ const frCa: UIStrings = {
     skipToContent: 'Aller au contenu principal',
   },
   footer: {
-    brand: 'The Nootropic Lab',
-    tagline: 'Évaluations indépendantes de suppléments cognitifs. Fondées sur des preuves. Liens affiliés divulgués.',
-    reviews: 'Évaluations',
-    learn: 'En apprendre plus',
-    legal: 'Mentions légales',
-    whatAreNootropics: 'Qu\'est-ce que les nootropiques?',
-    howToStack: 'Comment combiner les suppléments',
-    privacyPolicy: 'Politique de confidentialité',
-    cookiePolicy: 'Politique en matière de témoins',
-    healthDisclaimer: 'Avis de santé : L\'information présentée sur ce site Web est fournie à des fins éducatives seulement et ne constitue pas un avis médical. Les suppléments nootropiques ne sont pas approuvés par la FDA pour diagnostiquer, traiter, guérir ou prévenir quelque maladie que ce soit. Consultez toujours un professionnel de la santé qualifié avant d\'entreprendre tout régime de supplémentation, particulièrement si vous êtes enceinte, si vous allaitez, si vous prenez des médicaments ou si vous avez une condition médicale. Les résultats peuvent varier d\'une personne à l\'autre.',
-    copyright: 'Tous droits réservés. Ce site contient des liens affiliés. Nous touchons une commission si vous effectuez un achat par l\'entremise de nos liens. Nos évaluations éditoriales sont indépendantes et ne sont pas influencées par nos relations d\'affiliation.',
+    tagline:
+      "Nous vérifions chaque nootropique selon les doses des essais cliniques. Les commissions d'affiliation sont divulguées en ligne et n'influencent pas les notes.",
+    copyrightLine:
+      "© {year} Nootropic Lab · L'information ne constitue pas un avis médical. Consultez un professionnel de la santé avant de prendre tout supplément.",
+    lastAuditLabel: 'Dernière vérification complète :',
+    methodologyLabel: 'Méthodologie',
+    bestByGoal: {
+      heading: 'Meilleurs par objectif',
+      focus: 'Pour la concentration',
+      memory: 'Pour la mémoire',
+      adhd: 'Pour le TDAH',
+      aging: 'Pour le vieillissement',
+      energy: "Pour l'énergie",
+      mood: "Pour l'humeur",
+      studying: "Pour l'étude",
+    },
+    headToHead: {
+      heading: 'Face-à-face',
+      allComparisons: 'Toutes les comparaisons →',
+    },
+    byRegion: {
+      heading: 'Par région',
+      us: 'États-Unis',
+      eu: 'Union européenne',
+      ca: 'Canada',
+      au: 'Australie',
+      jp: 'Japon',
+      latam: 'Amérique latine',
+    },
+    about: {
+      heading: 'À propos',
+      methodology: 'Méthodologie',
+      disclosures: 'Divulgations',
+      privacy: 'Confidentialité',
+      cookies: 'Témoins',
+      imprint: 'Mentions légales',
+      contact: 'Contact',
+    },
   },
   cookie: {
     message: 'Nous utilisons des témoins d\'analyse pour améliorer votre expérience. Nous n\'utilisons pas de témoins publicitaires.',
