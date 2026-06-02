@@ -95,17 +95,17 @@ export default function PTHomePage() {
               Comparar Todas as Marcas UE
             </Link>
           </div>
-          <div className="mt-4 flex gap-4 justify-center text-sm text-gray-500">
-            <Link href="/" className="text-green-700 underline">
+          <nav aria-label="Selector de idioma" className="mt-4 flex gap-4 justify-center text-sm text-gray-500">
+            <Link href="/" className="text-green-700 underline" hrefLang="en" lang="en">
               🇬🇧 English
             </Link>
-            <Link href="/de/beste-nootropika" className="text-green-700 underline">
+            <Link href="/de" className="text-green-700 underline" hrefLang="de" lang="de">
               🇩🇪 Deutsch
             </Link>
-            <Link href="/fr/meilleurs-nootropiques" className="text-green-700 underline">
+            <Link href="/fr" className="text-green-700 underline" hrefLang="fr" lang="fr">
               🇫🇷 Français
             </Link>
-          </div>
+          </nav>
         </div>
       </section>
 
@@ -117,7 +117,7 @@ export default function PTHomePage() {
         <div className="grid md:grid-cols-3 gap-6">
           {features.map(f => (
             <div key={f.title} className="bg-gray-50 rounded-xl p-6">
-              <div className="text-3xl mb-3">{f.icon}</div>
+              <div className="text-3xl mb-3" aria-hidden="true">{f.icon}</div>
               <h3 className="font-bold text-gray-900 mb-2">{f.title}</h3>
               <p className="text-sm text-gray-600 leading-relaxed">{f.desc}</p>
             </div>

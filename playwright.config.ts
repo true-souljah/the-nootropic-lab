@@ -1,12 +1,13 @@
 import { defineConfig, devices } from '@playwright/test';
 
-// Multi-region smoke + a11y config. Serves prebuilt static exports for 3
+// Multi-region smoke + a11y config. Serves prebuilt static exports for 4
 // region apps on distinct ports and runs region-targeted spec files
 // against each. Tests are organized by filename prefix:
 //
 //   e2e/jp-*.spec.ts    → jp-chromium project    → http://127.0.0.1:4173
 //   e2e/latam-*.spec.ts → latam-chromium project → http://127.0.0.1:4174
 //   e2e/ca-*.spec.ts    → ca-chromium project    → http://127.0.0.1:4175
+//   e2e/eu-*.spec.ts    → eu-chromium project    → http://127.0.0.1:4176
 //
 // Prereqs: each region's `npm run build:<region>` must have produced the
 // corresponding `apps/<region>/out/`. The webServer array below runs `npx
@@ -52,6 +53,14 @@ export default defineConfig({
         baseURL: 'http://127.0.0.1:4175',
       },
     },
+    {
+      name: 'eu-chromium',
+      testMatch: /eu-.*\.spec\.ts$/,
+      use: {
+        ...devices['Desktop Chrome'],
+        baseURL: 'http://127.0.0.1:4176',
+      },
+    },
   ],
   webServer: [
     {
@@ -69,6 +78,12 @@ export default defineConfig({
     {
       command: 'npx serve apps/ca/out --listen 4175',
       url: 'http://127.0.0.1:4175',
+      reuseExistingServer: !process.env.CI,
+      timeout: 60_000,
+    },
+    {
+      command: 'npx serve apps/eu/out --listen 4176',
+      url: 'http://127.0.0.1:4176',
       reuseExistingServer: !process.env.CI,
       timeout: 60_000,
     },
