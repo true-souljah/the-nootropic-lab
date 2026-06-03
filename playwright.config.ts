@@ -30,9 +30,15 @@ export default defineConfig({
     trace: 'on-first-retry',
   },
   projects: [
+    // testMatch is a regex against the full path. The `[/\\]` prefix
+    // forces the region tag to appear at the start of the basename
+    // (after the directory separator) — without it, a substring
+    // match like the "us-" inside "stat​**us-**messages" causes
+    // jp-status-messages.spec.ts to also match us-chromium. PR-Q31 #95
+    // surfaced and fixed that bug.
     {
       name: 'jp-chromium',
-      testMatch: /jp-.*\.spec\.ts$/,
+      testMatch: /[/\\]jp-.*\.spec\.ts$/,
       use: {
         ...devices['Desktop Chrome'],
         baseURL: 'http://127.0.0.1:4173',
@@ -40,7 +46,7 @@ export default defineConfig({
     },
     {
       name: 'latam-chromium',
-      testMatch: /latam-.*\.spec\.ts$/,
+      testMatch: /[/\\]latam-.*\.spec\.ts$/,
       use: {
         ...devices['Desktop Chrome'],
         baseURL: 'http://127.0.0.1:4174',
@@ -48,7 +54,7 @@ export default defineConfig({
     },
     {
       name: 'ca-chromium',
-      testMatch: /ca-.*\.spec\.ts$/,
+      testMatch: /[/\\]ca-.*\.spec\.ts$/,
       use: {
         ...devices['Desktop Chrome'],
         baseURL: 'http://127.0.0.1:4175',
@@ -56,7 +62,7 @@ export default defineConfig({
     },
     {
       name: 'eu-chromium',
-      testMatch: /eu-.*\.spec\.ts$/,
+      testMatch: /[/\\]eu-.*\.spec\.ts$/,
       use: {
         ...devices['Desktop Chrome'],
         baseURL: 'http://127.0.0.1:4176',
@@ -64,7 +70,7 @@ export default defineConfig({
     },
     {
       name: 'us-chromium',
-      testMatch: /us-.*\.spec\.ts$/,
+      testMatch: /[/\\]us-.*\.spec\.ts$/,
       use: {
         ...devices['Desktop Chrome'],
         baseURL: 'http://127.0.0.1:4177',
