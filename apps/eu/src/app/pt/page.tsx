@@ -72,7 +72,9 @@ export default function PTHomePage() {
           <div className="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full mb-4">
             Mercado UE · Preços em EUR · Produtos com Conformidade UE
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
+          {/* PR-Q34 (#98): break-words + responsive font ramp for reflow
+             *  parity across all 3 EU landings (de, fr, pt). */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4 break-words">
             O Guia Independente da UE para
             <br />
             <span className="text-green-700">Suplementos Cognitivos</span>
