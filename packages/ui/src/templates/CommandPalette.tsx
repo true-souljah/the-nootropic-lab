@@ -11,7 +11,13 @@ import {
 import Link from 'next/link';
 import { Search, FlaskConical, Package, Columns, FileText, Clock } from 'lucide-react';
 import { ScorePill } from '../primitives/ScorePill';
+import { LiveRegion } from '../primitives/LiveRegion';
 import type { SearchItem } from '../SearchModal';
+
+/** Cap user-supplied strings echoed into the live region. 40 chars is the
+ *  conventional ceiling; longer queries get truncated with `…` (U+2026) so a
+ *  pasted clipboard isn't read verbatim into the AT speech queue. */
+const LIVE_REGION_QUERY_CAP = 40;
 
 export interface CommandPaletteProps {
   items: SearchItem[];
@@ -158,6 +164,25 @@ export default function CommandPalette({
     }
     return result;
   }, [query, recent, filtered]);
+
+  // WCAG 4.1.3 Status Messages — announce filtered-result count changes
+  // via a polite live region. Empty query: silent (the dialog open event
+  // is the announcement). Non-empty query: "{n} result(s)" or
+  // "No results for {capped query}". User-supplied text is capped at
+  // LIVE_REGION_QUERY_CAP chars + … (U+2026) so a pasted clipboard isn't
+  // read verbatim into the speech queue. PR-Q28 #92.
+  const liveMessage = useMemo(() => {
+    const trimmed = query.trim();
+    if (trimmed.length === 0) return '';
+    if (flat.length === 0) {
+      const echo =
+        trimmed.length > LIVE_REGION_QUERY_CAP
+          ? `${trimmed.slice(0, LIVE_REGION_QUERY_CAP)}…`
+          : trimmed;
+      return `No results for ${echo}`;
+    }
+    return `${flat.length} ${flat.length === 1 ? 'result' : 'results'}`;
+  }, [query, flat.length]);
 
   // Clamp activeIndex when the flat list changes
   useEffect(() => {
@@ -322,6 +347,16 @@ export default function CommandPalette({
                 })
               )}
             </div>
+
+            {/*
+              WCAG 4.1.3 Status Messages — persistent live region so AT
+              announces filtered-result count changes as the user types.
+              Mounted unconditionally while the dialog is open (per the
+              a11y review note: live regions must exist BEFORE the
+              mutation to be announced; not gated on `liveMessage`
+              truthiness). PR-Q28 #92.
+            */}
+            <LiveRegion message={liveMessage} />
 
             {/* Footer keycap bar */}
             <div className="flex items-center justify-between gap-3 px-4 py-[10px] bg-ds-card-sub border-t border-ds-border text-[11px] text-ds-muted">
