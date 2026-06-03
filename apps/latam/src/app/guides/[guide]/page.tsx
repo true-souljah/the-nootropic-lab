@@ -75,7 +75,7 @@ export default async function GuidePage({
           <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full capitalize">
             {g.category}
           </span>
-          <span className="text-xs text-gray-400">{g.readingTimeMin} min de lectura</span>
+          <span className="text-xs text-gray-500">{g.readingTimeMin} min de lectura</span>
         </div>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{g.title}</h1>

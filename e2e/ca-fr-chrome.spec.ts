@@ -25,7 +25,11 @@ test.describe('CA /fr/meilleurs-nootropiques/ Quebec French rendering (PR-C2b)',
     // The CA root layout has <html lang="en">; the /fr/layout.tsx
     // wraps children in <div lang="fr-CA">. Same workaround pattern
     // used across EU /de/, /fr/, /pt/ subtrees.
-    const frWrapper = page.locator('div[lang="fr-CA"]');
+    // `.first()` — Klaro (PR-Q13/Q14) injects its own `<div lang="fr-CA">`
+    // at runtime, so a bare selector can match 2 elements and fail
+    // strict-mode `toBeAttached`. We only need to confirm the page-wrapper
+    // div from /fr/layout.tsx exists.
+    const frWrapper = page.locator('div[lang="fr-CA"]').first();
     await expect(frWrapper).toBeAttached();
   });
 
@@ -64,7 +68,11 @@ test.describe('CA /fr/comparer/ Quebec French rendering (PR-C2b)', () => {
 
   test('renders <div lang="fr-CA"> wrapper', async ({ page }) => {
     await page.goto('/fr/comparer/');
-    const frWrapper = page.locator('div[lang="fr-CA"]');
+    // `.first()` — Klaro (PR-Q13/Q14) injects its own `<div lang="fr-CA">`
+    // at runtime, so a bare selector can match 2 elements and fail
+    // strict-mode `toBeAttached`. We only need to confirm the page-wrapper
+    // div from /fr/layout.tsx exists.
+    const frWrapper = page.locator('div[lang="fr-CA"]').first();
     await expect(frWrapper).toBeAttached();
   });
 });

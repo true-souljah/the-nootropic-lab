@@ -60,7 +60,12 @@ for (const [code, probe] of Object.entries(LANDINGS)) {
 
     test(`renders <div lang="${probe.divLang}"> wrapper from the nested layout`, async ({ page }) => {
       await page.goto(probe.path);
-      const wrapper = page.locator(`div[lang="${probe.divLang}"]`);
+      // Use `.first()` because Klaro (the consent banner) injects its own
+      // `<div lang="X">` at runtime matching the active locale (PR-Q13 #77
+      // + PR-Q14 #78 made Klaro locale-aware). Strict-mode `toBeAttached`
+      // fails on multiple matches; we only need to verify the
+      // page-wrapper div exists.
+      const wrapper = page.locator(`div[lang="${probe.divLang}"]`).first();
       await expect(wrapper).toBeAttached();
     });
 
