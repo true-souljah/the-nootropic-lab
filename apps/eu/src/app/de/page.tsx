@@ -83,7 +83,13 @@ export default function DEHomePage() {
           <div className="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full mb-4">
             EU-Markt · EUR-Preise · EU-konforme Produkte
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
+          {/* PR-Q34 (#98): `break-words` lets German compound nouns
+             *  ("Nahrungsergänzungsmittel" — 24 chars unbreakable) wrap at
+             *  320px viewport (WCAG 1.4.10 Reflow). Responsive `text-3xl
+             *  sm:text-4xl md:text-5xl` ramp keeps the compound within
+             *  container width on mobile while preserving the original
+             *  desktop typography. */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4 break-words">
             Der unabhängige EU-Ratgeber für
             <br />
             <span className="text-green-700">kognitive Nahrungsergänzungsmittel</span>

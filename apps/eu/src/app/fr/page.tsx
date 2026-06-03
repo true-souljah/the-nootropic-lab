@@ -83,7 +83,12 @@ export default function FRHomePage() {
           <div className="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full mb-4">
             Marché UE · Prix en EUR · Produits conformes à la réglementation UE
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
+          {/* PR-Q34 (#98): break-words + responsive font ramp for reflow
+             *  parity with the German landing. French strings on this page
+             *  fit at the original sizes, but applying the same fix keeps
+             *  the 3 landings (de, fr, pt) structurally identical so a
+             *  future longer string can't silently overflow. */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4 break-words">
             Le guide UE indépendant des
             <br />
             <span className="text-green-700">suppléments cognitifs</span>
