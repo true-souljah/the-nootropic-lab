@@ -13,16 +13,30 @@ import { Search, FlaskConical, Package, Columns, FileText, Clock } from 'lucide-
 import { ScorePill } from '../primitives/ScorePill';
 import { LiveRegion } from '../primitives/LiveRegion';
 import type { SearchItem } from '../SearchModal';
+import type { UIStrings } from '@nootropic/data';
 
 /** Cap user-supplied strings echoed into the live region. 40 chars is the
  *  conventional ceiling; longer queries get truncated with `…` (U+2026) so a
  *  pasted clipboard isn't read verbatim into the AT speech queue. */
 const LIVE_REGION_QUERY_CAP = 40;
 
+/** EN fallback for the aria-live messages — used when no `strings` prop
+ *  is passed. Locale-bundle equivalents live in
+ *  `packages/data/src/i18n.ts` under `search.liveRegion`. PR-Q29 (#93). */
+const DEFAULT_LIVE_REGION_EN = {
+  oneResult: '1 result',
+  manyResults: '{n} results',
+  noResults: 'No results for {query}',
+} as const;
+
 export interface CommandPaletteProps {
   items: SearchItem[];
   /** Visible label for the trigger button. Default: "Search" (icon + keycap shown). */
   triggerLabel?: string;
+  /** Locale UIStrings bundle. When provided, sources the aria-live status
+   *  messages from `strings.search.liveRegion.*`. Falls back to English
+   *  defaults otherwise. PR-Q29 (#93). */
+  strings?: UIStrings;
 }
 
 type Category = 'Ingredients' | 'Products' | 'Comparisons' | 'Guides' | 'Other';
@@ -83,7 +97,9 @@ function pushRecent(href: string): void {
 export default function CommandPalette({
   items,
   triggerLabel = 'Search',
+  strings,
 }: CommandPaletteProps) {
+  const liveStrings = strings?.search.liveRegion ?? DEFAULT_LIVE_REGION_EN;
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [activeIndex, setActiveIndex] = useState(0);
@@ -171,6 +187,11 @@ export default function CommandPalette({
   // "No results for {capped query}". User-supplied text is capped at
   // LIVE_REGION_QUERY_CAP chars + … (U+2026) so a pasted clipboard isn't
   // read verbatim into the speech queue. PR-Q28 #92.
+  //
+  // PR-Q29 (#93) — phrasings sourced from `strings.search.liveRegion.*`
+  // when `strings` prop is provided; falls back to DEFAULT_LIVE_REGION_EN
+  // otherwise. Placeholder syntax: `{n}` for count, `{query}` for the
+  // capped query echo.
   const liveMessage = useMemo(() => {
     const trimmed = query.trim();
     if (trimmed.length === 0) return '';
@@ -179,10 +200,11 @@ export default function CommandPalette({
         trimmed.length > LIVE_REGION_QUERY_CAP
           ? `${trimmed.slice(0, LIVE_REGION_QUERY_CAP)}…`
           : trimmed;
-      return `No results for ${echo}`;
+      return liveStrings.noResults.replace('{query}', echo);
     }
-    return `${flat.length} ${flat.length === 1 ? 'result' : 'results'}`;
-  }, [query, flat.length]);
+    if (flat.length === 1) return liveStrings.oneResult;
+    return liveStrings.manyResults.replace('{n}', String(flat.length));
+  }, [query, flat.length, liveStrings]);
 
   // Clamp activeIndex when the flat list changes
   useEffect(() => {

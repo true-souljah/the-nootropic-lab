@@ -124,3 +124,37 @@ describe('getLocaleForMarket', () => {
     }
   });
 });
+
+describe('search.liveRegion (PR-Q29 #93)', () => {
+  test('every locale has the 3 liveRegion keys for the CommandPalette aria-live announcements', () => {
+    for (const locale of ALL_LOCALES) {
+      const lr = getStrings(locale).search.liveRegion;
+      expect(lr.oneResult, `${locale} oneResult`).toBeTruthy();
+      expect(lr.manyResults, `${locale} manyResults`).toBeTruthy();
+      expect(lr.noResults, `${locale} noResults`).toBeTruthy();
+    }
+  });
+
+  test('manyResults carries the {n} placeholder; noResults carries the {query} placeholder', () => {
+    // The CommandPalette body does .replace('{n}', count) and
+    // .replace('{query}', echo). If a future translation drops the
+    // placeholder, the displayed message will silently lose the
+    // dynamic substitution.
+    for (const locale of ALL_LOCALES) {
+      const lr = getStrings(locale).search.liveRegion;
+      expect(lr.manyResults, `${locale} manyResults placeholder`).toContain('{n}');
+      expect(lr.noResults, `${locale} noResults placeholder`).toContain('{query}');
+    }
+  });
+
+  test('oneResult does NOT carry a placeholder (English plural rule)', () => {
+    // oneResult is the singular form, used when count === 1. It should
+    // be a literal phrase, not a template — otherwise the displayed
+    // string would show e.g. "{n} result" with the literal "{n}".
+    for (const locale of ALL_LOCALES) {
+      const oneResult = getStrings(locale).search.liveRegion.oneResult;
+      expect(oneResult, `${locale} oneResult should not contain {n}`).not.toContain('{n}');
+      expect(oneResult, `${locale} oneResult should not contain {query}`).not.toContain('{query}');
+    }
+  });
+});
