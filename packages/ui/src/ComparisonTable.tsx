@@ -26,7 +26,7 @@ function SortBtn({ col, sortKey, sortDir, onSort, t }: SortBtnProps) {
   return (
     <button
       onClick={() => onSort(col)}
-      className={`ml-1 text-xs ${active ? 'text-green-700 font-bold' : 'text-gray-400'}`}
+      className={`ml-1 text-xs ${active ? 'text-green-700 font-bold' : 'text-gray-500'}`}
       aria-label={active ? `${t?.sortBy || 'Sort by'} ${col}, currently ${sortDir === 'desc' ? (t?.descending || 'descending') : (t?.ascending || 'ascending')}` : `${t?.sortBy || 'Sort by'} ${col}`}
     >
       {active ? (sortDir === 'desc' ? '▼' : '▲') : '⇅'}
@@ -171,7 +171,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                   p.editorChoice ? 'winner-row' : 'hover:bg-gray-50'
                 }`}
               >
-                <td className="p-3 text-gray-400 font-bold">{i + 1}</td>
+                <td className="p-3 text-gray-500 font-bold">{i + 1}</td>
                 <td className="p-3">
                   <div className="font-semibold text-gray-900 flex items-center gap-2 flex-wrap">
                     {p.name}
@@ -201,7 +201,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                   {p.caffeineFree ? (
                     <span className="text-green-700 font-bold">✓</span>
                   ) : (
-                    <span className="text-gray-400">✗</span>
+                    <span className="text-gray-500">✗</span>
                   )}
                 </td>
                 {market === 'eu' && (
@@ -218,20 +218,20 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                           p.trustpilotScore >= 4
                             ? 'text-green-700 font-semibold'
                             : p.trustpilotScore >= 3
-                            ? 'text-amber-600 font-semibold'
+                            ? 'text-amber-700 font-semibold'
                             : 'text-red-600 font-semibold'
                         }
                       >
                         {p.trustpilotScore}/5
                       </span>
                       {p.trustpilotCount !== null && (
-                        <span className="text-xs text-gray-400 ml-1">
+                        <span className="text-xs text-gray-500 ml-1">
                           ({p.trustpilotCount.toLocaleString()})
                         </span>
                       )}
                     </>
                   ) : (
-                    <span className="text-gray-400 text-sm">{t?.na || 'N/A'}</span>
+                    <span className="text-gray-500 text-sm">{t?.na || 'N/A'}</span>
                   )}
                 </td>
                 <td className="p-3">
@@ -270,7 +270,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
               <div className="flex items-start justify-between gap-2 mb-2">
                 <div>
                   <div className="flex items-center gap-2 flex-wrap">
-                    <span className="text-gray-400 font-bold text-sm">#{i + 1}</span>
+                    <span className="text-gray-500 font-bold text-sm">#{i + 1}</span>
                     <span className="font-bold text-gray-900">{p.name}</span>
                     {p.editorChoice && <span className="editor-badge">Editor&apos;s Choice</span>}
                   </div>
@@ -301,14 +301,14 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                         p.trustpilotScore >= 4
                           ? 'text-green-700'
                           : p.trustpilotScore >= 3
-                          ? 'text-amber-600'
+                          ? 'text-amber-700'
                           : 'text-red-600'
                       }
                     >
                       {p.trustpilotScore}/5
                     </strong>
                   ) : (
-                    <span className="text-gray-400">{t?.na || 'N/A'}</span>
+                    <span className="text-gray-500">{t?.na || 'N/A'}</span>
                   )}
                 </div>
               </div>
