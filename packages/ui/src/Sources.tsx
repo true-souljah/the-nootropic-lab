@@ -44,7 +44,7 @@ export default function Sources({
             {heading}{' '}
             <span className="text-xs font-normal text-gray-500 ml-1">({sources.length})</span>
           </span>
-          <span className="text-xs text-gray-400">expand</span>
+          <span className="text-xs text-gray-600">expand</span>
         </summary>
         <ul className="mt-4 space-y-3">
           {sources.map((s, i) => (
