@@ -47,7 +47,16 @@ export function Chip({
   ...rest
 }: ChipProps) {
   const palette = active ? ACTIVE_CLASSES : TONE_CLASSES[tone];
-  const base = `inline-flex items-center gap-1 px-[10px] py-[3px] rounded-full text-[11.5px] font-semibold whitespace-nowrap border ${palette.bg} ${palette.text} ${palette.border}`;
+  // PR-Q26 (#90): swapped `whitespace-nowrap` for `min-w-0 max-w-full
+  // break-words`. The old nowrap meant any chip with a long data-content
+  // value (e.g. IngredientDetail's "Clinical dose · 100-200mg, 1-2 hours
+  // before activity") forced the chip — and therefore the document — to
+  // a width greater than viewport at 320px, breaking WCAG 1.4.10 Reflow
+  // (the last residual fixme tracked by PR-Q25's e2e/us-reflow spec).
+  // `break-words` allows long words to break at character boundaries so
+  // the chip can shrink to its container width; short chips continue to
+  // render on a single line as before.
+  const base = `inline-flex items-center gap-1 px-[10px] py-[3px] rounded-full text-[11.5px] font-semibold min-w-0 max-w-full break-words border ${palette.bg} ${palette.text} ${palette.border}`;
 
   if (onClick) {
     return (

@@ -48,15 +48,11 @@ const PASSING_ROUTES = [{ path: '/', label: 'Discover (home)' }];
 // PR-Q25 also collapses the page-level content grids on Listicle and
 // IngredientDetail + the FPFooter 5-column grid to single column
 // below `md:`.
-const FP_HEADER_ROUTES = [{ path: '/best-nootropics-for-focus/', label: 'Listicle' }];
-
-// IngredientDetail has a remaining WCAG 1.4.10 violation that PR-Q25
-// does NOT close — a Chip primitive with `whitespace-nowrap` is
-// rendering a data-content value at ~406px wide. Fixing requires
-// either changing the Chip primitive's nowrap behavior globally
-// (visual UX change) or auditing data to ensure no chip carries an
-// unbreakable long string. Tracked as a separate follow-up.
-const FP_HEADER_ROUTES_FIXME = [
+// PR-Q26 (#90) closed the residual IngredientDetail violation by
+// swapping `whitespace-nowrap` → `min-w-0 max-w-full break-words` on the
+// Chip primitive. Both routes now run as live assertions.
+const FP_HEADER_ROUTES = [
+  { path: '/best-nootropics-for-focus/', label: 'Listicle' },
   { path: '/ingredients/l-theanine/', label: 'IngredientDetail' },
 ];
 
@@ -156,24 +152,6 @@ test.describe('US — WCAG 1.4.10 Reflow at 320px (post PR-Q25 closure on FPHead
         `Reflow failure: scrollWidth=${scrollWidth} > viewportWidth=${viewportWidth} + ${SLOP_PX}px slop. ` +
           `First offenders: ${JSON.stringify(offenders, null, 2)}`,
       ).toBeLessThanOrEqual(viewportWidth + SLOP_PX);
-    });
-  }
-});
-
-test.describe('US — WCAG 1.4.10 Reflow at 320px (residual Chip-primitive violation, follow-up)', () => {
-  // Tracked: IngredientDetail still has a Chip with `whitespace-nowrap`
-  // rendering a long data-content value at ~406px wide. Fixing requires
-  // a Chip-primitive design decision; out of PR-Q25 scope. Drop the
-  // `.fixme` once that follow-up lands.
-  for (const route of FP_HEADER_ROUTES_FIXME) {
-    test.fixme(`${route.label} (${route.path}) reflows without horizontal overflow`, async ({ page }) => {
-      await page.goto(route.path);
-      await page.waitForLoadState('networkidle');
-      const { scrollWidth, viewportWidth } = await page.evaluate(() => ({
-        scrollWidth: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth),
-        viewportWidth: window.innerWidth,
-      }));
-      expect(scrollWidth).toBeLessThanOrEqual(viewportWidth + SLOP_PX);
     });
   }
 });
