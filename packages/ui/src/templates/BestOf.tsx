@@ -190,7 +190,7 @@ export default function BestOf({
                   >
                     {String(rank).padStart(2, '0')}
                   </div>
-                  <div className="text-[10px] uppercase tracking-[0.12em] text-ds-faint mt-[2px]">
+                  <div className="text-[10px] uppercase tracking-[0.12em] text-ds-muted mt-[2px]">
                     Rank
                   </div>
                 </div>
