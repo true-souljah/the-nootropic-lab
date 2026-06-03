@@ -194,3 +194,54 @@ test.describe('LATAM breadcrumb + search-index localization (PR-Q10 — WCAG 3.1
     expect(html).toContain('Cómo puntuamos los suplementos');
   });
 });
+
+test.describe('LATAM CommandPalette aria-live announcements in Spanish (PR-Q29 #93 + PR-Q30 #94)', () => {
+  // PR-Q28 added the WCAG 4.1.3 live-region announcement to CommandPalette
+  // with hardcoded English strings. PR-Q29 localized the strings via
+  // strings.search.liveRegion + threaded the bundle through FPHeader →
+  // CommandPalette. PR-Q30 verifies the localized strings actually
+  // render in the LATAM browser (the unit tests confirm bundle shape;
+  // these tests confirm the wiring delivers the right phrasing at the
+  // DOM level).
+
+  test.beforeEach(async ({ context }) => {
+    // Skip Klaro so it doesn't steal focus from the search modal.
+    await context.addCookies([
+      {
+        name: 'klaro',
+        value: '%7B%22cloudflare-insights%22%3Afalse%2C%22google-analytics%22%3Afalse%7D',
+        domain: '127.0.0.1',
+        path: '/',
+      },
+    ]);
+  });
+
+  test('typing a non-matching query announces "Sin resultados para X" (Spanish)', async ({ page }) => {
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+    await page.keyboard.press('Control+K');
+    const region = page.locator(
+      '[role="dialog"]:not(#klaro-cookie-notice) [role="status"][aria-live="polite"][aria-atomic="true"]',
+    );
+    await expect(region).toHaveCount(1);
+    await page.keyboard.type('xyzqq');
+    // Spanish phrasing from packages/data/src/i18n.ts es.search.liveRegion.noResults.
+    await expect(region).toHaveText('Sin resultados para xyzqq');
+    // Negative: never the English string.
+    await expect(region).not.toHaveText(/No results for/);
+  });
+
+  test('typing a matching query announces "{n} resultado(s)" (Spanish plural)', async ({ page }) => {
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+    await page.keyboard.press('Control+K');
+    const region = page.locator(
+      '[role="dialog"]:not(#klaro-cookie-notice) [role="status"][aria-live="polite"][aria-atomic="true"]',
+    );
+    await page.keyboard.type('mind');
+    // Match "X resultado" (singular) OR "X resultados" (plural) — count is
+    // catalog-dependent. Negative: never the English "results".
+    await expect(region).toHaveText(/^\d+ resultados?$/);
+    await expect(region).not.toHaveText(/results?$/);
+  });
+});

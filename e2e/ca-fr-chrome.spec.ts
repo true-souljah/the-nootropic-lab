@@ -209,3 +209,46 @@ test.describe('CA /fr/* search-index localization (PR-Q10 — WCAG 3.1.2)', () =
     expect(html).not.toContain('Interactive comparison tool');
   });
 });
+
+test.describe('CA /fr/* CommandPalette aria-live announcements in Quebec French (PR-Q29 #93 + PR-Q30 #94)', () => {
+  // Verifies that PR-Q29's localized strings.search.liveRegion bundle
+  // actually renders in the browser on CA /fr/* routes. fr-CA shares
+  // the phrasing with fr (metropolitan French) for these short status
+  // messages — see packages/data/src/i18n.ts.
+
+  test.beforeEach(async ({ context }) => {
+    await context.addCookies([
+      {
+        name: 'klaro',
+        value: '%7B%22cloudflare-insights%22%3Afalse%2C%22google-analytics%22%3Afalse%7D',
+        domain: '127.0.0.1',
+        path: '/',
+      },
+    ]);
+  });
+
+  test('typing a non-matching query announces "Aucun résultat pour X" (Quebec French)', async ({ page }) => {
+    await page.goto('/fr/meilleurs-nootropiques/');
+    await page.waitForLoadState('networkidle');
+    await page.keyboard.press('Control+K');
+    const region = page.locator(
+      '[role="dialog"]:not(#klaro-cookie-notice) [role="status"][aria-live="polite"][aria-atomic="true"]',
+    );
+    await expect(region).toHaveCount(1);
+    await page.keyboard.type('xyzqq');
+    await expect(region).toHaveText('Aucun résultat pour xyzqq');
+    await expect(region).not.toHaveText(/No results for/);
+  });
+
+  test('typing a matching query announces "{n} résultat(s)" (French plural)', async ({ page }) => {
+    await page.goto('/fr/meilleurs-nootropiques/');
+    await page.waitForLoadState('networkidle');
+    await page.keyboard.press('Control+K');
+    const region = page.locator(
+      '[role="dialog"]:not(#klaro-cookie-notice) [role="status"][aria-live="polite"][aria-atomic="true"]',
+    );
+    await page.keyboard.type('mind');
+    await expect(region).toHaveText(/^\d+ résultats?$/);
+    await expect(region).not.toHaveText(/results?$/);
+  });
+});
