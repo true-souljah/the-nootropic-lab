@@ -36,25 +36,27 @@ const SLOP_PX = 1;
 // home renders its own `<header>` rather than FPHeader.
 const PASSING_ROUTES = [{ path: '/', label: 'Discover (home)' }];
 
-// Routes whose templates currently FAIL WCAG 1.4.10 at 320px because of
-// FPHeader's primary `<nav>`. The nav is rendered as
-// `flex items-center gap-6` with no `md:` breakpoint prefix, so at viewport
-// width 320 the 5 nav links + search trigger + CTA stack horizontally to
-// ~619px — well past 320, causing horizontal overflow.
+// Routes whose templates use FPHeader. Until PR-Q25 (#89) these were
+// `test.fixme` documenting a real WCAG 1.4.10 violation: FPHeader's
+// primary `<nav>` rendered as `flex items-center gap-6` with no `md:`
+// breakpoint prefix, so at 320px viewport the 5 nav links + search
+// trigger + CTA stacked horizontally to ~619px. PR-Q25 wraps the 5
+// links in a `hidden md:flex` container; below 768px navigation
+// retains 3 paths (CommandPalette icon-only trigger, FPFooter columns,
+// in-content links from the main content area) per WCAG 2.4.6.
 //
-// The mobile-side `<button class="md:hidden">` icon trigger inside
-// CommandPalette already exists (see packages/ui/src/templates/
-// CommandPalette.tsx:220), so the visual scaffolding for a responsive
-// header is partly there — what's missing is hiding the desktop nav
-// below `md:` and either (a) showing only the search icon on mobile,
-// or (b) building a hamburger drawer. Both are substantial design
-// decisions that don't belong in this regression-guard PR.
-//
-// These tests are `test.fixme`'d so they appear in the spec as
-// documented known-violation cases; once FPHeader gets a responsive
-// nav, remove the `.fixme` and they should pass.
-const FIXME_ROUTES = [
-  { path: '/best-nootropics-for-focus/', label: 'Listicle' },
+// PR-Q25 also collapses the page-level content grids on Listicle and
+// IngredientDetail + the FPFooter 5-column grid to single column
+// below `md:`.
+const FP_HEADER_ROUTES = [{ path: '/best-nootropics-for-focus/', label: 'Listicle' }];
+
+// IngredientDetail has a remaining WCAG 1.4.10 violation that PR-Q25
+// does NOT close — a Chip primitive with `whitespace-nowrap` is
+// rendering a data-content value at ~406px wide. Fixing requires
+// either changing the Chip primitive's nowrap behavior globally
+// (visual UX change) or auditing data to ensure no chip carries an
+// unbreakable long string. Tracked as a separate follow-up.
+const FP_HEADER_ROUTES_FIXME = [
   { path: '/ingredients/l-theanine/', label: 'IngredientDetail' },
 ];
 
@@ -119,11 +121,51 @@ test.describe('US — WCAG 1.4.10 Reflow at 320px viewport', () => {
   }
 });
 
-test.describe('US — WCAG 1.4.10 Reflow at 320px (known FPHeader violations)', () => {
-  // See the FIXME_ROUTES docblock at the top of this file for why these
-  // are `fixme` rather than passing assertions. They are runnable: drop
-  // the `.fixme` after FPHeader gets a responsive nav.
-  for (const route of FIXME_ROUTES) {
+test.describe('US — WCAG 1.4.10 Reflow at 320px (post PR-Q25 closure on FPHeader + grids)', () => {
+  // PR-Q24 (#88) shipped these as `test.fixme` documenting the FPHeader
+  // primary-nav-not-responsive WCAG 1.4.10 violation. PR-Q25 (#89) closed
+  // the violation by wrapping the 5 primary-nav links in a `hidden md:flex`
+  // container. The tests are now live assertions.
+  for (const route of FP_HEADER_ROUTES) {
+    test(`${route.label} (${route.path}) reflows without horizontal overflow`, async ({ page }) => {
+      await page.goto(route.path);
+      await page.waitForLoadState('networkidle');
+      const { scrollWidth, viewportWidth, offenders } = await page.evaluate(() => {
+        const offs: Array<{ tag: string; cls: string; w: number; right: number }> = [];
+        const vw = window.innerWidth;
+        for (const el of document.querySelectorAll<HTMLElement>('*')) {
+          const r = el.getBoundingClientRect();
+          if (r.right > vw + 1 && r.width > 4) {
+            offs.push({
+              tag: el.tagName.toLowerCase(),
+              cls: el.className.toString().slice(0, 80),
+              w: Math.round(r.width),
+              right: Math.round(r.right),
+            });
+            if (offs.length >= 5) break;
+          }
+        }
+        return {
+          scrollWidth: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth),
+          viewportWidth: vw,
+          offenders: offs,
+        };
+      });
+      expect(
+        scrollWidth,
+        `Reflow failure: scrollWidth=${scrollWidth} > viewportWidth=${viewportWidth} + ${SLOP_PX}px slop. ` +
+          `First offenders: ${JSON.stringify(offenders, null, 2)}`,
+      ).toBeLessThanOrEqual(viewportWidth + SLOP_PX);
+    });
+  }
+});
+
+test.describe('US — WCAG 1.4.10 Reflow at 320px (residual Chip-primitive violation, follow-up)', () => {
+  // Tracked: IngredientDetail still has a Chip with `whitespace-nowrap`
+  // rendering a long data-content value at ~406px wide. Fixing requires
+  // a Chip-primitive design decision; out of PR-Q25 scope. Drop the
+  // `.fixme` once that follow-up lands.
+  for (const route of FP_HEADER_ROUTES_FIXME) {
     test.fixme(`${route.label} (${route.path}) reflows without horizontal overflow`, async ({ page }) => {
       await page.goto(route.path);
       await page.waitForLoadState('networkidle');
@@ -138,9 +180,9 @@ test.describe('US — WCAG 1.4.10 Reflow at 320px (known FPHeader violations)', 
 
 test.describe('US — 1.4.10 Reflow with the page scrolled (long-page check)', () => {
   // Some overflow conditions only appear after scroll (sticky elements
-  // with `right: -10px`, lazy-rendered fixed widths, etc.). This case
-  // is `fixme` for the same FPHeader reason as the routes above.
-  test.fixme('Listicle still has no horizontal overflow after scroll-to-bottom', async ({ page }) => {
+  // with `right: -10px`, lazy-rendered fixed widths, etc.). Un-skipped
+  // in PR-Q25 (#89) along with the FP_HEADER_ROUTES assertions above.
+  test('Listicle still has no horizontal overflow after scroll-to-bottom', async ({ page }) => {
     await page.goto('/best-nootropics-for-focus/');
     await page.waitForLoadState('networkidle');
     await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));

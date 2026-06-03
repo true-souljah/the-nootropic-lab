@@ -178,10 +178,15 @@ export default function Listicle({
           </ol>
         </nav>
 
-        <div
-          className="grid gap-12 items-start"
-          style={{ gridTemplateColumns: '1fr 320px' }}
-        >
+        {/*
+          PR-Q25 (#89): page-level grid collapses to a single column
+          below `md:` so the 320px sidebar doesn't force horizontal
+          overflow at 320px viewport (WCAG 1.4.10 Reflow). Tailwind v4
+          arbitrary value syntax `md:grid-cols-[1fr_320px]` mirrors the
+          previous inline `gridTemplateColumns: '1fr 320px'` at desktop
+          width.
+        */}
+        <div className="grid gap-12 items-start grid-cols-1 md:grid-cols-[1fr_320px]">
           <article>
             <Chip tone="accent">Audited · {updatedDisplay}</Chip>
             <h1 className="text-[40px] font-bold leading-[1.1] tracking-[-0.025em] mt-3 mb-3 text-ds-ink">
@@ -270,10 +275,8 @@ export default function Listicle({
                           )}
                         </div>
 
-                        <div
-                          className="grid gap-6 items-start"
-                          style={{ gridTemplateColumns: '1fr 220px' }}
-                        >
+                        {/* PR-Q25: per-card grid collapses below `md:` (WCAG 1.4.10). */}
+                        <div className="grid gap-6 items-start grid-cols-1 md:grid-cols-[1fr_220px]">
                           <div>
                             <p className="text-[14px] leading-[1.6] text-ds-ink-soft m-0">
                               <strong className="text-ds-ink">{s.whyItsHere}</strong> {pick.whyItsHere}

@@ -193,7 +193,8 @@ export default function IngredientDetail({
           </ol>
         </nav>
 
-        <div className="grid gap-12 items-start" style={{ gridTemplateColumns: '1fr 280px' }}>
+        {/* PR-Q25 (#89): single column below `md:` (WCAG 1.4.10 Reflow). */}
+        <div className="grid gap-12 items-start grid-cols-1 md:grid-cols-[1fr_280px]">
           <article>
             <div className="flex items-center gap-2 mb-3 flex-wrap">
               <Chip tone="neutral">{categoryLabels[ing.category]}</Chip>

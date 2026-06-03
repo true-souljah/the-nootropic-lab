@@ -93,20 +93,36 @@ export function FPHeader({
           <span className="font-bold text-[16px] tracking-tight text-ds-ink">{brandLabel}</span>
         </Link>
 
-        <nav aria-label={resolvedNavLandmark} className="flex items-center gap-6">
-          {resolvedNav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-[13.5px] text-ds-ink-soft font-medium hover:text-ds-ink focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded-[4px]"
-            >
-              {item.label}
-            </Link>
-          ))}
+        {/*
+          PR-Q25 (#89) — wrap the 5 primary-nav links in a `hidden md:flex`
+          container so the chrome reflows at 320px viewport (closes the
+          WCAG 1.4.10 violation surfaced by PR-Q24 e2e/us-reflow.spec.ts).
+          On mobile, navigation paths reduce to: brand link, CommandPalette
+          (which carries its own `md:hidden` icon-only trigger), and the
+          CTA. The full nav remains reachable via search (CommandPalette
+          indexes all 5 nav targets via the search-pages additions from
+          PR-Q10) AND via FPFooter columns on every public page — both
+          satisfy WCAG 2.4.6 Multiple Ways. The outer `<nav>` keeps its
+          `aria-label` stable across breakpoints (the landmark name
+          describes purpose, not contents — per WAI-ARIA 1.2 landmark
+          naming guidance).
+        */}
+        <nav aria-label={resolvedNavLandmark} className="flex items-center gap-3 md:gap-6">
+          <div className="hidden md:flex items-center gap-6">
+            {resolvedNav.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-[13.5px] text-ds-ink-soft font-medium hover:text-ds-ink focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded-[4px]"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
 
           {searchItems && searchItems.length > 0 && (
             <>
-              <span className="w-px h-[18px] bg-ds-border" aria-hidden="true" />
+              <span className="hidden md:inline-block w-px h-[18px] bg-ds-border" aria-hidden="true" />
               <CommandPalette items={searchItems} />
             </>
           )}
