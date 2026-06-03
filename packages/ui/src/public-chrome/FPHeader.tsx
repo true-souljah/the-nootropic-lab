@@ -123,7 +123,7 @@ export function FPHeader({
           {searchItems && searchItems.length > 0 && (
             <>
               <span className="hidden md:inline-block w-px h-[18px] bg-ds-border" aria-hidden="true" />
-              <CommandPalette items={searchItems} />
+              <CommandPalette items={searchItems} strings={strings} />
             </>
           )}
 

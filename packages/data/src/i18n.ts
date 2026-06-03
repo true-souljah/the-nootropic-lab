@@ -117,6 +117,21 @@ export interface UIStrings {
       compareAll: string;
       methodology: string;
     };
+    /**
+     * Aria-live status messages announced when the search filter
+     * count changes. PR-Q29 (#93) — extends PR-Q28's English-only
+     * announcements to the full 7-locale matrix. Each phrase carries
+     * a `{n}` (result count) or `{query}` (capped to 40 chars +
+     * U+2026 by the caller) placeholder.
+     */
+    liveRegion: {
+      /** Announced when query has results AND count === 1. e.g. "1 result". */
+      oneResult: string;
+      /** Announced when query has results AND count > 1. e.g. "12 results". `{n}` is the count. */
+      manyResults: string;
+      /** Announced when query has zero matches. `{query}` is the (already-capped) user input. */
+      noResults: string;
+    };
   };
   ingredientDetail: {
     chips: {
@@ -349,6 +364,11 @@ const en: UIStrings = {
       compareAll: 'Interactive comparison tool',
       methodology: 'How we score supplements',
     },
+    liveRegion: {
+      oneResult: '1 result',
+      manyResults: '{n} results',
+      noResults: 'No results for {query}',
+    },
   },
   ingredientDetail: {
     chips: { clinicalDose: 'Clinical dose', onset: 'Onset' },
@@ -552,6 +572,11 @@ const es: UIStrings = {
       bestNootropics: 'Comparación completa de las marcas principales',
       compareAll: 'Herramienta de comparación interactiva',
       methodology: 'Cómo puntuamos los suplementos',
+    },
+    liveRegion: {
+      oneResult: '1 resultado',
+      manyResults: '{n} resultados',
+      noResults: 'Sin resultados para {query}',
     },
   },
   ingredientDetail: {
@@ -757,6 +782,11 @@ const fr: UIStrings = {
       compareAll: 'Outil de comparaison interactif',
       methodology: 'Comment nous évaluons les suppléments',
     },
+    liveRegion: {
+      oneResult: '1 résultat',
+      manyResults: '{n} résultats',
+      noResults: 'Aucun résultat pour {query}',
+    },
   },
   ingredientDetail: {
     chips: { clinicalDose: 'Dose clinique', onset: 'Délai d\'action' },
@@ -960,6 +990,11 @@ const ja: UIStrings = {
       bestNootropics: 'トップブランドの完全比較',
       compareAll: 'インタラクティブな比較ツール',
       methodology: 'サプリメントの評価方法',
+    },
+    liveRegion: {
+      oneResult: '1件の結果',
+      manyResults: '{n}件の結果',
+      noResults: '{query}に一致する結果はありません',
     },
   },
   ingredientDetail: {
@@ -1165,6 +1200,11 @@ const pt: UIStrings = {
       compareAll: 'Ferramenta de comparação interativa',
       methodology: 'Como avaliamos os suplementos',
     },
+    liveRegion: {
+      oneResult: '1 resultado',
+      manyResults: '{n} resultados',
+      noResults: 'Nenhum resultado para {query}',
+    },
   },
   ingredientDetail: {
     chips: { clinicalDose: 'Dose clínica', onset: 'Início de ação' },
@@ -1368,6 +1408,11 @@ const de: UIStrings = {
       bestNootropics: 'Vollständiger Vergleich der Top-Marken',
       compareAll: 'Interaktives Vergleichswerkzeug',
       methodology: 'Wie wir Nahrungsergänzungsmittel bewerten',
+    },
+    liveRegion: {
+      oneResult: '1 Ergebnis',
+      manyResults: '{n} Ergebnisse',
+      noResults: 'Keine Ergebnisse für {query}',
     },
   },
   ingredientDetail: {
@@ -1577,6 +1622,11 @@ const frCa: UIStrings = {
       bestNootropics: 'Comparaison complète des principales marques',
       compareAll: 'Outil de comparaison interactif',
       methodology: 'Comment nous évaluons les suppléments',
+    },
+    liveRegion: {
+      oneResult: '1 résultat',
+      manyResults: '{n} résultats',
+      noResults: 'Aucun résultat pour {query}',
     },
   },
   ingredientDetail: {
