@@ -209,10 +209,13 @@ export function FPFooter({
       style={{ marginTop: 60 }}
     >
       <div className="max-w-[1200px] mx-auto">
-        <div
-          className="grid gap-8"
-          style={{ gridTemplateColumns: '1.2fr repeat(4, 1fr)' }}
-        >
+        {/*
+          PR-Q25 (#89): single column below `sm:`, two columns below `md:`,
+          full 5-column desktop layout from `md:` up. Tailwind v4 arbitrary-
+          value grid columns mirror the previous inline `'1.2fr repeat(4, 1fr)'`
+          at desktop width while collapsing for mobile reflow (WCAG 1.4.10).
+        */}
+        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-[1.2fr_1fr_1fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-[10px] mb-[14px]">
               <BrandMark size={24} color="#5fcf86" />
