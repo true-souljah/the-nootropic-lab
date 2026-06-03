@@ -1,0 +1,109 @@
+/*
+ * Shared region-globals CSS.
+ *
+ * Until PR-Q20 (#84) every region app shipped a byte-identical
+ * apps/{us,eu,ca,au,jp,latam,gcc,sea}/src/app/globals.css — 8 copies of
+ * the same 86 lines. The 8-file fan-out was a real maintenance hazard:
+ * PR-Q19 (#83) had to fix the same `.editor-badge` color in 8 places to
+ * close one WCAG 1.4.3 violation; any future shared-style change carries
+ * the same cost.
+ *
+ * This file is the single source of truth for those shared rules:
+ * - root CSS custom properties (brand identity: ds-* are inside
+ *   tokens.css; --bg / --fg / --muted / --border / --accent / --gold
+ *   semantic aliases are here for legacy classnames).
+ * - body baseline (color, font-family).
+ * - utility classes for the comparison-table family (.disclosure-banner,
+ *   .editor-badge, .eu-badge-*, .winner-row, .score-bar*, .sticky-cta-bar).
+ * - global focus indicators (WCAG 2.4.7).
+ *
+ * Each region's globals.css now imports this file in addition to
+ * Tailwind and tokens.css; the per-region file shrinks to 3 imports.
+ *
+ * Tokens.css is imported here so consumers only need a single import
+ * for the shared design-token + utility-class set.
+ */
+
+@import "./tokens.css";
+
+:root {
+  --bg: #ffffff;
+  --fg: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --accent: #059669;
+  --accent-light: #d1fae5;
+  --gold: #f59e0b;
+  --gold-light: #fef3c7;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.disclosure-banner {
+  background: var(--gold-light);
+  border-left: 4px solid var(--gold);
+  padding: 0.75rem 1rem;
+  font-size: 0.8rem;
+  color: #451a03;
+  border-radius: 0 4px 4px 0;
+}
+
+.eu-badge-green { background: #d1fae5; color: #065f46; }
+.eu-badge-amber { background: #fef3c7; color: #78350f; }
+.eu-badge-red   { background: #fee2e2; color: #7f1d1d; }
+
+.winner-row { background: #fffbeb; }
+
+.editor-badge {
+  background: var(--gold);
+  color: var(--fg);
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.score-bar {
+  height: 6px;
+  border-radius: 3px;
+  background: #e5e7eb;
+}
+.score-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: var(--accent);
+}
+
+.sticky-cta-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #111827;
+  color: white;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 40;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+.sticky-cta-bar.visible { transform: translateY(0); }
+
+/* Focus indicators for accessibility (WCAG 2.4.7 Focus Visible) */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+details > summary:focus-visible {
+  outline: 2px solid #059669;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
