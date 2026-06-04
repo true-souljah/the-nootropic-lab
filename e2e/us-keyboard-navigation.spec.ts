@@ -78,24 +78,43 @@ test.describe('US /best-nootropics-for-focus/ — CommandPalette ⌘K modal (WCA
     // under load — observed 5 times across PR-Q37/Q38/Q40/Q45/Q47.
     // PR-Q48 fix.
     await page.waitForLoadState('networkidle');
+    // PR-Q66 hardening — networkidle alone (PR-Q48 fix) wasn't
+    // sufficient under maximum full-suite contention. The keydown
+    // listener attaches in a React useEffect that may run AFTER
+    // networkidle. Retry the Control+K press until the dialog
+    // attaches OR 5s elapses. Idempotent: CommandPalette ignores
+    // ⌘K when already open, so retries don't toggle it shut.
     // CommandPalette listens for both `metaKey + k` (macOS ⌘) and
-    // `ctrlKey + k` (other platforms) — Playwright's default headless
-    // chromium reports ctrl on linux runners. Use Control+K which is
+    // `ctrlKey + k` (other platforms). Use Control+K which is
     // accepted by the same handler.
-    await page.keyboard.press('Control+K');
+    await expect(async () => {
+      await page.keyboard.press('Control+K');
+      await expect(
+        page.locator('[role="dialog"]:not(#klaro-cookie-notice)'),
+      ).toBeAttached({ timeout: 500 });
+    }).toPass({ timeout: 5000, intervals: [100, 250, 500, 1000] });
     // After mount, focus should land on the search input.
     const focusedTag = await page.evaluate(
       () => document.activeElement?.tagName?.toLowerCase() ?? null,
     );
     expect(focusedTag).toBe('input');
-    // Modal dialog should be in the DOM.
-    await expect(page.locator('[role="dialog"]:not(#klaro-cookie-notice)')).toBeAttached();
   });
 
   test('Escape closes the modal and returns focus to the trigger button', async ({ page }) => {
     await page.goto('/best-nootropics-for-focus/');
     await page.waitForLoadState('networkidle');
-    await page.keyboard.press('Control+K');
+    // PR-Q66 hardening — networkidle alone (PR-Q48 fix) wasn't
+    // sufficient under maximum full-suite contention. The keydown
+    // listener attaches in a React useEffect that may run AFTER
+    // networkidle. Retry the Control+K press until the dialog
+    // attaches OR 5s elapses. Idempotent: CommandPalette ignores
+    // ⌘K when already open, so retries don't toggle it shut.
+    await expect(async () => {
+      await page.keyboard.press('Control+K');
+      await expect(
+        page.locator('[role="dialog"]:not(#klaro-cookie-notice)'),
+      ).toBeAttached({ timeout: 500 });
+    }).toPass({ timeout: 5000, intervals: [100, 250, 500, 1000] });
     await expect(page.locator('[role="dialog"]:not(#klaro-cookie-notice)')).toBeAttached();
     // Locate the trigger button before closing so we can compare focus.
     await page.keyboard.press('Escape');
@@ -112,7 +131,18 @@ test.describe('US /best-nootropics-for-focus/ — CommandPalette ⌘K modal (WCA
   test('Tab inside the modal cycles between focusable elements (focus trap)', async ({ page }) => {
     await page.goto('/best-nootropics-for-focus/');
     await page.waitForLoadState('networkidle');
-    await page.keyboard.press('Control+K');
+    // PR-Q66 hardening — networkidle alone (PR-Q48 fix) wasn't
+    // sufficient under maximum full-suite contention. The keydown
+    // listener attaches in a React useEffect that may run AFTER
+    // networkidle. Retry the Control+K press until the dialog
+    // attaches OR 5s elapses. Idempotent: CommandPalette ignores
+    // ⌘K when already open, so retries don't toggle it shut.
+    await expect(async () => {
+      await page.keyboard.press('Control+K');
+      await expect(
+        page.locator('[role="dialog"]:not(#klaro-cookie-notice)'),
+      ).toBeAttached({ timeout: 500 });
+    }).toPass({ timeout: 5000, intervals: [100, 250, 500, 1000] });
     await expect(page.locator('[role="dialog"]:not(#klaro-cookie-notice)')).toBeAttached();
     // Type 2 chars so result items appear (modal filter starts at length >= 2).
     await page.keyboard.type('mi');
