@@ -46,12 +46,12 @@ export default function PublicShell({
       className={`${bg} text-ds-ink ds-font-features`}
       style={{ fontFamily: 'var(--font-ds-sans)' }}
     >
-      <a href="#public-main-content" className="ds-skip-link">
+      <a href="#main-content" className="ds-skip-link">
         {uiStrings?.nav.skipToContent ?? 'Skip to main content'}
       </a>
       {!hideDisclosure && <FPDisclosure methodologyHref={methodologyHref} />}
       <FPHeader searchItems={searchItems} strings={uiStrings} />
-      <main id="public-main-content" className="min-h-[60vh]">{children}</main>
+      <main id="main-content" className="min-h-[60vh]">{children}</main>
       <FPFooter strings={uiStrings} />
     </div>
   );
