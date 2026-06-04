@@ -71,6 +71,13 @@ test.describe('US /best-nootropics-for-focus/ — skip-link (WCAG 2.4.1 Bypass B
 test.describe('US /best-nootropics-for-focus/ — CommandPalette ⌘K modal (WCAG 2.1.1 + 2.4.3 Focus Order)', () => {
   test('Ctrl+K opens the SearchModal and moves focus to the input', async ({ page }) => {
     await page.goto('/best-nootropics-for-focus/');
+    // CommandPalette is a React island; under full-suite worker
+    // contention the keydown handler is not yet registered when we
+    // synchronously dispatch the ⌘K. Wait for networkidle to let
+    // hydration complete. Without this guard the modal tests flake
+    // under load — observed 5 times across PR-Q37/Q38/Q40/Q45/Q47.
+    // PR-Q48 fix.
+    await page.waitForLoadState('networkidle');
     // CommandPalette listens for both `metaKey + k` (macOS ⌘) and
     // `ctrlKey + k` (other platforms) — Playwright's default headless
     // chromium reports ctrl on linux runners. Use Control+K which is
@@ -87,6 +94,7 @@ test.describe('US /best-nootropics-for-focus/ — CommandPalette ⌘K modal (WCA
 
   test('Escape closes the modal and returns focus to the trigger button', async ({ page }) => {
     await page.goto('/best-nootropics-for-focus/');
+    await page.waitForLoadState('networkidle');
     await page.keyboard.press('Control+K');
     await expect(page.locator('[role="dialog"]:not(#klaro-cookie-notice)')).toBeAttached();
     // Locate the trigger button before closing so we can compare focus.
@@ -105,6 +113,7 @@ test.describe('US /best-nootropics-for-focus/ — CommandPalette ⌘K modal (WCA
 
   test('Tab inside the modal cycles between focusable elements (focus trap)', async ({ page }) => {
     await page.goto('/best-nootropics-for-focus/');
+    await page.waitForLoadState('networkidle');
     await page.keyboard.press('Control+K');
     await expect(page.locator('[role="dialog"]:not(#klaro-cookie-notice)')).toBeAttached();
     // Type 2 chars so result items appear (modal filter starts at length >= 2).
