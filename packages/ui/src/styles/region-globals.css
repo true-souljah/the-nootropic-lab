@@ -97,13 +97,15 @@ body {
 }
 .sticky-cta-bar.visible { transform: translateY(0); }
 
-/* Focus indicators for accessibility (WCAG 2.4.7 Focus Visible) */
+/* Focus indicators for accessibility (WCAG 2.4.7 Focus Visible +
+   2.4.13 Focus Appearance). Uses the design-system token so
+   tokens.css owns the canonical focus color (PR-Q58 normalize). */
 button:focus-visible,
 a:focus-visible,
 input:focus-visible,
 select:focus-visible,
 details > summary:focus-visible {
-  outline: 2px solid #059669;
+  outline: 2px solid var(--color-ds-focus-ring);
   outline-offset: 2px;
   border-radius: 4px;
 }
