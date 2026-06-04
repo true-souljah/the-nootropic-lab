@@ -221,6 +221,20 @@ export default function CommandPalette({
   }, [activeIndex, open]);
 
   function handleListKey(e: KeyboardEvent) {
+    // Tab focus trap (PR-Q51 — WCAG 2.4.3 Focus Order, aria-modal
+    // dialog contract). The combobox pattern uses
+    // aria-activedescendant on the input — the rows are
+    // tabIndex={-1} (see Row component) so the input is the only
+    // Tab stop inside the dialog. Without explicit Tab handling
+    // here, Tab from the input escapes to background page
+    // focusables (Open comparator CTA, primary nav). Loop Tab
+    // back to the input to keep focus trapped while the dialog
+    // is open. Esc closes; arrows navigate the list.
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      inputRef.current?.focus();
+      return;
+    }
     if (flat.length === 0) return;
     if (e.key === 'ArrowDown') {
       e.preventDefault();
@@ -515,6 +529,15 @@ function ResultRow({
       aria-selected={active}
       aria-label={ariaLabel}
       data-result-index={dataIndex}
+      // WCAG combobox pattern (PR-Q51): the input owns the
+      // listbox via aria-activedescendant; rows must NOT be Tab
+      // stops or Tab can escape the dialog when result count is
+      // smaller than the test's Tab count (caught by SEA "nat"
+      // → 3 results — Tab 4 escapes to background CTA on AU/GCC/US
+      // this is masked because their queries return 5+ results).
+      // tabIndex={-1} keeps rows mouse-clickable + arrow-navigable
+      // (via aria-activedescendant) but out of the Tab sequence.
+      tabIndex={-1}
       onMouseEnter={onMouseEnter}
       onClick={onClick}
       className={`flex items-center gap-3 px-4 py-3 border-l-[3px] transition-colors focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-[-2px] ${
