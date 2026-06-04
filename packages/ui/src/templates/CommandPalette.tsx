@@ -264,7 +264,15 @@ export default function CommandPalette({
         ref={triggerRef}
         type="button"
         onClick={handleOpen}
-        aria-label={`${triggerLabel} (⌘K)`}
+        // aria-label uses "Command+K" — the spoken-friendly form
+        // of the keyboard shortcut. The visible ⌘K via the <kbd>
+        // child is decorative (aria-hidden=true) so AT users only
+        // ever hear the spelled-out chord. PR-Q67 fix: many AT
+        // engines (NVDA / JAWS / VoiceOver) pronounce ⌘ U+2318
+        // PLACE OF INTEREST SIGN literally as "place of interest
+        // sign", not as "command" — making the shortcut hint
+        // unrecognisable.
+        aria-label={`${triggerLabel} (Command+K)`}
         className="hidden md:inline-flex items-center gap-2 bg-ds-card-sub border border-ds-border text-ds-muted text-[13px] px-3 py-[6px] rounded-[8px] hover:text-ds-ink hover:border-ds-border-strong focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
       >
         <Search size={14} strokeWidth={2} aria-hidden={true} />
