@@ -181,6 +181,65 @@ export default defineConfig({
         baseURL: 'http://127.0.0.1:4177',
       },
     },
+    // PR-Q81 portfolio sweep — Firefox projects for the 7 remaining
+    // regions on the same testMatch shape as us-firefox (Q80).
+    // Closes the 15th axis (Firefox cross-browser) at 8/8.
+    {
+      name: 'au-firefox',
+      testMatch: /[/\\]au-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+      use: {
+        ...devices['Desktop Firefox'],
+        baseURL: 'http://127.0.0.1:4178',
+      },
+    },
+    {
+      name: 'gcc-firefox',
+      testMatch: /[/\\]gcc-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+      use: {
+        ...devices['Desktop Firefox'],
+        baseURL: 'http://127.0.0.1:4179',
+      },
+    },
+    {
+      name: 'sea-firefox',
+      testMatch: /[/\\]sea-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+      use: {
+        ...devices['Desktop Firefox'],
+        baseURL: 'http://127.0.0.1:4180',
+      },
+    },
+    {
+      name: 'jp-firefox',
+      testMatch: /[/\\]jp-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+      use: {
+        ...devices['Desktop Firefox'],
+        baseURL: 'http://127.0.0.1:4173',
+      },
+    },
+    {
+      name: 'latam-firefox',
+      testMatch: /[/\\]latam-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+      use: {
+        ...devices['Desktop Firefox'],
+        baseURL: 'http://127.0.0.1:4174',
+      },
+    },
+    {
+      name: 'ca-firefox',
+      testMatch: /[/\\]ca-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+      use: {
+        ...devices['Desktop Firefox'],
+        baseURL: 'http://127.0.0.1:4175',
+      },
+    },
+    {
+      name: 'eu-firefox',
+      testMatch: /[/\\]eu-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+      use: {
+        ...devices['Desktop Firefox'],
+        baseURL: 'http://127.0.0.1:4176',
+      },
+    },
     {
       name: 'au-chromium',
       testMatch: /[/\\]au-.*\.spec\.ts$/,
