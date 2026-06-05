@@ -162,6 +162,25 @@ export default defineConfig({
         baseURL: 'http://127.0.0.1:4176',
       },
     },
+    // Firefox cross-browser axis (PR-Q80). Third engine after
+    // Chromium (default) + WebKit (Q77). Same testMatch subset
+    // as us-webkit: axe / focus-appearance / accessibility-tree.
+    // Other specs excluded (Firefox input timing differs).
+    //
+    // Per the Q77 model: engine-rendered defaults are Category A
+    // (substrate can't enforce them). Firefox has known divergences
+    // from Chromium AND Safari on focus-visible behavior, default
+    // outline styles, computed roles, and keyboard navigation
+    // edge cases. Likely surfaces a new Category A bug missed by
+    // both Chromium and WebKit.
+    {
+      name: 'us-firefox',
+      testMatch: /[/\\]us-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+      use: {
+        ...devices['Desktop Firefox'],
+        baseURL: 'http://127.0.0.1:4177',
+      },
+    },
     {
       name: 'au-chromium',
       testMatch: /[/\\]au-.*\.spec\.ts$/,

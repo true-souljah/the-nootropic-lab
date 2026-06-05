@@ -54,7 +54,7 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm ci
-      - run: npx playwright install --with-deps chromium webkit
+      - run: npx playwright install --with-deps chromium webkit firefox
       # playwright.config.ts runs 8 webServer entries
       # (JP/LATAM/CA/EU/US/AU/GCC/SEA on ports 4173–4180) and times out at
       # 60s if any out/ is missing. Build all 8 before invoking playwright.
