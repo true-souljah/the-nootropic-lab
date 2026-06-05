@@ -112,7 +112,7 @@ export default function Page() {
         </h1>
 
         <p id="hero-paragraph" className="text-lg text-gray-600 mb-6 leading-relaxed">
-          Therapeutic goods sold in Australia must be entered in the <strong>Australian Register of Therapeutic
+          The Therapeutic Goods Administration (<abbr title="Therapeutic Goods Administration">TGA</abbr>) requires therapeutic goods sold in Australia to be entered in the <strong>Australian Register of Therapeutic
           Goods (ARTG)</strong> with an <strong>AUST L</strong> (listed), <strong>AUST L(A)</strong> (listed
           assessed), or <strong>AUST R</strong> (registered) number. Most cognitive supplements are AUST L. This
           page explains what each category means, how to read AUST numbers on labels, and how the Therapeutic
