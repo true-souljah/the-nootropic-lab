@@ -120,7 +120,7 @@ export default function AppShell({
       {/* Skip link sits outside the inert wrapper so keyboard users can
           still escape to main content even when the mobile drawer is open
           (otherwise `inert` would propagate to the link and disable it). */}
-      <a href="#main-content" className="ds-skip-link">
+      <a href="#main-content" tabIndex={0} className="ds-skip-link">
         {uiStrings?.nav.skipToContent ?? 'Skip to main content'}
       </a>
 

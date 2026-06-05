@@ -254,7 +254,7 @@ export default function HeadToHead({
       <SchemaOrg schema={breadcrumbSchema} />
 
       <FPDisclosure methodologyHref="/methodology" />
-      <a href="#main-content" className="ds-skip-link">
+      <a href="#main-content" tabIndex={0} className="ds-skip-link">
         {uiStrings?.nav.skipToContent ?? 'Skip to main content'}
       </a>
       <FPHeader searchItems={searchItems} strings={uiStrings} />

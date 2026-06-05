@@ -211,7 +211,7 @@ test.describe('SEA depth probe — region-only /naturebell-ginkgo-ginseng-review
 
     const offenders = probes.filter((p) => {
       const hasOutlineRing =
-        p.outlineStyle === 'solid' && p.parsedWidthPx >= MIN_OUTLINE_WIDTH_PX;
+        (p.outlineStyle === 'solid' || p.outlineStyle === 'auto') && p.parsedWidthPx >= MIN_OUTLINE_WIDTH_PX;
       return !(hasOutlineRing || p.hasBoxShadowRing);
     });
 

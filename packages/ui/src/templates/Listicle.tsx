@@ -157,7 +157,7 @@ export default function Listicle({
       <SchemaOrg schema={itemListSchema} />
       <SchemaOrg schema={breadcrumbSchema} />
 
-      <a href="#main-content" className="ds-skip-link">
+      <a href="#main-content" tabIndex={0} className="ds-skip-link">
         {uiStrings?.nav.skipToContent ?? 'Skip to main content'}
       </a>
       <FPDisclosure methodologyHref="/methodology" />

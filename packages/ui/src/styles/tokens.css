@@ -122,7 +122,12 @@
 /* Skip-link — visually hidden until focused, then anchored top-left */
 .ds-skip-link {
   position: absolute;
-  top: 8px;
+  /* PR-Q77 fix: WebKit (Safari + iOS) does not Tab-focus elements
+     positioned off-screen via transform: translateY(-200%). The
+     element renders in the DOM but Tab navigation skips it. Use
+     top: -100px to hide off-screen via positional offset instead;
+     WebKit handles this consistently. Visible on focus via top: 8px. */
+  top: -100px;
   left: 8px;
   z-index: 100;
   padding: 8px 14px;
@@ -132,11 +137,10 @@
   border-radius: var(--radius-ds-chip);
   outline: 2px solid var(--color-ds-focus-ring);
   outline-offset: 2px;
-  transform: translateY(-200%);
-  transition: transform var(--ds-duration-base) ease-out;
+  transition: top var(--ds-duration-base) ease-out;
 }
 .ds-skip-link:focus-visible {
-  transform: translateY(0);
+  top: 8px;
 }
 
 /* Skeleton shimmer — paused under prefers-reduced-motion (via the global rule below) */
