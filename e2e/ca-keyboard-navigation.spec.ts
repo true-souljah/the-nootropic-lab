@@ -76,7 +76,19 @@ test.describe('CA /best-nootropics-for-focus/ (en-CA) — CommandPalette ⌘K mo
   test('Ctrl+K opens the SearchModal and moves focus to the input', async ({ page }) => {
     await page.goto('/best-nootropics-for-focus/');
     await page.waitForLoadState('networkidle');
-    await page.keyboard.press('Control+K');
+    // PR-Q73 hardening — port of the PR-Q66 toPass() retry pattern
+    // applied to us-keyboard. Under heaviest full-suite contention
+    // the keydown listener may not be registered by the time
+    // networkidle fires. Retry until the dialog attaches OR 5s
+    // elapses. Idempotent: CommandPalette ignores ⌘K when already
+    // open. Same family that flaked once on jp-keyboard during
+    // PR-Q72 verification.
+    await expect(async () => {
+      await page.keyboard.press('Control+K');
+      await expect(
+        page.locator('[role="dialog"]:not(#klaro-cookie-notice)'),
+      ).toBeAttached({ timeout: 500 });
+    }).toPass({ timeout: 5000, intervals: [100, 250, 500, 1000] });
     const focusedTag = await page.evaluate(
       () => document.activeElement?.tagName?.toLowerCase() ?? null,
     );
@@ -87,7 +99,19 @@ test.describe('CA /best-nootropics-for-focus/ (en-CA) — CommandPalette ⌘K mo
   test('Escape closes the modal and returns focus to the trigger button', async ({ page }) => {
     await page.goto('/best-nootropics-for-focus/');
     await page.waitForLoadState('networkidle');
-    await page.keyboard.press('Control+K');
+    // PR-Q73 hardening — port of the PR-Q66 toPass() retry pattern
+    // applied to us-keyboard. Under heaviest full-suite contention
+    // the keydown listener may not be registered by the time
+    // networkidle fires. Retry until the dialog attaches OR 5s
+    // elapses. Idempotent: CommandPalette ignores ⌘K when already
+    // open. Same family that flaked once on jp-keyboard during
+    // PR-Q72 verification.
+    await expect(async () => {
+      await page.keyboard.press('Control+K');
+      await expect(
+        page.locator('[role="dialog"]:not(#klaro-cookie-notice)'),
+      ).toBeAttached({ timeout: 500 });
+    }).toPass({ timeout: 5000, intervals: [100, 250, 500, 1000] });
     await expect(page.locator('[role="dialog"]:not(#klaro-cookie-notice)')).toBeAttached();
     await page.keyboard.press('Escape');
     await expect(page.locator('[role="dialog"]:not(#klaro-cookie-notice)')).toHaveCount(0);
@@ -97,7 +121,19 @@ test.describe('CA /best-nootropics-for-focus/ (en-CA) — CommandPalette ⌘K mo
   test('Tab inside the modal loops focus on the input (PR-Q51 trap fix, CA catalog)', async ({ page }) => {
     await page.goto('/best-nootropics-for-focus/');
     await page.waitForLoadState('networkidle');
-    await page.keyboard.press('Control+K');
+    // PR-Q73 hardening — port of the PR-Q66 toPass() retry pattern
+    // applied to us-keyboard. Under heaviest full-suite contention
+    // the keydown listener may not be registered by the time
+    // networkidle fires. Retry until the dialog attaches OR 5s
+    // elapses. Idempotent: CommandPalette ignores ⌘K when already
+    // open. Same family that flaked once on jp-keyboard during
+    // PR-Q72 verification.
+    await expect(async () => {
+      await page.keyboard.press('Control+K');
+      await expect(
+        page.locator('[role="dialog"]:not(#klaro-cookie-notice)'),
+      ).toBeAttached({ timeout: 500 });
+    }).toPass({ timeout: 5000, intervals: [100, 250, 500, 1000] });
     await expect(page.locator('[role="dialog"]:not(#klaro-cookie-notice)')).toBeAttached();
     // Type "aor" — substring match on AOR Ortho•Mind in the CA catalog
     // (Calgary supplement company, Health Canada NPN-licensed, CA-only).
@@ -171,7 +207,19 @@ test.describe('CA /fr/meilleurs-nootropiques/ (fr-CA chrome) — skip-link + mod
   test('Ctrl+K opens the modal on the fr-CA route (chrome locale-flip preserves the contract)', async ({ page }) => {
     await page.goto('/fr/meilleurs-nootropiques/');
     await page.waitForLoadState('networkidle');
-    await page.keyboard.press('Control+K');
+    // PR-Q73 hardening — port of the PR-Q66 toPass() retry pattern
+    // applied to us-keyboard. Under heaviest full-suite contention
+    // the keydown listener may not be registered by the time
+    // networkidle fires. Retry until the dialog attaches OR 5s
+    // elapses. Idempotent: CommandPalette ignores ⌘K when already
+    // open. Same family that flaked once on jp-keyboard during
+    // PR-Q72 verification.
+    await expect(async () => {
+      await page.keyboard.press('Control+K');
+      await expect(
+        page.locator('[role="dialog"]:not(#klaro-cookie-notice)'),
+      ).toBeAttached({ timeout: 500 });
+    }).toPass({ timeout: 5000, intervals: [100, 250, 500, 1000] });
     await expect(page.locator('[role="dialog"]:not(#klaro-cookie-notice)')).toBeAttached();
     // Verify the comparator-equivalent label "comparateur" appears
     // in the nav tab order on the fr-CA chrome (regex covers it).

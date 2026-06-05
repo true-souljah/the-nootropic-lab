@@ -74,7 +74,19 @@ test.describe('SEA /best-nootropics-for-focus/ — CommandPalette ⌘K modal (WC
   test('Ctrl+K opens the SearchModal and moves focus to the input', async ({ page }) => {
     await page.goto('/best-nootropics-for-focus/');
     await page.waitForLoadState('networkidle');
-    await page.keyboard.press('Control+K');
+    // PR-Q73 hardening — port of the PR-Q66 toPass() retry pattern
+    // applied to us-keyboard. Under heaviest full-suite contention
+    // the keydown listener may not be registered by the time
+    // networkidle fires. Retry until the dialog attaches OR 5s
+    // elapses. Idempotent: CommandPalette ignores ⌘K when already
+    // open. Same family that flaked once on jp-keyboard during
+    // PR-Q72 verification.
+    await expect(async () => {
+      await page.keyboard.press('Control+K');
+      await expect(
+        page.locator('[role="dialog"]:not(#klaro-cookie-notice)'),
+      ).toBeAttached({ timeout: 500 });
+    }).toPass({ timeout: 5000, intervals: [100, 250, 500, 1000] });
     const focusedTag = await page.evaluate(
       () => document.activeElement?.tagName?.toLowerCase() ?? null,
     );
@@ -85,7 +97,19 @@ test.describe('SEA /best-nootropics-for-focus/ — CommandPalette ⌘K modal (WC
   test('Escape closes the modal and returns focus to the trigger button', async ({ page }) => {
     await page.goto('/best-nootropics-for-focus/');
     await page.waitForLoadState('networkidle');
-    await page.keyboard.press('Control+K');
+    // PR-Q73 hardening — port of the PR-Q66 toPass() retry pattern
+    // applied to us-keyboard. Under heaviest full-suite contention
+    // the keydown listener may not be registered by the time
+    // networkidle fires. Retry until the dialog attaches OR 5s
+    // elapses. Idempotent: CommandPalette ignores ⌘K when already
+    // open. Same family that flaked once on jp-keyboard during
+    // PR-Q72 verification.
+    await expect(async () => {
+      await page.keyboard.press('Control+K');
+      await expect(
+        page.locator('[role="dialog"]:not(#klaro-cookie-notice)'),
+      ).toBeAttached({ timeout: 500 });
+    }).toPass({ timeout: 5000, intervals: [100, 250, 500, 1000] });
     await expect(page.locator('[role="dialog"]:not(#klaro-cookie-notice)')).toBeAttached();
     await page.keyboard.press('Escape');
     await expect(page.locator('[role="dialog"]:not(#klaro-cookie-notice)')).toHaveCount(0);
@@ -95,7 +119,19 @@ test.describe('SEA /best-nootropics-for-focus/ — CommandPalette ⌘K modal (WC
   test('Tab inside the modal cycles between focusable elements (focus trap on SEA catalog)', async ({ page }) => {
     await page.goto('/best-nootropics-for-focus/');
     await page.waitForLoadState('networkidle');
-    await page.keyboard.press('Control+K');
+    // PR-Q73 hardening — port of the PR-Q66 toPass() retry pattern
+    // applied to us-keyboard. Under heaviest full-suite contention
+    // the keydown listener may not be registered by the time
+    // networkidle fires. Retry until the dialog attaches OR 5s
+    // elapses. Idempotent: CommandPalette ignores ⌘K when already
+    // open. Same family that flaked once on jp-keyboard during
+    // PR-Q72 verification.
+    await expect(async () => {
+      await page.keyboard.press('Control+K');
+      await expect(
+        page.locator('[role="dialog"]:not(#klaro-cookie-notice)'),
+      ).toBeAttached({ timeout: 500 });
+    }).toPass({ timeout: 5000, intervals: [100, 250, 500, 1000] });
     await expect(page.locator('[role="dialog"]:not(#klaro-cookie-notice)')).toBeAttached();
     // Type "nat" — substring match on NatureBell in the SEA catalog.
     // On US/AU/GCC the same query would match different products.
