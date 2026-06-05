@@ -62,9 +62,23 @@ export default function AppShell({
   sidebarGroups,
   sidebarMeta,
 }: AppShellProps) {
-  // Open initial state is `mode === 'persistent'` — applies only to the
-  // ≥1024px breakpoint; mobile overlay always starts closed via CSS.
-  const [sidebarOpen, setSidebarOpen] = useState(mode === 'persistent');
+  // Open initial state must be FALSE on mobile and `mode === 'persistent'`
+  // on desktop (lg+). The pre-Q69 implementation initialized via
+  // `useState(mode === 'persistent')` for both, which opened the
+  // mobile overlay drawer on first load — covering the entire
+  // viewport behind a [role=dialog][aria-modal=true] with
+  // pointer-events:auto. This blocked all touch interactions on
+  // the underlying content. PR-Q69 fix: initialize FALSE, then
+  // promote to TRUE in useEffect IF viewport is lg+. SSR-safe
+  // because server can't know viewport — first paint is closed
+  // everywhere, then desktop re-opens after hydration.
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (mode === 'persistent' && window.matchMedia('(min-width: 1024px)').matches) {
+      setSidebarOpen(true);
+    }
+  }, [mode]);
 
   const showInline = sidebarOpen;
   const isOverlay = sidebarOpen;
