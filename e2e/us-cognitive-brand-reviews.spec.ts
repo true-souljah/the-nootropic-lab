@@ -21,6 +21,13 @@ import { test, expect } from '@playwright/test';
 const ABBREVIATIONS = [
   { acronym: 'GMP', expansion: 'Good Manufacturing Practice' },
   { acronym: 'NSF', expansion: 'National Sanitation Foundation' },
+  // PR-Q84 — cGMP (current Good Manufacturing Practice) is the actual
+  // acronym appearing in supplement-quality copy. Bare "GMP" doesn't
+  // appear in the US catalog; cGMP does, 4+ times. \bcGMP\b matches
+  // "cGMP" because the boundary before c is a word-start (or after
+  // non-word char) and the boundary after P is end-of-word.
+  { acronym: 'cGMP', expansion: 'current Good Manufacturing Practice' },
+  { acronym: 'USP', expansion: 'United States Pharmacopeia' },
 ];
 
 const REVIEW_ROUTES = [
@@ -29,6 +36,9 @@ const REVIEW_ROUTES = [
   '/noocube-review/',
   '/onnit-alpha-brain-review/',
   '/performance-lab-mind-review/',
+  // PR-Q84 extension — depth across the brand-review catalog.
+  '/hunter-focus-review/',
+  '/brainmd-brain-memory-power-boost-review/',
 ];
 
 test.beforeEach(async ({ context }) => {
