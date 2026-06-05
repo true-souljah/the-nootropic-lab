@@ -46,7 +46,7 @@ export default function PublicShell({
       className={`${bg} text-ds-ink ds-font-features`}
       style={{ fontFamily: 'var(--font-ds-sans)' }}
     >
-      <a href="#main-content" className="ds-skip-link">
+      <a href="#main-content" tabIndex={0} className="ds-skip-link">
         {uiStrings?.nav.skipToContent ?? 'Skip to main content'}
       </a>
       {!hideDisclosure && <FPDisclosure methodologyHref={methodologyHref} />}

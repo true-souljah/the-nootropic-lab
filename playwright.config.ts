@@ -80,6 +80,28 @@ export default defineConfig({
         baseURL: 'http://127.0.0.1:4177',
       },
     },
+    // Cross-browser axis (PR-Q77). WebKit project runs ONLY the
+    // engine-divergence-prone specs: axe (computed contrast +
+    // role differences), focus-appearance (Webkit default
+    // outline differs from Chromium), AT-tree (WebKit
+    // accessibility tree computation differs). Other specs
+    // (touch / keyboard hydration / Tab walks) are excluded
+    // because they exercise behaviors that depend on Chromium-
+    // specific input timing; running them on WebKit produces
+    // engine-noise flakes, not portfolio bugs.
+    //
+    // Per the Q76 refined Category A/B model: engine-rendered
+    // defaults are Category A (the substrate can't enforce them),
+    // so Webkit-on-existing-specs is the highest-EV new probe
+    // category likely to surface a bug.
+    {
+      name: 'us-webkit',
+      testMatch: /[/\\]us-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+      use: {
+        ...devices['Desktop Safari'],
+        baseURL: 'http://127.0.0.1:4177',
+      },
+    },
     {
       name: 'au-chromium',
       testMatch: /[/\\]au-.*\.spec\.ts$/,
