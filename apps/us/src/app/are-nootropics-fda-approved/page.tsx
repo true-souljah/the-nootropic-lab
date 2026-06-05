@@ -109,7 +109,7 @@ export default function Page() {
         </h1>
 
         <p id="hero-paragraph" className="text-lg text-gray-600 mb-6 leading-relaxed">
-          The short answer is <strong>no</strong>: the U.S. Food and Drug Administration does not approve dietary
+          The short answer is <strong>no</strong>: the U.S. Food and Drug Administration (<abbr title="Food and Drug Administration">FDA</abbr>) does not approve dietary
           supplements — including nootropics — before they reach market. Under the Dietary Supplement Health and
           Education Act of 1994 (DSHEA), supplements are regulated as a category distinct from drugs. This page
           explains what that means in practice, what claims a supplement may legally make, and how to read the
