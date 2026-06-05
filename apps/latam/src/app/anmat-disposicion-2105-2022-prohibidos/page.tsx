@@ -167,7 +167,7 @@ export default function Page() {
         </h1>
 
         <p id="hero-paragraph" className="text-lg text-gray-600 mb-6 leading-relaxed">
-          La <strong>Disposición 2105/2022</strong> de ANMAT prohíbe la comercialización de varios
+          La <strong>Disposición 2105/2022</strong> de ANMAT (<abbr title="Administración Nacional de Medicamentos, Alimentos y Tecnología Médica">Administración Nacional de Medicamentos, Alimentos y Tecnología Médica</abbr>) prohíbe la comercialización de varios
           nootrópicos sintéticos (Noopept, racetams, fenibut, tianeptina, adrafinilo) como suplementos
           dietarios en Argentina. Esta página lista los compuestos prohibidos y audita cada producto de
           nuestro catálogo LATAM contra esta lista, para garantizar que los lectores argentinos no sean
