@@ -102,6 +102,66 @@ export default defineConfig({
         baseURL: 'http://127.0.0.1:4177',
       },
     },
+    // PR-Q78 portfolio sweep — WebKit projects for the 7 remaining
+    // regions on the SAME testMatch shape (axe / focus-appearance /
+    // accessibility-tree only). Closes the cross-browser axis at
+    // 8/8. Each project bound to its region's webServer port.
+    {
+      name: 'au-webkit',
+      testMatch: /[/\\]au-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+      use: {
+        ...devices['Desktop Safari'],
+        baseURL: 'http://127.0.0.1:4178',
+      },
+    },
+    {
+      name: 'gcc-webkit',
+      testMatch: /[/\\]gcc-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+      use: {
+        ...devices['Desktop Safari'],
+        baseURL: 'http://127.0.0.1:4179',
+      },
+    },
+    {
+      name: 'sea-webkit',
+      testMatch: /[/\\]sea-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+      use: {
+        ...devices['Desktop Safari'],
+        baseURL: 'http://127.0.0.1:4180',
+      },
+    },
+    {
+      name: 'jp-webkit',
+      testMatch: /[/\\]jp-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+      use: {
+        ...devices['Desktop Safari'],
+        baseURL: 'http://127.0.0.1:4173',
+      },
+    },
+    {
+      name: 'latam-webkit',
+      testMatch: /[/\\]latam-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+      use: {
+        ...devices['Desktop Safari'],
+        baseURL: 'http://127.0.0.1:4174',
+      },
+    },
+    {
+      name: 'ca-webkit',
+      testMatch: /[/\\]ca-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+      use: {
+        ...devices['Desktop Safari'],
+        baseURL: 'http://127.0.0.1:4175',
+      },
+    },
+    {
+      name: 'eu-webkit',
+      testMatch: /[/\\]eu-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+      use: {
+        ...devices['Desktop Safari'],
+        baseURL: 'http://127.0.0.1:4176',
+      },
+    },
     {
       name: 'au-chromium',
       testMatch: /[/\\]au-.*\.spec\.ts$/,
