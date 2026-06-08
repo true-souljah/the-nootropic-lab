@@ -21,6 +21,10 @@ import { test, expect } from '@playwright/test';
 const ABBREVIATIONS = [
   { acronym: 'GMP', expansion: 'Good Manufacturing Practice' },
   { acronym: 'NSF', expansion: 'National Sanitation Foundation' },
+  // PR-Q85 region-specific regulator acronym
+  { acronym: 'NPN', expansion: 'Natural Product Number' },
+  // PR-Q85 region-specific regulator acronym
+  { acronym: 'NHP', expansion: 'Natural Health Product' },
 ];
 
 const REVIEW_ROUTES = [
