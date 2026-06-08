@@ -18,7 +18,7 @@ export const productsSEA: Product[] = [
     euCompliance: 'verify',
     trustpilotScore: 4.5,
     trustpilotCount: 3200,
-    affiliateUrl: 'https://www.mindlabpro.com/',
+    affiliateUrl: 'https://www.mindlabpro.com?a_aid=zid0oxj1g4uny&a_bid=6d45f5c3',
     affiliateNetwork: 'UberNet',
     commissionRate: '30%',
     cookieDays: 365,
