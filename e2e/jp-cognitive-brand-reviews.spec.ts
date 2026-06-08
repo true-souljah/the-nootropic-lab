@@ -27,8 +27,11 @@ const ABBREVIATIONS = [
 
 const REVIEW_ROUTES = [
   '/mind-lab-pro-review/',
-  '/onnit-alpha-brain-review/',
+  '/noocube-review/',
+  '/performance-lab-mind-review/',
+  '/hunter-focus-review/',
   '/fancl-brains-review/',
+  '/suntory-dha-epa-sesamin-review/',
 ];
 
 test.beforeEach(async ({ context }) => {
