@@ -31,7 +31,11 @@ const ABBREVIATIONS = [
 
 const REVIEW_ROUTES = [
   '/mind-lab-pro-review/',
+  '/noocube-review/',
+  '/qualia-mind-review/',
   '/onnit-alpha-brain-review/',
+  '/thesis-nootropics-review/',
+  '/herbamz-neuromax-review/',
   '/genomma-lab-neuriplus-review/',
 ];
 
