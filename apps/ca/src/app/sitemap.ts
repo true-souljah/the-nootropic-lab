@@ -13,36 +13,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
   const staticPages: MetadataRoute.Sitemap = [
-    { url: BASE, lastModified: now, changeFrequency: 'weekly', priority: 1.0 },
-    { url: `${BASE}/best-nootropics`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${BASE}/best-nootropics-for-focus`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
-    { url: `${BASE}/best-nootropics-for-memory`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
-    { url: `${BASE}/best-nootropics-for-studying`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
-    { url: `${BASE}/best-nootropics-for-aging`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
-    { url: `${BASE}/nootropic-comparison`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${BASE}/npn-licensed-nootropics-canada`, lastModified: now, changeFrequency: 'monthly', priority: 0.75 },
-    { url: `${BASE}/imprint`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
-    { url: `${BASE}/methodology`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
-    { url: `${BASE}/about`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
-    { url: `${BASE}/contact`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
-    { url: `${BASE}/privacy-policy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
-    { url: `${BASE}/cookie-policy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${BASE}/`, lastModified: now, changeFrequency: 'weekly', priority: 1.0 },
+    { url: `${BASE}/best-nootropics/`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${BASE}/best-nootropics-for-focus/`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
+    { url: `${BASE}/best-nootropics-for-memory/`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
+    { url: `${BASE}/best-nootropics-for-studying/`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
+    { url: `${BASE}/best-nootropics-for-aging/`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
+    { url: `${BASE}/nootropic-comparison/`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE}/npn-licensed-nootropics-canada/`, lastModified: now, changeFrequency: 'monthly', priority: 0.75 },
+    { url: `${BASE}/imprint/`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${BASE}/methodology/`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${BASE}/about/`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${BASE}/contact/`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${BASE}/privacy-policy/`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${BASE}/cookie-policy/`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
     // French Canadian locale
-    { url: `${BASE}/fr`, lastModified: now, changeFrequency: 'weekly', priority: 1.0 },
-    { url: `${BASE}/fr/meilleurs-nootropiques`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${BASE}/fr/comparer`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE}/fr/`, lastModified: now, changeFrequency: 'weekly', priority: 1.0 },
+    { url: `${BASE}/fr/meilleurs-nootropiques/`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${BASE}/fr/comparer/`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
   ];
   const productPages: MetadataRoute.Sitemap = productsCA.map(p => ({
-    url: `${BASE}/${p.slug}`,
+    url: `${BASE}/${p.slug}/`,
     lastModified: now,
     changeFrequency: 'weekly' as const,
     priority: 0.9,
   }));
 
   const ingredientPages: MetadataRoute.Sitemap = [
-    { url: `${BASE}/ingredients`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE}/ingredients/`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     ...ingredients.map(ing => ({
-      url: `${BASE}/ingredients/${ing.slug}`,
+      url: `${BASE}/ingredients/${ing.slug}/`,
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.8,
@@ -50,9 +50,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const guidePages: MetadataRoute.Sitemap = [
-    { url: `${BASE}/guides`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE}/guides/`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     ...guides.map(g => ({
-      url: `${BASE}/guides/${g.slug}`,
+      url: `${BASE}/guides/${g.slug}/`,
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.7,
@@ -60,7 +60,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const provincePages: MetadataRoute.Sitemap = provinces.map(slug => ({
-    url: `${BASE}/provinces/${slug}`,
+    url: `${BASE}/provinces/${slug}/`,
     lastModified: now,
     changeFrequency: 'monthly' as const,
     priority: 0.6,
