@@ -54,7 +54,7 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design lets you pair it with kopi, matcha, or Vietnamese drip for the synergistic effect. Ships UK→SEA in 7–14 days (fastest to Singapore). Imported as personal-use supplement — not registered with HSA, NPRA, BPOM, FDA TH/PH, or DAV. Halal status: not BPJPH/JAKIM-certified — verify acceptability for ID/MY buyers.',
+      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design lets you pair it with kopi, matcha, or Vietnamese drip for the synergistic effect. Ships UK→SEA in 7–14 days (fastest to Singapore). Imported as personal-use supplement — not registered with Health Sciences Authority (HSA), National Pharmaceutical Regulatory Agency (NPRA), Badan Pengawas Obat dan Makanan (BPOM), FDA TH/PH, or DAV. Halal status: not BPJPH/JAKIM-certified — verify acceptability for ID/MY buyers.',
   },
   {
     product: productsSEA.find(p => p.slug === 'noocube-review')!,
@@ -72,7 +72,7 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'onnit-alpha-brain-review')!,
     rank: 4,
     whyItsHere:
-      'Caffeine-free Classic version + NSF Certified for Sport (relevant for Singapore/Malaysian competitive athletes subject to anti-doping). Bacopa, Alpha-GPC, and L-theanine present but doses hidden in proprietary blends. Strong global brand recognition makes it easier to research locally in English and Bahasa. US→SEA shipping 12–18 days as personal-use supplement.',
+      'Caffeine-free Classic version + National Sanitation Foundation (NSF) Certified for Sport (relevant for Singapore/Malaysian competitive athletes subject to anti-doping). Bacopa, Alpha-GPC, and L-theanine present but doses hidden in proprietary blends. Strong global brand recognition makes it easier to research locally in English and Bahasa. US→SEA shipping 12–18 days as personal-use supplement.',
   },
   {
     product: productsSEA.find(p => p.slug === 'natures-own-brain-fuel-review')!,

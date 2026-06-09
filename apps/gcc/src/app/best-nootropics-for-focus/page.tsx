@@ -72,7 +72,7 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'onnit-alpha-brain-review')!,
     rank: 4,
     whyItsHere:
-      'Caffeine-free formula with Alpha-GPC, L-theanine, L-tyrosine, and Bacopa. NSF Certified for Sport — relevant for GCC athletes and military buyers facing drug-tested events. Vegetarian capsules; no porcine gelatin. Two published clinical studies on the formula. Doses are hidden in proprietary blends — you cannot verify clinical thresholds. Ships from US; not SFDA/MOHAP-registered.',
+      'Caffeine-free formula with Alpha-GPC, L-theanine, L-tyrosine, and Bacopa. National Sanitation Foundation (NSF) Certified for Sport — relevant for GCC athletes and military buyers facing drug-tested events. Vegetarian capsules; no porcine gelatin. Two published clinical studies on the formula. Doses are hidden in proprietary blends — you cannot verify clinical thresholds. Ships from US; not SFDA/MOHAP-registered.',
   },
   {
     product: productsGCC.find(p => p.slug === 'life-pharmacy-neuro-shield-review')!,

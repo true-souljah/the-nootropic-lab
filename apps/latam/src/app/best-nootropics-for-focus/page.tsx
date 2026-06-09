@@ -55,7 +55,7 @@ const picks: ListiclePick[] = [
     product: productsLatam.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Fórmula abierta con 100mg de L-teanina + 250mg de citicolina Cognizin a dosis clínicamente validadas. El diseño sin cafeína permite combinarlo con tu café o mate local para lograr el efecto sinérgico. Envío internacional confirmado a México, Brasil, Argentina, Colombia, Chile y Perú. Compradores en Brasil deben prever posibles retenciones de ANVISA; los argentinos deben verificar que su tarjeta procese cargos en USD pese al control cambiario.',
+      'Fórmula abierta con 100mg de L-teanina + 250mg de citicolina Cognizin a dosis clínicamente validadas. El diseño sin cafeína permite combinarlo con tu café o mate local para lograr el efecto sinérgico. Envío internacional confirmado a México, Brasil, Argentina, Colombia, Chile y Perú. Compradores en Brasil deben prever posibles retenciones de la Agência Nacional de Vigilância Sanitária (ANVISA); los argentinos deben verificar que su tarjeta procese cargos en USD pese al control cambiario.',
   },
   {
     product: productsLatam.find(p => p.slug === 'qualia-mind-review')!,
@@ -73,7 +73,7 @@ const picks: ListiclePick[] = [
     product: productsLatam.find(p => p.slug === 'genomma-lab-neuriplus-review')!,
     rank: 4,
     whyItsHere:
-      'Opción local registrada en COFEPRIS (México) y disponible en Farmacias del Ahorro, Guadalajara, Benavides y Cruz Verde, además de MercadoLibre en toda la región. Precio en moneda local (~$18 USD/mes), sin riesgo aduanero. Las dosis están por debajo de las clínicas — la concentración será modesta — pero es la opción más accesible para quienes prefieren evitar importaciones desde EE.UU. o Reino Unido.',
+      'Opción local registrada en la Comisión Federal para la Protección contra Riesgos Sanitarios (COFEPRIS) en México y disponible en Farmacias del Ahorro, Guadalajara, Benavides y Cruz Verde, además de MercadoLibre en toda la región. Precio en moneda local (~$18 USD/mes), sin riesgo aduanero. Las dosis están por debajo de las clínicas — la concentración será modesta — pero es la opción más accesible para quienes prefieren evitar importaciones desde EE.UU. o Reino Unido.',
   },
 ];
 
@@ -92,7 +92,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: '¿Estos productos son legales en mi país de Latam?',
-    a: 'Los suplementos nootrópicos importados ingresan a Latam bajo las exenciones de uso personal. COFEPRIS (México), ANVISA (Brasil), INVIMA (Colombia), ISP (Chile) y DIGEMID (Perú) generalmente permiten un suministro de 1 a 3 meses para uso personal. ANMAT (Argentina) emitió la Disposición 2105/2022 que prohibió el Noopept y varios otros nootrópicos no registrados — ninguno de los productos recomendados aquí contiene Noopept ni ingredientes prohibidos por ANMAT, pero verifica la lista actualizada antes de pedir desde Argentina.',
+    a: 'Los suplementos nootrópicos importados ingresan a Latam bajo las exenciones de uso personal. la Comisión Federal para la Protección contra Riesgos Sanitarios (COFEPRIS) en México, la Agência Nacional de Vigilância Sanitária (ANVISA) en Brasil, el Instituto Nacional de Vigilancia de Medicamentos y Alimentos (INVIMA) en Colombia, ISP (Chile) y DIGEMID (Perú) generalmente permiten un suministro de 1 a 3 meses para uso personal. ANMAT (Argentina) emitió la Disposición 2105/2022 que prohibió el Noopept y varios otros nootrópicos no registrados — ninguno de los productos recomendados aquí contiene Noopept ni ingredientes prohibidos por ANMAT, pero verifica la lista actualizada antes de pedir desde Argentina.',
   },
   {
     q: '¿Dónde puedo comprar nootrópicos en Latam?',
