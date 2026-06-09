@@ -36,8 +36,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/natural-adderall-alternatives/`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
     { url: `${BASE}/are-nootropics-fda-approved/`, lastModified: now, changeFrequency: 'monthly', priority: 0.75 },
     { url: `${BASE}/alpha-brain-vs-mind-lab-pro-vs-noocube/`, lastModified: now, changeFrequency: 'weekly', priority: 0.75 },
-    { url: `${BASE}/quiz/`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE}/dose-calculator/`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+    // /quiz/ and /dose-calculator/ deliberately excluded — both pages set
+    // `robots: { index: false }` (user-input-dependent tools), so including
+    // them was a "Submitted URL marked noindex" contradiction in GSC.
     { url: `${BASE}/imprint/`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE}/cancel-onnit-subscription/`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE}/cancel-thesis-subscription/`, lastModified: now, changeFrequency: 'monthly', priority: 0.65 },
