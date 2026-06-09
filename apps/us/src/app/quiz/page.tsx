@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Five quick questions about your goals, caffeine tolerance, budget, and money-back preference. We match you against our full audited catalog and surface the best fit.',
   robots: { index: false },
-  alternates: buildAlternates({ regionCode: 'us', path: '/quiz/' }),
+  alternates: buildAlternates({ regionCode: 'us', path: '/quiz/', availableInRegions: ['us'] }),
   openGraph: buildOpenGraph({ regionCode: 'us', path: '/quiz/', title: 'Build my stack — 2-minute nootropic quiz', description: 'Five quick questions about your goals, caffeine tolerance, budget, and money-back preference. We match you against our full audited catalog and surface the best fit.' }),
   twitter: buildTwitter({ title: 'Build my stack — 2-minute nootropic quiz', description: 'Five quick questions about your goals, caffeine tolerance, budget, and money-back preference. We match you against our full audited catalog and surface the best fit.' }),
 };

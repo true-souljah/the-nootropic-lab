@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: `${CURRENT_YEAR}年 日本向け最高のノートロピクス — 厚生労働省輸入ガイド`,
   description:
     '日本の購入者向けトップノートロピクスサプリメント。日本発送対応の海外ブランドとファンケル・サントリーの国内オプション。厚生労働省輸入コンプライアンス注意事項。',
-  alternates: buildAlternates({ regionCode: 'jp', path: '/ja/best-nootropics/' }),
+  alternates: buildAlternates({ regionCode: 'jp', path: '/ja/best-nootropics/', availableInRegions: ['jp'] }),
   openGraph: buildOpenGraph({ regionCode: 'jp', path: '/ja/best-nootropics/', title: `${CURRENT_YEAR}年 日本向け最高のノートロピクス — 厚生労働省輸入ガイド`, description: '日本の購入者向けトップノートロピクスサプリメント。日本発送対応の海外ブランドとファンケル・サントリーの国内オプション。厚生労働省輸入コンプライアンス注意事項。' }),
   twitter: buildTwitter({ title: `${CURRENT_YEAR}年 日本向け最高のノートロピクス — 厚生労働省輸入ガイド`, description: '日本の購入者向けトップノートロピクスサプリメント。日本発送対応の海外ブランドとファンケル・サントリーの国内オプション。厚生労働省輸入コンプライアンス注意事項。' }),
 };

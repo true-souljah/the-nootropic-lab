@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Best Nootropic Stack for Beginners ${CURRENT_YEAR}: Start Here`,
   description:
     'A no-hype beginner nootropic stack guide. Start with caffeine + L-theanine. Add citicoline if cognitive demand is heavy. Add Bacopa for long-term memory consolidation.',
-  alternates: buildAlternates({ regionCode: 'us', path: '/guides/best-nootropic-stack-for-beginners/' }),
+  alternates: buildAlternates({ regionCode: 'us', path: '/guides/best-nootropic-stack-for-beginners/', availableInRegions: ['us'] }),
   openGraph: {
     title: 'Best Nootropic Stack for Beginners',
     description: 'Start with the most-evidence-backed combination. Layer up only if you respond.',

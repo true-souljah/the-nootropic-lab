@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'FFC-Notified Cognitive Supplements (Japan) — 機能性表示食品 + FOSHU Framework Guide',
   description:
     'Japan regulates cognitive supplements through Foods with Function Claims (FFC / 機能性表示食品) and Foods for Specified Health Uses (FOSHU). Both require Consumer Affairs Agency notification or approval. Full explainer + audit of our Japanese catalog + the personal-import threshold for non-domestic brands.',
-  alternates: buildAlternates({ regionCode: 'jp', path: '/ffc-notified-cognitive-supplements/' }),
+  alternates: buildAlternates({ regionCode: 'jp', path: '/ffc-notified-cognitive-supplements/', availableInRegions: ['jp'] }),
   openGraph: buildOpenGraph({ regionCode: 'jp', path: '/ffc-notified-cognitive-supplements/', title: 'FFC-Notified Cognitive Supplements (Japan) — 機能性表示食品 + FOSHU Framework Guide', description: 'Japan regulates cognitive supplements through Foods with Function Claims (FFC / 機能性表示食品) and Foods for Specified Health Uses (FOSHU). Both require Consumer Affairs Agency notification or approval. Full explainer + audit of our Japanese catalog + the personal-import threshold for non-domestic brands.' }),
   twitter: buildTwitter({ title: 'FFC-Notified Cognitive Supplements (Japan) — 機能性表示食品 + FOSHU Framework Guide', description: 'Japan regulates cognitive supplements through Foods with Function Claims (FFC / 機能性表示食品) and Foods for Specified Health Uses (FOSHU). Both require Consumer Affairs Agency notification or approval. Full explainer + audit of our Japanese catalog + the personal-import threshold for non-domestic brands.' }),
 };
