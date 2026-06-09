@@ -73,7 +73,7 @@ const picks: ListiclePick[] = [
     product: productsAU.find(p => p.slug === 'onnit-alpha-brain-review')!,
     rank: 4,
     whyItsHere:
-      'Contains Alpha-GPC, L-theanine, and Bacopa, but doses are hidden inside proprietary blends. Caffeine-free Classic version. Most internationally recognised nootropic brand for Australian buyers, NSF Certified for Sport — relevant for drug-tested Australian athletes. Ships from the US to Australia in 10–18 business days as a food supplement.',
+      'Contains Alpha-GPC, L-theanine, and Bacopa, but doses are hidden inside proprietary blends. Caffeine-free Classic version. Most internationally recognised nootropic brand for Australian buyers, National Sanitation Foundation (NSF) Certified for Sport — relevant for drug-tested Australian athletes. Ships from the US to Australia in 10–18 business days as a food supplement.',
   },
   {
     product: productsAU.find(p => p.slug === 'noocube-review')!,
@@ -121,7 +121,7 @@ export default function Page() {
       useCase="focus"
       pageTitle="Best Nootropics for Focus in Australia"
       pageDescription="Independent ranking of the best nootropics for focus and attention available to Australian buyers. Each pick must contain a clinically-dosed focus ingredient. TGA Personal Importation Scheme guidance included."
-      heroParagraph="If you want to take a supplement to support focus, the question is not 'which brand?' but 'which ingredient at what dose?' This page ranks the products available to Australian buyers that contain at least one of the four focus-validated ingredients (L-theanine + caffeine, citicoline, L-tyrosine, Alpha-GPC) at clinical dose. None of these picks are TGA-listed therapeutic goods — they ship to Australia under the TGA Personal Importation Scheme as food supplements."
+      heroParagraph="If you want to take a supplement to support focus, the question is not 'which brand?' but 'which ingredient at what dose?' This page ranks the products available to Australian buyers that contain at least one of the four focus-validated ingredients (L-theanine + caffeine, citicoline, L-tyrosine, Alpha-GPC) at clinical dose. None of these picks are Therapeutic Goods Administration (TGA) listed therapeutic goods — they ship to Australia under the TGA Personal Importation Scheme as food supplements."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}
