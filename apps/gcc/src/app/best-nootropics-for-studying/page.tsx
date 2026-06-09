@@ -72,7 +72,7 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'onnit-alpha-brain-review')!,
     rank: 4,
     whyItsHere:
-      'Caffeine-free Classic version with Bacopa + L-theanine + Alpha-GPC. NSF Certified for Sport — relevant for student athletes in drug-tested university sports. Plant-based capsules. Two published clinical studies on the formula. Doses are hidden in proprietary blends so clinical thresholds cannot be verified. Ships from US; not SFDA/MOHAP-registered.',
+      'Caffeine-free Classic version with Bacopa + L-theanine + Alpha-GPC. National Sanitation Foundation (NSF) Certified for Sport — relevant for student athletes in drug-tested university sports. Plant-based capsules. Two published clinical studies on the formula. Doses are hidden in proprietary blends so clinical thresholds cannot be verified. Ships from US; not SFDA/MOHAP-registered.',
   },
   {
     product: productsGCC.find(p => p.slug === 'thesis-nootropics-review')!,

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 const faqItems = [
   { q: 'What is the duty-free import limit for supplements in Japan?', a: 'Japan allows personal imports duty-free up to ¥16,000 in value. Orders above this threshold may attract customs duties (typically 0–6.5% plus 10% consumption tax). To stay under the limit, order no more than 1 month\'s supply at a time from international brands.' },
-  { q: 'Are racetams or modafinil legal in Japan?', a: 'Racetams (piracetam, aniracetam) are unregulated in Japan but are not widely sold domestically. Modafinil is a prescription drug in Japan. We only recommend products using MHLW-permissible ingredients.' },
+  { q: 'Are racetams or modafinil legal in Japan?', a: 'Racetams (piracetam, aniracetam) are unregulated in Japan but are not widely sold domestically. Modafinil is a prescription drug in Japan. We only recommend products using Ministry of Health, Labour and Welfare (MHLW) permissible ingredients.' },
   { q: 'What is the difference between FANCL BRAINs and Mind Lab Pro?', a: 'FANCL BRAINs is a Japanese domestic brand, MHLW-compliant, available on Amazon Japan without import issues. Mind Lab Pro is an international premium stack with higher clinical doses but requires international ordering. For first-time buyers, FANCL is lower-risk; for maximum efficacy, Mind Lab Pro leads our ranking.' },
 ];
 

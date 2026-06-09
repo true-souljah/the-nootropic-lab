@@ -73,7 +73,7 @@ const picks: ListiclePick[] = [
     product: productsAU.find(p => p.slug === 'onnit-alpha-brain-review')!,
     rank: 4,
     whyItsHere:
-      'Caffeine-free Classic version is internationally well-known. Bacopa + L-theanine + Alpha-GPC are present but proprietary blends prevent verifying clinical doses. NSF Certified for Sport — relevant if you compete in drug-tested university sport. 90-day money-back is the most generous in this category.',
+      'Caffeine-free Classic version is internationally well-known. Bacopa + L-theanine + Alpha-GPC are present but proprietary blends prevent verifying clinical doses. National Sanitation Foundation (NSF) Certified for Sport — relevant if you compete in drug-tested university sport. 90-day money-back is the most generous in this category.',
   },
 ];
 

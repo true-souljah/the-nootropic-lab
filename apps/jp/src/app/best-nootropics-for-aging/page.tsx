@@ -79,7 +79,7 @@ const picks: ListiclePick[] = [
 const faqItems: ListicleFAQ[] = [
   {
     q: 'Will these prevent dementia (認知症) or Alzheimer\'s?',
-    a: 'No. No supplement — Japanese FFC-notified or otherwise — is approved to prevent or treat dementia (認知症) or Alzheimer\'s disease. The ingredients on this page have evidence for age-related cognitive support in healthy older adults, distinct from disease prevention. If you or a family member is experiencing significant memory changes, see a Japanese neurologist (神経内科) for evaluation. The MHLW Long-Term Care Insurance system (介護保険) provides screening and support resources.',
+    a: 'No. No supplement — Japanese FFC-notified or otherwise — is approved to prevent or treat dementia (認知症) or Alzheimer\'s disease. The ingredients on this page have evidence for age-related cognitive support in healthy older adults, distinct from disease prevention. If you or a family member is experiencing significant memory changes, see a Japanese neurologist (神経内科) for evaluation. The Ministry of Health, Labour and Welfare (MHLW) Long-Term Care Insurance system (介護保険) provides screening and support resources.',
   },
   {
     q: 'What does FFC notification (機能性表示食品) actually mean?',
