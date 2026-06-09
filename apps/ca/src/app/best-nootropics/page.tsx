@@ -68,7 +68,7 @@ export default function BestNootropicsCAPage() {
         hero={{
           eyebrow: `Canada · Audited ${CURRENT_YEAR}`,
           h1: `Best Nootropics in Canada ${CURRENT_YEAR}`,
-          dek: 'All products listed below ship directly to Canada. We verify Canadian availability, Health Canada NHP status where applicable, and note import duties for each brand.',
+          dek: 'All products listed below ship directly to Canada. We verify Canadian availability, Health Canada Natural Health Product (NHP) status where applicable, and note import duties for each brand.',
         }}
         searchItems={searchItems}
         uiStrings={uiStrings}
