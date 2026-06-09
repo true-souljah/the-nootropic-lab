@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Best Nootropics for Mood ${CURRENT_YEAR}: NOT a Substitute for Mental Health Treatment`,
   description:
     'Independent ranking of nootropics with mood-adjacent benefits in healthy adults. NOT a treatment for depression, anxiety, or any mental health condition. Always consult a clinician.',
-  alternates: buildAlternates({ regionCode: 'us', path: '/best-nootropics-for-mood/' }),
+  alternates: buildAlternates({ regionCode: 'us', path: '/best-nootropics-for-mood/', availableInRegions: ['us'] }),
   openGraph: {
     title: 'Best Nootropics for Mood — Honest Editorial',
     description: 'What the evidence says about Rhodiola, Bacopa, and L-theanine for mood support in healthy adults.',

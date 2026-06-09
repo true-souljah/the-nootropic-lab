@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     'Personalized nootropic recommendation based on your goals, caffeine sensitivity, budget, and money-back-guarantee preference. Top match plus two runner-ups, with confidence score.',
   robots: { index: false, follow: true },
-  alternates: buildAlternates({ regionCode: 'us', path: '/quiz/results/' }),
+  alternates: buildAlternates({ regionCode: 'us', path: '/quiz/results/', availableInRegions: ['us'] }),
 };
 
 export const viewport: Viewport = {

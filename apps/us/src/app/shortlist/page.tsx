@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     'The nootropics you are considering. Stored on this device — share a copy-link to import the same picks on another device or browser. No account required.',
   robots: { index: false },
-  alternates: buildAlternates({ regionCode: 'us', path: '/shortlist/' }),
+  alternates: buildAlternates({ regionCode: 'us', path: '/shortlist/', availableInRegions: ['us'] }),
   openGraph: buildOpenGraph({ regionCode: 'us', path: '/shortlist/', title: 'My shortlist — Nootropic Lab', description: 'The nootropics you are considering. Stored on this device — share a copy-link to import the same picks on another device or browser. No account required.' }),
   twitter: buildTwitter({ title: 'My shortlist — Nootropic Lab', description: 'The nootropics you are considering. Stored on this device — share a copy-link to import the same picks on another device or browser. No account required.' }),
 };
