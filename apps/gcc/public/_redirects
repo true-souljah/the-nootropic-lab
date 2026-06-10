@@ -1,1 +1,16 @@
+# GSC 404 redirect batch — added by PR-#163
+# All rules: redirect orphan URLs (cross-region products, missing listicle variants,
+# wrong slugs) to the region's focus listicle. Wildcard splats catch trailing-slash
+# variants in one rule.
+
+/braineffect-focus-review  /best-nootropics-for-focus/  301
+/braineffect-focus-review/  /best-nootropics-for-focus/  301
+/blackmores-brain-active-review  /best-nootropics-for-focus/  301
+/blackmores-brain-active-review/  /best-nootropics-for-focus/  301
+/hunter-focus-review  /best-nootropics-for-focus/  301
+/hunter-focus-review/  /best-nootropics-for-focus/  301
+/alpha-brain-vs-qualia-mind  /best-nootropics-for-focus/  301
+/alpha-brain-vs-qualia-mind/  /best-nootropics-for-focus/  301
+
+# Existing fallback (kept from prior _redirects)
 /* /404.html 404
