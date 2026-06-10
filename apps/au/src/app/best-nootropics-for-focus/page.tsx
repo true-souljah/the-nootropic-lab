@@ -126,6 +126,7 @@ export default function Page() {
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}
+      regulatoryPillar={{ label: 'TGA-listed cognitive supplements in Australia', href: '/tga-listed-cognitive-supplements/' }}
       healthDisclaimer={getRegionalHealthDisclaimer('au')}
       searchItems={searchItems}
       uiStrings={uiStrings}
