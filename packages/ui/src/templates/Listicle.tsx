@@ -63,6 +63,13 @@ export interface ListicleProps {
   uiStrings?: UIStrings;
   /** Estimated read time displayed in FPByline. */
   readTime?: string;
+  /**
+   * Optional regional regulatory pillar (e.g. /are-nootropics-fda-approved/ on US,
+   * /efsa-approved-cognitive-supplements/ on EU). Rendered as a "Read the regulatory
+   * guide" callout in the Related Guides section. Drives inbound internal links to
+   * the regulatory pillars per region (PR #164).
+   */
+  regulatoryPillar?: { label: string; href: string };
 }
 
 const TODAY = new Date();
@@ -83,6 +90,7 @@ export default function Listicle({
   ingredientMechanism,
   picks,
   faqItems,
+  regulatoryPillar,
   siteUrl,
   healthDisclaimer,
   listicleHref = '/best-nootropics',
@@ -337,6 +345,55 @@ export default function Listicle({
             <section className="my-10">
               <h2 className="text-[26px] font-bold text-ds-ink mb-4">{s.faqHeading}</h2>
               <FaqAccordion items={faqItems} />
+            </section>
+
+            {/* Related guides — internal-linking layer added in PR #164 to lift
+                orphan sibling listicles + regional regulatory pillars out of
+                "0 inbound internal links" status per the GSC backlink audit. */}
+            <section aria-labelledby="related-guides-heading" className="my-10">
+              <h2
+                id="related-guides-heading"
+                className="text-[26px] font-bold text-ds-ink mb-4"
+              >
+                Related guides
+              </h2>
+              <ul className="grid gap-2 list-disc pl-5 text-[15px] leading-[1.6] text-ds-ink-soft">
+                {useCase !== 'focus' && (
+                  <li>
+                    <Link href="/best-nootropics-for-focus/" className="text-ds-accent underline">
+                      Best nootropics for focus
+                    </Link>
+                  </li>
+                )}
+                {useCase !== 'memory' && (
+                  <li>
+                    <Link href="/best-nootropics-for-memory/" className="text-ds-accent underline">
+                      Best nootropics for memory
+                    </Link>
+                  </li>
+                )}
+                {useCase !== 'studying' && (
+                  <li>
+                    <Link href="/best-nootropics-for-studying/" className="text-ds-accent underline">
+                      Best nootropics for studying
+                    </Link>
+                  </li>
+                )}
+                {useCase !== 'aging' && (
+                  <li>
+                    <Link href="/best-nootropics-for-aging/" className="text-ds-accent underline">
+                      Best nootropics for aging
+                    </Link>
+                  </li>
+                )}
+                {regulatoryPillar && (
+                  <li>
+                    <Link href={regulatoryPillar.href} className="text-ds-accent underline">
+                      {regulatoryPillar.label}
+                    </Link>
+                  </li>
+                )}
+              </ul>
             </section>
 
             {sources && sources.length > 0 && <Sources sources={sources} />}
