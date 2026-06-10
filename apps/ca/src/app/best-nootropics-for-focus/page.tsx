@@ -126,6 +126,9 @@ export default function Page() {
       faqItems={faqItems}
       siteUrl={SITE_URL}
       regulatoryPillar={{ label: 'NPN-licensed nootropics in Canada', href: '/npn-licensed-nootropics-canada/' }}
+      relatedCompares={[
+        { label: "AOR Ortho•Mind vs Mind Lab Pro", href: '/aor-ortho-mind-vs-mind-lab-pro/' },
+      ]}
       healthDisclaimer={getRegionalHealthDisclaimer('ca')}
       searchItems={searchItems}
       uiStrings={uiStrings}

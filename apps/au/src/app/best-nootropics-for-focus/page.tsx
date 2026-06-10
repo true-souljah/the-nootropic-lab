@@ -127,6 +127,9 @@ export default function Page() {
       faqItems={faqItems}
       siteUrl={SITE_URL}
       regulatoryPillar={{ label: 'TGA-listed cognitive supplements in Australia', href: '/tga-listed-cognitive-supplements/' }}
+      relatedCompares={[
+        { label: "Blackmores Brain Active vs Mind Lab Pro", href: '/blackmores-brain-active-vs-mind-lab-pro/' },
+      ]}
       healthDisclaimer={getRegionalHealthDisclaimer('au')}
       searchItems={searchItems}
       uiStrings={uiStrings}
