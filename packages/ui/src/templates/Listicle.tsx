@@ -70,6 +70,12 @@ export interface ListicleProps {
    * the regulatory pillars per region (PR #164).
    */
   regulatoryPillar?: { label: string; href: string };
+  /**
+   * Optional head-to-head compare callouts rendered in the Related Guides section.
+   * Each region passes its own most-relevant compare pages. Drives inbound internal
+   * links to head-to-head comparison pages that were 0-inbound orphans pre PR #166.
+   */
+  relatedCompares?: Array<{ label: string; href: string }>;
 }
 
 const TODAY = new Date();
@@ -91,6 +97,7 @@ export default function Listicle({
   picks,
   faqItems,
   regulatoryPillar,
+  relatedCompares,
   siteUrl,
   healthDisclaimer,
   listicleHref = '/best-nootropics',
@@ -393,6 +400,13 @@ export default function Listicle({
                     </Link>
                   </li>
                 )}
+                {relatedCompares?.map((c) => (
+                  <li key={c.href}>
+                    <Link href={c.href} className="text-ds-accent underline">
+                      {c.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </section>
 
