@@ -121,6 +121,7 @@ export default function Page() {
       faqItems={faqItems}
       strings={useCaseListPageEsStrings}
       siteUrl={SITE_URL}
+      regulatoryPillar={{ label: 'Nootrópicos prohibidos por ANMAT (Argentina)', href: '/anmat-disposicion-2105-2022-prohibidos/' }}
       healthDisclaimer={getRegionalHealthDisclaimer('latam')}
       searchItems={searchItems}
       uiStrings={uiStrings}

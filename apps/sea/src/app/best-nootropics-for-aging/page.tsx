@@ -127,6 +127,7 @@ export default function Page() {
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}
+      regulatoryPillar={{ label: 'Halal nootropics in Indonesia (BPJPH)', href: '/halal-nootropics-indonesia-bpjph/' }}
       healthDisclaimer={getRegionalHealthDisclaimer('sea')}
       searchItems={searchItems}
       uiStrings={uiStrings}

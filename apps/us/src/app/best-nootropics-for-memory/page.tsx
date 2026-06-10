@@ -115,6 +115,7 @@ export default function Page() {
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}
+      regulatoryPillar={{ label: 'FDA framework for nootropic supplements', href: '/are-nootropics-fda-approved/' }}
       healthDisclaimer={getRegionalHealthDisclaimer('us')}
       searchItems={searchItems}
       uiStrings={uiStrings}

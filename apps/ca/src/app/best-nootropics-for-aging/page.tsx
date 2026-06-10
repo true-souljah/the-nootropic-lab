@@ -131,6 +131,7 @@ export default function Page() {
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}
+      regulatoryPillar={{ label: 'NPN-licensed nootropics in Canada', href: '/npn-licensed-nootropics-canada/' }}
       healthDisclaimer={getRegionalHealthDisclaimer('ca')}
       searchItems={searchItems}
       uiStrings={uiStrings}
