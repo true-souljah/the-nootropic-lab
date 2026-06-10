@@ -240,6 +240,16 @@ export const klaroConfig: KlaroConfig = {
       required: false,
       default: false,
     },
+    {
+      name: 'impact-com',
+      title: 'Impact.com Affiliate Attribution',
+      purposes: ['statistics'],
+      cookies: [/^IR_/, /^_ire/],
+      description:
+        'Attributes affiliate clicks to this site so the operator earns commission on partner purchases. No personalised advertising; tracks click-attribution only.',
+      required: false,
+      default: false,
+    },
   ],
   purposes: [
     { name: 'statistics', title: 'Analytics & statistics' },

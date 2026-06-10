@@ -102,7 +102,7 @@ export const productsEU: Product[] = [
     euCompliance: 'compliant',
     trustpilotScore: 4.3,
     trustpilotCount: 1400,
-    affiliateUrl: 'https://www.performancelab.com?a_aid=zid0oxj1g4uny&a_bid=a2ad38c1',
+    affiliateUrl: 'https://www.performancelab.com/products/mind?a_aid=zid0oxj1g4uny&a_cid=f4c3e754',
     affiliateNetwork: 'UberNet',
     commissionRate: '30%',
     cookieDays: 365,

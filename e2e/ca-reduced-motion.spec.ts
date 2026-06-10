@@ -30,7 +30,7 @@ test.describe('CA — global prefers-reduced-motion rule applies (WCAG 2.3.3 + 2
     await context.addCookies([
       {
         name: 'klaro',
-        value: '%7B%22cloudflare-insights%22%3Afalse%2C%22google-analytics%22%3Afalse%7D',
+        value: '%7B%22cloudflare-insights%22%3Afalse%2C%22google-analytics%22%3Afalse%2C%22impact-com%22%3Afalse%7D',
         domain: '127.0.0.1',
         path: '/',
       },
@@ -57,7 +57,7 @@ test.describe('CA — global prefers-reduced-motion rule applies (WCAG 2.3.3 + 2
     await context.addCookies([
       {
         name: 'klaro',
-        value: '%7B%22cloudflare-insights%22%3Afalse%2C%22google-analytics%22%3Afalse%7D',
+        value: '%7B%22cloudflare-insights%22%3Afalse%2C%22google-analytics%22%3Afalse%2C%22impact-com%22%3Afalse%7D',
         domain: '127.0.0.1',
         path: '/',
       },
@@ -84,7 +84,7 @@ test.describe('CA — keyframe animations also neutralized under reduced motion 
     await context.addCookies([
       {
         name: 'klaro',
-        value: '%7B%22cloudflare-insights%22%3Afalse%2C%22google-analytics%22%3Afalse%7D',
+        value: '%7B%22cloudflare-insights%22%3Afalse%2C%22google-analytics%22%3Afalse%2C%22impact-com%22%3Afalse%7D',
         domain: '127.0.0.1',
         path: '/',
       },
