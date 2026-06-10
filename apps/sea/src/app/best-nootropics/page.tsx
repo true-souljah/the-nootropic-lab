@@ -61,6 +61,7 @@ export default function BestNootropicsSEAPage() {
             <FaqAccordion items={faqItems} />
           </section>
         }
+              regulatoryPillar={{ label: 'Halal nootropics in Indonesia (BPJPH)', href: '/halal-nootropics-indonesia-bpjph/' }}
       />
     </>
   );

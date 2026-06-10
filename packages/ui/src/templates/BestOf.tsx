@@ -55,6 +55,14 @@ export interface BestOfProps {
    * section will simply not render.
    */
   healthDisclaimer?: string;
+  /**
+   * Optional regional regulatory pillar callout (e.g. /are-nootropics-fda-approved/ on US,
+   * /efsa-approved-cognitive-supplements/ on EU). Rendered between postList and the
+   * healthDisclaimer. Drives inbound internal links to the regulatory pillars per region
+   * — parallels the Listicle.regulatoryPillar prop introduced in PR #164 / extended in
+   * PR #165 / now extended to the BestOf surface in PR #168.
+   */
+  regulatoryPillar?: { label: string; href: string };
 }
 
 const MONTHS_SHORT = [
@@ -87,6 +95,7 @@ export default function BestOf({
   postList,
   trackingSurface = 'best_of',
   healthDisclaimer,
+  regulatoryPillar,
 }: BestOfProps) {
   const pd = uiStrings.productDetail;
   const sorted = [...products].sort((a, b) => b.score - a.score);
@@ -304,6 +313,31 @@ export default function BestOf({
         </Card>
 
         {postList && <div className="mt-10">{postList}</div>}
+
+        {/* Related guides — PR #168 internal-linking extension to the BestOf
+            surface (paralleling the Listicle.regulatoryPillar wiring from
+            PR #164 / #165). Lifts the regional regulatory pillar's inbound
+            count by 1 edge per region. */}
+        {regulatoryPillar && (
+          <section
+            aria-labelledby="bestof-related-guides-heading"
+            className="mt-10 pt-6 border-t border-ds-border"
+          >
+            <h2
+              id="bestof-related-guides-heading"
+              className="text-[13px] uppercase tracking-[0.1em] text-ds-muted font-semibold m-0 mb-2"
+            >
+              Related guides
+            </h2>
+            <ul className="grid gap-2 list-disc pl-5 text-[14px] leading-[1.6] text-ds-ink-soft">
+              <li>
+                <Link href={regulatoryPillar.href} className="text-ds-accent underline">
+                  {regulatoryPillar.label}
+                </Link>
+              </li>
+            </ul>
+          </section>
+        )}
 
         {/* Regional YMYL disclaimer (Health Canada / FDA / EFSA / etc.).
             Passed via the healthDisclaimer prop; render only when supplied. */}
