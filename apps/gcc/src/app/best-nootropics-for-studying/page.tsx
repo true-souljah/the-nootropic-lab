@@ -121,6 +121,7 @@ export default function Page() {
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}
+      regulatoryPillar={{ label: 'Halal-certified nootropics in the GCC', href: '/halal-certified-nootropics/' }}
       healthDisclaimer={getRegionalHealthDisclaimer('gcc')}
       searchItems={searchItems}
       uiStrings={uiStrings}

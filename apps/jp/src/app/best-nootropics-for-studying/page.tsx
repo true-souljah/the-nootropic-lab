@@ -115,6 +115,7 @@ export default function Page() {
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}
+      regulatoryPillar={{ label: 'FFC-notified cognitive supplements in Japan', href: '/ffc-notified-cognitive-supplements/' }}
       healthDisclaimer={getRegionalHealthDisclaimer('jp')}
       searchItems={searchItems}
       uiStrings={uiStrings}
