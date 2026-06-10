@@ -61,6 +61,7 @@ export default function BestNootropicsJPPage() {
             <FaqAccordion items={faqItems} />
           </section>
         }
+              regulatoryPillar={{ label: 'FFC-notified cognitive supplements in Japan', href: '/ffc-notified-cognitive-supplements/' }}
       />
     </>
   );

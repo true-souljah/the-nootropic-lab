@@ -74,6 +74,7 @@ export default function BestNootropicsCAPage() {
         uiStrings={uiStrings}
         trackingSurface="best_of_ca"
         healthDisclaimer={getRegionalHealthDisclaimer('ca')}
+      regulatoryPillar={{ label: 'NPN-licensed nootropics in Canada', href: '/npn-licensed-nootropics-canada/' }}
         preList={
           <div className="flex flex-col gap-5">
             <Card variant="subdued" padding={20} className="border-l-[3px] border-l-ds-good" as="aside" aria-labelledby="ca-note-heading">

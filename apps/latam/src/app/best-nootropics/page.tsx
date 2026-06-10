@@ -61,6 +61,7 @@ export default function BestNootropicsLatamPage() {
             <FaqAccordion items={faqItems} />
           </section>
         }
+              regulatoryPillar={{ label: 'Nootrópicos prohibidos por ANMAT (Argentina)', href: '/anmat-disposicion-2105-2022-prohibidos/' }}
       />
     </>
   );

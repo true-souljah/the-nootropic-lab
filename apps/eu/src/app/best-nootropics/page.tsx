@@ -178,6 +178,7 @@ export default function BestNootropicsEUPage() {
             </section>
           </>
         }
+              regulatoryPillar={{ label: 'EFSA-approved cognitive supplement framework', href: '/efsa-approved-cognitive-supplements/' }}
       />
     </>
   );

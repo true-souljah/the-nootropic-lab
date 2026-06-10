@@ -212,6 +212,7 @@ export default function BestNootropicsUSPage() {
             </Card>
           </>
         }
+              regulatoryPillar={{ label: 'FDA framework for nootropic supplements', href: '/are-nootropics-fda-approved/' }}
       />
     </>
   );

@@ -61,6 +61,7 @@ export default function BestNootropicsGCCPage() {
             <FaqAccordion items={faqItems} />
           </section>
         }
+              regulatoryPillar={{ label: 'Halal-certified nootropics in the GCC', href: '/halal-certified-nootropics/' }}
       />
     </>
   );

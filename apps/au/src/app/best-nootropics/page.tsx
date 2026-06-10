@@ -82,6 +82,7 @@ export default function BestNootropicsAUPage() {
             </section>
           </>
         }
+              regulatoryPillar={{ label: 'TGA-listed cognitive supplements in Australia', href: '/tga-listed-cognitive-supplements/' }}
       />
     </>
   );
