@@ -23,6 +23,8 @@
     "build:gcc": "npm run build --workspace=apps/gcc",
     "build:sea": "npm run build --workspace=apps/sea",
     "build": "npm run build:us && npm run build:eu && npm run build:ca && npm run build:au && npm run build:jp && npm run build:latam && npm run build:gcc && npm run build:sea",
+    "validate-data": "npx --yes tsx scripts/validate-data.ts",
+    "check": "npm run validate-data",
     "test": "npm test --workspace=packages/ui",
     "test:e2e": "playwright test"
   },

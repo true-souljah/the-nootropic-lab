@@ -1,0 +1,754 @@
+[
+  {
+    "id": "mind-lab-pro",
+    "name": "Mind Lab Pro",
+    "brand": "Opti-Nutra",
+    "slug": "mind-lab-pro-review",
+    "bestFor": [
+      "Focus",
+      "Memory",
+      "Long-term brain health"
+    ],
+    "score": 9.2,
+    "scoreBreakdown": {
+      "ingredients": 9,
+      "dosing": 10,
+      "transparency": 10,
+      "value": 8,
+      "trust": 9
+    },
+    "priceMonthlyUSD": 69,
+    "priceMonthlyAUD": 107,
+    "pricingModel": "both",
+    "moneyBackDays": 30,
+    "caffeineFree": true,
+    "euStorefront": false,
+    "euCompliance": "verify",
+    "trustpilotScore": 4.5,
+    "trustpilotCount": 3200,
+    "affiliateUrl": "https://www.mindlabpro.com?a_aid=zid0oxj1g4uny&a_bid=6d45f5c3",
+    "affiliateNetwork": "UberNet",
+    "commissionRate": "30%",
+    "cookieDays": 365,
+    "heroIngredients": [
+      "Lion's Mane",
+      "Citicoline",
+      "Bacopa Monnieri",
+      "Rhodiola Rosea",
+      "L-Theanine"
+    ],
+    "ingredientDosages": [
+      {
+        "name": "Lion's Mane (fruiting body)",
+        "doseInProduct": "500mg",
+        "clinicalDose": "500mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Citicoline (Cognizin)",
+        "doseInProduct": "250mg",
+        "clinicalDose": "250mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Bacopa Monnieri (45% bacosides)",
+        "doseInProduct": "150mg",
+        "clinicalDose": "300mg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Rhodiola Rosea (3% rosavins)",
+        "doseInProduct": "50mg",
+        "clinicalDose": "200mg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "L-Theanine",
+        "doseInProduct": "100mg",
+        "clinicalDose": "100-200mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Phosphatidylserine (Sharp-PS)",
+        "doseInProduct": "100mg",
+        "clinicalDose": "100mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "L-Tyrosine (NALT)",
+        "doseInProduct": "175mg",
+        "clinicalDose": "300-500mg as NALT",
+        "adequatelyDosed": false
+      }
+    ],
+    "servingsPerContainer": 30,
+    "capsulesPerServing": 4,
+    "summary": "The most comprehensively researched nootropic stack available to Australian buyers. Most ingredients are clinically dosed and peer-reviewed. Ships from the UK directly to Australia. Imported as a food supplement -- Therapeutic Goods Administration (TGA) listing required only if therapeutic claims are made. Our #1 pick for the Australian market.",
+    "whatItIs": "Mind Lab Pro is an 11-ingredient pre-formulated nootropic stack made by Opti-Nutra, a UK-based supplement company. It ships directly to Australia and is designed as a complete daily cognitive supplement covering memory, focus, mental energy, mood, and long-term brain health without caffeine or proprietary blends. In Australia it is imported and sold as a food supplement rather than a listed therapeutic good.",
+    "howItWorks": "Mind Lab Pro works across six bio-pathways simultaneously. Citicoline and Phosphatidylserine support the cholinergic system and neuronal membrane integrity. Lion's Mane stimulates Nerve Growth Factor (NGF) for neuroplasticity. Bacopa Monnieri enhances synaptic communication for memory. Rhodiola Rosea and L-Tyrosine support dopamine/norepinephrine balance under stress. L-Theanine promotes alpha brain wave activity for calm focus. B-vitamins support homocysteine regulation and neurotransmitter synthesis.",
+    "whatToExpect": "Within 30-60 minutes: mild calm focus from L-Theanine. Within 2-4 weeks: improved mental energy and reduced cognitive fatigue. At 8-12 weeks: measurable improvements in memory recall and learning speed. Ships from the UK to Australia -- delivery typically 10-18 business days. Australian buyers pay in USD. Best results require 3+ months of consistent daily use.",
+    "pros": [
+      "11 ingredients at clinical doses",
+      "Third-party tested, allergen-free",
+      "Caffeine-free",
+      "365-day affiliate cookie",
+      "Ships directly to Australia"
+    ],
+    "cons": [
+      "Premium price ($69/mo USD)",
+      "4 capsules per serving",
+      "30-day money-back",
+      "Therapeutic Goods Administration (TGA) listing required for therapeutic claims -- imported as food supplement"
+    ],
+    "editorChoice": true,
+    "market": "both",
+    "updatedAt": "2026-05-28"
+  },
+  {
+    "id": "noocube",
+    "name": "NooCube",
+    "brand": "Wolfson Brands",
+    "slug": "noocube-review",
+    "bestFor": [
+      "Focus",
+      "Screen workers",
+      "Budget"
+    ],
+    "score": 7.8,
+    "scoreBreakdown": {
+      "ingredients": 8,
+      "dosing": 7,
+      "transparency": 7,
+      "value": 9,
+      "trust": 7
+    },
+    "priceMonthlyUSD": 59,
+    "priceMonthlyAUD": 91,
+    "pricingModel": "both",
+    "moneyBackDays": 60,
+    "caffeineFree": true,
+    "euStorefront": false,
+    "euCompliance": "verify",
+    "trustpilotScore": 1.9,
+    "trustpilotCount": 850,
+    "affiliateUrl": "https://www.noocube.com/",
+    "affiliateNetwork": "FanFuel",
+    "commissionRate": "31.5%",
+    "cookieDays": 30,
+    "heroIngredients": [
+      "Lutemax 2020",
+      "Bacopa Monnieri",
+      "Alpha-GPC",
+      "Huperzine A",
+      "L-Theanine"
+    ],
+    "ingredientDosages": [
+      {
+        "name": "Lutemax 2020 (Lutein/Zeaxanthin)",
+        "doseInProduct": "20mg",
+        "clinicalDose": "20mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Bacopa Monnieri",
+        "doseInProduct": "250mg",
+        "clinicalDose": "300mg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Alpha-GPC",
+        "doseInProduct": "50mg",
+        "clinicalDose": "300mg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Huperzine A",
+        "doseInProduct": "20mcg",
+        "clinicalDose": "50-200mcg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "L-Theanine",
+        "doseInProduct": "100mg",
+        "clinicalDose": "100-200mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Pterostilbene",
+        "doseInProduct": "140mcg",
+        "clinicalDose": "Limited human data",
+        "adequatelyDosed": false
+      }
+    ],
+    "servingsPerContainer": 30,
+    "capsulesPerServing": 4,
+    "summary": "Strong formula anchored by Lutemax 2020 for Australian screen workers. Ships from the UK/EU to Australia as an imported food supplement. Best value per serving for Australian buyers. Note: Trustpilot score is very low -- verify independently before purchasing.",
+    "whatItIs": "NooCube is a 13-ingredient nootropic stack made by Wolfson Brands. Its standout feature is Lutemax 2020 -- a patented lutein and zeaxanthin extract researched for reducing digital eye strain and blue-light-related cognitive fatigue. Available for international shipping to Australia, it is imported as a food supplement. Australian buyers should be aware that Huperzine A may require Therapeutic Goods Administration (TGA) oversight if sold with therapeutic claims.",
+    "howItWorks": "Lutemax 2020 filters high-energy blue light in the retina, reducing eye fatigue during screen use -- particularly relevant for Australian remote workers and office professionals. Alpha-GPC and Huperzine A work on the cholinergic system. L-Theanine provides calm focus. Bacopa Monnieri targets memory consolidation over weeks.",
+    "whatToExpect": "Day one: mild calm focus from L-Theanine. Within 2-4 weeks: reduced eye fatigue and better end-of-day mental stamina. At 8 weeks: modest memory improvements from Bacopa. Ships from the UK/EU to Australia with delivery typically within 14-21 days. Australian buyers should verify the subscription cancellation policy before purchasing given the low Trustpilot score.",
+    "pros": [
+      "Lutemax 2020 for screen workers",
+      "Good value at $59/mo USD",
+      "60-day money-back",
+      "Ships to Australia"
+    ],
+    "cons": [
+      "Trustpilot 1.9/5 -- significant complaints",
+      "Some ingredients underdosed",
+      "Subscription cancellation issues (BBB)",
+      "Therapeutic Goods Administration (TGA) listing required for therapeutic claims -- imported as food supplement"
+    ],
+    "editorChoice": false,
+    "market": "both",
+    "updatedAt": "2026-05-28"
+  },
+  {
+    "id": "performance-lab-mind",
+    "name": "Performance Lab Mind",
+    "brand": "Performance Lab",
+    "slug": "performance-lab-mind-review",
+    "bestFor": [
+      "Focus",
+      "Brain energy",
+      "Clean formula"
+    ],
+    "score": 8.5,
+    "scoreBreakdown": {
+      "ingredients": 8,
+      "dosing": 9,
+      "transparency": 9,
+      "value": 7,
+      "trust": 9
+    },
+    "priceMonthlyUSD": 69,
+    "priceMonthlyAUD": 107,
+    "pricingModel": "both",
+    "moneyBackDays": 30,
+    "caffeineFree": true,
+    "euStorefront": false,
+    "euCompliance": "verify",
+    "trustpilotScore": 4.4,
+    "trustpilotCount": 920,
+    "affiliateUrl": "https://www.performancelab.com/products/mind?a_aid=zid0oxj1g4uny&a_cid=f4c3e754",
+    "affiliateNetwork": "UberNet",
+    "commissionRate": "30%",
+    "cookieDays": 365,
+    "heroIngredients": [
+      "Citicoline",
+      "Phosphatidylserine",
+      "L-Tyrosine",
+      "Maritime Pine Bark"
+    ],
+    "ingredientDosages": [
+      {
+        "name": "Citicoline (Cognizin)",
+        "doseInProduct": "250mg",
+        "clinicalDose": "250mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Phosphatidylserine (Sharp-PS Green)",
+        "doseInProduct": "100mg",
+        "clinicalDose": "100mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "L-Tyrosine (Ajipure)",
+        "doseInProduct": "300mg",
+        "clinicalDose": "500mg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Maritime Pine Bark Extract",
+        "doseInProduct": "75mg",
+        "clinicalDose": "100mg",
+        "adequatelyDosed": false
+      }
+    ],
+    "servingsPerContainer": 30,
+    "capsulesPerServing": 2,
+    "summary": "A minimalist, ultra-clean nootropic formula using premium patented ingredients. Ships to Australia from the UK. Imported as a food supplement. Ideal for Australian buyers who prefer a transparent, simple formula over large proprietary stacks.",
+    "whatItIs": "Performance Lab Mind is a streamlined 4-ingredient nootropic by Performance Lab, a UK-based supplement company. It ships directly to Australia and uses only NutriGenesis and licensed raw materials with full label transparency. In Australia it is classified as an imported food supplement -- no TGA therapeutic claims are made on the label.",
+    "howItWorks": "Citicoline (Cognizin) boosts brain cell membrane synthesis and acetylcholine production for focus and memory. Phosphatidylserine (Sharp-PS Green) maintains neuronal membrane fluidity and supports cortisol regulation under stress. L-Tyrosine replenishes catecholamine neurotransmitters depleted by cognitive effort. Maritime Pine Bark provides antioxidants that support cerebral blood flow.",
+    "whatToExpect": "Day one: mild cognitive sharpness and sustained attention. Within 2-4 weeks: improved stress resilience and working memory. At 8 weeks: measurable reduction in mental fatigue during extended cognitive tasks. Ships from the UK to Australia in approximately 14-21 business days. Only 2 capsules per serving -- excellent for Australian buyers looking for a low pill-burden daily stack.",
+    "pros": [
+      "Minimalist clean formula",
+      "Ships to Australia",
+      "NutriGenesis nutrients",
+      "Only 2 capsules/day"
+    ],
+    "cons": [
+      "Fewer total ingredients",
+      "Pricey per capsule",
+      "Therapeutic Goods Administration (TGA) listing required for therapeutic claims -- imported as food supplement"
+    ],
+    "editorChoice": false,
+    "market": "both",
+    "updatedAt": "2026-05-28"
+  },
+  {
+    "id": "hunter-focus",
+    "name": "Hunter Focus",
+    "brand": "Roar Ambition",
+    "slug": "hunter-focus-review",
+    "bestFor": [
+      "Energy + focus combo",
+      "Productivity",
+      "Professionals"
+    ],
+    "score": 8.1,
+    "scoreBreakdown": {
+      "ingredients": 8,
+      "dosing": 8,
+      "transparency": 8,
+      "value": 6,
+      "trust": 8
+    },
+    "priceMonthlyUSD": 90,
+    "priceMonthlyAUD": 140,
+    "pricingModel": "one-time",
+    "moneyBackDays": 30,
+    "caffeineFree": false,
+    "euStorefront": false,
+    "euCompliance": "verify",
+    "trustpilotScore": 4,
+    "trustpilotCount": 1050,
+    "affiliateUrl": "https://www.hunterfocus.com/",
+    "affiliateNetwork": "Hunter Direct",
+    "commissionRate": "0%",
+    "cookieDays": 0,
+    "heroIngredients": [
+      "Lion's Mane",
+      "Ashwagandha",
+      "Citicoline",
+      "Caffeine",
+      "L-Theanine"
+    ],
+    "ingredientDosages": [
+      {
+        "name": "Lion's Mane (fruiting body)",
+        "doseInProduct": "500mg",
+        "clinicalDose": "500mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Ashwagandha (KSM-66)",
+        "doseInProduct": "300mg",
+        "clinicalDose": "300mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Citicoline",
+        "doseInProduct": "250mg",
+        "clinicalDose": "250mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Caffeine Anhydrous",
+        "doseInProduct": "100mg",
+        "clinicalDose": "100mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "L-Theanine",
+        "doseInProduct": "200mg",
+        "clinicalDose": "200mg",
+        "adequatelyDosed": true
+      }
+    ],
+    "servingsPerContainer": 30,
+    "capsulesPerServing": 6,
+    "summary": "A high-dose premium nootropic stack available to Australian buyers shipping from the UK. Contains caffeine. Imported as a food supplement -- no Therapeutic Goods Administration (TGA) therapeutic claims on the label. No affiliate commission available.",
+    "whatItIs": "Hunter Focus is a premium nootropic stack from Hunter Life designed for high-performance professionals. It ships internationally to Australia and combines cognitive ingredients with adaptogens at full clinical doses. In Australia it is imported as a food supplement. Contains 100mg caffeine per serving.",
+    "howItWorks": "Lion's Mane stimulates Nerve Growth Factor for long-term neuroplasticity. Ashwagandha (KSM-66) reduces cortisol and stress-induced cognitive impairment. Citicoline supports acetylcholine production for focus and memory. Caffeine and L-Theanine (2:1 ratio) work synergistically for alert, jitter-free energy.",
+    "whatToExpect": "Within 30-60 minutes: clear, stimulated focus from the caffeine/L-Theanine stack. Within 2-4 weeks: improved stress resilience from Ashwagandha. At 8-12 weeks: long-term neuroplasticity benefits from Lion's Mane. Ships from the UK to Australia in approximately 14-21 business days. At $90 USD/month, it is one of the pricier options for Australian buyers, but ingredient doses are among the highest in this review.",
+    "pros": [
+      "Ships to Australia",
+      "High-dose formula",
+      "Premium ingredients",
+      "Full clinical doses across all ingredients"
+    ],
+    "cons": [
+      "Contains caffeine",
+      "No affiliate commission",
+      "Very expensive ($90/mo USD)",
+      "Therapeutic Goods Administration (TGA) listing required for therapeutic claims -- imported as food supplement"
+    ],
+    "editorChoice": false,
+    "market": "both",
+    "updatedAt": "2026-05-28"
+  },
+  {
+    "id": "alpha-brain",
+    "name": "Alpha Brain",
+    "brand": "Onnit",
+    "slug": "onnit-alpha-brain-review",
+    "bestFor": [
+      "Mainstream buyers",
+      "Brand recognition",
+      "Athletes"
+    ],
+    "score": 7.2,
+    "scoreBreakdown": {
+      "ingredients": 7,
+      "dosing": 6,
+      "transparency": 6,
+      "value": 7,
+      "trust": 8
+    },
+    "priceMonthlyUSD": 79,
+    "priceMonthlyAUD": 122,
+    "pricingModel": "both",
+    "moneyBackDays": 90,
+    "caffeineFree": true,
+    "euStorefront": false,
+    "euCompliance": "verify",
+    "trustpilotScore": 3.2,
+    "trustpilotCount": 4200,
+    "affiliateUrl": "https://www.onnit.com/",
+    "affiliateNetwork": "Impact",
+    "commissionRate": "12%",
+    "cookieDays": 30,
+    "heroIngredients": [
+      "Lion's Mane",
+      "Bacopa Monnieri",
+      "Alpha-GPC",
+      "L-Tyrosine",
+      "Oat Straw"
+    ],
+    "ingredientDosages": [
+      {
+        "name": "Lion's Mane (proprietary blend)",
+        "doseInProduct": "Undisclosed",
+        "clinicalDose": "500mg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Alpha-GPC (proprietary blend)",
+        "doseInProduct": "Undisclosed",
+        "clinicalDose": "300mg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Bacopa Monnieri (proprietary blend)",
+        "doseInProduct": "Undisclosed",
+        "clinicalDose": "300mg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "L-Tyrosine (proprietary blend)",
+        "doseInProduct": "Undisclosed",
+        "clinicalDose": "500mg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "L-Theanine (proprietary blend)",
+        "doseInProduct": "Undisclosed",
+        "clinicalDose": "100-200mg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Phosphatidylserine",
+        "doseInProduct": "Undisclosed",
+        "clinicalDose": "100mg",
+        "adequatelyDosed": false
+      }
+    ],
+    "servingsPerContainer": 45,
+    "capsulesPerServing": 2,
+    "summary": "The most commercially recognised nootropic brand available to Australian buyers. Backed by two clinical studies and NSF Certified for Sport. Imported as a food supplement -- Therapeutic Goods Administration (TGA) listing required for therapeutic claims. Well suited for Australian athletes and mainstream shoppers.",
+    "whatItIs": "Alpha Brain is Onnit's flagship nootropic, first released in 2011 and popularised through Joe Rogan's podcast. It is the most recognised nootropic brand in the English-speaking world, making it a familiar choice for Australian buyers. It is imported from the US to Australia as a food supplement. National Sanitation Foundation (NSF) Certified for Sport makes it suitable for Australian drug-tested athletes.",
+    "howItWorks": "Alpha Brain uses three proprietary blends -- Onnit Flow Blend, Focus Blend, and Fuel Blend -- containing cholinergics (Alpha-GPC), adaptogens (Bacopa), and amino acids (Tyrosine, Theanine). Because doses are hidden in proprietary blends, individual ingredient doses cannot be verified against clinical thresholds. The two published studies (Onnit-funded, 2016 and 2021) tested the full formula and showed statistically significant improvements in verbal memory and executive function versus placebo.",
+    "whatToExpect": "Day one: subtle focus improvement, particularly for users new to cholinergic supplements. Caffeine-free means no energy spike -- effects are gentle. At 4-6 weeks: most users report mild improvements in word retrieval and task focus. The 90-day money-back guarantee is one of the most generous in the category. Ships from the US to Australia -- delivery typically 10-18 business days.",
+    "pros": [
+      "Two published clinical studies",
+      "High international brand recognition",
+      "Only 2 capsules",
+      "90-day money-back",
+      "NSF Certified for Sport"
+    ],
+    "cons": [
+      "Proprietary blends hide doses",
+      "Subscription cancellation issues",
+      "Therapeutic Goods Administration (TGA) listing required for therapeutic claims -- imported as food supplement"
+    ],
+    "editorChoice": false,
+    "market": "both",
+    "updatedAt": "2026-05-28"
+  },
+  {
+    "id": "qualia-mind",
+    "name": "Qualia Mind",
+    "brand": "Neurohacker Collective",
+    "slug": "qualia-mind-review",
+    "bestFor": [
+      "Power users",
+      "Neurohackers",
+      "Complex stacks"
+    ],
+    "score": 8.1,
+    "scoreBreakdown": {
+      "ingredients": 10,
+      "dosing": 8,
+      "transparency": 9,
+      "value": 6,
+      "trust": 7
+    },
+    "priceMonthlyUSD": 139,
+    "priceMonthlyAUD": 215,
+    "pricingModel": "subscription",
+    "moneyBackDays": 100,
+    "caffeineFree": false,
+    "euStorefront": false,
+    "euCompliance": "verify",
+    "trustpilotScore": 3.8,
+    "trustpilotCount": 1100,
+    "affiliateUrl": "https://neurohacker.com/",
+    "affiliateNetwork": "ShareASale",
+    "commissionRate": "15%",
+    "cookieDays": 30,
+    "heroIngredients": [
+      "Phosphatidylserine",
+      "Alpha-GPC",
+      "Huperzine A",
+      "Bacopa Monnieri",
+      "Rhodiola",
+      "DHA"
+    ],
+    "ingredientDosages": [
+      {
+        "name": "Phosphatidylserine",
+        "doseInProduct": "200mg",
+        "clinicalDose": "100-300mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Alpha-GPC",
+        "doseInProduct": "200mg",
+        "clinicalDose": "300-600mg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Huperzine A",
+        "doseInProduct": "50mcg",
+        "clinicalDose": "50-200mcg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Bacopa Monnieri",
+        "doseInProduct": "300mg",
+        "clinicalDose": "300mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Rhodiola Rosea",
+        "doseInProduct": "150mg",
+        "clinicalDose": "200-600mg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "DHA (from Algae)",
+        "doseInProduct": "80mg",
+        "clinicalDose": "250-500mg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Uridine Monophosphate",
+        "doseInProduct": "250mg",
+        "clinicalDose": "250mg",
+        "adequatelyDosed": true
+      }
+    ],
+    "servingsPerContainer": 22,
+    "capsulesPerServing": 7,
+    "summary": "28 active ingredients -- the most comprehensive formula available to Australian buyers. Best for experienced Australian biohackers. Ships from the US to Australia. Note: Huperzine A may require Therapeutic Goods Administration (TGA) oversight if sold with therapeutic claims. At $139 USD/month it is the most expensive option in this review.",
+    "whatItIs": "Qualia Mind is a 28-ingredient nootropic stack developed by Neurohacker Collective, a San Diego-based company focused on systems biology and complex supplementation. It ships to Australia from the US and is designed for experienced supplement users. Imported as a food supplement in Australia -- Australian buyers should note that some ingredients (including Huperzine A) may attract TGA scrutiny if accompanied by therapeutic claims.",
+    "howItWorks": "Qualia Mind covers more cognitive pathways than any competitor: cholinergics (Alpha-GPC, Huperzine A, Citicoline), adaptogens (Rhodiola, Bacopa), neuro-nutrients (DHA, PS), amino acid precursors (Tyrosine, Taurine, Theanine), B-vitamin complex, and novel ingredients (Uridine Monophosphate, Pyrroloquinoline Quinone). The theory is synergistic optimisation across all cognitive systems simultaneously.",
+    "whatToExpect": "Acute effects day one: sustained attention, moderate energy boost from caffeine (90mg per serving). Within 2-4 weeks: improved mental endurance and working memory. At 8-12 weeks: cumulative adaptogen and memory benefits. Ships from the US to Australia -- delivery typically 10-18 business days. 7 capsules per serving is a significant daily pill burden. Start with the recommended 7-day loading cycle (2 days off per week) to assess tolerance.",
+    "pros": [
+      "28 active ingredients",
+      "100-day money-back",
+      "Published research program",
+      "Ships to Australia",
+      "Respected in biohacking community"
+    ],
+    "cons": [
+      "$139/month USD",
+      "7 capsules per serving",
+      "Contains caffeine",
+      "Therapeutic Goods Administration (TGA) listing required for therapeutic claims -- imported as food supplement"
+    ],
+    "editorChoice": false,
+    "market": "both",
+    "updatedAt": "2026-05-28"
+  },
+  {
+    "id": "naturebell-ginkgo-ginseng",
+    "name": "NatureBell Ginkgo + Ginseng",
+    "brand": "NatureBell",
+    "slug": "naturebell-ginkgo-ginseng-review",
+    "bestFor": [
+      "Budget",
+      "Memory",
+      "TCM-inspired formula"
+    ],
+    "score": 6.8,
+    "scoreBreakdown": {
+      "ingredients": 7,
+      "dosing": 7,
+      "transparency": 6,
+      "value": 9,
+      "trust": 6
+    },
+    "priceMonthlyUSD": 5,
+    "priceMonthlyAUD": 8,
+    "pricingModel": "one-time",
+    "moneyBackDays": 60,
+    "caffeineFree": true,
+    "euStorefront": false,
+    "euCompliance": "verify",
+    "trustpilotScore": null,
+    "trustpilotCount": null,
+    "affiliateUrl": "https://www.amazon.com.au/Naturebell-Capsules-GinkoVida-Strength-Supplement/dp/B09F4ML3FF",
+    "affiliateNetwork": "Amazon Associates AU",
+    "commissionRate": "4%",
+    "cookieDays": 24,
+    "heroIngredients": [
+      "Ginkgo Biloba",
+      "Panax Ginseng"
+    ],
+    "ingredientDosages": [
+      {
+        "name": "Ginkgo Biloba Extract (50:1)",
+        "doseInProduct": "120mg",
+        "clinicalDose": "120mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Panax Ginseng Extract",
+        "doseInProduct": "10mg",
+        "clinicalDose": "200mg",
+        "adequatelyDosed": false
+      }
+    ],
+    "servingsPerContainer": 150,
+    "capsulesPerServing": 2,
+    "summary": "NatureBell Ginkgo + Ginseng is the most affordable nootropic in this review at approximately AUD $8/month for a 5-month supply (300 capsules). Chinese-manufactured with US branding, available on Amazon.com.au with Prime shipping across Australia. Ginkgo Biloba at clinical dose (120mg) paired with Panax Ginseng. Best as a budget entry point for Australian buyers.",
+    "whatItIs": "NatureBell is a US-registered supplement brand sourcing from Chinese manufacturers. Their Ginkgo + Ginseng formula delivers 120mg Ginkgo Biloba extract (50:1 concentration) at the full clinical dose, paired with Panax Ginseng. Available on Amazon.com.au with Prime shipping to all Australian states and territories. The 300-capsule bottle provides a 5-month supply at approximately AUD $40. Not Therapeutic Goods Administration (TGA) registered — imported as a personal-use supplement via Amazon.",
+    "howItWorks": "Ginkgo Biloba improves cerebral blood flow via vasodilation and platelet-activating factor (PAF) inhibition. Panax Ginseng contains ginsenosides that modulate NMDA receptor activity and support dopaminergic signalling. The Ginkgo-Ginseng pairing is one of the oldest TCM cognitive combinations.",
+    "whatToExpect": "Weeks 1-2: mild improvement in mental alertness from Ginkgo blood flow effects. Weeks 4-8: cumulative memory benefits. Ginseng dose is well below clinical levels (10mg vs 200mg). Best used as a stack addition alongside a premium nootropic.",
+    "pros": [
+      "Cheapest nootropic in this review (~AUD $8/month)",
+      "Ginkgo at full clinical dose (120mg)",
+      "300 capsules — 5-month supply",
+      "Amazon.com.au Prime shipping",
+      "60-day money-back guarantee"
+    ],
+    "cons": [
+      "Ginseng severely underdosed",
+      "Not TGA-registered",
+      "No third-party CoA published",
+      "Two-ingredient formula only"
+    ],
+    "editorChoice": false,
+    "market": "both",
+    "updatedAt": "2026-05-28"
+  },
+  {
+    "id": "blackmores-brain-active",
+    "name": "Blackmores Brain Active",
+    "brand": "Blackmores (Sydney, AU)",
+    "slug": "blackmores-brain-active-review",
+    "bestFor": [
+      "TGA-listed pharmacy availability",
+      "Australian-domiciled trust",
+      "Pharmacy distribution"
+    ],
+    "score": 7.8,
+    "scoreBreakdown": {
+      "ingredients": 7,
+      "dosing": 7,
+      "transparency": 8,
+      "value": 8,
+      "trust": 9
+    },
+    "priceMonthlyAUD": 35,
+    "priceMonthlyUSD": 23,
+    "pricingModel": "one-time",
+    "moneyBackDays": 30,
+    "caffeineFree": true,
+    "euStorefront": false,
+    "euCompliance": "verify",
+    "trustpilotScore": 4.1,
+    "trustpilotCount": 480,
+    "affiliateUrl": "https://www.blackmores.com.au/",
+    "affiliateNetwork": "Chemist Warehouse / Priceline (retail-distributed)",
+    "commissionRate": "Retail (no direct DTC affiliate)",
+    "cookieDays": 0,
+    "heroIngredients": [
+      "Bacopa Monnieri",
+      "Ginkgo Biloba",
+      "Vitamin B5",
+      "Vitamin B12",
+      "Iodine"
+    ],
+    "ingredientDosages": [
+      {
+        "name": "Bacopa Monnieri (Brahmi extract, 50% bacosides)",
+        "doseInProduct": "300mg",
+        "clinicalDose": "300mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Ginkgo Biloba (24% flavonoglycosides)",
+        "doseInProduct": "40mg",
+        "clinicalDose": "120-240mg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Pantothenic acid (B5)",
+        "doseInProduct": "5mg",
+        "clinicalDose": "5-10mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Vitamin B12 (cyanocobalamin)",
+        "doseInProduct": "5µg",
+        "clinicalDose": "2.4-100µg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Iodine",
+        "doseInProduct": "75µg",
+        "clinicalDose": "150µg (RDI)",
+        "adequatelyDosed": false
+      }
+    ],
+    "servingsPerContainer": 60,
+    "capsulesPerServing": 1,
+    "summary": "Blackmores Brain Active is the canonical pharmacy-shelf cognitive supplement in Australia. AUST L Listed Medicine, distributed nationwide through Chemist Warehouse, Priceline, Amcal, and Blooms. Bacopa Monnieri at clinical dose (300mg) is the ingredient that earns its trust score. Founded 1932 — the longest-tenured Australian supplement brand.",
+    "whatItIs": "Blackmores is Australia's largest naturopathic supplement company, founded in 1932 by chiropractor Maurice Blackmore. Brain Active is their flagship cognitive product — Therapeutic Goods Administration (TGA) listed (AUST L) which means pre-approved indications and ingredients within the Australian Listed Medicines framework. Sold in every major Australian pharmacy chain at retail; no DTC subscription model. Daily 1-capsule format reduces friction.",
+    "howItWorks": "Bacopa Monnieri at 300mg (clinical dose, standardized to 50% bacosides) supports memory consolidation over 8-12 weeks of consistent use — the most-replicated memory ingredient in nootropics. Ginkgo Biloba supports cerebral blood flow but at 40mg is well below the 120mg clinical anchor. B5 and B12 act as cofactors for energy metabolism. The Bacopa is the workhorse; the rest are supporting cast.",
+    "whatToExpect": "Acute: nothing dramatic. This is a long-onset memory-focused supplement. Weeks 4-8: subtle memory and attention improvements from Bacopa accumulation. Weeks 12+: cumulative effect peaks. Best used as a daily long-term cognitive supplement rather than an acute focus boost. Caffeine-free — no overlap with morning coffee.",
+    "pros": [
+      "TGA-listed (AUST L) — Australian Listed Medicines compliant",
+      "Bacopa at clinical dose (300mg)",
+      "1-capsule daily — minimal friction",
+      "Available at every major Australian pharmacy (Chemist Warehouse, Priceline, Amcal)",
+      "Caffeine-free — no stimulant overlap",
+      "Lowest per-month price in the AU coverage (~AUD $35/mo)",
+      "Founded 1932 — strongest brand-trust footprint in Australian supplements"
+    ],
+    "cons": [
+      "Ginkgo dose (40mg) well below clinical anchor (120-240mg)",
+      "Iodine dose at 50% RDI — odd inclusion in a cognitive supplement",
+      "No L-theanine, no citicoline, no Lion's Mane",
+      "No DTC affiliate — must buy at retail (no online comparison-pricing leverage)",
+      "Slow-onset (8+ weeks) — not for acute focus"
+    ],
+    "editorChoice": false,
+    "market": "au",
+    "updatedAt": "2026-05-28",
+    "austl": "246877"
+  }
+]
