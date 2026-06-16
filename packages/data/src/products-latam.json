@@ -140,7 +140,8 @@
     "heroIngredients": [
       "Lutemax 2020",
       "Bacopa Monnieri",
-      "Alpha-GPC",
+      "Panax Ginseng",
+      "VitaCholine",
       "Huperzine A",
       "L-Theanine"
     ],
@@ -209,7 +210,7 @@
   {
     "id": "qualia-mind",
     "name": "Qualia Mind",
-    "brand": "Neurohacker Collective",
+    "brand": "Qualia Life Sciences",
     "slug": "qualia-mind-review",
     "bestFor": [
       "Power users",
@@ -289,7 +290,7 @@
       }
     ],
     "servingsPerContainer": 22,
-    "capsulesPerServing": 7,
+    "capsulesPerServing": 6,
     "summary": "28 active ingredients — the most comprehensive formula in this review and the premium-tier option for experienced LATAM biohackers. Priced at $139 USD/month with no local currency option. Ships from the US, typically 10–18 days to LATAM. Brazilian buyers should expect a higher probability of ANVISA customs holds given the large capsule count per shipment; Argentine buyers should confirm their bank will process USD charges before ordering. Best for experienced users comfortable navigating import logistics.",
     "whatItIs": "Qualia Mind is a 28-ingredient nootropic stack developed by Neurohacker Collective, a San Diego-based company focused on systems biology and complex supplementation. It is the most ingredient-rich formula in this review and targets experienced supplement users who want a comprehensive single-product cognitive stack. For LATAM buyers, it is sold exclusively in USD via a US storefront and ships internationally as a personal-use supplement. Qualia Mind is not registered with the Comisión Federal para la Protección contra Riesgos Sanitarios (COFEPRIS) in Mexico, the Agência Nacional de Vigilância Sanitária (ANVISA) in Brazil, ANMAT (Argentina), the Instituto Nacional de Vigilancia de Medicamentos y Alimentos (INVIMA) in Colombia, ISP (Chile), or DIGEMID (Peru) and enters LATAM markets under personal-import allowances. The high capsule count (7 per serving, 22 servings per container) may attract closer customs scrutiny in Brazil and Argentina.",
     "howItWorks": "Qualia Mind covers more cognitive pathways than any competitor: cholinergics (Alpha-GPC, Huperzine A, Citicoline), adaptogens (Rhodiola, Bacopa), neuro-nutrients (DHA, PS), amino acid precursors (Tyrosine, Taurine, Theanine), B-vitamin complex, and several novel ingredients (Uridine Monophosphate, Pyrroloquinoline Quinone). The theory is synergistic optimisation across all cognitive systems simultaneously. Neurohacker publishes a proprietary research program supporting the formula.",
