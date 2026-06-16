@@ -138,7 +138,8 @@
     "heroIngredients": [
       "Lutemax 2020",
       "Bacopa Monnieri",
-      "Alpha-GPC",
+      "Panax Ginseng",
+      "VitaCholine",
       "Huperzine A",
       "L-Theanine"
     ],
@@ -206,7 +207,7 @@
   {
     "id": "qualia-mind",
     "name": "Qualia Mind",
-    "brand": "Neurohacker Collective",
+    "brand": "Qualia Life Sciences",
     "slug": "qualia-mind-review",
     "bestFor": [
       "Power users",
@@ -286,7 +287,7 @@
       }
     ],
     "servingsPerContainer": 22,
-    "capsulesPerServing": 7,
+    "capsulesPerServing": 6,
     "summary": "28 active ingredients -- the most comprehensive formula in this review and the highest-priced at $139 USD/month. Ships from the US; expect 7-14 days to UAE and Saudi Arabia, typically routed through Dubai free-zone distribution. Contains caffeine (90mg per serving) -- not ideal for GCC buyers who avoid stimulants; a caffeine-free version is available. Verify import status with the Saudi Food and Drug Authority (SFDA) in Saudi Arabia, the Ministry of Health and Prevention (MOHAP) in the UAE, or the relevant MOH before ordering, as a 28-ingredient stack may attract additional customs scrutiny.",
     "whatItIs": "Qualia Mind is a 28-ingredient nootropic stack developed by Neurohacker Collective, a San Diego-based company focused on systems biology and complex supplementation. It is the most ingredient-rich formula in this review and is designed for experienced supplement users. For GCC buyers: the default formula contains caffeine (90mg), which may not suit all consumers; Neurohacker offers a caffeine-free variant. The product is not registered with the Saudi Food and Drug Authority (SFDA), the Ministry of Health and Prevention (MOHAP), or any GCC-state MOH and enters the region as a personal-use dietary supplement shipped from the US. At $139 USD/month it sits at the premium end of the market.",
     "howItWorks": "Qualia Mind covers more cognitive pathways than any competitor: cholinergics (Alpha-GPC, Huperzine A, Citicoline), adaptogens (Rhodiola, Bacopa), neuro-nutrients (DHA, PS), amino acid precursors (Tyrosine, Taurine, Theanine), B-vitamin complex, and several novel ingredients (Uridine Monophosphate, Pyrroloquinoline Quinone). The theory is synergistic optimisation across all cognitive systems simultaneously. Neurohacker publishes a proprietary research program supporting the formula.",
