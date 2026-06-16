@@ -205,7 +205,7 @@
   {
     "id": "qualia-mind",
     "name": "Qualia Mind",
-    "brand": "Neurohacker Collective",
+    "brand": "Qualia Life Sciences",
     "slug": "qualia-mind-review",
     "bestFor": [
       "Power users",
@@ -220,7 +220,7 @@
       "value": 6,
       "trust": 7
     },
-    "priceMonthlyUSD": 139,
+    "priceMonthlyUSD": 159,
     "pricingModel": "subscription",
     "moneyBackDays": 100,
     "caffeineFree": false,
@@ -285,7 +285,7 @@
       }
     ],
     "servingsPerContainer": 22,
-    "capsulesPerServing": 7,
+    "capsulesPerServing": 6,
     "summary": "28 active ingredients -- the most comprehensive formula. Best for experienced biohackers. Not recommended for EU buyers (no EU storefront).",
     "whatItIs": "Qualia Mind is a 28-ingredient nootropic stack developed by Neurohacker Collective, a San Diego-based company with a focus on systems biology and complex supplementation. It is the most ingredient-rich formula in this review and is designed for experienced supplement users who want a comprehensive single-product cognitive stack.",
     "howItWorks": "Qualia Mind covers more cognitive pathways than any competitor: cholinergics (Alpha-GPC, Huperzine A, Citicoline), adaptogens (Rhodiola, Bacopa), neuro-nutrients (DHA, PS), amino acid precursors (Tyrosine, Taurine, Theanine), B-vitamin complex, and several novel ingredients (Uridine Monophosphate, Pyrroloquinoline Quinone). The theory is synergistic optimisation across all cognitive systems simultaneously. Neurohacker publishes a proprietary research program supporting the formula.",
@@ -422,7 +422,7 @@
       "value": 7,
       "trust": 7
     },
-    "priceMonthlyUSD": 79,
+    "priceMonthlyUSD": 119,
     "pricingModel": "subscription",
     "moneyBackDays": 30,
     "caffeineFree": false,
