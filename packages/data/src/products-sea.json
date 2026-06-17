@@ -104,7 +104,8 @@
     "editorChoice": true,
     "market": "both",
     "updatedAt": "2026-05-28",
-    "halalCertified": false
+    "halalCertified": false,
+    "regulatoryNote": "Ships to SEA; BPOM registration and mandatory halal certification required for Indonesia sales by October 17, 2026. HSA Singapore: post-market framework — no pre-approval required."
   },
   {
     "id": "noocube",
@@ -644,7 +645,8 @@
     "editorChoice": false,
     "market": "both",
     "updatedAt": "2026-05-28",
-    "halalCertified": false
+    "halalCertified": false,
+    "regulatoryNote": "Available in Vietnamese pharmacies and SEA e-commerce; foreign brands selling in Indonesia must obtain BPOM registration and halal certification by October 17, 2026."
   },
   {
     "id": "brand-brain-fuel-sg",
@@ -809,7 +811,12 @@
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-05-28"
+    "updatedAt": "2026-05-28",
+    "distributionChannels": [
+      "euyansang.com.sg",
+      "amazon.sg",
+      "KrisShop (Singapore Airlines)"
+    ]
   },
   {
     "id": "naturebell-ginkgo-ginseng",
