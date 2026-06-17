@@ -889,5 +889,51 @@
     "market": "both",
     "updatedAt": "2026-05-28",
     "halalCertified": false
+  },
+  {
+    "id": "memo-plus-gold",
+    "name": "Memo Plus Gold",
+    "brand": "Megalab Pharma",
+    "slug": "memo-plus-gold-review",
+    "category": "single-ingredient",
+    "description": "Philippines-made Bacopa Monnieri extract (125mg per capsule) — the best-selling memory supplement in the Philippines, available OTC without prescription and ranked #1 in 2026 Philippine memory-vitamin roundups.",
+    "url": "https://mypharma.ph/products/memo-plus-gold-capsule",
+    "keyFeatures": [
+      "Bacopa Monnieri 125mg (standardised extract)",
+      "OTC — no prescription required",
+      "Manufactured in the Philippines",
+      "Widely available in Philippine pharmacies and online"
+    ],
+    "targetMarkets": [
+      "PH"
+    ],
+    "priceRange": "budget",
+    "priceMonthlyUSD": 8,
+    "heroIngredients": [
+      "Bacopa Monnieri"
+    ],
+    "caffeineFree": true,
+    "regulatoryStatus": {
+      "PH": "FDA-Philippines registered",
+      "ID": "not verified",
+      "SG": "not verified"
+    },
+    "bestFor": [
+      "Memory",
+      "Learning",
+      "Processing speed"
+    ],
+    "availableIn": [
+      "PH"
+    ],
+    "affiliateUrl": null,
+    "affiliateNetwork": null,
+    "commissionRate": null,
+    "cookieDays": null,
+    "moneyBackDays": null,
+    "trustpilotScore": null,
+    "trustpilotCount": null,
+    "score": null,
+    "notes": "Local SEA entrant — added to address content gap in Philippines buyer coverage. Needs hands-on review before scoring."
   }
 ]
