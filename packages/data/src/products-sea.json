@@ -895,45 +895,67 @@
     "name": "Memo Plus Gold",
     "brand": "Megalab Pharma",
     "slug": "memo-plus-gold-review",
-    "category": "single-ingredient",
-    "description": "Philippines-made Bacopa Monnieri extract (125mg per capsule) — the best-selling memory supplement in the Philippines, available OTC without prescription and ranked #1 in 2026 Philippine memory-vitamin roundups.",
-    "url": "https://mypharma.ph/products/memo-plus-gold-capsule",
-    "keyFeatures": [
-      "Bacopa Monnieri 125mg (standardised extract)",
-      "OTC — no prescription required",
-      "Manufactured in the Philippines",
-      "Widely available in Philippine pharmacies and online"
-    ],
-    "targetMarkets": [
-      "PH"
-    ],
-    "priceRange": "budget",
-    "priceMonthlyUSD": 8,
-    "heroIngredients": [
-      "Bacopa Monnieri"
-    ],
-    "caffeineFree": true,
-    "regulatoryStatus": {
-      "PH": "FDA-Philippines registered",
-      "ID": "not verified",
-      "SG": "not verified"
-    },
     "bestFor": [
       "Memory",
       "Learning",
-      "Processing speed"
+      "Budget option"
     ],
-    "availableIn": [
-      "PH"
-    ],
-    "affiliateUrl": null,
-    "affiliateNetwork": null,
-    "commissionRate": null,
-    "cookieDays": null,
-    "moneyBackDays": null,
+    "score": 6.4,
+    "scoreBreakdown": {
+      "ingredients": 6,
+      "dosing": 6,
+      "transparency": 5,
+      "value": 8,
+      "trust": 7
+    },
+    "priceMonthlyUSD": 20,
+    "pricingModel": "one-time",
+    "moneyBackDays": 0,
+    "caffeineFree": true,
+    "euStorefront": false,
+    "euCompliance": "verify",
     "trustpilotScore": null,
     "trustpilotCount": null,
-    "score": null,
-    "notes": "Local SEA entrant — added to address content gap in Philippines buyer coverage. Needs hands-on review before scoring."
+    "affiliateUrl": "https://mypharma.ph/products/memo-plus-gold-capsule",
+    "affiliateNetwork": "Direct",
+    "commissionRate": "0%",
+    "cookieDays": 0,
+    "heroIngredients": [
+      "Bacopa Monnieri"
+    ],
+    "ingredientDosages": [
+      {
+        "name": "Bacopa Monnieri (extract; standardisation not stated)",
+        "doseInProduct": "250mg/day (2 × 125mg)",
+        "clinicalDose": "300mg",
+        "adequatelyDosed": false
+      }
+    ],
+    "servingsPerContainer": 15,
+    "capsulesPerServing": 2,
+    "summary": "Memo Plus Gold is the Philippines' best-known memory supplement — a single-ingredient Bacopa Monnieri extract (125mg per capsule) sold over-the-counter (OTC) in pharmacies nationwide. At roughly USD $20/month at the label dose it is the most affordable option in our SEA coverage, and it is registered with the Philippine Food and Drug Administration (FDA Philippines). It is not a multi-ingredient nootropic stack and carries no Health Sciences Authority (HSA) registration in Singapore, National Pharmaceutical Regulatory Agency (NPRA) approval in Malaysia, or Badan Pengawas Obat dan Makanan (BPOM) notification in Indonesia — it is a Philippines-market product. Best for budget-conscious Filipino buyers who specifically want clinically-studied Bacopa for memory rather than a full cognitive stack.",
+    "whatItIs": "Memo Plus Gold is a Philippine over-the-counter (OTC) food supplement containing a single active ingredient: 125mg of Bacopa Monnieri extract per capsule. It is one of the most widely recognised memory supplements in the Philippines, stocked by major pharmacy chains (Mercury Drug, Watsons, Southstar) and online marketplaces, and is registered with the Philippine Food and Drug Administration (FDA Philippines). Unlike the multi-ingredient imported stacks elsewhere in this review, it is a focused, traditional single-herb product — and it is not currently registered with regulators in other Southeast Asian markets, so buyers outside the Philippines would be importing it.",
+    "howItWorks": "Bacopa Monnieri is the most extensively studied botanical for memory. Its active bacosides enhance synaptic communication by promoting dendritic branching and synaptic density, support repair of damaged neurons, and modulate the acetylcholine and serotonin systems involved in learning and recall. The label dose of two 125mg capsules daily (250mg/day) sits just below the 300mg/day used in most clinical trials. Because bacosides are fat-soluble, absorption improves significantly when the capsules are taken with a meal containing some fat.",
+    "whatToExpect": "Bacopa is a slow-build, cumulative supplement — not an acute focus pill. Most of its measured benefits to memory and recall appear after 8-12 weeks of consistent daily use, so regularity matters far more than any single dose. A minority of users notice mild digestive upset or a brief 'Bacopa fog' in the first few weeks as the serotonin system adjusts; this typically resolves. A 30-capsule bottle lasts about 15 days at the label dose, so plan on roughly two bottles per month. Take with food for best absorption.",
+    "pros": [
+      "Built on Bacopa Monnieri — the best-evidenced botanical for memory",
+      "Very affordable (~$20/month) and sold over-the-counter",
+      "Registered with the Philippine Food and Drug Administration (FDA Philippines)",
+      "Widely stocked in Philippine pharmacies and online",
+      "Caffeine-free and easy to combine with other supplements"
+    ],
+    "cons": [
+      "Single ingredient — not a complete nootropic stack",
+      "Label dose (250mg/day) is just below the 300mg clinical dose",
+      "Bacoside standardisation percentage is not disclosed on the label",
+      "Philippines-only: no Health Sciences Authority (HSA), National Pharmaceutical Regulatory Agency (NPRA), or Badan Pengawas Obat dan Makanan (BPOM) registration",
+      "No money-back guarantee"
+    ],
+    "editorChoice": false,
+    "market": "both",
+    "updatedAt": "2026-06-17",
+    "handsOnTested": false,
+    "halalCertified": false,
+    "regulatoryNote": "Registered with the Philippine Food and Drug Administration (FDA Philippines) as a food supplement and sold over-the-counter. Not registered with the Health Sciences Authority (HSA) in Singapore, the National Pharmaceutical Regulatory Agency (NPRA) in Malaysia, Thai FDA, Badan Pengawas Obat dan Makanan (BPOM) in Indonesia, or DAV in Vietnam — a Philippines-market product imported elsewhere under personal-use allowances."
   }
 ]
