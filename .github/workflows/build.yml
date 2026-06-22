@@ -24,7 +24,7 @@ jobs:
     name: packages/ui typecheck
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v6
         with:
           node-version: '20'
@@ -36,7 +36,7 @@ jobs:
     name: packages/ui unit tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v6
         with:
           node-version: '20'
@@ -48,7 +48,7 @@ jobs:
     name: Playwright multi-region smoke
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v6
         with:
           node-version: '20'
@@ -99,7 +99,7 @@ jobs:
       matrix:
         app: [us, eu, ca, au, jp, latam, gcc, sea]
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v6
         with:
           node-version: '20'
