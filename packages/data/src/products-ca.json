@@ -207,7 +207,13 @@
     "updatedAt": "2026-05-28",
     "npnStatus": {
       "status": "pip"
-    }
+    },
+    "pricing": {
+      "msrp_usd": 59.99
+    },
+    "notes": [
+      "Bulk-purchase pricing changed June 2026: 5-month supply $194.99 (was 6-month for $180). Per-bottle cost increased ~8% on bundles."
+    ]
   },
   {
     "id": "performance-lab-mind",
@@ -274,7 +280,7 @@
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 2,
-    "summary": "A minimalist, ultra-clean nootropic formula using premium patented ingredients. Ships to Canada from the UK. Ideal for Canadian buyers who prefer a simple, transparent supplement over large multi-ingredient stacks.",
+    "summary": "A minimalist, ultra-clean nootropic formula using premium patented ingredients. Ships to Canada from the UK. Imported as a food supplement. Ideal for Canadian buyers who prefer a simple, transparent supplement over large multi-ingredient stacks.",
     "whatItIs": "Performance Lab Mind is a streamlined 4-ingredient nootropic by Performance Lab, a UK-based supplement company. It ships directly to Canada and uses only NutriGenesis and licensed raw materials with full label transparency. Health Canada classifies imported natural health products like this as food supplements.",
     "howItWorks": "Citicoline (Cognizin) boosts brain cell membrane synthesis and acetylcholine production for focus and memory. Phosphatidylserine (Sharp-PS Green) maintains neuronal membrane fluidity and supports cortisol regulation under stress. L-Tyrosine replenishes catecholamine neurotransmitters depleted by cognitive effort. Maritime Pine Bark provides antioxidants that support cerebral blood flow.",
     "whatToExpect": "Day one: mild cognitive sharpness and sustained attention. Within 2-4 weeks: improved stress resilience and working memory. At 8 weeks: measurable reduction in mental fatigue during extended cognitive tasks. Ships from the UK to Canada -- delivery approximately 10-14 business days. Only 2 capsules per serving -- well suited for Canadians looking for a low pill-burden daily stack.",
