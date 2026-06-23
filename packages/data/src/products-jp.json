@@ -189,7 +189,10 @@
     "updatedAt": "2026-05-28",
     "ffcStatus": {
       "notified": false
-    }
+    },
+    "notes": [
+      "Bulk-purchase pricing changed June 2026: 5-month supply $194.99 USD (was 6-month for $180). JP buyers purchasing direct at ~¥30,000 for 5 months vs prior ~¥27,700 for 6 months."
+    ]
   },
   {
     "id": "performance-lab-mind",
