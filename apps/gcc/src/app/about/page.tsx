@@ -9,10 +9,10 @@ import { SITE_URL } from '@/lib/region';
 export const metadata: Metadata = {
   title: 'About The Nootropic Lab GCC',
   description:
-    'The Nootropic Lab GCC is an independent cognitive-supplement comparison site for buyers in Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, and Oman. Operated by . Evidence-graded reviews, clinical dosing audits, transparent affiliate disclosure.',
+    'The Nootropic Lab GCC is an independent cognitive-supplement comparison site for buyers in Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, and Oman. Evidence-graded reviews, clinical dosing audits, transparent affiliate disclosure.',
   alternates: buildAlternates({ regionCode: 'gcc', path: '/about/' }),
-  openGraph: buildOpenGraph({ regionCode: 'gcc', path: '/about/', title: 'About The Nootropic Lab GCC', description: 'The Nootropic Lab GCC is an independent cognitive-supplement comparison site for buyers in Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, and Oman. Operated by . Evidence-graded reviews, clinical dosing audits, transparent affiliate disclosure.' }),
-  twitter: buildTwitter({ title: 'About The Nootropic Lab GCC', description: 'The Nootropic Lab GCC is an independent cognitive-supplement comparison site for buyers in Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, and Oman. Operated by . Evidence-graded reviews, clinical dosing audits, transparent affiliate disclosure.' }),
+  openGraph: buildOpenGraph({ regionCode: 'gcc', path: '/about/', title: 'About The Nootropic Lab GCC', description: 'The Nootropic Lab GCC is an independent cognitive-supplement comparison site for buyers in Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, and Oman. Evidence-graded reviews, clinical dosing audits, transparent affiliate disclosure.' }),
+  twitter: buildTwitter({ title: 'About The Nootropic Lab GCC', description: 'The Nootropic Lab GCC is an independent cognitive-supplement comparison site for buyers in Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, and Oman. Evidence-graded reviews, clinical dosing audits, transparent affiliate disclosure.' }),
 };
 
 const aboutSchema = {
