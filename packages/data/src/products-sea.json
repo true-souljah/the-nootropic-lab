@@ -105,7 +105,10 @@
     "market": "both",
     "updatedAt": "2026-05-28",
     "halalCertified": false,
-    "regulatoryNote": "Ships to SEA; BPOM registration and mandatory halal certification required for Indonesia sales by October 17, 2026. HSA Singapore: post-market framework — no pre-approval required."
+    "regulatoryNote": "Ships to SEA; BPOM registration and mandatory halal certification required for Indonesia sales by October 17, 2026. HSA Singapore: post-market framework — no pre-approval required.",
+    "key_features": [
+      "BPJPH/BPOM coordination meeting June 2026 confirmed October 17, 2026 mandatory halal deadline — products without certification face sales prohibition and import blockage at Indonesian customs"
+    ]
   },
   {
     "id": "noocube",
@@ -646,7 +649,10 @@
     "market": "both",
     "updatedAt": "2026-05-28",
     "halalCertified": false,
-    "regulatoryNote": "Available in Vietnamese pharmacies and SEA e-commerce; foreign brands selling in Indonesia must obtain BPOM registration and halal certification by October 17, 2026."
+    "regulatoryNote": "Available in Vietnamese pharmacies and SEA e-commerce; foreign brands selling in Indonesia must obtain BPOM registration and halal certification by October 17, 2026.",
+    "key_features": [
+      "BPJPH/BPOM/Kemenkes coordination meeting June 2026 confirmed halal compliance now integrated directly into health and safety registration — October 17, 2026 deadline carries customs import-blockage risk for non-certified brands"
+    ]
   },
   {
     "id": "brand-brain-fuel-sg",
@@ -957,5 +963,126 @@
     "handsOnTested": false,
     "halalCertified": false,
     "regulatoryNote": "Registered with the Philippine Food and Drug Administration (FDA Philippines) as a food supplement and sold over-the-counter. Not registered with the Health Sciences Authority (HSA) in Singapore, the National Pharmaceutical Regulatory Agency (NPRA) in Malaysia, Thai FDA, Badan Pengawas Obat dan Makanan (BPOM) in Indonesia, or DAV in Vietnam — a Philippines-market product imported elsewhere under personal-use allowances."
+  },
+  {
+    "affiliateNetwork": "",
+    "affiliateUrl": "",
+    "affiliate_program": {
+      "commission": null,
+      "cookie_days": null,
+      "network": "Marketplace-only via Shopee/Lazada/TikTok Shop"
+    },
+    "appStoreScore": {
+      "ios": null,
+      "android": null
+    },
+    "availableIn": [
+      "PH"
+    ],
+    "bestFor": [
+      "Focus",
+      "Cognitive performance",
+      "Memory"
+    ],
+    "brand": "Supershrooms",
+    "caffeineFree": false,
+    "capsulesPerServing": null,
+    "category": "mushroom-stack",
+    "commissionRate": "",
+    "cons": [],
+    "cookieDays": null,
+    "description": "Philippines-based mushroom supplement brand self-described as the #1 Mushroom Supplement Brand in the Philippines, offering a GMP + ISO certified 8-ingredient Focus Nootropic (Lion's Mane, Cordyceps, Rhodiola Rosea, Bacopa, Gotu Kola, Ginkgo Biloba, Cacao, L-Theanine) and Mind Master product distributed nationwide on Shopee, Lazada, and TikTok Shop.",
+    "differentiator": "Local Philippines-first mushroom nootropic brand with GMP+ISO certification; multi-ingredient approach combining adaptogens, mushrooms, and amino acids targeted at the local Filipino market at lower price points than imported stacks; strong TikTok Shop and marketplace presence",
+    "distributionChannels": [],
+    "distributionChannelsSea": [
+      "Shopee PH",
+      "Lazada PH",
+      "TikTok Shop PH",
+      "supershrooms.ph"
+    ],
+    "editorChoice": false,
+    "euCompliance": "",
+    "euStorefront": false,
+    "first_seen": "2026-06-25",
+    "founded": null,
+    "halalCertified": false,
+    "handsOnTested": false,
+    "heroIngredients": [
+      "Lion's Mane",
+      "Cordyceps",
+      "Rhodiola Rosea",
+      "Bacopa Monnieri",
+      "L-Theanine"
+    ],
+    "howItWorks": "",
+    "hq": "Philippines",
+    "id": "supershrooms-focus-nootropic",
+    "importPathway": "Domestic Philippines brand",
+    "ingredientDosages": [],
+    "keyFeatures": [
+      "8-ingredient Focus Nootropic formula: Lion's Mane, Cordyceps, Rhodiola Rosea, Bacopa, Gotu Kola, Ginkgo Biloba, Cacao, L-Theanine",
+      "GMP + ISO certified manufacturing",
+      "Self-described #1 Mushroom Supplement Brand in the Philippines",
+      "Available nationwide on Shopee, Lazada, and TikTok Shop (free shipping over PHP 1,000)",
+      "Mind Master companion product in lineup",
+      "Active presence in Philippine nootropic SERP results and TikTok Shop trending pages"
+    ],
+    "key_features": [],
+    "market": "",
+    "markets_served": [
+      "PH"
+    ],
+    "moneyBackDays": null,
+    "name": "Supershrooms Focus Nootropic",
+    "notes": "New Philippines-local mushroom nootropic entrant added to close content gap for PH buyers comparing local brands vs. imported nootropics. FDA PH registration status, pricing, and halal certification require hands-on verification before scoring.",
+    "priceMonthlyEUR": null,
+    "priceMonthlyUSD": null,
+    "priceRange": null,
+    "pricing": {
+      "price_per_serving": null,
+      "subscription_discount": null,
+      "free_trial": false,
+      "tiers": []
+    },
+    "pricingModel": "",
+    "pros": [],
+    "regulatoryNote": "",
+    "regulatoryStatus": {
+      "PH": "FDA Philippines notification status not verified",
+      "ID": "not verified",
+      "SG": "not verified",
+      "MY": "not verified",
+      "TH": "not verified",
+      "VN": "not verified"
+    },
+    "score": 5.5,
+    "scoreBreakdown": {
+      "ingredients": 6,
+      "dosing": null,
+      "transparency": 4,
+      "value": null,
+      "trust": 4
+    },
+    "servingsPerContainer": null,
+    "slug": "supershrooms-focus-nootropic-review",
+    "source_url": "https://supershrooms.ph/products/focus-nootropic",
+    "status": "new",
+    "summary": "",
+    "targetMarkets": [
+      "PH"
+    ],
+    "trustpilotCount": null,
+    "trustpilotScore": null,
+    "updatedAt": "",
+    "url": "https://supershrooms.ph/products/focus-nootropic",
+    "weaknesses": [
+      "Unknown pricing and dose transparency",
+      "FDA Philippines registration status unverified",
+      "Halal certification status unknown",
+      "Very limited SEA coverage outside Philippines",
+      "No independent clinical evidence cited"
+    ],
+    "whatItIs": "",
+    "whatToExpect": ""
   }
 ]
