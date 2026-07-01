@@ -112,6 +112,26 @@ export interface Product {
    * render no chip rather than guess.
    */
   halalCertified?: boolean;
+  /**
+   * Optional per-product SEO override for the review page `<title>` (the
+   * text before the layout's `%s | The Nootropic Lab …` brand suffix).
+   * When set, the region's `[slug]` `generateMetadata` prefers this over
+   * the default `"{name} Review {year} — Independent Score & Ingredient
+   * Audit"` template. Use ONLY to fix a specific page's CTR (page-1,
+   * zero-click) — do not set it network-wide. Because each region app
+   * reads only its own `products-{region}.json`, setting this on a product
+   * in one region's data file cannot leak into any other region's page.
+   * Keep ≤ ~60 chars (the brand suffix is appended by the layout template).
+   */
+  seoTitle?: string;
+  /**
+   * Optional per-product SEO override for the review page meta description.
+   * Same gating semantics as `seoTitle` — preferred over the default
+   * `"Independent review of {name}. Score: {score}/10. …"` template only
+   * when set. Keep ≤ 155 chars. Ground every claim in on-page facts; never
+   * fabricate ratings.
+   */
+  seoDescription?: string;
 }
 
 
