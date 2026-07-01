@@ -21,8 +21,17 @@ export async function generateMetadata({
   const { slug } = await params;
   const product = productsSEA.find((p) => p.slug === slug);
   if (!product) return {};
-  const title = `${product.name} Review ${CURRENT_YEAR} — Independent Score & Ingredient Audit`;
-  const description = `Independent review of ${product.name}. Score: ${product.score}/10. Clinical dosing audit, pros and cons, and full affiliate disclosure.`;
+  // Per-product SEO override (seoTitle/seoDescription) wins when set —
+  // used to fix specific page-1, zero-click CTR pages. Falls back to the
+  // default template for every other product. Only affects SEA: this route
+  // reads productsSEA exclusively, so overrides here never touch sibling
+  // regional domains.
+  const title =
+    product.seoTitle ??
+    `${product.name} Review ${CURRENT_YEAR} — Independent Score & Ingredient Audit`;
+  const description =
+    product.seoDescription ??
+    `Independent review of ${product.name}. Score: ${product.score}/10. Clinical dosing audit, pros and cons, and full affiliate disclosure.`;
   return {
     title,
     description,
