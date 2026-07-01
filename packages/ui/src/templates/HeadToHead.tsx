@@ -404,7 +404,7 @@ export default function HeadToHead({
         <h2 className="text-[26px] font-bold tracking-[-0.02em] mt-11 mb-3">{s.clinicalDosingHeading}</h2>
         <p className="text-[14px] text-ds-muted mb-4 leading-[1.55]">{s.clinicalDosingIntro}</p>
         <Card padding={0}>
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto overscroll-x-contain">
             <table className="w-full text-[13.5px] border-collapse">
               <thead>
                 <tr className="bg-ds-card-sub text-left">

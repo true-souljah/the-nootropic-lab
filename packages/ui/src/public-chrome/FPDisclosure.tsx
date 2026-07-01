@@ -23,7 +23,7 @@ export function FPDisclosure({
   return (
     <div
       role="note"
-      className="bg-ds-card-sub border-b border-ds-border px-6 py-2 text-[11.5px] text-ds-muted flex justify-center items-center gap-[6px] flex-wrap"
+      className="bg-ds-card-sub border-b border-ds-border px-6 py-2 text-[14px] text-ds-muted flex justify-center items-center gap-[6px] flex-wrap"
     >
       <span className="text-ds-warn-ink font-semibold inline-flex items-center gap-[5px]">
         <span aria-hidden="true">●</span>

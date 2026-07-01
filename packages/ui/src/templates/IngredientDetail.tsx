@@ -232,7 +232,7 @@ export default function IngredientDetail({
                 Based on human clinical trials only. Animal and in-vitro data excluded.
               </p>
               <Card padding={0}>
-                <div className="overflow-x-auto">
+                <div className="overflow-x-auto overscroll-x-contain">
                   <table className="w-full text-[13.5px] border-collapse">
                     <thead>
                       <tr className="bg-ds-card-sub text-left">
