@@ -47,7 +47,8 @@ body {
   background: var(--gold-light);
   border-left: 4px solid var(--gold);
   padding: 0.75rem 1rem;
-  font-size: 0.8rem;
+  /* FTC affiliate disclosure is regulatory copy — keep it ≥14px on mobile. */
+  font-size: 0.875rem;
   color: #451a03;
   border-radius: 0 4px 4px 0;
 }
@@ -108,4 +109,17 @@ details > summary:focus-visible {
   outline: 2px solid var(--color-ds-focus-ring);
   outline-offset: 2px;
   border-radius: 4px;
+}
+
+/* iOS Safari zooms the viewport when a focused input's font-size is < 16px
+   (e.g. the SearchModal / subscription-cancellation inputs at text-sm=14px),
+   causing a jarring viewport shift. Force 16px on form controls at mobile
+   widths only — desktop sizing is untouched. !important beats the Tailwind
+   text-sm utility on the element. */
+@media (max-width: 640px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
 }

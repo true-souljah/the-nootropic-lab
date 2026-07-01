@@ -315,7 +315,7 @@ export default function CommandPalette({
             className="relative w-full bg-ds-card border border-ds-border rounded-[14px] overflow-hidden flex flex-col"
             style={{
               maxWidth: 640,
-              maxHeight: 'calc(100vh - 160px)',
+              maxHeight: 'calc(100dvh - 160px)',
               boxShadow: '0 24px 60px rgba(15,22,35,0.32)',
             }}
             onKeyDown={handleListKey}

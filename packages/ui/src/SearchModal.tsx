@@ -84,7 +84,7 @@ export default function SearchModal({ items }: Props) {
       {/* Mobile search button */}
       <button
         onClick={handleOpen}
-        className="md:hidden p-2 text-gray-500 hover:text-gray-700"
+        className="md:hidden p-2.5 text-gray-500 hover:text-gray-700"
         aria-label="Search site"
       >
         <svg width="18" height="18" viewBox="0 0 14 14" fill="none" aria-hidden="true">

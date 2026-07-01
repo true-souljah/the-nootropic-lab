@@ -72,7 +72,7 @@
 /* Buttons — ensure tap target ≥ 44px on mobile and proper focus ring */
 .klaro .cn-button,
 .klaro .cm-btn {
-  min-height: 36px;
+  min-height: 44px;
   font-weight: 600;
   letter-spacing: 0;
 }

@@ -95,7 +95,7 @@ export default function SiteHeader({ market, searchItems = [], strings }: { mark
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
+            className="md:hidden p-2.5 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
             onClick={() => setOpen(o => !o)}
             aria-label={open ? (t?.closeMenu || 'Close menu') : (t?.openMenu || 'Open menu')}
             aria-expanded={open}

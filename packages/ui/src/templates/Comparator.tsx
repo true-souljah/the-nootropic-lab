@@ -268,7 +268,7 @@ export default function Comparator({
           </div>
 
           {/* Table */}
-          <div className="bg-ds-card border border-ds-border rounded-[10px] overflow-x-auto">
+          <div className="bg-ds-card border border-ds-border rounded-[10px] overflow-x-auto overscroll-x-contain">
             <div
               role="grid"
               aria-label="Products comparison"

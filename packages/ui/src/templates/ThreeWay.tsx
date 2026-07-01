@@ -435,7 +435,7 @@ export default function ThreeWay({
           Each disclosed ingredient dose vs. minimum effective dose. Ingredients hidden inside proprietary blends cannot be evaluated.
         </p>
         <Card padding={0}>
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto overscroll-x-contain">
             <table className="w-full text-[13.5px] border-collapse">
               <thead>
                 <tr className="bg-ds-card-sub text-left">

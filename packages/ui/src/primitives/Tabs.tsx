@@ -54,7 +54,7 @@ export function Tabs<T extends string = string>({
     <div
       role="tablist"
       aria-label={ariaLabel}
-      className="flex overflow-x-auto border-b border-ds-border"
+      className="flex overflow-x-auto overscroll-x-contain border-b border-ds-border"
     >
       {items.map((item, index) => {
         const selected = item.id === value;

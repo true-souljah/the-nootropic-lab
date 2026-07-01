@@ -35,7 +35,7 @@ export function DosingTab({ product: p }: DosingTabProps) {
           proprietary blends.
         </p>
       ) : (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto overscroll-x-contain">
           <table className="w-full text-[13px] border-collapse">
             <thead>
               <tr className="text-left border-b border-ds-border">
