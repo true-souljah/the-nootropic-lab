@@ -46,6 +46,7 @@ jobs:
 
   e2e:
     name: Playwright multi-region smoke
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -57,32 +58,21 @@ jobs:
       - run: npx playwright install --with-deps chromium webkit firefox
       # playwright.config.ts runs 8 webServer entries
       # (JP/LATAM/CA/EU/US/AU/GCC/SEA on ports 4173–4180) and times out at
-      # 60s if any out/ is missing. Build all 8 before invoking playwright.
-      # PR-Q40 closed the 8-of-8-regions infrastructure milestone.
-      - run: npm run build:jp
-        env:
-          NODE_ENV: production
-      - run: npm run build:latam
-        env:
-          NODE_ENV: production
-      - run: npm run build:ca
-        env:
-          NODE_ENV: production
-      - run: npm run build:eu
-        env:
-          NODE_ENV: production
-      - run: npm run build:us
-        env:
-          NODE_ENV: production
-      - run: npm run build:au
-        env:
-          NODE_ENV: production
-      - run: npm run build:gcc
-        env:
-          NODE_ENV: production
-      - run: npm run build:sea
-        env:
-          NODE_ENV: production
+      # 60s if any out/ is missing. PR-Q40 closed the 8-of-8-regions
+      # infrastructure milestone. The 8 region builds are reused from the
+      # `build` matrix job's artifacts (prod `npm ci --omit=dev` builds — the
+      # same bits Cloudflare deploys) instead of rebuilding all 8 sequentially
+      # here, which was this workflow's ~20-minute bottleneck.
+      - uses: actions/download-artifact@v7
+        with:
+          pattern: out-*
+          path: _out
+      - name: Place region builds
+        run: |
+          for r in us eu ca au jp latam gcc sea; do
+            mkdir -p "apps/$r/out"
+            cp -R "_out/out-$r/." "apps/$r/out/"
+          done
       - run: npm run test:e2e
       - uses: actions/upload-artifact@v7
         if: failure()
@@ -114,3 +104,11 @@ jobs:
       - run: npm run build:${{ matrix.app }}
         env:
           NODE_ENV: production
+
+      # Share the built site with the e2e job, which previously rebuilt all 8
+      # regions sequentially — this workflow's ~20-minute bottleneck.
+      - uses: actions/upload-artifact@v7
+        with:
+          name: out-${{ matrix.app }}
+          path: apps/${{ matrix.app }}/out
+          retention-days: 1
