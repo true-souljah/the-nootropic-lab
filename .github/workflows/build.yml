@@ -45,9 +45,17 @@ jobs:
       - run: npm test
 
   e2e:
-    name: Playwright multi-region smoke
+    name: Playwright multi-region smoke (${{ matrix.shard }}/3)
     needs: build
     runs-on: ubuntu-latest
+    # The test phase (8 regions x 3 browsers, workers:1 in CI) is ~19 min when
+    # run serially — sharding splits the same suite across parallel jobs with
+    # no coverage change. workers:1 stays as-is per shard (stability choice in
+    # playwright.config.ts); raise the shard count before touching workers.
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3]
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v6
@@ -73,11 +81,11 @@ jobs:
             mkdir -p "apps/$r/out"
             cp -R "_out/out-$r/." "apps/$r/out/"
           done
-      - run: npm run test:e2e
+      - run: npm run test:e2e -- --shard=${{ matrix.shard }}/3
       - uses: actions/upload-artifact@v7
         if: failure()
         with:
-          name: playwright-report
+          name: playwright-report-shard-${{ matrix.shard }}
           path: playwright-report/
           retention-days: 7
 
