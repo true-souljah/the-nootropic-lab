@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ProductDetail, SchemaOrg, buildAlternates} from '@nootropic/ui';
-import { productsAU, buildProductSchema } from '@nootropic/data';
+import { productsAU, buildProductSchema, getRegionalHealthDisclaimer } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
 
@@ -68,6 +68,7 @@ export default async function ProductReviewPage({
         siteUrl={SITE_URL}
         searchItems={searchItems}
         uiStrings={uiStrings}
+        healthDisclaimer={getRegionalHealthDisclaimer('au')}
       />
     </>
   );

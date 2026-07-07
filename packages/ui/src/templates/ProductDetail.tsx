@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import AppShell from './AppShell';
+import { FPDisclosure } from '../public-chrome/FPDisclosure';
 import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { Tabs, TabPanel } from '../primitives/Tabs';
@@ -90,6 +91,7 @@ export default function ProductDetail({
       searchItems={searchItems}
       uiStrings={uiStrings}
     >
+      <FPDisclosure methodologyHref="/methodology" />
       <div className="px-4 sm:px-7 pt-6 pb-10">
         {/* Header card */}
         <Card padding={24} className="mb-4">
