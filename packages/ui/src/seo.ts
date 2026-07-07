@@ -15,6 +15,50 @@ export const REGIONS = {
 
 export type RegionCode = keyof typeof REGIONS;
 
+/**
+ * Within-region locale clusters: pages that are localized variants of one
+ * another on the SAME region domain. Each cluster maps hreflang -> path and
+ * includes the region's own English entry keyed by its REGIONS hreflang.
+ *
+ * buildAlternates looks up the cluster for a (regionCode, path); when found it
+ * emits the correct per-locale hreflang for each variant (so a /de/ page is
+ * labelled `de`, not the region default `en-GB`) plus reciprocal links to its
+ * siblings. Pages not in any cluster keep the plain cross-region behaviour.
+ *
+ * Only English-primary regions with localized subtrees are listed (EU de/fr/pt,
+ * US es, CA fr). JP is intentionally Japanese-chrome-primary (ja-JP) and is not
+ * modelled as a locale cluster. (audit OPT-3b)
+ */
+export const LOCALE_CLUSTERS: Partial<Record<RegionCode, ReadonlyArray<Record<string, string>>>> = {
+  eu: [
+    { 'en-GB': '/', de: '/de/', fr: '/fr/', pt: '/pt/' },
+    {
+      'en-GB': '/best-nootropics/',
+      de: '/de/beste-nootropika/',
+      fr: '/fr/meilleurs-nootropiques/',
+      pt: '/pt/melhores-nootropicos/',
+    },
+  ],
+  us: [
+    { 'en-US': '/', es: '/es/' },
+    { 'en-US': '/best-nootropics/', es: '/es/mejores-nootropicos/' },
+    { 'en-US': '/nootropic-comparison/', es: '/es/comparar/' },
+  ],
+  ca: [
+    { 'en-CA': '/', fr: '/fr/' },
+    { 'en-CA': '/best-nootropics/', fr: '/fr/meilleurs-nootropiques/' },
+    { 'en-CA': '/nootropic-comparison/', fr: '/fr/comparer/' },
+  ],
+};
+
+/** Find the locale cluster (if any) whose paths include `path` within `regionCode`. */
+function findLocaleCluster(
+  regionCode: RegionCode,
+  path: string,
+): Record<string, string> | undefined {
+  return LOCALE_CLUSTERS[regionCode]?.find((c) => Object.values(c).includes(path));
+}
+
 export interface BuildAlternatesParams {
   /** The region the current page is in. */
   regionCode: RegionCode;
@@ -52,13 +96,30 @@ export function buildAlternates({
   const regions = availableInRegions ?? (Object.keys(REGIONS) as RegionCode[]);
   const canonical = `${REGIONS[regionCode].siteUrl}${path}`;
 
+  const cluster = findLocaleCluster(regionCode, path);
+  // For a clustered (localized) page, the cross-region English alternates point
+  // at the cluster's English base path — e.g. a /de/ page still links en-US to
+  // the US /best-nootropics/, not to the localized German path.
+  const basePath = cluster?.[REGIONS[regionCode].hreflang] ?? path;
+
   const languages: Record<string, string> = {};
+  // Cross-region English variants (one per declared region), on the base path.
   for (const r of regions) {
-    languages[REGIONS[r].hreflang] = `${REGIONS[r].siteUrl}${path}`;
+    languages[REGIONS[r].hreflang] = `${REGIONS[r].siteUrl}${basePath}`;
   }
+  // Within-region locale variants, each with its correct per-locale hreflang.
+  if (cluster) {
+    for (const [hreflang, localizedPath] of Object.entries(cluster)) {
+      languages[hreflang] = `${REGIONS[regionCode].siteUrl}${localizedPath}`;
+    }
+  }
+  // x-default → US English base when US is in scope; else this region's English
+  // base for a clustered page; else the canonical.
   languages['x-default'] = regions.includes('us')
-    ? `${REGIONS.us.siteUrl}${path}`
-    : canonical;
+    ? `${REGIONS.us.siteUrl}${basePath}`
+    : cluster
+      ? `${REGIONS[regionCode].siteUrl}${basePath}`
+      : canonical;
 
   return { canonical, languages };
 }
