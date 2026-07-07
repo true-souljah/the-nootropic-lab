@@ -55,13 +55,13 @@ test.describe('JP /fancl-brains-review/ regulatory chips (PR-D1 + PR-C3)', () =>
     expect(html).toContain('"@type":"Review"');
   });
 
-  test('AggregateRating is OMITTED (FANCL BRAINs has null Trustpilot data per PR-A1b gate)', async ({ page }) => {
+  test('AggregateRating is OMITTED (no third-party aggregateRating, audit OPT-2)', async ({ page }) => {
     const response = await page.goto('/fancl-brains-review/');
     const html = (await response?.text()) ?? '';
-    // PR-A1b: trustpilotScore === null → omit aggregateRating. FANCL
-    // BRAINs is one of the products that legitimately has no Trustpilot
-    // profile (JP-domestic brand, no Trustpilot listing). Confirming
-    // the gate works: the page should NOT contain AggregateRating.
+    // Audit OPT-2 (2026-07-07) dropped the third-party Trustpilot
+    // aggregateRating entirely (Google May-2024 review-snippet policy);
+    // buildProductSchema now emits the first-party editorial Review only.
+    // No product page should contain AggregateRating.
     expect(html).not.toContain('"@type":"AggregateRating"');
   });
 });
