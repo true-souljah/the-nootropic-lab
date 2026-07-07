@@ -27,7 +27,10 @@ describe('buildAlternates', () => {
   });
 
   test('emits hreflang for every region by default', () => {
-    const result = buildAlternates({ regionCode: 'us', path: '/best-nootropics/' });
+    // Uses a non-clustered path so this asserts the plain cross-region set.
+    // (/best-nootropics/ is now a US/EU/CA locale cluster — see the
+    // "locale clusters" describe below. audit OPT-3b.)
+    const result = buildAlternates({ regionCode: 'us', path: '/methodology/' });
     expect(Object.keys(result.languages).sort()).toEqual([
       'en-AE', 'en-AU', 'en-CA', 'en-GB', 'en-SG', 'en-US', 'es-419', 'ja-JP', 'x-default',
     ]);
@@ -67,6 +70,72 @@ describe('buildAlternates', () => {
     expect(result.canonical).toBe('https://thenootropiclab.com/ingredients/l-theanine/');
     const noSlash = buildAlternates({ regionCode: 'us', path: '/foo' });
     expect(noSlash.canonical).toBe('https://thenootropiclab.com/foo');
+  });
+});
+
+describe('buildAlternates — locale clusters (OPT-3b)', () => {
+  test('a localized page labels itself with its own locale, not the region default', () => {
+    const de = buildAlternates({
+      regionCode: 'eu',
+      path: '/de/beste-nootropika/',
+      availableInRegions: ['eu'],
+    });
+    expect(de.canonical).toBe('https://eu.thenootropiclab.com/de/beste-nootropika/');
+    // labelled `de` (NOT en-GB), pointing at itself
+    expect(de.languages['de']).toBe('https://eu.thenootropiclab.com/de/beste-nootropika/');
+    // reciprocal links to its EU siblings
+    expect(de.languages['en-GB']).toBe('https://eu.thenootropiclab.com/best-nootropics/');
+    expect(de.languages['fr']).toBe('https://eu.thenootropiclab.com/fr/meilleurs-nootropiques/');
+    expect(de.languages['pt']).toBe('https://eu.thenootropiclab.com/pt/melhores-nootropicos/');
+    // no stray en-GB→German-URL mislabel
+    expect(de.languages['en-GB']).not.toBe(de.canonical);
+    // x-default → the region's English base
+    expect(de.languages['x-default']).toBe('https://eu.thenootropiclab.com/best-nootropics/');
+  });
+
+  test('the English base page lists its localized variants + the cross-region set', () => {
+    const en = buildAlternates({ regionCode: 'eu', path: '/best-nootropics/' });
+    expect(en.languages['en-US']).toBe('https://thenootropiclab.com/best-nootropics/');
+    expect(en.languages['en-GB']).toBe('https://eu.thenootropiclab.com/best-nootropics/');
+    expect(en.languages['de']).toBe('https://eu.thenootropiclab.com/de/beste-nootropika/');
+    expect(en.languages['fr']).toBe('https://eu.thenootropiclab.com/fr/meilleurs-nootropiques/');
+    expect(en.languages['pt']).toBe('https://eu.thenootropiclab.com/pt/melhores-nootropicos/');
+  });
+
+  test('EN base and localized page reciprocate (each lists the other)', () => {
+    const en = buildAlternates({ regionCode: 'eu', path: '/best-nootropics/' });
+    const de = buildAlternates({
+      regionCode: 'eu',
+      path: '/de/beste-nootropika/',
+      availableInRegions: ['eu'],
+    });
+    expect(en.languages['de']).toBe(de.canonical);
+    expect(de.languages['en-GB']).toBe(en.canonical);
+  });
+
+  test('US /es/ and CA /fr/ clusters emit the correct locale code + English base', () => {
+    const es = buildAlternates({
+      regionCode: 'us',
+      path: '/es/mejores-nootropicos/',
+      availableInRegions: ['us'],
+    });
+    expect(es.languages['es']).toBe('https://thenootropiclab.com/es/mejores-nootropicos/');
+    expect(es.languages['en-US']).toBe('https://thenootropiclab.com/best-nootropics/');
+
+    const fr = buildAlternates({
+      regionCode: 'ca',
+      path: '/fr/comparer/',
+      availableInRegions: ['ca'],
+    });
+    expect(fr.languages['fr']).toBe('https://ca.thenootropiclab.com/fr/comparer/');
+    expect(fr.languages['en-CA']).toBe('https://ca.thenootropiclab.com/nootropic-comparison/');
+  });
+
+  test('non-clustered pages keep the plain cross-region behaviour (no regression)', () => {
+    const g = buildAlternates({ regionCode: 'eu', path: '/guides/' });
+    expect(Object.keys(g.languages).sort()).toEqual([
+      'en-AE', 'en-AU', 'en-CA', 'en-GB', 'en-SG', 'en-US', 'es-419', 'ja-JP', 'x-default',
+    ]);
   });
 });
 
