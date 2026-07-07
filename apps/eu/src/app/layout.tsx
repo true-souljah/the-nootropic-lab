@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import Script from 'next/script';
 import './globals.css';
 import { CookieBanner } from '@nootropic/ui';
 
-const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
+// Self-hosted latin-subset Inter (@fontsource-variable/inter v5.2.8) — next/font/google fetches at build time and fails behind the pipeline runner TLS proxy.
+const inter = localFont({ src: "./fonts/inter-latin-wght-normal.woff2", weight: "100 900", display: "swap", variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: {
