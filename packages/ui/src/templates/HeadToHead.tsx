@@ -130,7 +130,7 @@ export default function HeadToHead({
   const s: HeadToHeadPageStrings = { ...headToHeadPageEnDefaults, ...strings };
   const currentYear = new Date().getFullYear();
   const today = new Date();
-  const updatedDisplay = today.toLocaleDateString('en-US', {
+  const updatedDisplay = today.toLocaleDateString(uiStrings?.productDetail.dateLocale ?? 'en-US', {
     year: 'numeric',
     month: 'short',
     day: 'numeric',

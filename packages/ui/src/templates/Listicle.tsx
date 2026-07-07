@@ -111,7 +111,7 @@ export default function Listicle({
   const currentYear = TODAY.getFullYear();
   const slugUrl = `${siteUrl}/best-nootropics-for-${useCase}/`;
   const updatedISO = TODAY.toISOString().split('T')[0];
-  const updatedDisplay = TODAY.toLocaleDateString('en-US', {
+  const updatedDisplay = TODAY.toLocaleDateString(uiStrings?.productDetail.dateLocale ?? 'en-US', {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
