@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import { Download, Save, X, SlidersHorizontal } from 'lucide-react';
 import AppShell from './AppShell';
+import { FPDisclosure } from '../public-chrome/FPDisclosure';
 import { ScorePill } from '../primitives/ScorePill';
 import { LiveRegion } from '../primitives/LiveRegion';
 import type { Product, UIStrings } from '@nootropic/data';
@@ -204,6 +205,7 @@ export default function Comparator({
       hideStackCta
       sidebarMeta={`${products.length} products`}
     >
+      <FPDisclosure methodologyHref="/methodology" />
       {/* When the mobile filter sheet is open, `inert` removes everything
           else from tab order + AT focus — keyboard users can't escape the
           dialog into obscured content. */}
