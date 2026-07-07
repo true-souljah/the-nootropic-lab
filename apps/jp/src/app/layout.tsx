@@ -26,8 +26,12 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // Root is lang="en": the JP app's majority content (~18 routes) is English;
+  // the Japanese pages under /ja/* override to lang="ja" via
+  // apps/jp/src/app/ja/layout.tsx (mirrors the EU /de and US /es per-locale
+  // wrappers). audit OPT-3a — WCAG 3.1.1.
   return (
-    <html lang="ja" className={inter.variable}>
+    <html lang="en" className={inter.variable}>
       <body>
         {children}
         <CookieBanner />
