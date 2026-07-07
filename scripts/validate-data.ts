@@ -18,6 +18,7 @@ for (const [region, products] of Object.entries(regions)) {
     continue;
   }
   const ids = new Set<string>();
+  const slugs = new Set<string>();
   for (const item of products) {
     const p = item as Record<string, unknown>;
     for (const f of ['id', 'name', 'slug']) {
@@ -36,6 +37,15 @@ for (const [region, products] of Object.entries(regions)) {
       failed++;
     }
     ids.add(id);
+    // Slug uniqueness: [slug]/page.tsx generateStaticParams maps products
+    // by slug; a duplicate slug generates a colliding route + duplicate
+    // sitemap/ItemList entry (audit OPT-4 — EU shipped braineffect twice).
+    const slug = String(p.slug);
+    if (slugs.has(slug)) {
+      console.error(`FAIL ${region}: duplicate slug "${slug}"`);
+      failed++;
+    }
+    slugs.add(slug);
   }
   console.log(`ok ${region}: ${products.length} products`);
 }
