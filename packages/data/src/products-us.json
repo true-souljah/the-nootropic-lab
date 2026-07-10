@@ -122,7 +122,7 @@
       "value": 9,
       "trust": 7
     },
-    "priceMonthlyUSD": 59,
+    "priceMonthlyUSD": 65,
     "priceMonthlyEUR": 55,
     "pricingModel": "both",
     "moneyBackDays": 60,
@@ -138,7 +138,8 @@
     "heroIngredients": [
       "Lutemax 2020",
       "Bacopa Monnieri",
-      "Alpha-GPC",
+      "Panax Ginseng",
+      "VitaCholine",
       "Huperzine A",
       "L-Theanine"
     ],
