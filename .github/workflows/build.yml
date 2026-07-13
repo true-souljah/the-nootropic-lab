@@ -71,7 +71,7 @@ jobs:
       # `build` matrix job's artifacts (prod `npm ci --omit=dev` builds — the
       # same bits Cloudflare deploys) instead of rebuilding all 8 sequentially
       # here, which was this workflow's ~20-minute bottleneck.
-      - uses: actions/download-artifact@v7
+      - uses: actions/download-artifact@v8
         with:
           pattern: out-*
           path: _out
