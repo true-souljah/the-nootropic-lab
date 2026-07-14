@@ -92,6 +92,7 @@ _Tick `- [x]` to mark an item done, then commit. Grouped by priority, then sourc
 - [ ] **NooCube bundle pricing increased globally. 5-month supply $194.99 USD (approx ¥30,000 at…** — `/jp/reviews/noocube/` <!--id:ed:92946a1d1e-->
 - [ ] **NooCube bundle pricing increased globally. 5-month supply $194.99 USD, previously…** — `/gcc/reviews/noocube/` <!--id:ed:206e1cb08d-->
 - [ ] **NooCube bundle pricing increased globally. 5-month supply $194.99 USD, previously…** — `/latam/reviews/noocube/` <!--id:ed:96beae94b9-->
+- [ ] **Verify & onboard new entity: Supershrooms** — not auto-onboarded — confirm it's live/rankable + no name collision first · Leading domestic Philippine mushroom-nootropic brand… <!--id:ed:938babc008-->
 
 ## P3
 
