@@ -12,6 +12,10 @@ _Tick `- [x]` to mark an item done, then commit. Grouped by priority, then sourc
 ## P1
 
 ### GSC
+- [ ] **Cooperation: BRAINEFFECT — affiliate (EU-native, terms on inquiry)** — `brain-effect.com` · Verified at brain-effect.com/en/pages/business-partner… <!--id:gsc:af1a8572401c3450-->
+- [ ] **Cooperation: Double Wood Supplements — affiliate via Impact (10% new / 2% existing, 30d)** — `doublewoodsupplements.com` · Verified at doublewoodsupplements.com/pages/affiliate… <!--id:gsc:96bef663d1f1019a-->
+- [ ] **Cooperation: Life Extension Europe — affiliate (10%, 30d, EU storefronts)** — `lifeextensioneurope.com` · Verified at lifeextensioneurope.com/membership/affilia… <!--id:gsc:dbaa0a5d38545e5e-->
+- [ ] **Cooperation: Neutonic — affiliate via Awin (8%, 30d)** — `neutonic.com` · Verified at Awin merchant profile 121846: 8% per… <!--id:gsc:9593ef0d8a9b6842-->
 - [ ] **Fix 0-click snippet for 'nootropics depot' navigational query on memory page** — `/best-nootropics-for-memory/` · 18 impr · pos 3.5 <!--id:gsc:82fa8dfb92049590-->
 - [ ] **Improve /countries/indonesia/ to convert pos 16.8 into page-1 clicks** — `/countries/indonesia/` · 6 impressions, 0 clicks, avg pos 16.8 (90d). Sitting… <!--id:gsc:97c0aac1cd138cfd-->
 - [ ] **Improve Alpha Brain review to recover pos 11-20 range** — `/onnit-alpha-brain-review/` · 33 impr · pos 27.4 <!--id:gsc:8dea3e1c42f99ed5-->
@@ -46,6 +50,7 @@ _Tick `- [x]` to mark an item done, then commit. Grouped by priority, then sourc
 - [ ] **Consolidate duplicate L-Theanine ingredient pages (trailing-slash split)** — 46 impr · pos 79.7 <!--id:gsc:966cc044a8679075-->
 - [ ] **Consolidate duplicate L-Theanine ingredient URLs (trailing-slash split)** — `/ingredients/l-theanine/` · 32 impr · pos 90.5 <!--id:gsc:318263b525e65b30-->
 - [ ] **Consolidate Mind Lab Pro comparison queries across 3 pages — 105+ impressions** — 41 impr · pos 26.6 <!--id:gsc:5098ec7696c17423-->
+- [ ] **Cooperation: Gorilla Mind — affiliate (conflicting terms — reconcile first)** — `gorillamind.com` · Verified Awin profile 119295 pays 5% default with… <!--id:gsc:3d3472af4ae38a9b-->
 - [ ] **Deduplicate /ingredients/citicoline/ vs /ingredients/citicoline (trailing-slash split)** — 22 impr · pos 79.9 <!--id:gsc:c81e2aa5a3e98230-->
 - [ ] **Duplicate URL: /best-nootropics-for-memory/ vs /best-nootropics-for-memory** — `/best-nootropics-for-memory/` · 15 impr · pos 61.8 <!--id:gsc:89f1fefee1a98b8a-->
 - [ ] **Fix language/intent mismatch: Dutch 'nootropic kopen' landing on German /de/ page** — `/de/beste-nootropika/` · 29 impr · pos 38.1 <!--id:gsc:684c04b852b97242-->
