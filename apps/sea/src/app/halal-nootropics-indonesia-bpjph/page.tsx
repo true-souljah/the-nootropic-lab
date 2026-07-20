@@ -116,7 +116,7 @@ const breadcrumbSchema = {
 const faqs = [
   { q: 'Is Halal certification really mandatory in Indonesia?', a: 'Yes, but the deadline for health supplements is 17 October 2026 — not 2024. Indonesia\'s Halal Product Assurance Law (Undang-Undang Jaminan Produk Halal, UU JPH 2014) makes Halal certification mandatory for food, beverages, medicines, cosmetics and other consumer products, rolled out in phases. Food and beverage products hit their deadline on 17 October 2024. Health supplements (suplemen kesehatan) sit in the next phase together with herbal medicines (obat bahan alam) and quasi medicines (obat kuasi), which runs from 17 October 2021 to 17 October 2026. So a supplement without BPJPH certification can still be sold in Indonesia today, but not after 17 October 2026.' },
   { q: 'What happens to nootropic supplements after 17 October 2026 in Indonesia?', a: 'From that date, health supplements distributed in Indonesia must hold BPJPH Halal certification. BPJPH has said publicly that the October 2026 phase is going ahead, and has been urging manufacturers to map affected ingredients and production processes well in advance rather than treating the date as a soft target. For imported nootropics this matters twice over: the certification requirement applies to the product, and BPJPH has been accrediting overseas halal bodies (Lembaga Halal Luar Negeri) and signing mutual recognition arrangements so foreign certificates can be accepted. Buyers should expect some imported brands to disappear from Indonesian shelves around that date rather than certify.' },
-  { q: 'Which nootropics on this site are Halal certified?', a: 'None that we have verified — and we would rather say so than guess. Our SEA catalog does not currently hold a confirmed BPJPH or JAKIM certificate record for any product, so publishing a "Halal picks" list would mean inventing certifications, which we do not do. That is a gap in our data, not a finding about the products: some regionally-made supplements on our list may hold certification we have not yet confirmed. The reliable answer for any specific product is the certifying authority\'s own registry, and the two work differently: BPJPH\'s Cek Produk Halal search returns individual products with their certificate numbers, while JAKIM\'s public MYeHALAL directory lists certified companies rather than their product ranges. So for Indonesia you can usually settle it yourself; for Malaysia you can confirm the manufacturer holds a certificate, then need to ask which products it covers. Both are free and linked above.' },
+  { q: 'Which nootropics on this site are Halal certified?', a: 'None of them appears in Indonesia\'s BPJPH register — we searched it for every product and every manufacturer on our list, and none returned a certificate. We are not turning that into a claim that these products are "not Halal": a product can hold JAKIM certification in Malaysia, MUIS certification in Singapore, or a certificate from a recognised foreign body, none of which shows up in the Indonesian database. The Malaysian side we cannot settle from public data, because JAKIM\'s directory lists certified companies rather than the products their certificates cover. The reliable answer for any specific product is the certifying authority\'s own registry, and the two work differently: BPJPH\'s Cek Produk Halal search returns individual products with their certificate numbers, while JAKIM\'s public MYeHALAL directory lists certified companies rather than their product ranges. So for Indonesia you can usually settle it yourself; for Malaysia you can confirm the manufacturer holds a certificate, then need to ask which products it covers. Both are free and linked above.' },
   { q: 'Are the capsules the problem, or the ingredients?', a: 'Usually the capsule. Common nootropic actives — citicoline, L-theanine, Bacopa, Lion\'s Mane, Ginkgo — raise no Halal question by themselves. Standard hard capsules are gelatin, which is an animal product: porcine gelatin is not permissible and bovine gelatin is only permissible with Halal slaughter, and labels rarely say which is used. Capsules described as HPMC (hydroxypropyl methylcellulose), pullulan, vegetarian, vegan or cellulose are plant-based and avoid the question; tablets and powders sidestep it too. Softgel shells are gelatin by construction, so they are the format to be most careful with. A plant-based shell is not the same as certification — excipients and processing aids can still carry animal origin — but it removes the most common barrier.' },
   { q: 'What is BPJPH and how does it differ from MUI?', a: 'BPJPH (Badan Penyelenggara Jaminan Produk Halal) is the Halal Product Assurance Agency, a government body under the Ministry of Religious Affairs that issues Halal certificates. MUI (Majelis Ulama Indonesia) is the Indonesian Ulema Council; under the JPH 2014 law, MUI provides the technical fatwa assessment, but the certificate itself is now issued by BPJPH. Pre-2019 certifications were issued by MUI directly; post-2019 they are issued by BPJPH with MUI fatwa backing.' },
   { q: 'How is JAKIM Malaysia different from BPJPH Indonesia?', a: 'JAKIM (Department of Islamic Development Malaysia) certifies Halal compliance for products marketed in Malaysia and is widely recognised internationally as the gold standard. JAKIM certification is required if a product is marketed AS Halal in Malaysia; it is not a precondition for sale of supplements that do not make Halal claims. BPJPH Indonesia is mandatory regardless of whether the product makes Halal claims — for food and beverages that took effect on 17 October 2024, and for health supplements it takes effect on 17 October 2026.' },
@@ -199,12 +199,20 @@ export default function Page() {
           <h2 className="text-2xl font-bold text-gray-900 mb-3">Audit of our SEA catalog</h2>
           <p className="text-sm text-gray-700 leading-relaxed mb-4">
             We track <strong>{productsSEA.length} products</strong> in our SEA catalog, and{' '}
-            <strong>none of them currently carries a Halal certification we have verified</strong>. We are
-            stating that plainly rather than leaving it implied: we hold no confirmed BPJPH or JAKIM
-            certificate record for any product on this list, so we are not in a position to publish
-            &ldquo;Halal picks&rdquo; and will not manufacture one. A blank record means unverified by us — it
-            is not evidence that a product lacks certification, and several regionally-made products on our
-            list may well hold one.
+            <strong>none of them appears in Indonesia&apos;s BPJPH Halal register</strong>. That is an
+            audit result, not an absence of effort: on {auditDateIso}{' '}we searched the BPJPH certificate
+            register for every product on this list and for each product&apos;s manufacturer, and none
+            returned a certificate. Two searches looked like matches and were not — a Lion&apos;s Mane
+            mushroom powder from an unrelated Indonesian producer, and a truffle product that happens to
+            share the Supershrooms name.
+          </p>
+          <p className="text-sm text-gray-700 leading-relaxed mb-4">
+            We have deliberately not converted that into a claim that these products are &ldquo;not
+            Halal&rdquo;. Absence from the Indonesian register is not the same as absence of certification:
+            a product may hold JAKIM certification in Malaysia, MUIS certification in Singapore, or a
+            certificate issued by a recognised foreign body, none of which appears in BPJPH&apos;s database.
+            The Malaysian side we cannot close from public data at all, because JAKIM&apos;s public directory
+            lists certified companies rather than the products their certificates cover.
           </p>
           <p className="text-sm text-gray-700 leading-relaxed mb-4">
             A worked example of why the distinction matters: Blackmores Ltd holds certificates covering
@@ -214,9 +222,12 @@ export default function Page() {
           </p>
           <p className="text-sm text-gray-700 leading-relaxed mb-4">
             Where capsule source is verifiable but no formal certification exists, we describe the capsule
-            type so consumers can make informed decisions. We never fabricate certifications. Auditing each
-            catalog entry against the BPJPH and JAKIM registries, and surfacing the result per product, is
-            open work — until it ships, use the verification steps above, which query those registries directly.
+            type so consumers can make informed decisions. We never fabricate certifications, and we do not
+            display a Halal badge on any product until a certificate backs it — which is why no product on
+            this site currently shows one. If you are shopping in Indonesia specifically, the practical
+            reading of this audit is that the imported cognitive-supplement brands we track have largely not
+            gone through BPJPH certification yet, and the 17 October 2026 deadline is the date by which they
+            would need to.
           </p>
           <p className="text-xs text-gray-500 italic">
             Until per-product Halal + regulator surfacing ships, verify each Halal claim directly with the
