@@ -57,7 +57,7 @@ export const seaCountries: SEACountry[] = [
     currency: 'IDR',
     language: 'Indonesian',
     shippingNote: 'Indonesia is the largest market in Southeast Asia. International shipping from the US to Jakarta typically takes 10-15 business days. Island geography means delivery times to outer islands may be longer.',
-    regulatoryNote: 'BPOM (Badan Pengawas Obat dan Makanan -- National Agency of Drug and Food Control) regulates dietary supplements and health products in Indonesia. Commercially sold supplements require BPOM registration. Personal imports in small quantities are generally allowed but may be subject to inspection. Certain stimulant or nootropic ingredients may face additional regulatory scrutiny under BPOM guidelines.',
+    regulatoryNote: 'BPOM (Badan Pengawas Obat dan Makanan -- National Agency of Drug and Food Control) regulates dietary supplements and health products in Indonesia. Commercially sold supplements require BPOM registration. Personal imports in small quantities are generally allowed but may be subject to inspection. Certain stimulant or nootropic ingredients may face additional regulatory scrutiny under BPOM guidelines. Separately, halal certification from BPJPH (Badan Penyelenggara Jaminan Produk Halal -- Halal Product Assurance Agency) becomes mandatory for health supplements on 17 October 2026 under UU JPH 2014 (the Halal Product Assurance Law). Health supplements fall in the phase covering herbal and quasi medicines, which runs to that date -- the earlier 17 October 2024 deadline applied to food and beverage products, not supplements. Expect some imported brands to leave the Indonesian market around that date rather than certify.',
     popularBrands: ['Mind Lab Pro', 'NooCube', 'Alpha Brain'],
   },
   {
