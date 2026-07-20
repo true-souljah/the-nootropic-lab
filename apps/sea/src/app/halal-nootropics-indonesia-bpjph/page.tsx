@@ -27,7 +27,7 @@ interface SeaRegulator {
 }
 
 const seaRegulators: SeaRegulator[] = [
-  { country: 'Indonesia', regulator: 'BPOM', authority: 'Badan Pengawas Obat dan Makanan (Food and Drug Supervisory Agency)', halalRequirement: 'Halal certification MANDATORY (BPJPH federal law, JPH 2014). Products without Halal certification cannot legally be marketed to Indonesian consumers.', notes: 'BPOM registration covers safety/efficacy/quality. BPJPH (Halal Product Assurance Agency) handles Halal certification. Both required for legal sale to Indonesian consumers as of October 2024.' },
+  { country: 'Indonesia', regulator: 'BPOM', authority: 'Badan Pengawas Obat dan Makanan (Food and Drug Supervisory Agency)', halalRequirement: 'Halal certification becomes MANDATORY for health supplements on 17 October 2026 (BPJPH, UU JPH 2014). Health supplements sit in the second phase alongside herbal and quasi medicines — the phase that runs 17 October 2021 to 17 October 2026. From that date, supplements without BPJPH Halal certification cannot legally be distributed to Indonesian consumers.', notes: 'BPOM registration covers safety/efficacy/quality; BPJPH (Halal Product Assurance Agency) handles Halal certification. Note the 17 October 2024 deadline that has already passed covers food and beverage products, NOT health supplements — supplements have their own later deadline.' },
   { country: 'Malaysia', regulator: 'NPRA', authority: 'National Pharmaceutical Regulatory Agency', halalRequirement: 'JAKIM Halal certification MANDATORY for products marketed as Halal-compliant. Products without certification can be sold but cannot make Halal claims.', notes: 'NPRA registration confirms safety/efficacy/quality of pharmaceutical products and supplements. JAKIM (Department of Islamic Development Malaysia) is the Halal certifying body.' },
   { country: 'Singapore', regulator: 'HSA', authority: 'Health Sciences Authority', halalRequirement: 'Halal certification optional but expected by Muslim consumer segment. MUIS (Majlis Ugama Islam Singapura) is the local Halal certifying authority.', notes: 'Singapore regulates supplements as Health Supplements under the Health Products Act. HSA notification typically required for products making health claims.' },
   { country: 'Philippines', regulator: 'FDA Philippines', authority: 'Food and Drug Administration', halalRequirement: 'Halal certification optional; relevant primarily for Bangsamoro Autonomous Region in Muslim Mindanao.', notes: 'FDA Philippines registration required for food supplements marketed nationally. PNS (Philippine National Standard) for Halal supplements available.' },
@@ -64,7 +64,7 @@ const datasetSchema = {
     description: `Authority: ${r.authority}. Halal requirement: ${r.halalRequirement} Notes: ${r.notes}`,
     additionalType: 'SEA-supplement-regulator',
   })),
-  citation: 'BPJPH JPH Law 2014 (Indonesia) + Trade Descriptions (Halal Definition) Order 2011 (Malaysia) + Health Products Act (Singapore)',
+  citation: 'BPJPH JPH Law 2014 + Government Regulation 42/2024 on the phasing of halal certification obligations (Indonesia) + Trade Descriptions (Halal Definition) Order 2011 (Malaysia) + Health Products Act (Singapore)',
 };
 
 const breadcrumbSchema = {
@@ -77,11 +77,12 @@ const breadcrumbSchema = {
 };
 
 const faqs = [
-  { q: 'Is Halal certification really mandatory in Indonesia?', a: 'Yes. Indonesia\'s Halal Product Assurance Law (Undang-Undang Jaminan Produk Halal, UU JPH 2014) made Halal certification mandatory for food, beverages, drugs, cosmetics, and other consumer products marketed to Indonesian consumers. The implementation timeline rolled out in stages; for food and beverages including supplements, the mandatory phase took effect on 17 October 2024. Products without BPJPH-issued Halal certification cannot legally be marketed to Indonesian consumers.' },
+  { q: 'Is Halal certification really mandatory in Indonesia?', a: 'Yes, but the deadline for health supplements is 17 October 2026 — not 2024. Indonesia\'s Halal Product Assurance Law (Undang-Undang Jaminan Produk Halal, UU JPH 2014) makes Halal certification mandatory for food, beverages, medicines, cosmetics and other consumer products, rolled out in phases. Food and beverage products hit their deadline on 17 October 2024. Health supplements (suplemen kesehatan) sit in the next phase together with herbal medicines (obat bahan alam) and quasi medicines (obat kuasi), which runs from 17 October 2021 to 17 October 2026. So a supplement without BPJPH certification can still be sold in Indonesia today, but not after 17 October 2026.' },
+  { q: 'What happens to nootropic supplements after 17 October 2026 in Indonesia?', a: 'From that date, health supplements distributed in Indonesia must hold BPJPH Halal certification. BPJPH has said publicly that the October 2026 phase is going ahead, and has been urging manufacturers to map affected ingredients and production processes well in advance rather than treating the date as a soft target. For imported nootropics this matters twice over: the certification requirement applies to the product, and BPJPH has been accrediting overseas halal bodies (Lembaga Halal Luar Negeri) and signing mutual recognition arrangements so foreign certificates can be accepted. Buyers should expect some imported brands to disappear from Indonesian shelves around that date rather than certify.' },
   { q: 'What is BPJPH and how does it differ from MUI?', a: 'BPJPH (Badan Penyelenggara Jaminan Produk Halal) is the Halal Product Assurance Agency, a government body under the Ministry of Religious Affairs that issues Halal certificates. MUI (Majelis Ulama Indonesia) is the Indonesian Ulema Council; under the JPH 2014 law, MUI provides the technical fatwa assessment, but the certificate itself is now issued by BPJPH. Pre-2019 certifications were issued by MUI directly; post-2019 they are issued by BPJPH with MUI fatwa backing.' },
-  { q: 'How is JAKIM Malaysia different from BPJPH Indonesia?', a: 'JAKIM (Department of Islamic Development Malaysia) certifies Halal compliance for products marketed in Malaysia and is widely recognised internationally as the gold standard. JAKIM certification is required if a product is marketed AS Halal in Malaysia; it is not a precondition for sale of supplements that do not make Halal claims. BPJPH Indonesia is mandatory for ALL food/beverage/supplement sales as of 2024, regardless of whether the product makes Halal claims.' },
+  { q: 'How is JAKIM Malaysia different from BPJPH Indonesia?', a: 'JAKIM (Department of Islamic Development Malaysia) certifies Halal compliance for products marketed in Malaysia and is widely recognised internationally as the gold standard. JAKIM certification is required if a product is marketed AS Halal in Malaysia; it is not a precondition for sale of supplements that do not make Halal claims. BPJPH Indonesia is mandatory regardless of whether the product makes Halal claims — for food and beverages that took effect on 17 October 2024, and for health supplements it takes effect on 17 October 2026.' },
   { q: 'What about HSA notification in Singapore?', a: 'The Health Sciences Authority Singapore regulates supplements as Health Supplements under the Health Products Act. While HSA does not require pre-market approval for general health supplements, it does require notification for products making specific health claims and reserves enforcement powers against unsafe or misbranded products. Singaporean Muslim consumers expect MUIS (Majlis Ugama Islam Singapura) Halal certification.' },
-  { q: 'Why does this site weight Halal-certified products higher for ID/MY traffic?', a: 'For Indonesian readers, Halal certification is a legal requirement — recommending a non-certified product to ID traffic would be recommending a product that cannot legally be sold to that consumer. For Malaysian readers, JAKIM certification carries strong consumer-trust weight even where not legally mandatory. We surface Halal status on every product card and weight Halal-certified products higher in listicle ranking when serving ID/MY traffic, where verifiable from manufacturer documentation.' },
+  { q: 'Why does this site weight Halal-certified products higher for ID/MY traffic?', a: 'For Indonesian readers, Halal certification becomes a legal requirement for supplements on 17 October 2026 — so a non-certified product recommended today may not be legally distributable there within months. For Malaysian readers, JAKIM certification carries strong consumer-trust weight even where not legally mandatory. We surface Halal status on every product card and weight Halal-certified products higher in listicle ranking when serving ID/MY traffic, where verifiable from manufacturer documentation.' },
 ];
 
 const faqSchema = {
@@ -116,20 +117,23 @@ export default function Page() {
         </h1>
 
         <p id="hero-paragraph" className="text-lg text-gray-600 mb-6 leading-relaxed">
-          Halal certification is <strong>mandatory under federal law</strong> for supplements marketed to
-          consumers in Indonesia (BPJPH, since October 2024) and Malaysia (JAKIM, when products are marketed
-          as Halal). For other SEA markets — Singapore, Philippines, Thailand, Vietnam — Halal certification
-          is optional but increasingly expected by the Muslim consumer segment. This page is the per-country
-          regulator + Halal-certification reference, plus our SEA catalog audit.
+          Halal certification becomes <strong>mandatory under federal law</strong> for health supplements sold
+          in Indonesia on <strong>17 October 2026</strong> (BPJPH, UU JPH 2014), and is already required in
+          Malaysia (JAKIM) whenever a product is marketed as Halal. For other SEA markets — Singapore,
+          Philippines, Thailand, Vietnam — Halal certification is optional but increasingly expected by the
+          Muslim consumer segment. This page is the per-country regulator + Halal-certification reference,
+          plus our SEA catalog audit.
         </p>
 
         <AffiliateDisclosure />
 
         <section className="my-10 bg-red-50 border-l-4 border-red-400 rounded-r-lg p-4 text-sm text-red-900">
           <strong className="block mb-1">Notice for Indonesian and Malaysian readers</strong>
-          Per Indonesian law (UU JPH 2014, mandatory implementation October 2024) and Malaysian Trade
-          Descriptions (Halal Definition) Order 2011, supplements marketed to ID/MY consumers must hold
-          appropriate Halal certification. We weight Halal-certified products higher in our SEA listicle
+          Under Indonesian law (UU JPH 2014), health supplements must hold BPJPH Halal certification from{' '}
+          <strong>17 October 2026</strong> — the close of the phase covering herbal medicines, quasi medicines
+          and health supplements. The 17 October 2024 deadline you may have seen quoted applied to food and
+          beverage products, not supplements. In Malaysia, the Trade Descriptions (Halal Definition) Order 2011
+          governs products marketed as Halal. We weight Halal-certified products higher in our SEA listicle
           ranking when serving ID/MY traffic, and surface Halal status on every product card where verifiable.
           If you are uncertain about a product&apos;s Halal status, verify directly with the certifying authority
           before purchase.

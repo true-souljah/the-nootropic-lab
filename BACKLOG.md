@@ -6,7 +6,7 @@ _Tick `- [x]` to mark an item done, then commit. Grouped by priority, then sourc
 ## P0
 
 ### Editorial
-- [ ] **Indonesia mandatory halal certification deadline October 17, 2026 now confirmed with no…** — `https://sea.thenootropiclab.com/countries/indonesia/` <!--id:ed:8f78433977-->
+- [x] **Indonesia mandatory halal certification deadline October 17, 2026 now confirmed with no…** — `https://sea.thenootropiclab.com/countries/indonesia/` <!--id:ed:8f78433977-->
 - [ ] **New: Best Halal Nootropic Supplements: Indonesia and Malaysia Buyer Guide (2026)** — country-regulatory-guides <!--id:ed:88051f1768-->
 
 ## P1
