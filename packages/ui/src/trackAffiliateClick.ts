@@ -40,6 +40,14 @@ declare global {
 export function trackAffiliateClick({ product, position, surface }: AffiliateClickContext): void {
   if (typeof window === 'undefined') return;
   if (typeof window.gtag !== 'function') return;
+  // Portfolio-standard params (registered as event-scoped custom dimensions
+  // via gsc-data ga4-setup.mjs) alongside the site-specific payload.
+  let linkDomain = '';
+  try {
+    linkDomain = new URL(product.affiliateUrl).host;
+  } catch {
+    // malformed/missing affiliate URL — dimension stays empty for this click
+  }
   window.gtag('event', 'affiliate_click', {
     partner: product.brand,
     product: product.slug,
@@ -48,5 +56,8 @@ export function trackAffiliateClick({ product, position, surface }: AffiliateCli
     surface,
     affiliate_network: product.affiliateNetwork,
     score: product.score,
+    affiliate_partner: product.brand,
+    affiliate_status: product.affiliateNetwork ? 'live' : 'unknown',
+    link_domain: linkDomain,
   });
 }
