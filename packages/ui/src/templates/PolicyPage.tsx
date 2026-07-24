@@ -13,7 +13,7 @@ import type { SearchItem } from '../SearchModal';
 import type { UIStrings } from '@nootropic/data';
 
 export interface PolicyPageProps {
-  type: 'cookie' | 'privacy';
+  type: 'cookie' | 'privacy' | 'terms';
   searchItems?: SearchItem[];
   uiStrings?: UIStrings;
 }
@@ -98,6 +98,77 @@ function CookiePolicyBody() {
           <h2 className="text-xl font-bold text-gray-900 mb-3">Contact</h2>
           <p className="text-gray-700 leading-relaxed">
             For questions about our cookie practices: <strong>privacy@thenootropiclab.com</strong>
+          </p>
+        </section>
+      </div>
+    </>
+  );
+}
+
+
+function TermsBody() {
+  return (
+    <>
+      <h1 className="text-3xl font-bold text-gray-900 mb-6">Terms of Use</h1>
+      <p className="text-sm text-gray-500 mb-8">Last updated: {LAST_UPDATED}</p>
+
+      <div className="prose prose-gray prose-sm max-w-none space-y-6">
+        <section>
+          <h2 className="text-xl font-bold text-gray-900 mb-3">1. Nature of This Site</h2>
+          <p className="text-gray-700 leading-relaxed">
+            The Nootropic Lab (independently operated) provides evidence-graded reviews, clinical
+            dosing audits, and comparisons of cognitive supplements. Content is intended for
+            general information only and does not constitute medical, nutritional, or other
+            professional advice. Consult a qualified healthcare professional before taking any
+            supplement, especially alongside medication or a medical condition.
+          </p>
+        </section>
+        <section>
+          <h2 className="text-xl font-bold text-gray-900 mb-3">2. Affiliate Links</h2>
+          <p className="text-gray-700 leading-relaxed">
+            We earn commissions when readers purchase through links on this site. This is
+            disclosed on our methodology page and never affects scores or rankings — vendors
+            without affiliate programmes are graded on the same criteria as those with them.
+          </p>
+        </section>
+        <section>
+          <h2 className="text-xl font-bold text-gray-900 mb-3">3. Accuracy</h2>
+          <p className="text-gray-700 leading-relaxed">
+            Formulations, pricing, and availability change frequently and vary by region. We
+            strive for accuracy but cannot guarantee all information is current; verify directly
+            with the vendor before purchasing. Report errors via the contact page.
+          </p>
+        </section>
+        <section>
+          <h2 className="text-xl font-bold text-gray-900 mb-3">4. No Warranties</h2>
+          <p className="text-gray-700 leading-relaxed">
+            This site is provided &quot;as is&quot; without warranties of any kind, express or
+            implied. To the maximum extent permitted by applicable law, we disclaim all
+            warranties including merchantability, fitness for a particular purpose, and
+            non-infringement.
+          </p>
+        </section>
+        <section>
+          <h2 className="text-xl font-bold text-gray-900 mb-3">5. Limitation of Liability</h2>
+          <p className="text-gray-700 leading-relaxed">
+            To the maximum extent permitted by applicable law, The Nootropic Lab and its editor
+            are not liable for any direct, indirect, incidental, consequential, or exemplary
+            damages arising from use of this site or reliance on its content.
+          </p>
+        </section>
+        <section>
+          <h2 className="text-xl font-bold text-gray-900 mb-3">6. Intellectual Property</h2>
+          <p className="text-gray-700 leading-relaxed">
+            Editorial content on this site is © The Nootropic Lab. You may quote brief excerpts
+            with attribution and a link; wholesale reproduction requires permission.
+          </p>
+        </section>
+        <section>
+          <h2 className="text-xl font-bold text-gray-900 mb-3">7. Governing Law</h2>
+          <p className="text-gray-700 leading-relaxed">
+            These terms are governed by the laws of Cyprus. See also the{' '}
+            <a href="/privacy-policy" className="text-emerald-700 underline">privacy policy</a> and{' '}
+            <a href="/imprint" className="text-emerald-700 underline">imprint</a>.
           </p>
         </section>
       </div>
@@ -202,7 +273,7 @@ export default function PolicyPage({ type, searchItems, uiStrings }: PolicyPageP
   return (
     <PublicShell searchItems={searchItems} uiStrings={uiStrings} hideDisclosure>
       <article className="max-w-3xl mx-auto px-4 py-10">
-        {type === 'cookie' ? <CookiePolicyBody /> : <PrivacyPolicyBody />}
+        {type === 'cookie' ? <CookiePolicyBody /> : type === 'terms' ? <TermsBody /> : <PrivacyPolicyBody />}
       </article>
     </PublicShell>
   );
