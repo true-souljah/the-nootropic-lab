@@ -10,8 +10,8 @@ _Tick `- [x]` to mark an item done, then commit. Grouped by priority, then sourc
 - [ ] **Cooperation: Double Wood Supplements — affiliate via Impact (10% new / 2% existing, 30d)** — `doublewoodsupplements.com` · Verified at doublewoodsupplements.com/pages/affiliate… <!--id:gsc:96bef663d1f1019a-->
 - [ ] **Cooperation: Life Extension Europe — affiliate (10%, 30d, EU storefronts)** — `lifeextensioneurope.com` · Verified at lifeextensioneurope.com/membership/affilia… <!--id:gsc:dbaa0a5d38545e5e-->
 - [ ] **Cooperation: Neutonic — affiliate via Awin (8%, 30d)** — `neutonic.com` · Verified at Awin merchant profile 121846: 8% per… <!--id:gsc:9593ef0d8a9b6842-->
-- [ ] **Fix 0-click title/meta for eu-yan-sang-brainmax+ at position 9** — `/eu-yan-sang-brainmax-review` · 32 impr · pos 9.4 <!--id:gsc:157650bccac5d765-->
-- [ ] **Fix zero-click title/meta for Eu Yan Sang BrainMax+ review at pos 9.4** — `/eu-yan-sang-brainmax-review` · 32 impr · pos 9.4 <!--id:gsc:5a32b8db19fe91ab-->
+- [ ] **Fix 0-click title/meta for eu-yan-sang-brainmax+ at position 9** — `/eu-yan-sang-brainmax-review` · 32 impr · pos 9.4 · BLOCKED 2026-09-03: page is “Crawled – currently not indexed” since ~2026-08-01 (identical GCC copy kept); re-judge after regionalised content + re-index <!--id:gsc:157650bccac5d765-->
+- [ ] **Fix zero-click title/meta for Eu Yan Sang BrainMax+ review at pos 9.4** — `/eu-yan-sang-brainmax-review` · 32 impr · pos 9.4 · BLOCKED 2026-09-03: page is “Crawled – currently not indexed” since ~2026-08-01 (identical GCC copy kept); re-judge after regionalised content + re-index <!--id:gsc:5a32b8db19fe91ab-->
 - [ ] **Push 'alpha brain canada' to page 1** — `/onnit-alpha-brain-review` · 30 impr · pos 17.8 <!--id:gsc:60446e254dd712ab-->
 - [ ] **Push 'blackmores brain active' review from pos 11 to page 1** — `/blackmores-brain-active-review` · 31 impr · pos 11.1 <!--id:gsc:35a5b25c2f2b2a5b-->
 - [ ] **Push 'eu yan sang brainmax' from pos 14.2 to page 1** — `/eu-yan-sang-brainmax-review/` · 33 impr · pos 14.2 <!--id:gsc:20e355b326f2a5ce-->
@@ -25,12 +25,12 @@ _Tick `- [x]` to mark an item done, then commit. Grouped by priority, then sourc
 ## P2
 
 ### GSC
-- [ ] **Consolidate duplicate L-Theanine ingredient pages (trailing-slash split)** — 46 impr · pos 79.7 <!--id:gsc:966cc044a8679075-->
+- [x] **Consolidate duplicate L-Theanine ingredient pages (trailing-slash split)** — 46 impr · pos 79.7 · done 2026-09-03: no duplicate exists — the slash-less URL 308-redirects to the trailing-slash page, which is self-canonical (verified live 2026-09-02; insights.mjs now folds both forms) <!--id:gsc:966cc044a8679075-->
 - [ ] **Consolidate Mind Lab Pro comparison queries across 3 pages — 105+ impressions** — 41 impr · pos 26.6 <!--id:gsc:5098ec7696c17423-->
 - [ ] **Cooperation: Gorilla Mind — affiliate (conflicting terms — reconcile first)** — `gorillamind.com` · Verified Awin profile 119295 pays 5% default with… <!--id:gsc:3d3472af4ae38a9b-->
-- [ ] **Deduplicate /ingredients/citicoline/ vs /ingredients/citicoline (trailing-slash split)** — 22 impr · pos 79.9 <!--id:gsc:c81e2aa5a3e98230-->
+- [x] **Deduplicate /ingredients/citicoline/ vs /ingredients/citicoline (trailing-slash split)** — 22 impr · pos 79.9 · done 2026-09-03: no duplicate exists — the slash-less URL 308-redirects to the trailing-slash page, which is self-canonical (verified live 2026-09-02; insights.mjs now folds both forms) <!--id:gsc:c81e2aa5a3e98230-->
 - [ ] **Fix language/intent mismatch: Dutch 'nootropic kopen' landing on German /de/ page** — `/de/beste-nootropika/` · 29 impr · pos 38.1 <!--id:gsc:684c04b852b97242-->
-- [ ] **Fix trailing-slash URL duplicates splitting authority across ingredient pages** — 90 impr · pos 69.2 <!--id:gsc:cfca0c8f3458fce1-->
+- [x] **Fix trailing-slash URL duplicates splitting authority across ingredient pages** — 90 impr · pos 69.2 · done 2026-09-03: no duplicate exists — the slash-less URL 308-redirects to the trailing-slash page, which is self-canonical (verified live 2026-09-02; insights.mjs now folds both forms) <!--id:gsc:cfca0c8f3458fce1-->
 - [ ] **Push /countries/chile toward page 1** — `/countries/chile` · 18 impr · 0 clk · pos 22.7 — second-best ranking page… <!--id:gsc:cd1f79060c062df2-->
 - [ ] **Push /fr/meilleurs-nootropiques to page 1 for 'nootropics avis'** — `/fr/meilleurs-nootropiques` · 57 impr · pos 27.1 <!--id:gsc:7caf4980f92977bc-->
 - [ ] **Push /fr/meilleurs-nootropiques/ into page 1 for 'nootropics avis'** — `/fr/meilleurs-nootropiques/` · 60 impr · pos 24.5 <!--id:gsc:f0fb9afed2c27994-->
@@ -38,11 +38,11 @@ _Tick `- [x]` to mark an item done, then commit. Grouped by priority, then sourc
 - [ ] **Push /mind-lab-pro-vs-qualia-mind from page 2 to page 1** — `/mind-lab-pro-vs-qualia-mind` · 72 impr · pos 21.2 <!--id:gsc:e433c69c4af0300c-->
 - [ ] **Push /noocube-review from page 4 to page 1 for core NooCoube queries** — `/noocube-review` · 239 impr · pos 39.3 <!--id:gsc:214e07d6cac2a003-->
 - [ ] **Resolve locale mismatch for 'nootropic kopen' targeting /de/beste-nootropika** — `/de/beste-nootropika` · 29 impr · pos 38.1 <!--id:gsc:30b6d86aed2d92c4-->
-- [ ] **Resolve trailing-slash duplicate for /ingredients/citicoline** — 171 impr · pos 78.0 <!--id:gsc:dc752acad62ae98a-->
-- [ ] **Trailing-slash duplicate for /best-nootropics-for-memory** — 18 impr · pos 60.6 <!--id:gsc:cfa4bdd41321407d-->
-- [ ] **Trailing-slash duplicate splits Alpha Brain review authority** — 222 impr · pos 43.2 <!--id:gsc:47db339f81ef0551-->
-- [ ] **Trailing-slash duplicate splits best-nootropics hub page** — 96 impr · pos 72.7 <!--id:gsc:6c4298ac6e0e18b7-->
-- [ ] **Trailing-slash duplicate splits L-Theanine ingredient page** — 32 impr · pos 90.5 <!--id:gsc:dbeed6bf722facfa-->
+- [x] **Resolve trailing-slash duplicate for /ingredients/citicoline** — 171 impr · pos 78.0 · done 2026-09-03: no duplicate exists — the slash-less URL 308-redirects to the trailing-slash page, which is self-canonical (verified live 2026-09-02; insights.mjs now folds both forms) <!--id:gsc:dc752acad62ae98a-->
+- [x] **Trailing-slash duplicate for /best-nootropics-for-memory** — 18 impr · pos 60.6 · done 2026-09-03: no duplicate exists — the slash-less URL 308-redirects to the trailing-slash page, which is self-canonical (verified live 2026-09-02; insights.mjs now folds both forms) <!--id:gsc:cfa4bdd41321407d-->
+- [x] **Trailing-slash duplicate splits Alpha Brain review authority** — 222 impr · pos 43.2 · done 2026-09-03: no duplicate exists — the slash-less URL 308-redirects to the trailing-slash page, which is self-canonical (verified live 2026-09-02; insights.mjs now folds both forms) <!--id:gsc:47db339f81ef0551-->
+- [x] **Trailing-slash duplicate splits best-nootropics hub page** — 96 impr · pos 72.7 · done 2026-09-03: no duplicate exists — the slash-less URL 308-redirects to the trailing-slash page, which is self-canonical (verified live 2026-09-02; insights.mjs now folds both forms) <!--id:gsc:6c4298ac6e0e18b7-->
+- [x] **Trailing-slash duplicate splits L-Theanine ingredient page** — 32 impr · pos 90.5 · done 2026-09-03: no duplicate exists — the slash-less URL 308-redirects to the trailing-slash page, which is self-canonical (verified live 2026-09-02; insights.mjs now folds both forms) <!--id:gsc:dbeed6bf722facfa-->
 
 ## P3
 

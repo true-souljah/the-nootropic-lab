@@ -87,7 +87,8 @@ export default function AboutPage() {
             </li>
             <li>
               <strong>Thailand — Thai FDA.</strong> Food supplement registration required for retail sale.
-              Personal imports under reasonable quantities are generally cleared.
+              Personal imports under reasonable quantities are generally cleared. See our{' '}
+              <Link href="/countries/thailand/" className="text-green-700 underline">Thailand buyer&apos;s guide</Link>.
             </li>
             <li>
               <strong>Vietnam — VFA (Vietnam Food Administration).</strong> Functional-food declaration required

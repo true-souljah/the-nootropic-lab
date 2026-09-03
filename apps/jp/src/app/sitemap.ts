@@ -1,10 +1,8 @@
 export const dynamic = 'force-static';
 import type { MetadataRoute } from 'next';
-import { productsJP, ingredients, guides } from '@nootropic/data';
+import { productsJP, ingredients, guides, jpPrefectures } from '@nootropic/data';
 
 const BASE = 'https://jp.thenootropiclab.com';
-
-const prefectures = ['tokyo', 'osaka', 'kanagawa', 'aichi', 'saitama', 'chiba', 'hokkaido', 'fukuoka'];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -57,12 +55,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 
-  const prefecturePages: MetadataRoute.Sitemap = prefectures.map(slug => ({
-    url: `${BASE}/prefectures/${slug}/`,
+  const geoHubPage: MetadataRoute.Sitemap = [
+    { url: `${BASE}/prefectures/`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+  ];
+  const prefecturePages: MetadataRoute.Sitemap = jpPrefectures.map(p => ({
+    url: `${BASE}/prefectures/${p.slug}/`,
     lastModified: now,
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }));
 
-  return [...staticPages, ...productPages, ...ingredientPages, ...guidePages, ...prefecturePages];
+  return [...staticPages, ...productPages, ...ingredientPages, ...guidePages, ...geoHubPage, ...prefecturePages];
 }

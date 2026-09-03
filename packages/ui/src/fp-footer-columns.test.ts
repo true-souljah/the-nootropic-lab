@@ -135,6 +135,8 @@ describe('columnsFromStrings — localization correctness', () => {
       'Australia',
       'Japón',
       'América Latina',
+      'Golfo (CCG)',
+      'Sudeste Asiático',
     ]);
 
     const de = columnsFromStrings(getStrings('de')).find((c) => c.id === 'footer-col-by-region')!;
@@ -145,6 +147,8 @@ describe('columnsFromStrings — localization correctness', () => {
       'Australien',
       'Japan',
       'Lateinamerika',
+      'Golfstaaten (GCC)',
+      'Südostasien',
     ]);
   });
 });
@@ -175,6 +179,23 @@ describe('UIStrings.footer — adjacent surfaces required for FPFooter', () => {
       // 'fr' / 'fr-CA' use "Méthodologie", 'es' uses "Metodología", etc.
       // None should be the bare English word.
       expect(s.footer.methodologyLabel, `${locale} methodologyLabel`).not.toBe('Methodology');
+    }
+  });
+});
+
+describe('columnsFromStrings — by-region column covers all 8 hosts', () => {
+  // 2026-09 audit: GCC and SEA had no inbound links from the other six
+  // hosts because the column stopped at Latin America.
+  const HOSTS = ['thenootropiclab.com', 'eu.', 'ca.', 'au.', 'jp.', 'latam.', 'gcc.', 'sea.'];
+  test('every locale lists 8 region links, GCC and SEA included', () => {
+    for (const locale of ALL_LOCALES) {
+      const col = columnsFromStrings(getStrings(locale)).find((c) => c.id === 'footer-col-by-region');
+      expect(col, `${locale} by-region column`).toBeTruthy();
+      expect(col!.links, `${locale} region link count`).toHaveLength(8);
+      for (const host of HOSTS) {
+        expect(col!.links.some((l) => l.href.includes(`https://${host}`)), `${locale} links ${host}`).toBe(true);
+      }
+      for (const link of col!.links) expect(link.label, `${locale} ${link.href} label`).toBeTruthy();
     }
   });
 });
