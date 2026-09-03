@@ -64,6 +64,8 @@ const DEFAULT_COLUMNS: FPFooterColumn[] = [
       { label: 'Australia', href: 'https://au.thenootropiclab.com' },
       { label: 'Japan', href: 'https://jp.thenootropiclab.com' },
       { label: 'Latin America', href: 'https://latam.thenootropiclab.com' },
+      { label: 'Gulf (GCC)', href: 'https://gcc.thenootropiclab.com' },
+      { label: 'Southeast Asia', href: 'https://sea.thenootropiclab.com' },
     ],
   },
   {
@@ -126,6 +128,8 @@ export function columnsFromStrings(strings: UIStrings): FPFooterColumn[] {
         { label: f.byRegion.au, href: 'https://au.thenootropiclab.com' },
         { label: f.byRegion.jp, href: 'https://jp.thenootropiclab.com' },
         { label: f.byRegion.latam, href: 'https://latam.thenootropiclab.com' },
+        { label: f.byRegion.gcc, href: 'https://gcc.thenootropiclab.com' },
+        { label: f.byRegion.sea, href: 'https://sea.thenootropiclab.com' },
       ],
     },
     {

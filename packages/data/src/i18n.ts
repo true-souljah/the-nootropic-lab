@@ -54,6 +54,8 @@ export interface UIStrings {
       au: string;
       jp: string;
       latam: string;
+      gcc: string;
+      sea: string;
     };
     /** Column 4: about/legal/policy. */
     about: {
@@ -306,6 +308,8 @@ const en: UIStrings = {
       au: 'Australia',
       jp: 'Japan',
       latam: 'Latin America',
+      gcc: 'Gulf (GCC)',
+      sea: 'Southeast Asia',
     },
     about: {
       heading: 'About',
@@ -515,6 +519,8 @@ const es: UIStrings = {
       au: 'Australia',
       jp: 'Japón',
       latam: 'América Latina',
+      gcc: 'Golfo (CCG)',
+      sea: 'Sudeste Asiático',
     },
     about: {
       heading: 'Acerca de',
@@ -724,6 +730,8 @@ const fr: UIStrings = {
       au: 'Australie',
       jp: 'Japon',
       latam: 'Amérique latine',
+      gcc: 'Golfe (CCG)',
+      sea: 'Asie du Sud-Est',
     },
     about: {
       heading: 'À propos',
@@ -933,6 +941,8 @@ const ja: UIStrings = {
       au: 'オーストラリア',
       jp: '日本',
       latam: 'ラテンアメリカ',
+      gcc: '湾岸諸国（GCC）',
+      sea: '東南アジア',
     },
     about: {
       heading: '運営者情報',
@@ -1142,6 +1152,8 @@ const pt: UIStrings = {
       au: 'Austrália',
       jp: 'Japão',
       latam: 'América Latina',
+      gcc: 'Golfo (CCG)',
+      sea: 'Sudeste Asiático',
     },
     about: {
       heading: 'Sobre',
@@ -1351,6 +1363,8 @@ const de: UIStrings = {
       au: 'Australien',
       jp: 'Japan',
       latam: 'Lateinamerika',
+      gcc: 'Golfstaaten (GCC)',
+      sea: 'Südostasien',
     },
     about: {
       heading: 'Über uns',
@@ -1565,6 +1579,8 @@ const frCa: UIStrings = {
       au: 'Australie',
       jp: 'Japon',
       latam: 'Amérique latine',
+      gcc: 'Golfe (CCG)',
+      sea: 'Asie du Sud-Est',
     },
     about: {
       heading: 'À propos',

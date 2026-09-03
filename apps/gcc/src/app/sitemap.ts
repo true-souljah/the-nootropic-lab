@@ -50,6 +50,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 
+  const geoHubPage: MetadataRoute.Sitemap = [
+    { url: `${BASE}/countries/`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+  ];
   const countryPages: MetadataRoute.Sitemap = gccCountries.map(c => ({
     url: `${BASE}/countries/${c.slug}/`,
     lastModified: now,
@@ -57,5 +60,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...productPages, ...ingredientPages, ...guidePages, ...countryPages];
+  return [...staticPages, ...productPages, ...ingredientPages, ...guidePages, ...geoHubPage, ...countryPages];
 }

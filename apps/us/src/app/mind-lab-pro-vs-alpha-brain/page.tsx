@@ -91,6 +91,9 @@ export default function Page() {
       healthDisclaimer={getRegionalHealthDisclaimer('us')}
       searchItems={searchItems}
       uiStrings={uiStrings}
+      relatedLinks={[
+        { href: '/mind-lab-pro-vs-thesis/', title: 'Mind Lab Pro vs Thesis', meta: 'Universal formula vs personalised stack — the dedicated comparison' },
+      ]}
     />
   );
 }

@@ -1,13 +1,8 @@
 export const dynamic = 'force-static';
 import type { MetadataRoute } from 'next';
-import { productsAU, ingredients, guides } from '@nootropic/data';
+import { productsAU, ingredients, guides, auStates } from '@nootropic/data';
 
 const BASE = 'https://au.thenootropiclab.com';
-
-const states = [
-  'new-south-wales', 'victoria', 'queensland', 'western-australia',
-  'south-australia', 'tasmania', 'australian-capital-territory', 'northern-territory',
-];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -56,12 +51,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 
-  const statePages: MetadataRoute.Sitemap = states.map(slug => ({
-    url: `${BASE}/states/${slug}/`,
+  const geoHubPage: MetadataRoute.Sitemap = [
+    { url: `${BASE}/states/`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+  ];
+  const statePages: MetadataRoute.Sitemap = auStates.map(p => ({
+    url: `${BASE}/states/${p.slug}/`,
     lastModified: now,
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }));
 
-  return [...staticPages, ...productPages, ...ingredientPages, ...guidePages, ...statePages];
+  return [...staticPages, ...productPages, ...ingredientPages, ...guidePages, ...geoHubPage, ...statePages];
 }

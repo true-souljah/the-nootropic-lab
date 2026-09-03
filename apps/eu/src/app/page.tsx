@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
 import { searchItems, uiStrings } from '@/lib/search';
+import { euCountries } from '@nootropic/data';
 
 
 export const metadata: Metadata = {
@@ -167,6 +168,24 @@ export default function EUHomePage() {
           <Link href="/best-nootropics-for-aging/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
             <div className="font-semibold text-gray-900 text-sm mb-1">For aging brain</div>
             <div className="text-xs text-gray-500">PS, citicoline, Lion&apos;s Mane</div>
+          </Link>
+        </div>
+      </section>
+
+      {/* Local buyer's guides — hub added after the 2026-09 audit: these geo
+          pages were reachable only from the sitemap and Google reported the
+          newer ones as unknown. */}
+      <section className="max-w-5xl mx-auto px-4 pb-16">
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">Browse by country</h2>
+        <p className="text-sm text-gray-500 mb-6">National supplement rules, customs handling and shipping times for each EU member state.</p>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          {euCountries.slice(0, 11).map(p => (
+            <Link key={p.slug} href={`/countries/${p.slug}/`} className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
+              <div className="font-semibold text-gray-900 text-sm mb-1">{p.name}</div>
+            </Link>
+          ))}
+          <Link href="/countries/" className="block border border-green-700 rounded-lg p-4 bg-green-50 hover:bg-green-100 transition-colors">
+            <div className="font-semibold text-green-800 text-sm">All EU countries →</div>
           </Link>
         </div>
       </section>

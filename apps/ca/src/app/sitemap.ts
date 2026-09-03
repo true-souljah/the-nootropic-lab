@@ -1,13 +1,8 @@
 export const dynamic = 'force-static';
 import type { MetadataRoute } from 'next';
-import { productsCA, ingredients, guides } from '@nootropic/data';
+import { productsCA, ingredients, guides, caProvinces } from '@nootropic/data';
 
 const BASE = 'https://ca.thenootropiclab.com';
-
-const provinces = [
-  'ontario', 'british-columbia', 'quebec', 'alberta', 'manitoba',
-  'saskatchewan', 'nova-scotia', 'new-brunswick', 'prince-edward-island', 'newfoundland-and-labrador',
-];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -59,12 +54,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 
-  const provincePages: MetadataRoute.Sitemap = provinces.map(slug => ({
-    url: `${BASE}/provinces/${slug}/`,
+  const geoHubPage: MetadataRoute.Sitemap = [
+    { url: `${BASE}/provinces/`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+  ];
+  const provincePages: MetadataRoute.Sitemap = caProvinces.map(p => ({
+    url: `${BASE}/provinces/${p.slug}/`,
     lastModified: now,
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }));
 
-  return [...staticPages, ...productPages, ...ingredientPages, ...guidePages, ...provincePages];
+  return [...staticPages, ...productPages, ...ingredientPages, ...guidePages, ...geoHubPage, ...provincePages];
 }

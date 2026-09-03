@@ -190,3 +190,7 @@ export type {
   BuildTwitterParams,
   TwitterOutput,
 } from './seo';
+
+// Geo hub pages (2026-09 audit: orphaned /prefectures, /states, /provinces, /countries)
+export { default as GeoIndexPage, buildGeoIndexLinks } from './templates/GeoIndexPage';
+export type { GeoIndexItem, GeoIndexLink, GeoIndexPageProps } from './templates/GeoIndexPage';

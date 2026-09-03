@@ -44,6 +44,12 @@ export interface HeadToHeadProps {
   searchItems?: SearchItem[];
   uiStrings?: UIStrings;
   readTime?: string;
+  /**
+   * Extra cards appended to the "Read individual reviews" grid — used to
+   * cross-link a sibling comparison when a query keeps landing on the wrong
+   * page (2026-09 audit: "mind lab pro vs thesis" ranked the Alpha Brain page).
+   */
+  relatedLinks?: { href: string; title: string; meta: string }[];
 }
 
 function defaultPriceFormat(p: Product): string {
@@ -123,6 +129,7 @@ export default function HeadToHead({
   strings,
   healthDisclaimer,
   sources,
+  relatedLinks = [],
   searchItems,
   uiStrings,
   readTime = '9 min',
@@ -550,6 +557,7 @@ export default function HeadToHead({
               { href: `/${productB.slug}/`, title: tpl(s.productReviewCard, { name: productB.name }), meta: tpl(s.scoreCardLine, { score: productB.score }) },
               { href: `${listicleHref}/`, title: tpl(s.bestNootropicsCard, { year: currentYear }), meta: s.fullRankedComparison },
               { href: '/methodology/', title: s.methodologyCard, meta: s.howWeAuditDoses },
+              ...relatedLinks,
             ].map((c) => (
               <Link
                 key={c.href + c.title}
