@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
-import { guidesEs as guides, buildPersonAuthorReference } from '@nootropic/data';
+import { guidesEs as guides, buildPersonAuthorReference, productsLatam, regionalGuideNote, regionalTitleQualifier } from '@nootropic/data';
 
-import { PublicShell } from "@nootropic/ui";
+import { PublicShell, RegionalAvailability } from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import { SITE_URL } from '@/lib/region';
+import { regionalProps } from '@/lib/regional';
 
 export const dynamicParams = false;
 
@@ -21,12 +22,13 @@ export async function generateMetadata({
   const { guide } = await params;
   const g = guides.find(x => x.slug === guide);
   if (!g) return {};
+  const q = regionalTitleQualifier('latam', 0, regionalGuideNote('latam', guide));
   return {
-    title: `${g.title} — The Nootropic Lab Latam`,
+    title: `${g.title}${q} — The Nootropic Lab Latam`,
     description: g.description,
     alternates: buildAlternates({ regionCode: 'latam', path: `/guides/${guide}/` }),
-    openGraph: buildOpenGraph({ regionCode: 'latam', path: `/guides/${guide}/`, title: `${g.title} — The Nootropic Lab Latam`, description: g.description }),
-    twitter: buildTwitter({ title: `${g.title} — The Nootropic Lab Latam`, description: g.description }),
+    openGraph: buildOpenGraph({ regionCode: 'latam', path: `/guides/${guide}/`, title: `${g.title}${q} — The Nootropic Lab Latam`, description: g.description }),
+    twitter: buildTwitter({ title: `${g.title}${q} — The Nootropic Lab Latam`, description: g.description }),
   };
 }
 
@@ -87,6 +89,8 @@ export default async function GuidePage({
             <p className="text-gray-700 leading-relaxed">{section.content}</p>
           </section>
         ))}
+
+        <RegionalAvailability {...regionalProps(productsLatam.slice().sort((a, b) => b.score - a.score).slice(0, 4))} note={regionalGuideNote('latam', g.slug)} />
 
         <div className="mt-10 text-sm text-gray-500">
           <a href="/guides" className="text-green-700 underline">
