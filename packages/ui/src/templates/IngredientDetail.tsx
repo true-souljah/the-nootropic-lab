@@ -7,6 +7,8 @@ import { FPByline } from '../public-chrome/FPByline';
 import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { FaqAccordion } from '../primitives/FaqAccordion';
+import RegionalAvailability from '../RegionalAvailability';
+import type { RegionalAvailabilityProps } from '../RegionalAvailability';
 import { buildPersonAuthorReference } from '@nootropic/data';
 import type { Ingredient, Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
@@ -21,6 +23,8 @@ export interface IngredientDetailProps {
   searchItems?: SearchItem[];
   uiStrings?: UIStrings;
   readTime?: string;
+  /** Region-specific block (availability, licence, local price, local guides). */
+  regional?: Omit<RegionalAvailabilityProps, 'subjectName' | 'id'>;
 }
 
 // English defaults — used when `uiStrings` prop is omitted. When present, the
@@ -72,6 +76,7 @@ export default function IngredientDetail({
   searchItems,
   uiStrings,
   readTime = '8 min',
+  regional,
 }: IngredientDetailProps) {
   const t = uiStrings?.ingredientDetail;
   const categoryLabels = t?.category ?? DEFAULT_CATEGORY_LABELS;
@@ -85,6 +90,7 @@ export default function IngredientDetail({
     { id: 'stacking', label: t?.toc.stacking ?? 'Stacking' },
     { id: 'faq', label: t?.toc.faq ?? 'FAQ' },
     { id: 'products', label: t?.toc.products ?? 'Products with it' },
+    ...(regional ? [{ id: 'regional', label: regional.region.labels.inRegion.replace(/^(in|en) /, '') }] : []),
     { id: 'related', label: t?.toc.related ?? 'Related ingredients' },
   ];
 
@@ -402,6 +408,10 @@ export default function IngredientDetail({
                   ))}
                 </div>
               </section>
+            )}
+
+            {regional && (
+              <RegionalAvailability {...regional} subjectName={ing.name} id="regional" />
             )}
 
             <section id="related" className="mt-9">
