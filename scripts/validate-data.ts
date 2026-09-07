@@ -3,6 +3,7 @@
 import {
   productsUS, productsEU, productsCA, productsAU,
   productsJP, productsLatam, productsGCC, productsSEA,
+  validateRegionalNotes,
 } from '../packages/data/src/index';
 
 const regions: Record<string, unknown[]> = {
@@ -49,6 +50,15 @@ for (const [region, products] of Object.entries(regions)) {
   }
   console.log(`ok ${region}: ${products.length} products`);
 }
+
+// Regional notes (2026-09): every authored note must cite at least one
+// primary source with an http(s) URL — a note without a source is treated
+// as unverified content and fails the gate.
+for (const problem of validateRegionalNotes()) {
+  console.error(`FAIL regional-notes: ${problem}`);
+  failed++;
+}
+console.log(`ok regional-notes: ${failed === 0 ? 'all authored notes cite sources' : 'see failures above'}`);
 
 if (failed > 0) {
   console.error(`\n${failed} validation error(s).`);
