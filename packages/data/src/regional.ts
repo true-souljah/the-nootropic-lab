@@ -165,7 +165,7 @@ export function licenceStatus(product: Product, region: RegionCode): LicenceStat
       if (product.euCompliance === 'reformulated') return { label: 'Reformulated for the EU', tone: 'warn' };
       return { label: 'Compliance unverified', tone: 'neutral' };
     case 'sea': {
-      const halal = (product as Product & { halalCertified?: boolean }).halalCertified;
+      const halal = product.halalCertified;
       if (halal === true) return { label: 'Halal certified', tone: 'good' };
       if (halal === false) return { label: 'No halal certification', tone: 'neutral' };
       return null;
@@ -257,4 +257,40 @@ export function validateRegionalNotes(notes: Record<RegionCode, RegionalNotes> =
     }
   }
   return problems;
+}
+
+/**
+ * Derived facts for the "Buying in <region>" block on a product review page.
+ * Everything comes from the region's own product record — local price, licence
+ * status, and the record's distribution/import/regulatory fields when present.
+ */
+export interface RegionalBuying {
+  region: RegionProfile;
+  price: LocalPrice | null;
+  status: LicenceStatus | null;
+  channels: string[];
+  importPathway?: string;
+  regulatoryNote?: string;
+  notes: string[];
+}
+
+export function buildRegionalBuying(product: Product, region: RegionCode): RegionalBuying {
+  const notes = product.notes === undefined ? [] : Array.isArray(product.notes) ? product.notes : [product.notes];
+  const channels = [...(product.distributionChannels ?? []), ...(product.distributionChannelsSea ?? [])].filter(
+    (c, i, arr) => typeof c === 'string' && c.trim() && arr.indexOf(c) === i,
+  );
+  return {
+    region: REGION_PROFILES[region],
+    price: localPrice(product, region),
+    status: licenceStatus(product, region),
+    channels,
+    ...(product.importPathway ? { importPathway: product.importPathway } : {}),
+    ...(product.regulatoryNote ? { regulatoryNote: product.regulatoryNote } : {}),
+    notes,
+  };
+}
+
+/** True when the block would show something beyond the region name. */
+export function hasRegionalBuyingContent(b: RegionalBuying): boolean {
+  return !!(b.price || b.status || b.channels.length || b.importPathway || b.regulatoryNote || b.notes.length);
 }

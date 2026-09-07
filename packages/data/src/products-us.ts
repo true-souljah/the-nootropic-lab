@@ -100,6 +100,12 @@ export interface Product {
    * the TGA Personal Importation Scheme (3-month personal-use supply).
    */
   austl?: string;
+  /** Region-record extras (SEA catalogue and per-region notes). Optional; rendered by the "Buying in <region>" block when present. */
+  notes?: string | string[];
+  distributionChannels?: string[];
+  distributionChannelsSea?: string[];
+  importPathway?: string;
+  regulatoryNote?: string;
   /**
    * Halal certification status. Meaningful primarily on products served by
    * the SEA + GCC market apps, where halal is a federal-law requirement for

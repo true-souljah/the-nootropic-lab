@@ -87,3 +87,25 @@ describe('validateRegionalNotes', () => {
     expect(validateRegionalNotes(bad)).toEqual(['ca/guides/what-are-nootropics: no sources']);
   });
 });
+
+import { buildRegionalBuying, hasRegionalBuyingContent } from '@nootropic/data';
+
+describe('buildRegionalBuying', () => {
+  test('every region derives a block with at least a local price for its first product', () => {
+    for (const [code, products] of CATALOGS) {
+      const b = buildRegionalBuying(products[0], code);
+      expect(b.region.code).toBe(code);
+      expect(hasRegionalBuyingContent(b), `${code} has content`).toBe(true);
+      expect(b.price?.currency).toBe(REGION_PROFILES[code].currency);
+    }
+  });
+  test('SEA Eu Yan Sang carries its distribution channels; notes normalise to an array', () => {
+    const eys = productsSEA.find((p) => p.slug === 'eu-yan-sang-brainmax-review')!;
+    const b = buildRegionalBuying(eys, 'sea');
+    expect(b.channels).toContain('euyansang.com.sg');
+    const withNotes = buildRegionalBuying({ ...productsUS[0], notes: 'one note' }, 'us');
+    expect(withNotes.notes).toEqual(['one note']);
+    const empty = buildRegionalBuying({ ...productsUS[0], priceMonthlyUSD: undefined }, 'us');
+    expect(hasRegionalBuyingContent(empty)).toBe(false);
+  });
+});
