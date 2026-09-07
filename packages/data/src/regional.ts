@@ -1,4 +1,6 @@
 import type { Product } from './products-us';
+import { regionalNotesCA } from './regional-notes/ca';
+import { regionalNotesEU } from './regional-notes/eu';
 
 /**
  * Regional overlay — the data behind the "In <region>" block that makes the
@@ -186,6 +188,8 @@ export function localPrice(product: Product, region: RegionCode): LocalPrice | n
 export interface RegionalSource {
   label: string;
   url: string;
+  /** Verbatim passage from the source that supports the note; re-checked mechanically. */
+  quote?: string;
 }
 
 /**
@@ -212,7 +216,7 @@ const EMPTY: RegionalNotes = { guides: {}, ingredients: {} };
  * the derived block renders without them.
  */
 export const REGIONAL_NOTES: Record<RegionCode, RegionalNotes> = {
-  us: EMPTY, eu: EMPTY, ca: EMPTY, au: EMPTY, jp: EMPTY, latam: EMPTY, gcc: EMPTY, sea: EMPTY,
+  us: EMPTY, eu: regionalNotesEU, ca: regionalNotesCA, au: EMPTY, jp: EMPTY, latam: EMPTY, gcc: EMPTY, sea: EMPTY,
 };
 
 export function regionalGuideNote(region: RegionCode, slug: string): RegionalNote | undefined {
