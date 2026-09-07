@@ -55,6 +55,7 @@ export type {
   RegionalNote,
   RegionalNotes,
   RegionalSource,
+  RegionalBuying,
 } from './regional';
 export {
   REGION_PROFILES,
@@ -65,4 +66,6 @@ export {
   regionalIngredientNote,
   regionalTitleQualifier,
   validateRegionalNotes,
+  buildRegionalBuying,
+  hasRegionalBuyingContent,
 } from './regional';

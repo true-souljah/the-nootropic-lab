@@ -16,6 +16,8 @@ import { DosingTab } from './product-detail/DosingTab';
 import { PillarsTab } from './product-detail/PillarsTab';
 import { ReviewsTab } from './product-detail/ReviewsTab';
 import { PricingTab } from './product-detail/PricingTab';
+import RegionalBuying from '../RegionalBuying';
+import type { RegionalBuyingProps } from '../RegionalBuying';
 
 export interface ProductDetailProps {
   product: Product;
@@ -39,6 +41,8 @@ export interface ProductDetailProps {
    * disclaimer section will simply not render.
    */
   healthDisclaimer?: string;
+  /** "Buying in <region>" block: local price, licence status, channels, local guides. */
+  regional?: Omit<RegionalBuyingProps, 'id'>;
 }
 
 /**
@@ -55,6 +59,7 @@ export default function ProductDetail({
   searchItems,
   uiStrings,
   healthDisclaimer,
+  regional,
 }: ProductDetailProps) {
   const [tab, setTab] = useState<TabId>('overview');
 
@@ -166,7 +171,7 @@ export default function ProductDetail({
 
           <div className="mt-[22px] pt-[18px] border-t border-ds-border grid gap-[18px] items-center grid-cols-2 sm:grid-cols-3 lg:grid-cols-[repeat(5,1fr)_auto]">
             {[
-              [pd.stats.price, p.priceMonthlyUSD ? `$${p.priceMonthlyUSD}${pd.stats.perMonth}` : '—', false],
+              [pd.stats.price, regional?.data.price ? `${new Intl.NumberFormat(regional.data.price.locale, { style: 'currency', currency: regional.data.price.currency, maximumFractionDigits: 0 }).format(regional.data.price.amount)}${pd.stats.perMonth}` : p.priceMonthlyUSD ? `$${p.priceMonthlyUSD}${pd.stats.perMonth}` : '—', false],
               [pd.stats.capsules, `${p.capsulesPerServing}${pd.stats.perDay}`, false],
               [pd.stats.moneyBack, `${p.moneyBackDays} ${pd.stats.days}`, false],
               [
@@ -226,6 +231,8 @@ export default function ProductDetail({
         <TabPanel idPrefix="product" id="pricing" hidden={tab !== 'pricing'} className="mt-5">
           <PricingTab product={p} />
         </TabPanel>
+
+        {regional && <RegionalBuying {...regional} id="regional-buying" />}
 
         {/* Always-shown alternatives rail */}
         {alternatives.length > 0 && (

@@ -4,6 +4,7 @@ import { ProductDetail, SchemaOrg, buildAlternates} from '@nootropic/ui';
 import { productsAU, buildProductSchema, getRegionalHealthDisclaimer } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
+import { regionalProductProps } from '@/lib/regional';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -69,6 +70,7 @@ export default async function ProductReviewPage({
         searchItems={searchItems}
         uiStrings={uiStrings}
         healthDisclaimer={getRegionalHealthDisclaimer('au')}
+        regional={regionalProductProps(product)}
       />
     </>
   );

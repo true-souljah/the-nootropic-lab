@@ -2,7 +2,7 @@
 // pages spread `regionalProps(products)` into the shared RegionalAvailability
 // block so this host carries facts only this region has.
 import type { Product } from '@nootropic/data';
-import { REGION_PROFILES, getRegionalHealthDisclaimer, auStates } from '@nootropic/data';
+import { REGION_PROFILES, getRegionalHealthDisclaimer, buildRegionalBuying, hasRegionalBuyingContent, auStates } from '@nootropic/data';
 import { buildGeoIndexLinks } from '@nootropic/ui';
 
 export const REGION = REGION_PROFILES.au;
@@ -14,4 +14,11 @@ export function regionalProps(products: Product[]) {
     geoLinks: buildGeoIndexLinks(auStates, '/states').slice(0, 6),
     regulatoryNote: getRegionalHealthDisclaimer('au'),
   };
+}
+
+/** "Buying in <region>" block props for a product review page; undefined when the record has nothing regional to show. */
+export function regionalProductProps(product: Product) {
+  const data = buildRegionalBuying(product, 'au');
+  if (!hasRegionalBuyingContent(data)) return undefined;
+  return { data, geoLinks: regionalProps([]).geoLinks };
 }

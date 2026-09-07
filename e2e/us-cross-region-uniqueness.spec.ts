@@ -24,6 +24,8 @@ const PATHS = [
   '/ingredients/citicoline/',
   '/ingredients/l-theanine/',
   '/ingredients/alpha-gpc/',
+  '/mind-lab-pro-review/',
+  '/noocube-review/',
 ];
 
 const CEILING = 0.95;
