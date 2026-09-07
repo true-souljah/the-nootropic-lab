@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { IngredientDetail, buildAlternates, buildOpenGraph, buildTwitter } from '@nootropic/ui';
-import { ingredients, productsSEA } from '@nootropic/data';
+import { ingredients, productsSEA, regionalIngredientNote, regionalTitleQualifier } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
+import { regionalProps } from '@/lib/regional';
 
 export const dynamicParams = false;
 
@@ -19,12 +20,14 @@ export async function generateMetadata({
   const { ingredient } = await params;
   const ing = ingredients.find(i => i.slug === ingredient);
   if (!ing) return {};
+  const localCount = productsSEA.filter((p) => ing.productsContaining.includes(p.slug)).length;
+  const q = regionalTitleQualifier('sea', localCount, regionalIngredientNote('sea', ingredient));
   return {
-    title: `${ing.name} — Nootropic Guide, Dosing, Effects & FAQs`,
-    description: `${ing.name}: mechanism of action, clinical dose (${ing.clinicalDose}), human effect matrix, how to take, stacking guide, and consumer FAQs — products with international shipping.`,
+    title: `${ing.name}${q} — Nootropic Guide, Dosing, Effects & FAQs`,
+    description: `${ing.name}${q}: mechanism of action, clinical dose (${ing.clinicalDose}), human effect matrix, how to take, stacking guide, and consumer FAQs — products with international shipping.`,
     alternates: buildAlternates({ regionCode: 'sea', path: `/ingredients/${ingredient}/` }),
-    openGraph: buildOpenGraph({ regionCode: 'sea', path: `/ingredients/${ingredient}/`, title: `${ing.name} — Nootropic Guide, Dosing, Effects & FAQs`, description: `${ing.name}: mechanism of action, clinical dose (${ing.clinicalDose}), human effect matrix, how to take, stacking guide, and consumer FAQs — products with international shipping.` }),
-    twitter: buildTwitter({ title: `${ing.name} — Nootropic Guide, Dosing, Effects & FAQs`, description: `${ing.name}: mechanism of action, clinical dose (${ing.clinicalDose}), human effect matrix, how to take, stacking guide, and consumer FAQs — products with international shipping.` }),
+    openGraph: buildOpenGraph({ regionCode: 'sea', path: `/ingredients/${ingredient}/`, title: `${ing.name}${q} — Nootropic Guide, Dosing, Effects & FAQs`, description: `${ing.name}${q}: mechanism of action, clinical dose (${ing.clinicalDose}), human effect matrix, how to take, stacking guide, and consumer FAQs — products with international shipping.` }),
+    twitter: buildTwitter({ title: `${ing.name}${q} — Nootropic Guide, Dosing, Effects & FAQs`, description: `${ing.name}${q}: mechanism of action, clinical dose (${ing.clinicalDose}), human effect matrix, how to take, stacking guide, and consumer FAQs — products with international shipping.` }),
   };
 }
 
@@ -50,6 +53,7 @@ export default async function IngredientPage({
       siteUrl={SITE_URL}
       searchItems={searchItems}
       uiStrings={uiStrings}
+      regional={{ ...regionalProps(containingProducts), note: regionalIngredientNote('sea', ing.slug) }}
     />
   );
 }

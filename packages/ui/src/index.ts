@@ -194,3 +194,7 @@ export type {
 // Geo hub pages (2026-09 audit: orphaned /prefectures, /states, /provinces, /countries)
 export { default as GeoIndexPage, buildGeoIndexLinks } from './templates/GeoIndexPage';
 export type { GeoIndexItem, GeoIndexLink, GeoIndexPageProps } from './templates/GeoIndexPage';
+
+// Regional overlay block (2026-09 audit)
+export { default as RegionalAvailability, formatLocalPrice } from './RegionalAvailability';
+export type { RegionalAvailabilityProps, RegionalGeoLink } from './RegionalAvailability';

@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
-import { guides, buildPersonAuthorReference } from '@nootropic/data';
+import { guides, buildPersonAuthorReference, productsAU, regionalGuideNote, regionalTitleQualifier } from '@nootropic/data';
 
-import { PublicShell } from "@nootropic/ui";
+import { PublicShell, RegionalAvailability } from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import { SITE_URL } from '@/lib/region';
+import { regionalProps } from '@/lib/regional';
 
 export const dynamicParams = false;
 
@@ -21,12 +22,13 @@ export async function generateMetadata({
   const { guide } = await params;
   const g = guides.find(x => x.slug === guide);
   if (!g) return {};
+  const q = regionalTitleQualifier('au', 0, regionalGuideNote('au', guide));
   return {
-    title: `${g.title} — The Nootropic Lab AU`,
+    title: `${g.title}${q} — The Nootropic Lab AU`,
     description: g.description,
     alternates: buildAlternates({ regionCode: 'au', path: `/guides/${guide}/` }),
-    openGraph: buildOpenGraph({ regionCode: 'au', path: `/guides/${guide}/`, title: `${g.title} — The Nootropic Lab AU`, description: g.description }),
-    twitter: buildTwitter({ title: `${g.title} — The Nootropic Lab AU`, description: g.description }),
+    openGraph: buildOpenGraph({ regionCode: 'au', path: `/guides/${guide}/`, title: `${g.title}${q} — The Nootropic Lab AU`, description: g.description }),
+    twitter: buildTwitter({ title: `${g.title}${q} — The Nootropic Lab AU`, description: g.description }),
   };
 }
 
@@ -87,6 +89,8 @@ export default async function GuidePage({
             <p className="text-gray-700 leading-relaxed">{section.content}</p>
           </section>
         ))}
+
+        <RegionalAvailability {...regionalProps(productsAU.slice().sort((a, b) => b.score - a.score).slice(0, 4))} note={regionalGuideNote('au', g.slug)} />
 
         <div className="mt-10 text-sm text-gray-500">
           <a href="/guides" className="text-green-700 underline">

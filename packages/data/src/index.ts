@@ -44,3 +44,25 @@ export {
   productContainsAnmatBanned,
   auditProductsForAnmat,
 } from './anmat-prohibited';
+
+// Regional overlay (2026-09 audit: de-duplicate the cloned guide/ingredient pages)
+export type {
+  RegionCode as RegionalRegionCode,
+  RegionProfile,
+  RegionLabels,
+  LicenceStatus,
+  LocalPrice,
+  RegionalNote,
+  RegionalNotes,
+  RegionalSource,
+} from './regional';
+export {
+  REGION_PROFILES,
+  REGIONAL_NOTES,
+  licenceStatus,
+  localPrice,
+  regionalGuideNote,
+  regionalIngredientNote,
+  regionalTitleQualifier,
+  validateRegionalNotes,
+} from './regional';
