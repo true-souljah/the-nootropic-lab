@@ -1,6 +1,10 @@
 import type { Product } from './products-us';
 import { regionalNotesCA } from './regional-notes/ca';
 import { regionalNotesEU } from './regional-notes/eu';
+import { regionalNotesAU } from './regional-notes/au';
+import { regionalNotesGCC } from './regional-notes/gcc';
+import { regionalNotesSEA } from './regional-notes/sea';
+import { regionalNotesJP } from './regional-notes/jp';
 
 /**
  * Regional overlay — the data behind the "In <region>" block that makes the
@@ -216,7 +220,7 @@ const EMPTY: RegionalNotes = { guides: {}, ingredients: {} };
  * the derived block renders without them.
  */
 export const REGIONAL_NOTES: Record<RegionCode, RegionalNotes> = {
-  us: EMPTY, eu: regionalNotesEU, ca: regionalNotesCA, au: EMPTY, jp: EMPTY, latam: EMPTY, gcc: EMPTY, sea: EMPTY,
+  us: EMPTY, eu: regionalNotesEU, ca: regionalNotesCA, au: regionalNotesAU, jp: regionalNotesJP, latam: EMPTY, gcc: regionalNotesGCC, sea: regionalNotesSEA,
 };
 
 export function regionalGuideNote(region: RegionCode, slug: string): RegionalNote | undefined {
