@@ -48,7 +48,7 @@ export default function Sources({
         </summary>
         <ul className="mt-4 space-y-3">
           {sources.map((s, i) => (
-            <li key={`${s.url}-${i}`} className="text-sm leading-relaxed">
+            <li key={`${i}:${s.url}`} className="text-sm leading-relaxed">
               {s.type && (
                 <span className="inline-block mr-2 text-[10px] font-semibold uppercase tracking-wide bg-blue-100 text-blue-800 px-2 py-0.5 rounded">
                   {s.type}

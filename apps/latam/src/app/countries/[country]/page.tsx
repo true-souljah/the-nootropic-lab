@@ -26,7 +26,7 @@ export async function generateMetadata({
   return {
     title: `Los Mejores Nootrópicos en ${c.name} ${CURRENT_YEAR} — Guía de Compra Latam`,
     description: `Compra nootrópicos en ${c.name}: regulaciones de importación, información de envío, notas de aduana y los mejores stacks para residentes de ${c.name}.`,
-    alternates: buildAlternates({ regionCode: 'latam', path: `/countries/${country}/` }),
+    alternates: buildAlternates({ regionCode: 'latam', path: `/countries/${country}/`, availableInRegions: ['latam'] }),
     openGraph: buildOpenGraph({ regionCode: 'latam', path: `/countries/${country}/`, title: `Los Mejores Nootrópicos en ${c.name} ${CURRENT_YEAR} — Guía de Compra Latam`, description: `Compra nootrópicos en ${c.name}: regulaciones de importación, información de envío, notas de aduana y los mejores stacks para residentes de ${c.name}.` }),
     twitter: buildTwitter({ title: `Los Mejores Nootrópicos en ${c.name} ${CURRENT_YEAR} — Guía de Compra Latam`, description: `Compra nootrópicos en ${c.name}: regulaciones de importación, información de envío, notas de aduana y los mejores stacks para residentes de ${c.name}.` }),
   };

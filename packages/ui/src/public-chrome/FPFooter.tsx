@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { BrandMark } from '../primitives/BrandMark';
-import type { UIStrings } from '@nootropic/data';
+import type { UIStrings, RegionalRegionCode as RegionCode } from '@nootropic/data';
+import { ALL_REGIONS, routeAvailableIn } from '@nootropic/data';
 
 export interface FPFooterLink {
   label: string;
@@ -81,6 +82,55 @@ const DEFAULT_COLUMNS: FPFooterColumn[] = [
     ],
   },
 ];
+
+/**
+ * Region-specific head-to-head pages, appended to the Head-to-head column on
+ * the host that has them. Labels are brand names (English allowlist).
+ */
+const REGIONAL_HEAD_TO_HEAD: Partial<Record<RegionCode, FPFooterLink[]>> = {
+  eu: [{ label: 'BRAINEFFECT FOCUS vs Mind Lab Pro', href: '/braineffect-vs-mind-lab-pro' }],
+  ca: [{ label: 'AOR Ortho\u2022Mind vs Mind Lab Pro', href: '/aor-ortho-mind-vs-mind-lab-pro' }],
+  au: [{ label: 'Blackmores Brain Active vs Mind Lab Pro', href: '/blackmores-brain-active-vs-mind-lab-pro' }],
+};
+
+/**
+ * Keep only links whose route exists on `region`'s host (GSC 404 cleanup,
+ * 2026-09: the ADHD/energy/mood best-of pages and the US head-to-heads were
+ * linked from every region's footer but exist only in apps/us). Cross-region
+ * absolute URLs (the By-region column) always pass.
+ */
+export function filterColumnsForRegion(columns: FPFooterColumn[], region: RegionCode): FPFooterColumn[] {
+  const regional = REGIONAL_HEAD_TO_HEAD[region] ?? [];
+  return columns.map((col) => {
+    const kept = col.links.filter((l) => !l.href.startsWith('/') || routeAvailableIn(l.href, region));
+    if (col.id !== 'footer-col-head-to-head' || regional.length === 0) return { ...col, links: kept };
+    // Regional head-to-heads go before the trailing "All comparisons →" link.
+    const last = kept[kept.length - 1];
+    const isAll = last?.href === '/nootropic-comparison';
+    const links = isAll ? [...kept.slice(0, -1), ...regional, last] : [...kept, ...regional];
+    return { ...col, links };
+  });
+}
+
+function isRegionCode(value: string | undefined): value is RegionCode {
+  return value !== undefined && (ALL_REGIONS as readonly string[]).includes(value);
+}
+
+/**
+ * Build-time region of the app being compiled (`env.NEXT_PUBLIC_REGION` in
+ * each apps/<region>/next.config.ts). Fails closed: a missing or unknown tag
+ * aborts the build rather than shipping a footer with cross-region dead links.
+ */
+function resolveBuildRegion(): RegionCode {
+  const tag = process.env.NEXT_PUBLIC_REGION;
+  if (!isRegionCode(tag)) {
+    throw new Error(
+      `FPFooter: NEXT_PUBLIC_REGION is "${tag ?? ''}" — set env.NEXT_PUBLIC_REGION to one of ` +
+        `${ALL_REGIONS.join('|')} in this app's next.config.ts.`,
+    );
+  }
+  return tag;
+}
 
 /**
  * Build the 4-column FPFooter structure from a UIStrings bundle. Brand-name
@@ -191,7 +241,8 @@ export function FPFooter({
   copyrightLine,
 }: FPFooterProps) {
   const resolvedColumns =
-    columns ?? (strings ? columnsFromStrings(strings) : DEFAULT_COLUMNS);
+    columns ??
+    filterColumnsForRegion(strings ? columnsFromStrings(strings) : DEFAULT_COLUMNS, resolveBuildRegion());
   const resolvedTagline =
     tagline ??
     strings?.footer.tagline ??
@@ -239,7 +290,7 @@ export function FPFooter({
               </h2>
               <ul className="list-none p-0 m-0">
                 {col.links.map((link) => (
-                  <li key={link.href + link.label} className="py-[5px]">
+                  <li key={link.href} className="py-[5px]">
                     <Link
                       href={link.href}
                       className="text-[13px] text-ds-side-ink hover:text-white focus-visible:outline-2 focus-visible:outline-ds-focus-ring-on-dark focus-visible:outline-offset-2 rounded"
