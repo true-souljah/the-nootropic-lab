@@ -69,3 +69,6 @@ export {
   buildRegionalBuying,
   hasRegionalBuyingContent,
 } from './regional';
+
+// Route availability per region (GSC 404 cleanup, 2026-09)
+export { ALL_REGIONS, REGION_ONLY_ROUTES, routeAvailableIn, regionsWithProduct } from './routes';

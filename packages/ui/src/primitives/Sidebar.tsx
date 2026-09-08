@@ -119,7 +119,7 @@ export function Sidebar({
             const Icon = item.icon;
             return (
               <Link
-                key={item.href + item.label}
+                key={item.label}
                 href={item.href}
                 aria-current={active ? 'page' : undefined}
                 className={`flex items-center gap-[10px] px-[10px] py-2 rounded-md text-[13px] focus-visible:outline-2 focus-visible:outline-ds-focus-ring-on-dark focus-visible:outline-offset-2 ${

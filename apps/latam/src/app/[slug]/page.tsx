@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ProductDetail, SchemaOrg, buildAlternates} from '@nootropic/ui';
-import { productsLatam, buildProductSchema, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsLatam, regionsWithProduct, buildProductSchema, getRegionalHealthDisclaimer } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
 import { regionalProductProps } from '@/lib/regional';
@@ -27,7 +27,7 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: buildAlternates({ regionCode: 'latam', path: `/${slug}/` }),
+    alternates: buildAlternates({ regionCode: 'latam', path: `/${slug}/`, availableInRegions: regionsWithProduct(slug) }),
     openGraph: { title, description, type: 'article' },
     twitter: { card: 'summary', title, description },
   };

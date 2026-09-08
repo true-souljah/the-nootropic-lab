@@ -28,7 +28,7 @@ export async function generateMetadata({
   return {
     title: `Best Nootropics in ${p.name} ${CURRENT_YEAR} — Japan Buyer's Guide`,
     description: `Buy nootropics in ${p.name} (${p.nameJa}): MHLW import notes, delivery times, and top-rated stacks.`,
-    alternates: buildAlternates({ regionCode: 'jp', path: `/prefectures/${prefecture}/` }),
+    alternates: buildAlternates({ regionCode: 'jp', path: `/prefectures/${prefecture}/`, availableInRegions: ['jp'] }),
     openGraph: buildOpenGraph({ regionCode: 'jp', path: `/prefectures/${prefecture}/`, title: `Best Nootropics in ${p.name} ${CURRENT_YEAR} — Japan Buyer's Guide`, description: `Buy nootropics in ${p.name} (${p.nameJa}): MHLW import notes, delivery times, and top-rated stacks.` }),
     twitter: buildTwitter({ title: `Best Nootropics in ${p.name} ${CURRENT_YEAR} — Japan Buyer's Guide`, description: `Buy nootropics in ${p.name} (${p.nameJa}): MHLW import notes, delivery times, and top-rated stacks.` }),
   };

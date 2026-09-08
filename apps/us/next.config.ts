@@ -2,6 +2,9 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   output: 'export',
+  // Build-time region tag read by shared chrome (FPFooter) to drop links to
+  // pages this host does not have (GSC 404 cleanup, 2026-09).
+  env: { NEXT_PUBLIC_REGION: 'us' },
   trailingSlash: true,
   transpilePackages: ['@nootropic/ui', '@nootropic/data'],
   // Tree-shake barrel imports from internal packages so a page that uses

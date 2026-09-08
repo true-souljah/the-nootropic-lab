@@ -81,6 +81,9 @@ jobs:
             mkdir -p "apps/$r/out"
             cp -R "_out/out-$r/." "apps/$r/out/"
           done
+      # Dead-link gate over all 8 builds: every hreflang alternate and internal
+      # anchor must resolve in the target region's out/ (GSC 404 class guard).
+      - run: npm run check:links
       - run: npm run test:e2e -- --shard=${{ matrix.shard }}/3
       - uses: actions/upload-artifact@v7
         if: failure()

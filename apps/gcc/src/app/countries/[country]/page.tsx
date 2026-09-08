@@ -26,7 +26,7 @@ export async function generateMetadata({
   return {
     title: `Best Nootropics in ${c.name} ${CURRENT_YEAR} — GCC Buyer's Guide`,
     description: `Buy nootropics in ${c.name}: import regulations, VAT notes, and top-rated stacks for ${c.name} residents.`,
-    alternates: buildAlternates({ regionCode: 'gcc', path: `/countries/${country}/` }),
+    alternates: buildAlternates({ regionCode: 'gcc', path: `/countries/${country}/`, availableInRegions: ['gcc'] }),
     openGraph: buildOpenGraph({ regionCode: 'gcc', path: `/countries/${country}/`, title: `Best Nootropics in ${c.name} ${CURRENT_YEAR} — GCC Buyer's Guide`, description: `Buy nootropics in ${c.name}: import regulations, VAT notes, and top-rated stacks for ${c.name} residents.` }),
     twitter: buildTwitter({ title: `Best Nootropics in ${c.name} ${CURRENT_YEAR} — GCC Buyer's Guide`, description: `Buy nootropics in ${c.name}: import regulations, VAT notes, and top-rated stacks for ${c.name} residents.` }),
   };
