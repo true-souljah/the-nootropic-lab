@@ -32,6 +32,24 @@ jobs:
       - run: npm ci
       - run: npx tsc --noEmit -p packages/ui/tsconfig.json
 
+  content-dates:
+    name: content-dates.json is current
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0 # the map is derived from full commit history
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '20'
+      - run: node scripts/content-dates.mjs
+      - name: Fail when the committed map is stale
+        run: |
+          if ! git diff --exit-code -- packages/data/src/content-dates.json; then
+            echo '::error::packages/data/src/content-dates.json is stale — run `npm run content-dates` and commit.'
+            exit 1
+          fi
+
   test:
     name: packages/ui unit tests
     runs-on: ubuntu-latest
