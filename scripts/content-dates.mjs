@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Writes packages/data/src/content-dates.json: the last commit date (ISO 8601)
+// Writes packages/data/src/content-dates.json: the last change date (author date, ISO 8601 — survives rebases)
 // of every tracked content file under apps/*/src/app (page.tsx) and
 // packages/data/src. The sitemap generators derive <lastmod> from this map
 // (packages/data/src/sitemap-dates.ts) instead of stamping the build time on
@@ -31,7 +31,7 @@ if (shallow) {
 // One pass: newest-first log with file names; first sighting of a path = its latest change.
 const dates = {};
 let current = null;
-for (const line of git('log', '--format=%cI', '--name-only', '--', ...SCOPES).split('\n')) {
+for (const line of git('log', '--format=%aI', '--name-only', '--', ...SCOPES).split('\n')) {
   if (!line) continue;
   if (/^\d{4}-\d{2}-\d{2}T/.test(line)) { current = line; continue; }
   if (!(line in dates)) dates[line] = current;

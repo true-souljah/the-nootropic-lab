@@ -221,7 +221,7 @@
  "packages/data/src/guides-es.ts": "2026-05-28T13:51:19+03:00",
  "packages/data/src/guides.ts": "2026-03-30T16:08:26+03:00",
  "packages/data/src/i18n.ts": "2026-09-03T11:51:04+03:00",
- "packages/data/src/index.ts": "2026-09-08T11:59:35+03:00",
+ "packages/data/src/index.ts": "2026-09-09T14:18:56+03:00",
  "packages/data/src/ingredients.ts": "2026-04-17T11:36:00+03:00",
  "packages/data/src/jp-prefectures.ts": "2026-04-04T21:37:18+05:00",
  "packages/data/src/latam-countries.ts": "2026-03-31T15:24:24+03:00",
@@ -253,5 +253,6 @@
  "packages/data/src/regional.ts": "2026-09-07T13:59:23+03:00",
  "packages/data/src/routes.ts": "2026-09-08T11:59:35+03:00",
  "packages/data/src/sea-countries.ts": "2026-07-20T14:48:25+03:00",
- "packages/data/src/search.ts": "2026-06-02T13:57:49+03:00"
+ "packages/data/src/search.ts": "2026-06-02T13:57:49+03:00",
+ "packages/data/src/sitemap-dates.ts": "2026-09-09T14:18:56+03:00"
 }
