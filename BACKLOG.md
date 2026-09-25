@@ -77,6 +77,9 @@ _Tick `- [x]` to mark an item done, then commit. Grouped by priority, then sourc
 - [ ] **Strengthen Best Nootropics hub — 42 impressions stranded on page 6** — `/best-nootropics/` · 42 impr · 0 clk · pos 56.6 (90d). Category-level page… <!--id:gsc:4b394d310905eaee-->
 - [ ] **Surface /guides/what-are-nootropics — 532 impr, ranking page 8** — `/guides/what-are-nootropics` · 532 impr · 0 clicks · pos 74.3 (90d)… <!--id:gsc:d50618005b204d8c-->
 
+### Editorial
+- [ ] **Australia's TGA removed Andrographis paniculata as a permitted ingredient for listed…** — `https://au.thenootropiclab.com/ingredients` <!--id:ed:326340c1f7-->
+
 ## Done (recent)
 
 - [x] **Consolidate duplicate L-Theanine ingredient pages (trailing-slash split)** — 46 impr · pos 79.7 · done 2026-09-03 <!--id:gsc:966cc044a8679075-->
