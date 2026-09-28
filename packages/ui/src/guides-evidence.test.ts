@@ -69,6 +69,40 @@ const BANNED: Array<{ slugs: string[] | 'all'; pattern: RegExp; why: string }> =
   },
 ];
 
+// The phosphatidylserine dose statement must read identically in both guides
+// that give a PS dose, so the two pages never disagree again.
+const PS_DOSE_SENTENCE: Record<string, string> = {
+  en: 'Positive single-ingredient trials mostly used 100–300mg per day (PMID 21103034, 20523044), while a review of the wider literature (PMID 25933483) cites 300–800mg per day; the benefit is most consistent in older adults.',
+  es: 'Los ensayos positivos con el ingrediente solo usaron sobre todo 100–300mg al día (PMID 21103034, 20523044), mientras que una revisión de la literatura más amplia (PMID 25933483) cita 300–800mg al día; el beneficio es más constante en adultos mayores.',
+};
+
+describe('guide PMID citations in prose', () => {
+  for (const [locale, list] of LOCALES) {
+    test(`${locale}: the PS dose sentence is identical in focus-vs-memory and how-to-stack`, () => {
+      for (const slug of ['nootropics-for-focus-vs-memory', 'how-to-stack-nootropics']) {
+        const g = list.find((x) => x.slug === slug)!;
+        const text = g.sections.map((s) => s.content).join('\n');
+        expect(text.split(PS_DOSE_SENTENCE[locale]).length - 1, `${locale}/${slug}`).toBe(1);
+      }
+    });
+
+    test(`${locale}: every PMID cited in prose is listed in that guide's sources`, () => {
+      let cited = 0;
+      for (const g of list) {
+        const text = g.sections.map((s) => s.content).join('\n');
+        const listed = new Set(g.sources.map((s) => s.pmid));
+        for (const m of text.matchAll(/PMID ((?:\d+)(?:, \d+)*)/g)) {
+          for (const pmid of m[1].split(', ')) {
+            cited++;
+            expect(listed.has(pmid), `${locale}/${g.slug} cites PMID ${pmid}`).toBe(true);
+          }
+        }
+      }
+      expect(cited).toBeGreaterThan(0);
+    });
+  }
+});
+
 describe('guide copy guards (2026-09 evidence corrections)', () => {
   for (const [locale, list] of LOCALES) {
     test(`${locale}: corrected claims do not reappear`, () => {
