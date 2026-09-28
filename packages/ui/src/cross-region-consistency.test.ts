@@ -6,7 +6,7 @@ import {
 import type { Product } from '@nootropic/data';
 
 // One product = one set of global facts. Fields that describe the product
-// itself (brand, formula, the vendor's single Trustpilot profile, lifecycle)
+// itself (brand, full formula incl. doses, the vendor's single Trustpilot profile, lifecycle)
 // must be identical in every region catalogue that carries the slug.
 // Region-specific fields (local prices, affiliate storefront, shipping,
 // regulatory status) may differ and are not checked here.
@@ -16,11 +16,17 @@ const CATALOGUES: Record<string, Product[]> = {
   jp: allProductsJP, latam: allProductsLatam, gcc: productsGCC, sea: productsSEA,
 };
 const PRIMARY = ['us', 'eu', 'ca', 'au', 'jp', 'latam'];
-const FIELDS = ['brand', 'ingredientNames', 'trustpilotScore', 'trustpilotCount', 'discontinued'] as const;
+const FIELDS = ['brand', 'ingredientDosages', 'trustpilotScore', 'trustpilotCount', 'discontinued'] as const;
 type Field = (typeof FIELDS)[number];
 
 function value(p: Product, field: Field): string {
-  if (field === 'ingredientNames') return JSON.stringify(p.ingredientDosages.map((d) => d.name));
+  // A global SKU has one formula: compare every entry's name, dose, clinical
+  // anchor and adequacy verdict, not just the ingredient names.
+  if (field === 'ingredientDosages') {
+    return JSON.stringify(
+      p.ingredientDosages.map((d) => [d.name, d.doseInProduct, d.clinicalDose, d.adequatelyDosed]),
+    );
+  }
   return JSON.stringify(p[field] ?? null);
 }
 
@@ -32,17 +38,17 @@ function value(p: Product, field: Field): string {
 // Focus panel is an image; Performance Lab Mind is discontinued and the two
 // source descriptions conflict). Needs a verified panel before unifying.
 const PRIMARY_BASELINE = new Set<string>([
-  'hunter-focus-review/ingredientNames',
-  'performance-lab-mind-review/ingredientNames',
+  'hunter-focus-review/ingredientDosages',
+  'performance-lab-mind-review/ingredientDosages',
 ]);
 // GCC/SEA catalogues are owned by open data PRs (#266 and the GCC/SEA
 // follow-up refresh), which will apply the 2026-09-28 values there.
 const GCC_SEA_BASELINE = new Set<string>([
   ...['gcc', 'sea'].flatMap((r) => [
-    `${r}/mind-lab-pro-review/ingredientNames`,
+    `${r}/mind-lab-pro-review/ingredientDosages`,
     `${r}/mind-lab-pro-review/trustpilotScore`,
     `${r}/mind-lab-pro-review/trustpilotCount`,
-    `${r}/noocube-review/ingredientNames`,
+    `${r}/noocube-review/ingredientDosages`,
     `${r}/noocube-review/trustpilotScore`,
     `${r}/noocube-review/trustpilotCount`,
     `${r}/nootropics-depot-lions-mane/trustpilotScore`,
