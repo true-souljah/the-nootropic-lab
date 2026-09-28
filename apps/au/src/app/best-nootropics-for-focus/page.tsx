@@ -58,26 +58,20 @@ const picks: ListiclePick[] = [
       'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design lets you pair it with your own coffee or matcha for the synergistic effect. Ships from the UK directly to Australian addresses in 7–14 business days under the Personal Importation Scheme as a food supplement.',
   },
   {
-    product: productsAU.find(p => p.slug === 'performance-lab-mind-review')!,
-    rank: 2,
-    whyItsHere:
-      'Minimalist 4-ingredient formula with citicoline (250mg Cognizin), phosphatidylserine (100mg Sharp-PS Green), L-tyrosine (300mg Ajipure), and Maritime Pine Bark. Only 2 capsules per day — the lowest pill burden of any premium pick. Ships from the UK to Australia in 14–21 business days. Personal Importation Scheme food supplement.',
-  },
-  {
     product: productsAU.find(p => p.slug === 'qualia-mind-review')!,
-    rank: 3,
+    rank: 2,
     whyItsHere:
       'Includes citicoline, Alpha-GPC, L-theanine, and L-tyrosine — covers nearly every evidence-backed focus mechanism. Loses ground to Mind Lab Pro on capsule count (7+/day) and price (AUD $215/mo subscription) but wins on ingredient breadth. Contains caffeine. Note: Huperzine A in this formula may attract TGA scrutiny if therapeutic claims are attached.',
   },
   {
     product: productsAU.find(p => p.slug === 'onnit-alpha-brain-review')!,
-    rank: 4,
+    rank: 3,
     whyItsHere:
       'Contains Alpha-GPC, L-theanine, and Bacopa, but doses are hidden inside proprietary blends. Caffeine-free Classic version. Most internationally recognised nootropic brand for Australian buyers, National Sanitation Foundation (NSF) Certified for Sport — relevant for drug-tested Australian athletes. Ships from the US to Australia in 10–18 business days as a food supplement.',
   },
   {
     product: productsAU.find(p => p.slug === 'noocube-review')!,
-    rank: 5,
+    rank: 4,
     whyItsHere:
       'Includes Alpha-GPC, L-tyrosine, L-theanine, plus Lutemax 2020 lutein/zeaxanthin for screen-fatigue reduction — a relevant angle for Australian remote and office workers. Open formula. Trustpilot score is very low (1.9/5) — verify subscription cancellation terms before ordering. Ships from the UK/EU to Australia in 14–21 business days.',
   },
@@ -94,7 +88,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Are these focus nootropics TGA-listed in Australia?',
-    a: 'No. The international focus stacks listed on this page (Mind Lab Pro, Performance Lab Mind, NooCube, Qualia Mind, Alpha Brain, Hunter Focus) are not TGA-listed therapeutic goods. They are imported under the TGA Personal Importation Scheme as food supplements — which permits Australian residents to import up to a 3-month supply for personal use. TGA-listed Australian brands (Blackmores, Caruso\'s, Swisse, Nature\'s Own, Cenovis) generally focus on broader memory and brain-health formulas (ginkgo, fish oil, B-vitamins) rather than the focus-specific stacks ranked here. We will add TGA-listed picks as their formulas evolve to include clinically-dosed focus ingredients.',
+    a: 'No. The international focus stacks listed on this page (Mind Lab Pro, NooCube, Qualia Mind, Alpha Brain, Hunter Focus) are not TGA-listed therapeutic goods. They are imported under the TGA Personal Importation Scheme as food supplements — which permits Australian residents to import up to a 3-month supply for personal use. TGA-listed Australian brands (Blackmores, Caruso\'s, Swisse, Nature\'s Own, Cenovis) generally focus on broader memory and brain-health formulas (ginkgo, fish oil, B-vitamins) rather than the focus-specific stacks ranked here. We will add TGA-listed picks as their formulas evolve to include clinically-dosed focus ingredients.',
   },
   {
     q: 'Where can I buy these in Australia?',

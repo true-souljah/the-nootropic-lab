@@ -124,7 +124,7 @@
       "value": 9,
       "trust": 7
     },
-    "priceMonthlyUSD": 59,
+    "priceMonthlyUSD": 64.99,
     "priceMonthlyEUR": 55,
     "pricingModel": "both",
     "moneyBackDays": 60,
@@ -185,13 +185,13 @@
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 4,
-    "summary": "Strong formula anchored by Lutemax 2020 and the best value-per-serving in this list at $59 USD/month — prices are in USD with no local currency option. Ships from the US/UK, allow 10–18 days to LATAM destinations. Brazilian buyers should be aware ANVISA customs holds are more frequent for supplement shipments; Argentine buyers may face currency control restrictions on USD card transactions. Note: Trustpilot score is very low (1.9/5) — verify independently before purchasing.",
+    "summary": "Strong formula anchored by Lutemax 2020 and the best value-per-serving in this list at $64.99 USD/month — prices are in USD with no local currency option. Ships from the US/UK, allow 10–18 days to LATAM destinations. Brazilian buyers should be aware ANVISA customs holds are more frequent for supplement shipments; Argentine buyers may face currency control restrictions on USD card transactions. Note: Trustpilot score is very low (1.9/5) — verify independently before purchasing.",
     "whatItIs": "NooCube is a 13-ingredient nootropic stack made by Wolfson Brands, a large supplement manufacturer. Its standout feature is Lutemax 2020 — a patented lutein and zeaxanthin extract researched for reducing digital eye strain and blue-light-related cognitive fatigue, making it relevant for screen-heavy workers. For LATAM buyers, NooCube is priced exclusively in USD and ships internationally as a personal-use supplement. It is not registered with the Comisión Federal para la Protección contra Riesgos Sanitarios (COFEPRIS) in Mexico, the Agência Nacional de Vigilância Sanitária (ANVISA) in Brazil, ANMAT (Argentina), the Instituto Nacional de Vigilancia de Medicamentos y Alimentos (INVIMA) in Colombia, ISP (Chile), or DIGEMID (Peru), and enters these markets under personal-import allowances. Customs duties vary by country and are the buyer's responsibility.",
     "howItWorks": "Lutemax 2020 filters high-energy blue light in the retina, reducing eye fatigue that accumulates during screen use -- an indirect but real cognitive benefit for office workers and gamers. Alpha-GPC and Huperzine A work on the cholinergic system (though both are underdosed versus clinical trial doses). L-Theanine provides calm focus. Bacopa Monnieri targets memory consolidation over weeks.",
     "whatToExpect": "Day one: mild calm focus from L-Theanine. Within 2-4 weeks: reduced eye fatigue and better end-of-day mental stamina (Lutemax). At 8 weeks: modest memory improvements (Bacopa, though underdosed). Important caveat: Alpha-GPC and Huperzine A are underdosed versus clinical trials. Manage expectations accordingly. The Trustpilot rating of 1.9/5 reflects subscription cancellation complaints rather than product efficacy -- verify the cancellation policy before purchasing.",
     "pros": [
       "Lutemax 2020 for screen workers",
-      "Good value at $59/mo",
+      "Good value at $64.99/mo",
       "60-day money-back",
       "EU storefront",
       "Ships to Mexico, Brazil, Argentina, Colombia, Chile, Peru"
@@ -208,7 +208,8 @@
     "updatedAt": "2026-05-28",
     "notes": [
       "Bulk-purchase pricing changed June 2026: 5-month supply $194.99 USD (was 6-month for $180). LATAM buyers importing direct will see equivalent BRL/MXN price increases."
-    ]
+    ],
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "qualia-mind",
@@ -236,7 +237,7 @@
     "euCompliance": "verify",
     "trustpilotScore": 3.8,
     "trustpilotCount": 1100,
-    "affiliateUrl": "https://neurohacker.com/",
+    "affiliateUrl": "https://www.qualialife.com/shop/qualia-mind",
     "affiliateNetwork": "ShareASale",
     "commissionRate": "15%",
     "cookieDays": 30,
@@ -314,7 +315,8 @@
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-05-28"
+    "updatedAt": "2026-05-28",
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "alpha-brain",
@@ -342,7 +344,7 @@
     "euCompliance": "verify",
     "trustpilotScore": 3.2,
     "trustpilotCount": 4200,
-    "affiliateUrl": "https://www.onnit.com/",
+    "affiliateUrl": "https://www.onnit.com/alphabrain/",
     "affiliateNetwork": "Impact",
     "commissionRate": "12%",
     "cookieDays": 30,
@@ -403,7 +405,7 @@
       "Only 2 capsules",
       "90-day money-back",
       "NSF Certified for Sport",
-      "Ships to Mexico, Brazil, Argentina, Colombia, Chile, Peru"
+      "Ships to Brazil, Argentina, Colombia, Chile and Peru (not Mexico)"
     ],
     "cons": [
       "Proprietary blends hide doses",
@@ -413,7 +415,9 @@
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-05-28"
+    "updatedAt": "2026-05-28",
+    "importPathway": "Onnit's own storefront shipping list (https://www.onnit.com/meta.json, ships_to_countries, checked 2026-09-28) excludes Mexico; Brazil, Argentina, Colombia, Chile and Peru are listed. Mexican buyers cannot order direct from onnit.com.",
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "thesis",

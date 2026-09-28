@@ -24,8 +24,8 @@
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 4.5,
-    "trustpilotCount": 3200,
+    "trustpilotScore": 4.2,
+    "trustpilotCount": 81,
     "affiliateUrl": "https://www.mindlabpro.com?a_aid=zid0oxj1g4uny&a_bid=6d45f5c3",
     "affiliateNetwork": "UberNet",
     "commissionRate": "30%",
@@ -105,7 +105,9 @@
     "updatedAt": "2026-05-28",
     "npnStatus": {
       "status": "pip"
-    }
+    },
+    "trustpilotCheckedAt": "2026-09-28",
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "noocube",
@@ -125,7 +127,7 @@
       "value": 9,
       "trust": 7
     },
-    "priceMonthlyUSD": 59,
+    "priceMonthlyUSD": 64.99,
     "priceMonthlyCAD": 81,
     "pricingModel": "both",
     "moneyBackDays": 60,
@@ -192,7 +194,7 @@
     "whatToExpect": "Day one: mild calm focus from L-Theanine. Within 2-4 weeks: reduced eye fatigue and better end-of-day mental stamina. At 8 weeks: modest memory improvements from Bacopa. NooCube ships internationally to Canada with delivery typically within 10-14 days. Canadian buyers should note the Trustpilot rating reflects subscription cancellation complaints -- verify the cancellation policy before purchasing.",
     "pros": [
       "Lutemax 2020 for screen workers",
-      "Good value at $59/mo USD",
+      "Good value at $64.99/mo USD",
       "60-day money-back",
       "Ships to Canada"
     ],
@@ -213,7 +215,8 @@
     },
     "notes": [
       "Bulk-purchase pricing changed June 2026: 5-month supply $194.99 (was 6-month for $180). Per-bottle cost increased ~8% on bundles."
-    ]
+    ],
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "performance-lab-mind",
@@ -240,8 +243,8 @@
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 4.4,
-    "trustpilotCount": 920,
+    "trustpilotScore": 3.8,
+    "trustpilotCount": 14,
     "affiliateUrl": "https://www.performancelab.com/products/mind?a_aid=zid0oxj1g4uny&a_cid=f4c3e754",
     "affiliateNetwork": "UberNet",
     "commissionRate": "30%",
@@ -300,7 +303,14 @@
     "updatedAt": "2026-05-28",
     "npnStatus": {
       "status": "pip"
-    }
+    },
+    "trustpilotCheckedAt": "2026-09-28",
+    "discontinued": {
+      "since": "2026-09-28",
+      "successorSlug": "mind-lab-pro-review",
+      "note": "Opti-Nutra merged Performance Lab Mind into Mind Lab Pro; the vendor URL now redirects to Mind Lab Pro."
+    },
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "hunter-focus",
@@ -327,9 +337,9 @@
     "caffeineFree": false,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 4,
-    "trustpilotCount": 1050,
-    "affiliateUrl": "https://www.hunterfocus.com/",
+    "trustpilotScore": 3.6,
+    "trustpilotCount": 97,
+    "affiliateUrl": "https://www.roarambition.com/en-ca/products/hunter-focus",
     "affiliateNetwork": "Hunter Direct",
     "commissionRate": "0%",
     "cookieDays": 0,
@@ -395,7 +405,9 @@
     "updatedAt": "2026-05-28",
     "npnStatus": {
       "status": "pip"
-    }
+    },
+    "trustpilotCheckedAt": "2026-09-28",
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "alpha-brain",
@@ -424,7 +436,7 @@
     "euCompliance": "verify",
     "trustpilotScore": 3.2,
     "trustpilotCount": 4200,
-    "affiliateUrl": "https://www.onnit.com/",
+    "affiliateUrl": "https://www.onnit.com/alphabrain/",
     "affiliateNetwork": "Impact",
     "commissionRate": "12%",
     "cookieDays": 30,
@@ -496,7 +508,8 @@
     "updatedAt": "2026-05-28",
     "npnStatus": {
       "status": "pip"
-    }
+    },
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "qualia-mind",
@@ -525,7 +538,7 @@
     "euCompliance": "verify",
     "trustpilotScore": 3.8,
     "trustpilotCount": 1100,
-    "affiliateUrl": "https://neurohacker.com/",
+    "affiliateUrl": "https://www.qualialife.com/shop/qualia-mind",
     "affiliateNetwork": "ShareASale",
     "commissionRate": "15%",
     "cookieDays": 30,
@@ -605,7 +618,8 @@
     "updatedAt": "2026-05-28",
     "npnStatus": {
       "status": "pip"
-    }
+    },
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "naturebell-ginkgo-ginseng",

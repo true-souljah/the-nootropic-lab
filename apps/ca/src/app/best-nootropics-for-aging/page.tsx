@@ -63,26 +63,20 @@ const picks: ListiclePick[] = [
       'Includes phosphatidylserine (100mg Sharp-PS at clinical dose), citicoline (250mg Cognizin at clinical dose), Bacopa, and Lion\'s Mane (500mg fruiting body). Four of the most age-relevant ingredients in one open-formula product. Caffeine-free — no cardiovascular load for older Canadian adults sensitive to stimulants. Ships UK→Canada reliably.',
   },
   {
-    product: productsCA.find(p => p.slug === 'performance-lab-mind-review')!,
-    rank: 2,
-    whyItsHere:
-      'Phosphatidylserine 100mg (Sharp-PS Green, sunflower-derived — important for soy-allergic Canadians) + Citicoline 250mg (Cognizin) at clinical doses. The two best-evidenced age-cognitive ingredients in only 2 capsules per day — the lowest pill burden of any pick on this page, which matters for older adults managing multiple supplements or medications.',
-  },
-  {
     product: productsCA.find(p => p.slug === 'qualia-mind-review')!,
-    rank: 3,
+    rank: 2,
     whyItsHere:
       'Includes phosphatidylserine 200mg, citicoline, Bacopa at full clinical dose, and Lion\'s Mane plus 25 additional ingredients. Most complete coverage but the 7-capsule daily protocol can be hard to maintain for older adults — and the 90mg caffeine per serving rules it out for caffeine-sensitive seniors. Consider whether the breadth justifies that friction.',
   },
   {
     product: productsCA.find(p => p.slug === 'naturebell-ginkgo-ginseng-review')!,
-    rank: 4,
+    rank: 3,
     whyItsHere:
       'Budget pick at CAD ~$7/month. Delivers Ginkgo Biloba at the full Health Canada-monograph clinical dose (120mg, 50:1 extract) — the single best-supported age-cognitive ingredient outside the premium stacks. Available at Shoppers Drug Mart-tier price points via Amazon.ca with Prime shipping. Single-mechanism (cerebral blood flow); pair with a PS supplement for fuller coverage. Not Health Canada NPN-registered.',
   },
   {
     product: productsCA.find(p => p.slug === 'onnit-alpha-brain-review')!,
-    rank: 5,
+    rank: 4,
     whyItsHere:
       'Contains Bacopa, Lion\'s Mane, and Huperzine A. CAUTION for older Canadian adults: Huperzine A is itself an acetylcholinesterase inhibitor — do NOT stack with prescription cholinesterase inhibitors (donepezil/Aricept, rivastigmine/Exelon, galantamine/Reminyl) commonly prescribed by Canadian neurologists for early Alzheimer\'s. Discuss with your prescribing doctor first.',
   },
@@ -103,7 +97,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Are these safe alongside blood-pressure or cholesterol medications?',
-    a: 'Generally yes for the ingredients on this page, but talk to your prescribing physician. Bacopa and Lion\'s Mane have minimal known drug interactions. Phosphatidylserine derived from soy could interact with certain warfarin/anticoagulant regimens; sunflower-derived PS (used in Performance Lab Mind\'s Sharp-PS Green) is the alternative. Ginkgo can mildly increase bleeding risk — discuss with your doctor if you are on anticoagulants.',
+    a: 'Generally yes for the ingredients on this page, but talk to your prescribing physician. Bacopa and Lion\'s Mane have minimal known drug interactions. Phosphatidylserine derived from soy could interact with certain warfarin/anticoagulant regimens; sunflower-derived PS is the alternative. Ginkgo can mildly increase bleeding risk — discuss with your doctor if you are on anticoagulants.',
   },
   {
     q: 'I take a cholinesterase inhibitor (donepezil/Aricept, rivastigmine/Exelon). Should I avoid certain ingredients?',
@@ -115,7 +109,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Can I buy these at Shoppers Drug Mart, Rexall, or Costco in Canada?',
-    a: 'For premium multi-ingredient stacks (Mind Lab Pro, Performance Lab Mind, Qualia Mind, Hunter Focus): no — these are direct-to-consumer only and ship internationally to Canadian addresses. For single ingredients (PS, Bacopa, Ginkgo, Lion\'s Mane): yes — Shoppers, Rexall, and Costco all carry NPN-registered Canadian brands of these single ingredients. NatureBell Ginkgo+Ginseng is available on Amazon.ca with Prime shipping.',
+    a: 'For premium multi-ingredient stacks (Mind Lab Pro, Qualia Mind, Hunter Focus): no — these are direct-to-consumer only and ship internationally to Canadian addresses. For single ingredients (PS, Bacopa, Ginkgo, Lion\'s Mane): yes — Shoppers, Rexall, and Costco all carry NPN-registered Canadian brands of these single ingredients. NatureBell Ginkgo+Ginseng is available on Amazon.ca with Prime shipping.',
   },
 ];
 

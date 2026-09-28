@@ -24,8 +24,8 @@
     "caffeineFree": true,
     "euStorefront": true,
     "euCompliance": "compliant",
-    "trustpilotScore": 4.5,
-    "trustpilotCount": 3200,
+    "trustpilotScore": 4.2,
+    "trustpilotCount": 81,
     "affiliateUrl": "https://www.mindlabpro.com?a_aid=zid0oxj1g4uny&a_bid=6d45f5c3",
     "affiliateNetwork": "UberNet",
     "commissionRate": "30%",
@@ -102,7 +102,9 @@
     "editorChoice": true,
     "market": "both",
     "updatedAt": "2026-05-28",
-    "handsOnTested": true
+    "handsOnTested": true,
+    "trustpilotCheckedAt": "2026-09-28",
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "noocube",
@@ -229,7 +231,7 @@
     "euCompliance": "verify",
     "trustpilotScore": 3.8,
     "trustpilotCount": 1100,
-    "affiliateUrl": "https://neurohacker.com/",
+    "affiliateUrl": "https://www.qualialife.com/shop/qualia-mind",
     "affiliateNetwork": "ShareASale",
     "commissionRate": "15%",
     "cookieDays": 30,
@@ -306,7 +308,8 @@
     "editorChoice": false,
     "market": "us",
     "updatedAt": "2026-05-28",
-    "handsOnTested": true
+    "handsOnTested": true,
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "alpha-brain",
@@ -334,7 +337,7 @@
     "euCompliance": "verify",
     "trustpilotScore": 3.2,
     "trustpilotCount": 4200,
-    "affiliateUrl": "https://www.onnit.com/",
+    "affiliateUrl": "https://www.onnit.com/alphabrain/",
     "affiliateNetwork": "Impact",
     "commissionRate": "12%",
     "cookieDays": 30,
@@ -404,7 +407,8 @@
     "editorChoice": false,
     "market": "us",
     "updatedAt": "2026-05-28",
-    "handsOnTested": true
+    "handsOnTested": true,
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "thesis",
@@ -429,8 +433,8 @@
     "caffeineFree": false,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 3.9,
-    "trustpilotCount": 780,
+    "trustpilotScore": 4.0,
+    "trustpilotCount": 116,
     "affiliateUrl": "https://takethesis.com/",
     "affiliateNetwork": "Impact",
     "commissionRate": "20%",
@@ -492,7 +496,9 @@
     ],
     "editorChoice": false,
     "market": "us",
-    "updatedAt": "2026-05-28"
+    "updatedAt": "2026-05-28",
+    "trustpilotCheckedAt": "2026-09-28",
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "nootropics-depot-lions-mane",
@@ -518,8 +524,8 @@
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 4.2,
-    "trustpilotCount": 2800,
+    "trustpilotScore": 4.7,
+    "trustpilotCount": 1333,
     "affiliateUrl": "https://nootropicsdepot.com/",
     "affiliateNetwork": "Impact",
     "commissionRate": "15%",
@@ -553,7 +559,9 @@
     ],
     "editorChoice": false,
     "market": "us",
-    "updatedAt": "2026-05-28"
+    "updatedAt": "2026-05-28",
+    "trustpilotCheckedAt": "2026-09-28",
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "naturebell-ginkgo-ginseng",
@@ -650,8 +658,8 @@
     "caffeineFree": true,
     "euStorefront": true,
     "euCompliance": "compliant",
-    "trustpilotScore": 4,
-    "trustpilotCount": 6,
+    "trustpilotScore": 3.8,
+    "trustpilotCount": 14,
     "affiliateUrl": "https://www.performancelab.com/products/mind?a_aid=zid0oxj1g4uny&a_cid=f4c3e754",
     "affiliateNetwork": "UberNet",
     "commissionRate": "30%",
@@ -711,7 +719,14 @@
     ],
     "editorChoice": false,
     "market": "us",
-    "updatedAt": "2026-05-28"
+    "updatedAt": "2026-05-28",
+    "trustpilotCheckedAt": "2026-09-28",
+    "discontinued": {
+      "since": "2026-09-28",
+      "successorSlug": "mind-lab-pro-review",
+      "note": "Opti-Nutra merged Performance Lab Mind into Mind Lab Pro; the vendor URL now redirects to Mind Lab Pro."
+    },
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "hunter-focus",
@@ -738,7 +753,7 @@
     "euStorefront": true,
     "euCompliance": "verify",
     "trustpilotScore": 3.6,
-    "trustpilotCount": 0,
+    "trustpilotCount": 97,
     "affiliateUrl": "https://www.hunterevolve.com/en-us/hunter-focus",
     "affiliateNetwork": "In-house (Stacked Brands)",
     "commissionRate": "Not publicly disclosed",
@@ -879,7 +894,9 @@
     ],
     "editorChoice": false,
     "market": "us",
-    "updatedAt": "2026-05-28"
+    "updatedAt": "2026-05-28",
+    "trustpilotCheckedAt": "2026-09-28",
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "brainmd-brain-memory-power-boost",
@@ -899,7 +916,7 @@
       "value": 6,
       "trust": 7
     },
-    "priceMonthlyUSD": 90,
+    "priceMonthlyUSD": 64.95,
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
@@ -977,7 +994,7 @@
     ],
     "cons": [
       "Vinpocetine, NAC, and Alpha Lipoic Acid significantly underdosed versus clinical evidence",
-      "$89.95 for 120 capsules works out to ~$90/month at 4 capsules per day",
+      "$64.95/month list price on brainmd.com (30 servings at 4 capsules per day)",
       "4 capsules per serving",
       "Transparency note: Dr. Amen's SPECT-imaging diagnostic claims have been criticized by mainstream psychiatry — buy on the formula, not the founder narrative",
       "No Trustpilot footprint to verify customer experience",
@@ -985,7 +1002,8 @@
     ],
     "editorChoice": false,
     "market": "us",
-    "updatedAt": "2026-05-28"
+    "updatedAt": "2026-05-28",
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "trubrain",
@@ -1012,7 +1030,7 @@
     "euStorefront": false,
     "euCompliance": "verify",
     "trustpilotScore": 2.6,
-    "trustpilotCount": 0,
+    "trustpilotCount": 67,
     "affiliateUrl": "https://www.trubrain.com",
     "affiliateNetwork": "ShareASale",
     "commissionRate": "15%",
@@ -1088,6 +1106,8 @@
     ],
     "editorChoice": false,
     "market": "us",
-    "updatedAt": "2026-05-28"
+    "updatedAt": "2026-05-28",
+    "trustpilotCheckedAt": "2026-09-28",
+    "verifiedAt": "2026-09-28"
   }
 ]

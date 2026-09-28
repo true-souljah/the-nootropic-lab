@@ -3,12 +3,14 @@ import { notFound } from 'next/navigation';
 import { HeadToHead, buildAlternates, buildOpenGraph, buildTwitter } from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { HeadToHeadFAQ } from '@nootropic/ui';
-import { productsAU, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { allProductsAU, productsAU, getRegionalHealthDisclaimer } from '@nootropic/data';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
-const productA = productsAU.find(p => p.slug === 'blackmores-brain-active-review');
+// Discontinued (2026-09-28): read from the full list; the page explains the
+// discontinuation and HeadToHead renders no buy link for it.
+const productA = allProductsAU.find(p => p.slug === 'blackmores-brain-active-review');
 const productB = productsAU.find(p => p.slug === 'mind-lab-pro-review');
 
 
@@ -34,7 +36,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Which is better for Australian buyers, Blackmores Brain Active or Mind Lab Pro?',
     a:
-      "They occupy different positions. Blackmores Brain Active is TGA-listed (AUST L), pharmacy-distributed (Chemist Warehouse, Priceline, Amcal), 1 capsule/day, ~AUD $35/month — the dominant pharmacy-shelf cognitive supplement in Australia. Mind Lab Pro arrives via TGA Personal Importation Scheme, ~AUD $135/month with international shipping, 2 capsules/day, with broader 11-ingredient formula. Blackmores wins on accessibility and price; Mind Lab Pro wins on formula breadth and product-specific RCT evidence.",
+      "Blackmores Brain Active is no longer sold in Australia: its page on blackmores.com.au has been removed and Chemist Warehouse's Blackmores range no longer lists it. Blackmores' current brain-health products are Cognition Ultra and Omega Brain, which we have not reviewed. Of the two products compared here, only Mind Lab Pro is still available to Australian buyers — A$89/month on its Australian storefront (au.mindlabpro.com), imported under the TGA Personal Importation Scheme.",
   },
   {
     q: 'What does TGA-listed mean?',
@@ -49,7 +51,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Price difference?',
     a:
-      'Blackmores Brain Active: ~AUD $35/month at Chemist Warehouse single-bottle pricing, often discounted in pharmacy promotions. Mind Lab Pro: ~AUD $135/month including international shipping (USD $69 + AUD currency + shipping). Blackmores is roughly 4× cheaper for Australian buyers.',
+      'Blackmores Brain Active has no current price because it is no longer sold. Mind Lab Pro is A$89/month (one-time purchase) on au.mindlabpro.com, checked 28 September 2026.',
   },
   {
     q: 'Bacopa dose?',
@@ -64,12 +66,8 @@ const faqItems: HeadToHeadFAQ[] = [
 ];
 
 const whoIsForA = [
-  'Want a TGA-listed Australian Listed Medicine (no Personal Import friction)',
-  'Prefer pharmacy-shelf availability (Chemist Warehouse, Priceline)',
-  'Are budget-conscious at AUD $35/month',
-  'Like 1-capsule daily simplicity',
-  'Want a long-tenure brand (Blackmores founded 1932)',
-  'Are fine with a Bacopa-focused 5-ingredient formula',
+  'Nobody new: Blackmores Brain Active is no longer sold in Australia',
+  "Pharmacy-shelf buyers can look at Blackmores' current range (Cognition Ultra, Omega Brain), which we have not reviewed",
 ];
 
 const whoIsForB = [
@@ -81,7 +79,7 @@ const whoIsForB = [
 ];
 
 const verdictParagraph =
-  'For most Australian buyers, Blackmores Brain Active is the practical winner — TGA-listed, pharmacy-available, AUD $35/month, with Bacopa at clinical dose covering the most-replicated memory ingredient. Mind Lab Pro is for buyers who specifically want the broader 11-ingredient formula and are willing to pay 4× and wait for international shipping under Personal Importation Scheme. If you\'re starting nootropics in Australia, start with Blackmores; if you\'ve been on it 12 weeks and want to expand, Mind Lab Pro adds genuine breadth.';
+  'Blackmores Brain Active has been discontinued in Australia — blackmores.com.au no longer lists it and Chemist Warehouse does not stock it — so this is no longer a live choice. Mind Lab Pro remains available at A$89/month on its Australian storefront, imported under the TGA Personal Importation Scheme. If you want a pharmacy-shelf Blackmores product instead, its current brain-health range is Cognition Ultra and Omega Brain; we have not reviewed either.';
 
 export default function Page() {
   if (!productA || !productB) notFound();

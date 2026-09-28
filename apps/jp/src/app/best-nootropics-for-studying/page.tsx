@@ -68,12 +68,6 @@ const picks: ListiclePick[] = [
     whyItsHere:
       'The budget-friendly Japanese domestic option for students. ¥4,800/month — by far the most affordable in this Japan review. FFC-notified (機能性表示食品) DHA + EPA from Suntory Wellness, available everywhere from drugstores to Amazon Japan. Foundational omega-3 support for the duration of a term — best paired with a focus-targeted stack like Mind Lab Pro for acute study sessions.',
   },
-  {
-    product: productsJP.find(p => p.slug === 'performance-lab-mind-review')!,
-    rank: 4,
-    whyItsHere:
-      'Caffeine-free, only 2 capsules/day — the lowest pill burden in this Japan review, useful for students who already take many supplements. 250mg Cognizin citicoline and 100mg phosphatidylserine at clinical dose support cognitive demand and stress resilience during exam periods. Pair with separate caffeine source (coffee, matcha) for the L-theanine + caffeine acute-focus effect.',
-  },
 ];
 
 const faqItems: ListicleFAQ[] = [

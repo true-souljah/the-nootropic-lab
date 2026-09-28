@@ -109,7 +109,7 @@
       "value": 9,
       "trust": 7
     },
-    "priceMonthlyUSD": 59,
+    "priceMonthlyUSD": 64.99,
     "priceMonthlyJPY": 8850,
     "pricingModel": "both",
     "moneyBackDays": 60,
@@ -192,7 +192,8 @@
     },
     "notes": [
       "Bulk-purchase pricing changed June 2026: 5-month supply $194.99 USD (was 6-month for $180). JP buyers purchasing direct at ~¥30,000 for 5 months vs prior ~¥27,700 for 6 months."
-    ]
+    ],
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "performance-lab-mind",
@@ -277,7 +278,13 @@
     "updatedAt": "2026-05-28",
     "ffcStatus": {
       "notified": false
-    }
+    },
+    "discontinued": {
+      "since": "2026-09-28",
+      "successorSlug": "mind-lab-pro-review",
+      "note": "Opti-Nutra merged Performance Lab Mind into Mind Lab Pro; the vendor URL now redirects to Mind Lab Pro."
+    },
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "hunter-focus",
@@ -306,7 +313,7 @@
     "euCompliance": "verify",
     "trustpilotScore": 4,
     "trustpilotCount": 1050,
-    "affiliateUrl": "https://www.hunterfocus.com/",
+    "affiliateUrl": "https://www.hunterevolve.com/en-us/hunter-focus",
     "affiliateNetwork": "Hunter Direct",
     "commissionRate": "0%",
     "cookieDays": 0,
@@ -370,7 +377,8 @@
     "updatedAt": "2026-05-28",
     "ffcStatus": {
       "notified": false
-    }
+    },
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "fancl-brains",
@@ -391,7 +399,7 @@
       "trust": 7
     },
     "priceMonthlyUSD": 50,
-    "priceMonthlyJPY": 7500,
+    "priceMonthlyJPY": 5479,
     "pricingModel": "one-time",
     "moneyBackDays": 0,
     "caffeineFree": true,
@@ -399,57 +407,50 @@
     "euCompliance": "verify",
     "trustpilotScore": null,
     "trustpilotCount": null,
-    "affiliateUrl": "https://www.amazon.co.jp/s?k=FANCL+BRAINs",
-    "affiliateNetwork": "Amazon Associates JP",
-    "commissionRate": "3%",
-    "cookieDays": 24,
+    "affiliateUrl": "https://www.fancl.co.jp/healthy/item/5248a/",
+    "affiliateNetwork": "FANCL Direct",
+    "commissionRate": "0%",
+    "cookieDays": 0,
     "heroIngredients": [
-      "DHA",
-      "Ginkgo Biloba",
-      "Phosphatidylserine"
+      "Bacopa saponins",
+      "Matured hop bitter acids"
     ],
     "ingredientDosages": [
       {
-        "name": "DHA (Docosahexaenoic Acid)",
-        "doseInProduct": "300mg",
-        "clinicalDose": "500mg",
-        "adequatelyDosed": false
+        "name": "Bacopa saponins (バコパサポニン)",
+        "doseInProduct": "15mg",
+        "clinicalDose": "12.5mg (trial cited by FANCL)",
+        "adequatelyDosed": true
       },
       {
-        "name": "Ginkgo Biloba",
-        "doseInProduct": "60mg",
-        "clinicalDose": "120mg",
-        "adequatelyDosed": false
-      },
-      {
-        "name": "Phosphatidylserine",
-        "doseInProduct": "50mg",
-        "clinicalDose": "100mg",
-        "adequatelyDosed": false
+        "name": "Matured hop bitter acids (熟成ホップ由来苦味酸)",
+        "doseInProduct": "35mg",
+        "clinicalDose": "35mg (trials cited by FANCL)",
+        "adequatelyDosed": true
       }
     ],
     "servingsPerContainer": 30,
-    "capsulesPerServing": 3,
+    "capsulesPerServing": 4,
     "summary": "FANCL BRAINs is a Ministry of Health, Labour and Welfare (MHLW) compliant Japanese functional food (機能性表示食品) from one of Japan's most trusted health brands. Available nationwide at drugstores, convenience stores, and Amazon Japan. A mainstream option for Japanese consumers who prefer domestic brands with Japanese-language labels and local customer support. FANCL was acquired by Kirin Holdings in 2024. Kirin has launched an international DTC arm (KHSI Pty Ltd, Sydney) from April 2026 and is actively developing new brain health ingredients (Agrimonia pilosa). Kirin's strategic focus on longevity and cognitive health reinforces FANCL BRAINs' long-term credibility.",
     "whatItIs": "FANCL BRAINs is a Japanese functional food supplement (機能性表示食品) formulated to support memory and cognitive function. Made by FANCL Corporation, a household name in Japanese health and beauty with over 40 years of history. Unlike imported Western nootropics, FANCL BRAINs is sold in every major drugstore chain in Japan (Matsumoto Kiyoshi, Welcia, Sugi Pharmacy) and is registered under Japan's Food with Function Claims system — meaning the cognitive claims have been filed with the Consumer Affairs Agency (消費者庁).",
-    "howItWorks": "The formula combines three complementary pathways: DHA (300mg) supports neuronal membrane fluidity and synaptic transmission — the brain is approximately 60% fat by dry weight and DHA is its primary structural omega-3. Ginkgo Biloba (60mg) promotes cerebral blood flow via vasodilation and platelet-activating factor inhibition, improving oxygen and glucose delivery to neurons. Phosphatidylserine (50mg) supports cell membrane integrity and cortisol regulation. All three ingredients are within MHLW (厚生労働省) guidelines and have EFSA/FDA-recognised safety profiles.",
-    "whatToExpect": "Weeks 1-2: no noticeable acute effects — this is a foundational supplement, not a stimulant. Weeks 4-6: subtle improvements in recall speed and mental clarity, particularly in adults over 40. At 12+ weeks: sustained brain health maintenance. FANCL recommends 3 capsules daily with water. Available for same-day delivery via Amazon Japan Prime or in-store pickup at any FANCL retail location. At approximately ¥7,585/month (~$50 USD), it is significantly cheaper than imported alternatives with zero import duty or customs risk.",
+    "howItWorks": "FANCL's notified functional ingredients (機能性関与成分) are bacopa saponins (15mg per 4 tablets) and matured hop bitter acids (35mg per 4 tablets). Per FANCL's Food with Function Claims notification (届出番号 G425), bacopa saponins are reported to help maintain memory — the ability to remember and recall things seen and heard in daily life — which declines with age, and matured hop bitter acids are reported to help maintain attention (processing several pieces of information at once, and processing information correctly) and to reduce temporary feelings of anxiety in daily life. FANCL cites a 12-week trial of bacopa saponins at 12.5mg/day and 12-week trials of matured hop bitter acids at 35mg/day. As with every 機能性表示食品, these claims are the manufacturer's notified evidence, not a government evaluation.",
+    "whatToExpect": "Weeks 1-2: no noticeable acute effects — this is a foundational supplement, not a stimulant. Weeks 4-6: subtle improvements in recall speed and mental clarity, particularly in adults over 40. At 12+ weeks: sustained brain health maintenance. FANCL recommends 4 tablets daily. Available for same-day delivery via Amazon Japan Prime or in-store pickup at any FANCL retail location. At ¥5,479 for a 30-day bag (list price on fancl.co.jp; ¥4,930 on subscription), it is significantly cheaper than imported alternatives with zero import duty or customs risk.",
     "pros": [
       "MHLW-compliant Japanese brand",
       "Available on Amazon Japan",
       "Affordable"
     ],
     "cons": [
-      "Lower clinical doses",
-      "No money-back guarantee",
-      "Amazon-only affiliate"
+      "No money-back guarantee"
     ],
     "editorChoice": false,
     "market": "both",
     "updatedAt": "2026-05-28",
     "ffcStatus": {
-      "notified": true
-    }
+      "notified": true,
+      "notificationNumber": "G425"
+    },
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "suntory-dha-epa-sesamin",
