@@ -15,10 +15,9 @@ import { test, expect } from '@playwright/test';
 //   versions. Promoting keyboard sideways across regions catches
 //   chrome forks at the keyboard contract level.
 //
-//   The Tab-trap test types "na" — a substring match on Nahdi in
-//   the GCC catalog (Nahdi Brain Boost, SFDA-registered KSA private
-//   label exclusive to products-gcc.ts). On US/AU, "na" wouldn't
-//   match Nahdi; the GCC-only catalog probe verifies the SearchModal
+//   The Tab-trap test types "brainmax" — a substring match on Eu Yan
+//   Sang BrainMAX+ in the GCC catalog (not in products-us/au). On
+//   US/AU, "brainmax" wouldn't match; the GCC catalog probe verifies the SearchModal
 //   product index is correctly wired through to modal interactions
 //   on GCC specifically.
 //
@@ -128,11 +127,10 @@ test.describe('GCC /best-nootropics-for-focus/ — CommandPalette ⌘K modal (WC
       ).toBeAttached({ timeout: 500 });
     }).toPass({ timeout: 5000, intervals: [100, 250, 500, 1000] });
     await expect(page.locator('[role="dialog"]:not(#klaro-cookie-notice)')).toBeAttached();
-    // Type "na" — substring match on Nahdi in the GCC catalog. On
-    // US/AU the same query would match different products. The trap
-    // behavior should be identical regardless of which catalog
-    // matches.
-    await page.keyboard.type('na');
+    // Type "brainmax" — substring match on Eu Yan Sang BrainMAX+ in
+    // the GCC catalog. The trap behavior should be identical
+    // regardless of which catalog matches.
+    await page.keyboard.type('brainmax');
     for (let i = 0; i < 5; i++) {
       await page.keyboard.press('Tab');
       const insideDialog = await page.evaluate(() => {
