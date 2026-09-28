@@ -8,10 +8,9 @@ import { test, expect } from '@playwright/test';
 //   - Dedicated /halal-certified-nootropics/ route (no other region has this
 //     URL — halal coverage in other regions is annotation-level on product
 //     cards, not a topical pillar page).
-//   - KSA and UAE private-label brand reviews — Nahdi Brain Boost
-//     (SFDA-registered, Saudi pharmacy chain) and Life Pharmacy
-//     Neuro Shield (UAE pharmacy chain). Both are GCC-exclusive
-//     catalog entries that don't ship elsewhere via this site.
+//   - Region-specific catalog entries — Eu Yan Sang BrainMAX+
+//     (Singapore TCM brand) ships only in the GCC and SEA catalogs,
+//     not in the US/EU/JP/LATAM/CA/AU apps.
 //   - "halal", "Ramadan", "SFDA / MOHAP / ESMA" copy patterns
 //     embedded in product summaries — if the GCC catalog drift
 //     removes them, observant Muslim buyers lose the disclosure.
@@ -68,37 +67,36 @@ test.describe('GCC /halal-certified-nootropics/ (GCC-exclusive pillar)', () => {
   });
 });
 
-test.describe('GCC /nahdi-brain-boost-review/ (KSA-exclusive private label)', () => {
+test.describe('GCC /eu-yan-sang-brainmax-review/ (region-specific catalog entry)', () => {
   test('page loads with 200 status', async ({ page }) => {
-    const response = await page.goto('/nahdi-brain-boost-review/');
+    const response = await page.goto('/eu-yan-sang-brainmax-review/');
     expect(response?.status()).toBe(200);
   });
 
-  test('renders the Nahdi brand name in the H1', async ({ page }) => {
-    await page.goto('/nahdi-brain-boost-review/');
+  test('renders the Eu Yan Sang brand name in the H1', async ({ page }) => {
+    await page.goto('/eu-yan-sang-brainmax-review/');
     const h1 = page.locator('h1').first();
-    await expect(h1).toContainText(/Nahdi/i);
+    await expect(h1).toContainText(/Eu Yan Sang/i);
   });
 
-  test('Nahdi route is REACHABLE on GCC — confirms KSA private label is in the GCC catalog', async ({ page }) => {
-    // Nahdi is a Saudi pharmacy chain; the brand boost product is
-    // SFDA-registered and not sold elsewhere via this site. Reaching
-    // the URL implies the slug exists in products-gcc.ts.
-    await page.goto('/nahdi-brain-boost-review/');
+  test('Eu Yan Sang route is REACHABLE on GCC — confirms the entry is in the GCC catalog', async ({ page }) => {
+    // Eu Yan Sang BrainMAX+ is not in the US/EU/JP/LATAM/CA/AU
+    // catalogs. Reaching the URL implies the slug exists in
+    // products-gcc.json.
+    await page.goto('/eu-yan-sang-brainmax-review/');
     await expect(page.locator('main, body').first()).toBeVisible();
   });
 });
 
 test.describe('GCC regulatory copy — SFDA / MOHAP references', () => {
-  test('Nahdi page mentions SFDA (Saudi Food and Drug Authority)', async ({ page }) => {
-    await page.goto('/nahdi-brain-boost-review/');
+  test('Mind Lab Pro page mentions SFDA (Saudi Food and Drug Authority)', async ({ page }) => {
+    await page.goto('/mind-lab-pro-review/');
     const body = await page.locator('body').textContent();
-    // The GCC catalog annotates Nahdi Brain Boost as SFDA-registered.
-    // SFDA is the Saudi FDA equivalent and the most important
-    // regulatory signal for KSA buyers. If a future content audit
-    // strips it, observant buyers lose the regulatory confidence
-    // anchor that justifies picking a regional private label over
-    // an international brand.
-    expect(body, 'GCC Nahdi page should mention SFDA').toMatch(/SFDA/);
+    // The GCC catalog tells buyers to verify import status with the
+    // SFDA before ordering imported stacks. SFDA is the Saudi FDA
+    // equivalent and the most important regulatory signal for KSA
+    // buyers. If a future content audit strips it, buyers lose the
+    // import-status disclosure.
+    expect(body, 'GCC Mind Lab Pro page should mention SFDA').toMatch(/SFDA/);
   });
 });

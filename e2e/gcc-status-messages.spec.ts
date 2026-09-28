@@ -11,18 +11,18 @@ import { test, expect } from '@playwright/test';
 // index:
 //
 //   GCC → searchItems from apps/gcc/src/lib/search.ts
-//          (products-gcc.ts: Nahdi Brain Boost + Life Pharmacy
-//          Neuro Shield + EYS BrainMAX as the GCC-only private
-//          labels; Mind Lab Pro / NooCube / Qualia Mind / Onnit
-//          Alpha Brain / Thesis as the international section)
+//          (products-gcc.json: EYS BrainMAX as the Asia-heritage
+//          entry; Mind Lab Pro / NooCube / Qualia Mind / Onnit
+//          Alpha Brain / Thesis / Nootropics Depot as the
+//          international section)
 //
-// The Nahdi test is the GCC-specific anchor: typing "nahdi" matches
-// ≥1 result on GCC (Nahdi Brain Boost is SFDA-registered and KSA-
-// exclusive) and 0 results on US/JP/EU/LATAM/CA/AU/SEA. If a
-// future search-index audit accidentally cross-wires the GCC
-// SearchModal to a different region's catalog, this spec catches
-// it via a positive-count announcement that would otherwise become
-// "No results for nahdi".
+// The BrainMAX test is the GCC-specific anchor: typing "brainmax"
+// matches ≥1 result on GCC (Eu Yan Sang BrainMAX+ is in the GCC
+// catalog) and 0 results on US/JP/EU/LATAM/CA/AU. If a future
+// search-index audit accidentally cross-wires the GCC SearchModal
+// to one of those regions' catalogs, this spec catches it via a
+// positive-count announcement that would otherwise become
+// "No results for brainmax".
 
 const LIVE_REGION =
   '[role="dialog"]:not(#klaro-cookie-notice) [role="status"][aria-live="polite"][aria-atomic="true"]';
@@ -55,16 +55,15 @@ test.describe('GCC — WCAG 4.1.3 Status Messages on CommandPalette ⌘K (per GC
     await expect(region).toHaveText('');
   });
 
-  test('typing "nahdi" matches at least 1 result on GCC (GCC-only catalog anchor)', async ({ page }) => {
+  test('typing "brainmax" matches at least 1 result on GCC (GCC catalog anchor)', async ({ page }) => {
     await openPalette(page);
     const region = page.locator(LIVE_REGION);
-    // "nahdi" is the GCC-specific catalog probe. Nahdi Brain Boost
-    // is SFDA-registered, KSA-exclusive, and shipped only from
-    // Nahdi pharmacy chain. The slug exists ONLY in products-gcc.ts.
-    // On every other region, typing "nahdi" would announce
-    // "No results for nahdi" — that asymmetry is the regression
-    // guard.
-    await page.keyboard.type('nahdi');
+    // "brainmax" is the GCC-specific catalog probe. Eu Yan Sang
+    // BrainMAX+ is in products-gcc.json but not in the US/JP/EU/
+    // LATAM/CA/AU catalogs. On those regions, typing "brainmax"
+    // would announce "No results for brainmax" — that asymmetry is
+    // the regression guard.
+    await page.keyboard.type('brainmax');
     await expect(region).toHaveText(/^\d+ results?$/);
     await expect(region).not.toHaveText(/^No results for/);
   });
