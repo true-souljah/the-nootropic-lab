@@ -140,8 +140,10 @@
       "Bacopa Monnieri",
       "Panax Ginseng",
       "VitaCholine",
+      "Cat's Claw",
       "Resveratrol",
-      "L-Theanine"
+      "L-Theanine",
+      "Pterostilbene"
     ],
     "ingredientDosages": [
       {
@@ -154,6 +156,12 @@
         "name": "Bacopa Monnieri (12:1, 20% bacosides)",
         "doseInProduct": "250mg",
         "clinicalDose": "300mg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Panax Ginseng (200:1 concentrate)",
+        "doseInProduct": "20mg",
+        "clinicalDose": "Limited human data",
         "adequatelyDosed": false
       },
       {
@@ -231,7 +239,7 @@
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
-    "euStorefront": true,
+    "euStorefront": false,
     "euCompliance": "compliant",
     "trustpilotScore": 3.8,
     "trustpilotCount": 14,
@@ -279,7 +287,6 @@
     "whatToExpect": "Acute (30-60 min): mild focus from Tyrosine and Citicoline's acetylcholine boost. 2-4 weeks: improved mental endurance and reduced cognitive fatigue. 8-12 weeks: memory and neuroprotective benefits from Lion's Mane and Phosphatidylserine accumulate. Performance Lab Mind is ideal as a standalone for minimalists, or stacked with Performance Lab Energy for a comprehensive cognitive + energy protocol.",
     "pros": [
       "Only 2 capsules per serving",
-      "EU storefront -- EUR pricing",
       "Citicoline at 250mg clinical dose",
       "Soy-free phosphatidylserine"
     ],

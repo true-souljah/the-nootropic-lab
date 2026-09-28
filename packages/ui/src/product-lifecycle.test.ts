@@ -102,6 +102,12 @@ describe('record rules — affiliateUrl and formula', () => {
     expect(affiliateUrlProblem(url)).toMatch(/search page/);
   });
 
+  test('returns a problem (does not throw) for a non-string affiliateUrl', () => {
+    expect(affiliateUrlProblem(undefined)).toMatch(/not a string/);
+    expect(affiliateUrlProblem(null)).toMatch(/not a string/);
+    expect(affiliateUrlProblem(42)).toMatch(/not a string/);
+  });
+
   test('rejects non-https and relative URLs', () => {
     expect(affiliateUrlProblem('http://www.example.com/products/x')).toMatch(/not https/);
     expect(affiliateUrlProblem('/products/x')).toMatch(/not an absolute URL/);

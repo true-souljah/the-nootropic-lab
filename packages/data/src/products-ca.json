@@ -145,8 +145,10 @@
       "Bacopa Monnieri",
       "Panax Ginseng",
       "VitaCholine",
+      "Cat's Claw",
       "Resveratrol",
-      "L-Theanine"
+      "L-Theanine",
+      "Pterostilbene"
     ],
     "ingredientDosages": [
       {
@@ -159,6 +161,12 @@
         "name": "Bacopa Monnieri (12:1, 20% bacosides)",
         "doseInProduct": "250mg",
         "clinicalDose": "300mg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Panax Ginseng (200:1 concentrate)",
+        "doseInProduct": "20mg",
+        "clinicalDose": "Limited human data",
         "adequatelyDosed": false
       },
       {
@@ -194,7 +202,7 @@
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 4,
-    "summary": "Strong formula anchored by Lutemax 2020 for screen workers. Ships to Canada from the UK/EU. Best value per serving for Canadian buyers. Note: the noocube.com Trustpilot profile has no reviews yet -- verify independently before purchasing.",
+    "summary": "Strong formula anchored by Lutemax 2020 for screen workers. Ships to Canada from the UK/EU. Priced at $64.99 USD for a 30-serving bottle on noocube.com. Note: the noocube.com Trustpilot profile has no reviews yet -- verify independently before purchasing.",
     "whatItIs": "NooCube is a 12-ingredient nootropic stack made by Wolfson Brands. Its standout feature is Lutemax 2020 -- a patented lutein and zeaxanthin extract researched for reducing digital eye strain and blue-light-related cognitive fatigue. Available for international shipping to Canada, it is one of the more affordable options for Canadian buyers paying in USD.",
     "howItWorks": "Lutemax 2020 filters high-energy blue light in the retina, reducing eye fatigue during screen use -- a relevant benefit for Canadian remote workers and office professionals. Choline from VitaCholine (250mg) supports the cholinergic system; the current formula no longer contains Alpha-GPC or Huperzine A. L-Theanine provides calm focus. Bacopa Monnieri targets memory consolidation over weeks.",
     "whatToExpect": "Day one: mild calm focus from L-Theanine. Within 2-4 weeks: reduced eye fatigue and better end-of-day mental stamina. At 8 weeks: modest memory improvements from Bacopa. NooCube ships internationally to Canada with delivery typically within 10-14 days. The noocube.com Trustpilot profile has no reviews yet -- verify the cancellation policy before purchasing.",
@@ -296,7 +304,6 @@
     "whatToExpect": "Day one: mild cognitive sharpness and sustained attention. Within 2-4 weeks: improved stress resilience and working memory. At 8 weeks: measurable reduction in mental fatigue during extended cognitive tasks. Ships from the UK to Canada -- delivery approximately 10-14 business days. Only 2 capsules per serving -- well suited for Canadians looking for a low pill-burden daily stack.",
     "pros": [
       "Minimalist clean formula",
-      "Ships to Canada",
       "NutriGenesis nutrients",
       "Only 2 capsules/day"
     ],
@@ -308,9 +315,6 @@
     "editorChoice": false,
     "market": "both",
     "updatedAt": "2026-09-28",
-    "npnStatus": {
-      "status": "pip"
-    },
     "trustpilotCheckedAt": "2026-09-28",
     "discontinued": {
       "since": "2026-09-28",

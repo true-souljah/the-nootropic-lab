@@ -16,7 +16,7 @@ const CATALOGUES: Record<string, Product[]> = {
   jp: allProductsJP, latam: allProductsLatam, gcc: productsGCC, sea: productsSEA,
 };
 const PRIMARY = ['us', 'eu', 'ca', 'au', 'jp', 'latam'];
-const FIELDS = ['brand', 'ingredientDosages', 'trustpilotScore', 'trustpilotCount', 'discontinued'] as const;
+const FIELDS = ['brand', 'heroIngredients', 'ingredientDosages', 'trustpilotScore', 'trustpilotCount', 'discontinued'] as const;
 type Field = (typeof FIELDS)[number];
 
 function value(p: Product, field: Field): string {
@@ -38,7 +38,9 @@ function value(p: Product, field: Field): string {
 // Focus panel is an image; Performance Lab Mind is discontinued and the two
 // source descriptions conflict). Needs a verified panel before unifying.
 const PRIMARY_BASELINE = new Set<string>([
+  'hunter-focus-review/heroIngredients',
   'hunter-focus-review/ingredientDosages',
+  'performance-lab-mind-review/heroIngredients',
   'performance-lab-mind-review/ingredientDosages',
 ]);
 // GCC/SEA catalogues are owned by open data PRs (#266 and the GCC/SEA
@@ -49,6 +51,7 @@ const GCC_SEA_BASELINE = new Set<string>([
     `${r}/mind-lab-pro-review/trustpilotScore`,
     `${r}/mind-lab-pro-review/trustpilotCount`,
     `${r}/noocube-review/ingredientDosages`,
+    `${r}/noocube-review/heroIngredients`,
     `${r}/noocube-review/trustpilotScore`,
     `${r}/noocube-review/trustpilotCount`,
     `${r}/nootropics-depot-lions-mane/trustpilotScore`,

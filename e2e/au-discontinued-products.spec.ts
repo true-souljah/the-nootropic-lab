@@ -1,0 +1,45 @@
+import { test, expect } from '@playwright/test';
+
+// Discontinued products (2026-09-28 vendor verification) keep their review
+// page, but the page must show the discontinued notice, render no affiliate
+// link and no price stat, and the product must not be a best-of pick.
+// Twin spec: us-discontinued-products.spec.ts.
+
+const REVIEW = '/blackmores-brain-active-review/';
+
+test.beforeEach(async ({ context }) => {
+  await context.addCookies([
+    {
+      name: 'klaro',
+      value: '%7B%22cloudflare-insights%22%3Afalse%2C%22google-analytics%22%3Afalse%2C%22impact-com%22%3Afalse%7D',
+      domain: '127.0.0.1',
+      path: '/',
+    },
+  ]);
+});
+
+test.describe('AU discontinued product: /blackmores-brain-active-review/', () => {
+  test('review page shows the discontinued notice', async ({ page }) => {
+    const response = await page.goto(REVIEW);
+    expect(response?.status()).toBe(200);
+    const notice = page.locator('aside[role="note"][aria-labelledby="product-discontinued-heading"]');
+    await expect(notice).toBeVisible();
+    await expect(notice).toContainText('Discontinued');
+    await expect(notice).toContainText('No longer listed on blackmores.com.au');
+  });
+
+  test('review page renders no affiliate link and no price stat', async ({ page }) => {
+    await page.goto(REVIEW);
+    await expect(page.locator('a[rel~="sponsored"]')).toHaveCount(0);
+    await expect(page.locator('a[rel="nofollow sponsored noopener noreferrer"]')).toHaveCount(0);
+    // The header stat grid labels each stat; "Price" must not be one of them.
+    await expect(page.locator('main').getByText('Price', { exact: true })).toHaveCount(0);
+    await expect(page.getByRole('tab', { name: /pricing/i })).toHaveCount(0);
+  });
+
+  test('product is not a pick on /best-nootropics-for-focus/', async ({ page }) => {
+    const response = await page.goto('/best-nootropics-for-focus/');
+    expect(response?.status()).toBe(200);
+    await expect(page.locator(`a[href^="${REVIEW.replace(/\/$/, '')}"]`)).toHaveCount(0);
+  });
+});

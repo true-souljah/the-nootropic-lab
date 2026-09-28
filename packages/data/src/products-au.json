@@ -142,8 +142,10 @@
       "Bacopa Monnieri",
       "Panax Ginseng",
       "VitaCholine",
+      "Cat's Claw",
       "Resveratrol",
-      "L-Theanine"
+      "L-Theanine",
+      "Pterostilbene"
     ],
     "ingredientDosages": [
       {
@@ -156,6 +158,12 @@
         "name": "Bacopa Monnieri (12:1, 20% bacosides)",
         "doseInProduct": "250mg",
         "clinicalDose": "300mg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Panax Ginseng (200:1 concentrate)",
+        "doseInProduct": "20mg",
+        "clinicalDose": "Limited human data",
         "adequatelyDosed": false
       },
       {
@@ -191,7 +199,7 @@
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 4,
-    "summary": "Strong formula anchored by Lutemax 2020 for Australian screen workers. Ships from the UK/EU to Australia as an imported food supplement. Best value per serving for Australian buyers. Note: the noocube.com Trustpilot profile has no reviews yet -- verify independently before purchasing.",
+    "summary": "Strong formula anchored by Lutemax 2020 for Australian screen workers. Ships from the UK/EU to Australia as an imported food supplement. A$84.99 for a 30-serving bottle on noocube.com.au. Note: the noocube.com Trustpilot profile has no reviews yet -- verify independently before purchasing.",
     "whatItIs": "NooCube is a 12-ingredient nootropic stack made by Wolfson Brands. Its standout feature is Lutemax 2020 -- a patented lutein and zeaxanthin extract researched for reducing digital eye strain and blue-light-related cognitive fatigue. Available for international shipping to Australia, it is imported as a food supplement.",
     "howItWorks": "Lutemax 2020 filters high-energy blue light in the retina, reducing eye fatigue during screen use -- particularly relevant for Australian remote workers and office professionals. Choline from VitaCholine supports the cholinergic system; the current formula no longer contains Alpha-GPC or Huperzine A. L-Theanine provides calm focus. Bacopa Monnieri targets memory consolidation over weeks.",
     "whatToExpect": "Day one: mild calm focus from L-Theanine. Within 2-4 weeks: reduced eye fatigue and better end-of-day mental stamina. At 8 weeks: modest memory improvements from Bacopa. Ships from the UK/EU to Australia with delivery typically within 14-21 days. Australian buyers should verify the subscription cancellation policy before purchasing since the noocube.com Trustpilot profile has no reviews yet.",
@@ -287,7 +295,6 @@
     "whatToExpect": "Day one: mild cognitive sharpness and sustained attention. Within 2-4 weeks: improved stress resilience and working memory. At 8 weeks: measurable reduction in mental fatigue during extended cognitive tasks. Ships from the UK to Australia in approximately 14-21 business days. Only 2 capsules per serving -- excellent for Australian buyers looking for a low pill-burden daily stack.",
     "pros": [
       "Minimalist clean formula",
-      "Ships to Australia",
       "NutriGenesis nutrients",
       "Only 2 capsules/day"
     ],
@@ -761,7 +768,6 @@
       "TGA-listed (AUST L) — Australian Listed Medicines compliant",
       "Bacopa at clinical dose (300mg)",
       "1-capsule daily — minimal friction",
-      "Available at every major Australian pharmacy (Chemist Warehouse, Priceline, Amcal)",
       "Caffeine-free — no stimulant overlap",
       "Lowest per-month price in the AU coverage (~AUD $35/mo)",
       "Founded 1932 — strongest brand-trust footprint in Australian supplements"

@@ -141,8 +141,10 @@
       "Bacopa Monnieri",
       "Panax Ginseng",
       "VitaCholine",
+      "Cat's Claw",
       "Resveratrol",
-      "L-Theanine"
+      "L-Theanine",
+      "Pterostilbene"
     ],
     "ingredientDosages": [
       {
@@ -155,6 +157,12 @@
         "name": "Bacopa Monnieri (12:1, 20% bacosides)",
         "doseInProduct": "250mg",
         "clinicalDose": "300mg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Panax Ginseng (200:1 concentrate)",
+        "doseInProduct": "20mg",
+        "clinicalDose": "Limited human data",
         "adequatelyDosed": false
       },
       {
@@ -286,7 +294,6 @@
     "whatToExpect": "Day one: mild cognitive sharpness and sustained attention from Citicoline and Tyrosine. Within 2-4 weeks: improved stress resilience and working memory. At 8 weeks: measurable reduction in mental fatigue during extended cognitive tasks. Ships from the UK to Japan in approximately 10-14 days. Only 2 capsules per serving -- one of the easiest pill burdens in this review.",
     "pros": [
       "Minimalist clean formula",
-      "Ships to Japan",
       "NutriGenesis nutrients"
     ],
     "cons": [

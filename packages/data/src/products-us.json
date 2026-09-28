@@ -142,8 +142,10 @@
       "Bacopa Monnieri",
       "Panax Ginseng",
       "VitaCholine",
+      "Cat's Claw",
       "Resveratrol",
-      "L-Theanine"
+      "L-Theanine",
+      "Pterostilbene"
     ],
     "ingredientDosages": [
       {
@@ -156,6 +158,12 @@
         "name": "Bacopa Monnieri (12:1, 20% bacosides)",
         "doseInProduct": "250mg",
         "clinicalDose": "300mg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Panax Ginseng (200:1 concentrate)",
+        "doseInProduct": "20mg",
+        "clinicalDose": "Limited human data",
         "adequatelyDosed": false
       },
       {
@@ -191,7 +199,7 @@
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 4,
-    "summary": "Strong formula anchored by Lutemax 2020. Best value per serving. Note: the noocube.com Trustpilot profile has no reviews yet -- verify independently before purchasing.",
+    "summary": "Strong formula anchored by Lutemax 2020. $64.99 for a 30-serving bottle on noocube.com. Note: the noocube.com Trustpilot profile has no reviews yet -- verify independently before purchasing.",
     "whatItIs": "NooCube is a 12-ingredient nootropic stack made by Wolfson Brands, a large supplement manufacturer known for multiple health product lines. Its standout feature is Lutemax 2020 -- a patented lutein and zeaxanthin extract specifically researched for reducing the effects of digital eye strain and blue-light-related cognitive fatigue, making it particularly relevant for screen-heavy workers.",
     "howItWorks": "Lutemax 2020 filters high-energy blue light in the retina, reducing eye fatigue that accumulates during screen use -- an indirect but real cognitive benefit for office workers and gamers. Choline from VitaCholine (250mg) supports the cholinergic system; the current formula no longer contains Alpha-GPC or Huperzine A. L-Theanine provides calm focus. Bacopa Monnieri targets memory consolidation over weeks.",
     "whatToExpect": "Day one: mild calm focus from L-Theanine. Within 2-4 weeks: reduced eye fatigue and better end-of-day mental stamina (Lutemax). At 8 weeks: modest memory improvements (Bacopa, though underdosed). Manage expectations accordingly: Bacopa is below the 300mg clinical anchor. The noocube.com Trustpilot profile has no reviews yet -- verify the cancellation policy before purchasing.",
@@ -665,7 +673,7 @@
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
-    "euStorefront": true,
+    "euStorefront": false,
     "euCompliance": "compliant",
     "trustpilotScore": 3.8,
     "trustpilotCount": 14,
@@ -715,7 +723,6 @@
       "Every ingredient at or near clinical dose",
       "Only branded standardized extracts (Cognizin, Sharp-PS, Ajipure)",
       "Just 2 capsules per serving",
-      "EU and US storefronts",
       "365-day affiliate cookie",
       "Stackable with Performance Lab Energy and other PL products"
     ],

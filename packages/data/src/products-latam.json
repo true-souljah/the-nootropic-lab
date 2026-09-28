@@ -144,8 +144,10 @@
       "Bacopa Monnieri",
       "Panax Ginseng",
       "VitaCholine",
+      "Cat's Claw",
       "Resveratrol",
-      "L-Theanine"
+      "L-Theanine",
+      "Pterostilbene"
     ],
     "ingredientDosages": [
       {
@@ -158,6 +160,12 @@
         "name": "Bacopa Monnieri (12:1, 20% bacosides)",
         "doseInProduct": "250mg",
         "clinicalDose": "300mg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Panax Ginseng (200:1 concentrate)",
+        "doseInProduct": "20mg",
+        "clinicalDose": "Limited human data",
         "adequatelyDosed": false
       },
       {
@@ -193,7 +201,7 @@
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 4,
-    "summary": "Strong formula anchored by Lutemax 2020 and the best value-per-serving in this list at $64.99 USD/month — prices are in USD with no local currency option. Ships from the US/UK, allow 10–18 days to LATAM destinations. Brazilian buyers should be aware ANVISA customs holds are more frequent for supplement shipments; Argentine buyers may face currency control restrictions on USD card transactions. Note: the noocube.com Trustpilot profile has no reviews yet — verify independently before purchasing.",
+    "summary": "Strong formula anchored by Lutemax 2020 at $64.99 USD for a 30-serving bottle — prices are in USD with no local currency option. Ships from the US/UK, allow 10–18 days to LATAM destinations. Brazilian buyers should be aware ANVISA customs holds are more frequent for supplement shipments; Argentine buyers may face currency control restrictions on USD card transactions. Note: the noocube.com Trustpilot profile has no reviews yet — verify independently before purchasing.",
     "whatItIs": "NooCube is a 12-ingredient nootropic stack made by Wolfson Brands, a large supplement manufacturer. Its standout feature is Lutemax 2020 — a patented lutein and zeaxanthin extract researched for reducing digital eye strain and blue-light-related cognitive fatigue, making it relevant for screen-heavy workers. For LATAM buyers, NooCube is priced exclusively in USD and ships internationally as a personal-use supplement. It is not registered with the Comisión Federal para la Protección contra Riesgos Sanitarios (COFEPRIS) in Mexico, the Agência Nacional de Vigilância Sanitária (ANVISA) in Brazil, ANMAT (Argentina), the Instituto Nacional de Vigilancia de Medicamentos y Alimentos (INVIMA) in Colombia, ISP (Chile), or DIGEMID (Peru), and enters these markets under personal-import allowances. Customs duties vary by country and are the buyer's responsibility.",
     "howItWorks": "Lutemax 2020 filters high-energy blue light in the retina, reducing eye fatigue that accumulates during screen use -- an indirect but real cognitive benefit for office workers and gamers. Choline from VitaCholine (250mg) supports the cholinergic system; the current formula no longer contains Alpha-GPC or Huperzine A. L-Theanine provides calm focus. Bacopa Monnieri targets memory consolidation over weeks.",
     "whatToExpect": "Day one: mild calm focus from L-Theanine. Within 2-4 weeks: reduced eye fatigue and better end-of-day mental stamina (Lutemax). At 8 weeks: modest memory improvements (Bacopa, though underdosed). Manage expectations accordingly: Bacopa is below the 300mg clinical anchor. The noocube.com Trustpilot profile has no reviews yet -- verify the cancellation policy before purchasing.",

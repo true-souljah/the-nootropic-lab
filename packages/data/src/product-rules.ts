@@ -11,7 +11,8 @@ const SEARCH_PAGE_MARKERS = ['/s?', '?q=', '&q=', '?k=', '&k='];
  * `/search`); not a bare homepage (path longer than "/") — the homepage rule
  * is waived for discontinued products, which render no buy link.
  */
-export function affiliateUrlProblem(url: string, discontinued = false): string | null {
+export function affiliateUrlProblem(url: unknown, discontinued = false): string | null {
+  if (typeof url !== 'string') return `affiliateUrl is not a string: ${JSON.stringify(url) ?? String(url)}`;
   let parsed: URL;
   try {
     parsed = new URL(url);
@@ -40,7 +41,7 @@ export function productRuleProblems(
   product: Pick<Product, 'affiliateUrl' | 'ingredientDosages' | 'discontinued'>,
 ): string[] {
   const problems: string[] = [];
-  const url = affiliateUrlProblem(product.affiliateUrl ?? '', product.discontinued != null);
+  const url = affiliateUrlProblem(product.affiliateUrl, product.discontinued != null);
   if (url) problems.push(url);
   const formula = formulaProblem(product);
   if (formula) problems.push(formula);
