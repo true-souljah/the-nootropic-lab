@@ -10,8 +10,7 @@ import { test, expect } from '@playwright/test';
 //
 //   /                              — GCC root home (baseline chrome)
 //   /best-nootropics/              — BestOf with GCC catalog
-//                                    (Nahdi / Life Pharmacy / EYS
-//                                    private-label rows; halal-
+//                                    (EYS row; halal-
 //                                    friendly + SFDA / MOHAP chips)
 //   /halal-certified-nootropics/   — GCC-exclusive pillar; ships the
 //                                    shared Sources component +

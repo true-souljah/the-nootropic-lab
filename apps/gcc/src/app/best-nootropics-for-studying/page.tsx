@@ -85,7 +85,7 @@ const picks: ListiclePick[] = [
 const faqItems: ListicleFAQ[] = [
   {
     q: 'Are these supplements halal?',
-    a: 'All five picks use plant-based HPMC or pullulan capsules with no porcine gelatin. None of these brands carry formal halal certification (HALAL India, JAKIM, MUI, ESMA), so observant student buyers should verify each brand\'s latest ingredient sourcing. The most predictable halal-compliant option for KSA students is to add a locally-regulated brand like Nahdi Brain Boost (SFDA-registered) for memory-consolidation support and stack with a single-ingredient L-theanine capsule for acute focus.',
+    a: 'All five picks use plant-based HPMC or pullulan capsules with no porcine gelatin. None of these brands carry formal halal certification (HALAL India, JAKIM, MUI, ESMA), so observant student buyers should verify each brand\'s latest ingredient sourcing.',
   },
   {
     q: 'Can I take these during Ramadan?',
@@ -93,7 +93,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Which of these are available in GCC pharmacies without ordering internationally?',
-    a: 'For Saudi students, Nahdi (1,100+ branches) and Al-Dawaa stock SFDA-registered brain-health supplements like Nahdi Brain Boost. For UAE students, BinSina, Aster, and Life Pharmacy stock MOHAP-registered options like Life Pharmacy NeuroShield. The international brands here (Mind Lab Pro, Qualia Mind, NooCube, Onnit Alpha Brain, Thesis) require online ordering — iHerb\'s Saudi-compliant DC handles import paperwork for many international supplements; direct brand ordering with 7–14 day Dubai free-zone delivery works for the rest.',
+    a: 'For Saudi students, Nahdi (1,100+ branches) and Al-Dawaa stock SFDA-registered brain-health supplements. For UAE students, BinSina, Aster, and Life Pharmacy stock MOHAP-registered options. The international brands here (Mind Lab Pro, Qualia Mind, NooCube, Onnit Alpha Brain, Thesis) require online ordering — iHerb\'s Saudi-compliant DC handles import paperwork for many international supplements; direct brand ordering with 7–14 day Dubai free-zone delivery works for the rest.',
   },
   {
     q: 'When should I start taking nootropics for studying?',
