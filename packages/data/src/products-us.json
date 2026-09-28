@@ -101,7 +101,7 @@
     ],
     "editorChoice": true,
     "market": "both",
-    "updatedAt": "2026-05-28",
+    "updatedAt": "2026-09-28",
     "handsOnTested": true,
     "trustpilotCheckedAt": "2026-09-28",
     "verifiedAt": "2026-09-28"
@@ -129,7 +129,7 @@
     "pricingModel": "both",
     "moneyBackDays": 60,
     "caffeineFree": true,
-    "euStorefront": true,
+    "euStorefront": false,
     "euCompliance": "compliant",
     "trustpilotScore": 1.9,
     "trustpilotCount": 850,
@@ -191,9 +191,8 @@
     "whatToExpect": "Day one: mild calm focus from L-Theanine. Within 2-4 weeks: reduced eye fatigue and better end-of-day mental stamina (Lutemax). At 8 weeks: modest memory improvements (Bacopa, though underdosed). Important caveat: Alpha-GPC and Huperzine A are underdosed versus clinical trials. Manage expectations accordingly. The Trustpilot rating of 1.9/5 reflects subscription cancellation complaints rather than product efficacy -- verify the cancellation policy before purchasing.",
     "pros": [
       "Lutemax 2020 for screen workers",
-      "Good value at $59/mo",
-      "60-day money-back",
-      "EU storefront"
+      "Good value at $64.99/mo",
+      "60-day money-back"
     ],
     "cons": [
       "Trustpilot 1.9/5 -- significant complaints",
@@ -307,7 +306,7 @@
     ],
     "editorChoice": false,
     "market": "us",
-    "updatedAt": "2026-05-28",
+    "updatedAt": "2026-09-28",
     "handsOnTested": true,
     "verifiedAt": "2026-09-28"
   },
@@ -406,7 +405,7 @@
     ],
     "editorChoice": false,
     "market": "us",
-    "updatedAt": "2026-05-28",
+    "updatedAt": "2026-09-28",
     "handsOnTested": true,
     "verifiedAt": "2026-09-28"
   },
@@ -496,7 +495,7 @@
     ],
     "editorChoice": false,
     "market": "us",
-    "updatedAt": "2026-05-28",
+    "updatedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28",
     "verifiedAt": "2026-09-28"
   },
@@ -559,7 +558,7 @@
     ],
     "editorChoice": false,
     "market": "us",
-    "updatedAt": "2026-05-28",
+    "updatedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28",
     "verifiedAt": "2026-09-28"
   },
@@ -719,7 +718,7 @@
     ],
     "editorChoice": false,
     "market": "us",
-    "updatedAt": "2026-05-28",
+    "updatedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28",
     "discontinued": {
       "since": "2026-09-28",
@@ -894,7 +893,7 @@
     ],
     "editorChoice": false,
     "market": "us",
-    "updatedAt": "2026-05-28",
+    "updatedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28",
     "verifiedAt": "2026-09-28"
   },
@@ -1002,7 +1001,7 @@
     ],
     "editorChoice": false,
     "market": "us",
-    "updatedAt": "2026-05-28",
+    "updatedAt": "2026-09-28",
     "verifiedAt": "2026-09-28"
   },
   {
@@ -1106,7 +1105,7 @@
     ],
     "editorChoice": false,
     "market": "us",
-    "updatedAt": "2026-05-28",
+    "updatedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28",
     "verifiedAt": "2026-09-28"
   }

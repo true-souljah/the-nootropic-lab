@@ -102,7 +102,7 @@
     ],
     "editorChoice": true,
     "market": "both",
-    "updatedAt": "2026-05-28",
+    "updatedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28",
     "verifiedAt": "2026-09-28"
   },
@@ -209,7 +209,7 @@
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-05-28",
+    "updatedAt": "2026-09-28",
     "notes": [
       "Bulk-purchase pricing changed June 2026: 5-month supply $194.99 USD (was 6-month for $180). AU buyers purchasing direct affected."
     ],
@@ -298,7 +298,7 @@
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-05-28",
+    "updatedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28",
     "discontinued": {
       "since": "2026-09-28",
@@ -397,7 +397,7 @@
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-05-28",
+    "updatedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28",
     "verifiedAt": "2026-09-28"
   },
@@ -497,7 +497,7 @@
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-05-28",
+    "updatedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28",
     "verifiedAt": "2026-09-28"
   },
@@ -605,7 +605,7 @@
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-05-28",
+    "updatedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28",
     "verifiedAt": "2026-09-28"
   },
@@ -775,7 +775,7 @@
     ],
     "editorChoice": false,
     "market": "au",
-    "updatedAt": "2026-05-28",
+    "updatedAt": "2026-09-28",
     "austl": "246877",
     "discontinued": {
       "since": "2026-09-28",
