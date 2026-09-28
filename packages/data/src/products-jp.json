@@ -98,11 +98,12 @@
     ],
     "editorChoice": true,
     "market": "both",
-    "updatedAt": "2026-05-28",
+    "updatedAt": "2026-09-28",
     "ffcStatus": {
       "notified": false
     },
-    "trustpilotCheckedAt": "2026-09-28"
+    "trustpilotCheckedAt": "2026-09-28",
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "noocube",

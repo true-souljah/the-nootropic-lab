@@ -104,8 +104,9 @@
     ],
     "editorChoice": true,
     "market": "both",
-    "updatedAt": "2026-05-28",
-    "trustpilotCheckedAt": "2026-09-28"
+    "updatedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28",
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "noocube",
@@ -516,8 +517,9 @@
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-05-28",
-    "trustpilotCheckedAt": "2026-09-28"
+    "updatedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28",
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "nootropics-depot-lions-mane",
@@ -580,7 +582,8 @@
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-05-28",
-    "trustpilotCheckedAt": "2026-09-28"
+    "updatedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28",
+    "verifiedAt": "2026-09-28"
   }
 ]
