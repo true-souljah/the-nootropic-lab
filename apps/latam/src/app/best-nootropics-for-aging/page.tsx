@@ -69,12 +69,6 @@ const picks: ListiclePick[] = [
     whyItsHere:
       'Extracto de Melena de León del cuerpo fructífero de un solo ingrediente, de una marca con sólida trayectoria en pruebas de terceros (Certificado de Análisis publicado por lote). La opción correcta si quieres probar Melena de León de forma aislada, posiblemente combinada con un suplemento separado de fosfatidilserina. Bajo costo de envío ($25 USD) reduce riesgo de retención aduanera, relevante para compradores adultos mayores en Brasil y Argentina.',
   },
-  {
-    product: productsLatam.find(p => p.slug === 'genomma-lab-neuriplus-review')!,
-    rank: 4,
-    whyItsHere:
-      'Opción local registrada en COFEPRIS con DHA, Ginkgo Biloba y vitaminas B6/B12 — una fórmula de mantenimiento conservadora especialmente orientada a adultos mayores. Disponible en farmacias mexicanas (Farmacias del Ahorro, Guadalajara, Benavides) y en cadenas regionales como Cruz Verde (Chile), además de MercadoLibre en toda Latam. Precio en moneda local (~$18 USD/mes), sin riesgo aduanero ni necesidad de tarjeta en USD — la opción más accesible y de menor fricción para adultos mayores en la región. Las dosis están por debajo de las clínicas, así que los efectos serán modestos.',
-  },
 ];
 
 const faqItems: ListicleFAQ[] = [
@@ -100,7 +94,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: '¿Estos productos son legales en mi país de Latam?',
-    a: 'Los suplementos nootrópicos importados ingresan a Latam bajo exenciones de uso personal. COFEPRIS (México), ANVISA (Brasil), INVIMA (Colombia), ISP (Chile) y DIGEMID (Perú) generalmente permiten un suministro de 1 a 3 meses para uso personal. ANMAT (Argentina) emitió la Disposición 2105/2022 que prohibió el Noopept y otros nootrópicos no registrados — ninguna de las selecciones aquí contiene Noopept ni ingredientes prohibidos por ANMAT. Las opciones locales registradas (Genomma Lab NeuriPlus en cadenas como Farmacias del Ahorro y Cruz Verde) son la ruta sin fricción aduanera.',
+    a: 'Los suplementos nootrópicos importados ingresan a Latam bajo exenciones de uso personal. COFEPRIS (México), ANVISA (Brasil), INVIMA (Colombia), ISP (Chile) y DIGEMID (Perú) generalmente permiten un suministro de 1 a 3 meses para uso personal. ANMAT (Argentina) emitió la Disposición 2105/2022 que prohibió el Noopept y otros nootrópicos no registrados — ninguna de las selecciones aquí contiene Noopept ni ingredientes prohibidos por ANMAT.',
   },
   {
     q: '¿En cuánto tiempo notaré algo?',
@@ -115,7 +109,7 @@ export default function Page() {
       useCase="aging"
       pageTitle="Mejores Nootrópicos para el Cerebro Adulto Mayor"
       pageDescription="Ranking independiente de nootrópicos para adultos en Latinoamérica preocupados por cambios cognitivos asociados a la edad."
-      heroParagraph="El cambio cognitivo asociado a la edad es normal — el recuerdo de la memoria se vuelve más lento, la velocidad de procesamiento disminuye. Los suplementos de esta página tienen evidencia específicamente en adultos mayores con quejas cognitivas subjetivas. NO son tratamientos para demencia, Alzheimer ni ninguna enfermedad cognitiva clínica. Para esos casos, consulta a un neurólogo. Incluimos opciones internacionales de fórmula abierta y opciones locales registradas en COFEPRIS, accesibles en farmacias regionales sin fricción aduanera."
+      heroParagraph="El cambio cognitivo asociado a la edad es normal — el recuerdo de la memoria se vuelve más lento, la velocidad de procesamiento disminuye. Los suplementos de esta página tienen evidencia específicamente en adultos mayores con quejas cognitivas subjetivas. NO son tratamientos para demencia, Alzheimer ni ninguna enfermedad cognitiva clínica. Para esos casos, consulta a un neurólogo. Incluimos opciones internacionales de fórmula abierta."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

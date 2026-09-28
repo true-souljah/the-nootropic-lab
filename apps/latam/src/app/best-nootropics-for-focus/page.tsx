@@ -69,12 +69,6 @@ const picks: ListiclePick[] = [
     whyItsHere:
       'Incluye Alfa-GPC, L-teanina y Lutemax 2020 (útil para fatiga visual frente a pantallas, frecuente en trabajo remoto en Latam). Fórmula abierta — las dosis se declaran. Atención: el puntaje en Trustpilot es muy bajo (1.9/5) por reclamos de cancelación de suscripción; verifica la política antes de comprar.',
   },
-  {
-    product: productsLatam.find(p => p.slug === 'genomma-lab-neuriplus-review')!,
-    rank: 4,
-    whyItsHere:
-      'Opción local registrada en la Comisión Federal para la Protección contra Riesgos Sanitarios (COFEPRIS) en México y disponible en Farmacias del Ahorro, Guadalajara, Benavides y Cruz Verde, además de MercadoLibre en toda la región. Precio en moneda local (~$18 USD/mes), sin riesgo aduanero. Las dosis están por debajo de las clínicas — la concentración será modesta — pero es la opción más accesible para quienes prefieren evitar importaciones desde EE.UU. o Reino Unido.',
-  },
 ];
 
 const faqItems: ListicleFAQ[] = [
@@ -96,7 +90,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: '¿Dónde puedo comprar nootrópicos en Latam?',
-    a: 'Tres canales principales: (1) marcas internacionales con envío directo desde EE.UU./Reino Unido (Mind Lab Pro, NooCube, Qualia Mind) — pago en USD, 10–18 días de envío; (2) iHerb cross-border, Amazon Brasil y Amazon México con catálogo limitado; (3) marcas locales registradas en pharmacy chains como Drogaria São Paulo, Farmacias del Ahorro y Cruz Verde (ej. Genomma Lab NeuriPlus, Herbamz NeuroMax). MercadoLibre también lista varias opciones con envío regional.',
+    a: 'Dos canales principales: (1) marcas internacionales con envío directo desde EE.UU./Reino Unido (Mind Lab Pro, NooCube, Qualia Mind) — pago en USD, 10–18 días de envío; (2) iHerb cross-border, Amazon Brasil y Amazon México con catálogo limitado. MercadoLibre también lista varias opciones con envío regional.',
   },
   {
     q: '¿Estos nootrópicos son alternativas al Adderall o Ritalina?',
@@ -111,7 +105,7 @@ export default function Page() {
       useCase="focus"
       pageTitle="Mejores Nootrópicos para Concentración"
       pageDescription="Ranking independiente de los mejores nootrópicos para concentración y atención disponibles en Latinoamérica. Cada selección contiene un ingrediente con dosis clínica."
-      heroParagraph="Si quieres tomar un suplemento para apoyar la concentración, la pregunta no es '¿qué marca?' sino '¿qué ingrediente y a qué dosis?'. Esta página clasifica los productos disponibles para compradores en Latam que contienen al menos uno de los cuatro ingredientes validados para concentración (L-teanina + cafeína, citicolina, L-tirosina, Alfa-GPC) en dosis clínica. Incluimos opciones internacionales (Mind Lab Pro, Qualia Mind, NooCube) y opciones locales registradas en COFEPRIS / ANVISA disponibles en farmacias regionales."
+      heroParagraph="Si quieres tomar un suplemento para apoyar la concentración, la pregunta no es '¿qué marca?' sino '¿qué ingrediente y a qué dosis?'. Esta página clasifica los productos disponibles para compradores en Latam que contienen al menos uno de los cuatro ingredientes validados para concentración (L-teanina + cafeína, citicolina, L-tirosina, Alfa-GPC) en dosis clínica. Incluimos opciones internacionales (Mind Lab Pro, Qualia Mind, NooCube)."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}
