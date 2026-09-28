@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import Link from 'next/link';
 import AppShell from './AppShell';
 import { FPDisclosure } from '../public-chrome/FPDisclosure';
+import { FPTrustNote } from '../public-chrome/FPTrustNote';
 import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
@@ -136,7 +137,7 @@ export default function BestOf({
       uiStrings={uiStrings}
       sidebarMeta={`${products.length} products`}
     >
-      <FPDisclosure methodologyHref="/methodology" />
+      <FPDisclosure methodologyHref="/methodology" strings={uiStrings.disclosure} />
       <div className="px-4 sm:px-7 pt-7 pb-10">
         {/* Header */}
         <div className="flex justify-between items-end mb-[18px] flex-wrap gap-4">
@@ -179,6 +180,10 @@ export default function BestOf({
             );
           })}
         </div>
+
+        {/* Inline disclosure + ranking statement + methodology link, directly
+            above the first affiliate CTA (preList spotlight or ranked rows). */}
+        <FPTrustNote strings={uiStrings.disclosure} className="mb-[18px]" />
 
         {preList && <div className="mb-8">{preList}</div>}
 

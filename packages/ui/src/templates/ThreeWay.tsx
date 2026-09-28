@@ -3,6 +3,7 @@ import SchemaOrg from '../SchemaOrg';
 import Sources, { type Source } from '../Sources';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
 import { FPDisclosure } from '../public-chrome/FPDisclosure';
+import { FPTrustNote } from '../public-chrome/FPTrustNote';
 import { FPHeader } from '../public-chrome/FPHeader';
 import { FPFooter } from '../public-chrome/FPFooter';
 import { FPByline } from '../public-chrome/FPByline';
@@ -34,7 +35,8 @@ export interface ThreeWayProps {
   healthDisclaimer?: string;
   sources?: Source[];
   searchItems?: SearchItem[];
-  uiStrings?: UIStrings;
+  /** Required so the affiliate disclosure is always rendered in the page locale. */
+  uiStrings: UIStrings;
   readTime?: string;
 }
 
@@ -152,15 +154,8 @@ export default function ThreeWay({
     reviewedBy: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: siteUrl },
     speakable: { '@type': 'SpeakableSpecification', cssSelector: ['#hero-paragraph', '.faq-question'] },
   };
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqItems.map((item) => ({
-      '@type': 'Question',
-      name: item.q,
-      acceptedAnswer: { '@type': 'Answer', text: item.a },
-    })),
-  };
+  // No FAQPage JSON-LD: Google retired the FAQ rich result (2026-05-07).
+  // The FAQ stays as visible content below.
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -260,11 +255,10 @@ export default function ThreeWay({
   return (
     <div className="bg-ds-bg text-ds-ink ds-font-features" style={{ fontFamily: 'var(--font-ds-sans)' }}>
       <SchemaOrg schema={articleSchema} />
-      <SchemaOrg schema={faqSchema} />
       <SchemaOrg schema={itemListSchema} />
       <SchemaOrg schema={breadcrumbSchema} />
 
-      <FPDisclosure methodologyHref="/methodology" />
+      <FPDisclosure methodologyHref="/methodology" strings={uiStrings.disclosure} />
       <a href="#main-content" tabIndex={0} className="ds-skip-link">
         {uiStrings?.nav.skipToContent ?? 'Skip to main content'}
       </a>
@@ -373,6 +367,8 @@ export default function ThreeWay({
             <span className="text-ds-accent">{winner.name}</span> wins on overall score.
           </h3>
           <p className="text-[14px] text-ds-ink-soft m-0 leading-[1.65]">{computedVerdict}</p>
+          {/* Inline disclosure + methodology link between the verdict and its CTAs. */}
+          <FPTrustNote strings={uiStrings.disclosure} className="mt-4" />
           <div className="flex gap-2 flex-wrap mt-4">
             {products.map((p, i) => (
               <TrackedAffiliateLink

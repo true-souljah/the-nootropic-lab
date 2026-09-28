@@ -91,11 +91,6 @@ const faqs = [
   { q: 'What does this mean for our editorial framing on EU pages?', a: 'On EU pages we describe ingredient mechanisms studied in clinical trials and avoid asserting label-grade cognitive claims for ingredients without an EFSA-authorised claim. Caffeine + alertness/concentration claims are explicitly authorised and used straightforwardly. For Bacopa, Lion\'s Mane, Citicoline and similar, our copy describes the published clinical evidence rather than asserting health claims.' },
 ];
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
-};
 
 const statusLabels: Record<string, { label: string; cls: string }> = {
   'authorised': { label: 'Authorised', cls: 'bg-green-100 text-green-800' },
@@ -108,7 +103,6 @@ export default function Page() {
     <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
       <SchemaOrg schema={articleSchema} />
       <SchemaOrg schema={datasetSchema} />
-      <SchemaOrg schema={faqSchema} />
       <SchemaOrg schema={breadcrumbSchema} />
 
       <article className="max-w-4xl mx-auto px-4 py-10">

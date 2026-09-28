@@ -3,6 +3,7 @@ import SchemaOrg from '../SchemaOrg';
 import Sources, { type Source } from '../Sources';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
 import { FPDisclosure } from '../public-chrome/FPDisclosure';
+import { FPTrustNote } from '../public-chrome/FPTrustNote';
 import { FPHeader } from '../public-chrome/FPHeader';
 import { FPFooter } from '../public-chrome/FPFooter';
 import { FPByline } from '../public-chrome/FPByline';
@@ -42,7 +43,8 @@ export interface HeadToHeadProps {
   healthDisclaimer?: string;
   sources?: Source[];
   searchItems?: SearchItem[];
-  uiStrings?: UIStrings;
+  /** Required so the affiliate disclosure is always rendered in the page locale. */
+  uiStrings: UIStrings;
   readTime?: string;
   /**
    * Extra cards appended to the "Read individual reviews" grid — used to
@@ -158,15 +160,8 @@ export default function HeadToHead({
     reviewedBy: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: siteUrl },
     speakable: { '@type': 'SpeakableSpecification', cssSelector: ['#hero-paragraph', '.faq-question'] },
   };
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqItems.map((item) => ({
-      '@type': 'Question',
-      name: item.q,
-      acceptedAnswer: { '@type': 'Answer', text: item.a },
-    })),
-  };
+  // No FAQPage JSON-LD: Google retired the FAQ rich result (2026-05-07).
+  // The FAQ stays as visible content below.
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -256,11 +251,10 @@ export default function HeadToHead({
   return (
     <div className="bg-ds-bg text-ds-ink ds-font-features" style={{ fontFamily: 'var(--font-ds-sans)' }}>
       <SchemaOrg schema={articleSchema} />
-      <SchemaOrg schema={faqSchema} />
       <SchemaOrg schema={itemListSchema} />
       <SchemaOrg schema={breadcrumbSchema} />
 
-      <FPDisclosure methodologyHref="/methodology" />
+      <FPDisclosure methodologyHref="/methodology" strings={uiStrings.disclosure} />
       <a href="#main-content" tabIndex={0} className="ds-skip-link">
         {uiStrings?.nav.skipToContent ?? 'Skip to main content'}
       </a>
@@ -304,8 +298,11 @@ export default function HeadToHead({
           </aside>
         )}
 
+        {/* Inline disclosure directly above the first affiliate CTAs. */}
+        <FPTrustNote strings={uiStrings.disclosure} className="mt-6" />
+
         {/* Two side cards + VS — stacks vertically on mobile */}
-        <div className="grid gap-3 mt-8 items-stretch grid-cols-1 lg:grid-cols-[1fr_80px_1fr]">
+        <div className="grid gap-3 mt-6 items-stretch grid-cols-1 lg:grid-cols-[1fr_80px_1fr]">
           {[productA, productB].map((p, idx) => (
             <Card key={p.id} padding={22}>
               <div
@@ -363,6 +360,12 @@ export default function HeadToHead({
             <span className="text-ds-accent">{tpl(s.winnerHeadline, { name: winner.name })}</span>
           </h2>
           <p className="text-[14px] text-ds-ink-soft m-0 leading-[1.65]">{computedVerdict}</p>
+          <Link
+            href="/methodology/"
+            className="inline-block mt-3 text-[13px] font-semibold text-ds-accent underline hover:text-ds-accent-press focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded-[2px]"
+          >
+            {uiStrings.disclosure.methodology} →
+          </Link>
         </Card>
 
         {/* Side-by-side specs */}

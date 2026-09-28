@@ -1,8 +1,15 @@
 import Link from 'next/link';
+import type { UIStrings } from '@nootropic/data';
 
 export interface FPDisclosureProps {
   /** Path to the methodology page (locale-aware in i18n surfaces). */
   methodologyHref?: string;
+  /**
+   * Locale disclosure bundle (`uiStrings.disclosure`). When present it
+   * supplies the badge, body and methodology label, so translated pages
+   * never show the English defaults below.
+   */
+  strings?: UIStrings['disclosure'];
   /** Override copy for translated surfaces. */
   body?: string;
   badgeLabel?: string;
@@ -16,9 +23,12 @@ export interface FPDisclosureProps {
  */
 export function FPDisclosure({
   methodologyHref = '/methodology',
-  body = "We earn a commission when you buy through our links. Our scores are computed before commissions are checked.",
-  badgeLabel = 'Affiliate disclosure',
-  methodologyLabel = 'Read our methodology →',
+  strings,
+  body = strings
+    ? strings.inline
+    : "We earn a commission when you buy through our links. Our scores are computed before commissions are checked.",
+  badgeLabel = strings?.badge ?? 'Affiliate disclosure',
+  methodologyLabel = strings ? `${strings.methodology} →` : 'Read our methodology →',
 }: FPDisclosureProps) {
   return (
     <div

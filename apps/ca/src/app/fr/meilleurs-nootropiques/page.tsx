@@ -44,15 +44,6 @@ export default function FrMeilleursNootropiquesPage() {
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   };
 
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqItems.map(item => ({
-      '@type': 'Question',
-      name: item.q,
-      acceptedAnswer: { '@type': 'Answer', text: item.a },
-    })),
-  };
 
   const itemListSchema = {
     '@context': 'https://schema.org',
@@ -70,7 +61,6 @@ export default function FrMeilleursNootropiquesPage() {
     <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
     
       <SchemaOrg schema={articleSchema} />
-      <SchemaOrg schema={faqSchema} />
       <SchemaOrg schema={itemListSchema} />
       <StickyCtaBar productName={winner.name} affiliateUrl={winner.affiliateUrl} />
 

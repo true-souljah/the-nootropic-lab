@@ -41,20 +41,10 @@ export default function JaBestNootropicsPage() {
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab JP' },
   };
 
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqItems.map(item => ({
-      '@type': 'Question',
-      name: item.q,
-      acceptedAnswer: { '@type': 'Answer', text: item.a },
-    })),
-  };
 
   return (
     <div lang="ja">
       <SchemaOrg schema={articleSchema} />
-      <SchemaOrg schema={faqSchema} />
       <StickyCtaBar productName={winner.name} affiliateUrl={winner.affiliateUrl} />
 
       <article className="max-w-5xl mx-auto px-4 py-10">

@@ -49,7 +49,9 @@ export default function PublicShell({
       <a href="#main-content" tabIndex={0} className="ds-skip-link">
         {uiStrings?.nav.skipToContent ?? 'Skip to main content'}
       </a>
-      {!hideDisclosure && <FPDisclosure methodologyHref={methodologyHref} />}
+      {!hideDisclosure && (
+        <FPDisclosure methodologyHref={methodologyHref} strings={uiStrings?.disclosure} />
+      )}
       <FPHeader searchItems={searchItems} strings={uiStrings} />
       <main id="main-content" className="min-h-[60vh]">{children}</main>
       <FPFooter strings={uiStrings} />

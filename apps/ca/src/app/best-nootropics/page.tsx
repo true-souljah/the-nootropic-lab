@@ -47,10 +47,6 @@ export default function BestNootropicsCAPage() {
     author: buildPersonAuthorReference(undefined, SITE_URL),
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   };
-  const faqSchema = {
-    '@context': 'https://schema.org', '@type': 'FAQPage',
-    mainEntity: faqItems.map((item) => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })),
-  };
   const itemListSchema = {
     '@context': 'https://schema.org', '@type': 'ItemList',
     name: `Best Nootropic Supplements Canada ${CURRENT_YEAR}`,
@@ -60,7 +56,6 @@ export default function BestNootropicsCAPage() {
   return (
     <>
       <SchemaOrg schema={articleSchema} />
-      <SchemaOrg schema={faqSchema} />
       <SchemaOrg schema={itemListSchema} />
       <BestOf
         products={productsCA}

@@ -62,10 +62,9 @@ const DEFAULT_MAGNITUDE_LABEL: Record<string, string> = {
 /**
  * IngredientDetail — public/SEO template for /ingredients/[slug] pages.
  * Drop-in replacement for the existing inline ingredient page. Phase-2
- * chrome + sticky TOC + Quick-facts sidebar. Preserves all five
- * Schema.org JSON-LD blocks (Article, Dataset, BreadcrumbList, FAQPage,
- * HowTo) and the rich content blocks: mechanism, evidence summary,
- * human effect matrix, benefits + side effects, how-to-take grid,
+ * chrome + sticky TOC + Quick-facts sidebar. Emits Article, Dataset and
+ * BreadcrumbList JSON-LD (FAQPage/HowTo retired) and the rich content
+ * blocks: mechanism, evidence summary, human effect matrix, benefits + side effects, how-to-take grid,
  * stacking pairs, FAQ accordion, products-containing grid, related rail.
  */
 export default function IngredientDetail({
@@ -149,43 +148,19 @@ export default function IngredientDetail({
       { '@type': 'ListItem', position: 3, name: ing.name },
     ],
   };
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: ing.faqs.map((faq) => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
-    })),
-  };
-  const howToSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'HowTo',
-    name: `How to Take ${ing.name}`,
-    description: `Dosing, timing, and form guidance for ${ing.name} based on clinical evidence.`,
-    step: [
-      { '@type': 'HowToStep', name: 'Dosage', text: ing.howToTake.dosage },
-      { '@type': 'HowToStep', name: 'Timing', text: ing.howToTake.timing },
-      { '@type': 'HowToStep', name: 'With Food', text: ing.howToTake.withFood },
-      { '@type': 'HowToStep', name: 'Best Form', text: ing.howToTake.forms },
-      ...(ing.howToTake.cycling
-        ? [{ '@type': 'HowToStep', name: 'Cycling', text: ing.howToTake.cycling }]
-        : []),
-    ],
-  };
+  // No FAQPage/HowTo JSON-LD: Google retired both rich results (HowTo 2023,
+  // FAQ 2026-05-07). FAQ + how-to-take stay as visible content below.
 
   return (
     <div className="bg-ds-card text-ds-ink ds-font-features" style={{ fontFamily: 'var(--font-ds-sans)' }}>
       <SchemaOrg schema={articleSchema} />
       <SchemaOrg schema={datasetSchema} />
       <SchemaOrg schema={breadcrumbSchema} />
-      <SchemaOrg schema={faqSchema} />
-      <SchemaOrg schema={howToSchema} />
 
       <a href="#main-content" tabIndex={0} className="ds-skip-link">
         {uiStrings?.nav.skipToContent ?? 'Skip to main content'}
       </a>
-      <FPDisclosure methodologyHref="/methodology" />
+      <FPDisclosure methodologyHref="/methodology" strings={uiStrings?.disclosure} />
       <FPHeader searchItems={searchItems} strings={uiStrings} />
 
       <main id="main-content" className="max-w-[1100px] mx-auto px-6 pt-7">

@@ -3,6 +3,7 @@ import SchemaOrg from '../SchemaOrg';
 import Sources, { type Source } from '../Sources';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
 import { FPDisclosure } from '../public-chrome/FPDisclosure';
+import { FPTrustNote } from '../public-chrome/FPTrustNote';
 import { FPHeader } from '../public-chrome/FPHeader';
 import { FPFooter } from '../public-chrome/FPFooter';
 import { FPByline } from '../public-chrome/FPByline';
@@ -59,8 +60,11 @@ export interface ListicleProps {
   sources?: Source[];
   /** Search index for the ⌘K modal in FPHeader. */
   searchItems?: SearchItem[];
-  /** Site UI strings (for the embedded SearchModal). */
-  uiStrings?: UIStrings;
+  /**
+   * Site UI strings (SearchModal, disclosure, breadcrumb). Required so the
+   * affiliate disclosure is always rendered in the page locale.
+   */
+  uiStrings: UIStrings;
   /** Estimated read time displayed in FPByline. */
   readTime?: string;
   /**
@@ -134,15 +138,8 @@ export default function Listicle({
       cssSelector: ['#hero-paragraph', '.faq-question'],
     },
   };
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqItems.map((item) => ({
-      '@type': 'Question',
-      name: item.q,
-      acceptedAnswer: { '@type': 'Answer', text: item.a },
-    })),
-  };
+  // No FAQPage JSON-LD: Google retired the FAQ rich result (2026-05-07).
+  // The FAQ stays as visible content below.
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -168,14 +165,13 @@ export default function Listicle({
   return (
     <div className="bg-ds-card text-ds-ink ds-font-features" style={{ fontFamily: 'var(--font-ds-sans)' }}>
       <SchemaOrg schema={articleSchema} />
-      <SchemaOrg schema={faqSchema} />
       <SchemaOrg schema={itemListSchema} />
       <SchemaOrg schema={breadcrumbSchema} />
 
       <a href="#main-content" tabIndex={0} className="ds-skip-link">
         {uiStrings?.nav.skipToContent ?? 'Skip to main content'}
       </a>
-      <FPDisclosure methodologyHref="/methodology" />
+      <FPDisclosure methodologyHref="/methodology" strings={uiStrings.disclosure} />
       <FPHeader searchItems={searchItems} strings={uiStrings} />
 
       <main id="main-content" className="max-w-[1200px] mx-auto px-6 pt-7">
@@ -251,7 +247,8 @@ export default function Listicle({
               <h2 className="text-[26px] font-bold text-ds-ink mb-2">
                 {s.ourPicksFor} {useCase}
               </h2>
-              <p className="text-[14px] text-ds-muted mb-6">{s.picksIntro}</p>
+              <p className="text-[14px] text-ds-muted mb-4">{s.picksIntro}</p>
+              <FPTrustNote strings={uiStrings.disclosure} className="mb-6" />
 
               <div className="flex flex-col gap-5">
                 {sortedPicks.map((pick, i) => {

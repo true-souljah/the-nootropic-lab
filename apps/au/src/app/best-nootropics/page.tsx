@@ -31,13 +31,11 @@ const goalLinks = [
 export default function BestNootropicsAUPage() {
   const winner = productsAU.find((p) => p.editorChoice)!;
   const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: `Best Nootropics in Australia ${CURRENT_YEAR}`, datePublished: '2026-01-15', dateModified: new Date().toISOString().split('T')[0], author: buildPersonAuthorReference(undefined, SITE_URL), publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL } };
-  const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqItems.map((item) => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })) };
   const itemListSchema = { '@context': 'https://schema.org', '@type': 'ItemList', name: `Best Nootropic Supplements Australia ${CURRENT_YEAR}`, itemListElement: productsAU.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.name, url: `${SITE_URL}/${p.slug}/` })) };
 
   return (
     <>
       <SchemaOrg schema={articleSchema} />
-      <SchemaOrg schema={faqSchema} />
       <SchemaOrg schema={itemListSchema} />
       <BestOf
         products={productsAU}
