@@ -66,16 +66,18 @@ export default function ProductDetail({
 
   const pd = uiStrings.productDetail;
 
-  // "Last verified" = the record's verification date, else its last edit.
-  // `verifiedAt` is optional on the record type (added by the data layer);
-  // no build-date fallback — a date the record doesn't carry is not shown.
-  // Records store calendar dates (YYYY-MM-DD); anchor at UTC midnight and
-  // format in UTC so the shown day never shifts with the build machine's TZ.
-  const verifiedISO = ((p as Product & { verifiedAt?: string }).verifiedAt ?? p.updatedAt)?.slice(0, 10);
-  const verifiedDate = verifiedISO ? new Date(`${verifiedISO}T00:00:00Z`) : null;
-  const verifiedDisplay =
-    verifiedDate && !Number.isNaN(verifiedDate.getTime())
-      ? verifiedDate.toLocaleDateString(pd.dateLocale, {
+  // Record date line: "Last verified: <verifiedAt>" when the record carries a
+  // verification date, otherwise "Updated: <updatedAt>"; nothing when neither
+  // exists (no build-date fallback). `verifiedAt` is optional on the record
+  // type (added by the data layer). Records store calendar dates (YYYY-MM-DD);
+  // anchor at UTC midnight and format in UTC so the day never shifts with TZ.
+  const verifiedAt = (p as Product & { verifiedAt?: string }).verifiedAt;
+  const recordDateISO = (verifiedAt ?? p.updatedAt)?.slice(0, 10);
+  const recordDateLabel = verifiedAt ? pd.meta.lastVerified : pd.meta.updated;
+  const recordDate = recordDateISO ? new Date(`${recordDateISO}T00:00:00Z`) : null;
+  const recordDateDisplay =
+    recordDate && !Number.isNaN(recordDate.getTime())
+      ? recordDate.toLocaleDateString(pd.dateLocale, {
           year: 'numeric',
           month: 'short',
           day: 'numeric',
@@ -168,11 +170,11 @@ export default function ProductDetail({
               </div>
               <div className="text-ds-muted text-[13px] mt-1">
                 <span className="text-ds-ink font-semibold">{pd.meta.reviewedBy}</span>
-                {verifiedDisplay && (
+                {recordDateDisplay && (
                   <>
                     {' · '}
-                    <span data-last-verified="">
-                      {pd.meta.lastVerified} <time dateTime={verifiedISO}>{verifiedDisplay}</time>
+                    <span data-record-date={verifiedAt ? 'verified' : 'updated'}>
+                      {recordDateLabel} <time dateTime={recordDateISO}>{recordDateDisplay}</time>
                     </span>
                   </>
                 )}
@@ -251,7 +253,7 @@ export default function ProductDetail({
           <ReviewsTab product={p} />
         </TabPanel>
         <TabPanel idPrefix="product" id="pricing" hidden={tab !== 'pricing'} className="mt-5">
-          <PricingTab product={p} />
+          <PricingTab product={p} disclosure={uiStrings.disclosure} />
         </TabPanel>
 
         {regional && <RegionalBuying {...regional} id="regional-buying" />}

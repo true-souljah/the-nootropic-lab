@@ -85,9 +85,12 @@ describe('disclosure strings — present and translated in every locale', () => 
     expect(d.ranking).not.toBe(en.disclosure.ranking);
   });
 
-  it.each(ALL_LOCALES)('%s has productDetail.meta lastVerified + brand reviewedBy byline', (locale) => {
+  it.each(ALL_LOCALES)('%s has productDetail.meta lastVerified + updated labels + brand reviewedBy byline', (locale) => {
     const m = getStrings(locale).productDetail.meta;
     expect(m.lastVerified, `${locale} lastVerified`).toBeTruthy();
+    expect(m.updated, `${locale} updated`).toBeTruthy();
+    // Two distinct labels: an edit date must never be presented as a verification.
+    expect(m.updated, `${locale} updated vs lastVerified`).not.toBe(m.lastVerified);
     expect(m.reviewedBy, `${locale} reviewedBy`).toContain('The Nootropic Lab');
   });
 
@@ -121,10 +124,21 @@ describe('money templates — inline disclosure next to the first CTA', () => {
     if (cta > -1) expect(note).toBeLessThan(cta);
   });
 
-  it('ProductDetail shows "Last verified" from verifiedAt ?? updatedAt with no build-date fallback', () => {
+  it('ProductDetail labels verifiedAt "Last verified", updatedAt "Updated", with no build-date fallback', () => {
     const src = readFileSync(join(UI_SRC, 'templates', 'ProductDetail.tsx'), 'utf8');
     expect(src).toMatch(/verifiedAt\s*\?\?\s*p\.updatedAt/);
-    expect(src).toContain('pd.meta.lastVerified');
+    // Label follows the source field: lastVerified only when verifiedAt exists.
+    expect(src).toMatch(/verifiedAt\s*\?\s*pd\.meta\.lastVerified\s*:\s*pd\.meta\.updated/);
     expect(src).not.toMatch(/:\s*new Date\(\)\)/);
+  });
+});
+
+describe('product review tabs — no hard-coded English commission copy', () => {
+  it('PricingTab renders the locale disclosure bundle, not English literals', () => {
+    const src = readFileSync(join(UI_SRC, 'templates', 'product-detail', 'PricingTab.tsx'), 'utf8');
+    expect(src).not.toMatch(/We earn a commission/i);
+    expect(src).toContain('disclosure.inline');
+    const pd = readFileSync(join(UI_SRC, 'templates', 'ProductDetail.tsx'), 'utf8');
+    expect(pd).toMatch(/<PricingTab[^>]*disclosure=\{uiStrings\.disclosure\}/);
   });
 });

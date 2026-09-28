@@ -233,10 +233,9 @@ export interface UIStrings {
       productDescriptor: string;
       /** Short label for capsule count, e.g. "ct" / "Stück". */
       countSuffix: string;
-      /**
-       * Label before the review's verification date (`verifiedAt ?? updatedAt`),
-       * e.g. "Last verified:" / "Zuletzt geprüft:".
-       */
+      /** Label before the record's last-edit date (`updatedAt`), used when no `verifiedAt`. */
+      updated: string;
+      /** Label before the record's verification date (`verifiedAt`), e.g. "Last verified:". */
       lastVerified: string;
       /** Brand byline on product reviews. Team credit only — never a named individual. */
       reviewedBy: string;
@@ -462,6 +461,7 @@ const en: UIStrings = {
       by: 'By',
       productDescriptor: 'daily nootropic capsule',
       countSuffix: 'ct',
+      updated: 'Updated:',
       lastVerified: 'Last verified:',
       reviewedBy: 'Reviewed by The Nootropic Lab editorial team',
     },
@@ -677,6 +677,7 @@ const es: UIStrings = {
       by: 'Por',
       productDescriptor: 'cápsula nootrópica diaria',
       countSuffix: 'cáps.',
+      updated: 'Actualizado:',
       lastVerified: 'Última verificación:',
       reviewedBy: 'Revisado por el equipo editorial de The Nootropic Lab',
     },
@@ -892,6 +893,7 @@ const fr: UIStrings = {
       by: 'Par',
       productDescriptor: 'capsule nootropique quotidienne',
       countSuffix: 'caps.',
+      updated: 'Mis à jour :',
       lastVerified: 'Dernière vérification :',
       reviewedBy: "Évalué par l'équipe éditoriale de The Nootropic Lab",
     },
@@ -1107,6 +1109,7 @@ const ja: UIStrings = {
       by: '販売：',
       productDescriptor: '毎日のノートロピクスカプセル',
       countSuffix: '粒',
+      updated: '更新日：',
       lastVerified: '最終確認日：',
       reviewedBy: 'The Nootropic Lab 編集部による評価',
     },
@@ -1322,6 +1325,7 @@ const pt: UIStrings = {
       by: 'Por',
       productDescriptor: 'cápsula nootrópica diária',
       countSuffix: 'cáps.',
+      updated: 'Atualizado:',
       lastVerified: 'Última verificação:',
       reviewedBy: 'Avaliado pela equipa editorial do The Nootropic Lab',
     },
@@ -1537,6 +1541,7 @@ const de: UIStrings = {
       by: 'Von',
       productDescriptor: 'tägliche Nootropika-Kapsel',
       countSuffix: 'Stück',
+      updated: 'Aktualisiert:',
       lastVerified: 'Zuletzt geprüft:',
       reviewedBy: 'Geprüft von der Redaktion von The Nootropic Lab',
     },
@@ -1757,6 +1762,7 @@ const frCa: UIStrings = {
       by: 'Par',
       productDescriptor: 'capsule nootropique quotidienne',
       countSuffix: 'gél.',
+      updated: 'Mis à jour :',
       lastVerified: 'Dernière vérification :',
       reviewedBy: "Évalué par l'équipe éditoriale de The Nootropic Lab",
     },

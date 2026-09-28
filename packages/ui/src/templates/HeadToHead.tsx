@@ -30,6 +30,8 @@ export interface HeadToHeadProps {
   productA: Product;
   productB: Product;
   siteUrl: string;
+  /** Methodology page path, shared by the disclosure, trust note and in-content links. */
+  methodologyHref?: string;
   /** Override the computed verdict paragraph. */
   verdictParagraph?: string;
   faqItems: HeadToHeadFAQ[];
@@ -127,6 +129,7 @@ export default function HeadToHead({
   whoIsForA,
   whoIsForB,
   listicleHref = '/best-nootropics',
+  methodologyHref = '/methodology/',
   formatPrice = defaultPriceFormat,
   strings,
   healthDisclaimer,
@@ -253,7 +256,7 @@ export default function HeadToHead({
       <SchemaOrg schema={itemListSchema} />
       <SchemaOrg schema={breadcrumbSchema} />
 
-      <FPDisclosure methodologyHref="/methodology" strings={uiStrings.disclosure} />
+      <FPDisclosure methodologyHref={methodologyHref} strings={uiStrings.disclosure} />
       <a href="#main-content" tabIndex={0} className="ds-skip-link">
         {uiStrings?.nav.skipToContent ?? 'Skip to main content'}
       </a>
@@ -298,7 +301,7 @@ export default function HeadToHead({
         )}
 
         {/* Inline disclosure directly above the first affiliate CTAs. */}
-        <FPTrustNote strings={uiStrings.disclosure} className="mt-6" />
+        <FPTrustNote strings={uiStrings.disclosure} methodologyHref={methodologyHref} className="mt-6" />
 
         {/* Two side cards + VS — stacks vertically on mobile */}
         <div className="grid gap-3 mt-6 items-stretch grid-cols-1 lg:grid-cols-[1fr_80px_1fr]">
@@ -360,7 +363,7 @@ export default function HeadToHead({
           </h2>
           <p className="text-[14px] text-ds-ink-soft m-0 leading-[1.65]">{computedVerdict}</p>
           <Link
-            href="/methodology/"
+            href={methodologyHref}
             className="inline-block mt-3 text-[13px] font-semibold text-ds-accent underline hover:text-ds-accent-press focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded-[2px]"
           >
             {uiStrings.disclosure.methodology} →
@@ -464,7 +467,7 @@ export default function HeadToHead({
         </Card>
         <p className="text-[12px] text-ds-muted mt-3 italic">
           {s.citationFooter}{' '}
-          <Link href="/methodology/" className="text-ds-accent underline">{s.methodologyLink}</Link>.
+          <Link href={methodologyHref} className="text-ds-accent underline">{s.methodologyLink}</Link>.
         </p>
 
         {/* Score breakdown bars */}
@@ -558,7 +561,7 @@ export default function HeadToHead({
               { href: `/${productA.slug}/`, title: tpl(s.productReviewCard, { name: productA.name }), meta: tpl(s.scoreCardLine, { score: productA.score }) },
               { href: `/${productB.slug}/`, title: tpl(s.productReviewCard, { name: productB.name }), meta: tpl(s.scoreCardLine, { score: productB.score }) },
               { href: `${listicleHref}/`, title: tpl(s.bestNootropicsCard, { year: currentYear }), meta: s.fullRankedComparison },
-              { href: '/methodology/', title: s.methodologyCard, meta: s.howWeAuditDoses },
+              { href: methodologyHref, title: s.methodologyCard, meta: s.howWeAuditDoses },
               ...relatedLinks,
             ].map((c) => (
               <Link
