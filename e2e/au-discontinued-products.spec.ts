@@ -20,8 +20,8 @@ test.beforeEach(async ({ context }) => {
 
 test.describe('AU discontinued product: /blackmores-brain-active-review/', () => {
   test('review page shows the discontinued notice', async ({ page }) => {
-    const response = await page.goto(REVIEW);
-    expect(response?.status()).toBe(200);
+    const res = await page.goto(REVIEW);
+    expect(res?.status()).toBe(200);
     const notice = page.locator('aside[role="note"][aria-labelledby="product-discontinued-heading"]');
     await expect(notice).toBeVisible();
     await expect(notice).toContainText('Discontinued');
@@ -29,7 +29,9 @@ test.describe('AU discontinued product: /blackmores-brain-active-review/', () =>
   });
 
   test('review page renders no affiliate link and no price stat', async ({ page }) => {
-    await page.goto(REVIEW);
+    // Status first: an error page would trivially satisfy the absence checks.
+    const res = await page.goto(REVIEW);
+    expect(res?.status()).toBe(200);
     await expect(page.locator('a[rel~="sponsored"]')).toHaveCount(0);
     await expect(page.locator('a[rel="nofollow sponsored noopener noreferrer"]')).toHaveCount(0);
     // The header stat grid labels each stat; "Price" must not be one of them.
@@ -38,8 +40,8 @@ test.describe('AU discontinued product: /blackmores-brain-active-review/', () =>
   });
 
   test('product is not a pick on /best-nootropics-for-focus/', async ({ page }) => {
-    const response = await page.goto('/best-nootropics-for-focus/');
-    expect(response?.status()).toBe(200);
+    const res = await page.goto('/best-nootropics-for-focus/');
+    expect(res?.status()).toBe(200);
     await expect(page.locator(`a[href^="${REVIEW.replace(/\/$/, '')}"]`)).toHaveCount(0);
   });
 });
