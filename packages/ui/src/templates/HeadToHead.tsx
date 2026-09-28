@@ -200,7 +200,12 @@ export default function HeadToHead({
       label: s.pricePerMonth,
       a: priceCell(productA),
       b: priceCell(productB),
-      winner: comparablePrice(productA) < comparablePrice(productB) ? 'a' : 'b',
+      winner:
+        comparablePrice(productA) < comparablePrice(productB)
+          ? 'a'
+          : comparablePrice(productB) < comparablePrice(productA)
+            ? 'b'
+            : 'tie',
     },
     {
       label: s.capsulesPerServing,

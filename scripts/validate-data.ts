@@ -20,46 +20,48 @@ const regions: Record<string, unknown[]> = {
 // Records that violated a rule when it was introduced (2026-09-28) and have no
 // verified replacement value yet. Each needs a verified product URL (or
 // formula) before it can leave this list. The list can only shrink: a listed
-// record that now passes fails the gate until its entry is deleted, and any
-// violation not listed here fails the gate.
-const KNOWN_RULE_VIOLATIONS: Readonly<Record<string, string>> = {
-  'us/mind-lab-pro-review': 'UberNet-tracked homepage link; deep-link attribution not confirmed',
-  'eu/mind-lab-pro-review': 'UberNet-tracked homepage link; deep-link attribution not confirmed',
-  'ca/mind-lab-pro-review': 'UberNet-tracked homepage link; deep-link attribution not confirmed',
-  'au/mind-lab-pro-review': 'UberNet-tracked homepage link; deep-link attribution not confirmed',
-  'jp/mind-lab-pro-review': 'UberNet-tracked homepage link; deep-link attribution not confirmed',
-  'latam/mind-lab-pro-review': 'UberNet-tracked homepage link; deep-link attribution not confirmed',
-  'gcc/mind-lab-pro-review': 'UberNet-tracked homepage link; deep-link attribution not confirmed',
-  'sea/mind-lab-pro-review': 'UberNet-tracked homepage link; deep-link attribution not confirmed',
-  'us/noocube-review': 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)',
-  'eu/noocube-review': 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)',
-  'ca/noocube-review': 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)',
-  'au/noocube-review': 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)',
-  'jp/noocube-review': 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)',
-  'latam/noocube-review': 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)',
-  'gcc/noocube-review': 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)',
-  'sea/noocube-review': 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)',
-  'us/thesis-nootropics-review': 'personalised subscription; no single product URL verified',
-  'latam/thesis-nootropics-review': 'personalised subscription; no single product URL verified',
-  'gcc/thesis-nootropics-review': 'personalised subscription; no single product URL verified',
-  'sea/thesis-nootropics-review': 'personalised subscription; no single product URL verified',
-  'us/nootropics-depot-lions-mane': 'record SKU (1:1 whole fruiting body) product URL not verified',
-  'latam/nootropics-depot-lions-mane': 'record SKU (1:1 whole fruiting body) product URL not verified',
-  'gcc/nootropics-depot-lions-mane': 'record SKU (1:1 whole fruiting body) product URL not verified',
-  'sea/nootropics-depot-lions-mane': 'record SKU (1:1 whole fruiting body) product URL not verified',
-  'us/trubrain-review': 'no product page URL verified (products.json only)',
-  'eu/braineffect-focus-review': 'product page 404s; delisting pending operator confirmation',
-  'eu/brainzyme-focus-pro-review': 'affiliate ref carried in the homepage fragment; product-page attribution not confirmed',
-  'jp/suntory-dha-epa-sesamin-review': 'Amazon search link; official product page 403 to verification',
-  'gcc/qualia-mind-review': 'GCC data owned by an open PR',
-  'gcc/onnit-alpha-brain-review': 'GCC data owned by an open PR',
-  'gcc/nahdi-brain-boost-review': 'GCC data owned by an open PR (record under removal)',
-  'gcc/life-pharmacy-neuro-shield-review': 'GCC data owned by an open PR (record under removal)',
-  'sea/qualia-mind-review': 'SEA data owned by an open PR',
-  'sea/onnit-alpha-brain-review': 'SEA data owned by an open PR',
-  'sea/blackmores-brain-active-review': 'SEA data owned by an open PR',
-  'sea/natures-own-brain-fuel-review': 'SEA data owned by an open PR (record under removal)',
-  'sea/supershrooms-focus-nootropic-review': 'SEA data owned by an open PR; empty affiliateUrl and formula',
+// record that now passes a listed rule fails the gate until that rule is
+// removed from its entry, and any violation not listed here (including a
+// second rule breaking on a listed record) fails the gate.
+type RuleName = 'affiliateUrl' | 'ingredientDosages';
+const KNOWN_RULE_VIOLATIONS: Readonly<Record<string, { rules: readonly RuleName[]; reason: string }>> = {
+  'us/mind-lab-pro-review': { rules: ['affiliateUrl'], reason: 'UberNet-tracked homepage link; deep-link attribution not confirmed' },
+  'eu/mind-lab-pro-review': { rules: ['affiliateUrl'], reason: 'UberNet-tracked homepage link; deep-link attribution not confirmed' },
+  'ca/mind-lab-pro-review': { rules: ['affiliateUrl'], reason: 'UberNet-tracked homepage link; deep-link attribution not confirmed' },
+  'au/mind-lab-pro-review': { rules: ['affiliateUrl'], reason: 'UberNet-tracked homepage link; deep-link attribution not confirmed' },
+  'jp/mind-lab-pro-review': { rules: ['affiliateUrl'], reason: 'UberNet-tracked homepage link; deep-link attribution not confirmed' },
+  'latam/mind-lab-pro-review': { rules: ['affiliateUrl'], reason: 'UberNet-tracked homepage link; deep-link attribution not confirmed' },
+  'gcc/mind-lab-pro-review': { rules: ['affiliateUrl'], reason: 'UberNet-tracked homepage link; deep-link attribution not confirmed' },
+  'sea/mind-lab-pro-review': { rules: ['affiliateUrl'], reason: 'UberNet-tracked homepage link; deep-link attribution not confirmed' },
+  'us/noocube-review': { rules: ['affiliateUrl'], reason: 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)' },
+  'eu/noocube-review': { rules: ['affiliateUrl'], reason: 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)' },
+  'ca/noocube-review': { rules: ['affiliateUrl'], reason: 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)' },
+  'au/noocube-review': { rules: ['affiliateUrl'], reason: 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)' },
+  'jp/noocube-review': { rules: ['affiliateUrl'], reason: 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)' },
+  'latam/noocube-review': { rules: ['affiliateUrl'], reason: 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)' },
+  'gcc/noocube-review': { rules: ['affiliateUrl'], reason: 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)' },
+  'sea/noocube-review': { rules: ['affiliateUrl'], reason: 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)' },
+  'us/thesis-nootropics-review': { rules: ['affiliateUrl'], reason: 'personalised subscription; no single product URL verified' },
+  'latam/thesis-nootropics-review': { rules: ['affiliateUrl'], reason: 'personalised subscription; no single product URL verified' },
+  'gcc/thesis-nootropics-review': { rules: ['affiliateUrl'], reason: 'personalised subscription; no single product URL verified' },
+  'sea/thesis-nootropics-review': { rules: ['affiliateUrl'], reason: 'personalised subscription; no single product URL verified' },
+  'us/nootropics-depot-lions-mane': { rules: ['affiliateUrl'], reason: 'record SKU (1:1 whole fruiting body) product URL not verified' },
+  'latam/nootropics-depot-lions-mane': { rules: ['affiliateUrl'], reason: 'record SKU (1:1 whole fruiting body) product URL not verified' },
+  'gcc/nootropics-depot-lions-mane': { rules: ['affiliateUrl'], reason: 'record SKU (1:1 whole fruiting body) product URL not verified' },
+  'sea/nootropics-depot-lions-mane': { rules: ['affiliateUrl'], reason: 'record SKU (1:1 whole fruiting body) product URL not verified' },
+  'us/trubrain-review': { rules: ['affiliateUrl'], reason: 'no product page URL verified (products.json only)' },
+  'eu/braineffect-focus-review': { rules: ['affiliateUrl'], reason: 'product page 404s; delisting pending operator confirmation' },
+  'eu/brainzyme-focus-pro-review': { rules: ['affiliateUrl'], reason: 'affiliate ref carried in the homepage fragment; product-page attribution not confirmed' },
+  'jp/suntory-dha-epa-sesamin-review': { rules: ['affiliateUrl'], reason: 'Amazon search link; official product page 403 to verification' },
+  'gcc/qualia-mind-review': { rules: ['affiliateUrl'], reason: 'GCC data owned by an open PR' },
+  'gcc/onnit-alpha-brain-review': { rules: ['affiliateUrl'], reason: 'GCC data owned by an open PR' },
+  'gcc/nahdi-brain-boost-review': { rules: ['affiliateUrl'], reason: 'GCC data owned by an open PR (record under removal)' },
+  'gcc/life-pharmacy-neuro-shield-review': { rules: ['affiliateUrl'], reason: 'GCC data owned by an open PR (record under removal)' },
+  'sea/qualia-mind-review': { rules: ['affiliateUrl'], reason: 'SEA data owned by an open PR' },
+  'sea/onnit-alpha-brain-review': { rules: ['affiliateUrl'], reason: 'SEA data owned by an open PR' },
+  'sea/blackmores-brain-active-review': { rules: ['affiliateUrl'], reason: 'SEA data owned by an open PR' },
+  'sea/natures-own-brain-fuel-review': { rules: ['affiliateUrl'], reason: 'SEA data owned by an open PR (record under removal)' },
+  'sea/supershrooms-focus-nootropic-review': { rules: ['affiliateUrl', 'ingredientDosages'], reason: 'SEA data owned by an open PR; empty affiliateUrl and formula' },
 };
 
 let failed = 0;
@@ -109,15 +111,18 @@ for (const [region, products] of Object.entries(regions)) {
     const key = `${region}/${item.slug}`;
     seenKeys.add(key);
     const problems = productRuleProblems(item);
-    const known = KNOWN_RULE_VIOLATIONS[key];
-    if (problems.length > 0 && known === undefined) {
-      for (const problem of problems) console.error(`FAIL ${key}: ${problem}`);
-      failed += problems.length;
-    } else if (problems.length > 0) {
-      grandfathered++;
-    } else if (known !== undefined) {
-      console.error(`FAIL ${key}: passes the record rules now — delete its KNOWN_RULE_VIOLATIONS entry`);
-      failed++;
+    const allowed = KNOWN_RULE_VIOLATIONS[key]?.rules ?? [];
+    // Only the listed rule may fail for a listed record; any other violation is new.
+    const unexpected = problems.filter((problem) => !allowed.some((rule) => problem.startsWith(rule)));
+    for (const problem of unexpected) console.error(`FAIL ${key}: ${problem}`);
+    failed += unexpected.length;
+    for (const rule of allowed) {
+      if (problems.some((problem) => problem.startsWith(rule))) {
+        grandfathered++;
+      } else {
+        console.error(`FAIL ${key}: passes the ${rule} rule now — remove it from its KNOWN_RULE_VIOLATIONS entry`);
+        failed++;
+      }
     }
   }
 }
