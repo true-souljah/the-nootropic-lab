@@ -57,13 +57,14 @@ describe('guide sources', () => {
 // the evidence review found unsupported, outdated, or commercially biased.
 const BANNED: Array<{ slugs: string[] | 'all'; pattern: RegExp; why: string }> = [
   { slugs: ['how-to-stack-nootropics'], pattern: /\b50\s?%/, why: 'invented "reduce choline dose by 50%" instruction' },
+  { slugs: ['how-to-stack-nootropics'], pattern: /Lion's Mane 500mg|Phosphatidylserine 100mg/, why: 'stack 3 doses below the trial ranges in the evidence files' },
   { slugs: 'all', pattern: /most robust data|datos más sólidos/i, why: 'microdosing creativity claim contradicted by blinded RCTs' },
   { slugs: 'all', pattern: /most replicable|más replicables/i, why: 'unsupported superlative about L-theanine + caffeine' },
   { slugs: 'all', pattern: /centuries of traditional use|siglos de uso tradicional/i, why: 'traditional use presented as long-term safety data' },
   { slugs: 'all', pattern: /from around age 30|los 30 años/i, why: 'unsourced age-30 PS decline figure' },
   {
-    slugs: ['how-to-stack-nootropics', 'natural-vs-synthetic-nootropics'],
-    pattern: /Mind Lab Pro|Performance Lab|Nootropics Depot/,
+    slugs: ['how-to-stack-nootropics', 'natural-vs-synthetic-nootropics', 'nootropics-for-focus-vs-memory'],
+    pattern: /Mind Lab Pro|Performance Lab|Nootropics Depot|NooCube|\bThesis\b/,
     why: 'commercial product placement inside educational prose',
   },
 ];

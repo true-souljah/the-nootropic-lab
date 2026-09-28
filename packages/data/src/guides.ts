@@ -5,8 +5,9 @@ export interface GuideSection {
 
 /**
  * A cited source for a guide. Entries come only from the fact-check
- * evidence file (nootropics-research/2026-09/evidence/guides.json,
- * `citationsToAdd`) — never add one that has not been verified there.
+ * evidence files (nootropics-research/2026-09/evidence/guides.json
+ * `citationsToAdd`, or a per-ingredient file's `studies[]` with a verified
+ * pubmedUrl) — never add one that has not been verified there.
  */
 export interface GuideSource {
   /** PubMed ID (digits only), when the source is indexed in PubMed. */
@@ -64,6 +65,12 @@ export const guideSources: Record<string, GuideSource[]> = {
     { pmid: '24946991', url: 'https://pubmed.ncbi.nlm.nih.gov/24946991/', title: 'Acute effects of tea constituents L-theanine, caffeine, and epigallocatechin gallate on cognitive function and mood: a systematic review and meta-analysis', year: 2014, supports: 'L-theanine+caffeine attention synergy, with an honest jitteriness/anxiety caveat' },
     { pmid: '38057413', url: 'https://pubmed.ncbi.nlm.nih.gov/38057413/', title: 'Concomitant use of monoamine oxidase inhibitor and tyrosine in parenteral nutrition', year: 2023, supports: 'Tyrosine + MAOI interaction caution, with realistic risk framing' },
     { pmid: '17891480', url: 'https://pubmed.ncbi.nlm.nih.gov/17891480/', title: 'Time for tea: mood, blood pressure and cognitive performance effects of caffeine and theanine administered alone and together', year: 2007, supports: 'Correction to the anxiogenic-effect-reduction claim' },
+    // Stack 3 dose ranges — from evidence/lions-mane.json and evidence/phosphatidylserine.json (studies[], pubmedUrl status 200).
+    { pmid: '38004235', url: 'https://pubmed.ncbi.nlm.nih.gov/38004235/', title: "The Acute and Chronic Effects of Lion's Mane Mushroom Supplementation on Cognitive Function, Stress and Mood in Young Adults: A Double-Blind, Parallel Groups, Pilot Study.", year: 2023, supports: "Stack 3: healthy-adult Lion's Mane dose (1.8g/day)" },
+    { pmid: '38140277', url: 'https://pubmed.ncbi.nlm.nih.gov/38140277/', title: "Acute Effects of Naturally Occurring Guayusa Tea and Nordic Lion's Mane Extracts on Cognitive Performance.", year: 2023, supports: "Stack 3: healthy-adult Lion's Mane dose (1g)" },
+    { pmid: '18844328', url: 'https://pubmed.ncbi.nlm.nih.gov/18844328/', title: 'Improving effects of the mushroom Yamabushitake (Hericium erinaceus) on mild cognitive impairment', year: 2009, supports: "Stack 3: 3g/day Lion's Mane figure is from the MCI trial" },
+    { pmid: '21103034', url: 'https://pubmed.ncbi.nlm.nih.gov/21103034/', title: 'Soybean-derived phosphatidylserine improves memory function of the elderly Japanese subjects with memory complaints.', year: 2010, supports: 'Stack 3: PS 100mg/day and 300mg/day arms in older adults' },
+    { pmid: '20523044', url: 'https://pubmed.ncbi.nlm.nih.gov/20523044/', title: 'Phosphatidylserine containing omega-3 fatty acids may improve memory abilities in non-demented elderly with memory complaints: a double-blind placebo-controlled trial.', year: 2010, supports: 'Stack 3: PS 300mg/day in older adults' },
   ],
   'nootropics-for-focus-vs-memory': [
     { pmid: '35918311', url: 'https://pubmed.ncbi.nlm.nih.gov/35918311/', title: 'Microdosing with psilocybin mushrooms: a double-blind placebo-controlled study', year: 2022, supports: 'Correction to the microdosing-creativity superlative claim' },
@@ -209,7 +216,7 @@ export const guides: Guide[] = [
       },
       {
         heading: 'Example stack 3: long-term brain health (age 40+)',
-        content: "Goal: neuroprotection and maintenance of cognitive baseline with age. Core: Lion's Mane 500mg standardised fruiting body (e.g. from a specialist retailer) daily. Membrane support: Phosphatidylserine 100mg with a fat-containing meal. Cholinergic: Citicoline 250mg. This stack targets NGF production, membrane integrity, and acetylcholine availability — the three pathways most associated with age-related cognitive decline. The doses come from single-ingredient trials — this combination has not been tested together in a clinical trial, so check with a clinician before starting it if you have a health condition or take medication.",
+        content: "Goal: neuroprotection and maintenance of cognitive baseline with age. Core: Lion's Mane standardised fruiting body (e.g. from a specialist retailer) daily — healthy-adult trials used 1–1.8g per day; the 3g per day figure comes from a trial in mild cognitive impairment. Membrane support: Phosphatidylserine with a fat-containing meal — positive single-ingredient trials cluster at 100–300mg per day, with the benefit strongest in older adults. Cholinergic: Citicoline 250mg. This stack targets NGF production, membrane integrity, and acetylcholine availability — the three pathways most associated with age-related cognitive decline. The doses come from single-ingredient trials — this combination has not been tested together in a clinical trial, so check with a clinician before starting it if you have a health condition or take medication.",
       },
     ],
   },
@@ -228,11 +235,11 @@ export const guides: Guide[] = [
       },
       {
         heading: 'Best for focus and sustained attention',
-        content: 'L-Theanine (200mg) + Caffeine (100mg) is the gold standard for acute focus — 30–60 minutes to effect; controlled trials have measured its benefits within roughly the first 2 hours after dosing. L-Tyrosine is best for focus under stress, sleep deprivation, or multitasking — but the trials showing this used about 100–150mg per kg of body weight per dose (roughly 7–12g for a 70–100kg adult), 10–20 times more than a 500–1000mg dose, at which those effects would not be expected. Citicoline (250mg) supports sustained attention by maintaining acetylcholine availability during long cognitive sessions. Rhodiola Rosea (200mg) reduces mental fatigue for extended focus sessions. Products strong on focus: Mind Lab Pro, Performance Lab Mind, Thesis (Energy blend).',
+        content: 'L-Theanine (200mg) + Caffeine (100mg) is the gold standard for acute focus — 30–60 minutes to effect; controlled trials have measured its benefits within roughly the first 2 hours after dosing. L-Tyrosine is best for focus under stress, sleep deprivation, or multitasking — but the trials showing this used about 100–150mg per kg of body weight per dose (roughly 7–12g for a 70–100kg adult), 10–20 times more than a 500–1000mg dose, at which those effects would not be expected. Citicoline (250mg) supports sustained attention by maintaining acetylcholine availability during long cognitive sessions. Rhodiola Rosea (200mg) reduces mental fatigue for extended focus sessions. When comparing multi-ingredient stacks built around citicoline and L-tyrosine for focus, check each ingredient\'s dose against the trial figures above.',
       },
       {
         heading: 'Best for memory encoding (learning new things)',
-        content: "Bacopa Monnieri (300mg, 55% bacosides) is the best-evidenced ingredient for improving the speed and durability of memory encoding — but requires 8–12 weeks. Alpha-GPC (300mg) provides an acute cholinergic boost that improves encoding during the dose window. Lion's Mane supports long-term neuroplasticity that underpins learning capacity; the main human trial showing a cognitive benefit (in mild cognitive impairment) used 3,000mg per day — six times a 500mg dose. Phosphatidylserine improves signal transduction speed across synapses at the 300–800mg per day used in research; 100mg is below that range. Products strong on memory encoding: Mind Lab Pro, NooCube.",
+        content: "Bacopa Monnieri (300mg, 55% bacosides) is the best-evidenced ingredient for improving the speed and durability of memory encoding — but requires 8–12 weeks. Alpha-GPC (300mg) provides an acute cholinergic boost that improves encoding during the dose window. Lion's Mane supports long-term neuroplasticity that underpins learning capacity; the main human trial showing a cognitive benefit (in mild cognitive impairment) used 3,000mg per day — six times a 500mg dose. Phosphatidylserine improves signal transduction speed across synapses at the 300–800mg per day used in research; 100mg is below that range. When comparing multi-ingredient stacks built around bacopa and lion's mane for memory, check each ingredient's dose against the trial figures above.",
       },
       {
         heading: 'Best for recall speed',
