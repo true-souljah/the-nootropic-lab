@@ -13,3 +13,9 @@ playwright-report/
 test-results/
 
 .claude/
+
+# Bun is not this repo's package manager (CI + Cloudflare build with npm). A stray
+# bun.lock makes Cloudflare Pages pick `bun install --frozen-lockfile` and fail
+# on drift against package-lock.json (2026-09-25 outage on 6 region projects).
+bun.lock
+bun.lockb
