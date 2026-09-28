@@ -65,7 +65,7 @@ const ROUTES = [
   { path: '/anmat-disposicion-2105-2022-prohibidos/', template: 'LATAM ANMAT pillar' },
   { path: '/best-nootropics-for-focus/', template: 'Listicle' },
   { path: '/mind-lab-pro-review/', template: 'ProductDetail (international brand)' },
-  { path: '/genomma-lab-neuriplus-review/', template: 'LATAM brand (Genomma)' },
+  { path: '/nootropics-depot-lions-mane/', template: 'ProductDetail (single-ingredient)' },
   { path: '/ingredients/l-theanine/', template: 'IngredientDetail' },
 ];
 

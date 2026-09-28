@@ -17,11 +17,8 @@ import { test, expect } from '@playwright/test';
 //   Search aria-label    — "Search (⌘K)" (still EN — shared
 //                          @nootropic/ui component)
 //
-// Tab-trap probe types "genomma" — substring match on Genomma Lab
-// Neuriplus in the LATAM catalog (Genomma Lab is a Mexican pharma
-// conglomerate; Neuriplus is the brand boost product, exclusively
-// distributed in LATAM markets). On every other region, "genomma"
-// returns no matches.
+// Tab-trap probe types "depot" — substring match on Nootropics
+// Depot Lion's Mane in the LATAM catalog.
 //
 // PR-Q51 portfolio-wide trap fix means the trap holds regardless
 // of result count.
@@ -130,11 +127,10 @@ test.describe('LATAM /best-nootropics-for-focus/ — CommandPalette ⌘K modal (
       ).toBeAttached({ timeout: 500 });
     }).toPass({ timeout: 5000, intervals: [100, 250, 500, 1000] });
     await expect(page.locator('[role="dialog"]:not(#klaro-cookie-notice)')).toBeAttached();
-    // Type "genomma" — substring match on Genomma Lab Neuriplus in
-    // the LATAM catalog (Mexican pharma, LATAM-exclusive in
-    // products-latam.ts). The PR-Q51 trap fix means focus loops
-    // back to the input regardless of result count.
-    await page.keyboard.type('genomma');
+    // Type "depot" — substring match on Nootropics Depot Lion's Mane
+    // in the LATAM catalog (products-latam.json). The PR-Q51 trap fix
+    // means focus loops back to the input regardless of result count.
+    await page.keyboard.type('depot');
     for (let i = 0; i < 5; i++) {
       await page.keyboard.press('Tab');
       const insideDialog = await page.evaluate(() => {

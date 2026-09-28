@@ -35,8 +35,7 @@ const REVIEW_ROUTES = [
   '/qualia-mind-review/',
   '/onnit-alpha-brain-review/',
   '/thesis-nootropics-review/',
-  '/herbamz-neuromax-review/',
-  '/genomma-lab-neuriplus-review/',
+  '/nootropics-depot-lions-mane/',
 ];
 
 test.beforeEach(async ({ context }) => {
