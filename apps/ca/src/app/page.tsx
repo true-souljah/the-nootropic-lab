@@ -60,6 +60,11 @@ const quickLinks = [
     desc: 'Sort and filter every major brand side-by-side.',
   },
   {
+    href: '/alpha-brain-canada/',
+    title: 'Alpha Brain in Canada',
+    desc: 'Shipping from onnit.com, USD prices, duties and NPN-licensed alternatives.',
+  },
+  {
     href: '/methodology',
     title: 'Our Methodology',
     desc: 'How we score and review cognitive supplements.',
