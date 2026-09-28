@@ -69,12 +69,6 @@ const picks: ListiclePick[] = [
     whyItsHere:
       'Incluye Bacopa, citicolina, fosfatidilserina Y Melena de León — el stack más completo para memoria en un solo producto. Pierde puntos por cantidad de cápsulas (7+/día) y precio ($139 USD/mes). Para memoria específicamente, la amplitud justifica el compromiso si toleras la fricción diaria. Compradores en Brasil deben prever mayor probabilidad de retenciones de ANVISA por la cantidad alta de cápsulas por envío.',
   },
-  {
-    product: productsLatam.find(p => p.slug === 'herbamz-neuromax-review')!,
-    rank: 4,
-    whyItsHere:
-      'Opción brasileña registrada en ANVISA, disponible en Amazon Brasil y MercadoLibre con precio en BRL (~R$110/mes), entrega Prime al día siguiente y sin riesgo aduanero. Contiene Bacopa, Ginkgo, Fosfatidilserina y B12 — pero las dosis están por debajo de las clínicas. Es la opción más accesible para compradores brasileños que prefieren evitar envíos internacionales y tarifas de USD por completo.',
-  },
 ];
 
 const faqItems: ListicleFAQ[] = [
@@ -92,7 +86,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: '¿Estos productos son legales en mi país de Latam?',
-    a: 'Los suplementos nootrópicos importados ingresan a Latam bajo exenciones de uso personal. COFEPRIS (México), ANVISA (Brasil), INVIMA (Colombia), ISP (Chile) y DIGEMID (Perú) generalmente permiten un suministro de 1 a 3 meses para uso personal. ANMAT (Argentina) emitió la Disposición 2105/2022 que prohibió el Noopept y otros nootrópicos no registrados — ninguna de las selecciones aquí contiene Noopept ni ingredientes prohibidos por ANMAT, pero verifica la lista vigente antes de pedir desde Argentina. Las opciones locales (Herbamz NeuroMax, Genomma Lab NeuriPlus) están registradas y disponibles sin riesgo aduanero.',
+    a: 'Los suplementos nootrópicos importados ingresan a Latam bajo exenciones de uso personal. COFEPRIS (México), ANVISA (Brasil), INVIMA (Colombia), ISP (Chile) y DIGEMID (Perú) generalmente permiten un suministro de 1 a 3 meses para uso personal. ANMAT (Argentina) emitió la Disposición 2105/2022 que prohibió el Noopept y otros nootrópicos no registrados — ninguna de las selecciones aquí contiene Noopept ni ingredientes prohibidos por ANMAT, pero verifica la lista vigente antes de pedir desde Argentina.',
   },
   {
     q: '¿Ayudarán con la pérdida de memoria asociada a la edad?',
@@ -111,7 +105,7 @@ export default function Page() {
       useCase="memory"
       pageTitle="Mejores Nootrópicos para Memoria"
       pageDescription="Ranking independiente de los mejores nootrópicos para memoria y recordación disponibles en Latinoamérica, basado en evidencia clínica."
-      heroParagraph="La memoria es el caso de uso donde los nootrópicos tienen la evidencia más replicada — principalmente de ensayos clínicos con Bacopa Monnieri durante más de 30 años. Esta página clasifica los productos disponibles para compradores en Latam que contienen Bacopa, Melena de León, fosfatidilserina o citicolina en dosis clínica o cercana a ella. Incluimos opciones internacionales (Mind Lab Pro, Qualia Mind, Nootropics Depot) y opciones locales registradas (Herbamz NeuroMax para Brasil)."
+      heroParagraph="La memoria es el caso de uso donde los nootrópicos tienen la evidencia más replicada — principalmente de ensayos clínicos con Bacopa Monnieri durante más de 30 años. Esta página clasifica los productos disponibles para compradores en Latam que contienen Bacopa, Melena de León, fosfatidilserina o citicolina en dosis clínica o cercana a ella. Incluimos opciones internacionales (Mind Lab Pro, Qualia Mind, Nootropics Depot)."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}
