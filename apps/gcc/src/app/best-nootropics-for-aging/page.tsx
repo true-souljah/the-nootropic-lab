@@ -63,20 +63,14 @@ const picks: ListiclePick[] = [
       'Includes phosphatidylserine (200mg, well above clinical anchor), Bacopa (300mg at clinical dose), Alpha-GPC, and additional age-relevant cofactors. Plant-based capsules. Most complete coverage but the 7-capsule daily protocol can be hard to maintain for older adults — consider whether the breadth justifies that friction. Caveat: default formula contains caffeine — older adults sensitive to stimulants should request the caffeine-free variant at checkout. Ships from US.',
   },
   {
-    product: productsGCC.find(p => p.slug === 'nahdi-brain-boost-review')!,
-    rank: 3,
-    whyItsHere:
-      'SFDA-registered and stocked across 1,100+ Nahdi pharmacy branches in Saudi Arabia. Includes Phosphatidylserine, Ginkgo Biloba, B12, and Zinc — conservative but registered formulation. SAR pricing, halal-compliant, no customs risk, same-day delivery in major Saudi cities. Doses sit below clinical anchors but accessibility is the deciding factor for older Saudi buyers who want a domestic, regulated option.',
-  },
-  {
     product: productsGCC.find(p => p.slug === 'eu-yan-sang-brainmax-review')!,
-    rank: 4,
+    rank: 3,
     whyItsHere:
       'Cera-Q (silk fibroin protein) is clinically studied for memory recall in older adults at 200mg per day — exactly the dose used in BrainMAX+. From a 145-year-old TCM heritage brand based in Singapore. Caffeine-free, plant-based capsules — halal-friendly. Powder sachet format may be easier for older adults than swallowing capsules. Tariffs absorbed by Eu Yan Sang on international orders. Note: silk-derived ingredient; observant buyers concerned about insect-derived sources should be aware. Not SFDA/MOHAP-registered.',
   },
   {
     product: productsGCC.find(p => p.slug === 'nootropics-depot-lions-mane')!,
-    rank: 5,
+    rank: 4,
     whyItsHere:
       'Single-ingredient Lion\'s Mane fruiting-body extract at 500mg from a brand with the strongest third-party Certificate-of-Analysis culture in this review. The right pick if you want to test Lion\'s Mane in isolation, possibly stacked with a phosphatidylserine supplement. Mushroom-derived — halal-compliant. Caffeine-free, plant-based capsules. Ships from US.',
   },
@@ -89,11 +83,11 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Are these supplements halal?',
-    a: 'All five picks use plant-based HPMC or pullulan capsules with no porcine gelatin. The most predictable halal-compliant option for KSA buyers is Nahdi Brain Boost (SFDA-registered). Note on phosphatidylserine: most products use soy-derived PS (halal); some use bovine-derived PS (would need halal-slaughter verification) or sunflower-derived PS (always halal). For Lion\'s Mane (mushroom-derived), halal status is straightforward. For Cera-Q in Eu Yan Sang BrainMAX+ (silk fibroin protein), observant buyers concerned about insect-derived ingredients should verify their personal halal interpretation.',
+    a: 'All four picks use plant-based HPMC or pullulan capsules with no porcine gelatin. Note on phosphatidylserine: most products use soy-derived PS (halal); some use bovine-derived PS (would need halal-slaughter verification) or sunflower-derived PS (always halal). For Lion\'s Mane (mushroom-derived), halal status is straightforward. For Cera-Q in Eu Yan Sang BrainMAX+ (silk fibroin protein), observant buyers concerned about insect-derived ingredients should verify their personal halal interpretation.',
   },
   {
     q: 'Which of these are SFDA-registered or MOHAP-registered?',
-    a: 'Nahdi Brain Boost is SFDA-registered in Saudi Arabia. Life Pharmacy NeuroShield (see the focus page) is MOHAP-registered in the UAE. The international brands (Mind Lab Pro, Qualia Mind, Eu Yan Sang BrainMAX+, Nootropics Depot) are not formally registered with SFDA or MOHAP — they enter the region as personal-use dietary supplements. iHerb\'s Saudi-compliant DC handles import paperwork for many international brands. Marnys Memory Plus (Spain-based) is also widely distributed in GCC pharmacies as an accessible local option, though doses are conservative.',
+    a: 'None of the picks on this page are. The international brands (Mind Lab Pro, Qualia Mind, Eu Yan Sang BrainMAX+, Nootropics Depot) are not formally registered with SFDA or MOHAP — they enter the region as personal-use dietary supplements. iHerb\'s Saudi-compliant DC handles import paperwork for many international brands. Marnys Memory Plus (Spain-based) is also widely distributed in GCC pharmacies as an accessible local option, though doses are conservative.',
   },
   {
     q: 'What does the FDA qualified health claim for PS mean?',
@@ -116,7 +110,7 @@ export default function Page() {
       useCase="aging"
       pageTitle="Best Nootropics for Aging Brain in the GCC"
       pageDescription="Independent ranking of nootropics for adults concerned about age-related cognitive changes, available in the GCC."
-      heroParagraph="Age-related cognitive change is normal — memory recall slows, processing speed reduces. The supplements on this page have evidence specifically in older adults with subjective cognitive complaints. They are NOT treatments for dementia, Alzheimer\'s, or any clinical cognitive disease. For those, see a neurologist. For GCC older buyers, the additional considerations are halal compliance, capsule source (plant-based HPMC/pullulan vs. animal-derived gelatin), SFDA/MOHAP registration, and ease of access without international shipping. This page ranks the age-relevant products available in the GCC — including imported international stacks (Mind Lab Pro, Qualia Mind, Eu Yan Sang BrainMAX+, Nootropics Depot) and locally-regulated domestic options (Nahdi Brain Boost, SFDA-registered). Distribution: BinSina, Aster, Life Pharmacy (UAE); Al-Dawaa, Nahdi (KSA); iHerb Saudi-compliant DC for international imports."
+      heroParagraph="Age-related cognitive change is normal — memory recall slows, processing speed reduces. The supplements on this page have evidence specifically in older adults with subjective cognitive complaints. They are NOT treatments for dementia, Alzheimer\'s, or any clinical cognitive disease. For those, see a neurologist. For GCC older buyers, the additional considerations are halal compliance, capsule source (plant-based HPMC/pullulan vs. animal-derived gelatin), SFDA/MOHAP registration, and ease of access without international shipping. This page ranks the age-relevant products available in the GCC — imported international stacks (Mind Lab Pro, Qualia Mind, Eu Yan Sang BrainMAX+, Nootropics Depot). Distribution: BinSina, Aster, Life Pharmacy (UAE); Al-Dawaa, Nahdi (KSA); iHerb Saudi-compliant DC for international imports."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

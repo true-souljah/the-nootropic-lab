@@ -33,8 +33,7 @@ const REVIEW_ROUTES = [
   '/qualia-mind-review/',
   '/onnit-alpha-brain-review/',
   '/thesis-nootropics-review/',
-  '/nahdi-brain-boost-review/',
-  '/life-pharmacy-neuro-shield-review/',
+  '/nootropics-depot-lions-mane/',
   '/eu-yan-sang-brainmax-review/',
 ];
 

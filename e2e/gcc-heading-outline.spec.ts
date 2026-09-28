@@ -65,7 +65,7 @@ const ROUTES = [
   { path: '/halal-certified-nootropics/', template: 'GCC halal pillar' },
   { path: '/best-nootropics-for-focus/', template: 'Listicle' },
   { path: '/mind-lab-pro-review/', template: 'ProductDetail (international brand)' },
-  { path: '/nahdi-brain-boost-review/', template: 'GCC brand (Nahdi)' },
+  { path: '/eu-yan-sang-brainmax-review/', template: 'ProductDetail (Asia-heritage brand)' },
   { path: '/ingredients/l-theanine/', template: 'IngredientDetail' },
 ];
 
