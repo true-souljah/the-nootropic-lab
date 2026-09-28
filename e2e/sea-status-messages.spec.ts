@@ -12,7 +12,7 @@ import { test, expect } from '@playwright/test';
 // product index:
 //
 //   SEA → searchItems from apps/sea/src/lib/search.ts
-//          (products-sea.ts: Blackmores + Nature's Own + EYS BrainMAX
+//          (products-sea.ts: Blackmores + EYS BrainMAX
 //          + NatureBell Ginkgo + Ginseng as the SEA region brands;
 //          Mind Lab Pro / NooCube / Qualia Mind / Onnit / Thesis as
 //          the international section)
