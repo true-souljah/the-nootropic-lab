@@ -23,6 +23,7 @@ export type { CancellationStep, CancellationFAQ } from './SubscriptionCancellati
 export { default as ImprintPage } from './ImprintPage';
 export { default as Sources } from './Sources';
 export type { Source } from './Sources';
+export { GuideEvidenceReviewed, GuideSources } from './GuideEvidence';
 export { default as EditorialStandardsSection } from './EditorialStandardsSection';
 export { trackAffiliateClick } from './trackAffiliateClick';
 export type { AffiliateClickContext } from './trackAffiliateClick';

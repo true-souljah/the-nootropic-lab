@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { guides, buildPersonAuthorReference, productsAU, regionalGuideNote, regionalTitleQualifier } from '@nootropic/data';
 
-import { PublicShell, RegionalAvailability } from "@nootropic/ui";
+import { PublicShell, RegionalAvailability, GuideEvidenceReviewed, GuideSources } from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import { SITE_URL } from '@/lib/region';
 import { regionalProps } from '@/lib/regional';
@@ -78,6 +78,7 @@ export default async function GuidePage({
             {g.category}
           </span>
           <span className="text-xs text-gray-400">{g.readingTimeMin} min read</span>
+          <GuideEvidenceReviewed date={g.evidenceReviewedAt} uiStrings={uiStrings} />
         </div>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{g.title}</h1>
@@ -91,6 +92,8 @@ export default async function GuidePage({
         ))}
 
         <RegionalAvailability {...regionalProps(productsAU.slice().sort((a, b) => b.score - a.score).slice(0, 4))} note={regionalGuideNote('au', g.slug)} />
+
+        <GuideSources sources={g.sources} uiStrings={uiStrings} />
 
         <div className="mt-10 text-sm text-gray-500">
           <a href="/guides" className="text-green-700 underline">
