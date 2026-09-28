@@ -10,6 +10,7 @@ import {
   productsCA, allProductsCA,
   productsAU, allProductsAU,
   productsJP, allProductsJP,
+  allProductsLatam,
   regionsWithProduct,
   buildRegionSearchContext,
 } from '@nootropic/data';
@@ -144,5 +145,17 @@ describe('search — discontinued products stay findable', () => {
     expect(row?.title).toBe('Blackmores Brain Active (Discontinued)');
     const live = searchItems.find((i) => i.href === '/mind-lab-pro-review');
     expect(live?.title).toBe('Mind Lab Pro');
+  });
+});
+
+describe('Trustpilot figures carry their check date', () => {
+  test.each([
+    ['us', allProductsUS], ['eu', allProductsEU], ['ca', allProductsCA],
+    ['au', allProductsAU], ['jp', allProductsJP], ['latam', allProductsLatam],
+  ] as const)('%s: every non-null trustpilotScore has trustpilotCheckedAt', (_r, products) => {
+    const unchecked = products
+      .filter((p) => p.trustpilotScore != null && !p.trustpilotCheckedAt)
+      .map((p) => p.slug);
+    expect(unchecked).toEqual([]);
   });
 });

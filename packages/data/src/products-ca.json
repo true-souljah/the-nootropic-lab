@@ -807,10 +807,12 @@
     ],
     "editorChoice": false,
     "market": "ca",
-    "updatedAt": "2026-05-28",
+    "updatedAt": "2026-09-28",
     "npnStatus": {
       "status": "licensed",
       "npn": "80037243"
-    }
+    },
+    "trustpilotCheckedAt": "2026-09-28",
+    "verifiedAt": "2026-09-28"
   }
 ]

@@ -938,8 +938,8 @@
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 2.3,
-    "trustpilotCount": 16,
+    "trustpilotScore": null,
+    "trustpilotCount": null,
     "affiliateUrl": "https://brainmd.com/brain-memory-power-boost",
     "affiliateNetwork": "ShareASale",
     "commissionRate": "20%",
@@ -1019,7 +1019,8 @@
     "editorChoice": false,
     "market": "us",
     "updatedAt": "2026-09-28",
-    "verifiedAt": "2026-09-28"
+    "verifiedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28"
   },
   {
     "id": "trubrain",

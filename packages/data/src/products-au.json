@@ -713,8 +713,8 @@
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 4.1,
-    "trustpilotCount": 480,
+    "trustpilotScore": null,
+    "trustpilotCount": null,
     "affiliateUrl": "https://www.blackmores.com.au/",
     "affiliateNetwork": "Chemist Warehouse / Priceline (retail-distributed)",
     "commissionRate": "Retail (no direct DTC affiliate)",
@@ -787,6 +787,7 @@
       "since": "2026-09-28",
       "note": "No longer listed on blackmores.com.au or at Chemist Warehouse; Blackmores now sells Cognition Ultra / Omega Brain."
     },
-    "verifiedAt": "2026-09-28"
+    "verifiedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28"
   }
 ]
