@@ -55,8 +55,6 @@ const KNOWN_RULE_VIOLATIONS: Readonly<Record<string, { rules: readonly RuleName[
   'jp/suntory-dha-epa-sesamin-review': { rules: ['affiliateUrl'], reason: 'Amazon search link; official product page 403 to verification' },
   'gcc/qualia-mind-review': { rules: ['affiliateUrl'], reason: 'GCC data owned by an open PR' },
   'gcc/onnit-alpha-brain-review': { rules: ['affiliateUrl'], reason: 'GCC data owned by an open PR' },
-  'gcc/nahdi-brain-boost-review': { rules: ['affiliateUrl'], reason: 'GCC data owned by an open PR (record under removal)' },
-  'gcc/life-pharmacy-neuro-shield-review': { rules: ['affiliateUrl'], reason: 'GCC data owned by an open PR (record under removal)' },
   'sea/qualia-mind-review': { rules: ['affiliateUrl'], reason: 'SEA data owned by an open PR' },
   'sea/onnit-alpha-brain-review': { rules: ['affiliateUrl'], reason: 'SEA data owned by an open PR' },
   'sea/blackmores-brain-active-review': { rules: ['affiliateUrl'], reason: 'SEA data owned by an open PR' },
