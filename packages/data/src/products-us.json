@@ -25,7 +25,7 @@
     "euStorefront": true,
     "euCompliance": "compliant",
     "trustpilotScore": 4.2,
-    "trustpilotCount": 81,
+    "trustpilotCount": 82,
     "affiliateUrl": "https://www.mindlabpro.com?a_aid=zid0oxj1g4uny&a_bid=6d45f5c3",
     "affiliateNetwork": "UberNet",
     "commissionRate": "30%",
@@ -51,7 +51,7 @@
         "adequatelyDosed": true
       },
       {
-        "name": "Bacopa Monnieri (45% bacosides)",
+        "name": "Bacopa Monnieri (full-spectrum, 24% bacosides)",
         "doseInProduct": "150mg",
         "clinicalDose": "300mg",
         "adequatelyDosed": false
@@ -131,8 +131,8 @@
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "compliant",
-    "trustpilotScore": 1.9,
-    "trustpilotCount": 850,
+    "trustpilotScore": null,
+    "trustpilotCount": null,
     "affiliateUrl": "https://www.noocube.com/",
     "affiliateNetwork": "FanFuel",
     "commissionRate": "31.5%",
@@ -142,7 +142,7 @@
       "Bacopa Monnieri",
       "Panax Ginseng",
       "VitaCholine",
-      "Huperzine A",
+      "Resveratrol",
       "L-Theanine"
     ],
     "ingredientDosages": [
@@ -153,21 +153,27 @@
         "adequatelyDosed": true
       },
       {
-        "name": "Bacopa Monnieri",
+        "name": "Bacopa Monnieri (12:1, 20% bacosides)",
         "doseInProduct": "250mg",
         "clinicalDose": "300mg",
         "adequatelyDosed": false
       },
       {
-        "name": "Alpha-GPC",
-        "doseInProduct": "50mg",
-        "clinicalDose": "300mg",
+        "name": "Choline (VitaCholine)",
+        "doseInProduct": "250mg",
+        "clinicalDose": "Limited human data",
         "adequatelyDosed": false
       },
       {
-        "name": "Huperzine A",
-        "doseInProduct": "20mcg",
-        "clinicalDose": "50-200mcg",
+        "name": "Cat's Claw (4:1 extract)",
+        "doseInProduct": "Undisclosed",
+        "clinicalDose": "Limited human data",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Resveratrol (99%)",
+        "doseInProduct": "14.3mg",
+        "clinicalDose": "Limited human data",
         "adequatelyDosed": false
       },
       {
@@ -185,24 +191,25 @@
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 4,
-    "summary": "Strong formula anchored by Lutemax 2020. Best value per serving. Note: Trustpilot score is very low -- verify independently before purchasing.",
+    "summary": "Strong formula anchored by Lutemax 2020. Best value per serving. Note: the noocube.com Trustpilot profile has no reviews yet -- verify independently before purchasing.",
     "whatItIs": "NooCube is a 12-ingredient nootropic stack made by Wolfson Brands, a large supplement manufacturer known for multiple health product lines. Its standout feature is Lutemax 2020 -- a patented lutein and zeaxanthin extract specifically researched for reducing the effects of digital eye strain and blue-light-related cognitive fatigue, making it particularly relevant for screen-heavy workers.",
-    "howItWorks": "Lutemax 2020 filters high-energy blue light in the retina, reducing eye fatigue that accumulates during screen use -- an indirect but real cognitive benefit for office workers and gamers. Alpha-GPC and Huperzine A work on the cholinergic system (though both are underdosed versus clinical trial doses). L-Theanine provides calm focus. Bacopa Monnieri targets memory consolidation over weeks.",
-    "whatToExpect": "Day one: mild calm focus from L-Theanine. Within 2-4 weeks: reduced eye fatigue and better end-of-day mental stamina (Lutemax). At 8 weeks: modest memory improvements (Bacopa, though underdosed). Important caveat: Alpha-GPC and Huperzine A are underdosed versus clinical trials. Manage expectations accordingly. The Trustpilot rating of 1.9/5 reflects subscription cancellation complaints rather than product efficacy -- verify the cancellation policy before purchasing.",
+    "howItWorks": "Lutemax 2020 filters high-energy blue light in the retina, reducing eye fatigue that accumulates during screen use -- an indirect but real cognitive benefit for office workers and gamers. Choline from VitaCholine (250mg) supports the cholinergic system; the current formula no longer contains Alpha-GPC or Huperzine A. L-Theanine provides calm focus. Bacopa Monnieri targets memory consolidation over weeks.",
+    "whatToExpect": "Day one: mild calm focus from L-Theanine. Within 2-4 weeks: reduced eye fatigue and better end-of-day mental stamina (Lutemax). At 8 weeks: modest memory improvements (Bacopa, though underdosed). Manage expectations accordingly: Bacopa is below the 300mg clinical anchor. The noocube.com Trustpilot profile has no reviews yet -- verify the cancellation policy before purchasing.",
     "pros": [
       "Lutemax 2020 for screen workers",
       "Good value at $64.99/mo",
       "60-day money-back"
     ],
     "cons": [
-      "Trustpilot 1.9/5 -- significant complaints",
+      "No reviews on the noocube.com Trustpilot profile (checked 2026-09-28)",
       "Some ingredients underdosed",
       "Subscription cancellation issues (BBB)"
     ],
     "editorChoice": false,
     "market": "both",
     "updatedAt": "2026-05-28",
-    "handsOnTested": true
+    "handsOnTested": true,
+    "trustpilotCheckedAt": "2026-09-28"
   },
   {
     "id": "qualia-mind",
@@ -228,8 +235,8 @@
     "caffeineFree": false,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 3.8,
-    "trustpilotCount": 1100,
+    "trustpilotScore": 4.5,
+    "trustpilotCount": 66,
     "affiliateUrl": "https://www.qualialife.com/shop/qualia-mind",
     "affiliateNetwork": "ShareASale",
     "commissionRate": "15%",
@@ -308,7 +315,8 @@
     "market": "us",
     "updatedAt": "2026-09-28",
     "handsOnTested": true,
-    "verifiedAt": "2026-09-28"
+    "verifiedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28"
   },
   {
     "id": "alpha-brain",
@@ -334,8 +342,8 @@
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 3.2,
-    "trustpilotCount": 4200,
+    "trustpilotScore": 4.2,
+    "trustpilotCount": 15776,
     "affiliateUrl": "https://www.onnit.com/alphabrain/",
     "affiliateNetwork": "Impact",
     "commissionRate": "12%",
@@ -407,7 +415,8 @@
     "market": "us",
     "updatedAt": "2026-09-28",
     "handsOnTested": true,
-    "verifiedAt": "2026-09-28"
+    "verifiedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28"
   },
   {
     "id": "thesis",
@@ -636,7 +645,7 @@
   {
     "id": "performance-lab-mind",
     "name": "Performance Lab Mind",
-    "brand": "Opti-Nutra",
+    "brand": "Performance Lab",
     "slug": "performance-lab-mind-review",
     "bestFor": [
       "Lean stack",
@@ -710,7 +719,7 @@
       "Stackable with Performance Lab Energy and other PL products"
     ],
     "cons": [
-      "Only 6 Trustpilot reviews — limited social proof",
+      "Only 14 Trustpilot reviews (performancelab.com profile) — limited social proof",
       "4-ingredient formula will feel sparse versus 11+ ingredient competitors",
       "No Amazon or retail availability",
       "Tyrosine slightly under clinical range",
@@ -751,8 +760,8 @@
     "caffeineFree": false,
     "euStorefront": true,
     "euCompliance": "verify",
-    "trustpilotScore": 3.6,
-    "trustpilotCount": 97,
+    "trustpilotScore": 4.4,
+    "trustpilotCount": 93,
     "affiliateUrl": "https://www.hunterevolve.com/en-us/hunter-focus",
     "affiliateNetwork": "In-house (Stacked Brands)",
     "commissionRate": "Not publicly disclosed",

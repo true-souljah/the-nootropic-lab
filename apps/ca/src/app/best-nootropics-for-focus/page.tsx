@@ -72,7 +72,7 @@ const picks: ListiclePick[] = [
     product: productsCA.find(p => p.slug === 'noocube-review')!,
     rank: 4,
     whyItsHere:
-      'Includes Alpha-GPC (50mg — under clinical), Bacopa, and L-theanine 100mg at clinical dose. Standout ingredient is Lutemax 2020 for blue-light eye fatigue — relevant for Canadian remote workers. Open formula. Trustpilot score is concerning (1.9/5) — verify subscription cancellation terms before ordering.',
+      'Includes choline (VitaCholine, 250mg), Bacopa, and L-theanine 100mg at clinical dose. Standout ingredient is Lutemax 2020 for blue-light eye fatigue — relevant for Canadian remote workers. Open formula. The noocube.com Trustpilot profile has no reviews yet — verify subscription cancellation terms before ordering.',
   },
 ];
 

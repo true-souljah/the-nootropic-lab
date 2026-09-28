@@ -45,6 +45,12 @@ describe('activeProducts — discontinued products are never recommendable', () 
     expect(isDiscontinued(live1)).toBe(false);
   });
 
+  test('a stray null `discontinued` does not mark a product discontinued', () => {
+    const strayNull = { discontinued: null } as unknown as Pick<Product, 'discontinued'>;
+    expect(isDiscontinued(strayNull)).toBe(false);
+    expect(activeProducts([strayNull])).toHaveLength(1);
+  });
+
   test.each([
     ['us', productsUS, allProductsUS],
     ['eu', productsEU, allProductsEU],
@@ -86,6 +92,9 @@ describe('activeProducts — discontinued products are never recommendable', () 
 describe('record rules — affiliateUrl and formula', () => {
   test.each([
     'https://www.amazon.co.jp/s?k=FANCL+BRAINs',
+    'https://www.amazon.com.br/s?k=X',
+    'https://example.com/search?q=x',
+    'https://example.com/?q=x',
     'https://www.example.com/search?q=focus',
     'https://www.example.com/catalog?q=focus',
     'https://www.example.com/search',

@@ -72,7 +72,7 @@ const picks: ListiclePick[] = [
     product: productsEU.find(p => p.slug === 'noocube-review')!,
     rank: 4,
     whyItsHere:
-      'Lutemax 2020 specifically for screen-worker eye strain. No EUR storefront: the UK store (noocube.co.uk) prices in GBP (£54.99/mo) and ships to the UK, Ireland, Spain, Portugal, Greece, Croatia, Poland, Sweden and Denmark, but not to Germany, France or the Netherlands. 100mg L-theanine at clinical dose. Alpha-GPC (50mg) is significantly underdosed versus the 300mg clinical anchor. Trustpilot 1.9/5 reflects subscription cancellation complaints — read the cancellation terms before subscribing.',
+      'Lutemax 2020 specifically for screen-worker eye strain. No EUR storefront: the UK store (noocube.co.uk) prices in GBP (£54.99/mo) and ships to the UK, Ireland, Spain, Portugal, Greece, Croatia, Poland, Sweden and Denmark, but not to Germany, France or the Netherlands. 100mg L-theanine at clinical dose. Choline comes from VitaCholine (250mg); the current formula no longer contains Alpha-GPC. The noocube.com Trustpilot profile has no reviews yet — read the cancellation terms before subscribing.',
   },
 ];
 

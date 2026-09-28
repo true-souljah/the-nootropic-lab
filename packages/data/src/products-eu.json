@@ -51,7 +51,7 @@
         "adequatelyDosed": true
       },
       {
-        "name": "Bacopa Monnieri (45% bacosides)",
+        "name": "Bacopa Monnieri (full-spectrum, 24% bacosides)",
         "doseInProduct": "150mg",
         "clinicalDose": "300mg",
         "adequatelyDosed": false
@@ -129,8 +129,8 @@
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "compliant",
-    "trustpilotScore": 1.9,
-    "trustpilotCount": 850,
+    "trustpilotScore": null,
+    "trustpilotCount": null,
     "affiliateUrl": "https://www.noocube.com/",
     "affiliateNetwork": "FanFuel",
     "commissionRate": "31.5%",
@@ -140,7 +140,7 @@
       "Bacopa Monnieri",
       "Panax Ginseng",
       "VitaCholine",
-      "Huperzine A",
+      "Resveratrol",
       "L-Theanine"
     ],
     "ingredientDosages": [
@@ -151,21 +151,27 @@
         "adequatelyDosed": true
       },
       {
-        "name": "Bacopa Monnieri",
+        "name": "Bacopa Monnieri (12:1, 20% bacosides)",
         "doseInProduct": "250mg",
         "clinicalDose": "300mg",
         "adequatelyDosed": false
       },
       {
-        "name": "Alpha-GPC",
-        "doseInProduct": "50mg",
-        "clinicalDose": "300mg",
+        "name": "Choline (VitaCholine)",
+        "doseInProduct": "250mg",
+        "clinicalDose": "Limited human data",
         "adequatelyDosed": false
       },
       {
-        "name": "Huperzine A",
-        "doseInProduct": "20mcg",
-        "clinicalDose": "50-200mcg",
+        "name": "Cat's Claw (4:1 extract)",
+        "doseInProduct": "Undisclosed",
+        "clinicalDose": "Limited human data",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Resveratrol (99%)",
+        "doseInProduct": "14.3mg",
+        "clinicalDose": "Limited human data",
         "adequatelyDosed": false
       },
       {
@@ -173,27 +179,34 @@
         "doseInProduct": "100mg",
         "clinicalDose": "100-200mg",
         "adequatelyDosed": true
+      },
+      {
+        "name": "Pterostilbene",
+        "doseInProduct": "140mcg",
+        "clinicalDose": "Limited human data",
+        "adequatelyDosed": false
       }
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 4,
-    "summary": "EU-compliant formula with Lutemax 2020 for screen workers. No EUR storefront: noocube.co.uk sells it at £54.99/mo and does not ship to Germany, France or the Netherlands. Important: Trustpilot score is 1.9/5 -- review customer feedback carefully before subscribing.",
+    "summary": "EU-compliant formula with Lutemax 2020 for screen workers. No EUR storefront: noocube.co.uk sells it at £54.99/mo and does not ship to Germany, France or the Netherlands. Important: the noocube.com Trustpilot profile has no reviews yet -- check the cancellation terms carefully before subscribing.",
     "whatItIs": "NooCube is a 12-ingredient nootropic stack from Wolfson Brands. There is no EUR-priced storefront: the UK store (noocube.co.uk) prices in GBP and lists shipping to Ireland, Spain, Portugal, Greece, Croatia, Poland, Sweden and Denmark, but not to Germany, France or the Netherlands. Its standout feature is Lutemax 2020 -- a clinically-studied lutein and zeaxanthin extract that reduces digital eye strain. It is EU Directive 2002/46/EC compliant.",
-    "howItWorks": "Lutemax 2020 filters high-energy blue light in the retina, reducing the cognitive fatigue that builds up during extended screen use. Alpha-GPC and Huperzine A support acetylcholine availability (though both are underdosed versus clinical trial levels). L-Theanine provides calm focus. Bacopa supports memory consolidation over 8+ weeks.",
-    "whatToExpect": "Day one: mild calm focus from L-Theanine. Within 2-4 weeks: reduced eye fatigue for screen workers. At 8 weeks: modest memory improvements. Important caveat: Alpha-GPC and Huperzine A are significantly underdosed. The Trustpilot score of 1.9/5 reflects subscription cancellation complaints -- read the cancellation terms carefully before subscribing.",
+    "howItWorks": "Lutemax 2020 filters high-energy blue light in the retina, reducing the cognitive fatigue that builds up during extended screen use. Choline from VitaCholine (250mg) supports acetylcholine availability; the current formula no longer contains Alpha-GPC or Huperzine A. L-Theanine provides calm focus. Bacopa supports memory consolidation over 8+ weeks.",
+    "whatToExpect": "Day one: mild calm focus from L-Theanine. Within 2-4 weeks: reduced eye fatigue for screen workers. At 8 weeks: modest memory improvements. The noocube.com Trustpilot profile has no reviews yet -- read the cancellation terms carefully before subscribing.",
     "pros": [
       "Lutemax 2020 for blue-light",
       "Good value",
       "60-day money-back"
     ],
     "cons": [
-      "Trustpilot 1.9/5 -- subscription cancellation complaints",
+      "No reviews on the noocube.com Trustpilot profile (checked 2026-09-28)",
       "Some ingredients underdosed"
     ],
     "editorChoice": false,
     "market": "both",
     "updatedAt": "2026-09-28",
-    "verifiedAt": "2026-09-28"
+    "verifiedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28"
   },
   {
     "id": "performance-lab-mind",
@@ -506,8 +519,8 @@
     "caffeineFree": false,
     "euStorefront": true,
     "euCompliance": "compliant",
-    "trustpilotScore": 4,
-    "trustpilotCount": 1050,
+    "trustpilotScore": 4.4,
+    "trustpilotCount": 93,
     "affiliateUrl": "https://www.roarambition.com/products/hunter-focus",
     "affiliateNetwork": "Hunter Direct",
     "commissionRate": "0%",
@@ -567,7 +580,7 @@
       "EU storefront",
       "Well-dosed 9-ingredient formula",
       "EU-compliant",
-      "Trustpilot 4.0/5"
+      "Trustpilot 4.4/5 (roarambition.com)"
     ],
     "cons": [
       "6 capsules per serving",
@@ -577,6 +590,7 @@
     "editorChoice": false,
     "market": "both",
     "updatedAt": "2026-09-28",
-    "verifiedAt": "2026-09-28"
+    "verifiedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28"
   }
 ]

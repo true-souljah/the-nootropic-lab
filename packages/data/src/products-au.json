@@ -131,8 +131,8 @@
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 2.8,
-    "trustpilotCount": 16,
+    "trustpilotScore": null,
+    "trustpilotCount": null,
     "affiliateUrl": "https://www.noocube.com/",
     "affiliateNetwork": "FanFuel",
     "commissionRate": "31.5%",
@@ -191,10 +191,10 @@
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 4,
-    "summary": "Strong formula anchored by Lutemax 2020 for Australian screen workers. Ships from the UK/EU to Australia as an imported food supplement. Best value per serving for Australian buyers. Note: Trustpilot score is low -- verify independently before purchasing.",
+    "summary": "Strong formula anchored by Lutemax 2020 for Australian screen workers. Ships from the UK/EU to Australia as an imported food supplement. Best value per serving for Australian buyers. Note: the noocube.com Trustpilot profile has no reviews yet -- verify independently before purchasing.",
     "whatItIs": "NooCube is a 12-ingredient nootropic stack made by Wolfson Brands. Its standout feature is Lutemax 2020 -- a patented lutein and zeaxanthin extract researched for reducing digital eye strain and blue-light-related cognitive fatigue. Available for international shipping to Australia, it is imported as a food supplement.",
     "howItWorks": "Lutemax 2020 filters high-energy blue light in the retina, reducing eye fatigue during screen use -- particularly relevant for Australian remote workers and office professionals. Choline from VitaCholine supports the cholinergic system; the current formula no longer contains Alpha-GPC or Huperzine A. L-Theanine provides calm focus. Bacopa Monnieri targets memory consolidation over weeks.",
-    "whatToExpect": "Day one: mild calm focus from L-Theanine. Within 2-4 weeks: reduced eye fatigue and better end-of-day mental stamina. At 8 weeks: modest memory improvements from Bacopa. Ships from the UK/EU to Australia with delivery typically within 14-21 days. Australian buyers should verify the subscription cancellation policy before purchasing given the low Trustpilot score.",
+    "whatToExpect": "Day one: mild calm focus from L-Theanine. Within 2-4 weeks: reduced eye fatigue and better end-of-day mental stamina. At 8 weeks: modest memory improvements from Bacopa. Ships from the UK/EU to Australia with delivery typically within 14-21 days. Australian buyers should verify the subscription cancellation policy before purchasing since the noocube.com Trustpilot profile has no reviews yet.",
     "pros": [
       "Lutemax 2020 for screen workers",
       "A$84.99/mo on the Australian storefront (noocube.com.au)",
@@ -202,7 +202,7 @@
       "Ships to Australia"
     ],
     "cons": [
-      "Trustpilot 2.8/5 (16 reviews on the noocube.co.uk profile)",
+      "No reviews on the noocube.com Trustpilot profile (checked 2026-09-28)",
       "Some ingredients underdosed",
       "Subscription cancellation issues (BBB)",
       "Therapeutic Goods Administration (TGA) listing required for therapeutic claims -- imported as food supplement"

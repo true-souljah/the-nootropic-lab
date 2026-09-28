@@ -24,8 +24,8 @@
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 4.5,
-    "trustpilotCount": 3200,
+    "trustpilotScore": 4.2,
+    "trustpilotCount": 82,
     "affiliateUrl": "https://www.mindlabpro.com?a_aid=zid0oxj1g4uny&a_bid=6d45f5c3",
     "affiliateNetwork": "UberNet",
     "commissionRate": "30%",
@@ -51,7 +51,7 @@
         "adequatelyDosed": true
       },
       {
-        "name": "Bacopa Monnieri (45% bacosides)",
+        "name": "Bacopa Monnieri (full-spectrum, 24% bacosides)",
         "doseInProduct": "150mg",
         "clinicalDose": "300mg",
         "adequatelyDosed": false
@@ -65,8 +65,20 @@
       {
         "name": "L-Theanine",
         "doseInProduct": "100mg",
+        "clinicalDose": "100-200mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Phosphatidylserine (Sharp-PS)",
+        "doseInProduct": "100mg",
         "clinicalDose": "100mg",
         "adequatelyDosed": true
+      },
+      {
+        "name": "L-Tyrosine (NALT)",
+        "doseInProduct": "175mg",
+        "clinicalDose": "300-500mg as NALT",
+        "adequatelyDosed": false
       }
     ],
     "servingsPerContainer": 30,
@@ -89,7 +101,8 @@
     "updatedAt": "2026-05-28",
     "ffcStatus": {
       "notified": false
-    }
+    },
+    "trustpilotCheckedAt": "2026-09-28"
   },
   {
     "id": "noocube",
@@ -116,56 +129,61 @@
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 1.9,
-    "trustpilotCount": 850,
+    "trustpilotScore": null,
+    "trustpilotCount": null,
     "affiliateUrl": "https://www.noocube.com/",
     "affiliateNetwork": "FanFuel",
     "commissionRate": "31.5%",
     "cookieDays": 30,
     "heroIngredients": [
+      "Lutemax 2020",
       "Bacopa Monnieri",
       "Panax Ginseng",
       "VitaCholine",
-      "L-Theanine",
-      "L-Tyrosine",
-      "Lutemax 2020",
-      "Huperzine A"
+      "Resveratrol",
+      "L-Theanine"
     ],
     "ingredientDosages": [
       {
-        "name": "Alpha-GPC",
-        "doseInProduct": "50mg",
-        "clinicalDose": "300mg",
-        "adequatelyDosed": false
-      },
-      {
-        "name": "Bacopa Monnieri",
-        "doseInProduct": "250mg",
-        "clinicalDose": "300mg",
-        "adequatelyDosed": false
-      },
-      {
-        "name": "L-Theanine",
-        "doseInProduct": "100mg",
-        "clinicalDose": "100mg",
-        "adequatelyDosed": true
-      },
-      {
-        "name": "L-Tyrosine",
-        "doseInProduct": "250mg",
-        "clinicalDose": "500mg",
-        "adequatelyDosed": false
-      },
-      {
-        "name": "Lutemax 2020",
+        "name": "Lutemax 2020 (Lutein/Zeaxanthin)",
         "doseInProduct": "20mg",
         "clinicalDose": "20mg",
         "adequatelyDosed": true
       },
       {
-        "name": "Huperzine A",
-        "doseInProduct": "20mcg",
-        "clinicalDose": "50mcg",
+        "name": "Bacopa Monnieri (12:1, 20% bacosides)",
+        "doseInProduct": "250mg",
+        "clinicalDose": "300mg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Choline (VitaCholine)",
+        "doseInProduct": "250mg",
+        "clinicalDose": "Limited human data",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Cat's Claw (4:1 extract)",
+        "doseInProduct": "Undisclosed",
+        "clinicalDose": "Limited human data",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Resveratrol (99%)",
+        "doseInProduct": "14.3mg",
+        "clinicalDose": "Limited human data",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "L-Theanine",
+        "doseInProduct": "100mg",
+        "clinicalDose": "100-200mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Pterostilbene",
+        "doseInProduct": "140mcg",
+        "clinicalDose": "Limited human data",
         "adequatelyDosed": false
       }
     ],
@@ -173,7 +191,7 @@
     "capsulesPerServing": 4,
     "summary": "A well-rounded caffeine-free nootropic stack that ships to Japan. Backed by a 60-day money-back guarantee and straightforward one-time purchase model -- no subscription required.",
     "whatItIs": "NooCube is a multi-ingredient nootropic stack by Wolfson Brands designed for focus, mental clarity, and study performance. Available for international shipping to Japan, it offers a caffeine-free formula suitable for those sensitive to stimulants.",
-    "howItWorks": "Alpha-GPC supports the cholinergic system to enhance memory encoding and attention. L-Theanine -- familiar in Japan as the calming compound in green tea -- promotes relaxed focus without sedation. Bacopa Monnieri supports memory consolidation over weeks of use. L-Tyrosine maintains dopamine and norepinephrine levels under cognitive stress.",
+    "howItWorks": "Choline from VitaCholine (250mg) supports the cholinergic system (the current formula no longer contains Alpha-GPC or Huperzine A). L-Theanine -- familiar in Japan as the calming compound in green tea -- promotes relaxed focus without sedation. Bacopa Monnieri supports memory consolidation over weeks of use. L-Tyrosine maintains dopamine and norepinephrine levels under cognitive stress.",
     "whatToExpect": "Day one: mild calm focus from L-Theanine. Within 2-4 weeks: improved mental stamina and clarity under workload. At 8 weeks: modest memory improvements from Bacopa. NooCube ships internationally to Japan with delivery typically within 10-14 days. The one-time purchase model means no automatic billing -- a straightforward option for Japanese buyers unfamiliar with subscription supplements.",
     "pros": [
       "Ships to Japan",
@@ -193,7 +211,8 @@
     "notes": [
       "Bulk-purchase pricing changed June 2026: 5-month supply $194.99 USD (was 6-month for $180). JP buyers purchasing direct at ~¥30,000 for 5 months vs prior ~¥27,700 for 6 months."
     ],
-    "verifiedAt": "2026-09-28"
+    "verifiedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28"
   },
   {
     "id": "performance-lab-mind",
@@ -220,8 +239,8 @@
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 4.4,
-    "trustpilotCount": 920,
+    "trustpilotScore": 3.8,
+    "trustpilotCount": 14,
     "affiliateUrl": "https://www.performancelab.com/products/mind?a_aid=zid0oxj1g4uny&a_cid=f4c3e754",
     "affiliateNetwork": "UberNet",
     "commissionRate": "30%",
@@ -284,7 +303,8 @@
       "successorSlug": "mind-lab-pro-review",
       "note": "Opti-Nutra merged Performance Lab Mind into Mind Lab Pro; the vendor URL now redirects to Mind Lab Pro."
     },
-    "verifiedAt": "2026-09-28"
+    "verifiedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28"
   },
   {
     "id": "hunter-focus",
@@ -311,8 +331,8 @@
     "caffeineFree": false,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 4,
-    "trustpilotCount": 1050,
+    "trustpilotScore": 4.4,
+    "trustpilotCount": 93,
     "affiliateUrl": "https://www.hunterevolve.com/en-us/hunter-focus",
     "affiliateNetwork": "Hunter Direct",
     "commissionRate": "0%",
@@ -378,7 +398,8 @@
     "ffcStatus": {
       "notified": false
     },
-    "verifiedAt": "2026-09-28"
+    "verifiedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28"
   },
   {
     "id": "fancl-brains",

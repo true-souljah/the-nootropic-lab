@@ -72,7 +72,7 @@ const picks: ListiclePick[] = [
     product: productsUS.find(p => p.slug === 'noocube-review')!,
     rank: 4,
     whyItsHere:
-      'Includes Alpha-GPC, L-tyrosine, L-theanine. Open formula — doses are disclosed. Marketing-heavy positioning under Wolfson Brands; lower trust score than Mind Lab Pro but solid focus-ingredient coverage.',
+      'Includes choline (VitaCholine), L-tyrosine, L-theanine. Open formula — doses are disclosed. Marketing-heavy positioning under Wolfson Brands; lower trust score than Mind Lab Pro but solid focus-ingredient coverage.',
   },
   {
     product: productsUS.find(p => p.slug === 'thesis-nootropics-review')!,

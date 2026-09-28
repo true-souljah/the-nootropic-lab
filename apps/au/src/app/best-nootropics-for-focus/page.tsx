@@ -73,7 +73,7 @@ const picks: ListiclePick[] = [
     product: productsAU.find(p => p.slug === 'noocube-review')!,
     rank: 4,
     whyItsHere:
-      'Includes choline (VitaCholine, 250mg), L-tyrosine (250mg), L-theanine (100mg), plus Lutemax 2020 lutein/zeaxanthin for screen-fatigue reduction — a relevant angle for Australian remote and office workers. Open formula. Trustpilot score is low (2.8/5 on the noocube.co.uk profile) — verify subscription cancellation terms before ordering. Ships from the UK/EU to Australia in 14–21 business days.',
+      'Includes choline (VitaCholine, 250mg), L-tyrosine (250mg), L-theanine (100mg), plus Lutemax 2020 lutein/zeaxanthin for screen-fatigue reduction — a relevant angle for Australian remote and office workers. Open formula. The noocube.com Trustpilot profile has no reviews yet — verify subscription cancellation terms before ordering. Ships from the UK/EU to Australia in 14–21 business days.',
   },
 ];
 

@@ -40,7 +40,7 @@ export function productRuleProblems(
   product: Pick<Product, 'affiliateUrl' | 'ingredientDosages' | 'discontinued'>,
 ): string[] {
   const problems: string[] = [];
-  const url = affiliateUrlProblem(product.affiliateUrl ?? '', product.discontinued !== undefined);
+  const url = affiliateUrlProblem(product.affiliateUrl ?? '', product.discontinued != null);
   if (url) problems.push(url);
   const formula = formulaProblem(product);
   if (formula) problems.push(formula);

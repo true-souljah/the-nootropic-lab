@@ -67,7 +67,7 @@ export default function ProductDetail({
   // Inline filter (not activeProducts from @nootropic/data): this is a client
   // component and a value import from the data package would ship every
   // catalogue JSON to the browser.
-  const recommendable = alternatives.filter((alt) => alt.discontinued === undefined);
+  const recommendable = alternatives.filter((alt) => alt.discontinued == null);
 
   const formattedDate = (p.updatedAt ? new Date(p.updatedAt) : new Date()).toLocaleDateString(pd.dateLocale, {
     year: 'numeric',

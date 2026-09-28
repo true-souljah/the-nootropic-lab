@@ -11,7 +11,8 @@
 import type { Product } from './products-us';
 
 export function isDiscontinued(product: Pick<Product, 'discontinued'>): boolean {
-  return product.discontinued !== undefined;
+  // A stray `null` in JSON must not flip a product to discontinued.
+  return product.discontinued != null;
 }
 
 export function activeProducts<T extends Pick<Product, 'discontinued'>>(products: readonly T[]): T[] {

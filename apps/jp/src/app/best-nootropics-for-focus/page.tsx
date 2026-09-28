@@ -66,7 +66,7 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'noocube-review')!,
     rank: 3,
     whyItsHere:
-      'Caffeine-free stack containing Alpha-GPC, L-tyrosine, and L-theanine at 100mg (clinical dose). Some ingredients (Alpha-GPC at 50mg, L-tyrosine at 250mg) are below clinical anchors. 60-day money-back guarantee — the longest in this Japan review. Ships internationally in 10–14 days with one-time purchase (no subscription).',
+      'Caffeine-free stack containing choline (VitaCholine, 250mg), L-tyrosine, and L-theanine at 100mg (clinical dose). L-tyrosine at 250mg is below its clinical anchor. 60-day money-back guarantee — the longest in this Japan review. Ships internationally in 10–14 days with one-time purchase (no subscription).',
   },
 ];
 

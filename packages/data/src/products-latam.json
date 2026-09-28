@@ -24,8 +24,8 @@
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 4.5,
-    "trustpilotCount": 3200,
+    "trustpilotScore": 4.2,
+    "trustpilotCount": 82,
     "affiliateUrl": "https://www.mindlabpro.com?a_aid=zid0oxj1g4uny&a_bid=6d45f5c3",
     "affiliateNetwork": "UberNet",
     "commissionRate": "30%",
@@ -51,7 +51,7 @@
         "adequatelyDosed": true
       },
       {
-        "name": "Bacopa Monnieri (45% bacosides)",
+        "name": "Bacopa Monnieri (full-spectrum, 24% bacosides)",
         "doseInProduct": "150mg",
         "clinicalDose": "300mg",
         "adequatelyDosed": false
@@ -104,7 +104,8 @@
     ],
     "editorChoice": true,
     "market": "both",
-    "updatedAt": "2026-05-28"
+    "updatedAt": "2026-05-28",
+    "trustpilotCheckedAt": "2026-09-28"
   },
   {
     "id": "noocube",
@@ -131,8 +132,8 @@
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 1.9,
-    "trustpilotCount": 850,
+    "trustpilotScore": null,
+    "trustpilotCount": null,
     "affiliateUrl": "https://www.noocube.com/",
     "affiliateNetwork": "FanFuel",
     "commissionRate": "31.5%",
@@ -142,7 +143,7 @@
       "Bacopa Monnieri",
       "Panax Ginseng",
       "VitaCholine",
-      "Huperzine A",
+      "Resveratrol",
       "L-Theanine"
     ],
     "ingredientDosages": [
@@ -153,21 +154,27 @@
         "adequatelyDosed": true
       },
       {
-        "name": "Bacopa Monnieri",
+        "name": "Bacopa Monnieri (12:1, 20% bacosides)",
         "doseInProduct": "250mg",
         "clinicalDose": "300mg",
         "adequatelyDosed": false
       },
       {
-        "name": "Alpha-GPC",
-        "doseInProduct": "50mg",
-        "clinicalDose": "300mg",
+        "name": "Choline (VitaCholine)",
+        "doseInProduct": "250mg",
+        "clinicalDose": "Limited human data",
         "adequatelyDosed": false
       },
       {
-        "name": "Huperzine A",
-        "doseInProduct": "20mcg",
-        "clinicalDose": "50-200mcg",
+        "name": "Cat's Claw (4:1 extract)",
+        "doseInProduct": "Undisclosed",
+        "clinicalDose": "Limited human data",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Resveratrol (99%)",
+        "doseInProduct": "14.3mg",
+        "clinicalDose": "Limited human data",
         "adequatelyDosed": false
       },
       {
@@ -185,10 +192,10 @@
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 4,
-    "summary": "Strong formula anchored by Lutemax 2020 and the best value-per-serving in this list at $64.99 USD/month — prices are in USD with no local currency option. Ships from the US/UK, allow 10–18 days to LATAM destinations. Brazilian buyers should be aware ANVISA customs holds are more frequent for supplement shipments; Argentine buyers may face currency control restrictions on USD card transactions. Note: Trustpilot score is very low (1.9/5) — verify independently before purchasing.",
+    "summary": "Strong formula anchored by Lutemax 2020 and the best value-per-serving in this list at $64.99 USD/month — prices are in USD with no local currency option. Ships from the US/UK, allow 10–18 days to LATAM destinations. Brazilian buyers should be aware ANVISA customs holds are more frequent for supplement shipments; Argentine buyers may face currency control restrictions on USD card transactions. Note: the noocube.com Trustpilot profile has no reviews yet — verify independently before purchasing.",
     "whatItIs": "NooCube is a 12-ingredient nootropic stack made by Wolfson Brands, a large supplement manufacturer. Its standout feature is Lutemax 2020 — a patented lutein and zeaxanthin extract researched for reducing digital eye strain and blue-light-related cognitive fatigue, making it relevant for screen-heavy workers. For LATAM buyers, NooCube is priced exclusively in USD and ships internationally as a personal-use supplement. It is not registered with the Comisión Federal para la Protección contra Riesgos Sanitarios (COFEPRIS) in Mexico, the Agência Nacional de Vigilância Sanitária (ANVISA) in Brazil, ANMAT (Argentina), the Instituto Nacional de Vigilancia de Medicamentos y Alimentos (INVIMA) in Colombia, ISP (Chile), or DIGEMID (Peru), and enters these markets under personal-import allowances. Customs duties vary by country and are the buyer's responsibility.",
-    "howItWorks": "Lutemax 2020 filters high-energy blue light in the retina, reducing eye fatigue that accumulates during screen use -- an indirect but real cognitive benefit for office workers and gamers. Alpha-GPC and Huperzine A work on the cholinergic system (though both are underdosed versus clinical trial doses). L-Theanine provides calm focus. Bacopa Monnieri targets memory consolidation over weeks.",
-    "whatToExpect": "Day one: mild calm focus from L-Theanine. Within 2-4 weeks: reduced eye fatigue and better end-of-day mental stamina (Lutemax). At 8 weeks: modest memory improvements (Bacopa, though underdosed). Important caveat: Alpha-GPC and Huperzine A are underdosed versus clinical trials. Manage expectations accordingly. The Trustpilot rating of 1.9/5 reflects subscription cancellation complaints rather than product efficacy -- verify the cancellation policy before purchasing.",
+    "howItWorks": "Lutemax 2020 filters high-energy blue light in the retina, reducing eye fatigue that accumulates during screen use -- an indirect but real cognitive benefit for office workers and gamers. Choline from VitaCholine (250mg) supports the cholinergic system; the current formula no longer contains Alpha-GPC or Huperzine A. L-Theanine provides calm focus. Bacopa Monnieri targets memory consolidation over weeks.",
+    "whatToExpect": "Day one: mild calm focus from L-Theanine. Within 2-4 weeks: reduced eye fatigue and better end-of-day mental stamina (Lutemax). At 8 weeks: modest memory improvements (Bacopa, though underdosed). Manage expectations accordingly: Bacopa is below the 300mg clinical anchor. The noocube.com Trustpilot profile has no reviews yet -- verify the cancellation policy before purchasing.",
     "pros": [
       "Lutemax 2020 for screen workers",
       "Good value at $64.99/mo",
@@ -196,7 +203,7 @@
       "Ships to Mexico, Brazil, Argentina, Colombia, Chile, Peru"
     ],
     "cons": [
-      "Trustpilot 1.9/5 -- significant complaints",
+      "No reviews on the noocube.com Trustpilot profile (checked 2026-09-28)",
       "Some ingredients underdosed",
       "Subscription cancellation issues (BBB)",
       "International shipping to Latam -- allow 7-14 days delivery",
@@ -208,7 +215,8 @@
     "notes": [
       "Bulk-purchase pricing changed June 2026: 5-month supply $194.99 USD (was 6-month for $180). LATAM buyers importing direct will see equivalent BRL/MXN price increases."
     ],
-    "verifiedAt": "2026-09-28"
+    "verifiedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28"
   },
   {
     "id": "qualia-mind",
@@ -234,8 +242,8 @@
     "caffeineFree": false,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 3.8,
-    "trustpilotCount": 1100,
+    "trustpilotScore": 4.5,
+    "trustpilotCount": 66,
     "affiliateUrl": "https://www.qualialife.com/shop/qualia-mind",
     "affiliateNetwork": "ShareASale",
     "commissionRate": "15%",
@@ -315,7 +323,8 @@
     "editorChoice": false,
     "market": "both",
     "updatedAt": "2026-09-28",
-    "verifiedAt": "2026-09-28"
+    "verifiedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28"
   },
   {
     "id": "alpha-brain",
@@ -341,8 +350,8 @@
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 3.2,
-    "trustpilotCount": 4200,
+    "trustpilotScore": 4.2,
+    "trustpilotCount": 15776,
     "affiliateUrl": "https://www.onnit.com/alphabrain/",
     "affiliateNetwork": "Impact",
     "commissionRate": "12%",
@@ -416,7 +425,8 @@
     "market": "both",
     "updatedAt": "2026-09-28",
     "importPathway": "Onnit's own storefront shipping list (https://www.onnit.com/meta.json, ships_to_countries, checked 2026-09-28) excludes Mexico; Brazil, Argentina, Colombia, Chile and Peru are listed. Mexican buyers cannot order direct from onnit.com.",
-    "verifiedAt": "2026-09-28"
+    "verifiedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28"
   },
   {
     "id": "thesis",
@@ -441,8 +451,8 @@
     "caffeineFree": false,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 3.9,
-    "trustpilotCount": 780,
+    "trustpilotScore": 4.0,
+    "trustpilotCount": 116,
     "affiliateUrl": "https://takethesis.com/",
     "affiliateNetwork": "Impact",
     "commissionRate": "20%",
@@ -506,7 +516,8 @@
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-05-28"
+    "updatedAt": "2026-05-28",
+    "trustpilotCheckedAt": "2026-09-28"
   },
   {
     "id": "nootropics-depot-lions-mane",
@@ -532,8 +543,8 @@
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 4.2,
-    "trustpilotCount": 2800,
+    "trustpilotScore": 4.7,
+    "trustpilotCount": 1333,
     "affiliateUrl": "https://nootropicsdepot.com/",
     "affiliateNetwork": "Impact",
     "commissionRate": "15%",
@@ -569,6 +580,7 @@
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-05-28"
+    "updatedAt": "2026-05-28",
+    "trustpilotCheckedAt": "2026-09-28"
   }
 ]
