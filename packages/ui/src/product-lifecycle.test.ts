@@ -11,6 +11,7 @@ import {
   productsAU, allProductsAU,
   productsJP, allProductsJP,
   regionsWithProduct,
+  buildRegionSearchContext,
 } from '@nootropic/data';
 import type { Product } from '@nootropic/data';
 
@@ -118,5 +119,15 @@ describe('record rules — affiliateUrl and formula', () => {
     const bad = productRuleProblems({ affiliateUrl: 'https://shop.example/s?k=x', ingredientDosages: [] });
     expect(bad).toHaveLength(2);
     expect(productRuleProblems({ affiliateUrl: 'https://shop.example/p/x', ingredientDosages: [dosage] })).toEqual([]);
+  });
+});
+
+describe('search — discontinued products stay findable', () => {
+  test('AU search index includes Blackmores Brain Active, labelled discontinued', () => {
+    const { searchItems } = buildRegionSearchContext(allProductsAU, 'en');
+    const row = searchItems.find((i) => i.href === '/blackmores-brain-active-review');
+    expect(row?.title).toBe('Blackmores Brain Active (Discontinued)');
+    const live = searchItems.find((i) => i.href === '/mind-lab-pro-review');
+    expect(live?.title).toBe('Mind Lab Pro');
   });
 });
