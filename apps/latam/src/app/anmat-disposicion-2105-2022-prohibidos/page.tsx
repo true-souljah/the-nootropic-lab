@@ -55,10 +55,6 @@ const articleSchema = {
   author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
   publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   reviewedBy: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
-  speakable: {
-    '@type': 'SpeakableSpecification',
-    cssSelector: ['#hero-paragraph', '.faq-question'],
-  },
 };
 
 // Dataset schema — the prohibited compound list as structured data

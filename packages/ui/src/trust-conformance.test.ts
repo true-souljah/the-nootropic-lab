@@ -5,7 +5,7 @@ import { buildProductSchema, getStrings } from '@nootropic/data';
 import type { Locale, Product } from '@nootropic/data';
 
 // Trust-conformance guards (2026-09 guidance audit, checklist items 6, 7, 9–14):
-//   - no FAQPage / HowTo JSON-LD (Google retired both rich results) and no
+//   - no FAQPage / HowTo / SpeakableSpecification JSON-LD (retired rich results) and no
 //     AggregateRating (the site hosts no user reviews);
 //   - every money template renders the localised inline disclosure
 //     (FPTrustNote) and feeds the locale bundle to the top FPDisclosure;
@@ -16,7 +16,9 @@ const UI_SRC = __dirname;
 const REPO = join(__dirname, '..', '..', '..');
 
 // JSON-LD types that must never be emitted.
-const RETIRED_TYPE = /['"]@type['"]\s*:\s*['"](FAQPage|HowTo|HowToStep|AggregateRating)['"]/;
+// SpeakableSpecification: portfolio policy since 2026-09-08 is no Speakable.
+const RETIRED_TYPE =
+  /['"]@type['"]\s*:\s*['"](FAQPage|HowTo|HowToStep|AggregateRating|SpeakableSpecification)['"]/;
 
 // apps/gcc and apps/sea are owned by concurrent PRs (2026-09); their inline
 // FAQPage blocks are removed there. Every other app is guarded here.
@@ -45,7 +47,7 @@ describe('structured data — retired / unsupported types are never emitted', ()
     expect(sources.length).toBeGreaterThan(100);
   });
 
-  it('no source file declares FAQPage / HowTo / HowToStep / AggregateRating JSON-LD', () => {
+  it('no source file declares FAQPage / HowTo / HowToStep / AggregateRating / SpeakableSpecification JSON-LD', () => {
     const offenders = sources
       .filter((f) => RETIRED_TYPE.test(readFileSync(f, 'utf8')))
       .map((f) => relative(REPO, f));
@@ -60,7 +62,7 @@ describe('structured data — retired / unsupported types are never emitted', ()
     const json = JSON.stringify(buildProductSchema(product, 'https://example.com'));
     expect(json).toContain('"@type":"Product"');
     expect(json).toContain('"@type":"Review"');
-    expect(json).not.toMatch(/FAQPage|HowTo|AggregateRating|aggregateRating/);
+    expect(json).not.toMatch(/FAQPage|HowTo|AggregateRating|aggregateRating|Speakable|speakable/);
     // Review author is the brand team, never a named Person.
     expect(json).not.toContain('"@type":"Person"');
   });

@@ -111,10 +111,6 @@ export default function IngredientDetail({
     author: buildPersonAuthorReference(undefined, siteUrl),
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: siteUrl },
     reviewedBy: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: siteUrl },
-    speakable: {
-      '@type': 'SpeakableSpecification',
-      cssSelector: ['#hero-paragraph', '.faq-question'],
-    },
   };
   const datasetSchema = {
     '@context': 'https://schema.org',

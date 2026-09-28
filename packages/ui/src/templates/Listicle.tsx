@@ -133,10 +133,6 @@ export default function Listicle({
     author: buildPersonAuthorReference(undefined, siteUrl),
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: siteUrl },
     reviewedBy: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: siteUrl },
-    speakable: {
-      '@type': 'SpeakableSpecification',
-      cssSelector: ['#hero-paragraph', '.faq-question'],
-    },
   };
   // No FAQPage JSON-LD: Google retired the FAQ rich result (2026-05-07).
   // The FAQ stays as visible content below.

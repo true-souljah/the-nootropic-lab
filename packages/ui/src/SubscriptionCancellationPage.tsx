@@ -73,10 +73,6 @@ export default function SubscriptionCancellationPage({
     description: pageDescription,
     author: buildPersonAuthorReference(undefined, siteUrl),
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: siteUrl },
-    speakable: {
-      '@type': 'SpeakableSpecification',
-      cssSelector: ['#hero-paragraph', '.faq-question'],
-    },
   };
 
   const breadcrumbSchema = {
