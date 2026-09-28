@@ -16,8 +16,8 @@ import type { AxeResults, Result } from 'axe-core';
 // Why these 3:
 //   * Root home exercises the shared chrome (Klaro banner, top nav,
 //     CommandPalette mount).
-//   * BestOf with GCC catalog carries Nahdi + Life Pharmacy + EYS
-//     private-label entries plus SFDA / MOHAP regulatory chips. The
+//   * BestOf with GCC catalog carries the Eu Yan Sang (EYS) entry
+//     plus SFDA / MOHAP regulatory chips. The
 //     GCC catalog adds halal-friendly / porcine-free copy patterns
 //     across the rank rows. PR-Q37 found the ds-faint Rank-label
 //     contrast bug on AU's BestOf; if any GCC-catalog-specific
