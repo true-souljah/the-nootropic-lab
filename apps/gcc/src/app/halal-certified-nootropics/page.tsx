@@ -32,6 +32,31 @@ const halalAuthorities: HalalAuthority[] = [
   { authority: 'IFANCA (Islamic Food and Nutrition Council of America)', country: 'United States', recognisedIn: 'Saudi Arabia (case-by-case), UAE, GCC widely', notes: 'Common certifier for U.S.-domiciled supplement brands. Recognition in individual GCC countries varies.' },
   { authority: 'GAC (Gulf Accreditation Center) approved bodies', country: 'GCC', recognisedIn: 'GCC-wide via mutual recognition', notes: 'GAC accredits Halal-certifying bodies for GCC mutual recognition. Products certified by GAC-accredited bodies are recognised across the six GCC member states.' },
   { authority: 'SFDA-approved local certifiers', country: 'Saudi Arabia', recognisedIn: 'Saudi Arabia primarily', notes: 'For products sold in Saudi pharmacies and major retailers, SFDA may require certification by an SFDA-recognised body.' },
+  { authority: 'MoIAT Halal National Mark (UAE Ministry of Industry and Advanced Technology)', country: 'United Arab Emirates', recognisedIn: 'United Arab Emirates (national conformity mark)', notes: 'Issued by the Department of Conformity at the UAE Ministry of Industry and Advanced Technology under Cabinet Decree 10/2014, as a national conformity mark for products, services and production systems.' },
+];
+
+// Verified 2026-09-29 against each brand's own page (fact sheet:
+// nootropics-research/2026-09/p5/gcc-halal.json). "No halal certificate is
+// claimed" means none was found on that page, not that the product is not halal.
+const AUDIT_CHECKED_ON = '29 September 2026';
+
+interface CapsuleAuditRow {
+  slug: string;
+  name: string;
+  format: string;
+  halalClaim: string;
+  sourceLabel: string;
+  sourceUrl: string;
+}
+
+const capsuleAudit: CapsuleAuditRow[] = [
+  { slug: 'mind-lab-pro-review', name: 'Mind Lab Pro', format: 'NutriCaps capsules made from pullulan (fermented tapioca), marketed as vegan.', halalClaim: 'No halal certificate is claimed on the brand’s page.', sourceLabel: 'mindlabpro.com — Ingredients', sourceUrl: 'https://www.mindlabpro.com/pages/ingredients' },
+  { slug: 'noocube-review', name: 'NooCube', format: 'Marketed as suitable for vegetarians; its magnesium stearate was switched to a plant-derived source. The capsule material is not named.', halalClaim: 'No halal certificate is claimed on the brand’s page.', sourceLabel: 'noocube.com', sourceUrl: 'https://noocube.com/' },
+  { slug: 'qualia-mind-review', name: 'Qualia Mind', format: 'Ingredients marketed as vegan. The capsule material is not named on the product page.', halalClaim: 'No halal certificate is claimed on the brand’s page.', sourceLabel: 'qualialife.com — Qualia Mind', sourceUrl: 'https://www.qualialife.com/shop/qualia-mind' },
+  { slug: 'onnit-alpha-brain-review', name: 'Onnit Alpha Brain', format: 'The original formula is described as vegetarian but not vegan. The capsule material is not named.', halalClaim: 'No halal certificate is claimed on the brand’s page.', sourceLabel: 'onnit.com — Alpha Brain', sourceUrl: 'https://www.onnit.com/products/alpha-brain-30-ct' },
+  { slug: 'thesis-nootropics-review', name: 'Thesis', format: 'Product details sit behind a quiz; we could not reach any capsule information.', halalClaim: 'No halal certificate is claimed on the page we could reach.', sourceLabel: 'takethesis.com', sourceUrl: 'https://takethesis.com/' },
+  { slug: 'nootropics-depot-lions-mane', name: 'Nootropics Depot Lion’s Mane', format: 'No capsule-material or vegetarian information found on the product page.', halalClaim: 'No halal certificate is claimed on the brand’s page.', sourceLabel: 'nootropicsdepot.com — Lion’s Mane', sourceUrl: 'https://nootropicsdepot.com/buy-lions-mane/' },
+  { slug: 'eu-yan-sang-brainmax-review', name: 'Eu Yan Sang BrainMAX+', format: 'Sold as 3g sachets (30 per box), not capsules, so there is no capsule shell.', halalClaim: 'The Singapore store has a “Halal Certified” category, but we could not confirm that BrainMAX+ itself carries the tag.', sourceLabel: 'euyansang.com.sg — BrainMAX+', sourceUrl: 'https://www.euyansang.com.sg/en/brainmax-888842543107.html' },
 ];
 
 const articleSchema = {
@@ -76,10 +101,12 @@ const breadcrumbSchema = {
 
 const faqs = [
   { q: 'Why does Halal certification matter for nootropic supplements?', a: 'Two reasons. First, capsule shells: gelatin capsules are typically derived from porcine or bovine sources, and Halal compliance requires either bovine gelatin from Halal-slaughtered animals or plant-based alternatives (HPMC, pullulan). Most supplement brands using vegetable capsules are Halal-friendly even without formal certification. Second, ingredients: alcohol extracts, certain emulsifiers, and some animal-derived ingredients require verification. Formal Halal certification confirms both elements have been audited.' },
-  { q: 'What is HPMC and is it Halal?', a: 'HPMC (hydroxypropyl methylcellulose) is a plant-derived capsule material made from cellulose. It is intrinsically Halal-friendly and Vegan-friendly, requiring no animal sourcing audit. Most premium Western nootropic brands (Mind Lab Pro, NooCube, Performance Lab) use HPMC vegetable capsules. We surface capsule-source information in our reviews where it is verifiable from manufacturer documentation.' },
+  { q: 'What is HPMC and is it Halal?', a: 'HPMC (hydroxypropyl methylcellulose) is a plant-derived capsule material made from cellulose. It is intrinsically Halal-friendly and Vegan-friendly, requiring no animal sourcing audit. Not every plant-based capsule is HPMC: Mind Lab Pro uses pullulan capsules (NutriCaps), and most other brands in our GCC catalogue do not name their capsule material on their product pages (see the audit above). We surface capsule-source information where it is verifiable from manufacturer documentation.' },
   { q: 'Which Halal authority is most widely recognised in the GCC?', a: 'JAKIM Malaysia is the most widely recognised internationally. Saudi Arabia\'s SFDA accepts certifications from a list of approved bodies including JAKIM, IFANCA, and GAC-accredited regional certifiers. UAE accepts JAKIM, MUI Indonesia, Halal Council of Britain, and IFANCA. For products sold across multiple GCC countries, JAKIM certification is the safest bet for broad acceptance.' },
   { q: 'Can I trust a "Halal" claim without third-party certification?', a: 'A formal certification mark from a recognised authority (JAKIM, MUI, IFANCA, etc.) carries the most weight. Manufacturer self-declarations of "Halal" or "suitable for Halal diet" without third-party certification are weaker signals. We surface formal certifications where verifiable and never fabricate certifications. For products without formal certification but using HPMC capsules and no alcohol/animal extracts, we describe the ingredient and capsule source so consumers can make informed decisions.' },
   { q: 'What is SFDA and how does it differ from Halal certification?', a: 'The Saudi Food and Drug Authority regulates safety, efficacy, and quality of supplements sold in Saudi Arabia. SFDA registration confirms regulatory clearance to sell — separate from Halal certification, which addresses religious dietary compliance. A product may be SFDA-registered without Halal certification (and vice versa, in theory). Premium supplements sold in Saudi pharmacies typically hold both.' },
+  { q: 'Is taking a nootropic permissible at all?', a: 'A fatwa published on islamweb.net (fatwa No. 354190, on taking nootropics) states that “the basic principle is that it is permissible to use every useful thing unless there is a reason to forbid it, such as if it causes harm”, and leaves the assessment of benefit and harm to medical specialists. It does not address whether a particular product’s ingredients or capsule are halal-compliant, which is the certification question this page covers. We report what the fatwa says; this page is not a religious ruling.' },
+  { q: 'Is a vegetarian capsule the same as a halal-certified one?', a: 'No. “Vegetarian” or “vegan” describes where the ingredients come from; halal certification is a separate audit by a certifying body. NooCube and Onnit describe their products as vegetarian, and Mind Lab Pro markets its capsules as vegan, but none of those brand pages claims a halal certificate.' },
 ];
 
 export default function Page() {
@@ -107,15 +134,33 @@ export default function Page() {
         </h1>
 
         <p id="hero-paragraph" className="text-lg text-gray-600 mb-6 leading-relaxed">
-          GCC consumers preference Halal-certified supplements. Two factors determine Halal compliance for
-          nootropic supplements: <strong>capsule shell composition</strong> (gelatin requires Halal-slaughter
-          provenance; HPMC vegetable cellulose is intrinsically Halal-friendly) and <strong>ingredient
-          sourcing</strong> (alcohol extracts and animal-derived ingredients require verification). This page
-          covers the certifying authorities accepted in Saudi Arabia, UAE, and the broader GCC, capsule-source
-          taxonomy, and the SFDA + Halal trust signals we surface in our reviews.
+          GCC buyers ask two separate questions: is taking a nootropic permissible at all, and does a specific
+          product meet halal requirements? For the second, two factors matter: <strong>capsule shell
+          composition</strong> (gelatin requires Halal-slaughter provenance; HPMC vegetable cellulose is
+          intrinsically Halal-friendly) and <strong>ingredient sourcing</strong> (alcohol extracts and
+          animal-derived ingredients require verification). This page covers what a published fatwa says on the
+          first question, the certifying authorities accepted in Saudi Arabia, UAE, and the broader GCC, capsule-source
+          taxonomy, and what each brand in our GCC catalogue says about its capsules. For our rankings, see{' '}
+          <Link href="/best-nootropics/" className="text-green-700 underline">the best nootropics for the GCC</Link>.
         </p>
 
         <AffiliateDisclosure />
+
+        <section className="my-10">
+          <h2 className="text-2xl font-bold text-gray-900 mb-3">Is it permissible to take a nootropic at all?</h2>
+          <p className="text-sm text-gray-700 leading-relaxed mb-3">
+            A fatwa published on{' '}
+            <a href="https://www.islamweb.net/en/fatwa/354190/taking-nootropics-smart-drugs" target="_blank" rel="noopener noreferrer" className="text-green-700 underline">islamweb.net (fatwa No. 354190)</a>{' '}
+            states that &ldquo;the basic principle is that it is permissible to use every useful thing unless there is
+            a reason to forbid it, such as if it causes harm&rdquo;, and leaves the assessment of benefit and harm to
+            medical specialists.
+          </p>
+          <p className="text-sm text-gray-700 leading-relaxed">
+            The fatwa does not address whether a particular product&apos;s ingredients or capsule are halal-compliant.
+            That is a separate, product-level question, and it is what the rest of this page covers. We report what
+            the fatwa says; this page is not a religious ruling.
+          </p>
+        </section>
 
         <section className="my-10">
           <h2 className="text-2xl font-bold text-gray-900 mb-3">Capsule shell taxonomy</h2>
@@ -165,20 +210,94 @@ export default function Page() {
               </div>
             ))}
           </div>
+
+          <h3 className="text-lg font-semibold text-gray-900 mt-8 mb-2">GSO 2055-1 and GSO 2055-2: product standard vs certifier standard</h3>
+          <p className="text-sm text-gray-700 leading-relaxed mb-3">
+            The GCC Standardization Organization publishes two halal standards. <strong>GSO 2055-1:2015</strong>,
+            &ldquo;Halal Food – Part 1: General Requirements&rdquo;, defines the general requirements for halal food
+            along the chain, including receiving, preparation, packaging, labelling and halal food service.{' '}
+            <strong>GSO 2055-2:2021</strong>, &ldquo;General Requirements for Halal Certification Bodies&rdquo;, sets
+            the requirements for the bodies that certify products as halal.
+          </p>
+          <p className="text-sm text-gray-700 leading-relaxed">
+            In short, 2055-1 covers what halal means for the product and 2055-2 covers who may certify it. GSO sells
+            the full text of 2055-1 rather than publishing it free, and its store listing shows a revision in progress.
+          </p>
+        </section>
+
+        <section className="my-10">
+          <h2 className="text-2xl font-bold text-gray-900 mb-3">Ingredient watch-outs beyond the capsule</h2>
+          <ul className="list-disc pl-5 text-sm text-gray-700 leading-relaxed space-y-2">
+            <li>
+              <strong>Gelatin source.</strong> NOW Foods, a brand that sells halal-certified supplements, says its
+              halal gelatin capsules use bovine- or fish-derived gelatin, never porcine.
+            </li>
+            <li>
+              <strong>L-cysteine (E920).</strong> A halal-diet guide from Ingredicheck notes that this additive
+              &ldquo;can be synthesised, or derived from human hair, duck feathers, or hog (pig) hair&rdquo;, and states
+              that pork-derived L-cysteine is haram.
+            </li>
+            <li>
+              <strong>Alcohol in flavourings.</strong> The same guide notes that alcohol &ldquo;is routinely used as a
+              carrier solvent in natural and artificial flavourings and never disclosed as such on the ingredient
+              list&rdquo;.
+            </li>
+          </ul>
+          <p className="text-xs text-gray-500 mt-3">
+            We have not checked the full Supplement Facts panel of each product in our catalogue against these
+            watch-outs; the audit below covers capsule material and the brands&apos; own halal claims.
+          </p>
         </section>
 
         <section className="my-10">
           <h2 className="text-2xl font-bold text-gray-900 mb-3">Audit of our GCC catalog</h2>
           <p className="text-sm text-gray-700 leading-relaxed mb-4">
-            We track <strong>{productsGCC.length} products</strong> in our GCC catalog. Where Halal certification
-            is verifiable from manufacturer documentation, we surface the certifying authority. Where capsule
-            source is verifiable but no formal certification exists, we describe the capsule type so consumers
-            can make informed decisions. We never fabricate certifications. Per-product Halal field surfacing
-            is on our 2026 roadmap.
+            We track <strong>{productsGCC.length} products</strong> in our GCC catalog. On {AUDIT_CHECKED_ON} we
+            checked each brand&apos;s own product or ingredients page for its capsule material and for any halal
+            certificate claim. &ldquo;No halal certificate is claimed&rdquo; means we found none on that page, not that
+            the product is not halal. We never fabricate certifications.
           </p>
-          <p className="text-xs text-gray-500 italic">
-            Until per-product Halal surfacing ships, verify each Halal claim directly with the certifying
-            authority before purchasing.
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border border-gray-200 rounded-lg">
+              <caption className="sr-only">Capsule material and halal-certificate claims per product, from each brand&apos;s own page, checked {AUDIT_CHECKED_ON}</caption>
+              <thead className="bg-gray-50">
+                <tr>
+                  <th scope="col" className="text-left p-3 font-semibold text-gray-900">Product</th>
+                  <th scope="col" className="text-left p-3 font-semibold text-gray-900">Capsule or format</th>
+                  <th scope="col" className="text-left p-3 font-semibold text-gray-900">Halal certificate</th>
+                  <th scope="col" className="text-left p-3 font-semibold text-gray-900">Source</th>
+                </tr>
+              </thead>
+              <tbody>
+                {capsuleAudit.map(row => (
+                  <tr key={row.slug} className="border-t border-gray-200 align-top">
+                    <th scope="row" className="text-left p-3 font-semibold">
+                      <Link href={`/${row.slug}/`} className="text-green-700 underline">{row.name}</Link>
+                    </th>
+                    <td className="p-3 text-gray-800">{row.format}</td>
+                    <td className="p-3 text-gray-800">{row.halalClaim}</td>
+                    <td className="p-3">
+                      <a href={row.sourceUrl} target="_blank" rel="noopener noreferrer" className="text-green-700 underline">
+                        {row.sourceLabel}
+                      </a>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-sm text-gray-700 leading-relaxed mt-4">
+            &ldquo;Vegetarian&rdquo; or &ldquo;vegan&rdquo; on a label is not a halal certificate. Even Mind Lab Pro&apos;s
+            own blog, answering &ldquo;Are nootropics halal?&rdquo;, says that for specific halal compliance &ldquo;you
+            would need to check individual nootropic ingredients and manufacturing processes with appropriate
+            certification authorities&rdquo;.
+          </p>
+          <p className="text-sm text-gray-700 leading-relaxed mt-3">
+            Whether each of these brands delivers to your country is a separate question; see{' '}
+            <Link href="/which-nootropics-ship-to-the-gcc/" className="text-green-700 underline">which nootropic brands ship to the GCC</Link>.
+          </p>
+          <p className="text-xs text-gray-500 italic mt-3">
+            Verify any halal claim directly with the certifying authority before purchasing.
           </p>
         </section>
 
@@ -203,6 +322,14 @@ export default function Page() {
             { type: 'Regulatory', label: 'JAKIM (Department of Islamic Development Malaysia) — Halal Hub', url: 'https://www.halal.gov.my/' },
             { type: 'Regulatory', label: 'BPJPH (Halal Product Assurance Agency, Indonesia)', url: 'https://bpjph.halal.go.id/' },
             { type: 'Regulatory', label: 'IFANCA (Islamic Food and Nutrition Council of America)', url: 'https://www.ifanca.org/' },
+            { type: 'Regulatory', label: 'UAE Ministry of Industry and Advanced Technology — Halal National Mark', url: 'https://moiat.gov.ae/en/programs/halal' },
+            { type: 'Regulatory', label: 'GSO 2055-1:2015 — Halal Food, Part 1: General Requirements (GSO store)', url: 'https://www.gso.org.sa/store/standards/GSO:693304/GSO%202055-1:2015?lang=en' },
+            { type: 'Regulatory', label: 'GSO 2055-2:2021 — General Requirements for Halal Certification Bodies (GSO store)', url: 'https://www.gso.org.sa/store/standards/GSO:790738/GSO%202055-2:2021?lang=en' },
+            { type: 'Religious', label: 'islamweb.net — Fatwa No. 354190 on taking nootropics', url: 'https://www.islamweb.net/en/fatwa/354190/taking-nootropics-smart-drugs' },
+            { type: 'Brand page', label: 'NOW Foods — Halal certification FAQs', url: 'https://www.nowfoods.com/healthy-living/FAQs/halal-certification-faqs' },
+            { type: 'Editorial', label: 'Ingredicheck — Halal diet guide: pork-derived E-numbers and alcohol in flavourings', url: 'https://www.ingredicheck.app/blog/halal-diet-guide-pork-derived-e-numbers-alcohol-in-flavourings-and-certification-marks-explained' },
+            { type: 'Brand page', label: 'Mind Lab Pro blog — Are nootropics ethical?', url: 'https://www.mindlabpro.com/blogs/nootropics/are-nootropics-ethical' },
+            ...capsuleAudit.map(row => ({ type: 'Brand page', label: row.sourceLabel, url: row.sourceUrl })),
             { type: 'Editorial', label: 'The Nootropic Lab — Methodology', url: `${SITE_URL}/methodology/` },
           ]}
         />

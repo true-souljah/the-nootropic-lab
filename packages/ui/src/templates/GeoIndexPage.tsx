@@ -55,6 +55,8 @@ export interface GeoIndexPageProps {
   homeLabel?: string;
   searchItems?: SearchItem[];
   uiStrings?: UIStrings;
+  /** Optional region-specific content rendered below the list (e.g. a related-guide link). */
+  children?: React.ReactNode;
 }
 
 export default function GeoIndexPage({
@@ -68,6 +70,7 @@ export default function GeoIndexPage({
   homeLabel = 'Home',
   searchItems,
   uiStrings,
+  children,
 }: GeoIndexPageProps) {
   const links = buildGeoIndexLinks(items, basePath);
   const pageUrl = `${siteUrl}${links.length ? links[0].href.slice(0, links[0].href.indexOf('/', 1) + 1) : basePath}`;
@@ -118,6 +121,7 @@ export default function GeoIndexPage({
             </li>
           ))}
         </ul>
+        {children}
       </article>
     </PublicShell>
   );

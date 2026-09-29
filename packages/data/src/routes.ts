@@ -42,6 +42,7 @@ export const REGION_ONLY_ROUTES: Readonly<Record<string, readonly RegionCode[]>>
   '/braineffect-vs-mind-lab-pro': ['eu'],
   '/aor-ortho-mind-vs-mind-lab-pro': ['ca'],
   '/alpha-brain-canada': ['ca'],
+  '/which-nootropics-ship-to-the-gcc': ['gcc'],
   '/blackmores-brain-active-vs-mind-lab-pro': ['au'],
 };
 
