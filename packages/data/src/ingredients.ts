@@ -31,8 +31,10 @@ export interface FAQ {
 
 /**
  * A cited study behind an ingredient page. Entries come only from the
- * evidence review in packages/data/evidence/ingredients-2026-09/<slug>.json
- * (`studies[]` with status 200); pmid/title/year/design are copied verbatim.
+ * evidence review in packages/data/evidence/ingredients-2026-09/<slug>.json:
+ * either a `studies[]` entry with status 200 (pmid/title/year/design copied
+ * verbatim) or a `safetySignals[]` entry with a PMID (pmid/title/year/url
+ * copied verbatim from that signal).
  */
 export interface IngredientSource {
   pmid?: string;
@@ -94,7 +96,7 @@ export const ingredients: Ingredient[] = [
     faqs: [
       { question: 'Fruiting body vs mycelium — which should I buy?', answer: 'Always choose fruiting body extract. Mycelium is grown on grain substrate and most commercial mycelium products contain primarily starch, not active hericenones. Look for "fruiting body" or "dual extract" on the label. Verified extracts like that in Mind Lab Pro use 500mg fruiting body at meaningful concentrations.' },
       { question: 'How long before I notice results?', answer: "Two small 2023 pilot trials found modest acute effects on attention and reaction-time tasks 1–2 hours after a single 1–1.8g dose. The clearest result — in mild cognitive impairment — built over 8–16 weeks of 3g/day (Mori 2009) and faded within 4 weeks of stopping. Do not judge this supplement at 2 weeks." },
-      { question: 'Can I take Lion\'s Mane every day?', answer: "Yes. Unlike some adaptogens, Lion's Mane is not cycled in the trials; the 16-week MCI trial used daily dosing and scores declined within 4 weeks of stopping, so any benefit appears to depend on continued use." },
+      { question: 'Can I take Lion\'s Mane every day?', answer: "Daily use is how it was tested, but only for a limited time: daily dosing was used for up to 16 weeks in the MCI trial (Mori 2009), the other trials reviewed ran 12 weeks or less and the healthy-adult pilots 28 days or less, so longer-term controlled safety data are limited. Unlike some adaptogens, Lion's Mane is not cycled in the trials; the 16-week MCI trial used daily dosing and scores declined within 4 weeks of stopping, so any benefit appears to depend on continued use." },
       { question: "Does Lion's Mane interact with any medications?", answer: "None of the human trials reviewed reported drug interactions, but they were small and short. Always check with your doctor if you are on prescription drugs." },
       { question: 'What does the research actually show for healthy adults?', answer: "Studies in healthy adults are small pilots. Docherty 2023 (n=41, 1.8g/day) found faster Stroop performance 60 minutes after a dose and only a non-significant trend toward lower stress after 28 days; La Monica 2023 found faster N-Back and Go reaction times 2 hours after 1g. Effects are subtler in healthy people than in mild cognitive impairment." },
     ],
@@ -359,7 +361,7 @@ export const ingredients: Ingredient[] = [
       { question: 'Alpha-GPC vs Citicoline — which is better for focus?', answer: "Both are excellent. Alpha-GPC has a slight edge for acute cholinergic effects and is preferred for workout performance. Citicoline also provides cytidine (uridine precursor), giving it a broader neuroprotective profile. For pure focus and acetylcholine, Alpha-GPC wins slightly; for comprehensive brain health support, Citicoline is more complete. Don't stack them together — you'll get too much choline activity." },
       { question: 'Is it safe to combine Alpha-GPC with Huperzine A?', answer: 'Use caution. Both increase acetylcholine (Alpha-GPC via synthesis, Huperzine A via inhibiting breakdown). The combination is potent and can cause cholinergic overstimulation — symptoms include nausea, headache, excessive salivation, and muscle cramps. If combining, use lower doses of each (e.g. 200mg Alpha-GPC + 50mcg Huperzine A) and do not take daily.' },
       { question: 'Why does Alpha-GPC powder go sticky?', answer: "Alpha-GPC is highly hygroscopic — it absorbs water from the air quickly. This is normal and doesn't affect potency. Store in an airtight container in a cool, dry place. Capsule form avoids this problem entirely." },
-      { question: 'Is there a cardiovascular risk with Alpha-GPC?', answer: 'Unresolved. A 2023 cohort study linked higher plasma choline — not alpha-GPC supplements — with incident cardiovascular disease, while a meta-analysis of dietary choline intake found no association. No study has tested alpha-GPC supplementation directly for cardiovascular outcomes. If you have cardiovascular disease, discuss it with your doctor.' },
+      { question: 'Is there a cardiovascular risk with Alpha-GPC?', answer: 'Unresolved. The CARDIA cohort study (published 2024) linked higher plasma choline — not alpha-GPC supplements — with incident cardiovascular disease, while a meta-analysis of dietary choline intake found no association. No study has tested alpha-GPC supplementation directly for cardiovascular outcomes. If you have cardiovascular disease, discuss it with your doctor.' },
     ],
     sources: [
       { pmid: '36683513', doi: '10.3233/JAD-221189', url: 'https://pubmed.ncbi.nlm.nih.gov/36683513/', title: 'Activity of Choline Alphoscerate on Adult-Onset Cognitive Dysfunctions: A Systematic Review and Meta-Analysis', year: 2023, design: 'systematic review / meta-analysis' },
@@ -368,6 +370,7 @@ export const ingredients: Ingredient[] = [
       { pmid: '26582972', doi: '10.1186/s12970-015-0103-x', url: 'https://pubmed.ncbi.nlm.nih.gov/26582972/', title: 'The effect of 6 days of alpha glycerylphosphorylcholine on isometric strength (Bellar et al., 2015)', year: 2015, design: 'RCT, double-blind, placebo-controlled, crossover' },
       { pmid: '29042830', doi: '10.1186/s12970-017-0196-5', url: 'https://pubmed.ncbi.nlm.nih.gov/29042830/', title: 'Evaluation of the effects of two doses of alpha glycerylphosphorylcholine on physical and psychomotor performance', year: 2017, design: 'RCT, randomized, double-blind, placebo- and caffeine-controlled' },
       { pmid: '1428296', url: 'https://pubmed.ncbi.nlm.nih.gov/1428296/', title: 'A comparative study of free plasma choline levels following intramuscular administration of L-alpha-glycerylphosphorylcholine and citicoline in normal volunteers', year: 1992, design: 'RCT, crossover, pharmacokinetic comparison' },
+      { pmid: '37865185', url: 'https://pubmed.ncbi.nlm.nih.gov/37865185/', title: 'Choline metabolites and incident cardiovascular disease in a prospective cohort of adults: Coronary Artery Risk Development in Young Adults (CARDIA) Study.', year: 2024 },
     ],
     evidenceReviewedAt: '2026-09-28',
   },
@@ -412,6 +415,8 @@ export const ingredients: Ingredient[] = [
       { pmid: '26609282', doi: '10.1186/s12970-015-0104-9', url: 'https://pubmed.ncbi.nlm.nih.gov/26609282/', title: 'Examining the effect of Withania somnifera supplementation on muscle strength and recovery: a randomized controlled trial.', year: 2015, design: 'rct' },
       { pmid: '30854916', doi: '10.1177/1557988319835985', url: 'https://pubmed.ncbi.nlm.nih.gov/30854916/', title: 'A Randomized, Double-Blind, Placebo-Controlled, Crossover Study Examining the Hormonal and Vitality Effects of Ashwagandha in Aging, Overweight Males.', year: 2019, design: 'rct' },
       { pmid: '37631044', doi: '10.3390/ph16081129', url: 'https://pubmed.ncbi.nlm.nih.gov/37631044/', title: 'Herb-Induced Liver Injury by Ayurvedic Ashwagandha as Assessed for Causality by the Updated RUCAM: An Emerging Cause.', year: 2023, design: 'case report' },
+      { pmid: '36900932', url: 'https://pubmed.ncbi.nlm.nih.gov/36900932/', title: 'Liver Dangers of Herbal Products: A Case Report of Ashwagandha-Induced Liver Injury.', year: 2023 },
+      { pmid: '38969606', url: 'https://pubmed.ncbi.nlm.nih.gov/38969606/', title: 'Danish ban on Ashwagandha: Truth, evidence, ethics, and regulations.', year: 2024 },
     ],
     evidenceReviewedAt: '2026-09-28',
   },
@@ -537,13 +542,14 @@ export const ingredients: Ingredient[] = [
       { question: 'Can I take caffeine with nootropic stacks that contain stimulants?', answer: 'Be careful. Many nootropic stacks (e.g. Hunter Focus) already contain 100mg caffeine. Adding coffee or caffeine pills on top can push you over 400mg/day. Always check the label for caffeine content before stacking. If a product contains caffeine, reduce your external caffeine intake accordingly.' },
     ],
     sources: [
-      { pmid: '27612937', doi: '10.1016/j.neubiorev.2016.09.001', url: 'https://pubmed.ncbi.nlm.nih.gov/27612937/', title: 'A review of caffeine\'s effects on cognitive, physical and occupational performance', year: 2016, design: 'narrative review (McLellan, Caldwell & Lieberman) — this is the site\'s cited \'McLellan et al. 2016\' source; note it is a REVIEW, not a formal meta-analysis as the site\'s studySummary field labels it' },
+      { pmid: '27612937', doi: '10.1016/j.neubiorev.2016.09.001', url: 'https://pubmed.ncbi.nlm.nih.gov/27612937/', title: 'A review of caffeine\'s effects on cognitive, physical and occupational performance', year: 2016, design: 'narrative review (McLellan, Caldwell & Lieberman)' },
       { pmid: '20464765', doi: '10.1002/14651858.CD008508', url: 'https://pubmed.ncbi.nlm.nih.gov/20464765/', title: 'Caffeine for the prevention of injuries and errors in shift workers', year: 2010, design: 'Cochrane systematic review and meta-analysis (13 RCTs)' },
       { pmid: '42761483', doi: '10.3389/fnut.2026.1893033', url: 'https://pubmed.ncbi.nlm.nih.gov/42761483/', title: 'Acute caffeine supplementation as a nutrition-based strategy to mitigate sleep-loss-related cognitive and operational performance impairments in military personnel: a systematic review and meta-analysis', year: 2026, design: 'systematic review and meta-analysis (7 RCTs)' },
       { pmid: '24413697', doi: '10.1038/nn.3623', url: 'https://pubmed.ncbi.nlm.nih.gov/24413697/', title: 'Post-study caffeine administration enhances memory consolidation in humans', year: 2014, design: 'double-blind RCT (Borota et al.)' },
       { pmid: '42033594', doi: '10.1007/s40279-026-02441-4', url: 'https://pubmed.ncbi.nlm.nih.gov/42033594/', title: 'Caffeine Use in Sport: A Systematic Review and Meta-analysis of Acute Side Effects and Implications for Athlete Health and Safety', year: 2026, design: 'systematic review and meta-analysis (48 RCTs, 38 in meta-analysis)' },
       { pmid: '24235903', doi: '10.5664/jcsm.3170', url: 'https://pubmed.ncbi.nlm.nih.gov/24235903/', title: 'Caffeine effects on sleep taken 0, 3, or 6 hours before going to bed', year: 2013, design: 'double-blind, placebo-controlled RCT (Drake et al.)' },
       { url: 'https://www.efsa.europa.eu/en/efsajournal/pub/4102', title: 'EFSA Scientific Opinion on the Safety of Caffeine (EFSA Journal 2015;13(5):4102)', year: 2015, design: 'regulatory scientific opinion' },
+      { pmid: '34871964', url: 'https://pubmed.ncbi.nlm.nih.gov/34871964/', title: 'Effects of caffeine on anxiety and panic attacks in patients with panic disorder: A systematic review and meta-analysis.', year: 2022 },
     ],
     evidenceReviewedAt: '2026-09-28',
   },
@@ -648,7 +654,7 @@ export const ingredients: Ingredient[] = [
     productsContaining: ['performance-lab-mind-review'],
     humanEffects: [
       { effect: 'Attention & Focus', evidenceStrength: 'preliminary', magnitude: 'small', studies: 3, notes: 'Two non-randomized studies from one author group (Belcaro 2014; Luzzi 2011) report improvements; the independent Cochrane review rates pine bark evidence as very low certainty.' },
-      { effect: 'Oxidative Stress Reduction', evidenceStrength: 'strong', magnitude: 'moderate', studies: 1, notes: 'Plasma free radicals fell 30.4% (vs +0.9% in controls) over 12 weeks in Belcaro 2014; proanthocyanidin antioxidant activity is well established mechanistically.' },
+      { effect: 'Oxidative Stress Reduction', evidenceStrength: 'preliminary', magnitude: 'moderate', studies: 1, notes: 'Plasma free radicals fell 30.4% (vs +0.9% in controls) over 12 weeks in Belcaro 2014; proanthocyanidin antioxidant activity is well established mechanistically.' },
       { effect: 'Cerebral Blood Flow', evidenceStrength: 'moderate', magnitude: 'small', notes: 'Proposed via eNOS stimulation and nitric oxide production; not re-verified in our 2026 review.' },
       { effect: 'Memory', evidenceStrength: 'preliminary', magnitude: 'small', studies: 2, notes: 'A non-randomized student study (Luzzi 2011) reported memory gains, and a 2025 network meta-analysis ranked Pycnogenol highly in mild cognitive impairment, with a caution about heterogeneous trials.' },
     ],
@@ -670,7 +676,7 @@ export const ingredients: Ingredient[] = [
       { question: 'Why is the dose in Performance Lab Mind only 75mg?', answer: 'Performance Lab Mind uses 75mg Maritime Pine Bark — below the 100-200mg clinical dose used in most standalone trials. However, in a multi-ingredient formula with Citicoline and Tyrosine, the synergistic effects may partially compensate. It is still technically underdosed relative to the standalone evidence.' },
     ],
     sources: [
-      { pmid: '24675223', url: 'https://pubmed.ncbi.nlm.nih.gov/24675223/', title: 'Pycnogenol® improves cognitive function, attention, mental performance and specific professional skills in healthy professionals aged 35-55.', year: 2014, design: 'Product-evaluation registry study (PubMed article type tags: \'Clinical Trial\' — NOT tagged as randomized or double-blind; this is a controlled but apparently non-randomized comparative registry study, contrary to the \'RCT\' label our page assigns it)' },
+      { pmid: '24675223', url: 'https://pubmed.ncbi.nlm.nih.gov/24675223/', title: 'Pycnogenol® improves cognitive function, attention, mental performance and specific professional skills in healthy professionals aged 35-55.', year: 2014, design: 'Product-evaluation registry study (non-randomised)' },
       { pmid: '22108481', url: 'https://pubmed.ncbi.nlm.nih.gov/22108481/', title: 'Pycnogenol® supplementation improves cognitive function, attention and mental performance in students.', year: 2011, design: 'Controlled Clinical Trial (PubMed tag: \'Controlled Clinical Trial\', not \'Randomized Controlled Trial\' — comparison against a non-randomized control group)' },
       { pmid: '31333448', doi: '10.3389/fphar.2019.00694', url: 'https://pubmed.ncbi.nlm.nih.gov/31333448/', title: 'Assessing the Efficacy and Mechanisms of Pycnogenol on Cognitive Aging From Animal and Human Studies.', year: 2019, design: 'Narrative review' },
       { pmid: '32990945', doi: '10.1002/14651858.CD008294.pub5', url: 'https://pubmed.ncbi.nlm.nih.gov/32990945/', title: 'Pine bark (Pinus spp.) extract for treating chronic disorders.', year: 2020, design: 'Systematic review / meta-analysis (Cochrane, independent)' },
@@ -693,10 +699,10 @@ export const ingredients: Ingredient[] = [
       { effect: 'Cognitive Function (MCI/Aging)', evidenceStrength: 'strong', magnitude: 'moderate', studies: 2, notes: 'Montgomery 2003 meta-analysis (1.5–3g/day, 3–12 months) found a modest pooled effect (ES≈0.2) in MCI and mild Alzheimer\'s; a 1990 RCT at 2g/day improved memory and attention in mildly impaired elderly.' },
       { effect: 'Mental Energy & Fatigue', evidenceStrength: 'moderate', magnitude: 'moderate', studies: 1, notes: 'A 2022 RCT in pre-frail older adults (3g/day, 3 months) improved MMSE and walking distance. No healthy-young-adult trial was found.' },
       { effect: 'Mood & Depression', evidenceStrength: 'moderate', magnitude: 'large', studies: 1, notes: 'Veronese 2018 (12 RCTs, n=791): large pooled reduction in depressive symptoms (SMD −1.10, high heterogeneity), comparable to antidepressants with fewer adverse effects, most effective in older adults.' },
-      { effect: 'Neuroprotection', evidenceStrength: 'preliminary', magnitude: 'small', studies: 2, notes: 'A 2020 critical review says its role in dementia is "still under debate"; in a 2024 trial a donepezil + ALCAR + ginkgo arm did worse than donepezil alone (confounded by the ginkgo).' },
+      { effect: 'Neuroprotection', evidenceStrength: 'preliminary', magnitude: 'small', studies: 2, notes: 'A 2020 critical review says its role in dementia is "still under debate"; in a 2024 Korean trial the pooled open-label donepezil + ALCAR and donepezil + ginkgo arms declined on MMSE while donepezil alone and donepezil + choline alfoscerate improved — ALCAR\'s own contribution cannot be isolated from the pooled ginkgo arm.' },
     ],
     howToTake: {
-      dosage: '1500–3000mg/day — the dose range of the positive trials; 500–1000mg is untested',
+      dosage: '1500–3000mg/day — the dose range of the positive trials; no positive trial we reviewed used less than 1,500mg/day',
       timing: 'Morning or early afternoon. ALCAR has mild stimulatory properties — avoid evening dosing to prevent sleep disruption.',
       withFood: 'Can be taken with or without food. Absorption is not significantly affected by meals.',
       forms: 'Capsule or powder. ALCAR (acetyl form) is specifically required — plain L-Carnitine does not cross the BBB effectively. Look for "Acetyl-L-Carnitine" or "ALCAR" on the label, not "L-Carnitine" or "L-Carnitine L-Tartrate".',
@@ -719,6 +725,8 @@ export const ingredients: Ingredient[] = [
       { pmid: '36043711', doi: '10.2174/1381612828666220830092815', url: 'https://pubmed.ncbi.nlm.nih.gov/36043711/', title: 'Acetyl-L-carnitine Slows the Progression from Prefrailty to Frailty in Older Subjects: A Randomized Interventional Clinical Trial', year: 2022, design: 'RCT, randomized, observational, double-blind, placebo-controlled' },
       { pmid: '32408706', doi: '10.3390/nu12051389', url: 'https://pubmed.ncbi.nlm.nih.gov/32408706/', title: 'Acetyl-L-Carnitine in Dementia and Other Cognitive Disorders: A Critical Update', year: 2020, design: 'narrative/critical review' },
       { pmid: '38875437', doi: '10.1097/MD.0000000000038067', url: 'https://pubmed.ncbi.nlm.nih.gov/38875437/', title: 'Comparative study of choline alfoscerate as a combination therapy with donepezil: A mixed double-blind randomized controlled and open-label observation trial', year: 2024, design: 'RCT, mixed double-blind randomized controlled and open-label' },
+      { pmid: '36940629', url: 'https://pubmed.ncbi.nlm.nih.gov/36940629/', title: 'Triggers for acute mood episodes in bipolar disorder: A systematic review.', year: 2023 },
+      { pmid: '35311615', url: 'https://pubmed.ncbi.nlm.nih.gov/35311615/', title: 'Clinician guidelines for the treatment of psychiatric disorders with nutraceuticals and phytoceuticals: The World Federation of Societies of Biological Psychiatry (WFSBP) and Canadian Network for Mood and Anxiety Treatments (CANMAT) Taskforce.', year: 2022 },
     ],
     evidenceReviewedAt: '2026-09-28',
   },
@@ -750,7 +758,7 @@ export const ingredients: Ingredient[] = [
     ],
     faqs: [
       { question: 'Is Lutemax 2020 a nootropic?', answer: 'Not in the traditional sense. It does not directly modulate neurotransmitters. Lutein and zeaxanthin accumulate in the eye and brain, and generic lutein/zeaxanthin trials found small memory and processing-speed gains after 6–12 months — but no trial has tested Lutemax 2020 itself for cognition or eye strain.' },
-      { question: 'Can I get enough lutein from diet?', answer: 'Lutein is found in egg yolks, spinach, kale, and corn. Most Western diets provide only 1-2mg/day — well below the 10-20mg clinical dose. Supplementation is the practical route to reach therapeutic levels.' },
+      { question: 'Can I get enough lutein from diet?', answer: 'Lutein is found in egg yolks, spinach, kale, and corn. Most Western diets provide only 1-2mg/day — well below the 12–27mg/day used in the trials. Supplementation is the practical route to reach therapeutic levels.' },
       { question: 'How is Lutemax 2020 different from generic lutein?', answer: 'Lutemax 2020 provides both zeaxanthin isomers (RR- and RS-meso-zeaxanthin) in addition to lutein, in a roughly 5:1 lutein-to-zeaxanthin ratio. Generic lutein supplements typically provide only lutein or only one zeaxanthin form. No trial has compared Lutemax 2020 head-to-head with generic lutein.' },
       { question: 'Does it reduce eye strain from screens?', answer: 'Not shown. Our 2026 PubMed review found no trial testing lutein/zeaxanthin against digital eye strain, screen-related headache or eye fatigue. The measured effects are higher macular pigment and faster glare recovery, with MPOD and cognitive changes assessed after 6–12 months.' },
     ],
@@ -877,12 +885,9 @@ export const ingredients: Ingredient[] = [
       { question: 'Is it safe to combine Dynamine with caffeine?', answer: 'Yes — this is a common combination in performance supplements. Since both block adenosine, the stimulant effects are additive. Keep total combined caffeine + Dynamine intake moderate and monitor for overstimulation (anxiety, restlessness). Start with low doses of each.' },
     ],
     sources: [
-      { pmid: '37960163', doi: '10.3390/nu15214509', url: 'https://pubmed.ncbi.nlm.nih.gov/37960163/', title: 'Methylliberine Ingestion Improves Various Indices of Affect but Not Cognitive Function in Healthy Men and Women', year: 2023, design: 'double-blind, randomized, within-subject crossover RCT (La Monica et al.) — the site\'s own studySummary appears to reference this as the \'2019 pilot study\'; it is actually 2023 and is the PRIMARY, and only identified, human RCT testing methylliberine ALONE on cognition/mood' },
-      { pmid: '32121218', doi: '10.3390/nu12030654', url: 'https://pubmed.ncbi.nlm.nih.gov/32121218/', title: 'Safety of Short-Term Supplementation with Methylliberine (Dynamine) Alone and in Combination with TeaCrine in Young Adults', year: 2020, design: 'randomized controlled trial, 5 parallel groups — this is the site\'s cited \'2020 pharmacokinetic study\', though it is actually a 4-week safety/biomarker trial, not a pharmacokinetic study' },
+      { pmid: '37960163', doi: '10.3390/nu15214509', url: 'https://pubmed.ncbi.nlm.nih.gov/37960163/', title: 'Methylliberine Ingestion Improves Various Indices of Affect but Not Cognitive Function in Healthy Men and Women', year: 2023, design: 'double-blind, randomized, within-subject crossover RCT (La Monica et al.)' },
+      { pmid: '32121218', doi: '10.3390/nu12030654', url: 'https://pubmed.ncbi.nlm.nih.gov/32121218/', title: 'Safety of Short-Term Supplementation with Methylliberine (Dynamine) Alone and in Combination with TeaCrine in Young Adults', year: 2020, design: 'randomized controlled trial, 5 parallel groups' },
       { pmid: '36016763', doi: '10.1080/15502783.2022.2113339', url: 'https://pubmed.ncbi.nlm.nih.gov/36016763/', title: 'Effects of caffeine, methylliberine, and theacrine on vigilance, marksmanship, and hemodynamic responses in tactical personnel: a double-blind, randomized, placebo-controlled trial', year: 2022, design: 'between-subjects, randomized, placebo-controlled RCT — NOTE: this tests methylliberine only as part of a COMBINATION product (150mg caffeine + 100mg methylliberine + 50mg theacrine), never methylliberine alone, so its results cannot be attributed to methylliberine specifically' },
-      { pmid: '41950524', doi: '10.1139/apnm-2025-0380', url: 'https://pubmed.ncbi.nlm.nih.gov/41950524/', title: 'Assessing the impact of high theacrine doses on hemodynamic measures, cognitive performance, and physiological stress', year: 2026, design: 'randomized, double-blind, crossover RCT — THEACRINE (Teacrine), not methylliberine; included here because the site\'s page conflates the two purine alkaloids' },
-      { pmid: '40693646', doi: '10.1080/15502783.2025.2536146', url: 'https://pubmed.ncbi.nlm.nih.gov/40693646/', title: 'A caffeine and theacrine combination improves cognitive performance in tactical personnel under physically fatiguing conditions', year: 2025, design: 'randomized, double-blind, placebo-controlled RCT — THEACRINE+caffeine combination, not methylliberine' },
-      { pmid: '30999897', doi: '10.1186/s12970-019-0287-6', url: 'https://pubmed.ncbi.nlm.nih.gov/30999897/', title: 'The effects of TeaCrine and caffeine on endurance and cognitive performance during a simulated match in high-level soccer players', year: 2019, design: 'RCT, 4 randomized sessions crossover — THEACRINE, not methylliberine' },
     ],
     evidenceReviewedAt: '2026-09-28',
   },

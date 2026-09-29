@@ -109,7 +109,7 @@
       "dose": "donepezil + acetyl-L-carnitine + ginkgo biloba extract (combination arm; ALC dose not isolated in abstract)",
       "duration": "24 weeks",
       "outcome": "MMSE, ADAS-Cog",
-      "result": "The donepezil + ALC + ginkgo combination arm performed worse than donepezil alone or donepezil + choline alfoscerate: MMSE decreased 2.17% at 12 weeks and 5.71% at 24 weeks in that arm, vs. gains in the donepezil-alone and donepezil+choline-alfoscerate arms. ALC's individual contribution cannot be isolated since it was combined with ginkgo.",
+      "result": "Four arms: donepezil alone (DO), + choline alfoscerate (DN), + acetyl-L-carnitine (DA), + ginkgo (DG); results reported for the pooled DA + DG group: MMSE −2.17% at 12 weeks and −5.71% at 24 weeks, versus gains in DO and DN. ALCAR's contribution cannot be isolated from the pooled ginkgo arm.",
       "fundingConflict": null,
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/38875437/",
       "status": 200
@@ -149,11 +149,17 @@
   "safetySignals": [
     {
       "signal": "Not found in our copy's sideEffects: a systematic review of bipolar-disorder mood-episode triggers lists acetyl-L-carnitine among agents associated with triggering manic/hypomanic episodes (case-report-level evidence, not RCT-level), a signal relevant to anyone with bipolar disorder considering ALCAR for mood/energy.",
-      "pmid": "36940629"
+      "pmid": "36940629",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36940629/",
+      "title": "Triggers for acute mood episodes in bipolar disorder: A systematic review.",
+      "year": 2023
     },
     {
       "signal": "WFSBP/CANMAT clinical nutraceutical guidelines (2022) explicitly rate acetyl-L-carnitine 'not supported' for ADHD, despite the dopaminergic/catecholamine-adjacent mechanism narrative sometimes used to justify nootropic ADHD use.",
-      "pmid": "35311615"
+      "pmid": "35311615",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35311615/",
+      "title": "Clinician guidelines for the treatment of psychiatric disorders with nutraceuticals and phytoceuticals: The World Federation of Societies of Biological Psychiatry (WFSBP) and Canadian Network for Mood and Anxiety Treatments (CANMAT) Taskforce.",
+      "year": 2022
     }
   ],
   "gaps": [

@@ -7,8 +7,10 @@ import type { Ingredient, Locale } from '@nootropic/data';
 // Guards for the 2026-09 PubMed evidence review of the ingredient pages
 // (fix/ingredients-evidence-2026-09). Every ingredient cites sources taken
 // only from its evidence snapshot in packages/data/evidence/ingredients-2026-09/
-// (copied verbatim from nootropics-research/2026-09/evidence/<slug>.json), and
-// the copy guards stop the removed phantom citations and unsupported claims
+// (copied from nootropics-research/2026-09/evidence/<slug>.json): a status-200
+// `studies[]` entry, or a `safetySignals[]` entry with a PMID (whose PubMed
+// title/year are recorded on the signal), so safety claims carry their source.
+// The copy guards stop the removed phantom citations and unsupported claims
 // from returning when the pages are regenerated.
 //
 // Cross-package test placement: see product-schema.test.ts for the rationale.
@@ -26,7 +28,16 @@ interface EvidenceStudy {
 interface EvidenceFile {
   slug: string;
   studies: EvidenceStudy[];
-  safetySignals: Array<string | { signal: string; pmid: string | null; url: string | null }>;
+  safetySignals: Array<string | SafetySignal>;
+}
+interface SafetySignal {
+  signal: string;
+  pmid: string | null;
+  url?: string | null;
+  /** PubMed title, required when the signal's PMID is cited as a source. */
+  title?: string;
+  /** PubMed publication year, required when the signal's PMID is cited as a source. */
+  year?: number;
 }
 
 function loadEvidence(slug: string): EvidenceFile {
@@ -72,13 +83,27 @@ describe('ingredient sources', () => {
       const safetyUrls = new Set(
         ev.safetySignals.flatMap((sig) => (typeof sig === 'object' && sig.url ? [sig.url] : [])),
       );
+      const safetyPmids = new Map(
+        ev.safetySignals.flatMap((sig): Array<[string, SafetySignal]> =>
+          typeof sig === 'object' && sig.pmid && /^\d+$/.test(sig.pmid) ? [[sig.pmid, sig]] : [],
+        ),
+      );
       for (const s of ing.sources) {
         if (s.pmid === undefined) {
           expect(safetyUrls.has(s.url), `${ing.slug}: non-PubMed source ${s.url} must come from safetySignals`).toBe(true);
           continue;
         }
         const st = studies.get(s.pmid);
-        expect(st, `${ing.slug}: PMID ${s.pmid} is not a status-200 study in the evidence JSON`).toBeDefined();
+        if (st === undefined) {
+          const sig = safetyPmids.get(s.pmid);
+          expect(sig, `${ing.slug}: PMID ${s.pmid} is neither a status-200 study nor a safety-signal PMID in the evidence JSON`).toBeDefined();
+          expect(sig!.title, `${ing.slug}: safety signal ${s.pmid} lacks a PubMed title`).toBeTruthy();
+          expect(sig!.year, `${ing.slug}: safety signal ${s.pmid} lacks a PubMed year`).toBeTypeOf('number');
+          expect(s.title, `${ing.slug} ${s.pmid} title`).toBe(sig!.title);
+          expect(s.year, `${ing.slug} ${s.pmid} year`).toBe(sig!.year);
+          expect(s.url, `${ing.slug} ${s.pmid} url`).toBe(sig!.url);
+          continue;
+        }
         expect(s.title, `${ing.slug} ${s.pmid} title`).toBe(st!.title);
         expect(s.year, `${ing.slug} ${s.pmid} year`).toBe(st!.year);
         expect(s.url, `${ing.slug} ${s.pmid} url`).toBe(st!.pubmedUrl);

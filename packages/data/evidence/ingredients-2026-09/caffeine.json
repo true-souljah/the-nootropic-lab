@@ -21,7 +21,7 @@
       "title": "A review of caffeine's effects on cognitive, physical and occupational performance",
       "journal": "Neuroscience and Biobehavioral Reviews",
       "year": 2016,
-      "design": "narrative review (McLellan, Caldwell & Lieberman) — this is the site's cited 'McLellan et al. 2016' source; note it is a REVIEW, not a formal meta-analysis as the site's studySummary field labels it",
+      "design": "narrative review (McLellan, Caldwell & Lieberman)",
       "population": "general/occupational (military, first responders, shift workers)",
       "n": null,
       "dose": "low (~40mg/0.5mg/kg) to moderate (~300mg/4mg/kg)",
@@ -152,7 +152,7 @@
   },
   "safetySignals": [
     { "signal": "EFSA (2015) Scientific Opinion on the Safety of Caffeine: single dose up to 200mg and daily intake up to 400mg do not raise safety concerns in healthy adults; pregnant women should limit habitual intake to 200mg/day — the site's page does not mention the pregnancy limit at all.", "pmid": null, "url": "https://www.efsa.europa.eu/en/efsajournal/pub/4102" },
-    { "signal": "Caffeine significantly increases panic-attack risk in patients with panic disorder (53.9% of PD patients had a panic attack after caffeine vs 1.7% of healthy controls, at doses ~400-750mg) and increases anxiety in both patient and healthy populations at these doses — a clinical population caution the site's sideEffects list only gestures at generically ('anxiety and jitteriness at high doses').", "pmid": "34871964", "url": "https://pubmed.ncbi.nlm.nih.gov/34871964/" },
+    { "signal": "Caffeine significantly increases panic-attack risk in patients with panic disorder (53.9% of PD patients had a panic attack after caffeine vs 1.7% of healthy controls, at doses ~400-750mg) and increases anxiety in both patient and healthy populations at these doses — a clinical population caution the site's sideEffects list only gestures at generically ('anxiety and jitteriness at high doses').", "pmid": "34871964", "url": "https://pubmed.ncbi.nlm.nih.gov/34871964/", "title": "Effects of caffeine on anxiety and panic attacks in patients with panic disorder: A systematic review and meta-analysis.", "year": 2022 },
     { "signal": "400mg caffeine taken even 6 hours before bedtime significantly disrupts sleep (reduces total sleep time) relative to placebo — stronger and more specific than the site's general '5-6 hour half-life, avoid within 8 hours' framing, but directionally consistent and slightly more conservative than the site's own advice.", "pmid": "24235903", "url": "https://pubmed.ncbi.nlm.nih.gov/24235903/" }
   ],
   "gaps": [

@@ -149,7 +149,10 @@
   "safetySignals": [
     {
       "signal": "Our copy cites 'a 2021 observational study' linking high-dose (>1200mg/day) alpha-GPC to cardiovascular/TMAO risk. This search did not locate that specific 2021 study; the closest identified evidence is a 2023 CARDIA prospective cohort study finding plasma choline (not alpha-GPC supplementation specifically) positively associated with incident CVD (HR 1.24 per SD), while a separate meta-analysis of dietary choline/betaine intake found no association with incident CVD. Neither study tests alpha-GPC supplementation directly, so the specific '2021 study, >1200mg/day' citation in our copy is unverified and should be re-sourced or removed.",
-      "pmid": "37865185"
+      "pmid": "37865185",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37865185/",
+      "title": "Choline metabolites and incident cardiovascular disease in a prospective cohort of adults: Coronary Artery Risk Development in Young Adults (CARDIA) Study.",
+      "year": 2024
     }
   ],
   "gaps": [
