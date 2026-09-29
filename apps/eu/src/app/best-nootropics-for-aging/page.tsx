@@ -85,7 +85,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Are these safe alongside blood-pressure or cholesterol medications common in EU prescribing?',
-    a: 'Generally yes for the ingredients on this page, but talk to your prescribing clinician. Bacopa and Lion\'s Mane have minimal known drug interactions. Phosphatidylserine derived from soy could interact with warfarin/anticoagulant regimens; sunflower-derived Sharp-PS GREEN is the alternative. Ginkgo (in BRAINEFFECT) has documented anticoagulant interactions and should be discussed with a clinician.',
+    a: 'Generally yes for the ingredients on this page, but talk to your prescribing clinician. Bacopa and Lion\'s Mane have minimal known drug interactions. Phosphatidylserine derived from soy could interact with warfarin/anticoagulant regimens; sunflower-derived Sharp-PS GREEN is the alternative. None of the picks above contains Ginkgo; if you add it separately, it has documented anticoagulant interactions and should be discussed with a clinician.',
   },
   {
     q: 'I take a cholinesterase inhibitor (donepezil, rivastigmine, etc.). Should I avoid certain ingredients?',

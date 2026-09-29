@@ -85,7 +85,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Are memory nootropics safe long-term?',
-    a: 'The ingredients on this page have favourable safety profiles in human RCTs at the doses listed. Phosphatidylserine derived from soy may be a concern for soy allergies (sunflower-derived PS like Sharp-PS GREEN is available). Bacopa can cause GI upset in some people; take with food. Ginkgo (in BRAINEFFECT) can interact with anticoagulants.',
+    a: 'The ingredients on this page have favourable safety profiles in human RCTs at the doses listed. Phosphatidylserine derived from soy may be a concern for soy allergies (sunflower-derived PS like Sharp-PS GREEN is available). Bacopa can cause GI upset in some people; take with food. None of the picks above contains Ginkgo; if you add it separately, it can interact with anticoagulants.',
   },
   {
     q: 'Will these help with age-related memory loss?',
