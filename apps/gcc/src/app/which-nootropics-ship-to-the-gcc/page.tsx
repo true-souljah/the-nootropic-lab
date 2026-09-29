@@ -66,7 +66,7 @@ const brandRows: BrandRow[] = [
   {
     brand: 'Onnit Alpha Brain',
     reviewSlug: 'onnit-alpha-brain-review',
-    direct: 'Could not confirm from the brand’s site (checked 2026-09-29). Its FAQ page showed no country list when we checked.',
+    direct: 'Could not confirm from the brand’s site (checked 2026-09-29).',
     sourceLabel: 'Onnit — FAQ',
     sourceUrl: 'https://www.onnit.com/pages/faq',
     fallback: 'Check at checkout.',
@@ -151,7 +151,7 @@ const faqs = [
   },
   {
     q: 'Why do you not say whether Onnit or Thesis ship to my country?',
-    a: 'Because neither brand’s website showed us a list of countries when we checked on 29 September 2026. Thesis’s refund policy mentions orders to other countries outside the US but does not name them. We would rather say “not confirmed” than guess; the brand’s checkout will show whether your address is accepted.',
+    a: 'Because we could not confirm either from the brand’s own site when we checked on 29 September 2026. Thesis’s refund policy mentions orders to other countries outside the US but does not name them. We would rather say “not confirmed” than guess; the brand’s checkout will show whether your address is accepted.',
   },
   {
     q: 'Who pays import duties on an international order?',
@@ -212,8 +212,8 @@ export default function Page() {
               countries outside the Gulf and points everyone else to iHerb.
             </li>
             <li>
-              <strong>Not confirmed:</strong> NooCube, Onnit Alpha Brain and Thesis. Their own sites did not name a
-              GCC state when we checked.
+              <strong>Not confirmed from the brands&apos; own sites:</strong> NooCube, Onnit Alpha Brain and Thesis.
+              Check at checkout.
             </li>
             <li>
               <strong>Fallback:</strong> iHerb runs localized storefronts for all six GCC states.
@@ -289,7 +289,7 @@ export default function Page() {
           <ul className="list-disc pl-5 text-sm text-gray-700 leading-relaxed space-y-2">
             <li>Whether Mind Lab Pro ships to Bahrain and Oman: they are not named on a list the brand calls partial.</li>
             <li>Whether NooCube delivers to any GCC state: its FAQ says only that delivery times elsewhere may vary.</li>
-            <li>Onnit&apos;s and Thesis&apos;s country lists: neither brand&apos;s site showed one when we checked.</li>
+            <li>Whether Onnit or Thesis ships to any GCC state: we could not confirm it from either brand&apos;s site.</li>
             <li>Which of our catalogue products are listed on each iHerb GCC storefront.</li>
             <li>
               Personal-import quantity limits for any GCC state. We could not confirm them against a live official page
