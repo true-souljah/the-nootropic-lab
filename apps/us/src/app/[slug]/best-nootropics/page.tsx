@@ -15,7 +15,7 @@ interface StateData {
 }
 
 const genericBuyingNote = (name: string) =>
-  `All products in our ranking ship to ${name} with standard US delivery times of 3–5 business days. Order directly from the brand's official website for the best pricing and access to money-back guarantees — third-party marketplaces often charge premiums and may not honour the manufacturer's return policy. Subscribe-and-save options from brand sites typically save 10–20% versus one-time purchases.`;
+  `All products in our ranking ship to ${name}; delivery estimates vary by brand and shipping option, so check the estimate at checkout. Order directly from the brand's official website for the best pricing and access to money-back guarantees — third-party marketplaces often charge premiums and may not honour the manufacturer's return policy. Subscribe-and-save options from brand sites typically save 10–20% versus one-time purchases.`;
 
 const states: StateData[] = [
   {
@@ -24,7 +24,7 @@ const states: StateData[] = [
   },
   {
     slug: 'alaska', name: 'Alaska', prop65: false,
-    buyingNote: 'Alaska buyers should order directly from brand websites rather than Amazon for the best shipping reliability. Some distributors apply surcharges to AK — brand sites typically offer free standard shipping with no state exceptions above a $50–70 order threshold. Allow 5–8 business days for delivery.',
+    buyingNote: 'Alaska buyers should order directly from brand websites rather than Amazon for the best shipping reliability. Some distributors apply surcharges to AK — brand sites typically offer free standard shipping with no state exceptions above a $50–70 order threshold. Delivery estimates vary by brand and shipping option; check the estimate at checkout.',
   },
   {
     slug: 'arizona', name: 'Arizona', prop65: false,
@@ -44,7 +44,7 @@ const states: StateData[] = [
   },
   {
     slug: 'connecticut', name: 'Connecticut', prop65: false,
-    buyingNote: `Connecticut is in the Northeast distribution corridor — most brand sites deliver within 2–3 business days. ${genericBuyingNote('Connecticut')}`,
+    buyingNote: genericBuyingNote('Connecticut'),
   },
   {
     slug: 'delaware', name: 'Delaware', prop65: false,
@@ -52,15 +52,15 @@ const states: StateData[] = [
   },
   {
     slug: 'florida', name: 'Florida', prop65: false,
-    buyingNote: 'Florida buyers should be mindful of heat and humidity: do not leave deliveries in a hot mailbox or car. Store supplements in an air-conditioned environment. Most brands ship to Florida in 2–4 business days from East Coast distribution centres. Florida has strong supplement retail presence (GNC, Vitamin Shoppe, Total Nutrition), but brand website pricing and money-back guarantees are superior.',
+    buyingNote: 'Florida buyers should be mindful of heat and humidity: do not leave deliveries in a hot mailbox or car. Store supplements in an air-conditioned environment. Delivery estimates vary by brand and shipping option; check the estimate at checkout. Florida has strong supplement retail presence (GNC, Vitamin Shoppe, Total Nutrition), but brand website pricing and money-back guarantees are superior.',
   },
   {
     slug: 'georgia', name: 'Georgia', prop65: false,
-    buyingNote: `Georgia benefits from Atlanta's position as a major logistics hub — most brand sites reach Atlanta and surrounding metro areas in 2–3 business days. ${genericBuyingNote('Georgia')}`,
+    buyingNote: genericBuyingNote('Georgia'),
   },
   {
     slug: 'hawaii', name: 'Hawaii', prop65: false,
-    buyingNote: 'Hawaii buyers should order directly from brand websites that offer free standard shipping to Hawaii — not all brands do, so verify before ordering. Allow 5–8 business days for delivery. Heat and humidity during transit are considerations; supplements arrive sealed and should be stored in a cool, dry place. Some brands exclude Hawaii from expedited shipping offers.',
+    buyingNote: 'Hawaii buyers should order directly from brand websites that offer free standard shipping to Hawaii — not all brands do, so verify before ordering. Delivery estimates vary by brand and shipping option; check the estimate at checkout. Heat and humidity during transit are considerations; supplements arrive sealed and should be stored in a cool, dry place. Some brands exclude Hawaii from expedited shipping offers.',
   },
   {
     slug: 'idaho', name: 'Idaho', prop65: false,
@@ -68,7 +68,7 @@ const states: StateData[] = [
   },
   {
     slug: 'illinois', name: 'Illinois', prop65: false,
-    buyingNote: 'Illinois — and Chicago in particular — is well-served by Midwest distribution centres. Most brands on our list deliver within 2–3 business days to the Chicago metro area and 3–5 business days to downstate Illinois. Direct brand website orders consistently beat Amazon pricing due to subscribe-and-save programmes and first-order discount codes.',
+    buyingNote: 'Illinois — and Chicago in particular — is well-served by Midwest distribution centres. Delivery estimates vary by brand and shipping option; check the estimate at checkout. Direct brand website orders consistently beat Amazon pricing due to subscribe-and-save programmes and first-order discount codes.',
   },
   {
     slug: 'indiana', name: 'Indiana', prop65: false,
@@ -96,11 +96,11 @@ const states: StateData[] = [
   },
   {
     slug: 'maryland', name: 'Maryland', prop65: false,
-    buyingNote: `Maryland sits in the mid-Atlantic corridor. Most brands deliver to the Baltimore/DC metro in 2–3 business days. ${genericBuyingNote('Maryland')}`,
+    buyingNote: `Maryland sits in the mid-Atlantic corridor. ${genericBuyingNote('Maryland')}`,
   },
   {
     slug: 'massachusetts', name: 'Massachusetts', prop65: false,
-    buyingNote: 'Massachusetts — and Boston in particular — has a large health-conscious population and excellent delivery infrastructure. Most brands deliver within 2–3 business days. Massachusetts has no supplement-specific state regulations beyond federal FDA rules. Direct brand site ordering gives access to third-party testing certificates and full money-back guarantees not typically available through Amazon.',
+    buyingNote: 'Massachusetts — and Boston in particular — has a large health-conscious population and excellent delivery infrastructure. Delivery estimates vary by brand and shipping option; check the estimate at checkout. Massachusetts has no supplement-specific state regulations beyond federal FDA rules. Direct brand site ordering gives access to third-party testing certificates and full money-back guarantees not typically available through Amazon.',
   },
   {
     slug: 'michigan', name: 'Michigan', prop65: false,
@@ -120,7 +120,7 @@ const states: StateData[] = [
   },
   {
     slug: 'montana', name: 'Montana', prop65: false,
-    buyingNote: `Montana's rural geography means shipping times can be longer for remote addresses — allow 5–7 business days. ${genericBuyingNote('Montana')}`,
+    buyingNote: `Montana's rural geography means shipping times can be longer for remote addresses. ${genericBuyingNote('Montana')}`,
   },
   {
     slug: 'nebraska', name: 'Nebraska', prop65: false,
@@ -128,7 +128,7 @@ const states: StateData[] = [
   },
   {
     slug: 'nevada', name: 'Nevada', prop65: false,
-    buyingNote: `Nevada's desert climate means supplements should not be left in vehicles or exposed to high heat. Las Vegas and Reno benefit from West Coast distribution — most brands deliver in 2–3 business days. ${genericBuyingNote('Nevada')}`,
+    buyingNote: `Nevada's desert climate means supplements should not be left in vehicles or exposed to high heat. ${genericBuyingNote('Nevada')}`,
   },
   {
     slug: 'new-hampshire', name: 'New Hampshire', prop65: false,
@@ -144,7 +144,7 @@ const states: StateData[] = [
   },
   {
     slug: 'new-york', name: 'New York', prop65: false,
-    buyingNote: 'New York City and its metro area receive some of the fastest supplement deliveries in the country — next-day or 2-day shipping is available from most brands. Upstate New York should allow 3–5 business days. New York has no supplement-specific state laws beyond federal FDA regulations. Brand website purchases are recommended over third-party marketplaces for access to money-back guarantee programmes and third-party COA documentation.',
+    buyingNote: 'Delivery estimates to New York vary by brand and shipping option; check the estimate at checkout. New York has no supplement-specific state laws beyond federal FDA regulations. Brand website purchases are recommended over third-party marketplaces for access to money-back guarantee programmes and third-party COA documentation.',
   },
   {
     slug: 'north-carolina', name: 'North Carolina', prop65: false,
@@ -156,7 +156,7 @@ const states: StateData[] = [
   },
   {
     slug: 'ohio', name: 'Ohio', prop65: false,
-    buyingNote: `Ohio's central location and strong logistics infrastructure means most brands deliver in 2–3 business days statewide. ${genericBuyingNote('Ohio')}`,
+    buyingNote: genericBuyingNote('Ohio'),
   },
   {
     slug: 'oklahoma', name: 'Oklahoma', prop65: false,
@@ -164,11 +164,11 @@ const states: StateData[] = [
   },
   {
     slug: 'oregon', name: 'Oregon', prop65: false,
-    buyingNote: 'Oregon has a health-conscious consumer base and strong natural products retail presence. Oregon has no state sales tax — supplement purchases are tax-free for in-state buyers shopping online. Most brands ship from West Coast distribution centres; Portland and Eugene typically receive deliveries in 2–3 business days.',
+    buyingNote: 'Oregon has a health-conscious consumer base and strong natural products retail presence. Oregon has no state sales tax — supplement purchases are tax-free for in-state buyers shopping online. Delivery estimates vary by brand and shipping option; check the estimate at checkout.',
   },
   {
     slug: 'pennsylvania', name: 'Pennsylvania', prop65: false,
-    buyingNote: `Pennsylvania is well within the Northeast distribution corridor. Philadelphia and Pittsburgh receive most brand deliveries in 2–3 business days. ${genericBuyingNote('Pennsylvania')}`,
+    buyingNote: genericBuyingNote('Pennsylvania'),
   },
   {
     slug: 'rhode-island', name: 'Rhode Island', prop65: false,
@@ -188,11 +188,11 @@ const states: StateData[] = [
   },
   {
     slug: 'texas', name: 'Texas', prop65: false,
-    buyingNote: 'Texas is the second-largest supplement market in the US. The Dallas-Fort Worth and Houston metro areas have multiple regional distribution centres — most brands deliver in 2–3 business days. Summer temperatures in Texas are extreme: never leave supplements in a hot car or outdoor mailbox. Brand website ordering includes access to the best pricing and money-back guarantees, which third-party marketplace sellers often do not honour.',
+    buyingNote: 'Texas is the second-largest supplement market in the US. Delivery estimates vary by brand and shipping option; check the estimate at checkout. Summer temperatures in Texas are extreme: never leave supplements in a hot car or outdoor mailbox. Brand website ordering includes access to the best pricing and money-back guarantees, which third-party marketplace sellers often do not honour.',
   },
   {
     slug: 'utah', name: 'Utah', prop65: false,
-    buyingNote: 'Utah is notable as the home of the US dietary supplement industry — numerous major supplement manufacturers are based in the Salt Lake City area. This means Utah buyers often receive the fastest direct brand shipping in the country (1–2 business days for brands with Utah warehouses). Utah also has the highest per-capita supplement consumption in the US, with strong local retail options.',
+    buyingNote: 'Utah is notable as the home of the US dietary supplement industry — numerous major supplement manufacturers are based in the Salt Lake City area. Delivery estimates vary by brand and shipping option; check the estimate at checkout. Utah also has the highest per-capita supplement consumption in the US, with strong local retail options.',
   },
   {
     slug: 'vermont', name: 'Vermont', prop65: false,
@@ -204,7 +204,7 @@ const states: StateData[] = [
   },
   {
     slug: 'washington', name: 'Washington', prop65: false,
-    buyingNote: "Washington State — particularly the Seattle tech corridor — has one of the highest nootropics adoption rates in the country, driven by the biohacking culture in the technology sector. Most brands deliver to the Seattle/Tacoma metro in 2–3 business days from West Coast distribution centres. Washington has no state income tax but does apply sales tax to supplement purchases.",
+    buyingNote: "Washington State — particularly the Seattle tech corridor — has one of the highest nootropics adoption rates in the country, driven by the biohacking culture in the technology sector. Delivery estimates vary by brand and shipping option; check the estimate at checkout. Washington has no state income tax but does apply sales tax to supplement purchases.",
   },
   {
     slug: 'west-virginia', name: 'West Virginia', prop65: false,
@@ -216,7 +216,7 @@ const states: StateData[] = [
   },
   {
     slug: 'wyoming', name: 'Wyoming', prop65: false,
-    buyingNote: 'Wyoming has no state income tax and no state sales tax on most goods — supplement purchases may be tax-free for in-state buyers. Allow 4–6 business days for delivery to rural areas. Most brands ship to Wyoming without surcharges.',
+    buyingNote: 'Wyoming has no state income tax and no state sales tax on most goods — supplement purchases may be tax-free for in-state buyers. Delivery estimates vary by brand and shipping option; check the estimate at checkout. Most brands ship to Wyoming without surcharges.',
   },
 ];
 
