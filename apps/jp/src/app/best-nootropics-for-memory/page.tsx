@@ -12,7 +12,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 export const metadata: Metadata = {
   title: `Best Nootropics for Memory in Japan ${CURRENT_YEAR}: Independent Picks Backed by Clinical Evidence`,
   description:
-    'Independent ranking of the best nootropics for memory and recall available in Japan. Includes domestic brands (FFC-notified FANCL BRAINs, plus Suntory) alongside international stacks shipping to Japan. MHLW-aware buyer notes throughout.',
+    'Independent ranking of the best nootropics for memory and recall available in Japan. Includes domestic brands (FFC-notified FANCL BRAINs, plus Suntory) alongside imported international stacks. MHLW-aware buyer notes throughout.',
   alternates: buildAlternates({ regionCode: 'jp', path: '/best-nootropics-for-memory/' }),
   openGraph: {
     title: 'Best Nootropics for Memory in Japan — Evidence-Graded',
@@ -104,7 +104,7 @@ export default function Page() {
       useCase="memory"
       pageTitle="Best Nootropics for Memory in Japan"
       pageDescription="Independent ranking of the best nootropics for memory and recall available in Japan, based on clinical evidence."
-      heroParagraph="Memory is the use case where Japan's regulatory landscape and the global nootropics evidence base intersect most directly. Domestic brands target this use case too: FANCL BRAINs is notified under Japan's Food with Function Claims system administered by the Consumer Affairs Agency (消費者庁; notification G425), while Suntory DHA & EPA + Sesamin EX is not FFC-notified in our catalogue. They target middle-aged and older adults via DHA (Suntory) and bacopa saponins plus matured hop bitter acids (FANCL). International stacks shipping to Japan add the Bacopa and Lion's Mane evidence base — including Mori et al. 2009, the foundational Lion's Mane RCT conducted in Japan."
+      heroParagraph="Memory is the use case where Japan's regulatory landscape and the global nootropics evidence base intersect most directly. Domestic brands target this use case too: FANCL BRAINs is notified under Japan's Food with Function Claims system administered by the Consumer Affairs Agency (消費者庁; notification G425), while Suntory DHA & EPA + Sesamin EX is not FFC-notified in our catalogue. They target middle-aged and older adults via DHA (Suntory) and bacopa saponins plus matured hop bitter acids (FANCL). Imported international stacks add the Bacopa and Lion's Mane evidence base — including Mori et al. 2009, the foundational Lion's Mane RCT conducted in Japan."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

@@ -12,7 +12,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 export const metadata: Metadata = {
   title: `Best Nootropics for Focus in Japan ${CURRENT_YEAR}: Independent Picks Backed by Clinical Evidence`,
   description:
-    'Independent ranking of the best nootropics for focus and attention available in Japan. Each pick must contain a clinically-dosed focus ingredient (L-theanine + caffeine, citicoline, or L-tyrosine). Includes both international stacks shipping to Japan and domestic FFC (機能性表示食品) brands.',
+    'Independent ranking of the best nootropics for focus and attention available in Japan. Each pick must contain a clinically-dosed focus ingredient (L-theanine + caffeine, citicoline, or L-tyrosine). Includes both imported international stacks and domestic FFC (機能性表示食品) brands.',
   alternates: buildAlternates({ regionCode: 'jp', path: '/best-nootropics-for-focus/' }),
   openGraph: {
     title: 'Best Nootropics for Focus in Japan — Evidence-Graded Picks',
@@ -66,14 +66,14 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'noocube-review')!,
     rank: 3,
     whyItsHere:
-      'Caffeine-free stack containing choline (VitaCholine, 250mg), L-tyrosine, and L-theanine at 100mg (clinical dose). L-tyrosine at 250mg is below its clinical anchor. 60-day money-back guarantee — the longest in this Japan review. Ships internationally with one-time purchase (no subscription). The brand does not publish a delivery estimate for this country; check the estimate at checkout.',
+      'Caffeine-free stack containing choline (VitaCholine, 250mg), L-tyrosine, and L-theanine at 100mg (clinical dose). L-tyrosine at 250mg is below its clinical anchor. 60-day money-back guarantee — the longest in this Japan review. One-time purchase (no subscription); confirm Japan shipping at checkout. The brand does not publish a delivery estimate for this country; check the estimate at checkout.',
   },
 ];
 
 const faqItems: ListicleFAQ[] = [
   {
     q: 'Are any of these focus nootropics notified under Japan\'s FFC (機能性表示食品) system?',
-    a: 'No — the international stacks above (Mind Lab Pro, Hunter Focus, NooCube) are not notified under Japan\'s Food with Function Claims framework administered by the Consumer Affairs Agency (消費者庁). They ship under the personal-import route. Domestic options like FANCL BRAINs (FFC-notified, G425) and Suntory DHA & EPA + Sesamin EX (not FFC-notified in our catalogue) target memory and brain health rather than acute focus, and are covered on our memory and aging pages.',
+    a: 'No — the international stacks above (Mind Lab Pro, Hunter Focus, NooCube) are not notified under Japan\'s Food with Function Claims framework administered by the Consumer Affairs Agency (消費者庁). They are bought under the personal-import route. Domestic options like FANCL BRAINs (FFC-notified, G425) and Suntory DHA & EPA + Sesamin EX (not FFC-notified in our catalogue) target memory and brain health rather than acute focus, and are covered on our memory and aging pages.',
   },
   {
     q: 'What is the most evidence-backed nootropic for focus available in Japan?',
@@ -81,7 +81,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Where can I buy these in Japan?',
-    a: 'All four picks above ship directly from the UK or US to Japan via the manufacturer website — check the delivery estimate for Japan at checkout. None are stocked in Matsumoto Kiyoshi (マツモトキヨシ), Welcia (ウエルシア), or Sundrug (サンドラッグ) pharmacy chains, which carry only domestic FFC-notified supplements. For pharmacy-shelf options, see our memory and aging pages featuring FANCL and Suntory.',
+    a: 'Mind Lab Pro\'s own FAQ names Japan among its shipping territories; for the other imported brands, confirm Japan shipping and the delivery estimate at checkout. For domestic options, see our memory and aging pages featuring FANCL and Suntory.',
   },
   {
     q: 'How long does it take a focus nootropic to work?',
@@ -104,7 +104,7 @@ export default function Page() {
       useCase="focus"
       pageTitle="Best Nootropics for Focus in Japan"
       pageDescription="Independent ranking of the best nootropics for focus and attention available in Japan. Each pick must contain a clinically-dosed focus ingredient."
-      heroParagraph="If you want to take a supplement to support focus in Japan, the question is not 'which brand?' but 'which ingredient at what dose?' This page ranks the products available to Japanese buyers — international stacks shipping under Ministry of Health, Labour and Welfare (MHLW) personal-import rules — that contain at least one focus-validated ingredient (L-theanine + caffeine, citicoline, L-tyrosine, Alpha-GPC) at clinical dose. Domestic brands (FFC-notified FANCL BRAINs, plus Suntory) target memory and brain health rather than acute focus and appear on our memory page."
+      heroParagraph="If you want to take a supplement to support focus in Japan, the question is not 'which brand?' but 'which ingredient at what dose?' This page ranks the products available to Japanese buyers — imported international stacks bought under Ministry of Health, Labour and Welfare (MHLW) personal-import rules — that contain at least one focus-validated ingredient (L-theanine + caffeine, citicoline, L-tyrosine, Alpha-GPC) at clinical dose. Domestic brands (FFC-notified FANCL BRAINs, plus Suntory) target memory and brain health rather than acute focus and appear on our memory page."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

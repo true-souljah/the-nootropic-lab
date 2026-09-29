@@ -33,7 +33,7 @@ export default function BestNootropicsJPPage() {
       <BestOf
         products={productsJP}
         breadcrumbs={[{ label: 'Best of', href: '/best-nootropics' }]}
-        hero={{ eyebrow: `Japan · Audited ${CURRENT_YEAR}`, h1: `Best Nootropics in Japan ${CURRENT_YEAR}`, dek: 'International stacks with confirmed Japan shipping, plus domestic options (FANCL, Suntory). Personal import limit is ¥16,000 — keep orders under 1 month\'s supply.' }}
+        hero={{ eyebrow: `Japan · Audited ${CURRENT_YEAR}`, h1: `Best Nootropics in Japan ${CURRENT_YEAR}`, dek: 'Imported international stacks (Mind Lab Pro\'s own FAQ names Japan among its shipping territories; confirm the others at checkout), plus domestic options (FANCL, Suntory). Personal import limit is ¥16,000 — keep orders under 1 month\'s supply.' }}
         searchItems={searchItems} uiStrings={uiStrings} trackingSurface="best_of_jp"
         preList={
           <div className="flex flex-col gap-5">

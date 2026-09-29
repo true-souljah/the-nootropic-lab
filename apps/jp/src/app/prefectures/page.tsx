@@ -23,7 +23,7 @@ export default function GeoHubPage() {
   return (
     <GeoIndexPage
       title={TITLE}
-      intro="Every guide below covers the same MHLW personal-import rules and the ¥16,000 duty-free threshold, then adds delivery times and the top-rated stacks shipping to that prefecture."
+      intro="Every guide below covers the same MHLW personal-import rules and the ¥16,000 duty-free threshold, then adds delivery times and the top-rated stacks."
       basePath="/prefectures"
       items={jpPrefectures.map(p => ({ slug: p.slug, name: p.name, note: p.nameJa }))}
       siteUrl={SITE_URL}

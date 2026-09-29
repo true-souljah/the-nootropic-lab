@@ -59,9 +59,8 @@ export default function JaBestNootropicsPage() {
         <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 mb-6">
           <h2 className="font-bold text-amber-900 mb-2">厚生労働省 輸入に関する注意</h2>
           <ul className="text-sm text-amber-800 space-y-1">
-            <li>• 掲載されているすべての海外製品は日本に直接発送されます。</li>
+            <li>• Mind Lab Proは公式FAQで配送先の一つとして日本を挙げています。その他の海外ブランドについては、購入手続きの際に日本への配送可否をご確認ください。</li>
             <li>• ファンケル BRAINsは<strong>ファンケル公式楽天市場店</strong>で販売されています（機能性表示食品・届出番号 G425）。</li>
-            <li>• 海外ブランドは英国または米国から発送 — 7〜14営業日をお見込みください。</li>
             <li>• 通関税を避けるため1注文あたり<strong>¥16,000</strong>以下でご注文ください（<a href="/ja/yakkan-shoumei" className="text-green-700 underline">薬監証明制度の詳細</a>）。</li>
           </ul>
         </div>
