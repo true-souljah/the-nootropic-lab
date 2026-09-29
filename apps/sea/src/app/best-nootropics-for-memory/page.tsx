@@ -72,7 +72,7 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'eu-yan-sang-brainmax-review')!,
     rank: 4,
     whyItsHere:
-      'A 145-year-old TCM heritage brand with 200+ retail stores across Singapore, Malaysia, Hong Kong, and Macau. Cera-Q (silk fibroin protein, clinically studied for memory and recall) at 200mg full clinical dose, plus Goji Berry and Chinese Wild Ginseng. Walk into any Eu Yan Sang store in SG/MY for in-person purchase — zero import risk, deep brand trust across Chinese-heritage communities. Ships internationally from Singapore with tariffs absorbed. Vegetarian capsules. Note: not currently halal-certified — verify if required.',
+      'A 145-year-old TCM heritage brand with 200+ retail stores across Singapore, Malaysia, Hong Kong, and Macau. Cera-Q (silk fibroin protein, clinically studied for memory and recall) at 200mg full clinical dose, plus Goji Berry and Chinese Wild Ginseng. Walk into any Eu Yan Sang store in SG/MY for in-person purchase — zero import risk, deep brand trust across Chinese-heritage communities. Same-day delivery in Singapore; delivery outside Singapore was not confirmed — check delivery options at checkout. Powder sachets, one per day. Note: not currently halal-certified — verify if required.',
   },
 ];
 

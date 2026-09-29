@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes phosphatidylserine (200mg, well above clinical anchor), Bacopa (300mg at clinical dose), Alpha-GPC, and additional age-relevant cofactors. Plant-based capsules. Most complete coverage but the 7-capsule daily protocol can be hard to maintain for older adults — consider whether the breadth justifies that friction. Caveat: default formula contains caffeine — older adults sensitive to stimulants should choose the caffeine-free variant where offered. Qualia does not ship to any GCC state (brand shipping page, checked 2026-09-28).',
+      'Includes phosphatidylserine (200mg, well above clinical anchor), Bacopa (300mg at clinical dose), Alpha-GPC, and additional age-relevant cofactors. Plant-based capsules. Most complete coverage but the 6-capsule daily protocol can be hard to maintain for older adults — consider whether the breadth justifies that friction. Caveat: default formula contains caffeine — older adults sensitive to stimulants should choose the caffeine-free variant where offered. Qualia does not ship to any GCC state (brand shipping page, checked 2026-09-28).',
   },
   {
     product: productsGCC.find(p => p.slug === 'eu-yan-sang-brainmax-review')!,

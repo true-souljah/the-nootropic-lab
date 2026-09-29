@@ -66,13 +66,13 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'eu-yan-sang-brainmax-review')!,
     rank: 2,
     whyItsHere:
-      'A 145-year-old TCM heritage brand with 200+ stores across Singapore, Malaysia, Hong Kong, and Macau — deep trust among Chinese-heritage older buyers in SEA. Cera-Q (silk fibroin protein, clinically studied for memory in older adults) at 200mg full clinical dose, plus Goji Berry and Chinese Wild Ginseng (TCM tradition for cognitive health). Powder sachet format is friendlier than capsules for older adults with swallowing difficulties. Walk into any Eu Yan Sang store for in-person purchase and pharmacist consultation. Tariffs absorbed on international orders.',
+      'A 145-year-old TCM heritage brand with 200+ stores across Singapore, Malaysia, Hong Kong, and Macau — deep trust among Chinese-heritage older buyers in SEA. Cera-Q (silk fibroin protein, clinically studied for memory in older adults) at 200mg full clinical dose, plus Goji Berry and Chinese Wild Ginseng (TCM tradition for cognitive health). Powder sachet format is friendlier than capsules for older adults with swallowing difficulties. Walk into any Eu Yan Sang store for in-person purchase and pharmacist consultation. Delivery outside Singapore was not confirmed — check delivery options at checkout.',
   },
   {
     product: productsSEA.find(p => p.slug === 'qualia-mind-review')!,
     rank: 3,
     whyItsHere:
-      'Includes phosphatidylserine 200mg, Bacopa 300mg, Alpha-GPC, Lion\'s Mane, and Uridine plus 23 additional ingredients. Most complete coverage but the 7-capsule daily protocol can be hard to maintain for older adults — consider whether the breadth justifies that friction. Contains caffeine (90mg/serving) which may be unsuitable for older adults with cardiovascular conditions or hypertension. Availability caveat: Qualia does not ship to any SEA country (brand shipping page, checked 2026-09-28).',
+      'Includes phosphatidylserine 200mg, Bacopa 300mg, Alpha-GPC, Lion\'s Mane, and Uridine plus 23 additional ingredients. Most complete coverage but the 6-capsule daily protocol can be hard to maintain for older adults — consider whether the breadth justifies that friction. Contains caffeine (90mg/serving) which may be unsuitable for older adults with cardiovascular conditions or hypertension. Availability caveat: Qualia does not ship to any SEA country (brand shipping page, checked 2026-09-28).',
   },
   {
     product: productsSEA.find(p => p.slug === 'nootropics-depot-lions-mane')!,

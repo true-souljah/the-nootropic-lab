@@ -49,7 +49,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'How many capsules per day?',
     a:
-      'Mind Lab Pro: 2 capsules/day standard. Qualia Mind: up to 7 capsules/day for the standard regimen, which is high friction for daily use. Some users cycle 5 days on / 2 days off.',
+      'Mind Lab Pro: 2 capsules/day standard. Qualia Mind: 6 capsules/day for the standard regimen, which is high friction for daily use. Some users cycle 5 days on / 2 days off.',
   },
   {
     q: 'Are these alternatives to Adderall?',
