@@ -100,7 +100,7 @@ export default async function PrefecturePage({
                     <h3 className="font-bold text-gray-900">{product.name}</h3>
                     {product.caffeineFree && (
                       <span className="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full">
-                        MHLW Compliant
+                        Caffeine-free
                       </span>
                     )}
                   </div>

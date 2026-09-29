@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'fancl-brains-review')!,
     rank: 2,
     whyItsHere:
-      'The leading Japanese domestic option: FFC-notified (機能性表示食品) with cognitive claims filed with the Consumer Affairs Agency (消費者庁). Its notified functional ingredients are bacopa saponins (15mg, memory) and matured hop bitter acids (35mg, attention), per FANCL\'s notification G425. Available nationwide at Matsumoto Kiyoshi, Welcia, Sugi Pharmacy, and Amazon Japan with same-day Prime delivery. No customs risk, Japanese-language label, ¥5,479 per 30-day bag (list price on fancl.co.jp).',
+      'The leading Japanese domestic option: FFC-notified (機能性表示食品) with cognitive claims filed with the Consumer Affairs Agency (消費者庁). Its notified functional ingredients are bacopa saponins (15mg, memory) and matured hop bitter acids (35mg, attention), per FANCL\'s notification G425. Sold through FANCL\'s official Rakuten store, labelled 機能性表示食品. No customs risk, Japanese-language label, ¥5,479 per 30-day bag (list price on fancl.co.jp).',
   },
   {
     product: productsJP.find(p => p.slug === 'suntory-dha-epa-sesamin-review')!,
