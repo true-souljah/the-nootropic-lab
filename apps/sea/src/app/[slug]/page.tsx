@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ProductDetail, SchemaOrg, buildAlternates} from '@nootropic/ui';
-import { productsSEA, regionsWithProduct, buildProductSchema, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { allProductsSEA, productsSEA, regionsWithProduct, buildProductSchema, getRegionalHealthDisclaimer } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
 import { regionalProductProps } from '@/lib/regional';
@@ -11,7 +11,8 @@ const CURRENT_YEAR = new Date().getFullYear();
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return productsSEA.map((p) => ({ slug: p.slug }));
+  // Every record, discontinued included: its review page stays published.
+  return allProductsSEA.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({
@@ -20,7 +21,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const product = productsSEA.find((p) => p.slug === slug);
+  const product = allProductsSEA.find((p) => p.slug === slug);
   if (!product) return {};
   // Per-product SEO override (seoTitle/seoDescription) wins when set —
   // used to fix specific page-1, zero-click CTR pages. Falls back to the
@@ -48,7 +49,7 @@ export default async function ProductReviewPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const product = productsSEA.find((p) => p.slug === slug);
+  const product = allProductsSEA.find((p) => p.slug === slug);
   if (!product) notFound();
 
   const alternatives = productsSEA

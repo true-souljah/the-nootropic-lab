@@ -20,8 +20,8 @@ import { allProductsCA } from './products-ca';
 import { allProductsAU } from './products-au';
 import { allProductsJP } from './products-jp';
 import { allProductsLatam } from './products-latam';
-import { productsGCC } from './products-gcc';
-import { productsSEA } from './products-sea';
+import { allProductsGCC } from './products-gcc';
+import { allProductsSEA } from './products-sea';
 import type { Product } from './products-us';
 
 export const ALL_REGIONS: readonly RegionCode[] = ['us', 'eu', 'ca', 'au', 'jp', 'latam', 'gcc', 'sea'];
@@ -66,8 +66,8 @@ const PRODUCTS_BY_REGION: Readonly<Record<RegionCode, readonly Product[]>> = {
   au: allProductsAU,
   jp: allProductsJP,
   latam: allProductsLatam,
-  gcc: productsGCC,
-  sea: productsSEA,
+  gcc: allProductsGCC,
+  sea: allProductsSEA,
 };
 
 /** Regions whose product list carries `slug` — the only hosts where `/<slug>/` renders. */

@@ -18,24 +18,22 @@ export const metadata: Metadata = {
 const faqItems = [
   { q: 'Are nootropics legal in Saudi Arabia and the UAE?', a: 'Most nootropic supplements are legal to personally import in Saudi Arabia and the UAE as food supplements. However, you must verify with SFDA (Saudi Arabia) or MOHAP (UAE) before ordering. Stimulant-containing supplements may face restrictions. We prioritise caffeine-free, stimulant-free formulations for the GCC.' },
   { q: 'Do GCC countries charge VAT on imported supplements?', a: 'Saudi Arabia charges 15% VAT on most goods including supplements. UAE and Qatar charge 5% VAT. Kuwait has no VAT currently. Bahrain and Oman charge 5% VAT. Import duties are generally 5% for most supplement categories.' },
-  { q: 'Are the supplements listed porcine-free and halal-friendly?', a: 'Mind Lab Pro, Performance Lab Mind, and NooCube do not use porcine-derived ingredients. Some products use bovine-sourced phosphatidylserine instead of soy-derived. Always check the full ingredient list on the brand website for halal certification status.' },
+  { q: 'Are the supplements listed porcine-free and halal-friendly?', a: 'Mind Lab Pro and NooCube do not use porcine-derived ingredients. Some products use bovine-sourced phosphatidylserine instead of soy-derived. Always check the full ingredient list on the brand website for halal certification status.' },
 ];
 
 export default function BestNootropicsGCCPage() {
   const winner = productsGCC.find((p) => p.editorChoice)!;
   const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: `Best Nootropics in the GCC ${CURRENT_YEAR}`, datePublished: '2026-01-15', dateModified: new Date().toISOString().split('T')[0], author: buildPersonAuthorReference(undefined, SITE_URL), publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL } };
-  const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqItems.map((item) => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })) };
   const itemListSchema = { '@context': 'https://schema.org', '@type': 'ItemList', name: `Best Nootropic Supplements GCC ${CURRENT_YEAR}`, itemListElement: productsGCC.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.name, url: `${SITE_URL}/${p.slug}/` })) };
 
   return (
     <>
       <SchemaOrg schema={articleSchema} />
-      <SchemaOrg schema={faqSchema} />
       <SchemaOrg schema={itemListSchema} />
       <BestOf
         products={productsGCC}
         breadcrumbs={[{ label: 'Best of', href: '/best-nootropics' }]}
-        hero={{ eyebrow: `GCC · Audited ${CURRENT_YEAR}`, h1: `Best Nootropics in the GCC ${CURRENT_YEAR}`, dek: 'Caffeine-free, stimulant-free, porcine-free options prioritised. Verified for personal import to Saudi Arabia, UAE, Qatar, Kuwait, Bahrain and Oman.' }}
+        hero={{ eyebrow: `GCC · Audited ${CURRENT_YEAR}`, h1: `Best Nootropics in the GCC ${CURRENT_YEAR}`, dek: 'Caffeine-free, stimulant-free, porcine-free options prioritised. Each review notes whether the brand ships to Saudi Arabia, UAE, Qatar, Kuwait, Bahrain and Oman — several do not.' }}
         searchItems={searchItems} uiStrings={uiStrings} trackingSurface="best_of_gcc"
         preList={
           <div className="flex flex-col gap-5">

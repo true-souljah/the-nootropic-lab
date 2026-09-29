@@ -60,13 +60,13 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'noocube-review')!,
     rank: 2,
     whyItsHere:
-      'Includes Lutemax 2020 at the clinical 20mg dose plus L-theanine 100mg — the most relevant focus formula for SEA screen-workers in Singapore, KL, Bangkok, and Manila tech roles. Alpha-GPC and Huperzine doses are below clinical anchors. UK→SEA shipping ~10–18 days. Personal-use import. Not halal-certified by JAKIM/BPJPH; capsules are typically gelatin (animal-derived) — confirm with vendor before MY/ID purchase.',
+      'Includes Lutemax 2020 at the clinical 20mg dose plus L-theanine 100mg — the most relevant focus formula for SEA screen-workers in Singapore, KL, Bangkok, and Manila tech roles. The current formula uses choline from VitaCholine and no longer contains Alpha-GPC or Huperzine A; Bacopa is below its clinical anchor. UK→SEA shipping ~10–18 days. Personal-use import. Not halal-certified by JAKIM/BPJPH; capsules are typically gelatin (animal-derived) — confirm with vendor before MY/ID purchase.',
   },
   {
     product: productsSEA.find(p => p.slug === 'qualia-mind-review')!,
     rank: 3,
     whyItsHere:
-      'Includes citicoline, Alpha-GPC, L-theanine, and L-tyrosine — covers nearly every evidence-backed focus mechanism. Loses ground on capsule count (7+/day), $139/mo subscription, and a contains-caffeine formula (ID buyers in observance may prefer caffeine-free). US→SEA shipping 12–18 days. Indonesian and Thai buyers should watch customs thresholds given the high declared value.',
+      'Includes citicoline, Alpha-GPC, L-theanine, and L-tyrosine — covers nearly every evidence-backed focus mechanism. Loses ground on capsule count (7+/day), $139/mo subscription, and a contains-caffeine formula (ID buyers in observance may prefer caffeine-free). Availability caveat: Qualia does not ship to any SEA country (brand shipping page, checked 2026-09-28), so SEA buyers cannot order it direct.',
   },
   {
     product: productsSEA.find(p => p.slug === 'onnit-alpha-brain-review')!,
@@ -83,7 +83,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Which focus nootropics are best via Shopee/Lazada vs cross-border iHerb?',
-    a: 'For Shopee/Lazada/TikTok Shop in SG/MY/TH/PH/ID: Blackmores Brain Active is the TGA-AU brand with reliable local-marketplace supply (no customs risk, local-currency pricing). For cross-border ordering of premium imports (Mind Lab Pro, Qualia Mind, Alpha Brain), iHerb is currently the most reliable route with consolidated shipping into SG and MY warehouses; for Indonesia and Vietnam, ordering direct from the brand sites with DDP shipping (Mind Lab Pro / Opti-Nutra) avoids customs surprises. Singapore receives all routes the fastest (5–10 business days).',
+    a: 'For Shopee/Lazada/TikTok Shop in SG/MY/TH/PH/ID: Alpha Brain has a live Lazada Singapore listing (checked 2026-09-28). For cross-border ordering of premium imports (Mind Lab Pro, Alpha Brain), iHerb is currently the most reliable route with consolidated shipping into SG and MY warehouses; for Indonesia and Vietnam, ordering direct from the brand sites with DDP shipping (Mind Lab Pro / Opti-Nutra) avoids customs surprises. Singapore receives all routes the fastest (5–10 business days). Qualia Mind does not ship to any SEA country (brand shipping page, checked 2026-09-28).',
   },
   {
     q: 'What is the most evidence-backed focus nootropic available in SEA?',

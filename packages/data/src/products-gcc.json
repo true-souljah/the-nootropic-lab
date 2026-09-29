@@ -24,8 +24,8 @@
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 4.5,
-    "trustpilotCount": 3200,
+    "trustpilotScore": 4.2,
+    "trustpilotCount": 82,
     "affiliateUrl": "https://www.mindlabpro.com?a_aid=zid0oxj1g4uny&a_bid=6d45f5c3",
     "affiliateNetwork": "UberNet",
     "commissionRate": "30%",
@@ -51,7 +51,7 @@
         "adequatelyDosed": true
       },
       {
-        "name": "Bacopa Monnieri (45% bacosides)",
+        "name": "Bacopa Monnieri (full-spectrum, 24% bacosides)",
         "doseInProduct": "150mg",
         "clinicalDose": "300mg",
         "adequatelyDosed": false
@@ -83,8 +83,8 @@
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 4,
-    "summary": "The most comprehensively researched nootropic stack available to GCC buyers. Ships from the UK direct to UAE, Saudi Arabia, Qatar, Kuwait, Bahrain, and Oman -- typical delivery is 7-14 days, with Dubai acting as a regional distribution hub. Priced at $69 USD/month. Caffeine-free formula is a strong fit for GCC consumers who avoid stimulants. Dietary capsule shell is vegetarian; no animal-derived gelatin. Always verify current import status with the Saudi Food and Drug Authority (SFDA) in Saudi Arabia, the Ministry of Health and Prevention (MOHAP) in the UAE, or the relevant MOH before ordering, as supplement regulations across GCC states differ.",
-    "whatItIs": "Mind Lab Pro is an 11-ingredient pre-formulated nootropic stack made by Opti-Nutra, a UK-based supplement company. Designed as a complete daily cognitive supplement covering memory, focus, mental energy, mood, and long-term brain health, it contains no caffeine and uses no proprietary blends. For GCC buyers: the product ships from the UK, carries no pork-derived gelatin (capsules are plant-based), and has not been formally registered with SFDA, MOHAP, or GCC-state MOH bodies -- it enters the region as a personal-use dietary supplement. Buyers in Saudi Arabia should check SFDA import guidelines; UAE buyers can often receive shipments via Dubai free-zone logistics channels.",
+    "summary": "The most comprehensively researched nootropic stack in this review. GCC delivery is not confirmed: the brand's own storefront shipping lists (checked 2026-09-28) cover the US and EU countries only, with no GCC state listed -- confirm at checkout before ordering to a GCC address. Priced at $69 USD/month. Caffeine-free formula is a strong fit for GCC consumers who avoid stimulants. Dietary capsule shell is vegetarian; no animal-derived gelatin. Always verify current import status with the Saudi Food and Drug Authority (SFDA) in Saudi Arabia, the Ministry of Health and Prevention (MOHAP) in the UAE, or the relevant MOH before ordering, as supplement regulations across GCC states differ.",
+    "whatItIs": "Mind Lab Pro is an 11-ingredient pre-formulated nootropic stack made by Opti-Nutra, a UK-based supplement company. Designed as a complete daily cognitive supplement covering memory, focus, mental energy, mood, and long-term brain health, it contains no caffeine and uses no proprietary blends. For GCC buyers: the product carries no pork-derived gelatin (capsules are plant-based) and has not been formally registered with SFDA, MOHAP, or GCC-state MOH bodies. Neither of the brand's storefronts lists a GCC state as a shipping destination (checked 2026-09-28), so direct delivery to the GCC is not confirmed. Buyers in Saudi Arabia should check SFDA import guidelines before arranging any personal import.",
     "howItWorks": "Mind Lab Pro works across six bio-pathways simultaneously. Citicoline and Phosphatidylserine support the cholinergic system and neuronal membrane integrity. Lion's Mane stimulates Nerve Growth Factor (NGF) for neuroplasticity. Bacopa Monnieri enhances synaptic communication for memory. Rhodiola Rosea and L-Tyrosine support dopamine/norepinephrine balance under stress. L-Theanine promotes alpha brain wave activity for calm focus. B-vitamins (B6, B9, B12) support homocysteine regulation and neurotransmitter synthesis.",
     "whatToExpect": "Within 30-60 minutes: mild calm focus from L-Theanine. Within 2-4 weeks: improved mental energy and reduced cognitive fatigue (Citicoline, Tyrosine). At 8-12 weeks: measurable improvements in memory recall and learning speed (Bacopa, Lion's Mane). Mind Lab Pro is a long-game supplement -- most users report subtle but sustained improvement rather than dramatic day-one effects. Best results require 3+ months of consistent daily use.",
     "pros": [
@@ -98,11 +98,15 @@
       "Premium price ($69/mo)",
       "4 capsules per serving",
       "30-day money-back",
-      "Verify import status with your local customs -- some GCC states restrict certain supplements"
+      "Verify import status with your local customs -- some GCC states restrict certain supplements",
+      "No GCC state on the brand's shipping lists (checked 2026-09-28)"
     ],
     "editorChoice": true,
     "market": "both",
-    "updatedAt": "2026-05-28"
+    "updatedAt": "2026-09-28",
+    "importPathway": "Mind Lab Pro's own storefront shipping lists (https://www.mindlabpro.com/meta.json ships_to_countries: US only; eu.mindlabpro.com: EU countries only; checked 2026-09-28) include no GCC state. Direct delivery to the UAE, Saudi Arabia, Qatar, Kuwait, Bahrain or Oman is not confirmed.",
+    "verifiedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28"
   },
   {
     "id": "noocube",
@@ -122,15 +126,15 @@
       "value": 9,
       "trust": 7
     },
-    "priceMonthlyUSD": 59,
+    "priceMonthlyUSD": 64.99,
     "priceMonthlyEUR": 55,
     "pricingModel": "both",
     "moneyBackDays": 60,
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 1.9,
-    "trustpilotCount": 850,
+    "trustpilotScore": null,
+    "trustpilotCount": null,
     "affiliateUrl": "https://www.noocube.com/",
     "affiliateNetwork": "FanFuel",
     "commissionRate": "31.5%",
@@ -140,8 +144,10 @@
       "Bacopa Monnieri",
       "Panax Ginseng",
       "VitaCholine",
-      "Huperzine A",
-      "L-Theanine"
+      "Cat's Claw",
+      "Resveratrol",
+      "L-Theanine",
+      "Pterostilbene"
     ],
     "ingredientDosages": [
       {
@@ -151,21 +157,33 @@
         "adequatelyDosed": true
       },
       {
-        "name": "Bacopa Monnieri",
+        "name": "Bacopa Monnieri (12:1, 20% bacosides)",
         "doseInProduct": "250mg",
         "clinicalDose": "300mg",
         "adequatelyDosed": false
       },
       {
-        "name": "Alpha-GPC",
-        "doseInProduct": "50mg",
-        "clinicalDose": "300mg",
+        "name": "Panax Ginseng (200:1 concentrate)",
+        "doseInProduct": "20mg",
+        "clinicalDose": "Limited human data",
         "adequatelyDosed": false
       },
       {
-        "name": "Huperzine A",
-        "doseInProduct": "20mcg",
-        "clinicalDose": "50-200mcg",
+        "name": "Choline (VitaCholine)",
+        "doseInProduct": "250mg",
+        "clinicalDose": "Limited human data",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Cat's Claw (4:1 extract)",
+        "doseInProduct": "Undisclosed",
+        "clinicalDose": "Limited human data",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Resveratrol (99%)",
+        "doseInProduct": "14.3mg",
+        "clinicalDose": "Limited human data",
         "adequatelyDosed": false
       },
       {
@@ -183,29 +201,31 @@
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 4,
-    "summary": "Strong formula anchored by Lutemax 2020, relevant for screen-heavy professionals in GCC markets. At $59 USD/month it is the best-value stack in this review. Ships from the US/UK; expect 7-14 days to UAE or Saudi Arabia, with Dubai free-zone logistics commonly used for regional fulfilment. Verify current import status with MOHAP (UAE) or SFDA (Saudi Arabia) before ordering -- customs treatment of multi-ingredient supplements varies. Note: Trustpilot score is very low (1.9/5); verify independently before purchasing.",
-    "whatItIs": "NooCube is a 13-ingredient nootropic stack made by Wolfson Brands, a large supplement manufacturer. Its standout feature is Lutemax 2020 -- a patented lutein and zeaxanthin extract researched for reducing digital eye strain and blue-light cognitive fatigue, making it relevant for the GCC's large screen-heavy professional and gaming populations. Capsules use no pork-derived gelatin. The product has not been registered with the Saudi Food and Drug Authority (SFDA), the Ministry of Health and Prevention (MOHAP), or any GCC-state MOH; it enters the region as a personal-use dietary supplement shipped from the US or UK.",
-    "howItWorks": "Lutemax 2020 filters high-energy blue light in the retina, reducing eye fatigue that accumulates during screen use -- an indirect but real cognitive benefit for office workers and gamers. Alpha-GPC and Huperzine A work on the cholinergic system (though both are underdosed versus clinical trial doses). L-Theanine provides calm focus. Bacopa Monnieri targets memory consolidation over weeks.",
-    "whatToExpect": "Day one: mild calm focus from L-Theanine. Within 2-4 weeks: reduced eye fatigue and better end-of-day mental stamina (Lutemax). At 8 weeks: modest memory improvements (Bacopa, though underdosed). Important caveat: Alpha-GPC and Huperzine A are underdosed versus clinical trials. Manage expectations accordingly. The Trustpilot rating of 1.9/5 reflects subscription cancellation complaints rather than product efficacy -- verify the cancellation policy before purchasing.",
+    "summary": "Strong formula anchored by Lutemax 2020, relevant for screen-heavy professionals in GCC markets. At $64.99 USD for a 30-serving bottle it is the best-value stack in this review. noocube.com's own storefront shipping list (checked 2026-09-28) includes the UAE, Saudi Arabia, Qatar, Kuwait, Bahrain and Oman. Verify current import status with MOHAP (UAE) or SFDA (Saudi Arabia) before ordering -- customs treatment of multi-ingredient supplements varies. Note: the noocube.com Trustpilot profile has no reviews yet; verify independently before purchasing.",
+    "whatItIs": "NooCube is a 12-ingredient nootropic stack made by Wolfson Brands, a large supplement manufacturer. Its standout feature is Lutemax 2020 -- a patented lutein and zeaxanthin extract researched for reducing digital eye strain and blue-light cognitive fatigue, making it relevant for the GCC's large screen-heavy professional and gaming populations. Capsules use no pork-derived gelatin. The product has not been registered with the Saudi Food and Drug Authority (SFDA), the Ministry of Health and Prevention (MOHAP), or any GCC-state MOH; it enters the region as a personal-use dietary supplement shipped from the US or UK.",
+    "howItWorks": "Lutemax 2020 filters high-energy blue light in the retina, reducing eye fatigue that accumulates during screen use -- an indirect but real cognitive benefit for office workers and gamers. Choline from VitaCholine (250mg) supports the cholinergic system; the current formula no longer contains Alpha-GPC or Huperzine A. L-Theanine provides calm focus. Bacopa Monnieri targets memory consolidation over weeks.",
+    "whatToExpect": "Day one: mild calm focus from L-Theanine. Within 2-4 weeks: reduced eye fatigue and better end-of-day mental stamina (Lutemax). At 8 weeks: modest memory improvements (Bacopa, though underdosed). Manage expectations accordingly: Bacopa is below the 300mg clinical anchor. The noocube.com Trustpilot profile has no reviews yet -- verify the cancellation policy before purchasing.",
     "pros": [
       "Lutemax 2020 for screen workers",
-      "Good value at $59/mo",
+      "Good value at $64.99/mo",
       "60-day money-back",
-      "EU storefront",
-      "Caffeine-free"
+      "Caffeine-free",
+      "Ships to all six GCC states (brand shipping list, checked 2026-09-28)"
     ],
     "cons": [
-      "Trustpilot 1.9/5 -- significant complaints",
+      "No reviews on the noocube.com Trustpilot profile (checked 2026-09-28)",
       "Some ingredients underdosed",
       "Subscription cancellation issues (BBB)",
       "Verify import status with your local customs -- some GCC states restrict certain supplements"
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-05-28",
+    "updatedAt": "2026-09-28",
     "notes": [
       "Bulk-purchase pricing changed June 2026: 5-month supply $194.99 USD (was 6-month for $180). GCC buyers on iHerb or direct affected."
-    ]
+    ],
+    "verifiedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28"
   },
   {
     "id": "qualia-mind",
@@ -225,15 +245,15 @@
       "value": 6,
       "trust": 7
     },
-    "priceMonthlyUSD": 139,
+    "priceMonthlyUSD": 159,
     "pricingModel": "subscription",
     "moneyBackDays": 100,
     "caffeineFree": false,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 3.8,
-    "trustpilotCount": 1100,
-    "affiliateUrl": "https://neurohacker.com/",
+    "trustpilotScore": 4.5,
+    "trustpilotCount": 66,
+    "affiliateUrl": "https://www.qualialife.com/shop/qualia-mind",
     "affiliateNetwork": "ShareASale",
     "commissionRate": "15%",
     "cookieDays": 30,
@@ -291,8 +311,8 @@
     ],
     "servingsPerContainer": 22,
     "capsulesPerServing": 6,
-    "summary": "28 active ingredients -- the most comprehensive formula in this review and the highest-priced at $139 USD/month. Ships from the US; expect 7-14 days to UAE and Saudi Arabia, typically routed through Dubai free-zone distribution. Contains caffeine (90mg per serving) -- not ideal for GCC buyers who avoid stimulants; a caffeine-free version is available. Verify import status with the Saudi Food and Drug Authority (SFDA) in Saudi Arabia, the Ministry of Health and Prevention (MOHAP) in the UAE, or the relevant MOH before ordering, as a 28-ingredient stack may attract additional customs scrutiny.",
-    "whatItIs": "Qualia Mind is a 28-ingredient nootropic stack developed by Neurohacker Collective, a San Diego-based company focused on systems biology and complex supplementation. It is the most ingredient-rich formula in this review and is designed for experienced supplement users. For GCC buyers: the default formula contains caffeine (90mg), which may not suit all consumers; Neurohacker offers a caffeine-free variant. The product is not registered with the Saudi Food and Drug Authority (SFDA), the Ministry of Health and Prevention (MOHAP), or any GCC-state MOH and enters the region as a personal-use dietary supplement shipped from the US. At $139 USD/month it sits at the premium end of the market.",
+    "summary": "28 active ingredients -- the most comprehensive formula in this review and the highest-priced at $159 USD (list price). Not available to order direct in the GCC: Qualia's own international-shipping page (checked 2026-09-28) lists only Canada, the UK, Ireland, Australia and New Zealand outside the US. Contains caffeine (90mg per serving) -- not ideal for GCC buyers who avoid stimulants; a caffeine-free version is available. Verify import status with the Saudi Food and Drug Authority (SFDA) in Saudi Arabia, the Ministry of Health and Prevention (MOHAP) in the UAE, or the relevant MOH before ordering, as a 28-ingredient stack may attract additional customs scrutiny.",
+    "whatItIs": "Qualia Mind is a 28-ingredient nootropic stack developed by Qualia Life Sciences (formerly Neurohacker Collective), a San Diego-based company focused on systems biology and complex supplementation. It is the most ingredient-rich formula in this review and is designed for experienced supplement users. For GCC buyers: the default formula contains caffeine (90mg), which may not suit all consumers; a caffeine-free variant is offered. The product is not registered with the Saudi Food and Drug Authority (SFDA), the Ministry of Health and Prevention (MOHAP), or any GCC-state MOH, and Qualia does not list any GCC state as a shipping destination (checked 2026-09-28). At $159 USD list price it sits at the premium end of the market.",
     "howItWorks": "Qualia Mind covers more cognitive pathways than any competitor: cholinergics (Alpha-GPC, Huperzine A, Citicoline), adaptogens (Rhodiola, Bacopa), neuro-nutrients (DHA, PS), amino acid precursors (Tyrosine, Taurine, Theanine), B-vitamin complex, and several novel ingredients (Uridine Monophosphate, Pyrroloquinoline Quinone). The theory is synergistic optimisation across all cognitive systems simultaneously. Neurohacker publishes a proprietary research program supporting the formula.",
     "whatToExpect": "Acute effects on day one: sustained attention, moderate energy boost from caffeine (90mg per serving). Within 2-4 weeks: improved mental endurance and working memory. At 8-12 weeks: cumulative adaptogen and memory benefits. Important: 7 capsules per serving is a significant daily pill burden. Start with the recommended 7-day loading cycle (2 days off per week) to assess tolerance.",
     "pros": [
@@ -302,14 +322,17 @@
       "Respected in biohacking community"
     ],
     "cons": [
-      "$139/month",
+      "$159 list price",
       "7 capsules per serving",
       "Contains caffeine -- not preferred for conservative GCC market",
-      "Verify import status with your local customs -- some GCC states restrict certain supplements"
+      "Does not ship to any GCC state (brand shipping page, checked 2026-09-28)"
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-05-28"
+    "updatedAt": "2026-09-28",
+    "importPathway": "Qualia's own international-shipping page (https://www.qualialife.com/faqs/do-we-ship-internationally, checked 2026-09-28) lists only Canada, the UK, Ireland, Australia and New Zealand outside the US. GCC buyers cannot order direct from the brand.",
+    "verifiedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28"
   },
   {
     "id": "alpha-brain",
@@ -335,9 +358,9 @@
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 3.2,
-    "trustpilotCount": 4200,
-    "affiliateUrl": "https://www.onnit.com/",
+    "trustpilotScore": 4.2,
+    "trustpilotCount": 15776,
+    "affiliateUrl": "https://www.onnit.com/alphabrain/",
     "affiliateNetwork": "Impact",
     "commissionRate": "12%",
     "cookieDays": 30,
@@ -388,8 +411,8 @@
     ],
     "servingsPerContainer": 45,
     "capsulesPerServing": 2,
-    "summary": "Most commercially successful nootropic in the US, at $79 USD/month and backed by two published clinical studies. Caffeine-free formula is a good fit for GCC buyers who avoid stimulants. Ships from the US; expect 7-14 days to UAE and Saudi Arabia via Dubai free-zone logistics. NSF Certified for Sport -- relevant for GCC's large fitness and athletics community. Verify import status with the Saudi Food and Drug Authority (SFDA) in Saudi Arabia, the Ministry of Health and Prevention (MOHAP) in the UAE, or the relevant MOH before ordering.",
-    "whatItIs": "Alpha Brain is Onnit's flagship nootropic, first released in 2011 and widely recognised through mainstream US media. It is one of only two nootropic supplements with published clinical trial data on its specific formula, and carries National Sanitation Foundation (NSF) Certified for Sport status -- making it suitable for drug-tested athletes, including competitive sports participants in the GCC. The formula is caffeine-free and uses vegetarian capsules with no pork-derived gelatin. The product is not registered with the Saudi Food and Drug Authority (SFDA), the Ministry of Health and Prevention (MOHAP), or any GCC-state MOH and enters the region as a personal-use dietary supplement shipped from the US.",
+    "summary": "Most commercially successful nootropic in the US, at $79 USD/month and backed by two published clinical studies. Caffeine-free formula is a good fit for GCC buyers who avoid stimulants. Onnit's own storefront shipping list (checked 2026-09-28) includes Bahrain and Oman but not the UAE, Saudi Arabia, Qatar or Kuwait. NSF Certified for Sport -- relevant for GCC's large fitness and athletics community. Verify import status with the Saudi Food and Drug Authority (SFDA) in Saudi Arabia, the Ministry of Health and Prevention (MOHAP) in the UAE, or the relevant MOH before ordering.",
+    "whatItIs": "Alpha Brain is Onnit's flagship nootropic, first released in 2011 and widely recognised through mainstream US media. It is one of only two nootropic supplements with published clinical trial data on its specific formula, and carries National Sanitation Foundation (NSF) Certified for Sport status -- making it suitable for drug-tested athletes, including competitive sports participants in the GCC. The formula is caffeine-free and uses vegetarian capsules with no pork-derived gelatin. The product is not registered with the Saudi Food and Drug Authority (SFDA), the Ministry of Health and Prevention (MOHAP), or any GCC-state MOH; buyers in Bahrain and Oman can order it from the US as a personal-use dietary supplement.",
     "howItWorks": "Alpha Brain uses three proprietary blends -- Onnit Flow Blend, Focus Blend, and Fuel Blend -- containing cholinergics (Alpha-GPC), adaptogens (Bacopa), and amino acids (Tyrosine, Theanine). Because doses are hidden in proprietary blends, we cannot verify whether individual ingredient doses match clinical trial thresholds. The two published studies (Onnit-funded, 2016 and 2021) tested the full formula and showed statistically significant improvements in verbal memory and executive function versus placebo.",
     "whatToExpect": "Day one: subtle focus improvement, particularly noticeable for users who haven't taken cholinergic supplements before. The lack of caffeine means no energy spike -- effects are gentle. The proprietary blend means dosing is optimised for the formula as a whole, not for individual ingredients. At 4-6 weeks: most users report consistent mild improvements in word retrieval and task focus. The 90-day money-back guarantee is one of the most generous in the category.",
     "pros": [
@@ -403,11 +426,15 @@
     "cons": [
       "Proprietary blends hide doses",
       "Subscription cancellation issues",
-      "Verify import status with your local customs -- some GCC states restrict certain supplements"
+      "Verify import status with your local customs -- some GCC states restrict certain supplements",
+      "Does not ship to the UAE, Saudi Arabia, Qatar or Kuwait (brand shipping list, checked 2026-09-28)"
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-05-28"
+    "updatedAt": "2026-09-28",
+    "importPathway": "Onnit's own storefront shipping list (https://www.onnit.com/meta.json, ships_to_countries, checked 2026-09-28) includes Bahrain and Oman but excludes the UAE, Saudi Arabia, Qatar and Kuwait. Buyers in those four states cannot order direct from onnit.com.",
+    "verifiedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28"
   },
   {
     "id": "thesis",
@@ -432,8 +459,8 @@
     "caffeineFree": false,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 3.9,
-    "trustpilotCount": 780,
+    "trustpilotScore": 4.0,
+    "trustpilotCount": 116,
     "affiliateUrl": "https://takethesis.com/",
     "affiliateNetwork": "Impact",
     "commissionRate": "20%",
@@ -479,8 +506,8 @@
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 3,
-    "summary": "Four personalised formula blends per month at $79 USD/month, subscription only. Each blend has a caffeinated and caffeine-free variant -- GCC buyers who avoid stimulants should select the caffeine-free option at checkout. Ships from the US; expect 7-14 days to UAE and Saudi Arabia, typically routed through Dubai free-zone logistics. Verify import status with MOHAP (UAE), SFDA (Saudi Arabia), or the relevant MOH before ordering, as receiving four distinct formula blends monthly may require additional customs attention.",
-    "whatItIs": "Thesis is a personalised nootropic subscription service that ships four different formula blends each month -- Energy, Clarity, Logic, and Motivation -- along with access to a nootropics coaching service. Rather than a single fixed formula, Thesis lets you rotate blends on different days to match your cognitive demand. For GCC buyers: each blend is available in a caffeine-free variant, making it compatible with consumers who avoid stimulants for dietary or religious reasons. Capsules contain no pork-derived gelatin. The service is not registered with the Saudi Food and Drug Authority (SFDA), the Ministry of Health and Prevention (MOHAP), or any GCC-state MOH; products are shipped from the US as personal-use dietary supplements.",
+    "summary": "Four personalised formula blends per month at $79 USD/month, subscription only. Each blend has a caffeinated and caffeine-free variant. Not available to order in the GCC: Thesis's own storefront shipping list (checked 2026-09-28) covers the US only, so no GCC address can be served direct. Reviewed here for comparison with the stacks that do ship to the region.",
+    "whatItIs": "Thesis is a personalised nootropic subscription service that ships four different formula blends each month -- Energy, Clarity, Logic, and Motivation -- along with access to a nootropics coaching service. Rather than a single fixed formula, Thesis lets you rotate blends on different days to match your cognitive demand. For GCC buyers: each blend is available in a caffeine-free variant, making it compatible with consumers who avoid stimulants for dietary or religious reasons. Capsules contain no pork-derived gelatin. The service is not registered with the Saudi Food and Drug Authority (SFDA), the Ministry of Health and Prevention (MOHAP), or any GCC-state MOH, and the brand ships to US addresses only (checked 2026-09-28).",
     "howItWorks": "Each Thesis blend targets a different cognitive mode. Energy blend: stimulating compounds (Zynamite, Dynamine, Ashwagandha) for high-output days. Clarity blend: cholinergics and focus ingredients for clear thinking. Logic blend: memory and processing speed ingredients. Motivation blend: dopaminergic support. Each blend has a caffeine-free and caffeinated option. The personalisation model allows you to match your cognitive demand of the day with the appropriate formula.",
     "whatToExpect": "First month: expect an experimentation period. You'll rotate through 4 blends, 7 days each, to assess which has the most noticeable effect for you. Energy blend effects are immediate (stimulating compounds work within 30-60 minutes). Clarity and Logic blend effects build over 2-4 weeks. Coaching service adds value for users who want guidance on optimising their protocol. Select caffeine-free blend variants for GCC conservative market preference.",
     "pros": [
@@ -493,11 +520,14 @@
       "Subscription only",
       "Requires experimentation",
       "Contains caffeine in default blends -- not preferred for conservative GCC market",
-      "Verify import status with your local customs -- some GCC states restrict certain supplements"
+      "Ships to the US only -- not orderable from any GCC state (checked 2026-09-28)"
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-05-28"
+    "updatedAt": "2026-09-28",
+    "importPathway": "Thesis's own storefront shipping list (https://takethesis.com/meta.json, ships_to_countries, checked 2026-09-28) contains the US only. GCC buyers cannot order it.",
+    "verifiedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28"
   },
   {
     "id": "nootropics-depot-lions-mane",
@@ -523,8 +553,8 @@
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 4.2,
-    "trustpilotCount": 2800,
+    "trustpilotScore": 4.7,
+    "trustpilotCount": 1333,
     "affiliateUrl": "https://nootropicsdepot.com/",
     "affiliateNetwork": "Impact",
     "commissionRate": "15%",
@@ -542,7 +572,7 @@
     ],
     "servingsPerContainer": 90,
     "capsulesPerServing": 1,
-    "summary": "Gold standard single-ingredient Lion's Mane at $25 USD/month -- by far the best-value product in this review and the easiest to clear customs as a single-ingredient supplement. Ships from the US; expect 7-14 days to UAE and Saudi Arabia via Dubai free-zone logistics. ISO-certified in-house lab publishes a Certificate of Analysis per batch, which may assist with import documentation for SFDA (Saudi Arabia), MOHAP (UAE), or other GCC-state MOH queries. Caffeine-free; capsules contain no pork-derived gelatin.",
+    "summary": "Gold standard single-ingredient Lion's Mane at $25 USD/month -- by far the best-value product in this review and the easiest to clear customs as a single-ingredient supplement. Ships from the US; the brand's shipping-methods page (checked 2026-09-28) describes worldwide international shipping with no GCC state excluded. ISO-certified in-house lab publishes a Certificate of Analysis per batch, which may assist with import documentation for SFDA (Saudi Arabia), MOHAP (UAE), or other GCC-state MOH queries. Caffeine-free; capsules contain no pork-derived gelatin.",
     "whatItIs": "Nootropics Depot Lion's Mane Extract is a single-ingredient supplement providing standardised Hericium erinaceus fruiting body extract at 500mg per capsule. Nootropics Depot is widely regarded as the most rigorous quality-focused retailer in the US nootropics market, operating an ISO-certified in-house testing laboratory and publishing a Certificate of Analysis (CoA) for every batch. For GCC buyers: as a single-ingredient product, it presents a simpler customs profile than multi-ingredient stacks; the publicly available CoA can be provided to SFDA, MOHAP, or relevant MOH authorities if documentation is requested. The product is caffeine-free, uses plant-based capsules with no pork-derived gelatin, and ships from the US.",
     "howItWorks": "Lion's Mane fruiting body contains hericenones, compounds that cross the blood-brain barrier and stimulate Nerve Growth Factor (NGF) synthesis. NGF promotes neuronal survival, axon growth, and maintenance of neurons in the hippocampus and cortex -- the regions responsible for learning and memory. Nootropics Depot uses a standardised fruiting body extract rather than mycelium (which has a lower hericenone content). The result is a more potent and consistent NGF stimulus per capsule.",
     "whatToExpect": "Lion's Mane is a long-game supplement. Expect no acute effects on day one. At 4 weeks: some users report slightly clearer thinking and improved mental endurance. At 8-12 weeks: measurable improvements in memory and neuroprotective markers in studies. For best results, take consistently every day with a fat-containing meal (hericenones are fat-soluble). This product is best combined with a multi-ingredient stack (e.g. Mind Lab Pro already contains Lion's Mane) rather than used as a standalone primary supplement.",
@@ -559,7 +589,9 @@
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-05-28"
+    "updatedAt": "2026-09-28",
+    "verifiedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28"
   },
   {
     "id": "eu-yan-sang-brainmax",
@@ -587,7 +619,7 @@
     "euCompliance": "verify",
     "trustpilotScore": null,
     "trustpilotCount": null,
-    "affiliateUrl": "https://www.euyansang.com/en_US/supplements/",
+    "affiliateUrl": "https://www.euyansang.com.sg/en/brainmax-888842543107.html",
     "affiliateNetwork": "Eu Yan Sang Direct",
     "commissionRate": "0%",
     "cookieDays": 0,
@@ -618,16 +650,14 @@
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 1,
-    "summary": "Eu Yan Sang BrainMAX+ is a premium brain health supplement from a 145-year-old Traditional Chinese Medicine (TCM) company. Uses Cera-Q — a clinically studied silk fibroin protein — combined with Goji Berry and Chinese Wild Ginseng. Ships internationally from Singapore with tariffs absorbed by Eu Yan Sang. Priced at approximately $67 USD/month. Caffeine-free with no pork-derived gelatin — suitable for GCC dietary requirements.",
-    "whatItIs": "Eu Yan Sang is a 145-year-old Traditional Chinese Medicine company founded in 1879, headquartered in Singapore with 200+ retail locations across Asia-Pacific. BrainMAX+ is their modern cognitive health product featuring Cera-Q — a silk fibroin protein extract with clinical studies showing improvements in memory, learning, and concentration. The formula bridges TCM heritage (Goji Berry, Chinese Wild Ginseng) with modern peptide science. For GCC buyers: the product ships internationally from Singapore via Eu Yan Sang's e-commerce platform with tariffs absorbed by the company. Caffeine-free, plant-based capsules with no pork-derived gelatin — compliant with GCC dietary preferences. Expect 7-14 day delivery to UAE and Saudi Arabia.",
+    "summary": "Eu Yan Sang BrainMAX+ is a premium brain health supplement from a 145-year-old Traditional Chinese Medicine (TCM) company. Uses Cera-Q — a clinically studied silk fibroin protein — combined with Goji Berry and Chinese Wild Ginseng. Sold on Eu Yan Sang's Singapore storefront; delivery to GCC addresses was not confirmed in our 2026-09-28 check -- confirm at checkout. Priced at approximately $67 USD/month. Caffeine-free with no pork-derived gelatin — suitable for GCC dietary requirements.",
+    "whatItIs": "Eu Yan Sang is a 145-year-old Traditional Chinese Medicine company founded in 1879, headquartered in Singapore with 200+ retail locations across Asia-Pacific. BrainMAX+ is their modern cognitive health product featuring Cera-Q — a silk fibroin protein extract with clinical studies showing improvements in memory, learning, and concentration. The formula bridges TCM heritage (Goji Berry, Chinese Wild Ginseng) with modern peptide science. For GCC buyers: the product is sold on Eu Yan Sang's Singapore e-commerce storefront; we could not confirm delivery terms to GCC addresses in our 2026-09-28 check. Caffeine-free, plant-based capsules with no pork-derived gelatin — compliant with GCC dietary preferences.",
     "howItWorks": "Cera-Q (silk fibroin protein hydrolysate) inhibits amyloid-beta aggregation and supports acetylcholine activity, with clinical trials demonstrating improvements in memory recall and cognitive processing speed. Goji Berry extract provides antioxidant neuroprotection via zeaxanthin and betaine compounds — Goji is a staple in TCM with centuries of documented use. Chinese Wild Ginseng contains ginsenosides that modulate NMDA receptor activity and support cerebral blood flow.",
-    "whatToExpect": "BrainMAX+ comes as powder sachets dissolved in water. Weeks 1-2: subtle improvements in mental clarity from Cera-Q. Weeks 4-8: cumulative memory and concentration benefits from the ginseng and goji combination. At $67 USD/month it is priced as a premium product, comparable to expensive imported stacks (Mind Lab Pro at $69). Ships from Singapore to GCC in approximately 7-14 days.",
+    "whatToExpect": "BrainMAX+ comes as powder sachets dissolved in water. Weeks 1-2: subtle improvements in mental clarity from Cera-Q. Weeks 4-8: cumulative memory and concentration benefits from the ginseng and goji combination. At $67 USD/month it is priced as a premium product, comparable to expensive imported stacks (Mind Lab Pro at $69).",
     "pros": [
       "145-year TCM heritage brand",
       "Cera-Q clinically studied ingredient",
-      "Ships to GCC from Singapore",
       "No pork-derived gelatin",
-      "Tariffs absorbed on international orders",
       "Caffeine-free"
     ],
     "cons": [
@@ -635,10 +665,11 @@
       "No money-back guarantee",
       "Ginseng underdosed",
       "No affiliate commission",
-      "7-14 day shipping from Singapore"
+      "Sold from Singapore -- GCC delivery not confirmed (checked 2026-09-28)"
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-05-28"
+    "updatedAt": "2026-09-28",
+    "importPathway": "BrainMAX+ is sold on Eu Yan Sang's Singapore storefront (https://www.euyansang.com.sg/en/brainmax-888842543107.html, checked 2026-09-28); the brand's US storefront does not carry it. Delivery terms to GCC addresses could not be confirmed."
   }
 ]

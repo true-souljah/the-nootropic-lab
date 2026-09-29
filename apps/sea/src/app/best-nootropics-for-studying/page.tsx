@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'noocube-review')!,
     rank: 2,
     whyItsHere:
-      'Lutemax 2020 at clinical 20mg specifically reduces digital eye strain — directly relevant for SEA students doing 6+ hour Zoom lectures, online tutorials, and screen-heavy revision. L-theanine 100mg present for calm focus. Bacopa and Alpha-GPC are present but underdosed. UK→SEA shipping ~10–18 days. At USD $59/mo it is the most cost-conscious premium import option for students.',
+      'Lutemax 2020 at clinical 20mg specifically reduces digital eye strain — directly relevant for SEA students doing 6+ hour Zoom lectures, online tutorials, and screen-heavy revision. L-theanine 100mg present for calm focus. Bacopa is present but underdosed, and the current formula uses choline from VitaCholine rather than Alpha-GPC. UK→SEA shipping ~10–18 days. At USD $64.99 per 30-serving bottle it is the most cost-conscious premium import option for students.',
   },
   {
     product: productsSEA.find(p => p.slug === 'eu-yan-sang-brainmax-review')!,
@@ -83,7 +83,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Which are best for SEA students via Shopee/Lazada vs cross-border iHerb?',
-    a: 'For students on a budget who want to avoid customs and credit-card cross-border fees: Blackmores Brain Active on Lazada/Shopee (Watsons/Guardian-stocked, local-currency), plus NatureBell Ginkgo+Ginseng on Amazon.sg (~SGD $7/mo). For premium stacks: cross-border iHerb to Singapore is the most reliable route for Mind Lab Pro, NooCube, and Nootropics Depot products — typical delivery 5–10 days into SG, slightly longer to other capitals. Direct-from-brand (Opti-Nutra DDP shipping) eliminates customs surprises but takes 10–14 days.',
+    a: 'For students on a budget who want to avoid customs and credit-card cross-border fees: NatureBell Ginkgo+Ginseng on Amazon.sg (~SGD $7/mo). For premium stacks: cross-border iHerb to Singapore is the most reliable route for Mind Lab Pro, NooCube, and Nootropics Depot products — typical delivery 5–10 days into SG, slightly longer to other capitals. Direct-from-brand (Opti-Nutra DDP shipping) eliminates customs surprises but takes 10–14 days.',
   },
   {
     q: 'When should I start taking nootropics for studying?',

@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes Bacopa at the full 300mg clinical dose, phosphatidylserine 200mg, Alpha-GPC, and Uridine Monophosphate — the most complete memory-ingredient stack in one product available to SEA buyers. Loses ground on capsule count (7+/day), $139/mo subscription, and contains caffeine. US→SEA shipping 12–18 days. Indonesian and Thai buyers should be especially mindful of customs thresholds at this declared value.',
+      'Includes Bacopa at the full 300mg clinical dose, phosphatidylserine 200mg, Alpha-GPC, and Uridine Monophosphate — the most complete memory-ingredient stack in one product in this review. Loses ground on capsule count (7+/day), $139/mo subscription, and contains caffeine. Availability caveat: Qualia does not ship to any SEA country (brand shipping page, checked 2026-09-28), so SEA buyers cannot order it direct.',
   },
   {
     product: productsSEA.find(p => p.slug === 'nootropics-depot-lions-mane')!,
@@ -74,12 +74,6 @@ const picks: ListiclePick[] = [
     whyItsHere:
       'A 145-year-old TCM heritage brand with 200+ retail stores across Singapore, Malaysia, Hong Kong, and Macau. Cera-Q (silk fibroin protein, clinically studied for memory and recall) at 200mg full clinical dose, plus Goji Berry and Chinese Wild Ginseng. Walk into any Eu Yan Sang store in SG/MY for in-person purchase — zero import risk, deep brand trust across Chinese-heritage communities. Ships internationally from Singapore with tariffs absorbed. Vegetarian capsules. Note: not currently halal-certified — verify if required.',
   },
-  {
-    product: productsSEA.find(p => p.slug === 'blackmores-brain-active-review')!,
-    rank: 5,
-    whyItsHere:
-      'TGA-AU registered, distributed by Blackmores SEA subsidiaries, available in Guardian, Watsons, and Unity pharmacies across SG/MY/TH/PH/ID — the most accessible domestic option with zero import risk. Uses Bacopa (Keenmind branded extract) 160mg, Ginkgo Biloba 80mg, DHA 200mg, PS 50mg. Doses are below clinical anchors but the trade-off is local pricing, in-pharmacy purchase, and an established Asia-Pacific health brand. Some Blackmores SKUs carry JAKIM halal certification — check the specific product label.',
-  },
 ];
 
 const faqItems: ListicleFAQ[] = [
@@ -89,7 +83,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Which memory nootropics are best via Shopee/Lazada vs cross-border iHerb?',
-    a: 'Shopee/Lazada/TikTok Shop: Blackmores Brain Active (TGA-AU brand with reliable local-marketplace supply) plus the Eu Yan Sang official store on Shopee SG/MY. NatureBell Ginkgo+Ginseng is available on Amazon.sg as a budget option. Cross-border iHerb: best route for Nootropics Depot Lion\'s Mane and other premium single-ingredient products into Singapore and Malaysia (consolidated warehouses minimise customs friction). Direct from brand: Mind Lab Pro and Qualia Mind ship DDP into SEA — no customs surprises but slower delivery.',
+    a: 'Shopee/Lazada/TikTok Shop: the Eu Yan Sang official store on Shopee SG/MY. NatureBell Ginkgo+Ginseng is available on Amazon.sg as a budget option. Cross-border iHerb: best route for Nootropics Depot Lion\'s Mane and other premium single-ingredient products into Singapore and Malaysia (consolidated warehouses minimise customs friction). Direct from brand: Mind Lab Pro ships DDP into SEA — no customs surprises but slower delivery. Qualia Mind does not ship to any SEA country (brand shipping page, checked 2026-09-28).',
   },
   {
     q: 'What is the most evidence-backed nootropic for memory?',
