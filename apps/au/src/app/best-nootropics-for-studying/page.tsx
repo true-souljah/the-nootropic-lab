@@ -55,7 +55,7 @@ const picks: ListiclePick[] = [
     product: productsAU.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Caffeine-free design pairs perfectly with whatever caffeine source Australian students use during study sessions (long blacks, energy drinks, matcha). Includes L-theanine, Bacopa, citicoline, and L-tyrosine — covers all four study-relevant mechanisms in one open formula. Take daily through the semester for cumulative Bacopa effect. Ships from the UK to Australia in 7–14 business days; A$89/mo on the Australian storefront (au.mindlabpro.com).',
+      'Caffeine-free design pairs perfectly with whatever caffeine source Australian students use during study sessions (long blacks, energy drinks, matcha). Includes L-theanine, Bacopa, citicoline, and L-tyrosine — covers all four study-relevant mechanisms in one open formula. Take daily through the semester for cumulative Bacopa effect. Ships from the UK to Australia in 7–14 business days (per mindlabpro.com, checked 2026-09-29); A$89/mo on the Australian storefront (au.mindlabpro.com).',
   },
   {
     product: productsAU.find(p => p.slug === 'qualia-mind-review')!,
@@ -98,7 +98,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Where can Australian students buy these?',
-    a: 'TGA-listed single-ingredient options (L-theanine, Bacopa, ginkgo, fish oil) are stocked at Chemist Warehouse, Priceline, Amcal, Blooms, Coles, Woolworths, and ePharmacy. The international multi-ingredient stacks ranked above ship direct from the manufacturer to Australian addresses under the TGA Personal Importation Scheme — order from the brand website, allow 7–21 business days, and expect 10% GST added at checkout.',
+    a: 'TGA-listed single-ingredient options (L-theanine, Bacopa, ginkgo, fish oil) are stocked at Chemist Warehouse, Priceline, Amcal, Blooms, Coles, Woolworths, and ePharmacy. The international multi-ingredient stacks ranked above ship direct from the manufacturer to Australian addresses under the TGA Personal Importation Scheme — order from the brand website, check the delivery estimate for Australia at checkout, and expect 10% GST added at checkout.',
   },
 ];
 

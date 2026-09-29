@@ -54,7 +54,7 @@ const picks: ListiclePick[] = [
     product: productsCA.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Caffeine-free design pairs perfectly with whatever caffeine source Canadian students use during study sessions (Tim Hortons, matcha, energy drinks). Includes L-theanine, Bacopa, citicoline, Lion\'s Mane, and L-tyrosine — covers all four study-relevant mechanisms in one open formula. Take daily through the term for cumulative Bacopa effect. Ships UK→Canada in 7–14 business days.',
+      'Caffeine-free design pairs perfectly with whatever caffeine source Canadian students use during study sessions (Tim Hortons, matcha, energy drinks). Includes L-theanine, Bacopa, citicoline, Lion\'s Mane, and L-tyrosine — covers all four study-relevant mechanisms in one open formula. Take daily through the term for cumulative Bacopa effect. Ships UK→Canada in 5–20 working days by tracked airmail or 2–7 working days by DHL courier (per mindlabpro.com, checked 2026-09-29).',
   },
   {
     product: productsCA.find(p => p.slug === 'hunter-focus-review')!,
