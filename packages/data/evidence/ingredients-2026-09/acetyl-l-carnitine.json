@@ -106,7 +106,7 @@
       "design": "RCT, mixed double-blind randomized controlled and open-label",
       "population": "patients with cognitive decline eligible for donepezil (MMSE ≤26)",
       "n": 119,
-      "dose": "donepezil + acetyl-L-carnitine + ginkgo biloba extract (combination arm; ALC dose not isolated in abstract)",
+      "dose": "four arms: donepezil alone; donepezil + choline alfoscerate; donepezil + acetyl-L-carnitine; donepezil + ginkgo biloba extract (ALC dose not stated in abstract)",
       "duration": "24 weeks",
       "outcome": "MMSE, ADAS-Cog",
       "result": "Four arms: donepezil alone (DO), + choline alfoscerate (DN), + acetyl-L-carnitine (DA), + ginkgo (DG); results reported for the pooled DA + DG group: MMSE −2.17% at 12 weeks and −5.71% at 24 weeks, versus gains in DO and DN. ALCAR's contribution cannot be isolated from the pooled ginkgo arm.",
@@ -137,7 +137,7 @@
     {
       "claim": "Neuroprotection — moderate evidence, moderate magnitude, 10 studies",
       "verdict": "overstated",
-      "reason": "The most recent critical review (PMID 32408706, 2020) explicitly states the role of ALC in dementia/neuroprotection 'is still under debate' and calls for more rigorous studies before clinical application. A 2024 RCT (PMID 38875437) found a donepezil+ALC+ginkgo combination arm performed worse than comparators, a concerning (though confounded by the ginkgo co-administration) signal. 'Moderate' evidence strength doesn't reflect the explicit uncertainty in the most current review.",
+      "reason": "The most recent critical review (PMID 32408706, 2020) explicitly states the role of ALC in dementia/neuroprotection 'is still under debate' and calls for more rigorous studies before clinical application. A 2024 RCT (PMID 38875437) had four arms (donepezil alone; + choline alfoscerate; + acetyl-L-carnitine; + ginkgo) and reported results only for the pooled donepezil+ALC and donepezil+ginkgo group, whose MMSE declined while the other arms improved; ALCAR's own contribution cannot be isolated from that pooled group. 'Moderate' evidence strength doesn't reflect the explicit uncertainty in the most current review.",
       "pmids": ["32408706", "38875437"]
     }
   ],

@@ -116,6 +116,23 @@
       "fundingConflict": "not stated in abstract; not independently verified",
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/40056718/",
       "status": 200
+    },
+    {
+      "pmid": "17891480",
+      "doi": "10.1007/s00213-007-0938-1",
+      "title": "Time for tea: mood, blood pressure and cognitive performance effects of caffeine and theanine administered alone and together.",
+      "journal": "Psychopharmacology (Berl)",
+      "year": 2008,
+      "design": "randomised, double-blind, placebo-controlled, single-dose, 2×2 factorial",
+      "population": "healthy adults",
+      "n": 48,
+      "dose": "250mg caffeine and/or 200mg theanine, single dose",
+      "duration": "single dose",
+      "outcome": "mood incl. anxiety, alertness, jitteriness; blood pressure; visual probe task",
+      "result": "Caffeine increased alertness, jitteriness and blood pressure. Theanine antagonised the caffeine-induced blood-pressure rise but did not significantly affect jitteriness, alertness or other mood measures, and slowed overall reaction time on the visual probe task.",
+      "fundingConflict": "not stated in abstract",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/17891480/",
+      "status": 200
     }
   ],
   "verdicts": [
