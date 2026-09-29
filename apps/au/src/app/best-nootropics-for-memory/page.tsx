@@ -55,7 +55,7 @@ const picks: ListiclePick[] = [
     product: productsAU.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Includes Bacopa, citicoline (250mg Cognizin at clinical dose), phosphatidylserine (100mg Sharp-PS at clinical dose), AND Lion\'s Mane fruiting-body extract (500mg) — four of the four memory-evidence ingredients in one open formula. Bacopa dose is 150mg (under the 300mg clinical anchor) so consider stacking with a separate TGA-listed Bacopa product (Blackmores, Caruso\'s) for full bacopa effect. Ships from the UK to Australia in 7–14 business days (per mindlabpro.com, checked 2026-09-29).',
+      'Includes Bacopa, citicoline (250mg Cognizin at clinical dose), phosphatidylserine (100mg Sharp-PS at clinical dose), AND Lion\'s Mane fruiting-body extract (500mg) — four of the four memory-evidence ingredients in one open formula. Bacopa dose is 150mg (under the 300mg clinical anchor) so consider stacking with a separate TGA-listed Bacopa product (Blackmores, Caruso\'s) for full bacopa effect. Ships to Australia in 3–6 working days from the brand\'s Australian depot, or 7–14 working days when shipped from the UK (per mindlabpro.com, checked 2026-09-29).',
   },
   {
     product: productsAU.find(p => p.slug === 'qualia-mind-review')!,

@@ -55,7 +55,7 @@ const picks: ListiclePick[] = [
     product: productsAU.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Caffeine-free design pairs perfectly with whatever caffeine source Australian students use during study sessions (long blacks, energy drinks, matcha). Includes L-theanine, Bacopa, citicoline, and L-tyrosine — covers all four study-relevant mechanisms in one open formula. Take daily through the semester for cumulative Bacopa effect. Ships from the UK to Australia in 7–14 business days (per mindlabpro.com, checked 2026-09-29); A$89/mo on the Australian storefront (au.mindlabpro.com).',
+      'Caffeine-free design pairs perfectly with whatever caffeine source Australian students use during study sessions (long blacks, energy drinks, matcha). Includes L-theanine, Bacopa, citicoline, and L-tyrosine — covers all four study-relevant mechanisms in one open formula. Take daily through the semester for cumulative Bacopa effect. Ships to Australia in 3–6 working days from the brand\'s Australian depot, or 7–14 working days when shipped from the UK (per mindlabpro.com, checked 2026-09-29); A$89/mo on the Australian storefront (au.mindlabpro.com).',
   },
   {
     product: productsAU.find(p => p.slug === 'qualia-mind-review')!,

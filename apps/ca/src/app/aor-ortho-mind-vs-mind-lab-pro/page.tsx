@@ -71,7 +71,7 @@ const whoIsForB = [
   'Care about peer-reviewed product-specific RCT evidence',
   'Want phosphatidylserine, Lion\'s Mane, citicoline, Rhodiola in one capsule',
   'Are caffeine-free user (Mind Lab Pro is fully caffeine-free)',
-  'Don\'t mind international shipping (5-20 working days by airmail or 2-7 by DHL, per mindlabpro.com, checked 2026-09-29)',
+  'Don\'t mind international shipping (5-20 working days by airmail or 2-7 working days by DHL, per mindlabpro.com, checked 2026-09-29)',
   'Are willing to pay 50% premium for the broader 11-ingredient formula',
 ];
 

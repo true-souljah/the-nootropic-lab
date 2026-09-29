@@ -55,7 +55,7 @@ const picks: ListiclePick[] = [
     product: productsAU.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design lets you pair it with your own coffee or matcha for the synergistic effect. Ships from the UK directly to Australian addresses in 7–14 business days (per mindlabpro.com, checked 2026-09-29) under the Personal Importation Scheme as a food supplement.',
+      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design lets you pair it with your own coffee or matcha for the synergistic effect. Ships directly to Australian addresses in 3–6 working days from the brand\'s Australian depot, or 7–14 working days when shipped from the UK (per mindlabpro.com, checked 2026-09-29), under the Personal Importation Scheme as a food supplement.',
   },
   {
     product: productsAU.find(p => p.slug === 'qualia-mind-review')!,

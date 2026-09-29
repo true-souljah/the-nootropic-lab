@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const faqItems = [
   { q: 'Are nootropics legal to import into Australia?', a: 'Most nootropic supplements can be personally imported into Australia under the TGA Personal Importation Scheme. Individuals may import up to 3 months\' supply for personal use without a permit. Prescription medicines (modafinil, racetams) require a valid prescription. All products we list use TGA-permissible ingredients.' },
   { q: 'Do I pay GST on supplements imported from overseas?', a: 'From July 2018, overseas businesses with turnover above AUD $75,000 must charge GST (10%) on goods under AUD $1,000. Many supplement brands now add GST automatically at checkout for Australian orders.' },
-  { q: 'Which nootropic ships fastest to Australia?', a: 'Mind Lab Pro ships from the UK, typically reaching Australian addresses in 7-14 business days (per mindlabpro.com, checked 2026-09-29). For US-based brands, check the delivery estimate for Australia at checkout. All brands listed have confirmed Australian shipping.' },
+  { q: 'Which nootropic ships fastest to Australia?', a: 'Mind Lab Pro reaches Australian addresses in 3–6 working days from the brand\'s Australian depot, or 7–14 working days when shipped from the UK (per mindlabpro.com, checked 2026-09-29). For US-based brands, check the delivery estimate for Australia at checkout. All brands listed have confirmed Australian shipping.' },
 ];
 
 const goalLinks = [
