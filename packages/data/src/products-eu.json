@@ -327,10 +327,10 @@
     "pricingModel": "both",
     "moneyBackDays": 14,
     "caffeineFree": false,
-    "euStorefront": true,
+    "euStorefront": false,
     "euCompliance": "compliant",
-    "trustpilotScore": 4.2,
-    "trustpilotCount": 119,
+    "trustpilotScore": null,
+    "trustpilotCount": null,
     "affiliateUrl": "https://www.brain-effect.com/",
     "affiliateNetwork": "Direct",
     "commissionRate": "Contact brand",
@@ -382,15 +382,13 @@
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 3,
-    "summary": "German-made nootropic brand with strong DACH presence. Ships from Germany with next-day delivery across EU. European Food Safety Authority (EFSA) compliant. Best for buyers in Germany, Austria, Switzerland.",
-    "whatItIs": "BRAINEFFECT FOCUS is a nootropic supplement made in Berlin, Germany. It is designed specifically for the DACH market (Germany, Austria, Switzerland) and ships domestically from Berlin. All ingredients comply with EU food supplement regulations and EFSA-authorised health claims. It is one of the few nootropic brands in the EU with its own German-language customer service and DACH-specific marketing.",
+    "summary": "BRAINEFFECT FOCUS is a discontinued caffeine-based focus supplement from the Berlin brand BRAINEFFECT. Its product page on brain-effect.com returns 404 and FOCUS no longer appears in the brand's catalogue (checked 2026-09-29). BRAINEFFECT still sells other products, which we have not reviewed. This review is kept for reference; it is not a current recommendation.",
+    "whatItIs": "BRAINEFFECT FOCUS was a nootropic supplement from BRAINEFFECT, a Berlin-based brand, aimed at the DACH market (Germany, Austria, Switzerland). Its ingredients were permitted under EU food supplement rules, and its label used European Food Safety Authority (EFSA)-authorised health claims. The product has been discontinued: its brain-effect.com product page returns 404 and it is no longer in the brand's catalogue (checked 2026-09-29).",
     "howItWorks": "Panax Ginseng and Ginkgo Biloba provide circulatory and cognitive support with EFSA-recognised health claims. Bacopa Monnieri targets memory consolidation. Caffeine (80mg -- equivalent to a small coffee) provides acute focus and alertness. B-vitamins (B6, B12) support energy metabolism and normal psychological function per EU Regulation 1924/2006. The formula prioritises EFSA-compliant claims throughout.",
-    "whatToExpect": "Acute (30-60 min): focus and alertness from caffeine. 2-4 weeks: improved mental energy and concentration. 8 weeks: modest memory support from Bacopa (note: underdosed at 200mg vs. 300mg clinical threshold). The 14-day money-back period is the shortest in this review -- try a single box before committing to a subscription. Best suited for DACH buyers who value local manufacturing and next-day delivery.",
+    "whatToExpect": "Acute (30-60 min): focus and alertness from caffeine. 2-4 weeks: improved mental energy and concentration. 8 weeks: modest memory support from Bacopa (note: underdosed at 200mg vs. 300mg clinical threshold).",
     "pros": [
       "Made in Germany",
-      "Next-day delivery in DACH",
-      "EFSA-compliant",
-      "EUR pricing, no import costs"
+      "EFSA-compliant"
     ],
     "cons": [
       "Contains caffeine",
@@ -399,9 +397,13 @@
     ],
     "editorChoice": false,
     "market": "eu",
-    "updatedAt": "2026-09-28",
+    "updatedAt": "2026-09-29",
     "trustpilotCheckedAt": "2026-09-28",
-    "verifiedAt": "2026-09-28"
+    "discontinued": {
+      "since": "2026-09",
+      "note": "https://www.brain-effect.com/products/focus returned 404 and FOCUS is absent from the brain-effect.com catalogue (checked 2026-09-29)"
+    },
+    "verifiedAt": "2026-09-29"
   },
   {
     "id": "brainzyme-focus-pro",

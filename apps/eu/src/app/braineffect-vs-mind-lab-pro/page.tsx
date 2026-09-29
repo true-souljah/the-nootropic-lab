@@ -3,23 +3,25 @@ import { notFound } from 'next/navigation';
 import { HeadToHead, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { HeadToHeadFAQ } from '@nootropic/ui';
-import { productsEU, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { allProductsEU, productsEU, getRegionalHealthDisclaimer } from '@nootropic/data';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
-const productA = productsEU.find(p => p.slug === 'braineffect-focus-review');
+// Discontinued (2026-09-29): read from the full list; the page explains the
+// discontinuation and HeadToHead renders no buy link for it.
+const productA = allProductsEU.find(p => p.slug === 'braineffect-focus-review');
 const productB = productsEU.find(p => p.slug === 'mind-lab-pro-review');
 
 
 export const metadata: Metadata = {
   title: `BRAINEFFECT FOCUS vs Mind Lab Pro ${CURRENT_YEAR}: DACH-Native vs International`,
   description:
-    'Independent comparison of BRAINEFFECT FOCUS vs Mind Lab Pro for EU buyers. Berlin-based 4-ingredient acute focus formula vs international 11-ingredient daily stack.',
+    'Independent comparison of BRAINEFFECT FOCUS vs Mind Lab Pro for EU buyers. BRAINEFFECT FOCUS has been discontinued; Mind Lab Pro is still sold from its EU storefront.',
   alternates: buildAlternates({ regionCode: 'eu', path: '/braineffect-vs-mind-lab-pro/', availableInRegions: ['eu'] }),
   openGraph: {
     title: 'BRAINEFFECT FOCUS vs Mind Lab Pro — Independent Head-to-Head',
-    description: 'Lean caffeine + L-theanine vs broad daily stack. Which makes sense for EU buyers?',
+    description: 'BRAINEFFECT FOCUS is discontinued. What that leaves EU buyers comparing it with Mind Lab Pro.',
     type: 'article',
   },
   twitter: { card: 'summary' },
@@ -29,27 +31,27 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Which is better, BRAINEFFECT FOCUS or Mind Lab Pro?',
     a:
-      'They serve different needs. BRAINEFFECT FOCUS is built around the most-evidence-backed acute focus combination (caffeine + L-theanine) at clinical doses — it works in 30-60 minutes and is purpose-built for "I need to focus right now". Mind Lab Pro is a broader 11-ingredient daily stack covering focus + memory + long-term brain health, with cumulative effects over weeks. If you want acute focus on demand, BRAINEFFECT. If you want a daily cognitive maintenance supplement, Mind Lab Pro.',
+      'BRAINEFFECT FOCUS is no longer sold: its product page on brain-effect.com returns 404 and FOCUS is no longer in the brand\'s catalogue (checked 29 September 2026). BRAINEFFECT still sells other products, which we have not reviewed. Of the two products compared here, only Mind Lab Pro is still available to EU buyers — €65/month from its EU storefront.',
   },
   {
-    q: 'EU compliance — which is safer for EU regulatory framing?',
+    q: 'EU compliance — how did the two compare?',
     a:
-      'Both are EU-compliant. BRAINEFFECT, as a Berlin-based DACH brand, has the clearest EFSA framing — caffeine ≥75mg has the EFSA-approved alertness claim and BRAINEFFECT carries 90mg per serving. Mind Lab Pro has an EU storefront with EUR pricing and EU-compliant labelling. For EFSA-claim usage in marketing, BRAINEFFECT is more straightforward.',
+      'Both were sold as EU food supplements. BRAINEFFECT FOCUS used European Food Safety Authority (EFSA)-authorised claims on its label; its 80mg of caffeine per serving was above the 75mg level at which EFSA authorises the alertness claim. Mind Lab Pro has an EU storefront with EUR pricing and EU-compliant labelling.',
   },
   {
     q: 'Price difference?',
     a:
-      'BRAINEFFECT FOCUS: €39/month (60 capsules = 30 servings). Mind Lab Pro: €65/month. BRAINEFFECT is meaningfully cheaper because the formula is leaner — 4 ingredients vs 11. Per-ingredient cost is comparable.',
+      'BRAINEFFECT FOCUS has no current price because it is no longer sold. Mind Lab Pro is €65/month from its EU storefront.',
   },
   {
     q: 'Caffeine content?',
     a:
-      'BRAINEFFECT FOCUS: 90mg per serving (1 cup of coffee equivalent). Mind Lab Pro: caffeine-free entirely — designed to be paired with your own coffee or tea. If you want caffeine-on-demand control, Mind Lab Pro lets you titrate; BRAINEFFECT bakes the dose in.',
+      'BRAINEFFECT FOCUS contained 80mg of caffeine per serving. Mind Lab Pro is caffeine-free — designed to be paired with your own coffee or tea, so you control the caffeine dose.',
   },
   {
     q: 'Which has more peer-reviewed evidence?',
     a:
-      'Mind Lab Pro has multiple published RCTs (University of Leeds 2019 + follow-ups) — uniquely so among multi-ingredient nootropics. BRAINEFFECT relies on the very strong existing literature for caffeine + L-theanine (Owen et al. 2008 and many replications). Both are evidence-grounded; Mind Lab Pro has product-specific evidence; BRAINEFFECT has ingredient-specific evidence.',
+      'Mind Lab Pro has multiple published RCTs (University of Leeds 2019 + follow-ups) — uniquely so among multi-ingredient nootropics. BRAINEFFECT FOCUS relied on ingredient-level evidence for caffeine, Panax Ginseng, Ginkgo and Bacopa rather than trials of the product itself.',
   },
   {
     q: 'Are these substitutes for ADHD medication?',
@@ -59,11 +61,8 @@ const faqItems: HeadToHeadFAQ[] = [
 ];
 
 const whoIsForA = [
-  'Want acute focus in 30-60 minutes (caffeine + L-theanine working immediately)',
-  'Are based in DACH market and prefer Berlin-domiciled brands',
-  'Want EFSA-claim-compliant labelling for caffeine alertness',
-  'Are budget-conscious at €39/month',
-  'Already have a memory/long-term cognitive stack and want a focused acute supplement',
+  'Nobody new: BRAINEFFECT FOCUS is no longer sold (its brain-effect.com product page returns 404)',
+  'BRAINEFFECT still sells other products, which we have not reviewed',
 ];
 
 const whoIsForB = [
@@ -75,7 +74,7 @@ const whoIsForB = [
 ];
 
 const verdictParagraph =
-  'They solve different problems. BRAINEFFECT FOCUS is the cleanest acute-focus product in the EU coverage — caffeine + L-theanine at clinical doses, EU-compliant, Berlin-based, EFSA-claim-friendly. Mind Lab Pro is the broader daily cognitive maintenance stack with multi-ingredient memory support and unique product-specific RCT evidence. The right answer depends on whether you want "focus right now" (BRAINEFFECT) or "daily cognitive support over months" (Mind Lab Pro). For most EU buyers, the strongest setup is actually both — BRAINEFFECT on demand + Mind Lab Pro daily.';
+  'BRAINEFFECT FOCUS has been discontinued — its brain-effect.com product page returns 404 and it is no longer in the brand\'s catalogue (checked 29 September 2026) — so this is no longer a live choice. Mind Lab Pro remains available at €65/month from its EU storefront. BRAINEFFECT still sells other products; we have not reviewed them.';
 
 export default function Page() {
   if (!productA || !productB) notFound();

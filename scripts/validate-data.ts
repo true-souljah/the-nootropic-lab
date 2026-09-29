@@ -50,7 +50,6 @@ const KNOWN_RULE_VIOLATIONS: Readonly<Record<string, { rules: readonly RuleName[
   'gcc/nootropics-depot-lions-mane': { rules: ['affiliateUrl'], reason: 'record SKU (1:1 whole fruiting body) product URL not verified' },
   'sea/nootropics-depot-lions-mane': { rules: ['affiliateUrl'], reason: 'record SKU (1:1 whole fruiting body) product URL not verified' },
   'us/trubrain-review': { rules: ['affiliateUrl'], reason: 'no product page URL verified (products.json only)' },
-  'eu/braineffect-focus-review': { rules: ['affiliateUrl'], reason: 'product page 404s; delisting pending operator confirmation' },
   'eu/brainzyme-focus-pro-review': { rules: ['affiliateUrl'], reason: 'affiliate ref carried in the homepage fragment; product-page attribution not confirmed' },
   'jp/suntory-dha-epa-sesamin-review': { rules: ['affiliateUrl'], reason: 'Amazon search link; official product page 403 to verification' },
 };

@@ -63,14 +63,8 @@ const picks: ListiclePick[] = [
       'UK-made, FSA + EU-compliant. Combines natural caffeine from matcha (~40mg) and guarana (~20mg) with 100mg L-theanine — a textbook L-theanine + caffeine focus stack at €40/mo. Best value for buyers who want the acute focus effect rather than long-term cognitive support.',
   },
   {
-    product: productsEU.find(p => p.slug === 'braineffect-focus-review')!,
-    rank: 3,
-    whyItsHere:
-      'German-made, ships from Berlin with next-day delivery in DACH. 80mg caffeine (above the EFSA 75mg alertness-claim threshold) plus EFSA-recognised Panax Ginseng and Ginkgo Biloba. The default focus pick for DACH buyers who value local manufacturing — but only 14-day money-back, the shortest in this list.',
-  },
-  {
     product: productsEU.find(p => p.slug === 'noocube-review')!,
-    rank: 4,
+    rank: 3,
     whyItsHere:
       'Lutemax 2020 specifically for screen-worker eye strain. No EUR storefront: the UK store (noocube.co.uk) prices in GBP (£54.99/mo) and ships to the UK, Ireland, Spain, Portugal, Greece, Croatia, Poland, Sweden and Denmark, but not to Germany, France or the Netherlands. 100mg L-theanine at clinical dose. Choline comes from VitaCholine (250mg); the current formula no longer contains Alpha-GPC. The noocube.com Trustpilot profile has no reviews yet — read the cancellation terms before subscribing.',
   },
@@ -91,7 +85,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Are focus nootropics safe to take daily?',
-    a: 'The ingredients on this page (L-theanine, citicoline, Alpha-GPC, L-tyrosine, caffeine, Panax Ginseng, Ginkgo Biloba) are generally regarded as safe for healthy adults at the clinical doses listed. People taking blood-pressure medication, anticoagulants (Ginkgo interaction), thyroid medication, or with bipolar diagnoses should consult a clinician. EFSA recommends keeping single-serving caffeine intake below 200mg.',
+    a: 'The ingredients on this page (L-theanine, citicoline, Alpha-GPC, L-tyrosine, caffeine, Panax Ginseng) are generally regarded as safe for healthy adults at the clinical doses listed. People taking blood-pressure medication, anticoagulants, thyroid medication, or with bipolar diagnoses should consult a clinician. EFSA recommends keeping single-serving caffeine intake below 200mg.',
   },
   {
     q: 'What\'s the best caffeine-free focus nootropic in the EU?',
@@ -99,7 +93,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Should I cycle focus nootropics?',
-    a: 'Most ingredients on this page do not require cycling. Caffeine builds tolerance, so caffeine-containing stacks (BRAINEFFECT FOCUS, Brainzyme, Hunter Focus) may benefit from 2-day breaks per week. Bacopa and citicoline do not show tolerance and are typically taken continuously.',
+    a: 'Most ingredients on this page do not require cycling. Caffeine builds tolerance, so caffeine-containing stacks (Brainzyme, Hunter Focus) may benefit from 2-day breaks per week. Bacopa and citicoline do not show tolerance and are typically taken continuously.',
   },
 ];
 

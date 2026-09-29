@@ -94,7 +94,7 @@ export const euCountries: EUCountry[] = [
     nativeName: 'Deutschland',
     currency: 'EUR',
     regulatoryNote: 'Germany has robust supplement regulation under the NemV (Nahrungsergänzungsmittelverordnung), aligned with EU Directive 2002/46/EC. The BfR (Federal Institute for Risk Assessment) provides guidance on maximum doses. Products with very high herb doses may be assessed as medicinal products -- check compliance for any product above the recommended daily dose.',
-    shippingNote: 'Germany has excellent EU supplement distribution infrastructure. Most EU-storefronted brands ship within 1-3 business days. BRAINEFFECT FOCUS ships same-day from Berlin.',
+    shippingNote: 'Germany has excellent EU supplement distribution infrastructure. Most EU-storefronted brands ship within 1-3 business days.',
   },
   {
     slug: 'greece',

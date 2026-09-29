@@ -50,7 +50,9 @@ async function checkExpansion(
   acronym: string,
   expansion: string,
 ): Promise<ExpansionResult> {
-  await page.goto(url);
+  // An error page never mentions the acronym and would skip vacuously.
+  const res = await page.goto(url);
+  expect(res?.status(), url).toBe(200);
   await page.waitForLoadState('networkidle');
   return page.evaluate(
     ({ acronym: a, expansion: e }: { acronym: string; expansion: string }) => {
@@ -82,6 +84,19 @@ async function checkExpansion(
     { acronym, expansion },
   );
 }
+
+test.describe('EU — comparison with a discontinued product', () => {
+  // BRAINEFFECT FOCUS is discontinued (2026-09-29): HeadToHead shows the
+  // notice in its card instead of a buy link; Mind Lab Pro keeps its CTA.
+  test('/braineffect-vs-mind-lab-pro/ shows the notice and no BRAINEFFECT buy link', async ({ page }) => {
+    const res = await page.goto('/braineffect-vs-mind-lab-pro/');
+    expect(res?.status()).toBe(200);
+    await expect(
+      page.locator('[role="note"]').filter({ hasText: 'absent from the brain-effect.com catalogue' }),
+    ).toBeVisible();
+    await expect(page.locator('a[href*="brain-effect.com"][rel~="sponsored"]')).toHaveCount(0);
+  });
+});
 
 test.describe('EU — WCAG 3.1.4 Abbreviations on comparison pages (content-tail)', () => {
   for (const route of COMPARISON_ROUTES) {

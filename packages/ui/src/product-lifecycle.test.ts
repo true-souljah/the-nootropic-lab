@@ -81,6 +81,13 @@ describe('activeProducts — discontinued products are never recommendable', () 
     expect(productsGCC.every((p) => p.discontinued === undefined)).toBe(true);
   });
 
+  test('eu: BRAINEFFECT FOCUS is discontinued without a successor', () => {
+    const focus = allProductsEU.find((p) => p.slug === 'braineffect-focus-review');
+    expect(focus?.discontinued).toBeDefined();
+    expect(focus?.discontinued?.successorSlug).toBeUndefined();
+    expect(productsEU.some((p) => p.slug === 'braineffect-focus-review')).toBe(false);
+  });
+
   test('every successorSlug resolves to a live review page in the same region', () => {
     for (const [all, active] of [
       [allProductsUS, productsUS], [allProductsEU, productsEU], [allProductsCA, productsCA],
@@ -101,6 +108,7 @@ describe('activeProducts — discontinued products are never recommendable', () 
     expect(regionsWithProduct('blackmores-brain-active-review')).toEqual(
       expect.arrayContaining(['au', 'sea']),
     );
+    expect(regionsWithProduct('braineffect-focus-review')).toEqual(['eu']);
   });
 });
 
@@ -172,5 +180,22 @@ describe('Trustpilot figures carry their check date', () => {
       .filter((p) => p.trustpilotScore != null && !p.trustpilotCheckedAt)
       .map((p) => p.slug);
     expect(unchecked).toEqual([]);
+  });
+});
+
+describe('product copy follows the 2026-09 ingredient evidence review', () => {
+  // The review found no trial of a "5 days on / 2 off" Huperzine A cycle
+  // (ingredients-evidence.test.ts bans it in ingredient copy); product
+  // records must not prescribe it either.
+  test.each([
+    ['us', allProductsUS], ['eu', allProductsEU], ['ca', allProductsCA],
+    ['au', allProductsAU], ['jp', allProductsJP], ['latam', allProductsLatam],
+    ['gcc', allProductsGCC], ['sea', allProductsSEA],
+  ] as const)('%s: no product prescribes an untested huperzine cycling rule', (_r, products) => {
+    expect(products.length).toBeGreaterThan(0);
+    const offenders = products
+      .filter((p) => /5 days on|days on, 2 off|5 on \/ 2 off|cycle huperzine/i.test(JSON.stringify(p)))
+      .map((p) => p.slug);
+    expect(offenders).toEqual([]);
   });
 });

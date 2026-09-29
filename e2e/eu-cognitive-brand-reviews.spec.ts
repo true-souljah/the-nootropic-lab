@@ -34,6 +34,10 @@ const REVIEW_ROUTES = [
   '/hunter-focus-review/',
 ];
 
+// Discontinued products (Performance Lab Mind 2026-09-28, BRAINEFFECT FOCUS
+// 2026-09-29) keep their review page with a notice and no buy CTA.
+const DISCONTINUED_ROUTES = ['/performance-lab-mind-review/', '/braineffect-focus-review/'];
+
 test.beforeEach(async ({ context }) => {
   await context.addCookies([
     {
@@ -58,7 +62,9 @@ async function checkExpansion(
   acronym: string,
   expansion: string,
 ): Promise<ExpansionResult> {
-  await page.goto(url);
+  // An error page never mentions the acronym and would skip vacuously.
+  const res = await page.goto(url);
+  expect(res?.status(), url).toBe(200);
   await page.waitForLoadState('networkidle');
   return page.evaluate(
     ({ acronym: a, expansion: e }: { acronym: string; expansion: string }) => {
@@ -96,6 +102,19 @@ async function checkExpansion(
     { acronym, expansion },
   );
 }
+
+test.describe('EU — discontinued brand review pages render the notice, not a buy CTA', () => {
+  for (const route of DISCONTINUED_ROUTES) {
+    test(`${route} shows the discontinued notice and no sponsored link`, async ({ page }) => {
+      const res = await page.goto(route);
+      expect(res?.status()).toBe(200);
+      await expect(
+        page.locator('aside[role="note"][aria-labelledby="product-discontinued-heading"]'),
+      ).toBeVisible();
+      await expect(page.locator('a[rel~="sponsored"]')).toHaveCount(0);
+    });
+  }
+});
 
 test.describe('EU — WCAG 3.1.4 Abbreviations on brand review pages (content-tail)', () => {
   for (const route of REVIEW_ROUTES) {

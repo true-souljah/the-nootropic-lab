@@ -105,6 +105,18 @@ function summarize(violations: Result[]): string {
 }
 
 test.describe('EU depth probe — region-only /braineffect-focus-review/ across 3 WCAG axes', () => {
+  // BRAINEFFECT FOCUS is discontinued (2026-09-29), so the probes below run
+  // against the discontinued variant of ProductDetail: notice, no buy CTA.
+  // Guard that variant first so an error page cannot pass the probes.
+  test('renders the discontinued variant (200, notice, no sponsored link)', async ({ page }) => {
+    const res = await page.goto('/braineffect-focus-review/');
+    expect(res?.status()).toBe(200);
+    await expect(
+      page.locator('aside[role="note"][aria-labelledby="product-discontinued-heading"]'),
+    ).toBeVisible();
+    await expect(page.locator('a[rel~="sponsored"]')).toHaveCount(0);
+  });
+
   test('axe (WCAG 2.1 A/AA serious + critical) → 0 violations', async ({ page }) => {
     const results = await runAxe(page, '/braineffect-focus-review/');
     const blockers = blockingViolations(results);
