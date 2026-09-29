@@ -74,12 +74,6 @@ const picks: ListiclePick[] = [
     whyItsHere:
       'The cheapest legitimate brain supplement in this list at ~SGD $7/month (~$5 USD) for a 5-month supply via Amazon.sg. Ginkgo Biloba at full clinical dose (120mg). Ginseng underdosed. The right pick for first-year university students testing whether nootropics do anything for them before committing to a premium stack. 60-day money-back guarantee.',
   },
-  {
-    product: productsSEA.find(p => p.slug === 'natures-own-brain-fuel-review')!,
-    rank: 5,
-    whyItsHere:
-      'TGA-AU registered, available on Lazada and Shopee plus brick-and-mortar Watsons/Guardian/Unity pharmacies across SEA. Includes iron — useful for SEA student populations where dietary iron deficiency is common, particularly women. ~SGD $24/mo. Ginkgo and Brahmi doses are below clinical anchors but the combination of low cost, no customs risk, and pharmacy-accessibility makes it a sensible everyday option for sustained-use students.',
-  },
 ];
 
 const faqItems: ListicleFAQ[] = [
@@ -89,7 +83,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Which are best for SEA students via Shopee/Lazada vs cross-border iHerb?',
-    a: 'For students on a budget who want to avoid customs and credit-card cross-border fees: Nature\'s Own Brain Fuel and Blackmores Brain Active on Lazada/Shopee (both Watsons/Guardian-stocked, local-currency), plus NatureBell Ginkgo+Ginseng on Amazon.sg (~SGD $7/mo). For premium stacks: cross-border iHerb to Singapore is the most reliable route for Mind Lab Pro, NooCube, and Nootropics Depot products — typical delivery 5–10 days into SG, slightly longer to other capitals. Direct-from-brand (Opti-Nutra DDP shipping) eliminates customs surprises but takes 10–14 days.',
+    a: 'For students on a budget who want to avoid customs and credit-card cross-border fees: Blackmores Brain Active on Lazada/Shopee (Watsons/Guardian-stocked, local-currency), plus NatureBell Ginkgo+Ginseng on Amazon.sg (~SGD $7/mo). For premium stacks: cross-border iHerb to Singapore is the most reliable route for Mind Lab Pro, NooCube, and Nootropics Depot products — typical delivery 5–10 days into SG, slightly longer to other capitals. Direct-from-brand (Opti-Nutra DDP shipping) eliminates customs surprises but takes 10–14 days.',
   },
   {
     q: 'When should I start taking nootropics for studying?',

@@ -95,11 +95,11 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Are these halal-certified for older Muslim buyers in MY/ID?',
-    a: 'Imported brands (Mind Lab Pro, Qualia Mind, Nootropics Depot Lion\'s Mane) do not carry BPJPH (Indonesia) or JAKIM (Malaysia) halal certification. Halal-friendlier options for older Muslim buyers: certain Blackmores SKUs are JAKIM-certified (verify on the specific product packaging or via verify.halal.gov.my); Nature\'s Own brain supplements should also be checked SKU-by-SKU. Eu Yan Sang BrainMAX+ uses vegetarian capsules but is not formally halal-certified. When uncertain, consult your local imam, halal authority, or pharmacist before purchase — older relatives often value this consultation step regardless.',
+    a: 'Imported brands (Mind Lab Pro, Qualia Mind, Nootropics Depot Lion\'s Mane) do not carry BPJPH (Indonesia) or JAKIM (Malaysia) halal certification. Halal-friendlier options for older Muslim buyers: certain Blackmores SKUs are JAKIM-certified (verify on the specific product packaging or via verify.halal.gov.my). Eu Yan Sang BrainMAX+ uses vegetarian capsules but is not formally halal-certified. When uncertain, consult your local imam, halal authority, or pharmacist before purchase — older relatives often value this consultation step regardless.',
   },
   {
     q: 'Which are best via Shopee/Lazada/Watsons vs cross-border iHerb for older buyers?',
-    a: 'Shopee/Lazada/in-pharmacy: Blackmores Brain Active and Nature\'s Own Brain Fuel (TGA-AU, in Guardian/Watsons/Unity), plus Eu Yan Sang BrainMAX+ via official store or in-person. These are the right route for older buyers who value in-person pharmacist or shop assistant consultation in their local language (English, Malay, Mandarin, Tagalog, Thai, Vietnamese, Bahasa Indonesia). Cross-border iHerb: best for premium imports (Mind Lab Pro, Qualia Mind, Nootropics Depot) where lab transparency and ingredient breadth matter more than in-person purchase. Adult children buying for parents often prefer the iHerb route for documentation and re-ordering convenience.',
+    a: 'Shopee/Lazada/in-pharmacy: Blackmores Brain Active (TGA-AU, in Guardian/Watsons/Unity), plus Eu Yan Sang BrainMAX+ via official store or in-person. These are the right route for older buyers who value in-person pharmacist or shop assistant consultation in their local language (English, Malay, Mandarin, Tagalog, Thai, Vietnamese, Bahasa Indonesia). Cross-border iHerb: best for premium imports (Mind Lab Pro, Qualia Mind, Nootropics Depot) where lab transparency and ingredient breadth matter more than in-person purchase. Adult children buying for parents often prefer the iHerb route for documentation and re-ordering convenience.',
   },
   {
     q: 'What does the FDA qualified health claim for PS mean?',
@@ -107,7 +107,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Are these safe alongside blood-pressure or cholesterol medications?',
-    a: 'Generally yes for the ingredients on this page, but talk to your prescribing clinician. Bacopa/Brahmi and Lion\'s Mane have minimal known drug interactions. Phosphatidylserine derived from soy could interact with certain warfarin/anticoagulant regimens; sunflower-derived PS is the alternative. Ginkgo (in Blackmores Brain Active and Nature\'s Own Brain Fuel) has documented interactions with anticoagulants — review with your doctor before starting.',
+    a: 'Generally yes for the ingredients on this page, but talk to your prescribing clinician. Bacopa/Brahmi and Lion\'s Mane have minimal known drug interactions. Phosphatidylserine derived from soy could interact with certain warfarin/anticoagulant regimens; sunflower-derived PS is the alternative. Ginkgo (in Blackmores Brain Active) has documented interactions with anticoagulants — review with your doctor before starting.',
   },
   {
     q: 'How long until I notice anything?',

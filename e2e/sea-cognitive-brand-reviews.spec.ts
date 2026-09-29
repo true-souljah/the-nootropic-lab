@@ -36,7 +36,6 @@ const REVIEW_ROUTES = [
   '/onnit-alpha-brain-review/',
   '/thesis-nootropics-review/',
   '/blackmores-brain-active-review/',
-  '/natures-own-brain-fuel-review/',
   '/eu-yan-sang-brainmax-review/',
   '/naturebell-ginkgo-ginseng-review/',
 ];

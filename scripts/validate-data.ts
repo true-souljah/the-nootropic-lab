@@ -58,7 +58,6 @@ const KNOWN_RULE_VIOLATIONS: Readonly<Record<string, { rules: readonly RuleName[
   'sea/qualia-mind-review': { rules: ['affiliateUrl'], reason: 'SEA data owned by an open PR' },
   'sea/onnit-alpha-brain-review': { rules: ['affiliateUrl'], reason: 'SEA data owned by an open PR' },
   'sea/blackmores-brain-active-review': { rules: ['affiliateUrl'], reason: 'SEA data owned by an open PR' },
-  'sea/natures-own-brain-fuel-review': { rules: ['affiliateUrl'], reason: 'SEA data owned by an open PR (record under removal)' },
   'sea/supershrooms-focus-nootropic-review': { rules: ['affiliateUrl', 'ingredientDosages'], reason: 'SEA data owned by an open PR; empty affiliateUrl and formula' },
 };
 
