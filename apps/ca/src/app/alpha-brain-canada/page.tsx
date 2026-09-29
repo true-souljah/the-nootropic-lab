@@ -19,7 +19,7 @@ const PATH = '/alpha-brain-canada/';
 const PAGE_URL = `${SITE_URL}${PATH}`;
 const TITLE = 'Alpha Brain in Canada: How to Buy It, What It Costs, and NPN-Licensed Alternatives';
 const DESCRIPTION =
-  'Onnit ships Alpha Brain to Canada from onnit.com, priced in US dollars only. Current USD list prices, what to expect on duties and GST/HST, where to buy, and the Health Canada NPN-licensed alternatives in our Canadian catalogue.';
+  'Onnit\'s storefront market list names Canada (checked 2026-09-29) and its checkout is priced in USD; onnit.com publishes no shipping-country page we could find, so confirm delivery to your address at checkout. Current USD list prices, what to expect on duties and GST/HST, where to buy, and the Health Canada NPN-licensed alternatives in our Canadian catalogue.';
 
 // Date the facts below were last checked against their sources.
 const VERIFIED_ON = '2026-09-28';
@@ -76,7 +76,7 @@ const breadcrumbSchema = {
 const faqs = [
   {
     q: 'Can I buy Alpha Brain in Canada?',
-    a: 'Yes, by ordering from onnit.com. Onnit lists Canada among the countries its store ships to, and checkout is in US dollars. We could not confirm any Canadian retailer stocking Alpha Brain.',
+    a: 'Onnit’s storefront market list names Canada (checked 2026-09-29) and its checkout is priced in USD; onnit.com publishes no shipping-country page we could find, so confirm delivery to your address at checkout. We could not confirm any Canadian retailer stocking Alpha Brain.',
   },
   {
     q: 'Is there a Canadian (CAD) Onnit store?',
@@ -94,7 +94,7 @@ const faqs = [
   },
   {
     q: 'What does “directed only to U.S. consumers” on onnit.com mean?',
-    a: 'It is a legal disclaimer in the footer of Onnit’s website. It is not a shipping restriction: Onnit’s store still lists Canada as a shipping destination.',
+    a: 'It is a legal disclaimer in the footer of Onnit’s website about who the site is addressed to. Onnit’s storefront market list names Canada (checked 2026-09-29) and its checkout is priced in USD; onnit.com publishes no shipping-country page we could find, so confirm delivery to your address at checkout.',
   },
 ];
 
@@ -138,7 +138,7 @@ export default function Page() {
         >
           <h2 id="verdict-heading" className="text-xl font-bold text-green-900 mb-3">The short answer</h2>
           <ul className="text-sm text-gray-800 leading-relaxed space-y-2">
-            <li><strong>Ships to Canada?</strong> Yes, from onnit.com, with checkout in US dollars only.</li>
+            <li><strong>Ships to Canada?</strong> Onnit&apos;s storefront market list names Canada (checked 2026-09-29) and its checkout is priced in USD; onnit.com publishes no shipping-country page we could find, so confirm delivery to your address at checkout.</li>
             <li><strong>Canadian retailers?</strong> We could not confirm any Canadian retailer stocking Alpha Brain.</li>
             <li>
               <strong>NPN-licensed alternatives?</strong>{' '}
@@ -157,8 +157,9 @@ export default function Page() {
         <section className="my-10">
           <h2 className="text-2xl font-bold text-gray-900 mb-3">Does Onnit ship to Canada?</h2>
           <p className="text-sm text-gray-700 leading-relaxed mb-3">
-            Yes. Onnit&apos;s store configuration (<a href="https://www.onnit.com/meta.json" target="_blank" rel="noopener noreferrer" className="text-green-700 underline">onnit.com/meta.json</a>)
-            lists Canada (&ldquo;CA&rdquo;) among the countries it ships to, and sets the store currency to USD.
+            Onnit&apos;s storefront market list (<a href="https://www.onnit.com/meta.json" target="_blank" rel="noopener noreferrer" className="text-green-700 underline">onnit.com/meta.json</a>)
+            names Canada (&ldquo;CA&rdquo;) (checked 2026-09-29) and its checkout is priced in USD; onnit.com publishes
+            no shipping-country page we could find, so confirm delivery to your address at checkout.
             There is no Canadian storefront, so you pay in US dollars and your card issuer handles the conversion.
           </p>
           <p className="text-sm text-gray-700 leading-relaxed">
@@ -284,8 +285,8 @@ export default function Page() {
         </section>
 
         <p className="text-sm text-gray-600 my-8">
-          <strong>Last verified:</strong> <time dateTime={VERIFIED_ON}>{VERIFIED_ON_LABEL}</time> (Onnit shipping
-          countries and USD prices, CBSA pages, catalogue NPN records).
+          <strong>Last verified:</strong> <time dateTime={VERIFIED_ON}>{VERIFIED_ON_LABEL}</time> (Onnit market
+          list and USD prices, CBSA pages, catalogue NPN records).
         </p>
 
         <Sources
