@@ -1,0 +1,125 @@
+{
+  "slug": "oat-straw",
+  "generatedAt": "2026-09-28T09:39:40Z",
+  "ourClaims": {
+    "clinicalDose": "800–1600mg/day (green oat extract, 10:1 concentration)",
+    "timeToEffect": "1–2 hours (acute); 4 weeks for sustained effects",
+    "studySummary": "A 2011 RCT (Berry et al.) found 1600mg green oat extract acutely improved attention and concentration on the Stroop test in healthy adults. A 2017 trial (Kennedy et al.) confirmed dose-dependent improvements in cognitive function and cerebral blood flow at 800mg and 1600mg. Evidence is moderate — fewer trials than top-tier nootropics, but consistently positive for acute attention.",
+    "humanEffects": [
+      { "effect": "Attention & Concentration", "evidenceStrength": "moderate", "magnitude": "moderate", "studies": 3 },
+      { "effect": "Cerebral Blood Flow", "evidenceStrength": "moderate", "magnitude": "small", "studies": 2 },
+      { "effect": "Anxiety Reduction", "evidenceStrength": "preliminary", "magnitude": "small", "studies": 2 }
+    ]
+  },
+  "studies": [
+    {
+      "pmid": "21711204",
+      "doi": "10.1089/acm.2010.0450",
+      "title": "Acute effects of an Avena sativa herb extract on responses to the Stroop Color-Word test",
+      "journal": "Journal of Alternative and Complementary Medicine",
+      "year": 2011,
+      "design": "RCT, double-blind, randomized, crossover",
+      "population": "ELDERLY volunteers with below-average cognitive performance (not general healthy adults)",
+      "n": 40,
+      "dose": "0, 1600mg, 2400mg single doses",
+      "brandedExtract": "Neuravena",
+      "duration": "acute, single dose, weekly intervals",
+      "outcome": "Stroop Color-Word test errors, Stroop interference score, blood pressure",
+      "result": "1600mg significantly reduced color-naming errors vs. 0mg and 2400mg (p<0.001); in a 7-subject subgroup with suspected cognitive impairment, Stroop interference also improved at 1600mg (p<0.01). CRITICALLY, the 2400mg dose did NOT outperform placebo — a non-monotonic (inverted-U) dose-response that the page's simple '800-1600mg' dosage guidance does not convey.",
+      "fundingConflict": "Material described as sourced via Frutarom-linked supply chain per later related trials; no manufacturer co-authors on this paper (University of South Australia group) — closer to independent than most other oat straw trials, though funding source not stated in the abstract",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/21711204/",
+      "status": 200
+    },
+    {
+      "pmid": "22690320",
+      "doi": "10.3390/nu4050331",
+      "title": "Chronic effects of a wild green oat extract supplementation on cognitive performance in older adults: a randomised, double-blind, placebo-controlled, crossover trial",
+      "journal": "Nutrients",
+      "year": 2012,
+      "design": "RCT, double-blind, placebo-controlled, crossover",
+      "population": "healthy older adults, mean age 67",
+      "n": 37,
+      "dose": "1500mg/day",
+      "brandedExtract": "Neuravena ELFA955 (Frutarom, Switzerland)",
+      "duration": "12 weeks chronic",
+      "outcome": "Stroop, letter cancellation, rule-shift task, multi-tasking battery, trail-making task",
+      "result": "NULL RESULT — chronic 12-week supplementation did NOT affect any measure of cognition. This directly contradicts the impression given by the page's studySummary, which cites only positive findings and omits this negative chronic-dosing trial by the same senior author (Berry) whose acute 2011 result is prominently cited.",
+      "fundingConflict": "Material supplied by Frutarom (manufacturer); no Frutarom-employed co-authors listed (University of South Australia group)",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/22690320/",
+      "status": 200
+    },
+    {
+      "pmid": "26618715",
+      "doi": "10.1080/1028415X.2015.1101304",
+      "title": "Acute effects of a wild green-oat (Avena sativa) extract on cognitive function in middle-aged adults: A double-blind, placebo-controlled, within-subjects trial",
+      "journal": "Nutritional Neuroscience",
+      "year": 2015,
+      "design": "RCT, double-blind, placebo-controlled, crossover",
+      "population": "adults 40-65 years with self-reported age-related memory decline",
+      "n": 55,
+      "dose": "0, 800mg, 1600mg single doses",
+      "brandedExtract": "Neuravena",
+      "duration": "acute, single dose, tested to 6h post-dose",
+      "outcome": "attention, spatial/working/episodic memory, executive function (computerized battery)",
+      "result": "800mg increased speed of performance across post-dose assessments; improved delayed word recall (fewer errors) and executive function (Peg-and-Ball, faster completion); working memory (Corsi blocks) improved only on the second occasion the dose was taken. Authors conclude optimal dose is 'at or below 800mg' — i.e. 1600mg was NOT clearly superior to 800mg in this trial, again undercutting a simple dose-response story.",
+      "fundingConflict": "Two co-authors (Grothe, Perrinjaquet-Moccetti) employed by Frutarom Switzerland, the material manufacturer — manufacturer co-authored",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/26618715/",
+      "status": 200
+    },
+    {
+      "pmid": "32485993",
+      "doi": "10.3390/nu12061598",
+      "title": "Acute and Chronic Effects of Green Oat (Avena sativa) Extract on Cognitive Function and Mood during a Laboratory Stressor in Healthy Adults",
+      "journal": "Nutrients",
+      "year": 2020,
+      "design": "RCT, double-blind, randomised, parallel groups, dose-ranging",
+      "population": "healthy adults, 35-65 years",
+      "n": 132,
+      "dose": "430mg, 860mg, or 1290mg/day",
+      "brandedExtract": "'cognitaven' (Anklam Extrakt GmbH) — a DIFFERENT branded green-oat extract than Neuravena, the brand referenced elsewhere for this ingredient/product page",
+      "duration": "single dose (Day 1) and 29 days chronic",
+      "outcome": "Corsi Blocks working memory, multitasking (verbal serial subtraction + tracking), mood, electrodermal activity during a laboratory stressor",
+      "result": "1290mg single dose, and BOTH 430mg and 1290mg after 4 weeks, significantly improved Corsi Blocks and multitasking performance vs. placebo; after 4 weeks, the highest dose (1290mg) also reduced physiological stress response (electrodermal activity). explicitly NO treatment-related effects on self-reported MOOD at any dose.",
+      "fundingConflict": "Two co-authors (Bonnländer, Lang) employed by Anklam Extrakt GmbH, the material manufacturer — manufacturer co-authored",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/32485993/",
+      "status": 200
+    }
+  ],
+  "verdicts": [
+    {
+      "claim": "Attention & Concentration — moderate evidence, 3 studies, 'Berry et al. (2011) and Kennedy et al. (2017) show acute improvements... at 800-1600mg'",
+      "verdict": "overstated",
+      "reason": "Berry 2011 is real but studied ELDERLY subjects with below-average cognitive performance, not general healthy adults, and its own 2400mg arm failed to replicate the 1600mg benefit. No 'Kennedy et al. 2017' oat-straw paper exists in PubMed — the real Kennedy trials are 2015 and 2020. The page's studySummary also omits Wong/Berry 2012, a chronic 12-week null result from essentially the same research group, which undercuts the 'consistently positive' framing.",
+      "pmids": ["21711204", "22690320", "26618715", "32485993"]
+    },
+    {
+      "claim": "Cerebral Blood Flow — moderate evidence, 2 studies, 'Near-infrared spectroscopy showed increased cortical blood flow at 1600mg in Kennedy et al. (2017)'",
+      "verdict": "no-evidence-found",
+      "reason": "No PubMed record of a Kennedy et al. 2017 (or any year) oat-straw NIRS/cerebral-blood-flow study was located despite targeted searches. Neither of the two real Kennedy trials found (2015, 2020) report NIRS or cerebral blood flow as an outcome measure. This claim could not be traced to any identifiable study and is either misattributed or fabricated.",
+      "pmids": []
+    },
+    {
+      "claim": "Anxiety Reduction — preliminary, 2 studies, 'Mild anxiolytic effect observed in stressed populations'",
+      "verdict": "overstated",
+      "reason": "The one trial that actually included a psychological-stress paradigm (Kennedy 2020) found a physiological stress-response change (reduced electrodermal activity at the highest dose after 4 weeks) but explicitly reported NO effect on self-reported mood/anxiety at any dose. Calling this an 'anxiolytic effect' overstates a physiological biomarker change into a subjective anxiety claim that the trial itself did not find.",
+      "pmids": ["32485993"]
+    }
+  ],
+  "doseAssessment": {
+    "claimedDose": "800-1600mg/day, 10:1 concentration green oat extract",
+    "trialRange": "430mg to 2400mg tested across the 4 RCTs found",
+    "assessment": "The claimed range sits within what has been trialed, but every trial that tested a dose-response relationship found it was NON-monotonic: Berry 2011's 2400mg arm failed where 1600mg succeeded, and Kennedy 2015 concluded the optimal dose was 'at or below 800mg' (1600mg was not clearly better). The page presents a flat 800-1600mg range without conveying that higher doses in this range have underperformed lower ones in the actual trials."
+  },
+  "independentTrialCount": 0,
+  "safetySignals": [
+    "No serious adverse events reported across the 4 trials.",
+    "No blood-pressure changes with supplementation (Berry 2011).",
+    "Gluten cross-contamination risk (as the page notes) was not addressed in any of the 4 clinical trials reviewed — this is a manufacturing/sourcing consideration, not a trial finding."
+  ],
+  "gaps": [
+    "Zero of the 4 identified human RCTs are free of manufacturer involvement: 2 have the material manufacturer's employees as co-authors (Kennedy 2015 = Frutarom; Kennedy 2020 = Anklam Extrakt), and the other 2 used manufacturer-supplied material without disclosed independent funding.",
+    "One of the 4 supporting trials (Kennedy 2020) tested a different branded extract ('cognitaven', Anklam Extrakt) than 'Neuravena', the brand more commonly associated with this ingredient elsewhere on the site — a brand-substitution the page does not flag.",
+    "No systematic review or meta-analysis of Avena sativa/green oat extract and cognition was found in PubMed — the literature remains a small set of single trials from two competing research groups/brands, consistent with the page's own 'fewer trials than top-tier nootropics' framing, though the page still overstates consistency.",
+    "The page's citation 'Kennedy et al. 2017' (cerebral blood flow) could not be verified and appears to not exist; treat this specific claim as unsupported pending correction or removal."
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "slug": "ginkgo-biloba",
+  "generatedAt": "2026-09-28T12:00:00Z",
+  "ourClaims": {
+    "clinicalDose": "120–240mg/day (standardised extract EGb 761)",
+    "timeToEffect": "4–6 weeks for cognitive effects; acute blood flow effects within hours",
+    "studySummary": "Ginkgo is one of the most studied herbal nootropics with over 400 clinical trials. The landmark GEM trial (2008, n=3,069) found no benefit for dementia prevention in healthy elderly. However, meta-analyses of shorter trials (Tan et al., 2015) show modest improvements in cognitive function and daily living in existing mild cognitive impairment. EGb 761 is the most studied extract form. Benefits are most consistent in populations with existing cognitive decline rather than healthy young adults.",
+    "humanEffects": [
+      { "effect": "Cerebral Blood Flow", "evidenceStrength": "strong", "magnitude": "moderate", "studies": 15, "notes": "Well-established vasodilatory effect. Acute increase measurable via Doppler within 2 hours of dosing." },
+      { "effect": "Memory (Cognitive Decline)", "evidenceStrength": "moderate", "magnitude": "moderate", "studies": 20, "notes": "Consistent benefits in mild cognitive impairment populations. Less clear in healthy adults." },
+      { "effect": "Memory (Healthy Adults)", "evidenceStrength": "mixed", "magnitude": "small", "studies": 12, "notes": "Mixed results. Some trials show working memory improvements; others show no effect. Age and baseline function appear to moderate response." },
+      { "effect": "Dementia Prevention", "evidenceStrength": "strong", "magnitude": "negligible", "studies": 3, "notes": "Large RCTs (GEM trial) found no preventive effect for dementia onset in healthy elderly over 6+ years." }
+    ],
+    "sideEffects": ["Headache", "GI discomfort", "Increased bleeding risk (avoid with blood thinners)", "Rare: allergic skin reactions"],
+    "howToTake": {
+      "dosage": "120–240mg/day of standardised extract (24/6)",
+      "timing": "Split into 2 doses (morning and afternoon) for sustained blood flow effects.",
+      "withFood": "Take with meals to reduce GI discomfort. Absorption is not significantly affected by food.",
+      "forms": "Always use standardised extract (24% flavone glycosides, 6% terpene lactones). EGb 761 is the gold-standard pharmaceutical-grade extract used in most clinical trials. Avoid raw leaf or unstandardised products."
+    }
+  },
+  "studies": [
+    {
+      "pmid": "19017911",
+      "pmc": "PMC2823569",
+      "doi": "10.1001/jama.2008.683",
+      "title": "Ginkgo biloba for prevention of dementia: a randomized controlled trial.",
+      "journal": "JAMA",
+      "year": 2008,
+      "design": "rct",
+      "population": "community volunteers aged 75+, normal cognition or MCI (5 US academic centers)",
+      "n": 3069,
+      "dose": "120mg twice daily (240mg/day)",
+      "extract": "G. biloba extract (EGb 761)",
+      "duration": "median follow-up 6.1 years",
+      "outcome": "incident all-cause dementia and Alzheimer disease",
+      "result": "No significant effect: HR for all-cause dementia 1.12 (95% CI 0.94-1.33, p=.21); HR for AD 1.16 (95% CI 0.97-1.39, p=.11); no effect on progression from MCI to dementia (HR 1.13, p=.39)",
+      "fundingConflict": "NIH-funded (NCCAM/NIA); no ginkgo-manufacturer funding disclosed",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/19017911/",
+      "status": 200
+    },
+    {
+      "pmid": "25114079",
+      "doi": "10.3233/JAD-140837",
+      "title": "Efficacy and adverse effects of ginkgo biloba for cognitive impairment and dementia: a systematic review and meta-analysis.",
+      "journal": "Journal of Alzheimer's Disease",
+      "year": 2015,
+      "design": "meta-analysis",
+      "population": "patients with cognitive impairment and dementia, 9 pooled RCTs",
+      "n": 2561,
+      "dose": "mainly 240mg/day EGb 761 (dose driving the significant effects)",
+      "extract": "EGb 761",
+      "duration": "22-26 weeks",
+      "outcome": "cognition (weighted mean diff), ADLs, Clinicians' Global Impression of Change (CGIC)",
+      "result": "Significant benefit vs placebo on cognition (WMD -2.86, 95% CI -3.18 to -2.54), ADLs (SMD -0.36), and CGIC (Peto OR 1.88); benefits concentrated in the neuropsychiatric-symptom subgroup; no significant safety signal found in this pooled set",
+      "fundingConflict": "not stated in abstract",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/25114079/",
+      "status": 200
+    },
+    {
+      "pmid": "41641880",
+      "pmc": "PMC12875036",
+      "doi": "10.1002/14651858.CD013661.pub2",
+      "title": "Ginkgo biloba for cognitive impairment and dementia.",
+      "journal": "Cochrane Database of Systematic Reviews",
+      "year": 2026,
+      "design": "systematic review",
+      "population": "subjective cognitive complaints, MS-related cognitive impairment, MCI, and dementia — 82 pooled RCTs",
+      "n": 10613,
+      "dose": "varied across pooled RCTs",
+      "extract": "ginkgo (various)",
+      "duration": "up to 12 months",
+      "outcome": "global clinical status, cognition, ADLs, adverse events at 6 months",
+      "result": "In MCI: little/no effect on global status, cognition or ADLs at 6 months (moderate-certainty evidence). In dementia: small-to-moderate benefits on global status, cognition and ADLs at 6 months (low-certainty evidence, high heterogeneity). No meaningful safety signal at up to 12 months.",
+      "fundingConflict": "Cochrane-sponsored independent review; no industry funding",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/41641880/",
+      "status": 200
+    },
+    {
+      "pmid": "24991128",
+      "pmc": "PMC4054525",
+      "doi": "10.3969/j.issn.1002-0829.2013.01.005",
+      "title": "Ginkgo biloba extract for dementia: a systematic review.",
+      "journal": "Shanghai Archives of Psychiatry",
+      "year": 2013,
+      "design": "meta-analysis",
+      "population": "dementia patients, 9 pooled RCTs (6 meta-analyzed)",
+      "n": 2578,
+      "dose": "not uniformly stated",
+      "extract": "Ginkgo biloba extract (GbE)",
+      "duration": "≥22 weeks (inclusion criterion)",
+      "outcome": "cognitive function and activities of daily living",
+      "result": "GbE superior to placebo, but effect was 'only valid for studies with younger subjects (mean age below 75)'; overall evidence rated 'low quality' due to publication bias and pharma-industry sponsorship of most included trials",
+      "fundingConflict": "Review notes most primary trials were pharmaceutical-industry supported",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/24991128/",
+      "status": 200
+    },
+    {
+      "pmid": "26958257",
+      "pmc": "PMC4765589",
+      "title": "Ginkgo and Warfarin Interaction in a Large Veterans Administration Population.",
+      "journal": "AMIA Annual Symposium Proceedings",
+      "year": 2015,
+      "design": "cohort study",
+      "population": "large US Veterans Administration patient population on warfarin",
+      "n": null,
+      "dose": "real-world use, dose not specified",
+      "extract": "Ginkgo biloba (real-world products)",
+      "duration": "retrospective cohort, duration not specified in abstract",
+      "outcome": "bleeding adverse events while co-prescribed warfarin",
+      "result": "Ginkgo taken concurrently with warfarin significantly increased bleeding risk: hazard ratio 1.38 (95% CI 1.20-1.58, p<.001)",
+      "fundingConflict": "not stated in abstract",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/26958257/",
+      "status": 200
+    },
+    {
+      "pmid": "32478963",
+      "doi": "10.1111/bcp.14404",
+      "title": "Warfarin and food, herbal or dietary supplement interactions: A systematic review.",
+      "journal": "British Journal of Clinical Pharmacology",
+      "year": 2020,
+      "design": "systematic review",
+      "population": "78 herbs/foods/supplements reviewed for warfarin interaction, 149 articles",
+      "n": null,
+      "dose": "not applicable (review)",
+      "extract": "multiple, including Ginkgo biloba",
+      "duration": "review period: inception to Dec 2019",
+      "outcome": "warfarin potentiation/inhibition and bleeding events",
+      "result": "Ginkgo biloba named among herbs/supplements associated with increased bleeding risk (including major events such as intracranial bleeding) when combined with warfarin",
+      "fundingConflict": "not stated in abstract",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/32478963/",
+      "status": 200
+    }
+  ],
+  "verdicts": [
+    {
+      "claim": "Citation: 'The landmark GEM trial (2008, n=3,069) found no benefit for dementia prevention in healthy elderly'",
+      "verdict": "supported",
+      "reason": "Verified verbatim against DeKosky et al. 2008 JAMA: n=3069, no significant reduction in all-cause dementia or Alzheimer's incidence (HR 1.12 and 1.16, both non-significant). Accurate citation.",
+      "pmids": ["19017911"]
+    },
+    {
+      "claim": "Citation: 'meta-analyses of shorter trials (Tan et al., 2015) show modest improvements in cognitive function and daily living in existing mild cognitive impairment'",
+      "verdict": "supported",
+      "reason": "Verified: Tan et al. 2015 (J Alzheimers Dis) pooled 9 RCTs (n=2561, 22-26 weeks) and found significant benefits on cognition, ADLs and CGIC at 240mg/day EGb 761, concentrated in patients with neuropsychiatric symptoms of cognitive impairment/dementia — this is an accurate, correctly dated citation.",
+      "pmids": ["25114079"]
+    },
+    {
+      "claim": "Memory (Cognitive Decline) — moderate evidence, moderate magnitude, 20 studies",
+      "verdict": "supported",
+      "reason": "Both Tan 2015 (9 RCTs) and the 2026 Cochrane review (82 RCTs) confirm small-to-moderate cognitive benefits in dementia/MCI populations, though the Cochrane review specifically found little/no benefit in the MCI subgroup alone (benefits concentrated in the dementia subgroup) — a nuance the page's single 'Cognitive Decline' bucket doesn't capture.",
+      "pmids": ["25114079", "41641880"]
+    },
+    {
+      "claim": "Dementia Prevention — strong evidence, negligible magnitude, 3 studies",
+      "verdict": "supported",
+      "reason": "Accurately reflects the GEM trial's null primary-prevention finding in healthy/MCI elderly over 6+ years — this is the single best-powered trial in this space and the claim correctly frames it as prevention (not treatment) evidence.",
+      "pmids": ["19017911"]
+    },
+    {
+      "claim": "Increased bleeding risk (avoid with blood thinners) — listed as a side effect",
+      "verdict": "supported",
+      "reason": "Confirmed by a large VA cohort study (HR 1.38, significant) and a systematic review of warfarin-herb interactions naming Ginkgo among the herbs associated with major bleeding events including intracranial hemorrhage.",
+      "pmids": ["26958257", "32478963"]
+    }
+  ],
+  "doseAssessment": {
+    "trialRange": "The dose driving nearly all positive dementia/MCI trial results is specifically 240mg/day EGb 761 (per Tan 2015 and a separate 2016 overview of systematic reviews, doses below 200mg/day were found inadequate); the GEM prevention trial also used 240mg/day (120mg BID).",
+    "ourDoseWithinRange": true,
+    "suggestedText": "Consider narrowing the effective end of the range: multiple independent reviews converge on 240mg/day (not the lower 120mg/day) as the dose associated with measurable cognitive benefit in dementia/MCI populations; 120mg/day appears under-dosed relative to the trial evidence."
+  },
+  "safetySignals": [
+    { "signal": "Large VA cohort: Ginkgo + warfarin co-use significantly increases bleeding risk (HR 1.38, 95% CI 1.20-1.58)", "pmid": "26958257", "url": "https://pubmed.ncbi.nlm.nih.gov/26958257/" },
+    { "signal": "Systematic review of warfarin-supplement interactions names Ginkgo among herbs linked to major bleeding events including intracranial bleeding", "pmid": "32478963", "url": "https://pubmed.ncbi.nlm.nih.gov/32478963/" }
+  ],
+  "gaps": [
+    "The page's 'over 400 clinical trials' figure was not independently re-verified against a trial-registry count in this research pass.",
+    "The 2026 Cochrane review (the most current, highest-quality synthesis available) was not yet published when the page's claims were presumably drafted; it refines the MCI-vs-dementia distinction more precisely than the page's single 'Memory (Cognitive Decline)' bucket and is worth citing going forward.",
+    "No dedicated recent RCT in healthy young adults (<40) was located to substantiate or refute the 'Memory (Healthy Adults) — mixed, small' bucket beyond the general framing already on the page."
+  ]
+}

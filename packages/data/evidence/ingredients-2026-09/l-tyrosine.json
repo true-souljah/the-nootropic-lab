@@ -1,0 +1,160 @@
+{
+  "slug": "l-tyrosine",
+  "generatedAt": "2026-09-28T00:00:00Z",
+  "ourClaims": {
+    "clinicalDose": "500–2000mg/day (L-Tyrosine); 300–500mg as NALT",
+    "timeToEffect": "30–60 minutes before a demanding cognitive task",
+    "studySummary": "Site cites 'Military research (Neri et al., 1995; Deijen et al., 1999)' and 'A 2015 meta-analysis' confirming benefits in multitasking/high-demand scenarios, benefits most pronounced under stress not rested baseline.",
+    "humanEffects": [
+      { "effect": "Cognitive Performance Under Stress", "evidenceStrength": "strong", "magnitude": "moderate", "studies": 9, "notes": "Site claims military studies in sleep-deprived/cold-stressed subjects show consistent, significant cognitive maintenance." },
+      { "effect": "Working Memory Under Multitasking", "evidenceStrength": "moderate", "magnitude": "moderate", "studies": 6, "notes": "Site claims benefits in multitasking scenarios are well replicated; effects in low-demand tasks minimal." },
+      { "effect": "Mood Under Sleep Deprivation", "evidenceStrength": "moderate", "magnitude": "small", "studies": 5, "notes": "Site claims reduces negative mood and fatigue ratings in sleep-deprived subjects." },
+      { "effect": "Motivation & Drive", "evidenceStrength": "preliminary", "magnitude": "small", "studies": 3, "notes": "Site claims dopamine precursor theory suggests potential; direct motivation trials limited." }
+    ],
+    "sideEffects": ["Generally safe", "Avoid with MAO inhibitors", "Possible hyperthyroid effects at very high doses", "May interact with thyroid medications"],
+    "howToTake": { "dosage": "500–2000mg L-Tyrosine or 300–500mg NALT", "timing": "30–60 minutes before the demanding task" }
+  },
+  "studies": [
+    {
+      "pmid": "26424423",
+      "doi": "10.1016/j.jpsychires.2015.08.014",
+      "title": "Effect of tyrosine supplementation on clinical and healthy populations under stress or cognitive demands — A review",
+      "journal": "Journal of Psychiatric Research",
+      "year": 2015,
+      "design": "narrative review (Jongkees et al.) — this is the landmark 'Jongkees 2015' review, not a formal meta-analysis",
+      "population": "clinical and healthy adults, mixed studies",
+      "n": null,
+      "dose": "varied across reviewed studies",
+      "duration": "varied",
+      "outcome": "cognitive performance under stress/cognitive demand, clinical disorders, physical exercise",
+      "result": "Reports on TYR effectiveness 'vary considerably'. Potential for treating clinical disorders and enhancing physical exercise judged minimal. Concludes tyrosine 'does seem to effectively enhance cognitive performance, particularly in short-term stressful and/or cognitively demanding situations' but only when neurotransmitter function is intact and dopamine/norepinephrine are temporarily depleted — i.e. it is conditional, not a general enhancer.",
+      "fundingConflict": "not stated in abstract; not independently verified",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/26424423/",
+      "status": 200
+    },
+    {
+      "pmid": "10230711",
+      "doi": "10.1016/s0361-9230(98)00163-4",
+      "title": "Tyrosine improves cognitive performance and reduces blood pressure in cadets after one week of a combat training course",
+      "journal": "Brain Research Bulletin",
+      "year": 1999,
+      "design": "RCT (Deijen et al., matches site's cited 'Deijen et al., 1999')",
+      "population": "military cadets in combat training, n=21 total (10 tyrosine, 11 control)",
+      "n": 21,
+      "dose": "2g tyrosine/day x5 days in a protein-rich drink",
+      "duration": "5 days during a combat training course",
+      "outcome": "memory task, tracking task, mood, systolic blood pressure, plasma MHPG",
+      "result": "Tyrosine group performed better than carbohydrate-control group on memory and tracking tasks; tyrosine decreased systolic blood pressure. No effects on mood were found.",
+      "fundingConflict": "not stated in abstract; not independently verified",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/10230711/",
+      "status": 200
+    },
+    {
+      "pmid": "7794222",
+      "doi": null,
+      "title": "The effects of tyrosine on cognitive performance during extended wakefulness",
+      "journal": "Aviation, Space, and Environmental Medicine",
+      "year": 1995,
+      "design": "double-blind RCT (Neri et al., matches site's cited 'Neri et al., 1995')",
+      "population": "healthy adults undergoing one night of sleep loss",
+      "n": null,
+      "dose": "150mg/kg body mass tyrosine, split dose",
+      "duration": "single session, ~13h of continuous testing during one night of sleep loss",
+      "outcome": "psychomotor task performance, vigilance-task lapse probability, mood",
+      "result": "Tyrosine significantly ameliorated the usual performance decline on a psychomotor task and reduced lapse probability on a high-event-rate vigilance task; improvements lasted approximately 3 hours. Authors describe tyrosine as 'relatively benign' at this dose.",
+      "fundingConflict": "not stated in abstract; not independently verified",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/7794222/",
+      "status": 200
+    },
+    {
+      "pmid": "8293316",
+      "doi": "10.1016/0361-9230(94)90200-3",
+      "title": "Effect of tyrosine on cognitive function and blood pressure under stress",
+      "journal": "Brain Research Bulletin",
+      "year": 1994,
+      "design": "RCT, randomized crossover (Deijen & Orlebeke)",
+      "population": "healthy young adults, n=16",
+      "n": 16,
+      "dose": "100mg/kg body mass tyrosine vs placebo",
+      "duration": "acute, single session with 90dB noise stressor",
+      "outcome": "cognitive task performance, mood, heart rate, blood pressure",
+      "result": "Tyrosine improved performance on two stress-sensitive cognitive tasks measured 1h post-dose; decreased diastolic blood pressure at 15min (not at 1h). No effects on mood, systolic blood pressure or heart rate were found.",
+      "fundingConflict": "not stated in abstract; not independently verified",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/8293316/",
+      "status": 200
+    },
+    {
+      "pmid": "26285023",
+      "doi": "10.1249/MSS.0000000000000757",
+      "title": "Tyrosine Ingestion and Its Effects on Cognitive and Physical Performance in the Heat",
+      "journal": "Medicine and Science in Sports and Exercise",
+      "year": 2016,
+      "design": "RCT, double-blind counterbalanced crossover, military-based load-carriage protocol",
+      "population": "healthy adults; study 2 n=8",
+      "n": 8,
+      "dose": "150mg/kg body mass tyrosine (identified as equally effective as a double dose in study 1, n=21)",
+      "duration": "acute, exercise-heat-stress session",
+      "outcome": "cognitive function and physical (2.4km time trial) performance under 40°C heat stress",
+      "result": "NULL RESULT: despite marked elevation in serum tyrosine, exercise heat stress impaired some aspects of cognitive function and tyrosine did NOT alleviate these decrements (P>0.05); no difference in time-trial completion time between tyrosine (19.78min) and placebo (20.29min, P=0.74).",
+      "fundingConflict": "not stated in abstract; not independently verified",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/26285023/",
+      "status": 200
+    },
+    {
+      "pmid": "31521870",
+      "doi": "10.1016/j.jad.2019.09.031",
+      "title": "Tyrosine negatively affects flexible-like behaviour under cognitively demanding conditions",
+      "journal": "Journal of Affective Disorders",
+      "year": 2019,
+      "design": "randomized, double-blind, placebo-controlled RCT",
+      "population": "healthy volunteers, n=70",
+      "n": 70,
+      "dose": "2.0g tyrosine vs placebo (cellulose)",
+      "duration": "acute",
+      "outcome": "cognitive flexibility (Wisconsin Card Sorting Test) under low vs high cognitive load",
+      "result": "NEGATIVE RESULT: contrary to expectations, tyrosine WORSENED cognitive flexibility under the high cognitive-load condition rather than improving it.",
+      "fundingConflict": "not stated in abstract; not independently verified",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/31521870/",
+      "status": 200
+    }
+  ],
+  "verdicts": [
+    {
+      "claim": "Cognitive Performance Under Stress — evidenceStrength strong, 'military studies in sleep-deprived and cold-stressed subjects show consistent, significant cognitive maintenance'",
+      "verdict": "overstated",
+      "reason": "The claim of consistency is not supported: alongside supportive sleep-deprivation and noise-stress trials (Neri 1995, Deijen 1994/1999), a heat-stress military-protocol RCT found NO cognitive or performance benefit (Coull 2016) and another RCT found tyrosine WORSENED cognitive flexibility under high cognitive load (Robson 2019). The effect appears stressor-type-dependent, not consistent across all stress conditions.",
+      "pmids": ["26285023", "31521870", "10230711", "7794222"]
+    },
+    {
+      "claim": "Working Memory Under Multitasking — evidenceStrength moderate, 'benefits in multitasking scenarios are well replicated'",
+      "verdict": "no-evidence-found",
+      "reason": "None of the six selected studies directly tested working memory under multitasking; a related 2024 RCT (McAllister et al., not in the top-6 list) found L-tyrosine reduced missed responses on a Stroop task during a combined VR-stress/cognitive challenge but had no effect on physiological stress markers — this is suggestive but does not establish the 'well replicated multitasking' framing the site uses.",
+      "pmids": []
+    },
+    {
+      "claim": "Mood Under Sleep Deprivation — evidenceStrength moderate, 'reduces negative mood and fatigue ratings in sleep-deprived subjects'",
+      "verdict": "contradicted",
+      "reason": "Two of the site's own implied source studies (Deijen 1999, Deijen 1994) explicitly report 'No effects on mood were found' for tyrosine despite finding cognitive/performance benefits in the same trials — the mood claim is not supported by the studies most likely being cited.",
+      "pmids": ["10230711", "8293316"]
+    },
+    {
+      "claim": "Motivation & Drive — evidenceStrength preliminary, 'dopamine precursor theory suggests potential; direct motivation trials in healthy rested adults are limited'",
+      "verdict": "no-evidence-found",
+      "reason": "No RCT directly measuring motivation/drive as an outcome was found in this search; the site's own 'preliminary/limited evidence' framing is honest and requires no correction.",
+      "pmids": []
+    }
+  ],
+  "doseAssessment": {
+    "trialRange": "Highly heterogeneous: some RCTs used flat doses (2.0g/day, matching the top of the site's 500-2000mg range), but several landmark trials used weight-based dosing of 100-150mg/kg body mass — for a 70kg adult that is roughly 7,000-10,500mg, far above the site's stated 500-2000mg range.",
+    "ourDoseWithinRange": false,
+    "suggestedText": "Clarify that the site's 500-2000mg range reflects flat-dose consumer products, while several of the classic military/stress RCTs (Neri 1995, Deijen 1994, Coull 2016) used substantially higher weight-based doses (100-150mg/kg, i.e. 7-10g for a 70kg adult) — the site's dose is not directly equivalent to the doses shown effective in the strongest stress-performance trials."
+  },
+  "safetySignals": [
+    { "signal": "L-Tyrosine is a direct catecholamine precursor; MAOIs block catecholamine breakdown, so the theoretical combination risk is mechanistic (not from a dedicated human interaction RCT — none was found in this search). The site's MAOI caution is a reasonable precaution but is not backed by a specific clinical trial we could verify.", "pmid": null, "url": null }
+  ],
+  "gaps": [
+    "No dedicated RCT on L-tyrosine + MAOI interaction was found; the caution is mechanistic/theoretical, not trial-verified — flag this distinction rather than stating it as an established interaction.",
+    "No RCT specifically comparing L-Tyrosine vs NALT (N-Acetyl-L-Tyrosine) bioavailability/efficacy for cognition was found; the site's claim that 'most evidence favours plain L-Tyrosine over NALT' could not be independently verified in this search.",
+    "The site's 'ADHD' FAQ claim ('some small studies show modest attention improvements') was not investigated in this pass and should be separately verified before publishing."
+  ]
+}

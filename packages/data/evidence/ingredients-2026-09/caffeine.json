@@ -1,0 +1,163 @@
+{
+  "slug": "caffeine",
+  "generatedAt": "2026-09-28T00:00:00Z",
+  "ourClaims": {
+    "clinicalDose": "100–200mg for cognitive enhancement",
+    "timeToEffect": "15–45 minutes (acute)",
+    "studySummary": "Site cites 'A 2016 meta-analysis (McLellan et al.)' confirming cognitive benefits at 100-300mg, diminishing returns above 400mg/day.",
+    "humanEffects": [
+      { "effect": "Alertness & Wakefulness", "evidenceStrength": "strong", "magnitude": "large", "studies": 50, "notes": "Site claims most robust effect, reliable across all populations and doses above 75mg." },
+      { "effect": "Reaction Time", "evidenceStrength": "strong", "magnitude": "moderate", "studies": 30, "notes": "Site claims consistent improvement, tolerance-resistant." },
+      { "effect": "Sustained Attention", "evidenceStrength": "strong", "magnitude": "moderate", "studies": 25, "notes": "Site claims particularly effective during sleep deprivation or extended work sessions." },
+      { "effect": "Memory Consolidation", "evidenceStrength": "moderate", "magnitude": "small", "studies": 8, "notes": "Site claims post-learning caffeine (200mg) may enhance 24-hour memory consolidation." }
+    ],
+    "sideEffects": ["Anxiety and jitteriness at high doses", "Insomnia if taken late in the day", "Tolerance development", "Withdrawal headaches", "Elevated heart rate in sensitive individuals"],
+    "howToTake": { "dosage": "100–200mg for cognitive effects; do not exceed 400mg/day", "timing": "Avoid within 8 hours of bedtime due to 5-6 hour half-life" }
+  },
+  "studies": [
+    {
+      "pmid": "27612937",
+      "doi": "10.1016/j.neubiorev.2016.09.001",
+      "title": "A review of caffeine's effects on cognitive, physical and occupational performance",
+      "journal": "Neuroscience and Biobehavioral Reviews",
+      "year": 2016,
+      "design": "narrative review (McLellan, Caldwell & Lieberman)",
+      "population": "general/occupational (military, first responders, shift workers)",
+      "n": null,
+      "dose": "low (~40mg/0.5mg/kg) to moderate (~300mg/4mg/kg)",
+      "duration": "reviews both acute and repeated-dose literature",
+      "outcome": "alertness, vigilance, attention, reaction time, memory, executive function, physical performance",
+      "result": "Following low-to-moderate doses, alertness, vigilance, attention and reaction time improve consistently; effects on memory and higher-order executive function (judgment, decision-making) are less consistent. Physical performance benefits emerge above ~200mg (~3mg/kg). Repeated caffeine dosing is an effective strategy to maintain performance during restricted sleep in occupational settings.",
+      "fundingConflict": "not stated in abstract; not independently verified",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/27612937/",
+      "status": 200
+    },
+    {
+      "pmid": "20464765",
+      "doi": "10.1002/14651858.CD008508",
+      "title": "Caffeine for the prevention of injuries and errors in shift workers",
+      "journal": "Cochrane Database of Systematic Reviews",
+      "year": 2010,
+      "design": "Cochrane systematic review and meta-analysis (13 RCTs)",
+      "population": "shift workers / jet-lag simulated conditions, mostly young participants",
+      "n": null,
+      "dose": "varied across pooled trials",
+      "duration": "varied",
+      "outcome": "errors, cognitive performance by domain (concept formation/reasoning, memory, orientation/attention, perception, verbal function)",
+      "result": "Caffeine significantly reduced errors vs placebo. Pooled SMDs favored caffeine for memory (SMD=-1.08, 95% CI -2.07 to -0.09), orientation/attention (SMD=-0.55, 95% CI -0.83 to -0.27); effects on concept formation/reasoning and perception were directionally favorable but not statistically significant; no benefit on verbal function/language. High risk of bias noted for allocation concealment and selective outcome reporting across included trials.",
+      "fundingConflict": "not stated in abstract; not independently verified",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/20464765/",
+      "status": 200
+    },
+    {
+      "pmid": "42761483",
+      "doi": "10.3389/fnut.2026.1893033",
+      "title": "Acute caffeine supplementation as a nutrition-based strategy to mitigate sleep-loss-related cognitive and operational performance impairments in military personnel: a systematic review and meta-analysis",
+      "journal": "Frontiers in Nutrition",
+      "year": 2026,
+      "design": "systematic review and meta-analysis (7 RCTs)",
+      "population": "military personnel / military-related populations under sleep deprivation, restriction, or sustained wakefulness",
+      "n": null,
+      "dose": "varied across 7 pooled RCTs",
+      "duration": "acute, under sleep-loss conditions",
+      "outcome": "vigilance/response performance, complex cognitive performance, military task performance",
+      "result": "Caffeine significantly improved vigilance/response performance (SMD=0.73, 95% CI 0.50-0.96, I²=0%), complex cognitive performance (SMD=0.54, 95% CI 0.16-0.93, I²=0%), and military task performance (SMD=0.45, 95% CI 0.19-0.71, I²=29.2%) vs placebo during sleep loss. Effects most consistent for vigilance/response speed.",
+      "fundingConflict": "not stated in abstract; not independently verified",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/42761483/",
+      "status": 200
+    },
+    {
+      "pmid": "24413697",
+      "doi": "10.1038/nn.3623",
+      "title": "Post-study caffeine administration enhances memory consolidation in humans",
+      "journal": "Nature Neuroscience",
+      "year": 2014,
+      "design": "double-blind RCT (Borota et al.)",
+      "population": "healthy adults",
+      "n": null,
+      "dose": "caffeine administered post-study (inverted U-shaped dose-response identified)",
+      "duration": "effect measured 24h after administration",
+      "outcome": "long-term memory consolidation (behavioral discrimination task)",
+      "result": "Post-study caffeine enhanced performance 24h after administration via an inverted-U dose-response curve; the effect was specific to memory CONSOLIDATION, not retrieval. This is a precise, direct match for the site's specific claim about '200mg post-learning caffeine enhancing 24-hour memory consolidation'.",
+      "fundingConflict": "not stated in abstract; not independently verified",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/24413697/",
+      "status": 200
+    },
+    {
+      "pmid": "42033594",
+      "doi": "10.1007/s40279-026-02441-4",
+      "title": "Caffeine Use in Sport: A Systematic Review and Meta-analysis of Acute Side Effects and Implications for Athlete Health and Safety",
+      "journal": "Sports Medicine",
+      "year": 2026,
+      "design": "systematic review and meta-analysis (48 RCTs, 38 in meta-analysis)",
+      "population": "athletes aged >=15 (940 total, 63% male)",
+      "n": 940,
+      "dose": "mean 4.9±2.4mg/kg (range 1.3-12mg/kg)",
+      "duration": "acute",
+      "outcome": "self-reported side effects: headache, abdominal discomfort, tachycardia, insomnia, increased urine output, anxiety, nervousness",
+      "result": "Caffeine significantly increased odds of headache (LogOR=0.74), abdominal discomfort (LogOR=1.12), tachycardia (LogOR=1.47, >4x higher odds), insomnia (LogOR=1.20), anxiety (LogOR=1.29) and nervousness (LogOR=0.82), all p<0.001, in a dose-dependent manner; doses ≤6mg/kg (~420mg for a 70kg adult) associated with lower side-effect risk than >6mg/kg.",
+      "fundingConflict": "not stated in abstract; not independently verified",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/42033594/",
+      "status": 200
+    },
+    {
+      "pmid": "24235903",
+      "doi": "10.5664/jcsm.3170",
+      "title": "Caffeine effects on sleep taken 0, 3, or 6 hours before going to bed",
+      "journal": "Journal of Clinical Sleep Medicine",
+      "year": 2013,
+      "design": "double-blind, placebo-controlled RCT (Drake et al.)",
+      "population": "healthy adults, home environment",
+      "n": null,
+      "dose": "400mg caffeine, fixed dose",
+      "duration": "single administration at 0, 3, or 6 hours before habitual bedtime",
+      "outcome": "self-reported and objective (portable sleep monitor) sleep disturbance, total sleep time",
+      "result": "A 400mg dose taken at bedtime, 3h before, OR 6h before bedtime each significantly disrupted sleep relative to placebo (p<0.05 for all) — even a full 6 hours before bed produced a meaningful reduction in total sleep time.",
+      "fundingConflict": "not stated in abstract; not independently verified",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/24235903/",
+      "status": 200
+    }
+  ],
+  "verdicts": [
+    {
+      "claim": "Alertness & Wakefulness — evidenceStrength strong, magnitude large, 'most robust effect... reliable across all populations and doses above 75mg'",
+      "verdict": "supported",
+      "reason": "Broadly consistent with McLellan 2016's review conclusions and directly quantified by the 2026 military meta-analysis (SMD=0.73 for vigilance/response performance under sleep loss); this is among the best-replicated caffeine effects in the literature.",
+      "pmids": ["27612937", "42761483"]
+    },
+    {
+      "claim": "Reaction Time — evidenceStrength strong, magnitude moderate, 'tolerance-resistant'",
+      "verdict": "supported",
+      "reason": "Ker 2010 Cochrane review found caffeine improved orientation/attention performance (SMD=-0.55) and the 2026 military meta-analysis found consistent vigilance/response-time benefits; McLellan 2016 specifically notes reaction time is one of the more tolerance-resistant caffeine effects, matching the site's framing.",
+      "pmids": ["20464765", "42761483", "27612937"]
+    },
+    {
+      "claim": "Sustained Attention — evidenceStrength strong, magnitude moderate, 'particularly effective during sleep deprivation or extended work sessions'",
+      "verdict": "supported",
+      "reason": "This is precisely the population and outcome quantified by the 2026 military sleep-loss meta-analysis (SMD=0.54 for complex cognitive performance, SMD=0.73 for vigilance) and the Cochrane shift-worker review — strong, direct evidence for exactly the sleep-deprivation framing the site uses.",
+      "pmids": ["42761483", "20464765"]
+    },
+    {
+      "claim": "Memory Consolidation — evidenceStrength moderate, magnitude small, 'post-learning caffeine (200mg) may enhance 24-hour memory consolidation'",
+      "verdict": "supported",
+      "reason": "This is a precise match to Borota et al. 2014 (Nature Neuroscience), which found post-study caffeine specifically enhanced 24-hour memory consolidation (not retrieval) via an inverted-U dose-response curve — the site's claim is accurately scoped and correctly hedged ('may enhance').",
+      "pmids": ["24413697"]
+    }
+  ],
+  "doseAssessment": {
+    "trialRange": "100-400mg across cognitive/vigilance trials; side-effect meta-analysis found doses >6mg/kg (~420mg for 70kg adult) carry disproportionately higher risk of headache, tachycardia, insomnia and anxiety vs ≤6mg/kg.",
+    "ourDoseWithinRange": true,
+    "efsaComparison": "Site's 100-200mg cognitive dose sits at or below EFSA's verified single-dose threshold of up to 200mg for healthy adults; site's 'do not exceed 400mg/day' matches EFSA's daily intake threshold of up to 400mg for healthy adults exactly. EFSA additionally caps habitual intake at 200mg/day for pregnant women — a limit the site's caffeine page does not mention.",
+    "suggestedText": "Dose guidance is accurate and matches EFSA 2015 (Scientific Opinion on the Safety of Caffeine, EFSA Journal 2015;13(5):4102). Add an explicit pregnancy caution (≤200mg/day total from all sources) since the site's sideEffects list omits it entirely."
+  },
+  "safetySignals": [
+    { "signal": "EFSA (2015) Scientific Opinion on the Safety of Caffeine: single dose up to 200mg and daily intake up to 400mg do not raise safety concerns in healthy adults; pregnant women should limit habitual intake to 200mg/day — the site's page does not mention the pregnancy limit at all.", "pmid": null, "url": "https://www.efsa.europa.eu/en/efsajournal/pub/4102" },
+    { "signal": "Caffeine significantly increases panic-attack risk in patients with panic disorder (53.9% of PD patients had a panic attack after caffeine vs 1.7% of healthy controls, at doses ~400-750mg) and increases anxiety in both patient and healthy populations at these doses — a clinical population caution the site's sideEffects list only gestures at generically ('anxiety and jitteriness at high doses').", "pmid": "34871964", "url": "https://pubmed.ncbi.nlm.nih.gov/34871964/", "title": "Effects of caffeine on anxiety and panic attacks in patients with panic disorder: A systematic review and meta-analysis.", "year": 2022 },
+    { "signal": "400mg caffeine taken even 6 hours before bedtime significantly disrupts sleep (reduces total sleep time) relative to placebo — stronger and more specific than the site's general '5-6 hour half-life, avoid within 8 hours' framing, but directionally consistent and slightly more conservative than the site's own advice.", "pmid": "24235903", "url": "https://pubmed.ncbi.nlm.nih.gov/24235903/" }
+  ],
+  "gaps": [
+    "The site labels its McLellan et al. citation a '2016 meta-analysis' in the studySummary field; the actual McLellan 2016 paper is a narrative review, not a formal meta-analysis. Minor citation-accuracy issue worth correcting.",
+    "No pregnancy-specific caffeine limit is mentioned anywhere on the site's caffeine page despite this being one of EFSA's headline conclusions (≤200mg/day for pregnant women).",
+    "Panic-disorder/anxiety-vulnerable population caution is understated relative to the meta-analytic evidence (Klevebrant 2021) showing a >30-fold relative risk of panic attack in PD patients vs healthy controls at high doses."
+  ]
+}

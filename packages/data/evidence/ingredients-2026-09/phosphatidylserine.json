@@ -1,0 +1,193 @@
+{
+  "slug": "phosphatidylserine",
+  "generatedAt": "2026-09-28T00:00:00Z",
+  "ourClaims": {
+    "clinicalDose": "100–300mg/day (soy-free sunflower-derived preferred)",
+    "timeToEffect": "4–6 weeks for memory effects; cortisol reduction within 2 weeks",
+    "studySummary": "FDA allows a qualified health claim for PS and reduced risk of dementia. Multiple RCTs (Crook et al., 1991; Cenacchi et al., 1993) show improvements in memory, learning, and concentration in age-related cognitive decline. The 2010 soy-free sunflower-derived form shows equivalent bioavailability to the original bovine-cortex-derived PS used in older trials.",
+    "humanEffects": [
+      { "effect": "Memory Recall", "evidenceStrength": "strong", "magnitude": "moderate", "studies": 11, "notes": "Particularly strong in age-related memory decline populations; effects in young healthy adults are more modest." },
+      { "effect": "Cortisol Reduction", "evidenceStrength": "moderate", "magnitude": "moderate", "studies": 6, "notes": "Significant blunting of cortisol response to exercise and psychological stress. Onset within 1–2 weeks." },
+      { "effect": "Processing Speed", "evidenceStrength": "moderate", "magnitude": "small", "studies": 5, "notes": "Improved reaction time and cognitive processing speed, especially in older adults." },
+      { "effect": "Age-Related Cognitive Decline", "evidenceStrength": "strong", "magnitude": "moderate", "studies": 8, "notes": "PS has an FDA qualified health claim for reduced risk of dementia based on this body of evidence." }
+    ],
+    "sideEffects": ["Well tolerated", "Mild GI discomfort in some users", "Blood-thinning interaction possible at high doses"],
+    "howToTake": { "dosage": "100–300mg/day", "timing": "With meals, split across 2–3 meals", "forms": "Soy, sunflower, or (discontinued) bovine-brain-derived" }
+  },
+  "studies": [
+    {
+      "pmid": "21103034",
+      "doi": "10.3164/jcbn.10-62",
+      "title": "Soybean-derived phosphatidylserine improves memory function of the elderly Japanese subjects with memory complaints.",
+      "journal": "Journal of Clinical Biochemistry and Nutrition",
+      "year": 2010,
+      "design": "RCT, double-blind, randomized, placebo-controlled",
+      "population": "Elderly Japanese, 50–69y, with mild cognitive impairment/memory complaints",
+      "n": 78,
+      "dose": "100mg/day or 300mg/day",
+      "form": "Soy-derived PS",
+      "duration": "6 months",
+      "outcome": "Neuropsychological memory test battery",
+      "result": "No overall group difference vs placebo (placebo group also improved). In the subgroup with low baseline scores, PS groups improved significantly from baseline (placebo did not), driven mainly by delayed verbal recall. No adverse effects on blood markers/vital signs.",
+      "fundingConflict": "Not stated in retrieved abstract.",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/21103034/",
+      "status": 200
+    },
+    {
+      "pmid": "20523044",
+      "doi": "10.1159/000310330",
+      "title": "Phosphatidylserine containing omega-3 fatty acids may improve memory abilities in non-demented elderly with memory complaints: a double-blind placebo-controlled trial.",
+      "journal": "Dementia and Geriatric Cognitive Disorders",
+      "year": 2010,
+      "design": "RCT, double-blind, placebo-controlled",
+      "population": "Non-demented elderly with memory complaints",
+      "n": 157,
+      "dose": "300mg PS/day (as PS-DHA, marine-sourced PS conjugated with omega-3 DHA)",
+      "form": "PS-DHA (not plain soy/sunflower PS)",
+      "duration": "15 weeks",
+      "outcome": "Rey Auditory Verbal Learning Test, Rey Complex Figure Test, computerized battery",
+      "result": "Verbal immediate recall significantly improved vs placebo at endpoint. Post-hoc subgroup with higher baseline cognitive status responded best. Authors describe results as exploratory, requiring confirmation.",
+      "fundingConflict": "Not stated in retrieved abstract; product is a proprietary PS-DHA formulation (marine-sourced), distinct from the soy/sunflower forms our page recommends.",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/20523044/",
+      "status": 200
+    },
+    {
+      "pmid": "21711517",
+      "doi": "10.1186/1471-2377-11-79",
+      "title": "Safety of phosphatidylserine containing omega-3 fatty acids in non-demented elderly: a double-blind placebo-controlled trial followed by an open-label extension.",
+      "journal": "BMC Neurology",
+      "year": 2011,
+      "design": "RCT safety follow-up + open-label extension",
+      "population": "Non-demented elderly with memory complaints",
+      "n": 157,
+      "dose": "300mg PS/day (15 weeks, double-blind) then 100mg PS/day (15 weeks open-label extension)",
+      "form": "PS-DHA",
+      "duration": "30 weeks total",
+      "outcome": "Standard biochemical/hematological safety parameters, blood pressure, heart rate, weight",
+      "result": "No significant safety differences vs placebo in double-blind phase; open-label extension showed a small reduction in resting diastolic BP and slight weight gain. No documented anticoagulant/bleeding interaction data collected.",
+      "fundingConflict": "Not stated in retrieved abstract.",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/21711517/",
+      "status": 200
+    },
+    {
+      "pmid": "39317299",
+      "doi": "10.1016/j.jad.2024.09.131",
+      "title": "Effects of a food supplement containing phosphatidylserine on cognitive function in Chinese older adults with mild cognitive impairment: A randomized double-blind, placebo-controlled trial.",
+      "journal": "Journal of Affective Disorders",
+      "year": 2024,
+      "design": "RCT, double-blind, placebo-controlled",
+      "population": "Chinese adults with MCI, mean age ~68y",
+      "n": 190,
+      "dose": "31.5mg PS/day (combined with 144mg ALA, 3.6mg Ginkgo flavonoids, B vitamins, folic acid — PS is a minor component of a multi-ingredient formula)",
+      "form": "PS as part of a combination capsule, not standalone",
+      "duration": "12 months",
+      "outcome": "Arithmetic, similarity, and short-term memory subtests; serum n-3 PUFAs and neurotransmitters",
+      "result": "Significant improvements in arithmetic, similarity test, and short-term memory vs placebo; serum ALA, DHA, EPA, acetylcholine, GABA, 5-HT all increased. Because PS dose here (31.5mg) is far below our stated 100–300mg range, this trial cannot be attributed to PS alone.",
+      "fundingConflict": "Co-authored by staff at BYHEALTH Institute of Nutrition & Health (a supplement manufacturer) — industry affiliation.",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/39317299/",
+      "status": 200
+    },
+    {
+      "pmid": "41318468",
+      "doi": "10.1186/s12937-025-01264-9",
+      "title": "The cognitive effects of supplementation with sunflower phosphatidyl serine in healthy children aged 8 to 12 years: a randomized controlled trial.",
+      "journal": "Nutrition Journal",
+      "year": 2025,
+      "design": "RCT, randomized, placebo-controlled",
+      "population": "Healthy, neurotypical children, 8–12y",
+      "n": null,
+      "dose": "100mg/day sunflower-derived PS (Sharp PS green)",
+      "form": "Sunflower-derived PS",
+      "duration": "12 weeks",
+      "outcome": "Cognitive performance battery, mood, sleep",
+      "result": "No significant difference vs placebo on primary or secondary outcomes in the full cohort. Only a pre-defined subgroup of children with below-median baseline performance showed benefit on one visuospatial memory task. This is a clean null result in the general population at the low end of our stated dose range.",
+      "fundingConflict": "Authors include IFF Health staff — IFF is the commercial manufacturer of Sharp PS green, the tested product. Direct industry funding/authorship.",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/41318468/",
+      "status": 200
+    },
+    {
+      "pmid": "42494057",
+      "doi": "10.1080/1028415X.2026.2703619",
+      "title": "The impact of supplements on cognitive function for Alzheimer's disease or mild cognitive impairment: a systematic review and network meta-analysis.",
+      "journal": "Nutritional Neuroscience",
+      "year": 2026,
+      "design": "Systematic review and network meta-analysis",
+      "population": "AD/MCI patients across 29 pooled RCTs",
+      "n": 2000,
+      "dose": "PS specifically evaluated at 100mg (one arm of the network)",
+      "form": "Mixed across trials",
+      "duration": "Varies across pooled trials",
+      "outcome": "MMSE, ADAS-Cog",
+      "result": "PS-100mg significantly improved MMSE scores vs placebo (MD -1.14, 95% CI -1.86 to -0.41, in a comparison where placebo is the reference so negative MD favors PS). No supplement, including PS, showed significant improvement on ADAS-Cog — a stricter, clinician-rated cognitive scale. This is meta-analytic support restricted to MCI/AD populations, not healthy adults.",
+      "fundingConflict": "Not stated in retrieved abstract.",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/42494057/",
+      "status": 200
+    }
+  ],
+  "verdicts": [
+    {
+      "claim": "Memory Recall — evidenceStrength: strong, studies: 11",
+      "verdict": "supported",
+      "reason": "Multiple independent RCTs across decades (Kato-Kataoka 2010, Vakhapova 2010/2011, Duan 2024, network meta-analysis 2026) consistently show memory benefits in cognitively-impaired/older populations, though effects are frequently confined to subgroups (low or high baseline performers) rather than the full randomized sample — a nuance the 'strong' label glosses over. The claimed 11-study count could not be exhaustively verified in this search but is plausible given PS's long research history.",
+      "pmids": ["21103034", "20523044", "39317299", "42494057"]
+    },
+    {
+      "claim": "Age-Related Cognitive Decline — evidenceStrength: strong, magnitude: moderate, 'FDA qualified health claim' cited as evidentiary support",
+      "verdict": "overstated",
+      "reason": "The FDA's qualified health claim (2003) is real but is explicitly a *qualified* claim precisely because FDA itself judged the evidence to fall short of a full/unqualified claim — using it as headline support for a 'strong' rating overstates the regulatory position. The FDA claim language also requires 'very limited and preliminary scientific research suggests' phrasing when displayed, which is far weaker than 'strong, moderate magnitude.'",
+      "pmids": []
+    },
+    {
+      "claim": "Memory Recall in healthy children / general low-dose populations (implicitly covered by 'strong' across life stages)",
+      "verdict": "contradicted",
+      "reason": "The most recent, best-designed pediatric RCT (Friling 2025, n not small, 12 weeks, 100mg sunflower PS — squarely in our stated dose range) found no significant effect on primary or secondary outcomes in the full sample. This directly contradicts a blanket 'strong' effect claim when applied outside impaired/elderly populations.",
+      "pmids": ["41318468"]
+    },
+    {
+      "claim": "studySummary — 'Crook et al., 1991; Cenacchi et al., 1993' cited as supporting RCTs",
+      "verdict": "no-evidence-found",
+      "reason": "These pre-1996 trials were not independently re-verified with a resolvable PMID in this search session (not queried directly); they are widely cited in secondary literature using bovine-cortex-derived PS, a source discontinued after BSE concerns — the ingredient page's own FAQ acknowledges this discontinuation, creating some internal tension with citing them as current support without that caveat attached to the studySummary itself.",
+      "pmids": []
+    },
+    {
+      "claim": "sideEffects — 'Blood-thinning interaction possible at high doses'",
+      "verdict": "no-evidence-found",
+      "reason": "A targeted PubMed search for phosphatidylserine + anticoagulant/warfarin + bleeding interaction returned zero results. The claim may derive from PS's known mild platelet-related in vitro effects rather than documented clinical interaction data — no clinical PMID substantiates the specific claim as written.",
+      "pmids": []
+    },
+    {
+      "claim": "timeToEffect — 'cortisol reduction within 2 weeks'",
+      "verdict": "no-evidence-found",
+      "reason": "None of the studies retrieved in this search measured cortisol response timelines; this claim likely originates from older exercise-cortisol PS literature (e.g., Fahey & Pearl-type studies) not surfaced here and not independently verified in this session.",
+      "pmids": []
+    }
+  ],
+  "doseAssessment": {
+    "trialRange": "31.5mg (as minor component of combo formula) to 300mg/day across identified trials; most single-ingredient positive trials cluster at 100–300mg/day",
+    "ourDoseWithinRange": "Yes, our 100–300mg/day range matches the bulk of the trial literature, but the strongest recent null result (Friling 2025 children) sits at exactly 100mg — the low end of our range — suggesting dose alone does not guarantee benefit outside impaired populations.",
+    "suggestedText": "Keep the 100–300mg range but add a caveat that benefit is most consistently demonstrated in older adults/MCI populations and in subgroup analyses, not as a universal effect at any age or baseline cognitive status."
+  },
+  "safetySignals": [
+    {
+      "signal": "No PubMed-indexed clinical evidence found for a PS–anticoagulant (warfarin) bleeding interaction, despite this being stated as a side effect on the ingredient page.",
+      "pmid": null,
+      "url": null
+    },
+    {
+      "signal": "The FDA qualified health claim is real but categorically weaker than how it is used as evidentiary support in the studySummary — it requires disclaimer language on labels because FDA found the evidence 'very limited and preliminary.'",
+      "pmid": null,
+      "url": null
+    },
+    {
+      "signal": "Several positive/highlighted trials have direct manufacturer authorship or funding (Friling 2025 — IFF Health staff as authors testing IFF's own Sharp PS green product; Duan 2024 — BYHEALTH Institute staff co-authors).",
+      "pmid": "41318468",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41318468/"
+    }
+  ],
+  "gaps": [
+    "Pre-1996 bovine-cortex trials (Crook 1991, Cenacchi 1993) cited in studySummary were not directly re-verified with PMIDs in this session.",
+    "No trial found isolating cortisol-reduction timeline (the '2 weeks' claim).",
+    "No trial found testing standalone PS at 100–300mg specifically for a PS–anticoagulant interaction.",
+    "Bioavailability equivalence claim between sunflower- and soy-derived PS (used in the FAQ) was not independently checked against a head-to-head pharmacokinetic study in this session."
+  ]
+}

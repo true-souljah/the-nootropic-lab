@@ -1,0 +1,124 @@
+{
+  "slug": "zynamite",
+  "generatedAt": "2026-09-28T09:39:40Z",
+  "ourClaims": {
+    "clinicalDose": "140–300mg/day (standardised to >60% mangiferin)",
+    "timeToEffect": "1–2 hours (acute)",
+    "studySummary": "A 2020 RCT (Lopez et al.) found 300mg Zynamite acutely improved reaction time, attention, and working memory versus placebo. A 2019 sports performance study showed Zynamite + luteolin (Dynamine) improved repeated sprint performance and cognitive function under physical fatigue. Evidence base is small but growing — Nektium (the manufacturer) funds most research.",
+    "humanEffects": [
+      { "effect": "Reaction Time", "evidenceStrength": "moderate", "magnitude": "moderate", "studies": 2 },
+      { "effect": "Working Memory", "evidenceStrength": "preliminary", "magnitude": "small", "studies": 2 },
+      { "effect": "Physical-Cognitive Dual Task", "evidenceStrength": "preliminary", "magnitude": "moderate", "studies": 1 }
+    ]
+  },
+  "studies": [
+    {
+      "pmid": "32473365",
+      "doi": "10.1016/j.jep.2020.112996",
+      "title": "Central nervous system activities of extract Mangifera indica L.",
+      "journal": "Journal of Ethnopharmacology",
+      "year": 2020,
+      "design": "2 double-blind, randomized, placebo-controlled crossover pilot trials (plus in-vitro/EEG work)",
+      "population": "healthy adults",
+      "n": 16,
+      "dose": "500mg MLE single dose (NOT 300mg as our page states)",
+      "brandedExtract": "Zynamite (Nektium Pharma)",
+      "duration": "single dose, EEG/psychometrics at 60-90 min",
+      "outcome": "EEG spectral changes, reaction time, mood (POMS), tolerability",
+      "result": "No significant change on psychometric tests except reaction time; within-group trend toward faster reaction time (p=0.066), % improvement vs. placebo reached significance (p=0.049) in the second study only; POMS 'fatigue' score improved (p=0.015) in the first study",
+      "fundingConflict": "All four authors are Nektium Pharma (manufacturer) employees — this is a manufacturer-authored, not independent, publication",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/32473365/",
+      "status": 200
+    },
+    {
+      "pmid": "38665302",
+      "doi": "10.3389/fnut.2024.1298807",
+      "title": "Acute effects of mango leaf extract on cognitive function in healthy adults: a randomised, double-blind, placebo-controlled crossover study",
+      "journal": "Frontiers in Nutrition",
+      "year": 2024,
+      "design": "RCT, double-blind, placebo-controlled, crossover",
+      "population": "healthy men and women, 18-43 years",
+      "n": 114,
+      "dose": "300mg MLE (≥60% mangiferin) single dose — matches our page's headline dose exactly",
+      "brandedExtract": "mango leaf extract (MLE), consistent with Zynamite's standardisation but manufacturer not named as material supplier in this paper",
+      "duration": "acute, tested at 30/180/300 min post-dose",
+      "outcome": "cognitive demand battery, mood",
+      "result": "NO cognitive benefit found; MLE group showed a significant INCREASE in serial-3 and serial-7 subtraction errors vs. placebo overall — a negative/null result at the exact 300mg dose our page claims 'acutely improved reaction time, attention, and working memory'. Authors explicitly caution the findings should be 'treated with caution' given the limited, scattered nature of the signal.",
+      "fundingConflict": "Co-author from PepsiCo Health & Nutrition Sciences; lead group is independent academic (Northumbria University), not Nektium — the most independent and largest study identified, and it contradicts the page's core efficacy claim",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/38665302/",
+      "status": 200
+    },
+    {
+      "pmid": "31661850",
+      "doi": "10.3390/nu11112592",
+      "title": "A Single Dose of The Mango Leaf Extract Zynamite in Combination with Quercetin Enhances Peak Power Output During Repeated Sprint Exercise in Men and Women",
+      "journal": "Nutrients",
+      "year": 2019,
+      "design": "RCT, double-blind, crossover, counterbalanced",
+      "population": "physically active men and women",
+      "n": 40,
+      "dose": "140mg Zynamite + 140mg quercetin (with or without phospholipid), single dose 1h pre-exercise",
+      "brandedExtract": "Zynamite (Nektium Pharma) + quercetin, NOT luteolin/Dynamine",
+      "duration": "single dose, acute exercise session",
+      "outcome": "peak/mean power output (Wingate sprints), muscle oxygen extraction, blood lactate — a PHYSICAL performance study; no cognitive test was administered",
+      "result": "Peak power output improved 2.8-3.8% vs. placebo (p=0.01); improved muscle O2 extraction during ischemia. No cognitive outcome measured.",
+      "fundingConflict": "Lead author and two co-authors affiliated with Nektium Pharma",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/31661850/",
+      "status": 200
+    },
+    {
+      "pmid": "29937737",
+      "doi": "10.3389/fphys.2018.00740",
+      "title": "Mangifera indica L. Leaf Extract in Combination With Luteolin or Quercetin Enhances VO2peak and Peak Power Output, and Preserves Skeletal Muscle Function During Ischemia-Reperfusion in Humans",
+      "journal": "Frontiers in Physiology",
+      "year": 2018,
+      "design": "RCT, randomized, crossover",
+      "population": "young volunteers",
+      "n": 30,
+      "dose": "140mg MLE + 50mg luteolin/day OR 140mg MLE + 600mg quercetin + 350mg tiger nut extract/day, for 48h pre-exercise",
+      "brandedExtract": "Zynamite (Nektium Pharma) + luteolin (this IS the real 'Zynamite + luteolin' sprint-performance study our page seems to reference — but the page mislabels the luteolin combination as 'Dynamine', which is an unrelated purine-alkaloid ingredient, not luteolin)",
+      "duration": "48h pre-dose, acute exercise testing",
+      "outcome": "peak/mean power output, VO2peak, brain oxygenation (NIRS) during repeated sprints — again a PHYSICAL/physiological performance study, not a cognitive-function test",
+      "result": "Power output improved 5-7% vs. placebo (p<0.01); in women, peak VO2 was 5.8% greater with MLE, coinciding with better brain oxygenation (a physiological proxy, not a cognitive-test outcome)",
+      "fundingConflict": "Lead author and two co-authors (including the CSO) affiliated with Nektium Pharma",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/29937737/",
+      "status": 200
+    }
+  ],
+  "verdicts": [
+    {
+      "claim": "Reaction Time — moderate evidence, 2 studies, 'Lopez et al. (2020) showed significant improvement in choice reaction time at 300mg. Acute onset within 1 hour.'",
+      "verdict": "contradicted",
+      "reason": "The only Lopez-authored 2020 paper found (López-Ríos et al., PMID 32473365) used 500mg, not 300mg, in a tiny (n=16) manufacturer-authored pilot with only a marginal reaction-time signal (p=0.049 on a secondary percentage-change measure). The one study that actually tested the claimed 300mg dose in a larger, more independent sample (Dodd et al. 2024, n=114, PMID 38665302) found NO cognitive benefit and a significant WORSENING on subtraction-task errors. The page's specific dose-outcome pairing is directly contradicted by the best available evidence.",
+      "pmids": ["32473365", "38665302"]
+    },
+    {
+      "claim": "Working Memory — preliminary, 2 studies, 'Modest improvements on n-back tasks'",
+      "verdict": "no-evidence-found",
+      "reason": "No PubMed record testing Zynamite/mangiferin on n-back or any working-memory task was located despite multiple targeted search strategies. This claim could not be traced to any identifiable study.",
+      "pmids": []
+    },
+    {
+      "claim": "Physical-Cognitive Dual Task — preliminary, 1 study, 'Maintained cognitive performance during physical fatigue (sprint protocol)'",
+      "verdict": "overstated",
+      "reason": "The matching studies (Gelabert-Rebato 2018, 2019) are sports-science trials measuring Wingate sprint power output, VO2, muscle oxygen extraction, and lactate — none administered a cognitive test. The 2018 study's 'brain oxygenation' (NIRS) finding in women is a physiological proxy, not a measured cognitive outcome, so labelling this 'cognitive performance... maintained' overstates what was actually tested.",
+      "pmids": ["29937737", "31661850"]
+    }
+  ],
+  "doseAssessment": {
+    "claimedDose": "140-300mg/day, standardised to >60% mangiferin",
+    "trialRange": "140mg (combined with quercetin/luteolin in sprint studies) to 500mg (single-dose EEG pilot); 300mg tested directly only in the 2024 null-result trial",
+    "assessment": "The claimed range is consistent with what has been trialed, but the specific dose (300mg) that the page attributes a positive cognitive effect to was tested in the most rigorous available study and failed to show benefit."
+  },
+  "independentTrialCount": 1,
+  "safetySignals": [
+    "No serious adverse events reported across the 4 trials reviewed.",
+    "Page's stated 'possible interaction with MAO inhibitors' is mechanistically plausible (mangiferin is a COMT inhibitor, not an MAO inhibitor itself, so the stated interaction risk is imprecise) but was not tested in any of the human trials found — theoretical, not evidence-based."
+  ],
+  "gaps": [
+    "Only 1 of 4 identified human trials (Dodd et al. 2024) is free of Nektium (the manufacturer) as an author/funder, and that trial is the one that found no cognitive benefit at the label dose — this is a materially important fact the page's studySummary omits entirely.",
+    "The page's stacksWith entry pairs 'Zynamite + luteolin (Dynamine)' as if Dynamine were luteolin; they are different compounds (Dynamine is a purine alkaloid from a separate manufacturer, unrelated to the luteolin used in the Gelabert-Rebato sprint trials). This appears to be a factual error on the site, not merely a citation gap.",
+    "No cognitive-outcome (as opposed to physical-performance) RCT combining Zynamite with any co-ingredient was found; the 'Physical-Cognitive Dual Task' claim rests on physiological (NIRS) rather than cognitive-test data.",
+    "Could not verify whether the manufacturer sponsors additional unpublished or non-PubMed-indexed trials; this review is limited to what is publicly indexed in PubMed."
+  ]
+}

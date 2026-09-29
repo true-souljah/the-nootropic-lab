@@ -1,0 +1,152 @@
+{
+  "slug": "lions-mane",
+  "generatedAt": "2026-09-28T00:00:00Z",
+  "ourClaims": {
+    "clinicalDose": "500–1000mg/day (standardised fruiting body extract)",
+    "timeToEffect": "4–8 weeks of consistent use",
+    "studySummary": "A 2009 double-blind, placebo-controlled trial (Mori et al.) found significant improvements in cognitive function scores in mild cognitive impairment subjects after 16 weeks of 3g/day. A 2020 study found measurable nerve regeneration effects at 500mg standardised extract. Evidence is strongest for long-term neuroprotection rather than acute effects.",
+    "humanEffects": [
+      { "effect": "Memory & Learning", "evidenceStrength": "moderate", "magnitude": "moderate", "studies": 4, "notes": "Most pronounced after 8+ weeks; effects on mild cognitive impairment stronger than healthy adults." },
+      { "effect": "NGF Synthesis", "evidenceStrength": "moderate", "magnitude": "large", "studies": 3, "notes": "Well established in cell and animal studies; human NGF data emerging." },
+      { "effect": "Mood & Anxiety", "evidenceStrength": "preliminary", "magnitude": "small", "studies": 2, "notes": "Small RCTs in menopausal women; gut-brain axis pathway proposed." },
+      { "effect": "Nerve Regeneration", "evidenceStrength": "preliminary", "magnitude": "moderate", "studies": 2, "notes": "Promising peripheral nerve data; central nervous system evidence still early." }
+    ],
+    "sideEffects": ["Generally well tolerated", "Rare: mild GI discomfort at high doses", "Possible mushroom allergy in sensitive individuals"],
+    "howToTake": { "dosage": "500–1000mg/day", "timing": "Morning, with breakfast", "forms": "Fruiting body extract (hot-water or dual extracted), not mycelium-on-grain" }
+  },
+  "studies": [
+    {
+      "pmid": "18844328",
+      "doi": "10.1002/ptr.2634",
+      "title": "Improving effects of the mushroom Yamabushitake (Hericium erinaceus) on mild cognitive impairment: a double-blind placebo-controlled clinical trial.",
+      "journal": "Phytotherapy Research",
+      "year": 2009,
+      "design": "RCT, double-blind, placebo-controlled, parallel-group",
+      "population": "Japanese men and women, 50–80y, diagnosed MCI",
+      "n": 30,
+      "dose": "3g/day (four 250mg tablets, 96% Yamabushitake dry powder, 3x/day)",
+      "form": "Fruiting body dry powder tablets",
+      "duration": "16 weeks intervention + 4 weeks post-cessation follow-up",
+      "outcome": "Cognitive function scale based on Revised Hasegawa Dementia Scale (HDS-R)",
+      "result": "Significantly increased HDS-R scores vs placebo at weeks 8, 12, 16; scores declined significantly 4 weeks after stopping intake, suggesting the effect is not durable off-treatment. No adverse effects on labs.",
+      "fundingConflict": "Lead author affiliated with Mushroom Laboratory, Hokuto Corporation (a mushroom producer) — industry-affiliated author, funding source not explicitly stated in abstract.",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/18844328/",
+      "status": 200
+    },
+    {
+      "pmid": "31413233",
+      "doi": "10.2220/biomedres.40.125",
+      "title": "Improvement of cognitive functions by oral intake of Hericium erinaceus.",
+      "journal": "Biomedical Research (Tokyo)",
+      "year": 2019,
+      "design": "RCT, randomized, double-blind, placebo-controlled, parallel-group, multicenter",
+      "population": "Adults (age not fully specified in abstract; described as general/aged Japanese cohort)",
+      "n": null,
+      "dose": "Not stated in abstract (supplement containing H. erinaceus fruiting body)",
+      "form": "Fruiting body",
+      "duration": "12 weeks",
+      "outcome": "MMSE, Benton visual retention test, Standard verbal paired-associate learning test (S-PA)",
+      "result": "MMSE alone showed significant improvement and prevented deterioration vs placebo; the other two tests (Benton, S-PA) did not reach significance — a mixed/partial result, not a clean positive across all measures.",
+      "fundingConflict": "Not stated in retrieved abstract.",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/31413233/",
+      "status": 200
+    },
+    {
+      "pmid": "38004235",
+      "doi": "10.3390/nu15224842",
+      "title": "The Acute and Chronic Effects of Lion's Mane Mushroom Supplementation on Cognitive Function, Stress and Mood in Young Adults: A Double-Blind, Parallel Groups, Pilot Study.",
+      "journal": "Nutrients",
+      "year": 2023,
+      "design": "RCT, double-blind, placebo-controlled, parallel-groups, pilot",
+      "population": "Healthy young adults, 18–45y",
+      "n": 41,
+      "dose": "1.8g/day",
+      "form": "Not specified in abstract (Lion's Mane extract)",
+      "duration": "Acute (60 min single dose) + 28-day chronic",
+      "outcome": "Stroop task, subjective stress and mood measures",
+      "result": "Faster Stroop task performance 60 min post single dose (p=0.005); trend toward reduced subjective stress after 28 days (p=0.051, not significant at conventional threshold). Authors explicitly flag null/limited negative findings and small sample size, urging cautious interpretation.",
+      "fundingConflict": "Not stated in retrieved abstract.",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/38004235/",
+      "status": 200
+    },
+    {
+      "pmid": "38140277",
+      "doi": "10.3390/nu15245018",
+      "title": "Acute Effects of Naturally Occurring Guayusa Tea and Nordic Lion's Mane Extracts on Cognitive Performance.",
+      "journal": "Nutrients",
+      "year": 2023,
+      "design": "RCT, randomized, double-blind, placebo-controlled, crossover",
+      "population": "Healthy adults (age range not fully specified in abstract)",
+      "n": null,
+      "dose": "1g single dose (Nordic-grown Lion's Mane), compared against 650mg guayusa extract and placebo",
+      "form": "Nordic-grown Lion's Mane extract",
+      "duration": "Acute, single-dose, measured at 1h and 2h post-ingestion",
+      "outcome": "Go/No-go, N-Back, Serial 7s neuropsychological tasks; subjective cognitive ratings",
+      "result": "Lion's Mane significantly improved Serial 7s attempts, N-Back reaction time, and Go stimulus reaction time at 2h; smaller acute effect than the guayusa comparator, which outperformed it on most subjective measures.",
+      "fundingConflict": "Study conducted at The Center for Applied Health Sciences, a contract research organization; specific product sponsor not stated in retrieved abstract.",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/38140277/",
+      "status": 200
+    }
+  ],
+  "verdicts": [
+    {
+      "claim": "Memory & Learning — evidenceStrength: moderate, studies: 4",
+      "verdict": "supported",
+      "reason": "Four identifiable human RCTs exist (Mori 2009 MCI; Saitsu/Biomed Res 2019 mixed-result trial; Docherty 2023 healthy young adults pilot; La Monica 2023 acute crossover), consistent with 'moderate, 4 studies'. However all are small (n=30–41 in the RCTs with reported n) and effects in healthy adults are modest/partial (e.g. Saitsu 2019 significant on MMSE only, not on 2 of 3 tests), which the copy's own notes field already acknowledges.",
+      "pmids": ["18844328", "31413233", "38004235", "38140277"]
+    },
+    {
+      "claim": "NGF Synthesis — evidenceStrength: moderate, magnitude: large, studies: 3, 'human NGF data emerging'",
+      "verdict": "overstated",
+      "reason": "No human RCT in this search directly measured NGF synthesis or serum NGF levels in supplemented humans; the mechanistic NGF story rests on animal/cell studies. Calling human evidence 'moderate' with 'human NGF data emerging' implies more direct human biomarker evidence than what was found — no qualifying PMID located despite targeted searches.",
+      "pmids": []
+    },
+    {
+      "claim": "Mood & Anxiety — 'Small RCTs in menopausal women'",
+      "verdict": "no-evidence-found",
+      "reason": "No PubMed RCT in menopausal women specifically was surfaced in this search (the commonly cited Nagano et al. 2010 menopausal-women trial was not returned by the search terms used and was not independently verified here — flag for follow-up, do not assert its details without direct retrieval).",
+      "pmids": []
+    },
+    {
+      "claim": "studySummary — 'A 2020 study found measurable nerve regeneration effects at 500mg standardised extract'",
+      "verdict": "no-evidence-found",
+      "reason": "No PMID matching a 2020 human nerve-regeneration trial at 500mg was found despite searching Hericium erinaceus + nerve regeneration/human trials terms. This specific claim could not be verified against a real PubMed record and should not be stated as fact without a citation.",
+      "pmids": []
+    },
+    {
+      "claim": "timeToEffect — '4–8 weeks of consistent use'",
+      "verdict": "understated",
+      "reason": "The landmark Mori 2009 MCI trial ran 16 weeks and effects grew with duration, declining within 4 weeks of stopping — suggesting benefit is not fully established until well past 8 weeks and is not durable. The acute-effect trials (Docherty 2023, La Monica 2023) show some effects within hours, so '4–8 weeks' undersells both the acute signal and the longer duration needed for the strongest (MCI) evidence.",
+      "pmids": ["18844328", "38004235", "38140277"]
+    },
+    {
+      "claim": "sideEffects — 'Possible mushroom allergy in sensitive individuals'",
+      "verdict": "no-evidence-found",
+      "reason": "Multiple targeted PubMed searches (Hericium erinaceus + allergy/dermatitis/hypersensitivity/anaphylaxis/case report) returned zero results. This does not prove no case reports exist anywhere in the literature, but none were found in PubMed's indexed biomedical literature to substantiate the specific claim as written.",
+      "pmids": []
+    }
+  ],
+  "doseAssessment": {
+    "trialRange": "3g/day dry powder tablets (Mori 2009, MCI); 1.8g/day extract (Docherty 2023); 1g single dose (La Monica 2023); unspecified dose (Saitsu 2019)",
+    "ourDoseWithinRange": "Partially. Our stated 500–1000mg/day sits below the 3g/day used in the only trial showing a clean, durable positive result (Mori 2009, MCI population) but is broadly in line with the two more recent healthy-adult trials (1–1.8g/day).",
+    "suggestedText": "Clarify that the strongest MCI evidence (Mori 2009) used 3g/day of dry powder — a materially higher dose than our stated 500–1000mg range — while healthy-adult trials used 1–1.8g. Consider noting the dose-outcome gap rather than implying 500–1000mg reproduces the MCI trial's results."
+  },
+  "safetySignals": [
+    {
+      "signal": "No PubMed-indexed case reports of Hericium erinaceus allergy/dermatitis were found despite multiple targeted searches; the ingredient page's allergy caveat could not be substantiated with a citable source in this search.",
+      "pmid": null,
+      "url": null
+    },
+    {
+      "signal": "Mori 2009 (the strongest positive trial) is authored by staff at Hokuto Corporation, a mushroom producer — an industry-affiliation conflict not disclosed in the ingredient page's studySummary.",
+      "pmid": "18844328",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18844328/"
+    }
+  ],
+  "gaps": [
+    "No RCT found measuring NGF synthesis directly in human supplementees — the mechanism is inferred from animal/cell studies, not demonstrated in humans.",
+    "The '2020 nerve regeneration at 500mg' claim in studySummary could not be traced to a real PubMed record.",
+    "No dose-response human trial found comparing 500mg vs 1000mg vs 3g/day head-to-head.",
+    "Fruiting-body vs mycelium distinction (emphasized in our FAQ) is not directly tested head-to-head in any human RCT found here; it rests on compositional/animal data."
+  ]
+}

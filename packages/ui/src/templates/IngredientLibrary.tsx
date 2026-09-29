@@ -34,7 +34,7 @@ function deriveGrade(ing: Ingredient): Grade {
 }
 
 function totalTrials(ing: Ingredient): number {
-  return ing.humanEffects.reduce((sum, e) => sum + e.studies, 0);
+  return ing.humanEffects.reduce((sum, e) => sum + (e.studies ?? 0), 0);
 }
 
 const GRADE_META: Record<Grade, { tone: 'good' | 'warn' | 'bad'; bg: string; text: string; descriptor: string }> = {
@@ -214,11 +214,11 @@ export default function IngredientLibrary({
                   </div>
                   <div className="text-right">
                     <SparkBars
-                      values={ing.humanEffects.map((e) => e.studies)}
+                      values={ing.humanEffects.map((e) => e.studies ?? 0)}
                       colorClass={
                         g === 'A' ? 'bg-ds-good' : g === 'B' ? 'bg-ds-warn' : 'bg-ds-bad'
                       }
-                      summary={`Study counts for ${ing.name} effects: ${ing.humanEffects.map((e) => `${e.studies}`).join(', ')}`}
+                      summary={`Study counts for ${ing.name} effects: ${ing.humanEffects.map((e) => `${e.studies ?? 'not counted'}`).join(', ')}`}
                       height={20}
                     />
                     <div className="text-[12px] text-ds-muted mt-[2px] ds-tabular">{trials}</div>
