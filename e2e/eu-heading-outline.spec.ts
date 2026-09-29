@@ -48,7 +48,9 @@ interface HeadingNode {
 }
 
 async function captureOutline(page: import('@playwright/test').Page, url: string): Promise<HeadingNode[]> {
-  await page.goto(url);
+  // An error page also has one h1; the route itself must render.
+  const res = await page.goto(url);
+  expect(res?.status(), url).toBe(200);
   await page.waitForLoadState('networkidle');
   return page.evaluate(() => {
     const headings = Array.from(
@@ -65,7 +67,8 @@ const ROUTES = [
   { path: '/efsa-approved-cognitive-supplements/', template: 'EU EFSA pillar' },
   { path: '/best-nootropics-for-focus/', template: 'Listicle' },
   { path: '/mind-lab-pro-review/', template: 'ProductDetail (international brand)' },
-  { path: '/braineffect-focus-review/', template: 'EU brand (BRAINEFFECT)' },
+  // Discontinued since 2026-09-29: the notice must not add a heading level.
+  { path: '/braineffect-focus-review/', template: 'EU brand (BRAINEFFECT, discontinued)' },
   { path: '/ingredients/l-theanine/', template: 'IngredientDetail' },
 ];
 

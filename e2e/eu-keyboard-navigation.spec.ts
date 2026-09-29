@@ -37,9 +37,10 @@ import { test, expect } from '@playwright/test';
 //
 // Tab-trap probe types "braineffect" — substring match on BRAINEFFECT
 // Focus in the EU catalog (BRAINEFFECT is a Berlin-based supplement
-// company; the product is EU-exclusive in products-eu.ts and ships
-// with German Lebensmittelverordnung compliance language). On every
-// other region "braineffect" returns no matches.
+// company; the product is EU-exclusive in products-eu.json). The
+// product is discontinued (2026-09-29) but stays in search, labelled
+// "(Discontinued)". On every other region "braineffect" returns no
+// matches.
 //
 // PR-Q51 portfolio-wide trap fix verified on EU's en-EU chrome.
 // PR-Q54 PublicShell #main-content normalization means the de/fr/pt
@@ -149,9 +150,12 @@ test.describe('EU /best-nootropics-for-focus/ (en-EU) — CommandPalette ⌘K mo
     }).toPass({ timeout: 5000, intervals: [100, 250, 500, 1000] });
     await expect(page.locator('[role="dialog"]:not(#klaro-cookie-notice)')).toBeAttached();
     // Type "braineffect" — substring match on BRAINEFFECT Focus in
-    // the EU catalog (Berlin-based brand, EU-exclusive in
-    // products-eu.ts with German Lebensmittelverordnung copy).
+    // the EU catalog (Berlin-based brand, EU-exclusive, discontinued
+    // but still searchable with a "(Discontinued)" label).
     await page.keyboard.type('braineffect');
+    await expect(
+      page.locator('[role="dialog"]:not(#klaro-cookie-notice)').getByText(/BRAINEFFECT FOCUS \(Discontinued\)/),
+    ).toBeVisible();
     for (let i = 0; i < 5; i++) {
       await page.keyboard.press('Tab');
       const insideDialog = await page.evaluate(() => {
