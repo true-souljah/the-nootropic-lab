@@ -8,6 +8,7 @@ import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { FaqAccordion } from '../primitives/FaqAccordion';
 import RegionalAvailability from '../RegionalAvailability';
+import Sources from '../Sources';
 import type { RegionalAvailabilityProps } from '../RegionalAvailability';
 import { buildPersonAuthorReference } from '@nootropic/data';
 import type { Ingredient, Product, UIStrings } from '@nootropic/data';
@@ -78,6 +79,7 @@ export default function IngredientDetail({
   regional,
 }: IngredientDetailProps) {
   const t = uiStrings?.ingredientDetail;
+  const te = uiStrings?.ingredientEvidence;
   const categoryLabels = t?.category ?? DEFAULT_CATEGORY_LABELS;
   const magnitudeLabel = t?.magnitude ?? DEFAULT_MAGNITUDE_LABEL;
   const tocSections = [
@@ -100,6 +102,12 @@ export default function IngredientDetail({
     month: 'short',
     day: 'numeric',
   });
+  // ISO YYYY-MM-DD formatted in UTC so the rendered day never shifts with the
+  // build machine's timezone.
+  const evidenceReviewedDisplay = new Date(`${ing.evidenceReviewedAt}T00:00:00Z`).toLocaleDateString(
+    uiStrings?.productDetail.dateLocale ?? 'en-US',
+    { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' },
+  );
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -116,7 +124,7 @@ export default function IngredientDetail({
     '@context': 'https://schema.org',
     '@type': 'Dataset',
     name: `${ing.name} — Human Clinical Effect Matrix`,
-    description: `Structured human-clinical-trial evidence summary for ${ing.name}: per-effect evidence strength, magnitude, and study count. Sourced from PubMed-indexed RCTs and Examine.com syntheses.`,
+    description: `Structured human-clinical-trial evidence summary for ${ing.name}: per-effect evidence strength, magnitude, and study count. Sourced from the PubMed-indexed studies listed in the page's Sources section (evidence reviewed ${ing.evidenceReviewedAt}).`,
     url: `${siteUrl}/ingredients/${ing.slug}/`,
     keywords: [ing.name, ing.category, 'nootropic', 'cognitive supplement', 'clinical trial'],
     isAccessibleForFree: true,
@@ -130,7 +138,7 @@ export default function IngredientDetail({
     variableMeasured: ing.humanEffects.map((e) => ({
       '@type': 'PropertyValue',
       name: e.effect,
-      description: `${e.effect}: ${e.evidenceStrength} evidence (${e.studies} studies), ${e.magnitude} effect size. ${e.notes}`,
+      description: `${e.effect}: ${e.evidenceStrength} evidence${e.studies !== undefined ? ` (${e.studies} cited ${e.studies === 1 ? 'study' : 'studies'})` : ''}, ${e.magnitude} effect size. ${e.notes}`,
       additionalType: e.evidenceStrength,
     })),
     citation: ing.studySummary,
@@ -190,6 +198,10 @@ export default function IngredientDetail({
             </p>
 
             <FPByline updated={updatedDisplay} read={readTime} />
+            <p className="text-[12.5px] text-ds-muted mt-2 mb-0">
+              {te?.evidenceReviewed ?? 'Evidence reviewed:'}{' '}
+              <time dateTime={ing.evidenceReviewedAt}>{evidenceReviewedDisplay}</time>
+            </p>
 
             <section id="mechanism" className="mt-9">
               <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-3 text-ds-ink">{t?.sections.mechanism ?? 'Mechanism of action'}</h2>
@@ -245,7 +257,7 @@ export default function IngredientDetail({
                                 <span className="text-[12px] text-ds-muted">{magLabel}</span>
                               </div>
                             </td>
-                            <td className="px-4 py-3 text-center text-ds-ink ds-tabular">{effect.studies}</td>
+                            <td className="px-4 py-3 text-center text-ds-ink ds-tabular">{effect.studies ?? '—'}</td>
                             <td className="px-4 py-3 text-[12.5px] text-ds-muted hidden md:table-cell">{effect.notes}</td>
                           </tr>
                         );
@@ -401,6 +413,16 @@ export default function IngredientDetail({
               </div>
             </section>
 
+            <Sources
+              heading={te?.sources ?? 'Sources'}
+              expandLabel={uiStrings?.guide.expand ?? 'expand'}
+              sources={ing.sources.map((s) => ({
+                label: `${s.title} (${s.year})`,
+                url: s.url,
+                ...(s.pmid ? { type: `PMID ${s.pmid}` } : {}),
+              }))}
+            />
+
             <div className="text-[13px] text-ds-muted mt-10 pb-10">
               <Link href="/ingredients" className="text-ds-accent underline font-semibold">
                 {uiStrings?.breadcrumb.backToIngredientsGuide ?? '← Back to Ingredients Guide'}
@@ -418,7 +440,7 @@ export default function IngredientDetail({
                   [t?.sidebar.category ?? 'Category', categoryLabels[ing.category]],
                   [t?.sidebar.dose ?? 'Dose', ing.clinicalDose],
                   [t?.sidebar.onset ?? 'Onset', ing.timeToEffect],
-                  [t?.sidebar.trials ?? 'Trials', `${ing.humanEffects.reduce((sum, e) => sum + e.studies, 0)}`],
+                  [t?.sidebar.trials ?? 'Trials', `${ing.humanEffects.reduce((sum, e) => sum + (e.studies ?? 0), 0)}`],
                 ].map(([k, v], i, arr) => (
                   <div
                     key={k}

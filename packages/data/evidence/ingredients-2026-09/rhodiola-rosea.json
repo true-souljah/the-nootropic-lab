@@ -1,0 +1,168 @@
+{
+  "slug": "rhodiola-rosea",
+  "generatedAt": "2026-09-28T12:00:00Z",
+  "ourClaims": {
+    "clinicalDose": "200–600mg/day (standardised to 3% rosavins, 1% salidroside)",
+    "timeToEffect": "1–2 weeks for baseline effects; acute anti-fatigue within hours",
+    "studySummary": "A 2009 RCT (Shevtsov et al.) found significant reductions in mental fatigue and improved cognitive function in night-shift physicians after single doses. A larger 2012 Swedish study confirmed sustained benefits for stress-induced burnout over 12 weeks. Strongest evidence for anti-fatigue and stress resilience.",
+    "humanEffects": [
+      { "effect": "Mental Fatigue Reduction", "evidenceStrength": "strong", "magnitude": "large", "studies": 9, "notes": "Most consistent effect across trials. Particularly strong in sleep-deprived or high-stress subjects." },
+      { "effect": "Stress Resilience", "evidenceStrength": "strong", "magnitude": "moderate", "studies": 7, "notes": "HPA axis modulation is well established. Effects strongest under chronic stress conditions." },
+      { "effect": "Physical Endurance", "evidenceStrength": "moderate", "magnitude": "moderate", "studies": 5, "notes": "VO2 max and time-to-exhaustion improvements documented. Less consistent than cognitive effects." },
+      { "effect": "Mood Stabilisation", "evidenceStrength": "moderate", "magnitude": "small", "studies": 6, "notes": "Significant in burnout and mild depression studies. Effects in non-clinical populations are subtler." }
+    ],
+    "sideEffects": ["Generally safe", "Mild activation/restlessness initially", "Not recommended with MAO inhibitors", "Avoid late evening dosing"],
+    "howToTake": {
+      "dosage": "200–600mg/day (standardised to 3% rosavins, 1% salidroside)",
+      "timing": "Morning, on an empty stomach — 30 minutes before breakfast. Rhodiola is mildly stimulating; evening doses commonly cause insomnia.",
+      "withFood": "Take on an empty stomach for best absorption. The 30-minute pre-meal window is consistent across most clinical protocols. A small amount of food is fine but a full meal reduces absorption.",
+      "cycling": "4–6 weeks on, 1–2 weeks off. Rhodiola can lose efficacy with continuous daily use over several months. Regular cycling maintains adaptogenic response.",
+      "forms": "Capsule. Always verify standardisation: 3% rosavins and 1% salidroside is the established ratio used in most clinical trials. Products without stated standardisation may be significantly under-dosed on active compounds."
+    }
+  },
+  "studies": [
+    {
+      "pmid": "22643043",
+      "pmc": "PMC3541197",
+      "doi": "10.1186/1472-6882-12-70",
+      "title": "Rhodiola rosea for physical and mental fatigue: a systematic review.",
+      "journal": "BMC Complementary and Alternative Medicine",
+      "year": 2012,
+      "design": "systematic review",
+      "population": "healthy and clinical populations, 11 pooled RCTs/CCTs",
+      "n": null,
+      "dose": "varied across 11 pooled trials",
+      "extract": "predominantly SHR-5",
+      "duration": "varied",
+      "outcome": "physical fatigue (6 trials) and mental fatigue (5 trials)",
+      "result": "2 of 6 physical-fatigue trials and 3 of 5 mental-fatigue trials reported R. rosea effective; ALL included studies had high or unclear risk of bias — review concludes evidence is 'contradictory' and methodologically limited",
+      "fundingConflict": "not stated in abstract",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/22643043/",
+      "status": 200
+    },
+    {
+      "pmid": "12725561",
+      "doi": "10.1078/094471103321659780",
+      "title": "A randomized trial of two different doses of a SHR-5 Rhodiola rosea extract versus placebo and control of capacity for mental work.",
+      "journal": "Phytomedicine",
+      "year": 2003,
+      "design": "rct",
+      "population": "161 military cadets, aged 19-21 (NOT physicians)",
+      "n": 161,
+      "dose": "two vs three capsules (2 dose arms)",
+      "extract": "SHR-5",
+      "duration": "single dose",
+      "outcome": "Antifatigue Index (AFI) capacity-for-mental-work test",
+      "result": "Both verum doses significantly improved AFI vs placebo (p<0.001); no significant difference between the two doses",
+      "fundingConflict": "not stated in abstract",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/12725561/",
+      "status": 200
+    },
+    {
+      "pmid": "11081987",
+      "doi": "10.1016/S0944-7113(00)80055-0",
+      "title": "Rhodiola rosea in stress induced fatigue — a double blind cross-over study of a standardized extract SHR-5 with a repeated low-dose regimen on the mental performance of healthy physicians during night duty.",
+      "journal": "Phytomedicine",
+      "year": 2000,
+      "design": "rct",
+      "population": "56 healthy young physicians during night duty",
+      "n": 56,
+      "dose": "one tablet/day, repeated low-dose regimen (mg not specified in abstract)",
+      "extract": "SHR-5",
+      "duration": "two 2-week periods (crossover) with washout",
+      "outcome": "composite Fatigue Index across 5 cognitive/perceptive tests",
+      "result": "Statistically significant improvement in fatigue-related test battery during the SHR-5 treatment period; no side effects reported",
+      "fundingConflict": "not stated in abstract",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/11081987/",
+      "status": 200
+    },
+    {
+      "pmid": "19016404",
+      "doi": "10.1055/s-0028-1088346",
+      "title": "A randomised, double-blind, placebo-controlled, parallel-group study of the standardised extract SHR-5 of the roots of Rhodiola rosea in the treatment of subjects with stress-related fatigue.",
+      "journal": "Planta Medica",
+      "year": 2008,
+      "design": "rct",
+      "population": "60 adults meeting Swedish diagnostic criteria for burnout/fatigue syndrome",
+      "n": 60,
+      "dose": "576mg extract/day (4 tablets)",
+      "extract": "SHR-5",
+      "duration": "28 days (4 weeks)",
+      "outcome": "Pines' burnout scale, SF-36, MADRS depression scale, CCPT-II attention, salivary cortisol awakening response",
+      "result": "Significant vs placebo on Pines' burnout scale and CCPT-II attention indices, and cortisol awakening response changed significantly differently between groups; SF-36 mental health and MADRS depression scores improved significantly WITHIN both groups (described in the abstract as a placebo effect), i.e. no clearly stated significant BETWEEN-group difference on the depression/mood measure itself",
+      "fundingConflict": "not stated in abstract",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/19016404/",
+      "status": 200
+    },
+    {
+      "pmid": "10839209",
+      "doi": "10.1016/S0944-7113(00)80078-1",
+      "title": "A double-blind, placebo-controlled pilot study of the stimulating and adaptogenic effect of Rhodiola rosea SHR-5 extract on the fatigue of students caused by stress during an examination period with a repeated low-dose regimen.",
+      "journal": "Phytomedicine",
+      "year": 2000,
+      "design": "rct",
+      "population": "foreign medical students during exam period",
+      "n": null,
+      "dose": "repeated low-dose regimen, 20 days (exact mg not stated in abstract)",
+      "extract": "SHR-5",
+      "duration": "20 days",
+      "outcome": "physical fitness, mental fatigue, neuro-motor tests, self-assessed well-being",
+      "result": "Significant improvement in physical fitness, mental fatigue and neuro-motor tests (p<0.01) and self-rated well-being (p<0.05) vs placebo; authors note the dose level was 'probably suboptimal'",
+      "fundingConflict": "not stated in abstract",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/10839209/",
+      "status": 200
+    }
+  ],
+  "verdicts": [
+    {
+      "claim": "Citation: 'A 2009 RCT (Shevtsov et al.) found significant reductions in mental fatigue... in night-shift physicians after single doses'",
+      "verdict": "contradicted",
+      "reason": "No matching Shevtsov 2009 study exists. The identifiable Shevtsov Rhodiola RCT is dated 2003 and studied 161 military cadets with single/repeated low doses (not physicians, not 2009). The study that actually matches 'night-shift physicians' is Darbinyan et al. 2000 (Phytomedicine), a different author and year. The page's citation conflates two distinct SHR-5 trials from the same research group.",
+      "pmids": ["12725561", "11081987"]
+    },
+    {
+      "claim": "Citation: 'A larger 2012 Swedish study confirmed sustained benefits for stress-induced burnout over 12 weeks'",
+      "verdict": "contradicted",
+      "reason": "No 2012 Swedish Rhodiola burnout RCT was found in PubMed. The closest matching study is Olsson et al. 2008 (Planta Medica, Swedish burnout-syndrome cohort, n=60), which ran 28 days (4 weeks), not 12 weeks, and is not 'larger' than other trials in this literature. The page appears to have mis-dated and mis-described this same 2008 trial.",
+      "pmids": ["19016404"]
+    },
+    {
+      "claim": "Mental Fatigue Reduction — strong evidence, large magnitude, 9 studies",
+      "verdict": "overstated",
+      "reason": "The definitive systematic review of this exact literature (Ishaque et al. 2012, 11 pooled RCTs) found only 3 of 5 mental-fatigue trials positive and rated ALL included studies as high or unclear risk of bias, concluding the evidence is 'contradictory.' 'Strong' evidence strength is not supported by the field's own systematic review.",
+      "pmids": ["22643043"]
+    },
+    {
+      "claim": "Stress Resilience — strong evidence, moderate magnitude, 7 studies",
+      "verdict": "overstated",
+      "reason": "HPA-axis effects (e.g. cortisol awakening response in Olsson 2008) are real but come from small, methodologically limited trials per the same Ishaque 2012 systematic review; 'strong' overstates the underlying trial quality even though the directional signal is genuine.",
+      "pmids": ["19016404", "22643043"]
+    },
+    {
+      "claim": "Physical Endurance — moderate evidence, moderate magnitude, 5 studies",
+      "verdict": "overstated",
+      "reason": "Ishaque 2012 found only 2 of 6 physical-fatigue trials reported Rhodiola effective — a minority hit rate that is more consistent with 'mixed/weak' than 'moderate' evidence strength.",
+      "pmids": ["22643043"]
+    },
+    {
+      "claim": "Mood Stabilisation — moderate evidence, small magnitude, 6 studies, 'significant in burnout and mild depression studies'",
+      "verdict": "contradicted",
+      "reason": "In the burnout RCT most directly relevant to this claim (Olsson 2008), the MADRS depression scale improved significantly WITHIN both the Rhodiola and placebo arms, with the abstract explicitly attributing this to a placebo effect rather than reporting a significant between-group difference on mood/depression specifically.",
+      "pmids": ["19016404"]
+    }
+  ],
+  "doseAssessment": {
+    "trialRange": "Positive RCTs used roughly 144mg (low-dose Darbinyan/Spasov regimens) up to 576mg/day (Olsson 2008) of standardized SHR-5 extract; our page's 200-600mg/day range sits within this envelope.",
+    "ourDoseWithinRange": true,
+    "suggestedText": "No change needed to the dose range itself, but note that several of the underlying trials used doses at or below 200mg/day and were flagged by the field's own systematic review as possibly 'suboptimal' — dose-response data for Rhodiola remains thin."
+  },
+  "safetySignals": [
+    { "signal": "No PubMed-indexed case reports or clinical studies of Rhodiola-SSRI/MAOI serotonin syndrome were located despite a targeted search; the interaction caution on the page rests on a plausible pharmacological mechanism (MAO-inhibiting rosavins/salidroside) rather than documented clinical incidents in the literature reviewed here", "pmid": null, "url": null }
+  ],
+  "gaps": [
+    "No 2012 Swedish burnout RCT exists to support the specific citation on the page; this needs correction to Olsson et al. 2008 (28 days, not 12 weeks) or removal.",
+    "The Shevtsov/night-shift-physicians citation conflates two different studies (Shevtsov 2003 cadets vs Darbinyan 2000 physicians) and needs correcting to the actual source and year.",
+    "The field's own 2012 systematic review (Ishaque et al.) rates the underlying evidence base as high/unclear risk of bias across the board — the page's 'strong' evidence-strength labels for fatigue and stress resilience are more confident than the primary literature supports.",
+    "No dedicated RCT evidence for the MAOI/antidepressant interaction warning was found; it is mechanistically plausible but not directly clinically documented in the studies located."
+  ]
+}

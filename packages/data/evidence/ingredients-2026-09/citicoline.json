@@ -1,0 +1,161 @@
+{
+  "slug": "citicoline",
+  "generatedAt": "2026-09-28T09:38:43Z",
+  "ourClaims": {
+    "clinicalDose": "250–500mg/day",
+    "timeToEffect": "Acute effects within 1–2 hours; optimal at 4–6 weeks",
+    "humanEffects": [
+      { "effect": "Attention & Focus", "evidenceStrength": "strong", "magnitude": "moderate", "studies": 8, "notes": "One of the best-evidenced acute cognitive effects in the nootropic category." },
+      { "effect": "Working Memory", "evidenceStrength": "moderate", "magnitude": "moderate", "studies": 6, "notes": "Significant improvements in digit span and working memory tasks." },
+      { "effect": "Brain Energy Metabolism", "evidenceStrength": "moderate", "magnitude": "moderate", "studies": 4, "notes": "fMRI studies confirm increased frontal lobe ATP production." },
+      { "effect": "Neuroprotection", "evidenceStrength": "moderate", "magnitude": "large", "studies": 5, "notes": "Strongest effects in stroke recovery and TBI models; effects in healthy adults are maintenance-level." }
+    ]
+  },
+  "studies": [
+    {
+      "pmid": "15846601",
+      "doi": "10.1002/14651858.CD000269.pub3",
+      "title": "Cytidinediphosphocholine (CDP-choline) for cognitive and behavioural disturbances associated with chronic cerebral disorders in the elderly",
+      "journal": "Cochrane Database of Systematic Reviews",
+      "year": 2005,
+      "design": "systematic review / meta-analysis (Cochrane)",
+      "population": "elderly with chronic cerebral disorders (subjective memory disorders through vascular dementia)",
+      "n": null,
+      "dose": "heterogeneous across 14 included trials",
+      "duration": "20 days to 12 months across included trials",
+      "outcome": "attention, memory, behaviour, global clinical impression",
+      "result": "No evidence of benefit on attention; positive effect on memory function and behaviour in short-to-medium term; drug well tolerated.",
+      "fundingConflict": null,
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/15846601/",
+      "status": 200
+    },
+    {
+      "pmid": "36678257",
+      "doi": "10.3390/nu15020386",
+      "title": "Is Citicoline Effective in Preventing and Slowing Down Dementia? – A Systematic Review and a Meta-Analysis",
+      "journal": "Nutrients",
+      "year": 2023,
+      "design": "systematic review / meta-analysis",
+      "population": "mild cognitive impairment, Alzheimer's disease, post-stroke dementia",
+      "n": null,
+      "dose": "not stated in abstract (7 studies pooled, 6 in meta-analysis)",
+      "duration": "not stated in abstract",
+      "outcome": "cognitive status (pooled standardized mean difference)",
+      "result": "Positive effect on cognitive status; pooled SMD 0.56 (95% CI 0.37–0.75) to 1.57 (95% CI 0.77–2.37) across sensitivity analyses. Overall study quality rated poor with significant risk of bias favoring the intervention.",
+      "fundingConflict": null,
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/36678257/",
+      "status": 200
+    },
+    {
+      "pmid": "8624220",
+      "doi": "10.1001/archneur.1996.00550050071026",
+      "title": "Citicoline improves verbal memory in aging",
+      "journal": "Archives of Neurology",
+      "year": 1996,
+      "design": "RCT (parallel-group, then crossover sub-study)",
+      "population": "healthy older adults 50–85y, subgroup with relatively inefficient memory",
+      "n": 95,
+      "dose": "1000mg/day (parallel study); 2000mg/day (crossover study)",
+      "duration": "3 months (parallel); 2 months per arm (crossover)",
+      "outcome": "verbal (logical) memory recall",
+      "result": "Citicoline improved delayed recall in subjects with inefficient memory (parallel study); higher 2000mg dose associated with improved immediate and delayed memory (crossover study).",
+      "fundingConflict": null,
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/8624220/",
+      "status": 200
+    },
+    {
+      "pmid": "9305321",
+      "doi": "10.1212/wnl.49.3.671",
+      "title": "A randomized dose-response trial of citicoline in acute ischemic stroke patients",
+      "journal": "Neurology",
+      "year": 1997,
+      "design": "RCT, dose-response, multicenter",
+      "population": "acute ischemic stroke patients (21 US centers)",
+      "n": 259,
+      "dose": "500mg, 2000mg citicoline vs. placebo (dose-response arms)",
+      "duration": "6 weeks oral treatment, 12-week outcome assessment",
+      "outcome": "functional outcome (Barthel Index, Rankin), NIH stroke scale, Mini-Mental Status Exam",
+      "result": "Favorable functional outcome and reduced neurologic deficit with citicoline; 500mg identified as optimal dose; no drug-related serious adverse events.",
+      "fundingConflict": null,
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/9305321/",
+      "status": 200
+    },
+    {
+      "pmid": "25046515",
+      "doi": "10.3109/09637486.2014.940286",
+      "title": "Improvements in concentration, working memory and sustained attention following consumption of a natural citicoline-caffeine beverage",
+      "journal": "International Journal of Food Sciences and Nutrition",
+      "year": 2014,
+      "design": "RCT, double-blind, placebo-controlled",
+      "population": "healthy adults",
+      "n": 60,
+      "dose": "citicoline-caffeine beverage (citicoline dose not isolated in abstract)",
+      "duration": "acute, single-session",
+      "outcome": "maze learning time, reaction time, go/no-go accuracy, EEG P450 amplitude",
+      "result": "Faster maze learning and reaction times, fewer go/no-go errors, higher P450 amplitude (sustained attention/working memory) vs. placebo. Citicoline was co-administered with caffeine, so the effect cannot be attributed to citicoline alone.",
+      "fundingConflict": null,
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/25046515/",
+      "status": 200
+    },
+    {
+      "pmid": "41754112",
+      "doi": "10.3390/nu18040595",
+      "title": "The Real-World Early Neuroprotective Effects of Oral Citicoline Combination in Prodromal Dementia",
+      "journal": "Nutrients",
+      "year": 2026,
+      "design": "retrospective, observational, real-world cohort study (not randomized)",
+      "population": "prodromal dementia / early Alzheimer's-type cognitive decline, 100 patients + 50 age-matched healthy controls",
+      "n": 150,
+      "dose": "oral citicoline combined preparation (specific mg not stated in abstract)",
+      "duration": "6–9 months follow-up",
+      "outcome": "executive function, processing speed, working memory, visuospatial/verbal memory, fluency, mood",
+      "result": "Improvements across multiple cognitive domains and mood outcomes (p<0.05, most p<0.001) vs. baseline/controls. Authors explicitly call findings exploratory, requiring RCT confirmation given the observational design.",
+      "fundingConflict": null,
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/41754112/",
+      "status": 200
+    }
+  ],
+  "verdicts": [
+    {
+      "claim": "Attention & Focus — strong evidence, moderate magnitude, 8 studies",
+      "verdict": "overstated",
+      "reason": "The Cochrane meta-analysis explicitly found 'no evidence of a beneficial effect of CDP-choline on attention' in its target population (PMID 15846601). The only acute healthy-adult attention RCT retrieved (PMID 25046515) used citicoline co-administered with caffeine, so citicoline's isolated contribution to attention cannot be determined from it. 'Strong' evidence for a clean attention effect is not supported by the strongest study type (meta-analysis) retrieved.",
+      "pmids": ["15846601", "25046515"]
+    },
+    {
+      "claim": "Working Memory — moderate evidence, moderate magnitude, 6 studies",
+      "verdict": "supported",
+      "reason": "Spiers 1996 (PMID 8624220) shows a genuine verbal/working-memory benefit in older adults with inefficient memory, and the Bonvicini 2023 meta-analysis (PMID 36678257) shows a positive pooled cognitive effect, though both are in older/clinical populations rather than general healthy adults and both flag caveats (small effect subgroup in Spiers; poor overall study quality in Bonvicini).",
+      "pmids": ["8624220", "36678257"]
+    },
+    {
+      "claim": "Brain Energy Metabolism — moderate evidence, moderate magnitude, 4 studies, 'fMRI studies confirm increased frontal lobe ATP production'",
+      "verdict": "no-evidence-found",
+      "reason": "No fMRI/31P-MRS ATP-production RCT for citicoline was located in this search (PubMed RCT, meta-analysis, and systematic-review queries). This claim could not be verified or refuted with the sources retrieved.",
+      "pmids": []
+    },
+    {
+      "claim": "Neuroprotection — moderate evidence, large magnitude, 5 studies, 'strongest in stroke recovery and TBI models'",
+      "verdict": "overstated",
+      "reason": "Stroke neuroprotection is supported by Clark 1997 (PMID 9305321), a genuine dose-response RCT showing functional benefit. No TBI-specific citicoline RCT was retrieved in this search to support the 'TBI models' half of the claim — this is a gap, not a confirmation, and should not be asserted as supporting evidence without a located trial.",
+      "pmids": ["9305321"]
+    }
+  ],
+  "doseAssessment": {
+    "trialRange": "500mg/day (optimal dose, acute stroke RCT) up to 1000–2000mg/day (memory RCTs in older adults)",
+    "ourDoseWithinRange": true,
+    "suggestedText": "250–500mg/day sits at the low end of studied doses. The stroke dose-response trial identified 500mg as optimal (2000mg was not superior), but the memory-focused RCT in older adults used 1000–2000mg/day. Current copy doesn't distinguish that higher doses were used in the strongest memory trial."
+  },
+  "safetySignals": [
+    {
+      "signal": "No new safety signal identified beyond what the page already states (rare headache, insomnia if taken late). None of the retrieved trials reported drug-related serious adverse events; Clark 1997 explicitly notes no drug-related serious adverse events or deaths.",
+      "pmid": "9305321"
+    }
+  ],
+  "gaps": [
+    "No fMRI/ATP-metabolism citicoline study located to support the 'Brain Energy Metabolism' claim.",
+    "No dedicated TBI RCT for citicoline located; our copy's neuroprotection claim implies TBI-model support that this search could not confirm.",
+    "No healthy-adult RCT of citicoline alone (without caffeine co-administration) was found for the acute attention claim.",
+    "The 1–2 hour acute onset claim is not directly demonstrated by any retrieved human RCT measuring cognition at that exact timepoint; it is plausible from choline pharmacokinetics but unverified here."
+  ]
+}

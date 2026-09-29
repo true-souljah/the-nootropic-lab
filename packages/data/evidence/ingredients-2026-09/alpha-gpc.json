@@ -1,0 +1,163 @@
+{
+  "slug": "alpha-gpc",
+  "generatedAt": "2026-09-28T09:38:43Z",
+  "ourClaims": {
+    "clinicalDose": "300–600mg/day",
+    "timeToEffect": "1–2 hours (acute); optimal cognitive effects at 4 weeks",
+    "humanEffects": [
+      { "effect": "Acetylcholine Synthesis", "evidenceStrength": "strong", "magnitude": "large", "studies": 9, "notes": "Among the most bioavailable choline sources. Brain choline levels measurably increase within 1 hour of ingestion." },
+      { "effect": "Memory Encoding", "evidenceStrength": "strong", "magnitude": "moderate", "studies": 7, "notes": "Strong evidence in Alzheimer's trials; effects in healthy adults confirmed at 400–600mg." },
+      { "effect": "Athletic Power Output", "evidenceStrength": "moderate", "magnitude": "moderate", "studies": 3, "notes": "600mg pre-workout increases peak power output. Effect is acute, not cumulative." },
+      { "effect": "Neuroprotection", "evidenceStrength": "moderate", "magnitude": "moderate", "studies": 4, "notes": "Membrane phospholipid replenishment pathway supports long-term neuronal health." }
+    ]
+  },
+  "studies": [
+    {
+      "pmid": "36683513",
+      "doi": "10.3233/JAD-221189",
+      "title": "Activity of Choline Alphoscerate on Adult-Onset Cognitive Dysfunctions: A Systematic Review and Meta-Analysis",
+      "journal": "Journal of Alzheimer's Disease",
+      "year": 2023,
+      "design": "systematic review / meta-analysis",
+      "population": "adult-onset neurological disorders with cognitive impairment (cerebrovascular-associated)",
+      "n": null,
+      "dose": "not pooled/stated in abstract (7 RCTs + 1 cohort study)",
+      "duration": "not stated in abstract",
+      "outcome": "cognition, function, behavior",
+      "result": "Alpha-GPC + donepezil improved cognition (MD 1.72, 95% CI 0.20–3.25), function (MD 0.79, 95% CI 0.34–1.23), behavior (MD -7.61, 95% CI -10.31 to -4.91); alpha-GPC alone also outperformed placebo/other medications (MD 3.50, 95% CI 0.36–6.63).",
+      "fundingConflict": null,
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/36683513/",
+      "status": 200
+    },
+    {
+      "pmid": "12637119",
+      "doi": "10.1016/s0149-2918(03)90023-3",
+      "title": "Cognitive improvement in mild to moderate Alzheimer's dementia after treatment with the acetylcholine precursor choline alfoscerate (De Jesus Moreno, 2003)",
+      "journal": "Clinical Therapeutics",
+      "year": 2003,
+      "design": "RCT, multicenter, double-blind, placebo-controlled",
+      "population": "mild-to-moderate Alzheimer's dementia, age 60–80",
+      "n": 261,
+      "dose": "1200mg/day (400mg capsules, 3x daily)",
+      "duration": "180 days",
+      "outcome": "ADAS-Cog, MMSE, GDS, ADAS-Behav, CGI",
+      "result": "Significant improvement vs. placebo on ADAS-Cog, MMSE, GDS, ADAS-Total, CGI at 90 and 180 days; ADAS-Behav and GIS significant at 180 days. Placebo group worsened over the same period.",
+      "fundingConflict": null,
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/12637119/",
+      "status": 200
+    },
+    {
+      "pmid": "39683633",
+      "doi": "10.3390/nu16234240",
+      "title": "Acute Alpha-Glycerylphosphorylcholine Supplementation Enhances Cognitive Performance in Healthy Men",
+      "journal": "Nutrients",
+      "year": 2024,
+      "design": "RCT, randomized, double-blind, placebo-controlled, crossover",
+      "population": "healthy resistance-trained men",
+      "n": 20,
+      "dose": "630mg (high dose) or 315mg (low dose) vs. placebo, single acute dose",
+      "duration": "acute, single-session (60 min post-dose assessment)",
+      "outcome": "Stroop, N-Back, Flanker cognitive tests; growth hormone; physical performance (vertical jump, bench press throw, squat)",
+      "result": "Significant improvement in Stroop total score at both doses and faster Stroop completion time at high dose vs. placebo; no significant difference on Flanker or N-Back; no significant difference in physical performance or growth hormone between groups.",
+      "fundingConflict": null,
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/39683633/",
+      "status": 200
+    },
+    {
+      "pmid": "26582972",
+      "doi": "10.1186/s12970-015-0103-x",
+      "title": "The effect of 6 days of alpha glycerylphosphorylcholine on isometric strength (Bellar et al., 2015)",
+      "journal": "Journal of the International Society of Sports Nutrition",
+      "year": 2015,
+      "design": "RCT, double-blind, placebo-controlled, crossover",
+      "population": "healthy college-aged men",
+      "n": 13,
+      "dose": "600mg/day",
+      "duration": "6 days",
+      "outcome": "isometric mid-thigh pull peak force (lower body), upper-body isometric force",
+      "result": "Significantly greater lower-body isometric force change vs. placebo (98.8N vs -39.0N, p=0.044); upper-body force trended higher but was not statistically significant (p=0.127).",
+      "fundingConflict": null,
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/26582972/",
+      "status": 200
+    },
+    {
+      "pmid": "29042830",
+      "doi": "10.1186/s12970-017-0196-5",
+      "title": "Evaluation of the effects of two doses of alpha glycerylphosphorylcholine on physical and psychomotor performance",
+      "journal": "Journal of the International Society of Sports Nutrition",
+      "year": 2017,
+      "design": "RCT, randomized, double-blind, placebo- and caffeine-controlled",
+      "population": "healthy college-aged men",
+      "n": 48,
+      "dose": "500mg or 250mg/day vs. placebo vs. 200mg caffeine",
+      "duration": "7 days",
+      "outcome": "countermovement jump (CMJ), isometric mid-thigh pull, upper-body isometric strength, psychomotor vigilance (PVT)",
+      "result": "No significant group differences for isometric strength (IMTP, UBIST) or PVT; 250mg group showed greater improvement in CMJ maximum velocity and mechanical power (p<0.05). 500mg group had significantly suppressed serum TSH.",
+      "fundingConflict": null,
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/29042830/",
+      "status": 200
+    },
+    {
+      "pmid": "1428296",
+      "doi": null,
+      "title": "A comparative study of free plasma choline levels following intramuscular administration of L-alpha-glycerylphosphorylcholine and citicoline in normal volunteers",
+      "journal": "International Journal of Clinical Pharmacology, Therapy, and Toxicology",
+      "year": 1992,
+      "design": "RCT, crossover, pharmacokinetic comparison",
+      "population": "healthy normal volunteers",
+      "n": 12,
+      "dose": "1000mg IM alpha-GPC vs. 1000mg IM citicoline (single dose each, IM route — not representative of oral consumer dosing)",
+      "duration": "acute, 6-hour sampling",
+      "outcome": "plasma free choline concentration (HPLC)",
+      "result": "Alpha-GPC produced a rapid rise in plasma choline (peak at 0.25–0.5h) that was considerably higher than citicoline's choline release over the same period.",
+      "fundingConflict": null,
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/1428296/",
+      "status": 200
+    }
+  ],
+  "verdicts": [
+    {
+      "claim": "Acetylcholine Synthesis — strong evidence, large magnitude, 9 studies",
+      "verdict": "supported",
+      "reason": "The pharmacokinetic comparison (PMID 1428296) confirms alpha-GPC raises plasma choline faster and higher than citicoline, and the Kerksick 2024 RCT measured cognitive effects at 60 minutes post-dose consistent with rapid absorption. Note the PK study used intramuscular, not oral, dosing, so the exact oral onset kinetics are not directly demonstrated.",
+      "pmids": ["1428296", "39683633"]
+    },
+    {
+      "claim": "Memory Encoding — strong evidence, moderate magnitude, 7 studies, 'effects in healthy adults confirmed at 400–600mg'",
+      "verdict": "overstated",
+      "reason": "The strong evidence is in mild-to-moderate Alzheimer's patients at 1200mg/day (PMID 12637119), not healthy adults at 400-600mg. The one healthy-adult RCT at a comparable dose (630mg, PMID 39683633) showed a significant Stroop (executive/inhibition) effect but explicitly found no significant N-Back (working memory) or Flanker effect — 'memory encoding' specifically is not what improved in the healthy-adult trial.",
+      "pmids": ["12637119", "39683633"]
+    },
+    {
+      "claim": "Athletic Power Output — moderate evidence, moderate magnitude, 3 studies, '600mg pre-workout increases peak power output'",
+      "verdict": "overstated",
+      "reason": "Findings across the three sports RCTs are inconsistent: Bellar 2015 (600mg x 6 days) found a lower-body isometric force gain but no significant upper-body effect; Marcus/Bellar 2017 found no significant strength (IMTP/UBIST) difference at 250mg or 500mg, only a CMJ velocity/power effect at 250mg; Kerksick 2024 found no significant difference in vertical jump, bench throw, or growth hormone at 630mg. None of the three used a single acute 'pre-workout' dose with a power-output outcome exactly as our copy implies — the 2024 trial is the most direct test of that scenario and found no physical-performance effect.",
+      "pmids": ["26582972", "29042830", "39683633"]
+    },
+    {
+      "claim": "Neuroprotection — moderate evidence, moderate magnitude, 4 studies",
+      "verdict": "supported",
+      "reason": "The Sagaro 2023 meta-analysis and the De Jesus Moreno 2003 RCT both support a genuine cognitive/functional benefit of alpha-GPC in cerebrovascular and Alzheimer's-type dementia populations, consistent with the neuroprotective framing, though this is disease-population evidence rather than healthy-brain-aging evidence.",
+      "pmids": ["36683513", "12637119"]
+    }
+  ],
+  "doseAssessment": {
+    "trialRange": "250–630mg/day in healthy-adult/sports RCTs; 1200mg/day in the positive Alzheimer's RCT",
+    "ourDoseWithinRange": true,
+    "suggestedText": "300–600mg/day matches the sports/cognitive healthy-adult trials well, but is roughly half the 1200mg/day dose used in the clinical Alzheimer's trial our own 'Memory Encoding' claim leans on. Worth flagging that the strongest disease-population evidence used a substantially higher dose."
+  },
+  "safetySignals": [
+    {
+      "signal": "Our copy cites 'a 2021 observational study' linking high-dose (>1200mg/day) alpha-GPC to cardiovascular/TMAO risk. This search did not locate that specific 2021 study; the closest identified evidence is a 2023 CARDIA prospective cohort study finding plasma choline (not alpha-GPC supplementation specifically) positively associated with incident CVD (HR 1.24 per SD), while a separate meta-analysis of dietary choline/betaine intake found no association with incident CVD. Neither study tests alpha-GPC supplementation directly, so the specific '2021 study, >1200mg/day' citation in our copy is unverified and should be re-sourced or removed.",
+      "pmid": "37865185",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37865185/",
+      "title": "Choline metabolites and incident cardiovascular disease in a prospective cohort of adults: Coronary Artery Risk Development in Young Adults (CARDIA) Study.",
+      "year": 2024
+    }
+  ],
+  "gaps": [
+    "The specific 2021 alpha-GPC/cardiovascular observational study cited in our copy was not located; only adjacent dietary-choline CVD literature was found.",
+    "No RCT was found testing a genuinely acute single pre-workout dose against a true power-output outcome — the three sports RCTs used 6-7 day loading protocols or found no physical-performance effect.",
+    "'Optimal cognitive effects at 4 weeks' has no directly matching trial duration in the retrieved set — sports RCTs ran 6-7 days, the Alzheimer's RCT ran 90-180 days."
+  ]
+}

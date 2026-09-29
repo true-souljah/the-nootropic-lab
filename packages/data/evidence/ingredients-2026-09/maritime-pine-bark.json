@@ -1,0 +1,165 @@
+{
+  "slug": "maritime-pine-bark",
+  "generatedAt": "2026-09-28T00:00:00Z",
+  "ourClaims": {
+    "clinicalDose": "100–200mg/day (Pycnogenol or equivalent standardised extract)",
+    "timeToEffect": "4–8 weeks",
+    "studySummary": "A 2014 Pycnogenol RCT (Belcaro et al.) in healthy professionals showed significant improvements in attention, memory, and executive function after 12 weeks at 150mg/day. A 2012 trial in elderly subjects found improved cognitive function and reduced oxidative stress markers. The evidence base is smaller than for ingredients like Bacopa or Ginkgo but consistently positive. Most studies use the branded Pycnogenol extract (65-75% proanthocyanidins).",
+    "humanEffects": [
+      { "effect": "Attention & Focus", "evidenceStrength": "moderate", "magnitude": "moderate", "studies": 4, "notes": "Belcaro et al. (2014) showed significant improvement in attention and decision-making tests in healthy professionals after 12 weeks." },
+      { "effect": "Oxidative Stress Reduction", "evidenceStrength": "strong", "magnitude": "moderate", "studies": 8, "notes": "Consistent reduction in oxidative stress biomarkers across multiple trials. Proanthocyanidins are among the most potent natural antioxidants." },
+      { "effect": "Cerebral Blood Flow", "evidenceStrength": "moderate", "magnitude": "small", "studies": 3, "notes": "eNOS stimulation increases NO production. Effect is modest compared to Ginkgo but complementary via different mechanism." },
+      { "effect": "Memory", "evidenceStrength": "preliminary", "magnitude": "small", "studies": 3, "notes": "Early evidence for episodic memory improvement in elderly. More research needed to establish effect size." }
+    ],
+    "sideEffects": ["Generally well tolerated", "Rare: mild GI discomfort", "Headache (uncommon)", "Potential interaction with immunosuppressants"],
+    "howToTake": { "dosage": "100–200mg/day, 65-75% proanthocyanidins", "timing": "Morning with breakfast", "forms": "Capsule, Pycnogenol is the gold-standard branded extract" }
+  },
+  "studies": [
+    {
+      "pmid": "24675223",
+      "doi": null,
+      "title": "Pycnogenol® improves cognitive function, attention, mental performance and specific professional skills in healthy professionals aged 35-55.",
+      "journal": "Journal of Neurosurgical Sciences",
+      "year": 2014,
+      "design": "Product-evaluation registry study (non-randomised)",
+      "population": "Healthy professionals with elevated oxidative stress, 35–55y",
+      "n": 59,
+      "dose": "150mg/day",
+      "form": "Pycnogenol (French Pine Bark Extract)",
+      "duration": "12 weeks",
+      "outcome": "Cognitive test battery (PASAT, pattern/spatial recognition memory, spatial working memory), plasma free radicals, 12 professional daily tasks",
+      "result": "Small but significant improvement in cognitive tests (spatial recognition memory unchanged); plasma free radicals decreased 30.4% vs +0.9% in controls; all 12 professional task items improved. This is the ingredient page's central citation, but its design is weaker than 'RCT' implies — no randomization or blinding confirmed in the abstract/PubMed metadata.",
+      "fundingConflict": "Author group (Belcaro, Luzzi, Dugall — Irvine3 Labs / Chieti-Pescara University) has published numerous Pycnogenol studies; Pycnogenol is a Horphag Research-licensed trademark, and this author group's trials are widely reported in independent literature as industry-supported, though explicit sponsor disclosure is not visible in the retrieved abstract.",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/24675223/",
+      "status": 200
+    },
+    {
+      "pmid": "22108481",
+      "doi": null,
+      "title": "Pycnogenol® supplementation improves cognitive function, attention and mental performance in students.",
+      "journal": "Panminerva Medica",
+      "year": 2011,
+      "design": "non-randomised controlled clinical trial",
+      "population": "University students, 18–27y",
+      "n": 53,
+      "dose": "Not stated precisely in abstract (Pycnogenol supplementation)",
+      "form": "Pycnogenol",
+      "duration": "8 weeks",
+      "outcome": "Sustained attention, memory, executive function, mood; real university exam pass/fail rates",
+      "result": "Statistically significant improvement in attention, memory, executive function, and mood ratings; objective exam failure rate lower in Pycnogenol group (6.25% vs 10.71% of tests) and average exam score higher (26.1 vs 23.81, p=0.024). One of the few trials with a real-world behavioral outcome, but again non-randomized by PubMed's own tagging.",
+      "fundingConflict": "Same author group as Belcaro 2014 (Luzzi, Belcaro, Irvine3 Labs) — same industry-affiliation pattern.",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/22108481/",
+      "status": 200
+    },
+    {
+      "pmid": "31333448",
+      "doi": "10.3389/fphar.2019.00694",
+      "title": "Assessing the Efficacy and Mechanisms of Pycnogenol on Cognitive Aging From Animal and Human Studies.",
+      "journal": "Frontiers in Pharmacology",
+      "year": 2019,
+      "design": "Narrative review",
+      "population": "N/A (review of animal + human studies)",
+      "n": null,
+      "dose": null,
+      "form": null,
+      "duration": null,
+      "outcome": "Review of Pycnogenol's mechanisms and cognitive effects",
+      "result": "States Pycnogenol has been subjected to 'more than 100 research trials' and several human studies show cognitive improvement after chronic administration; provides useful anchor context but is a review, not independent primary evidence.",
+      "fundingConflict": "Authors from Swinburne Centre for Human Psychopharmacology, which also runs an active industry-funded Pycnogenol trial (see ARCLI protocol, PMID 30611275) — same research group with ongoing sponsor relationships in this space.",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/31333448/",
+      "status": 200
+    },
+    {
+      "pmid": "32990945",
+      "doi": "10.1002/14651858.CD008294.pub5",
+      "title": "Pine bark (Pinus spp.) extract for treating chronic disorders.",
+      "journal": "Cochrane Database of Systematic Reviews",
+      "year": 2020,
+      "design": "Systematic review / meta-analysis (Cochrane, independent)",
+      "population": "Adults and children across 10 chronic disorder categories (asthma, ADHD, CVD, diabetes, erectile dysfunction, osteoarthritis, TBI, etc.) — cognitive/attention outcomes only indirectly covered via ADHD and TBI trials",
+      "n": 1641,
+      "dose": "Varied across 27 pooled RCTs",
+      "form": "Various pine bark extracts, predominantly Pycnogenol",
+      "duration": "4 weeks to 6 months across pooled trials",
+      "outcome": "Condition-specific clinical outcomes across 10 disorders",
+      "result": "For every outcome assessed, including ADHD inattention/hyperactivity and TBI cognitive-failure scores, Cochrane rated the evidence 'very low certainty' due to small samples (often single studies of 40-83 participants) and high/unclear risk of bias. This is the most rigorous independent assessment found and directly undercuts the ingredient page's 'consistently positive' characterization.",
+      "fundingConflict": "Independent Cochrane review; explicitly notes authors contacted pine bark extract manufacturers to identify additional studies, i.e., industry outreach was part of the search strategy, not funding of the review itself.",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/32990945/",
+      "status": 200
+    },
+    {
+      "pmid": "41333026",
+      "doi": "10.3389/fphar.2025.1657169",
+      "title": "Comparative efficacy and safety of botanical drugs for mild cognitive impairment: a systematic review and network meta-analysis.",
+      "journal": "Frontiers in Pharmacology",
+      "year": 2025,
+      "design": "Systematic review / network meta-analysis (Bayesian)",
+      "population": "MCI patients, 19 pooled trials",
+      "n": 4956,
+      "dose": "Not specified in abstract (Pycnogenol as one of 18 botanical interventions compared)",
+      "form": "Pycnogenol vs 17 other botanical drugs",
+      "duration": "Varies across pooled trials",
+      "outcome": "Cognitive function (SMD across scales), daily living, psychological wellbeing",
+      "result": "Pycnogenol ranked highest of 18 botanical interventions for cognitive function (SUCRA 98.8%) and daily living (SUCRA 100%) in MCI patients. Authors explicitly caution that heterogeneity among included studies warrants cautious interpretation — this is the strongest positive signal found but is a network meta-analysis of a small, heterogeneous MCI trial pool, not a direct healthy-adult replication.",
+      "fundingConflict": "Not stated in retrieved abstract.",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/41333026/",
+      "status": 200
+    }
+  ],
+  "verdicts": [
+    {
+      "claim": "studySummary — '2014 Pycnogenol RCT (Belcaro et al.)... significant improvements in attention, memory, and executive function'",
+      "verdict": "overstated",
+      "reason": "Calling Belcaro 2014 an 'RCT' is not supported by PubMed's own article-type classification (tagged 'Clinical Trial', not 'Randomized Controlled Trial'), and the abstract describes it as a 'product-evaluation registry study' comparing a self-selected supplement group against 'comparable controls' rather than describing randomization or blinding. The directional finding (improvement) is real, but the study-design label on our page overstates its rigor.",
+      "pmids": ["24675223"]
+    },
+    {
+      "claim": "Attention & Focus — evidenceStrength: moderate, studies: 4",
+      "verdict": "overstated",
+      "reason": "Both primary trials located (Belcaro 2014, Luzzi 2011) are non-randomized comparative/registry studies by the same closely-linked author group (Irvine3 Labs), not 4 independent moderate-quality RCTs. The independent Cochrane review (Robertson 2020) rates evidence in this space as 'very low certainty' across every outcome examined, which is a materially different picture from 'moderate.'",
+      "pmids": ["24675223", "22108481", "32990945"]
+    },
+    {
+      "claim": "studySummary — 'A 2012 trial in elderly subjects found improved cognitive function and reduced oxidative stress markers'",
+      "verdict": "no-evidence-found",
+      "reason": "No PMID for a specific 2012 elderly-subjects Pycnogenol trial was surfaced by targeted searches in this session; the claim could not be traced to a verifiable PubMed record and should not be asserted without a citation.",
+      "pmids": []
+    },
+    {
+      "claim": "studySummary — 'The evidence base is smaller than for ingredients like Bacopa or Ginkgo but consistently positive'",
+      "verdict": "overstated",
+      "reason": "'Consistently positive' conflicts directly with the independent Cochrane review (Robertson 2020), which found 'very low certainty' evidence across every pine-bark-extract outcome assessed due to small samples and bias risk — the most balanced word would be 'preliminary and industry-associated' rather than 'consistently positive.'",
+      "pmids": ["32990945"]
+    },
+    {
+      "claim": "Oxidative Stress Reduction — evidenceStrength: strong, studies: 8",
+      "verdict": "supported",
+      "reason": "Proanthocyanidins' antioxidant activity is well established mechanistically and the Belcaro 2014 trial itself showed a large (30.4%) drop in plasma free radicals — the biochemical antioxidant claim is more defensible than the cognitive claims, since oxidative-stress biomarker reduction is a more direct, less confounded readout than cognitive test batteries.",
+      "pmids": ["24675223"]
+    },
+    {
+      "claim": "Funding/independence not disclosed anywhere on the page",
+      "verdict": "no-evidence-found",
+      "reason": "No explicit sponsor-disclosure statement was visible in any retrieved abstract, but the recurring author cluster (Belcaro, Luzzi, Dugall, Cesarone at Irvine3 Labs/Chieti-Pescara) publishing nearly all of the positive small trials is a well-documented pattern in the independent literature (reflected in Cochrane's own note that pine bark manufacturers were contacted during the review's search strategy) — the ingredient page presents these results with no funding context at all.",
+      "pmids": ["24675223", "22108481"]
+    }
+  ],
+  "doseAssessment": {
+    "trialRange": "150mg/day (Belcaro 2014, professionals); dose unspecified but implied similar in Luzzi 2011 (students)",
+    "ourDoseWithinRange": "Yes — our 100–200mg/day range brackets the 150mg/day used in the flagship trial.",
+    "suggestedText": "Dose framing is reasonable; the bigger issue is study-quality labeling (RCT vs registry study) and omitting the Cochrane 'very low certainty' verdict, not the dose itself."
+  },
+  "safetySignals": [
+    {
+      "signal": "No new safety signal beyond what the page already states (GI discomfort, rare headache, immunosuppressant interaction) was found in the retrieved literature; the Cochrane review notes safety/adverse-event reporting was inconsistent across the 27 pooled pine-bark trials, meaning absence of reported harm is partly an artifact of poor reporting rather than confirmed safety.",
+      "pmid": "32990945",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32990945/"
+    }
+  ],
+  "gaps": [
+    "No PMID found for the specific '2012 elderly trial' cited in studySummary.",
+    "No independent (non-Irvine3-Labs-authored) RCT of Pycnogenol for cognition in healthy adults was found — nearly all positive human cognitive trials trace back to the same small author cluster.",
+    "The claimed immunosuppressant interaction was not independently verified against a clinical case report or pharmacokinetic study in this session.",
+    "No trial found directly comparing generic pine bark extract vs branded Pycnogenol for cognitive outcomes, despite the page's strong recommendation to use Pycnogenol specifically."
+  ]
+}
