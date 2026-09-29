@@ -65,13 +65,16 @@ export default function ProductDetail({
   const [tab, setTab] = useState<TabId>('overview');
 
   const pd = uiStrings.productDetail;
+  // Inline filter (not activeProducts from @nootropic/data): this is a client
+  // component and a value import from the data package would ship every
+  // catalogue JSON to the browser.
+  const recommendable = alternatives.filter((alt) => alt.discontinued == null);
 
   // Record date line: "Last verified: <verifiedAt>" when the record carries a
   // verification date, otherwise "Updated: <updatedAt>"; nothing when neither
-  // exists (no build-date fallback). `verifiedAt` is optional on the record
-  // type (added by the data layer). Records store calendar dates (YYYY-MM-DD);
+  // exists (no build-date fallback). Records store calendar dates (YYYY-MM-DD);
   // anchor at UTC midnight and format in UTC so the day never shifts with TZ.
-  const verifiedAt = (p as Product & { verifiedAt?: string }).verifiedAt;
+  const verifiedAt = p.verifiedAt;
   const recordDateISO = (verifiedAt ?? p.updatedAt)?.slice(0, 10);
   const recordDateLabel = verifiedAt ? pd.meta.lastVerified : pd.meta.updated;
   const recordDate = recordDateISO ? new Date(`${recordDateISO}T00:00:00Z`) : null;
@@ -89,12 +92,22 @@ export default function ProductDetail({
   const totalDoses = p.ingredientDosages.length;
   const allAdequate = totalDoses > 0 && adequateCount === totalDoses;
 
+  // A discontinued product keeps its review page but loses every buy surface:
+  // no affiliate CTAs, no price stat, no Pricing tab, no "Buying in" block.
+  const discontinued = p.discontinued;
+
   const tabItems: Array<{ id: TabId; label: string }> = [
     { id: 'overview', label: pd.tabs.overview },
     { id: 'dosing', label: pd.tabs.dosing },
     { id: 'pillars', label: pd.tabs.pillars },
     { id: 'reviews', label: pd.tabs.reviews },
-    { id: 'pricing', label: pd.tabs.pricing },
+    ...(discontinued ? [] : [{ id: 'pricing' as const, label: pd.tabs.pricing }]),
+  ];
+
+  const priceStat: [string, string, boolean] = [
+    pd.stats.price,
+    regional?.data.price ? `${new Intl.NumberFormat(regional.data.price.locale, { style: 'currency', currency: regional.data.price.currency, maximumFractionDigits: 0 }).format(regional.data.price.amount)}${pd.stats.perMonth}` : p.priceMonthlyUSD ? `$${p.priceMonthlyUSD}${pd.stats.perMonth}` : '—',
+    false,
   ];
 
   const scoreColor =
@@ -112,6 +125,29 @@ export default function ProductDetail({
     >
       <FPDisclosure methodologyHref="/methodology" strings={uiStrings.disclosure} />
       <div className="px-4 sm:px-7 pt-6 pb-10">
+        {discontinued && (
+          <aside
+            role="note"
+            aria-labelledby="product-discontinued-heading"
+            className="bg-ds-warn-soft border-l-4 border-ds-warn rounded-r-[8px] p-4 mb-4 text-[14px] text-ds-warn-ink"
+          >
+            <strong id="product-discontinued-heading" className="block mb-1">
+              {pd.discontinued.heading}
+            </strong>
+            <p className="m-0">{discontinued.note}</p>
+            {discontinued.successorSlug && (
+              <p className="m-0 mt-2">
+                <Link
+                  href={`/${discontinued.successorSlug}/`}
+                  className="underline font-semibold text-ds-warn-ink focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
+                >
+                  {pd.discontinued.successorLink} →
+                </Link>
+              </p>
+            )}
+          </aside>
+        )}
+
         {/* Header card */}
         <Card padding={24} className="mb-4">
           <div className="flex gap-[22px] items-start flex-wrap">
@@ -191,11 +227,11 @@ export default function ProductDetail({
             </div>
           </div>
 
-          <FPTrustNote strings={uiStrings.disclosure} className="mt-[18px]" />
+          {!discontinued && <FPTrustNote strings={uiStrings.disclosure} className="mt-[18px]" />}
 
           <div className="mt-[18px] pt-[18px] border-t border-ds-border grid gap-[18px] items-center grid-cols-2 sm:grid-cols-3 lg:grid-cols-[repeat(5,1fr)_auto]">
             {[
-              [pd.stats.price, regional?.data.price ? `${new Intl.NumberFormat(regional.data.price.locale, { style: 'currency', currency: regional.data.price.currency, maximumFractionDigits: 0 }).format(regional.data.price.amount)}${pd.stats.perMonth}` : p.priceMonthlyUSD ? `$${p.priceMonthlyUSD}${pd.stats.perMonth}` : '—', false],
+              ...(discontinued ? [] : [priceStat]),
               [pd.stats.capsules, `${p.capsulesPerServing}${pd.stats.perDay}`, false],
               [pd.stats.moneyBack, `${p.moneyBackDays} ${pd.stats.days}`, false],
               [
@@ -218,14 +254,16 @@ export default function ProductDetail({
                 </div>
               </div>
             ))}
-            <TrackedAffiliateLink
-              product={p}
-              position={1}
-              surface="review"
-              className="inline-block bg-ds-accent hover:bg-ds-accent-press text-white border-0 px-[18px] py-[10px] rounded-[8px] text-[13px] font-semibold focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
-            >
-              {pd.visitBrand}
-            </TrackedAffiliateLink>
+            {!discontinued && (
+              <TrackedAffiliateLink
+                product={p}
+                position={1}
+                surface="review"
+                className="inline-block bg-ds-accent hover:bg-ds-accent-press text-white border-0 px-[18px] py-[10px] rounded-[8px] text-[13px] font-semibold focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
+              >
+                {pd.visitBrand}
+              </TrackedAffiliateLink>
+            )}
           </div>
         </Card>
 
@@ -252,20 +290,22 @@ export default function ProductDetail({
         <TabPanel idPrefix="product" id="reviews" hidden={tab !== 'reviews'} className="mt-5">
           <ReviewsTab product={p} />
         </TabPanel>
-        <TabPanel idPrefix="product" id="pricing" hidden={tab !== 'pricing'} className="mt-5">
-          <PricingTab product={p} disclosure={uiStrings.disclosure} />
-        </TabPanel>
+        {!discontinued && (
+          <TabPanel idPrefix="product" id="pricing" hidden={tab !== 'pricing'} className="mt-5">
+            <PricingTab product={p} disclosure={uiStrings.disclosure} />
+          </TabPanel>
+        )}
 
-        {regional && <RegionalBuying {...regional} id="regional-buying" />}
+        {regional && !discontinued && <RegionalBuying {...regional} id="regional-buying" />}
 
-        {/* Always-shown alternatives rail */}
-        {alternatives.length > 0 && (
+        {/* Always-shown alternatives rail (never recommends a discontinued product) */}
+        {recommendable.length > 0 && (
           <section className="mt-10">
             <h2 className="text-[18px] font-bold tracking-[-0.01em] m-0 mb-4 text-ds-ink">
               {pd.alternatives}
             </h2>
             <div className="grid gap-3 sm:grid-cols-3">
-              {alternatives.slice(0, 3).map((alt) => (
+              {recommendable.slice(0, 3).map((alt) => (
                 <Link
                   key={alt.slug}
                   href={`/${alt.slug}`}

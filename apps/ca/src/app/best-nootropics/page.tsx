@@ -26,7 +26,7 @@ const faqItems = [
   },
   {
     q: 'Which nootropic ships fastest to Canada?',
-    a: 'Mind Lab Pro and Performance Lab Mind both ship directly to Canada from their UK/EU warehouses, typically arriving in 5-10 business days. US-based brands like Alpha Brain ship from domestic US warehouses to Canada in 3-7 days.',
+    a: 'Mind Lab Pro ships directly to Canada from its UK/EU warehouses, typically arriving in 5-10 business days. US-based brands like Alpha Brain ship from domestic US warehouses to Canada in 3-7 days.',
   },
 ];
 
@@ -76,7 +76,7 @@ export default function BestNootropicsCAPage() {
               <h2 id="ca-note-heading" className="text-[16px] font-bold text-ds-ink m-0 mb-2">Canada buyer&apos;s note</h2>
               <p className="text-[13.5px] text-ds-ink-soft m-0 leading-[1.65]">
                 Canadian buyers benefit from CUSMA/USMCA — orders under CAD $150 from the US typically
-                enter duty-free. UK brands like Mind Lab Pro and Performance Lab ship internationally
+                enter duty-free. UK brands like Mind Lab Pro ship internationally
                 with standard delivery of 5-10 business days.
               </p>
             </Card>

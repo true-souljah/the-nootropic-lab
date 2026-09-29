@@ -273,6 +273,13 @@ export interface UIStrings {
     };
     /** Heading for the bottom alternatives rail. */
     alternatives: string;
+    /** Notice shown on the review page of a product the vendor no longer sells. */
+    discontinued: {
+      /** Notice heading, e.g. "Discontinued". */
+      heading: string;
+      /** Link text to the successor product's review, e.g. "Read our review of the successor". */
+      successorLink: string;
+    };
     /** Eyebrow heading + section name for the YMYL regulatory disclaimer. */
     healthDisclaimerHeading: string;
     /** aria-label for the chip row above the product name (groups Editor's pick, Caffeine-free, regulatory chips, etc.). */
@@ -491,6 +498,7 @@ const en: UIStrings = {
       ariaLabel: 'Product sections',
     },
     alternatives: 'Similar alternatives',
+    discontinued: { heading: 'Discontinued', successorLink: 'Read our review of the successor' },
     healthDisclaimerHeading: 'Health disclaimer',
     chipGroupLabel: 'Product attributes',
   },
@@ -707,6 +715,7 @@ const es: UIStrings = {
       ariaLabel: 'Secciones del producto',
     },
     alternatives: 'Alternativas similares',
+    discontinued: { heading: 'Descontinuado', successorLink: 'Lee nuestra reseña del sucesor' },
     healthDisclaimerHeading: 'Aviso de salud',
     chipGroupLabel: 'Atributos del producto',
   },
@@ -923,6 +932,7 @@ const fr: UIStrings = {
       ariaLabel: 'Sections du produit',
     },
     alternatives: 'Alternatives similaires',
+    discontinued: { heading: 'Produit arrêté', successorLink: 'Lire notre avis sur le successeur' },
     healthDisclaimerHeading: 'Avis de santé',
     chipGroupLabel: 'Attributs du produit',
   },
@@ -1139,6 +1149,7 @@ const ja: UIStrings = {
       ariaLabel: '製品セクション',
     },
     alternatives: '類似の代替品',
+    discontinued: { heading: '販売終了', successorLink: '後継製品のレビューを読む' },
     healthDisclaimerHeading: '健康に関する免責事項',
     chipGroupLabel: '製品の属性',
   },
@@ -1355,6 +1366,7 @@ const pt: UIStrings = {
       ariaLabel: 'Secções do produto',
     },
     alternatives: 'Alternativas semelhantes',
+    discontinued: { heading: 'Descontinuado', successorLink: 'Leia a nossa análise do sucessor' },
     healthDisclaimerHeading: 'Aviso de saúde',
     chipGroupLabel: 'Atributos do produto',
   },
@@ -1571,6 +1583,7 @@ const de: UIStrings = {
       ariaLabel: 'Produktbereiche',
     },
     alternatives: 'Ähnliche Alternativen',
+    discontinued: { heading: 'Nicht mehr erhältlich', successorLink: 'Zu unserem Test des Nachfolgers' },
     healthDisclaimerHeading: 'Gesundheitshinweis',
     chipGroupLabel: 'Produktmerkmale',
   },
@@ -1789,6 +1802,7 @@ const frCa: UIStrings = {
       ariaLabel: 'Sections du produit',
     },
     alternatives: 'Alternatives similaires',
+    discontinued: { heading: 'Produit arrêté', successorLink: 'Lire notre avis sur le successeur' },
     healthDisclaimerHeading: 'Avis de santé',
     chipGroupLabel: 'Caractéristiques du produit',
   },

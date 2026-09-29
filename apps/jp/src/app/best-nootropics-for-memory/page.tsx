@@ -44,7 +44,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Phosphatidylserine (PS)',
     evidence:
-      'Phospholipid component of brain cell membranes. The FDA permits a qualified health claim for PS supporting cognitive function in elderly adults. Most RCT evidence is in 50–80-year-olds at 100–300mg/day. Used in both FANCL BRAINs and Performance Lab Mind.',
+      'Phospholipid component of brain cell membranes. The FDA permits a qualified health claim for PS supporting cognitive function in elderly adults. Most RCT evidence is in 50–80-year-olds at 100–300mg/day. Used in Mind Lab Pro (100mg Sharp-PS).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
 ];
@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'fancl-brains-review')!,
     rank: 2,
     whyItsHere:
-      'The leading Japanese domestic option: FFC-notified (機能性表示食品) with cognitive claims filed with the Consumer Affairs Agency (消費者庁). Combines DHA (300mg), Ginkgo Biloba (60mg), and Phosphatidylserine (50mg) — three FFC-acceptable mechanisms. Available nationwide at Matsumoto Kiyoshi, Welcia, Sugi Pharmacy, and Amazon Japan with same-day Prime delivery. No customs risk, Japanese-language label, ¥7,500/month.',
+      'The leading Japanese domestic option: FFC-notified (機能性表示食品) with cognitive claims filed with the Consumer Affairs Agency (消費者庁). Its notified functional ingredients are bacopa saponins (15mg, memory) and matured hop bitter acids (35mg, attention), per FANCL\'s notification G425. Available nationwide at Matsumoto Kiyoshi, Welcia, Sugi Pharmacy, and Amazon Japan with same-day Prime delivery. No customs risk, Japanese-language label, ¥5,479 per 30-day bag (list price on fancl.co.jp).',
   },
   {
     product: productsJP.find(p => p.slug === 'suntory-dha-epa-sesamin-review')!,
@@ -68,18 +68,12 @@ const picks: ListiclePick[] = [
     whyItsHere:
       'Japan\'s best-selling FFC-notified omega-3 brain supplement (over 30 million bottles sold). 400mg DHA + 100mg EPA + 20mg sesamin from Suntory Wellness — backed by a household-name conglomerate familiar to every Japanese consumer. Foundational rather than acute: works by maintaining structural membrane integrity. Best paired with a dedicated nootropic stack like Mind Lab Pro for users wanting both. ¥4,800/month — the most affordable pick.',
   },
-  {
-    product: productsJP.find(p => p.slug === 'performance-lab-mind-review')!,
-    rank: 4,
-    whyItsHere:
-      'Includes 100mg Sharp-PS phosphatidylserine AND 250mg Cognizin citicoline — both at clinical dose. Caffeine-free, only 2 capsules per day. The minimalist option for memory buyers who want patented, third-party-tested ingredients without a long ingredient list. Ships from the UK to Japan in 10–14 days.',
-  },
 ];
 
 const faqItems: ListicleFAQ[] = [
   {
     q: 'What is the difference between FFC-notified domestic brands and imported stacks?',
-    a: 'Japan\'s Food with Function Claims system (機能性表示食品) requires manufacturers to notify the Consumer Affairs Agency (消費者庁) of the cognitive claim and supporting evidence — a regulatory framework that domestic brands like FANCL BRAINs and Suntory DHA & EPA + Sesamin EX operate under. Imported stacks (Mind Lab Pro, Performance Lab Mind) ship under Ministry of Health, Labour and Welfare (MHLW) personal-import rules and carry no Japanese cognitive claim. Both routes are legal; FFC products are easier to buy in pharmacy chains and have Japanese-language labels.',
+    a: 'Japan\'s Food with Function Claims system (機能性表示食品) requires manufacturers to notify the Consumer Affairs Agency (消費者庁) of the cognitive claim and supporting evidence — a regulatory framework that domestic brands like FANCL BRAINs and Suntory DHA & EPA + Sesamin EX operate under. Imported stacks such as Mind Lab Pro ship under Ministry of Health, Labour and Welfare (MHLW) personal-import rules and carry no Japanese cognitive claim. Both routes are legal; FFC products are easier to buy in pharmacy chains and have Japanese-language labels.',
   },
   {
     q: 'What is the most evidence-backed nootropic for memory?',
@@ -91,7 +85,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Where can I buy these in Japan?',
-    a: 'FANCL BRAINs: every major pharmacy chain (Matsumoto Kiyoshi, Welcia, Sugi Pharmacy, Sundrug) plus Amazon Japan with Prime delivery. Suntory DHA & EPA + Sesamin EX: Suntory Wellness direct, Amazon Japan, and select drugstores. Mind Lab Pro and Performance Lab Mind: ship directly from the UK or US to Japan via the manufacturer website (7–14 business days).',
+    a: 'FANCL BRAINs: every major pharmacy chain (Matsumoto Kiyoshi, Welcia, Sugi Pharmacy, Sundrug) plus Amazon Japan with Prime delivery. Suntory DHA & EPA + Sesamin EX: Suntory Wellness direct, Amazon Japan, and select drugstores. Mind Lab Pro: ships directly from the UK or US to Japan via the manufacturer website (7–14 business days).',
   },
   {
     q: 'Will Bacopa make me feel anything?',
@@ -110,7 +104,7 @@ export default function Page() {
       useCase="memory"
       pageTitle="Best Nootropics for Memory in Japan"
       pageDescription="Independent ranking of the best nootropics for memory and recall available in Japan, based on clinical evidence."
-      heroParagraph="Memory is the use case where Japan's regulatory landscape and the global nootropics evidence base intersect most directly. Domestic FFC-notified brands (FANCL BRAINs, Suntory DHA & EPA + Sesamin EX) are notified under Japan's Food with Function Claims system administered by the Consumer Affairs Agency (消費者庁) and target middle-aged and older adults via DHA, Ginkgo, and Phosphatidylserine. International stacks shipping to Japan add the Bacopa and Lion's Mane evidence base — including Mori et al. 2009, the foundational Lion's Mane RCT conducted in Japan."
+      heroParagraph="Memory is the use case where Japan's regulatory landscape and the global nootropics evidence base intersect most directly. Domestic FFC-notified brands (FANCL BRAINs, Suntory DHA & EPA + Sesamin EX) are notified under Japan's Food with Function Claims system administered by the Consumer Affairs Agency (消費者庁) and target middle-aged and older adults via DHA (Suntory) and bacopa saponins plus matured hop bitter acids (FANCL). International stacks shipping to Japan add the Bacopa and Lion's Mane evidence base — including Mori et al. 2009, the foundational Lion's Mane RCT conducted in Japan."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

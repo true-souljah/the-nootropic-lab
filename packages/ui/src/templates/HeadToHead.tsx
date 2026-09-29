@@ -187,12 +187,22 @@ export default function HeadToHead({
     verdictParagraph ??
     `${winner.name} scores ${winner.score}/10 in our 5-pillar audit; ${loser.name} scores ${loser.score}/10. The biggest delta is at the formula-transparency pillar — see the dosing table below.`;
 
+  // A discontinued product has no current price and must never read as the
+  // cheaper (winning) option.
+  const priceCell = (p: Product) => (p.discontinued ? '—' : formatPrice(p));
+  const comparablePrice = (p: Product) => (p.discontinued ? Infinity : p.priceMonthlyUSD ?? Infinity);
+
   const specRows: SpecRow[] = [
     {
       label: s.pricePerMonth,
-      a: formatPrice(productA),
-      b: formatPrice(productB),
-      winner: (productA.priceMonthlyUSD ?? Infinity) < (productB.priceMonthlyUSD ?? Infinity) ? 'a' : 'b',
+      a: priceCell(productA),
+      b: priceCell(productB),
+      winner:
+        comparablePrice(productA) < comparablePrice(productB)
+          ? 'a'
+          : comparablePrice(productB) < comparablePrice(productA)
+            ? 'b'
+            : 'tie',
     },
     {
       label: s.capsulesPerServing,
@@ -336,14 +346,26 @@ export default function HeadToHead({
                 Our score
               </div>
               <p className="text-[13.5px] text-ds-ink-soft mt-4 leading-[1.6]">{p.summary}</p>
-              <TrackedAffiliateLink
-                product={p}
-                position={idx + 1}
-                surface="h2h"
-                className="block w-full mt-[14px] bg-ds-accent hover:bg-ds-accent-press text-white text-[13px] font-semibold py-[10px] rounded-[8px] text-center focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
-              >
-                {tpl(s.checkProductWithPrice, { name: p.name, price: formatPrice(p) })}
-              </TrackedAffiliateLink>
+              {p.discontinued ? (
+                <div
+                  role="note"
+                  className="bg-ds-warn-soft border-l-4 border-ds-warn rounded-r-[8px] p-3 mt-[14px] text-[13px] text-ds-warn-ink"
+                >
+                  <strong className="block mb-1">
+                    {uiStrings?.productDetail.discontinued.heading ?? 'Discontinued'}
+                  </strong>
+                  {p.discontinued.note}
+                </div>
+              ) : (
+                <TrackedAffiliateLink
+                  product={p}
+                  position={idx + 1}
+                  surface="h2h"
+                  className="block w-full mt-[14px] bg-ds-accent hover:bg-ds-accent-press text-white text-[13px] font-semibold py-[10px] rounded-[8px] text-center focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
+                >
+                  {tpl(s.checkProductWithPrice, { name: p.name, price: formatPrice(p) })}
+                </TrackedAffiliateLink>
+              )}
             </Card>
           ))}
           {/* "VS" divider — column 2 on desktop, hidden on mobile (the cards stack

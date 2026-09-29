@@ -57,22 +57,16 @@ const picks: ListiclePick[] = [
       'Includes phosphatidylserine (100mg Sharp-PS at clinical dose), citicoline (250mg Cognizin at clinical dose), Lion\'s Mane (500mg fruiting body at clinical dose), and Bacopa. Four of the most age-relevant ingredients in one open-formula EU product. Caffeine-free — no cardiovascular load for older adults sensitive to stimulants. €65/mo from an EU distribution centre with no import duties.',
   },
   {
-    product: productsEU.find(p => p.slug === 'performance-lab-mind-review')!,
-    rank: 2,
-    whyItsHere:
-      'Phosphatidylserine (100mg Sharp-PS), Lion\'s Mane (500mg fruiting body), Citicoline (250mg Cognizin) all at clinical doses. Only 2 capsules/day — the easiest pill burden to maintain long-term, which matters more for older adults than ingredient breadth. Caffeine-free. €55/mo from the same EU manufacturer as Mind Lab Pro.',
-  },
-  {
     product: productsEU.find(p => p.slug === 'hunter-focus-review')!,
-    rank: 3,
+    rank: 2,
     whyItsHere:
       'Includes phosphatidylserine, Lion\'s Mane (500mg fruiting body), and Bacopa, plus Ashwagandha (cortisol/stress) and ALCAR (mitochondrial energy). Contains 100mg caffeine — not ideal for stimulant-sensitive older adults. €85/mo and 6 capsules/day are friction; pick this only if you specifically want the broader stack.',
   },
   {
     product: productsEU.find(p => p.slug === 'noocube-review')!,
-    rank: 4,
+    rank: 3,
     whyItsHere:
-      'Bacopa (250mg, just under the 300mg clinical anchor) plus Lutemax 2020 for screen-related eye strain. Caffeine-free. EU storefront with EUR pricing at €55/mo. Trustpilot 1.9/5 reflects subscription cancellation complaints — review terms carefully before subscribing, especially for older relatives less familiar with online subscription cancellation.',
+      'Bacopa (250mg, just under the 300mg clinical anchor) plus Lutemax 2020 for screen-related eye strain. Caffeine-free. No EUR storefront: the UK store (noocube.co.uk) prices in GBP (£54.99/mo) and ships to the UK, Ireland, Spain, Portugal, Greece, Croatia, Poland, Sweden and Denmark, but not to Germany, France or the Netherlands. The noocube.com Trustpilot profile has no reviews yet — review terms carefully before subscribing, especially for older relatives less familiar with online subscription cancellation.',
   },
 ];
 
