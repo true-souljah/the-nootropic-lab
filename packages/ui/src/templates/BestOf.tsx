@@ -10,6 +10,7 @@ import { Bar } from '../primitives/Bar';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
 import ShortlistButton from './ShortlistButton';
 import type { AffiliateClickContext } from '../trackAffiliateClick';
+import { servingAmount } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 
@@ -270,8 +271,8 @@ export default function BestOf({
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Caps</span>
-                    <span className="text-ds-ink">{p.capsulesPerServing}/day</span>
+                    <span>{pd.stats.dailyServing}</span>
+                    <span className="text-ds-ink">{servingAmount(p, uiStrings)}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>MBG</span>

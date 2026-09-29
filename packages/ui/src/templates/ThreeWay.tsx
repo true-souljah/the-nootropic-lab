@@ -11,7 +11,7 @@ import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
 import { FaqAccordion } from '../primitives/FaqAccordion';
-import { buildPersonAuthorReference } from '@nootropic/data';
+import { buildPersonAuthorReference, servingAmount, servingsComparable } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 
@@ -192,9 +192,10 @@ export default function ThreeWay({
       winner: bestIndex(products.map((p) => -(p.priceMonthlyUSD ?? Infinity))),
     },
     {
-      label: 'Caps / day',
-      values: products.map((p) => `${p.capsulesPerServing}`) as [string, string, string],
-      winner: bestIndex(products.map((p) => -p.capsulesPerServing)),
+      label: 'Serving size',
+      values: products.map((p) => servingAmount(p, uiStrings)) as [string, string, string],
+      // Fewer units wins only when all three share a form.
+      winner: servingsComparable(products) ? bestIndex(products.map((p) => -p.capsulesPerServing)) : null,
     },
     {
       label: 'Money-back',

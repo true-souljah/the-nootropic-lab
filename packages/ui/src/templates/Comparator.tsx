@@ -19,7 +19,8 @@ export interface ComparatorProps {
   products: Product[];
   siteUrl: string;
   searchItems?: SearchItem[];
-  uiStrings?: UIStrings;
+  /** Required: the serving-unit label is localized (no English fallback). */
+  uiStrings: UIStrings;
 }
 
 /**
@@ -252,7 +253,7 @@ export default function Comparator({
               </button>
               <button
                 type="button"
-                onClick={() => exportRowsToCsv(rows)}
+                onClick={() => exportRowsToCsv(rows, uiStrings)}
                 className="bg-ds-card border border-ds-border px-3 py-[7px] rounded-[8px] text-[12px] text-ds-ink-soft font-medium cursor-pointer flex items-center gap-[6px] hover:bg-ds-card-sub focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
               >
                 <Download size={12} strokeWidth={2.2} aria-hidden={true} />
@@ -476,6 +477,7 @@ export default function Comparator({
           {/* Compare drawer */}
           <ComparatorCompareCard
             selectedProducts={selectedProducts}
+            uiStrings={uiStrings}
             onClear={() => setSelected([])}
           />
         </div>

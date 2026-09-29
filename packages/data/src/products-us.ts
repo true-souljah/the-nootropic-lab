@@ -52,7 +52,17 @@ export interface Product {
   heroIngredients: string[];
   ingredientDosages: IngredientDosage[];
   servingsPerContainer: number;
+  /**
+   * Units of `form` per daily serving (capsules, tablets, sachets or shots —
+   * the name predates `form`). Render it through `servingAmount()` /
+   * `servingUnit()` (serving-unit.ts), never with hard-coded capsule wording.
+   */
   capsulesPerServing: number;
+  /**
+   * Dosage form of one unit. Absent = `'capsule'` (the default for most
+   * records). Validated by `formProblem()` in product-rules.ts.
+   */
+  form?: 'capsule' | 'tablet' | 'sachet' | 'shot';
   summary: string;
   whatItIs: string;
   howItWorks: string;

@@ -258,6 +258,10 @@ export interface UIStrings {
       /** Monthly-price suffix, e.g. "/mo" / "/Monat". */
       perMonth: string;
       capsules: string;
+      /** Stat label for the per-day serving, whatever the product's form. */
+      dailyServing: string;
+      /** Unit label per `Product.form`, shown after `capsulesPerServing`. */
+      units: { capsule: string; tablet: string; sachet: string; shot: string };
       /** Per-day suffix, e.g. "/day" / "/Tag". */
       perDay: string;
       moneyBack: string;
@@ -501,6 +505,8 @@ const en: UIStrings = {
       price: 'Price',
       perMonth: '/mo',
       capsules: 'Caps',
+      dailyServing: 'Daily serving',
+      units: { capsule: 'caps', tablet: 'tablets', sachet: 'sachets', shot: 'shots' },
       perDay: '/day',
       moneyBack: 'MBG',
       days: 'days',
@@ -727,6 +733,8 @@ const es: UIStrings = {
       price: 'Precio',
       perMonth: '/mes',
       capsules: 'Cáps.',
+      dailyServing: 'Dosis diaria',
+      units: { capsule: 'cáps.', tablet: 'comprimidos', sachet: 'sobres', shot: 'shots' },
       perDay: '/día',
       moneyBack: 'Garantía',
       days: 'días',
@@ -953,6 +961,8 @@ const fr: UIStrings = {
       price: 'Prix',
       perMonth: '/mois',
       capsules: 'Caps.',
+      dailyServing: 'Dose quotidienne',
+      units: { capsule: 'gélules', tablet: 'comprimés', sachet: 'sachets', shot: 'shots' },
       perDay: '/jour',
       moneyBack: 'Garantie',
       days: 'jours',
@@ -1179,6 +1189,8 @@ const ja: UIStrings = {
       price: '価格',
       perMonth: '/月',
       capsules: 'カプセル',
+      dailyServing: '1日の目安量',
+      units: { capsule: 'カプセル', tablet: '錠', sachet: '包', shot: '本' },
       perDay: '/日',
       moneyBack: '返金保証',
       days: '日間',
@@ -1405,6 +1417,8 @@ const pt: UIStrings = {
       price: 'Preço',
       perMonth: '/mês',
       capsules: 'Cáps.',
+      dailyServing: 'Dose diária',
+      units: { capsule: 'cáps.', tablet: 'comprimidos', sachet: 'sachês', shot: 'shots' },
       perDay: '/dia',
       moneyBack: 'Garantia',
       days: 'dias',
@@ -1631,6 +1645,8 @@ const de: UIStrings = {
       price: 'Preis',
       perMonth: '/Monat',
       capsules: 'Kapseln',
+      dailyServing: 'Tagesdosis',
+      units: { capsule: 'Kapseln', tablet: 'Tabletten', sachet: 'Beutel', shot: 'Shots' },
       perDay: '/Tag',
       moneyBack: 'Geld-zurück',
       days: 'Tage',
@@ -1859,6 +1875,8 @@ const frCa: UIStrings = {
       price: 'Prix',
       perMonth: '/mois',
       capsules: 'Gélules',
+      dailyServing: 'Dose quotidienne',
+      units: { capsule: 'gélules', tablet: 'comprimés', sachet: 'sachets', shot: 'shots' },
       perDay: '/jour',
       moneyBack: 'Remboursement',
       days: 'jours',
