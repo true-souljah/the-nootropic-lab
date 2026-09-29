@@ -262,6 +262,8 @@ export interface UIStrings {
       dailyServing: string;
       /** Unit label per `Product.form`, shown after `capsulesPerServing`. */
       units: { capsule: string; tablet: string; sachet: string; shot: string };
+      /** Same labels for a count of exactly 1 ("1 sachet", not "1 sachets"). */
+      unitsSingular: { capsule: string; tablet: string; sachet: string; shot: string };
       /** Per-day suffix, e.g. "/day" / "/Tag". */
       perDay: string;
       moneyBack: string;
@@ -507,6 +509,7 @@ const en: UIStrings = {
       capsules: 'Caps',
       dailyServing: 'Daily serving',
       units: { capsule: 'caps', tablet: 'tablets', sachet: 'sachets', shot: 'shots' },
+      unitsSingular: { capsule: 'cap', tablet: 'tablet', sachet: 'sachet', shot: 'shot' },
       perDay: '/day',
       moneyBack: 'MBG',
       days: 'days',
@@ -735,6 +738,7 @@ const es: UIStrings = {
       capsules: 'Cáps.',
       dailyServing: 'Dosis diaria',
       units: { capsule: 'cáps.', tablet: 'comprimidos', sachet: 'sobres', shot: 'shots' },
+      unitsSingular: { capsule: 'cáp.', tablet: 'comprimido', sachet: 'sobre', shot: 'shot' },
       perDay: '/día',
       moneyBack: 'Garantía',
       days: 'días',
@@ -963,6 +967,7 @@ const fr: UIStrings = {
       capsules: 'Caps.',
       dailyServing: 'Dose quotidienne',
       units: { capsule: 'gélules', tablet: 'comprimés', sachet: 'sachets', shot: 'shots' },
+      unitsSingular: { capsule: 'gélule', tablet: 'comprimé', sachet: 'sachet', shot: 'shot' },
       perDay: '/jour',
       moneyBack: 'Garantie',
       days: 'jours',
@@ -1191,6 +1196,7 @@ const ja: UIStrings = {
       capsules: 'カプセル',
       dailyServing: '1日の目安量',
       units: { capsule: 'カプセル', tablet: '錠', sachet: '包', shot: '本' },
+      unitsSingular: { capsule: 'カプセル', tablet: '錠', sachet: '包', shot: '本' },
       perDay: '/日',
       moneyBack: '返金保証',
       days: '日間',
@@ -1419,6 +1425,7 @@ const pt: UIStrings = {
       capsules: 'Cáps.',
       dailyServing: 'Dose diária',
       units: { capsule: 'cáps.', tablet: 'comprimidos', sachet: 'sachês', shot: 'shots' },
+      unitsSingular: { capsule: 'cáp.', tablet: 'comprimido', sachet: 'sachê', shot: 'shot' },
       perDay: '/dia',
       moneyBack: 'Garantia',
       days: 'dias',
@@ -1647,6 +1654,7 @@ const de: UIStrings = {
       capsules: 'Kapseln',
       dailyServing: 'Tagesdosis',
       units: { capsule: 'Kapseln', tablet: 'Tabletten', sachet: 'Beutel', shot: 'Shots' },
+      unitsSingular: { capsule: 'Kapsel', tablet: 'Tablette', sachet: 'Beutel', shot: 'Shot' },
       perDay: '/Tag',
       moneyBack: 'Geld-zurück',
       days: 'Tage',
@@ -1877,6 +1885,7 @@ const frCa: UIStrings = {
       capsules: 'Gélules',
       dailyServing: 'Dose quotidienne',
       units: { capsule: 'gélules', tablet: 'comprimés', sachet: 'sachets', shot: 'shots' },
+      unitsSingular: { capsule: 'gélule', tablet: 'comprimé', sachet: 'sachet', shot: 'shot' },
       perDay: '/jour',
       moneyBack: 'Remboursement',
       days: 'jours',

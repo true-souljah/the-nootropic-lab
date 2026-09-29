@@ -56,6 +56,10 @@ const EXPECTED_UNITS: Record<'en' | 'ja', Record<ProductForm, string>> = {
   en: { capsule: 'caps', tablet: 'tablets', sachet: 'sachets', shot: 'shots' },
   ja: { capsule: 'カプセル', tablet: '錠', sachet: '包', shot: '本' },
 };
+const EXPECTED_SINGULAR: Record<'en' | 'ja', Record<ProductForm, string>> = {
+  en: { capsule: 'cap', tablet: 'tablet', sachet: 'sachet', shot: 'shot' },
+  ja: { capsule: 'カプセル', tablet: '錠', sachet: '包', shot: '本' },
+};
 
 describe('servingUnit / servingAmount', () => {
   const cases = (['en', 'ja'] as const).flatMap((locale) =>
@@ -67,6 +71,8 @@ describe('servingUnit / servingAmount', () => {
     const unit = EXPECTED_UNITS[locale][form];
     expect(servingUnit({ form }, strings)).toBe(unit);
     expect(servingAmount({ form, capsulesPerServing: 3 }, strings)).toBe(`3 ${unit}`);
+    // A count of 1 takes the singular label ("1 sachet", never "1 sachets").
+    expect(servingAmount({ form, capsulesPerServing: 1 }, strings)).toBe(`1 ${EXPECTED_SINGULAR[locale][form]}`);
   });
 
   it('absent form defaults to capsule', () => {
@@ -85,6 +91,7 @@ describe('servingUnit / servingAmount', () => {
       expect(strings.productDetail.stats.dailyServing.trim(), `${locale} dailyServing`).not.toBe('');
       for (const form of PRODUCT_FORMS) {
         expect(servingUnit({ form }, strings).trim(), `${locale} ${form}`).not.toBe('');
+        expect(servingUnit({ form }, strings, 1).trim(), `${locale} ${form} singular`).not.toBe('');
       }
     }
   });
