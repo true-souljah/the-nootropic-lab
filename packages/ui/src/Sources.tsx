@@ -13,6 +13,8 @@ interface Props {
   heading?: string;
   /** Open by default? Defaults to false (collapsed) */
   defaultOpen?: boolean;
+  /** Visible "expand" hint on the summary row — pass a localized string on non-English pages. Defaults to "expand". */
+  expandLabel?: string;
 }
 
 /**
@@ -31,6 +33,7 @@ export default function Sources({
   sources,
   heading = 'Sources',
   defaultOpen = false,
+  expandLabel = 'expand',
 }: Props) {
   if (sources.length === 0) return null;
   return (
@@ -44,7 +47,7 @@ export default function Sources({
             {heading}{' '}
             <span className="text-xs font-normal text-gray-500 ml-1">({sources.length})</span>
           </span>
-          <span className="text-xs text-gray-600">expand</span>
+          <span className="text-xs text-gray-600">{expandLabel}</span>
         </summary>
         <ul className="mt-4 space-y-3">
           {sources.map((s, i) => (
