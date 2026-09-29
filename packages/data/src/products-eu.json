@@ -24,8 +24,8 @@
     "caffeineFree": true,
     "euStorefront": true,
     "euCompliance": "compliant",
-    "trustpilotScore": 4.5,
-    "trustpilotCount": 3200,
+    "trustpilotScore": 4.2,
+    "trustpilotCount": 82,
     "affiliateUrl": "https://www.mindlabpro.com?a_aid=zid0oxj1g4uny&a_bid=6d45f5c3",
     "affiliateNetwork": "UberNet",
     "commissionRate": "30%",
@@ -51,7 +51,7 @@
         "adequatelyDosed": true
       },
       {
-        "name": "Bacopa Monnieri (45% bacosides)",
+        "name": "Bacopa Monnieri (full-spectrum, 24% bacosides)",
         "doseInProduct": "150mg",
         "clinicalDose": "300mg",
         "adequatelyDosed": false
@@ -101,7 +101,9 @@
     ],
     "editorChoice": true,
     "market": "both",
-    "updatedAt": "2026-05-28"
+    "updatedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28",
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "noocube",
@@ -121,15 +123,14 @@
       "value": 9,
       "trust": 7
     },
-    "priceMonthlyUSD": 59,
-    "priceMonthlyEUR": 55,
+    "priceMonthlyUSD": 64.99,
     "pricingModel": "both",
     "moneyBackDays": 60,
     "caffeineFree": true,
-    "euStorefront": true,
+    "euStorefront": false,
     "euCompliance": "compliant",
-    "trustpilotScore": 1.9,
-    "trustpilotCount": 850,
+    "trustpilotScore": null,
+    "trustpilotCount": null,
     "affiliateUrl": "https://www.noocube.com/",
     "affiliateNetwork": "FanFuel",
     "commissionRate": "31.5%",
@@ -139,8 +140,10 @@
       "Bacopa Monnieri",
       "Panax Ginseng",
       "VitaCholine",
-      "Huperzine A",
-      "L-Theanine"
+      "Cat's Claw",
+      "Resveratrol",
+      "L-Theanine",
+      "Pterostilbene"
     ],
     "ingredientDosages": [
       {
@@ -150,21 +153,33 @@
         "adequatelyDosed": true
       },
       {
-        "name": "Bacopa Monnieri",
+        "name": "Bacopa Monnieri (12:1, 20% bacosides)",
         "doseInProduct": "250mg",
         "clinicalDose": "300mg",
         "adequatelyDosed": false
       },
       {
-        "name": "Alpha-GPC",
-        "doseInProduct": "50mg",
-        "clinicalDose": "300mg",
+        "name": "Panax Ginseng (200:1 concentrate)",
+        "doseInProduct": "20mg",
+        "clinicalDose": "Limited human data",
         "adequatelyDosed": false
       },
       {
-        "name": "Huperzine A",
-        "doseInProduct": "20mcg",
-        "clinicalDose": "50-200mcg",
+        "name": "Choline (VitaCholine)",
+        "doseInProduct": "250mg",
+        "clinicalDose": "Limited human data",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Cat's Claw (4:1 extract)",
+        "doseInProduct": "Undisclosed",
+        "clinicalDose": "Limited human data",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Resveratrol (99%)",
+        "doseInProduct": "14.3mg",
+        "clinicalDose": "Limited human data",
         "adequatelyDosed": false
       },
       {
@@ -172,27 +187,34 @@
         "doseInProduct": "100mg",
         "clinicalDose": "100-200mg",
         "adequatelyDosed": true
+      },
+      {
+        "name": "Pterostilbene",
+        "doseInProduct": "140mcg",
+        "clinicalDose": "Limited human data",
+        "adequatelyDosed": false
       }
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 4,
-    "summary": "EU-compliant formula with Lutemax 2020 for screen workers. Good value at €55/mo. Important: Trustpilot score is 1.9/5 -- review customer feedback carefully before subscribing.",
-    "whatItIs": "NooCube is a 13-ingredient nootropic stack from Wolfson Brands with a dedicated EU storefront priced in EUR. Its standout feature is Lutemax 2020 -- a clinically-studied lutein and zeaxanthin extract that reduces digital eye strain. It is EU Directive 2002/46/EC compliant and ships from an EU distribution centre.",
-    "howItWorks": "Lutemax 2020 filters high-energy blue light in the retina, reducing the cognitive fatigue that builds up during extended screen use. Alpha-GPC and Huperzine A support acetylcholine availability (though both are underdosed versus clinical trial levels). L-Theanine provides calm focus. Bacopa supports memory consolidation over 8+ weeks.",
-    "whatToExpect": "Day one: mild calm focus from L-Theanine. Within 2-4 weeks: reduced eye fatigue for screen workers. At 8 weeks: modest memory improvements. Important caveat: Alpha-GPC and Huperzine A are significantly underdosed. The Trustpilot score of 1.9/5 reflects subscription cancellation complaints -- read the cancellation terms carefully before subscribing.",
+    "summary": "EU-compliant formula with Lutemax 2020 for screen workers. No EUR storefront: noocube.co.uk sells it at £54.99/mo and does not ship to Germany, France or the Netherlands. Important: the noocube.com Trustpilot profile has no reviews yet -- check the cancellation terms carefully before subscribing.",
+    "whatItIs": "NooCube is a 12-ingredient nootropic stack from Wolfson Brands. There is no EUR-priced storefront: the UK store (noocube.co.uk) prices in GBP and lists shipping to Ireland, Spain, Portugal, Greece, Croatia, Poland, Sweden and Denmark, but not to Germany, France or the Netherlands. Its standout feature is Lutemax 2020 -- a clinically-studied lutein and zeaxanthin extract that reduces digital eye strain. It is EU Directive 2002/46/EC compliant.",
+    "howItWorks": "Lutemax 2020 filters high-energy blue light in the retina, reducing the cognitive fatigue that builds up during extended screen use. Choline from VitaCholine (250mg) supports acetylcholine availability; the current formula no longer contains Alpha-GPC or Huperzine A. L-Theanine provides calm focus. Bacopa supports memory consolidation over 8+ weeks.",
+    "whatToExpect": "Day one: mild calm focus from L-Theanine. Within 2-4 weeks: reduced eye fatigue for screen workers. At 8 weeks: modest memory improvements. The noocube.com Trustpilot profile has no reviews yet -- read the cancellation terms carefully before subscribing.",
     "pros": [
-      "EU storefront with EUR pricing",
       "Lutemax 2020 for blue-light",
       "Good value",
       "60-day money-back"
     ],
     "cons": [
-      "Trustpilot 1.9/5 -- subscription cancellation complaints",
+      "No reviews on the noocube.com Trustpilot profile (checked 2026-09-28)",
       "Some ingredients underdosed"
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-05-28"
+    "updatedAt": "2026-09-28",
+    "verifiedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28"
   },
   {
     "id": "performance-lab-mind",
@@ -217,10 +239,10 @@
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
-    "euStorefront": true,
+    "euStorefront": false,
     "euCompliance": "compliant",
-    "trustpilotScore": 4.3,
-    "trustpilotCount": 1400,
+    "trustpilotScore": 3.8,
+    "trustpilotCount": 14,
     "affiliateUrl": "https://www.performancelab.com/products/mind?a_aid=zid0oxj1g4uny&a_cid=f4c3e754",
     "affiliateNetwork": "UberNet",
     "commissionRate": "30%",
@@ -265,7 +287,6 @@
     "whatToExpect": "Acute (30-60 min): mild focus from Tyrosine and Citicoline's acetylcholine boost. 2-4 weeks: improved mental endurance and reduced cognitive fatigue. 8-12 weeks: memory and neuroprotective benefits from Lion's Mane and Phosphatidylserine accumulate. Performance Lab Mind is ideal as a standalone for minimalists, or stacked with Performance Lab Energy for a comprehensive cognitive + energy protocol.",
     "pros": [
       "Only 2 capsules per serving",
-      "EU storefront -- EUR pricing",
       "Citicoline at 250mg clinical dose",
       "Soy-free phosphatidylserine"
     ],
@@ -275,7 +296,14 @@
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-05-28"
+    "updatedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28",
+    "discontinued": {
+      "since": "2026-09-28",
+      "successorSlug": "mind-lab-pro-review",
+      "note": "Opti-Nutra merged Performance Lab Mind into Mind Lab Pro; the vendor URL now redirects to Mind Lab Pro."
+    },
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "braineffect-focus",
@@ -301,8 +329,8 @@
     "caffeineFree": false,
     "euStorefront": true,
     "euCompliance": "compliant",
-    "trustpilotScore": 3.9,
-    "trustpilotCount": 620,
+    "trustpilotScore": 4.2,
+    "trustpilotCount": 119,
     "affiliateUrl": "https://www.brain-effect.com/",
     "affiliateNetwork": "Direct",
     "commissionRate": "Contact brand",
@@ -371,7 +399,9 @@
     ],
     "editorChoice": false,
     "market": "eu",
-    "updatedAt": "2026-05-28"
+    "updatedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28",
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "brainzyme-focus-pro",
@@ -397,11 +427,11 @@
     "caffeineFree": false,
     "euStorefront": true,
     "euCompliance": "compliant",
-    "trustpilotScore": 4.1,
-    "trustpilotCount": 890,
+    "trustpilotScore": 4.8,
+    "trustpilotCount": 1142,
     "affiliateUrl": "https://www.brainzyme.com#ref=1930",
     "affiliateNetwork": "Direct",
-    "commissionRate": "Contact brand",
+    "commissionRate": "10%",
     "cookieDays": 30,
     "heroIngredients": [
       "Matcha",
@@ -456,7 +486,7 @@
     "whatToExpect": "Acute (30-45 min): smooth, gradual focus from natural caffeine + L-theanine combination. Less of a spike-and-crash than synthetic caffeine products. 2-4 weeks: sustained daily mental energy. Note: this is primarily a stimulant-based nootropic -- the cognitive enhancement is largely driven by caffeine + theanine synergy. Long-term neuroprotective benefits are limited compared to Citicoline/Bacopa-based stacks.",
     "pros": [
       "Made in UK -- FSA and EU compliant",
-      "Strong Trustpilot 4.1/5",
+      "Strong Trustpilot 4.8/5",
       "Popular with students",
       "Only 2 capsules",
       "30-day money-back"
@@ -468,7 +498,9 @@
     ],
     "editorChoice": false,
     "market": "eu",
-    "updatedAt": "2026-05-28"
+    "updatedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28",
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "hunter-focus",
@@ -495,9 +527,9 @@
     "caffeineFree": false,
     "euStorefront": true,
     "euCompliance": "compliant",
-    "trustpilotScore": 4,
-    "trustpilotCount": 1050,
-    "affiliateUrl": "https://www.hunterfocus.com/",
+    "trustpilotScore": 4.4,
+    "trustpilotCount": 93,
+    "affiliateUrl": "https://www.roarambition.com/products/hunter-focus",
     "affiliateNetwork": "Hunter Direct",
     "commissionRate": "0%",
     "cookieDays": 0,
@@ -556,7 +588,7 @@
       "EU storefront",
       "Well-dosed 9-ingredient formula",
       "EU-compliant",
-      "Trustpilot 4.0/5"
+      "Trustpilot 4.4/5 (roarambition.com)"
     ],
     "cons": [
       "6 capsules per serving",
@@ -565,6 +597,8 @@
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-05-28"
+    "updatedAt": "2026-09-28",
+    "verifiedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28"
   }
 ]

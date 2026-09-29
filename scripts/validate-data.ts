@@ -1,14 +1,65 @@
 // Lightweight, dependency-free validation gate for product data.
 // Fails (exit 1) on missing required fields, non-numeric score, or duplicate id within a region.
 import {
-  productsUS, productsEU, productsCA, productsAU,
-  productsJP, productsLatam, productsGCC, productsSEA,
-  validateRegionalNotes,
+  allProductsUS, allProductsEU, allProductsCA, allProductsAU,
+  allProductsJP, allProductsLatam, productsGCC, productsSEA,
+  validateRegionalNotes, productRuleProblems,
 } from '../packages/data/src/index';
+import type { Product } from '../packages/data/src/index';
 
+// Full lists: discontinued records still render a review page, so they are validated too.
 const regions: Record<string, unknown[]> = {
-  us: productsUS, eu: productsEU, ca: productsCA, au: productsAU,
-  jp: productsJP, latam: productsLatam, gcc: productsGCC, sea: productsSEA,
+  us: allProductsUS, eu: allProductsEU, ca: allProductsCA, au: allProductsAU,
+  jp: allProductsJP, latam: allProductsLatam, gcc: productsGCC, sea: productsSEA,
+};
+
+// Record rules (packages/data/src/product-rules.ts): affiliateUrl must be an
+// absolute https product URL — no search pages, no bare homepages unless the
+// record is discontinued — and the formula (ingredientDosages) must be non-empty.
+//
+// Records that violated a rule when it was introduced (2026-09-28) and have no
+// verified replacement value yet. Each needs a verified product URL (or
+// formula) before it can leave this list. The list can only shrink: a listed
+// record that now passes a listed rule fails the gate until that rule is
+// removed from its entry, and any violation not listed here (including a
+// second rule breaking on a listed record) fails the gate.
+type RuleName = 'affiliateUrl' | 'ingredientDosages';
+const KNOWN_RULE_VIOLATIONS: Readonly<Record<string, { rules: readonly RuleName[]; reason: string }>> = {
+  'us/mind-lab-pro-review': { rules: ['affiliateUrl'], reason: 'UberNet-tracked homepage link; deep-link attribution not confirmed' },
+  'eu/mind-lab-pro-review': { rules: ['affiliateUrl'], reason: 'UberNet-tracked homepage link; deep-link attribution not confirmed' },
+  'ca/mind-lab-pro-review': { rules: ['affiliateUrl'], reason: 'UberNet-tracked homepage link; deep-link attribution not confirmed' },
+  'au/mind-lab-pro-review': { rules: ['affiliateUrl'], reason: 'UberNet-tracked homepage link; deep-link attribution not confirmed' },
+  'jp/mind-lab-pro-review': { rules: ['affiliateUrl'], reason: 'UberNet-tracked homepage link; deep-link attribution not confirmed' },
+  'latam/mind-lab-pro-review': { rules: ['affiliateUrl'], reason: 'UberNet-tracked homepage link; deep-link attribution not confirmed' },
+  'gcc/mind-lab-pro-review': { rules: ['affiliateUrl'], reason: 'UberNet-tracked homepage link; deep-link attribution not confirmed' },
+  'sea/mind-lab-pro-review': { rules: ['affiliateUrl'], reason: 'UberNet-tracked homepage link; deep-link attribution not confirmed' },
+  'us/noocube-review': { rules: ['affiliateUrl'], reason: 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)' },
+  'eu/noocube-review': { rules: ['affiliateUrl'], reason: 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)' },
+  'ca/noocube-review': { rules: ['affiliateUrl'], reason: 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)' },
+  'au/noocube-review': { rules: ['affiliateUrl'], reason: 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)' },
+  'jp/noocube-review': { rules: ['affiliateUrl'], reason: 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)' },
+  'latam/noocube-review': { rules: ['affiliateUrl'], reason: 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)' },
+  'gcc/noocube-review': { rules: ['affiliateUrl'], reason: 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)' },
+  'sea/noocube-review': { rules: ['affiliateUrl'], reason: 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)' },
+  'us/thesis-nootropics-review': { rules: ['affiliateUrl'], reason: 'personalised subscription; no single product URL verified' },
+  'latam/thesis-nootropics-review': { rules: ['affiliateUrl'], reason: 'personalised subscription; no single product URL verified' },
+  'gcc/thesis-nootropics-review': { rules: ['affiliateUrl'], reason: 'personalised subscription; no single product URL verified' },
+  'sea/thesis-nootropics-review': { rules: ['affiliateUrl'], reason: 'personalised subscription; no single product URL verified' },
+  'us/nootropics-depot-lions-mane': { rules: ['affiliateUrl'], reason: 'record SKU (1:1 whole fruiting body) product URL not verified' },
+  'latam/nootropics-depot-lions-mane': { rules: ['affiliateUrl'], reason: 'record SKU (1:1 whole fruiting body) product URL not verified' },
+  'gcc/nootropics-depot-lions-mane': { rules: ['affiliateUrl'], reason: 'record SKU (1:1 whole fruiting body) product URL not verified' },
+  'sea/nootropics-depot-lions-mane': { rules: ['affiliateUrl'], reason: 'record SKU (1:1 whole fruiting body) product URL not verified' },
+  'us/trubrain-review': { rules: ['affiliateUrl'], reason: 'no product page URL verified (products.json only)' },
+  'eu/braineffect-focus-review': { rules: ['affiliateUrl'], reason: 'product page 404s; delisting pending operator confirmation' },
+  'eu/brainzyme-focus-pro-review': { rules: ['affiliateUrl'], reason: 'affiliate ref carried in the homepage fragment; product-page attribution not confirmed' },
+  'jp/suntory-dha-epa-sesamin-review': { rules: ['affiliateUrl'], reason: 'Amazon search link; official product page 403 to verification' },
+  'gcc/qualia-mind-review': { rules: ['affiliateUrl'], reason: 'GCC data owned by an open PR' },
+  'gcc/onnit-alpha-brain-review': { rules: ['affiliateUrl'], reason: 'GCC data owned by an open PR' },
+  'sea/qualia-mind-review': { rules: ['affiliateUrl'], reason: 'SEA data owned by an open PR' },
+  'sea/onnit-alpha-brain-review': { rules: ['affiliateUrl'], reason: 'SEA data owned by an open PR' },
+  'sea/blackmores-brain-active-review': { rules: ['affiliateUrl'], reason: 'SEA data owned by an open PR' },
+  'sea/natures-own-brain-fuel-review': { rules: ['affiliateUrl'], reason: 'SEA data owned by an open PR (record under removal)' },
+  'sea/supershrooms-focus-nootropic-review': { rules: ['affiliateUrl', 'ingredientDosages'], reason: 'SEA data owned by an open PR; empty affiliateUrl and formula' },
 };
 
 let failed = 0;
@@ -50,6 +101,33 @@ for (const [region, products] of Object.entries(regions)) {
   }
   console.log(`ok ${region}: ${products.length} products`);
 }
+
+const seenKeys = new Set<string>();
+let grandfathered = 0;
+for (const [region, products] of Object.entries(regions)) {
+  for (const item of products as Product[]) {
+    const key = `${region}/${item.slug}`;
+    seenKeys.add(key);
+    const problems = productRuleProblems(item);
+    const allowed = KNOWN_RULE_VIOLATIONS[key]?.rules ?? [];
+    // Only the listed rule may fail for a listed record; any other violation is new.
+    const unexpected = problems.filter((problem) => !allowed.some((rule) => problem.startsWith(rule)));
+    for (const problem of unexpected) console.error(`FAIL ${key}: ${problem}`);
+    failed += unexpected.length;
+    for (const rule of allowed) {
+      if (problems.some((problem) => problem.startsWith(rule))) {
+        grandfathered++;
+      } else {
+        console.error(`FAIL ${key}: passes the ${rule} rule now — remove it from its KNOWN_RULE_VIOLATIONS entry`);
+        failed++;
+      }
+    }
+  }
+}
+for (const key of Object.keys(KNOWN_RULE_VIOLATIONS)) {
+  if (!seenKeys.has(key)) console.warn(`warn ${key}: KNOWN_RULE_VIOLATIONS entry has no record (removed?) — delete it`);
+}
+console.log(`ok record-rules: no new violations (${grandfathered} pre-existing, listed in KNOWN_RULE_VIOLATIONS)`);
 
 // Regional notes (2026-09): every authored note must cite at least one
 // primary source with an http(s) URL — a note without a source is treated

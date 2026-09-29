@@ -18,14 +18,14 @@
       "trust": 9
     },
     "priceMonthlyUSD": 69,
-    "priceMonthlyAUD": 107,
+    "priceMonthlyAUD": 89,
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 4.5,
-    "trustpilotCount": 3200,
+    "trustpilotScore": 4.2,
+    "trustpilotCount": 82,
     "affiliateUrl": "https://www.mindlabpro.com?a_aid=zid0oxj1g4uny&a_bid=6d45f5c3",
     "affiliateNetwork": "UberNet",
     "commissionRate": "30%",
@@ -51,7 +51,7 @@
         "adequatelyDosed": true
       },
       {
-        "name": "Bacopa Monnieri (45% bacosides)",
+        "name": "Bacopa Monnieri (full-spectrum, 24% bacosides)",
         "doseInProduct": "150mg",
         "clinicalDose": "300mg",
         "adequatelyDosed": false
@@ -102,7 +102,9 @@
     ],
     "editorChoice": true,
     "market": "both",
-    "updatedAt": "2026-05-28"
+    "updatedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28",
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "noocube",
@@ -122,15 +124,15 @@
       "value": 9,
       "trust": 7
     },
-    "priceMonthlyUSD": 59,
-    "priceMonthlyAUD": 91,
+    "priceMonthlyUSD": 64.99,
+    "priceMonthlyAUD": 84.99,
     "pricingModel": "both",
     "moneyBackDays": 60,
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 1.9,
-    "trustpilotCount": 850,
+    "trustpilotScore": null,
+    "trustpilotCount": null,
     "affiliateUrl": "https://www.noocube.com/",
     "affiliateNetwork": "FanFuel",
     "commissionRate": "31.5%",
@@ -140,8 +142,10 @@
       "Bacopa Monnieri",
       "Panax Ginseng",
       "VitaCholine",
-      "Huperzine A",
-      "L-Theanine"
+      "Cat's Claw",
+      "Resveratrol",
+      "L-Theanine",
+      "Pterostilbene"
     ],
     "ingredientDosages": [
       {
@@ -151,21 +155,33 @@
         "adequatelyDosed": true
       },
       {
-        "name": "Bacopa Monnieri",
+        "name": "Bacopa Monnieri (12:1, 20% bacosides)",
         "doseInProduct": "250mg",
         "clinicalDose": "300mg",
         "adequatelyDosed": false
       },
       {
-        "name": "Alpha-GPC",
-        "doseInProduct": "50mg",
-        "clinicalDose": "300mg",
+        "name": "Panax Ginseng (200:1 concentrate)",
+        "doseInProduct": "20mg",
+        "clinicalDose": "Limited human data",
         "adequatelyDosed": false
       },
       {
-        "name": "Huperzine A",
-        "doseInProduct": "20mcg",
-        "clinicalDose": "50-200mcg",
+        "name": "Choline (VitaCholine)",
+        "doseInProduct": "250mg",
+        "clinicalDose": "Limited human data",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Cat's Claw (4:1 extract)",
+        "doseInProduct": "Undisclosed",
+        "clinicalDose": "Limited human data",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Resveratrol (99%)",
+        "doseInProduct": "14.3mg",
+        "clinicalDose": "Limited human data",
         "adequatelyDosed": false
       },
       {
@@ -183,28 +199,30 @@
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 4,
-    "summary": "Strong formula anchored by Lutemax 2020 for Australian screen workers. Ships from the UK/EU to Australia as an imported food supplement. Best value per serving for Australian buyers. Note: Trustpilot score is very low -- verify independently before purchasing.",
-    "whatItIs": "NooCube is a 13-ingredient nootropic stack made by Wolfson Brands. Its standout feature is Lutemax 2020 -- a patented lutein and zeaxanthin extract researched for reducing digital eye strain and blue-light-related cognitive fatigue. Available for international shipping to Australia, it is imported as a food supplement. Australian buyers should be aware that Huperzine A may require Therapeutic Goods Administration (TGA) oversight if sold with therapeutic claims.",
-    "howItWorks": "Lutemax 2020 filters high-energy blue light in the retina, reducing eye fatigue during screen use -- particularly relevant for Australian remote workers and office professionals. Alpha-GPC and Huperzine A work on the cholinergic system. L-Theanine provides calm focus. Bacopa Monnieri targets memory consolidation over weeks.",
-    "whatToExpect": "Day one: mild calm focus from L-Theanine. Within 2-4 weeks: reduced eye fatigue and better end-of-day mental stamina. At 8 weeks: modest memory improvements from Bacopa. Ships from the UK/EU to Australia with delivery typically within 14-21 days. Australian buyers should verify the subscription cancellation policy before purchasing given the low Trustpilot score.",
+    "summary": "Strong formula anchored by Lutemax 2020 for Australian screen workers. Ships from the UK/EU to Australia as an imported food supplement. A$84.99 for a 30-serving bottle on noocube.com.au. Note: the noocube.com Trustpilot profile has no reviews yet -- verify independently before purchasing.",
+    "whatItIs": "NooCube is a 12-ingredient nootropic stack made by Wolfson Brands. Its standout feature is Lutemax 2020 -- a patented lutein and zeaxanthin extract researched for reducing digital eye strain and blue-light-related cognitive fatigue. Available for international shipping to Australia, it is imported as a food supplement.",
+    "howItWorks": "Lutemax 2020 filters high-energy blue light in the retina, reducing eye fatigue during screen use -- particularly relevant for Australian remote workers and office professionals. Choline from VitaCholine supports the cholinergic system; the current formula no longer contains Alpha-GPC or Huperzine A. L-Theanine provides calm focus. Bacopa Monnieri targets memory consolidation over weeks.",
+    "whatToExpect": "Day one: mild calm focus from L-Theanine. Within 2-4 weeks: reduced eye fatigue and better end-of-day mental stamina. At 8 weeks: modest memory improvements from Bacopa. Ships from the UK/EU to Australia with delivery typically within 14-21 days. Australian buyers should verify the subscription cancellation policy before purchasing since the noocube.com Trustpilot profile has no reviews yet.",
     "pros": [
       "Lutemax 2020 for screen workers",
-      "Good value at $59/mo USD",
+      "A$84.99/mo on the Australian storefront (noocube.com.au)",
       "60-day money-back",
       "Ships to Australia"
     ],
     "cons": [
-      "Trustpilot 1.9/5 -- significant complaints",
+      "No reviews on the noocube.com Trustpilot profile (checked 2026-09-28)",
       "Some ingredients underdosed",
       "Subscription cancellation issues (BBB)",
       "Therapeutic Goods Administration (TGA) listing required for therapeutic claims -- imported as food supplement"
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-05-28",
+    "updatedAt": "2026-09-28",
     "notes": [
       "Bulk-purchase pricing changed June 2026: 5-month supply $194.99 USD (was 6-month for $180). AU buyers purchasing direct affected."
-    ]
+    ],
+    "trustpilotCheckedAt": "2026-09-28",
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "performance-lab-mind",
@@ -231,8 +249,8 @@
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 4.4,
-    "trustpilotCount": 920,
+    "trustpilotScore": 3.8,
+    "trustpilotCount": 14,
     "affiliateUrl": "https://www.performancelab.com/products/mind?a_aid=zid0oxj1g4uny&a_cid=f4c3e754",
     "affiliateNetwork": "UberNet",
     "commissionRate": "30%",
@@ -277,7 +295,6 @@
     "whatToExpect": "Day one: mild cognitive sharpness and sustained attention. Within 2-4 weeks: improved stress resilience and working memory. At 8 weeks: measurable reduction in mental fatigue during extended cognitive tasks. Ships from the UK to Australia in approximately 14-21 business days. Only 2 capsules per serving -- excellent for Australian buyers looking for a low pill-burden daily stack.",
     "pros": [
       "Minimalist clean formula",
-      "Ships to Australia",
       "NutriGenesis nutrients",
       "Only 2 capsules/day"
     ],
@@ -288,7 +305,14 @@
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-05-28"
+    "updatedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28",
+    "discontinued": {
+      "since": "2026-09-28",
+      "successorSlug": "mind-lab-pro-review",
+      "note": "Opti-Nutra merged Performance Lab Mind into Mind Lab Pro; the vendor URL now redirects to Mind Lab Pro."
+    },
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "hunter-focus",
@@ -315,9 +339,9 @@
     "caffeineFree": false,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 4,
-    "trustpilotCount": 1050,
-    "affiliateUrl": "https://www.hunterfocus.com/",
+    "trustpilotScore": 4.4,
+    "trustpilotCount": 93,
+    "affiliateUrl": "https://www.roarambition.com/en-us/products/hunter-focus",
     "affiliateNetwork": "Hunter Direct",
     "commissionRate": "0%",
     "cookieDays": 0,
@@ -380,7 +404,9 @@
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-05-28"
+    "updatedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28",
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "alpha-brain",
@@ -407,9 +433,9 @@
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 3.2,
-    "trustpilotCount": 4200,
-    "affiliateUrl": "https://www.onnit.com/",
+    "trustpilotScore": 4.2,
+    "trustpilotCount": 15776,
+    "affiliateUrl": "https://www.onnit.com/alphabrain/",
     "affiliateNetwork": "Impact",
     "commissionRate": "12%",
     "cookieDays": 30,
@@ -478,12 +504,14 @@
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-05-28"
+    "updatedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28",
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "qualia-mind",
     "name": "Qualia Mind",
-    "brand": "Neurohacker Collective",
+    "brand": "Qualia Life Sciences",
     "slug": "qualia-mind-review",
     "bestFor": [
       "Power users",
@@ -505,9 +533,9 @@
     "caffeineFree": false,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 3.8,
-    "trustpilotCount": 1100,
-    "affiliateUrl": "https://neurohacker.com/",
+    "trustpilotScore": 4.5,
+    "trustpilotCount": 66,
+    "affiliateUrl": "https://www.qualialife.com/shop/qualia-mind",
     "affiliateNetwork": "ShareASale",
     "commissionRate": "15%",
     "cookieDays": 30,
@@ -584,7 +612,9 @@
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-05-28"
+    "updatedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28",
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "naturebell-ginkgo-ginseng",
@@ -683,8 +713,8 @@
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 4.1,
-    "trustpilotCount": 480,
+    "trustpilotScore": null,
+    "trustpilotCount": null,
     "affiliateUrl": "https://www.blackmores.com.au/",
     "affiliateNetwork": "Chemist Warehouse / Priceline (retail-distributed)",
     "commissionRate": "Retail (no direct DTC affiliate)",
@@ -738,7 +768,6 @@
       "TGA-listed (AUST L) — Australian Listed Medicines compliant",
       "Bacopa at clinical dose (300mg)",
       "1-capsule daily — minimal friction",
-      "Available at every major Australian pharmacy (Chemist Warehouse, Priceline, Amcal)",
       "Caffeine-free — no stimulant overlap",
       "Lowest per-month price in the AU coverage (~AUD $35/mo)",
       "Founded 1932 — strongest brand-trust footprint in Australian supplements"
@@ -752,7 +781,13 @@
     ],
     "editorChoice": false,
     "market": "au",
-    "updatedAt": "2026-05-28",
-    "austl": "246877"
+    "updatedAt": "2026-09-28",
+    "austl": "246877",
+    "discontinued": {
+      "since": "2026-09-28",
+      "note": "No longer listed on blackmores.com.au or at Chemist Warehouse; Blackmores now sells Cognition Ultra / Omega Brain."
+    },
+    "verifiedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28"
   }
 ]

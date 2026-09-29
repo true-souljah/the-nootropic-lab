@@ -57,22 +57,16 @@ const picks: ListiclePick[] = [
       'Includes Bacopa, citicoline (250mg Cognizin at clinical dose), Lion\'s Mane (500mg fruiting body at clinical dose), AND phosphatidylserine (100mg Sharp-PS at clinical dose) — all four memory-evidence ingredients in one open-formula EU-storefront product. Bacopa dose is 150mg (under the 300mg clinical anchor); consider stacking with a separate Bacopa supplement for full effect. €65/mo with EUR pricing.',
   },
   {
-    product: productsEU.find(p => p.slug === 'performance-lab-mind-review')!,
-    rank: 2,
-    whyItsHere:
-      'Three of the four memory ingredients at clinical dose: Lion\'s Mane (500mg fruiting body), Phosphatidylserine (100mg Sharp-PS), Citicoline (250mg Cognizin). No Bacopa, but everything else is precisely dosed. Only 2 capsules/day at €55/mo. Same Opti-Nutra manufacturer as Mind Lab Pro.',
-  },
-  {
     product: productsEU.find(p => p.slug === 'hunter-focus-review')!,
-    rank: 3,
+    rank: 2,
     whyItsHere:
       'Lion\'s Mane (500mg fruiting body) and Phosphatidylserine (100mg) both at clinical dose, plus Bacopa (200mg, under the 300mg clinical anchor). Adds Ashwagandha for stress-related memory. Premium €85/mo and 6 capsules/day are real friction; pick this if you specifically want the broader stack.',
   },
   {
     product: productsEU.find(p => p.slug === 'noocube-review')!,
-    rank: 4,
+    rank: 3,
     whyItsHere:
-      'Bacopa Monnieri (250mg, just under the 300mg clinical anchor) is its main memory-relevant ingredient. EU storefront with EUR pricing at €55/mo. Trustpilot 1.9/5 reflects subscription cancellation complaints — review terms carefully before subscribing.',
+      'Bacopa Monnieri (250mg, just under the 300mg clinical anchor) is its main memory-relevant ingredient. No EUR storefront: the UK store (noocube.co.uk) prices in GBP (£54.99/mo) and ships to the UK, Ireland, Spain, Portugal, Greece, Croatia, Poland, Sweden and Denmark, but not to Germany, France or the Netherlands. The noocube.com Trustpilot profile has no reviews yet — review terms carefully before subscribing.',
   },
 ];
 

@@ -57,33 +57,27 @@ const picks: ListiclePick[] = [
       'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design pairs naturally with your morning coffee or matcha for the synergistic effect. Ships from the UK or US to Japan in 7–14 days at approximately ¥10,350/month equivalent. The most evidence-backed focus stack available to Japanese buyers.',
   },
   {
-    product: productsJP.find(p => p.slug === 'performance-lab-mind-review')!,
-    rank: 2,
-    whyItsHere:
-      'Minimalist 4-ingredient stack centered on 250mg Cognizin citicoline plus 100mg Sharp-PS phosphatidylserine — both at clinical dose. Caffeine-free, only 2 capsules per serving (lowest pill burden in this Japan review). Ships from the UK in 10–14 days. Best for buyers who want premium patented ingredients without the broad multi-ingredient blends.',
-  },
-  {
     product: productsJP.find(p => p.slug === 'hunter-focus-review')!,
-    rank: 3,
+    rank: 2,
     whyItsHere:
       'High-dose stack with 100mg caffeine + 200mg L-theanine in the classic 1:2 ratio for clean stimulated focus, plus 250mg citicoline and 500mg Lion\'s Mane. Note: contains caffeine and the label is in English only — Japanese buyers sensitive to stimulants should pick a caffeine-free option above. 6 capsules/day is a heavy pill burden.',
   },
   {
     product: productsJP.find(p => p.slug === 'noocube-review')!,
-    rank: 4,
+    rank: 3,
     whyItsHere:
-      'Caffeine-free stack containing Alpha-GPC, L-tyrosine, and L-theanine at 100mg (clinical dose). Some ingredients (Alpha-GPC at 50mg, L-tyrosine at 250mg) are below clinical anchors. 60-day money-back guarantee — the longest in this Japan review. Ships internationally in 10–14 days with one-time purchase (no subscription).',
+      'Caffeine-free stack containing choline (VitaCholine, 250mg), L-tyrosine, and L-theanine at 100mg (clinical dose). L-tyrosine at 250mg is below its clinical anchor. 60-day money-back guarantee — the longest in this Japan review. Ships internationally in 10–14 days with one-time purchase (no subscription).',
   },
 ];
 
 const faqItems: ListicleFAQ[] = [
   {
     q: 'Are any of these focus nootropics notified under Japan\'s FFC (機能性表示食品) system?',
-    a: 'No — the international stacks above (Mind Lab Pro, Performance Lab Mind, Hunter Focus, NooCube) are not notified under Japan\'s Food with Function Claims framework administered by the Consumer Affairs Agency (消費者庁). They ship under the personal-import route. Domestic FFC-notified options like FANCL BRAINs and Suntory DHA & EPA + Sesamin EX target memory and brain health rather than acute focus, and are covered on our memory and aging pages.',
+    a: 'No — the international stacks above (Mind Lab Pro, Hunter Focus, NooCube) are not notified under Japan\'s Food with Function Claims framework administered by the Consumer Affairs Agency (消費者庁). They ship under the personal-import route. Domestic FFC-notified options like FANCL BRAINs and Suntory DHA & EPA + Sesamin EX target memory and brain health rather than acute focus, and are covered on our memory and aging pages.',
   },
   {
     q: 'What is the most evidence-backed nootropic for focus available in Japan?',
-    a: 'L-theanine paired with caffeine (1:2 to 2:1 ratio) has the strongest replication evidence in healthy adults — Owen et al. 2008 and multiple follow-ups. This is the same pairing naturally present in matcha. Citicoline at 250–500mg also has multiple RCTs and is the headline ingredient in our top two picks (Mind Lab Pro and Performance Lab Mind).',
+    a: 'L-theanine paired with caffeine (1:2 to 2:1 ratio) has the strongest replication evidence in healthy adults — Owen et al. 2008 and multiple follow-ups. This is the same pairing naturally present in matcha. Citicoline at 250–500mg also has multiple RCTs and is the headline ingredient in our top pick (Mind Lab Pro).',
   },
   {
     q: 'Where can I buy these in Japan?',
