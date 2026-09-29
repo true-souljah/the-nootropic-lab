@@ -54,7 +54,7 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Includes Bacopa, citicoline (250mg Cognizin at clinical dose), AND phosphatidylserine — three of the four memory-evidence ingredients in one open formula. Bacopa dose is 150mg (under the 300mg clinical anchor) so consider stacking with a separate Bacopa supplement for full effect. Ships from the UK or US to Japan in 7–14 days.',
+      'Includes Bacopa, citicoline (250mg Cognizin at clinical dose), AND phosphatidylserine — three of the four memory-evidence ingredients in one open formula. Bacopa dose is 150mg (under the 300mg clinical anchor) so consider stacking with a separate Bacopa supplement for full effect. Ships from the UK to Japan in 5–20 working days by tracked airmail or 2–7 working days by DHL courier (per mindlabpro.com, checked 2026-09-29).',
   },
   {
     product: productsJP.find(p => p.slug === 'fancl-brains-review')!,
@@ -85,7 +85,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Where can I buy these in Japan?',
-    a: 'FANCL BRAINs: every major pharmacy chain (Matsumoto Kiyoshi, Welcia, Sugi Pharmacy, Sundrug) plus Amazon Japan with Prime delivery. Suntory DHA & EPA + Sesamin EX: Suntory Wellness direct, Amazon Japan, and select drugstores. Mind Lab Pro: ships directly from the UK or US to Japan via the manufacturer website (7–14 business days).',
+    a: 'FANCL BRAINs: every major pharmacy chain (Matsumoto Kiyoshi, Welcia, Sugi Pharmacy, Sundrug) plus Amazon Japan with Prime delivery. Suntory DHA & EPA + Sesamin EX: Suntory Wellness direct, Amazon Japan, and select drugstores. Mind Lab Pro: ships directly from the UK to Japan via the manufacturer website (5–20 working days by tracked airmail or 2–7 working days by DHL courier, per mindlabpro.com, checked 2026-09-29).',
   },
   {
     q: 'Will Bacopa make me feel anything?',

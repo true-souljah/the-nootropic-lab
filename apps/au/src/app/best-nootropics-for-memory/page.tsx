@@ -55,13 +55,13 @@ const picks: ListiclePick[] = [
     product: productsAU.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Includes Bacopa, citicoline (250mg Cognizin at clinical dose), phosphatidylserine (100mg Sharp-PS at clinical dose), AND Lion\'s Mane fruiting-body extract (500mg) — four of the four memory-evidence ingredients in one open formula. Bacopa dose is 150mg (under the 300mg clinical anchor) so consider stacking with a separate TGA-listed Bacopa product (Blackmores, Caruso\'s) for full bacopa effect. Ships from the UK to Australia in 7–14 business days.',
+      'Includes Bacopa, citicoline (250mg Cognizin at clinical dose), phosphatidylserine (100mg Sharp-PS at clinical dose), AND Lion\'s Mane fruiting-body extract (500mg) — four of the four memory-evidence ingredients in one open formula. Bacopa dose is 150mg (under the 300mg clinical anchor) so consider stacking with a separate TGA-listed Bacopa product (Blackmores, Caruso\'s) for full bacopa effect. Ships to Australia in 3–6 working days from the brand\'s Australian depot, or 7–14 working days when shipped from the UK (per mindlabpro.com, checked 2026-09-29).',
   },
   {
     product: productsAU.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes Bacopa (300mg at clinical dose), citicoline, phosphatidylserine (200mg), AND a comprehensive cholinergic stack — the most complete memory-ingredient stack in one product available to Australian buyers. Loses ground on capsule count (7+/day) and price (AUD $215/mo). For memory specifically, the breadth justifies the trade-off if you can tolerate the daily friction. Ships from the US to Australia in 10–18 business days. Note: contains Huperzine A and caffeine.',
+      'Includes Bacopa (300mg at clinical dose), citicoline, phosphatidylserine (200mg), AND a comprehensive cholinergic stack — the most complete memory-ingredient stack in one product available to Australian buyers. Loses ground on capsule count (7+/day) and price (AUD $215/mo). For memory specifically, the breadth justifies the trade-off if you can tolerate the daily friction. International delivery is estimated at 15–22 days (per qualialife.com, checked 2026-09-29). Note: contains Huperzine A and caffeine.',
   },
   {
     product: productsAU.find(p => p.slug === 'hunter-focus-review')!,
@@ -73,7 +73,7 @@ const picks: ListiclePick[] = [
     product: productsAU.find(p => p.slug === 'onnit-alpha-brain-review')!,
     rank: 4,
     whyItsHere:
-      'Contains Bacopa and Huperzine A (an acetylcholinesterase inhibitor with weak memory evidence). Proprietary blends mean you cannot verify Bacopa is at the 300mg clinical dose. Mainstream international availability is its strongest feature for Australian memory buyers. Ships from the US to Australia in 10–18 business days.',
+      'Contains Bacopa and Huperzine A (an acetylcholinesterase inhibitor with weak memory evidence). Proprietary blends mean you cannot verify Bacopa is at the 300mg clinical dose. Mainstream international availability is its strongest feature for Australian memory buyers. Check the delivery estimate for Australia at checkout.',
   },
 ];
 

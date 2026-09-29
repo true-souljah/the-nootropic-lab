@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsCA.find(p => p.slug === 'hunter-focus-review')!,
     rank: 2,
     whyItsHere:
-      'Only pick on this list with the full caffeine + L-theanine 1:2 stack pre-built (100mg caffeine + 200mg L-theanine), plus 250mg citicoline and 500mg Lion\'s Mane. The right choice for Canadian professionals who want energy + focus in one supplement and tolerate caffeine well. Ships from the UK to Canada in 10–14 business days.',
+      'Only pick on this list with the full caffeine + L-theanine 1:2 stack pre-built (100mg caffeine + 200mg L-theanine), plus 250mg citicoline and 500mg Lion\'s Mane. The right choice for Canadian professionals who want energy + focus in one supplement and tolerate caffeine well. Ships to Canada; check the delivery estimate for Canada at checkout.',
   },
   {
     product: productsCA.find(p => p.slug === 'qualia-mind-review')!,

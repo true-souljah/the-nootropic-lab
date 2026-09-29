@@ -55,7 +55,7 @@ const picks: ListiclePick[] = [
     product: productsAU.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design lets you pair it with your own coffee or matcha for the synergistic effect. Ships from the UK directly to Australian addresses in 7–14 business days under the Personal Importation Scheme as a food supplement.',
+      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design lets you pair it with your own coffee or matcha for the synergistic effect. Ships directly to Australian addresses in 3–6 working days from the brand\'s Australian depot, or 7–14 working days when shipped from the UK (per mindlabpro.com, checked 2026-09-29), under the Personal Importation Scheme as a food supplement.',
   },
   {
     product: productsAU.find(p => p.slug === 'qualia-mind-review')!,
@@ -67,13 +67,13 @@ const picks: ListiclePick[] = [
     product: productsAU.find(p => p.slug === 'onnit-alpha-brain-review')!,
     rank: 3,
     whyItsHere:
-      'Contains Alpha-GPC, L-theanine, and Bacopa, but doses are hidden inside proprietary blends. Caffeine-free Classic version. Most internationally recognised nootropic brand for Australian buyers, National Sanitation Foundation (NSF) Certified for Sport — relevant for drug-tested Australian athletes. Ships from the US to Australia in 10–18 business days as a food supplement.',
+      'Contains Alpha-GPC, L-theanine, and Bacopa, but doses are hidden inside proprietary blends. Caffeine-free Classic version. Most internationally recognised nootropic brand for Australian buyers, National Sanitation Foundation (NSF) Certified for Sport — relevant for drug-tested Australian athletes. Ships to Australia as a food supplement; check the delivery estimate for Australia at checkout.',
   },
   {
     product: productsAU.find(p => p.slug === 'noocube-review')!,
     rank: 4,
     whyItsHere:
-      'Includes choline (VitaCholine, 250mg), L-tyrosine (250mg), L-theanine (100mg), plus Lutemax 2020 lutein/zeaxanthin for screen-fatigue reduction — a relevant angle for Australian remote and office workers. Open formula. The noocube.com Trustpilot profile has no reviews yet — verify subscription cancellation terms before ordering. Ships from the UK/EU to Australia in 14–21 business days.',
+      'Includes choline (VitaCholine, 250mg), L-tyrosine (250mg), L-theanine (100mg), plus Lutemax 2020 lutein/zeaxanthin for screen-fatigue reduction — a relevant angle for Australian remote and office workers. Open formula. The noocube.com Trustpilot profile has no reviews yet — verify subscription cancellation terms before ordering. Delivery to Australia is quoted as within 10 business days (per noocube.com, checked 2026-09-29).',
   },
 ];
 
@@ -92,7 +92,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Where can I buy these in Australia?',
-    a: 'These products are not stocked at Chemist Warehouse, Priceline, Amcal, or Blooms — Australian pharmacy chains carry only TGA-listed therapeutic goods. The picks on this page are direct-to-consumer brands that ship to Australia via the Personal Importation Scheme. Order direct from the manufacturer. Delivery takes 7–21 business days depending on origin (UK is fastest).',
+    a: 'These products are not stocked at Chemist Warehouse, Priceline, Amcal, or Blooms — Australian pharmacy chains carry only TGA-listed therapeutic goods. The picks on this page are direct-to-consumer brands that ship to Australia via the Personal Importation Scheme. Order direct from the manufacturer. Delivery estimates vary by brand; check the estimate for Australia at checkout.',
   },
   {
     q: 'Do I pay GST on these imports?',

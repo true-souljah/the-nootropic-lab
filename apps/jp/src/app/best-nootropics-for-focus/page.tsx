@@ -54,7 +54,7 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design pairs naturally with your morning coffee or matcha for the synergistic effect. Ships from the UK or US to Japan in 7–14 days at approximately ¥10,350/month equivalent. The most evidence-backed focus stack available to Japanese buyers.',
+      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design pairs naturally with your morning coffee or matcha for the synergistic effect. Ships from the UK to Japan in 5–20 working days by tracked airmail or 2–7 working days by DHL courier (per mindlabpro.com, checked 2026-09-29), at approximately ¥10,350/month equivalent. The most evidence-backed focus stack available to Japanese buyers.',
   },
   {
     product: productsJP.find(p => p.slug === 'hunter-focus-review')!,
@@ -66,7 +66,7 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'noocube-review')!,
     rank: 3,
     whyItsHere:
-      'Caffeine-free stack containing choline (VitaCholine, 250mg), L-tyrosine, and L-theanine at 100mg (clinical dose). L-tyrosine at 250mg is below its clinical anchor. 60-day money-back guarantee — the longest in this Japan review. Ships internationally in 10–14 days with one-time purchase (no subscription).',
+      'Caffeine-free stack containing choline (VitaCholine, 250mg), L-tyrosine, and L-theanine at 100mg (clinical dose). L-tyrosine at 250mg is below its clinical anchor. 60-day money-back guarantee — the longest in this Japan review. Ships internationally with one-time purchase (no subscription). The brand does not publish a delivery estimate for this country; check the estimate at checkout.',
   },
 ];
 
@@ -81,7 +81,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Where can I buy these in Japan?',
-    a: 'All four picks above ship directly from the UK or US to Japan via the manufacturer website — typically 7–14 business days. None are stocked in Matsumoto Kiyoshi (マツモトキヨシ), Welcia (ウエルシア), or Sundrug (サンドラッグ) pharmacy chains, which carry only domestic FFC-notified supplements. For pharmacy-shelf options, see our memory and aging pages featuring FANCL and Suntory.',
+    a: 'All four picks above ship directly from the UK or US to Japan via the manufacturer website — check the delivery estimate for Japan at checkout. None are stocked in Matsumoto Kiyoshi (マツモトキヨシ), Welcia (ウエルシア), or Sundrug (サンドラッグ) pharmacy chains, which carry only domestic FFC-notified supplements. For pharmacy-shelf options, see our memory and aging pages featuring FANCL and Suntory.',
   },
   {
     q: 'How long does it take a focus nootropic to work?',

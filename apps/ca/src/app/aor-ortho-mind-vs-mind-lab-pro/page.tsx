@@ -54,7 +54,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Where to buy each?',
     a:
-      'AOR Ortho•Mind: directly at aor.ca, Pure Pharmacy, Healthy Planet, and many independent Canadian health-food retailers. Mind Lab Pro: only via mindlabpro.com (international shipping to Canada in 5-10 business days).',
+      'AOR Ortho•Mind: directly at aor.ca, Pure Pharmacy, Healthy Planet, and many independent Canadian health-food retailers. Mind Lab Pro: only via mindlabpro.com (international shipping to Canada: 5-20 working days by tracked airmail or 2-7 working days by DHL courier, per mindlabpro.com, checked 2026-09-29).',
   },
 ];
 
@@ -71,7 +71,7 @@ const whoIsForB = [
   'Care about peer-reviewed product-specific RCT evidence',
   'Want phosphatidylserine, Lion\'s Mane, citicoline, Rhodiola in one capsule',
   'Are caffeine-free user (Mind Lab Pro is fully caffeine-free)',
-  'Don\'t mind international shipping (5-10 business days)',
+  'Don\'t mind international shipping (5-20 working days by airmail or 2-7 working days by DHL, per mindlabpro.com, checked 2026-09-29)',
   'Are willing to pay 50% premium for the broader 11-ingredient formula',
 ];
 

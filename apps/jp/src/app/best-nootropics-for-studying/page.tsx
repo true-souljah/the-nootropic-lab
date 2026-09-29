@@ -54,7 +54,7 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Caffeine-free design pairs perfectly with whatever caffeine source Japanese students use during study sessions (coffee, matcha, energy drinks like Red Bull). Includes L-theanine, Bacopa, citicoline, and L-tyrosine — covers all four study-relevant mechanisms in one open formula. Take daily through the term for cumulative Bacopa effect. Ships from the UK/US in 7–14 days at ¥10,350/month equivalent.',
+      'Caffeine-free design pairs perfectly with whatever caffeine source Japanese students use during study sessions (coffee, matcha, energy drinks like Red Bull). Includes L-theanine, Bacopa, citicoline, and L-tyrosine — covers all four study-relevant mechanisms in one open formula. Take daily through the term for cumulative Bacopa effect. Ships from the UK in 5–20 working days by tracked airmail or 2–7 working days by DHL courier (per mindlabpro.com, checked 2026-09-29), at ¥10,350/month equivalent.',
   },
   {
     product: productsJP.find(p => p.slug === 'noocube-review')!,
