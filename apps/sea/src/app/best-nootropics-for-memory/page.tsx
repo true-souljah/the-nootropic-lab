@@ -54,7 +54,7 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Includes Bacopa, citicoline (250mg Cognizin at clinical dose), AND phosphatidylserine (100mg Sharp-PS at clinical dose) plus Lion\'s Mane fruiting-body extract — four of the four memory-evidence ingredients in one open formula. Bacopa dose is 150mg (under the 300mg clinical anchor) so consider stacking with a separate Brahmi/Bacopa supplement (widely available across SEA). UK→SEA shipping 7–14 days. Personal-use import. Not BPJPH/JAKIM halal-certified.',
+      'Includes Bacopa, citicoline (250mg Cognizin at clinical dose), AND phosphatidylserine (100mg Sharp-PS at clinical dose) plus Lion\'s Mane fruiting-body extract — four of the four memory-evidence ingredients in one open formula. Bacopa dose is 150mg (under the 300mg clinical anchor) so consider stacking with a separate Brahmi/Bacopa supplement (widely available across SEA). Direct delivery to SEA is not confirmed: mindlabpro.com lists only the US and eu.mindlabpro.com only EU countries (checked 2026-09-29). Personal-use import. Not BPJPH/JAKIM halal-certified.',
   },
   {
     product: productsSEA.find(p => p.slug === 'qualia-mind-review')!,
@@ -72,18 +72,18 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'eu-yan-sang-brainmax-review')!,
     rank: 4,
     whyItsHere:
-      'A 145-year-old TCM heritage brand with 200+ retail stores across Singapore, Malaysia, Hong Kong, and Macau. Cera-Q (silk fibroin protein, clinically studied for memory and recall) at 200mg full clinical dose, plus Goji Berry and Chinese Wild Ginseng. Walk into any Eu Yan Sang store in SG/MY for in-person purchase — zero import risk, deep brand trust across Chinese-heritage communities. Same-day delivery in Singapore; delivery outside Singapore was not confirmed — check delivery options at checkout. Powder sachets, one per day. Note: not currently halal-certified — verify if required.',
+      'A 145-year-old TCM heritage brand with 200+ retail stores across Singapore, Malaysia, Hong Kong, and Macau. Cera-Q (silk fibroin protein, clinically studied for memory and recall) at 600mg per sachet (above the 200mg clinical dose), plus Goji Berry and Chinese Wild Ginseng. Walk into any Eu Yan Sang store in SG/MY for in-person purchase — zero import risk, deep brand trust across Chinese-heritage communities. Same-day delivery in Singapore; delivery outside Singapore was not confirmed — check delivery options at checkout. Powder sachets, one per day. Note: not currently halal-certified — verify if required.',
   },
 ];
 
 const faqItems: ListicleFAQ[] = [
   {
     q: 'Are these memory nootropics halal-certified?',
-    a: 'Imported brands (Mind Lab Pro, Qualia Mind, Nootropics Depot Lion\'s Mane) do not carry BPJPH (Indonesia) or JAKIM (Malaysia) halal certification. Capsules are gelatin-based with vendor disclosure varying. For halal-certified options: some Blackmores SKUs carry JAKIM certification — verify on the specific product label, and consult the JAKIM halal verification portal (verify.halal.gov.my) or BPJPH portal (halal.go.id) for the latest status. Eu Yan Sang BrainMAX+ uses vegetarian capsules and is positioned for Chinese-heritage buyers but is not halal-certified. When uncertain, contact the brand or check the local halal database before purchase.',
+    a: 'Imported brands (Mind Lab Pro, Qualia Mind, Nootropics Depot Lion\'s Mane) do not carry BPJPH (Indonesia) or JAKIM (Malaysia) halal certification. Capsules are gelatin-based with vendor disclosure varying. For halal-certified options: some Blackmores SKUs carry JAKIM certification — verify on the specific product label, and consult the JAKIM halal verification portal (verify.halal.gov.my) or BPJPH portal (halal.go.id) for the latest status. Eu Yan Sang BrainMAX+ is a powder sachet (no capsule shell) and is positioned for Chinese-heritage buyers but is not halal-certified. When uncertain, contact the brand or check the local halal database before purchase.',
   },
   {
     q: 'Which memory nootropics are best via Shopee/Lazada vs cross-border iHerb?',
-    a: 'Shopee/Lazada/TikTok Shop: the Eu Yan Sang official store on Shopee SG/MY. NatureBell Ginkgo+Ginseng is available on Amazon.sg as a budget option. Cross-border iHerb: best route for Nootropics Depot Lion\'s Mane and other premium single-ingredient products into Singapore and Malaysia (consolidated warehouses minimise customs friction). Direct from brand: Mind Lab Pro ships DDP into SEA — no customs surprises but slower delivery. Qualia Mind does not ship to any SEA country (brand shipping page, checked 2026-09-28).',
+    a: 'Shopee/Lazada/TikTok Shop: the Eu Yan Sang official store on Shopee SG/MY. NatureBell Ginkgo+Ginseng is available on Amazon.sg as a budget option. Cross-border iHerb: best route for Nootropics Depot Lion\'s Mane and other premium single-ingredient products into Singapore and Malaysia (consolidated warehouses minimise customs friction). Direct from brand: not confirmed for Mind Lab Pro — mindlabpro.com lists only the US and eu.mindlabpro.com only EU countries (checked 2026-09-29). Qualia Mind does not ship to any SEA country (brand shipping page, checked 2026-09-28).',
   },
   {
     q: 'What is the most evidence-backed nootropic for memory?',

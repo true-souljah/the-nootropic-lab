@@ -54,7 +54,7 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Caffeine-free design pairs perfectly with whatever caffeine source you use during study sessions (kopi, matcha, RTD coffee from 7-Eleven, energy drinks). Includes L-theanine, Bacopa, citicoline, and L-tyrosine — covers all four study-relevant mechanisms in one open formula. Take daily through the semester for cumulative Bacopa effect. UK→SEA shipping 7–14 days. Singapore is fastest. Personal-use import. At USD $69/mo it stretches student budgets — split across 2 months by taking every other day if cost-constrained.',
+      'Caffeine-free design pairs perfectly with whatever caffeine source you use during study sessions (kopi, matcha, RTD coffee from 7-Eleven, energy drinks). Includes L-theanine, Bacopa, citicoline, and L-tyrosine — covers all four study-relevant mechanisms in one open formula. Take daily through the semester for cumulative Bacopa effect. Direct delivery to SEA is not confirmed: mindlabpro.com lists only the US and eu.mindlabpro.com only EU countries (checked 2026-09-29). Personal-use import. At USD $69/mo it stretches student budgets — split across 2 months by taking every other day if cost-constrained.',
   },
   {
     product: productsSEA.find(p => p.slug === 'noocube-review')!,
@@ -66,7 +66,7 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'eu-yan-sang-brainmax-review')!,
     rank: 3,
     whyItsHere:
-      'For SG/MY students who want a domestic option from a trusted heritage brand: Cera-Q silk fibroin protein (clinically studied for memory and learning) at 200mg full clinical dose, plus TCM-traditional Goji Berry and Wild Ginseng. Walk into any Eu Yan Sang store on campus or in your local mall. Powder sachet format (one sachet daily) is convenient for hostel and library use. Same-day delivery in Singapore.',
+      'For SG/MY students who want a domestic option from a trusted heritage brand: Cera-Q silk fibroin protein (clinically studied for memory and learning) at 600mg per sachet (above the 200mg clinical dose), plus TCM-traditional Goji Berry and Wild Ginseng. Walk into any Eu Yan Sang store on campus or in your local mall. Powder sachet format (one sachet daily) is convenient for hostel and library use. Same-day delivery in Singapore.',
   },
   {
     product: productsSEA.find(p => p.slug === 'naturebell-ginkgo-ginseng-review')!,
@@ -79,11 +79,11 @@ const picks: ListiclePick[] = [
 const faqItems: ListicleFAQ[] = [
   {
     q: 'Are these student-friendly nootropics halal-certified?',
-    a: 'For Muslim students in Indonesia, Malaysia, southern Thailand, southern Philippines, and Brunei: imported brands (Mind Lab Pro, NooCube, Qualia Mind, Onnit Alpha Brain) do not carry BPJPH or JAKIM halal certification — gelatin capsules are typically animal-derived without halal disclosure. Halal-friendlier options: some Blackmores SKUs carry JAKIM certification (verify the specific product), Eu Yan Sang BrainMAX+ uses vegetarian capsules (not halal-certified but no porcine concern), and single-ingredient L-theanine or Brahmi from Halal-certified local brands on Lazada/Shopee. Check verify.halal.gov.my (Malaysia) or halal.go.id (Indonesia) for current status before ordering.',
+    a: 'For Muslim students in Indonesia, Malaysia, southern Thailand, southern Philippines, and Brunei: imported brands (Mind Lab Pro, NooCube, Qualia Mind, Onnit Alpha Brain) do not carry BPJPH or JAKIM halal certification — gelatin capsules are typically animal-derived without halal disclosure. Halal-friendlier options: some Blackmores SKUs carry JAKIM certification (verify the specific product), Eu Yan Sang BrainMAX+ is a powder sachet with no capsule shell (not halal-certified), and single-ingredient L-theanine or Brahmi from Halal-certified local brands on Lazada/Shopee. Check verify.halal.gov.my (Malaysia) or halal.go.id (Indonesia) for current status before ordering.',
   },
   {
     q: 'Which are best for SEA students via Shopee/Lazada vs cross-border iHerb?',
-    a: 'For students on a budget who want to avoid customs and credit-card cross-border fees: NatureBell Ginkgo+Ginseng on Amazon.sg (~SGD $7/mo). For premium stacks: cross-border iHerb to Singapore is the most reliable route for Mind Lab Pro, NooCube, and Nootropics Depot products — typical delivery 5–10 days into SG, slightly longer to other capitals. Direct-from-brand (Opti-Nutra DDP shipping) eliminates customs surprises but takes 10–14 days.',
+    a: 'For students on a budget who want to avoid customs and credit-card cross-border fees: NatureBell Ginkgo+Ginseng on Amazon.sg (~SGD $7/mo). For premium stacks: cross-border iHerb to Singapore is the most reliable route for Mind Lab Pro, NooCube, and Nootropics Depot products — typical delivery 5–10 days into SG, slightly longer to other capitals. Direct from the brand is not a confirmed route: mindlabpro.com lists only the US and eu.mindlabpro.com only EU countries (checked 2026-09-29).',
   },
   {
     q: 'When should I start taking nootropics for studying?',

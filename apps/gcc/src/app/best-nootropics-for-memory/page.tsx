@@ -66,7 +66,7 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'eu-yan-sang-brainmax-review')!,
     rank: 3,
     whyItsHere:
-      'Cera-Q (silk fibroin protein) is clinically studied for memory recall and learning at 200mg — exactly the dose used in Eu Yan Sang BrainMAX+. Combined with Goji Berry and Chinese Wild Ginseng. From a 145-year-old TCM heritage brand based in Singapore. Caffeine-free, plant-based capsules — halal-friendly. Sold on Eu Yan Sang\'s Singapore storefront; delivery to GCC addresses was not confirmed in our 2026-09-28 check. Note: silk fibroin sourcing uses cocoons; observant buyers concerned about insect-derived ingredients should be aware. Not SFDA/MOHAP-registered.',
+      'Cera-Q (silk fibroin protein) is clinically studied for memory recall and learning at 200mg; Eu Yan Sang BrainMAX+ lists 600mg per sachet. Combined with Goji Berry (146mg) and Chinese Wild Ginseng (37mg). From a 145-year-old TCM heritage brand based in Singapore. Caffeine-free powder sachets, so there is no capsule shell to check. Sold on Eu Yan Sang\'s Singapore storefront; delivery to GCC addresses was not confirmed in our 2026-09-28 check. Note: silk fibroin sourcing uses cocoons; observant buyers concerned about insect-derived ingredients should be aware. Not SFDA/MOHAP-registered.',
   },
   {
     product: productsGCC.find(p => p.slug === 'nootropics-depot-lions-mane')!,
@@ -79,7 +79,7 @@ const picks: ListiclePick[] = [
 const faqItems: ListicleFAQ[] = [
   {
     q: 'Are these supplements halal?',
-    a: 'All four picks on this page use plant-based HPMC or pullulan capsules with no porcine gelatin. None of these brands (Mind Lab Pro, Qualia Mind, Eu Yan Sang BrainMAX+, Nootropics Depot) carry formal halal certification (HALAL India, JAKIM, MUI, ESMA), so observant buyers should verify each brand\'s latest ingredient sourcing. Note on phosphatidylserine: most products use soy-derived PS (halal); some use bovine-derived PS (would need halal-slaughter verification) or sunflower-derived PS (always halal).',
+    a: 'The capsule products on this page (Mind Lab Pro, Qualia Mind, Nootropics Depot) use plant-based HPMC or pullulan capsules with no porcine gelatin; Eu Yan Sang BrainMAX+ is a powder sachet, so it has no capsule shell. None of these brands (Mind Lab Pro, Qualia Mind, Eu Yan Sang BrainMAX+, Nootropics Depot) carry formal halal certification (HALAL India, JAKIM, MUI, ESMA), so observant buyers should verify each brand\'s latest ingredient sourcing. Note on phosphatidylserine: most products use soy-derived PS (halal); some use bovine-derived PS (would need halal-slaughter verification) or sunflower-derived PS (always halal).',
   },
   {
     q: 'Which of these are SFDA-registered or MOHAP-registered?',

@@ -50,7 +50,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Cera-Q (Silk Fibroin Protein) — Asia-developed',
     evidence:
-      'Korean-developed silk fibroin protein hydrolysate. Clinical trials show inhibition of amyloid-beta aggregation and acetylcholine support, with measurable improvements in memory recall in older adults at 200mg/day. Particularly common in Asia-developed memory supplements (Eu Yan Sang BrainMAX+ uses it at 200mg full clinical dose).',
+      'Korean-developed silk fibroin protein hydrolysate. Clinical trials show inhibition of amyloid-beta aggregation and acetylcholine support, with measurable improvements in memory recall in older adults at 200mg/day. Particularly common in Asia-developed memory supplements (Eu Yan Sang BrainMAX+ lists 600mg per sachet).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/27097658/',
   },
 ];
@@ -60,13 +60,13 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Includes phosphatidylserine (100mg Sharp-PS at clinical dose), citicoline (250mg Cognizin at clinical dose), Bacopa, and Lion\'s Mane. Four of the most age-relevant ingredients in one open-formula product. Caffeine-free — no cardiovascular load for older adults sensitive to stimulants in tropical heat. UK→SEA shipping 7–14 days with DDP (no customs surprises). Personal-use import. Not BPJPH/JAKIM halal-certified — older Muslim buyers in MY/ID should check the certifying body\'s register before buying.',
+      'Includes phosphatidylserine (100mg Sharp-PS at clinical dose), citicoline (250mg Cognizin at clinical dose), Bacopa, and Lion\'s Mane. Four of the most age-relevant ingredients in one open-formula product. Caffeine-free — no cardiovascular load for older adults sensitive to stimulants in tropical heat. Direct delivery to SEA is not confirmed: mindlabpro.com lists only the US and eu.mindlabpro.com only EU countries (checked 2026-09-29). Personal-use import. Not BPJPH/JAKIM halal-certified — older Muslim buyers in MY/ID should check the certifying body\'s register before buying.',
   },
   {
     product: productsSEA.find(p => p.slug === 'eu-yan-sang-brainmax-review')!,
     rank: 2,
     whyItsHere:
-      'A 145-year-old TCM heritage brand with 200+ stores across Singapore, Malaysia, Hong Kong, and Macau — deep trust among Chinese-heritage older buyers in SEA. Cera-Q (silk fibroin protein, clinically studied for memory in older adults) at 200mg full clinical dose, plus Goji Berry and Chinese Wild Ginseng (TCM tradition for cognitive health). Powder sachet format is friendlier than capsules for older adults with swallowing difficulties. Walk into any Eu Yan Sang store for in-person purchase and pharmacist consultation. Delivery outside Singapore was not confirmed — check delivery options at checkout.',
+      'A 145-year-old TCM heritage brand with 200+ stores across Singapore, Malaysia, Hong Kong, and Macau — deep trust among Chinese-heritage older buyers in SEA. Cera-Q (silk fibroin protein, clinically studied for memory in older adults) at 600mg per sachet (above the 200mg clinical dose), plus Goji Berry and Chinese Wild Ginseng (TCM tradition for cognitive health). Powder sachet format is friendlier than capsules for older adults with swallowing difficulties. Walk into any Eu Yan Sang store for in-person purchase and pharmacist consultation. Delivery outside Singapore was not confirmed — check delivery options at checkout.',
   },
   {
     product: productsSEA.find(p => p.slug === 'qualia-mind-review')!,

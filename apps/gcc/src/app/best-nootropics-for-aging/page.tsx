@@ -66,7 +66,7 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'eu-yan-sang-brainmax-review')!,
     rank: 3,
     whyItsHere:
-      'Cera-Q (silk fibroin protein) is clinically studied for memory recall in older adults at 200mg per day — exactly the dose used in BrainMAX+. From a 145-year-old TCM heritage brand based in Singapore. Caffeine-free, plant-based capsules — halal-friendly. Powder sachet format may be easier for older adults than swallowing capsules. Sold on Eu Yan Sang\'s Singapore storefront; delivery to GCC addresses was not confirmed in our 2026-09-28 check. Note: silk-derived ingredient; observant buyers concerned about insect-derived sources should be aware. Not SFDA/MOHAP-registered.',
+      'Cera-Q (silk fibroin protein) is clinically studied for memory recall in older adults at 200mg per day; BrainMAX+ lists 600mg per sachet. From a 145-year-old TCM heritage brand based in Singapore. Caffeine-free powder sachets, so there is no capsule shell to check. The sachet format may be easier for older adults than swallowing capsules. Sold on Eu Yan Sang\'s Singapore storefront; delivery to GCC addresses was not confirmed in our 2026-09-28 check. Note: silk-derived ingredient; observant buyers concerned about insect-derived sources should be aware. Not SFDA/MOHAP-registered.',
   },
   {
     product: productsGCC.find(p => p.slug === 'nootropics-depot-lions-mane')!,
@@ -83,7 +83,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Are these supplements halal?',
-    a: 'All four picks use plant-based HPMC or pullulan capsules with no porcine gelatin. Note on phosphatidylserine: most products use soy-derived PS (halal); some use bovine-derived PS (would need halal-slaughter verification) or sunflower-derived PS (always halal). For Lion\'s Mane (mushroom-derived), halal status is straightforward. For Cera-Q in Eu Yan Sang BrainMAX+ (silk fibroin protein), observant buyers concerned about insect-derived ingredients should verify their personal halal interpretation.',
+    a: 'The capsule products in this list use plant-based HPMC or pullulan capsules with no porcine gelatin; BrainMAX+ is a powder sachet. Note on phosphatidylserine: most products use soy-derived PS (halal); some use bovine-derived PS (would need halal-slaughter verification) or sunflower-derived PS (always halal). For Lion\'s Mane (mushroom-derived), halal status is straightforward. For Cera-Q in Eu Yan Sang BrainMAX+ (silk fibroin protein), observant buyers concerned about insect-derived ingredients should verify their personal halal interpretation.',
   },
   {
     q: 'Which of these are SFDA-registered or MOHAP-registered?',

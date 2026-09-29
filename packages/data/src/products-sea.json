@@ -82,7 +82,7 @@
       }
     ],
     "servingsPerContainer": 30,
-    "capsulesPerServing": 4,
+    "capsulesPerServing": 2,
     "summary": "The most comprehensively researched nootropic stack on the market and the top-selling premium nootropic among Singapore buyers. SEA delivery is not confirmed: the mindlabpro.com storefront lists only the US as a shipping destination (checked 2026-09-29) -- confirm at checkout. Priced at USD $69/month (approx. SGD $94 / MYR $325 / THB $2,450). Not registered with the Health Sciences Authority (HSA) in Singapore, the National Pharmaceutical Regulatory Agency (NPRA) — also known as MDA — in Malaysia, Thai FDA, FDA Philippines, the Badan Pengawas Obat dan Makanan (BPOM) in Indonesia, or DAV (Vietnam) -- imported under personal-use supplement allowances. Our #1 overall pick for SEA buyers who want a fully transparent, caffeine-free daily cognitive stack.",
     "whatItIs": "Mind Lab Pro is an 11-ingredient pre-formulated nootropic stack made by Opti-Nutra, a UK-based supplement company. It is designed as a complete daily cognitive supplement covering memory, focus, mental energy, mood, and long-term brain health without caffeine or proprietary blends. For SEA buyers it is a premium import: the mindlabpro.com storefront lists only the US as a shipping destination (checked 2026-09-29 on mindlabpro.com/meta.json), so confirm delivery to your country and any duties at checkout before ordering. Because it is not registered with any SEA regulatory authority (HSA, NPRA, BPOM, Thai FDA, FDA Philippines, or DAV), it is legally brought in as a personal-use supplement -- most SEA countries allow individuals to import a 1-3 month personal supply without restriction, though buyers in Indonesia and Thailand should check current customs thresholds before ordering.",
     "howItWorks": "Mind Lab Pro works across six bio-pathways simultaneously. Citicoline and Phosphatidylserine support the cholinergic system and neuronal membrane integrity. Lion's Mane stimulates Nerve Growth Factor (NGF) for neuroplasticity. Bacopa Monnieri enhances synaptic communication for memory. Rhodiola Rosea and L-Tyrosine support dopamine/norepinephrine balance under stress. L-Theanine promotes alpha brain wave activity for calm focus. B-vitamins (B6, B9, B12) support homocysteine regulation and neurotransmitter synthesis.",
@@ -97,7 +97,7 @@
     ],
     "cons": [
       "Premium price ($69/mo)",
-      "4 capsules per serving",
+      "2 capsules per serving (2–4 per day suggested)",
       "30-day money-back",
       "HSA (Singapore) / BPOM (Indonesia) registration not confirmed -- imported as personal use supplement"
     ],
@@ -722,19 +722,19 @@
     "ingredientDosages": [
       {
         "name": "Cera-Q (Silk Fibroin Protein)",
-        "doseInProduct": "200mg",
+        "doseInProduct": "600mg",
         "clinicalDose": "200mg",
         "adequatelyDosed": true
       },
       {
         "name": "Goji Berry Extract",
-        "doseInProduct": "100mg",
+        "doseInProduct": "146mg",
         "clinicalDose": "100mg",
         "adequatelyDosed": true
       },
       {
         "name": "Chinese Wild Ginseng Extract",
-        "doseInProduct": "50mg",
+        "doseInProduct": "37mg",
         "clinicalDose": "200mg",
         "adequatelyDosed": false
       }
@@ -1089,7 +1089,7 @@
     "verifiedAt": "2026-09-29",
     "url": "https://supershrooms.ph/products/focus-nootropic",
     "weaknesses": [
-      "Unknown pricing and dose transparency",
+      "Ingredient doses not disclosed (priced at PHP 1,680 per 1-month pouch)",
       "FDA Philippines registration status unverified",
       "Halal certification status unknown",
       "Very limited SEA coverage outside Philippines",
