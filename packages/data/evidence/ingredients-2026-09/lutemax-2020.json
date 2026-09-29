@@ -1,0 +1,167 @@
+{
+  "slug": "lutemax-2020",
+  "generatedAt": "2026-09-28T09:39:40Z",
+  "ourClaims": {
+    "clinicalDose": "20mg/day (10mg lutein + 10mg zeaxanthin isomers)",
+    "timeToEffect": "2–4 weeks for eye fatigue reduction; 6 months for measurable MPOD increase",
+    "studySummary": "The LAMA II trial (Stringham et al., 2017) found 20mg Lutemax 2020 daily for 6 months significantly improved MPOD, visual processing speed, and glare recovery time versus placebo. A 2019 study in healthy young adults showed reduced screen-related eye strain and headache frequency at 12 weeks.",
+    "humanEffects": [
+      { "effect": "Digital Eye Strain", "evidenceStrength": "strong", "magnitude": "moderate", "studies": 4 },
+      { "effect": "Visual Processing Speed", "evidenceStrength": "moderate", "magnitude": "moderate", "studies": 3 },
+      { "effect": "Glare Recovery", "evidenceStrength": "moderate", "magnitude": "moderate", "studies": 2 },
+      { "effect": "Sleep Quality", "evidenceStrength": "preliminary", "magnitude": "small", "studies": 2 }
+    ]
+  },
+  "studies": [
+    {
+      "pmid": "37094947",
+      "doi": "10.1093/nutrit/nuad037",
+      "title": "Effect of xanthophyll-rich food and supplement intake on visual outcomes in healthy adults and those with eye disease: a systematic review, meta-analysis, and meta-regression of randomized controlled trials",
+      "journal": "Nutrition Reviews",
+      "year": 2023,
+      "design": "systematic review + meta-analysis + meta-regression (25 RCTs meta-analyzed, 43 in systematic review)",
+      "population": "healthy adults and adults with eye disease",
+      "n": null,
+      "dose": "varies by pooled trial",
+      "brandedExtract": "generic — pools multiple xanthophyll sources, not brand-specific",
+      "duration": "varies by pooled trial",
+      "outcome": "MPOD, photostress recovery time, visual acuity (disease subgroup)",
+      "result": "Xanthophyll intake increased MPOD (WMD +0.05 to +0.08 log units) and reduced photostress recovery time (WMD -2.35s, 95% CI -4.49 to -0.20); visual acuity improved only in eye-disease subgroup, not healthy adults",
+      "fundingConflict": "No industry authors visible; academic (National University of Singapore)",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/37094947/",
+      "status": 200
+    },
+    {
+      "pmid": "32792595",
+      "doi": "10.1038/s41433-020-01124-2",
+      "title": "The association between macular pigment optical density and visual function outcomes: a systematic review and meta-analysis",
+      "journal": "Eye (London)",
+      "year": 2020,
+      "design": "systematic review + meta-analysis (22 publications, correlational not interventional)",
+      "population": "adults with healthy eyes",
+      "n": null,
+      "dose": "not applicable — correlational synthesis of MPOD vs. visual function, not a supplementation-outcome meta-analysis",
+      "brandedExtract": "not applicable",
+      "duration": "not applicable",
+      "outcome": "correlation between MPOD and contrast sensitivity, photostress recovery, glare disability",
+      "result": "MPOD significantly correlated with contrast sensitivity (r=0.31-0.37), photostress recovery (r=-0.17 to -0.57), and glare disability (r=0.47); correlational only, does not prove supplementation causes these outcomes",
+      "fundingConflict": "No industry authors visible; academic (Tufts University)",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/32792595/",
+      "status": 200
+    },
+    {
+      "pmid": "29135938",
+      "doi": "10.3390/nu9111246",
+      "title": "Effects of a Lutein and Zeaxanthin Intervention on Cognitive Function: A Randomized, Double-Masked, Placebo-Controlled Trial of Younger Healthy Adults",
+      "journal": "Nutrients",
+      "year": 2017,
+      "design": "RCT, parallel, double-masked, placebo-controlled",
+      "population": "healthy adults, 18-30 years",
+      "n": 51,
+      "dose": "10mg lutein + 2mg zeaxanthin/day (NOT Lutemax's 5:1 lutein:zeaxanthin ratio described on our page — confirmed via full text as DSM Nutritional Products material)",
+      "brandedExtract": "DSM Nutritional Products (Kaiseraugst, Switzerland) — NOT Lutemax 2020/OmniActive",
+      "duration": "12 months",
+      "outcome": "MPOD, visual memory, complex attention, reasoning ability (CNS Vital Signs battery)",
+      "result": "MPOD increased significantly vs. placebo (p<0.001); visual memory improved (p<0.04) by supplement group; among participants whose MPOD rose ≥0.10 log units, complex attention (p<0.04) and reasoning (p<0.05) also improved",
+      "fundingConflict": "Co-author from Abbott Nutrition (Jeffrey Baxter); material supplied by DSM, a Lutemax competitor",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/29135938/",
+      "status": 200
+    },
+    {
+      "pmid": "31425700",
+      "doi": "10.1016/j.physbeh.2019.112650",
+      "title": "Effects of macular xanthophyll supplementation on brain-derived neurotrophic factor, pro-inflammatory cytokines, and cognitive performance",
+      "journal": "Physiology & Behavior",
+      "year": 2019,
+      "design": "RCT, double-blind, placebo-controlled, 3-arm",
+      "population": "healthy young adults, 18-25 years",
+      "n": 59,
+      "dose": "13mg or 27mg/day total macular xanthophylls (lutein + zeaxanthin + meso-zeaxanthin) — not 20mg, and not disclosed as Lutemax 2020",
+      "brandedExtract": "not disclosed in abstract/available text",
+      "duration": "6 months",
+      "outcome": "BDNF, inflammatory cytokines, MPOD, composite memory, verbal memory, sustained attention, psychomotor speed, processing speed",
+      "result": "BDNF, MPOD, serum xanthophylls, antioxidant capacity increased vs. placebo (p<0.05); IL-1β decreased; composite memory, verbal memory, sustained attention, psychomotor speed, and processing speed all improved vs. placebo (p<0.05). No eye-strain, headache, or glare-recovery outcome was measured in this study despite being the closest match to the page's cited '2019 study'.",
+      "fundingConflict": "No industry affiliation visible in author list (University of Georgia, Duke Eye Center); funding source not stated in available abstract",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/31425700/",
+      "status": 200
+    },
+    {
+      "pmid": "29332050",
+      "doi": "10.3233/JAD-170713",
+      "title": "Supplemental Retinal Carotenoids Enhance Memory in Healthy Individuals with Low Levels of Macular Pigment in A Randomized, Double-Blind, Placebo-Controlled Clinical Trial",
+      "journal": "Journal of Alzheimer's Disease",
+      "year": 2018,
+      "design": "RCT, double-blind, placebo-controlled",
+      "population": "healthy adults with low baseline macular pigment, mean age ~45",
+      "n": 91,
+      "dose": "10mg lutein + 10mg meso-zeaxanthin + 2mg zeaxanthin/day (22mg total — closer to our page's claimed 10mg+10mg framing than any other trial found, but still not an exact match and not disclosed as Lutemax 2020)",
+      "brandedExtract": "not disclosed in abstract",
+      "duration": "12 months",
+      "outcome": "paired-associate-learning memory, executive function, verbal fluency",
+      "result": "Significant memory improvement in active group vs. placebo (PAL memory score p=0.009; PAL errors p=0.017), correlated with MP volume and serum lutein increases",
+      "fundingConflict": "Howard Foundation (philanthropic) funding referenced via co-author affiliation; material source/manufacturer not disclosed in abstract",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/29332050/",
+      "status": 200
+    },
+    {
+      "pmid": "27785083",
+      "doi": "10.2147/CCID.S115519",
+      "title": "Overall skin tone and skin-lightening-improving effects with oral supplementation of lutein and zeaxanthin isomers: a double-blind, placebo-controlled clinical trial",
+      "journal": "Clinical, Cosmetic and Investigational Dermatology",
+      "year": 2016,
+      "design": "RCT, double-blind, placebo-controlled",
+      "population": "healthy adults, 18-45 years, mild-to-moderate dry skin",
+      "n": 46,
+      "dose": "10mg lutein + 2mg zeaxanthin isomers/day",
+      "brandedExtract": "OmniActive Health Technologies material (manufacturer of Lutemax 2020) — this is the manufacturer's own published human trial, but it studies SKIN TONE, not cognition, vision, or eye strain",
+      "duration": "12 weeks",
+      "outcome": "skin tone (Chromameter L*), minimal erythemal dose, individual typological angle",
+      "result": "Skin tone/luminance significantly improved vs. placebo (p<0.0237)",
+      "fundingConflict": "Two of three authors employed by OmniActive Health Technologies Inc.",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/27785083/",
+      "status": 200
+    }
+  ],
+  "verdicts": [
+    {
+      "claim": "Digital Eye Strain — evidenceStrength: strong, 4 studies, 'consistent reduction in screen-related eye fatigue, headache, and eye dryness at 20mg/day over 12+ weeks'",
+      "verdict": "no-evidence-found",
+      "reason": "No PubMed record was located testing lutein/zeaxanthin supplementation against digital eye strain, headache frequency, or screen-related eye fatigue as an outcome, at any dose or duration. Multiple targeted searches (digital eye strain, asthenopia, screen fatigue, headache) returned zero RCTs. The 'strong, 4 studies' rating and the specific 2019/12-week claim in studySummary could not be traced to any real trial.",
+      "pmids": []
+    },
+    {
+      "claim": "Visual Processing Speed — 'LAMA II trial (Stringham et al., 2017)... faster reaction time on visual tasks after 6 months, mediated by MPOD increase'",
+      "verdict": "overstated",
+      "reason": "No trial named 'LAMA' or 'LAMA II' was found. The closest matching real trial (Stringham et al. 2019, PMID 31425700 — note: 2019, not 2017) is a 6-month RCT that did find improved processing/psychomotor speed, but used 13-27mg total macular xanthophylls (not 20mg Lutemax 2020) and did not report 'reaction time on visual tasks' as a named outcome. The underlying direction (processing speed improves with xanthophyll supplementation) has real support, but the specific trial name, year, dose, and outcome label on the page do not match any identifiable study.",
+      "pmids": ["31425700"]
+    },
+    {
+      "claim": "Glare Recovery — moderate evidence, 2 studies, 'faster recovery from bright light exposure (photostress test)'",
+      "verdict": "supported",
+      "reason": "Two independent meta-analyses confirm a real, moderate association between macular xanthophyll status/supplementation and photostress/glare recovery (Hu 2023: WMD -2.35s recovery time; Johnson 2020: r=-0.17 to -0.57 correlation with photostress recovery, r=0.47 with glare disability). Caveat: this evidence is for xanthophylls generically, not Lutemax 2020 specifically, and Johnson 2020 is correlational rather than an interventional meta-analysis.",
+      "pmids": ["37094947", "32792595"]
+    },
+    {
+      "claim": "Sleep Quality — preliminary, 2 studies, 'early evidence from the LAMA II extension'",
+      "verdict": "no-evidence-found",
+      "reason": "No PubMed record on lutein/zeaxanthin and sleep quality was located in any search performed for this review, and no 'LAMA II extension' trial exists in PubMed under any searchable name. This claim appears fabricated or unverifiable from public literature.",
+      "pmids": []
+    }
+  ],
+  "doseAssessment": {
+    "claimedDose": "20mg/day (10mg lutein + 10mg zeaxanthin isomers, i.e. a roughly 1:1 ratio)",
+    "trialRange": "12mg to 27mg total xanthophylls/day across the 6 RCTs found (Renzi-Hammond 12mg; Juturu 12mg; Power 22mg; Stringham 13-27mg)",
+    "assessment": "The claimed 20mg dose sits within the range trialed in the literature, but the claimed 1:1 lutein:zeaxanthin isomer ratio directly contradicts the ingredient page's OWN mechanism text, which describes Lutemax 2020 as a '5:1 ratio' of lutein to zeaxanthin isomers — internally inconsistent. No trial found used a literal 10mg+10mg (1:1) split; every trial identified used a lutein-dominant ratio (roughly 5:1), consistent with the mechanism text but not the clinicalDose field."
+  },
+  "independentTrialCount": 5,
+  "safetySignals": [
+    "No serious adverse events reported in any trial reviewed; consistent with the general safety profile of dietary lutein/zeaxanthin.",
+    "Mild carotenodermia at very high doses is a known class effect but was not specifically observed/reported in any of the 6 trials reviewed here."
+  ],
+  "gaps": [
+    "No PubMed-indexed human trial explicitly names 'Lutemax 2020' or OmniActive as the tested material for any cognitive, visual-processing-speed, or eye-strain outcome. The manufacturer's own two published human RCTs (Juturu 2016, Gioia 2024) address skin tone and dry eye disease, not the cognitive/visual-fatigue claims made on this page.",
+    "The 'LAMA' and 'LAMA II' trial names cited in studySummary and the Sleep Quality note could not be located under any search strategy and may be a misattribution or fabrication.",
+    "No dedicated digital-eye-strain/headache RCT for lutein+zeaxanthin was found at all — this is the single largest gap given 'Digital Eye Strain' is rated the page's strongest claim (4 studies, 'strong').",
+    "Verifying whether any of the trials used OmniActive-supplied Lutemax 2020 material specifically (vs. generic lutein/zeaxanthin from DSM, Kemin, or other suppliers) requires full-text methods sections beyond what abstracts disclose for several studies (e.g. Power 2018, Stringham 2019); this was not fully resolved and is flagged rather than asserted."
+  ]
+}

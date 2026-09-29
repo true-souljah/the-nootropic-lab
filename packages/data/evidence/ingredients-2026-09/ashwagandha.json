@@ -1,0 +1,178 @@
+{
+  "slug": "ashwagandha",
+  "generatedAt": "2026-09-28T12:00:00Z",
+  "ourClaims": {
+    "clinicalDose": "300–600mg/day (KSM-66 extract)",
+    "timeToEffect": "2–4 weeks for anxiety/stress; 4–8 weeks for cognitive effects",
+    "studySummary": "A 2019 RCT (Choudhary et al.) found KSM-66 at 300mg twice daily significantly improved memory, attention, and information processing speed versus placebo over 8 weeks. A 2012 RCT showed 27.9% reduction in cortisol. KSM-66 has the most clinical trials of any ashwagandha extract (>24 gold-standard studies).",
+    "humanEffects": [
+      { "effect": "Cortisol Reduction", "evidenceStrength": "strong", "magnitude": "large", "studies": 11, "notes": "27.9% cortisol reduction (Chandrasekhar 2012) is one of the largest effect sizes in the adaptogen literature." },
+      { "effect": "Anxiety & Stress", "evidenceStrength": "strong", "magnitude": "large", "studies": 10, "notes": "Consistently significant in both clinical anxiety populations and healthy high-stress subjects." },
+      { "effect": "Sleep Quality", "evidenceStrength": "moderate", "magnitude": "moderate", "studies": 6, "notes": "Reduces sleep latency and improves sleep quality ratings, likely via GABA modulation and cortisol reduction." },
+      { "effect": "Cognitive Function Under Stress", "evidenceStrength": "moderate", "magnitude": "moderate", "studies": 5, "notes": "Memory and processing speed improvements are most pronounced in stressed or sleep-deprived subjects, not rested baseline." }
+    ],
+    "sideEffects": ["Generally safe", "GI upset in some users", "Contraindicated in thyroid conditions", "Avoid during pregnancy"],
+    "howToTake": {
+      "dosage": "300–600mg/day (KSM-66)",
+      "timing": "Evening (1–2 hours before bed) for sleep benefits. Morning for cortisol and stress management. Split dosing (300mg AM + 300mg PM) is used in the most comprehensive trials.",
+      "withFood": "Take with food to minimise GI upset (particularly with 600mg doses). Absorption is not significantly affected by food.",
+      "forms": "Capsule. Insist on KSM-66 (full-spectrum root extract, 5% withanolides) or Sensoril (leaf + root, 8% withanolides, lower dose needed). Avoid unstandardised ashwagandha with no withanolide percentage stated — active content may be negligible."
+    }
+  },
+  "studies": [
+    {
+      "pmid": "23439798",
+      "pmc": "PMC3573577",
+      "doi": "10.4103/0253-7176.106022",
+      "title": "A prospective, randomized double-blind, placebo-controlled study of safety and efficacy of a high-concentration full-spectrum extract of ashwagandha root in reducing stress and anxiety in adults.",
+      "journal": "Indian Journal of Psychological Medicine",
+      "year": 2012,
+      "design": "rct",
+      "population": "adults with chronic stress",
+      "n": 64,
+      "dose": "300mg twice daily (600mg/day)",
+      "extract": "KSM-66 (Ixoreal Biomed) — confirmed by name in full text",
+      "duration": "60 days",
+      "outcome": "serum cortisol, PSS, GHQ-28, DASS",
+      "result": "Full-text verified: serum cortisol fell 27.9% from baseline in the ashwagandha group vs 7.9% in placebo (between-group p=0.002); PSS fell 44.0% vs 5.5% (p<0.0001)",
+      "fundingConflict": "Extract (KSM-66) supplied by Ixoreal Biomed; sponsor role in study design not disclosed in text",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/23439798/",
+      "status": 200
+    },
+    {
+      "pmid": "39348746",
+      "doi": "10.1016/j.explore.2024.103062",
+      "title": "Effects of Ashwagandha (Withania Somnifera) on stress and anxiety: A systematic review and meta-analysis.",
+      "journal": "Explore (NY)",
+      "year": 2024,
+      "design": "meta-analysis",
+      "population": "adults, 9 pooled RCTs",
+      "n": 558,
+      "dose": "varied across pooled RCTs",
+      "extract": "various formulations",
+      "duration": "varied (RCTs published 2000-2022)",
+      "outcome": "Perceived Stress Scale, Hamilton Anxiety Scale, serum cortisol",
+      "result": "Significant pooled effect vs placebo: PSS MD -4.72 (95% CI -8.45 to -0.99); HAS MD -2.19 (95% CI -3.83 to -0.55); cortisol MD -2.58 (95% CI -4.99 to -0.16)",
+      "fundingConflict": "not stated in abstract",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/39348746/",
+      "status": 200
+    },
+    {
+      "pmid": "28471731",
+      "doi": "10.1080/19390211.2017.1284970",
+      "title": "Efficacy and Safety of Ashwagandha (Withania somnifera (L.) Dunal) Root Extract in Improving Memory and Cognitive Functions.",
+      "journal": "Journal of Dietary Supplements",
+      "year": 2017,
+      "design": "rct",
+      "population": "adults with mild cognitive impairment (MCI) — NOT healthy adults",
+      "n": 50,
+      "dose": "300mg twice daily (600mg/day)",
+      "extract": "not branded as KSM-66 in the abstract; described only as ashwagandha-root extract",
+      "duration": "8 weeks",
+      "outcome": "Wechsler Memory Scale III subtests, executive function tasks",
+      "result": "Significant improvements in immediate and general memory (WMS-III logical memory, verbal paired associates, faces, family pictures, all p<0.05) and executive function/attention/processing speed tasks",
+      "fundingConflict": "not stated in abstract",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/28471731/",
+      "status": 200
+    },
+    {
+      "pmid": "26609282",
+      "pmc": "PMC4658772",
+      "doi": "10.1186/s12970-015-0104-9",
+      "title": "Examining the effect of Withania somnifera supplementation on muscle strength and recovery: a randomized controlled trial.",
+      "journal": "Journal of the International Society of Sports Nutrition",
+      "year": 2015,
+      "design": "rct",
+      "population": "young men, little resistance-training experience",
+      "n": 57,
+      "dose": "300mg twice daily (600mg/day)",
+      "extract": "ashwagandha root extract (not branded)",
+      "duration": "8 weeks",
+      "outcome": "1-RM strength, muscle size, testosterone, creatine kinase",
+      "result": "Significantly greater strength gains (bench press +46.0kg vs +26.4kg, p=0.001), muscle size, and testosterone increase (+96.2 ng/dL vs +18.0 ng/dL, p=0.004) vs placebo",
+      "fundingConflict": "not stated in abstract",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/26609282/",
+      "status": 200
+    },
+    {
+      "pmid": "30854916",
+      "pmc": "PMC6438434",
+      "doi": "10.1177/1557988319835985",
+      "title": "A Randomized, Double-Blind, Placebo-Controlled, Crossover Study Examining the Hormonal and Vitality Effects of Ashwagandha in Aging, Overweight Males.",
+      "journal": "American Journal of Men's Health",
+      "year": 2019,
+      "design": "rct",
+      "population": "overweight men aged 40-70 with mild fatigue",
+      "n": 57,
+      "dose": "21mg withanolide glycosides/day",
+      "extract": "Shoden beads",
+      "duration": "8 weeks per crossover arm (16 weeks total)",
+      "outcome": "salivary DHEA-S, testosterone, cortisol, estradiol; mood/vigor questionnaires",
+      "result": "DHEA-S +18% (p=.005) and testosterone +14.7% (p=.010) vs placebo; NO significant between-group difference in cortisol, estradiol, fatigue, vigor, or sexual well-being",
+      "fundingConflict": "not stated in abstract",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/30854916/",
+      "status": 200
+    },
+    {
+      "pmid": "37631044",
+      "pmc": "PMC10459262",
+      "doi": "10.3390/ph16081129",
+      "title": "Herb-Induced Liver Injury by Ayurvedic Ashwagandha as Assessed for Causality by the Updated RUCAM: An Emerging Cause.",
+      "journal": "Pharmaceuticals (Basel)",
+      "year": 2023,
+      "design": "case report",
+      "population": "2 new cases (36-year-old man, 30-year-old woman) plus review of all previously published cases",
+      "n": null,
+      "dose": "450mg three times daily (case 1); 450mg (case 2)",
+      "extract": "not specified in abstract",
+      "duration": "6 months use (case 1); 45 days (case 2)",
+      "outcome": "updated RUCAM causality score for hepatocellular/mixed liver injury",
+      "result": "Both cases scored 7 on updated RUCAM = 'probable' causal relationship between ashwagandha and liver injury; both resolved after discontinuation",
+      "fundingConflict": "not stated in abstract",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/37631044/",
+      "status": 200
+    }
+  ],
+  "verdicts": [
+    {
+      "claim": "Cortisol Reduction — strong evidence, large magnitude, 11 studies, 27.9% figure",
+      "verdict": "supported",
+      "reason": "The 27.9% figure is verified in the full text of Chandrasekhar 2012 (KSM-66, 600mg/day, 60 days) and reinforced by a 2024 meta-analysis of 9 RCTs (MD -2.58, significant). However, a separate crossover RCT in aging overweight men (Lopresti 2019, low-dose Shoden extract) found no significant cortisol effect — the claim should note this is dose/population-dependent, not universal.",
+      "pmids": ["23439798", "39348746", "30854916"]
+    },
+    {
+      "claim": "Anxiety & Stress — strong evidence, large magnitude, 10 studies",
+      "verdict": "supported",
+      "reason": "Chandrasekhar 2012 (PSS -44% vs -5.5%, p<0.0001) and the 2024 9-RCT meta-analysis (PSS MD -4.72, HAS MD -2.19, both significant) directly substantiate this as one of the best-evidenced ashwagandha effects.",
+      "pmids": ["23439798", "39348746"]
+    },
+    {
+      "claim": "Sleep Quality — moderate evidence, moderate magnitude, 6 studies",
+      "verdict": "supported",
+      "reason": "A 90-day RCT (Gopukumar 2021, not separately detailed above but located in search) reported significantly improved PSQI scores; classification as 'moderate' rather than 'strong' is reasonable given this is typically a secondary rather than primary endpoint across trials.",
+      "pmids": ["34858513"]
+    },
+    {
+      "claim": "Cognitive Function Under Stress — citing 'A 2019 RCT (Choudhary et al.)', 300mg twice daily, 8 weeks",
+      "verdict": "overstated",
+      "reason": "The Choudhary trial matching this description (300mg BID, 8 weeks, WMS-III outcomes) is dated 2017, not 2019, and enrolled adults with diagnosed mild cognitive impairment (MCI) — not the general healthy-adult population implied by the page. The underlying cognitive-benefit claim is directionally supported by other RCTs in genuinely healthy/stressed adults (Kale 2024, Leonard 2024), but the specific citation used on the page misattributes both the year and the study population.",
+      "pmids": ["28471731"]
+    }
+  ],
+  "doseAssessment": {
+    "trialRange": "300-600mg/day of standardized root extract (KSM-66 or unbranded) is the dominant range across positive RCTs; Chandrasekhar 2012 (the source of the 27.9% cortisol figure) specifically used 600mg/day (300mg BID) of KSM-66.",
+    "ourDoseWithinRange": true,
+    "suggestedText": "No change needed — 300-600mg/day accurately reflects the trial range, though the strongest cortisol evidence (Chandrasekhar 2012) sits at the top of that range (600mg/day), not the middle."
+  },
+  "safetySignals": [
+    { "signal": "Multiple published case reports/case series of ashwagandha-associated hepatocellular or cholestatic liver injury, including RUCAM-scored 'probable' causality; not currently disclosed in the page's side-effects list", "pmid": "37631044", "url": "https://pubmed.ncbi.nlm.nih.gov/37631044/" },
+    { "signal": "Additional independent liver-injury case reports (jaundice, elevated transaminases, one requiring plasmapheresis) reported from Poland, UK, and in a multiple-sclerosis patient on natalizumab", "pmid": "36900932", "url": "https://pubmed.ncbi.nlm.nih.gov/36900932/" },
+    { "signal": "Denmark's Veterinary and Food Administration (DVFA) banned ashwagandha food supplements in April 2023 citing inability to establish a safe dose, based on a 2020 DTU risk assessment flagging reproductive/hormonal/neurological safety concerns — discussed in a peer-reviewed commentary", "pmid": "38969606", "url": "https://pubmed.ncbi.nlm.nih.gov/38969606/" }
+  ],
+  "gaps": [
+    "The page's side-effects list omits the liver-injury signal entirely despite multiple published case reports/case series with 'probable' RUCAM causality scores.",
+    "The page's side-effects list omits the Danish/Nordic regulatory action, which is a material safety-context data point for consumers.",
+    "The core cognitive-effects citation (Choudhary) is mis-dated and mis-populated (MCI adults framed as a general finding); no equivalent-quality RCT in truly healthy, non-clinical adults with an 8-week single-extract design and this magnitude of effect was found.",
+    "No long-term (>90 day) continuous-use safety RCT data located; most trials run 8-12 weeks."
+  ]
+}

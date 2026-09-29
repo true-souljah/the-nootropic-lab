@@ -1,0 +1,164 @@
+{
+  "slug": "acetyl-l-carnitine",
+  "generatedAt": "2026-09-28T09:38:43Z",
+  "ourClaims": {
+    "clinicalDose": "500–2000mg/day",
+    "timeToEffect": "2–4 weeks for mental energy; 8–12 weeks for neuroprotective effects",
+    "humanEffects": [
+      { "effect": "Cognitive Function (MCI/Aging)", "evidenceStrength": "strong", "magnitude": "moderate", "studies": 21, "notes": "Meta-analysis of 21 RCTs confirms benefit for mild cognitive impairment. Effect strongest in early-stage decline." },
+      { "effect": "Mental Energy & Fatigue", "evidenceStrength": "moderate", "magnitude": "moderate", "studies": 6, "notes": "Consistent reduction in mental fatigue in aging populations. Less clear in healthy young adults." },
+      { "effect": "Mood & Depression", "evidenceStrength": "moderate", "magnitude": "moderate", "studies": 8, "notes": "Veronese et al. (2018) meta-analysis found significant antidepressant effect comparable to some SSRIs, particularly in elderly depression." },
+      { "effect": "Neuroprotection", "evidenceStrength": "moderate", "magnitude": "moderate", "studies": 10, "notes": "Mitochondrial support and reduced oxidative stress markers. Long-term protective effect rather than acute enhancement." }
+    ]
+  },
+  "studies": [
+    {
+      "pmid": "12598816",
+      "doi": "10.1097/00004850-200303000-00001",
+      "title": "Meta-analysis of double blind randomized controlled clinical trials of acetyl-L-carnitine versus placebo in the treatment of mild cognitive impairment and mild Alzheimer's disease",
+      "journal": "International Clinical Psychopharmacology",
+      "year": 2003,
+      "design": "meta-analysis of double-blind RCTs",
+      "population": "mild cognitive impairment and mild Alzheimer's disease",
+      "n": null,
+      "dose": "1.5–3.0g/day",
+      "duration": "3, 6, or 12 months",
+      "outcome": "clinical scales and psychometric tests; Clinical Global Impression of Change",
+      "result": "Significant advantage for ALC vs. placebo on the integrated summary effect (ES=0.201, 95% CI 0.107–0.295) and CGI-CH (ES=0.32, 95% CI 0.18–0.47); benefit apparent by 3 months and increasing over time. Well tolerated in all studies.",
+      "fundingConflict": null,
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/12598816/",
+      "status": 200
+    },
+    {
+      "pmid": "29076953",
+      "doi": "10.1097/PSY.0000000000000537",
+      "title": "Acetyl-L-Carnitine Supplementation and the Treatment of Depressive Symptoms: A Systematic Review and Meta-Analysis (Veronese et al., 2018)",
+      "journal": "Psychosomatic Medicine",
+      "year": 2018,
+      "design": "systematic review / meta-analysis of RCTs",
+      "population": "adults with depressive symptoms (mean age 54, 65% female)",
+      "n": 791,
+      "dose": "not pooled/stated in abstract; varies across 12 included RCTs",
+      "duration": "not stated in abstract",
+      "outcome": "depressive symptom severity",
+      "result": "ALC significantly reduced depressive symptoms vs. placebo/no intervention (SMD -1.10, 95% CI -1.65 to -0.56, I2=86%); comparable effectiveness to established antidepressants (SMD 0.06, 95% CI -0.22 to 0.34) with significantly fewer adverse effects than antidepressants. Most efficacious in older adults.",
+      "fundingConflict": null,
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/29076953/",
+      "status": 200
+    },
+    {
+      "pmid": "2201659",
+      "doi": null,
+      "title": "Acetyl-L-carnitine in the treatment of mildly demented elderly patients",
+      "journal": "International Journal of Clinical Pharmacology Research",
+      "year": 1990,
+      "design": "RCT, controlled, double-blind",
+      "population": "elderly (65+) with mild mental impairment",
+      "n": 60,
+      "dose": "2g/day",
+      "duration": "3 months",
+      "outcome": "behavioural scales, memory tests, attention barrage test, verbal fluency",
+      "result": "Statistically significant improvement vs. placebo on behavioural scales, memory tests, attention, and verbal fluency.",
+      "fundingConflict": null,
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/2201659/",
+      "status": 200
+    },
+    {
+      "pmid": "36043711",
+      "doi": "10.2174/1381612828666220830092815",
+      "title": "Acetyl-L-carnitine Slows the Progression from Prefrailty to Frailty in Older Subjects: A Randomized Interventional Clinical Trial",
+      "journal": "Current Pharmaceutical Design",
+      "year": 2022,
+      "design": "RCT, randomized, observational, double-blind, placebo-controlled",
+      "population": "pre-frail older adults",
+      "n": 92,
+      "dose": "1.5g twice daily (3g/day)",
+      "duration": "3 months treatment + 3 months follow-up",
+      "outcome": "MMSE, 6-minute walking distance, CRP, serum carnitine",
+      "result": "ALC group showed significant increase in MMSE (p<0.001) and 6-minute walking distance (p<0.001), and decrease in CRP (p<0.001), vs. placebo.",
+      "fundingConflict": null,
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/36043711/",
+      "status": 200
+    },
+    {
+      "pmid": "32408706",
+      "doi": "10.3390/nu12051389",
+      "title": "Acetyl-L-Carnitine in Dementia and Other Cognitive Disorders: A Critical Update",
+      "journal": "Nutrients",
+      "year": 2020,
+      "design": "narrative/critical review",
+      "population": "dementia and other cognitive disorders",
+      "n": null,
+      "dose": "not applicable (review)",
+      "duration": "not applicable (review)",
+      "outcome": "role of ALC in dementia/cognitive decline",
+      "result": "States the role of ALC in dementia 'is still under debate' despite proposed mechanisms (membrane restoration, cholinergic enhancement, mitochondrial energy metabolism, neurotrophic effects); calls for further studies with homogeneous samples and longitudinal assessment before systematic clinical application.",
+      "fundingConflict": null,
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/32408706/",
+      "status": 200
+    },
+    {
+      "pmid": "38875437",
+      "doi": "10.1097/MD.0000000000038067",
+      "title": "Comparative study of choline alfoscerate as a combination therapy with donepezil: A mixed double-blind randomized controlled and open-label observation trial",
+      "journal": "Medicine (Baltimore)",
+      "year": 2024,
+      "design": "RCT, mixed double-blind randomized controlled and open-label",
+      "population": "patients with cognitive decline eligible for donepezil (MMSE ≤26)",
+      "n": 119,
+      "dose": "donepezil + acetyl-L-carnitine + ginkgo biloba extract (combination arm; ALC dose not isolated in abstract)",
+      "duration": "24 weeks",
+      "outcome": "MMSE, ADAS-Cog",
+      "result": "The donepezil + ALC + ginkgo combination arm performed worse than donepezil alone or donepezil + choline alfoscerate: MMSE decreased 2.17% at 12 weeks and 5.71% at 24 weeks in that arm, vs. gains in the donepezil-alone and donepezil+choline-alfoscerate arms. ALC's individual contribution cannot be isolated since it was combined with ginkgo.",
+      "fundingConflict": null,
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/38875437/",
+      "status": 200
+    }
+  ],
+  "verdicts": [
+    {
+      "claim": "Cognitive Function (MCI/Aging) — strong evidence, moderate magnitude, 21 studies",
+      "verdict": "supported",
+      "reason": "Montgomery et al. 2003 (PMID 12598816) is a real meta-analysis of double-blind RCTs (1.5-3.0g/day, 3-12 months) showing a statistically significant, if modest (ES≈0.2), advantage over placebo in MCI/mild AD, well tolerated throughout — closely matching our copy's description including the dose range.",
+      "pmids": ["12598816", "2201659"]
+    },
+    {
+      "claim": "Mental Energy & Fatigue — moderate evidence, moderate magnitude, 6 studies, 'less clear in healthy young adults'",
+      "verdict": "supported",
+      "reason": "Malaguarnera et al. 2022 (PMID 36043711) shows a genuine energy/function benefit (MMSE, walking distance) in pre-frail older adults, consistent with our own copy's hedge that effects are clearer in aging than in healthy young adults — no healthy-young-adult RCT supporting a mental-energy effect was located in this search either, which is consistent with the claim as written.",
+      "pmids": ["36043711"]
+    },
+    {
+      "claim": "Mood & Depression — moderate evidence, moderate magnitude, 8 studies, citing Veronese et al. 2018 'comparable to some SSRIs'",
+      "verdict": "understated",
+      "reason": "Veronese et al. 2018 (PMID 29076953) was located and matches the citation exactly: 12 RCTs, n=791, ALC significantly reduced depressive symptoms vs. placebo (SMD -1.10, a LARGE effect by conventional Cohen's-d thresholds, not 'moderate'), and showed comparable efficacy to antidepressants with fewer adverse effects, most pronounced in older adults. Our copy's 'moderate' magnitude label undersells the actual pooled effect size found in the cited meta-analysis.",
+      "pmids": ["29076953"]
+    },
+    {
+      "claim": "Neuroprotection — moderate evidence, moderate magnitude, 10 studies",
+      "verdict": "overstated",
+      "reason": "The most recent critical review (PMID 32408706, 2020) explicitly states the role of ALC in dementia/neuroprotection 'is still under debate' and calls for more rigorous studies before clinical application. A 2024 RCT (PMID 38875437) found a donepezil+ALC+ginkgo combination arm performed worse than comparators, a concerning (though confounded by the ginkgo co-administration) signal. 'Moderate' evidence strength doesn't reflect the explicit uncertainty in the most current review.",
+      "pmids": ["32408706", "38875437"]
+    }
+  ],
+  "doseAssessment": {
+    "trialRange": "1.5–3.0g/day (1500–3000mg/day) across the meta-analyzed and individual RCTs reviewed",
+    "ourDoseWithinRange": false,
+    "suggestedText": "The 500mg lower bound of our copy's 500-2000mg/day range is below every dose used in the positive trials reviewed here, which cluster at 1500-3000mg/day (Montgomery meta-analysis, Passeri RCT, Malaguarnera RCT all ≥1500mg/day). Consider raising the stated effective-dose floor or noting that 500-1000mg is untested territory."
+  },
+  "safetySignals": [
+    {
+      "signal": "Not found in our copy's sideEffects: a systematic review of bipolar-disorder mood-episode triggers lists acetyl-L-carnitine among agents associated with triggering manic/hypomanic episodes (case-report-level evidence, not RCT-level), a signal relevant to anyone with bipolar disorder considering ALCAR for mood/energy.",
+      "pmid": "36940629"
+    },
+    {
+      "signal": "WFSBP/CANMAT clinical nutraceutical guidelines (2022) explicitly rate acetyl-L-carnitine 'not supported' for ADHD, despite the dopaminergic/catecholamine-adjacent mechanism narrative sometimes used to justify nootropic ADHD use.",
+      "pmid": "35311615"
+    }
+  ],
+  "gaps": [
+    "No trial in this search specifically demonstrates a 2-4 week onset for 'mental energy' — the shortest trial duration retrieved was 3 months (Passeri 1990).",
+    "No RCT was found isolating ALC's individual contribution when combined with other nootropics (the one combination RCT retrieved combined it with ginkgo, confounding attribution).",
+    "The claimed '10 studies' underpinning the Neuroprotection effect entry could not be independently enumerated from the sources retrieved; only the 2020 critical review and one RCT were located that speak directly to it."
+  ]
+}

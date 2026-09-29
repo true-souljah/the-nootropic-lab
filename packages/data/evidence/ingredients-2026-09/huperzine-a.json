@@ -1,0 +1,161 @@
+{
+  "slug": "huperzine-a",
+  "generatedAt": "2026-09-28T09:38:43Z",
+  "ourClaims": {
+    "clinicalDose": "50–200mcg/day (note: micrograms, not milligrams)",
+    "timeToEffect": "30–60 minutes (acute)",
+    "humanEffects": [
+      { "effect": "Memory Recall", "evidenceStrength": "strong", "magnitude": "moderate", "studies": 15, "notes": "One of the most studied natural memory compounds. Meta-analysis of 20 studies confirms significant effect." },
+      { "effect": "Acetylcholine Preservation", "evidenceStrength": "strong", "magnitude": "large", "studies": 12, "notes": "Mechanism is pharmacologically established — one of the most potent natural acetylcholinesterase inhibitors known." },
+      { "effect": "Learning Speed", "evidenceStrength": "moderate", "magnitude": "moderate", "studies": 8, "notes": "Student populations show faster acquisition of new information in RCTs." },
+      { "effect": "Alzheimer's Symptom Reduction", "evidenceStrength": "strong", "magnitude": "moderate", "studies": 10, "notes": "The basis for pharmaceutical development of cholinesterase inhibitor drugs. Effects in clinical populations are significant." }
+    ]
+  },
+  "studies": [
+    {
+      "pmid": "24086396",
+      "doi": "10.1371/journal.pone.0074916",
+      "title": "Huperzine A for Alzheimer's disease: a systematic review and meta-analysis of randomized clinical trials",
+      "journal": "PLoS One",
+      "year": 2013,
+      "design": "systematic review / meta-analysis",
+      "population": "Alzheimer's disease patients",
+      "n": 1823,
+      "dose": "not pooled in abstract; heterogeneous across 20 included RCTs",
+      "duration": "8, 12, and 16 weeks (timepoints analyzed)",
+      "outcome": "MMSE, Hasegawa Dementia Scale, Wechsler Memory Scale, ADL, CDR",
+      "result": "Significant beneficial effect on cognitive function and activities of daily living vs. placebo across multiple timepoints. Methodological quality of most included trials rated high risk of bias; authors explicitly urge caution in interpretation. No trial reported severe adverse events.",
+      "fundingConflict": null,
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/24086396/",
+      "status": 200
+    },
+    {
+      "pmid": "18425924",
+      "doi": "10.1002/14651858.CD005592.pub2",
+      "title": "Huperzine A for Alzheimer's disease",
+      "journal": "Cochrane Database of Systematic Reviews",
+      "year": 2008,
+      "design": "systematic review / meta-analysis (Cochrane)",
+      "population": "Alzheimer's disease patients",
+      "n": 454,
+      "dose": "heterogeneous across 6 included trials",
+      "duration": "6 and 12 weeks (timepoints analyzed)",
+      "outcome": "MMSE, ADAS-Cog, CDR, CIBIC-plus, ADAS-non-Cog, ADL",
+      "result": "Beneficial effects on general cognitive function, global clinical status, behavioral disturbance, and functional performance vs. placebo; no significant benefit on Hasegawa Dementia Scale or Wechsler Memory Scale. Adverse events mild, not significantly different from control. Authors conclude: 'only one study was of adequate quality and size... inadequate evidence to make any recommendation about its use.'",
+      "fundingConflict": null,
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/18425924/",
+      "status": 200
+    },
+    {
+      "pmid": "23235666",
+      "doi": "10.1002/14651858.CD008827.pub2",
+      "title": "Huperzine A for mild cognitive impairment",
+      "journal": "Cochrane Database of Systematic Reviews",
+      "year": 2012,
+      "design": "systematic review (Cochrane)",
+      "population": "mild cognitive impairment (MCI)",
+      "n": 0,
+      "dose": "not applicable",
+      "duration": "not applicable",
+      "outcome": "cognitive efficacy and safety in MCI",
+      "result": "No eligible randomized placebo-controlled trials of huperzine A in MCI were identified; no meta-analysis could be performed. Evidence deemed insufficient to assess huperzine A's potential in MCI.",
+      "fundingConflict": null,
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/23235666/",
+      "status": 200
+    },
+    {
+      "pmid": "10678121",
+      "doi": null,
+      "title": "Huperzine-A capsules enhance memory and learning performance in 34 pairs of matched adolescent students",
+      "journal": "Acta Pharmacologica Sinica",
+      "year": 1999,
+      "design": "RCT, double-blind, matched-pair",
+      "population": "healthy adolescent students (junior middle school) reporting memory inadequacy",
+      "n": 68,
+      "dose": "100mcg/day (50mcg twice daily)",
+      "duration": "4 weeks",
+      "outcome": "Memory Quotient (MQ), Chinese-language lesson scores",
+      "result": "Huperzine group MQ (115±6) significantly higher than placebo (104±9, p<0.01); language-lesson scores also markedly elevated.",
+      "fundingConflict": null,
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/10678121/",
+      "status": 200
+    },
+    {
+      "pmid": "8701750",
+      "doi": null,
+      "title": "Efficacy of tablet huperzine-A on memory, cognition, and behavior in Alzheimer's disease",
+      "journal": "Acta Pharmacologica Sinica",
+      "year": 1995,
+      "design": "RCT, multicenter, prospective, double-blind, parallel, placebo-controlled",
+      "population": "Alzheimer's disease patients",
+      "n": 103,
+      "dose": "200mcg/day (0.2mg, 4 tablets twice daily)",
+      "duration": "8 weeks",
+      "outcome": "Wechsler memory scale, Hasegawa dementia scale, MMSE, ADL, safety labs/ECG",
+      "result": "58% (29/50) of huperzine-treated patients improved on memory, cognitive, and behavioral function vs. 36% (19/53) on placebo (p<0.05 vs. placebo). No severe side effects reported.",
+      "fundingConflict": null,
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/8701750/",
+      "status": 200
+    },
+    {
+      "pmid": "31638455",
+      "doi": "10.1080/02699052.2019.1677941",
+      "title": "Huperzine A for the treatment of cognitive, mood, and functional deficits after moderate and severe TBI (HUP-TBI): results of a Phase II randomized controlled pilot study",
+      "journal": "Brain Injury",
+      "year": 2019,
+      "design": "RCT, Phase II, randomized, double-blind, placebo-controlled pilot",
+      "population": "moderate-to-severe traumatic brain injury (TBI), subacute-to-chronic phase",
+      "n": null,
+      "dose": "not stated in abstract",
+      "duration": "12 weeks treatment, follow-up to 52 weeks",
+      "outcome": "California Verbal Learning Test-II (memory/learning), Beck Depression Index",
+      "result": "No difference between huperzine A and placebo in memory performance at 12 weeks; the placebo group showed significant learning/memory improvement. Both groups improved on depression. Authors attribute the result to a placebo effect and caution that future TBI trials must account for it.",
+      "fundingConflict": null,
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/31638455/",
+      "status": 200
+    }
+  ],
+  "verdicts": [
+    {
+      "claim": "Memory Recall — strong evidence, moderate magnitude, 15 studies, 'meta-analysis of 20 studies confirms significant effect'",
+      "verdict": "overstated",
+      "reason": "The direction is consistently positive in AD patients and one healthy-adolescent RCT, and the 20-study meta-analysis (PMID 24086396) does confirm a significant pooled effect — but that same meta-analysis and the Cochrane review (PMID 18425924) both explicitly flag high risk of bias / inadequate evidence quality, and the Cochrane MCI-specific review (PMID 23235666) found zero eligible RCTs for MCI. A modern TBI RCT (PMID 31638455) found no benefit, with placebo outperforming. 'Strong' evidence strength does not reflect the poor-quality caveat attached to every meta-analysis, and the claim doesn't distinguish AD-patient results from the thin healthy-adult evidence base.",
+      "pmids": ["24086396", "18425924", "23235666", "31638455"]
+    },
+    {
+      "claim": "Acetylcholine Preservation — strong evidence, large magnitude, 12 studies (mechanistic)",
+      "verdict": "supported",
+      "reason": "This is a pharmacological mechanism claim (reversible AChE inhibition) rather than a clinical-outcome claim, and it is consistently and uncontroversially described as such across every source retrieved, including the rat pharmacokinetic-pharmacodynamic study confirming elevated cerebral acetylcholine following huperzine A dosing.",
+      "pmids": ["18425924", "24086396"]
+    },
+    {
+      "claim": "Learning Speed — moderate evidence, moderate magnitude, 8 studies, 'student populations show faster acquisition'",
+      "verdict": "overstated",
+      "reason": "Only one matching study was located: Sun et al. 1999 (PMID 10678121), a small (n=68) matched-pair RCT in adolescent students, which did show a genuine, statistically significant learning benefit. That supports the direction of the claim, but 'moderate, 8 studies' substantially overstates the size of the evidence base — this search found a single student-population RCT, not eight.",
+      "pmids": ["10678121"]
+    },
+    {
+      "claim": "Alzheimer's Symptom Reduction — strong evidence, moderate magnitude, 10 studies",
+      "verdict": "overstated",
+      "reason": "Both the Xu 1995 RCT (PMID 8701750) and the pooled meta-analyses (PMID 24086396, 18425924) show a consistent positive direction, but both Cochrane reviews explicitly conclude the evidence is inadequate for a firm clinical recommendation due to poor trial quality (mostly small, single-country studies). Characterizing this as 'strong' with unqualified 'significant effects' omits the quality caveat both Cochrane authors attach.",
+      "pmids": ["8701750", "24086396", "18425924"]
+    }
+  ],
+  "doseAssessment": {
+    "trialRange": "100mcg/day (Sun 1999, students) to 200mcg/day (Xu 1995, AD patients)",
+    "ourDoseWithinRange": true,
+    "suggestedText": "50–200mcg/day brackets the doses actually used in the retrieved trials (100–200mcg/day); the 50mcg lower bound itself was not separately tested in the trials found here."
+  },
+  "safetySignals": [
+    {
+      "signal": "Our copy states huperzine A 'must be cycled 5 days on / 2 days off' to avoid cholinergic accumulation/overload, and lists GI discomfort and overdose risk with other cholinergics. The retrieved clinical trial evidence is actually milder than this framing: the 2008 Cochrane review reports 'the adverse events of Huperzine A were mild and there were no significant differences of adverse events between Huperzine A groups and control groups,' and no retrieved human trial reported severe adverse events. No human trial in this search specifically tested or validated a 5-on/2-off cycling protocol — a rat pharmacokinetic study (PMID 41781122) confirms a short plasma half-life with enhanced brain exposure on repeated dosing, which is consistent with (but does not directly prove) an accumulation rationale for cycling.",
+      "pmid": "18425924"
+    }
+  ],
+  "gaps": [
+    "No human trial was found that specifically tests or validates the '5 days on / 2 days off' cycling protocol our copy prescribes.",
+    "The 30–60 minute acute onset claim has no supporting human trial in this search — all retrieved human RCTs measured outcomes after weeks of chronic dosing, not acute single-dose administration.",
+    "No regulatory-status information (e.g., prescription-drug classification in specific markets) was found in any retrieved abstract; this could not be verified and is not asserted.",
+    "The claimed '15 studies' (Memory Recall) and '8 studies' (Learning Speed) study counts could not be independently confirmed at that granularity from the sources retrieved in this search."
+  ]
+}

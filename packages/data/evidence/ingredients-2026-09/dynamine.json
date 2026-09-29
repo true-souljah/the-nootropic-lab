@@ -1,0 +1,164 @@
+{
+  "slug": "dynamine",
+  "generatedAt": "2026-09-28T00:00:00Z",
+  "compoundNote": "The site's 'Dynamine (Methylliberine)' page describes ONE compound but its mechanism/benefits text draws on the broader 'purine alkaloid' literature that includes theacrine (Teacrine, a DIFFERENT, structurally related but distinct compound also sold by the same manufacturer, Compound Solutions). This file evaluates both the methylliberine-specific evidence and the adjacent theacrine evidence, and flags where the site's claims implicitly borrow from theacrine or combination-product studies rather than methylliberine alone.",
+  "ourClaims": {
+    "clinicalDose": "100–200mg/day",
+    "timeToEffect": "15–30 minutes (acute, fast onset)",
+    "studySummary": "Site cites 'A 2020 pharmacokinetic study' and 'A 2019 pilot study' showing improved subjective energy/focus/motivation without heart rate/BP change; site states 'Evidence base is very early — primarily pharmacokinetic and pilot data from Compound Solutions (the manufacturer). No large-scale RCTs published yet.'",
+    "humanEffects": [
+      { "effect": "Subjective Energy", "evidenceStrength": "preliminary", "magnitude": "moderate", "studies": 1, "notes": "Site claims pilot study showed improved energy/alertness ratings at 100mg." },
+      { "effect": "Focus & Motivation", "evidenceStrength": "preliminary", "magnitude": "small", "studies": 1, "notes": "Site claims self-reported improvements; no objective cognitive testing published yet." },
+      { "effect": "Cardiovascular Safety", "evidenceStrength": "moderate", "magnitude": "negligible", "studies": 2, "notes": "Site claims no significant HR/BP change at 100-200mg." }
+    ],
+    "sideEffects": ["Limited safety data", "Mild GI discomfort possible", "Possible interaction with caffeine (additive stimulation)", "Not recommended during pregnancy"],
+    "howToTake": { "dosage": "100–200mg/day", "timing": "As needed, 15-30 min before tasks" }
+  },
+  "studies": [
+    {
+      "pmid": "37960163",
+      "doi": "10.3390/nu15214509",
+      "title": "Methylliberine Ingestion Improves Various Indices of Affect but Not Cognitive Function in Healthy Men and Women",
+      "journal": "Nutrients",
+      "year": 2023,
+      "design": "double-blind, randomized, within-subject crossover RCT (La Monica et al.) — the site's own studySummary appears to reference this as the '2019 pilot study'; it is actually 2023 and is the PRIMARY, and only identified, human RCT testing methylliberine ALONE on cognition/mood",
+      "population": "healthy men and women, mean age 33.5±10.7yr",
+      "n": 25,
+      "dose": "100mg methylliberine for 3 days, then tested hourly for 3h on the 4th day, vs placebo",
+      "duration": "4-day dosing block with 1-week washout, crossover",
+      "outcome": "Stroop test, Trail Making Test-B (objective cognition), visual analog scales for concentration/motivation/mood/energy (subjective)",
+      "result": "Methylliberine significantly improved SUBJECTIVE concentration (1h, 3h), motivation (3h), mood (1-3h), energy and sustained energy vs placebo (all p≤0.05). Women showed elevated sustained energy specifically. HOWEVER: 'Methylliberine had a negligible influence on cognitive function and vitals (p>0.050)' on the objective Stroop/TMT-B tests — no adverse events reported.",
+      "fundingConflict": "CONFIRMED (verified via publisher page, not just abstract): funded in part by Compound Solutions, the manufacturer of Dynamine. Co-author Tim N. Ziegenfuss holds several granted patents on methylliberine — a direct financial conflict of interest, though the funder is stated to have had no role in study design/analysis/publication decision.",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/37960163/",
+      "status": 200
+    },
+    {
+      "pmid": "32121218",
+      "doi": "10.3390/nu12030654",
+      "title": "Safety of Short-Term Supplementation with Methylliberine (Dynamine) Alone and in Combination with TeaCrine in Young Adults",
+      "journal": "Nutrients",
+      "year": 2020,
+      "design": "randomized controlled trial, 5 parallel groups — this is the site's cited '2020 pharmacokinetic study', though it is actually a 4-week safety/biomarker trial, not a pharmacokinetic study",
+      "population": "young adults, mean age 23.0yr",
+      "n": 125,
+      "dose": "low-dose DYM 100mg, high-dose DYM 150mg, low-dose DYM+TCR (100+50mg), high-dose DYM+TCR (150+25mg), or placebo, daily for 4 weeks",
+      "duration": "4 weeks continuous use",
+      "outcome": "cardiovascular function (HR, BP, QTc) and blood biomarkers (lipids, CBC, renal/liver markers)",
+      "result": "Small statistically significant changes over time were found in some cardiovascular and blood biomarkers, but 'no clinically significant changes occurred' — supports the site's cardiovascular-safety claim at these doses, but this trial did NOT test cognitive or focus outcomes at all.",
+      "fundingConflict": "CONFIRMED (verified via publisher page): funded by Compound Solutions, Inc., the manufacturer of Dynamine and TeaCrine. Authors state no authors 'have a financial or business interest related to the studied products' — no patent conflict disclosed here (contrast with the La Monica 2023 trial).",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/32121218/",
+      "status": 200
+    },
+    {
+      "pmid": "36016763",
+      "doi": "10.1080/15502783.2022.2113339",
+      "title": "Effects of caffeine, methylliberine, and theacrine on vigilance, marksmanship, and hemodynamic responses in tactical personnel: a double-blind, randomized, placebo-controlled trial",
+      "journal": "Journal of the International Society of Sports Nutrition",
+      "year": 2022,
+      "design": "between-subjects, randomized, placebo-controlled RCT — NOTE: this tests methylliberine only as part of a COMBINATION product (150mg caffeine + 100mg methylliberine + 50mg theacrine), never methylliberine alone, so its results cannot be attributed to methylliberine specifically",
+      "population": "tactical personnel (military/law enforcement), n=48",
+      "n": 48,
+      "dose": "placebo, 300mg caffeine alone, OR combination 150mg caffeine+100mg methylliberine+50mg theacrine (CMT)",
+      "duration": "single-dose, 150-minute test protocol",
+      "outcome": "reaction time, marksmanship, hemodynamics (SBP/DBP), felt arousal after a sustained vigilance task",
+      "result": "Both caffeine-alone (300mg) and the CMT combination improved vigilance reaction time vs placebo similarly; CMT (with only 150mg caffeine) matched 300mg caffeine's cognitive benefit while producing a smaller diastolic blood pressure rise than caffeine alone. No group differences in marksmanship/movement performance.",
+      "fundingConflict": "not verified — full text behind paywall in this pass; abstract does not disclose funding",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/36016763/",
+      "status": 200
+    },
+    {
+      "pmid": "41950524",
+      "doi": "10.1139/apnm-2025-0380",
+      "title": "Assessing the impact of high theacrine doses on hemodynamic measures, cognitive performance, and physiological stress",
+      "journal": "Applied Physiology, Nutrition, and Metabolism",
+      "year": 2026,
+      "design": "randomized, double-blind, crossover RCT — THEACRINE (Teacrine), not methylliberine; included here because the site's page conflates the two purine alkaloids",
+      "population": "healthy habitual caffeine consumers, n=19",
+      "n": 19,
+      "dose": "placebo, 3mg/kg, 6mg/kg, or 9mg/kg theacrine — doses higher than the ~200mg typically studied previously",
+      "duration": "acute, 5 visits (baseline + 4 experimental)",
+      "outcome": "heart rate, blood pressure, subjective energy, cognitive performance, salivary cortisol and alpha-amylase",
+      "result": "Higher theacrine doses INCREASED salivary cortisol at 120 and 180min vs placebo — a stress-hormone increase, not the 'clean' stimulant profile the site implies for the purine-alkaloid class. Energy only improved in the PLACEBO condition (not theacrine). No significant effects on heart rate, blood pressure, or cognitive performance at any theacrine dose.",
+      "fundingConflict": "not stated in abstract; not independently verified",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/41950524/",
+      "status": 200
+    },
+    {
+      "pmid": "40693646",
+      "doi": "10.1080/15502783.2025.2536146",
+      "title": "A caffeine and theacrine combination improves cognitive performance in tactical personnel under physically fatiguing conditions",
+      "journal": "Journal of the International Society of Sports Nutrition",
+      "year": 2025,
+      "design": "randomized, double-blind, placebo-controlled RCT — THEACRINE+caffeine combination, not methylliberine",
+      "population": "tactically trained personnel, n=20",
+      "n": 20,
+      "dose": "300mg caffeine (CAF) vs 150mg caffeine+150mg theacrine (CTC) vs placebo",
+      "duration": "acute, pre/post a high-intensity fatiguing exercise protocol",
+      "outcome": "Two-Back accuracy/RT, Dynavision Go/NoGo RT, Object Hit & Avoid accuracy",
+      "result": "Both CAF and CTC improved cognitive performance vs placebo; CTC (half the caffeine dose, plus theacrine) showed additional benefits beyond CAF alone on some measures (higher Two-Back accuracy, faster/less-variable RT). Suggests theacrine may allow a lower effective caffeine dose, not that theacrine works alone.",
+      "fundingConflict": "not stated in abstract; not independently verified",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/40693646/",
+      "status": 200
+    },
+    {
+      "pmid": "30999897",
+      "doi": "10.1186/s12970-019-0287-6",
+      "title": "The effects of TeaCrine and caffeine on endurance and cognitive performance during a simulated match in high-level soccer players",
+      "journal": "Journal of the International Society of Sports Nutrition",
+      "year": 2019,
+      "design": "RCT, 4 randomized sessions crossover — THEACRINE, not methylliberine",
+      "population": "high-level male and female soccer players, n=24",
+      "n": 24,
+      "dose": "TeaCrine alone, caffeine alone, TeaCrine+caffeine, or placebo (specific mg not stated in abstract)",
+      "duration": "acute, during a 90-min simulated soccer match",
+      "outcome": "simple/choice reaction time, cognitive-load RT, time-to-exhaustion (TTE)",
+      "result": "TTE trended toward significance for TeaCrine and TeaCrine+caffeine vs placebo (P<0.052, not significant). Choice RT was faster in caffeine and TeaCrine+caffeine vs placebo; TeaCrine ALONE did not significantly improve choice RT vs placebo — combination, not standalone theacrine, drove the cognitive benefit.",
+      "fundingConflict": "not stated in abstract; not independently verified",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/30999897/",
+      "status": 200
+    }
+  ],
+  "verdicts": [
+    {
+      "claim": "Subjective Energy — evidenceStrength preliminary, 1 study, 'pilot study showed improved energy and alertness ratings at 100mg'",
+      "verdict": "supported",
+      "reason": "Accurately and honestly labeled 'preliminary' with a correct single-study count; La Monica 2023 (the actual RCT, though the site's date reference of '2019' is off by several years) confirms improved subjective energy and sustained energy vs placebo at 100mg.",
+      "pmids": ["37960163"]
+    },
+    {
+      "claim": "Focus & Motivation — evidenceStrength preliminary, 'self-reported improvements... no objective cognitive testing published yet'",
+      "verdict": "overstated",
+      "reason": "This is technically inaccurate, not just imprecise: objective cognitive testing (Stroop, Trail Making Test-B) WAS published in the same 2023 RCT the site is drawing on, and it found methylliberine had 'negligible influence on cognitive function' — i.e. the one objective test that exists is a NULL result, which the site omits entirely while implying objective testing simply doesn't exist yet.",
+      "pmids": ["37960163"]
+    },
+    {
+      "claim": "Cardiovascular Safety — evidenceStrength moderate, magnitude negligible, 2 studies, 'no significant change in heart rate or blood pressure at 100-200mg'",
+      "verdict": "supported",
+      "reason": "VanDusseldorp 2020 (n=125, 4 weeks) found no clinically significant cardiovascular changes at 100-150mg methylliberine alone or combined with theacrine; consistent with the site's claim, though this trial did not test cognition at all.",
+      "pmids": ["32121218"]
+    },
+    {
+      "claim": "General framing: 'Unlike caffeine, early evidence suggests minimal tolerance development' and clean stimulant profile implied for the broader purine-alkaloid class",
+      "verdict": "overstated",
+      "reason": "No long-term (multi-week) tolerance study of methylliberine was found — the 4-week VanDusseldorp trial measured safety biomarkers, not tolerance/efficacy decay. Separately, a 2026 theacrine dose-escalation RCT found HIGHER theacrine doses (6-9mg/kg) increased salivary cortisol, a stress-hormone signal the site's 'clean stimulant' framing for the alkaloid class does not acknowledge.",
+      "pmids": ["41950524"]
+    }
+  ],
+  "doseAssessment": {
+    "trialRange": "Methylliberine alone: 100mg (La Monica 2023) and 100-150mg (VanDusseldorp 2020 safety trial) — the site's 100-200mg range is at or slightly above the highest dose with any published human data (150mg); no human trial has tested 200mg methylliberine alone.",
+    "ourDoseWithinRange": false,
+    "suggestedText": "Narrow the top of the stated range to 150mg, the highest dose actually tested in a published human trial (VanDusseldorp 2020); flag that no published human RCT has tested methylliberine at 200mg."
+  },
+  "safetySignals": [
+    { "signal": "The ONLY human RCT testing methylliberine's cognitive effects (La Monica 2023, n=25) found it had 'negligible influence on cognitive function' on objective testing — despite subjective concentration/mood/motivation improvements. The site's benefits list ('Improved focus and motivation') does not disclose this objective null result.", "pmid": "37960163", "url": "https://pubmed.ncbi.nlm.nih.gov/37960163/" },
+    { "signal": "Both identified methylliberine-specific human trials (La Monica 2023, VanDusseldorp 2020) were funded in whole or part by Compound Solutions, Inc., the company that trademarks and sells Dynamine and TeaCrine; one trial's co-author (Ziegenfuss) holds patents on methylliberine itself. This is a direct, confirmed manufacturer-funding and patent-holder conflict pattern across the entire methylliberine human evidence base.", "pmid": "37960163", "url": "https://pubmed.ncbi.nlm.nih.gov/37960163/" },
+    { "signal": "Total count of human RCTs on methylliberine specifically found in this search: THREE — one testing cognition/mood alone (La Monica 2023, n=25), one testing 4-week cardiovascular/blood safety alone or with theacrine (VanDusseldorp 2020, n=125), and one testing it only as part of a 3-ingredient combination product confounded with caffeine and theacrine (Cintineo 2022, n=48). No published RCT isolates methylliberine's cognitive effects against an active caffeine comparator, and no RCT has tested chronic (multi-week) cognitive effects.", "pmid": "37960163", "url": "https://pubmed.ncbi.nlm.nih.gov/37960163/" }
+  ],
+  "gaps": [
+    "The site's studySummary dates ('A 2020 pharmacokinetic study', 'A 2019 pilot study') do not match the actual publication years or study types of the identified trials (VanDusseldorp 2020 is a 4-week safety trial, not pharmacokinetic; La Monica, the closest match to the 'pilot study' claim, is dated 2023, not 2019) — dates and study-type descriptions should be corrected or sourced to a different, unidentified pair of studies.",
+    "Site's benefits/humanEffects sections omit the La Monica 2023 objective-cognition null result entirely, creating a materially rosier picture than the primary trial supports.",
+    "No evidence was found — supportive or contradictory — for the site's specific claim that Dynamine shows 'minimal tolerance development'; this appears to be an extrapolation, not a trial finding.",
+    "The site's mechanism/benefits text draws implicitly on theacrine (TeaCrine) and combination-product literature, which is more extensive than the methylliberine-only evidence base but describes a materially different molecule; a 2026 theacrine dose-response RCT found no cognitive benefit and an unexpected cortisol increase at higher doses, complicating the site's 'clean stimulant' framing for the alkaloid class as a whole.",
+    "Pregnancy caution ('Not recommended during pregnancy') has no cited or identifiable supporting trial — reasonable as a precaution given the sparse safety data overall, but should be labeled as precautionary rather than evidence-based."
+  ]
+}

@@ -1,0 +1,174 @@
+{
+  "slug": "bacopa-monnieri",
+  "generatedAt": "2026-09-28T12:00:00Z",
+  "ourClaims": {
+    "clinicalDose": "300–450mg/day (standardised to 55% bacosides)",
+    "timeToEffect": "6–12 weeks of consistent use",
+    "studySummary": "A meta-analysis of 9 RCTs (Kongkeaw et al., 2014) found Bacopa significantly improved attention, cognitive processing, and working memory versus placebo. Effects are cumulative — most studies measure outcomes at 8–12 weeks. Best evidence is for memory consolidation rather than acute recall.",
+    "humanEffects": [
+      { "effect": "Memory Consolidation", "evidenceStrength": "strong", "magnitude": "moderate", "studies": 9, "notes": "Meta-analysis of 9 RCTs confirms effects on new memory formation; long-term recall improves more than immediate recall." },
+      { "effect": "Anxiety Reduction", "evidenceStrength": "moderate", "magnitude": "moderate", "studies": 5, "notes": "Significant in anxious populations; more modest in healthy low-stress subjects." },
+      { "effect": "Attention", "evidenceStrength": "moderate", "magnitude": "small", "studies": 6, "notes": "Improvements are modest acutely; significant when measured at 12-week mark." },
+      { "effect": "Processing Speed", "evidenceStrength": "mixed", "magnitude": "small", "studies": 4, "notes": "Some studies show initial slowing of processing speed before 6 weeks — this is a known temporary effect that reverses." }
+    ],
+    "sideEffects": ["GI discomfort at high doses (take with food)", "Slowed information processing initially", "Not recommended during pregnancy"],
+    "howToTake": {
+      "dosage": "300–450mg/day (standardised to 55% bacosides)",
+      "timing": "With your largest meal of the day — morning or evening both work",
+      "withFood": "Bacosides are fat-soluble. Taking Bacopa with food (especially a meal with dietary fat) improves bioavailability significantly. Do not take on an empty stomach.",
+      "forms": "Capsule is most practical. Powder has a bitter, unpleasant taste. Look for standardisation to at least 40–55% bacosides on the label — unstandardised herbal products may contain very little active compound."
+    }
+  },
+  "studies": [
+    {
+      "pmid": "24252493",
+      "doi": "10.1016/j.jep.2013.11.008",
+      "title": "Meta-analysis of randomized controlled trials on cognitive effects of Bacopa monnieri extract.",
+      "journal": "Journal of Ethnopharmacology",
+      "year": 2013,
+      "design": "meta-analysis",
+      "population": "healthy and clinical adults, chronic dosing ≥12 weeks, no co-medication",
+      "n": 518,
+      "dose": "not uniform across pooled trials; range not stated in abstract",
+      "extract": "various standardized extracts",
+      "duration": "≥12 weeks (inclusion criterion)",
+      "outcome": "Trail Making Test B, choice reaction time (speed of attention)",
+      "result": "Trail B shortened by 17.9ms (95% CI -24.6 to -11.2, p<0.001); choice reaction time improved 10.6ms (95% CI -12.1 to -9.2, p<0.001)",
+      "fundingConflict": "not stated in abstract",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/24252493/",
+      "status": 200
+    },
+    {
+      "pmid": "18611150",
+      "pmc": "PMC3153866",
+      "doi": "10.1089/acm.2008.0018",
+      "title": "Effects of a standardized Bacopa monnieri extract on cognitive performance, anxiety, and depression in the elderly: a randomized, double-blind, placebo-controlled trial.",
+      "journal": "Journal of Alternative and Complementary Medicine",
+      "year": 2008,
+      "design": "rct",
+      "population": "healthy elderly, mean age 73.5, no clinical dementia",
+      "n": 54,
+      "dose": "300mg/day",
+      "extract": "standardized whole-plant dry extract (unbranded)",
+      "duration": "6-week placebo run-in + 12-week treatment",
+      "outcome": "AVLT delayed recall (primary); Stroop; STAI anxiety; CESD-10 depression",
+      "result": "Bacopa improved AVLT delayed recall and Stroop vs placebo; anxiety (STAI) and depression (CESD-10) decreased in Bacopa group but increased in placebo (significant between-group difference); no effect on divided attention or WAIS digit task",
+      "fundingConflict": "NIH-supported (Research Support, N.I.H., Extramural per MeSH)",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/18611150/",
+      "status": 200
+    },
+    {
+      "pmid": "20590480",
+      "doi": "10.1089/acm.2009.0342",
+      "title": "Does Bacopa monnieri improve memory performance in older persons? Results of a randomized, placebo-controlled, double-blind trial.",
+      "journal": "Journal of Alternative and Complementary Medicine",
+      "year": 2010,
+      "design": "rct",
+      "population": "healthy adults over 55",
+      "n": 81,
+      "dose": "300mg/day",
+      "extract": "BacoMind",
+      "duration": "12 weeks",
+      "outcome": "Rey Auditory Verbal Learning Test (AVLT) verbal learning and delayed recall",
+      "result": "Significant improvement in verbal learning, acquisition and delayed recall (AVLT trials p=0.000 to 0.048); CFT, MAC-Q, TMT improved but not significantly",
+      "fundingConflict": "not stated in abstract",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/20590480/",
+      "status": 200
+    },
+    {
+      "pmid": "23281132",
+      "doi": "10.1002/ptr.4864",
+      "title": "An acute, double-blind, placebo-controlled crossover study of 320 mg and 640 mg doses of a special extract of Bacopa monnieri (CDRI 08) on sustained cognitive performance.",
+      "journal": "Phytotherapy Research",
+      "year": 2012,
+      "design": "rct",
+      "population": "healthy volunteers",
+      "n": 24,
+      "dose": "320mg or 640mg single acute dose",
+      "extract": "KeenMind / CDRI 08",
+      "duration": "single dose, acute testing",
+      "outcome": "Cognitive Demand Battery performance across repetitions",
+      "result": "320mg dose improved performance at 1st, 2nd and 4th post-dose repetitions; no effect on cardiovascular measures or stress/fatigue ratings",
+      "fundingConflict": "not stated in abstract",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/23281132/",
+      "status": 200
+    },
+    {
+      "pmid": "41091332",
+      "doi": "10.1007/s40261-025-01492-1",
+      "title": "The Effects of a Bacopa monnieri Extract (Bacumen) on Cognition, Stress, and Fatigue in Healthy Adults: A Randomized, Double-Blind, Placebo-Controlled Trial.",
+      "journal": "Clinical Drug Investigation",
+      "year": 2025,
+      "design": "rct",
+      "population": "adults 40-70 with self-reported memory/attention problems",
+      "n": 101,
+      "dose": "300mg/day",
+      "extract": "Bacumen",
+      "duration": "12 weeks",
+      "outcome": "verbal learning, attention, working memory (primary); self-reported stress/fatigue (secondary)",
+      "result": "No significant between-group difference on primary cognitive outcomes (verbal learning p=0.391, attention p=0.713, working memory p=0.610); significant reduction in self-reported stress reactivity (p=0.03) and task-induced fatigue; higher rate of self-reported adverse reactions in Bacopa group (p=0.024), mainly digestive complaints and headaches",
+      "fundingConflict": "not stated in abstract; registered ANZCTR-ACTRN12623000475640",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/41091332/",
+      "status": 200
+    },
+    {
+      "pmid": "41678913",
+      "doi": "10.1016/j.phymed.2026.157915",
+      "title": "Comparative effects of Bacopa monnieri and Ginkgo biloba on cognitive functions: A systematic review and network meta-analysis.",
+      "journal": "Phytomedicine",
+      "year": 2026,
+      "design": "meta-analysis",
+      "population": "healthy adults, 29 pooled RCTs",
+      "n": 2107,
+      "dose": "high-dose Bacopa defined as ≥600mg/day vs low-dose 300 to <600mg/day",
+      "extract": "pooled across standardized extracts",
+      "duration": "varies across pooled RCTs",
+      "outcome": "working memory, short-term memory, delayed memory, attention, processing speed (network meta-analysis, SMD)",
+      "result": "High-dose Bacopa (≥600mg/day) significantly outperformed low-dose Bacopa, both Ginkgo doses and placebo on working memory (SMD 1.84-2.04, all significant); no significant differences in sustained/selective attention or processing speed",
+      "fundingConflict": "Thailand Research Fund grant disclosed; registered PROSPERO CRD420251034900",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/41678913/",
+      "status": 200
+    }
+  ],
+  "verdicts": [
+    {
+      "claim": "Memory Consolidation — strong evidence, moderate magnitude, 9 studies",
+      "verdict": "supported",
+      "reason": "Directly traceable to Kongkeaw 2014 (9-RCT meta-analysis, n=518) showing significant cognitive/speed-of-attention gains, reinforced by two independent positive 12-week elderly RCTs (Calabrese 2008, Morgan & Stevens 2010) on delayed recall.",
+      "pmids": ["24252493", "18611150", "20590480"]
+    },
+    {
+      "claim": "Anxiety Reduction — moderate evidence, moderate magnitude, 5 studies",
+      "verdict": "supported",
+      "reason": "Calabrese 2008 found a significant between-group divergence in STAI anxiety scores over 12 weeks (Bacopa group improved, placebo worsened), consistent with the claimed 'moderate' strength.",
+      "pmids": ["18611150"]
+    },
+    {
+      "claim": "Attention — moderate evidence, small magnitude, 6 studies",
+      "verdict": "overstated",
+      "reason": "The most recent and largest single RCT in this space (Lopresti 2025, n=87 completers) found no significant effect on attention (p=0.713), contradicting the 'moderate' strength label; the positive attention signal in the literature rests mainly on the older Kongkeaw 2014 pooled speed-of-attention metric, not a replicated dedicated attention endpoint.",
+      "pmids": ["41091332", "24252493"]
+    },
+    {
+      "claim": "Processing Speed — mixed evidence, small magnitude, 4 studies, transient initial slowing",
+      "verdict": "supported",
+      "reason": "Correctly characterized as mixed; this matches the literature's well-documented transient 'Bacopa fog' pattern and low-powered small trials.",
+      "pmids": ["23281132"]
+    }
+  ],
+  "doseAssessment": {
+    "trialRange": "Most positive 12-week RCTs used 300mg/day of a standardized extract (BacoMind, unbranded 55% bacoside extracts); the 2026 network meta-analysis found ≥600mg/day superior to 300-450mg/day for working memory specifically.",
+    "ourDoseWithinRange": true,
+    "suggestedText": "Our stated 300–450mg/day range sits within the classic trial dose used in the positive 2008-2010 elderly RCTs, but a 2026 network meta-analysis (29 RCTs, n=2107) found doses ≥600mg/day produced significantly larger working-memory effects than 300-450mg/day. Consider flagging that higher-dose formulations are an emerging area of evidence rather than the established standard."
+  },
+  "safetySignals": [
+    { "signal": "GI side effects (increased stool frequency, abdominal cramps, nausea) reported in a 12-week RCT in healthy older adults", "pmid": "20590480", "url": "https://pubmed.ncbi.nlm.nih.gov/20590480/" },
+    { "signal": "Higher rate of self-reported adverse reactions (digestive complaints, headaches) vs placebo in a 2025 12-week RCT (p=0.024)", "pmid": "41091332", "url": "https://pubmed.ncbi.nlm.nih.gov/41091332/" }
+  ],
+  "gaps": [
+    "No dedicated human RCT data found on Bacopa use during pregnancy to substantiate the page's pregnancy caution (mechanistically plausible but not directly evidenced in the studies reviewed here).",
+    "Most positive trials are 12 weeks or shorter; long-term (>12 week) continuous-use safety/efficacy data is thin, despite the page's FAQ claiming long-term use is well supported.",
+    "The newest, best-designed RCT (Lopresti 2025) failed to replicate primary cognitive benefits at 300mg/day, creating tension with the page's confident 'strong evidence' framing for memory that isn't fully reconciled in current literature.",
+    "No drug-interaction studies located for Bacopa (e.g., with thyroid medication, anticholinergics)."
+  ]
+}

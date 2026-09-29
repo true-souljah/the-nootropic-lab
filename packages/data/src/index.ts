@@ -9,7 +9,7 @@ export { activeProducts, isDiscontinued } from './product-status';
 export { affiliateUrlProblem, formulaProblem, productRuleProblems } from './product-rules';
 export { productsGCC } from './products-gcc';
 export { productsSEA } from './products-sea';
-export type { Ingredient, HumanEffect, HowToTake, StackPair, FAQ } from './ingredients';
+export type { Ingredient, HumanEffect, HowToTake, StackPair, FAQ, IngredientSource } from './ingredients';
 export { ingredients } from './ingredients';
 export type { Guide, GuideSection } from './guides';
 export { guides } from './guides';

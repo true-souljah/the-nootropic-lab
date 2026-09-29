@@ -208,6 +208,13 @@ export interface UIStrings {
     /** Template with {name} placeholder. */
     stackingLede: string;
   };
+  /** Evidence-review strings on ingredient pages (/ingredients/<slug>/). */
+  ingredientEvidence: {
+    /** Heading of the collapsible Sources block at the end of an ingredient page. */
+    sources: string;
+    /** Prefix before the evidence-review date, e.g. "Evidence reviewed:". */
+    evidenceReviewed: string;
+  };
   productDetail: {
     chips: {
       editorPick: string;
@@ -451,6 +458,10 @@ const en: UIStrings = {
     },
     stackingLede: 'Ingredients that pair well with {name} and why.',
   },
+  ingredientEvidence: {
+    sources: 'Sources',
+    evidenceReviewed: 'Evidence reviewed:',
+  },
   productDetail: {
     chips: {
       editorPick: 'Editor\'s pick',
@@ -667,6 +678,10 @@ const es: UIStrings = {
       trials: 'Ensayos',
     },
     stackingLede: 'Ingredientes que se combinan bien con {name} y por qué.',
+  },
+  ingredientEvidence: {
+    sources: 'Fuentes',
+    evidenceReviewed: 'Evidencia revisada el',
   },
   productDetail: {
     chips: {
@@ -885,6 +900,10 @@ const fr: UIStrings = {
     },
     stackingLede: 'Ingrédients qui se combinent bien avec {name} et pourquoi.',
   },
+  ingredientEvidence: {
+    sources: 'Sources',
+    evidenceReviewed: 'Données probantes vérifiées le',
+  },
   productDetail: {
     chips: {
       editorPick: 'Choix de la rédaction',
@@ -1101,6 +1120,10 @@ const ja: UIStrings = {
       trials: '試験数',
     },
     stackingLede: '{name}と相性の良い成分とその理由。',
+  },
+  ingredientEvidence: {
+    sources: '出典',
+    evidenceReviewed: 'エビデンス確認日:',
   },
   productDetail: {
     chips: {
@@ -1319,6 +1342,10 @@ const pt: UIStrings = {
     },
     stackingLede: 'Ingredientes que combinam bem com {name} e por quê.',
   },
+  ingredientEvidence: {
+    sources: 'Fontes',
+    evidenceReviewed: 'Evidências revisadas em',
+  },
   productDetail: {
     chips: {
       editorPick: 'Escolha editorial',
@@ -1535,6 +1562,10 @@ const de: UIStrings = {
       trials: 'Studien',
     },
     stackingLede: 'Inhaltsstoffe, die gut mit {name} kombinieren — und warum.',
+  },
+  ingredientEvidence: {
+    sources: 'Quellen',
+    evidenceReviewed: 'Evidenz geprüft am',
   },
   productDetail: {
     chips: {
@@ -1757,6 +1788,10 @@ const frCa: UIStrings = {
       trials: 'Essais cliniques',
     },
     stackingLede: 'Ingrédients qui se combinent bien avec {name} et les raisons pour lesquelles.',
+  },
+  ingredientEvidence: {
+    sources: 'Sources',
+    evidenceReviewed: 'Données probantes vérifiées le',
   },
   productDetail: {
     chips: {

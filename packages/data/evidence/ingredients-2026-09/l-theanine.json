@@ -1,0 +1,160 @@
+{
+  "slug": "l-theanine",
+  "generatedAt": "2026-09-28T00:00:00Z",
+  "ourClaims": {
+    "clinicalDose": "100–200mg/day (site text is internally inconsistent: clinicalDose field says caffeine ratio '1:2', FAQ/stacksWith text says '2:1 L-Theanine:caffeine')",
+    "timeToEffect": "30–60 minutes (acute)",
+    "studySummary": "Site cites 'a 2008 RCT (Haskell et al.)' for theanine+caffeine synergy and claims 'multiple studies confirm alpha wave induction within 45 minutes'.",
+    "humanEffects": [
+      { "effect": "Calm Focus (Alpha Waves)", "evidenceStrength": "strong", "magnitude": "moderate", "studies": 12, "notes": "Site claims robust EEG evidence, alpha increase within 45 min, one of the most replicable effects." },
+      { "effect": "Anxiety Reduction", "evidenceStrength": "strong", "magnitude": "moderate", "studies": 10, "notes": "Site claims significant in both healthy and anxious populations, notable at 200mg+." },
+      { "effect": "Sleep Quality", "evidenceStrength": "moderate", "magnitude": "small", "studies": 5, "notes": "Site claims reduced sleep latency and improved sleep quality ratings, particularly combined with magnesium." },
+      { "effect": "Caffeine Synergy", "evidenceStrength": "strong", "magnitude": "large", "studies": 8, "notes": "Site claims the combination outperforms either compound alone; 'the best-evidenced nootropic stack in existence'." }
+    ],
+    "sideEffects": ["Extremely well tolerated", "Possible mild sedation at high doses", "Generally considered very safe"],
+    "howToTake": { "dosage": "100–200mg per dose", "timing": "30 min before cognitive work or before caffeine" }
+  },
+  "studies": [
+    {
+      "pmid": "42410082",
+      "doi": "10.1038/s41380-026-03727-9",
+      "title": "Cognitive and affective effects of L-Theanine: a systematic review and meta-analysis of 31 randomized trials",
+      "journal": "Molecular Psychiatry",
+      "year": 2026,
+      "design": "systematic review and meta-analysis (31 RCTs)",
+      "population": "healthy and clinical adults",
+      "n": 1168,
+      "dose": "single 200mg dose (primary analysis); repeated dosing up to 400mg/day for 8 weeks in secondary analyses",
+      "duration": "acute single-dose primary outcome; some included trials up to 8 weeks",
+      "outcome": "choice reaction time/attention (primary: acute stress); secondary: anxiety, depressive symptoms, fatigue",
+      "result": "Single 200mg dose 30-60min pre-test significantly improved choice reaction time (SMD=0.51, 95% CI 0.25-0.77). Acute stress reduction was modest (SMD=0.31) and largely driven by high-risk-of-bias studies. No significant effect on fatigue. Anxiety effects were inconsistent/non-significant except one trial (400mg/day x8wk in psychotic anxiety, SMD=0.54). Depressive symptoms reduced after single dose (SMD=0.69, excluding one outlier). No serious adverse events reported.",
+      "fundingConflict": "not stated in abstract; not independently verified",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/42410082/",
+      "status": 200
+    },
+    {
+      "pmid": "24946991",
+      "doi": "10.1111/nure.12120",
+      "title": "Acute effects of tea constituents L-theanine, caffeine, and epigallocatechin gallate on cognitive function and mood: a systematic review and meta-analysis",
+      "journal": "Nutrition Reviews",
+      "year": 2014,
+      "design": "systematic review and meta-analysis (11 RCTs)",
+      "population": "healthy adults",
+      "n": null,
+      "dose": "varied across pooled studies; theanine and caffeine administered alone and combined",
+      "duration": "acute, first 2 hours post-dose",
+      "outcome": "alertness (Bond-Lader), attentional switching accuracy, other unisensory/multisensory attention measures",
+      "result": "Moderate effect sizes favoring combined caffeine+L-theanine over placebo for alertness and attentional-switching accuracy in the first 2h post-dose. Moderator analysis found caffeine dose was a stronger driver of effect size than theanine dose, particularly in the first hour.",
+      "fundingConflict": "not stated in abstract; not independently verified",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/24946991/",
+      "status": 200
+    },
+    {
+      "pmid": "18006208",
+      "doi": "10.1016/j.biopsycho.2007.09.008",
+      "title": "The effects of L-theanine, caffeine and their combination on cognition and mood",
+      "journal": "Biological Psychology",
+      "year": 2007,
+      "design": "randomized, placebo-controlled, double-blind, balanced crossover RCT (Haskell et al.)",
+      "population": "healthy adults",
+      "n": null,
+      "dose": "L-theanine 250mg, caffeine 150mg, alone and in combination",
+      "duration": "acute",
+      "outcome": "RVIP accuracy, simple/working-memory reaction time, mental fatigue and alertness ratings, delayed word recognition",
+      "result": "L-theanine alone increased headache ratings and reduced correct serial-sevens subtractions. Caffeine alone improved RVIP accuracy and digit vigilance RT. The combination improved RVIP accuracy, mental fatigue ratings, simple RT, working-memory RT and sentence-verification accuracy beyond either alone, plus a significant caffeine x theanine interaction on delayed word-recognition RT.",
+      "fundingConflict": "not stated in abstract; not independently verified",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/18006208/",
+      "status": 200
+    },
+    {
+      "pmid": "26869148",
+      "doi": "10.1080/1028415X.2016.1144845",
+      "title": "Acute effects of theanine, caffeine and theanine-caffeine combination on attention",
+      "journal": "Nutritional Neuroscience",
+      "year": 2016,
+      "design": "placebo-controlled, 5-way crossover RCT",
+      "population": "healthy male volunteers",
+      "n": 20,
+      "dose": "L-theanine 200mg, caffeine 160mg, combination, black tea, placebo",
+      "duration": "acute",
+      "outcome": "recognition visual reaction time (RVRT), simple visual RT, ERP N2-P300 amplitude",
+      "result": "Mean RVRT significantly improved by theanine (P=0.019), caffeine (P=0.043) and combination (P=0.001), not by tea or placebo. Combination elicited a significantly larger N2-P300 amplitude than theanine alone (P=0.029) or caffeine alone (P=0.005). No significant theanine x caffeine interaction on RVRT or amplitude.",
+      "fundingConflict": "not stated in abstract; not independently verified",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/26869148/",
+      "status": 200
+    },
+    {
+      "pmid": "26797633",
+      "doi": "10.3390/nu8010053",
+      "title": "Anti-Stress, Behavioural and Magnetoencephalography Effects of an L-Theanine-Based Nutrient Drink: A Randomised, Double-Blind, Placebo-Controlled, Crossover Trial",
+      "journal": "Nutrients",
+      "year": 2016,
+      "design": "double-blind, placebo-controlled, balanced crossover RCT with MEG",
+      "population": "healthy adults aged 18-40",
+      "n": 34,
+      "dose": "L-theanine-based nutrient drink (specific mg dose not stated in abstract)",
+      "duration": "acute, assessed to 3h post-dose",
+      "outcome": "subjective stress response to cognitive stressor, salivary cortisol, resting-state alpha oscillatory activity (MEG)",
+      "result": "Subjective stress response to a multitasking stressor was significantly reduced 1h post-dose; salivary cortisol reduced at 3h. Resting-state posterior alpha oscillatory activity was significantly greater 2h post-dose vs placebo, but this effect was only apparent in participants higher in trait anxiety, and was not correlated with the stress or cortisol changes. No treatment-related cognitive performance changes were observed.",
+      "fundingConflict": "not stated in abstract; not independently verified",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/26797633/",
+      "status": 200
+    },
+    {
+      "pmid": "40056718",
+      "doi": "10.1016/j.smrv.2025.102076",
+      "title": "The effects of L-theanine consumption on sleep outcomes: A systematic review and meta-analysis",
+      "journal": "Sleep Medicine Reviews",
+      "year": 2025,
+      "design": "systematic review and meta-analysis (19 articles, 18 in meta-analysis)",
+      "population": "humans of all ages and health status",
+      "n": 897,
+      "dose": "varied across included RCTs; authors note a lack of studies on 'pure' L-theanine",
+      "duration": "varied",
+      "outcome": "subjective sleep onset latency, daytime dysfunction, overall subjective sleep quality",
+      "result": "L-theanine significantly but modestly improved subjective sleep onset latency (SMD=0.15, 95% CI 0.01-0.29, n=10 studies), subjective daytime dysfunction (SMD=0.33, 95% CI 0.16-0.49, n=9), and overall subjective sleep quality (SMD=0.43, 95% CI 0.04-0.83, n=12).",
+      "fundingConflict": "not stated in abstract; not independently verified",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/40056718/",
+      "status": 200
+    }
+  ],
+  "verdicts": [
+    {
+      "claim": "Calm Focus (Alpha Waves) — evidenceStrength strong, 'robust EEG evidence showing alpha wave increase within 45 minutes, one of the most replicable effects'",
+      "verdict": "overstated",
+      "reason": "The only identified human EEG/MEG RCT (White 2016) found increased resting alpha activity at 2h post-dose, not 45min, and only in the subgroup with higher trait anxiety — not a universal, replicable effect as the site's blanket claim implies, and it did not correlate with subjective calm or cortisol change.",
+      "pmids": ["26797633"]
+    },
+    {
+      "claim": "Anxiety Reduction — evidenceStrength strong, 'significant in both healthy and anxious populations... notable at 200mg and above'",
+      "verdict": "overstated",
+      "reason": "The largest and most recent meta-analysis (31 RCTs, 2026) found anxiety effects 'inconsistent and non-significant' except one small clinical trial at 400mg/day for 8 weeks; two earlier 200mg RCTs in healthy adults (Lu 2004 vs alprazolam, Rogers 2007) found no significant acute anxiolytic effect under experimentally induced or baseline anxiety.",
+      "pmids": ["42410082", "15378679", "17891480"]
+    },
+    {
+      "claim": "Sleep Quality — evidenceStrength moderate, magnitude small, 'reduces sleep latency and improves sleep quality ratings, particularly when combined with magnesium'",
+      "verdict": "supported",
+      "reason": "A 2025 meta-analysis of 18 RCTs (n=897) confirms significant but small effects on sleep latency, daytime dysfunction and overall sleep quality (SMD 0.15–0.43), matching the site's 'moderate evidence / small magnitude' rating; the specific claim about combining with magnesium was not found tested in any identified RCT and is unverified.",
+      "pmids": ["40056718"]
+    },
+    {
+      "claim": "Caffeine Synergy — evidenceStrength strong, magnitude large, 'the combination outperforms either compound alone... the best-evidenced nootropic stack in existence'",
+      "verdict": "supported",
+      "reason": "Multiple independent RCTs (Haskell 2008, Kahathuduwa 2016) and a dedicated meta-analysis (Camfield 2014, 11 RCTs) consistently show the L-theanine+caffeine combination outperforms either compound alone on attention/reaction-time measures; this is one of the better-replicated acute nootropic effects in the literature.",
+      "pmids": ["18006208", "26869148", "24946991"]
+    }
+  ],
+  "doseAssessment": {
+    "trialRange": "97–250mg single dose across RCTs (most common: 200mg); chronic sleep trials used 50–900mg/day",
+    "ourDoseWithinRange": true,
+    "suggestedText": "100-200mg/day is well within the trial range; no change needed. Fix the internal 1:2 vs 2:1 caffeine-ratio inconsistency between the clinicalDose field and the FAQ/stacksWith text (trials like Haskell 2008 and Kahathuduwa 2016 used roughly 1:1 to 1.6:1 theanine:caffeine ratios, not a fixed 2:1)."
+  },
+  "safetySignals": [
+    { "signal": "No serious adverse events reported across a 31-RCT meta-analysis (n=1168); site's 'extremely well tolerated' claim is consistent with the evidence.", "pmid": "42410082", "url": "https://pubmed.ncbi.nlm.nih.gov/42410082/" }
+  ],
+  "gaps": [
+    "Site's own text is internally inconsistent on the theanine:caffeine ratio (1:2 in clinicalDose field vs 2:1 in FAQ/stacksWith text) — needs a single corrected figure.",
+    "No RCT was found testing L-theanine + magnesium specifically for sleep, despite the site's FAQ recommending this combination.",
+    "The 'alpha wave within 45 minutes' framing is not supported at that specific timepoint by the one identified EEG/MEG RCT (which measured at 2h, in a trait-anxiety subgroup only) — broader EEG literature search would be needed to confirm or refute a 45-minute effect."
+  ]
+}
