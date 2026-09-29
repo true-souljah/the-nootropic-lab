@@ -83,8 +83,9 @@ describe('activeProducts — discontinued products are never recommendable', () 
 
   test('eu: BRAINEFFECT FOCUS is discontinued without a successor', () => {
     const focus = allProductsEU.find((p) => p.slug === 'braineffect-focus-review');
-    expect(focus?.discontinued).toBeDefined();
-    expect(focus?.discontinued?.successorSlug).toBeUndefined();
+    expect(focus).toBeDefined();
+    expect(focus!.discontinued).toBeDefined();
+    expect(focus!.discontinued!.successorSlug).toBeUndefined();
     expect(productsEU.some((p) => p.slug === 'braineffect-focus-review')).toBe(false);
   });
 
@@ -186,16 +187,45 @@ describe('Trustpilot figures carry their check date', () => {
 describe('product copy follows the 2026-09 ingredient evidence review', () => {
   // The review found no trial of a "5 days on / 2 off" Huperzine A cycle
   // (ingredients-evidence.test.ts bans it in ingredient copy); product
-  // records must not prescribe it either.
+  // records must not prescribe it either. Only sentences that mention
+  // huperzine are checked, so a brand's own on/off regimen for a whole
+  // product (Qualia Mind) is not flagged. A sentence that says no trial
+  // tested a cycling schedule is the corrected copy, not a cycling rule.
+  const ON_OFF_OR_CYCLE =
+    /\bcycl|\b(\d+|one|two|three|four|five|six|seven)\s*(days?\s*)?[- ]?on\b.{0,40}\boff\b/i;
+  const NEGATED_CYCLING = /\bno (trial|study|evidence)\b[^.]*\bcycl/i;
+  const huperzineCyclingSentences = (text: string): string[] =>
+    text
+      .split(/\.\s|","/)
+      .filter((s) => /huperzine/i.test(s))
+      .filter((s) => ON_OFF_OR_CYCLE.test(s) && !NEGATED_CYCLING.test(s));
+
+  test('matcher self-test: catches cycling rules, ignores non-huperzine regimens and neutral copy', () => {
+    for (const bad of [
+      'Cycle Huperzine A (5 days on, 2 off).',
+      'Take huperzine A five days on, two days off.',
+      'Huperzine A: 5-on-2-off cycling recommended.',
+    ]) {
+      expect(huperzineCyclingSentences(bad), bad).toHaveLength(1);
+    }
+    for (const ok of [
+      'Qualia Mind is taken 5 days on, 2 days off.',
+      'Huperzine A has a long half-life; follow the label.',
+      'Huperzine A has a long half-life; no trial has tested a cycling schedule, so follow the label and stop if you notice cholinergic side effects (nausea, cramps, vivid dreams).',
+    ]) {
+      expect(huperzineCyclingSentences(ok), ok).toEqual([]);
+    }
+  });
+
   test.each([
     ['us', allProductsUS], ['eu', allProductsEU], ['ca', allProductsCA],
     ['au', allProductsAU], ['jp', allProductsJP], ['latam', allProductsLatam],
     ['gcc', allProductsGCC], ['sea', allProductsSEA],
   ] as const)('%s: no product prescribes an untested huperzine cycling rule', (_r, products) => {
     expect(products.length).toBeGreaterThan(0);
-    const offenders = products
-      .filter((p) => /5 days on|days on, 2 off|5 on \/ 2 off|cycle huperzine/i.test(JSON.stringify(p)))
-      .map((p) => p.slug);
+    const offenders = products.flatMap((p) =>
+      huperzineCyclingSentences(JSON.stringify(p)).map((s) => `${p.slug}: ${s}`),
+    );
     expect(offenders).toEqual([]);
   });
 });
