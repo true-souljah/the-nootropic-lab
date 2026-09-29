@@ -1,10 +1,12 @@
 export type { Product, EUCompliance, Market, IngredientDosage } from './products-us';
-export { productsUS } from './products-us';
-export { productsEU } from './products-eu';
-export { productsCA } from './products-ca';
-export { productsAU } from './products-au';
-export { productsJP } from './products-jp';
-export { productsLatam } from './products-latam';
+export { productsUS, allProductsUS } from './products-us';
+export { productsEU, allProductsEU } from './products-eu';
+export { productsCA, allProductsCA } from './products-ca';
+export { productsAU, allProductsAU } from './products-au';
+export { productsJP, allProductsJP } from './products-jp';
+export { productsLatam, allProductsLatam } from './products-latam';
+export { activeProducts, isDiscontinued } from './product-status';
+export { affiliateUrlProblem, formulaProblem, productRuleProblems } from './product-rules';
 export { productsGCC } from './products-gcc';
 export { productsSEA } from './products-sea';
 export type { Ingredient, HumanEffect, HowToTake, StackPair, FAQ } from './ingredients';

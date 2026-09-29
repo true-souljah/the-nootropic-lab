@@ -27,7 +27,7 @@ const faqItems = [
   },
   {
     q: 'Quel nootropique est livré le plus rapidement au Canada?',
-    a: 'Mind Lab Pro et Performance Lab Mind sont tous deux expédiés directement au Canada depuis leurs entrepôts au Royaume-Uni et en Europe, avec une livraison habituelle de 5 à 10 jours ouvrables. Les marques américaines comme Alpha Brain expédient depuis des entrepôts aux États-Unis vers le Canada en 3 à 7 jours.',
+    a: 'Mind Lab Pro est expédié directement au Canada depuis ses entrepôts au Royaume-Uni et en Europe, avec une livraison habituelle de 5 à 10 jours ouvrables. Les marques américaines comme Alpha Brain expédient depuis des entrepôts aux États-Unis vers le Canada en 3 à 7 jours.',
   },
 ];
 
@@ -97,7 +97,7 @@ export default function FrMeilleursNootropiquesPage() {
           <p className="text-sm text-green-800 leading-relaxed">
             Les acheteurs canadiens bénéficient de l\'ACEUM/CUSMA — les commandes de moins de
             150 $ CAD en provenance des États-Unis entrent généralement en franchise de droits. Les
-            marques britanniques comme Mind Lab Pro et Performance Lab offrent la livraison
+            marques britanniques comme Mind Lab Pro offrent la livraison
             internationale avec un délai standard de 5 à 10 jours ouvrables.
           </p>
         </div>

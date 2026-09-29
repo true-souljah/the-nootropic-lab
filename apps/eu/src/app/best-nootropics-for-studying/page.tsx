@@ -57,26 +57,20 @@ const picks: ListiclePick[] = [
       'Caffeine-free design pairs perfectly with whatever caffeine source you use during study sessions (coffee, espresso, matcha). Includes L-theanine, Bacopa, citicoline, and L-tyrosine — covers all four study-relevant mechanisms in one open formula. EU distribution centre + EUR pricing (€65/mo). Take daily through the term for cumulative Bacopa effect.',
   },
   {
-    product: productsEU.find(p => p.slug === 'performance-lab-mind-review')!,
-    rank: 2,
-    whyItsHere:
-      'Citicoline (250mg) + L-Tyrosine (300mg NALT) at clinical doses, plus Lion\'s Mane and Phosphatidylserine. Only 2 capsules/day — the lowest pill burden in this list, useful during finals when you forget everything. €55/mo with EUR pricing. No Bacopa, so stack with one for full memory-consolidation coverage.',
-  },
-  {
     product: productsEU.find(p => p.slug === 'brainzyme-focus-pro-review')!,
-    rank: 3,
+    rank: 2,
     whyItsHere:
       'UK-made and explicitly positioned for university students. Natural caffeine from matcha + guarana paired with 100mg L-theanine — smooth study-session focus without the synthetic-caffeine crash. €40/mo is the lowest price on this list. Lacks long-term memory ingredients (no Bacopa or Lion\'s Mane), so best for acute study sessions rather than term-long retention.',
   },
   {
     product: productsEU.find(p => p.slug === 'braineffect-focus-review')!,
-    rank: 4,
+    rank: 3,
     whyItsHere:
       'German-made with 80mg caffeine (above the EFSA 75mg alertness-claim threshold), Panax Ginseng, Ginkgo Biloba, and Bacopa (200mg, under the clinical anchor). Strong DACH-region pick with next-day delivery from Berlin. Only 14-day money-back, so try a single box first.',
   },
   {
     product: productsEU.find(p => p.slug === 'hunter-focus-review')!,
-    rank: 5,
+    rank: 4,
     whyItsHere:
       'The most complete study stack in EU coverage: Lion\'s Mane, Bacopa, Phosphatidylserine, Ashwagandha (stress resilience for exam season), ALCAR, plus 100mg caffeine. €85/mo and 6 capsules/day are significant friction — pick this if you want maximum ingredient breadth and can absorb the cost and pill burden.',
   },

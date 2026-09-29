@@ -52,8 +52,12 @@ export function buildSearchIndex(
   const descriptions = strings?.search.descriptions ?? EN_DESCRIPTIONS;
 
   return [
+    // Discontinued products stay searchable (their review page still exists)
+    // and are labelled so the result row does not read as a live pick.
     ...products.map(p => ({
-      title: p.name,
+      title: p.discontinued
+        ? `${p.name} (${strings?.productDetail.discontinued.heading ?? 'Discontinued'})`
+        : p.name,
       href: `/${p.slug}`,
       type: 'product' as const,
       description: p.summary.slice(0, 100),

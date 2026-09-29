@@ -1,4 +1,5 @@
 import productsUSData from './products-us.json';
+import { activeProducts } from './product-status';
 
 export type EUCompliance = 'compliant' | 'reformulated' | 'verify';
 export type Market = 'us' | 'eu' | 'ca' | 'au' | 'jp' | 'latam' | 'gcc' | 'sea' | 'both';
@@ -138,7 +139,27 @@ export interface Product {
    * fabricate ratings.
    */
   seoDescription?: string;
+  /** ISO date (YYYY-MM-DD) of the last check of this record against the vendor's own pages. */
+  verifiedAt?: string;
+  /** ISO date (YYYY-MM-DD) the `trustpilotScore` / `trustpilotCount` pair was last read from Trustpilot. */
+  trustpilotCheckedAt?: string;
+  /**
+   * Set when the vendor no longer sells this product. The review page stays
+   * published (it still has search demand) but renders a discontinued notice
+   * instead of buy CTAs, and the product is excluded from every
+   * recommendation surface (see `activeProducts` in ./product-status).
+   */
+  discontinued?: {
+    /** ISO date the discontinuation was confirmed. */
+    since: string;
+    /** Slug of the review page readers should go to instead, when one exists. */
+    successorSlug?: string;
+    /** Reader-facing explanation, shown verbatim in the notice. */
+    note: string;
+  };
 }
 
-
-export const productsUS: Product[] = productsUSData as Product[];
+/** Every US record, including discontinued ones — review pages, sitemap, hreflang. */
+export const allProductsUS: Product[] = productsUSData as Product[];
+/** US records that can be recommended (discontinued products excluded). */
+export const productsUS: Product[] = activeProducts(allProductsUS);

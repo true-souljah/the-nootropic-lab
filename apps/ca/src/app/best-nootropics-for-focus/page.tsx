@@ -57,35 +57,29 @@ const picks: ListiclePick[] = [
       'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design lets Canadian buyers pair it with their own coffee or matcha for the synergistic effect. Ships from the UK directly to Canadian addresses; the only nootropic in our CA coverage with multiple peer-reviewed RCTs (University of Leeds).',
   },
   {
-    product: productsCA.find(p => p.slug === 'performance-lab-mind-review')!,
-    rank: 2,
-    whyItsHere:
-      'Minimalist, ultra-clean focus stack: 250mg Cognizin citicoline + 100mg Sharp-PS Green + 300mg L-Tyrosine (Ajipure) at near-clinical doses. Only 2 capsules per day — the lowest pill burden of any focus pick in our CA coverage. Same Opti-Nutra UK warehouse as Mind Lab Pro, so Canadian delivery is reliable.',
-  },
-  {
     product: productsCA.find(p => p.slug === 'hunter-focus-review')!,
-    rank: 3,
+    rank: 2,
     whyItsHere:
       'Only pick on this list with the full caffeine + L-theanine 1:2 stack pre-built (100mg caffeine + 200mg L-theanine), plus 250mg citicoline and 500mg Lion\'s Mane. The right choice for Canadian professionals who want energy + focus in one supplement and tolerate caffeine well. Ships from the UK to Canada in 10–14 business days.',
   },
   {
     product: productsCA.find(p => p.slug === 'qualia-mind-review')!,
-    rank: 4,
+    rank: 3,
     whyItsHere:
       'Includes citicoline, Alpha-GPC, L-theanine, and L-tyrosine — covers nearly every evidence-backed focus mechanism. Loses ground to Mind Lab Pro on capsule count (7+/day), price (CAD ~$190/mo subscription), and on Canadian buyers paying in USD with potential customs scrutiny on larger orders. Wins on ingredient breadth.',
   },
   {
     product: productsCA.find(p => p.slug === 'noocube-review')!,
-    rank: 5,
+    rank: 4,
     whyItsHere:
-      'Includes Alpha-GPC (50mg — under clinical), Bacopa, and L-theanine 100mg at clinical dose. Standout ingredient is Lutemax 2020 for blue-light eye fatigue — relevant for Canadian remote workers. Open formula. Trustpilot score is concerning (1.9/5) — verify subscription cancellation terms before ordering.',
+      'Includes choline (VitaCholine, 250mg), Bacopa, and L-theanine 100mg at clinical dose. Standout ingredient is Lutemax 2020 for blue-light eye fatigue — relevant for Canadian remote workers. Open formula. The noocube.com Trustpilot profile has no reviews yet — verify subscription cancellation terms before ordering.',
   },
 ];
 
 const faqItems: ListicleFAQ[] = [
   {
     q: 'What is the most evidence-backed nootropic for focus available in Canada?',
-    a: 'L-theanine paired with caffeine (1:2 to 2:1 ratio) has the strongest replication evidence in healthy adults — Owen et al. 2008 and multiple follow-ups. Citicoline at 250–500mg also has multiple RCTs. Among CA-shippable products, Mind Lab Pro and Performance Lab Mind both deliver citicoline at clinical dose; Hunter Focus is the only pre-built caffeine + L-theanine pick.',
+    a: 'L-theanine paired with caffeine (1:2 to 2:1 ratio) has the strongest replication evidence in healthy adults — Owen et al. 2008 and multiple follow-ups. Citicoline at 250–500mg also has multiple RCTs. Among CA-shippable products, Mind Lab Pro delivers citicoline at clinical dose; Hunter Focus is the only pre-built caffeine + L-theanine pick.',
   },
   {
     q: 'How long does it take a focus nootropic to work?',
@@ -105,11 +99,11 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'What is the best caffeine-free focus nootropic for Canadian buyers?',
-    a: 'Mind Lab Pro is purpose-built as caffeine-free and is our top CA pick. Performance Lab Mind is a strong runner-up with only 2 capsules per day. Both pair well with your morning coffee or matcha if you want to add caffeine yourself.',
+    a: 'Mind Lab Pro is purpose-built as caffeine-free and is our top CA pick. It pairs well with your morning coffee or matcha if you want to add caffeine yourself.',
   },
   {
     q: 'Where can I buy focus nootropics in Canada — Shoppers Drug Mart, Costco, or online?',
-    a: 'The premium picks on this page (Mind Lab Pro, Performance Lab Mind, Hunter Focus, Qualia Mind) are direct-to-consumer only — they do not appear on Shoppers Drug Mart, Rexall, or Costco shelves. Canadian retail pharmacies typically stock generic single-ingredient supplements (Bacopa, Ginkgo, L-theanine) but rarely the multi-ingredient stacks with clinically-validated dosing covered here. Onnit Alpha Brain is occasionally stocked at GNC Canada and Amazon.ca.',
+    a: 'The premium picks on this page (Mind Lab Pro, Hunter Focus, Qualia Mind) are direct-to-consumer only — they do not appear on Shoppers Drug Mart, Rexall, or Costco shelves. Canadian retail pharmacies typically stock generic single-ingredient supplements (Bacopa, Ginkgo, L-theanine) but rarely the multi-ingredient stacks with clinically-validated dosing covered here. Onnit Alpha Brain is occasionally stocked at GNC Canada and Amazon.ca.',
   },
 ];
 
