@@ -69,20 +69,14 @@ const picks: ListiclePick[] = [
       'Includes Bacopa at full 300mg clinical dose, citicoline, phosphatidylserine 200mg, AND Lion\'s Mane — the most complete memory-ingredient stack of any product available to Canadian buyers. Loses ground on capsule count (7+/day), price (CAD ~$190/mo subscription), and on US-domiciled order tracking. For memory specifically, the breadth justifies the trade-off if you can tolerate the daily friction.',
   },
   {
-    product: productsCA.find(p => p.slug === 'performance-lab-mind-review')!,
+    product: productsCA.find(p => p.slug === 'naturebell-ginkgo-ginseng-review')!,
     rank: 3,
     whyItsHere:
-      'Phosphatidylserine 100mg (Sharp-PS Green) + Citicoline 250mg (Cognizin) at clinical doses — the two best-evidenced membrane-and-choline mechanisms for memory. Does not include Bacopa or Lion\'s Mane, so pair with a separate Bacopa supplement for full memory-stack coverage. Only 2 capsules per day.',
-  },
-  {
-    product: productsCA.find(p => p.slug === 'naturebell-ginkgo-ginseng-review')!,
-    rank: 4,
-    whyItsHere:
-      'The budget pick — CAD ~$7/month from Amazon.ca with Prime shipping anywhere in Canada. Delivers Ginkgo Biloba at the full Health Canada-monograph clinical dose (120mg, 50:1 extract). Single-mechanism (cerebral blood flow), not a complete memory stack. Best as a cheap addition alongside Mind Lab Pro or Performance Lab Mind, or as an entry-point trial. Not Health Canada NPN-registered (imported as personal-use).',
+      'The budget pick — CAD ~$7/month from Amazon.ca with Prime shipping anywhere in Canada. Delivers Ginkgo Biloba at the full Health Canada-monograph clinical dose (120mg, 50:1 extract). Single-mechanism (cerebral blood flow), not a complete memory stack. Best as a cheap addition alongside Mind Lab Pro, or as an entry-point trial. Not Health Canada NPN-registered (imported as personal-use).',
   },
   {
     product: productsCA.find(p => p.slug === 'onnit-alpha-brain-review')!,
-    rank: 5,
+    rank: 4,
     whyItsHere:
       'Contains Bacopa, Lion\'s Mane, and Huperzine A (an acetylcholinesterase inhibitor with weak memory evidence). Proprietary blends mean you cannot verify Bacopa is at the 300mg clinical dose. Mainstream availability via Amazon.ca and occasional GNC Canada distribution is its strongest feature for memory buyers who want retail access.',
   },
@@ -91,7 +85,7 @@ const picks: ListiclePick[] = [
 const faqItems: ListicleFAQ[] = [
   {
     q: 'What is the most evidence-backed nootropic for memory available in Canada?',
-    a: 'Bacopa Monnieri at 300mg standardized to 50% bacosides has the most replicated RCT evidence for memory consolidation in healthy adults — Qualia Mind delivers this dose. Phosphatidylserine has the strongest age-related memory claim and Mind Lab Pro / Performance Lab Mind both deliver 100mg at clinical dose. Citicoline at 250–500mg has good evidence for older adults.',
+    a: 'Bacopa Monnieri at 300mg standardized to 50% bacosides has the most replicated RCT evidence for memory consolidation in healthy adults — Qualia Mind delivers this dose. Phosphatidylserine has the strongest age-related memory claim and Mind Lab Pro delivers 100mg at clinical dose. Citicoline at 250–500mg has good evidence for older adults.',
   },
   {
     q: 'How long until memory nootropics work?',
@@ -99,11 +93,11 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Are memory nootropics regulated by Health Canada?',
-    a: 'All CA-domiciled natural health products carry an NPN (Natural Product Number) issued by Health Canada that confirms safety, quality, and permitted health claims. Cross-border imports (Mind Lab Pro, Qualia Mind, Performance Lab Mind, Hunter Focus) do not carry an NPN — they enter as personal-use supplements. Bacopa, Ginkgo, Lion\'s Mane, and PS all have Health Canada NPN monographs that domestic Canadian brands can register against.',
+    a: 'All CA-domiciled natural health products carry an NPN (Natural Product Number) issued by Health Canada that confirms safety, quality, and permitted health claims. Cross-border imports (Mind Lab Pro, Qualia Mind, Hunter Focus) do not carry an NPN — they enter as personal-use supplements. Bacopa, Ginkgo, Lion\'s Mane, and PS all have Health Canada NPN monographs that domestic Canadian brands can register against.',
   },
   {
     q: 'Are memory nootropics safe long-term?',
-    a: 'The ingredients on this page have favorable safety profiles in human RCTs at the doses listed. Phosphatidylserine derived from soy may be a concern for soy allergies (sunflower-derived PS is available — Performance Lab Mind uses Sharp-PS Green, which is sunflower-sourced). Bacopa can cause GI upset in some people; take with food.',
+    a: 'The ingredients on this page have favorable safety profiles in human RCTs at the doses listed. Phosphatidylserine derived from soy may be a concern for soy allergies (sunflower-derived PS is available — check the label source). Bacopa can cause GI upset in some people; take with food.',
   },
   {
     q: 'Will these help with age-related memory loss?',

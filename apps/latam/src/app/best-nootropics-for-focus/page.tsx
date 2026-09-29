@@ -67,7 +67,7 @@ const picks: ListiclePick[] = [
     product: productsLatam.find(p => p.slug === 'noocube-review')!,
     rank: 3,
     whyItsHere:
-      'Incluye Alfa-GPC, L-teanina y Lutemax 2020 (útil para fatiga visual frente a pantallas, frecuente en trabajo remoto en Latam). Fórmula abierta — las dosis se declaran. Atención: el puntaje en Trustpilot es muy bajo (1.9/5) por reclamos de cancelación de suscripción; verifica la política antes de comprar.',
+      'Incluye colina (VitaCholine), L-teanina y Lutemax 2020 (útil para fatiga visual frente a pantallas, frecuente en trabajo remoto en Latam). Fórmula abierta — las dosis se declaran. Atención: el perfil de noocube.com en Trustpilot aún no tiene reseñas; verifica la política de cancelación antes de comprar.',
   },
 ];
 

@@ -39,7 +39,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Phosphatidylserine (PS)',
     evidence:
-      'Phospholipid component of brain cell membranes. Most RCT evidence is in 50–80-year-olds at 100–300mg/day. Less-strong evidence for memory in healthy younger adults. PS is not a permitted ingredient for therapeutic claims in TGA Listed Medicines, so PS-containing products available in Australia (Mind Lab Pro, Performance Lab Mind, Qualia Mind) are imported as food supplements.',
+      'Phospholipid component of brain cell membranes. Most RCT evidence is in 50–80-year-olds at 100–300mg/day. Less-strong evidence for memory in healthy younger adults. PS is not a permitted ingredient for therapeutic claims in TGA Listed Medicines, so PS-containing products available in Australia (Mind Lab Pro, Qualia Mind) are imported as food supplements.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {
@@ -64,20 +64,14 @@ const picks: ListiclePick[] = [
       'Includes Bacopa (300mg at clinical dose), citicoline, phosphatidylserine (200mg), AND a comprehensive cholinergic stack — the most complete memory-ingredient stack in one product available to Australian buyers. Loses ground on capsule count (7+/day) and price (AUD $215/mo). For memory specifically, the breadth justifies the trade-off if you can tolerate the daily friction. Ships from the US to Australia in 10–18 business days. Note: contains Huperzine A and caffeine.',
   },
   {
-    product: productsAU.find(p => p.slug === 'performance-lab-mind-review')!,
-    rank: 3,
-    whyItsHere:
-      'Phosphatidylserine (100mg Sharp-PS Green at clinical dose) plus citicoline (250mg Cognizin at clinical dose) — both memory-evidence ingredients fully dosed. No Bacopa or Lion\'s Mane, so pair with a TGA-listed Bacopa product (Blackmores Brahmi, Caruso\'s Memory Forte) for fuller memory coverage. 2 capsules/day is the lowest pill burden of any memory pick.',
-  },
-  {
     product: productsAU.find(p => p.slug === 'hunter-focus-review')!,
-    rank: 4,
+    rank: 3,
     whyItsHere:
       'Lion\'s Mane fruiting-body extract at the full 500mg clinical dose, plus citicoline (250mg) — the only AU-shippable stack with Lion\'s Mane fully dosed alongside cholinergic support. No Bacopa or PS. Premium pricing (AUD $140/mo). Contains caffeine. The right choice if you want a Lion\'s Mane focus on memory rather than the broader Mind Lab Pro stack.',
   },
   {
     product: productsAU.find(p => p.slug === 'onnit-alpha-brain-review')!,
-    rank: 5,
+    rank: 4,
     whyItsHere:
       'Contains Bacopa and Huperzine A (an acetylcholinesterase inhibitor with weak memory evidence). Proprietary blends mean you cannot verify Bacopa is at the 300mg clinical dose. Mainstream international availability is its strongest feature for Australian memory buyers. Ships from the US to Australia in 10–18 business days.',
   },
@@ -94,7 +88,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Are these memory nootropics TGA-listed in Australia?',
-    a: 'No — the international stacks ranked here (Mind Lab Pro, Performance Lab Mind, Qualia Mind, Hunter Focus, Alpha Brain) are not TGA-listed. They ship to Australia under the TGA Personal Importation Scheme as food supplements. Australian TGA-listed memory products are typically standalone Bacopa, ginkgo, or fish-oil formulas: Blackmores Bio Ginkgoforte, Caruso\'s Memory Forte, Swisse Memory & Focus, Nature\'s Own Brahmi, Cenovis Ginkgo Biloba. These carry AUST L numbers and are sold at Chemist Warehouse, Priceline, Amcal, and Blooms. The trade-off: TGA-listed Australian products typically focus on a single ingredient (Bacopa OR ginkgo OR fish oil) rather than the multi-ingredient stacks ranked above.',
+    a: 'No — the international stacks ranked here (Mind Lab Pro, Qualia Mind, Hunter Focus, Alpha Brain) are not TGA-listed. They ship to Australia under the TGA Personal Importation Scheme as food supplements. Australian TGA-listed memory products are typically standalone Bacopa, ginkgo, or fish-oil formulas: Blackmores Bio Ginkgoforte, Caruso\'s Memory Forte, Swisse Memory & Focus, Nature\'s Own Brahmi, Cenovis Ginkgo Biloba. These carry AUST L numbers and are sold at Chemist Warehouse, Priceline, Amcal, and Blooms. The trade-off: TGA-listed Australian products typically focus on a single ingredient (Bacopa OR ginkgo OR fish oil) rather than the multi-ingredient stacks ranked above.',
   },
   {
     q: 'Should I combine a TGA-listed Bacopa with an imported stack?',

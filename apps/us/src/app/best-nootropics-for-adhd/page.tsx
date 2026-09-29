@@ -72,7 +72,7 @@ const picks: ListiclePick[] = [
     product: productsUS.find(p => p.slug === 'noocube-review')!,
     rank: 4,
     whyItsHere:
-      'Open formula including L-tyrosine and Alpha-GPC. Lower price than Mind Lab Pro. Marketing-heavy positioning, but the formula is reasonable for ADHD-adjacent focus support.',
+      'Open formula including L-tyrosine and choline (VitaCholine). Lower price than Mind Lab Pro. Marketing-heavy positioning, but the formula is reasonable for ADHD-adjacent focus support.',
   },
 ];
 

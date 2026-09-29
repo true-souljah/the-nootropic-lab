@@ -73,7 +73,7 @@ const picks: ListiclePick[] = [
     product: productsLatam.find(p => p.slug === 'noocube-review')!,
     rank: 4,
     whyItsHere:
-      'Lutemax 2020 es relevante para estudiantes que pasan muchas horas frente a la pantalla — reduce la fatiga visual asociada a la luz azul. Buen valor a $59 USD/mes con 60 días de garantía. Atención: Trustpilot 1.9/5 por reclamos de cancelación de suscripción; verifica la política antes de pedir. Algunos ingredientes están subdosificados (Alfa-GPC, Huperzina A).',
+      'Lutemax 2020 es relevante para estudiantes que pasan muchas horas frente a la pantalla — reduce la fatiga visual asociada a la luz azul. Buen valor a $64.99 USD/mes con 60 días de garantía. Atención: el perfil de noocube.com en Trustpilot aún no tiene reseñas; verifica la política de cancelación antes de pedir. La fórmula actual ya no contiene Alfa-GPC ni Huperzina A.',
   },
 ];
 
