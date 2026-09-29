@@ -77,7 +77,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'What does FFC notification (機能性表示食品) actually mean?',
-    a: 'Japan\'s Food with Function Claims system requires manufacturers to notify the Consumer Affairs Agency (消費者庁) of the cognitive claim and the supporting evidence. It is more rigorous than US "structure-function claims" but less than the EU\'s health-claim authorization system. FANCL BRAINs and Suntory DHA & EPA + Sesamin EX are both notified. The notification reflects evidence quality but is not a disease-prevention promise.',
+    a: 'Japan\'s Food with Function Claims system requires manufacturers to notify the Consumer Affairs Agency (消費者庁) of the cognitive claim and the supporting evidence. It is more rigorous than US "structure-function claims" but less than the EU\'s health-claim authorization system. FANCL BRAINs is notified (G425); Suntory DHA & EPA + Sesamin EX is not FFC-notified in our catalogue. The notification reflects evidence quality but is not a disease-prevention promise.',
   },
   {
     q: 'When should I start taking these?',

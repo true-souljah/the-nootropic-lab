@@ -73,7 +73,7 @@ const picks: ListiclePick[] = [
 const faqItems: ListicleFAQ[] = [
   {
     q: 'Are any of these focus nootropics notified under Japan\'s FFC (機能性表示食品) system?',
-    a: 'No — the international stacks above (Mind Lab Pro, Hunter Focus, NooCube) are not notified under Japan\'s Food with Function Claims framework administered by the Consumer Affairs Agency (消費者庁). They ship under the personal-import route. Domestic FFC-notified options like FANCL BRAINs and Suntory DHA & EPA + Sesamin EX target memory and brain health rather than acute focus, and are covered on our memory and aging pages.',
+    a: 'No — the international stacks above (Mind Lab Pro, Hunter Focus, NooCube) are not notified under Japan\'s Food with Function Claims framework administered by the Consumer Affairs Agency (消費者庁). They ship under the personal-import route. Domestic options like FANCL BRAINs (FFC-notified, G425) and Suntory DHA & EPA + Sesamin EX (not FFC-notified in our catalogue) target memory and brain health rather than acute focus, and are covered on our memory and aging pages.',
   },
   {
     q: 'What is the most evidence-backed nootropic for focus available in Japan?',
@@ -104,7 +104,7 @@ export default function Page() {
       useCase="focus"
       pageTitle="Best Nootropics for Focus in Japan"
       pageDescription="Independent ranking of the best nootropics for focus and attention available in Japan. Each pick must contain a clinically-dosed focus ingredient."
-      heroParagraph="If you want to take a supplement to support focus in Japan, the question is not 'which brand?' but 'which ingredient at what dose?' This page ranks the products available to Japanese buyers — international stacks shipping under Ministry of Health, Labour and Welfare (MHLW) personal-import rules — that contain at least one focus-validated ingredient (L-theanine + caffeine, citicoline, L-tyrosine, Alpha-GPC) at clinical dose. Domestic FFC-notified brands (FANCL, Suntory) target memory and brain health rather than acute focus and appear on our memory page."
+      heroParagraph="If you want to take a supplement to support focus in Japan, the question is not 'which brand?' but 'which ingredient at what dose?' This page ranks the products available to Japanese buyers — international stacks shipping under Ministry of Health, Labour and Welfare (MHLW) personal-import rules — that contain at least one focus-validated ingredient (L-theanine + caffeine, citicoline, L-tyrosine, Alpha-GPC) at clinical dose. Domestic brands (FFC-notified FANCL BRAINs, plus Suntory) target memory and brain health rather than acute focus and appear on our memory page."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}
