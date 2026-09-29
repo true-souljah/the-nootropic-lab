@@ -65,22 +65,12 @@ const articleSchema = {
   publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
 };
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqItems.map((item) => ({
-    '@type': 'Question',
-    name: item.q,
-    acceptedAnswer: { '@type': 'Answer', text: item.a },
-  })),
-};
 
 export default function YakkanShoumeiPage() {
   return (
     <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
       <SchemaOrg schema={breadcrumbSchema} />
       <SchemaOrg schema={articleSchema} />
-      <SchemaOrg schema={faqSchema} />
       <article className="max-w-4xl mx-auto px-4 py-10" lang="ja">
         <nav className="text-xs text-gray-500 mb-6" aria-label="パンくずリスト">
           <Link href="/" className="hover:text-green-700">ホーム</Link>

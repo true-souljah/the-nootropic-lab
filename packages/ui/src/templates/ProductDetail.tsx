@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import AppShell from './AppShell';
 import { FPDisclosure } from '../public-chrome/FPDisclosure';
+import { FPTrustNote } from '../public-chrome/FPTrustNote';
 import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { Tabs, TabPanel } from '../primitives/Tabs';
@@ -69,11 +70,23 @@ export default function ProductDetail({
   // catalogue JSON to the browser.
   const recommendable = alternatives.filter((alt) => alt.discontinued == null);
 
-  const formattedDate = (p.updatedAt ? new Date(p.updatedAt) : new Date()).toLocaleDateString(pd.dateLocale, {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  });
+  // Record date line: "Last verified: <verifiedAt>" when the record carries a
+  // verification date, otherwise "Updated: <updatedAt>"; nothing when neither
+  // exists (no build-date fallback). Records store calendar dates (YYYY-MM-DD);
+  // anchor at UTC midnight and format in UTC so the day never shifts with TZ.
+  const verifiedAt = p.verifiedAt;
+  const recordDateISO = (verifiedAt ?? p.updatedAt)?.slice(0, 10);
+  const recordDateLabel = verifiedAt ? pd.meta.lastVerified : pd.meta.updated;
+  const recordDate = recordDateISO ? new Date(`${recordDateISO}T00:00:00Z`) : null;
+  const recordDateDisplay =
+    recordDate && !Number.isNaN(recordDate.getTime())
+      ? recordDate.toLocaleDateString(pd.dateLocale, {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+          timeZone: 'UTC',
+        })
+      : null;
 
   const adequateCount = p.ingredientDosages.filter((d) => d.adequatelyDosed).length;
   const totalDoses = p.ingredientDosages.length;
@@ -110,7 +123,7 @@ export default function ProductDetail({
       searchItems={searchItems}
       uiStrings={uiStrings}
     >
-      <FPDisclosure methodologyHref="/methodology" />
+      <FPDisclosure methodologyHref="/methodology" strings={uiStrings.disclosure} />
       <div className="px-4 sm:px-7 pt-6 pb-10">
         {discontinued && (
           <aside
@@ -189,10 +202,18 @@ export default function ProductDetail({
               </h1>
               <div className="text-ds-muted text-[14px] mt-1">
                 {pd.meta.by} {p.brand} · {pd.meta.productDescriptor} · {p.servingsPerContainer}{' '}
-                {pd.meta.countSuffix} ·{' '}
-                <span className="text-ds-muted">
-                  {pd.meta.updated} {formattedDate}
-                </span>
+                {pd.meta.countSuffix}
+              </div>
+              <div className="text-ds-muted text-[13px] mt-1">
+                <span className="text-ds-ink font-semibold">{pd.meta.reviewedBy}</span>
+                {recordDateDisplay && (
+                  <>
+                    {' · '}
+                    <span data-record-date={verifiedAt ? 'verified' : 'updated'}>
+                      {recordDateLabel} <time dateTime={recordDateISO}>{recordDateDisplay}</time>
+                    </span>
+                  </>
+                )}
               </div>
             </div>
             <div className="text-right">
@@ -206,7 +227,9 @@ export default function ProductDetail({
             </div>
           </div>
 
-          <div className="mt-[22px] pt-[18px] border-t border-ds-border grid gap-[18px] items-center grid-cols-2 sm:grid-cols-3 lg:grid-cols-[repeat(5,1fr)_auto]">
+          {!discontinued && <FPTrustNote strings={uiStrings.disclosure} className="mt-[18px]" />}
+
+          <div className="mt-[18px] pt-[18px] border-t border-ds-border grid gap-[18px] items-center grid-cols-2 sm:grid-cols-3 lg:grid-cols-[repeat(5,1fr)_auto]">
             {[
               ...(discontinued ? [] : [priceStat]),
               [pd.stats.capsules, `${p.capsulesPerServing}${pd.stats.perDay}`, false],
@@ -269,7 +292,7 @@ export default function ProductDetail({
         </TabPanel>
         {!discontinued && (
           <TabPanel idPrefix="product" id="pricing" hidden={tab !== 'pricing'} className="mt-5">
-            <PricingTab product={p} />
+            <PricingTab product={p} disclosure={uiStrings.disclosure} />
           </TabPanel>
         )}
 

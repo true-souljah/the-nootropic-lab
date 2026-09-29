@@ -72,12 +72,13 @@ test.describe('JP /ja/yakkan-shoumei/ (PR-C3b)', () => {
     await expect(bestNootropicsLink.first()).toBeVisible();
   });
 
-  test('emits Article + FAQPage schema JSON-LD', async ({ page }) => {
+  test('emits Article + BreadcrumbList schema JSON-LD (no retired FAQPage)', async ({ page }) => {
     const response = await page.goto('/ja/yakkan-shoumei/');
     const html = (await response?.text()) ?? '';
-    // PR-C3b emits 3 SchemaOrg blocks: BreadcrumbList + Article + FAQPage.
+    // PR-C3b emitted BreadcrumbList + Article + FAQPage; FAQPage was dropped
+    // 2026-09 because Google retired the FAQ rich result (2026-05-07).
     expect(html).toContain('"@type":"Article"');
-    expect(html).toContain('"@type":"FAQPage"');
+    expect(html).not.toContain('"@type":"FAQPage"');
     expect(html).toContain('"@type":"BreadcrumbList"');
     expect(html).toContain('"inLanguage":"ja"');
   });

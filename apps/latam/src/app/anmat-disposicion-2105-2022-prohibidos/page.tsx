@@ -55,10 +55,6 @@ const articleSchema = {
   author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
   publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   reviewedBy: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
-  speakable: {
-    '@type': 'SpeakableSpecification',
-    cssSelector: ['#hero-paragraph', '.faq-question'],
-  },
 };
 
 // Dataset schema — the prohibited compound list as structured data
@@ -119,15 +115,6 @@ const faqs = [
   },
 ];
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map(f => ({
-    '@type': 'Question',
-    name: f.q,
-    acceptedAnswer: { '@type': 'Answer', text: f.a },
-  })),
-};
 
 const compoundClassLabels: Record<string, string> = {
   'racetam': 'Racetam',
@@ -143,7 +130,6 @@ export default function Page() {
     <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
       <SchemaOrg schema={articleSchema} />
       <SchemaOrg schema={datasetSchema} />
-      <SchemaOrg schema={faqSchema} />
       <SchemaOrg schema={breadcrumbSchema} />
 
       <article className="max-w-4xl mx-auto px-4 py-10">

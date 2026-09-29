@@ -70,21 +70,11 @@ const faqItems = [
   },
 ];
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqItems.map(item => ({
-    '@type': 'Question',
-    name: item.q,
-    acceptedAnswer: { '@type': 'Answer', text: item.a },
-  })),
-};
 
 export default function Page() {
   return (
     <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
       <SchemaOrg schema={articleSchema} />
-      <SchemaOrg schema={faqSchema} />
       <SchemaOrg schema={breadcrumbSchema} />
 
       <article className="max-w-3xl mx-auto px-4 py-10">

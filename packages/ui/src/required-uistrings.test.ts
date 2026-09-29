@@ -2,6 +2,9 @@ import { describe, test, expect } from 'vitest';
 import { type ComponentProps } from 'react';
 import ProductDetail from './templates/ProductDetail';
 import BestOf from './templates/BestOf';
+import Listicle from './templates/Listicle';
+import HeadToHead from './templates/HeadToHead';
+import ThreeWay from './templates/ThreeWay';
 
 // Regression guard for PR-Q12 (#76). Before this PR, ProductDetail and
 // BestOf each declared `uiStrings?: UIStrings` (optional) and fell back
@@ -46,5 +49,25 @@ describe('BestOf — uiStrings is REQUIRED (PR-Q12 regression guard)', () => {
     const isOptional: IsOptional = false;
     expect(hasKey).toBe(true);
     expect(isOptional).toBe(false);
+  });
+});
+
+// 2026-09 trust conformance: the public money templates render the
+// localised inline disclosure (FPTrustNote) from `uiStrings.disclosure`,
+// so `uiStrings` is required on them too — an omitted bundle would ship
+// an English (or missing) affiliate disclosure on a non-EN page.
+type ListicleProps = ComponentProps<typeof Listicle>;
+type HeadToHeadProps = ComponentProps<typeof HeadToHead>;
+type ThreeWayProps = ComponentProps<typeof ThreeWay>;
+
+describe('Listicle / HeadToHead / ThreeWay — uiStrings is REQUIRED (disclosure localisation guard)', () => {
+  test('uiStrings is NOT optional on any of the three templates', () => {
+    type ListicleOptional = undefined extends ListicleProps['uiStrings'] ? true : false;
+    type HeadToHeadOptional = undefined extends HeadToHeadProps['uiStrings'] ? true : false;
+    type ThreeWayOptional = undefined extends ThreeWayProps['uiStrings'] ? true : false;
+    const listicle: ListicleOptional = false;
+    const headToHead: HeadToHeadOptional = false;
+    const threeWay: ThreeWayOptional = false;
+    expect([listicle, headToHead, threeWay]).toEqual([false, false, false]);
   });
 });
