@@ -1,6 +1,6 @@
 export const dynamic = 'force-static';
 import type { MetadataRoute } from 'next';
-import { routeDates, productsCA, ingredients, guides, caProvinces } from '@nootropic/data';
+import { routeDates, allProductsCA, ingredients, guides, caProvinces } from '@nootropic/data';
 
 const BASE = 'https://ca.thenootropiclab.com';
 
@@ -28,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/fr/meilleurs-nootropiques/`, lastModified: d.productListing('fr/meilleurs-nootropiques'), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${BASE}/fr/comparer/`, lastModified: d.productListing('fr/comparer'), changeFrequency: 'weekly', priority: 0.8 },
   ];
-  const productPages: MetadataRoute.Sitemap = productsCA.map(p => ({
+  const productPages: MetadataRoute.Sitemap = allProductsCA.map(p => ({
     url: `${BASE}/${p.slug}/`,
     lastModified: d.product(p),
     changeFrequency: 'weekly' as const,

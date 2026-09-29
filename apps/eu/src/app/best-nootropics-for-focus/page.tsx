@@ -57,28 +57,22 @@ const picks: ListiclePick[] = [
       'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses, plus L-tyrosine. Caffeine-free design lets you pair it with your own coffee or matcha for the synergistic effect. Ships from a dedicated EU distribution centre at €65/mo with no import duties — the strongest EU-storefront focus pick in our coverage.',
   },
   {
-    product: productsEU.find(p => p.slug === 'performance-lab-mind-review')!,
-    rank: 2,
-    whyItsHere:
-      'Citicoline (250mg Cognizin) and L-Tyrosine (300mg NALT) both at clinical dose in a 2-capsule serving — the lowest pill burden of any EU-storefront focus stack. Same Opti-Nutra manufacturer as Mind Lab Pro. €55/mo with EUR pricing. Pick this if you want a precision focus stack without the broader memory/mood ingredients.',
-  },
-  {
     product: productsEU.find(p => p.slug === 'brainzyme-focus-pro-review')!,
-    rank: 3,
+    rank: 2,
     whyItsHere:
       'UK-made, FSA + EU-compliant. Combines natural caffeine from matcha (~40mg) and guarana (~20mg) with 100mg L-theanine — a textbook L-theanine + caffeine focus stack at €40/mo. Best value for buyers who want the acute focus effect rather than long-term cognitive support.',
   },
   {
     product: productsEU.find(p => p.slug === 'braineffect-focus-review')!,
-    rank: 4,
+    rank: 3,
     whyItsHere:
       'German-made, ships from Berlin with next-day delivery in DACH. 80mg caffeine (above the EFSA 75mg alertness-claim threshold) plus EFSA-recognised Panax Ginseng and Ginkgo Biloba. The default focus pick for DACH buyers who value local manufacturing — but only 14-day money-back, the shortest in this list.',
   },
   {
     product: productsEU.find(p => p.slug === 'noocube-review')!,
-    rank: 5,
+    rank: 4,
     whyItsHere:
-      'EU storefront with EUR pricing and Lutemax 2020 specifically for screen-worker eye strain. 100mg L-theanine at clinical dose. Alpha-GPC (50mg) is significantly underdosed versus the 300mg clinical anchor. Trustpilot 1.9/5 reflects subscription cancellation complaints — read the cancellation terms before subscribing.',
+      'Lutemax 2020 specifically for screen-worker eye strain. No EUR storefront: the UK store (noocube.co.uk) prices in GBP (£54.99/mo) and ships to the UK, Ireland, Spain, Portugal, Greece, Croatia, Poland, Sweden and Denmark, but not to Germany, France or the Netherlands. 100mg L-theanine at clinical dose. Choline comes from VitaCholine (250mg); the current formula no longer contains Alpha-GPC. The noocube.com Trustpilot profile has no reviews yet — read the cancellation terms before subscribing.',
   },
 ];
 
@@ -93,7 +87,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Are these products fully EU-compliant?',
-    a: 'Every product on this page has a dedicated EU storefront and uses ingredients with established food-supplement status under EU Directive 2002/46/EC. Health-claim language on labels follows EFSA-authorised claims under Regulation (EC) 1924/2006. Citicoline is authorised under Novel Food Regulation (EU) 2015/2283. We exclude products that use ingredient blends or claims that would not pass EFSA review.',
+    a: 'Every product on this page except NooCube has a dedicated EU storefront (NooCube is sold from a GBP-priced UK store that does not ship to Germany, France or the Netherlands), and all use ingredients with established food-supplement status under EU Directive 2002/46/EC. Health-claim language on labels follows EFSA-authorised claims under Regulation (EC) 1924/2006. Citicoline is authorised under Novel Food Regulation (EU) 2015/2283. We exclude products that use ingredient blends or claims that would not pass EFSA review.',
   },
   {
     q: 'Are focus nootropics safe to take daily?',
@@ -101,7 +95,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'What\'s the best caffeine-free focus nootropic in the EU?',
-    a: 'Mind Lab Pro and Performance Lab Mind are both purpose-built as caffeine-free and ship from EU distribution centres. They pair well with your morning coffee or matcha. If you want zero caffeine entirely, either of those plus a separate L-theanine capsule is the simplest evidence-backed stack with EUR pricing.',
+    a: 'Mind Lab Pro is purpose-built as caffeine-free and ships from an EU distribution centre. It pairs well with your morning coffee or matcha. If you want zero caffeine entirely, Mind Lab Pro plus a separate L-theanine capsule is the simplest evidence-backed stack with EUR pricing.',
   },
   {
     q: 'Should I cycle focus nootropics?',

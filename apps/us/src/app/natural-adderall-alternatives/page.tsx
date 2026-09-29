@@ -66,7 +66,7 @@ const picks: ListiclePick[] = [
     product: productsUS.find(p => p.slug === 'noocube-review')!,
     rank: 3,
     whyItsHere:
-      'Open formula with L-tyrosine and Alpha-GPC. Caffeine-free. Lower price than Mind Lab Pro but parent company\'s broader product portfolio is affiliate-marketing-heavy — read editorial scoring carefully.',
+      'Open formula with L-tyrosine and choline (VitaCholine). Caffeine-free. Lower price than Mind Lab Pro but parent company\'s broader product portfolio is affiliate-marketing-heavy — read editorial scoring carefully.',
   },
   {
     product: productsUS.find(p => p.slug === 'thesis-nootropics-review')!,

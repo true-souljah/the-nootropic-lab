@@ -74,22 +74,16 @@ const picks: ListiclePick[] = [
     whyItsHere:
       'Single-ingredient Lion\'s Mane fruiting-body extract at 500mg from a brand with the strongest third-party Certificate-of-Analysis culture in this review. Mushroom-derived — halal-compliant. Single-ingredient profile may also clear GCC customs more easily than multi-ingredient stacks. Caffeine-free, plant-based capsules. Pair with Mind Lab Pro or a separate Bacopa supplement for full memory-stack coverage. Ships from US.',
   },
-  {
-    product: productsGCC.find(p => p.slug === 'nahdi-brain-boost-review')!,
-    rank: 5,
-    whyItsHere:
-      'SFDA-registered and stocked across 1,100+ Nahdi pharmacy branches in Saudi Arabia (and online via nahdi.sa). Includes Phosphatidylserine, Ginkgo Biloba, B12, and Zinc. SAR pricing — no currency conversion or customs risk. Halal-compliant. Doses are below clinical anchors for the cognitive ingredients, but this is the most accessible memory-support pick for KSA buyers who want same-day delivery from a domestic, regulated brand.',
-  },
 ];
 
 const faqItems: ListicleFAQ[] = [
   {
     q: 'Are these supplements halal?',
-    a: 'All five picks on this page use plant-based HPMC or pullulan capsules with no porcine gelatin. None of the imported brands (Mind Lab Pro, Qualia Mind, Eu Yan Sang BrainMAX+, Nootropics Depot) carry formal halal certification (HALAL India, JAKIM, MUI, ESMA), so observant buyers should verify each brand\'s latest ingredient sourcing. Nahdi Brain Boost is SFDA-registered with halal-compliant sourcing as standard. Note on phosphatidylserine: most products use soy-derived PS (halal); some use bovine-derived PS (would need halal-slaughter verification) or sunflower-derived PS (always halal).',
+    a: 'All four picks on this page use plant-based HPMC or pullulan capsules with no porcine gelatin. None of these brands (Mind Lab Pro, Qualia Mind, Eu Yan Sang BrainMAX+, Nootropics Depot) carry formal halal certification (HALAL India, JAKIM, MUI, ESMA), so observant buyers should verify each brand\'s latest ingredient sourcing. Note on phosphatidylserine: most products use soy-derived PS (halal); some use bovine-derived PS (would need halal-slaughter verification) or sunflower-derived PS (always halal).',
   },
   {
     q: 'Which of these are SFDA-registered or MOHAP-registered?',
-    a: 'Nahdi Brain Boost is SFDA-registered in Saudi Arabia and stocked across 1,100+ Nahdi pharmacies. Life Pharmacy NeuroShield (not on this list — see the focus page) is MOHAP-registered in the UAE. The international brands here (Mind Lab Pro, Qualia Mind, Eu Yan Sang BrainMAX+, Nootropics Depot) are not formally registered with SFDA or MOHAP and enter the region as personal-use dietary supplements. Verify import status with your local authority before ordering. iHerb\'s Saudi-compliant DC handles import paperwork for many international supplements.',
+    a: 'None of the picks on this page are. The international brands here (Mind Lab Pro, Qualia Mind, Eu Yan Sang BrainMAX+, Nootropics Depot) are not formally registered with SFDA or MOHAP and enter the region as personal-use dietary supplements. Verify import status with your local authority before ordering. iHerb\'s Saudi-compliant DC handles import paperwork for many international supplements.',
   },
   {
     q: 'What is the most evidence-backed nootropic for memory?',
@@ -116,7 +110,7 @@ export default function Page() {
       useCase="memory"
       pageTitle="Best Nootropics for Memory in the GCC"
       pageDescription="Independent ranking of the best memory nootropics available in the GCC, with halal status and SFDA/MOHAP registration noted per pick."
-      heroParagraph="Memory is the use case where nootropics have the most replicated evidence — primarily from Bacopa Monnieri RCTs spanning 30+ years, plus phosphatidylserine\'s FDA qualified health claim. For GCC buyers, the question is not just \'does it work?\' but \'is it halal?\', \'is it SFDA or MOHAP registered?\', and \'is the capsule plant-based or animal-derived?\'. This page ranks the products available to buyers in Saudi Arabia, the UAE, Qatar, Kuwait, Bahrain, and Oman — including imported international brands (Mind Lab Pro, Qualia Mind, Eu Yan Sang BrainMAX+, Nootropics Depot) and locally-regulated domestic options (Nahdi Brain Boost, SFDA-registered). Distribution: BinSina, Aster, Life Pharmacy (UAE); Al-Dawaa, Nahdi (KSA); iHerb Saudi-compliant DC for many international imports."
+      heroParagraph="Memory is the use case where nootropics have the most replicated evidence — primarily from Bacopa Monnieri RCTs spanning 30+ years, plus phosphatidylserine\'s FDA qualified health claim. For GCC buyers, the question is not just \'does it work?\' but \'is it halal?\', \'is it SFDA or MOHAP registered?\', and \'is the capsule plant-based or animal-derived?\'. This page ranks the products available to buyers in Saudi Arabia, the UAE, Qatar, Kuwait, Bahrain, and Oman — imported international brands (Mind Lab Pro, Qualia Mind, Eu Yan Sang BrainMAX+, Nootropics Depot). Distribution: BinSina, Aster, Life Pharmacy (UAE); Al-Dawaa, Nahdi (KSA); iHerb Saudi-compliant DC for many international imports."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

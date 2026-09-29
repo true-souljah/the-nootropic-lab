@@ -24,8 +24,8 @@
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 4.5,
-    "trustpilotCount": 3200,
+    "trustpilotScore": 4.2,
+    "trustpilotCount": 82,
     "affiliateUrl": "https://www.mindlabpro.com?a_aid=zid0oxj1g4uny&a_bid=6d45f5c3",
     "affiliateNetwork": "UberNet",
     "commissionRate": "30%",
@@ -51,7 +51,7 @@
         "adequatelyDosed": true
       },
       {
-        "name": "Bacopa Monnieri (45% bacosides)",
+        "name": "Bacopa Monnieri (full-spectrum, 24% bacosides)",
         "doseInProduct": "150mg",
         "clinicalDose": "300mg",
         "adequatelyDosed": false
@@ -65,8 +65,20 @@
       {
         "name": "L-Theanine",
         "doseInProduct": "100mg",
+        "clinicalDose": "100-200mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Phosphatidylserine (Sharp-PS)",
+        "doseInProduct": "100mg",
         "clinicalDose": "100mg",
         "adequatelyDosed": true
+      },
+      {
+        "name": "L-Tyrosine (NALT)",
+        "doseInProduct": "175mg",
+        "clinicalDose": "300-500mg as NALT",
+        "adequatelyDosed": false
       }
     ],
     "servingsPerContainer": 30,
@@ -86,10 +98,12 @@
     ],
     "editorChoice": true,
     "market": "both",
-    "updatedAt": "2026-05-28",
+    "updatedAt": "2026-09-28",
     "ffcStatus": {
       "notified": false
-    }
+    },
+    "trustpilotCheckedAt": "2026-09-28",
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "noocube",
@@ -109,63 +123,76 @@
       "value": 9,
       "trust": 7
     },
-    "priceMonthlyUSD": 59,
+    "priceMonthlyUSD": 64.99,
     "priceMonthlyJPY": 8850,
     "pricingModel": "both",
     "moneyBackDays": 60,
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 1.9,
-    "trustpilotCount": 850,
+    "trustpilotScore": null,
+    "trustpilotCount": null,
     "affiliateUrl": "https://www.noocube.com/",
     "affiliateNetwork": "FanFuel",
     "commissionRate": "31.5%",
     "cookieDays": 30,
     "heroIngredients": [
+      "Lutemax 2020",
       "Bacopa Monnieri",
       "Panax Ginseng",
       "VitaCholine",
+      "Cat's Claw",
+      "Resveratrol",
       "L-Theanine",
-      "L-Tyrosine",
-      "Lutemax 2020",
-      "Huperzine A"
+      "Pterostilbene"
     ],
     "ingredientDosages": [
       {
-        "name": "Alpha-GPC",
-        "doseInProduct": "50mg",
-        "clinicalDose": "300mg",
-        "adequatelyDosed": false
-      },
-      {
-        "name": "Bacopa Monnieri",
-        "doseInProduct": "250mg",
-        "clinicalDose": "300mg",
-        "adequatelyDosed": false
-      },
-      {
-        "name": "L-Theanine",
-        "doseInProduct": "100mg",
-        "clinicalDose": "100mg",
-        "adequatelyDosed": true
-      },
-      {
-        "name": "L-Tyrosine",
-        "doseInProduct": "250mg",
-        "clinicalDose": "500mg",
-        "adequatelyDosed": false
-      },
-      {
-        "name": "Lutemax 2020",
+        "name": "Lutemax 2020 (Lutein/Zeaxanthin)",
         "doseInProduct": "20mg",
         "clinicalDose": "20mg",
         "adequatelyDosed": true
       },
       {
-        "name": "Huperzine A",
-        "doseInProduct": "20mcg",
-        "clinicalDose": "50mcg",
+        "name": "Bacopa Monnieri (12:1, 20% bacosides)",
+        "doseInProduct": "250mg",
+        "clinicalDose": "300mg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Panax Ginseng (200:1 concentrate)",
+        "doseInProduct": "20mg",
+        "clinicalDose": "Limited human data",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Choline (VitaCholine)",
+        "doseInProduct": "250mg",
+        "clinicalDose": "Limited human data",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Cat's Claw (4:1 extract)",
+        "doseInProduct": "Undisclosed",
+        "clinicalDose": "Limited human data",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Resveratrol (99%)",
+        "doseInProduct": "14.3mg",
+        "clinicalDose": "Limited human data",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "L-Theanine",
+        "doseInProduct": "100mg",
+        "clinicalDose": "100-200mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Pterostilbene",
+        "doseInProduct": "140mcg",
+        "clinicalDose": "Limited human data",
         "adequatelyDosed": false
       }
     ],
@@ -173,7 +200,7 @@
     "capsulesPerServing": 4,
     "summary": "A well-rounded caffeine-free nootropic stack that ships to Japan. Backed by a 60-day money-back guarantee and straightforward one-time purchase model -- no subscription required.",
     "whatItIs": "NooCube is a multi-ingredient nootropic stack by Wolfson Brands designed for focus, mental clarity, and study performance. Available for international shipping to Japan, it offers a caffeine-free formula suitable for those sensitive to stimulants.",
-    "howItWorks": "Alpha-GPC supports the cholinergic system to enhance memory encoding and attention. L-Theanine -- familiar in Japan as the calming compound in green tea -- promotes relaxed focus without sedation. Bacopa Monnieri supports memory consolidation over weeks of use. L-Tyrosine maintains dopamine and norepinephrine levels under cognitive stress.",
+    "howItWorks": "Choline from VitaCholine (250mg) supports the cholinergic system (the current formula no longer contains Alpha-GPC or Huperzine A). L-Theanine -- familiar in Japan as the calming compound in green tea -- promotes relaxed focus without sedation. Bacopa Monnieri supports memory consolidation over weeks of use. L-Tyrosine maintains dopamine and norepinephrine levels under cognitive stress.",
     "whatToExpect": "Day one: mild calm focus from L-Theanine. Within 2-4 weeks: improved mental stamina and clarity under workload. At 8 weeks: modest memory improvements from Bacopa. NooCube ships internationally to Japan with delivery typically within 10-14 days. The one-time purchase model means no automatic billing -- a straightforward option for Japanese buyers unfamiliar with subscription supplements.",
     "pros": [
       "Ships to Japan",
@@ -186,13 +213,15 @@
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-05-28",
+    "updatedAt": "2026-09-28",
     "ffcStatus": {
       "notified": false
     },
     "notes": [
       "Bulk-purchase pricing changed June 2026: 5-month supply $194.99 USD (was 6-month for $180). JP buyers purchasing direct at ~¥30,000 for 5 months vs prior ~¥27,700 for 6 months."
-    ]
+    ],
+    "verifiedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28"
   },
   {
     "id": "performance-lab-mind",
@@ -219,8 +248,8 @@
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 4.4,
-    "trustpilotCount": 920,
+    "trustpilotScore": 3.8,
+    "trustpilotCount": 14,
     "affiliateUrl": "https://www.performancelab.com/products/mind?a_aid=zid0oxj1g4uny&a_cid=f4c3e754",
     "affiliateNetwork": "UberNet",
     "commissionRate": "30%",
@@ -265,7 +294,6 @@
     "whatToExpect": "Day one: mild cognitive sharpness and sustained attention from Citicoline and Tyrosine. Within 2-4 weeks: improved stress resilience and working memory. At 8 weeks: measurable reduction in mental fatigue during extended cognitive tasks. Ships from the UK to Japan in approximately 10-14 days. Only 2 capsules per serving -- one of the easiest pill burdens in this review.",
     "pros": [
       "Minimalist clean formula",
-      "Ships to Japan",
       "NutriGenesis nutrients"
     ],
     "cons": [
@@ -274,10 +302,17 @@
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-05-28",
+    "updatedAt": "2026-09-28",
     "ffcStatus": {
       "notified": false
-    }
+    },
+    "discontinued": {
+      "since": "2026-09-28",
+      "successorSlug": "mind-lab-pro-review",
+      "note": "Opti-Nutra merged Performance Lab Mind into Mind Lab Pro; the vendor URL now redirects to Mind Lab Pro."
+    },
+    "verifiedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28"
   },
   {
     "id": "hunter-focus",
@@ -304,9 +339,9 @@
     "caffeineFree": false,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 4,
-    "trustpilotCount": 1050,
-    "affiliateUrl": "https://www.hunterfocus.com/",
+    "trustpilotScore": 4.4,
+    "trustpilotCount": 93,
+    "affiliateUrl": "https://www.hunterevolve.com/en-us/hunter-focus",
     "affiliateNetwork": "Hunter Direct",
     "commissionRate": "0%",
     "cookieDays": 0,
@@ -367,10 +402,12 @@
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-05-28",
+    "updatedAt": "2026-09-28",
     "ffcStatus": {
       "notified": false
-    }
+    },
+    "verifiedAt": "2026-09-28",
+    "trustpilotCheckedAt": "2026-09-28"
   },
   {
     "id": "fancl-brains",
@@ -391,7 +428,7 @@
       "trust": 7
     },
     "priceMonthlyUSD": 50,
-    "priceMonthlyJPY": 7500,
+    "priceMonthlyJPY": 5479,
     "pricingModel": "one-time",
     "moneyBackDays": 0,
     "caffeineFree": true,
@@ -399,57 +436,50 @@
     "euCompliance": "verify",
     "trustpilotScore": null,
     "trustpilotCount": null,
-    "affiliateUrl": "https://www.amazon.co.jp/s?k=FANCL+BRAINs",
-    "affiliateNetwork": "Amazon Associates JP",
-    "commissionRate": "3%",
-    "cookieDays": 24,
+    "affiliateUrl": "https://www.fancl.co.jp/healthy/item/5248a/",
+    "affiliateNetwork": "FANCL Direct",
+    "commissionRate": "0%",
+    "cookieDays": 0,
     "heroIngredients": [
-      "DHA",
-      "Ginkgo Biloba",
-      "Phosphatidylserine"
+      "Bacopa saponins",
+      "Matured hop bitter acids"
     ],
     "ingredientDosages": [
       {
-        "name": "DHA (Docosahexaenoic Acid)",
-        "doseInProduct": "300mg",
-        "clinicalDose": "500mg",
-        "adequatelyDosed": false
+        "name": "Bacopa saponins (バコパサポニン)",
+        "doseInProduct": "15mg",
+        "clinicalDose": "12.5mg (trial cited by FANCL)",
+        "adequatelyDosed": true
       },
       {
-        "name": "Ginkgo Biloba",
-        "doseInProduct": "60mg",
-        "clinicalDose": "120mg",
-        "adequatelyDosed": false
-      },
-      {
-        "name": "Phosphatidylserine",
-        "doseInProduct": "50mg",
-        "clinicalDose": "100mg",
-        "adequatelyDosed": false
+        "name": "Matured hop bitter acids (熟成ホップ由来苦味酸)",
+        "doseInProduct": "35mg",
+        "clinicalDose": "35mg (trials cited by FANCL)",
+        "adequatelyDosed": true
       }
     ],
     "servingsPerContainer": 30,
-    "capsulesPerServing": 3,
+    "capsulesPerServing": 4,
     "summary": "FANCL BRAINs is a Ministry of Health, Labour and Welfare (MHLW) compliant Japanese functional food (機能性表示食品) from one of Japan's most trusted health brands. Available nationwide at drugstores, convenience stores, and Amazon Japan. A mainstream option for Japanese consumers who prefer domestic brands with Japanese-language labels and local customer support. FANCL was acquired by Kirin Holdings in 2024. Kirin has launched an international DTC arm (KHSI Pty Ltd, Sydney) from April 2026 and is actively developing new brain health ingredients (Agrimonia pilosa). Kirin's strategic focus on longevity and cognitive health reinforces FANCL BRAINs' long-term credibility.",
     "whatItIs": "FANCL BRAINs is a Japanese functional food supplement (機能性表示食品) formulated to support memory and cognitive function. Made by FANCL Corporation, a household name in Japanese health and beauty with over 40 years of history. Unlike imported Western nootropics, FANCL BRAINs is sold in every major drugstore chain in Japan (Matsumoto Kiyoshi, Welcia, Sugi Pharmacy) and is registered under Japan's Food with Function Claims system — meaning the cognitive claims have been filed with the Consumer Affairs Agency (消費者庁).",
-    "howItWorks": "The formula combines three complementary pathways: DHA (300mg) supports neuronal membrane fluidity and synaptic transmission — the brain is approximately 60% fat by dry weight and DHA is its primary structural omega-3. Ginkgo Biloba (60mg) promotes cerebral blood flow via vasodilation and platelet-activating factor inhibition, improving oxygen and glucose delivery to neurons. Phosphatidylserine (50mg) supports cell membrane integrity and cortisol regulation. All three ingredients are within MHLW (厚生労働省) guidelines and have EFSA/FDA-recognised safety profiles.",
-    "whatToExpect": "Weeks 1-2: no noticeable acute effects — this is a foundational supplement, not a stimulant. Weeks 4-6: subtle improvements in recall speed and mental clarity, particularly in adults over 40. At 12+ weeks: sustained brain health maintenance. FANCL recommends 3 capsules daily with water. Available for same-day delivery via Amazon Japan Prime or in-store pickup at any FANCL retail location. At approximately ¥7,585/month (~$50 USD), it is significantly cheaper than imported alternatives with zero import duty or customs risk.",
+    "howItWorks": "FANCL's notified functional ingredients (機能性関与成分) are bacopa saponins (15mg per 4 tablets) and matured hop bitter acids (35mg per 4 tablets). Per FANCL's Food with Function Claims notification (届出番号 G425), bacopa saponins are reported to help maintain memory — the ability to remember and recall things seen and heard in daily life — which declines with age, and matured hop bitter acids are reported to help maintain attention (processing several pieces of information at once, and processing information correctly) and to reduce temporary feelings of anxiety in daily life. FANCL cites a 12-week trial of bacopa saponins at 12.5mg/day and 12-week trials of matured hop bitter acids at 35mg/day. As with every 機能性表示食品, these claims are the manufacturer's notified evidence, not a government evaluation.",
+    "whatToExpect": "Weeks 1-2: no noticeable acute effects — this is a foundational supplement, not a stimulant. Weeks 4-6: subtle improvements in recall speed and mental clarity, particularly in adults over 40. At 12+ weeks: sustained brain health maintenance. FANCL recommends 4 tablets daily. Available for same-day delivery via Amazon Japan Prime or in-store pickup at any FANCL retail location. At ¥5,479 for a 30-day bag (list price on fancl.co.jp; ¥4,930 on subscription), it is significantly cheaper than imported alternatives with zero import duty or customs risk.",
     "pros": [
       "MHLW-compliant Japanese brand",
       "Available on Amazon Japan",
       "Affordable"
     ],
     "cons": [
-      "Lower clinical doses",
-      "No money-back guarantee",
-      "Amazon-only affiliate"
+      "No money-back guarantee"
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-05-28",
+    "updatedAt": "2026-09-28",
     "ffcStatus": {
-      "notified": true
-    }
+      "notified": true,
+      "notificationNumber": "G425"
+    },
+    "verifiedAt": "2026-09-28"
   },
   {
     "id": "suntory-dha-epa-sesamin",

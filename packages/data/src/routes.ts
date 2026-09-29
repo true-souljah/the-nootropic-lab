@@ -14,12 +14,12 @@
 // `scripts/check-built-links.mjs` re-verifies both against the built
 // `apps/*/out/` HTML after every build.
 import type { RegionCode } from './regional';
-import { productsUS } from './products-us';
-import { productsEU } from './products-eu';
-import { productsCA } from './products-ca';
-import { productsAU } from './products-au';
-import { productsJP } from './products-jp';
-import { productsLatam } from './products-latam';
+import { allProductsUS } from './products-us';
+import { allProductsEU } from './products-eu';
+import { allProductsCA } from './products-ca';
+import { allProductsAU } from './products-au';
+import { allProductsJP } from './products-jp';
+import { allProductsLatam } from './products-latam';
 import { productsGCC } from './products-gcc';
 import { productsSEA } from './products-sea';
 import type { Product } from './products-us';
@@ -57,13 +57,15 @@ export function routeAvailableIn(path: string, region: RegionCode): boolean {
   return only === undefined || only.includes(region);
 }
 
+// Full lists (discontinued included): a discontinued product's review page
+// still renders, so its hreflang alternates must still resolve.
 const PRODUCTS_BY_REGION: Readonly<Record<RegionCode, readonly Product[]>> = {
-  us: productsUS,
-  eu: productsEU,
-  ca: productsCA,
-  au: productsAU,
-  jp: productsJP,
-  latam: productsLatam,
+  us: allProductsUS,
+  eu: allProductsEU,
+  ca: allProductsCA,
+  au: allProductsAU,
+  jp: allProductsJP,
+  latam: allProductsLatam,
   gcc: productsGCC,
   sea: productsSEA,
 };

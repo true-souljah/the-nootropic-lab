@@ -55,7 +55,7 @@ const picks: ListiclePick[] = [
     product: productsAU.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Caffeine-free design pairs perfectly with whatever caffeine source Australian students use during study sessions (long blacks, energy drinks, matcha). Includes L-theanine, Bacopa, citicoline, and L-tyrosine — covers all four study-relevant mechanisms in one open formula. Take daily through the semester for cumulative Bacopa effect. Ships from the UK to Australia in 7–14 business days; pay AUD $107/mo equivalent in USD at checkout.',
+      'Caffeine-free design pairs perfectly with whatever caffeine source Australian students use during study sessions (long blacks, energy drinks, matcha). Includes L-theanine, Bacopa, citicoline, and L-tyrosine — covers all four study-relevant mechanisms in one open formula. Take daily through the semester for cumulative Bacopa effect. Ships from the UK to Australia in 7–14 business days; A$89/mo on the Australian storefront (au.mindlabpro.com).',
   },
   {
     product: productsAU.find(p => p.slug === 'qualia-mind-review')!,
@@ -64,14 +64,8 @@ const picks: ListiclePick[] = [
       'Most complete study stack: includes everything in Mind Lab Pro plus Alpha-GPC, Rhodiola, and choline-supporting cofactors with Bacopa fully dosed at 300mg. The 7+ capsules/day is friction during exam block; the AUD $215/mo subscription is significant friction for Australian student budgets (cheaper to buy a Mind Lab Pro + standalone TGA-listed Bacopa stack).',
   },
   {
-    product: productsAU.find(p => p.slug === 'performance-lab-mind-review')!,
-    rank: 3,
-    whyItsHere:
-      'Citicoline (250mg Cognizin) + phosphatidylserine (100mg Sharp-PS Green) + L-tyrosine (300mg Ajipure). Only 2 capsules per day — the lowest pill burden if you want to keep your study routine simple. No Bacopa — pair with a TGA-listed Bacopa product from Chemist Warehouse for memory-consolidation coverage across the semester.',
-  },
-  {
     product: productsAU.find(p => p.slug === 'onnit-alpha-brain-review')!,
-    rank: 4,
+    rank: 3,
     whyItsHere:
       'Caffeine-free Classic version is internationally well-known. Bacopa + L-theanine + Alpha-GPC are present but proprietary blends prevent verifying clinical doses. National Sanitation Foundation (NSF) Certified for Sport — relevant if you compete in drug-tested university sport. 90-day money-back is the most generous in this category.',
   },
