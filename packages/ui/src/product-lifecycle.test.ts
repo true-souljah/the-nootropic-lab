@@ -11,6 +11,8 @@ import {
   productsAU, allProductsAU,
   productsJP, allProductsJP,
   allProductsLatam,
+  productsGCC, allProductsGCC,
+  productsSEA, allProductsSEA,
   regionsWithProduct,
   buildRegionSearchContext,
 } from '@nootropic/data';
@@ -70,10 +72,20 @@ describe('activeProducts — discontinued products are never recommendable', () 
     expect(productsAU.some((p) => p.slug === 'blackmores-brain-active-review')).toBe(false);
   });
 
+  test('sea: Blackmores Brain Active is discontinued without a successor', () => {
+    const blackmores = allProductsSEA.find((p) => p.slug === 'blackmores-brain-active-review');
+    expect(blackmores?.discontinued).toBeDefined();
+    expect(blackmores?.discontinued?.successorSlug).toBeUndefined();
+    expect(productsSEA.some((p) => p.slug === 'blackmores-brain-active-review')).toBe(false);
+    expect(productsSEA.every((p) => p.discontinued === undefined)).toBe(true);
+    expect(productsGCC.every((p) => p.discontinued === undefined)).toBe(true);
+  });
+
   test('every successorSlug resolves to a live review page in the same region', () => {
     for (const [all, active] of [
       [allProductsUS, productsUS], [allProductsEU, productsEU], [allProductsCA, productsCA],
       [allProductsAU, productsAU], [allProductsJP, productsJP],
+      [allProductsGCC, productsGCC], [allProductsSEA, productsSEA],
     ] as const) {
       for (const p of all) {
         const successor = p.discontinued?.successorSlug;
@@ -86,7 +98,9 @@ describe('activeProducts — discontinued products are never recommendable', () 
     expect(regionsWithProduct('performance-lab-mind-review')).toEqual(
       expect.arrayContaining(['us', 'eu', 'ca', 'au', 'jp']),
     );
-    expect(regionsWithProduct('blackmores-brain-active-review')).toContain('au');
+    expect(regionsWithProduct('blackmores-brain-active-review')).toEqual(
+      expect.arrayContaining(['au', 'sea']),
+    );
   });
 });
 
@@ -152,6 +166,7 @@ describe('Trustpilot figures carry their check date', () => {
   test.each([
     ['us', allProductsUS], ['eu', allProductsEU], ['ca', allProductsCA],
     ['au', allProductsAU], ['jp', allProductsJP], ['latam', allProductsLatam],
+    ['gcc', allProductsGCC], ['sea', allProductsSEA],
   ] as const)('%s: every non-null trustpilotScore has trustpilotCheckedAt', (_r, products) => {
     const unchecked = products
       .filter((p) => p.trustpilotScore != null && !p.trustpilotCheckedAt)

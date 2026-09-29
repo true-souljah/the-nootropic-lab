@@ -82,7 +82,6 @@ const articleSchema = {
   author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
   publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   reviewedBy: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
-  speakable: { '@type': 'SpeakableSpecification', cssSelector: ['#hero-paragraph', '.faq-question'] },
 };
 
 const datasetSchema = {
@@ -124,18 +123,11 @@ const faqs = [
   { q: 'Why does this site weight Halal-certified products higher for ID/MY traffic?', a: 'For Indonesian readers, Halal certification becomes a legal requirement for supplements on 17 October 2026 — so a non-certified product recommended today may not be legally distributable there within months. For Malaysian readers, JAKIM certification carries strong consumer-trust weight even where not legally mandatory. We surface Halal status on every product card and weight Halal-certified products higher in listicle ranking when serving ID/MY traffic, where verifiable from manufacturer documentation.' },
 ];
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
-};
-
 export default function Page() {
   return (
     <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
       <SchemaOrg schema={articleSchema} />
       <SchemaOrg schema={datasetSchema} />
-      <SchemaOrg schema={faqSchema} />
       <SchemaOrg schema={breadcrumbSchema} />
 
       <article className="max-w-4xl mx-auto px-4 py-10">

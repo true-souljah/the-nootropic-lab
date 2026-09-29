@@ -54,36 +54,36 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design lets you pair it with kopi, matcha, or Vietnamese drip for the synergistic effect. Ships UK→SEA in 7–14 days (fastest to Singapore). Imported as personal-use supplement — not registered with Health Sciences Authority (HSA), National Pharmaceutical Regulatory Agency (NPRA), Badan Pengawas Obat dan Makanan (BPOM), FDA TH/PH, or DAV. Halal status: not BPJPH/JAKIM-certified — verify acceptability for ID/MY buyers.',
+      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design lets you pair it with kopi, matcha, or Vietnamese drip for the synergistic effect. Direct delivery to SEA is not confirmed: mindlabpro.com lists only the US and eu.mindlabpro.com only EU countries (checked 2026-09-29). Imported as personal-use supplement — not registered with Health Sciences Authority (HSA), National Pharmaceutical Regulatory Agency (NPRA), Badan Pengawas Obat dan Makanan (BPOM), FDA TH/PH, or DAV. Halal status: not BPJPH/JAKIM-certified — verify acceptability for ID/MY buyers.',
   },
   {
     product: productsSEA.find(p => p.slug === 'noocube-review')!,
     rank: 2,
     whyItsHere:
-      'Includes Lutemax 2020 at the clinical 20mg dose plus L-theanine 100mg — the most relevant focus formula for SEA screen-workers in Singapore, KL, Bangkok, and Manila tech roles. Alpha-GPC and Huperzine doses are below clinical anchors. UK→SEA shipping ~10–18 days. Personal-use import. Not halal-certified by JAKIM/BPJPH; capsules are typically gelatin (animal-derived) — confirm with vendor before MY/ID purchase.',
+      'Includes Lutemax 2020 at the clinical 20mg dose plus L-theanine 100mg — the most relevant focus formula for SEA screen-workers in Singapore, KL, Bangkok, and Manila tech roles. The current formula uses choline from VitaCholine and no longer contains Alpha-GPC or Huperzine A; Bacopa is below its clinical anchor. noocube.com ships to Singapore, Malaysia, Thailand and the Philippines; it does not list Indonesia or Vietnam. noocube.com does not publish delivery times for these countries; check the estimate at checkout. Personal-use import. Not halal-certified by JAKIM/BPJPH; capsules are typically gelatin (animal-derived) — confirm with vendor before MY/ID purchase.',
   },
   {
     product: productsSEA.find(p => p.slug === 'qualia-mind-review')!,
     rank: 3,
     whyItsHere:
-      'Includes citicoline, Alpha-GPC, L-theanine, and L-tyrosine — covers nearly every evidence-backed focus mechanism. Loses ground on capsule count (7+/day), $139/mo subscription, and a contains-caffeine formula (ID buyers in observance may prefer caffeine-free). US→SEA shipping 12–18 days. Indonesian and Thai buyers should watch customs thresholds given the high declared value.',
+      'Includes citicoline, Alpha-GPC, L-theanine, and L-tyrosine — covers nearly every evidence-backed focus mechanism. Loses ground on capsule count (7+/day), $139/mo subscription, and a contains-caffeine formula (ID buyers in observance may prefer caffeine-free). Availability caveat: Qualia does not ship to any SEA country (brand shipping page, checked 2026-09-28), so SEA buyers cannot order it direct.',
   },
   {
     product: productsSEA.find(p => p.slug === 'onnit-alpha-brain-review')!,
     rank: 4,
     whyItsHere:
-      'Caffeine-free Classic version + National Sanitation Foundation (NSF) Certified for Sport (relevant for Singapore/Malaysian competitive athletes subject to anti-doping). Bacopa, Alpha-GPC, and L-theanine present but doses hidden in proprietary blends. Strong global brand recognition makes it easier to research locally in English and Bahasa. US→SEA shipping 12–18 days as personal-use supplement.',
+      'Caffeine-free Classic version + National Sanitation Foundation (NSF) Certified for Sport (relevant for Singapore/Malaysian competitive athletes subject to anti-doping). Bacopa, Alpha-GPC, and L-theanine present but doses hidden in proprietary blends. Strong global brand recognition makes it easier to research locally in English and Bahasa. Ships from the US as a personal-use supplement; no published SEA delivery estimate.',
   },
 ];
 
 const faqItems: ListicleFAQ[] = [
   {
     q: 'Are these focus nootropics halal-certified?',
-    a: 'None of the imported brands on this list (Mind Lab Pro, NooCube, Qualia Mind, Onnit Alpha Brain, Thesis) carry BPJPH (Indonesia) or JAKIM (Malaysia) halal certification. Capsules are typically gelatin-based (often bovine, occasionally porcine — vendor disclosure varies). Buyers in Indonesia and Malaysia who require halal certification should look at TGA-AU domestic options like Blackmores (some SKUs are halal-certified — check the specific label) or Eu Yan Sang BrainMAX+ (TCM-based, vegetarian capsule). Always verify the current halal status on the product packaging or with the brand directly before purchase.',
+    a: 'None of the imported brands on this list (Mind Lab Pro, NooCube, Qualia Mind, Onnit Alpha Brain, Thesis) carry BPJPH (Indonesia) or JAKIM (Malaysia) halal certification. Capsules are typically gelatin-based (often bovine, occasionally porcine — vendor disclosure varies). Buyers in Indonesia and Malaysia who require halal certification should look at TGA-AU domestic options like Blackmores (some SKUs are halal-certified — check the specific label) or Eu Yan Sang BrainMAX+ (TCM-based powder sachet, no capsule shell; not halal-certified). Always verify the current halal status on the product packaging or with the brand directly before purchase.',
   },
   {
     q: 'Which focus nootropics are best via Shopee/Lazada vs cross-border iHerb?',
-    a: 'For Shopee/Lazada/TikTok Shop in SG/MY/TH/PH/ID: Blackmores Brain Active is the TGA-AU brand with reliable local-marketplace supply (no customs risk, local-currency pricing). For cross-border ordering of premium imports (Mind Lab Pro, Qualia Mind, Alpha Brain), iHerb is currently the most reliable route with consolidated shipping into SG and MY warehouses; for Indonesia and Vietnam, ordering direct from the brand sites with DDP shipping (Mind Lab Pro / Opti-Nutra) avoids customs surprises. Singapore receives all routes the fastest (5–10 business days).',
+    a: 'For Shopee/Lazada/TikTok Shop in SG/MY/TH/PH/ID: Alpha Brain has a live Lazada Singapore listing (checked 2026-09-28). For cross-border ordering of premium imports (Mind Lab Pro, Alpha Brain), iHerb is currently the most reliable route with consolidated shipping into SG and MY warehouses. Direct delivery from Mind Lab Pro to SEA is not confirmed: mindlabpro.com lists only the US and eu.mindlabpro.com only EU countries (checked 2026-09-29). Qualia Mind does not ship to any SEA country (brand shipping page, checked 2026-09-28).',
   },
   {
     q: 'What is the most evidence-backed focus nootropic available in SEA?',

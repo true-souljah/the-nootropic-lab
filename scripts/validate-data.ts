@@ -2,7 +2,7 @@
 // Fails (exit 1) on missing required fields, non-numeric score, or duplicate id within a region.
 import {
   allProductsUS, allProductsEU, allProductsCA, allProductsAU,
-  allProductsJP, allProductsLatam, productsGCC, productsSEA,
+  allProductsJP, allProductsLatam, allProductsGCC, allProductsSEA,
   validateRegionalNotes, productRuleProblems,
 } from '../packages/data/src/index';
 import type { Product } from '../packages/data/src/index';
@@ -10,7 +10,7 @@ import type { Product } from '../packages/data/src/index';
 // Full lists: discontinued records still render a review page, so they are validated too.
 const regions: Record<string, unknown[]> = {
   us: allProductsUS, eu: allProductsEU, ca: allProductsCA, au: allProductsAU,
-  jp: allProductsJP, latam: allProductsLatam, gcc: productsGCC, sea: productsSEA,
+  jp: allProductsJP, latam: allProductsLatam, gcc: allProductsGCC, sea: allProductsSEA,
 };
 
 // Record rules (packages/data/src/product-rules.ts): affiliateUrl must be an
@@ -53,12 +53,6 @@ const KNOWN_RULE_VIOLATIONS: Readonly<Record<string, { rules: readonly RuleName[
   'eu/braineffect-focus-review': { rules: ['affiliateUrl'], reason: 'product page 404s; delisting pending operator confirmation' },
   'eu/brainzyme-focus-pro-review': { rules: ['affiliateUrl'], reason: 'affiliate ref carried in the homepage fragment; product-page attribution not confirmed' },
   'jp/suntory-dha-epa-sesamin-review': { rules: ['affiliateUrl'], reason: 'Amazon search link; official product page 403 to verification' },
-  'gcc/qualia-mind-review': { rules: ['affiliateUrl'], reason: 'GCC data owned by an open PR' },
-  'gcc/onnit-alpha-brain-review': { rules: ['affiliateUrl'], reason: 'GCC data owned by an open PR' },
-  'sea/qualia-mind-review': { rules: ['affiliateUrl'], reason: 'SEA data owned by an open PR' },
-  'sea/onnit-alpha-brain-review': { rules: ['affiliateUrl'], reason: 'SEA data owned by an open PR' },
-  'sea/blackmores-brain-active-review': { rules: ['affiliateUrl'], reason: 'SEA data owned by an open PR' },
-  'sea/supershrooms-focus-nootropic-review': { rules: ['affiliateUrl', 'ingredientDosages'], reason: 'SEA data owned by an open PR; empty affiliateUrl and formula' },
 };
 
 let failed = 0;

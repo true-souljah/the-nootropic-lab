@@ -1,7 +1,7 @@
 import { describe, test, expect } from 'vitest';
 import {
   allProductsUS, allProductsEU, allProductsCA, allProductsAU,
-  allProductsJP, allProductsLatam, productsGCC, productsSEA,
+  allProductsJP, allProductsLatam, allProductsGCC, allProductsSEA,
 } from '@nootropic/data';
 import type { Product } from '@nootropic/data';
 
@@ -13,7 +13,7 @@ import type { Product } from '@nootropic/data';
 
 const CATALOGUES: Record<string, Product[]> = {
   us: allProductsUS, eu: allProductsEU, ca: allProductsCA, au: allProductsAU,
-  jp: allProductsJP, latam: allProductsLatam, gcc: productsGCC, sea: productsSEA,
+  jp: allProductsJP, latam: allProductsLatam, gcc: allProductsGCC, sea: allProductsSEA,
 };
 const PRIMARY = ['us', 'eu', 'ca', 'au', 'jp', 'latam'];
 const FIELDS = ['brand', 'heroIngredients', 'ingredientDosages', 'trustpilotScore', 'trustpilotCount', 'discontinued'] as const;
@@ -43,29 +43,15 @@ const PRIMARY_BASELINE = new Set<string>([
   'performance-lab-mind-review/heroIngredients',
   'performance-lab-mind-review/ingredientDosages',
 ]);
-// GCC/SEA catalogues are owned by open data PRs (#266 and the GCC/SEA
-// follow-up refresh), which will apply the 2026-09-28 values there.
+// GCC/SEA: SEA's Blackmores Brain Active record lists a different formula
+// (Keenmind Bacopa 160mg, Ginkgo, DHA, PS) from the AU record, and the
+// 2026-09-28 vendor verification found the product delisted in both markets,
+// so neither supplement-facts panel could be read to settle which is right.
+// Brand, Trustpilot and the discontinued block are unified; the formula
+// stays listed here until a verified panel exists.
 const GCC_SEA_BASELINE = new Set<string>([
-  ...['gcc', 'sea'].flatMap((r) => [
-    `${r}/mind-lab-pro-review/ingredientDosages`,
-    `${r}/mind-lab-pro-review/trustpilotScore`,
-    `${r}/mind-lab-pro-review/trustpilotCount`,
-    `${r}/noocube-review/ingredientDosages`,
-    `${r}/noocube-review/heroIngredients`,
-    `${r}/noocube-review/trustpilotScore`,
-    `${r}/noocube-review/trustpilotCount`,
-    `${r}/nootropics-depot-lions-mane/trustpilotScore`,
-    `${r}/nootropics-depot-lions-mane/trustpilotCount`,
-    `${r}/onnit-alpha-brain-review/trustpilotScore`,
-    `${r}/onnit-alpha-brain-review/trustpilotCount`,
-    `${r}/qualia-mind-review/trustpilotScore`,
-    `${r}/qualia-mind-review/trustpilotCount`,
-    `${r}/thesis-nootropics-review/trustpilotScore`,
-    `${r}/thesis-nootropics-review/trustpilotCount`,
-  ]),
-  'sea/qualia-mind-review/brand',
-  // SEA's record under this slug describes a different Blackmores product.
-  ...FIELDS.map((f) => `sea/blackmores-brain-active-review/${f}`),
+  'sea/blackmores-brain-active-review/heroIngredients',
+  'sea/blackmores-brain-active-review/ingredientDosages',
 ]);
 
 const sharedSlugs = [...new Set(Object.values(CATALOGUES).flatMap((ps) => ps.map((p) => p.slug)))]

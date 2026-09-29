@@ -54,25 +54,25 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design suits GCC consumers who avoid stimulants. Capsule shell is plant-based HPMC — no porcine gelatin, halal-friendly. Ships from the UK to UAE/KSA in 7–14 days via Dubai free-zone logistics. Not formally SFDA-registered: enters as a personal-use dietary supplement.',
+      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design suits GCC consumers who avoid stimulants. Capsule shell is plant-based HPMC — no porcine gelatin, halal-friendly. GCC delivery is not confirmed: the brand\'s storefront shipping lists (checked 2026-09-28) name no GCC state, so confirm at checkout. Not formally SFDA-registered.',
   },
   {
     product: productsGCC.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes citicoline, Alpha-GPC, L-theanine, and L-tyrosine — covers nearly every evidence-backed focus mechanism. Plant-based capsules (no pork gelatin). Caveat for GCC buyers: the default formula contains 90mg caffeine per serving — request the caffeine-free variant at checkout. Not SFDA/MOHAP-registered; ships from the US. Premium price ($139/mo) and 7+ capsules/day are real friction points.',
+      'Includes citicoline, Alpha-GPC, L-theanine, and L-tyrosine — covers nearly every evidence-backed focus mechanism. Plant-based capsules (no pork gelatin). Caveat for GCC buyers: the default formula contains 90mg caffeine per serving — request the caffeine-free variant where offered. Not SFDA/MOHAP-registered, and Qualia does not ship to any GCC state (brand shipping page, checked 2026-09-28). Premium price ($159 list) and 7+ capsules/day are real friction points.',
   },
   {
     product: productsGCC.find(p => p.slug === 'noocube-review')!,
     rank: 3,
     whyItsHere:
-      'Lutemax 2020 (lutein/zeaxanthin) targets digital eye strain — relevant for the GCC\'s large screen-heavy professional and gaming populations. Includes Alpha-GPC, L-theanine, and Bacopa. Caffeine-free; capsules use no porcine gelatin. Caveat: low Trustpilot score (1.9/5) reflects subscription cancellation complaints — verify cancellation policy before subscribing. Ships from US/UK; not SFDA/MOHAP-registered.',
+      'Lutemax 2020 (lutein/zeaxanthin) targets digital eye strain — relevant for the GCC\'s large screen-heavy professional and gaming populations. Includes choline (VitaCholine), L-theanine, and Bacopa. Caffeine-free; capsules use no porcine gelatin. Caveat: the noocube.com Trustpilot profile has no reviews yet — verify cancellation policy before subscribing. Ships to all six GCC states per the brand\'s shipping list (checked 2026-09-28); not SFDA/MOHAP-registered.',
   },
   {
     product: productsGCC.find(p => p.slug === 'onnit-alpha-brain-review')!,
     rank: 4,
     whyItsHere:
-      'Caffeine-free formula with Alpha-GPC, L-theanine, L-tyrosine, and Bacopa. National Sanitation Foundation (NSF) Certified for Sport — relevant for GCC athletes and military buyers facing drug-tested events. Vegetarian capsules; no porcine gelatin. Two published clinical studies on the formula. Doses are hidden in proprietary blends — you cannot verify clinical thresholds. Ships from US; not SFDA/MOHAP-registered.',
+      'Caffeine-free formula with Alpha-GPC, L-theanine, L-tyrosine, and Bacopa. National Sanitation Foundation (NSF) Certified for Sport — relevant for GCC athletes and military buyers facing drug-tested events. Vegetarian capsules; no porcine gelatin. Two published clinical studies on the formula. Doses are hidden in proprietary blends — you cannot verify clinical thresholds. Among GCC states the brand ships only to Bahrain and Oman (shipping list checked 2026-09-28); not SFDA/MOHAP-registered.',
   },
 ];
 
@@ -87,7 +87,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Where can I buy these in the GCC without ordering internationally?',
-    a: 'BinSina, Aster, and Life Pharmacy stock domestic UAE brain-health supplements. Al-Dawaa and Nahdi stock SFDA-registered options across Saudi Arabia. iHerb operates a Saudi-compliant distribution centre that handles import paperwork for many international supplements — often the easiest path for imported brands like Mind Lab Pro and NooCube. For Onnit Alpha Brain and Qualia Mind, direct ordering from the brand is usually the only option, with 7–14 day delivery via Dubai free-zone logistics.',
+    a: 'BinSina, Aster, and Life Pharmacy stock domestic UAE brain-health supplements. Al-Dawaa and Nahdi stock SFDA-registered options across Saudi Arabia. iHerb operates a Saudi-compliant distribution centre that handles import paperwork for many international supplements — often the easiest path for imported brands like Mind Lab Pro and NooCube. Direct from the brand, availability is narrower than it looks: Qualia Mind does not ship to any GCC state, and Onnit Alpha Brain ships only to Bahrain and Oman (brand shipping lists, checked 2026-09-28).',
   },
   {
     q: 'How long does it take a focus nootropic to work?',
@@ -110,7 +110,7 @@ export default function Page() {
       useCase="focus"
       pageTitle="Best Nootropics for Focus in the GCC"
       pageDescription="Independent ranking of the best nootropics for focus available in the GCC. Halal status and SFDA/MOHAP registration noted per pick."
-      heroParagraph="If you want to take a supplement to support focus in the GCC, three things matter beyond the ingredient list: halal compliance, SFDA (Saudi) or MOHAP (UAE) registration status, and capsule source (plant-based HPMC/pullulan vs. animal-derived gelatin). This page ranks the focus-relevant products available to GCC buyers — imported international stacks such as Mind Lab Pro and Qualia Mind — with each pick annotated for halal status and registration. Distribution channels: BinSina, Aster, Life Pharmacy (UAE); Al-Dawaa, Nahdi (KSA); iHerb Saudi-compliant DC for many international imports."
+      heroParagraph="If you want to take a supplement to support focus in the GCC, three things matter beyond the ingredient list: halal compliance, SFDA (Saudi) or MOHAP (UAE) registration status, and capsule source (plant-based HPMC/pullulan vs. animal-derived gelatin). This page ranks focus-relevant products for GCC buyers — imported international stacks such as Mind Lab Pro and Qualia Mind — with each pick annotated for halal status, registration, and whether the brand ships to the GCC. Distribution channels: BinSina, Aster, Life Pharmacy (UAE); Al-Dawaa, Nahdi (KSA); iHerb Saudi-compliant DC for many international imports."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

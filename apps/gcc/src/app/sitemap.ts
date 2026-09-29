@@ -1,6 +1,6 @@
 export const dynamic = 'force-static';
 import type { MetadataRoute } from 'next';
-import { routeDates, productsGCC, ingredients, guides, gccCountries } from '@nootropic/data';
+import { routeDates, allProductsGCC, ingredients, guides, gccCountries } from '@nootropic/data';
 
 const BASE = 'https://gcc.thenootropiclab.com';
 
@@ -23,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/privacy-policy/`, lastModified: d.page('privacy-policy'), changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE}/cookie-policy/`, lastModified: d.page('cookie-policy'), changeFrequency: 'yearly', priority: 0.3 },
   ];
-  const productPages: MetadataRoute.Sitemap = productsGCC.map(p => ({
+  const productPages: MetadataRoute.Sitemap = allProductsGCC.map(p => ({
     url: `${BASE}/${p.slug}/`,
     lastModified: d.product(p),
     changeFrequency: 'weekly' as const,

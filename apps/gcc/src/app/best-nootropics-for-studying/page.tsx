@@ -54,31 +54,31 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Caffeine-free design pairs perfectly with whatever caffeine source you use during study sessions (Arabic coffee, matcha, gahwa). Includes L-theanine, Bacopa, citicoline, and L-tyrosine — covers all four study-relevant mechanisms in one open formula. Plant-based HPMC capsules — halal-friendly. Take daily through the term for cumulative Bacopa effect. Suitable for Ramadan use (caffeine-free; take with suhoor or iftar). Ships from UK to UAE/KSA via Dubai free-zone logistics.',
+      'Caffeine-free design pairs perfectly with whatever caffeine source you use during study sessions (Arabic coffee, matcha, gahwa). Includes L-theanine, Bacopa, citicoline, and L-tyrosine — covers all four study-relevant mechanisms in one open formula. Plant-based HPMC capsules — halal-friendly. Take daily through the term for cumulative Bacopa effect. Suitable for Ramadan use (caffeine-free; take with suhoor or iftar). GCC delivery is not confirmed: the brand\'s storefront shipping lists (checked 2026-09-28) name no GCC state, so confirm at checkout.',
   },
   {
     product: productsGCC.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Most complete study stack: includes Bacopa at clinical dose, plus Alpha-GPC, citicoline, Rhodiola, and L-theanine. Plant-based capsules. Caveat: default formula contains caffeine — students should request the caffeine-free variant at checkout, particularly for Ramadan use or evening study sessions. The 7+ capsules/day is friction during finals week; the $139/mo USD subscription is real friction for student budgets.',
+      'Most complete study stack: includes Bacopa at clinical dose, plus Alpha-GPC, citicoline, Rhodiola, and L-theanine. Plant-based capsules. Caveat: default formula contains caffeine — students should choose the caffeine-free variant, particularly for Ramadan use or evening study sessions. The 7+ capsules/day is friction during finals week and the $159 USD list price is real friction for student budgets. Qualia does not ship to any GCC state (brand shipping page, checked 2026-09-28).',
   },
   {
     product: productsGCC.find(p => p.slug === 'noocube-review')!,
     rank: 3,
     whyItsHere:
-      'Lutemax 2020 is the standout ingredient for screen-heavy students — reduces digital eye strain during 6–10 hour study sessions. Includes L-theanine, Alpha-GPC (underdosed), and Bacopa (underdosed). Caffeine-free; plant-based capsules. Best value at $59/mo USD if the Lutemax angle matters to you. Caveat: low Trustpilot score (1.9/5) reflects subscription cancellation complaints — verify cancellation policy before subscribing.',
+      'Lutemax 2020 is the standout ingredient for screen-heavy students — reduces digital eye strain during 6–10 hour study sessions. Includes L-theanine, choline (VitaCholine), and Bacopa (underdosed). Caffeine-free; plant-based capsules. $64.99 USD per 30-serving bottle on noocube.com — worth it if the Lutemax angle matters to you — and the brand ships to all six GCC states (shipping list checked 2026-09-28). Caveat: the noocube.com Trustpilot profile has no reviews yet — verify cancellation policy before subscribing.',
   },
   {
     product: productsGCC.find(p => p.slug === 'onnit-alpha-brain-review')!,
     rank: 4,
     whyItsHere:
-      'Caffeine-free Classic version with Bacopa + L-theanine + Alpha-GPC. National Sanitation Foundation (NSF) Certified for Sport — relevant for student athletes in drug-tested university sports. Plant-based capsules. Two published clinical studies on the formula. Doses are hidden in proprietary blends so clinical thresholds cannot be verified. Ships from US; not SFDA/MOHAP-registered.',
+      'Caffeine-free Classic version with Bacopa + L-theanine + Alpha-GPC. National Sanitation Foundation (NSF) Certified for Sport — relevant for student athletes in drug-tested university sports. Plant-based capsules. Two published clinical studies on the formula. Doses are hidden in proprietary blends so clinical thresholds cannot be verified. Among GCC states the brand ships only to Bahrain and Oman (shipping list checked 2026-09-28); not SFDA/MOHAP-registered.',
   },
   {
     product: productsGCC.find(p => p.slug === 'thesis-nootropics-review')!,
     rank: 5,
     whyItsHere:
-      'Personalisation may suit students with specific patterns (e.g., the "Clarity" formula for focus or "Logic" for analytical work). Each blend has a caffeine-free variant — students should select the caffeine-free option at checkout for Ramadan compatibility and conservative GCC dietary preferences. Subscription model with monthly cost can add up over a semester. Ships from US.',
+      'Personalisation may suit students with specific patterns (e.g., the "Clarity" formula for focus or "Logic" for analytical work). Each blend has a caffeine-free variant — students should select the caffeine-free option at checkout for Ramadan compatibility and conservative GCC dietary preferences. Subscription model with monthly cost can add up over a semester. Availability caveat: Thesis ships to US addresses only (brand shipping list, checked 2026-09-28), so GCC students cannot currently order it.',
   },
 ];
 
@@ -93,7 +93,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Which of these are available in GCC pharmacies without ordering internationally?',
-    a: 'For Saudi students, Nahdi (1,100+ branches) and Al-Dawaa stock SFDA-registered brain-health supplements. For UAE students, BinSina, Aster, and Life Pharmacy stock MOHAP-registered options. The international brands here (Mind Lab Pro, Qualia Mind, NooCube, Onnit Alpha Brain, Thesis) require online ordering — iHerb\'s Saudi-compliant DC handles import paperwork for many international supplements; direct brand ordering with 7–14 day Dubai free-zone delivery works for the rest.',
+    a: 'For Saudi students, Nahdi (1,100+ branches) and Al-Dawaa stock SFDA-registered brain-health supplements. For UAE students, BinSina, Aster, and Life Pharmacy stock MOHAP-registered options. The international brands here (Mind Lab Pro, Qualia Mind, NooCube, Onnit Alpha Brain, Thesis) require online ordering — iHerb\'s Saudi-compliant DC handles import paperwork for many international supplements. Direct from the brand, only NooCube lists all six GCC states on its shipping list; Onnit lists Bahrain and Oman only, and Mind Lab Pro, Qualia Mind and Thesis list no GCC state (brand shipping lists, checked 2026-09-28).',
   },
   {
     q: 'When should I start taking nootropics for studying?',

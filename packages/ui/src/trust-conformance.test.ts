@@ -20,10 +20,6 @@ const REPO = join(__dirname, '..', '..', '..');
 const RETIRED_TYPE =
   /['"]@type['"]\s*:\s*['"](FAQPage|HowTo|HowToStep|AggregateRating|SpeakableSpecification)['"]/;
 
-// apps/gcc and apps/sea are owned by concurrent PRs (2026-09); their inline
-// FAQPage blocks are removed there. Every other app is guarded here.
-const PENDING_APPS = new Set(['gcc', 'sea']);
-
 function walk(dir: string, out: string[] = []): string[] {
   for (const name of readdirSync(dir)) {
     if (name === 'node_modules' || name === '.next' || name === 'out') continue;
@@ -39,7 +35,7 @@ describe('structured data — retired / unsupported types are never emitted', ()
     ...walk(UI_SRC),
     ...walk(join(REPO, 'packages', 'data', 'src')),
     ...readdirSync(join(REPO, 'apps'))
-      .filter((app) => !PENDING_APPS.has(app) && existsSync(join(REPO, 'apps', app, 'src')))
+      .filter((app) => existsSync(join(REPO, 'apps', app, 'src')))
       .flatMap((app) => walk(join(REPO, 'apps', app, 'src'))),
   ];
 

@@ -61,7 +61,7 @@ const picks: ListiclePick[] = [
     product: productsAU.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes phosphatidylserine (200mg), citicoline, Bacopa (300mg fully dosed), and supporting cofactors. Most complete coverage but the 7-capsule daily protocol can be hard to maintain for older adults — consider whether the breadth justifies the friction. Contains caffeine and Huperzine A: caution for older adults on cholinergic medications like donepezil.',
+      'Includes phosphatidylserine (200mg), citicoline, Bacopa (300mg fully dosed), and supporting cofactors. Most complete coverage but the 6-capsule daily protocol can be hard to maintain for older adults — consider whether the breadth justifies the friction. Contains caffeine and Huperzine A: caution for older adults on cholinergic medications like donepezil.',
   },
   {
     product: productsAU.find(p => p.slug === 'naturebell-ginkgo-ginseng-review')!,
