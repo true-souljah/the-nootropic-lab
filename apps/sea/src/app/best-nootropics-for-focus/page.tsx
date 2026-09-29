@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'noocube-review')!,
     rank: 2,
     whyItsHere:
-      'Includes Lutemax 2020 at the clinical 20mg dose plus L-theanine 100mg — the most relevant focus formula for SEA screen-workers in Singapore, KL, Bangkok, and Manila tech roles. The current formula uses choline from VitaCholine and no longer contains Alpha-GPC or Huperzine A; Bacopa is below its clinical anchor. noocube.com ships to Singapore, Malaysia, Thailand and the Philippines (~10–18 days from the UK); it does not list Indonesia or Vietnam. Personal-use import. Not halal-certified by JAKIM/BPJPH; capsules are typically gelatin (animal-derived) — confirm with vendor before MY/ID purchase.',
+      'Includes Lutemax 2020 at the clinical 20mg dose plus L-theanine 100mg — the most relevant focus formula for SEA screen-workers in Singapore, KL, Bangkok, and Manila tech roles. The current formula uses choline from VitaCholine and no longer contains Alpha-GPC or Huperzine A; Bacopa is below its clinical anchor. noocube.com ships to Singapore, Malaysia, Thailand and the Philippines; it does not list Indonesia or Vietnam. noocube.com does not publish delivery times for these countries; check the estimate at checkout. Personal-use import. Not halal-certified by JAKIM/BPJPH; capsules are typically gelatin (animal-derived) — confirm with vendor before MY/ID purchase.',
   },
   {
     product: productsSEA.find(p => p.slug === 'qualia-mind-review')!,
