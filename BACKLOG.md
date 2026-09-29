@@ -12,7 +12,7 @@ _Tick `- [x]` to mark an item done, then commit. Grouped by priority, then sourc
 - [ ] **Cooperation: Neutonic — affiliate via Awin (8%, 30d)** — `neutonic.com` · Verified at Awin merchant profile 121846: 8% per… <!--id:gsc:9593ef0d8a9b6842-->
 - [ ] **Fix 0-click title/meta for eu-yan-sang-brainmax+ at position 9** — `/eu-yan-sang-brainmax-review` · 32 impr · pos 9.4 <!--id:gsc:157650bccac5d765-->
 - [ ] **Fix zero-click title/meta for Eu Yan Sang BrainMax+ review at pos 9.4** — `/eu-yan-sang-brainmax-review` · 32 impr · pos 9.4 <!--id:gsc:5a32b8db19fe91ab-->
-- [ ] **Push 'alpha brain canada' from pos 16 to page 1** — `/onnit-alpha-brain-review` · 55 impr · pos 15.8 <!--id:gsc:60446e254dd712ab-->
+- [x] **Push 'alpha brain canada' from pos 16 to page 1** — `/onnit-alpha-brain-review` · 55 impr · pos 15.8 — 2026-09-28: shipped dedicated CA page /alpha-brain-canada/ (Onnit ships to CA per onnit.com/meta.json, USD list prices, CBSA duties note, NPN-licensed alternatives), linked from CA home + NPN guide + sitemap; re-check GSC position in ~4 weeks <!--id:gsc:60446e254dd712ab-->
 - [ ] **Push 'blackmores brain active' review from pos 11 to page 1** — `/blackmores-brain-active-review` · 31 impr · pos 11.1 <!--id:gsc:35a5b25c2f2b2a5b-->
 - [ ] **Push 'eu yan sang brainmax' from pos 14.2 to page 1** — `/eu-yan-sang-brainmax-review/` · 33 impr · pos 14.2 <!--id:gsc:20e355b326f2a5ce-->
 - [ ] **Push 'nootropics avis' from pos 24.5 to page 1** — `/fr/meilleurs-nootropiques/` · 60 impr · pos 24.5 <!--id:gsc:a6cc6c80b6f3d622-->

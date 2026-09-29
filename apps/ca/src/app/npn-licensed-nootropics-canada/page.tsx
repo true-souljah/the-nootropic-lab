@@ -201,6 +201,8 @@ export default function Page() {
           <Link href="/" className="text-green-700 underline">← Back to home</Link>
           {' · '}
           <Link href="/methodology/" className="text-green-700 underline">Methodology</Link>
+          {' · '}
+          <Link href="/alpha-brain-canada/" className="text-green-700 underline">Buying Alpha Brain in Canada</Link>
         </div>
       </article>
     </PublicShell>
