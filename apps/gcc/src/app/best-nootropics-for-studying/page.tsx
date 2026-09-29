@@ -54,7 +54,7 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Caffeine-free design pairs perfectly with whatever caffeine source you use during study sessions (Arabic coffee, matcha, gahwa). Includes L-theanine, Bacopa, citicoline, and L-tyrosine — covers all four study-relevant mechanisms in one open formula. Plant-based HPMC capsules — halal-friendly. Take daily through the term for cumulative Bacopa effect. Suitable for Ramadan use (caffeine-free; take with suhoor or iftar). GCC delivery is not confirmed: the brand\'s storefront shipping lists (checked 2026-09-28) name no GCC state, so confirm at checkout.',
+      'Caffeine-free design pairs perfectly with whatever caffeine source you use during study sessions (Arabic coffee, matcha, gahwa). Includes L-theanine, Bacopa, citicoline, and L-tyrosine — covers all four study-relevant mechanisms in one open formula. Plant-based HPMC capsules — halal-friendly. Take daily through the term for cumulative Bacopa effect. Suitable for Ramadan use (caffeine-free; take with suhoor or iftar). mindlabpro.com names Saudi Arabia, the UAE, Qatar and Kuwait among its shipping territories (its FAQ, checked 2026-09-29); Bahrain and Oman are not named on that partial list, so confirm at checkout.',
   },
   {
     product: productsGCC.find(p => p.slug === 'qualia-mind-review')!,
@@ -72,13 +72,13 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'onnit-alpha-brain-review')!,
     rank: 4,
     whyItsHere:
-      'Caffeine-free Classic version with Bacopa + L-theanine + Alpha-GPC. National Sanitation Foundation (NSF) Certified for Sport — relevant for student athletes in drug-tested university sports. Plant-based capsules. Two published clinical studies on the formula. Doses are hidden in proprietary blends so clinical thresholds cannot be verified. Among GCC states the brand ships only to Bahrain and Oman (shipping list checked 2026-09-28); not SFDA/MOHAP-registered.',
+      'Caffeine-free Classic version with Bacopa + L-theanine + Alpha-GPC. National Sanitation Foundation (NSF) Certified for Sport — relevant for student athletes in drug-tested university sports. Plant-based capsules. Two published clinical studies on the formula. Doses are hidden in proprietary blends so clinical thresholds cannot be verified. onnit.com\'s market list names Bahrain and Oman; shipping to the other GCC states could not be confirmed from the brand\'s site on 2026-09-29 — check at checkout. Not SFDA/MOHAP-registered.',
   },
   {
     product: productsGCC.find(p => p.slug === 'thesis-nootropics-review')!,
     rank: 5,
     whyItsHere:
-      'Personalisation may suit students with specific patterns (e.g., the "Clarity" formula for focus or "Logic" for analytical work). Each blend has a caffeine-free variant — students should select the caffeine-free option at checkout for Ramadan compatibility and conservative GCC dietary preferences. Subscription model with monthly cost can add up over a semester. Availability caveat: Thesis ships to US addresses only (brand shipping list, checked 2026-09-28), so GCC students cannot currently order it.',
+      'Personalisation may suit students with specific patterns (e.g., the "Clarity" formula for focus or "Logic" for analytical work). Each blend has a caffeine-free variant — students should select the caffeine-free option at checkout for Ramadan compatibility and conservative GCC dietary preferences. Subscription model with monthly cost can add up over a semester. Availability caveat: we could not confirm Thesis\'s international shipping from its site (its shipping page was unavailable on 2026-09-29) — check at checkout.',
   },
 ];
 
@@ -93,7 +93,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Which of these are available in GCC pharmacies without ordering internationally?',
-    a: 'For Saudi students, Nahdi (1,100+ branches) and Al-Dawaa stock SFDA-registered brain-health supplements. For UAE students, BinSina, Aster, and Life Pharmacy stock MOHAP-registered options. The international brands here (Mind Lab Pro, Qualia Mind, NooCube, Onnit Alpha Brain, Thesis) require online ordering — iHerb\'s Saudi-compliant DC handles import paperwork for many international supplements. Direct from the brand, only NooCube lists all six GCC states on its shipping list; Onnit lists Bahrain and Oman only, and Mind Lab Pro, Qualia Mind and Thesis list no GCC state (brand shipping lists, checked 2026-09-28).',
+    a: 'For Saudi students, Nahdi (1,100+ branches) and Al-Dawaa stock SFDA-registered brain-health supplements. For UAE students, BinSina, Aster, and Life Pharmacy stock MOHAP-registered options. The international brands here (Mind Lab Pro, Qualia Mind, NooCube, Onnit Alpha Brain, Thesis) require online ordering — iHerb\'s Saudi-compliant DC handles import paperwork for many international supplements. Direct from the brand: NooCube lists all six GCC states on its shipping list (checked 2026-09-28); Mind Lab Pro\'s FAQ names Saudi Arabia, the UAE, Qatar and Kuwait among its shipping territories (checked 2026-09-29); onnit.com\'s market list names Bahrain and Oman; Qualia Mind lists no GCC state; and Thesis\'s international shipping could not be confirmed from its site — check at checkout.',
   },
   {
     q: 'When should I start taking nootropics for studying?',

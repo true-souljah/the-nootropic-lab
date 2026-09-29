@@ -292,7 +292,7 @@ export default function Page() {
           defaultOpen
           heading="Sources"
           sources={[
-            { type: 'Retailer', label: 'Onnit store configuration: ships_to_countries and currency (meta.json)', url: 'https://www.onnit.com/meta.json' },
+            { type: 'Retailer', label: 'Onnit store configuration: market list and currency (meta.json)', url: 'https://www.onnit.com/meta.json' },
             { type: 'Retailer', label: 'Onnit: Alpha BRAIN (30 ct) product page', url: 'https://www.onnit.com/products/alpha-brain-30-ct' },
             { type: 'Retailer', label: 'Onnit: Alpha BRAIN (60 ct) product page', url: 'https://www.onnit.com/products/alpha-brain-60-ct' },
             { type: 'Retailer', label: 'Onnit: Alpha BRAIN (90 ct) product page', url: 'https://www.onnit.com/products/alpha-brain-90-ct' },

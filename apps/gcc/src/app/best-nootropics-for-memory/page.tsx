@@ -54,7 +54,7 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Includes Bacopa, citicoline (250mg Cognizin at clinical dose), AND phosphatidylserine (100mg Sharp-PS at clinical dose) — three of the four memory-evidence ingredients in one open formula. Plus Lion\'s Mane fruiting-body extract at 500mg. Plant-based HPMC capsules — no porcine gelatin, halal-friendly. Bacopa dose is 150mg (under the 300mg clinical anchor) so consider stacking with a separate Bacopa supplement for full effect. GCC delivery is not confirmed: the brand\'s storefront shipping lists (checked 2026-09-28) name no GCC state, so confirm at checkout.',
+      'Includes Bacopa, citicoline (250mg Cognizin at clinical dose), AND phosphatidylserine (100mg Sharp-PS at clinical dose) — three of the four memory-evidence ingredients in one open formula. Plus Lion\'s Mane fruiting-body extract at 500mg. Plant-based HPMC capsules — no porcine gelatin, halal-friendly. Bacopa dose is 150mg (under the 300mg clinical anchor) so consider stacking with a separate Bacopa supplement for full effect. mindlabpro.com names Saudi Arabia, the UAE, Qatar and Kuwait among its shipping territories (its FAQ, checked 2026-09-29); Bahrain and Oman are not named on that partial list, so confirm at checkout.',
   },
   {
     product: productsGCC.find(p => p.slug === 'qualia-mind-review')!,

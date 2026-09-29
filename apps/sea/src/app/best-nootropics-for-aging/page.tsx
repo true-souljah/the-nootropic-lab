@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Includes phosphatidylserine (100mg Sharp-PS at clinical dose), citicoline (250mg Cognizin at clinical dose), Bacopa, and Lion\'s Mane. Four of the most age-relevant ingredients in one open-formula product. Caffeine-free — no cardiovascular load for older adults sensitive to stimulants in tropical heat. Direct delivery to SEA is not confirmed: mindlabpro.com lists only the US and eu.mindlabpro.com only EU countries (checked 2026-09-29). Personal-use import. Not BPJPH/JAKIM halal-certified — older Muslim buyers in MY/ID should check the certifying body\'s register before buying.',
+      'Includes phosphatidylserine (100mg Sharp-PS at clinical dose), citicoline (250mg Cognizin at clinical dose), Bacopa, and Lion\'s Mane. Four of the most age-relevant ingredients in one open-formula product. Caffeine-free — no cardiovascular load for older adults sensitive to stimulants in tropical heat. mindlabpro.com names Singapore, Thailand, the Philippines, Indonesia and Vietnam among its shipping territories (its FAQ, checked 2026-09-29); Malaysia is not named on that partial list, so confirm at checkout. Personal-use import. Not BPJPH/JAKIM halal-certified — older Muslim buyers in MY/ID should check the certifying body\'s register before buying.',
   },
   {
     product: productsSEA.find(p => p.slug === 'eu-yan-sang-brainmax-review')!,

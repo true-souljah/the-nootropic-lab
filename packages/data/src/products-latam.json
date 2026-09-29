@@ -422,7 +422,7 @@
       "Only 2 capsules",
       "90-day money-back",
       "NSF Certified for Sport",
-      "Ships to Brazil, Argentina, Colombia, Chile and Peru (not Mexico)"
+      "onnit.com's market list names Brazil, Argentina, Colombia, Chile and Peru (checked 2026-09-29)"
     ],
     "cons": [
       "Proprietary blends hide doses",
@@ -433,7 +433,7 @@
     "editorChoice": false,
     "market": "both",
     "updatedAt": "2026-09-28",
-    "importPathway": "Onnit's own storefront shipping list (https://www.onnit.com/meta.json, ships_to_countries, checked 2026-09-28) excludes Mexico; Brazil, Argentina, Colombia, Chile and Peru are listed. Mexican buyers cannot order direct from onnit.com.",
+    "importPathway": "onnit.com's market list names Brazil, Argentina, Colombia, Chile and Peru (checked 2026-09-29); shipping to Mexico could not be confirmed from the brand's site (its shipping help page was unavailable) -- check at checkout.",
     "verifiedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28"
   },
