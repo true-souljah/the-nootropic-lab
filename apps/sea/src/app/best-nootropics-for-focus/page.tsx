@@ -72,7 +72,7 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'onnit-alpha-brain-review')!,
     rank: 4,
     whyItsHere:
-      'Caffeine-free Classic version + National Sanitation Foundation (NSF) Certified for Sport (relevant for Singapore/Malaysian competitive athletes subject to anti-doping). Bacopa, Alpha-GPC, and L-theanine present but doses hidden in proprietary blends. Strong global brand recognition makes it easier to research locally in English and Bahasa. US→SEA shipping 12–18 days as personal-use supplement.',
+      'Caffeine-free Classic version + National Sanitation Foundation (NSF) Certified for Sport (relevant for Singapore/Malaysian competitive athletes subject to anti-doping). Bacopa, Alpha-GPC, and L-theanine present but doses hidden in proprietary blends. Strong global brand recognition makes it easier to research locally in English and Bahasa. Ships from the US as a personal-use supplement; no published SEA delivery estimate.',
   },
 ];
 
@@ -83,7 +83,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Which focus nootropics are best via Shopee/Lazada vs cross-border iHerb?',
-    a: 'For Shopee/Lazada/TikTok Shop in SG/MY/TH/PH/ID: Alpha Brain has a live Lazada Singapore listing (checked 2026-09-28). For cross-border ordering of premium imports (Mind Lab Pro, Alpha Brain), iHerb is currently the most reliable route with consolidated shipping into SG and MY warehouses. Direct delivery from Mind Lab Pro to SEA is not confirmed: mindlabpro.com lists only the US and eu.mindlabpro.com only EU countries (checked 2026-09-29). Singapore receives all routes the fastest (5–10 business days). Qualia Mind does not ship to any SEA country (brand shipping page, checked 2026-09-28).',
+    a: 'For Shopee/Lazada/TikTok Shop in SG/MY/TH/PH/ID: Alpha Brain has a live Lazada Singapore listing (checked 2026-09-28). For cross-border ordering of premium imports (Mind Lab Pro, Alpha Brain), iHerb is currently the most reliable route with consolidated shipping into SG and MY warehouses. Direct delivery from Mind Lab Pro to SEA is not confirmed: mindlabpro.com lists only the US and eu.mindlabpro.com only EU countries (checked 2026-09-29). Qualia Mind does not ship to any SEA country (brand shipping page, checked 2026-09-28).',
   },
   {
     q: 'What is the most evidence-backed focus nootropic available in SEA?',

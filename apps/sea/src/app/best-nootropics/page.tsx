@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 const faqItems = [
   { q: 'Are nootropics regulated differently across SEA countries?', a: 'Yes. Singapore (HSA) and Malaysia (NPRA) have the most structured supplement import frameworks. Singapore is the safest entry point — HSA allows personal import of most food supplements. Indonesia (BPOM) is the most restrictive. Thailand, Philippines, and Vietnam allow personal imports but formal registration is required for commercial sale.' },
-  { q: 'Which SEA country has the fastest delivery?', a: 'Singapore receives international shipments from the UK and US in 5–10 business days — the fastest hub in SEA. Malaysia and Thailand follow at 7–14 days. Indonesia and Vietnam can take 14–21 days due to customs processing.' },
+  { q: 'Which SEA country has the fastest delivery?', a: 'None of the brands in this list publish delivery estimates for Southeast Asia; delivery depends on the carrier and on customs clearance in each country, so check the estimate at checkout and expect longer times for Indonesia and Vietnam, where personal-import customs processing is stricter.' },
   { q: 'Is Mind Lab Pro popular in Singapore?', a: 'Yes. Mind Lab Pro has a significant following among Singapore\'s professional and expat community. It is frequently ordered directly from the Opti-Nutra website with delivery to Singapore addresses in approximately 7 business days.' },
 ];
 
@@ -40,7 +40,7 @@ export default function BestNootropicsSEAPage() {
             <Card variant="subdued" padding={20} className="border-l-[3px] border-l-ds-warn" as="aside" aria-labelledby="sea-note-heading">
               <h2 id="sea-note-heading" className="text-[16px] font-bold text-ds-warn-ink m-0 mb-2">SEA regulatory note</h2>
               <p className="text-[13.5px] text-ds-ink-soft m-0 leading-[1.65]">
-                Singapore (HSA) and Malaysia (NPRA) have the most structured personal-import frameworks. Indonesia (BPOM) is the most restrictive. Thailand / Philippines / Vietnam allow personal imports but commercial sale requires formal registration. Singapore is the fastest hub (5–10 days from UK/US).
+                Singapore (HSA) and Malaysia (NPRA) have the most structured personal-import frameworks. Indonesia (BPOM) is the most restrictive. Thailand / Philippines / Vietnam allow personal imports but commercial sale requires formal registration.
               </p>
             </Card>
             <Card variant="subdued" padding={20} className="border-l-[3px] border-l-ds-accent">

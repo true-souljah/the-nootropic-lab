@@ -83,7 +83,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Which are best for SEA students via Shopee/Lazada vs cross-border iHerb?',
-    a: 'For students on a budget who want to avoid customs and credit-card cross-border fees: NatureBell Ginkgo+Ginseng on Amazon.sg (~SGD $7/mo). For premium stacks: cross-border iHerb to Singapore is the most reliable route for Mind Lab Pro, NooCube, and Nootropics Depot products — typical delivery 5–10 days into SG, slightly longer to other capitals. Direct from the brand is not a confirmed route: mindlabpro.com lists only the US and eu.mindlabpro.com only EU countries (checked 2026-09-29).',
+    a: 'For students on a budget who want to avoid customs and credit-card cross-border fees: NatureBell Ginkgo+Ginseng on Amazon.sg (~SGD $7/mo). For premium stacks: cross-border iHerb to Singapore is the most reliable route for Mind Lab Pro, NooCube, and Nootropics Depot products. Direct from the brand is not a confirmed route: mindlabpro.com lists only the US and eu.mindlabpro.com only EU countries (checked 2026-09-29).',
   },
   {
     q: 'When should I start taking nootropics for studying?',
