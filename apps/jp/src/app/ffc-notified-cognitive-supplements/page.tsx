@@ -165,7 +165,7 @@ export default function Page() {
           <h2 className="text-2xl font-bold text-gray-900 mb-3">Audit of our Japanese catalog</h2>
           <p className="text-sm text-gray-700 leading-relaxed mb-4">
             We track <strong>{productsJP.length} products</strong> in our Japanese catalog. The mix includes
-            FFC-notified domestic brands (DHC, Suntory Wellness, FANCL, Asahi) and imported brands available
+            domestic brands (FANCL BRAINs, FFC-notified under G425; Suntory DHA&amp;EPA+Sesamin EX, not FFC-notified) and imported brands available
             via personal-import channels. Our reviews note FFC notification status where visible on packaging
             and frame imported-brand reviews as consumer experience rather than function claims, in line with
             PMD Act constraints. Per-product FFC field surfacing is on our 2026 roadmap.

@@ -79,7 +79,7 @@ export default async function PrefecturePage({
           <p className="text-sm text-amber-800 leading-relaxed">
             Personal import limit: <strong>¥16,000 duty-free</strong> per shipment.
             Order 1 month&apos;s supply at a time from international brands to stay under this limit.
-            FANCL BRAINs and Suntory DHA are available on Amazon Japan with no customs.
+            FANCL BRAINs is a domestic product sold through FANCL&apos;s official Rakuten store, labelled 機能性表示食品 (notification G425).
           </p>
         </div>
 

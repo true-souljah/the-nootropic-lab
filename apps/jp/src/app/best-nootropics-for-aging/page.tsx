@@ -12,7 +12,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 export const metadata: Metadata = {
   title: `Best Nootropics for Aging Brain in Japan ${CURRENT_YEAR}: Evidence-Graded Picks`,
   description:
-    'Independent ranking of nootropics for adults in Japan concerned about age-related cognitive changes. FFC-notified domestic options (FANCL BRAINs, Suntory) plus phosphatidylserine and citicoline international stacks. NOT a treatment for dementia or Alzheimer\'s.',
+    'Independent ranking of nootropics for adults in Japan concerned about age-related cognitive changes. Domestic options (FFC-notified FANCL BRAINs, plus Suntory) plus phosphatidylserine and citicoline international stacks. NOT a treatment for dementia or Alzheimer\'s.',
   alternates: buildAlternates({ regionCode: 'jp', path: '/best-nootropics-for-aging/' }),
   openGraph: {
     title: 'Best Nootropics for Aging Brain in Japan — Evidence-Graded',
@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'suntory-dha-epa-sesamin-review')!,
     rank: 2,
     whyItsHere:
-      'Japan\'s best-selling FFC-notified omega-3 brain supplement (over 30 million bottles sold) — Suntory Wellness, a household name backed by the ¥2.7 trillion Suntory Group. 400mg DHA + 100mg EPA + 20mg sesamin. Foundational structural support for aging brains; widely advertised on Japanese television and trusted across the 60+ demographic. ¥4,800/month — the most affordable pick in this Japan review.',
+      'Japan\'s best-selling omega-3 brain supplement (over 30 million bottles sold); not FFC-notified (機能性表示食品) in our catalogue — Suntory Wellness, a household name backed by the ¥2.7 trillion Suntory Group. 400mg DHA + 100mg EPA + 20mg sesamin. Foundational structural support for aging brains; widely advertised on Japanese television and trusted across the 60+ demographic. ¥4,800/month — the most affordable pick in this Japan review.',
   },
   {
     product: productsJP.find(p => p.slug === 'mind-lab-pro-review')!,
@@ -93,7 +93,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Where can my elderly parents buy these in Japan?',
-    a: 'FANCL BRAINs and Suntory DHA & EPA + Sesamin EX are available at every major drugstore chain (Matsumoto Kiyoshi, Welcia, Sundrug, Sugi Pharmacy) — no online ordering required. Both are also on Amazon Japan with Prime same-day delivery. Mind Lab Pro requires ordering from an international website with English checkout — typically a barrier for older buyers without English proficiency. Stick with FFC-notified domestic options for this demographic unless a younger family member can manage the international order.',
+    a: 'FANCL BRAINs is sold through FANCL\'s official Rakuten store, where it is labelled 機能性表示食品 (notification G425). Mind Lab Pro requires ordering from an international website with English checkout — typically a barrier for older buyers without English proficiency. Stick with domestic options for this demographic unless a younger family member can manage the international order.',
   },
 ];
 
@@ -104,7 +104,7 @@ export default function Page() {
       useCase="aging"
       pageTitle="Best Nootropics for Aging Brain in Japan"
       pageDescription="Independent ranking of nootropics for adults in Japan concerned about age-related cognitive changes."
-      heroParagraph="Japan has the world's oldest population by median age, and age-related cognitive support is one of the largest functional supplement categories under the FFC (機能性表示食品) framework. Domestic FFC-notified brands (FANCL BRAINs, Suntory DHA & EPA + Sesamin EX) target this demographic via DHA (Suntory) and bacopa saponins plus matured hop bitter acids (FANCL) and are available in every Matsumoto Kiyoshi, Welcia, and Sundrug nationwide. International stacks add Lion's Mane (the evidence base established in Japan via Mori et al. 2009) and clinical-dose citicoline. These supplements have evidence specifically in older adults with subjective cognitive complaints. They are NOT treatments for dementia (認知症), Alzheimer's, or any clinical cognitive disease. For those, see a Japanese neurologist."
+      heroParagraph="Japan has the world's oldest population by median age, and age-related cognitive support is one of the largest functional supplement categories under the FFC (機能性表示食品) framework. Domestic brands target this demographic via DHA (Suntory DHA & EPA + Sesamin EX, not FFC-notified in our catalogue) and bacopa saponins plus matured hop bitter acids (FANCL BRAINs, FFC notification G425). International stacks add Lion's Mane (the evidence base established in Japan via Mori et al. 2009) and clinical-dose citicoline. These supplements have evidence specifically in older adults with subjective cognitive complaints. They are NOT treatments for dementia (認知症), Alzheimer's, or any clinical cognitive disease. For those, see a Japanese neurologist."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

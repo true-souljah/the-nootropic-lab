@@ -157,7 +157,7 @@ export default function YakkanShoumeiPage() {
             <li><strong>機能性表示食品（FFC）</strong>: 日本国内で販売される食品の機能性表示について、製造者が消費者庁に届出を行う制度（消費者庁管轄）</li>
           </ul>
           <p className="text-gray-700 leading-relaxed">
-            国内ブランドのFANCL BRAINsやSuntory製品などは、機能性表示食品制度のもとで販売されており、薬監証明は必要ありません。詳しくは{' '}
+            FANCL BRAINs（機能性表示食品・届出番号 G425）やSuntory製品などの国内ブランドは国内で販売されており、薬監証明は必要ありません。詳しくは{' '}
             <Link href="/ffc-notified-cognitive-supplements" className="text-green-700 underline">機能性表示食品ガイド</Link>
             {' '}をご覧ください。
           </p>

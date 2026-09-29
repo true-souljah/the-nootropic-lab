@@ -42,7 +42,7 @@ const features = [
   {
     icon: '🗾',
     title: 'Japan import confirmed',
-    desc: 'All international products listed ship directly to Japan. Japanese domestic brands (FANCL, Suntory) available on Amazon Japan.',
+    desc: 'All international products listed ship directly to Japan. FANCL BRAINs is sold through FANCL\'s official Rakuten store, labelled 機能性表示食品 (notification G425).',
   },
   {
     icon: '⚖️',
