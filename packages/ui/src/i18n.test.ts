@@ -48,6 +48,21 @@ describe('getStrings', () => {
     }
   });
 
+  test('every locale has the guide page keys (Sources heading, expand hint, evidence-review label)', () => {
+    for (const locale of ALL_LOCALES) {
+      const guide = getStrings(locale).guide;
+      expect(guide.sources, `${locale} guide.sources`).toBeTruthy();
+      expect(guide.expand, `${locale} guide.expand`).toBeTruthy();
+      expect(guide.evidenceReviewed, `${locale} guide.evidenceReviewed`).toBeTruthy();
+    }
+    // Non-English bundles must not silently ship the English strings.
+    for (const locale of ['es', 'ja', 'pt', 'de'] as Locale[]) {
+      const guide = getStrings(locale).guide;
+      expect(guide.evidenceReviewed, `${locale} evidenceReviewed is translated`).not.toBe(getStrings('en').guide.evidenceReviewed);
+      expect(guide.expand, `${locale} expand is translated`).not.toBe('expand');
+    }
+  });
+
   test('every locale carries a BCP-47 dateLocale code', () => {
     const expected: Record<Locale, string> = {
       en: 'en-US',

@@ -95,6 +95,8 @@ function stubGuide(over: Partial<Guide> = {}): Guide {
     category: 'beginner',
     readingTimeMin: 5,
     sections: [],
+    sources: [],
+    evidenceReviewedAt: '2026-09-28',
     ...over,
   };
 }

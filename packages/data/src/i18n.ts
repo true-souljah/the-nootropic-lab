@@ -292,6 +292,15 @@ export interface UIStrings {
     /** aria-label for the chip row above the product name (groups Editor's pick, Caffeine-free, regulatory chips, etc.). */
     chipGroupLabel: string;
   };
+  /** Educational guide pages (/guides/<slug>/). */
+  guide: {
+    /** Heading of the collapsible Sources block at the end of a guide. */
+    sources: string;
+    /** Visible "expand" hint on the collapsed Sources block. WCAG 3.1.2. */
+    expand: string;
+    /** Prefix before the evidence-review date, e.g. "Evidence reviewed:". */
+    evidenceReviewed: string;
+  };
 }
 
 const en: UIStrings = {
@@ -512,6 +521,11 @@ const en: UIStrings = {
     discontinued: { heading: 'Discontinued', successorLink: 'Read our review of the successor' },
     healthDisclaimerHeading: 'Health disclaimer',
     chipGroupLabel: 'Product attributes',
+  },
+  guide: {
+    sources: 'Sources',
+    expand: 'expand',
+    evidenceReviewed: 'Evidence reviewed:',
   },
 };
 
@@ -734,6 +748,11 @@ const es: UIStrings = {
     healthDisclaimerHeading: 'Aviso de salud',
     chipGroupLabel: 'Atributos del producto',
   },
+  guide: {
+    sources: 'Fuentes',
+    expand: 'ampliar',
+    evidenceReviewed: 'Evidencia revisada el',
+  },
 };
 
 const fr: UIStrings = {
@@ -954,6 +973,11 @@ const fr: UIStrings = {
     discontinued: { heading: 'Produit arrêté', successorLink: 'Lire notre avis sur le successeur' },
     healthDisclaimerHeading: 'Avis de santé',
     chipGroupLabel: 'Attributs du produit',
+  },
+  guide: {
+    sources: 'Sources',
+    expand: 'afficher',
+    evidenceReviewed: 'Données probantes vérifiées le',
   },
 };
 
@@ -1176,6 +1200,11 @@ const ja: UIStrings = {
     healthDisclaimerHeading: '健康に関する免責事項',
     chipGroupLabel: '製品の属性',
   },
+  guide: {
+    sources: '出典',
+    expand: '展開',
+    evidenceReviewed: 'エビデンス確認日：',
+  },
 };
 
 const pt: UIStrings = {
@@ -1397,6 +1426,11 @@ const pt: UIStrings = {
     healthDisclaimerHeading: 'Aviso de saúde',
     chipGroupLabel: 'Atributos do produto',
   },
+  guide: {
+    sources: 'Fontes',
+    expand: 'expandir',
+    evidenceReviewed: 'Evidência revista em',
+  },
 };
 
 const de: UIStrings = {
@@ -1617,6 +1651,11 @@ const de: UIStrings = {
     discontinued: { heading: 'Nicht mehr erhältlich', successorLink: 'Zu unserem Test des Nachfolgers' },
     healthDisclaimerHeading: 'Gesundheitshinweis',
     chipGroupLabel: 'Produktmerkmale',
+  },
+  guide: {
+    sources: 'Quellen',
+    expand: 'ausklappen',
+    evidenceReviewed: 'Evidenz geprüft am',
   },
 };
 
@@ -1840,6 +1879,11 @@ const frCa: UIStrings = {
     discontinued: { heading: 'Produit arrêté', successorLink: 'Lire notre avis sur le successeur' },
     healthDisclaimerHeading: 'Avis de santé',
     chipGroupLabel: 'Caractéristiques du produit',
+  },
+  guide: {
+    sources: 'Sources',
+    expand: 'afficher',
+    evidenceReviewed: 'Données probantes vérifiées le',
   },
 };
 
