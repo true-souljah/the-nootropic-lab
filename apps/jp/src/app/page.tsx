@@ -55,7 +55,7 @@ const quickLinks = [
   {
     href: '/best-nootropics',
     title: `Best Nootropics in Japan ${CURRENT_YEAR}`,
-    desc: 'Top picks with Japan shipping confirmed and MHLW import notes.',
+    desc: 'Top picks with MHLW personal-import notes.',
   },
   {
     href: '/nootropic-comparison',
