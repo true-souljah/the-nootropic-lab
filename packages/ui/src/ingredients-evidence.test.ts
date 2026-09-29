@@ -199,4 +199,16 @@ describe('ingredient evidence UI strings', () => {
       expect(s.sources, `${locale} sources is translated`).not.toBe('Sources');
     }
   });
+
+  test('the ingredient page passes the localized expand hint to <Sources>', () => {
+    // Without expandLabel, Sources falls back to its English "expand" default on every locale.
+    const src = readFileSync(join(__dirname, 'templates', 'IngredientDetail.tsx'), 'utf8');
+    expect(src).toContain('expandLabel={uiStrings?.guide.expand');
+    for (const locale of ALL_LOCALES) {
+      expect(getStrings(locale).guide.expand, `${locale} guide.expand`).toBeTruthy();
+    }
+    for (const locale of ['es', 'ja', 'pt', 'de'] as Locale[]) {
+      expect(getStrings(locale).guide.expand, `${locale} guide.expand is translated`).not.toBe('expand');
+    }
+  });
 });

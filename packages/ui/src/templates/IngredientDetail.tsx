@@ -415,6 +415,7 @@ export default function IngredientDetail({
 
             <Sources
               heading={te?.sources ?? 'Sources'}
+              expandLabel={uiStrings?.guide.expand ?? 'expand'}
               sources={ing.sources.map((s) => ({
                 label: `${s.title} (${s.year})`,
                 url: s.url,
