@@ -62,6 +62,8 @@ export type { LiveRegionProps } from './primitives/LiveRegion';
 // Public-surface chrome (Stack redesign — M2A foundation)
 export { FPDisclosure } from './public-chrome/FPDisclosure';
 export type { FPDisclosureProps } from './public-chrome/FPDisclosure';
+export { FPTrustNote } from './public-chrome/FPTrustNote';
+export type { FPTrustNoteProps } from './public-chrome/FPTrustNote';
 export { FPByline } from './public-chrome/FPByline';
 export type { FPBylineProps } from './public-chrome/FPByline';
 export { FPHeader } from './public-chrome/FPHeader';

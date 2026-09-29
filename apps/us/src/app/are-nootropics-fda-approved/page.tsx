@@ -38,7 +38,6 @@ const articleSchema = {
   author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
   publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   reviewedBy: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
-  speakable: { '@type': 'SpeakableSpecification', cssSelector: ['#hero-paragraph', '.faq-question'] },
 };
 
 const datasetSchema = {
@@ -77,18 +76,12 @@ const faqs = [
   { q: 'What is NDI notification?', a: 'New Dietary Ingredient (NDI) notification is a pre-market notification requirement for ingredients introduced to the U.S. supplement market after October 15, 1994. Manufacturers must notify the FDA at least 75 days before marketing the product, providing safety information. The FDA does not "approve" the NDI but may object if safety concerns are raised. Several common nootropic ingredients (citicoline, certain mushroom extracts, novel peptides) have NDI notifications on file.' },
 ];
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
-};
 
 export default function Page() {
   return (
     <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
       <SchemaOrg schema={articleSchema} />
       <SchemaOrg schema={datasetSchema} />
-      <SchemaOrg schema={faqSchema} />
       <SchemaOrg schema={breadcrumbSchema} />
 
       <article className="max-w-4xl mx-auto px-4 py-10">

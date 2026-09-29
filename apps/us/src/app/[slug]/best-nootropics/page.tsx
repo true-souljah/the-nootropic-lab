@@ -269,33 +269,9 @@ export default async function StateNootropicsPage({
     })),
   };
 
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: `Are nootropics legal in ${state.name}?`,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: `Yes. All products in our ranking are sold legally in ${state.name} as dietary supplements regulated under the FDA's DSHEA framework. No prescription is required.`,
-        },
-      },
-      {
-        '@type': 'Question',
-        name: `Where can I buy nootropics in ${state.name}?`,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: `The best option is ordering directly from each brand's official website — you get the lowest price, access to money-back guarantees, and current product formulations. Third-party marketplaces like Amazon may carry the products but often at higher prices and without the manufacturer's return policy.`,
-        },
-      },
-    ],
-  };
-
   return (
     <>
       <SchemaOrg schema={itemListSchema} />
-      <SchemaOrg schema={faqSchema} />
       <BestOf
         products={productsUS}
         breadcrumbs={[

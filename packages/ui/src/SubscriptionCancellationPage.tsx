@@ -64,35 +64,15 @@ export default function SubscriptionCancellationPage({
   const currentYear = new Date().getFullYear();
   const pageUrl = `${siteUrl}/${pageSlug}/`;
 
+  // Article, not HowTo/FAQPage: Google retired both rich results (HowTo
+  // 2023, FAQ 2026-05-07). Steps and FAQs stay as visible content below.
   const articleSchema = {
     '@context': 'https://schema.org',
-    '@type': 'HowTo',
-    name: pageTitle,
+    '@type': 'Article',
+    headline: pageTitle,
     description: pageDescription,
-    totalTime: `PT${totalTimeMinutes}M`,
     author: buildPersonAuthorReference(undefined, siteUrl),
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: siteUrl },
-    speakable: {
-      '@type': 'SpeakableSpecification',
-      cssSelector: ['#hero-paragraph', '.faq-question'],
-    },
-    step: steps.map((s, i) => ({
-      '@type': 'HowToStep',
-      position: i + 1,
-      name: s.title,
-      text: s.body,
-      ...(s.linkUrl && { url: s.linkUrl }),
-    })),
-  };
-
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqItems.map(item => ({
-      '@type': 'Question',
-      name: item.q,
-      acceptedAnswer: { '@type': 'Answer', text: item.a },
-    })),
   };
 
   const breadcrumbSchema = {
@@ -108,7 +88,6 @@ export default function SubscriptionCancellationPage({
   return (
     <>
       <SchemaOrg schema={articleSchema} />
-      <SchemaOrg schema={faqSchema} />
       <SchemaOrg schema={breadcrumbSchema} />
 
       <article className="max-w-3xl mx-auto px-4 py-10">

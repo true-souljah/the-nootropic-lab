@@ -41,7 +41,6 @@ const articleSchema = {
   author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
   publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   reviewedBy: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
-  speakable: { '@type': 'SpeakableSpecification', cssSelector: ['#hero-paragraph', '.faq-question'] },
 };
 
 const datasetSchema = {
@@ -80,18 +79,12 @@ const faqs = [
   { q: 'What is the Therapeutic Goods Advertising Code?', a: 'The Therapeutic Goods Advertising Code 2021 governs how listed and registered medicines may be advertised to consumers in Australia. It applies to product copy on websites, social media, retail, and editorial content. The Code prohibits claims of cure, comparisons with prescription drugs, testimonials by health professionals, and other restricted forms. We follow the Code on this site and use AUST L permitted-indication language verbatim where applicable.' },
 ];
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
-};
 
 export default function Page() {
   return (
     <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
       <SchemaOrg schema={articleSchema} />
       <SchemaOrg schema={datasetSchema} />
-      <SchemaOrg schema={faqSchema} />
       <SchemaOrg schema={breadcrumbSchema} />
 
       <article className="max-w-4xl mx-auto px-4 py-10">

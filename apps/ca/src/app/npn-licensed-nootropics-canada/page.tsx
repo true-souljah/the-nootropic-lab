@@ -40,7 +40,6 @@ const articleSchema = {
   author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
   publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   reviewedBy: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
-  speakable: { '@type': 'SpeakableSpecification', cssSelector: ['#hero-paragraph', '.faq-question'] },
 };
 
 const datasetSchema = {
@@ -79,18 +78,12 @@ const faqs = [
   { q: 'Can I import US nootropics for personal use?', a: 'Health Canada permits personal importation of small quantities of natural health products from the U.S. for personal use, subject to limits (typically a 90-day supply). Customs may detain shipments containing controlled substances or ingredients prohibited in Canada. Cross-border purchases from major retailers (iHerb, Amazon US) generally clear customs without issue, but the imported product is not Health Canada licensed and any safety claims should be evaluated independently.' },
 ];
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
-};
 
 export default function Page() {
   return (
     <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
       <SchemaOrg schema={articleSchema} />
       <SchemaOrg schema={datasetSchema} />
-      <SchemaOrg schema={faqSchema} />
       <SchemaOrg schema={breadcrumbSchema} />
 
       <article className="max-w-4xl mx-auto px-4 py-10">

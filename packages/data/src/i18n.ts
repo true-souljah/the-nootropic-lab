@@ -78,6 +78,19 @@ export interface UIStrings {
   disclosure: {
     text: string;
     methodology: string;
+    /** Short label on the top-of-page disclosure strip. */
+    badge: string;
+    /**
+     * Plain-language commission sentence rendered next to the first
+     * affiliate CTA (FTC "as close as possible"; UK ASA: never the word
+     * "affiliate" alone).
+     */
+    inline: string;
+    /**
+     * Whether commission influences ranking (EU UCPD Annex I 11a). Must
+     * mirror the published /methodology/ policy — do not change without it.
+     */
+    ranking: string;
   };
   table: {
     product: string;
@@ -220,8 +233,12 @@ export interface UIStrings {
       productDescriptor: string;
       /** Short label for capsule count, e.g. "ct" / "Stück". */
       countSuffix: string;
-      /** Prefix before the updated date, e.g. "Updated" / "Aktualisiert". */
+      /** Label before the record's last-edit date (`updatedAt`), used when no `verifiedAt`. */
       updated: string;
+      /** Label before the record's verification date (`verifiedAt`), e.g. "Last verified:". */
+      lastVerified: string;
+      /** Brand byline on product reviews. Team credit only — never a named individual. */
+      reviewedBy: string;
     };
     /** BCP-47 locale code passed to Intl.DateTimeFormat for the meta-line date. */
     dateLocale: string;
@@ -347,6 +364,9 @@ const en: UIStrings = {
   disclosure: {
     text: 'Affiliate disclosure: This page contains affiliate links. If you purchase through our links, we may earn a commission at no extra cost to you. Our editorial opinions are independent — we only recommend products we have independently researched.',
     methodology: 'Read our methodology',
+    badge: 'Affiliate disclosure',
+    inline: 'We earn a commission if you buy through links on this page, at no extra cost to you.',
+    ranking: 'Our scores and rankings follow our published methodology; commissions do not influence them.',
   },
   table: {
     product: 'Product',
@@ -457,7 +477,9 @@ const en: UIStrings = {
       by: 'By',
       productDescriptor: 'daily nootropic capsule',
       countSuffix: 'ct',
-      updated: 'Updated',
+      updated: 'Updated:',
+      lastVerified: 'Last verified:',
+      reviewedBy: 'Reviewed by The Nootropic Lab editorial team',
     },
     dateLocale: 'en-US',
     score: {
@@ -564,6 +586,9 @@ const es: UIStrings = {
   disclosure: {
     text: 'Divulgación de afiliados: Esta página contiene enlaces de afiliados. Si compra a través de nuestros enlaces, podemos ganar una comisión sin costo adicional para usted. Nuestras opiniones editoriales son independientes — solo recomendamos productos que hemos investigado de forma independiente.',
     methodology: 'Lea nuestra metodología',
+    badge: 'Divulgación de afiliados',
+    inline: 'Ganamos una comisión si compra a través de los enlaces de esta página, sin costo adicional para usted.',
+    ranking: 'Nuestras puntuaciones y clasificaciones siguen nuestra metodología publicada; las comisiones no influyen en ellas.',
   },
   table: {
     product: 'Producto',
@@ -674,7 +699,9 @@ const es: UIStrings = {
       by: 'Por',
       productDescriptor: 'cápsula nootrópica diaria',
       countSuffix: 'cáps.',
-      updated: 'Actualizado',
+      updated: 'Actualizado:',
+      lastVerified: 'Última verificación:',
+      reviewedBy: 'Revisado por el equipo editorial de The Nootropic Lab',
     },
     dateLocale: 'es-419',
     score: {
@@ -781,6 +808,9 @@ const fr: UIStrings = {
   disclosure: {
     text: 'Divulgation d\'affiliation : Cette page contient des liens affiliés. Si vous achetez via nos liens, nous pouvons gagner une commission sans frais supplémentaires. Nos opinions éditoriales sont indépendantes.',
     methodology: 'Lire notre méthodologie',
+    badge: "Divulgation d'affiliation",
+    inline: 'Nous touchons une commission si vous achetez via les liens de cette page, sans frais supplémentaires pour vous.',
+    ranking: "Nos notes et classements suivent notre méthodologie publiée ; les commissions ne les influencent pas.",
   },
   table: {
     product: 'Produit',
@@ -891,7 +921,9 @@ const fr: UIStrings = {
       by: 'Par',
       productDescriptor: 'capsule nootropique quotidienne',
       countSuffix: 'caps.',
-      updated: 'Mis à jour',
+      updated: 'Mis à jour :',
+      lastVerified: 'Dernière vérification :',
+      reviewedBy: "Évalué par l'équipe éditoriale de The Nootropic Lab",
     },
     dateLocale: 'fr-FR',
     score: {
@@ -998,6 +1030,9 @@ const ja: UIStrings = {
   disclosure: {
     text: 'アフィリエイト広告を含みます：このページにはアフィリエイトリンクが含まれています。当社のリンクを通じて購入された場合、追加費用なしでコミッションを受け取る場合があります。編集意見は独立しており、独自に調査した製品のみを推奨しています。',
     methodology: '評価方法を読む',
+    badge: '広告（アフィリエイト）',
+    inline: '本ページのリンクから商品を購入されると、当サイトは紹介料を受け取ります（お客様の追加負担はありません）。',
+    ranking: 'スコアと順位は公開している評価方法に基づいて決定しており、紹介料の影響は受けません。',
   },
   table: {
     product: '製品',
@@ -1109,6 +1144,8 @@ const ja: UIStrings = {
       productDescriptor: '毎日のノートロピクスカプセル',
       countSuffix: '粒',
       updated: '更新日：',
+      lastVerified: '最終確認日：',
+      reviewedBy: 'The Nootropic Lab 編集部による評価',
     },
     dateLocale: 'ja-JP',
     score: {
@@ -1215,6 +1252,9 @@ const pt: UIStrings = {
   disclosure: {
     text: 'Divulgação de afiliação: Esta página contém links de afiliados. Se comprar através dos nossos links, podemos ganhar uma comissão sem custos adicionais. As nossas opiniões editoriais são independentes.',
     methodology: 'Ler a nossa metodologia',
+    badge: 'Divulgação de afiliação',
+    inline: 'Recebemos uma comissão se comprar através dos links desta página, sem custos adicionais para si.',
+    ranking: 'As nossas pontuações e classificações seguem a nossa metodologia publicada; as comissões não as influenciam.',
   },
   table: {
     product: 'Produto',
@@ -1325,7 +1365,9 @@ const pt: UIStrings = {
       by: 'Por',
       productDescriptor: 'cápsula nootrópica diária',
       countSuffix: 'cáps.',
-      updated: 'Atualizado',
+      updated: 'Atualizado:',
+      lastVerified: 'Última verificação:',
+      reviewedBy: 'Avaliado pela equipa editorial do The Nootropic Lab',
     },
     dateLocale: 'pt-PT',
     score: {
@@ -1432,6 +1474,9 @@ const de: UIStrings = {
   disclosure: {
     text: 'Affiliate-Hinweis: Diese Seite enthält Affiliate-Links. Wenn Sie über unsere Links kaufen, erhalten wir eine Provision ohne zusätzliche Kosten für Sie. Unsere redaktionellen Meinungen sind unabhängig — wir empfehlen nur Produkte, die wir unabhängig recherchiert haben.',
     methodology: 'Methodik lesen',
+    badge: 'Werbehinweis (Affiliate-Links)',
+    inline: 'Wenn Sie über Links auf dieser Seite kaufen, erhalten wir eine Provision – ohne Mehrkosten für Sie.',
+    ranking: 'Unsere Bewertungen und Rankings folgen unserer veröffentlichten Methodik; Provisionen haben keinen Einfluss darauf.',
   },
   table: {
     product: 'Produkt',
@@ -1542,7 +1587,9 @@ const de: UIStrings = {
       by: 'Von',
       productDescriptor: 'tägliche Nootropika-Kapsel',
       countSuffix: 'Stück',
-      updated: 'Aktualisiert',
+      updated: 'Aktualisiert:',
+      lastVerified: 'Zuletzt geprüft:',
+      reviewedBy: 'Geprüft von der Redaktion von The Nootropic Lab',
     },
     dateLocale: 'de-DE',
     score: {
@@ -1654,6 +1701,9 @@ const frCa: UIStrings = {
   disclosure: {
     text: 'Divulgation de liens affiliés : Cette page contient des liens affiliés. Si vous effectuez un achat par l\'entremise de nos liens, nous pouvons toucher une commission sans frais supplémentaires pour vous. Nos opinions éditoriales sont indépendantes — nous recommandons uniquement des produits que nous avons évalués de façon indépendante.',
     methodology: 'Lire notre méthodologie',
+    badge: 'Divulgation de liens affiliés',
+    inline: "Nous touchons une commission si vous effectuez un achat par l'entremise des liens de cette page, sans frais supplémentaires pour vous.",
+    ranking: 'Nos notes et nos classements suivent notre méthodologie publiée; les commissions ne les influencent pas.',
   },
   table: {
     product: 'Produit',
@@ -1764,7 +1814,9 @@ const frCa: UIStrings = {
       by: 'Par',
       productDescriptor: 'capsule nootropique quotidienne',
       countSuffix: 'gél.',
-      updated: 'Mis à jour',
+      updated: 'Mis à jour :',
+      lastVerified: 'Dernière vérification :',
+      reviewedBy: "Évalué par l'équipe éditoriale de The Nootropic Lab",
     },
     dateLocale: 'fr-CA',
     score: { label: 'Notre score', outOf10: 'sur 10,0' },

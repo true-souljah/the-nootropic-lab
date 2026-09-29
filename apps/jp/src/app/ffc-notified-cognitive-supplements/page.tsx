@@ -43,7 +43,6 @@ const articleSchema = {
   author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
   publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   reviewedBy: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
-  speakable: { '@type': 'SpeakableSpecification', cssSelector: ['#hero-paragraph', '.faq-question'] },
 };
 
 const datasetSchema = {
@@ -82,18 +81,12 @@ const faqs = [
   { q: 'Is the PMD Act the same as FDA regulation in the U.S.?', a: 'No. The PMD Act (Pharmaceutical and Medical Device Act, 薬機法, formerly the Pharmaceutical Affairs Law) regulates medicines, medical devices, cosmetics, and quasi-drugs. Foods (including supplements) are regulated under the Food Sanitation Act and the Health Promotion Act. The PMD Act becomes relevant to supplements when marketing claims describe disease treatment, prevention, or pharmacological effects — at that point the product is treated as an unapproved drug, which is a serious regulatory violation.' },
 ];
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
-};
 
 export default function Page() {
   return (
     <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
       <SchemaOrg schema={articleSchema} />
       <SchemaOrg schema={datasetSchema} />
-      <SchemaOrg schema={faqSchema} />
       <SchemaOrg schema={breadcrumbSchema} />
 
       <article className="max-w-4xl mx-auto px-4 py-10">

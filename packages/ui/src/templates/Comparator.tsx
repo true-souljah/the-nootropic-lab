@@ -205,7 +205,7 @@ export default function Comparator({
       hideStackCta
       sidebarMeta={`${products.length} products`}
     >
-      <FPDisclosure methodologyHref="/methodology" />
+      <FPDisclosure methodologyHref="/methodology" strings={uiStrings?.disclosure} />
       {/* When the mobile filter sheet is open, `inert` removes everything
           else from tab order + AT focus — keyboard users can't escape the
           dialog into obscured content. */}

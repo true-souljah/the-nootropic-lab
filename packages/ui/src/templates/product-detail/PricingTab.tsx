@@ -1,13 +1,15 @@
 import { Card } from '../../primitives/Card';
 import { Chip } from '../../primitives/Chip';
 import TrackedAffiliateLink from '../../TrackedAffiliateLink';
-import type { Product } from '@nootropic/data';
+import type { Product, UIStrings } from '@nootropic/data';
 
 export interface PricingTabProps {
   product: Product;
+  /** Locale disclosure bundle — the commission sentence must render in the page locale. */
+  disclosure: UIStrings['disclosure'];
 }
 
-export function PricingTab({ product: p }: PricingTabProps) {
+export function PricingTab({ product: p, disclosure }: PricingTabProps) {
   return (
     <div className="grid gap-4 grid-cols-1 lg:grid-cols-2">
       {(p.pricingModel === 'subscription' || p.pricingModel === 'both') && (
@@ -126,8 +128,7 @@ export function PricingTab({ product: p }: PricingTabProps) {
               {p.cookieDays} days · {p.commissionRate} commission
             </div>
             <p className="text-[13px] text-ds-ink-soft m-0 leading-[1.55]">
-              We earn a commission on the click. Scores are computed before commission lookup
-              — read the methodology to verify.
+              {disclosure.inline} {disclosure.ranking}
             </p>
           </div>
         </div>

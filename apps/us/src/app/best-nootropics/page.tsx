@@ -65,15 +65,6 @@ export default function BestNootropicsUSPage() {
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   };
 
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqItems.map((item) => ({
-      '@type': 'Question',
-      name: item.q,
-      acceptedAnswer: { '@type': 'Answer', text: item.a },
-    })),
-  };
 
   const itemListSchema = {
     '@context': 'https://schema.org',
@@ -90,7 +81,6 @@ export default function BestNootropicsUSPage() {
   return (
     <>
       <SchemaOrg schema={articleSchema} />
-      <SchemaOrg schema={faqSchema} />
       <SchemaOrg schema={itemListSchema} />
       <BestOf
         products={productsUS}
