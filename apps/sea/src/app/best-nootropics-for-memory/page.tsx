@@ -89,7 +89,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Which memory nootropics are best via Shopee/Lazada vs cross-border iHerb?',
-    a: 'Shopee/Lazada/TikTok Shop: Blackmores Brain Active and Nature\'s Own Brain Fuel (TGA-AU brands with reliable local-marketplace supply) plus the Eu Yan Sang official store on Shopee SG/MY. NatureBell Ginkgo+Ginseng is available on Amazon.sg as a budget option. Cross-border iHerb: best route for Nootropics Depot Lion\'s Mane and other premium single-ingredient products into Singapore and Malaysia (consolidated warehouses minimise customs friction). Direct from brand: Mind Lab Pro and Qualia Mind ship DDP into SEA — no customs surprises but slower delivery.',
+    a: 'Shopee/Lazada/TikTok Shop: Blackmores Brain Active (TGA-AU brand with reliable local-marketplace supply) plus the Eu Yan Sang official store on Shopee SG/MY. NatureBell Ginkgo+Ginseng is available on Amazon.sg as a budget option. Cross-border iHerb: best route for Nootropics Depot Lion\'s Mane and other premium single-ingredient products into Singapore and Malaysia (consolidated warehouses minimise customs friction). Direct from brand: Mind Lab Pro and Qualia Mind ship DDP into SEA — no customs surprises but slower delivery.',
   },
   {
     q: 'What is the most evidence-backed nootropic for memory?',

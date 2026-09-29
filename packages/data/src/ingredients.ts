@@ -89,7 +89,7 @@ export const ingredients: Ingredient[] = [
     studySummary: 'A meta-analysis of 9 RCTs (Kongkeaw et al., 2014) found Bacopa significantly improved attention, cognitive processing, and working memory versus placebo. Effects are cumulative — most studies measure outcomes at 8–12 weeks. Best evidence is for memory consolidation rather than acute recall.',
     benefits: ['Memory consolidation', 'Reduced cognitive decline', 'Anxiety reduction', 'Antioxidant neuroprotection'],
     sideEffects: ['GI discomfort at high doses (take with food)', 'Slowed information processing initially', 'Not recommended during pregnancy'],
-    productsContaining: ['mind-lab-pro-review', 'noocube-review', 'onnit-alpha-brain-review', 'hunter-focus-review', 'braineffect-focus-review', 'brainzyme-focus-pro-review', 'blackmores-brain-active-review', 'natures-own-brain-fuel-review'],
+    productsContaining: ['mind-lab-pro-review', 'noocube-review', 'onnit-alpha-brain-review', 'hunter-focus-review', 'braineffect-focus-review', 'brainzyme-focus-pro-review', 'blackmores-brain-active-review'],
     humanEffects: [
       { effect: 'Memory Consolidation', evidenceStrength: 'strong', magnitude: 'moderate', studies: 9, notes: 'Meta-analysis of 9 RCTs confirms effects on new memory formation; long-term recall improves more than immediate recall.' },
       { effect: 'Anxiety Reduction', evidenceStrength: 'moderate', magnitude: 'moderate', studies: 5, notes: 'Significant in anxious populations; more modest in healthy low-stress subjects.' },
@@ -443,7 +443,7 @@ export const ingredients: Ingredient[] = [
     studySummary: 'Ginkgo is one of the most studied herbal nootropics with over 400 clinical trials. The landmark GEM trial (2008, n=3,069) found no benefit for dementia prevention in healthy elderly. However, meta-analyses of shorter trials (Tan et al., 2015) show modest improvements in cognitive function and daily living in existing mild cognitive impairment. EGb 761 is the most studied extract form. Benefits are most consistent in populations with existing cognitive decline rather than healthy young adults.',
     benefits: ['Improved cerebral blood flow', 'Memory support in older adults', 'Antioxidant neuroprotection', 'May reduce cognitive decline progression'],
     sideEffects: ['Headache', 'GI discomfort', 'Increased bleeding risk (avoid with blood thinners)', 'Rare: allergic skin reactions'],
-    productsContaining: ['fancl-brains-review', 'naturebell-ginkgo-ginseng-review', 'blackmores-brain-active-review', 'natures-own-brain-fuel-review'],
+    productsContaining: ['fancl-brains-review', 'naturebell-ginkgo-ginseng-review', 'blackmores-brain-active-review'],
     humanEffects: [
       { effect: 'Cerebral Blood Flow', evidenceStrength: 'strong', magnitude: 'moderate', studies: 15, notes: 'Well-established vasodilatory effect. Acute increase measurable via Doppler within 2 hours of dosing.' },
       { effect: 'Memory (Cognitive Decline)', evidenceStrength: 'moderate', magnitude: 'moderate', studies: 20, notes: 'Consistent benefits in mild cognitive impairment populations. Less clear in healthy adults.' },

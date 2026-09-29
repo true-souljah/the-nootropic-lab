@@ -74,22 +74,16 @@ const picks: ListiclePick[] = [
     whyItsHere:
       'Caffeine-free Classic version + National Sanitation Foundation (NSF) Certified for Sport (relevant for Singapore/Malaysian competitive athletes subject to anti-doping). Bacopa, Alpha-GPC, and L-theanine present but doses hidden in proprietary blends. Strong global brand recognition makes it easier to research locally in English and Bahasa. US→SEA shipping 12–18 days as personal-use supplement.',
   },
-  {
-    product: productsSEA.find(p => p.slug === 'natures-own-brain-fuel-review')!,
-    rank: 5,
-    whyItsHere:
-      'TGA-AU registered (Sanofi-owned), the most accessible domestic option with no import risk for buyers who want to avoid customs altogether. Available on Shopee, Lazada, and at Watsons/Guardian/Unity pharmacies across SG, MY, TH, PH, ID. Ginkgo and Brahmi (Bacopa) are present but well below clinical doses — treat as a budget entry point or daily maintenance, not a premium focus stack. Halal status varies by SKU; check the local label.',
-  },
 ];
 
 const faqItems: ListicleFAQ[] = [
   {
     q: 'Are these focus nootropics halal-certified?',
-    a: 'None of the imported brands on this list (Mind Lab Pro, NooCube, Qualia Mind, Onnit Alpha Brain, Thesis) carry BPJPH (Indonesia) or JAKIM (Malaysia) halal certification. Capsules are typically gelatin-based (often bovine, occasionally porcine — vendor disclosure varies). Buyers in Indonesia and Malaysia who require halal certification should look at TGA-AU domestic options like Blackmores and Nature\'s Own (some SKUs are halal-certified — check the specific label) or Eu Yan Sang BrainMAX+ (TCM-based, vegetarian capsule). Always verify the current halal status on the product packaging or with the brand directly before purchase.',
+    a: 'None of the imported brands on this list (Mind Lab Pro, NooCube, Qualia Mind, Onnit Alpha Brain, Thesis) carry BPJPH (Indonesia) or JAKIM (Malaysia) halal certification. Capsules are typically gelatin-based (often bovine, occasionally porcine — vendor disclosure varies). Buyers in Indonesia and Malaysia who require halal certification should look at TGA-AU domestic options like Blackmores (some SKUs are halal-certified — check the specific label) or Eu Yan Sang BrainMAX+ (TCM-based, vegetarian capsule). Always verify the current halal status on the product packaging or with the brand directly before purchase.',
   },
   {
     q: 'Which focus nootropics are best via Shopee/Lazada vs cross-border iHerb?',
-    a: 'For Shopee/Lazada/TikTok Shop in SG/MY/TH/PH/ID: Blackmores Brain Active and Nature\'s Own Brain Fuel are the two TGA-AU brands with reliable local-marketplace supply (no customs risk, local-currency pricing). For cross-border ordering of premium imports (Mind Lab Pro, Qualia Mind, Alpha Brain), iHerb is currently the most reliable route with consolidated shipping into SG and MY warehouses; for Indonesia and Vietnam, ordering direct from the brand sites with DDP shipping (Mind Lab Pro / Opti-Nutra) avoids customs surprises. Singapore receives all routes the fastest (5–10 business days).',
+    a: 'For Shopee/Lazada/TikTok Shop in SG/MY/TH/PH/ID: Blackmores Brain Active is the TGA-AU brand with reliable local-marketplace supply (no customs risk, local-currency pricing). For cross-border ordering of premium imports (Mind Lab Pro, Qualia Mind, Alpha Brain), iHerb is currently the most reliable route with consolidated shipping into SG and MY warehouses; for Indonesia and Vietnam, ordering direct from the brand sites with DDP shipping (Mind Lab Pro / Opti-Nutra) avoids customs surprises. Singapore receives all routes the fastest (5–10 business days).',
   },
   {
     q: 'What is the most evidence-backed focus nootropic available in SEA?',
