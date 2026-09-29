@@ -43,6 +43,7 @@ export const REGION_ONLY_ROUTES: Readonly<Record<string, readonly RegionCode[]>>
   '/aor-ortho-mind-vs-mind-lab-pro': ['ca'],
   '/alpha-brain-canada': ['ca'],
   '/blackmores-brain-active-vs-mind-lab-pro': ['au'],
+  '/japanese-brain-supplements': ['jp'],
 };
 
 function normalisePath(path: string): string {

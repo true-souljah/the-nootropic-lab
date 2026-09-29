@@ -115,6 +115,11 @@ export default function Page() {
           ¥16,000 personal-import threshold for non-domestic brands.
         </p>
 
+        <p className="text-sm text-gray-600 mb-6">
+          New to the topic? Start with our plain-English explainer:{' '}
+          <Link href="/japanese-brain-supplements/" className="text-green-700 underline">Japanese brain supplements — FFC-notified products vs. imported nootropics</Link>.
+        </p>
+
         <AffiliateDisclosure />
 
         <section className="my-10">
