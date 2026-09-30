@@ -42,16 +42,17 @@ interface ArtgRow {
 }
 
 const NO_ENTRY = 'No ARTG entry found (searched 2026-09-30)';
+const NO_ENTRY_WEB = 'None found by web search (2026-09-30); not confirmed by a direct ARTG query';
 const NOT_QUERIED = 'Sold as an international direct-to-consumer import. A web search found no AUST L association; we did not confirm this with a direct ARTG query.';
 
 const artgRows: ArtgRow[] = [
   { slug: 'mind-lab-pro-review', name: 'Mind Lab Pro', found: NO_ENTRY, note: 'Sold direct through the brand\'s Australian storefront (au.mindlabpro.com); no AUST number shown on the storefront product page.' },
   { slug: 'noocube-review', name: 'NooCube', found: NO_ENTRY, note: 'Sold direct through the brand\'s Australian storefront (noocube.com.au); no AUST number shown on the storefront product page.' },
   { slug: 'performance-lab-mind-review', name: 'Performance Lab Mind', found: NO_ENTRY, note: 'Sold direct through the brand\'s own storefront; no AUST number shown on the storefront product page.' },
-  { slug: 'hunter-focus-review', name: 'Hunter Focus', found: NO_ENTRY, note: NOT_QUERIED },
-  { slug: 'onnit-alpha-brain-review', name: 'Alpha Brain', found: NO_ENTRY, note: NOT_QUERIED },
-  { slug: 'qualia-mind-review', name: 'Qualia Mind', found: NO_ENTRY, note: NOT_QUERIED },
-  { slug: 'naturebell-ginkgo-ginseng-review', name: 'NatureBell Ginkgo + Ginseng', found: NO_ENTRY, note: NOT_QUERIED },
+  { slug: 'hunter-focus-review', name: 'Hunter Focus', found: NO_ENTRY_WEB, note: NOT_QUERIED },
+  { slug: 'onnit-alpha-brain-review', name: 'Alpha Brain', found: NO_ENTRY_WEB, note: NOT_QUERIED },
+  { slug: 'qualia-mind-review', name: 'Qualia Mind', found: NO_ENTRY_WEB, note: NOT_QUERIED },
+  { slug: 'naturebell-ginkgo-ginseng-review', name: 'NatureBell Ginkgo + Ginseng', found: NO_ENTRY_WEB, note: NOT_QUERIED },
   { slug: 'blackmores-brain-active-review', name: 'Blackmores Brain Active', found: 'No current entry (cancelled 2014)', note: 'Our earlier copy cited AUST L 246877, which does not resolve on the ARTG. TGA\'s cancellation register lists ARTG entry 227270 for Blackmores Brain Active, cancelled 18 September 2014 under s30(1)(c); we found no current ARTG entry (searched 2026-09-30).' },
 ];
 
@@ -59,9 +60,14 @@ const artgRows: ArtgRow[] = [
 // removed or renamed without an ARTG check).
 {
   const catalogue = new Map(allProductsAU.map(p => [p.slug, p.name]));
-  const drift = artgRows.filter(r => catalogue.get(r.slug) !== r.name).map(r => r.slug);
-  if (drift.length || catalogue.size !== artgRows.length) {
-    throw new Error(`ARTG status table out of sync with products-au.json: ${drift.join(', ') || `${catalogue.size} records vs ${artgRows.length} rows`}`);
+  const rowSlugs = new Set(artgRows.map(r => r.slug));
+  const drift = [
+    ...artgRows.filter(r => catalogue.get(r.slug) !== r.name).map(r => `row ${r.slug}`),
+    ...[...catalogue.keys()].filter(slug => !rowSlugs.has(slug)).map(slug => `missing ${slug}`),
+    ...(rowSlugs.size !== artgRows.length ? ['duplicate rows'] : []),
+  ];
+  if (drift.length) {
+    throw new Error(`ARTG status table out of sync with products-au.json: ${drift.join(', ')}`);
   }
 }
 
@@ -197,9 +203,10 @@ export default function Page() {
         <section id="artg-status" className="my-10">
           <h2 className="text-2xl font-bold text-gray-900 mb-3">ARTG status of the products we review in Australia</h2>
           <p className="text-sm text-gray-700 leading-relaxed mb-4">
-            We checked all {artgRows.length} products in our Australian catalogue on 30 September 2026. None
-            holds a current ARTG entry that we could find. Blackmores Brain Active is the only one with an ARTG
-            history, and TGA&apos;s cancellation register shows that entry was cancelled in 2014.
+            We checked all {artgRows.length} products in our Australian catalogue on 30 September 2026 and found
+            no current ARTG entry for any of them; for four, that rests on a web search rather than a direct ARTG
+            query, as the table notes. Blackmores Brain Active is the only one with an ARTG history we found, and
+            TGA&apos;s cancellation register shows that entry was cancelled in 2014.
           </p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border border-gray-200">
