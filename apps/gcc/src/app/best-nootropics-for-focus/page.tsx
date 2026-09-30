@@ -54,7 +54,7 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design suits GCC consumers who avoid stimulants. Capsule shell is plant-based HPMC — no porcine gelatin, halal-friendly. GCC delivery is not confirmed: the brand\'s storefront shipping lists (checked 2026-09-28) name no GCC state, so confirm at checkout. Not formally SFDA-registered.',
+      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design suits GCC consumers who avoid stimulants. Capsule shell is plant-based HPMC — no porcine gelatin, halal-friendly. mindlabpro.com names Saudi Arabia, the UAE, Qatar and Kuwait among its shipping territories (its FAQ, checked 2026-09-29); Bahrain and Oman are not named on that partial list, so confirm at checkout. Not formally SFDA-registered.',
   },
   {
     product: productsGCC.find(p => p.slug === 'qualia-mind-review')!,
@@ -72,7 +72,7 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'onnit-alpha-brain-review')!,
     rank: 4,
     whyItsHere:
-      'Caffeine-free formula with Alpha-GPC, L-theanine, L-tyrosine, and Bacopa. National Sanitation Foundation (NSF) Certified for Sport — relevant for GCC athletes and military buyers facing drug-tested events. Vegetarian capsules; no porcine gelatin. Two published clinical studies on the formula. Doses are hidden in proprietary blends — you cannot verify clinical thresholds. Among GCC states the brand ships only to Bahrain and Oman (shipping list checked 2026-09-28); not SFDA/MOHAP-registered.',
+      'Caffeine-free formula with Alpha-GPC, L-theanine, L-tyrosine, and Bacopa. National Sanitation Foundation (NSF) Certified for Sport — relevant for GCC athletes and military buyers facing drug-tested events. Vegetarian capsules; no porcine gelatin. Two published clinical studies on the formula. Doses are hidden in proprietary blends — you cannot verify clinical thresholds. onnit.com\'s market list names Bahrain and Oman; shipping to the other GCC states could not be confirmed from the brand\'s site on 2026-09-29 — check at checkout. Not SFDA/MOHAP-registered.',
   },
 ];
 
@@ -87,7 +87,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Where can I buy these in the GCC without ordering internationally?',
-    a: 'BinSina, Aster, and Life Pharmacy stock domestic UAE brain-health supplements. Al-Dawaa and Nahdi stock SFDA-registered options across Saudi Arabia. iHerb operates a Saudi-compliant distribution centre that handles import paperwork for many international supplements — often the easiest path for imported brands like Mind Lab Pro and NooCube. Direct from the brand, availability is narrower than it looks: Qualia Mind does not ship to any GCC state, and Onnit Alpha Brain ships only to Bahrain and Oman (brand shipping lists, checked 2026-09-28).',
+    a: 'BinSina, Aster, and Life Pharmacy stock domestic UAE brain-health supplements. Al-Dawaa and Nahdi stock SFDA-registered options across Saudi Arabia. iHerb operates a Saudi-compliant distribution centre that handles import paperwork for many international supplements — often the easiest path for imported brands like Mind Lab Pro and NooCube. Direct from the brand, availability varies: Qualia Mind does not ship to any GCC state (brand shipping page, checked 2026-09-28); Mind Lab Pro\'s FAQ names Saudi Arabia, the UAE, Qatar and Kuwait among its shipping territories (checked 2026-09-29); and onnit.com\'s market list names Bahrain and Oman, with the other GCC states not confirmed from the brand\'s site — check at checkout.',
   },
   {
     q: 'How long does it take a focus nootropic to work?',
