@@ -20,11 +20,11 @@ const faqItems = [
   },
   {
     q: 'ラセタムやモダフィニルは日本で合法ですか？',
-    a: 'ラセタム（ピラセタム、アニラセタム）は日本では規制されていませんが、国内での販売は少ないです。モダフィニルは日本では処方薬です。当サイトでは厚生労働省が許可する成分を使用した製品のみを推奨しています。',
+    a: '2019年1月1日以降、ピラセタム、アニラセタム、オキシラセタム、プラミラセタム、レベチラセタム、ビンポセチン、アドラフィニルを含む指定25成分は、数量にかかわらず、医師の処方せんや指示がなければ個人輸入が原則禁止されています（静岡県の案内による）。詳しくは下記リンクの英語解説ページをご覧ください。モダフィニルは日本では処方薬です。当サイトでは厚生労働省が許可する成分を使用した製品のみを推奨しています。',
   },
   {
     q: 'ファンケル BRAINsとMind Lab Proの違いは何ですか？',
-    a: 'ファンケル BRAINsは日本国内ブランドで、厚生労働省に準拠しており、Amazon Japanで輸入手続きなしにご購入いただけます。Mind Lab Proは海外のプレミアムスタックで、より高い臨床投与量ですが海外からの注文が必要です。初めての方にはファンケルがリスクが低く、最大の効果を求める方にはMind Lab Proが当サイトのランキング1位です。',
+    a: 'ファンケル BRAINsは日本国内の製品で、ファンケル公式楽天市場店で販売されており、機能性表示食品（届出番号 G425）と表示されています。Mind Lab Proは海外のプレミアムスタックで、より高い臨床投与量ですが海外からの注文が必要です。初めての方にはファンケルがリスクが低く、最大の効果を求める方にはMind Lab Proが当サイトのランキング1位です。',
   },
 ];
 
@@ -59,9 +59,8 @@ export default function JaBestNootropicsPage() {
         <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 mb-6">
           <h2 className="font-bold text-amber-900 mb-2">厚生労働省 輸入に関する注意</h2>
           <ul className="text-sm text-amber-800 space-y-1">
-            <li>• 掲載されているすべての海外製品は日本に直接発送されます。</li>
-            <li>• 日本国内ブランド（ファンケル、サントリー）は<strong>Amazon Japan</strong>でご購入いただけます — 通関不要。</li>
-            <li>• 海外ブランドは英国または米国から発送 — 7〜14営業日をお見込みください。</li>
+            <li>• Mind Lab Proは公式FAQで配送先の一つとして日本を挙げています。その他の海外ブランドについては、購入手続きの際に日本への配送可否をご確認ください。</li>
+            <li>• ファンケル BRAINsは<strong>ファンケル公式楽天市場店</strong>で販売されています（機能性表示食品・届出番号 G425）。</li>
             <li>• 通関税を避けるため1注文あたり<strong>¥16,000</strong>以下でご注文ください（<a href="/ja/yakkan-shoumei" className="text-green-700 underline">薬監証明制度の詳細</a>）。</li>
           </ul>
         </div>
@@ -95,7 +94,7 @@ export default function JaBestNootropicsPage() {
         <section id="comparison-table">
           <h2 className="text-2xl font-bold text-gray-900 mb-2">{CURRENT_YEAR}年 日本ノートロピクス比較</h2>
           <p className="text-sm text-gray-500 mb-4">
-            価格は円表示。緑バッジ = カフェインフリー（厚生労働省輸入準拠）。国内ブランドはAmazon Japanリンク。
+            価格は円表示。緑バッジ = カフェインフリー（厚生労働省輸入準拠）。
           </p>
           <ComparisonTable products={productsJP} market="jp" />
         </section>
@@ -110,6 +109,10 @@ export default function JaBestNootropicsPage() {
               </div>
             ))}
           </div>
+          <p className="text-sm text-gray-600 mt-4">
+            個人輸入が制限されている成分の詳細（英語）：{' '}
+            <a href="/japanese-brain-supplements/" className="text-green-700 underline">Japanese brain supplements — FFC-notified products vs. imported nootropics</a>
+          </p>
         </section>
 
         {/* Recommended Reading */}

@@ -17,8 +17,8 @@ export const metadata: Metadata = {
 
 const faqItems = [
   { q: 'What is the duty-free import limit for supplements in Japan?', a: 'Japan allows personal imports duty-free up to ¥16,000 in value. Orders above this threshold may attract customs duties (typically 0–6.5% plus 10% consumption tax). To stay under the limit, order no more than 1 month\'s supply at a time from international brands.' },
-  { q: 'Are racetams or modafinil legal in Japan?', a: 'Racetams (piracetam, aniracetam) are unregulated in Japan but are not widely sold domestically. Modafinil is a prescription drug in Japan. We only recommend products using Ministry of Health, Labour and Welfare (MHLW) permissible ingredients.' },
-  { q: 'What is the difference between FANCL BRAINs and Mind Lab Pro?', a: 'FANCL BRAINs is a Japanese domestic brand, MHLW-compliant, available on Amazon Japan without import issues. Mind Lab Pro is an international premium stack with higher clinical doses but requires international ordering. For first-time buyers, FANCL is lower-risk; for maximum efficacy, Mind Lab Pro leads our ranking.' },
+  { q: 'Are racetams or modafinil legal in Japan?', a: 'Not freely. Since 1 January 2019, Japan has prohibited in principle the personal import, without a doctor\'s prescription or instruction, of 25 designated compounds regardless of quantity, including piracetam, aniracetam, oxiracetam, pramiracetam, levetiracetam, vinpocetine and adrafinil (Shizuoka Prefecture notice, checked 29 September 2026; details in our Japanese brain supplements explainer, linked below). Modafinil is a prescription drug in Japan. We only recommend products using Ministry of Health, Labour and Welfare (MHLW) permissible ingredients.' },
+  { q: 'What is the difference between FANCL BRAINs and Mind Lab Pro?', a: 'FANCL BRAINs is a Japanese domestic product sold through FANCL\'s official Rakuten store, labelled 機能性表示食品 (Foods with Function Claims, notification G425). Mind Lab Pro is an international premium stack with higher clinical doses but requires international ordering. For first-time buyers, FANCL is lower-risk; for maximum efficacy, Mind Lab Pro leads our ranking.' },
 ];
 
 export default function BestNootropicsJPPage() {
@@ -33,14 +33,14 @@ export default function BestNootropicsJPPage() {
       <BestOf
         products={productsJP}
         breadcrumbs={[{ label: 'Best of', href: '/best-nootropics' }]}
-        hero={{ eyebrow: `Japan · Audited ${CURRENT_YEAR}`, h1: `Best Nootropics in Japan ${CURRENT_YEAR}`, dek: 'International stacks with confirmed Japan shipping, plus MHLW-compliant domestic options (FANCL, Suntory). Personal import limit is ¥16,000 — keep orders under 1 month\'s supply.' }}
+        hero={{ eyebrow: `Japan · Audited ${CURRENT_YEAR}`, h1: `Best Nootropics in Japan ${CURRENT_YEAR}`, dek: 'Imported international stacks (Mind Lab Pro\'s own FAQ names Japan among its shipping territories; confirm the others at checkout), plus domestic options (FANCL, Suntory). Personal import limit is ¥16,000 — keep orders under 1 month\'s supply.' }}
         searchItems={searchItems} uiStrings={uiStrings} trackingSurface="best_of_jp"
         preList={
           <div className="flex flex-col gap-5">
             <Card variant="subdued" padding={20} className="border-l-[3px] border-l-ds-warn" as="aside" aria-labelledby="jp-note-heading">
               <h2 id="jp-note-heading" className="text-[16px] font-bold text-ds-warn-ink m-0 mb-2">MHLW personal import note</h2>
               <p className="text-[13.5px] text-ds-ink-soft m-0 leading-[1.65]">
-                Japan&apos;s personal import limit is ¥16,000 duty-free. Above this, customs duties (0–6.5%) plus 10% consumption tax apply. Modafinil is a prescription drug; we don&apos;t list it. Racetams are unregulated but not widely available domestically.
+                Japan&apos;s personal import limit is ¥16,000 duty-free. Above this, customs duties (0–6.5%) plus 10% consumption tax apply. Modafinil is a prescription drug; we don&apos;t list it. Since 1 January 2019, racetams such as piracetam and aniracetam, plus vinpocetine and adrafinil, cannot be personally imported without a doctor&apos;s prescription or instruction, whatever the quantity — see our <Link href="/japanese-brain-supplements/" className="underline">Japanese brain supplements explainer</Link>.
               </p>
             </Card>
             <Card variant="subdued" padding={20} className="border-l-[3px] border-l-ds-accent">
@@ -57,6 +57,10 @@ export default function BestNootropicsJPPage() {
           <section>
             <h2 className="text-[22px] font-bold text-ds-ink m-0 mb-4 tracking-[-0.01em]">Japan nootropics FAQ</h2>
             <FaqAccordion items={faqItems} />
+            <p className="text-[13.5px] text-ds-ink-soft mt-4 mb-0 leading-[1.6]">
+              Import restrictions and how Japan&apos;s FFC labels work:{' '}
+              <Link href="/japanese-brain-supplements/" className="underline">Japanese brain supplements — FFC-notified products vs. imported nootropics</Link>.
+            </p>
           </section>
         }
               regulatoryPillar={{ label: 'FFC-notified cognitive supplements in Japan', href: '/ffc-notified-cognitive-supplements/' }}

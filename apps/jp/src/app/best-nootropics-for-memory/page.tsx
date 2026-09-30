@@ -12,7 +12,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 export const metadata: Metadata = {
   title: `Best Nootropics for Memory in Japan ${CURRENT_YEAR}: Independent Picks Backed by Clinical Evidence`,
   description:
-    'Independent ranking of the best nootropics for memory and recall available in Japan. Includes domestic FFC-notified brands (FANCL, Suntory) alongside international stacks shipping to Japan. MHLW-aware buyer notes throughout.',
+    'Independent ranking of the best nootropics for memory and recall available in Japan. Includes domestic brands (FFC-notified FANCL BRAINs, plus Suntory) alongside imported international stacks. MHLW-aware buyer notes throughout.',
   alternates: buildAlternates({ regionCode: 'jp', path: '/best-nootropics-for-memory/' }),
   openGraph: {
     title: 'Best Nootropics for Memory in Japan — Evidence-Graded',
@@ -60,13 +60,13 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'fancl-brains-review')!,
     rank: 2,
     whyItsHere:
-      'The leading Japanese domestic option: FFC-notified (機能性表示食品) with cognitive claims filed with the Consumer Affairs Agency (消費者庁). Its notified functional ingredients are bacopa saponins (15mg, memory) and matured hop bitter acids (35mg, attention), per FANCL\'s notification G425. Available nationwide at Matsumoto Kiyoshi, Welcia, Sugi Pharmacy, and Amazon Japan with same-day Prime delivery. No customs risk, Japanese-language label, ¥5,479 per 30-day bag (list price on fancl.co.jp).',
+      'The leading Japanese domestic option: FFC-notified (機能性表示食品) with cognitive claims filed with the Consumer Affairs Agency (消費者庁). Its notified functional ingredients are bacopa saponins (15mg, memory) and matured hop bitter acids (35mg, attention), per FANCL\'s notification G425. Sold through FANCL\'s official Rakuten store, labelled 機能性表示食品. No customs risk, Japanese-language label, ¥5,479 per 30-day bag (list price on fancl.co.jp).',
   },
   {
     product: productsJP.find(p => p.slug === 'suntory-dha-epa-sesamin-review')!,
     rank: 3,
     whyItsHere:
-      'Japan\'s best-selling FFC-notified omega-3 brain supplement (over 30 million bottles sold). 400mg DHA + 100mg EPA + 20mg sesamin from Suntory Wellness — backed by a household-name conglomerate familiar to every Japanese consumer. Foundational rather than acute: works by maintaining structural membrane integrity. Best paired with a dedicated nootropic stack like Mind Lab Pro for users wanting both. ¥4,800/month — the most affordable pick.',
+      'Japan\'s best-selling omega-3 brain supplement (over 30 million bottles sold); not FFC-notified (機能性表示食品) in our catalogue. 400mg DHA + 100mg EPA + 20mg sesamin from Suntory Wellness — backed by a household-name conglomerate familiar to every Japanese consumer. Foundational rather than acute: works by maintaining structural membrane integrity. Best paired with a dedicated nootropic stack like Mind Lab Pro for users wanting both. ¥4,800/month — the most affordable pick.',
   },
 ];
 
@@ -85,7 +85,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Where can I buy these in Japan?',
-    a: 'FANCL BRAINs: every major pharmacy chain (Matsumoto Kiyoshi, Welcia, Sugi Pharmacy, Sundrug) plus Amazon Japan with Prime delivery. Suntory DHA & EPA + Sesamin EX: Suntory Wellness direct, Amazon Japan, and select drugstores. Mind Lab Pro: ships directly from the UK to Japan via the manufacturer website (5–20 working days by tracked airmail or 2–7 working days by DHL courier, per mindlabpro.com, checked 2026-09-29).',
+    a: 'FANCL BRAINs: FANCL\'s official Rakuten store, where it is labelled 機能性表示食品 (notification G425). Mind Lab Pro: ships directly from the UK to Japan via the manufacturer website (5–20 working days by tracked airmail or 2–7 working days by DHL courier, per mindlabpro.com, checked 2026-09-29).',
   },
   {
     q: 'Will Bacopa make me feel anything?',
@@ -104,7 +104,7 @@ export default function Page() {
       useCase="memory"
       pageTitle="Best Nootropics for Memory in Japan"
       pageDescription="Independent ranking of the best nootropics for memory and recall available in Japan, based on clinical evidence."
-      heroParagraph="Memory is the use case where Japan's regulatory landscape and the global nootropics evidence base intersect most directly. Domestic FFC-notified brands (FANCL BRAINs, Suntory DHA & EPA + Sesamin EX) are notified under Japan's Food with Function Claims system administered by the Consumer Affairs Agency (消費者庁) and target middle-aged and older adults via DHA (Suntory) and bacopa saponins plus matured hop bitter acids (FANCL). International stacks shipping to Japan add the Bacopa and Lion's Mane evidence base — including Mori et al. 2009, the foundational Lion's Mane RCT conducted in Japan."
+      heroParagraph="Memory is the use case where Japan's regulatory landscape and the global nootropics evidence base intersect most directly. Domestic brands target this use case too: FANCL BRAINs is notified under Japan's Food with Function Claims system administered by the Consumer Affairs Agency (消費者庁; notification G425), while Suntory DHA & EPA + Sesamin EX is not FFC-notified in our catalogue. They target middle-aged and older adults via DHA (Suntory) and bacopa saponins plus matured hop bitter acids (FANCL). Imported international stacks add the Bacopa and Lion's Mane evidence base — including Mori et al. 2009, the foundational Lion's Mane RCT conducted in Japan."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}
