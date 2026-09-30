@@ -236,10 +236,8 @@ export interface UIStrings {
     meta: {
       /** Prefix before brand name in the meta line: "By {brand}". */
       by: string;
-      /** Static descriptor between brand and serving count. */
-      productDescriptor: string;
-      /** Short label for capsule count, e.g. "ct" / "Stück". */
-      countSuffix: string;
+      /** Descriptor between brand and pack count, per `Product.form`. */
+      productDescriptorByForm: { capsule: string; tablet: string; sachet: string; shot: string };
       /** Label before the record's last-edit date (`updatedAt`), used when no `verifiedAt`. */
       updated: string;
       /** Label before the record's verification date (`verifiedAt`), e.g. "Last verified:". */
@@ -492,8 +490,7 @@ const en: UIStrings = {
     },
     meta: {
       by: 'By',
-      productDescriptor: 'daily nootropic capsule',
-      countSuffix: 'ct',
+      productDescriptorByForm: { capsule: 'daily nootropic capsule', tablet: 'daily nootropic tablet', sachet: 'daily nootropic sachet', shot: 'daily nootropic shot' },
       updated: 'Updated:',
       lastVerified: 'Last verified:',
       reviewedBy: 'Reviewed by The Nootropic Lab editorial team',
@@ -721,8 +718,7 @@ const es: UIStrings = {
     },
     meta: {
       by: 'Por',
-      productDescriptor: 'cápsula nootrópica diaria',
-      countSuffix: 'cáps.',
+      productDescriptorByForm: { capsule: 'cápsula nootrópica diaria', tablet: 'comprimido nootrópico diario', sachet: 'sobre nootrópico diario', shot: 'shot nootrópico diario' },
       updated: 'Actualizado:',
       lastVerified: 'Última verificación:',
       reviewedBy: 'Revisado por el equipo editorial de The Nootropic Lab',
@@ -950,8 +946,7 @@ const fr: UIStrings = {
     },
     meta: {
       by: 'Par',
-      productDescriptor: 'capsule nootropique quotidienne',
-      countSuffix: 'caps.',
+      productDescriptorByForm: { capsule: 'capsule nootropique quotidienne', tablet: 'comprimé nootropique quotidien', sachet: 'sachet nootropique quotidien', shot: 'shot nootropique quotidien' },
       updated: 'Mis à jour :',
       lastVerified: 'Dernière vérification :',
       reviewedBy: "Évalué par l'équipe éditoriale de The Nootropic Lab",
@@ -1179,8 +1174,7 @@ const ja: UIStrings = {
     },
     meta: {
       by: '販売：',
-      productDescriptor: '毎日のノートロピクスカプセル',
-      countSuffix: '粒',
+      productDescriptorByForm: { capsule: '毎日のノートロピクスカプセル', tablet: '毎日のノートロピクス錠剤', sachet: '毎日のノートロピクス分包', shot: '毎日のノートロピクスショット' },
       updated: '更新日：',
       lastVerified: '最終確認日：',
       reviewedBy: 'The Nootropic Lab 編集部による評価',
@@ -1408,8 +1402,7 @@ const pt: UIStrings = {
     },
     meta: {
       by: 'Por',
-      productDescriptor: 'cápsula nootrópica diária',
-      countSuffix: 'cáps.',
+      productDescriptorByForm: { capsule: 'cápsula nootrópica diária', tablet: 'comprimido nootrópico diário', sachet: 'sachê nootrópico diário', shot: 'shot nootrópico diário' },
       updated: 'Atualizado:',
       lastVerified: 'Última verificação:',
       reviewedBy: 'Avaliado pela equipa editorial do The Nootropic Lab',
@@ -1637,8 +1630,7 @@ const de: UIStrings = {
     },
     meta: {
       by: 'Von',
-      productDescriptor: 'tägliche Nootropika-Kapsel',
-      countSuffix: 'Stück',
+      productDescriptorByForm: { capsule: 'tägliche Nootropika-Kapsel', tablet: 'tägliche Nootropika-Tablette', sachet: 'täglicher Nootropika-Beutel', shot: 'täglicher Nootropika-Shot' },
       updated: 'Aktualisiert:',
       lastVerified: 'Zuletzt geprüft:',
       reviewedBy: 'Geprüft von der Redaktion von The Nootropic Lab',
@@ -1871,8 +1863,7 @@ const frCa: UIStrings = {
     },
     meta: {
       by: 'Par',
-      productDescriptor: 'capsule nootropique quotidienne',
-      countSuffix: 'gél.',
+      productDescriptorByForm: { capsule: 'capsule nootropique quotidienne', tablet: 'comprimé nootropique quotidien', sachet: 'sachet nootropique quotidien', shot: 'shot nootropique quotidien' },
       updated: 'Mis à jour :',
       lastVerified: 'Dernière vérification :',
       reviewedBy: "Évalué par l'équipe éditoriale de The Nootropic Lab",
