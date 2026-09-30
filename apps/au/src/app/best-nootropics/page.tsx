@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 const faqItems = [
-  { q: 'Are nootropics legal to import into Australia?', a: 'Most nootropic supplements can be personally imported into Australia under the TGA Personal Importation Scheme. Individuals may import up to 3 months\' supply for personal use without a permit. Prescription medicines (modafinil, racetams) require a valid prescription. All products we list use TGA-permissible ingredients.' },
+  { q: 'Are nootropics legal to import into Australia?', a: 'Most nootropic supplements can be personally imported into Australia under the TGA Personal Importation Scheme. Individuals may import for personal use under the TGA Personal Importation Scheme (up to a 3-month supply, subject to its conditions). Prescription medicines (modafinil, racetams) require a valid prescription.' },
   { q: 'Do I pay GST on supplements imported from overseas?', a: 'From July 2018, overseas businesses with turnover above AUD $75,000 must charge GST (10%) on goods under AUD $1,000. Many supplement brands now add GST automatically at checkout for Australian orders.' },
   { q: 'Which nootropic ships fastest to Australia?', a: 'Mind Lab Pro reaches Australian addresses in 3–6 working days from the brand\'s Australian depot, or 7–14 working days when shipped from the UK (per mindlabpro.com, checked 2026-09-29). For US-based brands, check the delivery estimate for Australia at checkout. All brands listed have confirmed Australian shipping.' },
 ];
@@ -40,14 +40,18 @@ export default function BestNootropicsAUPage() {
       <BestOf
         products={productsAU}
         breadcrumbs={[{ label: 'Best of', href: '/best-nootropics' }]}
-        hero={{ eyebrow: `Australia · Audited ${CURRENT_YEAR}`, h1: `Best Nootropics in Australia ${CURRENT_YEAR}`, dek: 'Under the TGA Personal Importation Scheme, individuals can import up to 3 months\' supply of food-supplement nootropics without a permit. Below: every product with confirmed Australian shipping.' }}
+        hero={{ eyebrow: `Australia · Audited ${CURRENT_YEAR}`, h1: `Best Nootropics in Australia ${CURRENT_YEAR}`, dek: 'Under the TGA Personal Importation Scheme, individuals can import up to a 3-month supply for personal use, subject to its conditions. Below: every product with confirmed Australian shipping.' }}
         searchItems={searchItems} uiStrings={uiStrings} trackingSurface="best_of_au"
         preList={
           <div className="flex flex-col gap-5">
             <Card variant="subdued" padding={20} className="border-l-[3px] border-l-ds-warn" as="aside" aria-labelledby="au-note-heading">
               <h2 id="au-note-heading" className="text-[16px] font-bold text-ds-warn-ink m-0 mb-2">TGA personal import note</h2>
               <p className="text-[13.5px] text-ds-ink-soft m-0 leading-[1.65]">
-                The TGA Personal Importation Scheme allows up to 3 months&apos; supply per import for personal use without a permit. Prescription medicines (modafinil, racetams) still require a valid prescription. GST (10%) applies to imported supplements; many brands add it at checkout.
+                Individuals can import for personal use{' '}
+                <Link href="/tga-listed-cognitive-supplements/#personal-importation" className="text-ds-accent underline">under the TGA Personal Importation Scheme (up to a 3-month supply, subject to its conditions)</Link>. Prescription medicines (modafinil, racetams) still require a valid prescription. GST (10%) applies to imported supplements; many brands add it at checkout.
+              </p>
+              <p className="text-[13.5px] text-ds-ink-soft m-0 mt-2 leading-[1.65]">
+                <Link href="/tga-listed-cognitive-supplements/#personal-importation" className="text-ds-accent underline">Import limits, prescription rules and Poisons Standard scheduling →</Link>
               </p>
             </Card>
             <Card variant="subdued" padding={20} className="border-l-[3px] border-l-ds-accent">
