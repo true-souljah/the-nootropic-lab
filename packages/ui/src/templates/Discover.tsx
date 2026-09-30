@@ -8,6 +8,7 @@ import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
 import { Bar } from '../primitives/Bar';
 import ShortlistButton from './ShortlistButton';
+import { servingAmount } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 
@@ -27,7 +28,8 @@ export interface DiscoverProps {
   /** AppShell mode — `collapsed` for the hybrid SEO homepage. */
   mode?: AppShellMode;
   searchItems?: SearchItem[];
-  uiStrings?: UIStrings;
+  /** Required: the serving-unit label is localized (no English fallback). */
+  uiStrings: UIStrings;
   /** Override the comparator CTA destination. */
   comparatorHref?: string;
   /** Optional welcome-card override; default is the Phase 1 evergreen copy. */
@@ -376,7 +378,7 @@ export default function Discover({
                           {' · '}
                         </>
                       )}
-                      {p.capsulesPerServing} caps · {p.moneyBackDays}d MBG
+                      {servingAmount(p, uiStrings)} · {p.moneyBackDays}d MBG
                     </div>
                     <div className="flex items-center gap-2">
                       <ShortlistButton slug={p.slug} size="sm" />

@@ -10,6 +10,7 @@ import { ScorePill } from '../primitives/ScorePill';
 import { LiveRegion } from '../primitives/LiveRegion';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
 import { useShortlist, useShortlistNote } from './useShortlist';
+import { servingAmount } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 
@@ -18,7 +19,8 @@ export interface ShortlistProps {
   products: Product[];
   siteUrl: string;
   searchItems?: SearchItem[];
-  uiStrings?: UIStrings;
+  /** Required: the serving-unit label is localized (no English fallback). */
+  uiStrings: UIStrings;
 }
 
 function parseCommissionPct(raw: string): number | null {
@@ -111,14 +113,14 @@ export default function Shortlist({
 
   function exportCsv() {
     if (typeof document === 'undefined' || items.length === 0) return;
-    const headers = ['Rank', 'Name', 'Brand', 'Score', 'Price USD/mo', 'Caps/day', 'MBG days', 'Trustpilot', 'Caffeine-free', 'Commission'];
+    const headers = ['Rank', 'Name', 'Brand', 'Score', 'Price USD/mo', 'Daily serving', 'MBG days', 'Trustpilot', 'Caffeine-free', 'Commission'];
     const rows = items.map((p, i) => [
       i + 1,
       p.name,
       p.brand,
       p.score,
       p.priceMonthlyUSD ?? '',
-      p.capsulesPerServing,
+      servingAmount(p, uiStrings),
       p.moneyBackDays,
       p.trustpilotScore ?? '',
       p.caffeineFree ? 'Yes' : 'No',

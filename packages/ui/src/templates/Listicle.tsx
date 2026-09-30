@@ -12,7 +12,7 @@ import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
 import { Bar } from '../primitives/Bar';
 import { FaqAccordion } from '../primitives/FaqAccordion';
-import { buildPersonAuthorReference } from '@nootropic/data';
+import { buildPersonAuthorReference, servingAmount } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import {
   useCaseListPageEnDefaults,
@@ -278,7 +278,7 @@ export default function Listicle({
                         <div className="text-[12.5px] text-ds-muted mb-4 ds-tabular">
                           {pick.product.priceMonthlyUSD && (
                             <>
-                              ${pick.product.priceMonthlyUSD}/mo · {pick.product.capsulesPerServing} caps/day · {pick.product.moneyBackDays}d MBG
+                              ${pick.product.priceMonthlyUSD}/mo · {servingAmount(pick.product, uiStrings)} · {pick.product.moneyBackDays}d MBG
                             </>
                           )}
                         </div>
