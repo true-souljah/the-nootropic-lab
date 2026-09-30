@@ -14,9 +14,9 @@ const productA = allProductsAU.find(p => p.slug === 'blackmores-brain-active-rev
 const productB = productsAU.find(p => p.slug === 'mind-lab-pro-review');
 
 
-const META_TITLE = `Blackmores Brain Active vs Mind Lab Pro ${CURRENT_YEAR}: TGA-Listed vs Personal Import`;
+const META_TITLE = `Blackmores Brain Active vs Mind Lab Pro ${CURRENT_YEAR}: Discontinued vs Personal Import`;
 const META_DESCRIPTION =
-  'Independent comparison of Blackmores Brain Active vs Mind Lab Pro for Australian buyers. TGA-listed pharmacy supplement vs international personal-import.';
+  'Independent comparison of Blackmores Brain Active vs Mind Lab Pro for Australian buyers. A discontinued Australian brain supplement (its former ARTG entry was cancelled in 2014) vs an international personal import.';
 
 export const metadata: Metadata = {
   title: META_TITLE,
@@ -41,12 +41,12 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'What does TGA-listed mean?',
     a:
-      'TGA Listed Medicines (AUST L) are pre-approved for sale in Australia within the Australian Listed Medicines framework — they use only approved ingredients with pre-approved indications and have been notified to the Therapeutic Goods Administration. Listed Medicines are lower-risk than Registered Medicines (AUST R = prescription-equivalent). For consumers, AUST L means it can be sold at any Australian pharmacy without import friction.',
+      "Medicines supplied in Australia must be included in the Australian Register of Therapeutic Goods (ARTG), either as registered (AUST R) or listed (AUST L / AUST L(A)) medicines. Listed (AUST L) medicines have not been assessed by the TGA for efficacy before sale, and may only use claim wording from the TGA's pre-approved Permitted Indications list. Blackmores Brain Active no longer has an ARTG entry: its former entry (227270) was cancelled on 18 September 2014.",
   },
   {
     q: 'How does Personal Importation Scheme work?',
     a:
-      "The TGA Personal Importation Scheme allows Australians to import up to 3 months' supply of supplements that aren't TGA-listed, for personal use. Mind Lab Pro ships internationally to Australia under this scheme — entirely legal for personal use. Customs occasionally inspects but rarely seizes for amounts under the 3-month threshold.",
+      "The TGA Personal Importation Scheme lets individuals import therapeutic goods that are not on the ARTG for personal use, up to a 3-month supply per order (and no more than a 15-month supply in any 12-month period), subject to its conditions. Products imported this way are not evaluated by the TGA. Mind Lab Pro ships to Australia from its own storefront (au.mindlabpro.com) as a personal import.",
   },
   {
     q: 'Price difference?',
