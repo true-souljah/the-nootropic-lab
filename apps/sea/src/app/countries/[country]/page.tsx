@@ -71,6 +71,11 @@ export default async function CountryPage({
         <div className="bg-blue-50 border border-blue-200 rounded-xl p-5 mb-6">
           <h2 className="font-bold text-blue-900 mb-2">Regulatory Note</h2>
           <p className="text-sm text-blue-800 leading-relaxed">{c.regulatoryNote}</p>
+          {c.guide && (
+            <p className="text-sm mt-3">
+              <a href={c.guide.href} className="font-semibold text-blue-900 underline">{c.guide.label} →</a>
+            </p>
+          )}
         </div>
 
         <div className="bg-gray-50 rounded-xl p-5 mb-8">
