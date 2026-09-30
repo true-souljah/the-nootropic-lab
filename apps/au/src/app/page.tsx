@@ -70,7 +70,7 @@ const quickLinks = [
   {
     href: '/blackmores-brain-active-vs-mind-lab-pro',
     title: 'Blackmores Brain Active vs Mind Lab Pro',
-    desc: 'A discontinued Australian brain supplement (its former ARTG entry was cancelled in 2014) vs an international personal import.',
+    desc: 'A discontinued Australian brain supplement (its former Australian Register of Therapeutic Goods (ARTG) entry was cancelled in 2014) vs an international personal import.',
   },
   {
     href: '/nootropic-comparison',

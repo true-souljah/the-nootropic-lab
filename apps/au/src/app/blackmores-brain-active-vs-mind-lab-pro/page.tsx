@@ -16,7 +16,7 @@ const productB = productsAU.find(p => p.slug === 'mind-lab-pro-review');
 
 const META_TITLE = `Blackmores Brain Active vs Mind Lab Pro ${CURRENT_YEAR}: Discontinued vs Personal Import`;
 const META_DESCRIPTION =
-  'Independent comparison of Blackmores Brain Active vs Mind Lab Pro for Australian buyers. A discontinued Australian brain supplement (its former ARTG entry was cancelled in 2014) vs an international personal import.';
+  'Independent comparison of Blackmores Brain Active vs Mind Lab Pro for Australian buyers. A discontinued Australian brain supplement (its former Australian Register of Therapeutic Goods (ARTG) entry was cancelled in 2014) vs an international personal import.';
 
 export const metadata: Metadata = {
   title: META_TITLE,
