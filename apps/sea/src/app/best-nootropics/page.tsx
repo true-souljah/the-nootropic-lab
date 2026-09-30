@@ -42,6 +42,9 @@ export default function BestNootropicsSEAPage() {
               <p className="text-[13.5px] text-ds-ink-soft m-0 leading-[1.65]">
                 Singapore (HSA) and Malaysia (NPRA) have the most structured personal-import frameworks. Indonesia (BPOM) is the most restrictive. Thailand / Philippines / Vietnam allow personal imports but commercial sale requires formal registration.
               </p>
+              <p className="text-[13.5px] text-ds-ink-soft m-0 mt-2 leading-[1.65]">
+                Country guides: <Link href="/nootropics-in-thailand/" className="text-ds-accent underline">nootropics in Thailand</Link> · <Link href="/nootropics-in-the-philippines/" className="text-ds-accent underline">nootropics in the Philippines</Link>.
+              </p>
             </Card>
             <Card variant="subdued" padding={20} className="border-l-[3px] border-l-ds-accent">
               <Chip tone="accent">★ Editor&apos;s Choice — SEA {CURRENT_YEAR}</Chip>

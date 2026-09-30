@@ -7,6 +7,8 @@ export interface SEACountry {
   shippingNote: string;
   regulatoryNote: string;
   popularBrands: string[];
+  /** Optional standalone long-form country guide, linked from /countries/<slug>/. */
+  guide?: { href: string; label: string };
 }
 
 export const seaCountries: SEACountry[] = [
@@ -39,6 +41,7 @@ export const seaCountries: SEACountry[] = [
     shippingNote: 'International supplement parcels enter Thailand as personal-use imports. Carriers and brands do not publish country-specific delivery estimates for supplements, so check the estimate at checkout.',
     regulatoryNote: 'The Thai Food and Drug Administration (Thai FDA), under the Ministry of Public Health, regulates dietary supplements in Thailand. Personal-use imports are generally permitted in small quantities (typically up to 3 months supply). Supplements with unapproved health claims or controlled ingredients may be detained. Thai FDA registration is required for commercial sale.',
     popularBrands: ['Mind Lab Pro', 'NooCube', 'Qualia Mind'],
+    guide: { href: '/nootropics-in-thailand/', label: 'Full guide: Thai FDA supplement rules, personal-import limits and controlled substances' },
   },
   {
     code: 'PH',
@@ -49,6 +52,7 @@ export const seaCountries: SEACountry[] = [
     shippingNote: 'International supplement parcels enter the Philippines as personal-use imports. Carriers and brands do not publish country-specific delivery estimates for supplements, so check the estimate at checkout. Island geography can add variability to last-mile delivery.',
     regulatoryNote: 'The Food and Drug Administration Philippines (FDA Philippines), under the Department of Health, regulates food supplements. Products sold commercially require FDA Philippines registration. Personal imports for individual use are generally tolerated in small quantities. English is widely spoken and most US supplement brands are familiar to Filipino consumers.',
     popularBrands: ['Mind Lab Pro', 'Alpha Brain', 'NooCube'],
+    guide: { href: '/nootropics-in-the-philippines/', label: 'Full guide: FDA Philippines registration, labelling rules and personal-import limits' },
   },
   {
     code: 'ID',
