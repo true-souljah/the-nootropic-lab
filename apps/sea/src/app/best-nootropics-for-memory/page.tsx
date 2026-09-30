@@ -54,7 +54,7 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Includes Bacopa, citicoline (250mg Cognizin at clinical dose), AND phosphatidylserine (100mg Sharp-PS at clinical dose) plus Lion\'s Mane fruiting-body extract — four of the four memory-evidence ingredients in one open formula. Bacopa dose is 150mg (under the 300mg clinical anchor) so consider stacking with a separate Brahmi/Bacopa supplement (widely available across SEA). Direct delivery to SEA is not confirmed: mindlabpro.com lists only the US and eu.mindlabpro.com only EU countries (checked 2026-09-29). Personal-use import. Not BPJPH/JAKIM halal-certified.',
+      'Includes Bacopa, citicoline (250mg Cognizin at clinical dose), AND phosphatidylserine (100mg Sharp-PS at clinical dose) plus Lion\'s Mane fruiting-body extract — four of the four memory-evidence ingredients in one open formula. Bacopa dose is 150mg (under the 300mg clinical anchor) so consider stacking with a separate Brahmi/Bacopa supplement (widely available across SEA). mindlabpro.com names Singapore, Thailand, the Philippines, Indonesia and Vietnam among its shipping territories (its FAQ, checked 2026-09-29); Malaysia is not named on that partial list, so confirm at checkout. Personal-use import. Not BPJPH/JAKIM halal-certified.',
   },
   {
     product: productsSEA.find(p => p.slug === 'qualia-mind-review')!,
@@ -83,7 +83,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Which memory nootropics are best via Shopee/Lazada vs cross-border iHerb?',
-    a: 'Shopee/Lazada/TikTok Shop: the Eu Yan Sang official store on Shopee SG/MY. NatureBell Ginkgo+Ginseng is available on Amazon.sg as a budget option. Cross-border iHerb: best route for Nootropics Depot Lion\'s Mane and other premium single-ingredient products into Singapore and Malaysia (consolidated warehouses minimise customs friction). Direct from brand: not confirmed for Mind Lab Pro — mindlabpro.com lists only the US and eu.mindlabpro.com only EU countries (checked 2026-09-29). Qualia Mind does not ship to any SEA country (brand shipping page, checked 2026-09-28).',
+    a: 'Shopee/Lazada/TikTok Shop: the Eu Yan Sang official store on Shopee SG/MY. NatureBell Ginkgo+Ginseng is available on Amazon.sg as a budget option. Cross-border iHerb: best route for Nootropics Depot Lion\'s Mane and other premium single-ingredient products into Singapore and Malaysia (consolidated warehouses minimise customs friction). Direct from brand: Mind Lab Pro\'s FAQ names Singapore, Thailand, the Philippines, Indonesia and Vietnam among its shipping territories (checked 2026-09-29). Qualia Mind does not ship to any SEA country (brand shipping page, checked 2026-09-28).',
   },
   {
     q: 'What is the most evidence-backed nootropic for memory?',
