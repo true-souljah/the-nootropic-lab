@@ -41,8 +41,8 @@ const features = [
   },
   {
     icon: '🗾',
-    title: 'Japan import confirmed',
-    desc: 'All international products listed ship directly to Japan. Japanese domestic brands (FANCL, Suntory) available on Amazon Japan.',
+    title: 'Japan buying notes',
+    desc: 'Mind Lab Pro\'s own FAQ names Japan among its shipping territories; for the other imported brands, confirm at checkout. FANCL BRAINs is sold through FANCL\'s official Rakuten store, labelled 機能性表示食品 (notification G425).',
   },
   {
     icon: '⚖️',
@@ -55,7 +55,7 @@ const quickLinks = [
   {
     href: '/best-nootropics',
     title: `Best Nootropics in Japan ${CURRENT_YEAR}`,
-    desc: 'Top picks with Japan shipping confirmed and MHLW import notes.',
+    desc: 'Top picks with MHLW personal-import notes.',
   },
   {
     href: '/nootropic-comparison',
@@ -142,7 +142,7 @@ export default function HomePage() {
           </Link>
           <Link href="/best-nootropics-for-aging" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
             <div className="font-semibold text-gray-900 text-sm mb-1">Aging Brain</div>
-            <div className="text-xs text-gray-500">FFC-notified DHA + Ginkgo, plus PS and citicoline</div>
+            <div className="text-xs text-gray-500">FFC-notified FANCL BRAINs, Suntory DHA, plus PS and citicoline</div>
           </Link>
         </div>
       </section>
@@ -168,7 +168,7 @@ export default function HomePage() {
           newer ones as unknown. */}
       <section className="max-w-5xl mx-auto px-4 pb-16">
         <h2 className="text-2xl font-bold text-gray-900 mb-2">Browse by prefecture</h2>
-        <p className="text-sm text-gray-500 mb-6">Delivery times and MHLW personal-import notes for each prefecture, with the top-rated stacks shipping there.</p>
+        <p className="text-sm text-gray-500 mb-6">Delivery times and MHLW personal-import notes for each prefecture, with the top-rated stacks.</p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {jpPrefectures.map(p => (
             <Link key={p.slug} href={`/prefectures/${p.slug}/`} className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">

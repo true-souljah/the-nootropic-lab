@@ -28,9 +28,9 @@ interface JpRegulatoryCategory {
 
 const jpCategories: JpRegulatoryCategory[] = [
   { category: 'FOSHU (Foods for Specified Health Uses)', categoryJa: '特定保健用食品 (トクホ)', burden: 'Highest evidentiary bar — pre-market approval by the Consumer Affairs Agency based on submitted clinical data.', scope: 'Health-function claims approved on a per-product basis. Display the FOSHU mark on packaging.', examples: 'Specific approved cognitive products are limited; FOSHU is more commonly used for blood-glucose, cholesterol, and intestinal-health products.' },
-  { category: 'FFC (Foods with Function Claims)', categoryJa: '機能性表示食品', burden: 'Manufacturer notification system; manufacturer responsible for evidence; submitted to CAA database 60 days before sale.', scope: 'Function claims describing specific health-function effects (memory, attention, fatigue reduction, etc.). Most cognitive nootropic products in Japan use this route.', examples: 'DHC ginkgo extract, Suntory Boltage, FANCL memory-support products, multiple Asahi cognitive products.' },
+  { category: 'FFC (Foods with Function Claims)', categoryJa: '機能性表示食品', burden: 'Manufacturer notification system; manufacturer responsible for evidence; submitted to CAA database 60 days before sale.', scope: 'Function claims describing specific health-function effects (memory, attention, fatigue reduction, etc.). Most cognitive nootropic products in Japan use this route.', examples: 'DHC ginkgo extract, FANCL memory-support products, multiple Asahi cognitive products.' },
   { category: 'Foods for Special Dietary Uses', categoryJa: '特別用途食品', burden: 'Approval by Consumer Affairs Agency based on suitability for a specific dietary purpose (e.g. for the elderly, infants, those with specific medical conditions).', scope: 'Distinct system from FOSHU/FFC; less commonly used for cognitive products.', examples: 'Most relevant for elder-care and clinical-nutrition products' },
-  { category: 'General foods (no notification)', categoryJa: 'いわゆる健康食品 (ノーマル食品)', burden: 'No regulatory notification required.', scope: 'Cannot make function claims of any kind. Can only describe ingredient content. Imported supplements via personal-import channels generally fall here.', examples: 'Imported brands (Mind Lab Pro, Onnit, Qualia) shipping to Japan via cross-border channels' },
+  { category: 'General foods (no notification)', categoryJa: 'いわゆる健康食品 (ノーマル食品)', burden: 'No regulatory notification required.', scope: 'Cannot make function claims of any kind. Can only describe ingredient content. Imported supplements via personal-import channels generally fall here.', examples: 'Imported brands (Mind Lab Pro, Onnit, Qualia) bought via cross-border channels' },
 ];
 
 const articleSchema = {
@@ -115,6 +115,11 @@ export default function Page() {
           ¥16,000 personal-import threshold for non-domestic brands.
         </p>
 
+        <p className="text-sm text-gray-600 mb-6">
+          New to the topic? Start with our plain-English explainer:{' '}
+          <Link href="/japanese-brain-supplements/" className="text-green-700 underline">Japanese brain supplements — FFC-notified products vs. imported nootropics</Link>.
+        </p>
+
         <AffiliateDisclosure />
 
         <section className="my-10">
@@ -160,7 +165,7 @@ export default function Page() {
           <h2 className="text-2xl font-bold text-gray-900 mb-3">Audit of our Japanese catalog</h2>
           <p className="text-sm text-gray-700 leading-relaxed mb-4">
             We track <strong>{productsJP.length} products</strong> in our Japanese catalog. The mix includes
-            FFC-notified domestic brands (DHC, Suntory Wellness, FANCL, Asahi) and imported brands available
+            domestic brands (FANCL BRAINs, FFC-notified under G425; Suntory DHA&amp;EPA+Sesamin EX, not FFC-notified) and imported brands available
             via personal-import channels. Our reviews note FFC notification status where visible on packaging
             and frame imported-brand reviews as consumer experience rather than function claims, in line with
             PMD Act constraints. Per-product FFC field surfacing is on our 2026 roadmap.
