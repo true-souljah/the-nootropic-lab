@@ -49,6 +49,9 @@ export default function BestNootropicsAUPage() {
               <p className="text-[13.5px] text-ds-ink-soft m-0 leading-[1.65]">
                 The TGA Personal Importation Scheme allows up to 3 months&apos; supply per import for personal use without a permit. Prescription medicines (modafinil, racetams) still require a valid prescription. GST (10%) applies to imported supplements; many brands add it at checkout.
               </p>
+              <p className="text-[13.5px] text-ds-ink-soft m-0 mt-2 leading-[1.65]">
+                <Link href="/tga-listed-cognitive-supplements/#personal-importation" className="text-ds-accent underline">Import limits, prescription rules and Poisons Standard scheduling →</Link>
+              </p>
             </Card>
             <Card variant="subdued" padding={20} className="border-l-[3px] border-l-ds-accent">
               <Chip tone="accent">★ Editor&apos;s Choice — Australia {CURRENT_YEAR}</Chip>
