@@ -44,7 +44,8 @@ export default function AboutPage() {
           <h2 className="text-xl font-bold text-gray-900 mb-3">What we do</h2>
           <p className="text-gray-700 leading-relaxed mb-3">
             We review nootropic supplements for buyers in Japan. Our comparison covers domestic Japanese
-            brands (DHC, Suntory, FANCL, Asahi) alongside international stacks that ship to Japan. Every
+            brands (DHC, Suntory, FANCL, Asahi) alongside imported international stacks (Mind Lab Pro&apos;s own FAQ names Japan among its shipping
+            territories; for the other imported brands, confirm at checkout). Every
             review includes a clinical dosing audit comparing each ingredient against the minimum effective
             dose from peer-reviewed trials. We score brands across ingredient quality, dosing-vs-evidence,
             formula transparency, value for money, and brand trust.
@@ -67,8 +68,11 @@ export default function AboutPage() {
           <p className="text-gray-700 leading-relaxed">
             For international products, we surface the personal-import limit (¥16,000 duty-free per
             shipment) and note any ingredients that fall under MHLW prescription-only or restricted
-            categories (e.g. modafinil is a prescription drug in Japan; racetams are unregulated but rarely
-            sold domestically).
+            categories (e.g. modafinil is a prescription drug in Japan; since 1 January 2019, personal import of 25
+            designated compounds, including piracetam, aniracetam, oxiracetam, pramiracetam, levetiracetam,
+            vinpocetine and adrafinil, has been restricted without a doctor&apos;s prescription regardless of
+            quantity, per a Shizuoka Prefecture notice; see our{' '}
+            <Link href="/japanese-brain-supplements/" className="underline">Japanese brain supplements explainer</Link>).
           </p>
         </section>
 
