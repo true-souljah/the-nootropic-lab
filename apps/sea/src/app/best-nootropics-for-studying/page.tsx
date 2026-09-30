@@ -54,7 +54,7 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Caffeine-free design pairs perfectly with whatever caffeine source you use during study sessions (kopi, matcha, RTD coffee from 7-Eleven, energy drinks). Includes L-theanine, Bacopa, citicoline, and L-tyrosine — covers all four study-relevant mechanisms in one open formula. Take daily through the semester for cumulative Bacopa effect. Direct delivery to SEA is not confirmed: mindlabpro.com lists only the US and eu.mindlabpro.com only EU countries (checked 2026-09-29). Personal-use import. At USD $69/mo it stretches student budgets — split across 2 months by taking every other day if cost-constrained.',
+      'Caffeine-free design pairs perfectly with whatever caffeine source you use during study sessions (kopi, matcha, RTD coffee from 7-Eleven, energy drinks). Includes L-theanine, Bacopa, citicoline, and L-tyrosine — covers all four study-relevant mechanisms in one open formula. Take daily through the semester for cumulative Bacopa effect. mindlabpro.com names Singapore, Thailand, the Philippines, Indonesia and Vietnam among its shipping territories (its FAQ, checked 2026-09-29); Malaysia is not named on that partial list, so confirm at checkout. Personal-use import. At USD $69/mo it stretches student budgets — split across 2 months by taking every other day if cost-constrained.',
   },
   {
     product: productsSEA.find(p => p.slug === 'noocube-review')!,
@@ -83,7 +83,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Which are best for SEA students via Shopee/Lazada vs cross-border iHerb?',
-    a: 'For students on a budget who want to avoid customs and credit-card cross-border fees: NatureBell Ginkgo+Ginseng on Amazon.sg (~SGD $7/mo). For premium stacks: cross-border iHerb to Singapore is the most reliable route for Mind Lab Pro, NooCube, and Nootropics Depot products. Direct from the brand is not a confirmed route: mindlabpro.com lists only the US and eu.mindlabpro.com only EU countries (checked 2026-09-29).',
+    a: 'For students on a budget who want to avoid customs and credit-card cross-border fees: NatureBell Ginkgo+Ginseng on Amazon.sg (~SGD $7/mo). For premium stacks: cross-border iHerb to Singapore is the most reliable route for Mind Lab Pro, NooCube, and Nootropics Depot products. Direct from the brand is also an option for Mind Lab Pro: its FAQ names Singapore, Thailand, the Philippines, Indonesia and Vietnam among its shipping territories (checked 2026-09-29; Malaysia not named on that partial list).',
   },
   {
     q: 'When should I start taking nootropics for studying?',
