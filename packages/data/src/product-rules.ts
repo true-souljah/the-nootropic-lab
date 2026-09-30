@@ -2,6 +2,7 @@
 // Pure functions so the rules themselves are unit-tested
 // (packages/ui/src/product-rules.test.ts).
 import type { Product } from './products-us';
+import { PRODUCT_FORMS } from './serving-unit';
 
 const SEARCH_PAGE_MARKERS = ['/s?', '?q=', '&q=', '?k=', '&k='];
 
@@ -36,14 +37,23 @@ export function formulaProblem(product: Pick<Product, 'ingredientDosages'>): str
   return null;
 }
 
+/** Why `form` is not an allowed dosage form, or null. Absent = capsule (allowed). */
+export function formProblem(form: unknown): string | null {
+  if (form === undefined) return null;
+  if (typeof form === 'string' && (PRODUCT_FORMS as readonly string[]).includes(form)) return null;
+  return `form is not one of ${PRODUCT_FORMS.join(' | ')}: ${JSON.stringify(form) ?? String(form)}`;
+}
+
 /** All rule violations for one record. */
 export function productRuleProblems(
-  product: Pick<Product, 'affiliateUrl' | 'ingredientDosages' | 'discontinued'>,
+  product: Pick<Product, 'affiliateUrl' | 'ingredientDosages' | 'discontinued' | 'form'>,
 ): string[] {
   const problems: string[] = [];
   const url = affiliateUrlProblem(product.affiliateUrl, product.discontinued != null);
   if (url) problems.push(url);
   const formula = formulaProblem(product);
   if (formula) problems.push(formula);
+  const form = formProblem(product.form);
+  if (form) problems.push(form);
   return problems;
 }

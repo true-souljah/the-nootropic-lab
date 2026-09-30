@@ -7,14 +7,16 @@ import { X } from 'lucide-react';
 import { Card } from '../../primitives/Card';
 import { ScorePill } from '../../primitives/ScorePill';
 import { Bar } from '../../primitives/Bar';
-import type { Product } from '@nootropic/data';
+import { servingAmount } from '@nootropic/data';
+import type { Product, UIStrings } from '@nootropic/data';
 
 export interface ComparatorCompareCardProps {
   selectedProducts: Product[];
+  uiStrings: UIStrings;
   onClear: () => void;
 }
 
-export function ComparatorCompareCard({ selectedProducts, onClear }: ComparatorCompareCardProps) {
+export function ComparatorCompareCard({ selectedProducts, uiStrings, onClear }: ComparatorCompareCardProps) {
   if (selectedProducts.length === 0) return null;
   return (
     <Card
@@ -70,7 +72,7 @@ export function ComparatorCompareCard({ selectedProducts, onClear }: ComparatorC
             <dl className="mt-3 text-[12px] text-ds-ink-soft m-0">
               {[
                 ['Price', p.priceMonthlyUSD ? `$${p.priceMonthlyUSD}/mo` : '—'],
-                ['Caps', `${p.capsulesPerServing}/day`],
+                ['Daily', servingAmount(p, uiStrings)],
                 ['MBG', `${p.moneyBackDays} days`],
                 ['Caffeine', p.caffeineFree ? 'Free' : 'Yes'],
                 ['Trustpilot', p.trustpilotScore === null

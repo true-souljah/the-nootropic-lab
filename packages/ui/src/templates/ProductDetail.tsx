@@ -9,6 +9,7 @@ import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { Tabs, TabPanel } from '../primitives/Tabs';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
+import { servingAmount } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 import type { TabId } from './product-detail/constants';
@@ -232,7 +233,7 @@ export default function ProductDetail({
           <div className="mt-[18px] pt-[18px] border-t border-ds-border grid gap-[18px] items-center grid-cols-2 sm:grid-cols-3 lg:grid-cols-[repeat(5,1fr)_auto]">
             {[
               ...(discontinued ? [] : [priceStat]),
-              [pd.stats.capsules, `${p.capsulesPerServing}${pd.stats.perDay}`, false],
+              [pd.stats.dailyServing, servingAmount(p, uiStrings), false],
               [pd.stats.moneyBack, `${p.moneyBackDays} ${pd.stats.days}`, false],
               [
                 pd.stats.trustpilot,

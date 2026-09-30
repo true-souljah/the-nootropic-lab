@@ -131,7 +131,8 @@ export interface HeadToHeadPageStrings {
   caffeineFreeLabel: string;
   yes: string;
   no: string;
-  capsulesPerServing: string;
+  /** Spec-row label for the daily serving (units of the product's form). */
+  servingSize: string;
   moneyBack: string;
   daysSuffix: string;
   trustpilot: string;
@@ -191,7 +192,7 @@ export const headToHeadPageEnDefaults: HeadToHeadPageStrings = {
   caffeineFreeLabel: 'Caffeine-free',
   yes: 'Yes',
   no: 'No',
-  capsulesPerServing: 'Capsules / serving',
+  servingSize: 'Serving size',
   moneyBack: 'Money-back',
   daysSuffix: 'days',
   trustpilot: 'Trustpilot',
@@ -237,7 +238,7 @@ export const headToHeadPageEsStrings: Partial<HeadToHeadPageStrings> = {
   caffeineFreeLabel: 'Sin cafeína',
   yes: 'Sí',
   no: 'No',
-  capsulesPerServing: 'Cápsulas / dosis',
+  servingSize: 'Tamaño de la dosis',
   moneyBack: 'Devolución',
   daysSuffix: 'días',
   trustpilot: 'Trustpilot',

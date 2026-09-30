@@ -12,7 +12,7 @@ import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
 import { Bar } from '../primitives/Bar';
 import { FaqAccordion } from '../primitives/FaqAccordion';
-import { buildPersonAuthorReference } from '@nootropic/data';
+import { buildPersonAuthorReference, servingAmount, servingsComparable } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import {
   headToHeadPageEnDefaults,
@@ -205,14 +205,17 @@ export default function HeadToHead({
             : 'tie',
     },
     {
-      label: s.capsulesPerServing,
-      a: `${productA.capsulesPerServing}`,
-      b: `${productB.capsulesPerServing}`,
-      winner: productA.capsulesPerServing < productB.capsulesPerServing
-        ? 'a'
-        : productA.capsulesPerServing > productB.capsulesPerServing
-          ? 'b'
-          : 'tie',
+      label: s.servingSize,
+      a: servingAmount(productA, uiStrings),
+      b: servingAmount(productB, uiStrings),
+      // Fewer units wins only between products of the same form.
+      winner: !servingsComparable([productA, productB])
+        ? 'tie'
+        : productA.capsulesPerServing < productB.capsulesPerServing
+          ? 'a'
+          : productA.capsulesPerServing > productB.capsulesPerServing
+            ? 'b'
+            : 'tie',
     },
     {
       label: s.moneyBack,

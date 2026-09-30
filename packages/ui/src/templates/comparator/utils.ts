@@ -2,7 +2,8 @@
 // download triggers a DOM operation, but the function itself is safe
 // to call from anywhere — guards `document` access).
 
-import type { Product } from '@nootropic/data';
+import { servingAmount } from '@nootropic/data';
+import type { Product, UIStrings } from '@nootropic/data';
 import type { SortKey, SortDir, Goal, Grade } from './constants';
 import { MAX_SELECTED } from './constants';
 
@@ -96,7 +97,7 @@ export function buildViewQueryString(opts: {
  * Trigger a CSV download for the given rows. Safe to call from any
  * environment — no-ops when `document` is undefined (SSR / static export).
  */
-export function exportRowsToCsv(rows: Product[]): void {
+export function exportRowsToCsv(rows: Product[], strings: UIStrings): void {
   if (typeof document === 'undefined') return;
   const headers = [
     'Rank',
@@ -104,7 +105,7 @@ export function exportRowsToCsv(rows: Product[]): void {
     'Brand',
     'Score',
     'Price USD/mo',
-    'Caps/day',
+    'Daily serving',
     'MBG days',
     'Trustpilot',
     'Best for',
@@ -115,7 +116,7 @@ export function exportRowsToCsv(rows: Product[]): void {
     p.brand,
     p.score,
     p.priceMonthlyUSD ?? '',
-    p.capsulesPerServing,
+    servingAmount(p, strings),
     p.moneyBackDays,
     p.trustpilotScore ?? '',
     p.bestFor.join('; '),
