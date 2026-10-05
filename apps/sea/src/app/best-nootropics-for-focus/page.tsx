@@ -99,7 +99,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'What is the regulatory status of imported nootropics across SEA?',
-    a: 'Singapore (HSA) and Malaysia (NPRA) have the most transparent personal-import frameworks for food supplements — typically a 1–3 month personal supply is permitted without registration. Thailand (FDA TH), Philippines (FDA PH), and Vietnam (DAV/VFA) allow personal imports but with stricter customs scrutiny. Indonesia (BPOM) is the most restrictive — formal registration is required for commercial sale and personal-import shipments above certain values may face customs holds. Always verify current rules with your national authority before ordering.',
+    a: 'Imported supplements are regulated nationally: by the Health Sciences Authority (HSA) in Singapore, the National Pharmaceutical Regulatory Agency (NPRA) in Malaysia, the Thai Food and Drug Administration (Thai FDA), the Food and Drug Administration of the Philippines (FDA Philippines), the Badan Pengawas Obat dan Makanan (BPOM) in Indonesia and Vietnam’s own national regulator. Malaysia’s NPRA says its registration requirements do not apply to products a traveller brings in personal luggage for their own or their family’s use, in a quantity not exceeding one month’s use by one person; rules for posted parcels, and for the other countries, were not confirmed from an official page in our 2026-10-05 check, so confirm with your national authority or customs before ordering. Import duties and customs clearance are the buyer’s responsibility.',
   },
 ];
 
@@ -110,7 +110,7 @@ export default function Page() {
       useCase="focus"
       pageTitle="Best Nootropics for Focus in SEA"
       pageDescription="Independent ranking of nootropics for focus and attention available across Southeast Asia."
-      heroParagraph="If you want to take a supplement to support focus across SEA — whether you're in a Singapore office, a KL co-working space, a Bangkok creative studio, a Manila call centre, or working remote from Bali — the question is not 'which brand?' but 'which ingredient at what dose, and how do I get it through customs?' This page ranks the products available to SEA buyers that contain at least one of the focus-validated ingredients (L-theanine + caffeine, citicoline, L-tyrosine, Lutemax 2020) at clinical dose. Regulatory status (HSA SG, NPRA MY, BPOM ID, FDA TH/PH, VFA VN) and halal availability (BPJPH, JAKIM) noted per pick where known."
+      heroParagraph="If you want to take a supplement to support focus across SEA — whether you're in a Singapore office, a KL co-working space, a Bangkok creative studio, a Manila call centre, or working remote from Bali — the question is not 'which brand?' but 'which ingredient at what dose, and how do I get it through customs?' This page ranks the products available to SEA buyers that contain at least one of the focus-validated ingredients (L-theanine + caffeine, citicoline, L-tyrosine, Lutemax 2020) at clinical dose. Regulatory status (Singapore’s Health Sciences Authority (HSA), Malaysia’s National Pharmaceutical Regulatory Agency (NPRA), Indonesia’s Badan Pengawas Obat dan Makanan (BPOM), and the Thai and Philippine Food and Drug Administrations (FDA)) and halal availability (Indonesia’s Badan Penyelenggara Jaminan Produk Halal (BPJPH) and the Department of Islamic Development Malaysia (JAKIM)) noted per pick where known."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

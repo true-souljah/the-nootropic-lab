@@ -55,7 +55,7 @@ const picks: ListiclePick[] = [
     product: productsLatam.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Incluye fosfatidilserina (100mg de Sharp-PS en dosis clínica), citicolina (250mg de Cognizin en dosis clínica), Bacopa y Melena de León. Cuatro de los ingredientes más relevantes para la edad en un solo producto de fórmula abierta. Sin cafeína — no representa carga cardiovascular para adultos mayores sensibles a estimulantes. Envío internacional confirmado a México, Brasil, Argentina, Colombia, Chile y Perú; planifica 10–18 días para entrega.',
+      'Incluye fosfatidilserina (100mg de Sharp-PS en dosis clínica), citicolina (250mg de Cognizin en dosis clínica), Bacopa y Melena de León. Cuatro de los ingredientes más relevantes para la edad en un solo producto de fórmula abierta. Sin cafeína — no representa carga cardiovascular para adultos mayores sensibles a estimulantes. Confirma en el checkout si la marca envía a tu país y el plazo de entrega.',
   },
   {
     product: productsLatam.find(p => p.slug === 'qualia-mind-review')!,
@@ -67,7 +67,7 @@ const picks: ListiclePick[] = [
     product: productsLatam.find(p => p.slug === 'nootropics-depot-lions-mane')!,
     rank: 3,
     whyItsHere:
-      'Extracto de Melena de León del cuerpo fructífero de un solo ingrediente, de una marca con sólida trayectoria en pruebas de terceros (Certificado de Análisis publicado por lote). La opción correcta si quieres probar Melena de León de forma aislada, posiblemente combinada con un suplemento separado de fosfatidilserina. Bajo costo de envío ($25 USD) reduce riesgo de retención aduanera, relevante para compradores adultos mayores en Brasil y Argentina.',
+      'Extracto de Melena de León del cuerpo fructífero de un solo ingrediente, de una marca con sólida trayectoria en pruebas de terceros (Certificado de Análisis publicado por lote). La opción correcta si quieres probar Melena de León de forma aislada, posiblemente combinada con un suplemento separado de fosfatidilserina.',
   },
 ];
 
@@ -94,7 +94,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: '¿Estos productos son legales en mi país de Latam?',
-    a: 'Los suplementos nootrópicos importados ingresan a Latam bajo exenciones de uso personal. COFEPRIS (México), ANVISA (Brasil), INVIMA (Colombia), ISP (Chile) y DIGEMID (Perú) generalmente permiten un suministro de 1 a 3 meses para uso personal. En Argentina, la Disposición 2105/2022 de la ANMAT prohibió siete productos concretos no registrados (Noopept, F-Phenibut y Bacopa de las marcas Newmind y PURENOOTROPICS) — ninguna de las selecciones aquí es uno de esos productos ni contiene Noopept o F-Phenibut.',
+    a: 'La Comisión Federal para la Protección contra Riesgos Sanitarios (COFEPRIS) en México, la Agência Nacional de Vigilância Sanitária (ANVISA) en Brasil, el Instituto Nacional de Vigilancia de Medicamentos y Alimentos (INVIMA) en Colombia, el Instituto de Salud Pública (ISP) en Chile y la Dirección General de Medicamentos, Insumos y Drogas (DIGEMID) en Perú son las autoridades sanitarias que regulan los suplementos en sus países. Las reglas de cantidad para la importación de suplementos para uso personal no pudieron confirmarse en una página oficial en nuestra revisión del 5 de octubre de 2026: confirma con la aduana de tu país antes de hacer un pedido. En Argentina, la Disposición 2105/2022 de la ANMAT prohibió siete productos concretos no registrados (Noopept, F-Phenibut y Bacopa de las marcas Newmind y PURENOOTROPICS) — ninguna de las selecciones aquí es uno de esos productos ni contiene Noopept o F-Phenibut.',
   },
   {
     q: '¿En cuánto tiempo notaré algo?',

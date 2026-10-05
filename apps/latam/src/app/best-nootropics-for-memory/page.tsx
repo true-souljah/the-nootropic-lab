@@ -55,19 +55,19 @@ const picks: ListiclePick[] = [
     product: productsLatam.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Incluye Bacopa, citicolina (250mg de Cognizin en dosis clínica) Y fosfatidilserina (100mg en dosis clínica) — tres de los cuatro ingredientes con evidencia para memoria en una sola fórmula abierta. La dosis de Bacopa es de 150mg (por debajo del ancla clínica de 300mg) por lo que conviene complementar con un suplemento separado de Bacopa para el efecto completo. Envío internacional confirmado a México, Brasil, Argentina, Colombia, Chile y Perú.',
+      'Incluye Bacopa, citicolina (250mg de Cognizin en dosis clínica) Y fosfatidilserina (100mg en dosis clínica) — tres de los cuatro ingredientes con evidencia para memoria en una sola fórmula abierta. La dosis de Bacopa es de 150mg (por debajo del ancla clínica de 300mg) por lo que conviene complementar con un suplemento separado de Bacopa para el efecto completo. Confirma en el checkout si la marca envía a tu país.',
   },
   {
     product: productsLatam.find(p => p.slug === 'nootropics-depot-lions-mane')!,
     rank: 2,
     whyItsHere:
-      'Extracto de Melena de León del cuerpo fructífero, ingrediente único, de una marca con sólida reputación en pruebas de terceros (publica Certificado de Análisis por lote — útil para presentar ante aduanas en Latam si se solicita). La opción correcta si quieres probar Melena de León de forma aislada. No es un "nootrópico diario" — combínalo con Bacopa o Mind Lab Pro para una cobertura completa de memoria. Bajo costo de envío ($25 USD) reduce riesgo de retención aduanera.',
+      'Extracto de Melena de León del cuerpo fructífero, ingrediente único, de una marca con sólida reputación en pruebas de terceros (publica Certificado de Análisis por lote — útil para presentar ante aduanas en Latam si se solicita). La opción correcta si quieres probar Melena de León de forma aislada. No es un "nootrópico diario" — combínalo con Bacopa o Mind Lab Pro para una cobertura completa de memoria.',
   },
   {
     product: productsLatam.find(p => p.slug === 'qualia-mind-review')!,
     rank: 3,
     whyItsHere:
-      'Incluye Bacopa, citicolina, fosfatidilserina Y Melena de León — el stack más completo para memoria en un solo producto. Pierde puntos por cantidad de cápsulas (7+/día) y precio ($139 USD/mes). Para memoria específicamente, la amplitud justifica el compromiso si toleras la fricción diaria. Compradores en Brasil deben prever mayor probabilidad de retenciones de ANVISA por la cantidad alta de cápsulas por envío.',
+      'Incluye Bacopa, citicolina, fosfatidilserina Y Melena de León — el stack más completo para memoria en un solo producto. Pierde puntos por cantidad de cápsulas (7+/día) y precio ($139 USD/mes). Para memoria específicamente, la amplitud justifica el compromiso si toleras la fricción diaria. Los aranceles de importación y el despacho aduanero corren por cuenta del comprador.',
   },
 ];
 
@@ -86,7 +86,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: '¿Estos productos son legales en mi país de Latam?',
-    a: 'Los suplementos nootrópicos importados ingresan a Latam bajo exenciones de uso personal. COFEPRIS (México), ANVISA (Brasil), INVIMA (Colombia), ISP (Chile) y DIGEMID (Perú) generalmente permiten un suministro de 1 a 3 meses para uso personal. En Argentina, la Disposición 2105/2022 de la ANMAT prohibió siete productos concretos no registrados (Noopept, F-Phenibut y Bacopa de las marcas Newmind y PURENOOTROPICS) — ninguna de las selecciones aquí es uno de esos productos ni contiene Noopept o F-Phenibut.',
+    a: 'La Comisión Federal para la Protección contra Riesgos Sanitarios (COFEPRIS) en México, la Agência Nacional de Vigilância Sanitária (ANVISA) en Brasil, el Instituto Nacional de Vigilancia de Medicamentos y Alimentos (INVIMA) en Colombia, el Instituto de Salud Pública (ISP) en Chile y la Dirección General de Medicamentos, Insumos y Drogas (DIGEMID) en Perú son las autoridades sanitarias que regulan los suplementos en sus países. Las reglas de cantidad para la importación de suplementos para uso personal no pudieron confirmarse en una página oficial en nuestra revisión del 5 de octubre de 2026: confirma con la aduana de tu país antes de hacer un pedido. En Argentina, la Disposición 2105/2022 de la ANMAT prohibió siete productos concretos no registrados (Noopept, F-Phenibut y Bacopa de las marcas Newmind y PURENOOTROPICS) — ninguna de las selecciones aquí es uno de esos productos ni contiene Noopept o F-Phenibut.',
   },
   {
     q: '¿Ayudarán con la pérdida de memoria asociada a la edad?',

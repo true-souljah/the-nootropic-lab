@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   alternates: buildAlternates({ regionCode: 'eu', path: '/best-nootropics-for-memory/' }),
   openGraph: {
     title: 'Best Nootropics for Memory (EU) — Evidence-Graded',
-    description: 'EU-storefront memory picks. EUR pricing. EFSA-aware ingredient framing.',
+    description: 'EU-storefront memory picks. EUR pricing. Ingredient framing that avoids unauthorised EU health claims.',
     type: 'article',
   },
   twitter: { card: 'summary' },
@@ -108,7 +108,7 @@ export default function Page() {
       useCase="memory"
       pageTitle="Best Nootropics for Memory (EU)"
       pageDescription="Independent EU ranking of nootropics for memory and recall, based on clinical evidence. EU storefronts only."
-      heroParagraph="Memory is the use case where nootropics have the most replicated evidence — primarily from Bacopa Monnieri RCTs over 30+ years. This page ranks the EU-storefront products in our coverage that contain Bacopa, Lion's Mane, phosphatidylserine, or citicoline at or near clinical dose. EU labels describe these ingredients in mechanism terms (per EFSA Regulation (EC) 1924/2006) — the underlying clinical evidence is the same as in the US."
+      heroParagraph="Memory is the use case where nootropics have the most replicated evidence — primarily from Bacopa Monnieri RCTs over 30+ years. This page ranks the EU-storefront products in our coverage that contain Bacopa, Lion's Mane, phosphatidylserine, or citicoline at or near clinical dose. EU labels describe these ingredients in mechanism terms (under Regulation (EC) No 1924/2006, with claims assessed by the European Food Safety Authority, EFSA) — the underlying clinical evidence is the same as in the US."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

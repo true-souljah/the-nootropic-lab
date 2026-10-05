@@ -85,7 +85,7 @@ export const euCountries: EUCountry[] = [
     name: 'France',
     nativeName: 'France',
     currency: 'EUR',
-    regulatoryNote: 'France transposes EU supplement law through DGCCRF oversight. France has a specific positive list system via DGAL/DGCCRF. Some plant extracts at high doses require regulatory assessment. EFSA-compliant products generally available without issue.',
+    regulatoryNote: 'France transposes EU supplement law through DGCCRF oversight. France has a specific positive list system via DGAL/DGCCRF. Some plant extracts at high doses require regulatory assessment.',
     shippingNote: 'EU storefronts ship to France. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {

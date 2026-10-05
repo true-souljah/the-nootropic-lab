@@ -12,11 +12,11 @@ const CURRENT_YEAR = new Date().getFullYear();
 export const metadata: Metadata = {
   title: `Best Nootropics for Focus ${CURRENT_YEAR} (EU): EU-Compliant Picks at Clinical Doses`,
   description:
-    'Independent EU ranking of nootropics for focus and attention. EUR pricing, EU storefronts only, EFSA-aware framing. Each pick contains a clinically-dosed focus ingredient.',
+    'Independent EU ranking of nootropics for focus and attention. EUR pricing, EU storefronts only, ingredient framing that avoids unauthorised EU health claims. Each pick contains a clinically-dosed focus ingredient.',
   alternates: buildAlternates({ regionCode: 'eu', path: '/best-nootropics-for-focus/' }),
   openGraph: {
     title: 'Best Nootropics for Focus (EU) — Evidence-Graded Picks',
-    description: 'EU-storefront focus picks. EUR pricing. EFSA-compliant ingredient framing. No proprietary blends.',
+    description: 'EU-storefront focus picks. EUR pricing. Ingredient framing that avoids unauthorised EU health claims. No proprietary blends.',
     type: 'article',
   },
   twitter: { card: 'summary' },
@@ -103,7 +103,7 @@ export default function Page() {
     <Listicle
       useCase="focus"
       pageTitle="Best Nootropics for Focus (EU)"
-      pageDescription="Independent EU ranking of nootropics for focus and attention. EUR pricing, EU storefronts, EFSA-aware framing."
+      pageDescription="Independent EU ranking of nootropics for focus and attention. EUR pricing, EU storefronts, ingredient framing that avoids unauthorised EU health claims."
       heroParagraph="If you want a focus supplement in the EU, the question is not 'which brand?' but 'which ingredient at what dose, from a compliant EU storefront?' This page ranks the products in our coverage that ship from within the EU at EUR pricing, comply with EU Directive 2002/46/EC, and contain at least one focus-validated ingredient (L-theanine + caffeine, citicoline, L-tyrosine, Alpha-GPC) at or near clinical dose."
       ingredientMechanism={ingredientMechanism}
       picks={picks}

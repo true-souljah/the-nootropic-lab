@@ -9,10 +9,10 @@ const CURRENT_YEAR = new Date().getFullYear();
 
 export const metadata: Metadata = {
   title: `Los Mejores Nootrópicos en Latinoamérica ${CURRENT_YEAR} — Guía del Comprador`,
-  description: 'Los mejores suplementos nootrópicos para compradores en Latinoamérica. Envío internacional confirmado a México, Brasil, Argentina, Colombia, Chile y Perú.',
+  description: 'Los mejores suplementos nootrópicos para compradores en Latinoamérica. Confirma en el checkout si la marca envía a tu país.',
   alternates: buildAlternates({ regionCode: 'latam', path: '/best-nootropics/' }),
-  openGraph: buildOpenGraph({ regionCode: 'latam', path: '/best-nootropics/', title: `Los Mejores Nootrópicos en Latinoamérica ${CURRENT_YEAR} — Guía del Comprador`, description: 'Los mejores suplementos nootrópicos para compradores en Latinoamérica. Envío internacional confirmado a México, Brasil, Argentina, Colombia, Chile y Perú.' }),
-  twitter: buildTwitter({ title: `Los Mejores Nootrópicos en Latinoamérica ${CURRENT_YEAR} — Guía del Comprador`, description: 'Los mejores suplementos nootrópicos para compradores en Latinoamérica. Envío internacional confirmado a México, Brasil, Argentina, Colombia, Chile y Perú.' }),
+  openGraph: buildOpenGraph({ regionCode: 'latam', path: '/best-nootropics/', title: `Los Mejores Nootrópicos en Latinoamérica ${CURRENT_YEAR} — Guía del Comprador`, description: 'Los mejores suplementos nootrópicos para compradores en Latinoamérica. Confirma en el checkout si la marca envía a tu país.' }),
+  twitter: buildTwitter({ title: `Los Mejores Nootrópicos en Latinoamérica ${CURRENT_YEAR} — Guía del Comprador`, description: 'Los mejores suplementos nootrópicos para compradores en Latinoamérica. Confirma en el checkout si la marca envía a tu país.' }),
 };
 
 const faqItems = [
@@ -33,7 +33,7 @@ export default function BestNootropicsLatamPage() {
       <BestOf
         products={productsLatam}
         breadcrumbs={[{ label: 'Best of', href: '/best-nootropics' }]}
-        hero={{ eyebrow: `Latinoamérica · Auditado ${CURRENT_YEAR}`, h1: `Los Mejores Nootrópicos en Latinoamérica ${CURRENT_YEAR}`, dek: 'Envío internacional confirmado a México, Brasil, Argentina, Colombia, Chile y Perú. Marcas que cumplen con COFEPRIS, ANVISA, ANMAT, INVIMA, ISP y DIGEMID.' }}
+        hero={{ eyebrow: `Latinoamérica · Auditado ${CURRENT_YEAR}`, h1: `Los Mejores Nootrópicos en Latinoamérica ${CURRENT_YEAR}`, dek: 'Confirma en el checkout si la marca envía a tu país. Marcas evaluadas por su evidencia e ingredientes; no verificamos su conformidad con los reguladores de cada país.' }}
         searchItems={searchItems} uiStrings={uiStrings} trackingSurface="best_of_latam"
         preList={
           <div className="flex flex-col gap-5">
