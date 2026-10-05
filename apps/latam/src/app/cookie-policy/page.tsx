@@ -84,31 +84,40 @@ export default function CookiePolicyPage() {
                   <td className={TD}>2 años</td>
                 </tr>
                 <tr className="border-b border-gray-100 bg-gray-50">
-                  <td className={TD_NAME}>IR_PI</td>
+                  <td className={TD_NAME}>IR_MPI</td>
                   <td className={TD}>Atribución de afiliados (solo después de Aceptar)</td>
                   <td className={TD}>Impact.com, cookie propia</td>
-                  <td className={TD}>Guarda un identificador aleatorio y una marca de tiempo para que una compra en un sitio socio se atribuya a este sitio.</td>
-                  <td className={TD}>365 días</td>
+                  <td className={TD}>Identificador aleatorio de visitante que usa la etiqueta de seguimiento de Impact.com para que una compra en un sitio socio se atribuya a este sitio.</td>
+                  <td className={TD}>Persistente (400 días en Chrome, el máximo del navegador)</td>
                 </tr>
                 <tr className="border-b border-gray-100">
+                  <td className={TD_NAME}>IR_MPS</td>
+                  <td className={TD}>Atribución de afiliados (solo después de Aceptar)</td>
+                  <td className={TD}>Impact.com, cookie propia</td>
+                  <td className={TD}>Registro de la visita actual que usa la etiqueta de seguimiento de Impact.com.</td>
+                  <td className={TD}>Sesión</td>
+                </tr>
+                <tr className="border-b border-gray-100 bg-gray-50">
                   <td className={TD_NAME}>IR_gbd</td>
                   <td className={TD}>Atribución de afiliados (solo después de Aceptar)</td>
                   <td className={TD}>Impact.com, cookie propia</td>
                   <td className={TD}>Registra el dominio base para la etiqueta de seguimiento de Impact.com.</td>
                   <td className={TD}>Sesión</td>
                 </tr>
-                <tr className="border-b border-gray-100 bg-gray-50">
-                  <td className={TD_NAME}>IR_&lt;campaign-id&gt;</td>
+                <tr className="border-b border-gray-100">
+                  <td className={TD_NAME}>IR_PI, IR_&lt;campaign-id&gt;</td>
                   <td className={TD}>Atribución de afiliados (solo después de Aceptar)</td>
-                  <td className={TD}>Impact.com, cookie propia</td>
-                  <td className={TD}>Registro de la visita actual que usa la etiqueta de seguimiento de Impact.com.</td>
-                  <td className={TD}>Sesión</td>
+                  <td className={TD}>Impact.com, cookies propias</td>
+                  <td className={TD}>Otras cookies de atribución que Impact.com documenta para su etiqueta; pueden instalarse cuando sigues un enlace de un socio.</td>
+                  <td className={TD}>365 días / Sesión</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <p className="text-gray-700 leading-relaxed">
-            Las duraciones son las predeterminadas de cada proveedor (documentación en inglés):{' '}
+            Las duraciones son las predeterminadas de cada proveedor; los navegadores pueden
+            acortarlas (Google indica un máximo de 400 días en Chrome y 7 días en Safari).
+            Documentación en inglés:{' '}
             <a href={GA_COOKIE_DOC} className="text-emerald-700 underline" rel="noopener noreferrer" hrefLang="en">
               uso de cookies de Google Analytics 4
             </a>{' '}

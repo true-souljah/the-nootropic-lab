@@ -93,31 +93,39 @@ function CookiePolicyBody() {
                   <td className={TD}>2 years</td>
                 </tr>
                 <tr className="border-b border-gray-100 bg-gray-50">
-                  <td className={TD_NAME}>IR_PI</td>
+                  <td className={TD_NAME}>IR_MPI</td>
                   <td className={TD}>Affiliate attribution (only after Accept)</td>
                   <td className={TD}>Impact.com, first-party cookie</td>
-                  <td className={TD}>Stores a random ID and timestamp so a purchase on a partner site can be credited to this site.</td>
-                  <td className={TD}>365 days</td>
+                  <td className={TD}>Random visitor ID used by Impact.com&apos;s tracking tag so a purchase on a partner site can be credited to this site.</td>
+                  <td className={TD}>Persistent (400 days in Chrome, the browser maximum)</td>
                 </tr>
                 <tr className="border-b border-gray-100">
+                  <td className={TD_NAME}>IR_MPS</td>
+                  <td className={TD}>Affiliate attribution (only after Accept)</td>
+                  <td className={TD}>Impact.com, first-party cookie</td>
+                  <td className={TD}>Current-visit record used by Impact.com&apos;s tracking tag.</td>
+                  <td className={TD}>Session</td>
+                </tr>
+                <tr className="border-b border-gray-100 bg-gray-50">
                   <td className={TD_NAME}>IR_gbd</td>
                   <td className={TD}>Affiliate attribution (only after Accept)</td>
                   <td className={TD}>Impact.com, first-party cookie</td>
                   <td className={TD}>Records the base domain for Impact.com&apos;s tracking tag.</td>
                   <td className={TD}>Session</td>
                 </tr>
-                <tr className="border-b border-gray-100 bg-gray-50">
-                  <td className={TD_NAME}>IR_&lt;campaign-id&gt;</td>
+                <tr className="border-b border-gray-100">
+                  <td className={TD_NAME}>IR_PI, IR_&lt;campaign-id&gt;</td>
                   <td className={TD}>Affiliate attribution (only after Accept)</td>
-                  <td className={TD}>Impact.com, first-party cookie</td>
-                  <td className={TD}>Current-visit record used by Impact.com&apos;s tracking tag.</td>
-                  <td className={TD}>Session</td>
+                  <td className={TD}>Impact.com, first-party cookies</td>
+                  <td className={TD}>Other attribution cookies Impact.com documents for its tracking tag; they may be set when you follow a partner link.</td>
+                  <td className={TD}>365 days / Session</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <p className="text-gray-700 leading-relaxed">
-            Durations are the providers&apos; defaults:{' '}
+            Durations are the providers&apos; defaults; browsers may shorten them (Google notes a
+            maximum of 400 days in Chrome and 7 days in Safari):{' '}
             <a href={GA_COOKIE_DOC} className="text-emerald-700 underline" rel="noopener noreferrer">
               Google Analytics 4 cookie usage
             </a>{' '}

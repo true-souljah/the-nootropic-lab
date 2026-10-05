@@ -13,7 +13,6 @@ import { klaroConfig } from './klaro-config';
 import { applyActiveLangToKlaroConfig } from './klaro-lang';
 
 interface KlaroManager {
-  confirmed: boolean;
   watch: (watcher: { update: (manager: KlaroManager, name: string) => void }) => void;
 }
 

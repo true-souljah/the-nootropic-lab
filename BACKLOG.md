@@ -78,6 +78,7 @@ _Tick `- [x]` to mark an item done, then commit. Grouped by priority, then sourc
 
 ## Done (recent)
 
+- [x] **Consent: Basic mode + equal Accept/Decline + "Cookie settings" on every page + accurate cookie policy (all 8 regions)** — portfolio-hub consent audit 2026-09-29 (C2/C4/C6/C8 FAIL, C3 WARN): Next.js preloaded gtag.js + a never-configured Cloudflare beacon before any choice; accept button read "Save"; no withdraw control; policies described a localStorage record. Fixed in PR fix/consent-basic-mode-and-settings, guarded by `consent-basic-mode.test.ts` + `npm run check:consent` (CI) · done 2026-10-05 <!--id:consent:nootropics-2026-10-05-->
 - [x] **Consolidate duplicate L-Theanine ingredient pages (trailing-slash split)** — 46 impr · pos 79.7 · done 2026-09-03 <!--id:gsc:966cc044a8679075-->
 - [x] **Deduplicate /ingredients/citicoline/ vs /ingredients/citicoline (trailing-slash split)** — 22 impr · pos 79.9 : no duplicate exists — the slash-less URL 308-redirects to the trailing-slash page, which is self-canonical (verified live 2026-09-02; insights.mjs now folds both forms) · done 2026-09-03 <!--id:gsc:c81e2aa5a3e98230-->
 - [x] **Fix trailing-slash URL duplicates splitting authority across ingredient pages** — 90 impr · pos 69.2 : no duplicate exists — the slash-less URL 308-redirects to the trailing-slash page, which is self-canonical (verified live 2026-09-02; insights.mjs now folds both forms) · done 2026-09-03 <!--id:gsc:cfca0c8f3458fce1-->

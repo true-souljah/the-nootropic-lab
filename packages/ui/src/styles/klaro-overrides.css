@@ -88,30 +88,31 @@
  * different classes (cm-btn-success vs cm-btn-danger/cm-btn-decline, plus
  * cm-btn-info/cm-btn-accept in the modal), so every consent button is
  * reset to one treatment: same fill, text colour, border, size, padding
- * and weight. Do not reintroduce a per-variant colour here — the consent
- * regression test (consent-basic-mode.test.ts) fails on it.
+ * and weight. Klaro's own stylesheet colours each variant at specificity
+ * (0,4,0) (`.klaro .cookie-notice .cm-btn.cm-btn-success`), so these rules
+ * are anchored on the #klaro mount point to win regardless of CSS order.
+ * Do not reintroduce a per-variant colour here — the consent regression
+ * test (consent-basic-mode.test.ts) fails on it.
  */
-.klaro .cm-btn,
-.klaro .cm-btn.cm-btn-success,
-.klaro .cm-btn.cm-btn-danger,
-.klaro .cm-btn.cm-btn-decline,
-.klaro .cm-btn.cm-btn-info,
-.klaro .cm-btn.cm-btn-accept,
-.klaro .cm-btn.cm-btn-accept-all {
+#klaro .cm-btn,
+#klaro .cm-btn.cm-btn-success,
+#klaro .cm-btn.cm-btn-danger,
+#klaro .cm-btn.cm-btn-decline,
+#klaro .cm-btn.cm-btn-info,
+#klaro .cm-btn.cm-btn-accept,
+#klaro .cm-btn.cm-btn-accept-all {
   background: var(--color-ds-accent);
   color: #ffffff;
   border: 1px solid var(--color-ds-accent);
-  font-size: 14px;
   font-weight: 600;
-  padding: 10px 18px;
 }
-.klaro .cm-btn:hover,
-.klaro .cm-btn.cm-btn-success:hover,
-.klaro .cm-btn.cm-btn-danger:hover,
-.klaro .cm-btn.cm-btn-decline:hover,
-.klaro .cm-btn.cm-btn-info:hover,
-.klaro .cm-btn.cm-btn-accept:hover,
-.klaro .cm-btn.cm-btn-accept-all:hover {
+#klaro .cm-btn:hover,
+#klaro .cm-btn.cm-btn-success:hover,
+#klaro .cm-btn.cm-btn-danger:hover,
+#klaro .cm-btn.cm-btn-decline:hover,
+#klaro .cm-btn.cm-btn-info:hover,
+#klaro .cm-btn.cm-btn-accept:hover,
+#klaro .cm-btn.cm-btn-accept-all:hover {
   background: var(--color-ds-accent-press);
   border-color: var(--color-ds-accent-press);
 }
