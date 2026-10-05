@@ -76,6 +76,20 @@ export default async function CountryPage({
         <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 mb-8">
           <h2 className="font-bold text-amber-900 mb-2">Aduanas y Derechos de Importación</h2>
           <p className="text-sm text-amber-800 leading-relaxed">{c.customsNote}</p>
+          {c.customsSources.length > 0 && (
+            <>
+              <h3 className="font-semibold text-amber-900 text-sm mt-4 mb-1">Fuentes</h3>
+              <ul className="list-disc pl-5 space-y-1 text-sm text-amber-800">
+                {c.customsSources.map(s => (
+                  <li key={s.url}>
+                    <a href={s.url} target="_blank" rel="noopener noreferrer" className="underline hover:text-amber-950">
+                      {s.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
         </div>
 
         <section className="mb-8">
