@@ -41,6 +41,9 @@ export const metadata: Metadata = {
 const audit = auditProductsForAnmat(productsLatam);
 const compliantCount = audit.filter(a => a.bannedCompounds.length === 0).length;
 const nonCompliantCount = audit.length - compliantCount;
+// Artículo 1 names products of two brands; the ingredient matcher cannot see
+// a brand, so check it separately before claiming no catalogue product is one.
+const catalogueBrandMatches = productsLatam.filter(p => /newmind|pure\s*nootropics/i.test(`${p.brand} ${p.name}`));
 const auditDate = new Date().toLocaleDateString('es-AR', {
   year: 'numeric',
   month: 'long',
@@ -252,8 +255,11 @@ export default function Page() {
             Comprobamos si alguno de los <strong>{audit.length} productos</strong> de nuestro catálogo
             LATAM declara Noopept o F-Phenibut, las sustancias que dan nombre a los productos prohibidos.
             No marcamos productos por contener Bacopa monnieri: la disposición prohíbe un producto concreto
-            de bacopa, no la bacopa como ingrediente. Ninguno de nuestros productos es uno de los siete
-            productos prohibidos. Estado actual:
+            de bacopa, no la bacopa como ingrediente.{' '}
+            {catalogueBrandMatches.length === 0
+              ? 'Ningún producto de nuestro catálogo es de las marcas Newmind o PURENOOTROPICS citadas en el Artículo 1.'
+              : `Productos de nuestro catálogo de las marcas citadas en el Artículo 1: ${catalogueBrandMatches.map(p => p.name).join(', ')}.`}{' '}
+            Estado actual:
           </p>
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="bg-white border border-green-300 rounded-lg p-4">
