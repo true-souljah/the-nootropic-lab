@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import localFont from 'next/font/local';
 import './globals.css';
-import { CookieBanner } from '@nootropic/ui';
+import { CookieBanner, gaInitScript, gtagSrc } from '@nootropic/ui';
 
 // Self-hosted latin-subset Inter (official @fontsource-variable/inter v5.2.8
 // build) — next/font/google fetches at build time and fails behind the
@@ -44,25 +44,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         {children}
         <CookieBanner />
+        {/* Basic consent mode: every tracker below is type="text/plain" and
+            runs only after Klaro consent. gtag.js goes in data-src, never
+            src — next/script preloads `src` (<link rel="preload">) before
+            any choice. */}
         <Script
-          type="text/plain"
-          data-name="cloudflare-insights"
-          defer
-          src="https://static.cloudflareinsights.com/beacon.min.js"
-          data-cf-beacon='{"token": "REPLACE_WITH_CF_ANALYTICS_TOKEN_US"}'
-          strategy="afterInteractive"
-        />
-        <Script
+          id="ga4-src"
           type="text/plain"
           data-name="google-analytics"
-          src="https://www.googletagmanager.com/gtag/js?id=G-98VGHD6G4X"
+          data-src={gtagSrc('G-98VGHD6G4X')}
           strategy="afterInteractive"
         />
         <Script id="ga4-init" type="text/plain" data-name="google-analytics" strategy="afterInteractive">
-          {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-98VGHD6G4X');`}
+          {gaInitScript('G-98VGHD6G4X')}
         </Script>
         <Script id="impact-com-tag" type="text/plain" data-name="impact-com" strategy="afterInteractive">
           {`(function(i,m,p,a,c,t){c.ire_o=p;c[p]=c[p]||function(){(c[p].a=c[p].a||[]).push(arguments)};t=a.createElement(m);var z=a.getElementsByTagName(m)[0];t.async=1;t.src=i;z.parentNode.insertBefore(t,z)})('https://utt.impactcdn.com/P-A7211241-7e09-48c7-a449-18333f13987f1.js','script','impactStat',document,window);impactStat('trackImpression');`}

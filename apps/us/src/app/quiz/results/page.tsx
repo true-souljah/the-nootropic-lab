@@ -4,6 +4,7 @@ import { Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 import {
+  CookieSettingsBar,
   QuizResults,
   type CaffeineSensitivity,
   type MBGImportance,
@@ -66,9 +67,15 @@ function ResultsBody() {
 }
 
 export default function QuizResultsPage() {
+  // The results body renders client-side from the query string; the
+  // withdraw control sits outside the Suspense boundary so it is in the
+  // static HTML of this page too.
   return (
-    <Suspense fallback={null}>
-      <ResultsBody />
-    </Suspense>
+    <>
+      <Suspense fallback={null}>
+        <ResultsBody />
+      </Suspense>
+      <CookieSettingsBar label="Cookie settings" />
+    </>
   );
 }
