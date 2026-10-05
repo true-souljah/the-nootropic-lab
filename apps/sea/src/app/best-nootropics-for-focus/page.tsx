@@ -99,7 +99,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'What is the regulatory status of imported nootropics across SEA?',
-    a: 'Singapore (HSA) and Malaysia (NPRA) have the most transparent personal-import frameworks for food supplements — typically a 1–3 month personal supply is permitted without registration. Thailand (FDA TH), Philippines (FDA PH), and Vietnam (DAV/VFA) allow personal imports but with stricter customs scrutiny. Indonesia (BPOM) is the most restrictive — formal registration is required for commercial sale and personal-import shipments above certain values may face customs holds. Always verify current rules with your national authority before ordering.',
+    a: 'Imported supplements are regulated nationally: by the Health Sciences Authority (HSA) in Singapore, the National Pharmaceutical Regulatory Agency (NPRA) in Malaysia, the Thai Food and Drug Administration (Thai FDA), the Food and Drug Administration of the Philippines (FDA Philippines), the Drug Administration of Vietnam (DAV) and the Badan Pengawas Obat dan Makanan (BPOM) in Indonesia. Personal-import quantity rules were not confirmed from an official page in our 2026-10-05 check, so confirm with your national authority or customs before ordering. Import duties and customs clearance are the buyer’s responsibility.',
   },
 ];
 

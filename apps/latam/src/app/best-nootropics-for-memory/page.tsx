@@ -55,7 +55,7 @@ const picks: ListiclePick[] = [
     product: productsLatam.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Incluye Bacopa, citicolina (250mg de Cognizin en dosis clínica) Y fosfatidilserina (100mg en dosis clínica) — tres de los cuatro ingredientes con evidencia para memoria en una sola fórmula abierta. La dosis de Bacopa es de 150mg (por debajo del ancla clínica de 300mg) por lo que conviene complementar con un suplemento separado de Bacopa para el efecto completo. Envío internacional confirmado a México, Brasil, Argentina, Colombia, Chile y Perú.',
+      'Incluye Bacopa, citicolina (250mg de Cognizin en dosis clínica) Y fosfatidilserina (100mg en dosis clínica) — tres de los cuatro ingredientes con evidencia para memoria en una sola fórmula abierta. La dosis de Bacopa es de 150mg (por debajo del ancla clínica de 300mg) por lo que conviene complementar con un suplemento separado de Bacopa para el efecto completo. Confirma en el checkout si la marca envía a tu país.',
   },
   {
     product: productsLatam.find(p => p.slug === 'nootropics-depot-lions-mane')!,

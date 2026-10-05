@@ -55,7 +55,7 @@ const picks: ListiclePick[] = [
     product: productsLatam.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Fórmula abierta con 100mg de L-teanina + 250mg de citicolina Cognizin a dosis clínicamente validadas. El diseño sin cafeína permite combinarlo con tu café o mate local para lograr el efecto sinérgico. Envío internacional confirmado a México, Brasil, Argentina, Colombia, Chile y Perú. Los aranceles de importación y el despacho aduanero corren por cuenta del comprador; los argentinos deben verificar que su tarjeta procese cargos en USD pese al control cambiario.',
+      'Fórmula abierta con 100mg de L-teanina + 250mg de citicolina Cognizin a dosis clínicamente validadas. El diseño sin cafeína permite combinarlo con tu café o mate local para lograr el efecto sinérgico. Confirma en el checkout si la marca envía a tu país. Los aranceles de importación y el despacho aduanero corren por cuenta del comprador; los argentinos deben verificar que su tarjeta procese cargos en USD pese al control cambiario.',
   },
   {
     product: productsLatam.find(p => p.slug === 'qualia-mind-review')!,

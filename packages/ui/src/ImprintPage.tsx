@@ -88,7 +88,7 @@ export default function ImprintPage({ siteUrl, marketLabel, contactEmail, region
             <li>Ingredient doses are evaluated against minimum effective doses from peer-reviewed human clinical trials (PubMed-indexed).</li>
             <li>Affiliate disclosure renders at the top of every commercial page, before the first call-to-action.</li>
             <li>Catalog products (entries based on public product information) and hands-on tested products are visually distinguished by a badge.</li>
-            <li>Region-specific regulatory disclaimers are surfaced on every commercial page (DSHEA, EFSA, TGA, NPN, FFC, ANMAT, SFDA, BPJPH/JAKIM, etc.).</li>
+            <li>Region-specific regulatory disclaimers are surfaced on every commercial page (for example the Dietary Supplement Health and Education Act (DSHEA), the European Food Safety Authority (EFSA), the Therapeutic Goods Administration (TGA), Health Canada’s Natural Product Number (NPN), Japan’s Foods with Function Claims (FFC), Argentina’s Administración Nacional de Medicamentos, Alimentos y Tecnología Médica (ANMAT), the Saudi Food and Drug Authority (SFDA), Indonesia’s Badan Penyelenggara Jaminan Produk Halal (BPJPH) and the Department of Islamic Development Malaysia (JAKIM)).</li>
             <li>Errors are corrected promptly and transparently. We never delete or quietly edit factual claims after publication.</li>
           </ul>
         </section>

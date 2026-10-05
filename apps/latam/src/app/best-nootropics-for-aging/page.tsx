@@ -55,7 +55,7 @@ const picks: ListiclePick[] = [
     product: productsLatam.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Incluye fosfatidilserina (100mg de Sharp-PS en dosis clínica), citicolina (250mg de Cognizin en dosis clínica), Bacopa y Melena de León. Cuatro de los ingredientes más relevantes para la edad en un solo producto de fórmula abierta. Sin cafeína — no representa carga cardiovascular para adultos mayores sensibles a estimulantes. Envío internacional confirmado a México, Brasil, Argentina, Colombia, Chile y Perú; planifica 10–18 días para entrega.',
+      'Incluye fosfatidilserina (100mg de Sharp-PS en dosis clínica), citicolina (250mg de Cognizin en dosis clínica), Bacopa y Melena de León. Cuatro de los ingredientes más relevantes para la edad en un solo producto de fórmula abierta. Sin cafeína — no representa carga cardiovascular para adultos mayores sensibles a estimulantes. Confirma en el checkout si la marca envía a tu país y el plazo de entrega.',
   },
   {
     product: productsLatam.find(p => p.slug === 'qualia-mind-review')!,

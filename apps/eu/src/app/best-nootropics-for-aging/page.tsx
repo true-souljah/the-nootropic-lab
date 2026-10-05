@@ -104,7 +104,7 @@ export default function Page() {
       useCase="aging"
       pageTitle="Best Nootropics for Aging Brain (EU)"
       pageDescription="Independent EU ranking of nootropics for adults concerned about age-related cognitive changes."
-      heroParagraph="Age-related cognitive change is normal — memory recall slows, processing speed reduces. The supplements on this page have evidence specifically in older adults with subjective cognitive complaints. They are NOT treatments for dementia, Alzheimer's, or any clinical cognitive disease — and EU brands cannot legally claim otherwise under EFSA Regulation (EC) 1924/2006. For clinical concerns, see your GP for referral to a neurologist."
+      heroParagraph="Age-related cognitive change is normal — memory recall slows, processing speed reduces. The supplements on this page have evidence specifically in older adults with subjective cognitive complaints. They are NOT treatments for dementia, Alzheimer's, or any clinical cognitive disease — and EU brands cannot legally claim otherwise under Regulation (EC) No 1924/2006 (with claims assessed by the European Food Safety Authority, EFSA). For clinical concerns, see your GP for referral to a neurologist."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}
