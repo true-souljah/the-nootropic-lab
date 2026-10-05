@@ -54,7 +54,7 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design lets you pair it with kopi, matcha, or Vietnamese drip for the synergistic effect. mindlabpro.com names Singapore, Thailand, the Philippines, Indonesia and Vietnam among its shipping territories (its FAQ, checked 2026-09-29); Malaysia is not named on that partial list, so confirm at checkout. Imported as personal-use supplement — not registered with Health Sciences Authority (HSA), National Pharmaceutical Regulatory Agency (NPRA), Badan Pengawas Obat dan Makanan (BPOM), FDA TH/PH, or DAV. Halal status: not BPJPH/JAKIM-certified — verify acceptability for ID/MY buyers.',
+      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design lets you pair it with kopi, matcha, or Vietnamese drip for the synergistic effect. mindlabpro.com names Singapore, Thailand, the Philippines, Indonesia and Vietnam among its shipping territories (its FAQ, checked 2026-09-29); Malaysia is not named on that partial list, so confirm at checkout. Imported as personal-use supplement — not registered with Health Sciences Authority (HSA), National Pharmaceutical Regulatory Agency (NPRA), Badan Pengawas Obat dan Makanan (BPOM), FDA TH/PH, or the Vietnam Food Administration (VFA). Halal status: not BPJPH/JAKIM-certified — verify acceptability for ID/MY buyers.',
   },
   {
     product: productsSEA.find(p => p.slug === 'noocube-review')!,
@@ -99,7 +99,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'What is the regulatory status of imported nootropics across SEA?',
-    a: 'Imported supplements are regulated nationally: by the Health Sciences Authority (HSA) in Singapore, the National Pharmaceutical Regulatory Agency (NPRA) in Malaysia, the Thai Food and Drug Administration (Thai FDA), the Food and Drug Administration of the Philippines (FDA Philippines), the Badan Pengawas Obat dan Makanan (BPOM) in Indonesia and Vietnam’s own national regulator. Malaysia’s NPRA says its registration requirements do not apply to products a traveller brings in personal luggage for their own or their family’s use, in a quantity not exceeding one month’s use by one person; rules for posted parcels, and for the other countries, were not confirmed from an official page in our 2026-10-05 check, so confirm with your national authority or customs before ordering. Import duties and customs clearance are the buyer’s responsibility.',
+    a: 'Imported supplements are regulated nationally: by the Health Sciences Authority (HSA) in Singapore, the National Pharmaceutical Regulatory Agency (NPRA) in Malaysia, the Thai Food and Drug Administration (Thai FDA), the Food and Drug Administration of the Philippines (FDA Philippines), the Badan Pengawas Obat dan Makanan (BPOM) in Indonesia and the Vietnam Food Administration (VFA, Cục An toàn thực phẩm) under Vietnam’s Ministry of Health. Malaysia’s NPRA says its registration requirements do not apply to products a traveller brings in personal luggage for their own or their family’s use, in a quantity not exceeding one month’s use by one person; rules for posted parcels, and for the other countries, were not confirmed from an official page in our 2026-10-05 check, so confirm with your national authority or customs before ordering. Import duties and customs clearance are the buyer’s responsibility.',
   },
 ];
 

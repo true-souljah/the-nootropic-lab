@@ -72,8 +72,8 @@ export default function MelhoresNootropicosPT() {
           Os nootrópicos são regulamentados na Europa enquanto suplementos alimentares ao abrigo da{' '}
           <strong>Directiva 2002/46/CE</strong>. As alegações de saúde devem obedecer ao{' '}
           <strong>Regulamento (CE) n.º 1924/2006</strong> e utilizar exclusivamente alegações
-          autorizadas pela EFSA. Todos os produtos recomendados utilizam ingredientes aprovados pela
-          EFSA.
+          autorizadas na UE (avaliadas pela Autoridade Europeia para a Segurança dos Alimentos,
+          EFSA). Não verificamos a conformidade regulamentar de cada produto.
         </p>
       </div>
 

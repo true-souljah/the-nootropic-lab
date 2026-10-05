@@ -47,6 +47,15 @@ const BANNED_WORDING: RegExp[] = [
   // No URL slug contains this phrase today; a future slug would be excluded
   // with a lookahead as for /efsa-approved-cognitive-supplements/.
   /EU[- ]compliant/i,
+  /EU compliance verified/i,
+  /EFSA-permissible/i,
+  // The same assertions in the de/fr/pt locales.
+  /EU-konform/i,
+  /EFSA-\s*zugelassen/i,
+  /conformit[ée] (r[ée]glementaire )?UE/i,
+  /conformes? à la r[ée]glementation UE/i,
+  /conformidade (regulamentar )?(da )?UE/i,
+  /aprovad[oa]s pela\s+EFSA/i,
 ];
 
 interface Row {

@@ -46,7 +46,8 @@ export default function MeilleursNootropiquesFR() {
           Les nootropiques sont réglementés en Europe en tant que compléments alimentaires
           conformément à la <strong>directive 2002/46/CE</strong>. Les allégations de santé doivent
           respecter le <strong>règlement (CE) 1924/2006</strong> et utiliser uniquement des
-          allégations autorisées par l&apos;EFSA.
+          allégations autorisées dans l&apos;UE (évaluées par l&apos;Autorité européenne de
+          sécurité des aliments, EFSA).
         </p>
       </div>
 

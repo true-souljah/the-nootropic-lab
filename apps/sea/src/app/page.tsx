@@ -176,7 +176,7 @@ export default function HomePage() {
           newer ones as unknown. */}
       <section className="max-w-5xl mx-auto px-4 pb-16">
         <h2 className="text-2xl font-bold text-gray-900 mb-2">Browse by country</h2>
-        <p className="text-sm text-gray-500 mb-6">HSA, NPRA, Thai FDA, FDA Philippines, BPOM and VFA import notes plus shipping times for each market.</p>
+        <p className="text-sm text-gray-500 mb-6">HSA, NPRA, Thai FDA, FDA Philippines, BPOM and Vietnam Food Administration (VFA) import notes plus shipping times for each market.</p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {seaCountries.map(p => (
             <Link key={p.slug} href={`/countries/${p.slug}/`} className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">

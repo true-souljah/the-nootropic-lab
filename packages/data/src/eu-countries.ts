@@ -37,7 +37,7 @@ export const euCountries: EUCountry[] = [
     name: 'Croatia',
     nativeName: 'Hrvatska',
     currency: 'EUR',
-    regulatoryNote: 'Croatia adopted the euro in January 2023. EU food supplement regulations apply in full. The Ministry of Health oversees supplement registration. Most mainstream nootropic supplements with EU compliance ship without issue.',
+    regulatoryNote: 'Croatia adopted the euro in January 2023. EU food supplement regulations apply in full. The Ministry of Health oversees supplement registration.',
     shippingNote: 'EU storefronts ship to Croatia. Delivery estimates vary by brand and carrier, so check the estimate at checkout. No import duties as an EU member state.',
   },
   {

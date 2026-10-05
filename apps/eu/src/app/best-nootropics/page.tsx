@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 const faqItems = [
   {
     q: 'Are nootropics legal in the EU?',
-    a: 'Most nootropic supplements are legal in the EU as food supplements under Directive 2002/46/EC. However, some compounds (e.g. racetams, modafinil) are prescription-only or restricted in specific EU member states. All products we recommend use EFSA-permissible ingredients.',
+    a: 'Most nootropic supplements are legal in the EU as food supplements under Directive 2002/46/EC. However, some compounds (e.g. racetams, modafinil) are prescription-only or restricted in specific EU member states. We do not verify each product\'s regulatory status; check the label and ask the seller if you are unsure.',
   },
   {
     q: 'Which nootropic is best for EU buyers?',

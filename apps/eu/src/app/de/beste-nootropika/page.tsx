@@ -45,9 +45,9 @@ export default function BestNootropikaDE() {
         <p className="text-sm text-blue-800 leading-relaxed">
           Nootropika werden in der EU als Nahrungsergänzungsmittel gemäß{' '}
           <strong>Richtlinie 2002/46/EG</strong> reguliert. Gesundheitsbezogene Angaben müssen
-          der <strong>Verordnung (EG) 1924/2006</strong> entsprechen und ausschließlich EFSA-
-          zugelassene Angaben verwenden. Alle empfohlenen Produkte verwenden EFSA-zugelassene
-          Zutaten.
+          der <strong>Verordnung (EG) 1924/2006</strong> entsprechen und ausschließlich in der EU zugelassene Angaben verwenden (bewertet von der
+          Europäischen Behörde für Lebensmittelsicherheit, EFSA). Die Einhaltung der Vorschriften
+          prüfen wir nicht je Produkt.
         </p>
       </div>
 
