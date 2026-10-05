@@ -111,6 +111,13 @@ export default async function CountryPage({
           </div>
         </section>
 
+        <p className="text-sm text-gray-700 mb-6">
+          <strong>Related:</strong>{' '}
+          <a href="/which-nootropics-ship-to-the-gcc/" className="text-green-700 underline">
+            Which nootropic brands ship to the GCC? A brand-by-brand check
+          </a>
+        </p>
+
         <div className="text-sm text-gray-500">
           <a href="/best-nootropics" className="text-green-700 underline">
             ← Back to Best Nootropics GCC {CURRENT_YEAR}
