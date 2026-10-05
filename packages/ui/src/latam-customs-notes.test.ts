@@ -25,8 +25,13 @@ describe('LATAM customsNote sourcing', () => {
       expect(cited.length).toBeGreaterThan(0);
       expect(c.customsSources.length).toBeGreaterThan(0);
       const hosts = c.customsSources.map(s => new URL(s.url).hostname.replace(/^www\./, ''));
+      const matches = (h: string, d: string) => h === d || h.endsWith(`.${d}`);
       for (const domain of cited) {
-        expect(hosts.some(h => h === domain || h.endsWith(`.${domain}`))).toBe(true);
+        expect(hosts.some(h => matches(h, domain))).toBe(true);
+      }
+      // Reverse: every listed source is actually cited in the note.
+      for (const h of hosts) {
+        expect(cited.some(d => matches(h, d))).toBe(true);
       }
     });
 
