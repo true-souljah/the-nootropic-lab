@@ -101,7 +101,7 @@ export const euCountries: EUCountry[] = [
     name: 'Greece',
     nativeName: 'Ελλάδα',
     currency: 'EUR',
-    regulatoryNote: 'Greece follows EU supplement regulations. The National Food Authority (EFET) oversees compliance.Growing nootropics market, particularly in Athens.',
+    regulatoryNote: 'Greece follows EU supplement regulations. The National Food Authority (EFET) oversees compliance. Growing nootropics market, particularly in Athens.',
     shippingNote: 'EU storefronts ship to Greece. Delivery estimates vary by brand and carrier, so check the estimate at checkout. Island addresses may take longer.',
   },
   {
@@ -133,7 +133,7 @@ export const euCountries: EUCountry[] = [
     name: 'Latvia',
     nativeName: 'Latvija',
     currency: 'EUR',
-    regulatoryNote: 'Latvia follows EU supplement regulations. The Food and Veterinary Service oversees compliance.Small but growing market.',
+    regulatoryNote: 'Latvia follows EU supplement regulations. The Food and Veterinary Service oversees compliance. Small but growing market.',
     shippingNote: 'EU storefronts ship to Latvia. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
@@ -181,7 +181,7 @@ export const euCountries: EUCountry[] = [
     name: 'Portugal',
     nativeName: 'Portugal',
     currency: 'EUR',
-    regulatoryNote: 'Portugal follows EU supplement regulations with ASAE (Food and Economic Safety Authority) oversight.Growing online supplement market.',
+    regulatoryNote: 'Portugal follows EU supplement regulations with ASAE (Food and Economic Safety Authority) oversight. Growing online supplement market.',
     shippingNote: 'EU storefronts ship to Portugal (mainland). Madeira and Azores may have longer delivery times. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
