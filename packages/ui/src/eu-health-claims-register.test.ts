@@ -34,11 +34,11 @@ const EU_SOURCES = [
   resolve(REPO_ROOT, 'packages/data/src/regional-notes/eu.ts'),
 ];
 
-// Case-sensitive on purpose: the lowercase URL slug
-// /efsa-approved-cognitive-supplements/ is kept for link stability.
+// The URL slug /efsa-approved-cognitive-supplements/ is kept for link
+// stability, so "approved" is matched case-insensitively except in the slug.
 const BANNED_WORDING: RegExp[] = [
   /EFSA[- ]authori[sz]ed/i,
-  /EFSA[- ]approved/,
+  /EFSA[- ]approved(?!-cognitive-supplements)/i,
   /EFSA[- ]recogni[sz]ed/i,
   /EFSA (has |had )?authori[sz]e[sd]?/i,
   /authori[sz]e[sd]? the (alertness|attention|concentration)(\/attention)? claim/i,
