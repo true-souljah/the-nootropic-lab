@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { CONSENT_CHOICE_EVENT, hasConsentChoice } from './CookieBanner';
 
 interface Props {
@@ -49,8 +49,21 @@ export default function StickyCtaBar({
 
   const show = visible && cookieDismissed;
 
+  // While the fixed bar is showing, reserve its height at the end of the page
+  // so it never covers the bottom of the content — notably the persistent
+  // "Cookie settings" consent control (WCAG 2.4.11 Focus Not Obscured).
+  const barRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!show || !barRef.current) return;
+    const previous = document.body.style.paddingBottom;
+    document.body.style.paddingBottom = `${barRef.current.offsetHeight}px`;
+    return () => {
+      document.body.style.paddingBottom = previous;
+    };
+  }, [show]);
+
   return (
-    <div className={`sticky-cta-bar ${show ? 'visible' : ''}`} role="complementary" aria-live="polite" aria-label={ariaLabel}>
+    <div ref={barRef} className={`sticky-cta-bar ${show ? 'visible' : ''}`} role="complementary" aria-live="polite" aria-label={ariaLabel}>
       <span className="text-sm font-medium">
         {pickLabel} {productName}
       </span>

@@ -52,8 +52,7 @@ for (const region of scanRegions) {
   }
   for (const file of files) {
     const rel = `${region}/${relative(out, file)}`;
-    // Next's not-found shells (404.html / _not-found) are error pages, not content routes.
-    if (/(^|\/)(404|_not-found)(\/index)?\.html$/.test(relative(out, file))) continue;
+    // 404.html / _not-found are included on purpose: a visitor can land there.
     pages++;
     const html = readFileSync(file, 'utf8');
     for (const m of html.matchAll(/<(script|link)\b[^>]*>/gi)) {

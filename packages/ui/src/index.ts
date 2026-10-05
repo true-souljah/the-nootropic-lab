@@ -111,6 +111,7 @@ export type { PublicShellProps } from './templates/PublicShell';
 // Shared cookie/privacy policy template (7 regions use this; LATAM has
 // its own Spanish-language version that doesn't go through this template).
 export { default as PolicyPage } from './templates/PolicyPage';
+export { default as NotFound } from './templates/NotFound';
 export type { PolicyPageProps } from './templates/PolicyPage';
 
 // App shell + surfaces (Stack redesign — M3)
