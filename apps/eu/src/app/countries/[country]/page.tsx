@@ -37,6 +37,9 @@ const topProducts = productsEU
   .sort((a, b) => b.score - a.score)
   .slice(0, 3);
 
+// The storefront sentence must match the listed records (`euStorefront`).
+const allTopOnEUStorefront = topProducts.every(p => p.euStorefront);
+
 export default async function CountryPage({
   params,
 }: {
@@ -116,8 +119,10 @@ export default async function CountryPage({
             Top Picks for {c.name} Buyers
           </h2>
           <p className="text-sm text-gray-600 mb-4">
-            All products below have EU storefronts and ship to {c.name}. Scores are from our
-            independent editorial review.
+            {allTopOnEUStorefront
+              ? 'Every product below is sold from an EU storefront in EUR.'
+              : 'Products marked EU storefront are sold from an EU-based store in EUR; the others ship from outside the EU — confirm delivery and duties at checkout.'}{' '}
+            Scores are from our independent editorial review.
           </p>
           <div className="space-y-4">
             {topProducts.map((p, i) => (
@@ -140,7 +145,7 @@ export default async function CountryPage({
                   <div className="flex flex-wrap gap-3 text-xs text-gray-500">
                     <span>Score: <strong className="text-green-700">{p.score}/10</strong></span>
                     {p.priceMonthlyEUR && <span>€{p.priceMonthlyEUR}/mo</span>}
-                    <span>{p.euStorefront ? '✓ EU storefront' : 'Ships to EU'}</span>
+                    <span>{p.euStorefront ? '✓ EU storefront' : 'No EU storefront'}</span>
                   </div>
                 </div>
               </a>
