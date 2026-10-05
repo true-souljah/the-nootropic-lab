@@ -12,7 +12,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 export const metadata: Metadata = {
   title: `Best Nootropics for Studying ${CURRENT_YEAR} (EU): Independent Picks for European Students`,
   description:
-    'Independent EU ranking of nootropics for sustained study sessions. EUR pricing, EU storefronts, EFSA-compliant ingredients. Picks judged on focus + memory consolidation + safety for daily use.',
+    'Independent EU ranking of nootropics for sustained study sessions. EUR pricing, EU storefronts, ingredient framing that avoids unauthorised EU health claims. Picks judged on focus + memory consolidation + safety for daily use.',
   alternates: buildAlternates({ regionCode: 'eu', path: '/best-nootropics-for-studying/' }),
   openGraph: {
     title: 'Best Nootropics for Studying (EU) — Evidence-Graded',
@@ -104,7 +104,7 @@ export default function Page() {
       useCase="studying"
       pageTitle="Best Nootropics for Studying (EU)"
       pageDescription="Independent EU ranking of nootropics for sustained study sessions. EU-compliant, EUR-priced, evidence-graded."
-      heroParagraph="Studying combines two distinct cognitive demands: sustained focus during study sessions and memory consolidation between them. The best study stack covers both — acute-effect focus ingredients (L-theanine + caffeine) plus daily-use memory ingredients (Bacopa, citicoline). This page ranks the EU-storefront products that include both, with EUR pricing and EFSA-compliant labelling."
+      heroParagraph="Studying combines two distinct cognitive demands: sustained focus during study sessions and memory consolidation between them. The best study stack covers both — acute-effect focus ingredients (L-theanine + caffeine) plus daily-use memory ingredients (Bacopa, citicoline). This page ranks the EU-storefront products that include both, with EUR pricing."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

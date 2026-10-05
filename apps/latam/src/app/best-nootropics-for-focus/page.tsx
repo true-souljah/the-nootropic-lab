@@ -55,7 +55,7 @@ const picks: ListiclePick[] = [
     product: productsLatam.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Fórmula abierta con 100mg de L-teanina + 250mg de citicolina Cognizin a dosis clínicamente validadas. El diseño sin cafeína permite combinarlo con tu café o mate local para lograr el efecto sinérgico. Envío internacional confirmado a México, Brasil, Argentina, Colombia, Chile y Perú. Compradores en Brasil deben prever posibles retenciones de la Agência Nacional de Vigilância Sanitária (ANVISA); los argentinos deben verificar que su tarjeta procese cargos en USD pese al control cambiario.',
+      'Fórmula abierta con 100mg de L-teanina + 250mg de citicolina Cognizin a dosis clínicamente validadas. El diseño sin cafeína permite combinarlo con tu café o mate local para lograr el efecto sinérgico. Envío internacional confirmado a México, Brasil, Argentina, Colombia, Chile y Perú. Los aranceles de importación y el despacho aduanero corren por cuenta del comprador; los argentinos deben verificar que su tarjeta procese cargos en USD pese al control cambiario.',
   },
   {
     product: productsLatam.find(p => p.slug === 'qualia-mind-review')!,
@@ -86,7 +86,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: '¿Estos productos son legales en mi país de Latam?',
-    a: 'Los suplementos nootrópicos importados ingresan a Latam bajo las exenciones de uso personal. la Comisión Federal para la Protección contra Riesgos Sanitarios (COFEPRIS) en México, la Agência Nacional de Vigilância Sanitária (ANVISA) en Brasil, el Instituto Nacional de Vigilancia de Medicamentos y Alimentos (INVIMA) en Colombia, ISP (Chile) y DIGEMID (Perú) generalmente permiten un suministro de 1 a 3 meses para uso personal. En Argentina, la Disposición 2105/2022 de la ANMAT prohibió siete productos concretos no registrados (Noopept, F-Phenibut y Bacopa de las marcas Newmind y PURENOOTROPICS) — ninguno de los productos recomendados aquí es uno de esos productos ni contiene Noopept o F-Phenibut.',
+    a: 'La Comisión Federal para la Protección contra Riesgos Sanitarios (COFEPRIS) en México, la Agência Nacional de Vigilância Sanitária (ANVISA) en Brasil, el Instituto Nacional de Vigilancia de Medicamentos y Alimentos (INVIMA) en Colombia, el Instituto de Salud Pública (ISP) en Chile y la Dirección General de Medicamentos, Insumos y Drogas (DIGEMID) en Perú son las autoridades sanitarias que regulan los suplementos en sus países. Las reglas de cantidad para la importación de suplementos para uso personal no pudieron confirmarse en una página oficial en nuestra revisión del 5 de octubre de 2026: confirma con la aduana de tu país antes de hacer un pedido. En Argentina, la Disposición 2105/2022 de la ANMAT prohibió siete productos concretos no registrados (Noopept, F-Phenibut y Bacopa de las marcas Newmind y PURENOOTROPICS) — ninguno de los productos recomendados aquí es uno de esos productos ni contiene Noopept o F-Phenibut.',
   },
   {
     q: '¿Dónde puedo comprar nootrópicos en Latam?',

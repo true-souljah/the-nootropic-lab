@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest';
-import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { resolve, dirname, extname } from 'node:path';
 
 // EU health-claims compliance guard.
@@ -112,4 +112,30 @@ describe('EU copy does not call claims "EFSA-authorised" or present caffeine cog
       }
     });
   }
+});
+
+// EFSA assesses claims and certifies nothing, so no product, label or
+// framing can be "EFSA-compliant" or "EFSA-aware". Checked in every region.
+const EFSA_CERTIFICATION_WORDING = /EFSA[- ](compliant|aware|certified)/i;
+
+const ALL_REGION_SOURCES = [
+  ...readdirSync(resolve(REPO_ROOT, 'apps'))
+    .map(app => resolve(REPO_ROOT, 'apps', app, 'src'))
+    .filter(dir => existsSync(dir))
+    .flatMap(dir => walk(dir, new Set(['.ts', '.tsx', '.json', '.md', '.mdx']))),
+  ...walk(resolve(REPO_ROOT, 'packages/data/src'), new Set(['.ts', '.tsx', '.json', '.md', '.mdx'])),
+];
+
+describe('no region calls anything "EFSA-compliant" or "EFSA-aware"', () => {
+  test('scanned a non-empty file set', () => {
+    expect(ALL_REGION_SOURCES.length).toBeGreaterThan(100);
+  });
+
+  test('no source file uses EFSA certification wording', () => {
+    const hits = ALL_REGION_SOURCES.flatMap(file => {
+      const m = readFileSync(file, 'utf8').match(EFSA_CERTIFICATION_WORDING);
+      return m ? [`${file.slice(REPO_ROOT.length + 1)}: "${m[0]}"`] : [];
+    });
+    expect(hits).toEqual([]);
+  });
 });

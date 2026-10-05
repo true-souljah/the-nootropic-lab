@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   alternates: buildAlternates({ regionCode: 'eu', path: '/best-nootropics-for-memory/' }),
   openGraph: {
     title: 'Best Nootropics for Memory (EU) — Evidence-Graded',
-    description: 'EU-storefront memory picks. EUR pricing. EFSA-aware ingredient framing.',
+    description: 'EU-storefront memory picks. EUR pricing. Ingredient framing that avoids unauthorised EU health claims.',
     type: 'article',
   },
   twitter: { card: 'summary' },
