@@ -33,7 +33,7 @@ export default function BestNootropicsLatamPage() {
       <BestOf
         products={productsLatam}
         breadcrumbs={[{ label: 'Best of', href: '/best-nootropics' }]}
-        hero={{ eyebrow: `Latinoamérica · Auditado ${CURRENT_YEAR}`, h1: `Los Mejores Nootrópicos en Latinoamérica ${CURRENT_YEAR}`, dek: 'Confirma en el checkout si la marca envía a tu país. Marcas que cumplen con COFEPRIS, ANVISA, ANMAT, INVIMA, ISP y DIGEMID.' }}
+        hero={{ eyebrow: `Latinoamérica · Auditado ${CURRENT_YEAR}`, h1: `Los Mejores Nootrópicos en Latinoamérica ${CURRENT_YEAR}`, dek: 'Confirma en el checkout si la marca envía a tu país. Marcas evaluadas por su evidencia e ingredientes; no verificamos su conformidad con los reguladores de cada país.' }}
         searchItems={searchItems} uiStrings={uiStrings} trackingSurface="best_of_latam"
         preList={
           <div className="flex flex-col gap-5">

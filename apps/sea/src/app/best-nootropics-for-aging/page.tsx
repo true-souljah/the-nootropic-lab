@@ -97,7 +97,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'What does the FDA qualified health claim for PS mean?',
-    a: 'The US FDA allows phosphatidylserine to carry a qualified claim that "very limited and preliminary scientific research suggests that PS may reduce the risk of dementia or cognitive dysfunction in the elderly." This is a softer claim than full FDA-approved health claims and reflects evidence quality, not a disease-prevention promise. SEA regulators (HSA, NPRA, BPOM, FDA TH/PH, VFA) do not currently grant equivalent claims — products with PS sold across SEA cannot make dementia-prevention statements on local labels.',
+    a: 'The US FDA allows phosphatidylserine to carry a qualified claim that "very limited and preliminary scientific research suggests that PS may reduce the risk of dementia or cognitive dysfunction in the elderly." This is a softer claim than full FDA-approved health claims and reflects evidence quality, not a disease-prevention promise. SEA regulators (HSA, NPRA, BPOM, FDA TH/PH) do not currently grant equivalent claims — products with PS sold across SEA cannot make dementia-prevention statements on local labels.',
   },
   {
     q: 'Are these safe alongside blood-pressure or cholesterol medications?',
@@ -116,7 +116,7 @@ export default function Page() {
       useCase="aging"
       pageTitle="Best Nootropics for Aging Brain in SEA"
       pageDescription="Independent ranking of nootropics for SEA adults concerned about age-related cognitive changes."
-      heroParagraph="Age-related cognitive change is normal — memory recall slows, processing speed reduces. The supplements on this page have evidence specifically in older adults with subjective cognitive complaints. They are NOT treatments for dementia, Alzheimer's, or any clinical cognitive disease. For those, see a neurologist at NUH/SGH (Singapore), UMMC (Malaysia), Siriraj (Thailand), PGH (Philippines), or your equivalent regional centre. This page ranks the options for SEA buyers — including Asia-developed formulas (Eu Yan Sang BrainMAX+ with Cera-Q) and imported stacks, noting where a brand does not ship to the region. Halal status (BPJPH, JAKIM), distribution route, and import notes per country (HSA SG, NPRA MY, BPOM ID, FDA TH/PH, VFA VN) included where known."
+      heroParagraph="Age-related cognitive change is normal — memory recall slows, processing speed reduces. The supplements on this page have evidence specifically in older adults with subjective cognitive complaints. They are NOT treatments for dementia, Alzheimer's, or any clinical cognitive disease. For those, see a neurologist at NUH/SGH (Singapore), UMMC (Malaysia), Siriraj (Thailand), PGH (Philippines), or your equivalent regional centre. This page ranks the options for SEA buyers — including Asia-developed formulas (Eu Yan Sang BrainMAX+ with Cera-Q) and imported stacks, noting where a brand does not ship to the region. Halal status (Indonesia’s Badan Penyelenggara Jaminan Produk Halal (BPJPH) and the Department of Islamic Development Malaysia (JAKIM)), distribution route, and import notes per country (Singapore’s Health Sciences Authority (HSA), Malaysia’s National Pharmaceutical Regulatory Agency (NPRA), Indonesia’s Badan Pengawas Obat dan Makanan (BPOM), and the Thai and Philippine Food and Drug Administrations (FDA)) included where known."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}
