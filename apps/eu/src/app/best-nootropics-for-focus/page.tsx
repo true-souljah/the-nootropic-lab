@@ -26,7 +26,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Theanine + Caffeine (1:2 to 2:1 ratio)',
     evidence:
-      'Among the best-replicated cognitive findings: L-theanine paired with caffeine improves attention switching and reduces mental fatigue, with smoother subjective focus than caffeine alone. Effective at 100–200mg L-theanine + 75–100mg caffeine. The European Food Safety Authority (EFSA) has authorised the alertness/attention claim for caffeine at ≥75mg per serving (Regulation (EU) No 432/2012).',
+      'Among the best-replicated cognitive findings: L-theanine paired with caffeine improves attention switching and reduces mental fatigue, with smoother subjective focus than caffeine alone. Effective at 100–200mg L-theanine + 75–100mg caffeine. No caffeine alertness or attention claim is authorised in the EU: the European Food Safety Authority (EFSA) assessed a ≥75mg alertness claim favourably in 2011, but the European Commission never authorised it, and caffeine is not on the Regulation (EU) No 432/2012 list.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
   },
   {
@@ -73,7 +73,7 @@ const picks: ListiclePick[] = [
 const faqItems: ListicleFAQ[] = [
   {
     q: 'What is the most evidence-backed nootropic for focus available in the EU?',
-    a: 'L-theanine paired with caffeine (1:2 to 2:1 ratio) has the strongest replication evidence in healthy adults — Owen et al. 2008 and multiple follow-ups. EFSA has authorised the alertness claim for caffeine at ≥75mg per serving. Citicoline at 250–500mg also has multiple RCTs and Novel Food authorisation. Single-ingredient supplements claiming "powerful focus" without these are typically over-marketed.',
+    a: 'L-theanine paired with caffeine (1:2 to 2:1 ratio) has the strongest replication evidence in healthy adults — Owen et al. 2008 and multiple follow-ups. That is trial evidence, not a label claim: no caffeine alertness claim is authorised in the EU. Citicoline at 250–500mg also has multiple RCTs and Novel Food authorisation. Single-ingredient supplements claiming "powerful focus" without these are typically over-marketed.',
   },
   {
     q: 'How long does it take a focus nootropic to work?',
@@ -81,7 +81,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Are these products fully EU-compliant?',
-    a: 'Every product on this page except NooCube has a dedicated EU storefront (NooCube is sold from a GBP-priced UK store that does not ship to Germany, France or the Netherlands), and all use ingredients with established food-supplement status under EU Directive 2002/46/EC. Health-claim language on labels follows EFSA-authorised claims under Regulation (EC) 1924/2006. Citicoline is authorised under Novel Food Regulation (EU) 2015/2283. We exclude products that use ingredient blends or claims that would not pass EFSA review.',
+    a: 'Every product on this page except NooCube has a dedicated EU storefront (NooCube is sold from a GBP-priced UK store that does not ship to Germany, France or the Netherlands), and all use ingredients with established food-supplement status under EU Directive 2002/46/EC. Health-claim language on EU labels is limited to EU-authorised claims (assessed by EFSA) under Regulation (EC) 1924/2006. Citicoline is authorised under Novel Food Regulation (EU) 2015/2283. We exclude products that use ingredient blends or claims that would not pass EFSA review.',
   },
   {
     q: 'Are focus nootropics safe to take daily?',
@@ -109,7 +109,7 @@ export default function Page() {
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}
-      regulatoryPillar={{ label: 'EFSA-approved cognitive supplement framework', href: '/efsa-approved-cognitive-supplements/' }}
+      regulatoryPillar={{ label: 'EU-authorised cognitive health claims (assessed by EFSA)', href: '/efsa-approved-cognitive-supplements/' }}
       relatedCompares={[
         { label: "BRAINEFFECT vs Mind Lab Pro", href: '/braineffect-vs-mind-lab-pro/' },
       ]}

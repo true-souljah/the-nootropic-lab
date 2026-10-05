@@ -109,7 +109,7 @@ export default function Page() {
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}
-      regulatoryPillar={{ label: 'EFSA-approved cognitive supplement framework', href: '/efsa-approved-cognitive-supplements/' }}
+      regulatoryPillar={{ label: 'EU-authorised cognitive health claims (assessed by EFSA)', href: '/efsa-approved-cognitive-supplements/' }}
       healthDisclaimer={getRegionalHealthDisclaimer('eu')}
       searchItems={searchItems}
       uiStrings={uiStrings}

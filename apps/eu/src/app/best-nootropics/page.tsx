@@ -94,7 +94,7 @@ export default function BestNootropicsEUPage() {
               <p className="text-[13.5px] text-ds-ink-soft m-0 leading-[1.65]">
                 Nootropic supplements are regulated as food supplements in the EU under{' '}
                 <strong>Directive 2002/46/EC</strong>. Health claims must comply with{' '}
-                <strong>Regulation (EC) 1924/2006</strong> using EFSA-approved claims only.
+                <strong>Regulation (EC) 1924/2006</strong> using EU-authorised claims (assessed by EFSA) only.
                 Novel Food ingredients require authorisation under{' '}
                 <strong>Regulation (EU) 2015/2283</strong>. Products rated{' '}
                 <Chip tone="good">EU-compliant</Chip> in the table use ingredients with established
@@ -168,7 +168,7 @@ export default function BestNootropicsEUPage() {
             </section>
           </>
         }
-              regulatoryPillar={{ label: 'EFSA-approved cognitive supplement framework', href: '/efsa-approved-cognitive-supplements/' }}
+              regulatoryPillar={{ label: 'EU-authorised cognitive health claims (assessed by EFSA)', href: '/efsa-approved-cognitive-supplements/' }}
       />
     </>
   );

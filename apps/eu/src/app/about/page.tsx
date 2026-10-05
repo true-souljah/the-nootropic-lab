@@ -48,7 +48,7 @@ export default function AboutPage() {
             table has a dedicated EU storefront (EUR pricing, no import duties) and has been checked
             against{' '}
             <strong>EU Directive 2002/46/EC</strong> on food supplements,{' '}
-            <strong>Regulation (EC) 1924/2006</strong> on EFSA-authorised health claims, and{' '}
+            <strong>Regulation (EC) 1924/2006</strong> on EU-authorised health claims (assessed by EFSA), and{' '}
             <strong>Regulation (EU) 2015/2283</strong> on Novel Food authorisation. Every review
             includes a clinical dosing audit comparing each ingredient against the minimum effective
             dose from peer-reviewed trials.

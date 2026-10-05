@@ -23,7 +23,7 @@ export default function Page() {
       siteUrl={SITE_URL}
       marketLabel="European Union edition"
       contactEmail={CONTACT_EMAIL}
-      regionNote="Health claims about cognitive supplements published in the EU are governed by Regulation (EC) No 1924/2006. Editorial copy on this site describes ingredient mechanisms studied in clinical trials and does not assert label-grade health claims. Only EFSA-approved health claims may appear on product labelling."
+      regionNote="Health claims about cognitive supplements published in the EU are governed by Regulation (EC) No 1924/2006. Editorial copy on this site describes ingredient mechanisms studied in clinical trials and does not assert label-grade health claims. Only EU-authorised health claims (assessed by EFSA) may appear on product labelling."
     />
     </PublicShell>
   );
