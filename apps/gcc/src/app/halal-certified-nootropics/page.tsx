@@ -12,10 +12,10 @@ const auditDateIso = new Date().toISOString().split('T')[0];
 export const metadata: Metadata = {
   title: 'Halal-Certified Cognitive Supplements (GCC): Capsule Source, Certifying Authorities & SFDA Status',
   description:
-    'GCC consumers expect Halal-certified supplements. Capsule shells (gelatin vs HPMC vegetable cellulose) are a meaningful differentiator. Full guide to Halal certifying authorities accepted in Saudi Arabia, UAE, and the broader GCC, plus audit of our nootropic catalog.',
+    'GCC consumers expect Halal-certified supplements. Capsule shells (gelatin vs HPMC vegetable cellulose) are a meaningful differentiator. Guide to Halal certifying authorities and what we could confirm about their recognition in the GCC, plus audit of our nootropic catalog.',
   alternates: buildAlternates({ regionCode: 'gcc', path: '/halal-certified-nootropics/', availableInRegions: ['gcc'] }),
-  openGraph: buildOpenGraph({ regionCode: 'gcc', path: '/halal-certified-nootropics/', title: 'Halal-Certified Cognitive Supplements (GCC): Capsule Source, Certifying Authorities & SFDA Status', description: 'GCC consumers expect Halal-certified supplements. Capsule shells (gelatin vs HPMC vegetable cellulose) are a meaningful differentiator. Full guide to Halal certifying authorities accepted in Saudi Arabia, UAE, and the broader GCC, plus audit of our nootropic catalog.' }),
-  twitter: buildTwitter({ title: 'Halal-Certified Cognitive Supplements (GCC): Capsule Source, Certifying Authorities & SFDA Status', description: 'GCC consumers expect Halal-certified supplements. Capsule shells (gelatin vs HPMC vegetable cellulose) are a meaningful differentiator. Full guide to Halal certifying authorities accepted in Saudi Arabia, UAE, and the broader GCC, plus audit of our nootropic catalog.' }),
+  openGraph: buildOpenGraph({ regionCode: 'gcc', path: '/halal-certified-nootropics/', title: 'Halal-Certified Cognitive Supplements (GCC): Capsule Source, Certifying Authorities & SFDA Status', description: 'GCC consumers expect Halal-certified supplements. Capsule shells (gelatin vs HPMC vegetable cellulose) are a meaningful differentiator. Guide to Halal certifying authorities and what we could confirm about their recognition in the GCC, plus audit of our nootropic catalog.' }),
+  twitter: buildTwitter({ title: 'Halal-Certified Cognitive Supplements (GCC): Capsule Source, Certifying Authorities & SFDA Status', description: 'GCC consumers expect Halal-certified supplements. Capsule shells (gelatin vs HPMC vegetable cellulose) are a meaningful differentiator. Guide to Halal certifying authorities and what we could confirm about their recognition in the GCC, plus audit of our nootropic catalog.' }),
 };
 
 interface HalalAuthority {
@@ -25,13 +25,17 @@ interface HalalAuthority {
   notes: string;
 }
 
+// Recognition is stated only where a fetched official page supports it
+// (nootropics-research/2026-09/p5/gcc-halal.json, re-checked 2026-10-05).
+const RECOGNITION_NOT_CONFIRMED = 'Not confirmed in our 2026-10-05 check';
+
 const halalAuthorities: HalalAuthority[] = [
-  { authority: 'JAKIM (Department of Islamic Development Malaysia)', country: 'Malaysia', recognisedIn: 'Saudi Arabia, UAE, Kuwait, Qatar, Bahrain, Oman, Indonesia (recognised), worldwide reference standard', notes: 'Widely regarded as the most rigorous Halal-certifying authority globally. Many international supplement manufacturers seek JAKIM certification specifically because of its broad acceptance.' },
-  { authority: 'MUI (Indonesian Ulema Council) / BPJPH', country: 'Indonesia', recognisedIn: 'Indonesia (mandatory under federal law), UAE, GCC widely', notes: 'Since 2024, BPJPH (Halal Product Assurance Agency) issues certificates with technical assessment by MUI. Mandatory for food and beverages since 17 October 2024; for health supplements the obligation takes effect 17 October 2026.' },
-  { authority: 'Halal Council of Britain (HFA / HMC)', country: 'United Kingdom', recognisedIn: 'UAE, Saudi Arabia (case-by-case), GCC widely, EU markets', notes: 'Common certifier for UK-domiciled supplement brands shipping to GCC.' },
-  { authority: 'IFANCA (Islamic Food and Nutrition Council of America)', country: 'United States', recognisedIn: 'Saudi Arabia (case-by-case), UAE, GCC widely', notes: 'Common certifier for U.S.-domiciled supplement brands. Recognition in individual GCC countries varies.' },
-  { authority: 'GAC (Gulf Accreditation Center) approved bodies', country: 'GCC', recognisedIn: 'GCC-wide via mutual recognition', notes: 'GAC accredits Halal-certifying bodies for GCC mutual recognition. Products certified by GAC-accredited bodies are recognised across the six GCC member states.' },
-  { authority: 'SFDA-approved local certifiers', country: 'Saudi Arabia', recognisedIn: 'Saudi Arabia primarily', notes: 'For products sold in Saudi pharmacies and major retailers, SFDA may require certification by an SFDA-recognised body.' },
+  { authority: 'JAKIM (Department of Islamic Development Malaysia)', country: 'Malaysia', recognisedIn: RECOGNITION_NOT_CONFIRMED, notes: 'Malaysian certifier. Its acceptance by individual GCC regulators was not confirmed.' },
+  { authority: 'MUI (Indonesian Ulema Council) / BPJPH', country: 'Indonesia', recognisedIn: RECOGNITION_NOT_CONFIRMED, notes: 'Since 2024, BPJPH (Halal Product Assurance Agency) issues certificates with technical assessment by MUI. Mandatory for food and beverages since 17 October 2024; for health supplements the obligation takes effect 17 October 2026.' },
+  { authority: 'Halal Council of Britain (HFA / HMC)', country: 'United Kingdom', recognisedIn: RECOGNITION_NOT_CONFIRMED, notes: 'UK-based certifier. Its acceptance by individual GCC regulators was not confirmed.' },
+  { authority: 'IFANCA (Islamic Food and Nutrition Council of America)', country: 'United States', recognisedIn: RECOGNITION_NOT_CONFIRMED, notes: 'U.S.-based certifier. Its acceptance by individual GCC regulators was not confirmed.' },
+  { authority: 'GAC (Gulf Accreditation Center) approved bodies', country: 'GCC', recognisedIn: RECOGNITION_NOT_CONFIRMED, notes: 'The GCC Standardization Organization (GSO) standard GSO 2055-2:2021 sets the requirements for halal certification bodies. Which bodies GAC has accredited, and how each GCC state treats their certificates, was not confirmed.' },
+  { authority: 'SFDA-approved local certifiers', country: 'Saudi Arabia', recognisedIn: RECOGNITION_NOT_CONFIRMED, notes: 'The Saudi Halal Center runs halal.gov.sa; its certification requirements could not be read in our 2026-10-05 check because the site is script-rendered.' },
   { authority: 'MoIAT Halal National Mark (UAE Ministry of Industry and Advanced Technology)', country: 'United Arab Emirates', recognisedIn: 'United Arab Emirates (national conformity mark)', notes: 'Issued by the Department of Conformity at the UAE Ministry of Industry and Advanced Technology under Cabinet Decree 10/2014, as a national conformity mark for products, services and production systems.' },
 ];
 
@@ -63,7 +67,7 @@ const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: 'Halal-Certified Cognitive Supplements in the GCC',
-  description: 'Guide to Halal certifying authorities recognised in the GCC, capsule-shell composition, and SFDA registration status for cognitive supplements.',
+  description: 'Guide to Halal certifying authorities and what we could confirm about their recognition in the GCC, capsule-shell composition, and SFDA registration status for cognitive supplements.',
   datePublished: '2026-05-05',
   dateModified: auditDateIso,
   author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
@@ -74,8 +78,8 @@ const articleSchema = {
 const datasetSchema = {
   '@context': 'https://schema.org',
   '@type': 'Dataset',
-  name: 'Halal-Certifying Authorities Recognised in the GCC — Cognitive Supplements',
-  description: 'Structured reference of Halal-certifying authorities accepted by Gulf Cooperation Council member states for dietary supplements.',
+  name: 'Halal-Certifying Authorities and GCC Recognition — Cognitive Supplements',
+  description: 'Structured reference of Halal-certifying authorities and what we could confirm about their acceptance by Gulf Cooperation Council member states for dietary supplements.',
   url: PAGE_URL,
   keywords: ['Halal', 'GCC', 'Saudi Arabia', 'UAE', 'JAKIM', 'MUI', 'BPJPH', 'IFANCA', 'cognitive supplements', 'SFDA', 'capsule source'],
   isAccessibleForFree: true,
@@ -100,11 +104,11 @@ const breadcrumbSchema = {
 };
 
 const faqs = [
-  { q: 'Why does Halal certification matter for nootropic supplements?', a: 'Two reasons. First, capsule shells: gelatin capsules are typically derived from porcine or bovine sources, and Halal compliance requires either bovine gelatin from Halal-slaughtered animals or plant-based alternatives (HPMC, pullulan). Most supplement brands using vegetable capsules are Halal-friendly even without formal certification. Second, ingredients: alcohol extracts, certain emulsifiers, and some animal-derived ingredients require verification. Formal Halal certification confirms both elements have been audited.' },
+  { q: 'Why does Halal certification matter for nootropic supplements?', a: 'Two reasons. First, capsule shells: NOW Foods, a brand that sells halal-certified supplements, says its halal gelatin capsules use bovine- or fish-derived gelatin, never porcine; plant-based shells (HPMC, pullulan) avoid the gelatin question. Second, ingredients: alcohol used as a carrier in flavourings and some animal-derived additives, such as L-cysteine, need verification. Formal Halal certification confirms both elements have been audited.' },
   { q: 'What is HPMC and is it Halal?', a: 'HPMC (hydroxypropyl methylcellulose) is a plant-derived capsule material made from cellulose. It is intrinsically Halal-friendly and Vegan-friendly, requiring no animal sourcing audit. Not every plant-based capsule is HPMC: Mind Lab Pro uses pullulan capsules (NutriCaps), and most other brands in our GCC catalogue do not name their capsule material on their product pages (see the audit above). We surface capsule-source information where it is verifiable from manufacturer documentation.' },
-  { q: 'Which Halal authority is most widely recognised in the GCC?', a: 'JAKIM Malaysia is the most widely recognised internationally. Saudi Arabia\'s SFDA accepts certifications from a list of approved bodies including JAKIM, IFANCA, and GAC-accredited regional certifiers. UAE accepts JAKIM, MUI Indonesia, Halal Council of Britain, and IFANCA. For products sold across multiple GCC countries, JAKIM certification is the safest bet for broad acceptance.' },
-  { q: 'Can I trust a "Halal" claim without third-party certification?', a: 'A formal certification mark from a recognised authority (JAKIM, MUI, IFANCA, etc.) carries the most weight. Manufacturer self-declarations of "Halal" or "suitable for Halal diet" without third-party certification are weaker signals. We surface formal certifications where verifiable and never fabricate certifications. For products without formal certification but using HPMC capsules and no alcohol/animal extracts, we describe the ingredient and capsule source so consumers can make informed decisions.' },
-  { q: 'What is SFDA and how does it differ from Halal certification?', a: 'The Saudi Food and Drug Authority regulates safety, efficacy, and quality of supplements sold in Saudi Arabia. SFDA registration confirms regulatory clearance to sell — separate from Halal certification, which addresses religious dietary compliance. A product may be SFDA-registered without Halal certification (and vice versa, in theory). Premium supplements sold in Saudi pharmacies typically hold both.' },
+  { q: 'Which Halal authority is most widely recognised in the GCC?', a: 'We could not confirm from an official page which foreign certifying bodies each GCC state accepts (2026-10-05 check). In the UAE, the Ministry of Industry and Advanced Technology (MoIAT) cites Cabinet Decree 10/2014, under which establishments must obtain halal certificates from certification bodies registered by the ministry. Check with the regulator in your state before relying on a particular certificate.' },
+  { q: 'Can I trust a "Halal" claim without third-party certification?', a: 'A formal certification mark from a third-party certifying body carries more weight. Manufacturer self-declarations of "Halal" or "suitable for Halal diet" without third-party certification are weaker signals. We surface formal certifications where verifiable and never fabricate certifications. For products without formal certification but using HPMC capsules and no alcohol/animal extracts, we describe the ingredient and capsule source so consumers can make informed decisions.' },
+  { q: 'What is SFDA and how does it differ from Halal certification?', a: 'The Saudi Food and Drug Authority regulates safety, efficacy, and quality of supplements sold in Saudi Arabia. SFDA registration confirms regulatory clearance to sell — separate from Halal certification, which addresses religious dietary compliance. A product may be SFDA-registered without Halal certification (and vice versa, in theory).' },
   { q: 'Is taking a nootropic permissible at all?', a: 'A fatwa published on islamweb.net (fatwa No. 354190, on taking nootropics) states that “the basic principle is that it is permissible to use every useful thing unless there is a reason to forbid it, such as if it causes harm”, and leaves the assessment of benefit and harm to medical specialists. It does not address whether a particular product’s ingredients or capsule are halal-compliant, which is the certification question this page covers. We report what the fatwa says; this page is not a religious ruling.' },
   { q: 'Is a vegetarian capsule the same as a halal-certified one?', a: 'No. “Vegetarian” or “vegan” describes where the ingredients come from; halal certification is a separate audit by a certifying body. NooCube and Onnit describe their products as vegetarian, and Mind Lab Pro markets its capsules as vegan, but none of those brand pages claims a halal certificate.' },
 ];
@@ -139,7 +143,7 @@ export default function Page() {
           composition</strong> (gelatin requires Halal-slaughter provenance; HPMC vegetable cellulose is
           intrinsically Halal-friendly) and <strong>ingredient sourcing</strong> (alcohol extracts and
           animal-derived ingredients require verification). This page covers what a published fatwa says on the
-          first question, the certifying authorities accepted in Saudi Arabia, UAE, and the broader GCC, capsule-source
+          first question, the main certifying authorities and what we could confirm about their recognition in the GCC, capsule-source
           taxonomy, and what each brand in our GCC catalogue says about its capsules. For our rankings, see{' '}
           <Link href="/best-nootropics/" className="text-green-700 underline">the best nootropics for the GCC</Link>.
         </p>
@@ -199,7 +203,7 @@ export default function Page() {
         </section>
 
         <section className="my-10">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Recognised Halal-certifying authorities</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Halal-certifying authorities and what we could confirm</h2>
           <div className="space-y-4">
             {halalAuthorities.map(a => (
               <div key={a.authority} className="border border-gray-200 rounded-xl p-5">

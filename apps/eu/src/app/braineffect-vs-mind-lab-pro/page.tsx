@@ -36,7 +36,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'EU compliance — how did the two compare?',
     a:
-      'Both were sold as EU food supplements. BRAINEFFECT FOCUS used European Food Safety Authority (EFSA)-authorised claims on its label; its 80mg of caffeine per serving was above the 75mg level at which EFSA authorises the alertness claim. Mind Lab Pro has an EU storefront with EUR pricing and EU-compliant labelling.',
+      'Both were sold as EU food supplements. BRAINEFFECT FOCUS contained 80mg of caffeine per serving, but no caffeine cognition claim is authorised in the EU: the European Food Safety Authority (EFSA) assessed a 75mg alertness claim favourably in 2011, yet the European Commission never added any caffeine claim to the list of authorised health claims, and it refused a 40–75mg alertness claim in Regulation (EU) 2016/1411. Mind Lab Pro has an EU storefront with EUR pricing and EU-compliant labelling.',
   },
   {
     q: 'Price difference?',

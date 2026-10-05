@@ -65,7 +65,7 @@ export default function MethodologyEUPage() {
           </p>
           <ul className="list-disc list-inside text-sm text-gray-600 space-y-1 mb-3">
             <li><strong>Directive 2002/46/EC</strong> — food supplement ingredient safety</li>
-            <li><strong>Regulation (EC) 1924/2006</strong> — only EFSA-authorised health claims</li>
+            <li><strong>Regulation (EC) 1924/2006</strong> — only EU-authorised health claims (assessed by EFSA)</li>
             <li><strong>Regulation (EU) 2015/2283</strong> — Novel Food authorisation status</li>
           </ul>
           <p className="text-sm text-gray-600 leading-relaxed">

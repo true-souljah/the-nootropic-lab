@@ -13,7 +13,7 @@ export const euCountries: EUCountry[] = [
     name: 'Austria',
     nativeName: 'Österreich',
     currency: 'EUR',
-    regulatoryNote: 'Nootropic supplements are regulated as Nahrungsergänzungsmittel (food supplements) under EU Directive 2002/46/EC as transposed into Austrian law. Health claims must comply with Regulation (EC) 1924/2006 using EFSA-approved claims only.',
+    regulatoryNote: 'Nootropic supplements are regulated as Nahrungsergänzungsmittel (food supplements) under EU Directive 2002/46/EC as transposed into Austrian law. Health claims must comply with Regulation (EC) 1924/2006 using EU-authorised claims (assessed by EFSA) only.',
     shippingNote: 'All products with EU storefronts ship to Austria. Delivery estimates vary by brand and carrier, so check the estimate at checkout. No import duties within the EU single market.',
   },
   {

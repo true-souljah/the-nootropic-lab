@@ -9,7 +9,9 @@ import {
   PublicShell,
 } from '@nootropic/ui';
 import {
+  ANMAT_DISPOSICION_2105_2022,
   anmatProhibitedCompounds,
+  anmatProhibitedProducts,
   auditProductsForAnmat,
   productsLatam,
   getRegionalHealthDisclaimer,
@@ -20,22 +22,28 @@ import { SITE_URL } from '@/lib/region';
 const PAGE_URL = `${SITE_URL}/anmat-disposicion-2105-2022-prohibidos/`;
 
 
+const PAGE_TITLE = 'ANMAT Disposición 2105/2022: los siete productos prohibidos en Argentina';
+const PAGE_DESCRIPTION =
+  'La Disposición 2105/2022 de la ANMAT prohíbe siete productos con nombre propio (Noopept, F-Phenibut y Bacopa de las marcas Newmind y PURENOOTROPICS). No prohíbe una clase de compuestos. Texto, alcance y verificación de nuestro catálogo LATAM.';
+
 export const metadata: Metadata = {
-  title: 'ANMAT Disposición 2105/2022: Nootrópicos prohibidos en Argentina',
-  description:
-    'Lista completa de nootrópicos prohibidos por ANMAT bajo la Disposición 2105/2022 (Noopept, racetams, fenibut, tianeptina, adrafinilo). Auditoría de nuestro catálogo LATAM contra esta lista. Guía para consumidores argentinos.',
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
   alternates: buildAlternates({ regionCode: 'latam', path: '/anmat-disposicion-2105-2022-prohibidos/', availableInRegions: ['latam'] }),
   openGraph: {
-    title: 'Nootrópicos prohibidos en Argentina — ANMAT 2105/2022',
-    description: 'Auditoría independiente de nuestro catálogo LATAM contra los compuestos prohibidos por ANMAT.',
+    title: 'ANMAT 2105/2022: siete productos prohibidos, no una clase de compuestos',
+    description: 'Qué prohíbe exactamente la Disposición 2105/2022 de la ANMAT, según el Boletín Oficial del 22 de marzo de 2022.',
     type: 'article',
   },
-  twitter: buildTwitter({ title: 'ANMAT Disposición 2105/2022: Nootrópicos prohibidos en Argentina', description: 'Lista completa de nootrópicos prohibidos por ANMAT bajo la Disposición 2105/2022 (Noopept, racetams, fenibut, tianeptina, adrafinilo). Auditoría de nuestro catálogo LATAM contra esta lista. Guía para consumidores argentinos.' }),
+  twitter: buildTwitter({ title: PAGE_TITLE, description: PAGE_DESCRIPTION }),
 };
 
 const audit = auditProductsForAnmat(productsLatam);
 const compliantCount = audit.filter(a => a.bannedCompounds.length === 0).length;
 const nonCompliantCount = audit.length - compliantCount;
+// Artículo 1 names products of two brands; the ingredient matcher cannot see
+// a brand, so check it separately before claiming no catalogue product is one.
+const catalogueBrandMatches = productsLatam.filter(p => /newmind|pure\s*nootropics/i.test(`${p.brand} ${p.name}`));
 const auditDate = new Date().toLocaleDateString('es-AR', {
   year: 'numeric',
   month: 'long',
@@ -47,9 +55,8 @@ const auditDateIso = new Date().toISOString().split('T')[0];
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: 'ANMAT Disposición 2105/2022: Nootrópicos prohibidos en Argentina',
-  description:
-    'Lista completa de compuestos nootrópicos prohibidos por ANMAT en Argentina, con auditoría de nuestro catálogo LATAM.',
+  headline: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
   datePublished: '2026-05-05',
   dateModified: auditDateIso,
   author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
@@ -57,15 +64,15 @@ const articleSchema = {
   reviewedBy: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
 };
 
-// Dataset schema — the prohibited compound list as structured data
+// Dataset schema — the seven products named in Artículo 1 as structured data
 const datasetSchema = {
   '@context': 'https://schema.org',
   '@type': 'Dataset',
-  name: 'ANMAT Disposición 2105/2022 — Prohibited Nootropic Compounds',
+  name: 'ANMAT Disposición 2105/2022 — Prohibited products (Artículo 1)',
   description:
-    'Structured list of nootropic compounds prohibited from sale as dietary supplements in Argentina under ANMAT Disposición 2105/2022, with mechanism and chemical-alias mappings.',
+    'The seven named products whose use, distribution and sale ANMAT Disposición 2105/2022 prohibits nationwide in Argentina (all lots and presentations), as written in Artículo 1 of the Boletín Oficial text of 22 March 2022. The disposition is a product-specific prohibition, not a ban on a class of compounds.',
   url: PAGE_URL,
-  keywords: ['ANMAT', 'Argentina', 'Disposición 2105/2022', 'nootropics', 'prohibited supplements', 'noopept', 'piracetam', 'phenibut', 'tianeptine'],
+  keywords: ['ANMAT', 'Argentina', 'Disposición 2105/2022', 'Boletín Oficial', 'Noopept', 'F-Phenibut', 'Newmind', 'PURENOOTROPICS'],
   isAccessibleForFree: true,
   license: 'https://creativecommons.org/licenses/by/4.0/',
   creator: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
@@ -74,13 +81,12 @@ const datasetSchema = {
     encodingFormat: 'text/html',
     contentUrl: PAGE_URL,
   },
-  variableMeasured: anmatProhibitedCompounds.map(c => ({
+  variableMeasured: anmatProhibitedProducts.map(p => ({
     '@type': 'PropertyValue',
-    name: c.name,
-    description: c.mechanismEn,
-    alternateName: c.aliases,
+    name: p.nameAsWritten,
+    description: `Brand: ${p.brand}. Basis: named in Artículo 1.`,
   })),
-  citation: 'ANMAT Disposición 2105/2022, Boletín Oficial República Argentina, 2022-04-08',
+  citation: `ANMAT Disposición ${ANMAT_DISPOSICION_2105_2022.number} (${ANMAT_DISPOSICION_2105_2022.gdeReference}), Boletín Oficial de la República Argentina, ${ANMAT_DISPOSICION_2105_2022.publishedDate}, ${ANMAT_DISPOSICION_2105_2022.sourceUrl}`,
 };
 
 const breadcrumbSchema = {
@@ -94,36 +100,26 @@ const breadcrumbSchema = {
 
 const faqs = [
   {
-    q: '¿Qué es la Disposición 2105/2022 de ANMAT?',
-    a: 'Es una resolución regulatoria emitida por la Administración Nacional de Medicamentos, Alimentos y Tecnología Médica de Argentina, publicada en el Boletín Oficial el 8 de abril de 2022. Prohíbe la comercialización de varios compuestos nootrópicos sintéticos (incluyendo Noopept, racetams como piracetam y aniracetam, fenibut, tianeptina y adrafinilo) como suplementos dietarios en Argentina.',
+    q: '¿Qué es la Disposición 2105/2022 de la ANMAT?',
+    a: 'Es una disposición de la Administración Nacional de Medicamentos, Alimentos y Tecnología Médica (ANMAT) de Argentina, firmada el 21 de marzo de 2022 y publicada en el Boletín Oficial el 22 de marzo de 2022. Su Artículo 1 prohíbe el uso, la distribución y la comercialización en todo el territorio nacional de todos los lotes y presentaciones de siete productos con nombre propio de las marcas Newmind y PURENOOTROPICS, ofrecidos en el sitio web noopept.com.ar.',
   },
   {
-    q: '¿Por qué ANMAT prohíbe estos compuestos?',
-    a: 'Los compuestos listados son sustancias farmacológicamente activas con perfiles de seguridad que requieren supervisión médica. Algunos (piracetam, tianeptina) están aprobados como medicamentos bajo prescripción en Argentina pero no como suplementos. Otros (Noopept, racetams sintéticos) carecen de aprobación regulatoria local y presentan riesgos de tolerancia, dependencia o interacciones medicamentosas.',
+    q: '¿Prohíbe una clase de compuestos nootrópicos?',
+    a: 'No. El Artículo 1 enumera siete productos concretos y no prohíbe ninguna clase de compuestos. Los considerandos también citan textualmente una afirmación publicitaria de esos productos ("será hasta mil veces más potente que el piracetam"); es una cita del material promocional, no una prohibición. La disposición tampoco menciona el fenibut sin flúor.',
   },
   {
-    q: '¿Puedo importar estos compuestos para uso personal?',
-    a: 'La importación personal de medicamentos no autorizados está restringida en Argentina. Los compuestos prohibidos por ANMAT no pueden importarse legalmente como suplementos. La compra a través de Mercado Libre cross-border o iHerb puede resultar en retenciones aduaneras, especialmente para envíos que contengan racetams, Noopept o fenibut.',
+    q: '¿Por qué la ANMAT prohibió estos productos?',
+    a: 'Según los considerandos, los productos declaraban en su composición sustancias no autorizadas en el Código Alimentario Argentino (CAA), entre ellas "4-Amino-3 (4-fluorophenyl) butyric acid HCL", "Noopept" y "Bacopa Monnieri whole herb extract"; no tenían registro ante la ANMAT; se promocionaban con afirmaciones terapéuticas; y no podían encuadrarse como suplementos dietarios. La ANMAT los consideró productos peligrosos para la salud.',
   },
   {
-    q: '¿Mis vitaminas o suplementos comunes están afectados?',
-    a: 'No. La Disposición 2105/2022 se aplica específicamente a compuestos nootrópicos sintéticos. Suplementos comunes (omega-3, vitaminas del complejo B, magnesio, hierbas adaptógenas como ashwagandha o rhodiola, ginkgo biloba, bacopa monnieri, L-teanina) no están afectados.',
+    q: '¿Afecta a los suplementos con Bacopa monnieri?',
+    a: 'La disposición prohíbe un producto concreto, "PURENOOTROPICS BACOGNIZE Bacopa Monnieri", y cita el "Bacopa Monnieri whole herb extract" declarado en los productos de ese sitio web. No prohíbe la bacopa como ingrediente en general, por lo que nuestra verificación de catálogo no marca productos por contener bacopa.',
   },
   {
-    q: '¿Por qué este sitio web hace esta auditoría?',
-    a: 'Como sitio editorial de comparación de nootrópicos que opera en LATAM, consideramos importante verificar que los productos que recomendamos a lectores argentinos cumplan con la regulación local. Auditamos cada producto de nuestro catálogo contra la lista de ANMAT y nunca recomendamos productos que contengan compuestos prohibidos a tráfico procedente de Argentina.',
+    q: '¿Por qué este sitio web hace esta verificación?',
+    a: 'Como sitio editorial de comparación de nootrópicos que opera en LATAM, comprobamos si algún producto de nuestro catálogo contiene las sustancias que dan nombre a los productos prohibidos (Noopept y F-Phenibut). Esta verificación no sustituye el registro ante la ANMAT ni el encuadre de cada producto en el CAA.',
   },
 ];
-
-
-const compoundClassLabels: Record<string, string> = {
-  'racetam': 'Racetam',
-  'gabapentinoid': 'Gabapentinoide',
-  'modafinil-prodrug': 'Profármaco de modafinilo',
-  'antidepressant-derivative': 'Derivado antidepresivo',
-  'peptide-nootropic': 'Nootrópico peptídico',
-  'cholinergic-prescription': 'Colinérgico de prescripción',
-};
 
 export default function Page() {
   return (
@@ -149,54 +145,137 @@ export default function Page() {
         </div>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-          ANMAT Disposición 2105/2022: Nootrópicos prohibidos en Argentina
+          {PAGE_TITLE}
         </h1>
 
         <p id="hero-paragraph" className="text-lg text-gray-600 mb-6 leading-relaxed">
-          La <strong>Disposición 2105/2022</strong> de ANMAT (<abbr title="Administración Nacional de Medicamentos, Alimentos y Tecnología Médica">Administración Nacional de Medicamentos, Alimentos y Tecnología Médica</abbr>) prohíbe la comercialización de varios
-          nootrópicos sintéticos (Noopept, racetams, fenibut, tianeptina, adrafinilo) como suplementos
-          dietarios en Argentina. Esta página lista los compuestos prohibidos y audita cada producto de
-          nuestro catálogo LATAM contra esta lista, para garantizar que los lectores argentinos no sean
-          dirigidos hacia productos que contengan ingredientes regulados.
+          La <strong>Disposición 2105/2022</strong> de la <abbr title="Administración Nacional de Medicamentos, Alimentos y Tecnología Médica">ANMAT</abbr> (Administración Nacional de Medicamentos, Alimentos y Tecnología Médica), publicada en el
+          Boletín Oficial (BO) de la República Argentina el 22 de marzo de 2022, prohíbe{' '}
+          <strong>siete productos con nombre propio</strong> de las marcas Newmind y PURENOOTROPICS,
+          ofrecidos en el sitio web noopept.com.ar. No es una prohibición de una clase de compuestos.
+          Esta página resume qué dice el texto oficial y verifica si algún producto de nuestro catálogo
+          LATAM contiene las sustancias que dan nombre a esos productos.
         </p>
 
-        {/* AR-targeted regulatory warning */}
-        <aside className="bg-red-50 border-l-4 border-red-400 rounded-r-lg p-4 mb-6 text-sm text-red-900">
-          <strong className="block mb-1">Aviso para lectores en Argentina</strong>
-          Los compuestos listados a continuación no pueden venderse legalmente en Argentina como
-          suplementos. Si compra a través de Mercado Libre cross-border, iHerb u otras plataformas
-          internacionales, los envíos que contengan estos ingredientes pueden ser retenidos por la Aduana
-          Nacional. Recomendamos verificar la lista de ingredientes de cualquier producto antes de
-          importarlo.
+        <aside className="bg-amber-50 border-l-4 border-amber-400 rounded-r-lg p-4 mb-6 text-sm text-amber-900">
+          <strong className="block mb-1">Alcance de la disposición</strong>
+          La prohibición alcanza a todos los lotes y presentaciones de los siete productos citados en su
+          Artículo 1. No prohíbe ninguna clase de compuestos nootrópicos ni ninguna sustancia en
+          general: fuera de esos siete productos, la disposición no declara prohibido ningún otro
+          producto ni ingrediente.
         </aside>
 
         <AffiliateDisclosure />
 
-        {/* Audit summary */}
+        {/* What Artículo 1 prohibits */}
+        <section className="my-10">
+          <h2 className="text-2xl font-bold text-gray-900 mb-3">Qué prohíbe: los siete productos del Artículo 1</h2>
+          <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+            Texto del Artículo 1: &ldquo;Prohíbese el uso, distribución y comercialización en todo el
+            territorio nacional de todos los lotes y presentaciones de los siguientes productos:
+            {' '}Newmind – Noopept – GVS -111 polvo; Newmind – F-Phenibut polvo; PURENOOTROPICS Noopept
+            cápsulas; PURENOOTROPICS Noopept polvo; NOOPEPT sublingual, PURE NOOTROPICS; B-12 sublingual
+            PURENOOTROPICS; y PURENOOTROPICS BACOGNIZE Bacopa Monnieri.&rdquo;
+          </p>
+          <ol className="list-decimal list-inside space-y-1 text-sm text-gray-800">
+            {anmatProhibitedProducts.map(p => (
+              <li key={p.nameAsWritten}>
+                <strong>{p.nameAsWritten}</strong>
+                <span className="text-gray-500"> — marca {p.brand}{p.presentation ? `, presentación: ${p.presentation}` : ''}</span>
+              </li>
+            ))}
+          </ol>
+          <p className="text-xs text-gray-500 mt-3">
+            Según los considerandos, los productos se ofrecían en el sitio web {ANMAT_DISPOSICION_2105_2022.offeringWebsite}.
+          </p>
+        </section>
+
+        {/* Why: the recitals */}
+        <section className="my-10">
+          <h2 className="text-2xl font-bold text-gray-900 mb-3">Por qué: lo que dicen los considerandos</h2>
+          <ul className="list-disc list-inside space-y-2 text-sm text-gray-700 leading-relaxed">
+            <li>
+              Los productos se ofrecían como suplementos dietarios, pero la ANMAT concluyó que, por su
+              composición, presentación (sublingual) e indicación, no pueden encuadrarse en el artículo 1381
+              del Código Alimentario Argentino (CAA), que regula los suplementos dietarios.
+            </li>
+            <li>
+              Declaraban en su composición sustancias no autorizadas en el CAA, &ldquo;entre ellas&rdquo;
+              las tres que se detallan más abajo.
+            </li>
+            <li>
+              No existían antecedentes de registro de los productos ni de la firma, ni registro en el
+              Registro de Especialidades Medicinales de la ANMAT con los nombres comerciales
+              &ldquo;Noopept&rdquo;, &ldquo;F-Phenibut&rdquo;, &ldquo;Newmind&rdquo; ni &ldquo;Pure nootropics&rdquo;.
+            </li>
+            <li>
+              Se promocionaban con afirmaciones terapéuticas, por ejemplo &ldquo;ayuda el mejoramiento en
+              pacientes con Alzheimer&rdquo; y &ldquo;será hasta mil veces más potente que el piracetam&rdquo;
+              (citas textuales del material promocional recogidas en la disposición).
+            </li>
+            <li>
+              La ANMAT consideró que se trataba de productos peligrosos para la salud y que, para obtener
+              registro, deberían evaluarse en la categoría de medicamentos.
+            </li>
+          </ul>
+        </section>
+
+        {/* Substances cited in the recitals */}
+        <section className="my-10">
+          <h2 className="text-2xl font-bold text-gray-900 mb-3">Sustancias citadas en los considerandos</h2>
+          <p className="text-sm text-gray-600 mb-6 leading-relaxed">
+            Estas sustancias aparecen en los considerandos como declaradas en la composición de los
+            productos y no autorizadas en el CAA. La disposición prohíbe los siete productos, no estas
+            sustancias como tales.
+          </p>
+          <div className="space-y-4">
+            {anmatProhibitedCompounds.map(c => (
+              <div key={c.name} className="border border-gray-200 rounded-lg p-5">
+                <div className="flex flex-wrap items-center gap-2 mb-2">
+                  <h3 className="font-bold text-gray-900 text-lg">{c.nameEs}</h3>
+                  <span className="text-[11px] font-semibold uppercase tracking-wide bg-gray-100 text-gray-700 px-2 py-0.5 rounded">
+                    Citada en los considerandos
+                  </span>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed mb-2">{c.noteEs}</p>
+                <p className="text-xs text-gray-500">
+                  <strong>Texto de la disposición:</strong> &ldquo;{c.declaredAs}&rdquo;
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Catalogue check summary */}
         <section className="my-10 bg-green-50 border border-green-200 rounded-xl p-6">
           <h2 className="text-2xl font-bold text-gray-900 mb-3">
-            Auditoría de nuestro catálogo LATAM
+            Verificación de nuestro catálogo LATAM
           </h2>
           <p className="text-sm text-gray-700 leading-relaxed mb-4">
-            Verificamos cada uno de los <strong>{audit.length} productos</strong> en nuestro catálogo
-            LATAM contra los <strong>{anmatProhibitedCompounds.length} compuestos prohibidos</strong>{' '}
-            por ANMAT. Estado actual:
+            Comprobamos si alguno de los <strong>{audit.length} productos</strong> de nuestro catálogo
+            LATAM declara Noopept o F-Phenibut, las sustancias que dan nombre a los productos prohibidos.
+            No marcamos productos por contener Bacopa monnieri: la disposición prohíbe un producto concreto
+            de bacopa, no la bacopa como ingrediente.{' '}
+            {catalogueBrandMatches.length === 0
+              ? 'Ningún producto de nuestro catálogo lleva en su nombre o marca Newmind o PURENOOTROPICS, las marcas citadas en el Artículo 1.'
+              : `Productos de nuestro catálogo cuyo nombre o marca menciona Newmind o PURENOOTROPICS (marcas citadas en el Artículo 1): ${catalogueBrandMatches.map(p => p.name).join(', ')}.`}{' '}
+            Estado actual:
           </p>
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="bg-white border border-green-300 rounded-lg p-4">
               <div className="text-3xl font-black text-green-700">{compliantCount}</div>
-              <div className="text-sm font-medium text-gray-900 mt-1">Productos compatibles</div>
-              <div className="text-xs text-gray-500 mt-1">Sin compuestos prohibidos por ANMAT.</div>
+              <div className="text-sm font-medium text-gray-900 mt-1">Sin Noopept ni F-Phenibut</div>
+              <div className="text-xs text-gray-500 mt-1">Según la lista de ingredientes declarada.</div>
             </div>
             <div className={`bg-white border ${nonCompliantCount > 0 ? 'border-red-300' : 'border-gray-200'} rounded-lg p-4`}>
               <div className={`text-3xl font-black ${nonCompliantCount > 0 ? 'text-red-700' : 'text-gray-400'}`}>
                 {nonCompliantCount}
               </div>
-              <div className="text-sm font-medium text-gray-900 mt-1">Productos no recomendados para AR</div>
+              <div className="text-sm font-medium text-gray-900 mt-1">Con Noopept o F-Phenibut</div>
               <div className="text-xs text-gray-500 mt-1">
                 {nonCompliantCount > 0
-                  ? 'Contienen al menos un compuesto prohibido por ANMAT.'
-                  : 'Ningún producto en nuestro catálogo contiene compuestos prohibidos.'}
+                  ? 'Declaran al menos una de esas dos sustancias.'
+                  : 'Ningún producto de nuestro catálogo declara esas sustancias.'}
               </div>
             </div>
           </div>
@@ -211,7 +290,7 @@ export default function Page() {
                 <tr className="bg-gray-100 text-left">
                   <th className="px-3 py-2 font-semibold text-gray-700">Producto</th>
                   <th className="px-3 py-2 font-semibold text-gray-700">Marca</th>
-                  <th className="px-3 py-2 font-semibold text-gray-700">Estado ANMAT</th>
+                  <th className="px-3 py-2 font-semibold text-gray-700">Noopept / F-Phenibut</th>
                 </tr>
               </thead>
               <tbody>
@@ -226,7 +305,7 @@ export default function Page() {
                     <td className="px-3 py-2">
                       {bannedCompounds.length === 0 ? (
                         <span className="inline-flex items-center text-[11px] font-semibold uppercase tracking-wide bg-green-100 text-green-800 px-2 py-0.5 rounded">
-                          ✓ Compatible
+                          ✓ No declara
                         </span>
                       ) : (
                         <span className="inline-flex items-center text-[11px] font-semibold uppercase tracking-wide bg-red-100 text-red-800 px-2 py-0.5 rounded">
@@ -240,60 +319,44 @@ export default function Page() {
             </table>
           </div>
           <p className="text-xs text-gray-500 mt-3 italic">
-            Auditoría automatizada basada en las listas de ingredientes declaradas por cada fabricante.
+            Verificación automatizada basada en las listas de ingredientes declaradas por cada
+            fabricante; no sustituye el registro ante la ANMAT ni el encuadre de cada producto en el CAA.
             Última verificación: {auditDate}.
           </p>
         </section>
 
-        {/* Prohibited-compound catalogue */}
+        {/* What it does not do */}
         <section className="my-10">
-          <h2 className="text-2xl font-bold text-gray-900 mb-3">Compuestos prohibidos por ANMAT</h2>
-          <p className="text-sm text-gray-600 mb-6 leading-relaxed">
-            La Disposición 2105/2022 prohíbe los siguientes compuestos como suplementos dietarios en
-            Argentina. La lista se actualiza con resoluciones posteriores de ANMAT.
-          </p>
-          <div className="space-y-4">
-            {anmatProhibitedCompounds.map(c => (
-              <div key={c.name} className="border border-gray-200 rounded-lg p-5">
-                <div className="flex flex-wrap items-center gap-2 mb-2">
-                  <h3 className="font-bold text-gray-900 text-lg">{c.nameEs}</h3>
-                  <span className="text-[11px] font-semibold uppercase tracking-wide bg-gray-100 text-gray-700 px-2 py-0.5 rounded">
-                    {compoundClassLabels[c.class]}
-                  </span>
-                </div>
-                <p className="text-sm text-gray-700 leading-relaxed mb-2">{c.mechanismEs}</p>
-                {c.aliases.length > 0 && (
-                  <p className="text-xs text-gray-500">
-                    <strong>Alias / nombres químicos:</strong> {c.aliases.join(', ')}
-                  </p>
-                )}
-              </div>
-            ))}
-          </div>
+          <h2 className="text-2xl font-bold text-gray-900 mb-3">Qué no hace la disposición</h2>
+          <ul className="list-disc list-inside space-y-2 text-sm text-gray-700 leading-relaxed">
+            <li>No prohíbe una clase de compuestos nootrópicos ni publica una lista abierta de sustancias.</li>
+            <li>
+              Un compuesto que solo aparece dentro de una afirmación publicitaria citada textualmente en
+              los considerandos no queda prohibido por esa mención.
+            </li>
+            <li>No prohíbe la Bacopa monnieri como ingrediente: prohíbe un producto concreto que la declara.</li>
+            <li>No menciona el fenibut sin flúor; el producto prohibido es &ldquo;Newmind – F-Phenibut polvo&rdquo;.</li>
+          </ul>
         </section>
 
-        {/* What this means for AR consumers */}
+        {/* What this means for readers */}
         <section className="my-10 bg-amber-50 border border-amber-200 rounded-xl p-6">
-          <h2 className="text-xl font-bold text-amber-900 mb-3">Qué hacer si vive en Argentina</h2>
+          <h2 className="text-xl font-bold text-amber-900 mb-3">Qué significa para lectores en Argentina</h2>
           <ul className="list-disc list-inside space-y-2 text-sm text-gray-700 leading-relaxed">
             <li>
-              <strong>Verifique la lista de ingredientes</strong> de cualquier suplemento que esté
-              considerando importar. Busque los nombres listados arriba (incluidos los alias químicos).
+              <strong>Los siete productos citados</strong> (marcas Newmind y PURENOOTROPICS) no pueden
+              usarse, distribuirse ni comercializarse en Argentina, en ningún lote ni presentación.
             </li>
             <li>
-              <strong>Considere el riesgo aduanero.</strong> Los envíos cross-border que contengan
-              compuestos prohibidos pueden ser retenidos en la Aduana Nacional Argentina, especialmente
-              en aeropuertos internacionales (Ezeiza, Aeroparque).
+              <strong>Regla general del CAA.</strong> El artículo 1381 del CAA define los suplementos
+              dietarios como &ldquo;productos destinados a incrementar la ingesta dietaria habitual,
+              suplementando la incorporación de nutrientes en la dieta de las personas sanas&rdquo;. La
+              disposición concluyó que productos con esa composición, presentación e indicación no encajan
+              en esa definición.
             </li>
             <li>
-              <strong>Consulte con un profesional médico</strong> antes de iniciar cualquier suplemento
-              cognitivo. Los compuestos prohibidos por ANMAT generalmente requieren supervisión médica
-              por razones de seguridad.
-            </li>
-            <li>
-              <strong>Revise nuestros productos compatibles.</strong> Los {compliantCount} productos
-              listados arriba como "Compatible" no contienen compuestos prohibidos por ANMAT y pueden
-              importarse legalmente para uso personal.
+              <strong>Consulte con un profesional de la salud</strong> antes de iniciar cualquier
+              suplemento cognitivo.
             </li>
           </ul>
         </section>
@@ -318,28 +381,18 @@ export default function Page() {
           sources={[
             {
               type: 'Regulatorio',
-              label: 'ANMAT Disposición 2105/2022 — Texto completo (Boletín Oficial República Argentina)',
-              url: 'https://www.argentina.gob.ar/normativa/nacional/disposici%C3%B3n-2105-2022-364076',
+              label: 'ANMAT Disposición 2105/2022 (DI-2022-2105-APN-ANMAT#MS) — Texto completo, Boletín Oficial de la República Argentina, 22/03/2022, aviso N° 17097/22',
+              url: ANMAT_DISPOSICION_2105_2022.sourceUrl,
+            },
+            {
+              type: 'Regulatorio',
+              label: 'Código Alimentario Argentino (CAA), artículo 1381 — Suplementos dietarios (texto incorporado por la Resolución 74/98, InfoLEG)',
+              url: 'https://servicios.infoleg.gob.ar/infolegInternet/anexos/50000-54999/50664/norma.htm',
             },
             {
               type: 'Regulatorio',
               label: 'ANMAT — Administración Nacional de Medicamentos, Alimentos y Tecnología Médica',
               url: 'https://www.argentina.gob.ar/anmat',
-            },
-            {
-              type: 'Regulatorio',
-              label: 'ANMAT — Listado de productos prohibidos (consulta pública)',
-              url: 'https://www.argentina.gob.ar/anmat/regulados/productos-prohibidos',
-            },
-            {
-              type: 'Cientifico',
-              label: 'Malykh AG, Sadaie MR. Piracetam and piracetam-like drugs: from basic science to novel clinical applications to CNS disorders. Drugs. 2010 (PubMed PMID: 20166767)',
-              url: 'https://pubmed.ncbi.nlm.nih.gov/20166767/',
-            },
-            {
-              type: 'Cientifico',
-              label: 'Owen GN et al. The combined effects of L-theanine and caffeine on cognitive performance and mood. Nutritional Neuroscience. 2008 (PubMed PMID: 18681988)',
-              url: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
             },
             {
               type: 'Editorial',

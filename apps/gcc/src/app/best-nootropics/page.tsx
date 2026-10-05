@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 const faqItems = [
   { q: 'Are nootropics legal in Saudi Arabia and the UAE?', a: 'Most nootropic supplements are legal to personally import in Saudi Arabia and the UAE as food supplements. However, you must verify with SFDA (Saudi Arabia) or MOHAP (UAE) before ordering. Stimulant-containing supplements may face restrictions. We prioritise caffeine-free, stimulant-free formulations for the GCC.' },
-  { q: 'Do GCC countries charge VAT on imported supplements?', a: 'Saudi Arabia charges 15% VAT on most goods including supplements. UAE and Qatar charge 5% VAT. Kuwait has no VAT currently. Bahrain and Oman charge 5% VAT. Import duties are generally 5% for most supplement categories.' },
+  { q: 'Do GCC countries charge VAT on imported supplements?', a: 'VAT may apply at checkout or on import. Rates and import duties vary by state and were not confirmed from an official page in our 2026-10-05 check — confirm with customs or the brand before ordering.' },
   { q: 'Are the supplements listed porcine-free and halal-friendly?', a: 'Mind Lab Pro and NooCube do not use porcine-derived ingredients. Some products use bovine-sourced phosphatidylserine instead of soy-derived. Always check the full ingredient list on the brand website for halal certification status.' },
 ];
 
@@ -40,7 +40,7 @@ export default function BestNootropicsGCCPage() {
             <Card variant="subdued" padding={20} className="border-l-[3px] border-l-ds-warn" as="aside" aria-labelledby="gcc-note-heading">
               <h2 id="gcc-note-heading" className="text-[16px] font-bold text-ds-warn-ink m-0 mb-2">GCC import &amp; VAT note</h2>
               <p className="text-[13.5px] text-ds-ink-soft m-0 leading-[1.65]">
-                Verify with SFDA (Saudi Arabia) or MOHAP (UAE) before ordering. Saudi VAT is 15%; UAE / Qatar / Bahrain / Oman charge 5%; Kuwait has no VAT. Import duties typically 5%. We prioritise caffeine-free, stimulant-free formulations.
+                Verify with SFDA (Saudi Arabia) or MOHAP (UAE) before ordering. VAT may apply at checkout or on import; rates and import duties were not confirmed from an official page in our 2026-10-05 check. We prioritise caffeine-free, stimulant-free formulations.
               </p>
             </Card>
             <Card variant="subdued" padding={20} className="border-l-[3px] border-l-ds-accent">

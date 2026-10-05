@@ -4,7 +4,7 @@ const map: Record<EUCompliance, { label: string; cls: string; tooltip: string }>
   compliant: {
     label: 'EU Compliant',
     cls: 'eu-badge-green',
-    tooltip: 'Fully compliant with EU Directive 2002/46/EC and EFSA-approved ingredients.',
+    tooltip: 'Fully compliant with EU Directive 2002/46/EC.',
   },
   reformulated: {
     label: 'EU Reformulated',
