@@ -7,7 +7,7 @@ import type { UIStrings } from './i18n';
 export type ProductForm = NonNullable<Product['form']>;
 
 /** Allowed `Product.form` values; `'capsule'` is the default when absent. */
-export const PRODUCT_FORMS: readonly ProductForm[] = ['capsule', 'tablet', 'sachet', 'shot'];
+export const PRODUCT_FORMS: readonly ProductForm[] = ['capsule', 'tablet', 'sachet', 'shot', 'powder'];
 
 export function productForm(product: Pick<Product, 'form'>): ProductForm {
   return product.form ?? 'capsule';

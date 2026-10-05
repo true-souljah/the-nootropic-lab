@@ -601,5 +601,252 @@
     "updatedAt": "2026-09-28",
     "verifiedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28"
+  },
+  {
+    "id": "performance-lab-caffeine-2",
+    "name": "Performance Lab Caffeine 2",
+    "brand": "Performance Lab",
+    "slug": "performance-lab-caffeine-2-review",
+    "bestFor": [
+      "Energy",
+      "Focus",
+      "Budget"
+    ],
+    "score": 7,
+    "scoreBreakdown": {
+      "ingredients": 8,
+      "dosing": 6,
+      "transparency": 10,
+      "value": 5,
+      "trust": 6
+    },
+    "priceMonthlyUSD": 44,
+    "pricingModel": "both",
+    "moneyBackDays": 30,
+    "caffeineFree": false,
+    "euStorefront": false,
+    "euCompliance": "verify",
+    "trustpilotScore": 3.8,
+    "trustpilotCount": 14,
+    "affiliateUrl": "https://www.performancelab.com/products/caffeine-2?a_aid=zid0oxj1g4uny&a_bid=a2ad38c1",
+    "affiliateNetwork": "UberNet",
+    "commissionRate": "30%",
+    "cookieDays": 365,
+    "heroIngredients": [
+      "Caffeine",
+      "L-Theanine",
+      "L-Tyrosine"
+    ],
+    "ingredientDosages": [
+      {
+        "name": "Natural Caffeine (Coffea robusta)",
+        "doseInProduct": "50mg",
+        "clinicalDose": "75-200mg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "L-Theanine",
+        "doseInProduct": "100mg",
+        "clinicalDose": "100-200mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "L-Tyrosine",
+        "doseInProduct": "250mg",
+        "clinicalDose": "300-500mg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Riboflavin (Vitamin B2)",
+        "doseInProduct": "500mcg",
+        "clinicalDose": "1.3mg (DV)",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Vitamin B6",
+        "doseInProduct": "750mcg",
+        "clinicalDose": "1.3-2mg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Folate (Vitamin B9)",
+        "doseInProduct": "170mcg DFE",
+        "clinicalDose": "400mcg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Vitamin B12",
+        "doseInProduct": "2mcg",
+        "clinicalDose": "2.4mcg",
+        "adequatelyDosed": false
+      }
+    ],
+    "servingsPerContainer": 30,
+    "capsulesPerServing": 1,
+    "summary": "A low-dose caffeine capsule from Performance Lab: 50mg natural caffeine with 100mg L-theanine (a 2:1 ratio), 250mg L-tyrosine and four B-vitamins, with every dose on the label. EU orders ship from the brand's European depot in 4-12 working days (per performancelab.com's shipping page, checked 2026-10-05); we could not confirm a euro price.",
+    "whatItIs": "Performance Lab Caffeine 2 is a stimulant capsule sold through performancelab.com. Each vegan pullulan capsule holds 50mg natural caffeine from Coffea robusta seeds, 100mg L-theanine, 250mg L-tyrosine and NutriGenesis vitamins B2, B6, folate and B12; a bottle holds 30 capsules. The label suggests 1-2 capsules on an empty stomach, up to a maximum of 5 capsules (250mg caffeine) a day. Per performancelab.com's shipping page (checked 2026-10-05), EU orders are shipped from the brand's depot in Europe; the page does not list individual EU countries, so confirm delivery to your country at checkout.",
+    "howItWorks": "Caffeine blocks adenosine receptors, which dulls fatigue signals and raises alertness. L-theanine, an amino acid found in tea, is added at a 2:1 ratio to caffeine; Performance Lab cites human trials of theanine-plus-caffeine combinations for this pairing, but Caffeine 2 itself has not been tested in a published trial. L-tyrosine is a building block of dopamine and noradrenaline, and the vendor includes it to support the neurotransmitters that caffeine draws on. The four B-vitamins (B2, B6, folate, B12) supply 38-83% of the US Daily Value per capsule. Supplements sold in the EU fall under Directive 2002/46/EC, so the label may carry only EU-authorised health claims, and the EU register holds no authorised caffeine claim for alertness or concentration (a caffeine alertness claim was refused under Regulation (EU) 2016/1411).",
+    "whatToExpect": "Performance Lab says Caffeine 2 starts working in around 15-30 minutes. One capsule gives 50mg caffeine; two capsules (100mg caffeine, 200mg L-theanine, 500mg L-tyrosine) bring all three actives into the ranges used in our dosing audit. Count it toward your daily caffeine intake. EU delivery is expected in 4-12 working days depending on destination (per performancelab.com's shipping page, checked 2026-10-05). We saw only US-dollar prices ($44 one-time for 30 capsules) when we checked, so confirm the euro total at checkout.",
+    "pros": [
+      "Every dose disclosed on the label, no proprietary blend",
+      "2:1 L-theanine to caffeine ratio",
+      "Ships to EU buyers from a European depot (4-12 working days)",
+      "50mg caffeine per capsule lets you adjust intake in small steps (label maximum 5 a day)",
+      "Vegan pullulan capsules"
+    ],
+    "cons": [
+      "Only 50mg caffeine per capsule, below the 75mg low end of our caffeine range",
+      "L-tyrosine (250mg) sits below the 300-500mg range",
+      "No published trial of Caffeine 2 itself; the evidence is for its ingredients",
+      "Euro price not confirmed (only US-dollar prices seen on 2026-10-05)",
+      "Small Trustpilot sample: 14 reviews for performancelab.com (3.8/5, checked 2026-10-05)",
+      "Money-back guarantee covers the first order only: one container, used up, claimed within 60 days of delivery, refund minus shipping"
+    ],
+    "editorChoice": false,
+    "market": "both",
+    "updatedAt": "2026-10-05",
+    "trustpilotCheckedAt": "2026-10-05",
+    "verifiedAt": "2026-10-05"
+  },
+  {
+    "id": "pre-lab-pro",
+    "name": "Pre Lab Pro",
+    "brand": "Performance Lab",
+    "slug": "pre-lab-pro-review",
+    "bestFor": [
+      "Energy",
+      "Athletes",
+      "Focus"
+    ],
+    "score": 6.2,
+    "scoreBreakdown": {
+      "ingredients": 7,
+      "dosing": 5,
+      "transparency": 8,
+      "value": 5,
+      "trust": 6
+    },
+    "priceMonthlyUSD": 59,
+    "pricingModel": "both",
+    "moneyBackDays": 30,
+    "caffeineFree": false,
+    "euStorefront": false,
+    "euCompliance": "verify",
+    "trustpilotScore": 3.8,
+    "trustpilotCount": 14,
+    "affiliateUrl": "https://www.performancelab.com/products/pre-lab-pro?a_aid=zid0oxj1g4uny&a_bid=cd5830f2",
+    "affiliateNetwork": "UberNet",
+    "commissionRate": "30%",
+    "cookieDays": 365,
+    "heroIngredients": [
+      "Caffeine",
+      "L-Theanine",
+      "L-Tyrosine",
+      "L-Citrulline",
+      "Beetroot"
+    ],
+    "ingredientDosages": [
+      {
+        "name": "Natural Caffeine (Coffea robusta)",
+        "doseInProduct": "80mg",
+        "clinicalDose": "75-200mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "L-Theanine (from green tea)",
+        "doseInProduct": "160mg",
+        "clinicalDose": "100-200mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "L-Tyrosine",
+        "doseInProduct": "400mg",
+        "clinicalDose": "300-500mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Setria for Sport blend (L-Citrulline + L-Glutathione)",
+        "doseInProduct": "2200mg blend (split undisclosed)",
+        "clinicalDose": "3-6g L-citrulline (share undisclosed)",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Red Beetroot Powder (Beta vulgaris root)",
+        "doseInProduct": "1500mg",
+        "clinicalDose": "6-8 mmol nitrate (content undisclosed)",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Vitamin D3 (from algae)",
+        "doseInProduct": "12.5mcg",
+        "clinicalDose": "15-50mcg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Riboflavin (Vitamin B2)",
+        "doseInProduct": "0.5mg",
+        "clinicalDose": "1.3mg (DV)",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Vitamin B6",
+        "doseInProduct": "0.75mg",
+        "clinicalDose": "1.3-2mg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Folate (Vitamin B9)",
+        "doseInProduct": "167mcg DFE",
+        "clinicalDose": "400mcg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Vitamin B12",
+        "doseInProduct": "2mcg",
+        "clinicalDose": "2.4mcg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Potassium",
+        "doseInProduct": "49.5mg",
+        "clinicalDose": "4700mg (DV)",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Iron",
+        "doseInProduct": "2.5mg",
+        "clinicalDose": "18mg (DV)",
+        "adequatelyDosed": false
+      }
+    ],
+    "servingsPerContainer": 20,
+    "capsulesPerServing": 1,
+    "form": "powder",
+    "summary": "A low-caffeine pre-workout drink powder from Performance Lab. One 13g scoop gives 80mg natural caffeine, 160mg L-theanine and 400mg L-tyrosine, all within the ranges in our dosing audit, plus a 2,200mg Setria for Sport blend (L-citrulline and glutathione, split not disclosed) and 1,500mg red beet powder that are unlikely to reach the doses used in performance trials. EU orders ship from the brand's European depot in 4-12 working days (per performancelab.com's shipping page, checked 2026-10-05); we could not confirm a euro price.",
+    "whatItIs": "Pre Lab Pro is a natural-berry-flavoured pre-workout powder sold through performancelab.com; the buy buttons on its own site, prelabpro.com, link to that product page. A tub holds 20 servings of one 13g scoop, mixed into 300ml of water and taken 15-30 minutes before training, with no more than 2 scoops in 24 hours. Each scoop also supplies 500mg Himalayan pink salt, vitamin D3 from algae, B2, B6, folate, B12, potassium and iron. It is vegan, and the vendor states it is 'third-party tested and validated by Informed Sport'; the product page shows no certificate or batch number. EU orders are shipped from the brand's depot in Europe; the shipping page does not list individual EU countries, so confirm delivery to your country at checkout.",
+    "howItWorks": "Caffeine (80mg) blocks adenosine receptors to dull fatigue signals, and L-theanine (160mg, a 2:1 ratio) plus L-tyrosine (400mg) are the nootropic trio from Performance Lab's Caffeine 2 capsule at higher amounts. L-citrulline is converted to arginine and then nitric oxide, and beetroot supplies dietary nitrate, a second nitric-oxide source; the vendor includes both for blood flow, strength and endurance. Glutathione, an antioxidant, makes up the rest of the Setria for Sport blend. Himalayan pink salt (200mg sodium) and potassium act as electrolytes. Pre Lab Pro itself has not been tested in a published trial; the vendor's claims rest on ingredient-level research. Supplements sold in the EU fall under Directive 2002/46/EC, so the label may carry only EU-authorised health claims, and the EU register holds no authorised caffeine claim for alertness or concentration (a caffeine alertness claim was refused under Regulation (EU) 2016/1411).",
+    "whatToExpect": "Performance Lab says Pre Lab Pro starts working in around 15-30 minutes. The vendor calls the 80mg caffeine dose moderate, and two scoops (its 24-hour limit) give 160mg; count it toward your daily caffeine total. The citrulline and beet amounts are below the doses used in performance trials, so any blood-flow or endurance benefit from them is uncertain. EU delivery is expected in 4-12 working days depending on destination (per performancelab.com's shipping page, checked 2026-10-05). We saw only US-dollar prices ($59 one-time for 20 scoops) when we checked, so confirm the euro total at checkout.",
+    "pros": [
+      "Caffeine, L-theanine and L-tyrosine all within our dosing-audit ranges",
+      "Moderate 80mg caffeine per scoop",
+      "Vendor states Informed Sport testing, relevant to drug-tested athletes",
+      "Ships to EU buyers from a European depot (4-12 working days)",
+      "Vegan, naturally flavoured powder with electrolytes"
+    ],
+    "cons": [
+      "Only 20 scoops per tub: $2.95 a serving at the $59 one-time price",
+      "Setria for Sport blend (2,200mg) does not split L-citrulline and glutathione; even if it were all citrulline it would sit below the roughly 3g low end of citrulline trials",
+      "1.5g red beet powder with no stated nitrate content, very likely far below the roughly 6-8 mmol of nitrate used in beetroot trials",
+      "Several verified reviews on prelabpro.com report powder that set rock-hard in the tub; the company replied it had 'a bad batch' that was 'taken off sale' (checked 2026-10-05)",
+      "Strict guarantee: first order only, one tub, used up before claiming, refund minus shipping; performancelab.com allows claims within 60 days of delivery, but prelabpro.com's returns page says 30 days, so confirm the terms first",
+      "Euro price not confirmed (only US-dollar prices seen on 2026-10-05)",
+      "No published trial of Pre Lab Pro itself; the evidence is for its ingredients",
+      "Small Trustpilot sample: 14 reviews for performancelab.com (3.8/5, checked 2026-10-05)"
+    ],
+    "editorChoice": false,
+    "market": "both",
+    "updatedAt": "2026-10-05",
+    "trustpilotCheckedAt": "2026-10-05",
+    "verifiedAt": "2026-10-05"
   }
 ]

@@ -36,6 +36,8 @@ const REVIEW_ROUTES = [
   '/qualia-mind-review/',
   '/naturebell-ginkgo-ginseng-review/',
   '/blackmores-brain-active-review/',
+  '/performance-lab-caffeine-2-review/',
+  '/pre-lab-pro-review/',
 ];
 
 test.beforeEach(async ({ context }) => {

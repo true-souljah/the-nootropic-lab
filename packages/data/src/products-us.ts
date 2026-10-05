@@ -53,16 +53,18 @@ export interface Product {
   ingredientDosages: IngredientDosage[];
   servingsPerContainer: number;
   /**
-   * Units of `form` per daily serving (capsules, tablets, sachets or shots —
-   * the name predates `form`). Render it through `servingAmount()` /
-   * `servingUnit()` (serving-unit.ts), never with hard-coded capsule wording.
+   * Units of `form` per daily serving (capsules, tablets, sachets, shots or
+   * powder scoops — the name predates `form`). Render it through
+   * `servingAmount()` / `servingUnit()` (serving-unit.ts), never with
+   * hard-coded capsule wording.
    */
   capsulesPerServing: number;
   /**
    * Dosage form of one unit. Absent = `'capsule'` (the default for most
-   * records). Validated by `formProblem()` in product-rules.ts.
+   * records). `'powder'` = one scoop of a drink powder. Validated by
+   * `formProblem()` in product-rules.ts.
    */
-  form?: 'capsule' | 'tablet' | 'sachet' | 'shot';
+  form?: 'capsule' | 'tablet' | 'sachet' | 'shot' | 'powder';
   summary: string;
   whatItIs: string;
   howItWorks: string;
