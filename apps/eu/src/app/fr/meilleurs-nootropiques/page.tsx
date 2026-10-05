@@ -10,10 +10,10 @@ const CURRENT_YEAR = new Date().getFullYear();
 export const metadata: Metadata = {
   title: `Meilleurs Nootropiques ${CURRENT_YEAR} Europe: Comparatif Complet`,
   description:
-    'Comparatif indépendant des meilleurs nootropiques disponibles en Europe. Prix en EUR, conformité réglementaire UE, audit clinique de chaque ingrédient.',
+    'Comparatif indépendant des meilleurs nootropiques disponibles en Europe. Prix en EUR, boutiques UE signalées, audit clinique de chaque ingrédient.',
   alternates: buildAlternates({ regionCode: 'eu', path: '/fr/meilleurs-nootropiques/', availableInRegions: ['eu'] }),
-  openGraph: buildOpenGraph({ regionCode: 'eu', path: '/fr/meilleurs-nootropiques/', title: `Meilleurs Nootropiques ${CURRENT_YEAR} Europe: Comparatif Complet`, description: 'Comparatif indépendant des meilleurs nootropiques disponibles en Europe. Prix en EUR, conformité réglementaire UE, audit clinique de chaque ingrédient.' }),
-  twitter: buildTwitter({ title: `Meilleurs Nootropiques ${CURRENT_YEAR} Europe: Comparatif Complet`, description: 'Comparatif indépendant des meilleurs nootropiques disponibles en Europe. Prix en EUR, conformité réglementaire UE, audit clinique de chaque ingrédient.' }),
+  openGraph: buildOpenGraph({ regionCode: 'eu', path: '/fr/meilleurs-nootropiques/', title: `Meilleurs Nootropiques ${CURRENT_YEAR} Europe: Comparatif Complet`, description: 'Comparatif indépendant des meilleurs nootropiques disponibles en Europe. Prix en EUR, boutiques UE signalées, audit clinique de chaque ingrédient.' }),
+  twitter: buildTwitter({ title: `Meilleurs Nootropiques ${CURRENT_YEAR} Europe: Comparatif Complet`, description: 'Comparatif indépendant des meilleurs nootropiques disponibles en Europe. Prix en EUR, boutiques UE signalées, audit clinique de chaque ingrédient.' }),
 };
 
 export default function MeilleursNootropiquesFR() {
@@ -34,9 +34,10 @@ export default function MeilleursNootropiquesFR() {
         Comparatif Europe Complet
       </h1>
       <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-        Ce comparatif est spécialement conçu pour les acheteurs européens. Tous les produits
-        présentés disposent d&apos;une boutique EU (prix en EUR, pas de droits de douane) et sont
-        conformes à la directive européenne 2002/46/CE sur les compléments alimentaires.
+        Ce comparatif est spécialement conçu pour les acheteurs européens. Nous signalons
+        les produits vendus depuis une boutique UE (prix en EUR, pas de droits de douane). Nous ne
+        vérifions pas la conformité réglementaire de chaque produit ; l&apos;étiquetage relève de
+        la responsabilité du vendeur.
       </p>
 
       <div className="bg-blue-50 border border-blue-200 rounded-xl p-5 mb-6">

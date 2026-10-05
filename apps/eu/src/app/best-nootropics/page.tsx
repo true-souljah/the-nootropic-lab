@@ -7,13 +7,18 @@ import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
+// Not every product here has an EU storefront (see `euStorefront` in
+// products-eu.json), so the title marks storefronts rather than claiming all.
+const TITLE = `Best Nootropics in Europe ${CURRENT_YEAR}: EU Storefronts Marked, Evidence-Graded`;
+const DESCRIPTION =
+  'A nootropic comparison built for EU buyers: which products are sold from an EU storefront, prices in euros (EUR) where the seller lists them, and a full ingredient dosing audit.';
+
 export const metadata: Metadata = {
-  title: `Best Nootropics in Europe ${CURRENT_YEAR}: EU-Compliant, EUR-Priced, Evidence-Graded`,
-  description:
-    'The only nootropic comparison platform built for EU buyers. EUR pricing, EU regulatory compliance status (Directive 2002/46/EC), and full ingredient dosing audit.',
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: buildAlternates({ regionCode: 'eu', path: '/best-nootropics/' }),
-  openGraph: buildOpenGraph({ regionCode: 'eu', path: '/best-nootropics/', title: `Best Nootropics in Europe ${CURRENT_YEAR}: EU-Compliant, EUR-Priced, Evidence-Graded`, description: 'The only nootropic comparison platform built for EU buyers. EUR pricing, EU regulatory compliance status (Directive 2002/46/EC), and full ingredient dosing audit.' }),
-  twitter: buildTwitter({ title: `Best Nootropics in Europe ${CURRENT_YEAR}: EU-Compliant, EUR-Priced, Evidence-Graded`, description: 'The only nootropic comparison platform built for EU buyers. EUR pricing, EU regulatory compliance status (Directive 2002/46/EC), and full ingredient dosing audit.' }),
+  openGraph: buildOpenGraph({ regionCode: 'eu', path: '/best-nootropics/', title: TITLE, description: DESCRIPTION }),
+  twitter: buildTwitter({ title: TITLE, description: DESCRIPTION }),
 };
 
 const faqItems = [
@@ -23,7 +28,7 @@ const faqItems = [
   },
   {
     q: 'Which nootropic is best for EU buyers?',
-    a: 'Mind Lab Pro is our top pick for EU buyers. It has a dedicated EU storefront with EUR pricing, ships from within the EU to avoid customs, and the formula is fully compliant with EU Directive 2002/46/EC.',
+    a: 'Mind Lab Pro is our top pick for EU buyers. It has a dedicated EU storefront with EUR pricing, and ships from within the EU to avoid customs. We do not verify regulatory compliance per product; labelling compliance is the seller\'s responsibility.',
   },
   {
     q: 'Do I need to pay customs duties on nootropics ordered from the US?',
@@ -44,7 +49,7 @@ export default function BestNootropicsEUPage() {
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: `Best Nootropics in Europe ${CURRENT_YEAR}: EU-Compliant, EUR-Priced, Evidence-Graded`,
+    headline: TITLE,
     datePublished: `${CURRENT_YEAR}-01-15`,
     dateModified: new Date().toISOString().split('T')[0],
     author: buildPersonAuthorReference(undefined, SITE_URL),
@@ -74,7 +79,7 @@ export default function BestNootropicsEUPage() {
         hero={{
           eyebrow: `EU · Audited ${CURRENT_YEAR}`,
           h1: `Best Nootropics in Europe ${CURRENT_YEAR}`,
-          dek: 'Built specifically for EU buyers. Every product has an EU storefront (EUR pricing, no import tax) and has been checked against EU Directive 2002/46/EC and EFSA health claim Regulation (EC) 1924/2006.',
+          dek: 'Built specifically for EU buyers. We mark which products are sold from an EU storefront (EUR pricing, no import tax) and keep our own copy within the health claims authorised under Regulation (EC) 1924/2006.',
         }}
         searchItems={searchItems}
         uiStrings={uiStrings}
@@ -96,9 +101,9 @@ export default function BestNootropicsEUPage() {
                 <strong>Directive 2002/46/EC</strong>. Health claims must comply with{' '}
                 <strong>Regulation (EC) 1924/2006</strong> using EU-authorised claims (assessed by EFSA) only.
                 Novel Food ingredients require authorisation under{' '}
-                <strong>Regulation (EU) 2015/2283</strong>. Products rated{' '}
-                <Chip tone="good">EU-compliant</Chip> in the table use ingredients with established
-                EU food-supplement status.
+                <strong>Regulation (EU) 2015/2283</strong>. Products marked{' '}
+                <Chip tone="good">EU storefront</Chip> are sold from an EU-based store in EUR; we do
+                not verify regulatory compliance per product.
               </p>
             </Card>
 
@@ -107,7 +112,7 @@ export default function BestNootropicsEUPage() {
               <h2 className="text-[20px] font-bold text-ds-ink m-0 mt-2 mb-1">{winner.name}</h2>
               <p className="text-[13.5px] text-ds-ink-soft m-0 mb-3 leading-[1.6]">{winner.summary}</p>
               <div className="flex flex-wrap gap-2 mb-4">
-                <Chip tone="good">EU-compliant</Chip>
+                {winner.euStorefront && <Chip tone="good">EU storefront</Chip>}
                 <Chip>EUR pricing</Chip>
                 <Chip>Ships from EU</Chip>
               </div>

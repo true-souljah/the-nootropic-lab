@@ -29,7 +29,7 @@ export const euCountries: EUCountry[] = [
     name: 'Bulgaria',
     nativeName: 'България',
     currency: 'BGN',
-    regulatoryNote: 'Bulgaria follows EU Directive 2002/46/EC for food supplements. The Bulgarian Food Safety Agency (BFSA) oversees compliance. Most EU-compliant supplements are freely available. Currency is BGN (Bulgarian lev), not EUR -- check product pricing carefully.',
+    regulatoryNote: 'Bulgaria follows EU Directive 2002/46/EC for food supplements. The Bulgarian Food Safety Agency (BFSA) oversees compliance. Currency is BGN (Bulgarian lev), not EUR -- check product pricing carefully.',
     shippingNote: 'EU storefronts ship to Bulgaria. Delivery estimates vary by brand and carrier, so check the estimate at checkout. Prices listed in EUR -- currency conversion at checkout.',
   },
   {
@@ -77,7 +77,7 @@ export const euCountries: EUCountry[] = [
     name: 'Finland',
     nativeName: 'Suomi',
     currency: 'EUR',
-    regulatoryNote: 'Finland follows EU Directive 2002/46/EC. The Finnish Food Authority (Ruokavirasto) oversees supplement compliance. Some high-dose products may require assessment -- most EU-compliant mainstream stacks ship without issue.',
+    regulatoryNote: 'Finland follows EU Directive 2002/46/EC. The Finnish Food Authority (Ruokavirasto) oversees supplement compliance. Some high-dose products may require assessment.',
     shippingNote: 'EU storefronts ship to Finland. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
@@ -101,7 +101,7 @@ export const euCountries: EUCountry[] = [
     name: 'Greece',
     nativeName: 'Ελλάδα',
     currency: 'EUR',
-    regulatoryNote: 'Greece follows EU supplement regulations. The National Food Authority (EFET) oversees compliance. EU-compliant supplements are freely available. Growing nootropics market, particularly in Athens.',
+    regulatoryNote: 'Greece follows EU supplement regulations. The National Food Authority (EFET) oversees compliance.Growing nootropics market, particularly in Athens.',
     shippingNote: 'EU storefronts ship to Greece. Delivery estimates vary by brand and carrier, so check the estimate at checkout. Island addresses may take longer.',
   },
   {
@@ -125,7 +125,7 @@ export const euCountries: EUCountry[] = [
     name: 'Italy',
     nativeName: 'Italia',
     currency: 'EUR',
-    regulatoryNote: "Italy has one of Europe's most detailed supplement regulatory frameworks. The Ministry of Health maintains a supplementi alimentari register. Some ingredients require official registration before sale. Most mainstream EU-compliant stacks are cleared -- verify any Italy-specific restrictions for novel ingredients.",
+    regulatoryNote: "Italy has one of Europe's most detailed supplement regulatory frameworks. The Ministry of Health maintains a supplementi alimentari register. Some ingredients require official registration before sale. Verify any Italy-specific restrictions for novel ingredients.",
     shippingNote: 'EU storefronts ship to Italy. Delivery estimates vary by brand and carrier, so check the estimate at checkout. Italy is one of the largest European supplement markets.',
   },
   {
@@ -133,7 +133,7 @@ export const euCountries: EUCountry[] = [
     name: 'Latvia',
     nativeName: 'Latvija',
     currency: 'EUR',
-    regulatoryNote: 'Latvia follows EU supplement regulations. The Food and Veterinary Service oversees compliance. EU-compliant products freely available. Small but growing market.',
+    regulatoryNote: 'Latvia follows EU supplement regulations. The Food and Veterinary Service oversees compliance.Small but growing market.',
     shippingNote: 'EU storefronts ship to Latvia. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
@@ -149,7 +149,7 @@ export const euCountries: EUCountry[] = [
     name: 'Luxembourg',
     nativeName: 'Lëtzebuerg',
     currency: 'EUR',
-    regulatoryNote: 'Luxembourg follows EU supplement regulations with oversight by the Ministry of Health. High purchasing power market. Most EU-compliant supplements available without restriction.',
+    regulatoryNote: 'Luxembourg follows EU supplement regulations with oversight by the Ministry of Health. High purchasing power market.',
     shippingNote: 'EU storefronts ship to Luxembourg. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
@@ -165,7 +165,7 @@ export const euCountries: EUCountry[] = [
     name: 'Netherlands',
     nativeName: 'Nederland',
     currency: 'EUR',
-    regulatoryNote: 'The Netherlands has a well-developed supplement market. The Dutch Food and Consumer Product Safety Authority (NVWA) oversees compliance. The Netherlands follows EU directive with a pragmatic enforcement approach -- most EU-compliant supplements available.',
+    regulatoryNote: 'The Netherlands has a well-developed supplement market. The Dutch Food and Consumer Product Safety Authority (NVWA) oversees compliance.',
     shippingNote: 'EU storefronts ship to the Netherlands. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
@@ -181,7 +181,7 @@ export const euCountries: EUCountry[] = [
     name: 'Portugal',
     nativeName: 'Portugal',
     currency: 'EUR',
-    regulatoryNote: 'Portugal follows EU supplement regulations with ASAE (Food and Economic Safety Authority) oversight. EU-compliant supplements freely available. Growing online supplement market.',
+    regulatoryNote: 'Portugal follows EU supplement regulations with ASAE (Food and Economic Safety Authority) oversight.Growing online supplement market.',
     shippingNote: 'EU storefronts ship to Portugal (mainland). Madeira and Azores may have longer delivery times. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
@@ -213,7 +213,7 @@ export const euCountries: EUCountry[] = [
     name: 'Spain',
     nativeName: 'España',
     currency: 'EUR',
-    regulatoryNote: 'Spain is the fourth-largest EU economy with a growing supplement market. The Spanish Agency of Food Safety and Nutrition (AESAN) oversees compliance under EU Directive 2002/46/EC. Spain also has specific Royal Decree requirements for supplement notification. Most EU-compliant mainstream stacks are available without restriction.',
+    regulatoryNote: 'Spain is the fourth-largest EU economy with a growing supplement market. The Spanish Agency of Food Safety and Nutrition (AESAN) oversees compliance under EU Directive 2002/46/EC. Spain also has specific Royal Decree requirements for supplement notification.',
     shippingNote: 'EU storefronts ship to mainland Spain. Canary Islands, Ceuta, and Melilla may have different shipping rules -- verify at checkout. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {

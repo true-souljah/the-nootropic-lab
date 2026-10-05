@@ -8,19 +8,19 @@ const CURRENT_YEAR = new Date().getFullYear();
 export const metadata: Metadata = {
   title: 'The Nootropic Lab EU — Unabhängige Bewertungen kognitiver Nahrungsergänzungsmittel in Europa',
   description:
-    'Die unabhängige Nootropika-Vergleichsplattform für europäische Käufer. EUR-Preise, EU-konforme Produkte und vollständige regulatorische Orientierung.',
+    'Die unabhängige Nootropika-Vergleichsplattform für europäische Käufer. EUR-Preise, Produkte mit EU-Shop und regulatorische Orientierung.',
   alternates: buildAlternates({ regionCode: 'eu', path: '/de/', availableInRegions: ['eu'] }),
   openGraph: buildOpenGraph({
     regionCode: 'eu',
     path: '/de/',
     title: 'The Nootropic Lab EU — Unabhängige Bewertungen kognitiver Nahrungsergänzungsmittel in Europa',
     description:
-      'Die unabhängige Nootropika-Vergleichsplattform für europäische Käufer. EUR-Preise, EU-konforme Produkte und vollständige regulatorische Orientierung.',
+      'Die unabhängige Nootropika-Vergleichsplattform für europäische Käufer. EUR-Preise, Produkte mit EU-Shop und regulatorische Orientierung.',
   }),
   twitter: buildTwitter({
     title: 'The Nootropic Lab EU — Unabhängige Bewertungen kognitiver Nahrungsergänzungsmittel in Europa',
     description:
-      'Die unabhängige Nootropika-Vergleichsplattform für europäische Käufer. EUR-Preise, EU-konforme Produkte und vollständige regulatorische Orientierung.',
+      'Die unabhängige Nootropika-Vergleichsplattform für europäische Käufer. EUR-Preise, Produkte mit EU-Shop und regulatorische Orientierung.',
   }),
 };
 
@@ -42,15 +42,15 @@ const features = [
   },
   {
     icon: '🇪🇺',
-    title: 'EU-Konformität verifiziert',
+    title: 'Gesundheitsangaben nach EU-Liste',
     desc:
-      'Wir prüfen jedes Produkt gegen die EU-Richtlinie 2002/46/EG und die EFSA-Verordnung (EG) Nr. 1924/2006 zu gesundheitsbezogenen Angaben. Formulierungen, die nur in den USA erhältlich sind, empfehlen wir nicht.',
+      'Unsere eigenen Texte verwenden nur gesundheitsbezogene Angaben, die nach der Verordnung (EG) Nr. 1924/2006 zugelassen sind. Die Einhaltung der Vorschriften prüfen wir nicht je Produkt; für die Kennzeichnung ist der Verkäufer verantwortlich.',
   },
   {
     icon: '💶',
     title: 'EUR-Preise und EU-Versand',
     desc:
-      'Wir zeigen nur Produkte mit eigenen EU-Storefronts — keine Zollgebühren, Preise in EUR und lokaler Versand innerhalb der EU.',
+      'Wir kennzeichnen, welche Produkte einen eigenen EU-Shop haben — keine Zollgebühren, Preise in EUR und lokaler Versand innerhalb der EU.',
   },
 ];
 
@@ -81,7 +81,7 @@ export default function DEHomePage() {
       <section className="bg-gradient-to-b from-green-50 to-white py-16 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full mb-4">
-            EU-Markt · EUR-Preise · EU-konforme Produkte
+            EU-Markt · EUR-Preise · EU-Shops gekennzeichnet
           </div>
           {/* PR-Q34 (#98): `break-words` lets German compound nouns
              *  ("Nahrungsergänzungsmittel" — 24 chars unbreakable) wrap at
@@ -96,7 +96,7 @@ export default function DEHomePage() {
           </h1>
           <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
             Wir bewerten Nootropika speziell für europäische Käufer. EUR-Preise,
-            EU-regulatorische Konformität und keine versteckten Importkosten.
+            gekennzeichnete EU-Shops und keine versteckten Importkosten.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link

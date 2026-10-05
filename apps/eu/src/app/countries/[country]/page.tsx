@@ -25,10 +25,10 @@ export async function generateMetadata({
   if (!c) return {};
   return {
     title: `Best Nootropics in ${c.name} ${CURRENT_YEAR} — EU Buyer's Guide`,
-    description: `Buy nootropics in ${c.name}: EU-compliant products, EUR pricing, regulatory notes, and shipping info for ${c.name} residents.`,
+    description: `Buy nootropics in ${c.name}: EU storefront products, EUR pricing, regulatory notes, and shipping info for ${c.name} residents.`,
     alternates: buildAlternates({ regionCode: 'eu', path: `/countries/${country}/`, availableInRegions: ['eu'] }),
-    openGraph: buildOpenGraph({ regionCode: 'eu', path: `/countries/${country}/`, title: `Best Nootropics in ${c.name} ${CURRENT_YEAR} — EU Buyer's Guide`, description: `Buy nootropics in ${c.name}: EU-compliant products, EUR pricing, regulatory notes, and shipping info for ${c.name} residents.` }),
-    twitter: buildTwitter({ title: `Best Nootropics in ${c.name} ${CURRENT_YEAR} — EU Buyer's Guide`, description: `Buy nootropics in ${c.name}: EU-compliant products, EUR pricing, regulatory notes, and shipping info for ${c.name} residents.` }),
+    openGraph: buildOpenGraph({ regionCode: 'eu', path: `/countries/${country}/`, title: `Best Nootropics in ${c.name} ${CURRENT_YEAR} — EU Buyer's Guide`, description: `Buy nootropics in ${c.name}: EU storefront products, EUR pricing, regulatory notes, and shipping info for ${c.name} residents.` }),
+    twitter: buildTwitter({ title: `Best Nootropics in ${c.name} ${CURRENT_YEAR} — EU Buyer's Guide`, description: `Buy nootropics in ${c.name}: EU storefront products, EUR pricing, regulatory notes, and shipping info for ${c.name} residents.` }),
   };
 }
 
@@ -50,7 +50,7 @@ export default async function CountryPage({
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: `Best Nootropics in ${c.name} ${CURRENT_YEAR}`,
-    description: `Guide to buying nootropics in ${c.name}. EU compliance, EUR pricing, and top-rated stacks.`,
+    description: `Guide to buying nootropics in ${c.name}. EU storefronts, EUR pricing, and top-rated stacks.`,
     author: buildPersonAuthorReference(undefined, SITE_URL),
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab EU', url: SITE_URL },
   };

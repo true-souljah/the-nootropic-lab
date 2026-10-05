@@ -97,7 +97,7 @@ export default function Comparator({
   const rows = useMemo(() => {
     let r = products.filter((p) => (p.priceMonthlyUSD ?? Infinity) <= maxPrice);
     if (caffeineFreeOnly) r = r.filter((p) => p.caffeineFree);
-    if (euCompliantOnly) r = r.filter((p) => p.euCompliance === 'compliant');
+    if (euCompliantOnly) r = r.filter((p) => p.euStorefront);
     if (handsOnOnly) r = r.filter((p) => p.handsOnTested === true);
     if (bestFor !== 'Any') r = r.filter((p) => p.bestFor.includes(bestFor));
     if (grade !== 'All') {

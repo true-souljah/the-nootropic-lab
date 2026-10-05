@@ -11,10 +11,10 @@ const CURRENT_YEAR = new Date().getFullYear();
 export const metadata: Metadata = {
   title: `Melhores Nootrópicos ${CURRENT_YEAR} Europa: Comparação Completa`,
   description:
-    'Comparação independente dos melhores nootrópicos disponíveis na Europa. Preços em EUR, conformidade regulamentar da UE, auditoria clínica de cada ingrediente.',
+    'Comparação independente dos melhores nootrópicos disponíveis na Europa. Preços em EUR, lojas UE assinaladas, auditoria clínica de cada ingrediente.',
   alternates: buildAlternates({ regionCode: 'eu', path: '/pt/melhores-nootropicos/', availableInRegions: ['eu'] }),
-  openGraph: buildOpenGraph({ regionCode: 'eu', path: '/pt/melhores-nootropicos/', title: `Melhores Nootrópicos ${CURRENT_YEAR} Europa: Comparação Completa`, description: 'Comparação independente dos melhores nootrópicos disponíveis na Europa. Preços em EUR, conformidade regulamentar da UE, auditoria clínica de cada ingrediente.' }),
-  twitter: buildTwitter({ title: `Melhores Nootrópicos ${CURRENT_YEAR} Europa: Comparação Completa`, description: 'Comparação independente dos melhores nootrópicos disponíveis na Europa. Preços em EUR, conformidade regulamentar da UE, auditoria clínica de cada ingrediente.' }),
+  openGraph: buildOpenGraph({ regionCode: 'eu', path: '/pt/melhores-nootropicos/', title: `Melhores Nootrópicos ${CURRENT_YEAR} Europa: Comparação Completa`, description: 'Comparação independente dos melhores nootrópicos disponíveis na Europa. Preços em EUR, lojas UE assinaladas, auditoria clínica de cada ingrediente.' }),
+  twitter: buildTwitter({ title: `Melhores Nootrópicos ${CURRENT_YEAR} Europa: Comparação Completa`, description: 'Comparação independente dos melhores nootrópicos disponíveis na Europa. Preços em EUR, lojas UE assinaladas, auditoria clínica de cada ingrediente.' }),
 };
 
 export default function MelhoresNootropicosPT() {
@@ -59,9 +59,10 @@ export default function MelhoresNootropicosPT() {
         Comparação Completa para a Europa
       </h1>
       <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-        Esta comparação foi concebida especificamente para compradores europeus. Todos os produtos
-        apresentados dispõem de loja UE (preços em EUR, sem direitos aduaneiros) e cumprem a
-        Directiva Europeia 2002/46/CE sobre suplementos alimentares. Cada ingrediente foi analisado
+        Esta comparação foi concebida especificamente para compradores europeus. Assinalamos os
+        produtos vendidos a partir de uma loja UE (preços em EUR, sem direitos aduaneiros). Não
+        verificamos a conformidade regulamentar de cada produto; a rotulagem é da responsabilidade
+        do vendedor. Cada ingrediente foi analisado
         em função de estudos clínicos.
       </p>
 

@@ -9,10 +9,10 @@ import { SITE_URL } from '@/lib/region';
 export const metadata: Metadata = {
   title: 'About The Nootropic Lab EU',
   description:
-    'The Nootropic Lab EU is an independent cognitive-supplement comparison site for European buyers, EUR pricing, EU regulatory compliance, transparent affiliate disclosure.',
+    'The Nootropic Lab EU is an independent cognitive-supplement comparison site for European buyers, EUR pricing, EU storefronts marked, transparent affiliate disclosure.',
   alternates: buildAlternates({ regionCode: 'eu', path: '/about/' }),
-  openGraph: buildOpenGraph({ regionCode: 'eu', path: '/about/', title: 'About The Nootropic Lab EU', description: 'The Nootropic Lab EU is an independent cognitive-supplement comparison site for European buyers, EUR pricing, EU regulatory compliance, transparent affiliate disclosure.' }),
-  twitter: buildTwitter({ title: 'About The Nootropic Lab EU', description: 'The Nootropic Lab EU is an independent cognitive-supplement comparison site for European buyers, EUR pricing, EU regulatory compliance, transparent affiliate disclosure.' }),
+  openGraph: buildOpenGraph({ regionCode: 'eu', path: '/about/', title: 'About The Nootropic Lab EU', description: 'The Nootropic Lab EU is an independent cognitive-supplement comparison site for European buyers, EUR pricing, EU storefronts marked, transparent affiliate disclosure.' }),
+  twitter: buildTwitter({ title: 'About The Nootropic Lab EU', description: 'The Nootropic Lab EU is an independent cognitive-supplement comparison site for European buyers, EUR pricing, EU storefronts marked, transparent affiliate disclosure.' }),
 };
 
 const aboutSchema = {
@@ -37,19 +37,22 @@ export default function AboutPage() {
         <p className="text-lg text-gray-600 mb-8 leading-relaxed">
           We are an independent cognitive-supplement comparison site built specifically for buyers
           across the 27 EU member states. We score every product against the same 5-pillar
-          methodology, verify EU regulatory compliance, and disclose every commercial relationship.
+          methodology, mark which products are sold from an EU storefront, and disclose every
+          commercial relationship.
         </p>
 
         <section className="mb-10">
           <h2 className="text-xl font-bold text-gray-900 mb-3">What we do</h2>
           <p className="text-gray-700 leading-relaxed mb-3">
             We review nootropic supplements for buyers in all 27 EU member states, with localised
-            coverage in English, German, French, and Portuguese. Every product in our comparison
-            table has a dedicated EU storefront (EUR pricing, no import duties) and has been checked
-            against{' '}
+            coverage in English, German, French, and Portuguese. Our comparison table marks
+            which products have a dedicated EU storefront (EUR pricing, no import duties). The rules
+            that apply are{' '}
             <strong>EU Directive 2002/46/EC</strong> on food supplements,{' '}
             <strong>Regulation (EC) 1924/2006</strong> on EU-authorised health claims (assessed by EFSA), and{' '}
-            <strong>Regulation (EU) 2015/2283</strong> on Novel Food authorisation. Every review
+            <strong>Regulation (EU) 2015/2283</strong> on Novel Food authorisation; we keep our own copy
+            within the authorised health claims, but we do not verify each product&apos;s regulatory
+            compliance, which is the seller&apos;s responsibility. Every review
             includes a clinical dosing audit comparing each ingredient against the minimum effective
             dose from peer-reviewed trials.
           </p>

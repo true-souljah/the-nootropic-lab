@@ -8,19 +8,19 @@ const CURRENT_YEAR = new Date().getFullYear();
 export const metadata: Metadata = {
   title: 'The Nootropic Lab UE — Avis indépendants sur les suppléments cognitifs en Europe',
   description:
-    'La plateforme indépendante de comparaison de nootropiques pour les acheteurs européens. Prix en EUR, produits conformes à la réglementation UE et conseils réglementaires complets.',
+    'La plateforme indépendante de comparaison de nootropiques pour les acheteurs européens. Prix en EUR, produits vendus depuis une boutique UE et conseils réglementaires.',
   alternates: buildAlternates({ regionCode: 'eu', path: '/fr/', availableInRegions: ['eu'] }),
   openGraph: buildOpenGraph({
     regionCode: 'eu',
     path: '/fr/',
     title: 'The Nootropic Lab UE — Avis indépendants sur les suppléments cognitifs en Europe',
     description:
-      'La plateforme indépendante de comparaison de nootropiques pour les acheteurs européens. Prix en EUR, produits conformes à la réglementation UE et conseils réglementaires complets.',
+      'La plateforme indépendante de comparaison de nootropiques pour les acheteurs européens. Prix en EUR, produits vendus depuis une boutique UE et conseils réglementaires.',
   }),
   twitter: buildTwitter({
     title: 'The Nootropic Lab UE — Avis indépendants sur les suppléments cognitifs en Europe',
     description:
-      'La plateforme indépendante de comparaison de nootropiques pour les acheteurs européens. Prix en EUR, produits conformes à la réglementation UE et conseils réglementaires complets.',
+      'La plateforme indépendante de comparaison de nootropiques pour les acheteurs européens. Prix en EUR, produits vendus depuis une boutique UE et conseils réglementaires.',
   }),
 };
 
@@ -42,15 +42,15 @@ const features = [
   },
   {
     icon: '🇪🇺',
-    title: 'Conformité UE vérifiée',
+    title: 'Allégations de santé limitées à la liste UE',
     desc:
-      "Nous vérifions chaque produit au regard de la directive UE 2002/46/CE et du règlement (CE) n° 1924/2006 de l'EFSA sur les allégations de santé. Nous ne recommandons pas les formules disponibles uniquement aux États-Unis.",
+      "Nos propres textes n'utilisent que des allégations de santé autorisées au titre du règlement (CE) n° 1924/2006. Nous ne vérifions pas la conformité réglementaire de chaque produit ; l'étiquetage relève de la responsabilité du vendeur.",
   },
   {
     icon: '💶',
     title: 'Prix en EUR et livraison UE',
     desc:
-      'Nous ne présentons que les produits disposant de boutiques UE dédiées — pas de frais de douane, prix en EUR et livraison locale.',
+      'Nous signalons les produits disposant de boutiques UE dédiées — pas de frais de douane, prix en EUR et livraison locale.',
   },
 ];
 
@@ -81,7 +81,7 @@ export default function FRHomePage() {
       <section className="bg-gradient-to-b from-green-50 to-white py-16 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full mb-4">
-            Marché UE · Prix en EUR · Produits conformes à la réglementation UE
+            Marché UE · Prix en EUR · Boutiques UE signalées
           </div>
           {/* PR-Q34 (#98): break-words + responsive font ramp for reflow
              *  parity with the German landing. French strings on this page
@@ -95,7 +95,7 @@ export default function FRHomePage() {
           </h1>
           <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
             Nous évaluons les nootropiques spécifiquement pour les acheteurs européens. Prix en EUR,
-            conformité à la réglementation UE et aucun frais d&apos;importation caché.
+            boutiques UE signalées et aucun frais d&apos;importation caché.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
