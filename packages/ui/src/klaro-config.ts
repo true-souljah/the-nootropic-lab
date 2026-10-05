@@ -263,7 +263,8 @@ export const klaroConfig: KlaroConfig = {
         'Attributes affiliate clicks to this site so the operator earns commission on partner purchases. No personalised advertising; tracks click-attribution only.',
       required: false,
       default: false,
-      onlyOnce: true,
+      // Not onlyOnce: a withdraw → re-Accept on the same page re-runs the tag
+      // so the renewed consent takes effect without a reload.
       onDecline: onImpactDecline,
     },
   ],

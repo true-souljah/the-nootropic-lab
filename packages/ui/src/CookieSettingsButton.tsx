@@ -10,8 +10,9 @@ export interface CookieSettingsButtonProps {
 /**
  * Persistent consent-withdraw control: re-opens the Klaro consent manager so
  * the visitor can change or withdraw their choice on any page. Rendered by
- * every page chrome (FPFooter + AppShell); `data-cookie-settings` is the hook
- * the built-output consent check and the e2e consent specs look for.
+ * every page chrome (FPFooter, AppShell, the quiz, region 404s, standalone
+ * pages); `data-cookie-settings` is the hook scripts/check-consent-built.mjs
+ * asserts on every built page.
  */
 export function CookieSettingsButton({ label, className }: CookieSettingsButtonProps) {
   return (
@@ -19,7 +20,11 @@ export function CookieSettingsButton({ label, className }: CookieSettingsButtonP
       type="button"
       data-cookie-settings=""
       onClick={() => {
-        void openCookieSettings();
+        openCookieSettings().catch((err: unknown) => {
+          // The consent-manager chunk failed to load (offline / blocked). No
+          // tracker can have loaded either, since Klaro gates them all.
+          console.error('Cookie settings: consent manager failed to load', err);
+        });
       }}
       className={className}
     >

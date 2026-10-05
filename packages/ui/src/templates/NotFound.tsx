@@ -1,25 +1,27 @@
 import Link from 'next/link';
-import PublicShell from './PublicShell';
-import type { SearchItem } from '../SearchModal';
-import type { UIStrings } from '@nootropic/data';
+import { CookieSettingsBar } from '../CookieSettingsButton';
 
 export interface NotFoundProps {
   title: string;
   body: string;
   homeLabel: string;
-  searchItems?: SearchItem[];
-  uiStrings?: UIStrings;
+  /** Localized label of the persistent consent control (UIStrings.cookie.settings). */
+  cookieSettingsLabel: string;
 }
 
 /**
- * Region 404 page inside the public chrome, so a visitor who lands on a dead
- * URL still gets the header, the footer and its persistent "Cookie settings"
- * consent control (Next's built-in 404 renders none of them).
+ * Region 404 page carrying the persistent "Cookie settings" consent control
+ * (Next's built-in 404 renders no page chrome at all).
+ *
+ * Deliberately minimal — no PublicShell/search index: Next.js serializes the
+ * root not-found tree into the RSC payload of EVERY page, so anything passed
+ * here ships on all routes (the full search index would bloat every page and
+ * leak English strings into CA /fr/* payloads — see e2e/ca-fr-chrome.spec.ts).
  */
-export default function NotFound({ title, body, homeLabel, searchItems, uiStrings }: NotFoundProps) {
+export default function NotFound({ title, body, homeLabel, cookieSettingsLabel }: NotFoundProps) {
   return (
-    <PublicShell searchItems={searchItems} uiStrings={uiStrings} hideDisclosure>
-      <div className="max-w-[640px] mx-auto px-6 pt-16 pb-16 text-center">
+    <div className="bg-ds-bg text-ds-ink min-h-screen flex flex-col" style={{ fontFamily: 'var(--font-ds-sans)' }}>
+      <main className="flex-1 max-w-[640px] mx-auto px-6 pt-16 pb-16 text-center">
         <div
           className="text-[12px] uppercase tracking-[0.12em] font-semibold text-ds-muted mb-3"
           aria-hidden="true"
@@ -34,7 +36,8 @@ export default function NotFound({ title, body, homeLabel, searchItems, uiString
         >
           {homeLabel}
         </Link>
-      </div>
-    </PublicShell>
+      </main>
+      <CookieSettingsBar label={cookieSettingsLabel} />
+    </div>
   );
 }
