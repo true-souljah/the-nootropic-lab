@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { GeoIndexPage, buildAlternates, buildOpenGraph, buildTwitter } from '@nootropic/ui';
 import { gccCountries } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
@@ -31,6 +32,13 @@ export default function GeoHubPage() {
       homeLabel="Home"
       searchItems={searchItems}
       uiStrings={uiStrings}
-    />
+    >
+      <p className="text-sm text-gray-700 mt-8">
+        <strong>Related:</strong>{' '}
+        <Link href="/which-nootropics-ship-to-the-gcc/" className="text-green-700 underline">
+          Which nootropic brands ship to the GCC? A brand-by-brand check
+        </Link>
+      </p>
+    </GeoIndexPage>
   );
 }
