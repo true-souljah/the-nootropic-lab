@@ -136,8 +136,9 @@ function escapeRegExp(s: string): string {
  * (flagsCatalogueProducts): Bacopa monnieri is excluded on purpose because
  * the disposition prohibits one seller's unregistered Bacopa product, not
  * Bacopa as an ingredient — flagging catalogue products for Bacopa would
- * misstate the law. Matching is case-insensitive and anchored at a word
- * start so "F-Phenibut" never matches inside an unrelated longer token.
+ * misstate the law. Matching is case-insensitive and anchored at token
+ * boundaries on both sides so "F-Phenibut" or "Noopept" never matches
+ * inside an unrelated longer token.
  */
 export function findAnmatBannedIngredients(product: Product): AnmatProhibitedCompound[] {
   const found: AnmatProhibitedCompound[] = [];
@@ -145,7 +146,7 @@ export function findAnmatBannedIngredients(product: Product): AnmatProhibitedCom
   for (const compound of anmatProhibitedCompounds) {
     if (!compound.flagsCatalogueProducts) continue;
     const candidates = [compound.declaredAs, ...compound.aliases];
-    if (candidates.some(c => new RegExp(`(?<![a-z0-9])${escapeRegExp(c)}`, 'i').test(ingredientText))) {
+    if (candidates.some(c => new RegExp(`(?<![a-z0-9])${escapeRegExp(c)}(?![a-z0-9])`, 'i').test(ingredientText))) {
       found.push(compound);
     }
   }

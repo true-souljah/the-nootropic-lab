@@ -81,6 +81,12 @@ describe('findAnmatBannedIngredients — matches only Noopept and F-Phenibut', (
     expect(findAnmatBannedIngredients(fakeProduct('Phenibut HCl'))).toHaveLength(0);
   });
 
+  it('does not match inside longer unrelated tokens', () => {
+    expect(findAnmatBannedIngredients(fakeProduct('Noopeptide'))).toHaveLength(0);
+    expect(findAnmatBannedIngredients(fakeProduct('F-Phenibutyl'))).toHaveLength(0);
+    expect(findAnmatBannedIngredients(fakeProduct('XF-Phenibut'))).toHaveLength(0);
+  });
+
   it('never flags Bacopa monnieri or racetams', () => {
     expect(findAnmatBannedIngredients(fakeProduct('Bacopa Monnieri (24% bacosides)'))).toHaveLength(0);
     expect(findAnmatBannedIngredients(fakeProduct('Bacopa Monnieri whole herb extract'))).toHaveLength(0);
