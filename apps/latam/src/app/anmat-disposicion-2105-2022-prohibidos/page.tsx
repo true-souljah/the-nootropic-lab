@@ -257,8 +257,8 @@ export default function Page() {
             No marcamos productos por contener Bacopa monnieri: la disposición prohíbe un producto concreto
             de bacopa, no la bacopa como ingrediente.{' '}
             {catalogueBrandMatches.length === 0
-              ? 'Ningún producto de nuestro catálogo es de las marcas Newmind o PURENOOTROPICS citadas en el Artículo 1.'
-              : `Productos de nuestro catálogo de las marcas citadas en el Artículo 1: ${catalogueBrandMatches.map(p => p.name).join(', ')}.`}{' '}
+              ? 'Ningún producto de nuestro catálogo lleva en su nombre o marca Newmind o PURENOOTROPICS, las marcas citadas en el Artículo 1.'
+              : `Productos de nuestro catálogo cuyo nombre o marca menciona Newmind o PURENOOTROPICS (marcas citadas en el Artículo 1): ${catalogueBrandMatches.map(p => p.name).join(', ')}.`}{' '}
             Estado actual:
           </p>
           <div className="grid sm:grid-cols-2 gap-4">
