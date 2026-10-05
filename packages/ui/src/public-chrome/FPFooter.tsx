@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { BrandMark } from '../primitives/BrandMark';
+import { CookieSettingsButton } from '../CookieSettingsButton';
 import type { UIStrings, RegionalRegionCode as RegionCode } from '@nootropic/data';
 import { ALL_REGIONS, routeAvailableIn } from '@nootropic/data';
 
@@ -254,6 +255,7 @@ export function FPFooter({
   const resolvedCopyright = resolvedCopyrightTemplate.replace('{year}', String(CURRENT_YEAR));
   const lastAuditLabel = strings?.footer.lastAuditLabel ?? 'Last full re-audit:';
   const methodologyLabel = strings?.footer.methodologyLabel ?? 'Methodology';
+  const cookieSettingsLabel = strings?.cookie.settings ?? 'Cookie settings';
   const dateLocale = strings?.productDetail?.dateLocale ?? 'en-US';
   const formattedDate = formatAuditDate(lastAuditDate, dateLocale);
 
@@ -305,6 +307,10 @@ export function FPFooter({
         </div>
         <div className="mt-9 pt-5 border-t border-white/10 flex justify-between gap-4 flex-wrap text-[11.5px] text-ds-side-muted">
           <span>{resolvedCopyright}</span>
+          <CookieSettingsButton
+            label={cookieSettingsLabel}
+            className="inline-flex items-center min-h-[24px] p-0 bg-transparent border-0 cursor-pointer text-[11.5px] text-ds-side-ink underline underline-offset-2 hover:text-white focus-visible:outline-2 focus-visible:outline-ds-focus-ring-on-dark focus-visible:outline-offset-2 rounded"
+          />
           <span>
             {lastAuditLabel} {formattedDate} · {methodologyLabel} {methodologyVersion}
           </span>

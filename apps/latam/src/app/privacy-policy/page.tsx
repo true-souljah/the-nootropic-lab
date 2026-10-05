@@ -16,7 +16,7 @@ export default function PrivacyPolicyPage() {
     <PublicShell searchItems={searchItems} uiStrings={uiStrings} hideDisclosure>
     <article className="max-w-3xl mx-auto px-4 py-10">
       <h1 className="text-3xl font-bold text-gray-900 mb-6">Política de Privacidad</h1>
-      <p className="text-sm text-gray-500 mb-8">Última actualización: 15 de enero de 2026</p>
+      <p className="text-sm text-gray-500 mb-8">Última actualización: 5 de octubre de 2026</p>
 
       <div className="prose prose-gray prose-sm max-w-none space-y-6">
         <section>
@@ -33,8 +33,9 @@ export default function PrivacyPolicyPage() {
           <h2 className="text-xl font-bold text-gray-900 mb-3">2. Datos que Recopilamos</h2>
           <p className="text-gray-700 leading-relaxed mb-3">Recopilamos datos mínimos:</p>
           <ul className="list-disc list-inside text-gray-700 space-y-1">
-            <li><strong>Datos analíticos</strong> (solo tras aceptar las cookies): páginas vistas, referente, tipo de dispositivo, país. Usamos análisis enfocados en la privacidad. No se recopila información de identificación personal.</li>
-            <li><strong>Preferencia de consentimiento de cookies:</strong> almacenada en el localStorage de tu navegador para recordar tu elección.</li>
+            <li><strong>Datos analíticos</strong> (solo después de que hagas clic en Aceptar en el banner de consentimiento): páginas vistas, referente, tipo de dispositivo, país. Se recopilan con Google Analytics 4, con las funciones publicitarias desactivadas. No se recopila información de identificación personal.</li>
+            <li><strong>Datos de atribución de afiliados</strong> (solo después de Aceptar): la etiqueta de seguimiento de Impact.com guarda un identificador aleatorio para que una compra realizada en un sitio socio tras hacer clic en nuestro enlace se nos atribuya.</li>
+            <li><strong>Preferencia de consentimiento de cookies:</strong> almacenada en la cookie <code className="bg-gray-100 px-1 rounded text-xs">klaro</code> durante 365 días para recordar tu elección (la aceptación y el rechazo se conservan el mismo tiempo).</li>
             <li><strong>Datos de clics en enlaces de afiliados:</strong> cuando haces clic en un enlace de afiliado, el sitio de destino puede instalar cookies de seguimiento. No controlamos las cookies de terceros.</li>
           </ul>
         </section>
@@ -52,13 +53,18 @@ export default function PrivacyPolicyPage() {
         <section>
           <h2 className="text-xl font-bold text-gray-900 mb-3">4. Cookies</h2>
           <p className="text-gray-700 leading-relaxed">
-            Usamos dos tipos de cookies: <strong>cookies necesarias</strong> (preferencia de
-            consentimiento de cookies, almacenadas en localStorage) que siempre están activas, y{' '}
-            <strong>cookies analíticas</strong> que solo se activan cuando haces clic en
-            &quot;Aceptar Analíticas&quot; en nuestro banner de cookies. Puedes rechazar las cookies
-            analíticas sin afectar la funcionalidad del sitio. Consulta nuestra{' '}
+            Usamos una <strong>cookie necesaria</strong> (<code className="bg-gray-100 px-1 rounded text-xs">klaro</code>,
+            tu elección de consentimiento, 365 días) que siempre está activa, y{' '}
+            <strong>cookies opcionales de análisis y de atribución de afiliados</strong> (Google
+            Analytics 4: <code className="bg-gray-100 px-1 rounded text-xs">_ga</code>,{' '}
+            <code className="bg-gray-100 px-1 rounded text-xs">_ga_&lt;container-id&gt;</code>;
+            Impact.com: <code className="bg-gray-100 px-1 rounded text-xs">IR_*</code>) que solo se
+            instalan cuando haces clic en &quot;Aceptar todo&quot; en nuestro banner de consentimiento.
+            Nada opcional se carga antes de que elijas. Puedes rechazarlas sin afectar la
+            funcionalidad del sitio y cambiar o retirar tu elección en cualquier momento con el
+            enlace &quot;Configuración de cookies&quot; al final de cada página. Consulta nuestra{' '}
             <a href="/cookie-policy" className="text-green-700 underline">Política de Cookies</a> para
-            más detalles.
+            ver nombres, finalidades y duraciones.
           </p>
         </section>
 
@@ -78,9 +84,12 @@ export default function PrivacyPolicyPage() {
           <p className="text-gray-700 leading-relaxed">
             Este sitio está alojado en Cloudflare Pages. Cloudflare puede recopilar registros
             estándar de servidor web (dirección IP, agente de usuario, marcas de tiempo) como parte
-            de su infraestructura. Consulta la política de privacidad de Cloudflare para más
-            detalles. No usamos Google Analytics, Facebook Pixel ni ningún servicio de seguimiento
-            publicitario.
+            de su infraestructura; no usamos Cloudflare Web Analytics. Después de que aceptes en
+            nuestro banner de consentimiento, usamos <strong>Google Analytics 4</strong> para medir
+            el uso del sitio (sin funciones de publicidad personalizada) y la etiqueta de seguimiento
+            de <strong>Impact.com</strong> para atribuir compras de afiliados. No usamos Facebook
+            Pixel ni ningún servicio de seguimiento publicitario. Consulta las políticas de
+            privacidad de Cloudflare, Google e Impact.com para más detalles.
           </p>
         </section>
 

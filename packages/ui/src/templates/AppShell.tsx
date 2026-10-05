@@ -5,6 +5,7 @@ import { Menu, X, Search } from 'lucide-react';
 import Link from 'next/link';
 import { Sidebar, type SidebarGroup } from '../primitives/Sidebar';
 import CommandPalette from './CommandPalette';
+import { CookieSettingsBar } from '../CookieSettingsButton';
 import type { SearchItem } from '../SearchModal';
 import type { UIStrings } from '@nootropic/data';
 
@@ -205,6 +206,9 @@ export default function AppShell({
           </div>
 
           <main id="main-content">{children}</main>
+          {/* App surfaces have no FPFooter, so the persistent consent-withdraw
+              control lives here (FPFooter carries it on public pages). */}
+          <CookieSettingsBar label={uiStrings?.cookie.settings ?? 'Cookie settings'} />
         </div>
       </div>
       </div>
