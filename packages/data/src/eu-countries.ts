@@ -28,9 +28,9 @@ export const euCountries: EUCountry[] = [
     slug: 'bulgaria',
     name: 'Bulgaria',
     nativeName: 'България',
-    currency: 'BGN',
-    regulatoryNote: 'Bulgaria follows EU Directive 2002/46/EC for food supplements. The Bulgarian Food Safety Agency (BFSA) oversees compliance. Currency is BGN (Bulgarian lev), not EUR -- check product pricing carefully.',
-    shippingNote: 'EU storefronts ship to Bulgaria. Delivery estimates vary by brand and carrier, so check the estimate at checkout. Prices listed in EUR -- currency conversion at checkout.',
+    currency: 'EUR',
+    regulatoryNote: 'Bulgaria follows EU Directive 2002/46/EC for food supplements. The Bulgarian Food Safety Agency (BFSA) oversees compliance. Bulgaria joined the euro area on 1 January 2026, when euro banknotes and coins started circulating (per ecb.europa.eu, checked 2026-10-05).',
+    shippingNote: 'EU storefronts ship to Bulgaria. Delivery estimates vary by brand and carrier, so check the estimate at checkout. Prices listed in EUR.',
   },
   {
     slug: 'croatia',
