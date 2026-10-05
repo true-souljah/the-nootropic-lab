@@ -44,7 +44,7 @@ export default function AboutPage() {
           <h2 className="text-xl font-bold text-gray-900 mb-3">What we do</h2>
           <p className="text-gray-700 leading-relaxed mb-3">
             We review nootropic supplements for buyers in Japan. Our comparison covers domestic Japanese
-            brands (DHC, Suntory, FANCL, Asahi) alongside imported international stacks (Mind Lab Pro&apos;s own FAQ names Japan among its shipping
+            brands (FANCL, Suntory) alongside imported international stacks (Mind Lab Pro&apos;s own FAQ names Japan among its shipping
             territories; for the other imported brands, confirm at checkout). Every
             review includes a clinical dosing audit comparing each ingredient against the minimum effective
             dose from peer-reviewed trials. We score brands across ingredient quality, dosing-vs-evidence,
@@ -79,8 +79,8 @@ export default function AboutPage() {
         <section className="mb-10">
           <h2 className="text-xl font-bold text-gray-900 mb-3">Why we prioritize domestic brands</h2>
           <p className="text-gray-700 leading-relaxed">
-            For most Japanese buyers, domestic brands like <strong>DHC</strong>, <strong>Suntory</strong>,
-            {' '}<strong>FANCL</strong>, and <strong>Asahi</strong> are lower-friction: no customs, no
+            For most Japanese buyers, domestic brands like <strong>FANCL</strong> and
+            {' '}<strong>Suntory</strong> are lower-friction: no customs, no
             currency conversion, faster delivery, FFC-registered evidence where applicable, and Japanese-
             language customer support. We rank these alongside international stacks but prefer them when
             efficacy is comparable, so first-time buyers can start with a low-risk domestic option before

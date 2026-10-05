@@ -66,7 +66,7 @@ export default async function CountryPage({
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
           Best Nootropics in {c.name} {CURRENT_YEAR}
         </h1>
-        <p className="text-sm text-gray-500 mb-8">Currency: {c.currency} &nbsp;·&nbsp; VAT: {c.vatRate}</p>
+        <p className="text-sm text-gray-500 mb-8">Currency: {c.currency}</p>
 
         <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 mb-6">
           <h2 className="font-bold text-amber-900 mb-2">Import & Customs Note</h2>
@@ -77,7 +77,7 @@ export default async function CountryPage({
           <h2 className="font-bold text-gray-900 mb-2">Shipping to {c.name}</h2>
           <p className="text-sm text-gray-700 leading-relaxed">{c.shippingNote}</p>
           <p className="text-sm text-gray-600 mt-2">
-            <strong>VAT:</strong> {c.vatRate} applied on most imports. Prices shown in USD.
+            <strong>VAT:</strong> may apply at checkout or on import; rates were not confirmed from an official page in our 2026-10-05 check. Prices shown in USD.
           </p>
         </div>
 
