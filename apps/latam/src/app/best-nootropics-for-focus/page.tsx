@@ -86,7 +86,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: '¿Estos productos son legales en mi país de Latam?',
-    a: 'Los suplementos nootrópicos importados ingresan a Latam bajo las exenciones de uso personal. la Comisión Federal para la Protección contra Riesgos Sanitarios (COFEPRIS) en México, la Agência Nacional de Vigilância Sanitária (ANVISA) en Brasil, el Instituto Nacional de Vigilancia de Medicamentos y Alimentos (INVIMA) en Colombia, ISP (Chile) y DIGEMID (Perú) generalmente permiten un suministro de 1 a 3 meses para uso personal. ANMAT (Argentina) emitió la Disposición 2105/2022 que prohibió el Noopept y varios otros nootrópicos no registrados — ninguno de los productos recomendados aquí contiene Noopept ni ingredientes prohibidos por ANMAT, pero verifica la lista actualizada antes de pedir desde Argentina.',
+    a: 'Los suplementos nootrópicos importados ingresan a Latam bajo las exenciones de uso personal. la Comisión Federal para la Protección contra Riesgos Sanitarios (COFEPRIS) en México, la Agência Nacional de Vigilância Sanitária (ANVISA) en Brasil, el Instituto Nacional de Vigilancia de Medicamentos y Alimentos (INVIMA) en Colombia, ISP (Chile) y DIGEMID (Perú) generalmente permiten un suministro de 1 a 3 meses para uso personal. En Argentina, la Disposición 2105/2022 de la ANMAT prohibió siete productos concretos no registrados (Noopept, F-Phenibut y Bacopa de las marcas Newmind y PURENOOTROPICS) — ninguno de los productos recomendados aquí es uno de esos productos ni contiene Noopept o F-Phenibut.',
   },
   {
     q: '¿Dónde puedo comprar nootrópicos en Latam?',
@@ -111,7 +111,7 @@ export default function Page() {
       faqItems={faqItems}
       strings={useCaseListPageEsStrings}
       siteUrl={SITE_URL}
-      regulatoryPillar={{ label: 'Nootrópicos prohibidos por ANMAT (Argentina)', href: '/anmat-disposicion-2105-2022-prohibidos/' }}
+      regulatoryPillar={{ label: 'ANMAT Disposición 2105/2022: los siete productos prohibidos (Argentina)', href: '/anmat-disposicion-2105-2022-prohibidos/' }}
       healthDisclaimer={getRegionalHealthDisclaimer('latam')}
       searchItems={searchItems}
       uiStrings={uiStrings}

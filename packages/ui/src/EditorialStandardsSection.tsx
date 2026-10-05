@@ -120,8 +120,9 @@ export default function EditorialStandardsSection() {
               Each regional edition of this site applies the YMYL disclaimer language mandated or
               expected by that region&apos;s primary regulator: DSHEA (US FDA), Reg (EC) 1924/2006 +
               EFSA register (EU), Health Canada NPN (CA), TGA Therapeutic Goods Advertising Code (AU),
-              PMD Act + FFC + FOSHU (JP), ANVISA / COFEPRIS / ANMAT (LATAM, with explicit ANMAT
-              2105/2022 banned-compound auditing for Argentine traffic), SFDA + Halal certification
+              PMD Act + FFC + FOSHU (JP), ANVISA / COFEPRIS / ANMAT (LATAM, with a catalogue check
+              against the substances named in the seven products prohibited by ANMAT Disposición
+              2105/2022 for Argentine traffic), SFDA + Halal certification
               (GCC), HSA + BPOM + NPRA + Halal mandatory ID/MY (SEA). Cognitive claims that are not
               approved by the relevant regulator are reframed as ingredient mechanisms or consumer
               experience and never asserted as label-grade health claims.

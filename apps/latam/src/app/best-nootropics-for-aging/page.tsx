@@ -94,7 +94,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: '¿Estos productos son legales en mi país de Latam?',
-    a: 'Los suplementos nootrópicos importados ingresan a Latam bajo exenciones de uso personal. COFEPRIS (México), ANVISA (Brasil), INVIMA (Colombia), ISP (Chile) y DIGEMID (Perú) generalmente permiten un suministro de 1 a 3 meses para uso personal. ANMAT (Argentina) emitió la Disposición 2105/2022 que prohibió el Noopept y otros nootrópicos no registrados — ninguna de las selecciones aquí contiene Noopept ni ingredientes prohibidos por ANMAT.',
+    a: 'Los suplementos nootrópicos importados ingresan a Latam bajo exenciones de uso personal. COFEPRIS (México), ANVISA (Brasil), INVIMA (Colombia), ISP (Chile) y DIGEMID (Perú) generalmente permiten un suministro de 1 a 3 meses para uso personal. En Argentina, la Disposición 2105/2022 de la ANMAT prohibió siete productos concretos no registrados (Noopept, F-Phenibut y Bacopa de las marcas Newmind y PURENOOTROPICS) — ninguna de las selecciones aquí es uno de esos productos ni contiene Noopept o F-Phenibut.',
   },
   {
     q: '¿En cuánto tiempo notaré algo?',
@@ -115,7 +115,7 @@ export default function Page() {
       faqItems={faqItems}
       strings={useCaseListPageEsStrings}
       siteUrl={SITE_URL}
-      regulatoryPillar={{ label: 'Nootrópicos prohibidos por ANMAT (Argentina)', href: '/anmat-disposicion-2105-2022-prohibidos/' }}
+      regulatoryPillar={{ label: 'ANMAT Disposición 2105/2022: los siete productos prohibidos (Argentina)', href: '/anmat-disposicion-2105-2022-prohibidos/' }}
       healthDisclaimer={getRegionalHealthDisclaimer('latam')}
       searchItems={searchItems}
       uiStrings={uiStrings}

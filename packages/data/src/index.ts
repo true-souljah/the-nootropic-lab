@@ -41,8 +41,10 @@ export { authors, getAuthorBySlug, buildPersonSchema, buildPersonAuthorReference
 export { buildProductSchema } from './product-schema';
 export type { DisclaimerMarket } from './regional-disclaimers';
 export { getRegionalHealthDisclaimer } from './regional-disclaimers';
-export type { AnmatProhibitedCompound } from './anmat-prohibited';
+export type { AnmatProhibitedCompound, AnmatProhibitedProduct, AnmatBasis } from './anmat-prohibited';
 export {
+  ANMAT_DISPOSICION_2105_2022,
+  anmatProhibitedProducts,
   anmatProhibitedCompounds,
   findAnmatBannedIngredients,
   productContainsAnmatBanned,

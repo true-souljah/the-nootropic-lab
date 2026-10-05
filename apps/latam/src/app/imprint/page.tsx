@@ -23,7 +23,7 @@ export default function Page() {
       siteUrl={SITE_URL}
       marketLabel="Latin American edition (Spanish)"
       contactEmail={CONTACT_EMAIL}
-      regionNote="Los suplementos alimenticios están regulados por agencias nacionales: ANVISA (Brasil) bajo RDC 243/2018, COFEPRIS (México), e INVIMA (Colombia). En Argentina, ANMAT Disposición 2105/2022 prohíbe ciertos compuestos nootrópicos (incluyendo Noopept) — no recomendamos productos con esos ingredientes a lectores en Argentina. / Supplements are regulated by national agencies: ANVISA (Brazil), COFEPRIS (Mexico), INVIMA (Colombia). In Argentina, ANMAT Disposition 2105/2022 prohibits certain nootropic compounds (including Noopept) — we do not recommend products containing those ingredients to Argentine readers."
+      regionNote="Los suplementos alimenticios están regulados por agencias nacionales: ANVISA (Brasil) bajo RDC 243/2018, COFEPRIS (México), e INVIMA (Colombia). En Argentina, la Disposición 2105/2022 de la ANMAT prohíbe siete productos concretos de las marcas Newmind y PURENOOTROPICS (Noopept, F-Phenibut y Bacopa) — no recomendamos productos con Noopept ni F-Phenibut a lectores en Argentina. / Supplements are regulated by national agencies: ANVISA (Brazil), COFEPRIS (Mexico), INVIMA (Colombia). In Argentina, ANMAT Disposition 2105/2022 prohibits seven specific products of the Newmind and PURENOOTROPICS brands (Noopept, F-Phenibut and Bacopa) — we do not recommend products containing Noopept or F-Phenibut to Argentine readers."
     />
     </PublicShell>
   );
