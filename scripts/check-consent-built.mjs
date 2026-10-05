@@ -66,7 +66,7 @@ for (const region of scanRegions) {
     }
     if (!/<div id="klaro"/.test(html)) failures.push(`${rel}: no Klaro mount point`);
     if (!/data-cookie-settings/.test(html)) failures.push(`${rel}: no "Cookie settings" withdraw control`);
-    if (!/<a\b[^>]*href="\/(cookie|privacy)-policy\/?"/.test(html)) failures.push(`${rel}: no link to the cookie or privacy policy`);
+    if (!/<a\b[^>]*href="\/(cookie|privacy)-policy\/?[?#"]/.test(html)) failures.push(`${rel}: no link to the cookie or privacy policy`);
   }
 }
 
