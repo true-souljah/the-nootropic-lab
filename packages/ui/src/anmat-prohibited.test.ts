@@ -43,8 +43,11 @@ describe('ANMAT Disposición 2105/2022 — source-level scope', () => {
   });
 
   it('data module contains no racetam (or other unnamed compound) entries', () => {
-    const names = anmatProhibitedCompounds.flatMap(c => [c.name, c.nameEs, c.declaredAs, ...c.aliases]).join(' | ');
+    const names = anmatProhibitedCompounds.flatMap(c => [c.name, c.nameEs, c.declaredAs]).join(' | ');
     expect(names).not.toMatch(/racetam/i);
+    // The only "-racetam" string allowed is omberacetam, Noopept's INN alias.
+    const racetamAliases = anmatProhibitedCompounds.flatMap(c => c.aliases.filter(a => /racetam/i.test(a)).map(a => `${c.name}:${a}`));
+    expect(racetamAliases).toEqual(['Noopept:Omberacetam']);
     for (const unnamed of ['Aniracetam', 'Oxiracetam', 'Pramiracetam', 'Phenylpiracetam', 'Tianeptine', 'Adrafinil']) {
       expect(src).not.toContain(`name: '${unnamed}'`);
     }
