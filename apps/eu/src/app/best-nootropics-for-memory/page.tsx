@@ -81,7 +81,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Why don\'t EU labels mention "memory" benefits the way US labels do?',
-    a: 'EFSA has not approved most cognitive-outcome claims for these botanicals. Under EU Regulation (EC) 1924/2006, supplement labels can only make health claims that EFSA has authorised. Reputable EU brands describe ingredient mechanism (e.g., "supports phospholipid synthesis") rather than outcome (e.g., "improves memory"). The underlying ingredient evidence is the same — only the on-label language differs.',
+    a: 'EFSA has not approved most cognitive-outcome claims for these botanicals. Under EU Regulation (EC) 1924/2006, supplement labels can only make health claims that the European Commission has authorised after EFSA assessment. Reputable EU brands describe ingredient mechanism (e.g., "supports phospholipid synthesis") rather than outcome (e.g., "improves memory"). The underlying ingredient evidence is the same — only the on-label language differs.',
   },
   {
     q: 'Are memory nootropics safe long-term?',
@@ -113,7 +113,7 @@ export default function Page() {
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}
-      regulatoryPillar={{ label: 'EFSA-approved cognitive supplement framework', href: '/efsa-approved-cognitive-supplements/' }}
+      regulatoryPillar={{ label: 'EU-authorised cognitive health claims (assessed by EFSA)', href: '/efsa-approved-cognitive-supplements/' }}
       healthDisclaimer={getRegionalHealthDisclaimer('eu')}
       searchItems={searchItems}
       uiStrings={uiStrings}

@@ -26,7 +26,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Theanine + Caffeine — sustained focus',
     evidence:
-      'For sustained study sessions, the L-theanine + caffeine combo is the foundation. Reduces caffeine jitter and post-coffee crash, smooths attention switching. 100–200mg L-theanine + 75–100mg caffeine, repeated 4–6 hours later if needed. EFSA has authorised the alertness/attention claim for caffeine at ≥75mg per serving.',
+      'For sustained study sessions, the L-theanine + caffeine combo is the foundation. Reduces caffeine jitter and post-coffee crash, smooths attention switching. 100–200mg L-theanine + 75–100mg caffeine, repeated 4–6 hours later if needed. No caffeine alertness or attention claim is authorised in the EU: the European Food Safety Authority (EFSA) assessed a ≥75mg alertness claim favourably in 2011, but the European Commission never authorised it.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
   },
   {
@@ -109,7 +109,7 @@ export default function Page() {
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}
-      regulatoryPillar={{ label: 'EFSA-approved cognitive supplement framework', href: '/efsa-approved-cognitive-supplements/' }}
+      regulatoryPillar={{ label: 'EU-authorised cognitive health claims (assessed by EFSA)', href: '/efsa-approved-cognitive-supplements/' }}
       healthDisclaimer={getRegionalHealthDisclaimer('eu')}
       searchItems={searchItems}
       uiStrings={uiStrings}
