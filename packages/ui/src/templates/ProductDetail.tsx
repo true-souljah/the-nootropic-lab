@@ -9,7 +9,7 @@ import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { Tabs, TabPanel } from '../primitives/Tabs';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
-import { servingAmount } from '@nootropic/data';
+import { productForm, servingAmount, servingUnit } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 import type { TabId } from './product-detail/constants';
@@ -66,6 +66,12 @@ export default function ProductDetail({
   const [tab, setTab] = useState<TabId>('overview');
 
   const pd = uiStrings.productDetail;
+  // Meta-line pack count in the product's own units (servings × units per
+  // serving), e.g. "60 caps" / "120 錠" / "20 shots"; omitted when unknown.
+  const packUnits =
+    p.servingsPerContainer > 0 && p.capsulesPerServing > 0
+      ? p.servingsPerContainer * p.capsulesPerServing
+      : 0;
   // Inline filter (not activeProducts from @nootropic/data): this is a client
   // component and a value import from the data package would ship every
   // catalogue JSON to the browser.
@@ -202,8 +208,8 @@ export default function ProductDetail({
                 {p.name}
               </h1>
               <div className="text-ds-muted text-[14px] mt-1">
-                {pd.meta.by} {p.brand} · {pd.meta.productDescriptor} · {p.servingsPerContainer}{' '}
-                {pd.meta.countSuffix}
+                {pd.meta.by} {p.brand} · {pd.meta.productDescriptorByForm[productForm(p)]}
+                {packUnits > 0 && ` · ${packUnits} ${servingUnit(p, uiStrings, packUnits)}`}
               </div>
               <div className="text-ds-muted text-[13px] mt-1">
                 <span className="text-ds-ink font-semibold">{pd.meta.reviewedBy}</span>
