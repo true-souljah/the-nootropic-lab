@@ -209,7 +209,32 @@ describe('persistent "Cookie settings" control (C6)', () => {
 
   it('the control re-opens Klaro', () => {
     expect(read('CookieSettingsButton.tsx')).toMatch(/openCookieSettings\(\)/);
-    expect(read('CookieBanner.tsx')).toMatch(/Klaro\.show\(klaroConfig, true\)/);
+  });
+
+  // Live audit 2026-10-05 (hub checker C6 FAIL on all 8 regions): after a
+  // choice Klaro's modal shows only toggles + "Save" — no one-click Accept
+  // all / Decline all — so withdrawing took more clicks than consenting.
+  // The control must re-open the first-layer banner (Klaro gates both
+  // buttons on !manager.confirmed).
+  it('re-opens the first-layer banner with one-click Accept all / Decline all', () => {
+    const src = read('CookieBanner.tsx');
+    const unconfirm = src.indexOf('getManager(klaroConfig).confirmed = false');
+    const show = src.indexOf('Klaro.show(klaroConfig, false)');
+    expect(unconfirm).toBeGreaterThan(0);
+    expect(show).toBeGreaterThan(unconfirm);
+    expect(src).not.toMatch(/Klaro\.show\(klaroConfig, true\)/);
+  });
+
+  it('hides Klaro\'s "powered by" link (rendered as a missing-translation string)', () => {
+    expect(klaroConfig.disablePoweredBy).toBe(true);
+  });
+
+  // Live audit 2026-10-05 (C8 FAIL on the US homepage): AppShell pages had no
+  // link to the cookie or privacy policy. The settings bar carries both.
+  it('the settings bar links the privacy and cookie policies', () => {
+    const src = read('CookieSettingsButton.tsx');
+    expect(src).toMatch(/href="\/privacy-policy\/"/);
+    expect(src).toMatch(/href="\/cookie-policy\/"/);
   });
 
   const LOCALES: Locale[] = ['en', 'es', 'fr', 'ja', 'pt', 'de', 'fr-CA'];

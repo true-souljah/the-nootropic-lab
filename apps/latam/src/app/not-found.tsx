@@ -16,6 +16,8 @@ export default function NotFoundPage() {
       body={'La página que buscabas no existe o se ha movido.'}
       homeLabel={'Volver a la página de inicio'}
       cookieSettingsLabel={getStrings('es').cookie.settings}
+      privacyLabel={getStrings('es').footer.about.privacy}
+      cookiePolicyLabel={getStrings('es').footer.about.cookies}
     />
   );
 }
