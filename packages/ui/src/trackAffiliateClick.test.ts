@@ -6,7 +6,8 @@ import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import type { Product } from '@nootropic/data';
 import { trackAffiliateClick } from './trackAffiliateClick';
 
-const g = globalThis as { window?: { gtag?: unknown } };
+const g = globalThis as { window?: { gtag?: unknown; __nlGa?: { id: string; active: boolean } } };
+const granted = { id: 'G-TEST1234', active: true };
 
 function product(overrides: Record<string, unknown> = {}): Product {
   return {
@@ -35,7 +36,7 @@ describe('trackAffiliateClick', () => {
 
   it('emits site payload plus the portfolio-standard params', () => {
     const gtag = vi.fn();
-    g.window = { gtag };
+    g.window = { gtag, __nlGa: { ...granted } };
 
     trackAffiliateClick({ product: product(), position: 1, surface: 'listicle' });
 
@@ -52,7 +53,7 @@ describe('trackAffiliateClick', () => {
 
   it('degrades to affiliate_status=unknown and empty link_domain when affiliate data is missing', () => {
     const gtag = vi.fn();
-    g.window = { gtag };
+    g.window = { gtag, __nlGa: { ...granted } };
 
     trackAffiliateClick({
       product: product({ affiliateNetwork: undefined, affiliateUrl: undefined }),
@@ -63,5 +64,22 @@ describe('trackAffiliateClick', () => {
       affiliate_status: 'unknown',
       link_domain: '',
     });
+  });
+
+  // Operator decision 4 (2026-09-30): no pre-consent event queueing. The
+  // dataLayer stub can exist before/without consent; an event pushed into it
+  // would be sent after a later Accept. Gate on the loader's active flag.
+  it('sends nothing when gtag exists but GA was never activated by consent', () => {
+    const gtag = vi.fn();
+    g.window = { gtag };
+    trackAffiliateClick({ product: product(), surface: 'review' });
+    expect(gtag).not.toHaveBeenCalled();
+  });
+
+  it('sends nothing after the visitor withdrew consent on this page', () => {
+    const gtag = vi.fn();
+    g.window = { gtag, __nlGa: { ...granted, active: false } };
+    trackAffiliateClick({ product: product(), surface: 'review' });
+    expect(gtag).not.toHaveBeenCalled();
   });
 });

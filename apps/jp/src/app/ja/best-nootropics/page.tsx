@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { ComparisonTable, AffiliateDisclosure, StickyCtaBar, SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
-import { productsJP } from '@nootropic/data';
+import { ComparisonTable, AffiliateDisclosure, StickyCtaBar, CookieSettingsBar, SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
+import { productsJP, getStrings } from '@nootropic/data';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -45,7 +45,13 @@ export default function JaBestNootropicsPage() {
   return (
     <div lang="ja">
       <SchemaOrg schema={articleSchema} />
-      <StickyCtaBar productName={winner.name} affiliateUrl={winner.affiliateUrl} />
+      <StickyCtaBar
+        productName={winner.name}
+        affiliateUrl={winner.affiliateUrl}
+        pickLabel="編集部のおすすめ第1位："
+        ctaLabel="価格を確認 →"
+        ariaLabel="おすすめ第1位"
+      />
 
       <article className="max-w-5xl mx-auto px-4 py-10">
         <div className="mb-2 text-xs text-gray-500">
@@ -144,6 +150,7 @@ export default function JaBestNootropicsPage() {
           </a>
         </div>
       </article>
+      <CookieSettingsBar label={getStrings('ja').cookie.settings} />
     </div>
   );
 }

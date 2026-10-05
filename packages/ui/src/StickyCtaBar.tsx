@@ -1,23 +1,39 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { CONSENT_CHOICE_EVENT, hasConsentChoice } from './CookieBanner';
 
 interface Props {
   productName: string;
   affiliateUrl: string;
+  /** Localized lead-in before the product name (default English). */
+  pickLabel?: string;
+  /** Localized CTA link text (default English). */
+  ctaLabel?: string;
+  /** Localized accessible name of the bar (default English). */
+  ariaLabel?: string;
 }
 
-export default function StickyCtaBar({ productName, affiliateUrl }: Props) {
+export default function StickyCtaBar({
+  productName,
+  affiliateUrl,
+  pickLabel = 'Our #1 Pick:',
+  ctaLabel = 'Check Current Price →',
+  ariaLabel = 'Top pick recommendation',
+}: Props) {
   const [visible, setVisible] = useState(false);
   const [cookieDismissed, setCookieDismissed] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem('cookie-consent');
-    if (consent) setCookieDismissed(true);
+    // The bar waits until the consent banner is out of the way, i.e. the
+    // visitor has made a Klaro choice (stored in Klaro's `klaro` cookie).
+    // It previously polled a `cookie-consent` localStorage key nothing ever
+    // wrote, so the bar never appeared.
+    if (hasConsentChoice(document.cookie)) setCookieDismissed(true);
 
-    function onStorage() {
-      if (localStorage.getItem('cookie-consent')) setCookieDismissed(true);
+    function onChoice() {
+      setCookieDismissed(true);
     }
-    window.addEventListener('storage', onStorage);
+    window.addEventListener(CONSENT_CHOICE_EVENT, onChoice);
 
     function onScroll() {
       const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
@@ -25,32 +41,39 @@ export default function StickyCtaBar({ productName, affiliateUrl }: Props) {
     }
     window.addEventListener('scroll', onScroll, { passive: true });
 
-    const interval = setInterval(() => {
-      if (localStorage.getItem('cookie-consent')) {
-        setCookieDismissed(true);
-        clearInterval(interval);
-      }
-    }, 500);
-
     return () => {
       window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('storage', onStorage);
-      clearInterval(interval);
+      window.removeEventListener(CONSENT_CHOICE_EVENT, onChoice);
     };
   }, []);
 
   const show = visible && cookieDismissed;
 
+  // While the fixed bar is showing, reserve its height at the end of the page
+  // so it never covers the bottom of the content — notably the persistent
+  // "Cookie settings" consent control (WCAG 2.4.11 Focus Not Obscured).
+  const barRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!show || !barRef.current) return;
+    const previous = document.body.style.paddingBottom;
+    document.body.style.paddingBottom = `${barRef.current.offsetHeight}px`;
+    return () => {
+      document.body.style.paddingBottom = previous;
+    };
+  }, [show]);
+
   return (
-    <div className={`sticky-cta-bar ${show ? 'visible' : ''}`} role="complementary" aria-live="polite" aria-label="Top pick recommendation">
-      <span className="text-sm font-medium">Our #1 Pick: {productName}</span>
+    <div ref={barRef} className={`sticky-cta-bar ${show ? 'visible' : ''}`} role="complementary" aria-live="polite" aria-label={ariaLabel}>
+      <span className="text-sm font-medium">
+        {pickLabel} {productName}
+      </span>
       <a
         href={affiliateUrl}
         target="_blank"
         rel="nofollow sponsored noopener noreferrer"
         className="bg-green-600 hover:bg-green-500 text-white text-sm font-bold px-5 py-2 rounded"
       >
-        Check Current Price →
+        {ctaLabel}
       </a>
     </div>
   );
