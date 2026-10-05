@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/best-nootropics-for-aging/`, lastModified: d.productListing('best-nootropics-for-aging'), changeFrequency: 'weekly', priority: 0.85 },
     { url: `${BASE}/nootropic-comparison/`, lastModified: d.productListing('nootropic-comparison'), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE}/halal-certified-nootropics/`, lastModified: d.productListing('halal-certified-nootropics'), changeFrequency: 'monthly', priority: 0.75 },
+    { url: `${BASE}/which-nootropics-ship-to-the-gcc/`, lastModified: d.productListing('which-nootropics-ship-to-the-gcc'), changeFrequency: 'monthly', priority: 0.75 },
     { url: `${BASE}/imprint/`, lastModified: d.page('imprint'), changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE}/methodology/`, lastModified: d.page('methodology'), changeFrequency: 'monthly', priority: 0.5 },
     { url: `${BASE}/about/`, lastModified: d.page('about'), changeFrequency: 'monthly', priority: 0.5 },
