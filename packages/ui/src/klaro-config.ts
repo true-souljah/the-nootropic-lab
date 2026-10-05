@@ -3,8 +3,15 @@
 // page handle region-specific compliance language.
 //
 // To add a new tracked script: add a `<Script type="text/plain"
-// data-name="..." />` block to the layout, then add a matching service
-// entry below with the same `name` field.
+// data-name="..." />` block to the layout (external URL as `data-src`, never
+// `src` — next/script preloads `src` before consent), then add a matching
+// service entry below with the same `name` field.
+
+import {
+  onGoogleAnalyticsAccept,
+  onGoogleAnalyticsDecline,
+  onImpactDecline,
+} from './analytics-consent';
 
 export interface KlaroService {
   name: string;
@@ -14,6 +21,11 @@ export interface KlaroService {
   description: string;
   required?: boolean;
   default?: boolean;
+  /** Activate the service's scripts at most once per page load. */
+  onlyOnce?: boolean;
+  /** Klaro runs these on every consent application (initial load included). */
+  onAccept?: () => void;
+  onDecline?: () => void;
 }
 
 export interface KlaroConfig {
@@ -61,12 +73,15 @@ export const klaroConfig: KlaroConfig = {
       consentModal: {
         title: 'Cookie & analytics preferences',
         description:
-          'Choose which analytics services may run on this site. You can change this later via the privacy policy footer link.',
+          'Choose which analytics services may run on this site. You can change or withdraw your choice at any time via the “Cookie settings” link at the bottom of every page.',
       },
       acceptAll: 'Accept all',
       acceptSelected: 'Accept selected',
       decline: 'Decline all',
-      ok: 'Save',
+      // `ok` labels the accept button on the first-layer notice (Klaro
+      // renders t(['ok']) there when acceptAll is on) — it must read as
+      // consent, identical to the modal's accept-all label.
+      ok: 'Accept all',
       save: 'Save',
       close: 'Close',
       poweredBy: '',
@@ -91,12 +106,12 @@ export const klaroConfig: KlaroConfig = {
       },
       consentModal: {
         title: 'Preferencias de cookies y análisis',
-        description: 'Elija qué servicios de análisis pueden ejecutarse en este sitio.',
+        description: 'Elija qué servicios de análisis pueden ejecutarse en este sitio. Puede cambiar o retirar su elección en cualquier momento mediante el enlace «Configuración de cookies» al final de cada página.',
       },
       acceptAll: 'Aceptar todo',
       acceptSelected: 'Aceptar selección',
       decline: 'Rechazar todo',
-      ok: 'Guardar',
+      ok: 'Aceptar todo',
       save: 'Guardar',
       close: 'Cerrar',
       privacyPolicy: { name: 'política de privacidad', text: 'Más información en nuestra {privacyPolicy}.' },
@@ -114,12 +129,12 @@ export const klaroConfig: KlaroConfig = {
       consentModal: {
         title: 'Cookie- und Analyse-Einstellungen',
         description:
-          'Wählen Sie aus, welche Analysedienste auf dieser Seite ausgeführt werden dürfen. Sie können dies später über den Datenschutz-Link im Footer ändern.',
+          'Wählen Sie aus, welche Analysedienste auf dieser Seite ausgeführt werden dürfen. Sie können Ihre Auswahl jederzeit über den Link „Cookie-Einstellungen“ am Ende jeder Seite ändern oder widerrufen.',
       },
       acceptAll: 'Alle akzeptieren',
       acceptSelected: 'Auswahl akzeptieren',
       decline: 'Alle ablehnen',
-      ok: 'Speichern',
+      ok: 'Alle akzeptieren',
       save: 'Speichern',
       close: 'Schließen',
       privacyPolicy: { name: 'Datenschutzerklärung', text: 'Weitere Informationen finden Sie in unserer {privacyPolicy}.' },
@@ -136,12 +151,12 @@ export const klaroConfig: KlaroConfig = {
       },
       consentModal: {
         title: 'Préférences de cookies et d’analyse',
-        description: 'Choisissez quels services d’analyse peuvent s’exécuter sur ce site.',
+        description: 'Choisissez quels services d’analyse peuvent s’exécuter sur ce site. Vous pouvez modifier ou retirer votre choix à tout moment via le lien « Paramètres des cookies » en bas de chaque page.',
       },
       acceptAll: 'Tout accepter',
       acceptSelected: 'Accepter la sélection',
       decline: 'Tout refuser',
-      ok: 'Enregistrer',
+      ok: 'Tout accepter',
       save: 'Enregistrer',
       close: 'Fermer',
       privacyPolicy: { name: 'politique de confidentialité', text: 'Pour plus d’informations, consultez notre {privacyPolicy}.' },
@@ -161,12 +176,12 @@ export const klaroConfig: KlaroConfig = {
       },
       consentModal: {
         title: 'Préférences de témoins et d’analyse',
-        description: 'Choisissez quels services d’analyse peuvent s’exécuter sur ce site.',
+        description: 'Choisissez quels services d’analyse peuvent s’exécuter sur ce site. Vous pouvez modifier ou retirer votre choix en tout temps au moyen du lien « Paramètres des témoins » au bas de chaque page.',
       },
       acceptAll: 'Tout accepter',
       acceptSelected: 'Accepter la sélection',
       decline: 'Tout refuser',
-      ok: 'Enregistrer',
+      ok: 'Tout accepter',
       save: 'Enregistrer',
       close: 'Fermer',
       privacyPolicy: { name: 'politique de confidentialité', text: 'Pour plus d’informations, consultez notre {privacyPolicy}.' },
@@ -183,12 +198,12 @@ export const klaroConfig: KlaroConfig = {
       },
       consentModal: {
         title: 'Preferências de cookies e análise',
-        description: 'Escolha quais serviços de análise podem ser executados neste site.',
+        description: 'Escolha quais serviços de análise podem ser executados neste site. Pode alterar ou retirar a sua escolha a qualquer momento através da ligação «Preferências de cookies» no fim de cada página.',
       },
       acceptAll: 'Aceitar tudo',
       acceptSelected: 'Aceitar seleção',
       decline: 'Recusar tudo',
-      ok: 'Guardar',
+      ok: 'Aceitar tudo',
       save: 'Guardar',
       close: 'Fechar',
       privacyPolicy: { name: 'política de privacidade', text: 'Mais informações na nossa {privacyPolicy}.' },
@@ -205,12 +220,12 @@ export const klaroConfig: KlaroConfig = {
       },
       consentModal: {
         title: 'Cookieと分析の設定',
-        description: 'このサイトで実行できる分析サービスを選択してください。',
+        description: 'このサイトで実行できる分析サービスを選択してください。選択内容は、各ページ下部の「Cookie設定」からいつでも変更・撤回できます。',
       },
       acceptAll: 'すべて受け入れる',
       acceptSelected: '選択を受け入れる',
       decline: 'すべて拒否する',
-      ok: '保存',
+      ok: 'すべて受け入れる',
       save: '保存',
       close: '閉じる',
       privacyPolicy: { name: 'プライバシーポリシー', text: '詳細は当社の{privacyPolicy}をご覧ください。' },
@@ -220,16 +235,10 @@ export const klaroConfig: KlaroConfig = {
     },
   },
   services: [
-    {
-      name: 'cloudflare-insights',
-      title: 'Cloudflare Web Analytics',
-      purposes: ['statistics'],
-      cookies: [],
-      description:
-        'Privacy-respecting visitor counting. No cross-site tracking, no cookies.',
-      required: false,
-      default: false,
-    },
+    // Cloudflare Web Analytics was declared here until 2026-10 but its beacon
+    // token was never configured (layouts shipped the literal placeholder
+    // REPLACE_WITH_CF_ANALYTICS_TOKEN_<REGION>), so it measured nothing —
+    // removed rather than asking visitors to consent to a dead purpose.
     {
       name: 'google-analytics',
       title: 'Google Analytics 4',
@@ -239,6 +248,11 @@ export const klaroConfig: KlaroConfig = {
         'Measures site usage to inform editorial improvements. No personalised advertising; data not sold to third parties.',
       required: false,
       default: false,
+      // Scripts run once per page; a withdraw → re-Accept on the same page
+      // re-grants via onAccept instead of re-running gtag.js + config.
+      onlyOnce: true,
+      onAccept: onGoogleAnalyticsAccept,
+      onDecline: onGoogleAnalyticsDecline,
     },
     {
       name: 'impact-com',
@@ -249,6 +263,8 @@ export const klaroConfig: KlaroConfig = {
         'Attributes affiliate clicks to this site so the operator earns commission on partner purchases. No personalised advertising; tracks click-attribution only.',
       required: false,
       default: false,
+      onlyOnce: true,
+      onDecline: onImpactDecline,
     },
   ],
   purposes: [

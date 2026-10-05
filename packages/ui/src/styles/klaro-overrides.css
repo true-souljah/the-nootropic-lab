@@ -82,25 +82,38 @@
   outline-offset: 2px;
 }
 
-/* Primary "Accept all" — solid indigo */
-.klaro .cm-btn.cm-btn-success {
+/*
+ * Accept and Decline carry IDENTICAL visual weight (operator decision
+ * 2026-09-30, Cyprus DPA cookie guidance: no nudging). Klaro gives them
+ * different classes (cm-btn-success vs cm-btn-danger/cm-btn-decline, plus
+ * cm-btn-info/cm-btn-accept in the modal), so every consent button is
+ * reset to one treatment: same fill, text colour, border, size, padding
+ * and weight. Do not reintroduce a per-variant colour here — the consent
+ * regression test (consent-basic-mode.test.ts) fails on it.
+ */
+.klaro .cm-btn,
+.klaro .cm-btn.cm-btn-success,
+.klaro .cm-btn.cm-btn-danger,
+.klaro .cm-btn.cm-btn-decline,
+.klaro .cm-btn.cm-btn-info,
+.klaro .cm-btn.cm-btn-accept,
+.klaro .cm-btn.cm-btn-accept-all {
   background: var(--color-ds-accent);
   color: #ffffff;
+  border: 1px solid var(--color-ds-accent);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 18px;
 }
-.klaro .cm-btn.cm-btn-success:hover {
-  background: var(--color-ds-accent-press);
-}
-
-/* Secondary "Decline" / "Learn more" — outlined */
-.klaro .cm-btn.cm-btn-decline,
-.klaro .cm-btn.cm-btn-info {
-  background: var(--color-ds-card);
-  color: var(--color-ds-ink);
-  border: 1px solid var(--color-ds-border);
-}
+.klaro .cm-btn:hover,
+.klaro .cm-btn.cm-btn-success:hover,
+.klaro .cm-btn.cm-btn-danger:hover,
 .klaro .cm-btn.cm-btn-decline:hover,
-.klaro .cm-btn.cm-btn-info:hover {
-  background: var(--color-ds-card-sub);
+.klaro .cm-btn.cm-btn-info:hover,
+.klaro .cm-btn.cm-btn-accept:hover,
+.klaro .cm-btn.cm-btn-accept-all:hover {
+  background: var(--color-ds-accent-press);
+  border-color: var(--color-ds-accent-press);
 }
 
 /* Switch (toggle) — track + thumb match our ToggleSwitch primitive */

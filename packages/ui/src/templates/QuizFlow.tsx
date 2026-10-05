@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Card } from '../primitives/Card';
 import { BrandMark } from '../primitives/BrandMark';
+import { CookieSettingsBar } from '../CookieSettingsButton';
 import type { Product } from '@nootropic/data';
 import type {
   QuizAnswers,
@@ -318,6 +319,7 @@ export default function QuizFlow({
           </div>
         )}
       </main>
+      <CookieSettingsBar label="Cookie settings" />
     </div>
   );
 }

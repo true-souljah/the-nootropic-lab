@@ -1,5 +1,7 @@
 export { default as AffiliateDisclosure } from './AffiliateDisclosure';
 export { default as CookieBanner } from './CookieBanner';
+export { CookieSettingsButton, CookieSettingsBar } from './CookieSettingsButton';
+export { gaInitScript, gtagSrc, isAnalyticsActive } from './analytics-consent';
 export { default as ComparisonTable } from './ComparisonTable';
 // `EUBadge` is consumed only by `ComparisonTable` internally — kept on disk
 // but no longer exported from the public surface.

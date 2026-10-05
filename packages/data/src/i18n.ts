@@ -74,6 +74,8 @@ export interface UIStrings {
     accept: string;
     decline: string;
     privacyPolicy: string;
+    /** Persistent "Cookie settings" control that re-opens the consent manager (footer / app shell). */
+    settings: string;
   };
   disclosure: {
     text: string;
@@ -371,6 +373,7 @@ const en: UIStrings = {
     accept: 'Accept Analytics',
     decline: 'Decline',
     privacyPolicy: 'privacy policy',
+    settings: 'Cookie settings',
   },
   disclosure: {
     text: 'Affiliate disclosure: This page contains affiliate links. If you purchase through our links, we may earn a commission at no extra cost to you. Our editorial opinions are independent — we only recommend products we have independently researched.',
@@ -599,6 +602,7 @@ const es: UIStrings = {
     accept: 'Aceptar Análisis',
     decline: 'Rechazar',
     privacyPolicy: 'política de privacidad',
+    settings: 'Configuración de cookies',
   },
   disclosure: {
     text: 'Divulgación de afiliados: Esta página contiene enlaces de afiliados. Si compra a través de nuestros enlaces, podemos ganar una comisión sin costo adicional para usted. Nuestras opiniones editoriales son independientes — solo recomendamos productos que hemos investigado de forma independiente.',
@@ -827,6 +831,7 @@ const fr: UIStrings = {
     accept: 'Accepter',
     decline: 'Refuser',
     privacyPolicy: 'politique de confidentialité',
+    settings: 'Paramètres des cookies',
   },
   disclosure: {
     text: 'Divulgation d\'affiliation : Cette page contient des liens affiliés. Si vous achetez via nos liens, nous pouvons gagner une commission sans frais supplémentaires. Nos opinions éditoriales sont indépendantes.',
@@ -1055,6 +1060,7 @@ const ja: UIStrings = {
     accept: '分析を許可',
     decline: '拒否',
     privacyPolicy: 'プライバシーポリシー',
+    settings: 'Cookie設定',
   },
   disclosure: {
     text: 'アフィリエイト広告を含みます：このページにはアフィリエイトリンクが含まれています。当社のリンクを通じて購入された場合、追加費用なしでコミッションを受け取る場合があります。編集意見は独立しており、独自に調査した製品のみを推奨しています。',
@@ -1283,6 +1289,7 @@ const pt: UIStrings = {
     accept: 'Aceitar',
     decline: 'Recusar',
     privacyPolicy: 'política de privacidade',
+    settings: 'Preferências de cookies',
   },
   disclosure: {
     text: 'Divulgação de afiliação: Esta página contém links de afiliados. Se comprar através dos nossos links, podemos ganhar uma comissão sem custos adicionais. As nossas opiniões editoriais são independentes.',
@@ -1511,6 +1518,7 @@ const de: UIStrings = {
     accept: 'Analyse akzeptieren',
     decline: 'Ablehnen',
     privacyPolicy: 'Datenschutzerklärung',
+    settings: 'Cookie-Einstellungen',
   },
   disclosure: {
     text: 'Affiliate-Hinweis: Diese Seite enthält Affiliate-Links. Wenn Sie über unsere Links kaufen, erhalten wir eine Provision ohne zusätzliche Kosten für Sie. Unsere redaktionellen Meinungen sind unabhängig — wir empfehlen nur Produkte, die wir unabhängig recherchiert haben.',
@@ -1744,6 +1752,7 @@ const frCa: UIStrings = {
     accept: 'Accepter les témoins d\'analyse',
     decline: 'Refuser',
     privacyPolicy: 'politique de confidentialité',
+    settings: 'Paramètres des témoins',
   },
   disclosure: {
     text: 'Divulgation de liens affiliés : Cette page contient des liens affiliés. Si vous effectuez un achat par l\'entremise de nos liens, nous pouvons toucher une commission sans frais supplémentaires pour vous. Nos opinions éditoriales sont indépendantes — nous recommandons uniquement des produits que nous avons évalués de façon indépendante.',
