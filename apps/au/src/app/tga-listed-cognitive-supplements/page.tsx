@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { AffiliateDisclosure, SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
-import { productsAU, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { allProductsAU, getRegionalHealthDisclaimer } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
 
@@ -12,10 +12,10 @@ const auditDateIso = new Date().toISOString().split('T')[0];
 export const metadata: Metadata = {
   title: 'TGA-Listed Cognitive Supplements (Australia): AUST L vs AUST R + Permitted Indications Guide',
   description:
-    'Therapeutic goods sold in Australia must be entered in the ARTG with an AUST L (listed) or AUST R (registered) number. Full explainer of TGA listing categories, permitted indications, advertising code compliance, and audit of our Australian catalog.',
+    'Therapeutic goods sold in Australia must be entered in the ARTG with an AUST L (listed) or AUST R (registered) number. Explainer of TGA listing categories, permitted indications, the Advertising Code, Personal Importation Scheme limits, Poisons Standard scheduling, and the ARTG status of our Australian catalogue.',
   alternates: buildAlternates({ regionCode: 'au', path: '/tga-listed-cognitive-supplements/', availableInRegions: ['au'] }),
-  openGraph: buildOpenGraph({ regionCode: 'au', path: '/tga-listed-cognitive-supplements/', title: 'TGA-Listed Cognitive Supplements (Australia): AUST L vs AUST R + Permitted Indications Guide', description: 'Therapeutic goods sold in Australia must be entered in the ARTG with an AUST L (listed) or AUST R (registered) number. Full explainer of TGA listing categories, permitted indications, advertising code compliance, and audit of our Australian catalog.' }),
-  twitter: buildTwitter({ title: 'TGA-Listed Cognitive Supplements (Australia): AUST L vs AUST R + Permitted Indications Guide', description: 'Therapeutic goods sold in Australia must be entered in the ARTG with an AUST L (listed) or AUST R (registered) number. Full explainer of TGA listing categories, permitted indications, advertising code compliance, and audit of our Australian catalog.' }),
+  openGraph: buildOpenGraph({ regionCode: 'au', path: '/tga-listed-cognitive-supplements/', title: 'TGA-Listed Cognitive Supplements (Australia): AUST L vs AUST R + Permitted Indications Guide', description: 'Therapeutic goods sold in Australia must be entered in the ARTG with an AUST L (listed) or AUST R (registered) number. Explainer of TGA listing categories, permitted indications, the Advertising Code, Personal Importation Scheme limits, Poisons Standard scheduling, and the ARTG status of our Australian catalogue.' }),
+  twitter: buildTwitter({ title: 'TGA-Listed Cognitive Supplements (Australia): AUST L vs AUST R + Permitted Indications Guide', description: 'Therapeutic goods sold in Australia must be entered in the ARTG with an AUST L (listed) or AUST R (registered) number. Explainer of TGA listing categories, permitted indications, the Advertising Code, Personal Importation Scheme limits, Poisons Standard scheduling, and the ARTG status of our Australian catalogue.' }),
 };
 
 interface ListingCategory {
@@ -26,9 +26,65 @@ interface ListingCategory {
 }
 
 const listingCategories: ListingCategory[] = [
-  { category: 'AUST L (Listed)', evidenceBar: 'Lower-risk; pre-cleared ingredients only; manufacturer self-certifies efficacy.', permittedIndications: 'Limited to TGA pre-approved Permitted Indications list. Cannot include serious-form indications.', example: 'AUST L 246877 — Blackmores Brain Active (multi-vitamin + Bacopa stack)' },
+  { category: 'AUST L (Listed)', evidenceBar: 'Lower-risk; pre-cleared ingredients only; manufacturer self-certifies efficacy.', permittedIndications: 'Limited to TGA pre-approved Permitted Indications list. Cannot include serious-form indications.', example: 'Our earlier copy cited AUST L 246877 for Blackmores Brain Active here, which does not resolve on the ARTG. TGA\'s cancellation register lists ARTG entry 227270 for Blackmores Brain Active, cancelled 18 September 2014; we found no current ARTG entry (searched 2026-09-30).' },
   { category: 'AUST L(A) (Listed Assessed)', evidenceBar: 'Listed but with TGA assessment of efficacy claims; intermediate evidentiary bar.', permittedIndications: 'May use intermediate-form indications beyond standard AUST L list, subject to assessment.', example: 'Less common; growing category for premium evidence-graded products' },
   { category: 'AUST R (Registered)', evidenceBar: 'Higher-risk products; full TGA evaluation of safety, quality, and efficacy.', permittedIndications: 'Approved indications based on submitted clinical data. May include serious-form indications.', example: 'Less common for cognitive supplements; more typical for prescription-adjacent products' },
+];
+
+// ARTG status of every AU catalogue record (active and discontinued), from the
+// 2026-09-30 sourced fact sheet. No product other than Blackmores Brain Active
+// has any ARTG history on file; do not add an AUST number without an ARTG hit.
+interface ArtgRow {
+  slug: string;
+  name: string;
+  found: string;
+  note: string;
+}
+
+const NO_ENTRY = 'No ARTG entry found (searched 2026-09-30)';
+const NO_ENTRY_WEB = 'None found by web search (2026-09-30); not confirmed by a direct ARTG query';
+const NOT_QUERIED = 'Sold as an international direct-to-consumer import. A web search found no AUST L association; we did not confirm this with a direct ARTG query.';
+
+const artgRows: ArtgRow[] = [
+  { slug: 'mind-lab-pro-review', name: 'Mind Lab Pro', found: NO_ENTRY, note: 'Sold direct through the brand\'s Australian storefront (au.mindlabpro.com); no AUST number shown on the storefront product page.' },
+  { slug: 'noocube-review', name: 'NooCube', found: NO_ENTRY, note: 'Sold direct through the brand\'s Australian storefront (noocube.com.au); no AUST number shown on the storefront product page.' },
+  { slug: 'performance-lab-mind-review', name: 'Performance Lab Mind', found: NO_ENTRY, note: 'Sold direct through the brand\'s own storefront; no AUST number shown on the storefront product page.' },
+  { slug: 'hunter-focus-review', name: 'Hunter Focus', found: NO_ENTRY_WEB, note: NOT_QUERIED },
+  { slug: 'onnit-alpha-brain-review', name: 'Alpha Brain', found: NO_ENTRY_WEB, note: NOT_QUERIED },
+  { slug: 'qualia-mind-review', name: 'Qualia Mind', found: NO_ENTRY_WEB, note: NOT_QUERIED },
+  { slug: 'naturebell-ginkgo-ginseng-review', name: 'NatureBell Ginkgo + Ginseng', found: NO_ENTRY_WEB, note: NOT_QUERIED },
+  { slug: 'blackmores-brain-active-review', name: 'Blackmores Brain Active', found: 'No current entry (cancelled 2014)', note: 'Our earlier copy cited AUST L 246877, which does not resolve on the ARTG. TGA\'s cancellation register lists ARTG entry 227270 for Blackmores Brain Active, cancelled 18 September 2014 under s30(1)(c); we found no current ARTG entry (searched 2026-09-30).' },
+];
+
+// Fail the build if the table drifts from the catalogue (a record added,
+// removed or renamed without an ARTG check).
+{
+  const catalogue = new Map(allProductsAU.map(p => [p.slug, p.name]));
+  const rowSlugs = new Set(artgRows.map(r => r.slug));
+  const drift = [
+    ...artgRows.filter(r => catalogue.get(r.slug) !== r.name).map(r => `row ${r.slug}`),
+    ...[...catalogue.keys()].filter(slug => !rowSlugs.has(slug)).map(slug => `missing ${slug}`),
+    ...(rowSlugs.size !== artgRows.length ? ['duplicate rows'] : []),
+  ];
+  if (drift.length) {
+    throw new Error(`ARTG status table out of sync with products-au.json: ${drift.join(', ')}`);
+  }
+}
+
+interface ScheduleRow {
+  substance: string;
+  schedule: string;
+  entry: string;
+}
+
+// Poisons Standard F2026L00633 (in force from 1 June 2026). Entry text is the
+// instrument's own wording as captured on 2026-09-30.
+const scheduleRows: ScheduleRow[] = [
+  { substance: 'Phenibut', schedule: 'Schedule 9 — Prohibited Substance', entry: 'PHENIBUT cross reference: BETA-PHENYL-GAMMA-AMINOBUTYRIC ACID (CAS No. 1078-21-3), PHENIBUT HYDROCHLORIDE (CAS No. 3060-41-1), PHENIBUT HYDROBROMIDE (CAS No. 103095-38-1) Schedule 9' },
+  { substance: 'Piracetam, phenylpiracetam, methylphenylpiracetam, aniracetam, oxiracetam, nefiracetam (racetams)', schedule: 'Schedule 4 — Prescription Only Medicine', entry: 'RACETAMS except when separately specified in these Schedules. … PIRACETAM cross reference: RACETAMS Schedule 4 … PHENYLPIRACETAM cross reference: RACETAMS Schedule 4' },
+  { substance: 'Noopept', schedule: 'Schedule 4 — Prescription Only Medicine', entry: 'RACETAMS, NOOPEPT, N-PHENYLACETYL-L-PROLYLGLYCINE ETHYL ESTER Schedule 4' },
+  { substance: 'Modafinil and armodafinil', schedule: 'Schedule 4 — Prescription Only Medicine', entry: 'MODAFINIL Schedule 4 … ARMODAFINIL Schedule 4' },
+  { substance: 'Huperzine A', schedule: 'Not listed', entry: 'No occurrence of "huperzine" in the full text of the current Poisons Standard.' },
 ];
 
 const articleSchema = {
@@ -74,9 +130,12 @@ const breadcrumbSchema = {
 const faqs = [
   { q: 'What is an AUST L number?', a: 'An AUST L number is the unique identifier issued by the Therapeutic Goods Administration when a low-risk listed medicine is entered in the Australian Register of Therapeutic Goods (ARTG). The number appears on the product label, typically as "AUST L XXXXXX". Listed medicines use pre-cleared ingredients and the manufacturer self-certifies that efficacy claims are supported.' },
   { q: 'How do I check an AUST L number?', a: 'Search the ARTG public summary on the TGA website. Enter the AUST L number (or product name); if the listing is current you will see the sponsor (the company holding the listing), the medicinal ingredients, the indications, and the listing status. AUST L listings can be cancelled if the TGA finds the product non-compliant — always verify currency before purchase.' },
-  { q: 'What is the difference between AUST L and AUST R?', a: 'AUST L (Listed) covers lower-risk medicines with pre-cleared ingredients and manufacturer self-certified efficacy. AUST R (Registered) covers higher-risk medicines that undergo full TGA evaluation of safety, quality, and efficacy data. Most cognitive supplements are AUST L; AUST R is more typical for prescription-adjacent products. AUST L(A) is an intermediate "Listed Assessed" category for products with TGA-assessed efficacy claims beyond standard AUST L scope.' },
-  { q: 'What are "permitted indications"?', a: 'Permitted Indications are the specific health claim phrasings the TGA has pre-approved for AUST L medicines. AUST L sponsors may only make claims drawn from this list. For cognitive supplements, permitted indications include phrasings like "supports mental focus", "supports cognitive function", and "may help relieve symptoms of mild stress". Claims outside this list (e.g. "treats Alzheimer\'s") trigger the higher AUST R category and require full registration.' },
-  { q: 'What is the Therapeutic Goods Advertising Code?', a: 'The Therapeutic Goods Advertising Code 2021 governs how listed and registered medicines may be advertised to consumers in Australia. It applies to product copy on websites, social media, retail, and editorial content. The Code prohibits claims of cure, comparisons with prescription drugs, testimonials by health professionals, and other restricted forms. We follow the Code on this site and use AUST L permitted-indication language verbatim where applicable.' },
+  { q: 'What is the difference between AUST L and AUST R?', a: 'AUST L ("listed") medicines have not been assessed by the TGA for efficacy before sale. AUST L(A) ("assessed listed") and AUST R ("registered") medicines undergo pre-market efficacy assessment.' },
+  { q: 'What are "permitted indications"?', a: 'Permitted Indications are the specific health claim phrasings the TGA has pre-approved for AUST L medicines. AUST L sponsors may only make claims drawn from this list. Claims outside this list (for example, treating a named disease) push a product into the higher AUST R registration category.' },
+  { q: 'What is the Therapeutic Goods Advertising Code?', a: 'The Therapeutic Goods (Therapeutic Goods Advertising Code) Instrument 2021 sets the rules for advertising therapeutic goods to the public in Australia. Restricted representations (references to serious diseases or conditions that need a health professional to diagnose or treat) cannot be used in advertising without the TGA\'s prior approval or permission. Prohibited representations include claims to treat, cure, prevent, diagnose or monitor cancer, sexually transmitted diseases, HIV, hepatitis C or mental illness. AUST L listed medicines may only use claim wording drawn from the TGA\'s pre-approved Permitted Indications list.' },
+  { q: 'How much can I import under the Personal Importation Scheme?', a: 'The TGA states: "The import cannot be more than a 3-month supply at the maximum prescribed dose (prescription-only medicines) or dose recommended by the manufacturer (non-prescription medicine). The total quantity imported within any 12-month period must not exceed a 15-month supply." If the medicine is prescription-only in Australia, you must hold a valid Australian prescription or written authority at the time of importation, and the TGA says electronic prescriptions (eScripts) cannot be accepted as that written authority.' },
+  { q: 'How is phenibut scheduled in Australia?', a: 'Phenibut is listed in Schedule 9 (Prohibited Substance) of the current Poisons Standard, the Therapeutic Goods (Poisons Standard-June 2026) Instrument 2026 (F2026L00633), in force from 1 June 2026. The entry also covers beta-phenyl-gamma-aminobutyric acid, phenibut hydrochloride and phenibut hydrobromide.' },
+  { q: 'Are racetams, Noopept and modafinil prescription-only in Australia?', a: 'Yes. In the current Poisons Standard (F2026L00633), racetams as a class (piracetam, phenylpiracetam, methylphenylpiracetam, aniracetam, oxiracetam and nefiracetam), Noopept, modafinil and armodafinil are all Schedule 4, which the TGA labels Prescription Only Medicine.' },
 ];
 
 
@@ -97,7 +156,7 @@ export default function Page() {
         <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 mb-4">
           <span>Reviewed by <strong className="text-gray-700">The Nootropic Lab Editorial Team</strong></span>
           <span>·</span>
-          <span>Last updated: {new Date().toLocaleDateString('en-AU', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+          <span>Last verified: 30 September 2026</span>
         </div>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
@@ -107,9 +166,14 @@ export default function Page() {
         <p id="hero-paragraph" className="text-lg text-gray-600 mb-6 leading-relaxed">
           The Therapeutic Goods Administration (<abbr title="Therapeutic Goods Administration">TGA</abbr>) requires therapeutic goods sold in Australia to be entered in the <strong>Australian Register of Therapeutic
           Goods (ARTG)</strong> with an <strong>AUST L</strong> (listed), <strong>AUST L(A)</strong> (listed
-          assessed), or <strong>AUST R</strong> (registered) number. Most cognitive supplements are AUST L. This
+          assessed), or <strong>AUST R</strong> (registered) number. Listed (AUST L) medicines have not been assessed by the TGA for
+          efficacy before sale, and we found no current ARTG entry for any of the eight products in our
+          Australian catalogue. This
           page explains what each category means, how to read AUST numbers on labels, and how the Therapeutic
-          Goods Advertising Code 2021 governs claim language for cognitive products.
+          Goods Advertising Code 2021 governs claim language for cognitive products. It also covers the ARTG
+          status of every product in our Australian catalogue, the{' '}
+          <a href="#personal-importation" className="text-blue-700 underline">Personal Importation Scheme limits</a>, and{' '}
+          <a href="#scheduling" className="text-blue-700 underline">how the current Poisons Standard schedules common nootropic substances</a>.
         </p>
 
         <AffiliateDisclosure />
@@ -128,7 +192,7 @@ export default function Page() {
           </div>
         </section>
 
-        <section className="my-10 bg-blue-50 border border-blue-200 rounded-xl p-6">
+        <section id="artg-lookup" className="my-10 bg-blue-50 border border-blue-200 rounded-xl p-6">
           <h2 className="text-xl font-bold text-blue-900 mb-3">How to verify an AUST number</h2>
           <ol className="list-decimal list-inside text-sm text-gray-700 leading-relaxed space-y-2">
             <li>Locate the AUST L / AUST L(A) / AUST R number on the product label.</li>
@@ -138,17 +202,151 @@ export default function Page() {
           </ol>
         </section>
 
-        <section className="my-10">
-          <h2 className="text-2xl font-bold text-gray-900 mb-3">Audit of our Australian catalog</h2>
+        <section id="artg-status" className="my-10">
+          <h2 className="text-2xl font-bold text-gray-900 mb-3">ARTG status of the products we review in Australia</h2>
           <p className="text-sm text-gray-700 leading-relaxed mb-4">
-            We track <strong>{productsAU.length} products</strong> in our Australian catalog. Products are a mix
-            of TGA-listed Australian-domiciled brands (Blackmores, Nature&apos;s Own, Swisse) and U.S.-domiciled
-            brands available via cross-border channels (iHerb AU warehouse, Amazon AU). Our reviews note the
-            AUST number where visible on product labelling. Per-product AUST L surfacing is on our 2026 roadmap.
+            We checked all {artgRows.length} products in our Australian catalogue on 30 September 2026 and found
+            no current ARTG entry for any of them; for four, that rests on a web search rather than a direct ARTG
+            query, as the table notes. Blackmores Brain Active is the only one with an ARTG history we found, and
+            TGA&apos;s cancellation register shows that entry was cancelled in 2014.
           </p>
-          <p className="text-xs text-gray-500 italic">
-            Until per-product AUST surfacing ships, verify each AUST L claim directly via the ARTG link above
-            before purchasing.
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border border-gray-200">
+              <caption className="sr-only">ARTG status of each product in our Australian catalogue, searched 30 September 2026</caption>
+              <thead className="bg-gray-50 text-left">
+                <tr>
+                  <th scope="col" className="p-3 border-b border-gray-200">Product</th>
+                  <th scope="col" className="p-3 border-b border-gray-200">ARTG entry found?</th>
+                  <th scope="col" className="p-3 border-b border-gray-200">Note</th>
+                </tr>
+              </thead>
+              <tbody>
+                {artgRows.map(r => (
+                  <tr key={r.slug} className="align-top">
+                    <th scope="row" className="p-3 border-b border-gray-200 text-left font-semibold">
+                      <Link href={`/${r.slug}/`} className="text-green-700 underline">{r.name}</Link>
+                    </th>
+                    <td className="p-3 border-b border-gray-200 text-gray-700">{r.found}</td>
+                    <td className="p-3 border-b border-gray-200 text-gray-700">{r.note}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs text-gray-500 italic mt-3">
+            A product bought from overseas without an ARTG entry falls under the Personal Importation Scheme
+            rules below. Verify any AUST number yourself with the ARTG search above.
+          </p>
+        </section>
+
+        <section id="personal-importation" className="my-10">
+          <h2 className="text-2xl font-bold text-gray-900 mb-3">The Personal Importation Scheme</h2>
+          <p className="text-sm text-gray-700 leading-relaxed mb-3">
+            In the TGA&apos;s words, the Personal Importation Scheme &ldquo;allows individuals to import therapeutic
+            goods not entered in the Australian Register of Therapeutic Goods (ARTG), provided certain conditions
+            are met.&rdquo; Products typically arrive by mail or courier from overseas.
+          </p>
+          <ul className="list-disc list-inside text-sm text-gray-700 leading-relaxed space-y-2 mb-3">
+            <li>
+              <strong>Quantity limits:</strong> &ldquo;The import cannot be more than a 3-month supply at the maximum
+              prescribed dose (prescription-only medicines) or dose recommended by the manufacturer (non-prescription
+              medicine). The total quantity imported within any 12-month period must not exceed a 15-month supply.&rdquo;
+            </li>
+            <li>
+              <strong>Prescription-only medicines:</strong> &ldquo;If the medicine is prescription-only in Australia, you
+              must hold a valid Australian prescription or written authority at the time of importation.&rdquo; The TGA
+              adds that electronic prescriptions (eScripts) cannot be accepted as valid written authority for importation.
+            </li>
+            <li>
+              <strong>What an import must not do:</strong> it must not include any vaping products, contain a controlled
+              substance, or be prohibited under Australian Customs or quarantine rules. &ldquo;Counterfeit (fake) medicines
+              and medical devices are prohibited from being imported under any circumstances.&rdquo;
+            </li>
+            <li>
+              <strong>No TGA evaluation:</strong> &ldquo;Products imported under the Personal Importation Scheme are not
+              evaluated by us, meaning their safety, quality and efficacy cannot be guaranteed.&rdquo;
+            </li>
+          </ul>
+          <h3 className="font-bold text-gray-900 mt-5 mb-2">Travellers: a separate Australian Border Force exemption</h3>
+          <p className="text-sm text-gray-700 leading-relaxed mb-3">
+            The mail-order scheme above is not the same as the Australian Border Force traveller exemption. Under that
+            exemption you do not need a permit to bring in most prescription medicines if you arrive as a passenger on a
+            ship or aircraft, the medicine is in your accompanied baggage, you carry a letter or copy of your prescription
+            written in English, and the quantity does not exceed three months&apos; supply. The ABF lists substances the
+            exemption does not cover, which need written permission from the Office of Drug Control: abortifacients,
+            yohimbe (yohimbine), aminophenazone/amidopyrine/aminopyrine/dipyrone, amygdalin/laetrile, and hormones and
+            peptides carried by athletes and sporting staff.
+          </p>
+        </section>
+
+        <section id="scheduling" className="my-10">
+          <h2 className="text-2xl font-bold text-gray-900 mb-3">How the Poisons Standard schedules common nootropic substances</h2>
+          <p className="text-sm text-gray-700 leading-relaxed mb-4">
+            Australia classifies medicines and poisons in the Poisons Standard. The current version is the
+            Therapeutic Goods (Poisons Standard-June 2026) Instrument 2026 (F2026L00633), in force from 1 June 2026.
+            In the TGA&apos;s scheduling table, Schedule 4 is Prescription Only Medicine, Schedule 8 is Controlled Drug
+            and Schedule 9 is Prohibited Substance.
+          </p>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border border-gray-200">
+              <caption className="sr-only">Poisons Standard schedule for common nootropic substances, F2026L00633</caption>
+              <thead className="bg-gray-50 text-left">
+                <tr>
+                  <th scope="col" className="p-3 border-b border-gray-200">Substance</th>
+                  <th scope="col" className="p-3 border-b border-gray-200">Schedule</th>
+                  <th scope="col" className="p-3 border-b border-gray-200">Poisons Standard entry</th>
+                </tr>
+              </thead>
+              <tbody>
+                {scheduleRows.map(r => (
+                  <tr key={r.substance} className="align-top">
+                    <th scope="row" className="p-3 border-b border-gray-200 text-left font-semibold">{r.substance}</th>
+                    <td className="p-3 border-b border-gray-200 text-gray-700">{r.schedule}</td>
+                    <td className="p-3 border-b border-gray-200 text-gray-600 text-xs">{r.entry}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs text-gray-500 italic mt-3">
+            Huperzine A not being scheduled does not by itself mean it is a permitted ingredient in listed medicines;
+            that is a separate question we have not checked. We have also not confirmed how the Personal Importation
+            Scheme conditions apply to each Schedule 4 substance, so check with the TGA before importing anything
+            prescription-only.
+          </p>
+        </section>
+
+        <section id="advertising-code" className="my-10">
+          <h2 className="text-2xl font-bold text-gray-900 mb-3">What the Advertising Code lets a listed medicine claim</h2>
+          <p className="text-sm text-gray-700 leading-relaxed mb-3">
+            The Therapeutic Goods (Therapeutic Goods Advertising Code) Instrument 2021 is published on the Federal
+            Register of Legislation as{' '}
+            <a href="https://www.legislation.gov.au/F2021L01661/latest/text" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline">F2021L01661</a>.
+            The TGA says the Code ensures advertisements to the public &ldquo;promote their safe and proper use; do not
+            mislead or deceive the consumer or create unrealistic expectations about product performance; support
+            informed health care choices.&rdquo;
+          </p>
+          <ul className="list-disc list-inside text-sm text-gray-700 leading-relaxed space-y-2">
+            <li>AUST L listed medicines may only use claim wording drawn from the TGA&apos;s pre-approved Permitted Indications list.</li>
+            <li>Restricted representations (references to serious diseases or conditions that need a health professional to diagnose or treat) cannot be used in advertising without the TGA&apos;s prior approval or permission.</li>
+            <li>Prohibited representations include claims to treat, cure, prevent, diagnose or monitor cancer, sexually transmitted diseases, HIV, hepatitis C or mental illness. Vitamin products also must not be represented as a substitute for good nutrition or a balanced diet.</li>
+          </ul>
+          <p className="text-sm text-gray-700 leading-relaxed mt-3">
+            That is why this page describes each product only by its ARTG status and makes no therapeutic claims for it.
+          </p>
+        </section>
+
+        <section id="where-to-buy" className="my-10">
+          <h2 className="text-2xl font-bold text-gray-900 mb-3">Where Australians buy nootropic supplements</h2>
+          <p className="text-sm text-gray-700 leading-relaxed mb-3">
+            In pharmacy retail, Chemist Warehouse listed Melrose FutureLab Cognition Nootropics 30 Capsules (a sage and
+            bacopa formula) at AUD 24.98 against an RRP of AUD 49.95 when we checked on 30 September 2026. We did not
+            check its ARTG entry; look up the AUST number on its label with the ARTG search above.
+          </p>
+          <p className="text-sm text-gray-700 leading-relaxed">
+            The imported stacks in our catalogue are sold direct through the brands&apos; own storefronts, such as
+            au.mindlabpro.com and noocube.com.au, which makes each order a personal import rather than a purchase of a
+            TGA-listed product.
           </p>
         </section>
 
@@ -171,8 +369,19 @@ export default function Page() {
             { type: 'Regulatory', label: 'Therapeutic Goods Act 1989 (Cth)', url: 'https://www.legislation.gov.au/C2004A03952/latest/text' },
             { type: 'Regulatory', label: 'Therapeutic Goods Administration', url: 'https://www.tga.gov.au/' },
             { type: 'Regulatory', label: 'Australian Register of Therapeutic Goods (ARTG) public summary search', url: 'https://www.tga.gov.au/resources/artg' },
-            { type: 'Regulatory', label: 'Therapeutic Goods Advertising Code (No.2) 2021', url: 'https://www.legislation.gov.au/F2021L01514/latest/text' },
+            { type: 'Regulatory', label: 'Therapeutic Goods (Therapeutic Goods Advertising Code) Instrument 2021 (F2021L01661)', url: 'https://www.legislation.gov.au/F2021L01661/latest/text' },
             { type: 'Regulatory', label: 'TGA — Permitted Indications for listed medicines', url: 'https://www.tga.gov.au/resources/resource/guidance/permissible-indications-listed-medicines' },
+            { type: 'Regulatory', label: 'TGA — Blackmores Brain Active: cancelled under s30(1)(c) (ARTG 227270)', url: 'https://www.tga.gov.au/resources/cancellations-by-sponsors/blackmores-brain-active-cancelled-under-s301c' },
+            { type: 'Regulatory', label: 'TGA — Personal Importation Scheme', url: 'https://www.tga.gov.au/products/unapproved-therapeutic-goods/access-pathways/personal-importation-scheme' },
+            { type: 'Regulatory', label: 'Australian Border Force — Medicines and substances (traveller exemption)', url: 'https://www.abf.gov.au/entering-and-leaving-australia/can-you-bring-it-in/categories/medicines-and-substances' },
+            { type: 'Regulatory', label: 'TGA — Scheduling basics for medicines and chemicals in Australia', url: 'https://www.tga.gov.au/products/regulations-all-products/ingredients-and-scheduling-medicines-and-chemicals/scheduling-national-classification-system/scheduling-basics-medicines-and-chemicals-australia' },
+            { type: 'Regulatory', label: 'Therapeutic Goods (Poisons Standard-June 2026) Instrument 2026 (F2026L00633)', url: 'https://www.legislation.gov.au/F2026L00633/latest/text' },
+            { type: 'Regulatory', label: 'TGA — Therapeutic Goods Advertising Code Instrument 2021', url: 'https://www.tga.gov.au/resources/legislation/therapeutic-goods-therapeutic-goods-advertising-code-instrument-2021' },
+            { type: 'Regulatory', label: 'TGA — Applying the Advertising Code', url: 'https://www.tga.gov.au/products/regulations-all-products/advertising/applying-advertising-code' },
+            { type: 'Regulatory', label: 'TGA — Restricted and prohibited representations in advertising', url: 'https://www.tga.gov.au/products/regulations-all-products/advertising/applying-advertising-code/restricted-and-prohibited-representations-advertising' },
+            { type: 'Regulatory', label: 'TGA — Understanding the legislative framework for listed medicines', url: 'https://www.tga.gov.au/resources/guidance/understanding-legislative-framework-listed-medicines' },
+            { type: 'Retailer', label: 'Chemist Warehouse — Melrose FutureLab Cognition Nootropics 30 Capsules (checked 2026-09-30)', url: 'https://www.chemistwarehouse.com.au/buy/140891/melrose-futurelab-cognition-nootropics-30-capsules' },
+            { type: 'Brand', label: 'Mind Lab Pro — Australian storefront (checked 2026-09-30)', url: 'https://au.mindlabpro.com' },
             { type: 'Editorial', label: 'The Nootropic Lab — Methodology', url: `${SITE_URL}/methodology/` },
           ]}
         />
