@@ -76,8 +76,9 @@ export default function AboutPage() {
             </li>
             <li>
               <strong>ANMAT (Argentina)</strong> — Administración Nacional de Medicamentos, Alimentos y
-              Tecnología Médica. <strong>Disposición 2105/2022 prohíbe el Noopept</strong> como
-              ingrediente — los productos que contienen Noopept no se importan legalmente a Argentina.
+              Tecnología Médica. <strong>La Disposición 2105/2022 prohíbe siete productos concretos</strong>{' '}
+              de Noopept, F-Phenibut y Bacopa de las marcas Newmind y PURENOOTROPICS; no es una
+              prohibición de una clase de compuestos.
             </li>
             <li>
               <strong>ISP (Chile)</strong> — Instituto de Salud Pública. Regula los suplementos como
