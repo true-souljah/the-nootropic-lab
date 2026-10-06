@@ -45,13 +45,13 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Bacopa Monnieri',
     evidence:
-      'Multiple RCTs across age groups show memory consolidation benefits, with studies specifically in older adults showing retention and recall improvements after 8–12 weeks at 300mg standardised to 50% bacosides. Both Bacopa and Ginkgo are permitted in TGA Listed Medicines, so Australian seniors have AUST L-listed options at any pharmacy (Blackmores Bio Ginkgoforte 6000, Caruso\'s Ginkgo, Swisse Memory & Focus, Nature\'s Own Brahmi).',
+      'Multiple RCTs across age groups show memory consolidation benefits, with studies specifically in older adults showing retention and recall improvements after 8–12 weeks at 300mg standardised to 50% bacosides. Bacopa is permitted in TGA Listed Medicines, so Australian seniors have AUST L-listed Bacopa options at any pharmacy (Nature\'s Own Brahmi, Swisse Memory & Focus).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22747190/',
   },
   {
     name: 'Ginkgo Biloba',
     evidence:
-      'Proposed to work via cerebral blood flow. A 2026 network meta-analysis of 29 RCTs in healthy adults (Tiemtad et al.) found that high-dose Bacopa (600mg/day or more) improved working memory more than both Ginkgo doses and placebo and gave greater short-term memory benefits, with no significant differences in attention or processing speed, so the trial evidence does not single out Ginkgo as a memory enhancer, even though it is permitted in TGA Listed Medicines.',
+      'Proposed to work via cerebral blood flow. A 2026 network meta-analysis of 29 RCTs in healthy adults (Tiemtad et al.) found that high-dose Bacopa (600mg/day or more) improved working memory more than both Ginkgo doses and placebo and gave greater short-term memory benefits, with no significant differences in attention or processing speed, so the trial evidence does not single out Ginkgo as a memory enhancer, even though it is permitted in TGA Listed Medicines (AUST L-listed options include Blackmores Bio Ginkgoforte 6000 and Caruso\'s Ginkgo).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/41678913/',
   },
 ];
