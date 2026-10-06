@@ -26,10 +26,6 @@ const KNOWN_WRONG = [
   '23357967', // tonsil carcinoma radiotherapy, cited for B-vitamins
   '24043122', // retracted (data fabrication) silk-fibroin mouse study
 ];
-// PR #304 (fix/dosing-anchors-alcar-dha-2026-10) replaces these two on the
-// pages; until it merges they are still cited here, so the page scan allows
-// them. Remove this allowance once #304 is on main.
-const PENDING_PR_304 = new Set(['22932089', '22773333']);
 
 function walk(dir: string, keep: (name: string) => boolean, out: string[] = []): string[] {
   for (const name of readdirSync(dir)) {
@@ -75,7 +71,7 @@ describe('PubMed citations — allow-list', () => {
 
   it('every PMID cited by a page is in the allow-list', () => {
     const unknown = occurrences
-      .filter((o) => !allowed.has(o.pmid) && !PENDING_PR_304.has(o.pmid))
+      .filter((o) => !allowed.has(o.pmid))
       .map((o) => `${o.file}: ${o.pmid}`);
     expect(
       unknown,
@@ -103,7 +99,6 @@ describe('PubMed citations — known-wrong PMIDs stay out', () => {
     for (const f of sources) {
       const text = readFileSync(f, 'utf8');
       for (const pmid of KNOWN_WRONG) {
-        if (PENDING_PR_304.has(pmid)) continue;
         if (new RegExp(`\\b${pmid}\\b`).test(text)) offenders.push(`${relative(REPO, f)}: ${pmid}`);
       }
     }
