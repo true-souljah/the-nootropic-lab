@@ -44,7 +44,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Citicoline (CDP-Choline) — older-adult memory',
     evidence:
-      'RCTs in older adults with subjective cognitive complaints show improvements in verbal memory and processing speed at 250–500mg/day for 12+ weeks. Cognizin is the standardized form used in Mind Lab Pro. Not currently a notified FFC ingredient in Japan.',
+      'RCTs in older adults with subjective cognitive complaints show improvements in verbal memory and processing speed at 250–500mg/day for 12+ weeks. Cognizin is the standardized form used in Mind Lab Pro.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22773333/',
   },
 ];
@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'suntory-dha-epa-sesamin-review')!,
     rank: 2,
     whyItsHere:
-      'Japan\'s best-selling omega-3 brain supplement (over 30 million bottles sold); not FFC-notified (機能性表示食品) in our catalogue — Suntory Wellness, a household name backed by the ¥2.7 trillion Suntory Group. 400mg DHA + 100mg EPA + 20mg sesamin. Foundational structural support for aging brains; widely advertised on Japanese television and trusted across the 60+ demographic. ¥4,800/month — the most affordable pick in this Japan review.',
+      'Japan\'s best-selling omega-3 brain supplement (over 30 million bottles sold); no Foods with Function Claims (FFC, 機能性表示食品) notification found in the Consumer Affairs Agency (CAA) database (export scanned 2026-10-06) — Suntory Wellness, a household name backed by the ¥2.7 trillion Suntory Group. 400mg DHA + 100mg EPA + 20mg sesamin. Foundational structural support for aging brains; widely advertised on Japanese television and trusted across the 60+ demographic. ¥4,800/month — the most affordable pick in this Japan review.',
   },
   {
     product: productsJP.find(p => p.slug === 'mind-lab-pro-review')!,
@@ -77,7 +77,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'What does FFC notification (機能性表示食品) actually mean?',
-    a: 'Japan\'s Food with Function Claims system requires manufacturers to notify the Consumer Affairs Agency (消費者庁) of the cognitive claim and the supporting evidence. It is more rigorous than US "structure-function claims" but less than the EU\'s health-claim authorization system. FANCL BRAINs is notified (G425); Suntory DHA & EPA + Sesamin EX is not FFC-notified in our catalogue. The notification reflects evidence quality but is not a disease-prevention promise.',
+    a: 'Japan\'s Food with Function Claims system requires manufacturers to notify the Consumer Affairs Agency (CAA, 消費者庁) of the cognitive claim and the supporting evidence. The CAA describes it as a system in which a business notifies the CAA Commissioner before sale of the scientific evidence for safety and function, and states that, unlike Foods for Specified Health Uses (FOSHU, トクホ), 「国が審査を行いません」 (the government does not review the notification) (caa.go.jp, checked 2026-10-06). It is more rigorous than US "structure-function claims" but less than the EU\'s health-claim authorization system. FANCL BRAINs is notified (G425, confirmed in the CAA database on 2026-10-06); no FFC notification was found for Suntory DHA & EPA + Sesamin EX in the CAA database (export scanned 2026-10-06). The notification reflects the manufacturer\'s own evidence, not a government evaluation, and is not a disease-prevention promise.',
   },
   {
     q: 'When should I start taking these?',
@@ -104,7 +104,7 @@ export default function Page() {
       useCase="aging"
       pageTitle="Best Nootropics for Aging Brain in Japan"
       pageDescription="Independent ranking of nootropics for adults in Japan concerned about age-related cognitive changes."
-      heroParagraph="Japan has the world's oldest population by median age, and age-related cognitive support is one of the largest functional supplement categories under the FFC (機能性表示食品) framework. Domestic brands target this demographic via DHA (Suntory DHA & EPA + Sesamin EX, not FFC-notified in our catalogue) and bacopa saponins plus matured hop bitter acids (FANCL BRAINs, FFC notification G425). International stacks add Lion's Mane (the evidence base established in Japan via Mori et al. 2009) and clinical-dose citicoline. These supplements have evidence specifically in older adults with subjective cognitive complaints. They are NOT treatments for dementia (認知症), Alzheimer's, or any clinical cognitive disease. For those, see a Japanese neurologist."
+      heroParagraph="Japan has the world's oldest population by median age, and age-related cognitive support is one of the largest functional supplement categories under the FFC (機能性表示食品) framework. Domestic brands target this demographic via DHA (Suntory DHA & EPA + Sesamin EX; no FFC notification found in the Consumer Affairs Agency (CAA) database, export scanned 2026-10-06) and bacopa saponins plus matured hop bitter acids (FANCL BRAINs, FFC notification G425). International stacks add Lion's Mane (the evidence base established in Japan via Mori et al. 2009) and clinical-dose citicoline. These supplements have evidence specifically in older adults with subjective cognitive complaints. They are NOT treatments for dementia (認知症), Alzheimer's, or any clinical cognitive disease. For those, see a Japanese neurologist."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

@@ -32,7 +32,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Citicoline (CDP-Choline)',
     evidence:
-      'Choline donor + uridine source that supports phospholipid synthesis and acetylcholine production. Multiple RCTs show attention and cognitive-effort benefits in healthy adults at 250–500mg/day. Cognizin is the standardized form most international products use. Not currently a notified FFC ingredient in Japan.',
+      'Choline donor + uridine source that supports phospholipid synthesis and acetylcholine production. Multiple RCTs show attention and cognitive-effort benefits in healthy adults at 250–500mg/day. Cognizin is the standardized form most international products use.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22773333/',
   },
   {
@@ -73,7 +73,7 @@ const picks: ListiclePick[] = [
 const faqItems: ListicleFAQ[] = [
   {
     q: 'Are any of these focus nootropics notified under Japan\'s FFC (機能性表示食品) system?',
-    a: 'No — the international stacks above (Mind Lab Pro, Hunter Focus, NooCube) are not notified under Japan\'s Food with Function Claims framework administered by the Consumer Affairs Agency (消費者庁). They are bought under the personal-import route. Domestic options like FANCL BRAINs (FFC-notified, G425) and Suntory DHA & EPA + Sesamin EX (not FFC-notified in our catalogue) target memory and brain health rather than acute focus, and are covered on our memory and aging pages.',
+    a: 'For the international stacks above (Mind Lab Pro, Hunter Focus, NooCube), no Foods with Function Claims (FFC) notification was found under the product or company name in the Consumer Affairs Agency (CAA, 消費者庁) database (export scanned 2026-10-06). They are bought under the personal-import route. Domestic options like FANCL BRAINs (FFC-notified, G425) and Suntory DHA & EPA + Sesamin EX (no FFC notification found, CAA export scanned 2026-10-06) target memory and brain health rather than acute focus, and are covered on our memory and aging pages.',
   },
   {
     q: 'What is the most evidence-backed nootropic for focus available in Japan?',

@@ -26,7 +26,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Bacopa Monnieri',
     evidence:
-      'The most-replicated memory ingredient in nootropics. Multiple double-blind RCTs in adults show improved memory consolidation and recall after 8–12 weeks at 300mg standardized to 50% bacosides. Onset is slow — daily for 8+ weeks. Not currently a notified FFC ingredient in Japan; available only via international stacks.',
+      'The most-replicated memory ingredient in nootropics. Multiple double-blind RCTs in adults show improved memory consolidation and recall after 8–12 weeks at 300mg standardized to 50% bacosides. Onset is slow — daily for 8+ weeks. In Japan, bacopa saponins (バコパサポニン) are one of the two notified functional ingredients in FANCL BRAINs (Foods with Function Claims notification G425, 15 mg per 4 tablets; Consumer Affairs Agency database, checked 2026-10-06).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
   },
   {
@@ -66,7 +66,7 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'suntory-dha-epa-sesamin-review')!,
     rank: 3,
     whyItsHere:
-      'Japan\'s best-selling omega-3 brain supplement (over 30 million bottles sold); not FFC-notified (機能性表示食品) in our catalogue. 400mg DHA + 100mg EPA + 20mg sesamin from Suntory Wellness — backed by a household-name conglomerate familiar to every Japanese consumer. Foundational rather than acute: works by maintaining structural membrane integrity. Best paired with a dedicated nootropic stack like Mind Lab Pro for users wanting both. ¥4,800/month — the most affordable pick.',
+      'Japan\'s best-selling omega-3 brain supplement (over 30 million bottles sold); no Foods with Function Claims (FFC, 機能性表示食品) notification found in the Consumer Affairs Agency (CAA) database (export scanned 2026-10-06). 400mg DHA + 100mg EPA + 20mg sesamin from Suntory Wellness — backed by a household-name conglomerate familiar to every Japanese consumer. Foundational rather than acute: works by maintaining structural membrane integrity. Best paired with a dedicated nootropic stack like Mind Lab Pro for users wanting both. ¥4,800/month — the most affordable pick.',
   },
 ];
 
@@ -104,7 +104,7 @@ export default function Page() {
       useCase="memory"
       pageTitle="Best Nootropics for Memory in Japan"
       pageDescription="Independent ranking of the best nootropics for memory and recall available in Japan, based on clinical evidence."
-      heroParagraph="Memory is the use case where Japan's regulatory landscape and the global nootropics evidence base intersect most directly. Domestic brands target this use case too: FANCL BRAINs is notified under Japan's Food with Function Claims system administered by the Consumer Affairs Agency (消費者庁; notification G425), while Suntory DHA & EPA + Sesamin EX is not FFC-notified in our catalogue. They target middle-aged and older adults via DHA (Suntory) and bacopa saponins plus matured hop bitter acids (FANCL). Imported international stacks add the Bacopa and Lion's Mane evidence base — including Mori et al. 2009, the foundational Lion's Mane RCT conducted in Japan."
+      heroParagraph="Memory is the use case where Japan's regulatory landscape and the global nootropics evidence base intersect most directly. Domestic brands target this use case too: FANCL BRAINs is notified under Japan's Food with Function Claims system administered by the Consumer Affairs Agency (CAA, 消費者庁; notification G425), while no FFC notification was found for Suntory DHA & EPA + Sesamin EX in the CAA database (export scanned 2026-10-06). They target middle-aged and older adults via DHA (Suntory) and bacopa saponins plus matured hop bitter acids (FANCL). Imported international stacks add the Bacopa and Lion's Mane evidence base — including Mori et al. 2009, the foundational Lion's Mane RCT conducted in Japan."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}
