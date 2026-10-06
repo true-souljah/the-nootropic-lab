@@ -111,6 +111,7 @@ export default function Page() {
   return (
     <Listicle
       useCase="natural-adderall-alternatives"
+      pagePath="/natural-adderall-alternatives/"
       pageTitle="Natural Adderall Alternatives — Honest Editorial"
       pageDescription="No supplement is equivalent to Adderall. This page covers what the evidence actually shows about over-the-counter ingredients with any mechanistic adjacency to prescription stimulants."
       heroParagraph="There is no over-the-counter substitute for Adderall. This page exists because the search query is high-volume and the existing top-ranking pages are misleading. Below: an honest review of which supplement ingredients share any mechanism with prescription stimulants, what the clinical evidence actually shows, and which products in our coverage contain them at clinical dose."

@@ -28,7 +28,7 @@ const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'The Nootropic Lab UE',
-  url: 'https://eu.thenootropiclab.com/fr',
+  url: 'https://eu.thenootropiclab.com/fr/',
   description: 'Avis indépendants sur les suppléments cognitifs pour les acheteurs européens.',
   inLanguage: 'fr-FR',
 };
@@ -56,17 +56,17 @@ const features = [
 
 const quickLinks = [
   {
-    href: '/fr/meilleurs-nootropiques',
+    href: '/fr/meilleurs-nootropiques/',
     title: `Les Meilleurs Nootropiques ${CURRENT_YEAR} (UE)`,
     desc: 'Comparaison complète pour l\'UE avec audit de dosage clinique et prix en EUR.',
   },
   {
-    href: '/nootropic-comparison',
+    href: '/nootropic-comparison/',
     title: 'Outil de comparaison interactif',
     desc: 'Triez et filtrez toutes les marques disponibles dans l\'UE côte à côte.',
   },
   {
-    href: '/methodology',
+    href: '/methodology/',
     title: 'Notre méthodologie',
     desc: 'Comment nous évaluons les nootropiques.',
   },
@@ -99,13 +99,13 @@ export default function FRHomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
-              href="/fr/meilleurs-nootropiques"
+              href="/fr/meilleurs-nootropiques/"
               className="bg-green-700 hover:bg-green-600 text-white font-bold px-8 py-3 rounded-lg transition-colors"
             >
               Les Meilleurs Nootropiques en Europe {CURRENT_YEAR} →
             </Link>
             <Link
-              href="/nootropic-comparison"
+              href="/nootropic-comparison/"
               className="bg-white hover:bg-gray-50 text-gray-800 font-bold px-8 py-3 rounded-lg border border-gray-300 transition-colors"
             >
               Comparer toutes les marques UE
@@ -115,10 +115,10 @@ export default function FRHomePage() {
             <Link href="/" className="text-green-700 underline" hrefLang="en" lang="en">
               🇬🇧 English
             </Link>
-            <Link href="/de/beste-nootropika" className="text-green-700 underline" hrefLang="de" lang="de">
+            <Link href="/de/beste-nootropika/" className="text-green-700 underline" hrefLang="de" lang="de">
               🇩🇪 Deutsch
             </Link>
-            <Link href="/pt" className="text-green-700 underline" hrefLang="pt" lang="pt">
+            <Link href="/pt/" className="text-green-700 underline" hrefLang="pt" lang="pt">
               🇵🇹 Português
             </Link>
           </nav>

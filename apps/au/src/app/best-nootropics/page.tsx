@@ -39,7 +39,7 @@ export default function BestNootropicsAUPage() {
       <SchemaOrg schema={itemListSchema} />
       <BestOf
         products={productsAU}
-        breadcrumbs={[{ label: 'Best of', href: '/best-nootropics' }]}
+        breadcrumbs={[{ label: 'Best of', href: '/best-nootropics/' }]}
         hero={{ eyebrow: `Australia · Audited ${CURRENT_YEAR}`, h1: `Best Nootropics in Australia ${CURRENT_YEAR}`, dek: 'Under the TGA Personal Importation Scheme, individuals can import up to a 3-month supply for personal use, subject to its conditions. Below: every product with confirmed Australian shipping.' }}
         searchItems={searchItems} uiStrings={uiStrings} trackingSurface="best_of_au"
         preList={

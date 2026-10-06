@@ -52,7 +52,7 @@ export default function AboutPage() {
             que dominan la distribución de nootrópicos en América Latina.
           </p>
           <p className="text-gray-700 leading-relaxed">
-            <Link href="/methodology" className="text-green-700 underline">Lee la metodología completa →</Link>
+            <Link href="/methodology/" className="text-green-700 underline">Lee la metodología completa →</Link>
           </p>
         </section>
 

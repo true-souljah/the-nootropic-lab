@@ -68,7 +68,7 @@ export default async function GuidePage({
         <nav className="text-xs text-gray-500 mb-6">
           <a href="/" className="hover:text-green-700">Inicio</a>
           {' / '}
-          <a href="/guides" className="hover:text-green-700">Guías</a>
+          <a href="/guides/" className="hover:text-green-700">Guías</a>
           {' / '}
           <span>{g.title}</span>
         </nav>
@@ -96,7 +96,7 @@ export default async function GuidePage({
         <GuideSources sources={g.sources} uiStrings={uiStrings} />
 
         <div className="mt-10 text-sm text-gray-500">
-          <a href="/guides" className="text-green-700 underline">
+          <a href="/guides/" className="text-green-700 underline">
             ← Volver a las Guías
           </a>
         </div>

@@ -137,7 +137,7 @@ export default function FrMeilleursNootropiquesPage() {
             aux données cliniques, transparence de la formule, rapport qualité-prix et confiance
             envers la marque.
           </p>
-          <a href="/methodology" className="text-green-700 underline text-sm font-medium">
+          <a href="/methodology/" className="text-green-700 underline text-sm font-medium">
             Lire notre méthodologie complète →
           </a>
         </section>
@@ -157,19 +157,19 @@ export default function FrMeilleursNootropiquesPage() {
         <section className="mt-12 bg-green-50 border border-green-200 rounded-xl p-6">
           <h2 className="text-xl font-bold text-green-900 mb-4">Lectures recommandées</h2>
           <div className="grid sm:grid-cols-2 gap-3">
-            <a href="/guides/what-are-nootropics" className="block bg-white rounded-lg p-4 border border-green-100 hover:border-green-300 transition-colors">
+            <a href="/guides/what-are-nootropics/" className="block bg-white rounded-lg p-4 border border-green-100 hover:border-green-300 transition-colors">
               <div className="font-semibold text-gray-900 text-sm mb-1">Qu\'est-ce que les nootropiques?</div>
               <div className="text-xs text-gray-500">Un guide d\'introduction aux suppléments cognitifs</div>
             </a>
-            <a href="/guides/how-to-stack-nootropics" className="block bg-white rounded-lg p-4 border border-green-100 hover:border-green-300 transition-colors">
+            <a href="/guides/how-to-stack-nootropics/" className="block bg-white rounded-lg p-4 border border-green-100 hover:border-green-300 transition-colors">
               <div className="font-semibold text-gray-900 text-sm mb-1">Comment combiner les nootropiques</div>
               <div className="text-xs text-gray-500">Associez les ingrédients en toute sécurité pour de meilleurs résultats</div>
             </a>
-            <a href="/ingredients" className="block bg-white rounded-lg p-4 border border-green-100 hover:border-green-300 transition-colors">
+            <a href="/ingredients/" className="block bg-white rounded-lg p-4 border border-green-100 hover:border-green-300 transition-colors">
               <div className="font-semibold text-gray-900 text-sm mb-1">Base de données des ingrédients</div>
               <div className="text-xs text-gray-500">Profils évalués selon les données probantes pour 15 nootropiques clés</div>
             </a>
-            <a href="/guides/nootropics-for-focus-vs-memory" className="block bg-white rounded-lg p-4 border border-green-100 hover:border-green-300 transition-colors">
+            <a href="/guides/nootropics-for-focus-vs-memory/" className="block bg-white rounded-lg p-4 border border-green-100 hover:border-green-300 transition-colors">
               <div className="font-semibold text-gray-900 text-sm mb-1">Concentration ou mémoire?</div>
               <div className="text-xs text-gray-500">Quels nootropiques fonctionnent le mieux selon votre objectif?</div>
             </a>
@@ -177,7 +177,7 @@ export default function FrMeilleursNootropiquesPage() {
         </section>
 
         <div className="mt-10 text-sm text-gray-500">
-          <a href="/best-nootropics" className="text-green-700 underline">
+          <a href="/best-nootropics/" className="text-green-700 underline">
             🇨🇦 Version anglaise : Best Nootropics in Canada {CURRENT_YEAR}
           </a>
         </div>

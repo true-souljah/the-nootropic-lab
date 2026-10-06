@@ -39,7 +39,7 @@ export default function GuidesPage() {
       '@type': 'ListItem',
       position: i + 1,
       name: g.title,
-      url: `https://sea.thenootropiclab.com/guides/${g.slug}`,
+      url: `https://sea.thenootropiclab.com/guides/${g.slug}/`,
     })),
   };
 
@@ -65,7 +65,7 @@ export default function GuidesPage() {
           {guides.map(guide => (
             <a
               key={guide.slug}
-              href={`/guides/${guide.slug}`}
+              href={`/guides/${guide.slug}/`}
               className="block bg-white border border-gray-200 rounded-xl p-6 hover:border-green-400 hover:shadow-md transition-all"
             >
               <div className="flex items-start justify-between mb-3">

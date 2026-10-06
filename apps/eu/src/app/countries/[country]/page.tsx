@@ -63,7 +63,7 @@ export default async function CountryPage({
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://eu.thenootropiclab.com' },
-      { '@type': 'ListItem', position: 2, name: 'Best Nootropics EU', item: 'https://eu.thenootropiclab.com/best-nootropics' },
+      { '@type': 'ListItem', position: 2, name: 'Best Nootropics EU', item: 'https://eu.thenootropiclab.com/best-nootropics/' },
       { '@type': 'ListItem', position: 3, name: `Best Nootropics in ${c.name}` },
     ],
   };
@@ -76,7 +76,7 @@ export default async function CountryPage({
         <nav className="text-xs text-gray-500 mb-6">
           <a href="/" className="hover:text-green-700">Home</a>
           {' / '}
-          <a href="/best-nootropics" className="hover:text-green-700">Best Nootropics EU</a>
+          <a href="/best-nootropics/" className="hover:text-green-700">Best Nootropics EU</a>
           {' / '}
           <span>{c.name}</span>
         </nav>
@@ -128,7 +128,7 @@ export default async function CountryPage({
             {topProducts.map((p, i) => (
               <a
                 key={p.slug}
-                href={`/${p.slug}`}
+                href={`/${p.slug}/`}
                 className="flex items-start gap-4 bg-white border border-gray-200 rounded-xl p-5 hover:border-green-400 hover:shadow-md transition-all"
               >
                 <span className="text-2xl font-black text-gray-300 shrink-0">#{i + 1}</span>
@@ -159,7 +159,7 @@ export default async function CountryPage({
             See all 6 EU-reviewed nootropic stacks ranked and compared side by side.
           </p>
           <a
-            href="/nootropic-comparison"
+            href="/nootropic-comparison/"
             className="inline-block bg-green-700 hover:bg-green-600 text-white font-bold px-6 py-2 rounded-lg text-sm transition-colors"
           >
             View Full Comparison →
@@ -167,7 +167,7 @@ export default async function CountryPage({
         </div>
 
         <div className="text-sm text-gray-500">
-          <a href="/best-nootropics" className="text-green-700 underline">
+          <a href="/best-nootropics/" className="text-green-700 underline">
             ← Back to Best Nootropics EU 2026
           </a>
         </div>
