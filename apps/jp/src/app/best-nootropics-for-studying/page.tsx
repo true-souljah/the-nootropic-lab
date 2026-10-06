@@ -39,13 +39,13 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Citicoline — choline for cognitive demand',
     evidence:
       'Heavy cognitive demand depletes choline. Citicoline at 250–500mg/day supports phospholipid synthesis and acetylcholine availability — the neurotransmitter most associated with attention and learning. Cognizin is the standardized form.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22773333/',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
   {
     name: 'DHA — foundational for retention (FFC-notified)',
     evidence:
       'DHA is Japan\'s most-notified FFC ingredient for cognitive function. As the brain\'s primary structural omega-3, DHA supports synaptic transmission and signal propagation — relevant for sustained study over a multi-month term. Suntory DHA & EPA + Sesamin EX is the most affordable Japanese option.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22932089/',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20434961/',
   },
 ];
 

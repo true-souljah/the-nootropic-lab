@@ -292,7 +292,7 @@
       {
         "name": "DHA (from Algae)",
         "doseInProduct": "80mg",
-        "clinicalDose": "250-500mg",
+        "clinicalDose": "900mg-1.2g DHA/day",
         "adequatelyDosed": false
       },
       {
@@ -960,8 +960,8 @@
       {
         "name": "Acetyl-L-Carnitine",
         "doseInProduct": "500mg",
-        "clinicalDose": "500-2000mg",
-        "adequatelyDosed": true
+        "clinicalDose": "1500-3000mg/day",
+        "adequatelyDosed": false
       },
       {
         "name": "Ginkgo Biloba (24% glycosides, 6% lactones)",
@@ -996,12 +996,12 @@
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 4,
-    "summary": "A doctor-formulated brain-and-memory stack from Dr. Daniel Amen's BrainMD line. The four headline ingredients (PS, ALCAR, Ginkgo, Huperzine) are clinically dosed; several supporting ingredients are not. Positioned for older adults and patients in the Amen Clinics ecosystem.",
+    "summary": "A doctor-formulated brain-and-memory stack from Dr. Daniel Amen's BrainMD line. Three of the four headline ingredients (PS, Ginkgo, Huperzine) are clinically dosed; ALCAR, at 500mg, is below the 1.5–3g/day used in its positive trials, and several supporting ingredients are not clinically dosed either. Positioned for older adults and patients in the Amen Clinics ecosystem.",
     "whatItIs": "BrainMD Brain & Memory Power Boost is the flagship cognitive product from BrainMD, the supplement company founded by Dr. Daniel Amen — the psychiatrist and bestselling author known for the Amen Clinics and SPECT imaging-based brain assessments. The product is a 7-ingredient memory-and-aging-focused stack manufactured to pharmaceutical-grade quality standards in current Good Manufacturing Practice (cGMP) compliant facilities. It is sold direct via brainmd.com, on Amazon, and through Costco, with broad reach into the older-adult and clinician-referred consumer segment.",
     "howItWorks": "Phosphatidylserine supports neuronal membrane fluidity and carries an FDA-qualified health claim for cognitive decline. Acetyl-L-Carnitine crosses the blood-brain barrier, supports mitochondrial energy in neurons, and has trial evidence for mild cognitive impairment. Ginkgo Biloba improves cerebral blood flow via vasodilation and PAF inhibition. Huperzine A is a reversible acetylcholinesterase inhibitor that elevates synaptic acetylcholine — clinically used for memory in some markets. Vinpocetine, NAC, and Alpha Lipoic Acid are present at sub-clinical doses but contribute supporting antioxidant and neuroprotective activity.",
     "whatToExpect": "This is a long-game memory product — expect minimal day-one effects. Within 2-4 weeks: subtle improvements in word retrieval and short-term recall (Ginkgo + Huperzine A). At 8-12 weeks: cumulative membrane and mitochondrial benefits from PS and ALCAR. Best suited for adults over 50 working on long-term memory maintenance rather than acute focus. Huperzine A has a long half-life; no trial has tested a cycling schedule, so follow the label and stop if you notice cholinergic side effects (nausea, cramps, vivid dreams).",
     "pros": [
-      "Headline ingredients (PS, ALCAR, Ginkgo, Huperzine A) all clinically dosed",
+      "Three of four headline ingredients (PS, Ginkgo, Huperzine A) clinically dosed",
       "Pharmaceutical-grade cGMP manufacturing",
       "Caffeine-free",
       "Available on Amazon and at Costco",
