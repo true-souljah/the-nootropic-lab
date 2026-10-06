@@ -60,8 +60,7 @@ export default function AboutPage() {
           <p className="text-gray-700 leading-relaxed mb-3">
             In Australia, complementary medicines (including most cognitive supplements) are regulated
             by the <strong>Therapeutic Goods Administration (TGA)</strong>. Products legally sold in
-            Australia &mdash; including those stocked at <strong>Chemist Warehouse</strong>, Priceline,
-            and other Australian retailers &mdash; are typically <em>listed</em> on the Australian
+            Australia through local retail are typically <em>listed</em> on the Australian
             Register of Therapeutic Goods (ARTG) and carry an <strong>AUST L</strong> number on the
             label. We surface AUST L numbers in reviews where they apply, alongside the manufacturer
             and any third-party testing documentation.

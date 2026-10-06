@@ -98,7 +98,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Where can Australian students buy these?',
-    a: 'TGA-listed single-ingredient options (L-theanine, Bacopa, ginkgo, fish oil) are stocked at Chemist Warehouse, Priceline, Amcal, Blooms, Coles, Woolworths, and ePharmacy. The international multi-ingredient stacks ranked above ship direct from the manufacturer to Australian addresses under the TGA Personal Importation Scheme — order from the brand website, check the delivery estimate for Australia at checkout, and expect 10% GST added at checkout.',
+    a: 'TGA-listed single-ingredient options (L-theanine, Bacopa, ginkgo, fish oil) are sold through Australian retail; check the AUST L number on the label with the Australian Register of Therapeutic Goods (ARTG) search. The international multi-ingredient stacks ranked above ship direct from the manufacturer to Australian addresses under the TGA Personal Importation Scheme — order from the brand website, check the delivery estimate for Australia at checkout, and expect 10% GST added at checkout.',
   },
 ];
 

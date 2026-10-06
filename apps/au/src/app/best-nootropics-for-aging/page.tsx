@@ -78,7 +78,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Are these TGA-listed in Australia?',
-    a: 'Neither of the international multi-ingredient stacks ranked here (Mind Lab Pro, Qualia Mind) returned an entry when we searched the Australian Register of Therapeutic Goods (ARTG) and the TGA cancellations database by product and sponsor name on 2026-10-06; they ship under the TGA Personal Importation Scheme as food supplements. Australian TGA-listed alternatives carrying AUST L numbers are stocked at Chemist Warehouse, Priceline, Amcal, and Blooms: Blackmores Bio Ginkgoforte 6000, Caruso\'s Memory Forte, Swisse Memory & Focus, Nature\'s Own Brahmi 5000mg, and Cenovis Ginkgo Biloba. These typically focus on a single ingredient (Bacopa OR Ginkgo OR fish oil); the stacks above combine multiple ingredients in one formula, which is why they are imported.',
+    a: 'Neither of the international multi-ingredient stacks ranked here (Mind Lab Pro, Qualia Mind) returned an entry when we searched the Australian Register of Therapeutic Goods (ARTG) and the TGA cancellations database by product and sponsor name on 2026-10-06; they ship under the TGA Personal Importation Scheme as food supplements. Australian TGA-listed alternatives carrying AUST L numbers include Blackmores Bio Ginkgoforte 6000, Caruso\'s Memory Forte, Swisse Memory & Focus, Nature\'s Own Brahmi 5000mg, and Cenovis Ginkgo Biloba. These typically focus on a single ingredient (Bacopa OR Ginkgo OR fish oil); the stacks above combine multiple ingredients in one formula, which is why they are imported.',
   },
   {
     q: 'When should I start taking these?',
@@ -98,7 +98,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Should I just buy a TGA-listed Australian product instead of importing?',
-    a: 'For a single-ingredient approach (e.g. Ginkgo or Bacopa alone), yes — TGA-listed Australian options are convenient, clearly labelled with AUST L numbers, available at Chemist Warehouse, and integrate cleanly into a Webster pack. For a multi-ingredient stack covering PS + citicoline + Bacopa + Lion\'s Mane in one capsule, the imported options above are the practical route. Many Australian seniors run a hybrid: one TGA-listed Ginkgo or Bacopa from the pharmacy + one imported PS-citicoline stack like Mind Lab Pro.',
+    a: 'For a single-ingredient approach (e.g. Ginkgo or Bacopa alone), yes — TGA-listed Australian options are convenient, clearly labelled with AUST L numbers, and integrate cleanly into a Webster pack. For a multi-ingredient stack covering PS + citicoline + Bacopa + Lion\'s Mane in one capsule, the imported options above are the practical route. Many Australian seniors run a hybrid: one TGA-listed Ginkgo or Bacopa from the pharmacy + one imported PS-citicoline stack like Mind Lab Pro.',
   },
 ];
 
