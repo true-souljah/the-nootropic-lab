@@ -82,9 +82,25 @@ jobs:
             "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
           echo "${GITLEAKS_SHA256}  $RUNNER_TEMP/gitleaks.tar.gz" | sha256sum -c -
           tar xzf "$RUNNER_TEMP/gitleaks.tar.gz" -C "$RUNNER_TEMP" gitleaks
+      # A PR must not be able to exempt its own leak: on PRs .gitleaksignore
+      # and .gitleaks.toml come from the base branch (removed if the base has
+      # none), and inline gitleaks:allow comments are ignored.
+      - name: Use the base branch's gitleaks allowlist
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          git rev-parse --verify -q "origin/$BASE_REF^{commit}" >/dev/null \
+            || { echo "::error::origin/$BASE_REF is not in the checkout"; exit 1; }
+          for f in .gitleaksignore .gitleaks.toml; do
+            rm -f "$f" # also drops a PR-supplied symlink before writing
+            if git cat-file -e "origin/$BASE_REF:$f" 2>/dev/null; then
+              git show "origin/$BASE_REF:$f" > "$f"
+            fi
+          done
       - name: Scan full history for secrets
         run: |
-          "$RUNNER_TEMP/gitleaks" git --no-banner --redact --verbose .
+          "$RUNNER_TEMP/gitleaks" git --no-banner --redact --verbose --ignore-gitleaks-allow .
 
   test:
     name: packages/ui unit tests
