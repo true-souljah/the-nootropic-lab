@@ -83,10 +83,10 @@
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 2,
-    "summary": "The most comprehensively researched nootropic stack available in the EU, shipped from a dedicated EU distribution centre. Our #1 pick for European buyers.",
-    "whatItIs": "Mind Lab Pro is an 11-ingredient nootropic stack made by Opti-Nutra (UK). It is designed as a complete daily cognitive supplement covering memory, focus, mental energy, mood, and long-term brain health. For EU buyers it ships from a dedicated European distribution centre in EUR pricing -- no import duties or customs delays.",
+    "summary": "The most comprehensively researched nootropic stack available in the EU, priced in EUR on the brand's EU store, which ships EU orders from its depot in Europe. Our #1 pick for European buyers.",
+    "whatItIs": "Mind Lab Pro is an 11-ingredient nootropic stack made by Opti-Nutra (UK). It is designed as a complete daily cognitive supplement covering memory, focus, mental energy, mood, and long-term brain health. For EU buyers, eu.mindlabpro.com prices in EUR, and its shipping page says EU orders are shipped from the brand's depot in Europe (eu.mindlabpro.com shipping page, checked 2026-10-06). The EU store names Performance Lab Europe Ltd, Dublin (company 698988), as its operator, and its terms make customers ordering from outside the US or UK the Importer of Record for their shipments.",
     "howItWorks": "Mind Lab Pro works across six bio-pathways simultaneously. Citicoline and Phosphatidylserine support the cholinergic system and neuronal membrane integrity. Lion's Mane stimulates Nerve Growth Factor (NGF) for neuroplasticity. Bacopa Monnieri enhances synaptic communication for memory. Rhodiola Rosea and L-Tyrosine support dopamine/norepinephrine balance under stress. L-Theanine promotes alpha brain wave activity for calm focus. The EU formula is sold as a food supplement under EU Directive 2002/46/EC, so its label may carry only EU-authorised health claims (assessed by EFSA).",
-    "whatToExpect": "Within 30-60 minutes: mild calm focus from L-Theanine. Within 2-4 weeks: improved mental energy and reduced cognitive fatigue. At 8-12 weeks: measurable improvements in memory recall and learning speed. EU orders ship from the EU depot with an expected delivery time of 4-12 working days depending on destination (per mindlabpro.com, checked 2026-09-29). Mind Lab Pro is a long-game supplement -- most users report subtle but sustained improvement rather than dramatic day-one effects.",
+    "whatToExpect": "Within 30-60 minutes: mild calm focus from L-Theanine. Within 2-4 weeks: improved mental energy and reduced cognitive fatigue. At 8-12 weeks: measurable improvements in memory recall and learning speed. EU orders are shipped from the brand's depot in Europe, with an expected delivery time of 4-12 working days depending on destination (eu.mindlabpro.com shipping page, checked 2026-10-06). Mind Lab Pro is a long-game supplement -- most users report subtle but sustained improvement rather than dramatic day-one effects.",
     "pros": [
       "Dedicated EU storefront with EUR pricing",
       "11 ingredients at clinical doses",
@@ -281,7 +281,7 @@
     "servingsPerContainer": 30,
     "capsulesPerServing": 2,
     "summary": "Opti-Nutra's streamlined 4-ingredient formula. Every ingredient at clinical dose. Only 2 capsules/day. Same manufacturer as Mind Lab Pro.",
-    "whatItIs": "Performance Lab Mind is a 4-ingredient cognitive supplement from Opti-Nutra -- the same manufacturer as Mind Lab Pro. It is designed as a precision stack where every single ingredient is at or above its clinical trial dose. With only 2 capsules per day, it has the lowest pill burden of any clinically-dosed nootropic in this review. Available with EUR pricing from a dedicated EU storefront.",
+    "whatItIs": "Performance Lab Mind is a 4-ingredient cognitive supplement from Opti-Nutra -- the same manufacturer as Mind Lab Pro. It is designed as a precision stack where every single ingredient is at or above its clinical trial dose. With only 2 capsules per day, it has the lowest pill burden of any clinically-dosed nootropic in this review.",
     "howItWorks": "Citicoline (250mg Cognizin) boosts acetylcholine synthesis and supports neuronal membrane phospholipid production. Phosphatidylserine (100mg Sharp-PS) enhances synaptic signal transduction and reduces cortisol. Lion's Mane (500mg fruiting body) stimulates NGF for long-term neuroplasticity. L-Tyrosine (300mg NALT) replenishes dopamine and norepinephrine precursors for working memory under stress. Each ingredient is at or above the dose used in clinical trials -- no filler, no underdosed compounds.",
     "whatToExpect": "Acute (30-60 min): mild focus from Tyrosine and Citicoline's acetylcholine boost. 2-4 weeks: improved mental endurance and reduced cognitive fatigue. 8-12 weeks: memory and neuroprotective benefits from Lion's Mane and Phosphatidylserine accumulate. Performance Lab Mind is ideal as a standalone for minimalists, or stacked with Performance Lab Energy for a comprehensive cognitive + energy protocol.",
     "pros": [
@@ -481,11 +481,11 @@
     "servingsPerContainer": 30,
     "capsulesPerServing": 2,
     "summary": "Natural caffeine from matcha + guarana paired with L-theanine for smooth focus.",
-    "whatItIs": "Brainzyme Focus Pro is a nootropic supplement using exclusively natural ingredient sources. Its caffeine comes from matcha and guarana rather than synthetic caffeine -- producing a smoother, more sustained focus curve.",
+    "whatItIs": "Brainzyme Focus Pro is a nootropic supplement using exclusively natural ingredient sources. Its caffeine comes from matcha and guarana rather than synthetic caffeine -- producing a smoother, more sustained focus curve. Brainzyme, operated by Nutraceutical Logistics Global (t/a Brainzyme, Edinburgh), runs separate EUR stores: its international-shipping page directs France, Belgium and Switzerland to brainzyme.fr and Germany, Austria and Switzerland to brainzyme.de, and lists other countries, such as Bulgaria, under rest-of-world shipping from the UK with shipping fees in GBP (brainzyme.com, checked 2026-10-06).",
     "howItWorks": "Matcha provides ~40mg natural caffeine plus EGCG (a catechin with mild nootropic properties). Guarana adds ~20mg additional natural caffeine for a total of ~60mg -- lower than coffee but enough for noticeable alertness. L-Theanine (100mg) smooths the caffeine response, reducing jitteriness and extending focus duration. Choline Bitartrate supports acetylcholine synthesis (lower bioavailability than Alpha-GPC but effective at 250mg). B-vitamins support neurological function per EU Regulation 1924/2006.",
     "whatToExpect": "Acute (30-45 min): smooth, gradual focus from natural caffeine + L-theanine combination. Less of a spike-and-crash than synthetic caffeine products. 2-4 weeks: sustained daily mental energy. Note: this is primarily a stimulant-based nootropic -- the cognitive enhancement is largely driven by caffeine + theanine synergy. Long-term neuroprotective benefits are limited compared to Citicoline/Bacopa-based stacks.",
     "pros": [
-      "EU storefront",
+      "EUR stores brainzyme.de (ships from Germany) and brainzyme.fr (ships from France), per the brand's shipping pages (checked 2026-10-06)",
       "Strong Trustpilot 4.8/5",
       "Popular with students",
       "Only 2 capsules",
@@ -494,7 +494,7 @@
     "cons": [
       "Contains caffeine",
       "Narrower formula than MLP",
-      "UK/EU only"
+      "Not shipped to Ireland (contains Ginkgo biloba, per the brand's international-shipping page, checked 2026-10-06)"
     ],
     "editorChoice": false,
     "market": "eu",
@@ -580,8 +580,8 @@
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 6,
-    "summary": "Premium 9-ingredient UK nootropic. Strong EU presence, well-dosed formula. High pill burden at 6 capsules/day.",
-    "whatItIs": "Hunter Focus is a premium 9-ingredient nootropic stack from Roar Ambition, a UK supplement brand. It is positioned as a high-performance cognitive supplement for professionals aged 30-50 who want a comprehensive formula covering focus, memory, mood, and mental energy. Available with EUR pricing from an EU storefront.",
+    "summary": "Premium 9-ingredient UK nootropic with a well-dosed formula. High pill burden at 6 capsules/day.",
+    "whatItIs": "Hunter Focus is a premium 9-ingredient nootropic stack from Roar Ambition, a UK supplement brand. It is positioned as a high-performance cognitive supplement for professionals aged 30-50 who want a comprehensive formula covering focus, memory, mood, and mental energy. Priced in EUR on roarambition.com's EU market pages; the shipping policy says orders to Europe ship from the brand's depot in England, and its terms state there are no customs charges for EU customers (roarambition.com, checked 2026-10-06).",
     "howItWorks": "Hunter Focus covers multiple cognitive pathways: Lion's Mane (500mg) stimulates NGF for long-term neuroplasticity. Ashwagandha (300mg KSM-66) reduces cortisol and supports cognitive resilience under stress. Phosphatidylserine (100mg) enhances synaptic transmission. ALCAR (500mg) supports brain energy metabolism via mitochondrial function. Caffeine (100mg) + L-Theanine combination provides smooth acute focus. Bacopa Monnieri targets memory consolidation.",
     "whatToExpect": "Acute (30-60 min): noticeable focus and motivation boost from caffeine + Ashwagandha combination. 2-4 weeks: better stress resilience and sustained afternoon energy. 8-12 weeks: memory improvements from Bacopa and Lion's Mane accumulate. High pill burden (6 capsules/day) is the most significant practical barrier -- split into two doses of 3 capsules if preferred. Premium price of €85/mo reflects the comprehensive formula.",
     "pros": [
@@ -844,6 +844,179 @@
     "editorChoice": false,
     "market": "both",
     "updatedAt": "2026-10-05",
+    "trustpilotCheckedAt": "2026-10-05",
+    "verifiedAt": "2026-10-05"
+  },
+  {
+    "id": "performance-lab-energy",
+    "name": "Performance Lab Energy",
+    "brand": "Performance Lab",
+    "slug": "performance-lab-energy-review",
+    "bestFor": [
+      "Energy",
+      "Brain energy",
+      "Long-term brain health"
+    ],
+    "score": 5.4,
+    "scoreBreakdown": {
+      "ingredients": 5,
+      "dosing": 3,
+      "transparency": 10,
+      "value": 3,
+      "trust": 6
+    },
+    "priceMonthlyUSD": 69,
+    "pricingModel": "both",
+    "moneyBackDays": 30,
+    "caffeineFree": true,
+    "euStorefront": false,
+    "euCompliance": "verify",
+    "trustpilotScore": 3.8,
+    "trustpilotCount": 14,
+    "affiliateUrl": "https://www.performancelab.com/products/energy?a_aid=zid0oxj1g4uny&a_bid=a2ad38c1",
+    "affiliateNetwork": "UberNet",
+    "commissionRate": "30%",
+    "cookieDays": 365,
+    "heroIngredients": [
+      "Acetyl-L-Carnitine",
+      "PQQ",
+      "CoQ10",
+      "R-Lipoic Acid"
+    ],
+    "ingredientDosages": [
+      {
+        "name": "Acetyl-L-Carnitine (from ALCAR HCl)",
+        "doseInProduct": "500mg",
+        "clinicalDose": "1500-3000mg/day",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "R-Lipoic Acid (BioEnhanced)",
+        "doseInProduct": "100mg",
+        "clinicalDose": "300-600mg (alpha-lipoic acid trials)",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "CoQ10 (MicroActive Q10)",
+        "doseInProduct": "100mg",
+        "clinicalDose": "No cognitive-trial dose; 300mg/day in cardiac trials",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "PQQ (BioPQQ)",
+        "doseInProduct": "10mg",
+        "clinicalDose": "20mg/day",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Magnesium (as magnesium malate)",
+        "doseInProduct": "60mg",
+        "clinicalDose": "420mg (DV)",
+        "adequatelyDosed": false
+      }
+    ],
+    "servingsPerContainer": 30,
+    "capsulesPerServing": 2,
+    "summary": "A caffeine-free 'cellular energy' capsule from Performance Lab: one 2-capsule serving gives 500mg acetyl-L-carnitine, 100mg R-lipoic acid, 100mg CoQ10, 10mg PQQ and 60mg magnesium, with every dose on the label. It is an energy supplement with a modest cognitive angle, not a nootropic stack, and none of its five actives reaches the reference dose in our dosing audit. EU orders ship from the brand's European depot in 4-12 working days (per performancelab.com's shipping page, checked 2026-10-05); we could not confirm a euro price.",
+    "whatItIs": "Performance Lab Energy is a caffeine-free capsule sold through performancelab.com. The vendor calls it a 'caffeine-free workout and daily energy supplement' for 'cellular energy, cardio performance, muscle strength, and clean focus'. One serving is 2 vegan pullulan capsules holding 500mg acetyl-L-carnitine (from acetyl-L-carnitine HCl), 100mg microencapsulated BioEnhanced R-lipoic acid, 100mg MicroActive Q10 (coenzyme Q10), 10mg BioPQQ (pyrroloquinoline quinone), 60mg magnesium as magnesium malate (14% of the US Daily Value) and 2.5mg BioPerine black pepper extract (95% piperine), which the vendor adds 'for enhanced absorption'; a bottle holds 30 servings. The label suggests 2 capsules in the morning or early afternoon on an empty stomach. The vendor states it is 'third-party tested for purity and potency' but names no lab. Per performancelab.com's shipping page (checked 2026-10-05), EU orders are shipped from the brand's depot in Europe; the page does not list individual EU countries, so confirm delivery to your country at checkout.",
+    "howItWorks": "Energy is built around mitochondria, the parts of cells that turn food into usable energy. Acetyl-L-carnitine carries fatty acids into mitochondria and donates acetyl groups for making acetylcholine; its positive cognitive trials used 1.5-3g a day in older adults with mild cognitive impairment, mild dementia or pre-frailty (Montgomery 2003 meta-analysis; Passeri 1990; Malaguarnera 2022), at least three times the 500mg here, and we found no trial in healthy young adults. PQQ improved some memory and attention scores in three small 12-week trials at about 20mg a day (Itoh 2016, Shiojima 2021, Tamakoshi 2023), two of them with authors affiliated with the PQQ manufacturer; Energy has 10mg. The vendor describes CoQ10 and R-lipoic acid as mitochondrial cofactors and antioxidants, but we found no positive cognitive trial of either: 300mg CoQ10 a day did not improve attention or working memory over 6 months in a trial in schizophrenia (Maguire 2021), and 100mg alpha-lipoic acid a day did not improve cognition in the only dose-matched trial we found, also in schizophrenia (De Lima 2023). BioPerine is there to aid absorption; we have not verified whether 2.5mg of piperine changes how well these ingredients are absorbed. Energy itself has not been tested in a published trial. Supplements sold in the EU fall under Directive 2002/46/EC, and the label may carry only health claims authorised under Regulation (EC) No 1924/2006.",
+    "whatToExpect": "Performance Lab says Energy starts working in around 30 minutes and that you may notice 'increased vitality', more motivation, a brighter mood and better muscle strength and cardio performance during exercise. It contains no caffeine or other stimulant. The positive cognitive trials of acetyl-L-carnitine and PQQ ran for 12 weeks or longer at 2 to 6 times these doses, so any cognitive effect at Energy's doses is uncertain. The label suggests 2 capsules in the morning or early afternoon on an empty stomach; the product page also suggests 2 capsules 30-45 minutes before a workout. EU delivery is expected in 4-12 working days depending on destination (per performancelab.com's shipping page, checked 2026-10-05). We saw only US-dollar prices ($69 one-time for 30 servings) when we checked, so confirm the euro total at checkout.",
+    "pros": [
+      "Caffeine-free and stimulant-free",
+      "Every dose disclosed on the label, no proprietary blend",
+      "Branded ingredient forms named on the label (BioPQQ, MicroActive Q10, BioEnhanced R-lipoic acid, BioPerine)",
+      "Ships to EU buyers from a European depot (4-12 working days)",
+      "Vegan pullulan capsules"
+    ],
+    "cons": [
+      "None of the five actives reaches the reference dose in our dosing audit",
+      "Acetyl-L-carnitine (500mg): every positive cognitive trial we reviewed used at least 1.5g a day, three times this dose",
+      "PQQ (10mg) is half the 20mg a day used in the 12-week cognitive trials, two of which had authors affiliated with the PQQ manufacturer",
+      "An energy supplement with a modest cognitive angle, not a nootropic stack: we found no positive cognitive trial of CoQ10 or R-lipoic acid",
+      "No published trial of Energy itself; the evidence is for its ingredients",
+      "Euro price not confirmed (only US-dollar prices seen on 2026-10-05)",
+      "Small Trustpilot sample: 14 reviews for performancelab.com (3.8/5, checked 2026-10-05)",
+      "30-day money-back guarantee covers the first order only: one container, used up, with the claim filed within 60 days of delivery, refund minus shipping"
+    ],
+    "editorChoice": false,
+    "market": "both",
+    "updatedAt": "2026-10-06",
+    "trustpilotCheckedAt": "2026-10-05",
+    "verifiedAt": "2026-10-05"
+  },
+  {
+    "id": "performance-lab-omega-3",
+    "name": "Performance Lab Omega-3",
+    "brand": "Performance Lab",
+    "slug": "performance-lab-omega-3-review",
+    "bestFor": [
+      "Long-term brain health",
+      "Brain health",
+      "Cardiovascular support"
+    ],
+    "score": 6.2,
+    "scoreBreakdown": {
+      "ingredients": 6,
+      "dosing": 4,
+      "transparency": 10,
+      "value": 5,
+      "trust": 6
+    },
+    "priceMonthlyUSD": 49,
+    "pricingModel": "both",
+    "moneyBackDays": 30,
+    "caffeineFree": true,
+    "euStorefront": false,
+    "euCompliance": "verify",
+    "trustpilotScore": 3.8,
+    "trustpilotCount": 14,
+    "affiliateUrl": "https://www.performancelab.com/products/omega-3?a_aid=zid0oxj1g4uny&a_bid=a2ad38c1",
+    "affiliateNetwork": "UberNet",
+    "commissionRate": "30%",
+    "cookieDays": 365,
+    "heroIngredients": [
+      "DHA",
+      "EPA"
+    ],
+    "ingredientDosages": [
+      {
+        "name": "DHA (algal)",
+        "doseInProduct": "540mg",
+        "clinicalDose": "900mg-1.2g DHA/day",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "EPA (algal)",
+        "doseInProduct": "270mg",
+        "clinicalDose": "No EPA-specific cognitive anchor; mixed EPA+DHA meta-analyses used ≥500mg/day total omega-3",
+        "adequatelyDosed": true
+      }
+    ],
+    "servingsPerContainer": 30,
+    "capsulesPerServing": 3,
+    "form": "softgel",
+    "summary": "A vegan omega-3 from Performance Lab: 3 softgels give 1,800mg algal oil (life's OMEGA 60) with 990mg total omega-3, including 540mg DHA and 270mg EPA, every amount on the label. The DHA dose sits below the 900mg-1.2g a day used in the positive memory trials, so it is a general-health omega-3 with a brain-health angle rather than a nootropic. EU orders ship from the brand's European depot in 4-12 working days (per performancelab.com's shipping page, checked 2026-10-05); we could not confirm a euro price.",
+    "whatItIs": "Performance Lab Omega-3 is an algae-based omega-3 supplement sold through performancelab.com. The vendor positions it 'to support optimal health and performance of the brain, eyes, heart and (much) more'. One serving is 3 NutriGels, softgels the vendor describes as vegan and free of gelatin and carrageenan (other ingredients listed: gellan gum, pectin, starch and glycerin), holding 1,800mg algal oil from life's OMEGA 60 with 990mg total omega-3 fatty acids, of which 540mg is DHA and 270mg is EPA; a bottle holds 30 servings. The label suggests 3 softgels with your first meal of the day. The vendor states it is 'third-party tested for purity and potency' and Clean Label Project certified; the product page shows the certification logo but no certificate or batch number. Per performancelab.com's shipping page (checked 2026-10-05), EU orders are shipped from the brand's depot in Europe; the page does not list individual EU countries, so confirm delivery to your country at checkout.",
+    "howItWorks": "DHA is the main structural omega-3 in brain cell membranes. In two 6-month trials it improved memory measures at 900mg a day in adults aged 55 and over with age-related cognitive decline (Yurko-Mauro 2010, sponsored by the algal-DHA maker Martek) and at 1.16g a day in healthy 18-45-year-olds with low DHA intake (Stonehouse 2013); this product supplies 540mg, below both. The wider evidence is mixed: a 2012 Cochrane review found no cognitive benefit from omega-3 supplements in cognitively healthy older adults. We found no trial of EPA alone for cognition; a 2024 dose-response meta-analysis of 24 trials of mixed EPA and DHA in adults aged 40 and over found an executive-function benefit trend above 500mg a day of total omega-3 (Suh 2024), which the 990mg here exceeds. The oil comes from algae rather than fish, so it suits vegans. Performance Lab Omega-3 itself has not been tested in a published trial. Supplements sold in the EU fall under Directive 2002/46/EC, and the label may carry only health claims authorised under Regulation (EC) No 1924/2006.",
+    "whatToExpect": "Performance Lab says Omega-3 starts working in around 30 minutes, that you may first notice improvements to hair, nails and skin, and that other benefits build over time; both positive DHA memory trials ran for 6 months, so do not expect a quick cognitive effect. Take 3 softgels with your first meal of the day. Our DHA ingredient page notes that in a 2021 meta-analysis of cardiovascular trials, omega-3 supplements were linked to a higher risk of atrial fibrillation, more so above 1g a day; one serving here gives 990mg of total omega-3, so ask your doctor first if you have a heart-rhythm condition or already take another omega-3. EU delivery is expected in 4-12 working days depending on destination (per performancelab.com's shipping page, checked 2026-10-05). We saw only US-dollar prices ($49 one-time for 30 servings) when we checked, so confirm the euro total at checkout.",
+    "pros": [
+      "Vegan omega-3 from algal oil (life's OMEGA 60) rather than fish",
+      "990mg total omega-3 per serving, every amount on the label",
+      "Softgels the vendor says are free of gelatin and carrageenan",
+      "Ships to EU buyers from a European depot (4-12 working days)"
+    ],
+    "cons": [
+      "540mg DHA is below the 900mg-1.2g a day used in the positive DHA memory trials",
+      "Ratio wording is inconsistent: the product page mostly describes an 'optimal 2:1 EPA:DHA' ratio, but the label's 540mg DHA and 270mg EPA make it 2:1 DHA to EPA; the page also says one serving provides 900mg of EPA and DHA, while those two label rows add up to 810mg",
+      "A general-health omega-3 rather than a nootropic; evidence for omega-3 and cognition in healthy adults is mixed",
+      "No published trial of Performance Lab Omega-3 itself; the evidence is for DHA and EPA",
+      "Euro price not confirmed (only US-dollar prices seen on 2026-10-05)",
+      "Small Trustpilot sample: 14 reviews for performancelab.com (3.8/5, checked 2026-10-05)",
+      "30-day money-back guarantee covers the first order only: one container, used up, with the claim filed within 60 days of delivery, refund minus shipping"
+    ],
+    "editorChoice": false,
+    "market": "both",
+    "updatedAt": "2026-10-06",
     "trustpilotCheckedAt": "2026-10-05",
     "verifiedAt": "2026-10-05"
   }

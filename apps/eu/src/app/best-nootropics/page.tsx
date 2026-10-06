@@ -79,7 +79,7 @@ export default function BestNootropicsEUPage() {
         hero={{
           eyebrow: `EU · Audited ${CURRENT_YEAR}`,
           h1: `Best Nootropics in Europe ${CURRENT_YEAR}`,
-          dek: 'Built specifically for EU buyers. We mark which products are sold from an EU storefront (EUR pricing, no import tax) and keep our own copy within the health claims authorised under Regulation (EC) 1924/2006.',
+          dek: 'Built specifically for EU buyers. We mark which products are sold from an EU storefront (EUR pricing; EU orders ship from a European depot per the brand) and keep our own copy within the health claims authorised under Regulation (EC) 1924/2006.',
         }}
         searchItems={searchItems}
         uiStrings={uiStrings}
@@ -102,7 +102,7 @@ export default function BestNootropicsEUPage() {
                 <strong>Regulation (EC) 1924/2006</strong> using EU-authorised claims (assessed by EFSA) only.
                 Novel Food ingredients require authorisation under{' '}
                 <strong>Regulation (EU) 2015/2283</strong>. Products marked{' '}
-                <Chip tone="good">EU storefront</Chip> are sold from an EU-based store in EUR; we do
+                <Chip tone="good">EU storefront</Chip> are sold through a dedicated EU storefront priced in EUR; we do
                 not verify regulatory compliance per product.
               </p>
             </Card>

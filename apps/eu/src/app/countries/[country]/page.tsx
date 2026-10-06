@@ -120,8 +120,8 @@ export default async function CountryPage({
           </h2>
           <p className="text-sm text-gray-600 mb-4">
             {allTopOnEUStorefront
-              ? 'Every product below is sold from an EU storefront in EUR.'
-              : 'Products marked EU storefront are sold from an EU-based store in EUR; the others are sold without a dedicated EU storefront — confirm delivery and duties at checkout.'}{' '}
+              ? 'Every product below is sold through a dedicated EU storefront priced in EUR.'
+              : 'Products marked EU storefront are sold through a dedicated EU storefront priced in EUR; the others are sold without one — confirm delivery and duties at checkout.'}{' '}
             Scores are from our independent editorial review.
           </p>
           <div className="space-y-4">
