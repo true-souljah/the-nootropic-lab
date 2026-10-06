@@ -319,7 +319,7 @@ export default function QuizFlow({
           </div>
         )}
       </main>
-      <CookieSettingsBar label="Cookie settings" />
+      <CookieSettingsBar label="Cookie settings" privacyLabel="Privacy" cookiePolicyLabel="Cookies" />
     </div>
   );
 }

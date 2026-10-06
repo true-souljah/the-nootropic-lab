@@ -16,6 +16,8 @@ export default function NotFoundPage() {
       body={'お探しのページは存在しないか、移動した可能性があります。'}
       homeLabel={'トップページへ戻る'}
       cookieSettingsLabel={getStrings('ja').cookie.settings}
+      privacyLabel={getStrings('ja').footer.about.privacy}
+      cookiePolicyLabel={getStrings('ja').footer.about.cookies}
     />
   );
 }

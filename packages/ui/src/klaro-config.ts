@@ -40,6 +40,8 @@ export interface KlaroConfig {
   hideDeclineAll: boolean;
   hideLearnMore: boolean;
   noticeAsModal: boolean;
+  /** Hide Klaro's "powered by" link (it rendered as "[missing translation: en/poweredBy]"). */
+  disablePoweredBy: boolean;
   privacyPolicy: string;
   translations: Record<string, unknown>;
   services: KlaroService[];
@@ -58,6 +60,7 @@ export const klaroConfig: KlaroConfig = {
   hideDeclineAll: false,
   hideLearnMore: false,
   noticeAsModal: false,
+  disablePoweredBy: true,
   privacyPolicy: '/privacy-policy/',
   translations: {
     zz: {
@@ -84,7 +87,6 @@ export const klaroConfig: KlaroConfig = {
       ok: 'Accept all',
       save: 'Save',
       close: 'Close',
-      poweredBy: '',
       privacyPolicy: { name: 'privacy policy', text: 'For details see our {privacyPolicy}.' },
       purposes: {
         statistics: { title: 'Analytics & statistics', description: 'Site-usage measurement.' },

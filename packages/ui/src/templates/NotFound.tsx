@@ -7,6 +7,9 @@ export interface NotFoundProps {
   homeLabel: string;
   /** Localized label of the persistent consent control (UIStrings.cookie.settings). */
   cookieSettingsLabel: string;
+  /** Localized privacy- / cookie-policy link texts (UIStrings.footer.about). */
+  privacyLabel: string;
+  cookiePolicyLabel: string;
 }
 
 /**
@@ -18,7 +21,14 @@ export interface NotFoundProps {
  * here ships on all routes (the full search index would bloat every page and
  * leak English strings into CA /fr/* payloads — see e2e/ca-fr-chrome.spec.ts).
  */
-export default function NotFound({ title, body, homeLabel, cookieSettingsLabel }: NotFoundProps) {
+export default function NotFound({
+  title,
+  body,
+  homeLabel,
+  cookieSettingsLabel,
+  privacyLabel,
+  cookiePolicyLabel,
+}: NotFoundProps) {
   return (
     <div className="bg-ds-bg text-ds-ink min-h-screen flex flex-col" style={{ fontFamily: 'var(--font-ds-sans)' }}>
       <main className="flex-1 max-w-[640px] mx-auto px-6 pt-16 pb-16 text-center">
@@ -37,7 +47,7 @@ export default function NotFound({ title, body, homeLabel, cookieSettingsLabel }
           {homeLabel}
         </Link>
       </main>
-      <CookieSettingsBar label={cookieSettingsLabel} />
+      <CookieSettingsBar label={cookieSettingsLabel} privacyLabel={privacyLabel} cookiePolicyLabel={cookiePolicyLabel} />
     </div>
   );
 }

@@ -208,7 +208,11 @@ export default function AppShell({
           <main id="main-content">{children}</main>
           {/* App surfaces have no FPFooter, so the persistent consent-withdraw
               control lives here (FPFooter carries it on public pages). */}
-          <CookieSettingsBar label={uiStrings?.cookie.settings ?? 'Cookie settings'} />
+          <CookieSettingsBar
+            label={uiStrings?.cookie.settings ?? 'Cookie settings'}
+            privacyLabel={uiStrings?.footer.about.privacy ?? 'Privacy'}
+            cookiePolicyLabel={uiStrings?.footer.about.cookies ?? 'Cookies'}
+          />
         </div>
       </div>
       </div>

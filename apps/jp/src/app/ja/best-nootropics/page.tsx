@@ -150,7 +150,11 @@ export default function JaBestNootropicsPage() {
           </a>
         </div>
       </article>
-      <CookieSettingsBar label={getStrings('ja').cookie.settings} />
+      <CookieSettingsBar
+        label={getStrings('ja').cookie.settings}
+        privacyLabel={getStrings('ja').footer.about.privacy}
+        cookiePolicyLabel={getStrings('ja').footer.about.cookies}
+      />
     </div>
   );
 }

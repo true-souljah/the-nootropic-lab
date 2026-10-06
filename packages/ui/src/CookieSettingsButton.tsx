@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import { openCookieSettings } from './CookieBanner';
 
 export interface CookieSettingsButtonProps {
@@ -33,17 +34,34 @@ export function CookieSettingsButton({ label, className }: CookieSettingsButtonP
   );
 }
 
+export interface CookieSettingsBarProps {
+  /** Localized "Cookie settings" label (UIStrings.cookie.settings). */
+  label: string;
+  /** Localized privacy-policy link text (UIStrings.footer.about.privacy). */
+  privacyLabel: string;
+  /** Localized cookie-policy link text (UIStrings.footer.about.cookies). */
+  cookiePolicyLabel: string;
+}
+
+const BAR_ITEM =
+  'inline-flex items-center min-h-[24px] text-[12.5px] text-ds-ink-soft underline underline-offset-2 hover:text-ds-ink focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded-[4px]';
+
 /**
- * Bottom-of-page strip carrying the withdraw control, for surfaces that have
- * no FPFooter (AppShell app pages, the quiz, standalone landing pages).
+ * Bottom-of-page strip for surfaces that have no FPFooter (AppShell app
+ * pages incl. the US homepage, the quiz, standalone landing pages, 404s):
+ * the withdraw control plus the privacy- and cookie-policy links, so every
+ * page links the policy that names the cookies.
  */
-export function CookieSettingsBar({ label }: { label: string }) {
+export function CookieSettingsBar({ label, privacyLabel, cookiePolicyLabel }: CookieSettingsBarProps) {
   return (
-    <div className="border-t border-ds-border px-4 sm:px-7 py-4">
-      <CookieSettingsButton
-        label={label}
-        className="inline-flex items-center min-h-[24px] p-0 bg-transparent border-0 cursor-pointer text-[12.5px] text-ds-ink-soft underline underline-offset-2 hover:text-ds-ink focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded-[4px]"
-      />
+    <div className="border-t border-ds-border px-4 sm:px-7 py-4 flex flex-wrap items-center gap-x-5 gap-y-2">
+      <CookieSettingsButton label={label} className={`${BAR_ITEM} p-0 bg-transparent border-0 cursor-pointer`} />
+      <Link href="/privacy-policy/" className={BAR_ITEM}>
+        {privacyLabel}
+      </Link>
+      <Link href="/cookie-policy/" className={BAR_ITEM}>
+        {cookiePolicyLabel}
+      </Link>
     </div>
   );
 }
