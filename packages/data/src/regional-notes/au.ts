@@ -90,7 +90,7 @@ export const regionalNotesAU: RegionalNotes = {
       ],
       faqs: [
         { question: "Is L-theanine specifically named in the TGA's permissible ingredients list?", answer: "No -- the Determination lists it simply as 'Theanine' at Schedule 1 item 4911, not 'L-theanine'. Any listed medicine using the L-theanine form must still meet the requirements set for theanine generally: oral route, a 450 mg daily dose cap, and the pregnancy/lactation and adults-only warning statements on the label." },
-        { question: "What's the maximum theanine dose permitted in an AUST L medicine?", answer: "'The maximum recommended daily dose of a medicine must not exceed 450 mg of theanine,' per Schedule 1 item 4911 of the Determination. Reviewed AU products on this site naming L-Theanine as a hero ingredient (mind-lab-pro-review, hunter-focus-review, noocube-review) carry no AUST L number in this site’s Australian catalogue." },
+        { question: "What's the maximum theanine dose permitted in an AUST L medicine?", answer: "'The maximum recommended daily dose of a medicine must not exceed 450 mg of theanine,' per Schedule 1 item 4911 of the Determination. Reviewed AU products on this site naming L-Theanine as a hero ingredient (mind-lab-pro-review, hunter-focus-review, noocube-review, performance-lab-caffeine-2-review, pre-lab-pro-review) carry no AUST L number in this site’s Australian catalogue." },
       ],
       sources: [
         { label: "Therapeutic Goods (Permissible Ingredients) Determination (No. 2) 2026 -- Schedule 1, item 4911 (Theanine)", url: "https://www.legislation.gov.au/F2026L00707/latest/text", quote: "The maximum recommended daily dose of a medicine must not exceed 450 mg of theanine." },

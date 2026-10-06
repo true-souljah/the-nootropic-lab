@@ -16,7 +16,7 @@ const regions: Record<string, unknown[]> = {
 // Record rules (packages/data/src/product-rules.ts): affiliateUrl must be an
 // absolute https product URL — no search pages, no bare homepages unless the
 // record is discontinued — and the formula (ingredientDosages) must be non-empty.
-// `form`, when set, must be one of PRODUCT_FORMS (capsule | tablet | sachet | shot);
+// `form`, when set, must be one of PRODUCT_FORMS (capsule | tablet | sachet | shot | powder);
 // an unknown value fails the gate (formProblem, never grandfathered).
 //
 // Records that violated a rule when it was introduced (2026-09-28) and have no
