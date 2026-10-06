@@ -59,7 +59,7 @@ export default function BestNootropicsCAPage() {
       <SchemaOrg schema={itemListSchema} />
       <BestOf
         products={productsCA}
-        breadcrumbs={[{ label: 'Best of', href: '/best-nootropics' }]}
+        breadcrumbs={[{ label: 'Best of', href: '/best-nootropics/' }]}
         hero={{
           eyebrow: `Canada · Audited ${CURRENT_YEAR}`,
           h1: `Best Nootropics in Canada ${CURRENT_YEAR}`,

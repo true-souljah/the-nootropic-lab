@@ -281,8 +281,8 @@ function TermsBody() {
           <h2 className="text-xl font-bold text-gray-900 mb-3">7. Governing Law</h2>
           <p className="text-gray-700 leading-relaxed">
             These terms are governed by the laws of Cyprus. See also the{' '}
-            <a href="/privacy-policy" className="text-emerald-700 underline">privacy policy</a> and{' '}
-            <a href="/imprint" className="text-emerald-700 underline">imprint</a>.
+            <a href="/privacy-policy/" className="text-emerald-700 underline">privacy policy</a> and{' '}
+            <a href="/imprint/" className="text-emerald-700 underline">imprint</a>.
           </p>
         </section>
       </div>
@@ -342,7 +342,7 @@ function PrivacyPolicyBody() {
             &quot;Configure&quot;). Nothing optional loads before you choose. You can decline with no
             impact on site functionality, and change or withdraw your choice for each purpose at any
             time via the &quot;Cookie settings&quot; link at the bottom of every page. See our{' '}
-            <a href="/cookie-policy" className="text-green-700 underline">Cookie Policy</a> for
+            <a href="/cookie-policy/" className="text-green-700 underline">Cookie Policy</a> for
             names, purposes and durations.
           </p>
         </section>

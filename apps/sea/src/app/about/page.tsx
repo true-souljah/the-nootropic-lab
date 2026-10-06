@@ -52,7 +52,7 @@ export default function AboutPage() {
             and TGA-AU import pathways such as Blackmores and Nature&apos;s Own).
           </p>
           <p className="text-gray-700 leading-relaxed">
-            <Link href="/methodology" className="text-green-700 underline">Read the full methodology →</Link>
+            <Link href="/methodology/" className="text-green-700 underline">Read the full methodology →</Link>
           </p>
         </section>
 

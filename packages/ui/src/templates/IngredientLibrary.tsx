@@ -200,7 +200,7 @@ export default function IngredientLibrary({
                   </div>
                   <div className="min-w-0">
                     <Link
-                      href={`/ingredients/${ing.slug}`}
+                      href={`/ingredients/${ing.slug}/`}
                       className="font-semibold text-[14px] text-ds-ink hover:text-ds-accent focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded block truncate"
                     >
                       {ing.name}

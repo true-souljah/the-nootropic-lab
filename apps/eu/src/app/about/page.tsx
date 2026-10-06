@@ -57,7 +57,7 @@ export default function AboutPage() {
             dose from peer-reviewed trials.
           </p>
           <p className="text-gray-700 leading-relaxed">
-            <Link href="/methodology" className="text-green-700 underline">Read the full methodology →</Link>
+            <Link href="/methodology/" className="text-green-700 underline">Read the full methodology →</Link>
           </p>
         </section>
 

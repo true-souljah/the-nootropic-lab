@@ -32,7 +32,7 @@ export default function BestNootropicsGCCPage() {
       <SchemaOrg schema={itemListSchema} />
       <BestOf
         products={productsGCC}
-        breadcrumbs={[{ label: 'Best of', href: '/best-nootropics' }]}
+        breadcrumbs={[{ label: 'Best of', href: '/best-nootropics/' }]}
         hero={{ eyebrow: `GCC · Audited ${CURRENT_YEAR}`, h1: `Best Nootropics in the GCC ${CURRENT_YEAR}`, dek: 'Caffeine-free, stimulant-free, porcine-free options prioritised. Each review notes whether the brand ships to Saudi Arabia, UAE, Qatar, Kuwait, Bahrain and Oman — several do not.' }}
         searchItems={searchItems} uiStrings={uiStrings} trackingSurface="best_of_gcc"
         preList={

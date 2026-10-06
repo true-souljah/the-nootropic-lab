@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import SearchModal from './SearchModal';
 import type { SearchItem } from './SearchModal';
+import { isActiveHref } from './primitives/Sidebar';
 import type { UIStrings } from '@nootropic/data';
 
 type MarketKey = 'us' | 'eu' | 'ca' | 'au' | 'jp' | 'latam' | 'gcc' | 'sea';
@@ -17,11 +18,11 @@ const marketLabel: Record<MarketKey, string> = {
 export default function SiteHeader({ market, searchItems = [], strings }: { market: MarketKey; searchItems?: SearchItem[]; strings?: UIStrings }) {
   const t = strings?.nav;
   const navLinks = [
-    { href: '/best-nootropics', label: t?.bestNootropics || 'Best Nootropics' },
-    { href: '/nootropic-comparison', label: t?.compare || 'Compare' },
-    { href: '/ingredients', label: t?.ingredients || 'Ingredients' },
-    { href: '/guides', label: t?.guides || 'Guides' },
-    { href: '/methodology', label: t?.methodology || 'Methodology' },
+    { href: '/best-nootropics/', label: t?.bestNootropics || 'Best Nootropics' },
+    { href: '/nootropic-comparison/', label: t?.compare || 'Compare' },
+    { href: '/ingredients/', label: t?.ingredients || 'Ingredients' },
+    { href: '/guides/', label: t?.guides || 'Guides' },
+    { href: '/methodology/', label: t?.methodology || 'Methodology' },
   ];
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -62,7 +63,7 @@ export default function SiteHeader({ market, searchItems = [], strings }: { mark
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-1 text-sm font-medium">
             {navLinks.map(({ href, label }) => {
-              const active = pathname === href || pathname.startsWith(href + '/');
+              const active = isActiveHref(pathname, href);
               return (
                 <Link
                   key={href}
@@ -84,7 +85,7 @@ export default function SiteHeader({ market, searchItems = [], strings }: { mark
 
           {/* Desktop CTA */}
           <Link
-            href="/best-nootropics"
+            href="/best-nootropics/"
             className="hidden md:inline-flex items-center gap-1.5 bg-green-700 hover:bg-green-600 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors shrink-0"
           >
             {t?.topPicks || 'Top Picks'}
@@ -135,7 +136,7 @@ export default function SiteHeader({ market, searchItems = [], strings }: { mark
         >
           <nav className="flex flex-col gap-1 pt-2">
             {navLinks.map(({ href, label }) => {
-              const active = pathname === href || pathname.startsWith(href + '/');
+              const active = isActiveHref(pathname, href);
               return (
                 <Link
                   key={href}
@@ -152,7 +153,7 @@ export default function SiteHeader({ market, searchItems = [], strings }: { mark
               );
             })}
             <Link
-              href="/best-nootropics"
+              href="/best-nootropics/"
               onClick={() => setOpen(false)}
               className="mt-2 flex items-center justify-center gap-1.5 bg-green-700 hover:bg-green-600 text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition-colors"
             >

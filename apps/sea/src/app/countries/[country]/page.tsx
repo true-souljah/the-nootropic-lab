@@ -58,7 +58,7 @@ export default async function CountryPage({
         <nav className="text-xs text-gray-500 mb-6">
           <a href="/" className="hover:text-green-700">Home</a>
           {' / '}
-          <a href="/best-nootropics" className="hover:text-green-700">Best Nootropics SEA</a>
+          <a href="/best-nootropics/" className="hover:text-green-700">Best Nootropics SEA</a>
           {' / '}
           <span>{c.name}</span>
         </nav>
@@ -89,7 +89,7 @@ export default async function CountryPage({
             {topProducts.map((product, i) => (
               <a
                 key={product.slug}
-                href={`/${product.slug}`}
+                href={`/${product.slug}/`}
                 className="flex items-start gap-4 bg-white border border-gray-200 rounded-xl p-5 hover:border-green-400 hover:shadow-md transition-all"
               >
                 <span className="text-2xl font-black text-gray-300 shrink-0">#{i + 1}</span>
@@ -114,7 +114,7 @@ export default async function CountryPage({
         </section>
 
         <div className="text-sm text-gray-500">
-          <a href="/best-nootropics" className="text-green-700 underline">
+          <a href="/best-nootropics/" className="text-green-700 underline">
             ← Back to Best Nootropics Southeast Asia {CURRENT_YEAR}
           </a>
         </div>

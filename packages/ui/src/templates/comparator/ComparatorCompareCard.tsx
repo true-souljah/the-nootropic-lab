@@ -60,7 +60,7 @@ export function ComparatorCompareCard({ selectedProducts, uiStrings, onClear }: 
               </div>
               <div className="flex-1 min-w-0">
                 <Link
-                  href={`/${p.slug}`}
+                  href={`/${p.slug}/`}
                   className="font-semibold text-[14px] truncate block text-ds-ink hover:text-ds-accent focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded"
                 >
                   {p.name}

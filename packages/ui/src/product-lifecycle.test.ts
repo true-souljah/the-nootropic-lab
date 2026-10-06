@@ -164,9 +164,9 @@ describe('record rules — affiliateUrl and formula', () => {
 describe('search — discontinued products stay findable', () => {
   test('AU search index includes Blackmores Brain Active, labelled discontinued', () => {
     const { searchItems } = buildRegionSearchContext(allProductsAU, 'en');
-    const row = searchItems.find((i) => i.href === '/blackmores-brain-active-review');
+    const row = searchItems.find((i) => i.href === '/blackmores-brain-active-review/');
     expect(row?.title).toBe('Blackmores Brain Active (Discontinued)');
-    const live = searchItems.find((i) => i.href === '/mind-lab-pro-review');
+    const live = searchItems.find((i) => i.href === '/mind-lab-pro-review/');
     expect(live?.title).toBe('Mind Lab Pro');
   });
 });

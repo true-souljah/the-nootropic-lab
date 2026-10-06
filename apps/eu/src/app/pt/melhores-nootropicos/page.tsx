@@ -87,7 +87,7 @@ export default function MelhoresNootropicosPT() {
       </div>
 
       <div className="mt-8 text-sm text-gray-500">
-        <Link href="/best-nootropics" className="text-green-700 underline">
+        <Link href="/best-nootropics/" className="text-green-700 underline">
           → Versão em inglês: Best Nootropics Europe {CURRENT_YEAR}
         </Link>
       </div>

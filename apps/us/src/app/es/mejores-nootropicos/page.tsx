@@ -23,7 +23,7 @@ export default function EsMejoresNootropicosPage() {
       '@type': 'ListItem',
       position: i + 1,
       name: p.name,
-      url: `https://thenootropiclab.com/${p.slug}`,
+      url: `https://thenootropiclab.com/${p.slug}/`,
     })),
   };
 
@@ -71,7 +71,7 @@ export default function EsMejoresNootropicosPage() {
         </section>
 
         <div className="mt-10 text-sm text-gray-500">
-          <a href="/best-nootropics" className="text-green-700 underline">
+          <a href="/best-nootropics/" className="text-green-700 underline">
             🇺🇸 Versión en inglés: Best Nootropics {CURRENT_YEAR}
           </a>
         </div>

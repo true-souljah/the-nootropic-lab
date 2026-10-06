@@ -46,10 +46,10 @@ const comparisonLinks = [
 ];
 
 const recommendedReading = [
-  { href: '/guides/what-are-nootropics', title: 'What Are Nootropics?', desc: "A beginner's guide to cognitive supplements" },
-  { href: '/guides/how-to-stack-nootropics', title: 'How to Stack Nootropics', desc: 'Combine ingredients safely for better results' },
-  { href: '/ingredients', title: 'Ingredient Database', desc: 'Evidence-graded profiles for 15 key nootropics' },
-  { href: '/guides/nootropics-for-focus-vs-memory', title: 'Focus vs. Memory', desc: 'Which nootropics work best for your goal?' },
+  { href: '/guides/what-are-nootropics/', title: 'What Are Nootropics?', desc: "A beginner's guide to cognitive supplements" },
+  { href: '/guides/how-to-stack-nootropics/', title: 'How to Stack Nootropics', desc: 'Combine ingredients safely for better results' },
+  { href: '/ingredients/', title: 'Ingredient Database', desc: 'Evidence-graded profiles for 15 key nootropics' },
+  { href: '/guides/nootropics-for-focus-vs-memory/', title: 'Focus vs. Memory', desc: 'Which nootropics work best for your goal?' },
 ];
 
 export default function BestNootropicsUSPage() {
@@ -84,7 +84,7 @@ export default function BestNootropicsUSPage() {
       <SchemaOrg schema={itemListSchema} />
       <BestOf
         products={productsUS}
-        breadcrumbs={[{ label: 'Best of', href: '/best-nootropics' }]}
+        breadcrumbs={[{ label: 'Best of', href: '/best-nootropics/' }]}
         hero={{
           eyebrow: `Audited ${CURRENT_YEAR} · Methodology v3.2`,
           h1: `Best Nootropics ${CURRENT_YEAR} — US`,
@@ -171,7 +171,7 @@ export default function BestNootropicsUSPage() {
                 Each product is scored across 5 pillars: ingredient quality, dosing vs. clinical evidence,
                 formula transparency, value for money, and brand trust.
               </p>
-              <Link href="/methodology" className="text-ds-accent underline text-[13px] font-semibold">
+              <Link href="/methodology/" className="text-ds-accent underline text-[13px] font-semibold">
                 Read our full methodology →
               </Link>
             </Card>

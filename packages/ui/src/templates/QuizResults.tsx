@@ -121,7 +121,7 @@ export default function QuizResults({
               Visit {top.brand} →
             </TrackedAffiliateLink>
             <Link
-              href={`/${top.slug}`}
+              href={`/${top.slug}/`}
               className="bg-ds-card border border-ds-border text-ds-ink px-5 py-[10px] rounded-[8px] text-[13px] font-semibold no-underline hover:bg-ds-card-sub focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
             >
               Read full review
@@ -172,7 +172,7 @@ export default function QuizResults({
                   <div className="flex justify-between items-start gap-3 mb-2">
                     <div>
                       <Link
-                        href={`/${r.product.slug}`}
+                        href={`/${r.product.slug}/`}
                         className="font-bold text-[15px] text-ds-ink hover:text-ds-accent focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded block"
                       >
                         {r.product.name}
@@ -199,7 +199,7 @@ export default function QuizResults({
             ← Retake quiz
           </Link>
           {' · '}
-          <Link href="/best-nootropics" className="text-ds-accent underline font-semibold">
+          <Link href="/best-nootropics/" className="text-ds-accent underline font-semibold">
             See all ranked products
           </Link>
         </div>

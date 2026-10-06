@@ -29,9 +29,9 @@ export default function NotFoundPage() {
         <div className="grid gap-3 sm:grid-cols-2 text-left">
           {[
             { href: '/', title: 'Home', desc: 'The main discovery surface.' },
-            { href: '/best-nootropics', title: 'Best Nootropics', desc: 'Full ranked comparison.' },
-            { href: '/nootropic-comparison', title: 'Comparator', desc: 'Filter and compare side-by-side.' },
-            { href: '/ingredients', title: 'Ingredient library', desc: 'Every ingredient, graded.' },
+            { href: '/best-nootropics/', title: 'Best Nootropics', desc: 'Full ranked comparison.' },
+            { href: '/nootropic-comparison/', title: 'Comparator', desc: 'Filter and compare side-by-side.' },
+            { href: '/ingredients/', title: 'Ingredient library', desc: 'Every ingredient, graded.' },
           ].map((link) => (
             <Card key={link.href} padding={16}>
               <Link

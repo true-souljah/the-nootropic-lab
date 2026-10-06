@@ -48,7 +48,7 @@ export function PillarsTab({ product: p }: PillarsTabProps) {
           ))}
         </ul>
         <Link
-          href="/methodology"
+          href="/methodology/"
           className="block text-center bg-ds-card border border-ds-border rounded-[8px] py-[8px] text-[13px] font-semibold text-ds-ink hover:bg-ds-card-sub focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
         >
           Read methodology v3.2 →

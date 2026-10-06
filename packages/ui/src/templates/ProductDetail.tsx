@@ -124,13 +124,13 @@ export default function ProductDetail({
     <AppShell
       mode="persistent"
       breadcrumbs={[
-        { label: 'Best of', href: '/best-nootropics' },
+        { label: 'Best of', href: '/best-nootropics/' },
         { label: p.name },
       ]}
       searchItems={searchItems}
       uiStrings={uiStrings}
     >
-      <FPDisclosure methodologyHref="/methodology" strings={uiStrings.disclosure} />
+      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} />
       <div className="px-4 sm:px-7 pt-6 pb-10">
         {discontinued && (
           <aside
@@ -315,7 +315,7 @@ export default function ProductDetail({
               {recommendable.slice(0, 3).map((alt) => (
                 <Link
                   key={alt.slug}
-                  href={`/${alt.slug}`}
+                  href={`/${alt.slug}/`}
                   className="block border border-ds-border rounded-[10px] p-4 hover:border-ds-accent-border bg-ds-card focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
                 >
                   <div className="font-semibold text-ds-ink text-[14px] mb-1">{alt.name}</div>

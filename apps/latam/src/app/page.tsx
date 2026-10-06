@@ -56,17 +56,17 @@ const features = [
 
 const quickLinks = [
   {
-    href: '/best-nootropics',
+    href: '/best-nootropics/',
     title: `Los Mejores Nootrópicos en Latam ${new Date().getFullYear()}`,
     desc: 'Mejores opciones con envío internacional a América Latina confirmado.',
   },
   {
-    href: '/nootropic-comparison',
+    href: '/nootropic-comparison/',
     title: 'Herramienta Interactiva de Comparación',
     desc: 'Ordene y filtre las principales marcas una al lado de la otra.',
   },
   {
-    href: '/methodology',
+    href: '/methodology/',
     title: 'Nuestra Metodología',
     desc: 'Cómo puntuamos y revisamos los suplementos cognitivos.',
   },
@@ -96,13 +96,13 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
-              href="/best-nootropics"
+              href="/best-nootropics/"
               className="bg-green-700 hover:bg-green-600 text-white font-bold px-8 py-3 rounded-lg transition-colors"
             >
               Los Mejores Nootrópicos {new Date().getFullYear()} →
             </Link>
             <Link
-              href="/nootropic-comparison"
+              href="/nootropic-comparison/"
               className="bg-white hover:bg-gray-50 text-gray-800 font-bold px-8 py-3 rounded-lg border border-gray-300 transition-colors"
             >
               Comparar Todas las Marcas

@@ -17,7 +17,7 @@ const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'The Nootropic Lab CA',
-  url: 'https://ca.thenootropiclab.com/fr',
+  url: 'https://ca.thenootropiclab.com/fr/',
   description: 'Comparatifs indépendants de suppléments cognitifs pour les acheteurs canadiens.',
 };
 
@@ -25,7 +25,7 @@ const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'The Nootropic Lab',
-  url: 'https://ca.thenootropiclab.com/fr',
+  url: 'https://ca.thenootropiclab.com/fr/',
   description: 'Comparatifs indépendants de suppléments cognitifs avec audits de dosage clinique et divulgation transparente des affiliés.',
 };
 
@@ -49,17 +49,17 @@ const features = [
 
 const quickLinks = [
   {
-    href: '/fr/meilleurs-nootropiques',
+    href: '/fr/meilleurs-nootropiques/',
     title: `Les meilleurs nootropiques au Canada ${new Date().getFullYear()}`,
     desc: 'Comparatif complet des meilleures marques avec livraison au Canada confirmée.',
   },
   {
-    href: '/fr/comparer',
+    href: '/fr/comparer/',
     title: 'Outil de comparaison interactif',
     desc: 'Triez et filtrez toutes les grandes marques côte à côte.',
   },
   {
-    href: '/methodology',
+    href: '/methodology/',
     title: 'Notre méthodologie',
     desc: 'Comment nous évaluons et analysons les suppléments cognitifs.',
   },
@@ -90,13 +90,13 @@ export default function FrHomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
-              href="/fr/meilleurs-nootropiques"
+              href="/fr/meilleurs-nootropiques/"
               className="bg-green-700 hover:bg-green-600 text-white font-bold px-8 py-3 rounded-lg transition-colors"
             >
               Les meilleurs nootropiques {new Date().getFullYear()} →
             </Link>
             <Link
-              href="/fr/comparer"
+              href="/fr/comparer/"
               className="bg-white hover:bg-gray-50 text-gray-800 font-bold px-8 py-3 rounded-lg border border-gray-300 transition-colors"
             >
               Comparer toutes les marques

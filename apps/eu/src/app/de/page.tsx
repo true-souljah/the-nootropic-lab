@@ -28,7 +28,7 @@ const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'The Nootropic Lab EU',
-  url: 'https://eu.thenootropiclab.com/de',
+  url: 'https://eu.thenootropiclab.com/de/',
   description: 'Unabhängige Bewertungen kognitiver Nahrungsergänzungsmittel für europäische Käufer.',
   inLanguage: 'de-DE',
 };
@@ -56,17 +56,17 @@ const features = [
 
 const quickLinks = [
   {
-    href: '/de/beste-nootropika',
+    href: '/de/beste-nootropika/',
     title: `Die Besten Nootropika ${CURRENT_YEAR} (EU)`,
     desc: 'Vollständiger EU-Vergleich mit klinischem Dosis-Audit und EUR-Preisen.',
   },
   {
-    href: '/nootropic-comparison',
+    href: '/nootropic-comparison/',
     title: 'Interaktives Vergleichswerkzeug',
     desc: 'Sortieren und filtern Sie alle in der EU verfügbaren Marken nebeneinander.',
   },
   {
-    href: '/methodology',
+    href: '/methodology/',
     title: 'Unsere Methodik',
     desc: 'Wie wir Nootropika bewerten.',
   },
@@ -100,13 +100,13 @@ export default function DEHomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
-              href="/de/beste-nootropika"
+              href="/de/beste-nootropika/"
               className="bg-green-700 hover:bg-green-600 text-white font-bold px-8 py-3 rounded-lg transition-colors"
             >
               Die Besten Nootropika in Europa {CURRENT_YEAR} →
             </Link>
             <Link
-              href="/nootropic-comparison"
+              href="/nootropic-comparison/"
               className="bg-white hover:bg-gray-50 text-gray-800 font-bold px-8 py-3 rounded-lg border border-gray-300 transition-colors"
             >
               Alle EU-Marken vergleichen
@@ -116,10 +116,10 @@ export default function DEHomePage() {
             <Link href="/" className="text-green-700 underline" hrefLang="en" lang="en">
               🇬🇧 English
             </Link>
-            <Link href="/fr/meilleurs-nootropiques" className="text-green-700 underline" hrefLang="fr" lang="fr">
+            <Link href="/fr/meilleurs-nootropiques/" className="text-green-700 underline" hrefLang="fr" lang="fr">
               🇫🇷 Français
             </Link>
-            <Link href="/pt" className="text-green-700 underline" hrefLang="pt" lang="pt">
+            <Link href="/pt/" className="text-green-700 underline" hrefLang="pt" lang="pt">
               🇵🇹 Português
             </Link>
           </nav>
