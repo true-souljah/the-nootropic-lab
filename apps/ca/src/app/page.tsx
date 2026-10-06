@@ -50,12 +50,12 @@ const features = [
 
 const quickLinks = [
   {
-    href: '/best-nootropics',
+    href: '/best-nootropics/',
     title: `Best Nootropics ${new Date().getFullYear()} (Canada)`,
     desc: 'Full comparison of top brands with Canadian shipping confirmed.',
   },
   {
-    href: '/nootropic-comparison',
+    href: '/nootropic-comparison/',
     title: 'Interactive Comparison Tool',
     desc: 'Sort and filter every major brand side-by-side.',
   },
@@ -65,7 +65,7 @@ const quickLinks = [
     desc: 'Shipping from onnit.com, USD prices, duties and NPN-licensed alternatives.',
   },
   {
-    href: '/methodology',
+    href: '/methodology/',
     title: 'Our Methodology',
     desc: 'How we score and review cognitive supplements.',
   },
@@ -93,13 +93,13 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
-              href="/best-nootropics"
+              href="/best-nootropics/"
               className="bg-green-700 hover:bg-green-600 text-white font-bold px-8 py-3 rounded-lg transition-colors"
             >
               Best Nootropics {new Date().getFullYear()} →
             </Link>
             <Link
-              href="/nootropic-comparison"
+              href="/nootropic-comparison/"
               className="bg-white hover:bg-gray-50 text-gray-800 font-bold px-8 py-3 rounded-lg border border-gray-300 transition-colors"
             >
               Compare All Brands

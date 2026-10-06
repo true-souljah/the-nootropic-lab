@@ -134,9 +134,9 @@ describe('buildSearchIndex — output shape', () => {
   test('hardcoded page items point at expected routes', () => {
     const items = buildSearchIndex([], [], []);
     const hrefs = items.filter((i) => i.type === 'page').map((i) => i.href);
-    expect(hrefs).toContain('/best-nootropics');
-    expect(hrefs).toContain('/nootropic-comparison');
-    expect(hrefs).toContain('/methodology');
+    expect(hrefs).toContain('/best-nootropics/');
+    expect(hrefs).toContain('/nootropic-comparison/');
+    expect(hrefs).toContain('/methodology/');
   });
 });
 
@@ -176,7 +176,7 @@ describe('buildSearchIndex — localization (PR-Q10 WCAG 3.1.2)', () => {
   });
 
   test('page hrefs are stable across locales (URLs do not translate)', () => {
-    const expectedHrefs = ['/best-nootropics', '/nootropic-comparison', '/methodology'];
+    const expectedHrefs = ['/best-nootropics/', '/nootropic-comparison/', '/methodology/'];
     for (const locale of ['en', 'es', 'fr', 'ja', 'pt', 'de', 'fr-CA'] as const) {
       const items = buildSearchIndex([], [], [], getStrings(locale));
       const hrefs = items.filter((i) => i.type === 'page').map((i) => i.href);
@@ -201,10 +201,10 @@ describe('buildSearchIndex — localization (PR-Q10 WCAG 3.1.2)', () => {
 });
 
 describe('buildSearchIndex — product items', () => {
-  test('product href is /<slug> (no /products prefix, no trailing slash)', () => {
+  test('product href is /<slug>/ (no /products prefix; trailing slash — the bare form 308s)', () => {
     const items = buildSearchIndex([stubProduct({ slug: 'mind-lab-pro-review' })], [], []);
     const productItem = items.find((i) => i.type === 'product');
-    expect(productItem?.href).toBe('/mind-lab-pro-review');
+    expect(productItem?.href).toBe('/mind-lab-pro-review/');
   });
 
   test('product meta.score is propagated', () => {
@@ -227,10 +227,10 @@ describe('buildSearchIndex — product items', () => {
 });
 
 describe('buildSearchIndex — ingredient items', () => {
-  test('ingredient href is /ingredients/<slug>', () => {
+  test('ingredient href is /ingredients/<slug>/', () => {
     const items = buildSearchIndex([], [stubIngredient({ slug: 'l-theanine' })], []);
     const ingredientItem = items.find((i) => i.type === 'ingredient');
-    expect(ingredientItem?.href).toBe('/ingredients/l-theanine');
+    expect(ingredientItem?.href).toBe('/ingredients/l-theanine/');
   });
 
   test('ingredient grade is C when all evidence is weak/null', () => {
@@ -266,10 +266,10 @@ describe('buildSearchIndex — ingredient items', () => {
 });
 
 describe('buildSearchIndex — guide items', () => {
-  test('guide href is /guides/<slug>', () => {
+  test('guide href is /guides/<slug>/', () => {
     const items = buildSearchIndex([], [], [stubGuide({ slug: 'what-are-nootropics' })]);
     const guideItem = items.find((i) => i.type === 'guide');
-    expect(guideItem?.href).toBe('/guides/what-are-nootropics');
+    expect(guideItem?.href).toBe('/guides/what-are-nootropics/');
   });
 
   test('guide description is the full description (not truncated)', () => {
@@ -298,7 +298,7 @@ describe('buildSearchIndex — works on every real region catalog', () => {
     expect(productItems, `${region} product count`).toHaveLength(catalog.length);
 
     for (const item of productItems) {
-      expect(item.href, `${region} ${item.title} href`).toMatch(/^\/[a-z0-9-]+$/);
+      expect(item.href, `${region} ${item.title} href`).toMatch(/^\/[a-z0-9-]+\/$/);
       expect(item.meta?.score, `${region} ${item.title} score`).toBeGreaterThan(0);
       expect(item.meta?.score, `${region} ${item.title} score range`).toBeLessThanOrEqual(10);
     }

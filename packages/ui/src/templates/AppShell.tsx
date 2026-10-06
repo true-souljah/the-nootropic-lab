@@ -59,7 +59,7 @@ export default function AppShell({
   searchItems,
   uiStrings,
   hideStackCta = false,
-  stackCtaHref = '/nootropic-comparison',
+  stackCtaHref = '/nootropic-comparison/',
   sidebarGroups,
   sidebarMeta,
 }: AppShellProps) {

@@ -41,6 +41,13 @@ export interface ListiclePick {
 export interface ListicleProps {
   /** Slug fragment used in URL (e.g. "focus", "adhd"). */
   useCase: string;
+  /**
+   * The page's own path, used for the BreadcrumbList item. Defaults to
+   * `/best-nootropics-for-{useCase}/`; pages living elsewhere (e.g.
+   * /natural-adderall-alternatives/) must pass it, or the breadcrumb points
+   * at a redirect.
+   */
+  pagePath?: string;
   /** H1 / page title without site suffix. */
   pageTitle: string;
   /** Meta description (used by Schema.org JSON-LD). */
@@ -94,6 +101,7 @@ const TODAY = new Date();
  */
 export default function Listicle({
   useCase,
+  pagePath = `/best-nootropics-for-${useCase}/`,
   pageTitle,
   pageDescription,
   heroParagraph,
@@ -113,7 +121,7 @@ export default function Listicle({
 }: ListicleProps) {
   const s: UseCaseListPageStrings = { ...useCaseListPageEnDefaults, ...strings };
   const currentYear = TODAY.getFullYear();
-  const slugUrl = `${siteUrl}/best-nootropics-for-${useCase}/`;
+  const slugUrl = `${siteUrl}${pagePath}`;
   const updatedISO = TODAY.toISOString().split('T')[0];
   const updatedDisplay = TODAY.toLocaleDateString(uiStrings?.productDetail.dateLocale ?? 'en-US', {
     year: 'numeric',
@@ -167,7 +175,7 @@ export default function Listicle({
       <a href="#main-content" tabIndex={0} className="ds-skip-link">
         {uiStrings?.nav.skipToContent ?? 'Skip to main content'}
       </a>
-      <FPDisclosure methodologyHref="/methodology" strings={uiStrings.disclosure} />
+      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} />
       <FPHeader searchItems={searchItems} strings={uiStrings} />
 
       <main id="main-content" className="max-w-[1200px] mx-auto px-6 pt-7">

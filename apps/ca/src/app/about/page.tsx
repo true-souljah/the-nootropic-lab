@@ -51,7 +51,7 @@ export default function AboutPage() {
             transparency, value for money, and brand trust.
           </p>
           <p className="text-gray-700 leading-relaxed">
-            <Link href="/methodology" className="text-green-700 underline">Read the full methodology →</Link>
+            <Link href="/methodology/" className="text-green-700 underline">Read the full methodology →</Link>
           </p>
         </section>
 
@@ -75,7 +75,7 @@ export default function AboutPage() {
           <p className="text-gray-700 leading-relaxed">
             Federally regulated NHPs sold in Canada must carry bilingual (English / French) labels. For
             Quebec consumers, we publish a French-Canadian (fr-CA) edition at{' '}
-            <Link href="/fr" className="text-green-700 underline">/fr</Link> and apply Quebec&apos;s
+            <Link href="/fr/" className="text-green-700 underline">/fr</Link> and apply Quebec&apos;s
             Consumer Protection Act and Charter of the French Language standards to our affiliate
             disclosures and price representations.
           </p>

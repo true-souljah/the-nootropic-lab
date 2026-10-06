@@ -24,7 +24,7 @@ export default function JaHikakuPage() {
       '@type': 'ListItem',
       position: i + 1,
       name: p.name,
-      url: `https://jp.thenootropiclab.com/${p.slug}`,
+      url: `https://jp.thenootropiclab.com/${p.slug}/`,
     })),
   };
 
@@ -45,7 +45,7 @@ export default function JaHikakuPage() {
           <ComparisonTable products={productsJP} market="jp" />
         </div>
         <div className="mt-8 text-sm text-gray-500">
-          <a href="/nootropic-comparison" className="text-green-700 underline">
+          <a href="/nootropic-comparison/" className="text-green-700 underline">
             🇬🇧 English version: Nootropic Comparison Tool — Japan
           </a>
         </div>

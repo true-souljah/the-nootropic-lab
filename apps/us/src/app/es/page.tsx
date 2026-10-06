@@ -17,7 +17,7 @@ const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'The Nootropic Lab',
-  url: 'https://thenootropiclab.com/es',
+  url: 'https://thenootropiclab.com/es/',
   description: 'Independent cognitive supplement reviews for US buyers — Spanish.',
 };
 
@@ -44,13 +44,13 @@ export default function EsHomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
-              href="/es/mejores-nootropicos"
+              href="/es/mejores-nootropicos/"
               className="bg-green-700 hover:bg-green-600 text-white font-bold px-8 py-3 rounded-lg transition-colors"
             >
               Mejores Nootrópicos {new Date().getFullYear()} →
             </Link>
             <Link
-              href="/es/comparar"
+              href="/es/comparar/"
               className="bg-white hover:bg-gray-50 text-gray-800 font-bold px-8 py-3 rounded-lg border border-gray-300 transition-colors"
             >
               Comparar Todas las Marcas

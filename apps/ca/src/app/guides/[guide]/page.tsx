@@ -55,7 +55,7 @@ export default async function GuidePage({
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ca.thenootropiclab.com' },
-      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://ca.thenootropiclab.com/guides' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://ca.thenootropiclab.com/guides/' },
       { '@type': 'ListItem', position: 3, name: g.title },
     ],
   };
@@ -68,7 +68,7 @@ export default async function GuidePage({
         <nav className="text-xs text-gray-500 mb-6">
           <a href="/" className="hover:text-green-700">Home</a>
           {' / '}
-          <a href="/guides" className="hover:text-green-700">Guides</a>
+          <a href="/guides/" className="hover:text-green-700">Guides</a>
           {' / '}
           <span>{g.title}</span>
         </nav>
@@ -96,7 +96,7 @@ export default async function GuidePage({
         <GuideSources sources={g.sources} uiStrings={uiStrings} />
 
         <div className="mt-10 text-sm text-gray-500">
-          <a href="/guides" className="text-green-700 underline">
+          <a href="/guides/" className="text-green-700 underline">
             ← Back to Guides
           </a>
         </div>

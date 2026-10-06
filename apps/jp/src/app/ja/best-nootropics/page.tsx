@@ -67,7 +67,7 @@ export default function JaBestNootropicsPage() {
           <ul className="text-sm text-amber-800 space-y-1">
             <li>• Mind Lab Proは公式FAQで配送先の一つとして日本を挙げています。その他の海外ブランドについては、購入手続きの際に日本への配送可否をご確認ください。</li>
             <li>• ファンケル BRAINsは<strong>ファンケル公式楽天市場店</strong>で販売されています（機能性表示食品・届出番号 G425）。</li>
-            <li>• 通関税を避けるため1注文あたり<strong>¥16,000</strong>以下でご注文ください（<a href="/ja/yakkan-shoumei" className="text-green-700 underline">薬監証明制度の詳細</a>）。</li>
+            <li>• 通関税を避けるため1注文あたり<strong>¥16,000</strong>以下でご注文ください（<a href="/ja/yakkan-shoumei/" className="text-green-700 underline">薬監証明制度の詳細</a>）。</li>
           </ul>
         </div>
 
@@ -125,19 +125,19 @@ export default function JaBestNootropicsPage() {
         <section className="mt-12 bg-green-50 border border-green-200 rounded-xl p-6">
           <h2 className="text-xl font-bold text-green-900 mb-4">おすすめ記事</h2>
           <div className="grid sm:grid-cols-2 gap-3">
-            <a href="/guides/what-are-nootropics" className="block bg-white rounded-lg p-4 border border-green-100 hover:border-green-300 transition-colors">
+            <a href="/guides/what-are-nootropics/" className="block bg-white rounded-lg p-4 border border-green-100 hover:border-green-300 transition-colors">
               <div className="font-semibold text-gray-900 text-sm mb-1">ノートロピクスとは？</div>
               <div className="text-xs text-gray-500">認知機能サプリメントの初心者ガイド</div>
             </a>
-            <a href="/guides/how-to-stack-nootropics" className="block bg-white rounded-lg p-4 border border-green-100 hover:border-green-300 transition-colors">
+            <a href="/guides/how-to-stack-nootropics/" className="block bg-white rounded-lg p-4 border border-green-100 hover:border-green-300 transition-colors">
               <div className="font-semibold text-gray-900 text-sm mb-1">ノートロピクスのスタック方法</div>
               <div className="text-xs text-gray-500">より良い効果のために安全に成分を組み合わせる</div>
             </a>
-            <a href="/ingredients" className="block bg-white rounded-lg p-4 border border-green-100 hover:border-green-300 transition-colors">
+            <a href="/ingredients/" className="block bg-white rounded-lg p-4 border border-green-100 hover:border-green-300 transition-colors">
               <div className="font-semibold text-gray-900 text-sm mb-1">成分データベース</div>
               <div className="text-xs text-gray-500">15種類の主要ノートロピクス成分のエビデンス評価プロファイル</div>
             </a>
-            <a href="/guides/nootropics-for-focus-vs-memory" className="block bg-white rounded-lg p-4 border border-green-100 hover:border-green-300 transition-colors">
+            <a href="/guides/nootropics-for-focus-vs-memory/" className="block bg-white rounded-lg p-4 border border-green-100 hover:border-green-300 transition-colors">
               <div className="font-semibold text-gray-900 text-sm mb-1">集中力 vs. 記憶力</div>
               <div className="text-xs text-gray-500">あなたの目標に最適なノートロピクスは？</div>
             </a>
@@ -145,7 +145,7 @@ export default function JaBestNootropicsPage() {
         </section>
 
         <div className="mt-10 text-sm text-gray-500">
-          <a href="/best-nootropics" className="text-green-700 underline">
+          <a href="/best-nootropics/" className="text-green-700 underline">
             🇬🇧 English version: Best Nootropics in Japan {CURRENT_YEAR}
           </a>
         </div>

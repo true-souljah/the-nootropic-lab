@@ -22,7 +22,7 @@ export default function FrComparerPage() {
       '@type': 'ListItem',
       position: i + 1,
       name: p.name,
-      url: `https://ca.thenootropiclab.com/${p.slug}`,
+      url: `https://ca.thenootropiclab.com/${p.slug}/`,
     })),
   };
 
@@ -43,7 +43,7 @@ export default function FrComparerPage() {
           <ComparisonTable products={productsCA} market="ca" />
         </div>
         <div className="mt-8 text-sm text-gray-500">
-          <a href="/nootropic-comparison" className="text-green-700 underline">
+          <a href="/nootropic-comparison/" className="text-green-700 underline">
             🇨🇦 Version anglaise : Nootropic Comparison Tool
           </a>
         </div>

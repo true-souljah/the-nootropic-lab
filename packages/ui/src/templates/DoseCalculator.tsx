@@ -107,8 +107,8 @@ export default function DoseCalculator({
       return;
     }
     const url = stack.length === 0
-      ? `${siteUrl}/dose-calculator`
-      : `${siteUrl}/dose-calculator?stack=${encodeStack(stack)}`;
+      ? `${siteUrl}/dose-calculator/`
+      : `${siteUrl}/dose-calculator/?stack=${encodeStack(stack)}`;
     navigator.clipboard.writeText(url).then(
       () => flash('Link copied to clipboard'),
       () => flash('Could not copy link')
@@ -310,7 +310,7 @@ export default function DoseCalculator({
                   </div>
                   <div className="flex-1 min-w-0">
                     <Link
-                      href={`/${closest.product.slug}`}
+                      href={`/${closest.product.slug}/`}
                       className="font-bold text-[14px] text-ds-ink hover:text-ds-accent focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded block truncate"
                     >
                       {closest.product.name}
@@ -331,7 +331,7 @@ export default function DoseCalculator({
                   .
                 </p>
                 <Link
-                  href={`/${closest.product.slug}`}
+                  href={`/${closest.product.slug}/`}
                   className="inline-block mt-3 text-[12.5px] font-semibold text-ds-accent underline hover:text-ds-accent-press focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded"
                 >
                   See full review →

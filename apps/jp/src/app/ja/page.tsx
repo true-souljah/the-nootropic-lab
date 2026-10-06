@@ -19,7 +19,7 @@ const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'The Nootropic Lab JP',
-  url: 'https://jp.thenootropiclab.com/ja',
+  url: 'https://jp.thenootropiclab.com/ja/',
   description: '日本の購入者向けの認知機能サプリメント独立比較レビュー。',
 };
 
@@ -27,7 +27,7 @@ const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'The Nootropic Lab',
-  url: 'https://jp.thenootropiclab.com/ja',
+  url: 'https://jp.thenootropiclab.com/ja/',
   description: '臨床投与量監査と透明なアフィリエイト開示による認知機能サプリメントの独立比較レビュー。',
 };
 
@@ -51,17 +51,17 @@ const features = [
 
 const quickLinks = [
   {
-    href: '/ja/best-nootropics',
+    href: '/ja/best-nootropics/',
     title: `${CURRENT_YEAR}年 日本向け最高のノートロピクス`,
     desc: '厚生労働省の個人輸入に関する注意点を含むトップ製品。',
   },
   {
-    href: '/ja/hikaku',
+    href: '/ja/hikaku/',
     title: 'インタラクティブ比較ツール',
     desc: '日本国内オプションを含むすべてのブランドを並べ替え・フィルタリング。',
   },
   {
-    href: '/methodology',
+    href: '/methodology/',
     title: '評価方法',
     desc: '認知機能サプリメントのスコアリングとレビュー方法。',
   },
@@ -92,13 +92,13 @@ export default function JaHomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
-              href="/ja/best-nootropics"
+              href="/ja/best-nootropics/"
               className="bg-green-700 hover:bg-green-600 text-white font-bold px-8 py-3 rounded-lg transition-colors"
             >
               最高のノートロピクス {CURRENT_YEAR} →
             </Link>
             <Link
-              href="/ja/hikaku"
+              href="/ja/hikaku/"
               className="bg-white hover:bg-gray-50 text-gray-800 font-bold px-8 py-3 rounded-lg border border-gray-300 transition-colors"
             >
               全ブランドを比較

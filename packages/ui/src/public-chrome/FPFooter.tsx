@@ -37,23 +37,23 @@ const DEFAULT_COLUMNS: FPFooterColumn[] = [
     id: 'footer-col-best-by-goal',
     heading: 'Best by goal',
     links: [
-      { label: 'For focus', href: '/best-nootropics-for-focus' },
-      { label: 'For memory', href: '/best-nootropics-for-memory' },
-      { label: 'For ADHD', href: '/best-nootropics-for-adhd' },
-      { label: 'For aging', href: '/best-nootropics-for-aging' },
-      { label: 'For energy', href: '/best-nootropics-for-energy' },
-      { label: 'For mood', href: '/best-nootropics-for-mood' },
-      { label: 'For studying', href: '/best-nootropics-for-studying' },
+      { label: 'For focus', href: '/best-nootropics-for-focus/' },
+      { label: 'For memory', href: '/best-nootropics-for-memory/' },
+      { label: 'For ADHD', href: '/best-nootropics-for-adhd/' },
+      { label: 'For aging', href: '/best-nootropics-for-aging/' },
+      { label: 'For energy', href: '/best-nootropics-for-energy/' },
+      { label: 'For mood', href: '/best-nootropics-for-mood/' },
+      { label: 'For studying', href: '/best-nootropics-for-studying/' },
     ],
   },
   {
     id: 'footer-col-head-to-head',
     heading: 'Head-to-head',
     links: [
-      { label: 'Mind Lab Pro vs NooCube', href: '/mind-lab-pro-vs-noocube' },
-      { label: 'Alpha Brain vs Qualia Mind', href: '/alpha-brain-vs-qualia-mind' },
-      { label: 'Thesis vs Mind Lab Pro', href: '/mind-lab-pro-vs-thesis' },
-      { label: 'All comparisons →', href: '/nootropic-comparison' },
+      { label: 'Mind Lab Pro vs NooCube', href: '/mind-lab-pro-vs-noocube/' },
+      { label: 'Alpha Brain vs Qualia Mind', href: '/alpha-brain-vs-qualia-mind/' },
+      { label: 'Thesis vs Mind Lab Pro', href: '/mind-lab-pro-vs-thesis/' },
+      { label: 'All comparisons →', href: '/nootropic-comparison/' },
     ],
   },
   {
@@ -74,12 +74,12 @@ const DEFAULT_COLUMNS: FPFooterColumn[] = [
     id: 'footer-col-about',
     heading: 'About',
     links: [
-      { label: 'Methodology', href: '/methodology' },
-      { label: 'Disclosures', href: '/methodology#disclosures' },
-      { label: 'Privacy', href: '/privacy-policy' },
-      { label: 'Cookies', href: '/cookie-policy' },
-      { label: 'Imprint', href: '/imprint' },
-      { label: 'Contact', href: '/contact' },
+      { label: 'Methodology', href: '/methodology/' },
+      { label: 'Disclosures', href: '/methodology/#disclosures' },
+      { label: 'Privacy', href: '/privacy-policy/' },
+      { label: 'Cookies', href: '/cookie-policy/' },
+      { label: 'Imprint', href: '/imprint/' },
+      { label: 'Contact', href: '/contact/' },
     ],
   },
 ];
@@ -89,9 +89,9 @@ const DEFAULT_COLUMNS: FPFooterColumn[] = [
  * the host that has them. Labels are brand names (English allowlist).
  */
 const REGIONAL_HEAD_TO_HEAD: Partial<Record<RegionCode, FPFooterLink[]>> = {
-  eu: [{ label: 'BRAINEFFECT FOCUS vs Mind Lab Pro', href: '/braineffect-vs-mind-lab-pro' }],
-  ca: [{ label: 'AOR Ortho\u2022Mind vs Mind Lab Pro', href: '/aor-ortho-mind-vs-mind-lab-pro' }],
-  au: [{ label: 'Blackmores Brain Active vs Mind Lab Pro', href: '/blackmores-brain-active-vs-mind-lab-pro' }],
+  eu: [{ label: 'BRAINEFFECT FOCUS vs Mind Lab Pro', href: '/braineffect-vs-mind-lab-pro/' }],
+  ca: [{ label: 'AOR Ortho\u2022Mind vs Mind Lab Pro', href: '/aor-ortho-mind-vs-mind-lab-pro/' }],
+  au: [{ label: 'Blackmores Brain Active vs Mind Lab Pro', href: '/blackmores-brain-active-vs-mind-lab-pro/' }],
 };
 
 /**
@@ -107,7 +107,7 @@ export function filterColumnsForRegion(columns: FPFooterColumn[], region: Region
     if (col.id !== 'footer-col-head-to-head' || regional.length === 0) return { ...col, links: kept };
     // Regional head-to-heads go before the trailing "All comparisons →" link.
     const last = kept[kept.length - 1];
-    const isAll = last?.href === '/nootropic-comparison';
+    const isAll = last?.href === '/nootropic-comparison/';
     const links = isAll ? [...kept.slice(0, -1), ...regional, last] : [...kept, ...regional];
     return { ...col, links };
   });
@@ -149,13 +149,13 @@ export function columnsFromStrings(strings: UIStrings): FPFooterColumn[] {
       id: 'footer-col-best-by-goal',
       heading: f.bestByGoal.heading,
       links: [
-        { label: f.bestByGoal.focus, href: '/best-nootropics-for-focus' },
-        { label: f.bestByGoal.memory, href: '/best-nootropics-for-memory' },
-        { label: f.bestByGoal.adhd, href: '/best-nootropics-for-adhd' },
-        { label: f.bestByGoal.aging, href: '/best-nootropics-for-aging' },
-        { label: f.bestByGoal.energy, href: '/best-nootropics-for-energy' },
-        { label: f.bestByGoal.mood, href: '/best-nootropics-for-mood' },
-        { label: f.bestByGoal.studying, href: '/best-nootropics-for-studying' },
+        { label: f.bestByGoal.focus, href: '/best-nootropics-for-focus/' },
+        { label: f.bestByGoal.memory, href: '/best-nootropics-for-memory/' },
+        { label: f.bestByGoal.adhd, href: '/best-nootropics-for-adhd/' },
+        { label: f.bestByGoal.aging, href: '/best-nootropics-for-aging/' },
+        { label: f.bestByGoal.energy, href: '/best-nootropics-for-energy/' },
+        { label: f.bestByGoal.mood, href: '/best-nootropics-for-mood/' },
+        { label: f.bestByGoal.studying, href: '/best-nootropics-for-studying/' },
       ],
     },
     {
@@ -163,10 +163,10 @@ export function columnsFromStrings(strings: UIStrings): FPFooterColumn[] {
       heading: f.headToHead.heading,
       links: [
         // Brand-vs-brand link labels stay English by design (allowlist).
-        { label: 'Mind Lab Pro vs NooCube', href: '/mind-lab-pro-vs-noocube' },
-        { label: 'Alpha Brain vs Qualia Mind', href: '/alpha-brain-vs-qualia-mind' },
-        { label: 'Thesis vs Mind Lab Pro', href: '/mind-lab-pro-vs-thesis' },
-        { label: f.headToHead.allComparisons, href: '/nootropic-comparison' },
+        { label: 'Mind Lab Pro vs NooCube', href: '/mind-lab-pro-vs-noocube/' },
+        { label: 'Alpha Brain vs Qualia Mind', href: '/alpha-brain-vs-qualia-mind/' },
+        { label: 'Thesis vs Mind Lab Pro', href: '/mind-lab-pro-vs-thesis/' },
+        { label: f.headToHead.allComparisons, href: '/nootropic-comparison/' },
       ],
     },
     {
@@ -187,12 +187,12 @@ export function columnsFromStrings(strings: UIStrings): FPFooterColumn[] {
       id: 'footer-col-about',
       heading: f.about.heading,
       links: [
-        { label: f.about.methodology, href: '/methodology' },
-        { label: f.about.disclosures, href: '/methodology#disclosures' },
-        { label: f.about.privacy, href: '/privacy-policy' },
-        { label: f.about.cookies, href: '/cookie-policy' },
-        { label: f.about.imprint, href: '/imprint' },
-        { label: f.about.contact, href: '/contact' },
+        { label: f.about.methodology, href: '/methodology/' },
+        { label: f.about.disclosures, href: '/methodology/#disclosures' },
+        { label: f.about.privacy, href: '/privacy-policy/' },
+        { label: f.about.cookies, href: '/cookie-policy/' },
+        { label: f.about.imprint, href: '/imprint/' },
+        { label: f.about.contact, href: '/contact/' },
       ],
     },
   ];

@@ -8,6 +8,17 @@
 // products/geo pages another host does not have, and shared-chrome links to
 // region-specific pages. Runs in CI after all 8 builds are placed (build.yml
 // e2e job) and locally via `npm run check:links`.
+//
+// 2026-10 extension: Googlebot also harvests URL-shaped strings from places a
+// browser never navigates — the inline RSC flight payload (`self.__next_f`)
+// and JSON-LD. GSC "Page with redirect" filled with slash-less URLs because
+// the payload carries `href` props as authored ("/imprint") while the rendered
+// <a> gets Next's trailing slash; "Not found (404)" got "/methodology/Methodology"
+// from a React key built as href + label. So every internal reference — anchor,
+// hreflang, canonical, og:url, JSON-LD URL, payload `href` prop and path-shaped React
+// key — must resolve AND, when it resolves to a directory page, end in "/"
+// (Cloudflare Pages 308s the slash-less form). Price-unit text props such as
+// perMonth "/mo" are deliberately out of scope (accepted junk, 2026-09-08).
 import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs';
 import { join, resolve, dirname } from 'node:path';
 
@@ -40,14 +51,18 @@ function walk(dir, acc = []) {
   return acc;
 }
 
+const isFile = (p) => existsSync(p) && statSync(p).isFile();
+
+// 'ok' | 'slashless' (a directory page referenced without its trailing slash —
+// served as a 308) | 'missing' | 'unbuilt'.
 function targetExists(region, path) {
   const out = join(ROOT, 'apps', region, 'out');
   if (!existsSync(out)) return 'unbuilt';
-  const clean = path.split('#')[0].split('?')[0];
-  const candidates = clean.endsWith('/')
-    ? [join(out, clean, 'index.html')]
-    : [join(out, clean), join(out, `${clean}.html`), join(out, clean, 'index.html')];
-  return candidates.some((c) => existsSync(c) && statSync(c).isFile()) ? 'ok' : 'missing';
+  let clean = path.split('#')[0].split('?')[0];
+  try { clean = decodeURIComponent(clean); } catch { /* keep the raw path; a bad escape will not resolve */ }
+  if (clean.endsWith('/')) return isFile(join(out, clean, 'index.html')) ? 'ok' : 'missing';
+  if (isFile(join(out, clean)) || isFile(join(out, `${clean}.html`))) return 'ok';
+  return isFile(join(out, clean, 'index.html')) ? 'slashless' : 'missing';
 }
 
 function toRegionPath(href, selfRegion) {
@@ -60,19 +75,49 @@ function toRegionPath(href, selfRegion) {
 }
 
 const altRe = /<link[^>]+rel="alternate"[^>]*>/gi;
+const canonicalRe = /<link[^>]+rel="canonical"[^>]*>/gi;
+const ogUrlRe = /<meta property="og:url" content="([^"]+)"/g;
 const hrefRe = /href="([^"]+)"/;
 const anchorRe = /<a\s[^>]*href="([^"]+)"/g;
+const jsonLdRe = /<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g;
+// Each flight chunk is a JSON-encoded string literal: self.__next_f.push([1,"…"]).
+const flightRe = /self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)/g;
+// Inside the decoded payload: `href` props, and React element keys
+// (["$", type, key, props]) that look like paths.
+const payloadHrefRe = /"href":"(\/[^"]*)"/g;
+const payloadKeyRe = /\["\$","[^"]*","(\/[^"]*)"/g;
+// Every serialized element, keyed or not — proves the payload decoded into
+// elements even when no key happens to be path-shaped.
+const payloadElementRe = /\["\$","[^"]*",(?:null|"[^"]*")/g;
 
-const failures = [];
-let pages = 0, alternates = 0, anchors = 0, skippedUnbuilt = 0;
+function absoluteUrls(node, acc = []) {
+  if (typeof node === 'string') {
+    if (Object.keys(HOSTS).some((h) => node === h || node.startsWith(`${h}/`))) acc.push(node);
+  } else if (Array.isArray(node)) {
+    for (const v of node) absoluteUrls(v, acc);
+  } else if (node && typeof node === 'object') {
+    for (const v of Object.values(node)) absoluteUrls(v, acc);
+  }
+  return acc;
+}
+
+const failures = new Map(); // "<kind> <reason> <region><path>" -> [pages]
+const counts = { pages: 0, hreflang: 0, canonical: 0, 'og:url': 0, a: 0, 'json-ld': 0, 'rsc-href': 0, 'rsc-key': 0, flightChunks: 0, rscElements: 0 };
+let skippedUnbuilt = 0;
 for (const region of scanRegions) {
   const out = join(ROOT, 'apps', region, 'out');
   for (const file of walk(out)) {
-    pages += 1;
+    counts.pages += 1;
     const html = readFileSync(file, 'utf8');
     const rel = file.slice(out.length);
+    const page = `${region}${rel}`;
     const seen = new Set();
+    const fail = (key) => {
+      if (!failures.has(key)) failures.set(key, []);
+      failures.get(key).push(page);
+    };
     const check = (kind, href) => {
+      counts[kind] += 1;
       const decoded = href.replace(/&amp;/g, '&');
       const t = toRegionPath(decoded, region);
       if (!t || t.path.startsWith('/_next/') || t.path.startsWith('/cdn-cgi/')) return;
@@ -81,30 +126,58 @@ for (const region of scanRegions) {
       seen.add(key);
       const status = targetExists(t.region, t.path);
       if (status === 'unbuilt') { skippedUnbuilt += 1; return; }
-      if (status === 'missing') failures.push(`${region}${rel}  ${kind} → ${t.region}${t.path}`);
+      if (status === 'missing') fail(`${kind} dead → ${t.region}${t.path}`);
+      if (status === 'slashless') fail(`${kind} no trailing slash (308) → ${t.region}${t.path}`);
     };
     for (const tag of html.match(altRe) ?? []) {
       if (!/hreflang=/i.test(tag)) continue;
       const m = hrefRe.exec(tag);
-      if (m) { alternates += 1; check('hreflang', m[1]); }
+      if (m) check('hreflang', m[1]);
     }
-    let a;
-    while ((a = anchorRe.exec(html)) !== null) { anchors += 1; check('a', a[1]); }
+    for (const tag of html.match(canonicalRe) ?? []) {
+      const m = hrefRe.exec(tag);
+      if (m) check('canonical', m[1]);
+    }
+    for (const m of html.matchAll(ogUrlRe)) check('og:url', m[1]);
+    for (const a of html.matchAll(anchorRe)) check('a', a[1]);
+    for (const s of html.matchAll(jsonLdRe)) {
+      let data;
+      try { data = JSON.parse(s[1]); } catch { fail('json-ld unparseable block'); continue; }
+      for (const u of absoluteUrls(data)) check('json-ld', u);
+    }
+    let payload = '';
+    for (const c of html.matchAll(flightRe)) {
+      counts.flightChunks += 1;
+      try { payload += JSON.parse(c[1]); } catch { fail('rsc unparseable flight chunk'); }
+    }
+    for (const m of payload.matchAll(payloadHrefRe)) check('rsc-href', m[1]);
+    for (const m of payload.matchAll(payloadKeyRe)) check('rsc-key', m[1]);
+    counts.rscElements += (payload.match(payloadElementRe) ?? []).length;
   }
 }
 
 console.log(
-  `check-built-links: regions=[${scanRegions.join(',')}] pages=${pages} hreflang=${alternates} anchors=${anchors}` +
+  `check-built-links: regions=[${scanRegions.join(',')}] ` +
+    Object.entries(counts).map(([k, v]) => `${k}=${v}`).join(' ') +
     (skippedUnbuilt ? ` (skipped ${skippedUnbuilt} targets in unbuilt regions)` : ''),
 );
-if (pages === 0 || alternates === 0) {
-  console.error('check-built-links: scanned nothing — refusing to report a pass.');
+// A scanner that matched nothing reads exactly like a clean pass — refuse it.
+// Only the parser-health signals must be non-zero: path-shaped React keys and
+// og:url may legitimately be absent from a clean build.
+const MUST_SCAN = ['pages', 'hreflang', 'canonical', 'a', 'json-ld', 'flightChunks', 'rscElements', 'rsc-href'];
+const empty = MUST_SCAN.filter((k) => counts[k] === 0);
+if (empty.length) {
+  console.error(`check-built-links: scanned nothing for [${empty.join(', ')}] — refusing to report a pass.`);
   process.exit(2);
 }
-if (failures.length) {
-  console.error(`check-built-links: ${failures.length} dead link(s):`);
-  for (const f of failures.slice(0, 200)) console.error('  ' + f);
-  if (failures.length > 200) console.error(`  … ${failures.length - 200} more`);
+if (failures.size) {
+  const rows = [...failures].sort((x, y) => y[1].length - x[1].length);
+  const total = rows.reduce((n, [, p]) => n + p.length, 0);
+  console.error(`check-built-links: ${rows.length} bad target(s) across ${total} page reference(s):`);
+  for (const [key, pages] of rows.slice(0, 300)) {
+    console.error(`  ${key}  ×${pages.length}  e.g. ${pages[0]}`);
+  }
+  if (rows.length > 300) console.error(`  … ${rows.length - 300} more`);
   process.exit(1);
 }
-console.log('check-built-links: OK — every hreflang alternate and internal anchor resolves.');
+console.log('check-built-links: OK — every internal reference resolves, trailing slash included.');

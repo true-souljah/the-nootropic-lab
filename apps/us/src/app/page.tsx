@@ -90,8 +90,8 @@ export default function HomePage() {
           dek:
             'We test every ingredient dose against peer-reviewed clinical trials. No anonymous authors. No hidden commissions.',
           ctas: [
-            { label: `Best Nootropics ${CURRENT_YEAR} →`, href: '/best-nootropics', variant: 'primary' },
-            { label: 'Compare All Brands', href: '/nootropic-comparison', variant: 'secondary' },
+            { label: `Best Nootropics ${CURRENT_YEAR} →`, href: '/best-nootropics/', variant: 'primary' },
+            { label: 'Compare All Brands', href: '/nootropic-comparison/', variant: 'secondary' },
           ],
         }}
         afterGrid={

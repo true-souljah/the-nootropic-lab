@@ -24,7 +24,7 @@ export default function EsCompararPage() {
       '@type': 'ListItem',
       position: i + 1,
       name: p.name,
-      url: `https://thenootropiclab.com/${p.slug}`,
+      url: `https://thenootropiclab.com/${p.slug}/`,
     })),
   };
 
@@ -46,7 +46,7 @@ export default function EsCompararPage() {
           <ComparisonTable products={productsUS} market="us" />
         </div>
         <div className="mt-8 text-sm text-gray-500">
-          <a href="/nootropic-comparison" className="text-green-700 underline">
+          <a href="/nootropic-comparison/" className="text-green-700 underline">
             🇺🇸 Versión en inglés: Nootropic Comparison Tool
           </a>
         </div>

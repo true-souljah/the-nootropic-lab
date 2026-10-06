@@ -75,7 +75,7 @@ export default function BestNootropicsEUPage() {
       <SchemaOrg schema={itemListSchema} />
       <BestOf
         products={productsEU}
-        breadcrumbs={[{ label: 'Best of', href: '/best-nootropics' }]}
+        breadcrumbs={[{ label: 'Best of', href: '/best-nootropics/' }]}
         hero={{
           eyebrow: `EU · Audited ${CURRENT_YEAR}`,
           h1: `Best Nootropics in Europe ${CURRENT_YEAR}`,
@@ -160,7 +160,7 @@ export default function BestNootropicsEUPage() {
                 Each product is scored across 5 pillars: ingredient quality, dosing vs. clinical
                 evidence, formula transparency, value for money, and brand trust.
               </p>
-              <Link href="/methodology" className="text-ds-accent underline text-[13px] font-semibold">
+              <Link href="/methodology/" className="text-ds-accent underline text-[13px] font-semibold">
                 Read our full methodology →
               </Link>
             </Card>

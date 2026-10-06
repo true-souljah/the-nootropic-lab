@@ -54,9 +54,9 @@ describe('buildSearchIndex', () => {
     const result = buildSearchIndex([], [], []);
     expect(result).toHaveLength(3);
     expect(result.map((r) => r.href)).toEqual([
-      '/best-nootropics',
-      '/nootropic-comparison',
-      '/methodology',
+      '/best-nootropics/',
+      '/nootropic-comparison/',
+      '/methodology/',
     ]);
     for (const item of result) {
       expect(item.type).toBe('page');
@@ -70,7 +70,7 @@ describe('buildSearchIndex', () => {
       []
     );
     const productItem = result.find((r) => r.type === 'product')!;
-    expect(productItem.href).toBe('/foo');
+    expect(productItem.href).toBe('/foo/');
     expect(productItem.title).toBe('Foo');
     expect(productItem.meta?.score).toBe(9.2);
   });
@@ -128,7 +128,7 @@ describe('buildSearchIndex', () => {
       [guide({ slug: 'g1', title: 'G1', description: 'Guide desc' })]
     );
     const item = result.find((r) => r.type === 'guide')!;
-    expect(item.href).toBe('/guides/g1');
+    expect(item.href).toBe('/guides/g1/');
     expect(item.description).toBe('Guide desc');
   });
 

@@ -20,7 +20,7 @@ const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'The Nootropic Lab UE',
-  url: 'https://eu.thenootropiclab.com/pt',
+  url: 'https://eu.thenootropiclab.com/pt/',
   description: 'Avaliações independentes de suplementos cognitivos para compradores europeus.',
   inLanguage: 'pt-PT',
 };
@@ -45,17 +45,17 @@ const features = [
 
 const quickLinks = [
   {
-    href: '/pt/melhores-nootropicos',
+    href: '/pt/melhores-nootropicos/',
     title: `Os Melhores Nootrópicos ${CURRENT_YEAR} (UE)`,
     desc: 'Comparação completa para a UE com auditoria de dosagem clínica e preços em EUR.',
   },
   {
-    href: '/nootropic-comparison',
+    href: '/nootropic-comparison/',
     title: 'Ferramenta de Comparação Interactiva',
     desc: 'Ordene e filtre todas as marcas disponíveis na UE lado a lado.',
   },
   {
-    href: '/methodology',
+    href: '/methodology/',
     title: 'A Nossa Metodologia',
     desc: 'Como avaliamos os nootrópicos.',
   },
@@ -85,13 +85,13 @@ export default function PTHomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
-              href="/pt/melhores-nootropicos"
+              href="/pt/melhores-nootropicos/"
               className="bg-green-700 hover:bg-green-600 text-white font-bold px-8 py-3 rounded-lg transition-colors"
             >
               Os Melhores Nootrópicos na Europa {CURRENT_YEAR} →
             </Link>
             <Link
-              href="/nootropic-comparison"
+              href="/nootropic-comparison/"
               className="bg-white hover:bg-gray-50 text-gray-800 font-bold px-8 py-3 rounded-lg border border-gray-300 transition-colors"
             >
               Comparar Todas as Marcas UE
@@ -101,10 +101,10 @@ export default function PTHomePage() {
             <Link href="/" className="text-green-700 underline" hrefLang="en" lang="en">
               🇬🇧 English
             </Link>
-            <Link href="/de" className="text-green-700 underline" hrefLang="de" lang="de">
+            <Link href="/de/" className="text-green-700 underline" hrefLang="de" lang="de">
               🇩🇪 Deutsch
             </Link>
-            <Link href="/fr" className="text-green-700 underline" hrefLang="fr" lang="fr">
+            <Link href="/fr/" className="text-green-700 underline" hrefLang="fr" lang="fr">
               🇫🇷 Français
             </Link>
           </nav>

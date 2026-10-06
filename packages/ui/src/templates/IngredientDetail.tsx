@@ -148,7 +148,7 @@ export default function IngredientDetail({
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
-      { '@type': 'ListItem', position: 2, name: 'Ingredients', item: `${siteUrl}/ingredients` },
+      { '@type': 'ListItem', position: 2, name: 'Ingredients', item: `${siteUrl}/ingredients/` },
       { '@type': 'ListItem', position: 3, name: ing.name },
     ],
   };
@@ -164,7 +164,7 @@ export default function IngredientDetail({
       <a href="#main-content" tabIndex={0} className="ds-skip-link">
         {uiStrings?.nav.skipToContent ?? 'Skip to main content'}
       </a>
-      <FPDisclosure methodologyHref="/methodology" strings={uiStrings?.disclosure} />
+      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings?.disclosure} />
       <FPHeader searchItems={searchItems} strings={uiStrings} />
 
       <main id="main-content" className="max-w-[1100px] mx-auto px-6 pt-7">
@@ -172,7 +172,7 @@ export default function IngredientDetail({
           <ol className="flex items-center gap-2 list-none p-0 m-0">
             <li><Link href="/" className="hover:text-ds-ink">{uiStrings?.breadcrumb.home ?? 'Home'}</Link></li>
             <li aria-hidden="true" className="text-ds-faint">/</li>
-            <li><Link href="/ingredients" className="hover:text-ds-ink">{uiStrings?.breadcrumb.ingredients ?? 'Ingredients'}</Link></li>
+            <li><Link href="/ingredients/" className="hover:text-ds-ink">{uiStrings?.breadcrumb.ingredients ?? 'Ingredients'}</Link></li>
             <li aria-hidden="true" className="text-ds-faint">/</li>
             <li aria-current="page" className="text-ds-ink font-medium">{ing.name}</li>
           </ol>
@@ -345,7 +345,7 @@ export default function IngredientDetail({
                     <div className="flex gap-4">
                       <div className="shrink-0 w-28">
                         <Link
-                          href={`/ingredients/${pair.slug}`}
+                          href={`/ingredients/${pair.slug}/`}
                           className="text-[13.5px] font-semibold text-ds-accent hover:text-ds-accent-press underline focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded leading-tight block"
                         >
                           {pair.ingredient}
@@ -374,7 +374,7 @@ export default function IngredientDetail({
                   {containingProducts.map((p) => (
                     <Link
                       key={p.slug}
-                      href={`/${p.slug}`}
+                      href={`/${p.slug}/`}
                       className="block bg-ds-card border border-ds-border rounded-[10px] p-4 hover:border-ds-accent-border focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
                     >
                       <div className="flex justify-between items-start mb-1 gap-3">
@@ -403,7 +403,7 @@ export default function IngredientDetail({
                 {relatedIngredients.slice(0, 6).map((other) => (
                   <Link
                     key={other.slug}
-                    href={`/ingredients/${other.slug}`}
+                    href={`/ingredients/${other.slug}/`}
                     className="block border border-ds-border rounded-[8px] p-3 hover:border-ds-accent-border focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
                   >
                     <div className="font-semibold text-ds-ink text-[13.5px]">{other.name}</div>
@@ -424,7 +424,7 @@ export default function IngredientDetail({
             />
 
             <div className="text-[13px] text-ds-muted mt-10 pb-10">
-              <Link href="/ingredients" className="text-ds-accent underline font-semibold">
+              <Link href="/ingredients/" className="text-ds-accent underline font-semibold">
                 {uiStrings?.breadcrumb.backToIngredientsGuide ?? '← Back to Ingredients Guide'}
               </Link>
             </div>

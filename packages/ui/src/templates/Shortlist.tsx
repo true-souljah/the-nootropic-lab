@@ -103,8 +103,8 @@ export default function Shortlist({
       return;
     }
     const url = items.length === 0
-      ? `${siteUrl}/shortlist`
-      : `${siteUrl}/shortlist?items=${items.map((p) => p.slug).join(',')}`;
+      ? `${siteUrl}/shortlist/`
+      : `${siteUrl}/shortlist/?items=${items.map((p) => p.slug).join(',')}`;
     navigator.clipboard.writeText(url).then(
       () => flash('Link copied to clipboard'),
       () => flash('Could not copy link')
@@ -142,8 +142,8 @@ export default function Shortlist({
 
   const compareHref =
     items.length === 0
-      ? '/nootropic-comparison'
-      : `/nootropic-comparison?cmp=${items.map((p) => p.slug).join(',')}`;
+      ? '/nootropic-comparison/'
+      : `/nootropic-comparison/?cmp=${items.map((p) => p.slug).join(',')}`;
 
   return (
     <AppShell
@@ -299,7 +299,7 @@ function EmptyState() {
         picks on another device.
       </p>
       <Link
-        href="/best-nootropics"
+        href="/best-nootropics/"
         className="inline-block bg-ds-accent hover:bg-ds-accent-press text-white px-6 py-[10px] rounded-[8px] text-[13px] font-semibold no-underline focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
       >
         Browse Best of 2026 →
@@ -385,7 +385,7 @@ function ShortlistRow({
           </div>
           <div className="min-w-0">
             <Link
-              href={`/${product.slug}`}
+              href={`/${product.slug}/`}
               className="font-bold text-[15px] text-ds-ink hover:text-ds-accent focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded block truncate"
             >
               {product.name}

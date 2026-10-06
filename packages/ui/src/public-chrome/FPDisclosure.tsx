@@ -22,7 +22,7 @@ export interface FPDisclosureProps {
  * and aria-hidden; the methodology link is keyboard-focusable.
  */
 export function FPDisclosure({
-  methodologyHref = '/methodology',
+  methodologyHref = '/methodology/',
   strings,
   body = strings
     ? strings.inline
