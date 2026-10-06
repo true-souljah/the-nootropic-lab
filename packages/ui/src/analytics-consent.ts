@@ -145,6 +145,24 @@ export function onGoogleAnalyticsAccept(): void {
   ga.active = true;
 }
 
+/**
+ * True when a consent save just withdrew a service whose tracker is already
+ * running on this page, so the page must reload once the decline handlers ran.
+ * - GA: `ga-disable` stops events raised after the withdrawal, but gtag.js
+ *   still sends what it queued before it — measured: the scroll event fired by
+ *   scrolling to the footer's "Cookie settings" went out ~5 s after the
+ *   withdrawal. A reload discards that queue.
+ * - Impact.com: the UTT tag has no documented in-page stop.
+ * `changes` is Klaro's saveConsents payload (only services whose value changed).
+ */
+export function needsReloadAfterWithdrawal(changes: Record<string, boolean> | undefined, win: unknown): boolean {
+  const w = win as GtagWindow | undefined;
+  if (!w || !changes) return false;
+  if (changes['google-analytics'] === false && w[GA_STATE_KEY]) return true;
+  if (changes['impact-com'] === false && typeof w.impactStat === 'function') return true;
+  return false;
+}
+
 /** Klaro onDecline for impact-com: delete the Impact UTT first-party cookies. */
 export function onImpactDecline(): void {
   if (!browserWindow()) return;

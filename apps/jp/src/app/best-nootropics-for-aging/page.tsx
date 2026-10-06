@@ -26,8 +26,8 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'DHA — Japan\'s most-notified FFC ingredient for older adults',
     evidence:
-      'DHA dominates the Japanese FFC supplement market for adults 50+, with claims around memory support and cognitive function maintenance. Multiple Japanese clinical trials in middle-aged and older adults at 500mg+/day across 12+ weeks. The cultural and regulatory anchor for aging-brain supplementation in Japan.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22932089/',
+      'DHA dominates the Japanese FFC supplement market for adults 50+, with claims around memory support and cognitive function maintenance. The positive memory trials we reviewed used 900mg–1.2g DHA/day for 24 weeks or longer; the trial in adults aged 55 and over used 900mg/day (see our DHA ingredient page). The cultural and regulatory anchor for aging-brain supplementation in Japan.',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20434961/',
   },
   {
     name: 'Phosphatidylserine (PS) — FDA qualified health claim',
@@ -45,7 +45,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Citicoline (CDP-Choline) — older-adult memory',
     evidence:
       'RCTs in older adults with subjective cognitive complaints show improvements in verbal memory and processing speed at 250–500mg/day for 12+ weeks. Cognizin is the standardized form used in Mind Lab Pro.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22773333/',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
 ];
 

@@ -33,7 +33,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Citicoline (CDP-Choline) — older-adult memory',
     evidence:
       'RCTs in older adults with subjective cognitive complaints show improvements in verbal memory and processing speed at 250–500mg/day for 12+ weeks. Cognizin is the standardized form most premium SEA imports use.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22773333/',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
   {
     name: 'Lion\'s Mane (Hericium erinaceus)',

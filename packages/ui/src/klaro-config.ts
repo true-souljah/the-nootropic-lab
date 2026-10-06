@@ -6,6 +6,22 @@
 // data-name="..." />` block to the layout (external URL as `data-src`, never
 // `src` — next/script preloads `src` before consent), then add a matching
 // service entry below with the same `name` field.
+//
+// Consent purposes (operator decision 6, 2026-10-06 — Cyprus cookie guidance:
+// where cookies serve several purposes, visitors must be able to choose each
+// one freely): Google Analytics is the "statistics" purpose (Analytics) and
+// Impact.com the separate "affiliate" purpose (Affiliate attribution). The
+// first layer keeps one-click Accept all / Decline all; "Configure" opens the
+// modal with one toggle per purpose, off until the visitor switches it on.
+// Klaro stores consent per service (`{"google-analytics":…,"impact-com":…}`),
+// so choices stored before the split keep their meaning unchanged.
+//
+// Every string the notice and the modal render is set here for every locale
+// (see consent-basic-mode.test.ts) rather than left to Klaro's bundled
+// defaults. Service titles/descriptions live in each service's own
+// `translations`: Klaro prefers a service-level `title`/`description` over
+// translations, so those fields are not set directly (until 2026-10 they were,
+// and the modal showed the English service descriptions in every locale).
 
 import {
   onGoogleAnalyticsAccept,
@@ -15,10 +31,10 @@ import {
 
 export interface KlaroService {
   name: string;
-  title: string;
   purposes: string[];
   cookies?: (string | RegExp)[];
-  description: string;
+  /** Per-locale title/description (`zz` = every locale). Klaro reads these when the service sets no `title`/`description`. */
+  translations: Record<string, { title?: string; description?: string }>;
   required?: boolean;
   default?: boolean;
   /** Activate the service's scripts at most once per page load. */
@@ -45,6 +61,8 @@ export interface KlaroConfig {
   privacyPolicy: string;
   translations: Record<string, unknown>;
   services: KlaroService[];
+  /** Order of the purpose toggles in the modal. */
+  purposeOrder: string[];
   purposes: { name: string; title: string }[];
 }
 
@@ -68,15 +86,15 @@ export const klaroConfig: KlaroConfig = {
     },
     en: {
       consentNotice: {
-        title: 'We use analytics to improve this site',
+        title: 'Cookies for analytics and affiliate attribution',
         description:
-          'We use privacy-respecting analytics to understand which content readers find useful. We do not use advertising cookies and do not sell data to third parties.',
+          'With your consent we use two optional services, each for its own purpose: Google Analytics measures which content readers find useful (Analytics), and Impact.com credits purchases you make on partner sites after following one of our links (Affiliate attribution). Nothing runs until you choose; “Configure” lets you allow each purpose separately. We do not use advertising cookies and do not sell data to third parties.',
         learnMore: 'Configure',
       },
       consentModal: {
-        title: 'Cookie & analytics preferences',
+        title: 'Cookie preferences',
         description:
-          'Choose which analytics services may run on this site. You can change or withdraw your choice at any time via the “Cookie settings” link at the bottom of every page.',
+          'Analytics and affiliate attribution are separate purposes: switch on only the ones you want. Both stay off until you switch them on. You can change or withdraw your choice for each purpose at any time via the “Cookie settings” link at the bottom of every page.',
       },
       acceptAll: 'Accept all',
       acceptSelected: 'Accept selected',
@@ -89,10 +107,19 @@ export const klaroConfig: KlaroConfig = {
       close: 'Close',
       privacyPolicy: { name: 'privacy policy', text: 'For details see our {privacyPolicy}.' },
       purposes: {
-        statistics: { title: 'Analytics & statistics', description: 'Site-usage measurement.' },
+        statistics: {
+          title: 'Analytics',
+          description: 'Google Analytics 4 measures which pages are read (cookies _ga, _ga_<id>).',
+        },
+        affiliate: {
+          title: 'Affiliate attribution',
+          description:
+            'Impact.com credits a purchase on a partner site to this site after you follow one of our links (cookies IR_*).',
+        },
       },
+      purposeItem: { service: 'service', services: 'services' },
       service: {
-        disableAll: { title: 'Disable all', description: 'Disable all services.' },
+        disableAll: { title: 'All purposes', description: 'Switch all optional purposes on or off at once.' },
         required: { title: 'Required', description: 'Required for the site to function.' },
         purposes: 'Purposes',
         purpose: 'Purpose',
@@ -101,14 +128,14 @@ export const klaroConfig: KlaroConfig = {
     },
     es: {
       consentNotice: {
-        title: 'Usamos análisis para mejorar este sitio',
+        title: 'Cookies de análisis y de atribución de afiliados',
         description:
-          'Utilizamos análisis respetuosos con la privacidad para entender qué contenido es útil. No usamos cookies publicitarias ni vendemos datos.',
+          'Con su consentimiento usamos dos servicios opcionales, cada uno con su propia finalidad: Google Analytics mide qué contenido resulta útil a los lectores (Análisis) e Impact.com atribuye a este sitio las compras que hace en sitios socios después de seguir uno de nuestros enlaces (Atribución de afiliados). No se ejecuta nada hasta que elija; con «Configurar» puede permitir cada finalidad por separado. No usamos cookies publicitarias ni vendemos datos.',
         learnMore: 'Configurar',
       },
       consentModal: {
-        title: 'Preferencias de cookies y análisis',
-        description: 'Elija qué servicios de análisis pueden ejecutarse en este sitio. Puede cambiar o retirar su elección en cualquier momento mediante el enlace «Configuración de cookies» al final de cada página.',
+        title: 'Preferencias de cookies',
+        description: 'El análisis y la atribución de afiliados son finalidades separadas: active solo las que quiera. Ambas permanecen desactivadas hasta que las active. Puede cambiar o retirar su elección para cada finalidad en cualquier momento mediante el enlace «Configuración de cookies» al final de cada página.',
       },
       acceptAll: 'Aceptar todo',
       acceptSelected: 'Aceptar selección',
@@ -118,20 +145,35 @@ export const klaroConfig: KlaroConfig = {
       close: 'Cerrar',
       privacyPolicy: { name: 'política de privacidad', text: 'Más información en nuestra {privacyPolicy}.' },
       purposes: {
-        statistics: { title: 'Análisis y estadísticas', description: 'Medición de uso del sitio.' },
+        statistics: {
+          title: 'Análisis',
+          description: 'Google Analytics 4 mide qué páginas se leen (cookies _ga, _ga_<id>).',
+        },
+        affiliate: {
+          title: 'Atribución de afiliados',
+          description:
+            'Impact.com atribuye a este sitio una compra en un sitio socio después de que siga uno de nuestros enlaces (cookies IR_*).',
+        },
+      },
+      purposeItem: { service: 'servicio', services: 'servicios' },
+      service: {
+        disableAll: { title: 'Todas las finalidades', description: 'Active o desactive todas las finalidades opcionales a la vez.' },
+        required: { title: 'Necesario', description: 'Necesario para que el sitio funcione.' },
+        purposes: 'Finalidades',
+        purpose: 'Finalidad',
       },
     },
     de: {
       consentNotice: {
-        title: 'Wir verwenden Analysetools zur Verbesserung dieser Seite',
+        title: 'Cookies für Analyse und Affiliate-Zuordnung',
         description:
-          'Wir verwenden datenschutzfreundliche Analysetools, um zu verstehen, welche Inhalte nützlich sind. Wir verwenden keine Werbe-Cookies und verkaufen keine Daten an Dritte.',
+          'Mit Ihrer Einwilligung nutzen wir zwei optionale Dienste mit jeweils eigenem Zweck: Google Analytics misst, welche Inhalte für Leser nützlich sind (Analyse), und Impact.com ordnet Käufe auf Partnerseiten, die Sie nach einem Klick auf einen unserer Links tätigen, dieser Seite zu (Affiliate-Zuordnung). Nichts wird ausgeführt, bevor Sie wählen; unter „Einstellungen“ können Sie jeden Zweck einzeln erlauben. Wir verwenden keine Werbe-Cookies und verkaufen keine Daten an Dritte.',
         learnMore: 'Einstellungen',
       },
       consentModal: {
-        title: 'Cookie- und Analyse-Einstellungen',
+        title: 'Cookie-Einstellungen',
         description:
-          'Wählen Sie aus, welche Analysedienste auf dieser Seite ausgeführt werden dürfen. Sie können Ihre Auswahl jederzeit über den Link „Cookie-Einstellungen“ am Ende jeder Seite ändern oder widerrufen.',
+          'Analyse und Affiliate-Zuordnung sind getrennte Zwecke: Aktivieren Sie nur die, die Sie möchten. Beide bleiben deaktiviert, bis Sie sie einschalten. Sie können Ihre Auswahl für jeden Zweck jederzeit über den Link „Cookie-Einstellungen“ am Ende jeder Seite ändern oder widerrufen.',
       },
       acceptAll: 'Alle akzeptieren',
       acceptSelected: 'Auswahl akzeptieren',
@@ -141,19 +183,34 @@ export const klaroConfig: KlaroConfig = {
       close: 'Schließen',
       privacyPolicy: { name: 'Datenschutzerklärung', text: 'Weitere Informationen finden Sie in unserer {privacyPolicy}.' },
       purposes: {
-        statistics: { title: 'Analyse und Statistik', description: 'Messung der Website-Nutzung.' },
+        statistics: {
+          title: 'Analyse',
+          description: 'Google Analytics 4 misst, welche Seiten gelesen werden (Cookies _ga, _ga_<id>).',
+        },
+        affiliate: {
+          title: 'Affiliate-Zuordnung',
+          description:
+            'Impact.com ordnet einen Kauf auf einer Partnerseite dieser Seite zu, nachdem Sie einem unserer Links gefolgt sind (Cookies IR_*).',
+        },
+      },
+      purposeItem: { service: 'Dienst', services: 'Dienste' },
+      service: {
+        disableAll: { title: 'Alle Zwecke', description: 'Alle optionalen Zwecke auf einmal ein- oder ausschalten.' },
+        required: { title: 'Erforderlich', description: 'Für die Funktion der Seite erforderlich.' },
+        purposes: 'Zwecke',
+        purpose: 'Zweck',
       },
     },
     fr: {
       consentNotice: {
-        title: 'Nous utilisons des outils d’analyse pour améliorer ce site',
+        title: 'Cookies d’analyse et d’attribution d’affiliation',
         description:
-          'Nous utilisons des outils d’analyse respectueux de la vie privée pour comprendre quels contenus sont utiles. Nous n’utilisons pas de cookies publicitaires et ne vendons pas de données à des tiers.',
+          'Avec votre consentement, nous utilisons deux services facultatifs, chacun pour sa propre finalité : Google Analytics mesure quels contenus sont utiles aux lecteurs (Analyse) et Impact.com attribue à ce site les achats que vous effectuez sur des sites partenaires après avoir suivi l’un de nos liens (Attribution d’affiliation). Rien ne s’exécute avant votre choix ; « Configurer » vous permet d’autoriser chaque finalité séparément. Nous n’utilisons pas de cookies publicitaires et ne vendons pas de données à des tiers.',
         learnMore: 'Configurer',
       },
       consentModal: {
-        title: 'Préférences de cookies et d’analyse',
-        description: 'Choisissez quels services d’analyse peuvent s’exécuter sur ce site. Vous pouvez modifier ou retirer votre choix à tout moment via le lien « Paramètres des cookies » en bas de chaque page.',
+        title: 'Préférences de cookies',
+        description: 'L’analyse et l’attribution d’affiliation sont des finalités distinctes : activez uniquement celles que vous souhaitez. Les deux restent désactivées tant que vous ne les activez pas. Vous pouvez modifier ou retirer votre choix pour chaque finalité à tout moment via le lien « Paramètres des cookies » en bas de chaque page.',
       },
       acceptAll: 'Tout accepter',
       acceptSelected: 'Accepter la sélection',
@@ -163,7 +220,22 @@ export const klaroConfig: KlaroConfig = {
       close: 'Fermer',
       privacyPolicy: { name: 'politique de confidentialité', text: 'Pour plus d’informations, consultez notre {privacyPolicy}.' },
       purposes: {
-        statistics: { title: 'Analyse et statistiques', description: 'Mesure de l’utilisation du site.' },
+        statistics: {
+          title: 'Analyse',
+          description: 'Google Analytics 4 mesure quelles pages sont lues (cookies _ga, _ga_<id>).',
+        },
+        affiliate: {
+          title: 'Attribution d’affiliation',
+          description:
+            'Impact.com attribue à ce site un achat effectué sur un site partenaire après que vous avez suivi l’un de nos liens (cookies IR_*).',
+        },
+      },
+      purposeItem: { service: 'service', services: 'services' },
+      service: {
+        disableAll: { title: 'Toutes les finalités', description: 'Activer ou désactiver toutes les finalités facultatives en une seule fois.' },
+        required: { title: 'Nécessaire', description: 'Nécessaire au fonctionnement du site.' },
+        purposes: 'Finalités',
+        purpose: 'Finalité',
       },
     },
     // Quebec French (fr-CA). OQLF-compliant: "témoins" not "cookies",
@@ -171,14 +243,14 @@ export const klaroConfig: KlaroConfig = {
     // Used by the CA app's /fr/* nested routes per PR-C2b.
     'fr-CA': {
       consentNotice: {
-        title: 'Nous utilisons des outils d’analyse pour améliorer ce site',
+        title: 'Témoins d’analyse et d’attribution d’affiliation',
         description:
-          'Nous utilisons des outils d’analyse respectueux de la vie privée pour comprendre quels contenus sont utiles. Nous n’utilisons pas de témoins publicitaires et ne vendons pas de données à des tiers.',
+          'Avec votre consentement, nous utilisons deux services facultatifs, chacun pour sa propre finalité : Google Analytics mesure quels contenus sont utiles aux lecteurs (Analyse) et Impact.com attribue à ce site les achats que vous effectuez sur des sites partenaires après avoir suivi l’un de nos liens (Attribution d’affiliation). Rien ne s’exécute avant votre choix; « Configurer » vous permet d’autoriser chaque finalité séparément. Nous n’utilisons pas de témoins publicitaires et ne vendons pas de données à des tiers.',
         learnMore: 'Configurer',
       },
       consentModal: {
-        title: 'Préférences de témoins et d’analyse',
-        description: 'Choisissez quels services d’analyse peuvent s’exécuter sur ce site. Vous pouvez modifier ou retirer votre choix en tout temps au moyen du lien « Paramètres des témoins » au bas de chaque page.',
+        title: 'Préférences de témoins',
+        description: 'L’analyse et l’attribution d’affiliation sont des finalités distinctes : activez uniquement celles que vous souhaitez. Les deux restent désactivées tant que vous ne les activez pas. Vous pouvez modifier ou retirer votre choix pour chaque finalité en tout temps au moyen du lien « Paramètres des témoins » au bas de chaque page.',
       },
       acceptAll: 'Tout accepter',
       acceptSelected: 'Accepter la sélection',
@@ -188,19 +260,34 @@ export const klaroConfig: KlaroConfig = {
       close: 'Fermer',
       privacyPolicy: { name: 'politique de confidentialité', text: 'Pour plus d’informations, consultez notre {privacyPolicy}.' },
       purposes: {
-        statistics: { title: 'Analyse et statistiques', description: 'Mesure de l’utilisation du site.' },
+        statistics: {
+          title: 'Analyse',
+          description: 'Google Analytics 4 mesure quelles pages sont lues (témoins _ga, _ga_<id>).',
+        },
+        affiliate: {
+          title: 'Attribution d’affiliation',
+          description:
+            'Impact.com attribue à ce site un achat effectué sur un site partenaire après que vous avez suivi l’un de nos liens (témoins IR_*).',
+        },
+      },
+      purposeItem: { service: 'service', services: 'services' },
+      service: {
+        disableAll: { title: 'Toutes les finalités', description: 'Activer ou désactiver toutes les finalités facultatives en une seule fois.' },
+        required: { title: 'Nécessaire', description: 'Nécessaire au fonctionnement du site.' },
+        purposes: 'Finalités',
+        purpose: 'Finalité',
       },
     },
     pt: {
       consentNotice: {
-        title: 'Usamos análise para melhorar este site',
+        title: 'Cookies de análise e de atribuição de afiliados',
         description:
-          'Utilizamos ferramentas de análise que respeitam a privacidade para entender quais conteúdos são úteis. Não usamos cookies publicitários nem vendemos dados a terceiros.',
+          'Com o seu consentimento, utilizamos dois serviços opcionais, cada um com a sua própria finalidade: o Google Analytics mede que conteúdos são úteis para os leitores (Análise) e a Impact.com atribui a este site as compras que faz em sites parceiros depois de seguir uma das nossas ligações (Atribuição de afiliados). Nada é executado até escolher; em «Configurar» pode permitir cada finalidade separadamente. Não usamos cookies publicitários nem vendemos dados a terceiros.',
         learnMore: 'Configurar',
       },
       consentModal: {
-        title: 'Preferências de cookies e análise',
-        description: 'Escolha quais serviços de análise podem ser executados neste site. Pode alterar ou retirar a sua escolha a qualquer momento através da ligação «Preferências de cookies» no fim de cada página.',
+        title: 'Preferências de cookies',
+        description: 'A análise e a atribuição de afiliados são finalidades separadas: ative apenas as que pretende. Ambas ficam desativadas até as ativar. Pode alterar ou retirar a sua escolha para cada finalidade a qualquer momento através da ligação «Preferências de cookies» no fim de cada página.',
       },
       acceptAll: 'Aceitar tudo',
       acceptSelected: 'Aceitar seleção',
@@ -210,19 +297,34 @@ export const klaroConfig: KlaroConfig = {
       close: 'Fechar',
       privacyPolicy: { name: 'política de privacidade', text: 'Mais informações na nossa {privacyPolicy}.' },
       purposes: {
-        statistics: { title: 'Análise e estatísticas', description: 'Medição de utilização do site.' },
+        statistics: {
+          title: 'Análise',
+          description: 'O Google Analytics 4 mede que páginas são lidas (cookies _ga, _ga_<id>).',
+        },
+        affiliate: {
+          title: 'Atribuição de afiliados',
+          description:
+            'A Impact.com atribui a este site uma compra num site parceiro depois de seguir uma das nossas ligações (cookies IR_*).',
+        },
+      },
+      purposeItem: { service: 'serviço', services: 'serviços' },
+      service: {
+        disableAll: { title: 'Todas as finalidades', description: 'Ative ou desative todas as finalidades opcionais de uma só vez.' },
+        required: { title: 'Necessário', description: 'Necessário para o funcionamento do site.' },
+        purposes: 'Finalidades',
+        purpose: 'Finalidade',
       },
     },
     ja: {
       consentNotice: {
-        title: 'サイト改善のために分析ツールを使用しています',
+        title: '分析とアフィリエイト計測のためのCookie',
         description:
-          'プライバシーに配慮した分析ツールを使い、どのコンテンツが読者に役立っているかを把握しています。広告クッキーは使用せず、データを第三者に販売することもありません。',
+          '同意いただいた場合に限り、目的の異なる2つの任意サービスを使用します。Google Analyticsはどのコンテンツが読者に役立っているかを測定し（分析）、Impact.comは当サイトのリンクから移動した提携サイトでの購入を当サイトに帰属させます（アフィリエイト計測）。選択するまで何も実行されません。「設定」から目的ごとに個別に許可できます。広告クッキーは使用せず、データを第三者に販売することもありません。',
         learnMore: '設定',
       },
       consentModal: {
-        title: 'Cookieと分析の設定',
-        description: 'このサイトで実行できる分析サービスを選択してください。選択内容は、各ページ下部の「Cookie設定」からいつでも変更・撤回できます。',
+        title: 'Cookieの設定',
+        description: '分析とアフィリエイト計測は別々の目的です。必要なものだけをオンにしてください。どちらもオンにするまでオフのままです。目的ごとの選択は、各ページ下部の「Cookie設定」からいつでも変更・撤回できます。',
       },
       acceptAll: 'すべて受け入れる',
       acceptSelected: '選択を受け入れる',
@@ -232,7 +334,22 @@ export const klaroConfig: KlaroConfig = {
       close: '閉じる',
       privacyPolicy: { name: 'プライバシーポリシー', text: '詳細は当社の{privacyPolicy}をご覧ください。' },
       purposes: {
-        statistics: { title: '分析と統計', description: 'サイト利用状況の測定。' },
+        statistics: {
+          title: '分析',
+          description: 'Google Analytics 4が、どのページが読まれているかを測定します（Cookie：_ga、_ga_<id>）。',
+        },
+        affiliate: {
+          title: 'アフィリエイト計測',
+          description:
+            '当サイトのリンクから提携サイトに移動して購入した場合、Impact.comがその購入を当サイトに帰属させます（Cookie：IR_*）。',
+        },
+      },
+      purposeItem: { service: 'サービス', services: 'サービス' },
+      service: {
+        disableAll: { title: 'すべての目的', description: '任意の目的をまとめてオン・オフします。' },
+        required: { title: '必須', description: 'サイトの動作に必要です。' },
+        purposes: '目的',
+        purpose: '目的',
       },
     },
   },
@@ -243,11 +360,18 @@ export const klaroConfig: KlaroConfig = {
     // removed rather than asking visitors to consent to a dead purpose.
     {
       name: 'google-analytics',
-      title: 'Google Analytics 4',
       purposes: ['statistics'],
       cookies: [/^_ga/, /^_gid/, /^_gat/],
-      description:
-        'Measures site usage to inform editorial improvements. No personalised advertising; data not sold to third parties.',
+      translations: {
+        zz: { title: 'Google Analytics 4' },
+        en: { description: 'Measures site usage to inform editorial improvements. No personalised advertising; data not sold to third parties.' },
+        es: { description: 'Mide el uso del sitio para orientar mejoras editoriales. Sin publicidad personalizada; los datos no se venden a terceros.' },
+        de: { description: 'Misst die Nutzung der Website, um redaktionelle Verbesserungen zu ermöglichen. Keine personalisierte Werbung; Daten werden nicht an Dritte verkauft.' },
+        fr: { description: 'Mesure l’utilisation du site pour orienter les améliorations éditoriales. Aucune publicité personnalisée ; les données ne sont pas vendues à des tiers.' },
+        'fr-CA': { description: 'Mesure l’utilisation du site pour orienter les améliorations éditoriales. Aucune publicité personnalisée; les données ne sont pas vendues à des tiers.' },
+        pt: { description: 'Mede a utilização do site para orientar melhorias editoriais. Sem publicidade personalizada; os dados não são vendidos a terceiros.' },
+        ja: { description: '編集の改善に役立てるため、サイトの利用状況を測定します。パーソナライズ広告は行わず、データを第三者に販売しません。' },
+      },
       required: false,
       default: false,
       // Scripts run once per page; a withdraw → re-Accept on the same page
@@ -258,11 +382,19 @@ export const klaroConfig: KlaroConfig = {
     },
     {
       name: 'impact-com',
-      title: 'Impact.com Affiliate Attribution',
-      purposes: ['statistics'],
+      // Its own purpose, never 'statistics': analytics-only consent must not load Impact.
+      purposes: ['affiliate'],
       cookies: [/^IR_/, /^_ire/],
-      description:
-        'Attributes affiliate clicks to this site so the operator earns commission on partner purchases. No personalised advertising; tracks click-attribution only.',
+      translations: {
+        zz: { title: 'Impact.com' },
+        en: { description: 'Attributes affiliate clicks to this site so the operator earns commission on partner purchases. No personalised advertising; tracks click-attribution only.' },
+        es: { description: 'Atribuye a este sitio los clics en enlaces de afiliados para que el operador cobre una comisión por las compras en sitios socios. Sin publicidad personalizada; solo registra la atribución de clics.' },
+        de: { description: 'Ordnet Affiliate-Klicks dieser Website zu, damit der Betreiber Provisionen für Käufe bei Partnern erhält. Keine personalisierte Werbung; erfasst nur die Klick-Zuordnung.' },
+        fr: { description: 'Attribue à ce site les clics sur les liens d’affiliation afin que l’exploitant perçoive une commission sur les achats chez les partenaires. Aucune publicité personnalisée ; seule l’attribution des clics est suivie.' },
+        'fr-CA': { description: 'Attribue à ce site les clics sur les liens d’affiliation afin que l’exploitant perçoive une commission sur les achats chez les partenaires. Aucune publicité personnalisée; seule l’attribution des clics est suivie.' },
+        pt: { description: 'Atribui a este site os cliques em ligações de afiliados para que o operador receba comissão pelas compras nos parceiros. Sem publicidade personalizada; regista apenas a atribuição de cliques.' },
+        ja: { description: 'アフィリエイトリンクのクリックを当サイトに帰属させ、提携先での購入に対して運営者が報酬を受け取れるようにします。パーソナライズ広告は行わず、クリックの帰属のみを計測します。' },
+      },
       required: false,
       default: false,
       // Not onlyOnce: a withdraw → re-Accept on the same page re-runs the tag
@@ -270,7 +402,9 @@ export const klaroConfig: KlaroConfig = {
       onDecline: onImpactDecline,
     },
   ],
+  purposeOrder: ['statistics', 'affiliate'],
   purposes: [
-    { name: 'statistics', title: 'Analytics & statistics' },
+    { name: 'statistics', title: 'Analytics' },
+    { name: 'affiliate', title: 'Affiliate attribution' },
   ],
 };

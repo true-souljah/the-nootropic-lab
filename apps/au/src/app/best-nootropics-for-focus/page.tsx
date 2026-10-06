@@ -34,7 +34,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Citicoline (CDP-Choline)',
     evidence:
       'Choline donor + uridine source that supports phospholipid synthesis and acetylcholine production. Multiple RCTs show attention and cognitive-effort benefits in healthy adults at 250–500mg/day. Cognizin is the standardised form most products use. In Australia, citicoline-containing products are typically imported under the Personal Importation Scheme rather than TGA-listed.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22773333/',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
   {
     name: 'L-Tyrosine (or NALT)',

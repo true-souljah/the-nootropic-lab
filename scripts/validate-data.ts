@@ -3,7 +3,7 @@
 import {
   allProductsUS, allProductsEU, allProductsCA, allProductsAU,
   allProductsJP, allProductsLatam, allProductsGCC, allProductsSEA,
-  validateRegionalNotes, productRuleProblems,
+  validateRegionalNotes, productRuleProblems, DOSING_ANCHORS, dosingAnchorProblems,
 } from '../packages/data/src/index';
 import type { Product } from '../packages/data/src/index';
 
@@ -131,6 +131,32 @@ for (const problem of validateRegionalNotes()) {
   failed++;
 }
 console.log(`ok regional-notes: ${failed === 0 ? 'all authored notes cite sources' : 'see failures above'}`);
+
+// Dosing anchors (packages/data/src/dosing-anchors.ts, 2026-10-06): every
+// ingredientDosages row matching a DOSING_ANCHORS entry (ALCAR, DHA) must carry
+// the anchor's clinicalDose and an adequatelyDosed verdict derived from its
+// minimum. No grandfather list. A scan that matches no row fails too, so a
+// broken matcher cannot pass silently.
+let anchoredRows = 0;
+let anchorProblems = 0;
+for (const [region, products] of Object.entries(regions)) {
+  for (const item of products as Product[]) {
+    const rows = Array.isArray(item.ingredientDosages) ? item.ingredientDosages : [];
+    anchoredRows += rows.filter((row) => DOSING_ANCHORS.some((anchor) => anchor.match.test(row.name))).length;
+    for (const problem of dosingAnchorProblems(item)) {
+      console.error(`FAIL ${region}/${problem}`);
+      anchorProblems++;
+    }
+  }
+}
+if (anchoredRows === 0) {
+  console.error('FAIL dosing-anchors: no ingredientDosages row matched a DOSING_ANCHORS entry');
+  anchorProblems++;
+}
+failed += anchorProblems;
+if (anchorProblems === 0) {
+  console.log(`ok dosing-anchors: ${anchoredRows} rows match their DOSING_ANCHORS clinicalDose and adequacy verdict`);
+}
 
 if (failed > 0) {
   console.error(`\n${failed} validation error(s).`);
