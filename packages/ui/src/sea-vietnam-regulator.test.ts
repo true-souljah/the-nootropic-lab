@@ -45,6 +45,19 @@ describe('SEA copy names the Vietnam Food Administration, not DAV', () => {
     expect(hits).toEqual([]);
   });
 
+  test('no SEA source asserts a product is not registered with a regulator', () => {
+    // No national register was ever checked for these products, so copy may
+    // only say we have not verified a local registration.
+    const UNSOURCED_NEGATIVE: RegExp[] = [/not (currently )?registered with/i, /not registered with any/i];
+    const hits = SEA_SOURCES.flatMap(file => {
+      const lines = readFileSync(file, 'utf8').split('\n');
+      return lines.flatMap((line, i) =>
+        UNSOURCED_NEGATIVE.some(re => re.test(line)) ? [`${file.slice(REPO_ROOT.length + 1)}:${i + 1}`] : [],
+      );
+    });
+    expect(hits).toEqual([]);
+  });
+
   test('the Vietnam country note names the VFA and cites Decree 15/2018', () => {
     const vn = seaCountries.find(c => c.code === 'VN')!.regulatoryNote;
     expect(vn).toContain('Vietnam Food Administration (Cục An toàn thực phẩm, VFA)');
