@@ -1,0 +1,4 @@
+# DeepL key hardcoded in 90fbb10, rotated 2026-10-05 and removed in #295 (see #283).
+# History was intentionally not rewritten; these two fingerprints are the only exemptions.
+90fbb101ae7ef6177ac973ff17fbbf6df2c93b39:scripts/translate.sh:generic-api-key:6
+90fbb101ae7ef6177ac973ff17fbbf6df2c93b39:scripts/batch-translate.py:generic-api-key:8
