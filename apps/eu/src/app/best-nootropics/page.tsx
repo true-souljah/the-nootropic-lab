@@ -102,7 +102,7 @@ export default function BestNootropicsEUPage() {
                 <strong>Regulation (EC) 1924/2006</strong> using EU-authorised claims (assessed by EFSA) only.
                 Novel Food ingredients require authorisation under{' '}
                 <strong>Regulation (EU) 2015/2283</strong>. Products marked{' '}
-                <Chip tone="good">EU storefront</Chip> are sold from an EU-based store in EUR; we do
+                <Chip tone="good">EU storefront</Chip> are sold through a dedicated EU storefront priced in EUR; we do
                 not verify regulatory compliance per product.
               </p>
             </Card>

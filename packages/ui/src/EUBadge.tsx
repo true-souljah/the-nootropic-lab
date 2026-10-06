@@ -6,7 +6,7 @@ export default function EUBadge({ euStorefront }: { euStorefront: boolean }) {
   return (
     <span
       className="eu-badge-green text-xs font-semibold px-2 py-0.5 rounded cursor-help"
-      title="Sold from an EU-based store in EUR. We do not verify regulatory compliance per product."
+      title="Sold through a dedicated EU storefront priced in EUR. We do not verify regulatory compliance per product."
     >
       EU storefront
     </span>
