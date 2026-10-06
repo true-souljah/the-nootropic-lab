@@ -36,7 +36,15 @@ const SOURCES = [
     .flatMap(p => walk(p)),
 ];
 
-const UNSOURCED_NEGATIVE: RegExp[] = [/not (currently )?registered with/i, /not registered with any/i];
+const UNSOURCED_NEGATIVE: RegExp[] = [
+  /not (currently )?registered with/i,
+  /not registered with any/i,
+  // Hyphenated / abbreviated forms, e.g. "Not SFDA/MOHAP-registered",
+  // "Not Health Canada NPN-registered", "Not HSA/NPRA registered".
+  /\bnot\b[^.]{0,40}\b(SFDA|MOHAP|HSA|NPRA|BPOM|VFA|COFEPRIS|ANVISA|ANMAT|INVIMA|DIGEMID|NPN|Health Canada)\b[^.]{0,30}\b(registered|licensed)\b/i,
+  /not formally registered/i,
+  /not been (formally )?registered/i,
+];
 
 describe('no copy asserts a product is not registered with a regulator', () => {
   test('scanned a non-empty file set', () => {

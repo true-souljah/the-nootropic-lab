@@ -60,13 +60,13 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes Bacopa (300mg at clinical dose), phosphatidylserine (200mg, well above clinical anchor), Alpha-GPC, and additional memory cofactors — the most complete memory-ingredient stack in this review. Plant-based capsules. Caveat: contains caffeine in default formula — choose the caffeine-free variant where offered. 7+ capsules/day and the $159 USD list price are real friction points. Not SFDA/MOHAP-registered, and Qualia does not ship to any GCC state (brand shipping page, checked 2026-09-28).',
+      'Includes Bacopa (300mg at clinical dose), phosphatidylserine (200mg, well above clinical anchor), Alpha-GPC, and additional memory cofactors — the most complete memory-ingredient stack in this review. Plant-based capsules. Caveat: contains caffeine in default formula — choose the caffeine-free variant where offered. 7+ capsules/day and the $159 USD list price are real friction points. We have not verified a product registration with the Saudi Food and Drug Authority (SFDA) or the Ministry of Health and Prevention (MOHAP), and Qualia does not ship to any GCC state (brand shipping page, checked 2026-09-28).',
   },
   {
     product: productsGCC.find(p => p.slug === 'eu-yan-sang-brainmax-review')!,
     rank: 3,
     whyItsHere:
-      'Cera-Q (silk fibroin protein) is clinically studied for memory recall and learning at 200mg; Eu Yan Sang BrainMAX+ lists 600mg per sachet. Combined with Goji Berry (146mg) and Chinese Wild Ginseng (37mg). From a 145-year-old TCM heritage brand based in Singapore. Caffeine-free powder sachets, so there is no capsule shell to check. Sold on Eu Yan Sang\'s Singapore storefront; delivery to GCC addresses was not confirmed in our 2026-09-28 check. Note: silk fibroin sourcing uses cocoons; observant buyers concerned about insect-derived ingredients should be aware. Not SFDA/MOHAP-registered.',
+      'Cera-Q (silk fibroin protein) is clinically studied for memory recall and learning at 200mg; Eu Yan Sang BrainMAX+ lists 600mg per sachet. Combined with Goji Berry (146mg) and Chinese Wild Ginseng (37mg). From a 145-year-old TCM heritage brand based in Singapore. Caffeine-free powder sachets, so there is no capsule shell to check. Sold on Eu Yan Sang\'s Singapore storefront; delivery to GCC addresses was not confirmed in our 2026-09-28 check. Note: silk fibroin sourcing uses cocoons; observant buyers concerned about insect-derived ingredients should be aware. We have not verified an SFDA or MOHAP product registration.',
   },
   {
     product: productsGCC.find(p => p.slug === 'nootropics-depot-lions-mane')!,
@@ -83,7 +83,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Which of these are SFDA-registered or MOHAP-registered?',
-    a: 'None of the picks on this page are. The international brands here (Mind Lab Pro, Qualia Mind, Eu Yan Sang BrainMAX+, Nootropics Depot) are not formally registered with SFDA or MOHAP and enter the region as personal-use dietary supplements. Verify import status with your local authority before ordering. iHerb\'s Saudi-compliant DC handles import paperwork for many international supplements.',
+    a: 'We have not verified an SFDA or MOHAP registration for any of the picks on this page. The international brands here (Mind Lab Pro, Qualia Mind, Eu Yan Sang BrainMAX+, Nootropics Depot) enter the region as personal-use dietary supplements. Verify import status with your local authority before ordering. iHerb\'s Saudi-compliant DC handles import paperwork for many international supplements.',
   },
   {
     q: 'What is the most evidence-backed nootropic for memory?',
