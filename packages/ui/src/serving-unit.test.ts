@@ -53,12 +53,12 @@ describe('templates — no hard-coded capsule wording for capsulesPerServing', (
 });
 
 const EXPECTED_UNITS: Record<'en' | 'ja', Record<ProductForm, string>> = {
-  en: { capsule: 'caps', tablet: 'tablets', sachet: 'sachets', shot: 'shots' },
-  ja: { capsule: 'カプセル', tablet: '錠', sachet: '包', shot: '本' },
+  en: { capsule: 'caps', tablet: 'tablets', sachet: 'sachets', shot: 'shots', powder: 'scoops' },
+  ja: { capsule: 'カプセル', tablet: '錠', sachet: '包', shot: '本', powder: 'スクープ' },
 };
 const EXPECTED_SINGULAR: Record<'en' | 'ja', Record<ProductForm, string>> = {
-  en: { capsule: 'cap', tablet: 'tablet', sachet: 'sachet', shot: 'shot' },
-  ja: { capsule: 'カプセル', tablet: '錠', sachet: '包', shot: '本' },
+  en: { capsule: 'cap', tablet: 'tablet', sachet: 'sachet', shot: 'shot', powder: 'scoop' },
+  ja: { capsule: 'カプセル', tablet: '錠', sachet: '包', shot: '本', powder: 'スクープ' },
 };
 
 describe('servingUnit / servingAmount', () => {
@@ -78,6 +78,13 @@ describe('servingUnit / servingAmount', () => {
   it('absent form defaults to capsule', () => {
     expect(servingAmount({ capsulesPerServing: 2 }, getStrings('en'))).toBe('2 caps');
     expect(servingAmount({ capsulesPerServing: 2 }, getStrings('ja'))).toBe('2 カプセル');
+  });
+
+  it('powder (drink-powder scoops) renders "1 scoop" / "2 scoops", never capsule wording', () => {
+    const en = getStrings('en');
+    expect(servingAmount({ form: 'powder', capsulesPerServing: 1 }, en)).toBe('1 scoop');
+    expect(servingAmount({ form: 'powder', capsulesPerServing: 2 }, en)).toBe('2 scoops');
+    expect(en.productDetail.meta.productDescriptorByForm.powder).toBe('daily nootropic drink powder');
   });
 
   it('a zero count renders "—", never "0 …"', () => {
@@ -130,7 +137,9 @@ describe('product data — form', () => {
   it('formProblem rejects unknown values and the record rules surface it', () => {
     expect(formProblem(undefined)).toBeNull();
     for (const form of PRODUCT_FORMS) expect(formProblem(form)).toBeNull();
-    expect(formProblem('powder')).toMatch(/^form is not one of/);
+    // 'powder' became an allowed form in 2026-10 (Pre Lab Pro is a scoop powder).
+    expect(formProblem('powder')).toBeNull();
+    expect(formProblem('gummy')).toMatch(/^form is not one of/);
     expect(formProblem('')).toMatch(/^form is not one of/);
     expect(formProblem(null)).toMatch(/^form is not one of/);
     const base = allProductsUS[0];
@@ -143,6 +152,7 @@ describe('product data — form', () => {
     ['sea', 'eu-yan-sang-brainmax-review', 'sachet', 1],
     ['jp', 'fancl-brains-review', 'tablet', 4],
     ['us', 'trubrain-review', 'shot', 1],
+    ['us', 'pre-lab-pro-review', 'powder', 1],
   ] as const)('%s/%s is a %s product (%i per serving)', (region, slug, form, count) => {
     const record = CATALOGUES[region].find((p) => p.slug === slug);
     expect(record, `${region}/${slug} missing`).toBeDefined();
