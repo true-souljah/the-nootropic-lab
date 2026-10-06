@@ -9,6 +9,7 @@ import {
   gaInitScript,
   gtagSrc,
   isAnalyticsActive,
+  needsReloadAfterWithdrawal,
 } from './analytics-consent';
 
 // Consent regression guard (portfolio consent audit 2026-09-29, operator
@@ -176,6 +177,133 @@ describe('Klaro configuration', () => {
     expect(t.ok).toBe(t.acceptAll);
     expect(t.ok).toMatch(ACCEPT_RE);
     expect(t.decline).toBeTruthy();
+  });
+});
+
+// Operator decision 6 (2026-10-06): affiliate attribution (Impact.com) is its
+// own consent purpose, separate from Analytics (GA4) — Cyprus cookie guidance:
+// visitors must be able to choose each purpose freely. On origin/main both
+// services shared the single "statistics" purpose, so analytics consent also
+// loaded Impact.
+describe('separate consent purposes: Analytics vs Affiliate attribution (decision 6)', () => {
+  const svc = (name: string) => klaroConfig.services.find((s) => s.name === name)!;
+  type Tree = Record<string, unknown>;
+  const translations = klaroConfig.translations as Record<string, Tree>;
+  const LOCALES = ['en', 'es', 'de', 'fr', 'fr-CA', 'pt', 'ja'];
+  const get = (tree: Tree, path: string): unknown =>
+    path.split('.').reduce<unknown>((o, k) => (o && typeof o === 'object' ? (o as Tree)[k] : undefined), tree);
+
+  it('GA is the statistics purpose only; Impact is the affiliate purpose only', () => {
+    expect(svc('google-analytics').purposes).toEqual(['statistics']);
+    expect(svc('impact-com').purposes).toEqual(['affiliate']);
+  });
+
+  it('withdrawing a purpose whose tracker runs on this page reloads; nothing else does', () => {
+    const gaRunning = { __nlGa: { id: 'G-X', active: true } };
+    const impactRunning = { impactStat: () => undefined };
+    const both = { ...gaRunning, ...impactRunning };
+    expect(needsReloadAfterWithdrawal({ 'google-analytics': false }, gaRunning)).toBe(true);
+    expect(needsReloadAfterWithdrawal({ 'impact-com': false }, impactRunning)).toBe(true);
+    expect(needsReloadAfterWithdrawal({ 'impact-com': false }, gaRunning)).toBe(false); // Impact never ran
+    expect(needsReloadAfterWithdrawal({ 'google-analytics': false }, impactRunning)).toBe(false); // GA never ran
+    expect(needsReloadAfterWithdrawal({ 'google-analytics': true, 'impact-com': true }, both)).toBe(false); // granting
+    expect(needsReloadAfterWithdrawal({}, both)).toBe(false); // re-saved, nothing changed
+    expect(needsReloadAfterWithdrawal(undefined, both)).toBe(false);
+    expect(needsReloadAfterWithdrawal({ 'impact-com': false }, undefined)).toBe(false);
+  });
+
+  it('the Klaro save watcher reloads after the decline handlers ran', () => {
+    const src = readFileSync(join(SRC, 'CookieBanner.tsx'), 'utf8');
+    expect(src).toMatch(/needsReloadAfterWithdrawal\(data\?\.changes, window\)/);
+    expect(src).toMatch(/setTimeout\(\(\) => window\.location\.reload\(\), 0\)/);
+  });
+
+  it('every optional service is off by default and not required', () => {
+    for (const s of klaroConfig.services) {
+      expect(s.default, s.name).toBe(false);
+      expect(s.required, s.name).toBe(false);
+    }
+    expect(klaroConfig.default).toBe(false);
+  });
+
+  it('the modal lists the two purposes in a fixed order', () => {
+    expect(klaroConfig.purposeOrder).toEqual(['statistics', 'affiliate']);
+  });
+
+  it('ships all 7 locales', () => {
+    expect(Object.keys(translations).filter((k) => k !== 'zz').sort()).toEqual([...LOCALES].sort());
+  });
+
+  // Every key the Klaro notice and modal render, set explicitly per locale
+  // instead of relying on Klaro's bundled defaults.
+  const RENDERED_KEYS = [
+    'consentNotice.title', 'consentNotice.description', 'consentNotice.learnMore',
+    'consentModal.title', 'consentModal.description',
+    'acceptAll', 'acceptSelected', 'decline', 'ok', 'save', 'close',
+    'privacyPolicy.name', 'privacyPolicy.text',
+    'purposes.statistics.title', 'purposes.statistics.description',
+    'purposes.affiliate.title', 'purposes.affiliate.description',
+    'purposeItem.service', 'purposeItem.services',
+    'service.disableAll.title', 'service.disableAll.description',
+    'service.required.title', 'service.required.description',
+    'service.purpose', 'service.purposes',
+  ];
+  it.each(LOCALES)('%s: every notice/modal string is present', (lang) => {
+    for (const key of RENDERED_KEYS) {
+      const v = get(translations[lang]!, key);
+      expect(typeof v === 'string' && v.trim().length > 0, `${lang}: ${key}`).toBe(true);
+    }
+  });
+
+  it.each(LOCALES.filter((l) => l !== 'en'))('%s: purpose titles/descriptions and the notice are translated', (lang) => {
+    for (const key of ['purposes.statistics.title', 'purposes.affiliate.title', 'purposes.affiliate.description', 'consentNotice.description', 'consentModal.description', 'service.disableAll.title']) {
+      expect(get(translations[lang]!, key), `${lang}: ${key}`).not.toBe(get(translations.en!, key));
+    }
+  });
+
+  it.each(LOCALES)('%s: the first-layer notice names both purposes', (lang) => {
+    const t = translations[lang]!;
+    const desc = String(get(t, 'consentNotice.description'));
+    expect(desc).toContain(String(get(t, 'purposes.statistics.title')));
+    expect(desc).toContain(String(get(t, 'purposes.affiliate.title')));
+  });
+
+  it.each(['google-analytics', 'impact-com'])('%s: title + a translated description in every locale', (name) => {
+    const tr = svc(name).translations;
+    expect(tr.zz?.title).toBeTruthy();
+    for (const lang of LOCALES) {
+      expect(tr[lang]?.description, `${name} ${lang}`).toBeTruthy();
+      if (lang !== 'en') expect(tr[lang]?.description, `${name} ${lang}`).not.toBe(tr.en?.description);
+    }
+    // Klaro prefers a service-level title/description over its translations.
+    expect(svc(name)).not.toHaveProperty('title');
+    expect(svc(name)).not.toHaveProperty('description');
+  });
+
+  // Cookie policies list cookies grouped by purpose: one CookieTable per
+  // purpose, GA cookies only under Analytics, Impact cookies only under
+  // Affiliate attribution. en = shared template, es = LATAM's own page.
+  const POLICIES: [string, string, RegExp, RegExp][] = [
+    ['templates/PolicyPage.tsx', 'en', /^Analytics\b/, /^Affiliate attribution\b/],
+    [join('..', '..', '..', 'apps', 'latam', 'src', 'app', 'cookie-policy', 'page.tsx'), 'es', /^Análisis\b/, /^Atribución de afiliados\b/],
+  ];
+  it.each(POLICIES)('%s (%s): cookies grouped by purpose', (rel, _lang, analyticsHead, affiliateHead) => {
+    const src = readFileSync(join(SRC, rel), 'utf8');
+    const tables = src.split('<CookieTable').slice(1).map((chunk) => {
+      const body = chunk.slice(0, chunk.indexOf('/>'));
+      return { heading: body.match(/heading="([^"]+)"/)?.[1] ?? '', body };
+    });
+    expect(tables.length, rel).toBe(3);
+    const analytics = tables.filter((t) => analyticsHead.test(t.heading));
+    const affiliate = tables.filter((t) => affiliateHead.test(t.heading));
+    expect(analytics).toHaveLength(1);
+    expect(affiliate).toHaveLength(1);
+    expect(analytics[0]!.body).toMatch(/'_ga'/);
+    expect(analytics[0]!.body).not.toMatch(/IR_/);
+    expect(affiliate[0]!.body).toMatch(/'IR_MPI'/);
+    expect(affiliate[0]!.body).not.toMatch(/_ga/);
+    const necessary = tables.find((t) => t !== analytics[0] && t !== affiliate[0])!;
+    expect(necessary.body).toMatch(/'klaro'/);
   });
 });
 

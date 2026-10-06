@@ -38,8 +38,8 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'DHA (Docosahexaenoic Acid) — FFC-notified in Japan',
     evidence:
-      'DHA is the most-notified functional ingredient under Japan\'s FFC system, with claims around memory support in middle-aged and older adults. The brain is approximately 60% fat by dry weight and DHA is its primary structural omega-3. Clinical doses of 500mg+/day across 12+ weeks. Suntory and FANCL are the dominant Japanese DHA brands.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22932089/',
+      'DHA is the most-notified functional ingredient under Japan\'s FFC system, with claims around memory support in middle-aged and older adults. The brain is approximately 60% fat by dry weight and DHA is its primary structural omega-3. The positive memory trials we reviewed used 900mg–1.2g DHA/day for 24 weeks or longer (see our DHA ingredient page). Suntory and FANCL are the dominant Japanese DHA brands.',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20434961/',
   },
   {
     name: 'Phosphatidylserine (PS)',

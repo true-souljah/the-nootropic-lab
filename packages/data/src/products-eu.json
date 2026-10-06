@@ -568,8 +568,8 @@
       {
         "name": "Acetyl-L-Carnitine (ALCAR)",
         "doseInProduct": "500mg",
-        "clinicalDose": "500-2000mg",
-        "adequatelyDosed": true
+        "clinicalDose": "1500-3000mg/day",
+        "adequatelyDosed": false
       },
       {
         "name": "Caffeine anhydrous",

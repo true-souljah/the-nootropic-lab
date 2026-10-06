@@ -20,7 +20,7 @@ export interface PolicyPageProps {
 
 const LAST_UPDATED = 'January 15, 2026';
 
-const POLICY_UPDATED = 'October 5, 2026';
+const POLICY_UPDATED = 'October 6, 2026';
 
 const GA_COOKIE_DOC = 'https://support.google.com/analytics/answer/11397207';
 const IMPACT_COOKIE_DOC =
@@ -29,6 +29,59 @@ const IMPACT_COOKIE_DOC =
 const TH = 'px-3 py-2 font-semibold text-gray-700';
 const TD = 'px-3 py-2 text-gray-700 align-top';
 const TD_NAME = 'px-3 py-2 text-gray-900 font-medium align-top';
+
+export interface CookieTableLabels {
+  cookie: string;
+  setBy: string;
+  role: string;
+  duration: string;
+}
+
+const COOKIE_TABLE_LABELS_EN: CookieTableLabels = {
+  cookie: 'Cookie',
+  setBy: 'Set by',
+  role: 'What it does',
+  duration: 'Duration',
+};
+
+export interface CookieTableProps {
+  /** The consent purpose these cookies serve (one table per purpose). */
+  heading: string;
+  labels: CookieTableLabels;
+  /** [name, set by, what it does, duration] */
+  rows: [string, string, string, string][];
+}
+
+/** The cookies of ONE consent purpose: a heading plus a name / set-by / role / duration table. */
+export function CookieTable({ heading, labels, rows }: CookieTableProps) {
+  return (
+    <div className="mb-6">
+      <h3 className="text-base font-semibold text-gray-900 mb-2">{heading}</h3>
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm border-collapse">
+          <thead>
+            <tr className="bg-gray-100 text-left">
+              <th className={TH}>{labels.cookie}</th>
+              <th className={TH}>{labels.setBy}</th>
+              <th className={TH}>{labels.role}</th>
+              <th className={TH}>{labels.duration}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map(([name, setBy, role, duration], i) => (
+              <tr key={name} className={`border-b border-gray-100${i % 2 ? ' bg-gray-50' : ''}`}>
+                <td className={TD_NAME}>{name}</td>
+                <td className={TD}>{setBy}</td>
+                <td className={TD}>{role}</td>
+                <td className={TD}>{duration}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
 
 function CookiePolicyBody() {
   return (
@@ -49,80 +102,46 @@ function CookiePolicyBody() {
         <section>
           <h2 className="text-xl font-bold text-gray-900 mb-3">Nothing Optional Runs Before You Choose</h2>
           <p className="text-gray-700 leading-relaxed">
-            On your first visit a consent banner offers <strong>Accept all</strong> and{' '}
-            <strong>Decline all</strong> side by side. Until you click Accept, no analytics or
-            affiliate-tracking script is loaded and no request is sent to Google or Impact.com.
-            If you decline, nothing optional is loaded and we remember your refusal for exactly as
-            long as we would remember an acceptance (365 days).
+            The optional cookies serve two separate purposes, and you decide on each one
+            separately: <strong>Analytics</strong> (Google Analytics 4) and{' '}
+            <strong>Affiliate attribution</strong> (Impact.com). On your first visit a consent
+            banner offers <strong>Accept all</strong> and <strong>Decline all</strong> side by
+            side, plus <strong>Configure</strong>, where each purpose has its own switch (both off
+            until you switch them on). A purpose&apos;s script loads, and its cookies are set, only
+            if you allow that purpose: allowing Analytics never loads Impact.com, and allowing
+            Affiliate attribution never loads Google Analytics. Until you choose, no request is sent
+            to Google or Impact.com. If you decline, nothing optional is loaded and we remember your
+            refusal for exactly as long as we would remember an acceptance (365 days).
           </p>
         </section>
 
         <section>
-          <h2 className="text-xl font-bold text-gray-900 mb-3">Cookies We Use</h2>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm border-collapse mb-4">
-              <thead>
-                <tr className="bg-gray-100 text-left">
-                  <th className={TH}>Cookie</th>
-                  <th className={TH}>Category</th>
-                  <th className={TH}>Set by</th>
-                  <th className={TH}>Purpose</th>
-                  <th className={TH}>Duration</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b border-gray-100">
-                  <td className={TD_NAME}>klaro</td>
-                  <td className={TD}>Strictly necessary</td>
-                  <td className={TD}>This site (consent manager)</td>
-                  <td className={TD}>Stores your consent choice: which services you accepted or declined.</td>
-                  <td className={TD}>365 days</td>
-                </tr>
-                <tr className="border-b border-gray-100 bg-gray-50">
-                  <td className={TD_NAME}>_ga</td>
-                  <td className={TD}>Analytics (only after Accept)</td>
-                  <td className={TD}>Google Analytics 4 (Google), first-party cookie</td>
-                  <td className={TD}>Distinguishes visitors so we can count how many people read each page.</td>
-                  <td className={TD}>2 years</td>
-                </tr>
-                <tr className="border-b border-gray-100">
-                  <td className={TD_NAME}>_ga_&lt;container-id&gt;</td>
-                  <td className={TD}>Analytics (only after Accept)</td>
-                  <td className={TD}>Google Analytics 4 (Google), first-party cookie</td>
-                  <td className={TD}>Keeps track of the current visit (session state).</td>
-                  <td className={TD}>2 years</td>
-                </tr>
-                <tr className="border-b border-gray-100 bg-gray-50">
-                  <td className={TD_NAME}>IR_MPI</td>
-                  <td className={TD}>Affiliate attribution (only after Accept)</td>
-                  <td className={TD}>Impact.com, first-party cookie</td>
-                  <td className={TD}>Random visitor ID used by Impact.com&apos;s tracking tag so a purchase on a partner site can be credited to this site.</td>
-                  <td className={TD}>Persistent (400 days in Chrome, the browser maximum)</td>
-                </tr>
-                <tr className="border-b border-gray-100">
-                  <td className={TD_NAME}>IR_MPS</td>
-                  <td className={TD}>Affiliate attribution (only after Accept)</td>
-                  <td className={TD}>Impact.com, first-party cookie</td>
-                  <td className={TD}>Current-visit record used by Impact.com&apos;s tracking tag.</td>
-                  <td className={TD}>Session</td>
-                </tr>
-                <tr className="border-b border-gray-100 bg-gray-50">
-                  <td className={TD_NAME}>IR_gbd</td>
-                  <td className={TD}>Affiliate attribution (only after Accept)</td>
-                  <td className={TD}>Impact.com, first-party cookie</td>
-                  <td className={TD}>Records the base domain for Impact.com&apos;s tracking tag.</td>
-                  <td className={TD}>Session</td>
-                </tr>
-                <tr className="border-b border-gray-100">
-                  <td className={TD_NAME}>IR_PI, IR_&lt;campaign-id&gt;</td>
-                  <td className={TD}>Affiliate attribution (only after Accept)</td>
-                  <td className={TD}>Impact.com, first-party cookies</td>
-                  <td className={TD}>Other attribution cookies Impact.com documents for its tracking tag; they may be set when you follow a partner link.</td>
-                  <td className={TD}>365 days / Session</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <h2 className="text-xl font-bold text-gray-900 mb-3">Cookies We Use, by Purpose</h2>
+          <CookieTable
+            heading="Strictly necessary (always active)"
+            labels={COOKIE_TABLE_LABELS_EN}
+            rows={[
+              ['klaro', 'This site (consent manager)', 'Stores your consent choice for each purpose: which services you allowed or declined.', '365 days'],
+            ]}
+          />
+          <CookieTable
+            heading="Analytics: Google Analytics 4 (only if you allow Analytics)"
+            labels={COOKIE_TABLE_LABELS_EN}
+            rows={[
+              ['_ga', 'Google Analytics 4 (Google), first-party cookie', 'Distinguishes visitors so we can count how many people read each page.', '2 years'],
+              ['_ga_<container-id>', 'Google Analytics 4 (Google), first-party cookie', 'Keeps track of the current visit (session state).', '2 years'],
+            ]}
+          />
+          <CookieTable
+            heading="Affiliate attribution: Impact.com (only if you allow Affiliate attribution)"
+            labels={COOKIE_TABLE_LABELS_EN}
+            rows={[
+              ['IR_MPI', 'Impact.com, first-party cookie', 'Random visitor ID used by Impact.com’s tracking tag so a purchase on a partner site can be credited to this site.', 'Persistent (400 days in Chrome, the browser maximum)'],
+              ['IR_MPS', 'Impact.com, first-party cookie', 'Current-visit record used by Impact.com’s tracking tag.', 'Session'],
+              ['IR_gbd', 'Impact.com, first-party cookie', 'Records the base domain for Impact.com’s tracking tag.', 'Session'],
+              ['IR_PI, IR_<campaign-id>', 'Impact.com, first-party cookies', 'Other attribution cookies Impact.com documents for its tracking tag; they may be set when you follow a partner link.', '365 days / Session'],
+            ]}
+          />
           <p className="text-gray-700 leading-relaxed">
             Durations are the providers&apos; defaults; browsers may shorten them (Google notes a
             maximum of 400 days in Chrome and 7 days in Safari):{' '}
@@ -165,9 +184,12 @@ function CookiePolicyBody() {
           <ul className="list-disc list-inside text-gray-700 space-y-2">
             <li>
               <strong>On our site:</strong> use the <strong>Cookie settings</strong> link at the
-              bottom of every page to reopen the consent manager and switch any service on or off
-              at any time. Withdrawing stops Google Analytics on the page and deletes its cookies
-              (and Impact.com&apos;s) from this site.
+              bottom of every page to reopen the consent banner: <strong>Decline all</strong>{' '}
+              withdraws both purposes, and <strong>Configure</strong> lets you switch off one
+              purpose only. Withdrawing Analytics stops Google Analytics on the page and deletes its
+              cookies (<code>_ga</code>, <code>_ga_&lt;container-id&gt;</code>); withdrawing
+              Affiliate attribution deletes Impact.com&apos;s cookies (<code>IR_*</code>). The other
+              purpose stays as you chose it.
             </li>
             <li>
               <strong>In your browser:</strong> you can delete or block cookies in your browser
@@ -289,8 +311,8 @@ function PrivacyPolicyBody() {
           <h2 className="text-xl font-bold text-gray-900 mb-3">2. Data We Collect</h2>
           <p className="text-gray-700 leading-relaxed mb-3">We collect minimal data:</p>
           <ul className="list-disc list-inside text-gray-700 space-y-1">
-            <li><strong>Analytics data</strong> (only after you click Accept on the consent banner): page views, referrer, device type, country. Collected via Google Analytics 4. No personally identifiable information is collected. Advertising features are disabled, and data is not used for personalized advertising or sold to third parties.</li>
-            <li><strong>Affiliate attribution data</strong> (only after you click Accept): Impact.com&apos;s tracking tag stores a random ID so a purchase made on a partner site after clicking our link can be credited to us.</li>
+            <li><strong>Analytics data</strong> (only if you allow the Analytics purpose on the consent banner): page views, referrer, device type, country. Collected via Google Analytics 4. No personally identifiable information is collected. Advertising features are disabled, and data is not used for personalized advertising or sold to third parties.</li>
+            <li><strong>Affiliate attribution data</strong> (only if you allow the Affiliate attribution purpose, which is separate from Analytics): Impact.com&apos;s tracking tag stores a random ID so a purchase made on a partner site after clicking our link can be credited to us.</li>
             <li><strong>Cookie consent preference:</strong> stored in the <code className="bg-gray-100 px-1 rounded text-xs">klaro</code> cookie for 365 days to remember your choice (acceptance and refusal are kept for the same time).</li>
             <li><strong>Affiliate click data:</strong> when you click an affiliate link, the destination site may set its own tracking cookies. We do not control third-party cookies.</li>
           </ul>
@@ -310,15 +332,17 @@ function PrivacyPolicyBody() {
           <h2 className="text-xl font-bold text-gray-900 mb-3">4. Cookies</h2>
           <p className="text-gray-700 leading-relaxed">
             We use one <strong>necessary cookie</strong> (<code className="bg-gray-100 px-1 rounded text-xs">klaro</code>,
-            your consent choice, 365 days) which is always active, and optional{' '}
-            <strong>analytics and affiliate-attribution cookies</strong> (Google Analytics 4:{' '}
-            <code className="bg-gray-100 px-1 rounded text-xs">_ga</code>,{' '}
-            <code className="bg-gray-100 px-1 rounded text-xs">_ga_&lt;container-id&gt;</code>;
-            Impact.com: <code className="bg-gray-100 px-1 rounded text-xs">IR_*</code>) which are only
-            set after you click &quot;Accept all&quot; on our consent banner. Nothing optional loads before
-            you choose. You can decline with no impact on site functionality, and change or withdraw
-            your choice at any time via the &quot;Cookie settings&quot; link at the bottom of every page.
-            See our <a href="/cookie-policy" className="text-green-700 underline">Cookie Policy</a> for
+            your consent choice, 365 days) which is always active, and optional cookies for two
+            separate purposes that you choose individually: <strong>Analytics</strong> (Google
+            Analytics 4: <code className="bg-gray-100 px-1 rounded text-xs">_ga</code>,{' '}
+            <code className="bg-gray-100 px-1 rounded text-xs">_ga_&lt;container-id&gt;</code>) and{' '}
+            <strong>Affiliate attribution</strong> (Impact.com:{' '}
+            <code className="bg-gray-100 px-1 rounded text-xs">IR_*</code>). Each is set only after
+            you allow its purpose on our consent banner (&quot;Accept all&quot;, or that purpose under
+            &quot;Configure&quot;). Nothing optional loads before you choose. You can decline with no
+            impact on site functionality, and change or withdraw your choice for each purpose at any
+            time via the &quot;Cookie settings&quot; link at the bottom of every page. See our{' '}
+            <a href="/cookie-policy" className="text-green-700 underline">Cookie Policy</a> for
             names, purposes and durations.
           </p>
         </section>
@@ -338,10 +362,10 @@ function PrivacyPolicyBody() {
           <p className="text-gray-700 leading-relaxed">
             This site is hosted on Cloudflare Pages. Cloudflare may collect standard web server
             logs (IP address, user agent, timestamps) as part of their infrastructure; we do not
-            use Cloudflare Web Analytics. After you accept on our consent banner, we use{' '}
-            <strong>Google Analytics 4</strong> to measure site usage (personalized-advertising
-            features off) and <strong>Impact.com</strong>&apos;s tracking tag to attribute affiliate
-            purchases. We do not use Facebook Pixel or any advertising-tracking services. See
+            use Cloudflare Web Analytics. Only for the purposes you allow on our consent banner, we
+            use <strong>Google Analytics 4</strong> to measure site usage (Analytics;
+            personalized-advertising features off) and <strong>Impact.com</strong>&apos;s tracking tag
+            to attribute affiliate purchases (Affiliate attribution). We do not use Facebook Pixel or any advertising-tracking services. See
             Cloudflare&apos;s, Google&apos;s and Impact.com&apos;s respective privacy policies for details.
           </p>
         </section>
