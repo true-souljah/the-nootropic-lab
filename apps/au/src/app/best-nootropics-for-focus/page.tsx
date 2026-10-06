@@ -92,7 +92,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Where can I buy these in Australia?',
-    a: 'These products are not stocked at Chemist Warehouse, Priceline, Amcal, or Blooms — Australian pharmacy chains carry only TGA-listed therapeutic goods. The picks on this page are direct-to-consumer brands that ship to Australia via the Personal Importation Scheme. Order direct from the manufacturer. Delivery estimates vary by brand; check the estimate for Australia at checkout.',
+    a: 'These products are not stocked at Chemist Warehouse, Priceline, Amcal, or Blooms; Australian pharmacy chains stock listed medicines, while the picks on this page are sold direct by brands that ship to Australia via the Personal Importation Scheme. Order direct from the manufacturer. Delivery estimates vary by brand; check the estimate for Australia at checkout.',
   },
   {
     q: 'Do I pay GST on these imports?',
