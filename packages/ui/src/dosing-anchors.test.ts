@@ -72,6 +72,27 @@ describe('dosingAnchorProblems', () => {
       expect(problemsFor(row({ name, clinicalDose: 'anything', adequatelyDosed: true }))).toEqual([]);
     },
   );
+
+  // Plain L-carnitine has a different evidence base from ALCAR, so the ALCAR
+  // anchor must not govern it.
+  test.each(['L-Carnitine', 'L-Carnitine Tartrate'])(
+    'plain L-carnitine (%s) is not held to the ALCAR anchor → 0 problems',
+    (name) => {
+      expect(problemsFor(row({ name, clinicalDose: '500-2000mg', adequatelyDosed: true }))).toEqual([]);
+    },
+  );
+
+  test.each([
+    'Acetyl L-Carnitine (from ALCAR HCl)',
+    'Acetyl-L-Carnitine (from ALCAR HCl)',
+    'Acetyl-L-Carnitine (ALCAR)',
+    'Acetyl-L-Carnitine',
+    'ALCAR',
+  ])('an ALCAR row (%s) with the wrong clinicalDose → 1 problem', (name) => {
+    const problems = problemsFor(row({ name, clinicalDose: '500-2000mg' }));
+    expect(problems).toHaveLength(1);
+    expect(problems[0]).toContain('acetyl-l-carnitine anchor');
+  });
 });
 
 describe('catalogue rows follow DOSING_ANCHORS', () => {

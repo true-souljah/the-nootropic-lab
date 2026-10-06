@@ -8,7 +8,9 @@
 // anchor's `clinicalDose` string and an `adequatelyDosed` verdict derived from
 // it. Enforced by scripts/validate-data.ts (no grandfather list) and unit-tested
 // in packages/ui/src/dosing-anchors.test.ts, which also pins each anchor to its
-// evidence page so the two cannot drift apart.
+// evidence page so the two cannot drift apart. The ALCAR anchor deliberately
+// excludes plain L-carnitine ("L-Carnitine", "L-Carnitine Tartrate"): it has a
+// different evidence base.
 import type { Product } from './products-us';
 
 export interface DosingAnchor {
@@ -23,7 +25,7 @@ export interface DosingAnchor {
 }
 
 export const DOSING_ANCHORS: readonly DosingAnchor[] = [
-  { ingredientSlug: 'acetyl-l-carnitine', match: /carnitine|\bALCAR\b/i, clinicalDose: '1500-3000mg/day', minMg: 1500 },
+  { ingredientSlug: 'acetyl-l-carnitine', match: /acetyl[-\s]?l[-\s]?carnitine|\bALCAR\b/i, clinicalDose: '1500-3000mg/day', minMg: 1500 },
   { ingredientSlug: 'dha-omega-3', match: /\bDHA\b/i, clinicalDose: '900mg-1.2g DHA/day', minMg: 900 },
 ];
 
