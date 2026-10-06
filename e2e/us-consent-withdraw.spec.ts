@@ -42,6 +42,120 @@ for (const choice of ['Decline all', 'Accept all'] as const) {
   });
 }
 
+// Operator decision 6 (2026-10-06): Analytics (GA4) and Affiliate attribution
+// (Impact.com) are separate purposes. Tracker requests are aborted (above) but
+// still observed, so these assert which tracker each choice tries to load.
+const GA_RE = /googletagmanager\.com|google-analytics\.com/;
+const IMPACT_RE = /impactcdn\.com|impact\.com/;
+
+async function trackerLog(page: import('@playwright/test').Page) {
+  const urls: string[] = [];
+  page.on('request', (r) => {
+    if (GA_RE.test(r.url()) || IMPACT_RE.test(r.url())) urls.push(r.url());
+  });
+  return {
+    ga: () => urls.some((u) => GA_RE.test(u)),
+    impact: () => urls.some((u) => IMPACT_RE.test(u)),
+    clear: () => urls.splice(0),
+  };
+}
+
+async function klaroConsents(page: import('@playwright/test').Page) {
+  const c = (await page.context().cookies()).find((k) => k.name === 'klaro');
+  return c ? (JSON.parse(decodeURIComponent(c.value)) as Record<string, boolean>) : null;
+}
+
+/** Configure → set each purpose switch → "Accept selected". */
+async function choosePurposes(page: import('@playwright/test').Page, want: { statistics: boolean; affiliate: boolean }) {
+  await page.locator('#klaro .cookie-notice .cn-learn-more').click();
+  for (const [purpose, on] of Object.entries(want)) {
+    const input = page.locator(`#purpose-item-${purpose}`);
+    await expect(input).toBeAttached();
+    if ((await input.isChecked()) !== on) await page.locator(`label[for="purpose-item-${purpose}"]`).click();
+    await expect(input).toBeChecked({ checked: on });
+  }
+  await page.locator('#klaro .cookie-modal .cm-btn-accept').click();
+}
+
+test('Configure shows one switch per purpose, both off by default', async ({ page }) => {
+  await page.goto('/');
+  await page.locator('#klaro .cookie-notice .cn-learn-more').click();
+  await expect(page.locator('#purpose-item-statistics')).not.toBeChecked();
+  await expect(page.locator('#purpose-item-affiliate')).not.toBeChecked();
+  await expect(page.locator('#klaro .cookie-modal')).toContainText('Analytics');
+  await expect(page.locator('#klaro .cookie-modal')).toContainText('Affiliate attribution');
+  await expect(page.locator('#klaro .cookie-modal')).not.toContainText('missing translation');
+});
+
+for (const [label, want, expectGa, expectImpact] of [
+  ['analytics only', { statistics: true, affiliate: false }, true, false],
+  ['affiliate attribution only', { statistics: false, affiliate: true }, false, true],
+] as const) {
+  test(`${label}: loads only that purpose's tracker, on this page and the next`, async ({ page }) => {
+    const log = await trackerLog(page);
+    await page.goto('/');
+    await expect(page.locator('#klaro .cookie-notice .cn-learn-more')).toBeVisible({ timeout: 10_000 });
+    expect(log.ga() || log.impact()).toBe(false);
+    await choosePurposes(page, want);
+    await expect.poll(() => log.ga() === expectGa && log.impact() === expectImpact).toBe(true);
+    expect(await klaroConsents(page)).toEqual({ 'google-analytics': want.statistics, 'impact-com': want.affiliate });
+    log.clear();
+    await page.goto('/best-nootropics/');
+    await expect.poll(() => (expectGa ? log.ga() : log.impact())).toBe(true);
+    expect(log.ga()).toBe(expectGa);
+    expect(log.impact()).toBe(expectImpact);
+  });
+}
+
+test('Accept all loads both trackers', async ({ page }) => {
+  const log = await trackerLog(page);
+  await page.goto('/');
+  await page.locator('#klaro .cookie-notice').getByRole('button', { name: 'Accept all' }).click();
+  await expect.poll(() => log.ga() && log.impact()).toBe(true);
+  expect(await klaroConsents(page)).toEqual({ 'google-analytics': true, 'impact-com': true });
+});
+
+test('Decline all loads neither tracker, on this page or the next', async ({ page }) => {
+  const log = await trackerLog(page);
+  await page.goto('/');
+  await page.locator('#klaro .cookie-notice').getByRole('button', { name: 'Decline all' }).click();
+  await page.goto('/best-nootropics/');
+  await page.waitForTimeout(1500);
+  expect(log.ga() || log.impact()).toBe(false);
+  expect(await klaroConsents(page)).toEqual({ 'google-analytics': false, 'impact-com': false });
+});
+
+for (const [purpose, withdrawnCookie, keptCookie] of [
+  ['affiliate', 'IR_MPI', '_ga'],
+  ['statistics', '_ga', 'IR_MPI'],
+] as const) {
+  test(`withdrawing only ${purpose} on the same page deletes its cookies, keeps the other purpose, reloads`, async ({ page }) => {
+    await page.goto('/');
+    await page.locator('#klaro .cookie-notice').getByRole('button', { name: 'Accept all' }).click();
+    await page.reload();
+    const host = new URL(page.url()).hostname;
+    await page.context().addCookies([
+      { name: '_ga', value: 'GA1.1.1.1', domain: host, path: '/' },
+      { name: 'IR_MPI', value: 'x', domain: host, path: '/' },
+    ]);
+    const log = await trackerLog(page);
+    await page.locator('[data-cookie-settings]').first().click();
+    const reloaded = page.waitForEvent('framenavigated');
+    await choosePurposes(page, { statistics: purpose !== 'statistics', affiliate: purpose !== 'affiliate' });
+    await reloaded;
+    await page.waitForLoadState('load');
+    const names = (await page.context().cookies()).map((c) => c.name);
+    expect(names).not.toContain(withdrawnCookie);
+    expect(names).toContain(keptCookie);
+    expect(await klaroConsents(page)).toEqual({ 'google-analytics': purpose !== 'statistics', 'impact-com': purpose !== 'affiliate' });
+    // After the reload only the purpose still allowed loads its tracker.
+    log.clear();
+    await page.reload();
+    await expect.poll(() => (purpose === 'statistics' ? log.impact() : log.ga())).toBe(true);
+    expect(purpose === 'statistics' ? log.ga() : log.impact()).toBe(false);
+  });
+}
+
 test('the homepage links the cookie and privacy policies', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('a[href="/cookie-policy/"]').first()).toBeAttached();

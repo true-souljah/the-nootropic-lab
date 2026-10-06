@@ -16,12 +16,12 @@
 // Klaro stores consent per service (`{"google-analytics":…,"impact-com":…}`),
 // so choices stored before the split keep their meaning unchanged.
 //
-// This build loads `klaro-no-translations`: every string the notice and the
-// modal render must be present in every locale below (see
-// consent-basic-mode.test.ts), or Klaro shows "[missing translation: …]".
-// Service titles/descriptions live in each service's own `translations`
-// (Klaro prefers a service-level `title`/`description` over translations,
-// so those fields are not set directly).
+// Every string the notice and the modal render is set here for every locale
+// (see consent-basic-mode.test.ts) rather than left to Klaro's bundled
+// defaults. Service titles/descriptions live in each service's own
+// `translations`: Klaro prefers a service-level `title`/`description` over
+// translations, so those fields are not set directly (until 2026-10 they were,
+// and the modal showed the English service descriptions in every locale).
 
 import {
   onGoogleAnalyticsAccept,

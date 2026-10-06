@@ -9,6 +9,7 @@ import {
   gaInitScript,
   gtagSrc,
   isAnalyticsActive,
+  needsReloadAfterWithdrawal,
 } from './analytics-consent';
 
 // Consent regression guard (portfolio consent audit 2026-09-29, operator
@@ -197,6 +198,26 @@ describe('separate consent purposes: Analytics vs Affiliate attribution (decisio
     expect(svc('impact-com').purposes).toEqual(['affiliate']);
   });
 
+  it('withdrawing a purpose whose tracker runs on this page reloads; nothing else does', () => {
+    const gaRunning = { __nlGa: { id: 'G-X', active: true } };
+    const impactRunning = { impactStat: () => undefined };
+    const both = { ...gaRunning, ...impactRunning };
+    expect(needsReloadAfterWithdrawal({ 'google-analytics': false }, gaRunning)).toBe(true);
+    expect(needsReloadAfterWithdrawal({ 'impact-com': false }, impactRunning)).toBe(true);
+    expect(needsReloadAfterWithdrawal({ 'impact-com': false }, gaRunning)).toBe(false); // Impact never ran
+    expect(needsReloadAfterWithdrawal({ 'google-analytics': false }, impactRunning)).toBe(false); // GA never ran
+    expect(needsReloadAfterWithdrawal({ 'google-analytics': true, 'impact-com': true }, both)).toBe(false); // granting
+    expect(needsReloadAfterWithdrawal({}, both)).toBe(false); // re-saved, nothing changed
+    expect(needsReloadAfterWithdrawal(undefined, both)).toBe(false);
+    expect(needsReloadAfterWithdrawal({ 'impact-com': false }, undefined)).toBe(false);
+  });
+
+  it('the Klaro save watcher reloads after the decline handlers ran', () => {
+    const src = readFileSync(join(SRC, 'CookieBanner.tsx'), 'utf8');
+    expect(src).toMatch(/needsReloadAfterWithdrawal\(data\?\.changes, window\)/);
+    expect(src).toMatch(/setTimeout\(\(\) => window\.location\.reload\(\), 0\)/);
+  });
+
   it('every optional service is off by default and not required', () => {
     for (const s of klaroConfig.services) {
       expect(s.default, s.name).toBe(false);
@@ -213,8 +234,8 @@ describe('separate consent purposes: Analytics vs Affiliate attribution (decisio
     expect(Object.keys(translations).filter((k) => k !== 'zz').sort()).toEqual([...LOCALES].sort());
   });
 
-  // Every key the Klaro notice and modal render (klaro-no-translations: no
-  // built-in fallback — a missing key renders "[missing translation: …]").
+  // Every key the Klaro notice and modal render, set explicitly per locale
+  // instead of relying on Klaro's bundled defaults.
   const RENDERED_KEYS = [
     'consentNotice.title', 'consentNotice.description', 'consentNotice.learnMore',
     'consentModal.title', 'consentModal.description',
