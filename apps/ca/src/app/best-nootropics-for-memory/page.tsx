@@ -72,7 +72,7 @@ const picks: ListiclePick[] = [
     product: productsCA.find(p => p.slug === 'naturebell-ginkgo-ginseng-review')!,
     rank: 3,
     whyItsHere:
-      'The budget pick — CAD ~$7/month from Amazon.ca with Prime shipping anywhere in Canada. Delivers Ginkgo Biloba at the full Health Canada-monograph clinical dose (120mg, 50:1 extract). Single-mechanism (cerebral blood flow), not a complete memory stack. Best as a cheap addition alongside Mind Lab Pro, or as an entry-point trial. Not Health Canada NPN-registered (imported as personal-use).',
+      'The budget pick — CAD ~$7/month from Amazon.ca with Prime shipping anywhere in Canada. Delivers Ginkgo Biloba at the full Health Canada-monograph clinical dose (120mg, 50:1 extract). Single-mechanism (cerebral blood flow), not a complete memory stack. Best as a cheap addition alongside Mind Lab Pro, or as an entry-point trial. No Health Canada Natural Product Number (NPN) licence verified by us (imported as personal-use).',
   },
   {
     product: productsCA.find(p => p.slug === 'onnit-alpha-brain-review')!,

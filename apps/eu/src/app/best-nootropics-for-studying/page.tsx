@@ -54,7 +54,7 @@ const picks: ListiclePick[] = [
     product: productsEU.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Caffeine-free design pairs perfectly with whatever caffeine source you use during study sessions (coffee, espresso, matcha). Includes L-theanine, Bacopa, citicoline, and L-tyrosine — covers all four study-relevant mechanisms in one open formula. EU distribution centre + EUR pricing (€65/mo). Take daily through the term for cumulative Bacopa effect.',
+      'Caffeine-free design pairs perfectly with whatever caffeine source you use during study sessions (coffee, espresso, matcha). Includes L-theanine, Bacopa, citicoline, and L-tyrosine — covers all four study-relevant mechanisms in one open formula. EUR pricing (€65/mo), with EU orders shipped from a European depot per the brand. Take daily through the term for cumulative Bacopa effect.',
   },
   {
     product: productsEU.find(p => p.slug === 'brainzyme-focus-pro-review')!,

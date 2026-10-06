@@ -54,25 +54,25 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design suits GCC consumers who avoid stimulants. Capsule shell is plant-based HPMC — no porcine gelatin, halal-friendly. mindlabpro.com names Saudi Arabia, the UAE, Qatar and Kuwait among its shipping territories (its FAQ, checked 2026-09-29); Bahrain and Oman are not named on that partial list, so confirm at checkout. Not formally SFDA-registered.',
+      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design suits GCC consumers who avoid stimulants. Capsule shell is plant-based HPMC — no porcine gelatin, halal-friendly. mindlabpro.com names Saudi Arabia, the UAE, Qatar and Kuwait among its shipping territories (its FAQ, checked 2026-09-29); Bahrain and Oman are not named on that partial list, so confirm at checkout. We have not verified a product registration with the Saudi Food and Drug Authority (SFDA) or the Ministry of Health and Prevention (MOHAP).',
   },
   {
     product: productsGCC.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes citicoline, Alpha-GPC, L-theanine, and L-tyrosine — covers nearly every evidence-backed focus mechanism. Plant-based capsules (no pork gelatin). Caveat for GCC buyers: the default formula contains 90mg caffeine per serving — request the caffeine-free variant where offered. Not SFDA/MOHAP-registered, and Qualia does not ship to any GCC state (brand shipping page, checked 2026-09-28). Premium price ($159 list) and 7+ capsules/day are real friction points.',
+      'Includes citicoline, Alpha-GPC, L-theanine, and L-tyrosine — covers nearly every evidence-backed focus mechanism. Plant-based capsules (no pork gelatin). Caveat for GCC buyers: the default formula contains 90mg caffeine per serving — request the caffeine-free variant where offered. We have not verified an SFDA or MOHAP product registration, and Qualia does not ship to any GCC state (brand shipping page, checked 2026-09-28). Premium price ($159 list) and 7+ capsules/day are real friction points.',
   },
   {
     product: productsGCC.find(p => p.slug === 'noocube-review')!,
     rank: 3,
     whyItsHere:
-      'Lutemax 2020 (lutein/zeaxanthin) targets digital eye strain — relevant for the GCC\'s large screen-heavy professional and gaming populations. Includes choline (VitaCholine), L-theanine, and Bacopa. Caffeine-free; capsules use no porcine gelatin. Caveat: the noocube.com Trustpilot profile has no reviews yet — verify cancellation policy before subscribing. Ships to all six GCC states per the brand\'s shipping list (checked 2026-09-28); not SFDA/MOHAP-registered.',
+      'Lutemax 2020 (lutein/zeaxanthin) targets digital eye strain — relevant for the GCC\'s large screen-heavy professional and gaming populations. Includes choline (VitaCholine), L-theanine, and Bacopa. Caffeine-free; capsules use no porcine gelatin. Caveat: the noocube.com Trustpilot profile has no reviews yet — verify cancellation policy before subscribing. Ships to all six GCC states per the brand\'s shipping list (checked 2026-09-28); we have not verified an SFDA or MOHAP product registration.',
   },
   {
     product: productsGCC.find(p => p.slug === 'onnit-alpha-brain-review')!,
     rank: 4,
     whyItsHere:
-      'Caffeine-free formula with Alpha-GPC, L-theanine, L-tyrosine, and Bacopa. National Sanitation Foundation (NSF) Certified for Sport — relevant for GCC athletes and military buyers facing drug-tested events. Vegetarian capsules; no porcine gelatin. Two published clinical studies on the formula. Doses are hidden in proprietary blends — you cannot verify clinical thresholds. onnit.com\'s market list names Bahrain and Oman; shipping to the other GCC states could not be confirmed from the brand\'s site on 2026-09-29 — check at checkout. Not SFDA/MOHAP-registered.',
+      'Caffeine-free formula with Alpha-GPC, L-theanine, L-tyrosine, and Bacopa. National Sanitation Foundation (NSF) Certified for Sport — relevant for GCC athletes and military buyers facing drug-tested events. Vegetarian capsules; no porcine gelatin. Two published clinical studies on the formula. Doses are hidden in proprietary blends — you cannot verify clinical thresholds. onnit.com\'s market list names Bahrain and Oman; shipping to the other GCC states could not be confirmed from the brand\'s site on 2026-09-29 — check at checkout. We have not verified an SFDA or MOHAP product registration.',
   },
 ];
 
@@ -83,7 +83,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Which of these are SFDA-registered for sale in Saudi Arabia?',
-    a: 'None of the imported international brands (Mind Lab Pro, Qualia Mind, NooCube, Alpha Brain) are formally registered with the Saudi Food and Drug Authority — they enter Saudi Arabia as personal-use dietary supplements.',
+    a: 'We have not verified a Saudi Food and Drug Authority (SFDA) registration for any of the imported international brands (Mind Lab Pro, Qualia Mind, NooCube, Alpha Brain) — they enter Saudi Arabia as personal-use dietary supplements.',
   },
   {
     q: 'Where can I buy these in the GCC without ordering internationally?',

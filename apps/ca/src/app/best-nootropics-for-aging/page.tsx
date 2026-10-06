@@ -72,7 +72,7 @@ const picks: ListiclePick[] = [
     product: productsCA.find(p => p.slug === 'naturebell-ginkgo-ginseng-review')!,
     rank: 3,
     whyItsHere:
-      'Budget pick at CAD ~$7/month. Delivers Ginkgo Biloba at the full Health Canada-monograph clinical dose (120mg, 50:1 extract) — the single best-supported age-cognitive ingredient outside the premium stacks. Available at Shoppers Drug Mart-tier price points via Amazon.ca with Prime shipping. Single-mechanism (cerebral blood flow); pair with a PS supplement for fuller coverage. Not Health Canada NPN-registered.',
+      'Budget pick at CAD ~$7/month. Delivers Ginkgo Biloba at the full Health Canada-monograph clinical dose (120mg, 50:1 extract) — the single best-supported age-cognitive ingredient outside the premium stacks. Available at Shoppers Drug Mart-tier price points via Amazon.ca with Prime shipping. Single-mechanism (cerebral blood flow); pair with a PS supplement for fuller coverage. No Health Canada Natural Product Number (NPN) licence verified by us.',
   },
   {
     product: productsCA.find(p => p.slug === 'onnit-alpha-brain-review')!,

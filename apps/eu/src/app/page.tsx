@@ -46,7 +46,7 @@ const features = [
   {
     icon: '💶',
     title: 'EUR pricing & EU shipping',
-    desc: 'We mark which products have a dedicated EU storefront — EUR pricing, local shipping, and no import duties.',
+    desc: 'We mark which products have a dedicated EU storefront — EUR pricing, with EU orders shipped from a European depot per the brand.',
   },
 ];
 

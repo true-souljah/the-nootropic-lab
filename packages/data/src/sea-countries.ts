@@ -19,7 +19,7 @@ export const seaCountries: SEACountry[] = [
     currency: 'SGD',
     language: 'English',
     shippingNote: 'International supplement parcels enter Singapore as personal-use imports. Carriers and brands do not publish country-specific delivery estimates for supplements, so check the estimate at checkout.',
-    regulatoryNote: 'The Health Sciences Authority (HSA) regulates health supplements in Singapore. Most nootropic supplements imported for personal use are classified as health products and allowed in quantities up to 3 months supply. Products are not required to be HSA-registered for personal import, but they must not contain any listed controlled substances. Singapore has a well-enforced regulatory environment -- verify ingredient lists against the HSA prohibited substances list.',
+    regulatoryNote: 'Singapore\'s Health Sciences Authority (HSA) does not subject health supplements to approval or licensing; notification is voluntary (hsa.gov.sg, checked 2026-10-06). Most nootropic supplements imported for personal use are classified as health products and allowed in quantities up to 3 months supply. Products are not required to be HSA-registered for personal import, but they must not contain any listed controlled substances. Singapore has a well-enforced regulatory environment -- verify ingredient lists against the HSA prohibited substances list.',
     popularBrands: ['Mind Lab Pro', 'Performance Lab Mind', 'Nootropics Depot'],
   },
   {

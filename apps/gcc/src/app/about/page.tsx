@@ -63,8 +63,8 @@ export default function AboutPage() {
           <ul className="space-y-3 text-gray-700">
             <li>
               <strong>SFDA registration (Saudi Arabia).</strong> The Saudi Food and Drug Authority maintains
-              the registration register for dietary and herbal supplements sold in the Kingdom. Many
-              international nootropic stacks are not formally SFDA-registered and enter as personal-use
+              the registration register for dietary and herbal supplements sold in the Kingdom.
+              International nootropic stacks without an SFDA registration enter as personal-use
               imports. We flag SFDA status where known and recommend buyers verify directly with SFDA before
               ordering.
             </li>

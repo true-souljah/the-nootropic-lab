@@ -54,7 +54,7 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Includes phosphatidylserine (100mg Sharp-PS at clinical dose), citicoline (250mg Cognizin at clinical dose), Bacopa, and Lion\'s Mane. Four of the most age-relevant ingredients in one open-formula product. Plant-based HPMC capsules — no porcine gelatin, halal-friendly. Caffeine-free — no cardiovascular load for older adults sensitive to stimulants. mindlabpro.com names Saudi Arabia, the UAE, Qatar and Kuwait among its shipping territories (its FAQ, checked 2026-09-29); Bahrain and Oman are not named on that partial list, so confirm at checkout. Not SFDA/MOHAP-registered.',
+      'Includes phosphatidylserine (100mg Sharp-PS at clinical dose), citicoline (250mg Cognizin at clinical dose), Bacopa, and Lion\'s Mane. Four of the most age-relevant ingredients in one open-formula product. Plant-based HPMC capsules — no porcine gelatin, halal-friendly. Caffeine-free — no cardiovascular load for older adults sensitive to stimulants. mindlabpro.com names Saudi Arabia, the UAE, Qatar and Kuwait among its shipping territories (its FAQ, checked 2026-09-29); Bahrain and Oman are not named on that partial list, so confirm at checkout. We have not verified a product registration with the Saudi Food and Drug Authority (SFDA) or the Ministry of Health and Prevention (MOHAP).',
   },
   {
     product: productsGCC.find(p => p.slug === 'qualia-mind-review')!,
@@ -66,7 +66,7 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'eu-yan-sang-brainmax-review')!,
     rank: 3,
     whyItsHere:
-      'Cera-Q (silk fibroin protein) is clinically studied for memory recall in older adults at 200mg per day; BrainMAX+ lists 600mg per sachet. From a 145-year-old TCM heritage brand based in Singapore. Caffeine-free powder sachets, so there is no capsule shell to check. The sachet format may be easier for older adults than swallowing capsules. Sold on Eu Yan Sang\'s Singapore storefront; delivery to GCC addresses was not confirmed in our 2026-09-28 check. Note: silk-derived ingredient; observant buyers concerned about insect-derived sources should be aware. Not SFDA/MOHAP-registered.',
+      'Cera-Q (silk fibroin protein) is clinically studied for memory recall in older adults at 200mg per day; BrainMAX+ lists 600mg per sachet. From a 145-year-old TCM heritage brand based in Singapore. Caffeine-free powder sachets, so there is no capsule shell to check. The sachet format may be easier for older adults than swallowing capsules. Sold on Eu Yan Sang\'s Singapore storefront; delivery to GCC addresses was not confirmed in our 2026-09-28 check. Note: silk-derived ingredient; observant buyers concerned about insect-derived sources should be aware. We have not verified an SFDA or MOHAP product registration.',
   },
   {
     product: productsGCC.find(p => p.slug === 'nootropics-depot-lions-mane')!,
@@ -87,7 +87,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Which of these are SFDA-registered or MOHAP-registered?',
-    a: 'None of the picks on this page are. The international brands (Mind Lab Pro, Qualia Mind, Eu Yan Sang BrainMAX+, Nootropics Depot) are not formally registered with SFDA or MOHAP — they enter the region as personal-use dietary supplements. iHerb\'s Saudi-compliant DC handles import paperwork for many international brands. Marnys Memory Plus (Spain-based) is also widely distributed in GCC pharmacies as an accessible local option, though doses are conservative.',
+    a: 'We have not verified an SFDA or MOHAP registration for any of the picks on this page. The international brands (Mind Lab Pro, Qualia Mind, Eu Yan Sang BrainMAX+, Nootropics Depot) enter the region as personal-use dietary supplements. iHerb\'s Saudi-compliant DC handles import paperwork for many international brands. Marnys Memory Plus (Spain-based) is also widely distributed in GCC pharmacies as an accessible local option, though doses are conservative.',
   },
   {
     q: 'What does the FDA qualified health claim for PS mean?',

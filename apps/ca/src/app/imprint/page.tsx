@@ -23,7 +23,7 @@ export default function Page() {
       siteUrl={SITE_URL}
       marketLabel="Canadian edition"
       contactEmail={CONTACT_EMAIL}
-      regionNote="Natural health products available in Canada are regulated by Health Canada under the Natural Health Products Regulations. Where a product holds an NPN (Natural Product Number), it has been assessed by Health Canada for safety, efficacy, and quality. Cross-border imports without an NPN are not Health Canada licensed."
+      regionNote="Natural health products available in Canada are regulated by Health Canada under the Natural Health Products Regulations. Where a product holds an NPN (Natural Product Number), it has been assessed by Health Canada for safety, efficacy, and quality. A cross-border import without an NPN has not been through that Health Canada assessment."
     />
     </PublicShell>
   );
