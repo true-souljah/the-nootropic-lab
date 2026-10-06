@@ -10,9 +10,9 @@ const CURRENT_YEAR = new Date().getFullYear();
 
 
 export const metadata: Metadata = {
-  title: `Best Nootropics for Memory ${CURRENT_YEAR} (EU): EU-Compliant Picks at Clinical Doses`,
+  title: `Best Nootropics for Memory ${CURRENT_YEAR} (EU): EU Buyer Picks at Clinical Doses`,
   description:
-    'Independent EU ranking of nootropics for memory and recall. Bacopa, Lion\'s Mane, phosphatidylserine, citicoline — what the science says + which EU-storefront products deliver them at clinical dose.',
+    'Independent EU ranking of nootropics for memory and recall. Bacopa, Lion\'s Mane, phosphatidylserine, citicoline — what the science says + which products sold to EU buyers deliver them at clinical dose.',
   alternates: buildAlternates({ regionCode: 'eu', path: '/best-nootropics-for-memory/' }),
   openGraph: {
     title: 'Best Nootropics for Memory (EU) — Evidence-Graded',
@@ -107,8 +107,8 @@ export default function Page() {
     <Listicle
       useCase="memory"
       pageTitle="Best Nootropics for Memory (EU)"
-      pageDescription="Independent EU ranking of nootropics for memory and recall, based on clinical evidence. EU storefronts only."
-      heroParagraph="Memory is the use case where nootropics have the most replicated evidence — primarily from Bacopa Monnieri RCTs over 30+ years. This page ranks the EU-storefront products in our coverage that contain Bacopa, Lion's Mane, phosphatidylserine, or citicoline at or near clinical dose. EU labels describe these ingredients in mechanism terms (under Regulation (EC) No 1924/2006, with claims assessed by the European Food Safety Authority, EFSA) — the underlying clinical evidence is the same as in the US."
+      pageDescription="Independent EU ranking of nootropics for memory and recall, based on clinical evidence. EU storefronts marked."
+      heroParagraph="Memory is the use case where nootropics have the most replicated evidence — primarily from Bacopa Monnieri RCTs over 30+ years. This page ranks the products in our EU coverage that contain Bacopa, Lion's Mane, phosphatidylserine, or citicoline at or near clinical dose. EU labels describe these ingredients in mechanism terms (under Regulation (EC) No 1924/2006, with claims assessed by the European Food Safety Authority, EFSA) — the underlying clinical evidence is the same as in the US."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

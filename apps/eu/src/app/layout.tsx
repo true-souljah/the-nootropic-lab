@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: '%s | The Nootropic Lab EU',
   },
   description:
-    'Evidence-graded nootropic reviews for EU buyers. EU-compliant products, EUR pricing, and full EU regulatory guidance.',
+    'Evidence-graded nootropic reviews for EU buyers. EU storefront products, EUR pricing, and regulatory guidance.',
   metadataBase: new URL('https://eu.thenootropiclab.com'),
   openGraph: {
     type: 'website',

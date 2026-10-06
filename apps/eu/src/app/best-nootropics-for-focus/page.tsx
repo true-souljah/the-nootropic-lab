@@ -10,9 +10,9 @@ const CURRENT_YEAR = new Date().getFullYear();
 
 
 export const metadata: Metadata = {
-  title: `Best Nootropics for Focus ${CURRENT_YEAR} (EU): EU-Compliant Picks at Clinical Doses`,
+  title: `Best Nootropics for Focus ${CURRENT_YEAR} (EU): EU Buyer Picks at Clinical Doses`,
   description:
-    'Independent EU ranking of nootropics for focus and attention. EUR pricing, EU storefronts only, ingredient framing that avoids unauthorised EU health claims. Each pick contains a clinically-dosed focus ingredient.',
+    'Independent EU ranking of nootropics for focus and attention. EUR pricing, EU storefronts marked, ingredient framing that avoids unauthorised EU health claims. Each pick contains a clinically-dosed focus ingredient.',
   alternates: buildAlternates({ regionCode: 'eu', path: '/best-nootropics-for-focus/' }),
   openGraph: {
     title: 'Best Nootropics for Focus (EU) — Evidence-Graded Picks',
@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsEU.find(p => p.slug === 'brainzyme-focus-pro-review')!,
     rank: 2,
     whyItsHere:
-      'UK-made, FSA + EU-compliant. Combines natural caffeine from matcha (~40mg) and guarana (~20mg) with 100mg L-theanine — a textbook L-theanine + caffeine focus stack at €40/mo. Best value for buyers who want the acute focus effect rather than long-term cognitive support.',
+      'Combines natural caffeine from matcha (~40mg) and guarana (~20mg) with 100mg L-theanine — a textbook L-theanine + caffeine focus stack at €40/mo. Best value for buyers who want the acute focus effect rather than long-term cognitive support.',
   },
   {
     product: productsEU.find(p => p.slug === 'noocube-review')!,
@@ -80,8 +80,8 @@ const faqItems: ListicleFAQ[] = [
     a: 'Acute-effect ingredients (L-theanine, caffeine, Alpha-GPC, L-tyrosine) work within 30–60 minutes. Longer-onset ingredients (Bacopa, Lion\'s Mane) need 4–12 weeks. If you want a tonight-effect, look for L-theanine + caffeine; for compounded benefit, plan for 8 weeks of consistent use.',
   },
   {
-    q: 'Are these products fully EU-compliant?',
-    a: 'Every product on this page except NooCube has a dedicated EU storefront (NooCube is sold from a GBP-priced UK store that does not ship to Germany, France or the Netherlands), and all use ingredients with established food-supplement status under EU Directive 2002/46/EC. Health-claim language on EU labels is limited to EU-authorised claims (assessed by EFSA) under Regulation (EC) 1924/2006. Citicoline is authorised under Novel Food Regulation (EU) 2015/2283. We exclude products that use ingredient blends or claims that would not pass EFSA review.',
+    q: 'Do you verify that these products comply with EU rules?',
+    a: 'No. These products are sold as food supplements in the EU, and labelling compliance is the seller\'s responsibility; we do not verify regulatory compliance per product. What we check is whether a product is sold from an EU storefront (every product on this page except NooCube, which is sold from a GBP-priced UK store that does not ship to Germany, France or the Netherlands), its pricing, and that no unauthorised health claim appears in our own copy: health claims on EU food labels are limited to those authorised under Regulation (EC) 1924/2006 after assessment by the European Food Safety Authority (EFSA).',
   },
   {
     q: 'Are focus nootropics safe to take daily?',
@@ -104,7 +104,7 @@ export default function Page() {
       useCase="focus"
       pageTitle="Best Nootropics for Focus (EU)"
       pageDescription="Independent EU ranking of nootropics for focus and attention. EUR pricing, EU storefronts, ingredient framing that avoids unauthorised EU health claims."
-      heroParagraph="If you want a focus supplement in the EU, the question is not 'which brand?' but 'which ingredient at what dose, from a compliant EU storefront?' This page ranks the products in our coverage that ship from within the EU at EUR pricing, comply with EU Directive 2002/46/EC, and contain at least one focus-validated ingredient (L-theanine + caffeine, citicoline, L-tyrosine, Alpha-GPC) at or near clinical dose."
+      heroParagraph="If you want a focus supplement in the EU, the question is not 'which brand?' but 'which ingredient at what dose, from which store?' This page ranks the products in our EU coverage, marks which ones ship from an EU storefront at EUR pricing, and includes only products that contain at least one focus-validated ingredient (L-theanine + caffeine, citicoline, L-tyrosine, Alpha-GPC) at or near clinical dose."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

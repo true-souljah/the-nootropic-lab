@@ -206,7 +206,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                 </td>
                 {market === 'eu' && (
                   <td className="p-3">
-                    <EUBadge status={p.euCompliance} />
+                    {p.euStorefront ? <EUBadge euStorefront /> : <span className="text-gray-500">—</span>}
                   </td>
                 )}
                 <td className="p-3">{p.moneyBackDays} days</td>
@@ -312,9 +312,9 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                   )}
                 </div>
               </div>
-              {market === 'eu' && (
+              {market === 'eu' && p.euStorefront && (
                 <div className="mb-3">
-                  <EUBadge status={p.euCompliance} />
+                  <EUBadge euStorefront />
                 </div>
               )}
               <a

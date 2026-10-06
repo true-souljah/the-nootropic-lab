@@ -71,7 +71,15 @@ export const seaCountries: SEACountry[] = [
     currency: 'VND',
     language: 'Vietnamese',
     shippingNote: 'International supplement parcels enter Vietnam as personal-use imports. Carriers and brands do not publish country-specific delivery estimates for supplements, so check the estimate at checkout.',
-    regulatoryNote: 'The Drug Administration of Vietnam (DAV), under the Ministry of Health, regulates functional foods and dietary supplements. Imported supplements for personal use are generally allowed in small quantities. Commercially distributed supplements require DAV registration and must comply with Vietnamese labelling requirements including Vietnamese-language labels. The market is growing rapidly with increasing consumer interest in cognitive supplements.',
+    // Sources (fetched 2026-10-05): xaydungchinhsach.chinhphu.vn (VFA role;
+    // health-protection-food declarations under Decree 15/2018 Art. 6; Decree
+    // 15 tied to the advertising rule, Art. 27), vpcp.chinhphu.vn (Decree 15
+    // still in force), vanban.chinhphu.vn (Decision 01/2025/QĐ-TTg repealing
+    // Decision 78/2010/QĐ-TTg), suckhoedoisong.vn (advert warning wording).
+    // The Drug Administration of Vietnam covers drugs and cosmetics, not
+    // these foods (chinhphu.vn, docid=81838). No official page
+    // confirmed a personal-import licence rule or a current courier threshold.
+    regulatoryNote: 'The Vietnam Food Administration (Cục An toàn thực phẩm, VFA), a unit of the Ministry of Health, manages food safety in Vietnam, and for products used as health-protection foods (thực phẩm bảo vệ sức khỏe) the VFA asks for the product declaration to be registered under Article 6 of Decree 15/2018/NĐ-CP, which remains in force (per chinhphu.vn, checked 2026-10-05). The duty exemption for low-value courier imports under Decision 78/2010/QĐ-TTg was repealed from 18 February 2025 by Decision 01/2025/QĐ-TTg (per vanban.chinhphu.vn, checked 2026-10-05); we found no official page confirming the current rules for personal imports of supplements, so confirm with Vietnamese customs before ordering. Adverts for health-protection foods must carry the warning "Thực phẩm này không phải là thuốc và không có tác dụng thay thế thuốc chữa bệnh" ("this food is not a medicine and does not replace medicines for treating disease"), as reported by suckhoedoisong.vn, with the government portal xaydungchinhsach.chinhphu.vn tying food-advertising rules to Article 27 of Decree 15/2018 (checked 2026-10-05).',
     popularBrands: ['Mind Lab Pro', 'NooCube', 'Nootropics Depot'],
   },
 ];

@@ -1,31 +1,14 @@
-import type { EUCompliance } from '@nootropic/data';
-
-const map: Record<EUCompliance, { label: string; cls: string; tooltip: string }> = {
-  compliant: {
-    label: 'EU Compliant',
-    cls: 'eu-badge-green',
-    tooltip: 'Fully compliant with EU Directive 2002/46/EC.',
-  },
-  reformulated: {
-    label: 'EU Reformulated',
-    cls: 'eu-badge-amber',
-    tooltip: 'EU-specific formula differs from US version. Verify current formulation before purchasing.',
-  },
-  verify: {
-    label: 'Verify for EU',
-    cls: 'eu-badge-red',
-    tooltip: 'May have regulatory restrictions in some EU countries. Verify compliance before ordering.',
-  },
-};
-
-export default function EUBadge({ status }: { status: EUCompliance }) {
-  const { label, cls, tooltip } = map[status];
+// Renders only the verifiable storefront fact from the product record. We do
+// not verify regulatory compliance per product, so the legacy self-asserted
+// `euCompliance` flag is not rendered.
+export default function EUBadge({ euStorefront }: { euStorefront: boolean }) {
+  if (!euStorefront) return null;
   return (
     <span
-      className={`${cls} text-xs font-semibold px-2 py-0.5 rounded cursor-help`}
-      title={tooltip}
+      className="eu-badge-green text-xs font-semibold px-2 py-0.5 rounded cursor-help"
+      title="Sold from an EU-based store in EUR. We do not verify regulatory compliance per product."
     >
-      {label}
+      EU storefront
     </span>
   );
 }

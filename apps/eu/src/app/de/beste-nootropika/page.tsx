@@ -10,10 +10,10 @@ const CURRENT_YEAR = new Date().getFullYear();
 export const metadata: Metadata = {
   title: `Beste Nootropika ${CURRENT_YEAR}: Getestet & Verglichen für Deutschland`,
   description:
-    'Unabhängiger Nootropika Vergleich für Deutschland, Österreich und die Schweiz. EU-konforme Produkte, EUR-Preise, klinische Dosierungsanalyse.',
+    'Unabhängiger Nootropika Vergleich für Deutschland, Österreich und die Schweiz. Produkte mit EU-Shop gekennzeichnet, EUR-Preise, klinische Dosierungsanalyse.',
   alternates: buildAlternates({ regionCode: 'eu', path: '/de/beste-nootropika/', availableInRegions: ['eu'] }),
-  openGraph: buildOpenGraph({ regionCode: 'eu', path: '/de/beste-nootropika/', title: `Beste Nootropika ${CURRENT_YEAR}: Getestet & Verglichen für Deutschland`, description: 'Unabhängiger Nootropika Vergleich für Deutschland, Österreich und die Schweiz. EU-konforme Produkte, EUR-Preise, klinische Dosierungsanalyse.' }),
-  twitter: buildTwitter({ title: `Beste Nootropika ${CURRENT_YEAR}: Getestet & Verglichen für Deutschland`, description: 'Unabhängiger Nootropika Vergleich für Deutschland, Österreich und die Schweiz. EU-konforme Produkte, EUR-Preise, klinische Dosierungsanalyse.' }),
+  openGraph: buildOpenGraph({ regionCode: 'eu', path: '/de/beste-nootropika/', title: `Beste Nootropika ${CURRENT_YEAR}: Getestet & Verglichen für Deutschland`, description: 'Unabhängiger Nootropika Vergleich für Deutschland, Österreich und die Schweiz. Produkte mit EU-Shop gekennzeichnet, EUR-Preise, klinische Dosierungsanalyse.' }),
+  twitter: buildTwitter({ title: `Beste Nootropika ${CURRENT_YEAR}: Getestet & Verglichen für Deutschland`, description: 'Unabhängiger Nootropika Vergleich für Deutschland, Österreich und die Schweiz. Produkte mit EU-Shop gekennzeichnet, EUR-Preise, klinische Dosierungsanalyse.' }),
 };
 
 export default function BestNootropikaDE() {
@@ -34,9 +34,10 @@ export default function BestNootropikaDE() {
         Getestet &amp; Verglichen für Deutschland
       </h1>
       <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-        Alle Produkte in dieser Übersicht sind EU-konform (Richtlinie 2002/46/EG), in EUR
-        bepreist und über einen EU-Shop erhältlich — keine Importzölle. Jede Zutat wurde gegen
-        klinische Studien geprüft.
+        Wir kennzeichnen, welche Produkte über einen EU-Shop mit EUR-Preisen erhältlich sind —
+        ohne Importzölle. Die Einhaltung der Vorschriften prüfen wir nicht je Produkt; für die
+        Kennzeichnung ist der Verkäufer verantwortlich. Jede Zutat wurde gegen klinische Studien
+        geprüft.
       </p>
 
       <div className="bg-blue-50 border border-blue-200 rounded-xl p-5 mb-6">
@@ -44,9 +45,9 @@ export default function BestNootropikaDE() {
         <p className="text-sm text-blue-800 leading-relaxed">
           Nootropika werden in der EU als Nahrungsergänzungsmittel gemäß{' '}
           <strong>Richtlinie 2002/46/EG</strong> reguliert. Gesundheitsbezogene Angaben müssen
-          der <strong>Verordnung (EG) 1924/2006</strong> entsprechen und ausschließlich EFSA-
-          zugelassene Angaben verwenden. Alle empfohlenen Produkte verwenden EFSA-zugelassene
-          Zutaten.
+          der <strong>Verordnung (EG) 1924/2006</strong> entsprechen und ausschließlich in der EU zugelassene Angaben verwenden (bewertet von der
+          Europäischen Behörde für Lebensmittelsicherheit, EFSA). Die Einhaltung der Vorschriften
+          prüfen wir nicht je Produkt.
         </p>
       </div>
 

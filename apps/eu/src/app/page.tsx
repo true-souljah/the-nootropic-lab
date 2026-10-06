@@ -5,13 +5,15 @@ import { searchItems, uiStrings } from '@/lib/search';
 import { euCountries } from '@nootropic/data';
 
 
+const HOME_DESCRIPTION =
+  'The independent nootropic comparison platform for EU buyers. EU storefront products, EUR pricing, and regulatory guidance.';
+
 export const metadata: Metadata = {
   title: 'The Nootropic Lab EU — Independent Cognitive Supplement Reviews for Europe',
-  description:
-    'The independent nootropic comparison platform for EU buyers. EUR pricing, EU-compliant products, and full regulatory guidance.',
+  description: HOME_DESCRIPTION,
   alternates: buildAlternates({ regionCode: 'eu', path: '/' }),
-  openGraph: buildOpenGraph({ regionCode: 'eu', path: '/', title: 'The Nootropic Lab EU — Independent Cognitive Supplement Reviews for Europe', description: 'The independent nootropic comparison platform for EU buyers. EUR pricing, EU-compliant products, and full regulatory guidance.' }),
-  twitter: buildTwitter({ title: 'The Nootropic Lab EU — Independent Cognitive Supplement Reviews for Europe', description: 'The independent nootropic comparison platform for EU buyers. EUR pricing, EU-compliant products, and full regulatory guidance.' }),
+  openGraph: buildOpenGraph({ regionCode: 'eu', path: '/', title: 'The Nootropic Lab EU — Independent Cognitive Supplement Reviews for Europe', description: HOME_DESCRIPTION }),
+  twitter: buildTwitter({ title: 'The Nootropic Lab EU — Independent Cognitive Supplement Reviews for Europe', description: HOME_DESCRIPTION }),
 };
 
 const websiteSchema = {
@@ -38,13 +40,13 @@ const features = [
   },
   {
     icon: '🇪🇺',
-    title: 'EU compliance verified',
-    desc: 'We check every product against EU Directive 2002/46/EC and EFSA health claim Regulation (EC) 1924/2006. No US-only formulas recommended.',
+    title: 'Health claims kept to the EU list',
+    desc: 'Our own copy uses only health claims authorised under Regulation (EC) 1924/2006. We do not verify regulatory compliance per product; labelling compliance is the seller\'s responsibility.',
   },
   {
     icon: '💶',
     title: 'EUR pricing & EU shipping',
-    desc: 'Only products with dedicated EU storefronts are featured — no import duties, EUR pricing, and local shipping.',
+    desc: 'We mark which products have a dedicated EU storefront — EUR pricing, local shipping, and no import duties.',
   },
 ];
 
@@ -76,7 +78,7 @@ export default function EUHomePage() {
       <section className="bg-gradient-to-b from-green-50 to-white py-16 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full mb-4">
-            EU Market · EUR Pricing · EU-Compliant Products
+            EU Market · EUR Pricing · EU Storefronts Marked
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
             The Independent EU Guide to

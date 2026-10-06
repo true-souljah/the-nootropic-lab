@@ -10,10 +10,10 @@ const CURRENT_YEAR = new Date().getFullYear();
 export const metadata: Metadata = {
   title: 'The Nootropic Lab UE — Avaliações Independentes de Suplementos Cognitivos na Europa',
   description:
-    'A plataforma independente de comparação de nootrópicos para compradores europeus. Preços em EUR, produtos com conformidade UE e orientação regulamentar completa.',
+    'A plataforma independente de comparação de nootrópicos para compradores europeus. Preços em EUR, produtos vendidos a partir de lojas UE e orientação regulamentar.',
   alternates: buildAlternates({ regionCode: 'eu', path: '/pt/', availableInRegions: ['eu'] }),
-  openGraph: buildOpenGraph({ regionCode: 'eu', path: '/pt/', title: 'The Nootropic Lab UE — Avaliações Independentes de Suplementos Cognitivos na Europa', description: 'A plataforma independente de comparação de nootrópicos para compradores europeus. Preços em EUR, produtos com conformidade UE e orientação regulamentar completa.' }),
-  twitter: buildTwitter({ title: 'The Nootropic Lab UE — Avaliações Independentes de Suplementos Cognitivos na Europa', description: 'A plataforma independente de comparação de nootrópicos para compradores europeus. Preços em EUR, produtos com conformidade UE e orientação regulamentar completa.' }),
+  openGraph: buildOpenGraph({ regionCode: 'eu', path: '/pt/', title: 'The Nootropic Lab UE — Avaliações Independentes de Suplementos Cognitivos na Europa', description: 'A plataforma independente de comparação de nootrópicos para compradores europeus. Preços em EUR, produtos vendidos a partir de lojas UE e orientação regulamentar.' }),
+  twitter: buildTwitter({ title: 'The Nootropic Lab UE — Avaliações Independentes de Suplementos Cognitivos na Europa', description: 'A plataforma independente de comparação de nootrópicos para compradores europeus. Preços em EUR, produtos vendidos a partir de lojas UE e orientação regulamentar.' }),
 };
 
 const websiteSchema = {
@@ -33,13 +33,13 @@ const features = [
   },
   {
     icon: '🇪🇺',
-    title: 'Conformidade UE verificada',
-    desc: 'Verificamos cada produto em função da Directiva UE 2002/46/CE e do Regulamento (CE) n.º 1924/2006 da EFSA sobre alegações de saúde. Não recomendamos fórmulas disponíveis apenas nos EUA.',
+    title: 'Alegações de saúde limitadas à lista UE',
+    desc: 'Os nossos textos utilizam apenas alegações de saúde autorizadas ao abrigo do Regulamento (CE) n.º 1924/2006. Não verificamos a conformidade regulamentar de cada produto; a rotulagem é da responsabilidade do vendedor.',
   },
   {
     icon: '💶',
     title: 'Preços em EUR e envio na UE',
-    desc: 'Apenas produtos com lojas UE dedicadas são apresentados — sem direitos aduaneiros, com preços em EUR e envio local.',
+    desc: 'Assinalamos os produtos com lojas UE dedicadas — sem direitos aduaneiros, com preços em EUR e envio local.',
   },
 ];
 
@@ -70,7 +70,7 @@ export default function PTHomePage() {
       <section className="bg-gradient-to-b from-green-50 to-white py-16 px-4" lang="pt-PT">
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full mb-4">
-            Mercado UE · Preços em EUR · Produtos com Conformidade UE
+            Mercado UE · Preços em EUR · Lojas UE Assinaladas
           </div>
           {/* PR-Q34 (#98): break-words + responsive font ramp for reflow
              *  parity across all 3 EU landings (de, fr, pt). */}
@@ -81,7 +81,7 @@ export default function PTHomePage() {
           </h1>
           <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
             Avaliamos nootrópicos especificamente para compradores europeus. Preços em EUR,
-            conformidade regulamentar da UE e sem custos ocultos de importação.
+            lojas UE assinaladas e sem custos ocultos de importação.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link

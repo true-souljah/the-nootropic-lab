@@ -103,7 +103,7 @@ export default function Page() {
     <Listicle
       useCase="studying"
       pageTitle="Best Nootropics for Studying (EU)"
-      pageDescription="Independent EU ranking of nootropics for sustained study sessions. EU-compliant, EUR-priced, evidence-graded."
+      pageDescription="Independent EU ranking of nootropics for sustained study sessions. EU storefronts marked, EUR pricing, evidence-graded."
       heroParagraph="Studying combines two distinct cognitive demands: sustained focus during study sessions and memory consolidation between them. The best study stack covers both — acute-effect focus ingredients (L-theanine + caffeine) plus daily-use memory ingredients (Bacopa, citicoline). This page ranks the EU-storefront products that include both, with EUR pricing."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
