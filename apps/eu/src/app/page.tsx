@@ -52,17 +52,17 @@ const features = [
 
 const quickLinks = [
   {
-    href: '/best-nootropics',
+    href: '/best-nootropics/',
     title: `Best Nootropics ${new Date().getFullYear()} (EU)`,
     desc: 'Full EU comparison with clinical dosing audit and EUR prices.',
   },
   {
-    href: '/nootropic-comparison',
+    href: '/nootropic-comparison/',
     title: 'Interactive Comparison Tool',
     desc: 'Sort and filter every EU-available brand side-by-side.',
   },
   {
-    href: '/methodology',
+    href: '/methodology/',
     title: 'Our Methodology',
     desc: 'How we score and review cognitive supplements.',
   },
@@ -91,26 +91,26 @@ export default function EUHomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
-              href="/best-nootropics"
+              href="/best-nootropics/"
               className="bg-green-700 hover:bg-green-600 text-white font-bold px-8 py-3 rounded-lg transition-colors"
             >
               Best Nootropics EU {new Date().getFullYear()} →
             </Link>
             <Link
-              href="/nootropic-comparison"
+              href="/nootropic-comparison/"
               className="bg-white hover:bg-gray-50 text-gray-800 font-bold px-8 py-3 rounded-lg border border-gray-300 transition-colors"
             >
               Compare All EU Brands
             </Link>
           </div>
           <div className="mt-4 flex gap-4 justify-center text-sm text-gray-500">
-            <Link href="/de/beste-nootropika" className="text-green-700 underline">
+            <Link href="/de/beste-nootropika/" className="text-green-700 underline">
               🇩🇪 Deutsch
             </Link>
-            <Link href="/fr/meilleurs-nootropiques" className="text-green-700 underline">
+            <Link href="/fr/meilleurs-nootropiques/" className="text-green-700 underline">
               🇫🇷 Français
             </Link>
-            <Link href="/pt/melhores-nootropicos" className="text-green-700 underline">
+            <Link href="/pt/melhores-nootropicos/" className="text-green-700 underline">
               🇵🇹 Português
             </Link>
           </div>

@@ -63,22 +63,22 @@ const features = [
 
 const quickLinks = [
   {
-    href: '/best-nootropics',
+    href: '/best-nootropics/',
     title: `Best Nootropics ${CURRENT_YEAR} (Australia)`,
     desc: 'Full comparison with TGA import notes and Australian shipping info.',
   },
   {
-    href: '/blackmores-brain-active-vs-mind-lab-pro',
+    href: '/blackmores-brain-active-vs-mind-lab-pro/',
     title: 'Blackmores Brain Active vs Mind Lab Pro',
     desc: 'A discontinued Australian brain supplement (its two Australian Register of Therapeutic Goods (ARTG) entries were cancelled in 2014 and 2021) vs an international personal import.',
   },
   {
-    href: '/nootropic-comparison',
+    href: '/nootropic-comparison/',
     title: 'Interactive Comparison Tool',
     desc: 'Sort and filter every major brand side-by-side.',
   },
   {
-    href: '/methodology',
+    href: '/methodology/',
     title: 'Our Methodology',
     desc: 'How we score and review cognitive supplements.',
   },
@@ -106,13 +106,13 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
-              href="/best-nootropics"
+              href="/best-nootropics/"
               className="bg-green-700 hover:bg-green-600 text-white font-bold px-8 py-3 rounded-lg transition-colors"
             >
               Best Nootropics {CURRENT_YEAR} →
             </Link>
             <Link
-              href="/nootropic-comparison"
+              href="/nootropic-comparison/"
               className="bg-white hover:bg-gray-50 text-gray-800 font-bold px-8 py-3 rounded-lg border border-gray-300 transition-colors"
             >
               Compare All Brands

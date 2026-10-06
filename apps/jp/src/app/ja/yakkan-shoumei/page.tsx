@@ -75,7 +75,7 @@ export default function YakkanShoumeiPage() {
         <nav className="text-xs text-gray-500 mb-6" aria-label="パンくずリスト">
           <Link href="/" className="hover:text-green-700">ホーム</Link>
           {' / '}
-          <Link href="/ja/best-nootropics" className="hover:text-green-700">日本</Link>
+          <Link href="/ja/best-nootropics/" className="hover:text-green-700">日本</Link>
           {' / '}
           <span>薬監証明ガイド</span>
         </nav>
@@ -158,7 +158,7 @@ export default function YakkanShoumeiPage() {
           </ul>
           <p className="text-gray-700 leading-relaxed">
             FANCL BRAINs（機能性表示食品・届出番号 G425）やSuntory製品などの国内ブランドは国内で販売されており、薬監証明は必要ありません。詳しくは{' '}
-            <Link href="/ffc-notified-cognitive-supplements" className="text-green-700 underline">機能性表示食品ガイド</Link>
+            <Link href="/ffc-notified-cognitive-supplements/" className="text-green-700 underline">機能性表示食品ガイド</Link>
             {' '}をご覧ください。
           </p>
         </section>
@@ -176,7 +176,7 @@ export default function YakkanShoumeiPage() {
           </ul>
           <p className="text-gray-700 leading-relaxed">
             当サイトの{' '}
-            <Link href="/ja/best-nootropics" className="text-green-700 underline">日本向けノートロピクスランキング</Link>
+            <Link href="/ja/best-nootropics/" className="text-green-700 underline">日本向けノートロピクスランキング</Link>
             {' '}では、製品品質に加えて輸入の簡便さや国内入手可能性も評価軸としています。
           </p>
         </section>

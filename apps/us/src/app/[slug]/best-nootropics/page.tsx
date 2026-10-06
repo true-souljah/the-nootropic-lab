@@ -265,7 +265,7 @@ export default async function StateNootropicsPage({
       '@type': 'ListItem',
       position: i + 1,
       name: p.name,
-      url: `https://thenootropiclab.com/${p.slug}`,
+      url: `https://thenootropiclab.com/${p.slug}/`,
     })),
   };
 
@@ -275,7 +275,7 @@ export default async function StateNootropicsPage({
       <BestOf
         products={productsUS}
         breadcrumbs={[
-          { label: 'Best of', href: '/best-nootropics' },
+          { label: 'Best of', href: '/best-nootropics/' },
           { label: state.name },
         ]}
         hero={{
@@ -324,7 +324,7 @@ export default async function StateNootropicsPage({
                 {topProducts.map((p, i) => (
                   <li key={p.slug}>
                     <Link
-                      href={`/${p.slug}`}
+                      href={`/${p.slug}/`}
                       className="flex items-start gap-4 bg-ds-card border border-ds-border rounded-[10px] p-4 hover:border-ds-accent-border focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 transition-colors"
                     >
                       <span
@@ -403,7 +403,7 @@ export default async function StateNootropicsPage({
             </section>
 
             <div className="text-[13px] text-ds-muted">
-              <Link href="/best-nootropics" className="text-ds-accent underline font-semibold">
+              <Link href="/best-nootropics/" className="text-ds-accent underline font-semibold">
                 ← View national comparison: Best Nootropics {CURRENT_YEAR}
               </Link>
             </div>

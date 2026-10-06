@@ -36,7 +36,7 @@ export default function PublicShell({
   children,
   searchItems,
   uiStrings,
-  methodologyHref = '/methodology',
+  methodologyHref = '/methodology/',
   hideDisclosure = false,
   mainBackground = 'card',
 }: PublicShellProps) {

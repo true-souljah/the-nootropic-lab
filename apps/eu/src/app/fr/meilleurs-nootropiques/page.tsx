@@ -61,7 +61,7 @@ export default function MeilleursNootropiquesFR() {
       </div>
 
       <div className="mt-8 text-sm text-gray-500">
-        <Link href="/best-nootropics" className="text-green-700 underline">
+        <Link href="/best-nootropics/" className="text-green-700 underline">
           → English version: Best Nootropics Europe {CURRENT_YEAR}
         </Link>
       </div>

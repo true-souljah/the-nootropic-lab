@@ -22,11 +22,11 @@ describe('navFromStrings — output shape', () => {
     const nav = navFromStrings(getStrings('en'));
     expect(nav).toHaveLength(5);
     expect(nav.map((n) => n.href)).toEqual([
-      '/best-nootropics',
-      '/ingredients',
-      '/guides',
-      '/methodology',
-      '/about',
+      '/best-nootropics/',
+      '/ingredients/',
+      '/guides/',
+      '/methodology/',
+      '/about/',
     ]);
   });
 
@@ -35,7 +35,8 @@ describe('navFromStrings — output shape', () => {
       const nav = navFromStrings(getStrings(locale));
       for (const item of nav) {
         expect(item.label, `${locale} ${item.href} label`).toBeTruthy();
-        expect(item.href, `${locale} label`).toMatch(/^\/[a-z-]+$/);
+        // Trailing slash: the slash-less form is a 308 that GSC reports as "Page with redirect".
+        expect(item.href, `${locale} label`).toMatch(/^\/[a-z-]+\/$/);
       }
     }
   });
@@ -102,9 +103,9 @@ describe('navFromStrings — localization correctness', () => {
       for (const item of nav) {
         // Edge case: fr.ingredients happens to be 'Guides' — that's a
         // localized French word that collides with English by coincidence.
-        // The collision is allowed for href === '/guides' only (where the
+        // The collision is allowed for href === '/guides/' only (where the
         // EN and FR forms genuinely match).
-        if (item.label === 'Guides' && item.href === '/guides' && (locale === 'fr' || locale === 'fr-CA')) {
+        if (item.label === 'Guides' && item.href === '/guides/' && (locale === 'fr' || locale === 'fr-CA')) {
           continue;
         }
         expect(englishLabels.has(item.label), `${locale} ${item.href} should not equal English`).toBe(false);

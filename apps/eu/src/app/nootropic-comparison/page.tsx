@@ -23,7 +23,7 @@ export default function ComparisonToolPage() {
       '@type': 'ListItem',
       position: i + 1,
       name: p.name,
-      url: `${SITE_URL}/${p.slug}`,
+      url: `${SITE_URL}/${p.slug}/`,
     })),
   };
 

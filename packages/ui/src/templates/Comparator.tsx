@@ -167,7 +167,7 @@ export default function Comparator({
       grade,
       selected,
     });
-    const url = `${siteUrl}/nootropic-comparison${qs}`;
+    const url = `${siteUrl}/nootropic-comparison/${qs}`;
     if (typeof navigator !== 'undefined' && navigator.clipboard) {
       navigator.clipboard.writeText(url).then(() => {
         setSavedNotice('Link copied to clipboard');
@@ -206,7 +206,7 @@ export default function Comparator({
       hideStackCta
       sidebarMeta={`${products.length} products`}
     >
-      <FPDisclosure methodologyHref="/methodology" strings={uiStrings?.disclosure} />
+      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings?.disclosure} />
       {/* When the mobile filter sheet is open, `inert` removes everything
           else from tab order + AT focus — keyboard users can't escape the
           dialog into obscured content. */}
@@ -390,7 +390,7 @@ export default function Comparator({
                       </div>
                       <div className="min-w-0">
                         <Link
-                          href={`/${p.slug}`}
+                          href={`/${p.slug}/`}
                           className="font-semibold text-[13.5px] text-ds-ink tracking-[-0.005em] truncate block hover:text-ds-accent focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded"
                         >
                           {p.name}
@@ -460,7 +460,7 @@ export default function Comparator({
                     )}
                     <div role="gridcell" className="px-[14px] py-3 text-right" style={{ flex: '0 0 80px' }}>
                       <Link
-                        href={`/${p.slug}`}
+                        href={`/${p.slug}/`}
                         aria-label={`View ${p.name}`}
                         className="bg-transparent text-ds-accent border-0 text-[12px] font-semibold no-underline hover:text-ds-accent-press focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded"
                       >

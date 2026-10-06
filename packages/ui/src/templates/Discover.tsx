@@ -73,7 +73,7 @@ export default function Discover({
   mode = 'collapsed',
   searchItems,
   uiStrings,
-  comparatorHref = '/nootropic-comparison',
+  comparatorHref = '/nootropic-comparison/',
   welcomeCard,
   afterGrid,
 }: DiscoverProps) {
@@ -125,7 +125,7 @@ export default function Discover({
   };
   const welcomeSecondary = welcomeCard?.secondaryCta ?? {
     label: 'See the leaderboard',
-    href: '/best-nootropics',
+    href: '/best-nootropics/',
   };
 
   return (
@@ -151,9 +151,9 @@ export default function Discover({
             <p className="text-[17px] text-ds-ink-soft mt-3 leading-[1.55] m-0">{hero.dek}</p>
             {hero.ctas && hero.ctas.length > 0 && (
               <div className="flex gap-3 flex-wrap mt-5">
-                {hero.ctas.map((c) => (
+                {hero.ctas.map((c, i) => (
                   <Link
-                    key={c.href + c.label}
+                    key={`${c.label}-${i}`}
                     href={c.href}
                     className={
                       c.variant === 'secondary'
@@ -213,7 +213,7 @@ export default function Discover({
                 </div>
                 <div className="flex-1 min-w-0">
                   <Link
-                    href={`/${topPick.slug}`}
+                    href={`/${topPick.slug}/`}
                     className="font-semibold text-[15px] text-ds-ink hover:text-ds-accent focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded block truncate"
                   >
                     {topPick.name}
@@ -317,7 +317,7 @@ export default function Discover({
                     <div className="flex justify-between gap-2 items-start">
                       <div className="min-w-0">
                         <Link
-                          href={`/${p.slug}`}
+                          href={`/${p.slug}/`}
                           className="font-semibold text-[15px] text-ds-ink tracking-[-0.005em] truncate block hover:text-ds-accent focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded"
                         >
                           {p.name}
@@ -383,7 +383,7 @@ export default function Discover({
                     <div className="flex items-center gap-2">
                       <ShortlistButton slug={p.slug} size="sm" />
                       <Link
-                        href={`/${p.slug}`}
+                        href={`/${p.slug}/`}
                         className="text-ds-accent text-[12px] font-semibold no-underline hover:text-ds-accent-press focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded"
                       >
                         Details →

@@ -138,7 +138,7 @@ export default function BestOf({
       uiStrings={uiStrings}
       sidebarMeta={`${products.length} products`}
     >
-      <FPDisclosure methodologyHref="/methodology" strings={uiStrings.disclosure} />
+      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} />
       <div className="px-4 sm:px-7 pt-7 pb-10">
         {/* Header */}
         <div className="flex justify-between items-end mb-[18px] flex-wrap gap-4">
@@ -223,7 +223,7 @@ export default function BestOf({
                     </div>
                     <div className="min-w-0">
                       <Link
-                        href={`/${p.slug}`}
+                        href={`/${p.slug}/`}
                         className="font-semibold text-[16px] text-ds-ink hover:text-ds-accent focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded tracking-[-0.005em] block truncate"
                       >
                         {p.name}

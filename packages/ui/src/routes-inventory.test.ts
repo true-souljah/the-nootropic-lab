@@ -45,7 +45,8 @@ describe('REGION_ONLY_ROUTES matches apps/*/src/app on disk', () => {
   test('every shared-chrome footer href that is not in all 8 apps is listed in REGION_ONLY_ROUTES', () => {
     const hrefs = new Set(
       columnsFromStrings(getStrings('en'))
-        .flatMap((c) => c.links.map((l) => l.href.split('#')[0]))
+        // Footer hrefs carry the trailing slash; the map and inventory are slash-normalised (`/x`).
+        .flatMap((c) => c.links.map((l) => l.href.split('#')[0].replace(/(.)\/$/, '$1')))
         .filter((h) => h.startsWith('/')),
     );
     const partial = [...hrefs].filter((route) => !ALL_REGIONS.every((r) => inventory.get(r)!.has(route)));
@@ -81,17 +82,17 @@ describe('footer columns per region only link pages that exist on that host', ()
       const internal = cols.flatMap((c) => c.links.map((l) => l.href)).filter((h) => h.startsWith('/'));
       expect(internal.length).toBeGreaterThan(8);
       for (const href of internal) {
-        expect(inventory.get(region)!.has(href.split('#')[0]), `${region} footer → ${href}`).toBe(true);
+        expect(inventory.get(region)!.has(href.split('#')[0].replace(/(.)\/$/, '$1')), `${region} footer → ${href}`).toBe(true);
       }
     });
   }
 
   test('us keeps the full column set; au gets its regional head-to-head before "All comparisons"', () => {
     const us = filterColumnsForRegion(columnsFromStrings(getStrings('en')), 'us');
-    expect(us.flatMap((c) => c.links.map((l) => l.href))).toContain('/best-nootropics-for-adhd');
+    expect(us.flatMap((c) => c.links.map((l) => l.href))).toContain('/best-nootropics-for-adhd/');
     const au = filterColumnsForRegion(columnsFromStrings(getStrings('en')), 'au');
     const h2h = au.find((c) => c.id === 'footer-col-head-to-head')!.links.map((l) => l.href);
-    expect(h2h).toEqual(['/blackmores-brain-active-vs-mind-lab-pro', '/nootropic-comparison']);
+    expect(h2h).toEqual(['/blackmores-brain-active-vs-mind-lab-pro/', '/nootropic-comparison/']);
     const ids = au.map((c) => c.id);
     expect(ids).toEqual(us.map((c) => c.id));
   });

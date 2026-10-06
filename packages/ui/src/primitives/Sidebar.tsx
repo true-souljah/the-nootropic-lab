@@ -44,32 +44,36 @@ const DEFAULT_GROUPS: SidebarGroup[] = [
     label: 'Browse',
     items: [
       { label: 'Discover', href: '/', icon: Compass },
-      { label: 'All products', href: '/best-nootropics', icon: LayoutGrid },
-      { label: 'Best of 2026', href: '/best-nootropics', icon: Star },
-      { label: 'Ingredients', href: '/ingredients', icon: FlaskConical },
+      { label: 'All products', href: '/best-nootropics/', icon: LayoutGrid },
+      { label: 'Best of 2026', href: '/best-nootropics/', icon: Star },
+      { label: 'Ingredients', href: '/ingredients/', icon: FlaskConical },
     ],
   },
   {
     label: 'Tools',
     items: [
-      { label: 'Comparator', href: '/nootropic-comparison', icon: Columns },
-      { label: 'Dose calculator', href: '/dose-calculator', icon: Sigma },
-      { label: 'My shortlist', href: '/shortlist', icon: Heart },
+      { label: 'Comparator', href: '/nootropic-comparison/', icon: Columns },
+      { label: 'Dose calculator', href: '/dose-calculator/', icon: Sigma },
+      { label: 'My shortlist', href: '/shortlist/', icon: Heart },
     ],
   },
   {
     label: 'About',
     items: [
-      { label: 'Our methodology', href: '/methodology', icon: HelpCircle },
-      { label: 'Disclosures', href: '/methodology#disclosures', icon: DollarSign },
+      { label: 'Our methodology', href: '/methodology/', icon: HelpCircle },
+      { label: 'Disclosures', href: '/methodology/#disclosures', icon: DollarSign },
     ],
   },
 ];
 
-function isActiveHref(pathname: string | null, href: string): boolean {
+// Hrefs carry the trailing slash (trailingSlash: true); compare slash-insensitively
+// so "/guides/" is active on "/guides", "/guides/" and "/guides/x/".
+export function isActiveHref(pathname: string | null, href: string): boolean {
   if (!pathname) return false;
   if (href === '/') return pathname === '/';
-  return pathname === href || pathname.startsWith(`${href}/`);
+  const base = href.replace(/\/+$/, '');
+  const path = pathname.replace(/\/+$/, '');
+  return path === base || path.startsWith(`${base}/`);
 }
 
 /**

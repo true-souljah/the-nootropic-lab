@@ -32,7 +32,7 @@ export default function BestNootropicsSEAPage() {
       <SchemaOrg schema={itemListSchema} />
       <BestOf
         products={productsSEA}
-        breadcrumbs={[{ label: 'Best of', href: '/best-nootropics' }]}
+        breadcrumbs={[{ label: 'Best of', href: '/best-nootropics/' }]}
         hero={{ eyebrow: `Southeast Asia · Audited ${CURRENT_YEAR}`, h1: `Best Nootropics in Southeast Asia ${CURRENT_YEAR}`, dek: 'Shipping confirmed to Singapore, Malaysia, Thailand, Philippines, Indonesia and Vietnam. Regulatory framework notes: HSA, NPRA, FDA Thailand, FDA Philippines, BPOM, MOH Vietnam.' }}
         searchItems={searchItems} uiStrings={uiStrings} trackingSurface="best_of_sea"
         preList={

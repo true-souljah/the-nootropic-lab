@@ -51,7 +51,7 @@ export default function AboutPage() {
             formula transparency, value for money, and brand trust.
           </p>
           <p className="text-gray-700 leading-relaxed">
-            <Link href="/methodology" className="text-green-700 underline">Read the full methodology →</Link>
+            <Link href="/methodology/" className="text-green-700 underline">Read the full methodology →</Link>
           </p>
         </section>
 

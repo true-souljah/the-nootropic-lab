@@ -65,7 +65,7 @@ export default function PrivacyPolicyPage() {
             elijas. Puedes rechazarlas sin afectar la funcionalidad del sitio y cambiar o retirar tu
             elección para cada finalidad en cualquier momento con el enlace &quot;Configuración de
             cookies&quot; al final de cada página. Consulta nuestra{' '}
-            <a href="/cookie-policy" className="text-green-700 underline">Política de Cookies</a> para
+            <a href="/cookie-policy/" className="text-green-700 underline">Política de Cookies</a> para
             ver nombres, finalidades y duraciones.
           </p>
         </section>

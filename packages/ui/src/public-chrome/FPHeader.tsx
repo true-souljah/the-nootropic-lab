@@ -25,11 +25,11 @@ export interface FPHeaderProps {
 }
 
 const DEFAULT_NAV: FPNavLink[] = [
-  { label: 'Best Nootropics', href: '/best-nootropics' },
-  { label: 'Ingredients', href: '/ingredients' },
-  { label: 'Guides', href: '/guides' },
-  { label: 'Methodology', href: '/methodology' },
-  { label: 'About', href: '/about' },
+  { label: 'Best Nootropics', href: '/best-nootropics/' },
+  { label: 'Ingredients', href: '/ingredients/' },
+  { label: 'Guides', href: '/guides/' },
+  { label: 'Methodology', href: '/methodology/' },
+  { label: 'About', href: '/about/' },
 ];
 
 /**
@@ -43,11 +43,11 @@ const DEFAULT_NAV: FPNavLink[] = [
  */
 export function navFromStrings(strings: UIStrings): FPNavLink[] {
   return [
-    { label: strings.nav.bestNootropics, href: '/best-nootropics' },
-    { label: strings.nav.ingredients, href: '/ingredients' },
-    { label: strings.nav.guides, href: '/guides' },
-    { label: strings.nav.methodology, href: '/methodology' },
-    { label: strings.nav.about, href: '/about' },
+    { label: strings.nav.bestNootropics, href: '/best-nootropics/' },
+    { label: strings.nav.ingredients, href: '/ingredients/' },
+    { label: strings.nav.guides, href: '/guides/' },
+    { label: strings.nav.methodology, href: '/methodology/' },
+    { label: strings.nav.about, href: '/about/' },
   ];
 }
 
@@ -69,7 +69,7 @@ export function FPHeader({
   nav,
   searchItems,
   strings,
-  ctaHref = '/nootropic-comparison',
+  ctaHref = '/nootropic-comparison/',
   ctaLabel,
   brandLabel = 'Nootropic Lab',
   hideCta = false,

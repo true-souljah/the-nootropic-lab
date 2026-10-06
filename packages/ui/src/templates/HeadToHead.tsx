@@ -588,9 +588,9 @@ export default function HeadToHead({
               { href: `${listicleHref}/`, title: tpl(s.bestNootropicsCard, { year: currentYear }), meta: s.fullRankedComparison },
               { href: methodologyHref, title: s.methodologyCard, meta: s.howWeAuditDoses },
               ...relatedLinks,
-            ].map((c) => (
+            ].map((c, i) => (
               <Link
-                key={c.href + c.title}
+                key={`${c.title}-${i}`}
                 href={c.href}
                 className="block bg-ds-card rounded-[10px] p-4 border border-ds-border hover:border-ds-accent-border focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
               >
