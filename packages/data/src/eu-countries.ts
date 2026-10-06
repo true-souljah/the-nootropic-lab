@@ -14,7 +14,7 @@ export const euCountries: EUCountry[] = [
     nativeName: 'Österreich',
     currency: 'EUR',
     regulatoryNote: 'Nootropic supplements are regulated as Nahrungsergänzungsmittel (food supplements) under EU Directive 2002/46/EC as transposed into Austrian law. Health claims must comply with Regulation (EC) 1924/2006 using EU-authorised claims (assessed by EFSA) only.',
-    shippingNote: 'All products with EU storefronts ship to Austria. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
+    shippingNote: 'Confirm delivery to Austria at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
     slug: 'belgium',
@@ -22,7 +22,7 @@ export const euCountries: EUCountry[] = [
     nativeName: 'België / Belgique',
     currency: 'EUR',
     regulatoryNote: 'Belgium has one of the stricter supplement regulatory frameworks in the EU. The FASFC (Federal Agency for the Safety of the Food Chain) maintains a positive list of permitted substances. Some herbal nootropic ingredients require pre-notification before marketing.',
-    shippingNote: 'EU storefronts ship to Belgium. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
+    shippingNote: 'Confirm delivery to Belgium at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
     slug: 'bulgaria',
@@ -30,7 +30,7 @@ export const euCountries: EUCountry[] = [
     nativeName: 'България',
     currency: 'EUR',
     regulatoryNote: 'Bulgaria follows EU Directive 2002/46/EC for food supplements. The Bulgarian Food Safety Agency (BFSA) oversees compliance. Bulgaria joined the euro area on 1 January 2026, when euro banknotes and coins started circulating (per ecb.europa.eu, checked 2026-10-05).',
-    shippingNote: 'EU storefronts ship to Bulgaria. Delivery estimates vary by brand and carrier, so check the estimate at checkout. Prices listed in EUR.',
+    shippingNote: 'Confirm delivery to Bulgaria at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout. Prices listed in EUR.',
   },
   {
     slug: 'croatia',
@@ -38,7 +38,7 @@ export const euCountries: EUCountry[] = [
     nativeName: 'Hrvatska',
     currency: 'EUR',
     regulatoryNote: 'Croatia adopted the euro in January 2023. EU food supplement regulations apply in full. The Ministry of Health oversees supplement registration.',
-    shippingNote: 'EU storefronts ship to Croatia. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
+    shippingNote: 'Confirm delivery to Croatia at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
     slug: 'cyprus',
@@ -46,7 +46,7 @@ export const euCountries: EUCountry[] = [
     nativeName: 'Κύπρος',
     currency: 'EUR',
     regulatoryNote: 'Cyprus is an EU member and follows EU supplement regulations. The Ministry of Health registers food supplements. Island geography means slightly longer shipping from mainland EU distribution centres.',
-    shippingNote: 'EU storefronts typically ship to Cyprus. Verify shipping availability at checkout; delivery estimates vary by brand and carrier, so check the estimate there too.',
+    shippingNote: 'Confirm delivery to Cyprus at checkout — each brand publishes its own EU delivery list. Verify shipping availability at checkout; delivery estimates vary by brand and carrier, so check the estimate there too.',
   },
   {
     slug: 'czech-republic',
@@ -54,7 +54,7 @@ export const euCountries: EUCountry[] = [
     nativeName: 'Česká republika',
     currency: 'CZK',
     regulatoryNote: 'The Czech Republic follows EU Directive 2002/46/EC. The State Agricultural and Food Inspection Authority (SZPI) oversees supplement compliance. Currency is CZK (Czech koruna) -- EUR-priced products require conversion. EU membership ensures product availability.',
-    shippingNote: 'EU storefronts ship to Czechia. Delivery estimates vary by brand and carrier, so check the estimate at checkout. Prices in EUR -- minor conversion cost applies.',
+    shippingNote: 'Confirm delivery to Czechia at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout. Prices in EUR -- minor conversion cost applies.',
   },
   {
     slug: 'denmark',
@@ -62,7 +62,7 @@ export const euCountries: EUCountry[] = [
     nativeName: 'Danmark',
     currency: 'DKK',
     regulatoryNote: 'Denmark has historically had stricter supplement rules than most EU countries. The Danish Veterinary and Food Administration (Fødevarestyrelsen) maintains a positive list. Some higher-dose nootropic products may not be sold in Denmark -- verify compliance of specific products before ordering.',
-    shippingNote: 'EU storefronts ship to Denmark. Delivery estimates vary by brand and carrier, so check the estimate at checkout. Prices in EUR -- DKK conversion at checkout. Denmark is non-euro but EU single market applies.',
+    shippingNote: 'Confirm delivery to Denmark at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout. Prices in EUR -- DKK conversion at checkout. Denmark is non-euro but EU single market applies.',
   },
   {
     slug: 'estonia',
@@ -70,7 +70,7 @@ export const euCountries: EUCountry[] = [
     nativeName: 'Eesti',
     currency: 'EUR',
     regulatoryNote: 'Estonia uses EUR and follows EU supplement regulations. The Agriculture and Food Board oversees food supplement registration. Estonia has a growing supplement market with strong online purchasing culture.',
-    shippingNote: 'EU storefronts ship to Estonia. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
+    shippingNote: 'Confirm delivery to Estonia at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
     slug: 'finland',
@@ -78,7 +78,7 @@ export const euCountries: EUCountry[] = [
     nativeName: 'Suomi',
     currency: 'EUR',
     regulatoryNote: 'Finland follows EU Directive 2002/46/EC. The Finnish Food Authority (Ruokavirasto) oversees supplement compliance. Some high-dose products may require assessment.',
-    shippingNote: 'EU storefronts ship to Finland. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
+    shippingNote: 'Confirm delivery to Finland at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
     slug: 'france',
@@ -86,7 +86,7 @@ export const euCountries: EUCountry[] = [
     nativeName: 'France',
     currency: 'EUR',
     regulatoryNote: 'France transposes EU supplement law through DGCCRF oversight. France has a specific positive list system via DGAL/DGCCRF. Some plant extracts at high doses require regulatory assessment.',
-    shippingNote: 'EU storefronts ship to France. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
+    shippingNote: 'Confirm delivery to France at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
     slug: 'germany',
@@ -94,7 +94,7 @@ export const euCountries: EUCountry[] = [
     nativeName: 'Deutschland',
     currency: 'EUR',
     regulatoryNote: 'Germany has robust supplement regulation under the NemV (Nahrungsergänzungsmittelverordnung), aligned with EU Directive 2002/46/EC. The BfR (Federal Institute for Risk Assessment) provides guidance on maximum doses. Products with very high herb doses may be assessed as medicinal products -- check compliance for any product above the recommended daily dose.',
-    shippingNote: 'EU storefronts ship to Germany. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
+    shippingNote: 'Confirm delivery to Germany at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
     slug: 'greece',
@@ -102,7 +102,7 @@ export const euCountries: EUCountry[] = [
     nativeName: 'Ελλάδα',
     currency: 'EUR',
     regulatoryNote: 'Greece follows EU supplement regulations. The National Food Authority (EFET) oversees compliance. Growing nootropics market, particularly in Athens.',
-    shippingNote: 'EU storefronts ship to Greece. Delivery estimates vary by brand and carrier, so check the estimate at checkout. Island addresses may take longer.',
+    shippingNote: 'Confirm delivery to Greece at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout. Island addresses may take longer.',
   },
   {
     slug: 'hungary',
@@ -110,7 +110,7 @@ export const euCountries: EUCountry[] = [
     nativeName: 'Magyarország',
     currency: 'HUF',
     regulatoryNote: 'Hungary follows EU Directive 2002/46/EC. The National Food Chain Safety Office (NÉBIH) oversees supplement registration. Currency is HUF (Hungarian forint) -- EUR-priced products require conversion.',
-    shippingNote: 'EU storefronts ship to Hungary. Delivery estimates vary by brand and carrier, so check the estimate at checkout. EUR pricing standard -- forint conversion at checkout.',
+    shippingNote: 'Confirm delivery to Hungary at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout. EUR pricing standard -- forint conversion at checkout.',
   },
   {
     slug: 'ireland',
@@ -118,7 +118,7 @@ export const euCountries: EUCountry[] = [
     nativeName: 'Éire',
     currency: 'EUR',
     regulatoryNote: 'Ireland follows EU Directive 2002/46/EC. The Food Safety Authority of Ireland (FSAI) oversees compliance. English-language market well-served by UK and EU supplement brands. Post-Brexit, UK-based brands ship from EU distribution centres to avoid VAT complications.',
-    shippingNote: 'EU storefronts ship to Ireland. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
+    shippingNote: 'Confirm delivery to Ireland at checkout — each brand publishes its own EU delivery list. Brainzyme does not ship its Ginkgo biloba formulas (FOCUS PRO, FOCUS ELITE) to Ireland (brainzyme.com international-shipping page, checked 2026-10-06). Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
     slug: 'italy',
@@ -126,7 +126,7 @@ export const euCountries: EUCountry[] = [
     nativeName: 'Italia',
     currency: 'EUR',
     regulatoryNote: "Italy has one of Europe's most detailed supplement regulatory frameworks. The Ministry of Health maintains a supplementi alimentari register. Some ingredients require official registration before sale. Verify any Italy-specific restrictions for novel ingredients.",
-    shippingNote: 'EU storefronts ship to Italy. Delivery estimates vary by brand and carrier, so check the estimate at checkout. Italy is one of the largest European supplement markets.',
+    shippingNote: 'Confirm delivery to Italy at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout. Italy is one of the largest European supplement markets.',
   },
   {
     slug: 'latvia',
@@ -134,7 +134,7 @@ export const euCountries: EUCountry[] = [
     nativeName: 'Latvija',
     currency: 'EUR',
     regulatoryNote: 'Latvia follows EU supplement regulations. The Food and Veterinary Service oversees compliance. Small but growing market.',
-    shippingNote: 'EU storefronts ship to Latvia. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
+    shippingNote: 'Confirm delivery to Latvia at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
     slug: 'lithuania',
@@ -142,7 +142,7 @@ export const euCountries: EUCountry[] = [
     nativeName: 'Lietuva',
     currency: 'EUR',
     regulatoryNote: "Lithuania follows EU Directive 2002/46/EC. The State Food and Veterinary Service oversees supplements. EU member since 2004 -- mainstream supplement market well-established.",
-    shippingNote: 'EU storefronts ship to Lithuania. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
+    shippingNote: 'Confirm delivery to Lithuania at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
     slug: 'luxembourg',
@@ -150,7 +150,7 @@ export const euCountries: EUCountry[] = [
     nativeName: 'Lëtzebuerg',
     currency: 'EUR',
     regulatoryNote: 'Luxembourg follows EU supplement regulations with oversight by the Ministry of Health. High purchasing power market.',
-    shippingNote: 'EU storefronts ship to Luxembourg. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
+    shippingNote: 'Confirm delivery to Luxembourg at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
     slug: 'malta',
@@ -158,7 +158,7 @@ export const euCountries: EUCountry[] = [
     nativeName: 'Malta',
     currency: 'EUR',
     regulatoryNote: 'Malta follows EU Directive 2002/46/EC. The Malta Competition and Consumer Affairs Authority oversees supplement compliance. Island geography means slightly longer shipping.',
-    shippingNote: 'EU storefronts ship to Malta. Verify shipping at checkout; delivery estimates vary by brand and carrier, so check the estimate there too.',
+    shippingNote: 'Confirm delivery to Malta at checkout — each brand publishes its own EU delivery list. Verify shipping at checkout; delivery estimates vary by brand and carrier, so check the estimate there too.',
   },
   {
     slug: 'netherlands',
@@ -166,7 +166,7 @@ export const euCountries: EUCountry[] = [
     nativeName: 'Nederland',
     currency: 'EUR',
     regulatoryNote: 'The Netherlands has a well-developed supplement market. The Dutch Food and Consumer Product Safety Authority (NVWA) oversees compliance.',
-    shippingNote: 'EU storefronts ship to the Netherlands. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
+    shippingNote: 'Confirm delivery to the Netherlands at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
     slug: 'poland',
@@ -174,7 +174,7 @@ export const euCountries: EUCountry[] = [
     nativeName: 'Polska',
     currency: 'PLN',
     regulatoryNote: "Poland is the EU's largest Eastern European market and has a fast-growing supplement category. The Chief Sanitary Inspectorate (GIS) oversees food supplements. EU Directive 2002/46/EC applies. Currency is PLN (Polish zloty) -- check whether your preferred brand offers PLN pricing or EUR.",
-    shippingNote: 'EU storefronts ship to Poland. Delivery estimates vary by brand and carrier, so check the estimate at checkout. EUR pricing standard -- zloty conversion applies.',
+    shippingNote: 'Confirm delivery to Poland at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout. EUR pricing standard -- zloty conversion applies.',
   },
   {
     slug: 'portugal',
@@ -182,7 +182,7 @@ export const euCountries: EUCountry[] = [
     nativeName: 'Portugal',
     currency: 'EUR',
     regulatoryNote: 'Portugal follows EU supplement regulations with ASAE (Food and Economic Safety Authority) oversight. Growing online supplement market.',
-    shippingNote: 'EU storefronts ship to Portugal (mainland). Madeira and Azores may have longer delivery times. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
+    shippingNote: 'Confirm delivery to mainland Portugal at checkout — each brand publishes its own EU delivery list. Madeira and Azores may have longer delivery times. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
     slug: 'romania',
@@ -190,7 +190,7 @@ export const euCountries: EUCountry[] = [
     nativeName: 'România',
     currency: 'RON',
     regulatoryNote: 'Romania follows EU Directive 2002/46/EC. The National Authority for Consumer Protection (ANPC) oversees supplement compliance. Currency is RON (Romanian leu).',
-    shippingNote: 'EU storefronts ship to Romania. Delivery estimates vary by brand and carrier, so check the estimate at checkout. EUR pricing with RON conversion at checkout.',
+    shippingNote: 'Confirm delivery to Romania at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout. EUR pricing with RON conversion at checkout.',
   },
   {
     slug: 'slovakia',
@@ -198,7 +198,7 @@ export const euCountries: EUCountry[] = [
     nativeName: 'Slovensko',
     currency: 'EUR',
     regulatoryNote: 'Slovakia uses EUR and follows EU supplement regulations. The Public Health Authority oversees food supplement compliance. Market closely aligned with Czech Republic.',
-    shippingNote: 'EU storefronts ship to Slovakia. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
+    shippingNote: 'Confirm delivery to Slovakia at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
     slug: 'slovenia',
@@ -206,7 +206,7 @@ export const euCountries: EUCountry[] = [
     nativeName: 'Slovenija',
     currency: 'EUR',
     regulatoryNote: 'Slovenia uses EUR and follows EU Directive 2002/46/EC. The Administration of the Republic of Slovenia for Food Safety oversees compliance.',
-    shippingNote: 'EU storefronts ship to Slovenia. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
+    shippingNote: 'Confirm delivery to Slovenia at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
     slug: 'spain',
@@ -214,7 +214,7 @@ export const euCountries: EUCountry[] = [
     nativeName: 'España',
     currency: 'EUR',
     regulatoryNote: 'Spain is the fourth-largest EU economy with a growing supplement market. The Spanish Agency of Food Safety and Nutrition (AESAN) oversees compliance under EU Directive 2002/46/EC. Spain also has specific Royal Decree requirements for supplement notification.',
-    shippingNote: 'EU storefronts ship to mainland Spain. Canary Islands, Ceuta, and Melilla may have different shipping rules -- verify at checkout. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
+    shippingNote: 'Confirm delivery to mainland Spain at checkout — each brand publishes its own EU delivery list. Canary Islands, Ceuta, and Melilla may have different shipping rules -- verify at checkout. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
     slug: 'sweden',
@@ -222,6 +222,6 @@ export const euCountries: EUCountry[] = [
     nativeName: 'Sverige',
     currency: 'SEK',
     regulatoryNote: 'Sweden has strict supplement regulation through the Swedish Food Agency (Livsmedelsverket). Sweden follows EU Directive 2002/46/EC but maintains conservative maximum dose recommendations for several ingredients. Currency is SEK (Swedish krona). Verify dose compliance for individual products.',
-    shippingNote: 'EU storefronts ship to Sweden. Delivery estimates vary by brand and carrier, so check the estimate at checkout. EUR pricing -- SEK conversion at checkout.',
+    shippingNote: 'Confirm delivery to Sweden at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout. EUR pricing -- SEK conversion at checkout.',
   },
 ];
