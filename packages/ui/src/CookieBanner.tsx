@@ -11,11 +11,14 @@ import 'klaro/dist/klaro.css';
 import './styles/klaro-overrides.css';
 import { klaroConfig } from './klaro-config';
 import { applyActiveLangToKlaroConfig } from './klaro-lang';
+import { needsReloadAfterWithdrawal } from './analytics-consent';
 
 interface KlaroManager {
   /** Klaro sets this once a choice is stored; its UI hides Accept all / Decline all while true. */
   confirmed: boolean;
-  watch: (watcher: { update: (manager: KlaroManager, name: string) => void }) => void;
+  watch: (watcher: {
+    update: (manager: KlaroManager, name: string, data?: { changes?: Record<string, boolean> }) => void;
+  }) => void;
 }
 
 interface KlaroModule {
@@ -118,8 +121,17 @@ export default function CookieBanner() {
       // Let UI that waits for a consent decision (StickyCtaBar) react to the
       // choice on this page without polling.
       Klaro.getManager(klaroConfig).watch({
-        update: (_manager, name) => {
-          if (name === 'saveConsents') window.dispatchEvent(new Event(CONSENT_CHOICE_EVENT));
+        update: (_manager, name, data) => {
+          if (name !== 'saveConsents') return;
+          window.dispatchEvent(new Event(CONSENT_CHOICE_EVENT));
+          // Per-purpose withdrawal of a tracker already running on this page:
+          // Klaro notifies before it applies the consents, so reload on the
+          // next tick — after the decline handlers set ga-disable and deleted
+          // the cookies. The reload re-reads the saved choice; the other
+          // purpose stays as chosen.
+          if (needsReloadAfterWithdrawal(data?.changes, window)) {
+            window.setTimeout(() => window.location.reload(), 0);
+          }
         },
       });
     })();

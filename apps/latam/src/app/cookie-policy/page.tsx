@@ -1,15 +1,18 @@
 import type { Metadata } from 'next';
 
-import { PublicShell, buildAlternates, buildOpenGraph, buildTwitter} from "@nootropic/ui";
+import { CookieTable, PublicShell, buildAlternates, buildOpenGraph, buildTwitter, type CookieTableLabels } from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 
 const GA_COOKIE_DOC = 'https://support.google.com/analytics/answer/11397207';
 const IMPACT_COOKIE_DOC =
   'https://help.impact.com/brand/what-would-you-like-to-learn-about/platform-features/tracking/tracking-explained/impactcom-cookies-explained';
 
-const TH = 'px-3 py-2 font-semibold text-gray-700';
-const TD = 'px-3 py-2 text-gray-700 align-top';
-const TD_NAME = 'px-3 py-2 text-gray-900 font-medium align-top';
+const LABELS: CookieTableLabels = {
+  cookie: 'Cookie',
+  setBy: 'Instalada por',
+  role: 'Para qué sirve',
+  duration: 'Duración',
+};
 
 export const metadata: Metadata = {
   title: 'Política de Cookies',
@@ -24,7 +27,7 @@ export default function CookiePolicyPage() {
     <PublicShell searchItems={searchItems} uiStrings={uiStrings} hideDisclosure>
     <article className="max-w-3xl mx-auto px-4 py-10">
       <h1 className="text-3xl font-bold text-gray-900 mb-6">Política de Cookies</h1>
-      <p className="text-sm text-gray-500 mb-8">Última actualización: 5 de octubre de 2026</p>
+      <p className="text-sm text-gray-500 mb-8">Última actualización: 6 de octubre de 2026</p>
 
       <div className="prose prose-gray prose-sm max-w-none space-y-6">
         <section>
@@ -40,80 +43,47 @@ export default function CookiePolicyPage() {
         <section>
           <h2 className="text-xl font-bold text-gray-900 mb-3">Nada Opcional se Ejecuta Antes de que Elijas</h2>
           <p className="text-gray-700 leading-relaxed">
-            En tu primera visita, un banner de consentimiento ofrece <strong>Aceptar todo</strong> y{' '}
-            <strong>Rechazar todo</strong> uno al lado del otro. Hasta que hagas clic en Aceptar, no
-            se carga ningún script de análisis ni de seguimiento de afiliados y no se envía ninguna
-            solicitud a Google ni a Impact.com. Si rechazas, no se carga nada opcional y recordamos
-            tu rechazo exactamente el mismo tiempo que recordaríamos una aceptación (365 días).
+            Las cookies opcionales tienen dos finalidades separadas y decides sobre cada una por
+            separado: <strong>Análisis</strong> (Google Analytics 4) y{' '}
+            <strong>Atribución de afiliados</strong> (Impact.com). En tu primera visita, un banner
+            de consentimiento ofrece <strong>Aceptar todo</strong> y <strong>Rechazar todo</strong>{' '}
+            uno al lado del otro, además de <strong>Configurar</strong>, donde cada finalidad tiene
+            su propio interruptor (ambos desactivados hasta que los actives). El script de una
+            finalidad se carga, y sus cookies se instalan, solo si permites esa finalidad: permitir
+            Análisis nunca carga Impact.com y permitir Atribución de afiliados nunca carga Google
+            Analytics. Hasta que elijas, no se envía ninguna solicitud a Google ni a Impact.com. Si
+            rechazas, no se carga nada opcional y recordamos tu rechazo exactamente el mismo tiempo
+            que recordaríamos una aceptación (365 días).
           </p>
         </section>
 
         <section>
-          <h2 className="text-xl font-bold text-gray-900 mb-3">Cookies que Usamos</h2>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm border-collapse mb-4">
-              <thead>
-                <tr className="bg-gray-100 text-left">
-                  <th className={TH}>Cookie</th>
-                  <th className={TH}>Categoría</th>
-                  <th className={TH}>Instalada por</th>
-                  <th className={TH}>Finalidad</th>
-                  <th className={TH}>Duración</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b border-gray-100">
-                  <td className={TD_NAME}>klaro</td>
-                  <td className={TD}>Estrictamente necesaria</td>
-                  <td className={TD}>Este sitio (gestor de consentimiento)</td>
-                  <td className={TD}>Guarda tu elección de consentimiento: qué servicios aceptaste o rechazaste.</td>
-                  <td className={TD}>365 días</td>
-                </tr>
-                <tr className="border-b border-gray-100 bg-gray-50">
-                  <td className={TD_NAME}>_ga</td>
-                  <td className={TD}>Análisis (solo después de Aceptar)</td>
-                  <td className={TD}>Google Analytics 4 (Google), cookie propia</td>
-                  <td className={TD}>Distingue a los visitantes para contar cuántas personas leen cada página.</td>
-                  <td className={TD}>2 años</td>
-                </tr>
-                <tr className="border-b border-gray-100">
-                  <td className={TD_NAME}>_ga_&lt;container-id&gt;</td>
-                  <td className={TD}>Análisis (solo después de Aceptar)</td>
-                  <td className={TD}>Google Analytics 4 (Google), cookie propia</td>
-                  <td className={TD}>Mantiene el estado de la visita actual (sesión).</td>
-                  <td className={TD}>2 años</td>
-                </tr>
-                <tr className="border-b border-gray-100 bg-gray-50">
-                  <td className={TD_NAME}>IR_MPI</td>
-                  <td className={TD}>Atribución de afiliados (solo después de Aceptar)</td>
-                  <td className={TD}>Impact.com, cookie propia</td>
-                  <td className={TD}>Identificador aleatorio de visitante que usa la etiqueta de seguimiento de Impact.com para que una compra en un sitio socio se atribuya a este sitio.</td>
-                  <td className={TD}>Persistente (400 días en Chrome, el máximo del navegador)</td>
-                </tr>
-                <tr className="border-b border-gray-100">
-                  <td className={TD_NAME}>IR_MPS</td>
-                  <td className={TD}>Atribución de afiliados (solo después de Aceptar)</td>
-                  <td className={TD}>Impact.com, cookie propia</td>
-                  <td className={TD}>Registro de la visita actual que usa la etiqueta de seguimiento de Impact.com.</td>
-                  <td className={TD}>Sesión</td>
-                </tr>
-                <tr className="border-b border-gray-100 bg-gray-50">
-                  <td className={TD_NAME}>IR_gbd</td>
-                  <td className={TD}>Atribución de afiliados (solo después de Aceptar)</td>
-                  <td className={TD}>Impact.com, cookie propia</td>
-                  <td className={TD}>Registra el dominio base para la etiqueta de seguimiento de Impact.com.</td>
-                  <td className={TD}>Sesión</td>
-                </tr>
-                <tr className="border-b border-gray-100">
-                  <td className={TD_NAME}>IR_PI, IR_&lt;campaign-id&gt;</td>
-                  <td className={TD}>Atribución de afiliados (solo después de Aceptar)</td>
-                  <td className={TD}>Impact.com, cookies propias</td>
-                  <td className={TD}>Otras cookies de atribución que Impact.com documenta para su etiqueta; pueden instalarse cuando sigues un enlace de un socio.</td>
-                  <td className={TD}>365 días / Sesión</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <h2 className="text-xl font-bold text-gray-900 mb-3">Cookies que Usamos, por Finalidad</h2>
+          <CookieTable
+            heading="Estrictamente necesarias (siempre activas)"
+            labels={LABELS}
+            rows={[
+              ['klaro', 'Este sitio (gestor de consentimiento)', 'Guarda tu elección de consentimiento para cada finalidad: qué servicios permitiste o rechazaste.', '365 días'],
+            ]}
+          />
+          <CookieTable
+            heading="Análisis: Google Analytics 4 (solo si permites Análisis)"
+            labels={LABELS}
+            rows={[
+              ['_ga', 'Google Analytics 4 (Google), cookie propia', 'Distingue a los visitantes para contar cuántas personas leen cada página.', '2 años'],
+              ['_ga_<container-id>', 'Google Analytics 4 (Google), cookie propia', 'Mantiene el estado de la visita actual (sesión).', '2 años'],
+            ]}
+          />
+          <CookieTable
+            heading="Atribución de afiliados: Impact.com (solo si permites Atribución de afiliados)"
+            labels={LABELS}
+            rows={[
+              ['IR_MPI', 'Impact.com, cookie propia', 'Identificador aleatorio de visitante que usa la etiqueta de seguimiento de Impact.com para que una compra en un sitio socio se atribuya a este sitio.', 'Persistente (400 días en Chrome, el máximo del navegador)'],
+              ['IR_MPS', 'Impact.com, cookie propia', 'Registro de la visita actual que usa la etiqueta de seguimiento de Impact.com.', 'Sesión'],
+              ['IR_gbd', 'Impact.com, cookie propia', 'Registra el dominio base para la etiqueta de seguimiento de Impact.com.', 'Sesión'],
+              ['IR_PI, IR_<campaign-id>', 'Impact.com, cookies propias', 'Otras cookies de atribución que Impact.com documenta para su etiqueta; pueden instalarse cuando sigues un enlace de un socio.', '365 días / Sesión'],
+            ]}
+          />
           <p className="text-gray-700 leading-relaxed">
             Las duraciones son las predeterminadas de cada proveedor; los navegadores pueden
             acortarlas (Google indica un máximo de 400 días en Chrome y 7 días en Safari).
@@ -157,10 +127,12 @@ export default function CookiePolicyPage() {
           <ul className="list-disc list-inside text-gray-700 space-y-2">
             <li>
               <strong>En nuestro sitio:</strong> usa el enlace <strong>Configuración de cookies</strong>{' '}
-              al final de cada página para volver a abrir el gestor de consentimiento y activar o
-              desactivar cualquier servicio en cualquier momento. Al retirar el consentimiento,
-              Google Analytics se detiene en la página y sus cookies (y las de Impact.com) se
-              eliminan de este sitio.
+              al final de cada página para volver a abrir el banner de consentimiento:{' '}
+              <strong>Rechazar todo</strong> retira ambas finalidades y <strong>Configurar</strong>{' '}
+              te permite desactivar solo una. Al retirar Análisis, Google Analytics se detiene en la
+              página y sus cookies (<code>_ga</code>, <code>_ga_&lt;container-id&gt;</code>) se
+              eliminan; al retirar Atribución de afiliados, se eliminan las cookies de Impact.com
+              (<code>IR_*</code>). La otra finalidad se mantiene como la elegiste.
             </li>
             <li>
               <strong>En tu navegador:</strong> puedes eliminar o bloquear cookies en la
