@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
-"""Batch translate strings via DeepL API."""
+"""Batch translate strings via DeepL API.
+
+Usage: DEEPL_KEY=... python3 scripts/batch-translate.py TARGET_LANG < strings.json
+"""
 import json
+import os
 import sys
 import urllib.request
 import urllib.parse
 
-DEEPL_KEY = "4fba637b-33a0-4508-a9bd-3d548e9e7880"
+DEEPL_KEY = os.environ.get("DEEPL_KEY")
+if not DEEPL_KEY:
+    sys.exit("DEEPL_KEY env var required (DeepL API key)")
 API_URL = "https://api.deepl.com/v2/translate"
 
 def translate_batch(texts: list[str], target_lang: str) -> list[str]:
