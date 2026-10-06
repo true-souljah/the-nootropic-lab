@@ -66,8 +66,8 @@ export default function AboutPage() {
           <ul className="space-y-2 text-gray-700 mb-3">
             <li>
               <strong>Singapore — HSA (Health Sciences Authority).</strong> Most permissive personal-import
-              regime in the region; food supplements do not require pre-market approval but health claims are
-              tightly controlled.
+              regime in the region. Singapore&apos;s Health Sciences Authority (HSA) does not subject health
+              supplements to approval or licensing; notification is voluntary (hsa.gov.sg, checked 2026-10-06).
             </li>
             <li>
               <strong>Malaysia — NPRA (National Pharmaceutical Regulatory Agency).</strong> Domestically sold
