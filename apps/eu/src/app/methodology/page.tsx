@@ -71,8 +71,11 @@ export default function MethodologyEUPage() {
             <li><strong>Regulation (EU) 2015/2283</strong> — Novel Food authorisation status</li>
           </ul>
           <p className="text-sm text-gray-600 leading-relaxed">
-            Products that ship from EU warehouses and price in EUR are rated more highly in the
-            Value for Money pillar, since EU buyers avoid import duties and VAT surprises.
+            The EU storefront mark is a separate label: it shows that a product is sold through a
+            dedicated EU storefront priced in EUR, and no pillar score is adjusted for it. Pillar
+            scores, including Value for Money, are editorial ratings recorded for each product. Not
+            every product in our EU coverage has a euro price on record; NooCube, for example, has
+            no EU storefront and is listed with its US-dollar price only.
           </p>
         </section>
 

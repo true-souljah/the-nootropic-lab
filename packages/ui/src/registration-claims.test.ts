@@ -1,0 +1,65 @@
+import { describe, test, expect } from 'vitest';
+import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
+import { resolve, dirname, extname } from 'node:path';
+
+// No national product register (Health Canada NPN, SFDA/MOHAP, COFEPRIS,
+// ANVISA, NPRA, BPOM, VFA, ...) was ever checked for the products we review;
+// vendor research only looked for public alerts. Copy may therefore state
+// only that we have not verified a local registration, never that a product
+// "is not registered with" a regulator.
+
+const REPO_ROOT = resolve(dirname(new URL(import.meta.url).pathname), '../../..');
+
+function walk(dir: string, out: string[] = []): string[] {
+  for (const name of readdirSync(dir)) {
+    const p = resolve(dir, name);
+    if (statSync(p).isDirectory()) walk(p, out);
+    else if (['.ts', '.tsx', '.json', '.md', '.mdx'].includes(extname(p))) out.push(p);
+  }
+  return out;
+}
+
+const DATA_DIR = resolve(REPO_ROOT, 'packages/data/src');
+const NOTES_DIR = resolve(DATA_DIR, 'regional-notes');
+const APPS_DIR = resolve(REPO_ROOT, 'apps');
+
+const SOURCES = [
+  ...readdirSync(DATA_DIR)
+    .filter(n => /^products-.*\.json$/.test(n))
+    .map(n => resolve(DATA_DIR, n)),
+  ...readdirSync(NOTES_DIR)
+    .filter(n => n.endsWith('.ts'))
+    .map(n => resolve(NOTES_DIR, n)),
+  ...readdirSync(APPS_DIR)
+    .map(n => resolve(APPS_DIR, n, 'src'))
+    .filter(p => existsSync(p))
+    .flatMap(p => walk(p)),
+];
+
+const UNSOURCED_NEGATIVE: RegExp[] = [
+  /not (currently )?registered with/i,
+  /not registered with any/i,
+  // Hyphenated / abbreviated forms, e.g. "Not SFDA/MOHAP-registered",
+  // "Not Health Canada NPN-registered", "Not HSA/NPRA registered".
+  /\bnot\b[^.]{0,40}\b(SFDA|MOHAP|HSA|NPRA|BPOM|VFA|COFEPRIS|ANVISA|ANMAT|INVIMA|DIGEMID|NPN|Health Canada)\b[^.]{0,30}\b(registered|licensed)\b/i,
+  /not formally registered/i,
+  /not been (formally )?registered/i,
+];
+
+describe('no copy asserts a product is not registered with a regulator', () => {
+  test('scanned a non-empty file set', () => {
+    expect(SOURCES.length).toBeGreaterThan(100);
+    expect(SOURCES.some(f => /products-sea\.json$/.test(f))).toBe(true);
+    expect(SOURCES.some(f => /regional-notes\/sea\.ts$/.test(f))).toBe(true);
+  });
+
+  test('no product data, regional note or app source uses the unsourced negative', () => {
+    const hits = SOURCES.flatMap(file => {
+      const lines = readFileSync(file, 'utf8').split('\n');
+      return lines.flatMap((line, i) =>
+        UNSOURCED_NEGATIVE.some(re => re.test(line)) ? [`${file.slice(REPO_ROOT.length + 1)}:${i + 1}`] : [],
+      );
+    });
+    expect(hits).toEqual([]);
+  });
+});
