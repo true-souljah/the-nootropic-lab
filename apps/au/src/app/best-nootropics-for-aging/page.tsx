@@ -43,10 +43,16 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18844328/',
   },
   {
-    name: 'Bacopa Monnieri & Ginkgo Biloba',
+    name: 'Bacopa Monnieri',
     evidence:
-      'Bacopa: multiple RCTs across age groups show memory consolidation benefits, with studies specifically in older adults showing retention and recall improvements after 8–12 weeks at 300mg standardised to 50% bacosides. Ginkgo: cerebral blood flow modulation; modest cognitive benefits in older adults at 120–240mg/day. Both Bacopa and Ginkgo are permitted in TGA Listed Medicines, so Australian seniors have AUST L-listed options at any pharmacy (Blackmores Bio Ginkgoforte 6000, Caruso\'s Ginkgo, Swisse Memory & Focus, Nature\'s Own Brahmi).',
+      'Multiple RCTs across age groups show memory consolidation benefits, with studies specifically in older adults showing retention and recall improvements after 8–12 weeks at 300mg standardised to 50% bacosides. Both Bacopa and Ginkgo are permitted in TGA Listed Medicines, so Australian seniors have AUST L-listed options at any pharmacy (Blackmores Bio Ginkgoforte 6000, Caruso\'s Ginkgo, Swisse Memory & Focus, Nature\'s Own Brahmi).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22747190/',
+  },
+  {
+    name: 'Ginkgo Biloba',
+    evidence:
+      'Proposed to work via cerebral blood flow. A 2026 network meta-analysis of 29 RCTs in healthy adults (Tiemtad et al.) found that high-dose Bacopa (600mg/day or more) improved working memory more than both Ginkgo doses and placebo and gave greater short-term memory benefits, with no significant differences in attention or processing speed, so the trial evidence does not single out Ginkgo as a memory enhancer, even though it is permitted in TGA Listed Medicines.',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/41678913/',
   },
 ];
 

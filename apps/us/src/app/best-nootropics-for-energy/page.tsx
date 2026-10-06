@@ -44,8 +44,8 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'B-vitamins (B6, B12, folate)',
     evidence:
-      'Methylated B-vitamins are essential cofactors for energy metabolism and neurotransmitter synthesis. Deficiency is a common (and reversible) cause of fatigue. Most quality nootropic stacks include the methylated forms (methyl-B12, methyl-folate).',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/23357967/',
+      'B-vitamins are essential cofactors for energy metabolism and neurotransmitter synthesis. In a 28-day RCT in 198 working men aged 30–55 (Kennedy et al. 2011), a multivitamin/mineral product (B-complex, vitamin C and minerals) raised self-rated physical stamina, post-work concentration and mental stamina, and some alertness ratings versus placebo — a multi-nutrient result that cannot be credited to B-vitamins alone. Most quality nootropic stacks include the methylated forms (methyl-B12, methyl-folate).',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/21751253/',
   },
 ];
 

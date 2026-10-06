@@ -39,7 +39,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Fosfatidilserina (PS)',
     evidence:
-      'Componente fosfolípido de las membranas neuronales. La FDA permite una declaración de salud calificada para PS en función cognitiva en adultos mayores. La mayor parte de la evidencia clínica está en personas de 50–80 años a 100–300mg/día. Evidencia más débil en adultos jóvenes sanos.',
+      'Componente fosfolípido de las membranas neuronales. La FDA permite una declaración de salud calificada para PS en función cognitiva en adultos mayores. La mayor parte de la evidencia clínica está en personas de 50–80 años a 100–300mg/día. Evidencia más débil en adultos jóvenes sanos. El ensayo enlazado abajo (Vakhapova et al. 2010) no es la base de la declaración de la FDA: en un ensayo clínico exploratorio de 15 semanas con 157 adultos mayores sin demencia y con quejas de memoria, la PS-DHA mejoró el recuerdo verbal inmediato frente a placebo.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {
