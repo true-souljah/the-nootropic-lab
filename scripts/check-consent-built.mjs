@@ -9,7 +9,8 @@
 //     static.cloudflareinsights.com requests on every first visit);
 //   - mentions the Cloudflare beacon or its unresolved placeholder token;
 //   - lacks the Klaro mount point (<div id="klaro">);
-//   - lacks the persistent "Cookie settings" control (data-cookie-settings).
+//   - lacks the persistent "Cookie settings" control (data-cookie-settings);
+//   - has no link to the cookie or privacy policy (the policy names the cookies).
 // Runs in CI after all 8 builds are placed (build.yml e2e job) and locally
 // via `npm run check:consent [region...]`.
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
@@ -65,6 +66,7 @@ for (const region of scanRegions) {
     }
     if (!/<div id="klaro"/.test(html)) failures.push(`${rel}: no Klaro mount point`);
     if (!/data-cookie-settings/.test(html)) failures.push(`${rel}: no "Cookie settings" withdraw control`);
+    if (!/<a\b[^>]*href="\/(cookie|privacy)-policy\/?[?#"]/.test(html)) failures.push(`${rel}: no link to the cookie or privacy policy`);
   }
 }
 

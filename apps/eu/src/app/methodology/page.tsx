@@ -9,10 +9,10 @@ import { SITE_URL } from '@/lib/region';
 export const metadata: Metadata = {
   title: 'How We Review Nootropics — Our Methodology (EU Edition)',
   description:
-    'The Nootropic Lab EU scoring methodology: 5-pillar framework, EU regulatory compliance checks, clinical dosing audit process, and affiliate disclosure.',
+    'The Nootropic Lab EU scoring methodology: 5-pillar framework, EU health-claim checks on our own copy, clinical dosing audit process, and affiliate disclosure.',
   alternates: buildAlternates({ regionCode: 'eu', path: '/methodology/' }),
-  openGraph: buildOpenGraph({ regionCode: 'eu', path: '/methodology/', title: 'How We Review Nootropics — Our Methodology (EU Edition)', description: 'The Nootropic Lab EU scoring methodology: 5-pillar framework, EU regulatory compliance checks, clinical dosing audit process, and affiliate disclosure.' }),
-  twitter: buildTwitter({ title: 'How We Review Nootropics — Our Methodology (EU Edition)', description: 'The Nootropic Lab EU scoring methodology: 5-pillar framework, EU regulatory compliance checks, clinical dosing audit process, and affiliate disclosure.' }),
+  openGraph: buildOpenGraph({ regionCode: 'eu', path: '/methodology/', title: 'How We Review Nootropics — Our Methodology (EU Edition)', description: 'The Nootropic Lab EU scoring methodology: 5-pillar framework, EU health-claim checks on our own copy, clinical dosing audit process, and affiliate disclosure.' }),
+  twitter: buildTwitter({ title: 'How We Review Nootropics — Our Methodology (EU Edition)', description: 'The Nootropic Lab EU scoring methodology: 5-pillar framework, EU health-claim checks on our own copy, clinical dosing audit process, and affiliate disclosure.' }),
 };
 
 const pillars = [
@@ -58,10 +58,12 @@ export default function MethodologyEUPage() {
         </section>
 
         <section className="mb-10">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">EU Compliance Checks</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">EU Rules and What We Check</h2>
           <p className="text-sm text-gray-600 leading-relaxed mb-3">
-            For EU-specific reviews, we additionally verify that each product&apos;s ingredients
-            and health claims comply with:
+            Food supplements sold in the EU fall under the rules below. We keep our own copy within
+            the EU-authorised health claims and mark which products are sold from an EU storefront;
+            we do not verify each product&apos;s regulatory compliance, which is the seller&apos;s
+            responsibility.
           </p>
           <ul className="list-disc list-inside text-sm text-gray-600 space-y-1 mb-3">
             <li><strong>Directive 2002/46/EC</strong> — food supplement ingredient safety</li>

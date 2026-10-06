@@ -25,10 +25,10 @@ export async function generateMetadata({
   if (!c) return {};
   return {
     title: `Best Nootropics in ${c.name} ${CURRENT_YEAR} — EU Buyer's Guide`,
-    description: `Buy nootropics in ${c.name}: EU-compliant products, EUR pricing, regulatory notes, and shipping info for ${c.name} residents.`,
+    description: `Buy nootropics in ${c.name}: EU storefront products, EUR pricing, regulatory notes, and shipping info for ${c.name} residents.`,
     alternates: buildAlternates({ regionCode: 'eu', path: `/countries/${country}/`, availableInRegions: ['eu'] }),
-    openGraph: buildOpenGraph({ regionCode: 'eu', path: `/countries/${country}/`, title: `Best Nootropics in ${c.name} ${CURRENT_YEAR} — EU Buyer's Guide`, description: `Buy nootropics in ${c.name}: EU-compliant products, EUR pricing, regulatory notes, and shipping info for ${c.name} residents.` }),
-    twitter: buildTwitter({ title: `Best Nootropics in ${c.name} ${CURRENT_YEAR} — EU Buyer's Guide`, description: `Buy nootropics in ${c.name}: EU-compliant products, EUR pricing, regulatory notes, and shipping info for ${c.name} residents.` }),
+    openGraph: buildOpenGraph({ regionCode: 'eu', path: `/countries/${country}/`, title: `Best Nootropics in ${c.name} ${CURRENT_YEAR} — EU Buyer's Guide`, description: `Buy nootropics in ${c.name}: EU storefront products, EUR pricing, regulatory notes, and shipping info for ${c.name} residents.` }),
+    twitter: buildTwitter({ title: `Best Nootropics in ${c.name} ${CURRENT_YEAR} — EU Buyer's Guide`, description: `Buy nootropics in ${c.name}: EU storefront products, EUR pricing, regulatory notes, and shipping info for ${c.name} residents.` }),
   };
 }
 
@@ -36,6 +36,9 @@ const topProducts = productsEU
   .slice()
   .sort((a, b) => b.score - a.score)
   .slice(0, 3);
+
+// The storefront sentence must match the listed records (`euStorefront`).
+const allTopOnEUStorefront = topProducts.every(p => p.euStorefront);
 
 export default async function CountryPage({
   params,
@@ -50,7 +53,7 @@ export default async function CountryPage({
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: `Best Nootropics in ${c.name} ${CURRENT_YEAR}`,
-    description: `Guide to buying nootropics in ${c.name}. EU compliance, EUR pricing, and top-rated stacks.`,
+    description: `Guide to buying nootropics in ${c.name}. EU storefronts, EUR pricing, and top-rated stacks.`,
     author: buildPersonAuthorReference(undefined, SITE_URL),
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab EU', url: SITE_URL },
   };
@@ -116,8 +119,10 @@ export default async function CountryPage({
             Top Picks for {c.name} Buyers
           </h2>
           <p className="text-sm text-gray-600 mb-4">
-            All products below have EU storefronts and ship to {c.name}. Scores are from our
-            independent editorial review.
+            {allTopOnEUStorefront
+              ? 'Every product below is sold from an EU storefront in EUR.'
+              : 'Products marked EU storefront are sold from an EU-based store in EUR; the others are sold without a dedicated EU storefront — confirm delivery and duties at checkout.'}{' '}
+            Scores are from our independent editorial review.
           </p>
           <div className="space-y-4">
             {topProducts.map((p, i) => (
@@ -140,7 +145,7 @@ export default async function CountryPage({
                   <div className="flex flex-wrap gap-3 text-xs text-gray-500">
                     <span>Score: <strong className="text-green-700">{p.score}/10</strong></span>
                     {p.priceMonthlyEUR && <span>€{p.priceMonthlyEUR}/mo</span>}
-                    <span>{p.euStorefront ? '✓ EU storefront' : 'Ships to EU'}</span>
+                    <span>{p.euStorefront ? '✓ EU storefront' : 'No EU storefront'}</span>
                   </div>
                 </div>
               </a>

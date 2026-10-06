@@ -39,4 +39,15 @@ describe('LATAM customsNote sourcing', () => {
       for (const re of RETIRED) expect(c.customsNote).not.toMatch(re);
     });
   }
+
+  // ARCA's Puerta a Puerta pages (re-fetched 2026-10-05): the INAL-intervention
+  // exemption under ANMAT Disposición 537/2025 (intervenciones.asp) and the
+  // "libre ingreso" outcome of the supplement authorisation (medicamentos.asp).
+  test('AR: quotes the INAL exemption and the "libre ingreso" wording', () => {
+    const ar = latamCountries.find(c => c.code === 'AR')!.customsNote;
+    expect(ar).toContain('«la intervención del Instituto Nacional de Alimentos» (INAL)');
+    expect(ar).toContain('Disposición N° 537 del 24 de enero de 2025');
+    expect(ar).toContain('determinar el libre ingreso de lo declarado para uso personal');
+    expect(ar).not.toMatch(/no verificamos su contenido/);
+  });
 });

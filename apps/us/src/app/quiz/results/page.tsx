@@ -75,7 +75,7 @@ export default function QuizResultsPage() {
       <Suspense fallback={null}>
         <ResultsBody />
       </Suspense>
-      <CookieSettingsBar label="Cookie settings" />
+      <CookieSettingsBar label="Cookie settings" privacyLabel="Privacy" cookiePolicyLabel="Cookies" />
     </>
   );
 }

@@ -34,6 +34,10 @@ export interface Product {
   moneyBackDays: number;
   caffeineFree: boolean;
   euStorefront: boolean;
+  /**
+   * Legacy self-asserted flag, NOT rendered anywhere: no regulator record
+   * backs it, so badges, chips and filters use `euStorefront` instead.
+   */
   euCompliance: EUCompliance;
   /**
    * Vendor's Trustpilot rating (0..5) or `null` when no Trustpilot profile

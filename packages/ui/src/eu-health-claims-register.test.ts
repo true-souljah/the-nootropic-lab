@@ -42,6 +42,20 @@ const BANNED_WORDING: RegExp[] = [
   /EFSA[- ]recogni[sz]ed/i,
   /EFSA (has |had )?authori[sz]e[sd]?/i,
   /authori[sz]e[sd]? the (alertness|attention|concentration)(\/attention)? claim/i,
+  // No regulator record proves any product's EU compliance, so the EU copy
+  // states only the verifiable storefront fact (2026-10 cleanup round four).
+  // No URL slug contains this phrase today; a future slug would be excluded
+  // with a lookahead as for /efsa-approved-cognitive-supplements/.
+  /EU[- ]compliant/i,
+  /EU compliance verified/i,
+  /EFSA-permissible/i,
+  // The same assertions in the de/fr/pt locales.
+  /EU-konform/i,
+  /EFSA-\s*zugelassen/i,
+  /conformit[ée] (r[ée]glementaire )?UE/i,
+  /conformes? à la r[ée]glementation UE/i,
+  /conformidade (regulamentar )?(da )?UE/i,
+  /aprovad[oa]s pela\s+EFSA/i,
 ];
 
 interface Row {
@@ -112,6 +126,29 @@ describe('EU copy does not call claims "EFSA-authorised" or present caffeine cog
       }
     });
   }
+});
+
+// The self-asserted `euCompliance` record flag must not reach a renderer:
+// shared UI and data helpers read `euStorefront` instead, and no shared
+// component labels anything "EU compliant".
+const SHARED_RENDER_SOURCES = [
+  ...walk(resolve(REPO_ROOT, 'packages/ui/src'), new Set(['.ts', '.tsx'])).filter(f => !/\.test\.tsx?$/.test(f)),
+  ...walk(resolve(REPO_ROOT, 'packages/data/src'), new Set(['.ts'])).filter(f => !/\.test\.ts$/.test(f)),
+];
+
+describe('shared code does not render the self-asserted euCompliance flag', () => {
+  test('scanned a non-empty file set', () => {
+    expect(SHARED_RENDER_SOURCES.length).toBeGreaterThan(50);
+  });
+
+  test('no shared source reads .euCompliance or says "EU compliant"', () => {
+    const hits = SHARED_RENDER_SOURCES.flatMap(file => {
+      const text = readFileSync(file, 'utf8');
+      const m = text.match(/\.euCompliance\b|EU[- ]compliant/i);
+      return m ? [`${file.slice(REPO_ROOT.length + 1)}: "${m[0]}"`] : [];
+    });
+    expect(hits).toEqual([]);
+  });
 });
 
 // EFSA assesses claims and certifies nothing, so no product, label or

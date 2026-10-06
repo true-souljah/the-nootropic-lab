@@ -91,8 +91,10 @@ export default function AboutPage() {
               <Link href="/countries/thailand/" className="text-green-700 underline">Thailand buyer&apos;s guide</Link>.
             </li>
             <li>
-              <strong>Vietnam — VFA (Vietnam Food Administration).</strong> Functional-food declaration required
-              for commercial channels. Personal imports permitted within customs limits.
+              <strong>Vietnam — Vietnam Food Administration (Cục An toàn thực phẩm, VFA), Ministry of Health.</strong>{' '}
+              Health-protection foods need a registered product declaration under Decree 15/2018/NĐ-CP. We
+              found no official page confirming the current rules for personal imports of supplements. See
+              our <Link href="/countries/vietnam/" className="text-green-700 underline">Vietnam buyer&apos;s guide</Link>.
             </li>
           </ul>
           <p className="text-gray-700 leading-relaxed">

@@ -161,9 +161,9 @@ export function licenceStatus(product: Product, region: RegionCode): LicenceStat
         ? { label: product.ffcStatus.notificationNumber ? `FFC 届出 ${product.ffcStatus.notificationNumber}` : 'FFC notified', tone: 'good' }
         : { label: 'Imported (not FFC-notified)', tone: 'neutral' };
     case 'eu':
-      if (product.euCompliance === 'compliant') return { label: product.euStorefront ? 'EU storefront' : 'EU compliant', tone: 'good' };
-      if (product.euCompliance === 'reformulated') return { label: 'Reformulated for the EU', tone: 'warn' };
-      return { label: 'Compliance unverified', tone: 'neutral' };
+      // Only the verifiable storefront fact; `euCompliance` is a legacy
+      // self-asserted flag and is never rendered.
+      return product.euStorefront ? { label: 'EU storefront', tone: 'good' } : null;
     case 'sea': {
       const halal = product.halalCertified;
       if (halal === true) return { label: 'Halal certified', tone: 'good' };

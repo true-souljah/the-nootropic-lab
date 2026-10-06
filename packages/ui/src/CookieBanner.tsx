@@ -13,6 +13,8 @@ import { klaroConfig } from './klaro-config';
 import { applyActiveLangToKlaroConfig } from './klaro-lang';
 
 interface KlaroManager {
+  /** Klaro sets this once a choice is stored; its UI hides Accept all / Decline all while true. */
+  confirmed: boolean;
   watch: (watcher: { update: (manager: KlaroManager, name: string) => void }) => void;
 }
 
@@ -46,16 +48,27 @@ function loadKlaro(): Promise<KlaroModule> {
 }
 
 /**
- * Re-open the consent manager (the persistent withdraw control). Opens
- * Klaro's settings modal, where every service can be switched off or on,
- * and moves keyboard focus into it.
+ * Re-open the consent banner (the persistent withdraw control) and move
+ * keyboard focus into it.
+ *
+ * Once a choice is stored, Klaro 0.7 re-opens only its settings modal with
+ * toggles + "Save" — no "Accept all" / "Decline all" (both are gated on
+ * `!manager.confirmed`). Withdrawing would then take more clicks than
+ * consenting did, and the portfolio consent checker (C6/C9) does not
+ * recognise that modal as consent UI. So the stored choice is marked
+ * unconfirmed for this page and the FIRST-LAYER banner is shown again: the
+ * same equal-weight "Accept all" / "Decline all" pair (one click either
+ * way) plus "Configure" for per-service toggles. Nothing is applied until
+ * the visitor clicks — Klaro only applies consents on a button press, and
+ * a click re-confirms and re-saves (same cookie, same 365-day lifetime).
  */
 export async function openCookieSettings(): Promise<void> {
   const Klaro = await loadKlaro();
   applyActiveLangToKlaroConfig(klaroConfig);
-  Klaro.show(klaroConfig, true);
-  // Klaro focuses the modal's first control when it mounts; make sure focus
-  // landed inside the consent UI even when the modal was already mounted.
+  Klaro.getManager(klaroConfig).confirmed = false;
+  Klaro.show(klaroConfig, false);
+  // Klaro focuses the notice when it mounts; make sure focus landed inside
+  // the consent UI even when it was already mounted.
   requestAnimationFrame(() => {
     const root = document.getElementById(klaroConfig.elementID);
     if (!root || root.contains(document.activeElement)) return;

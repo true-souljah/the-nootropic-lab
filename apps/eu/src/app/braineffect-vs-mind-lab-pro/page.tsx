@@ -34,9 +34,9 @@ const faqItems: HeadToHeadFAQ[] = [
       'BRAINEFFECT FOCUS is no longer sold: its product page on brain-effect.com returns 404 and FOCUS is no longer in the brand\'s catalogue (checked 29 September 2026). BRAINEFFECT still sells other products, which we have not reviewed. Of the two products compared here, only Mind Lab Pro is still available to EU buyers — €65/month from its EU storefront.',
   },
   {
-    q: 'EU compliance — how did the two compare?',
+    q: 'EU rules — how did the two compare?',
     a:
-      'Both were sold as EU food supplements. BRAINEFFECT FOCUS contained 80mg of caffeine per serving, but no caffeine cognition claim is authorised in the EU: the European Food Safety Authority (EFSA) assessed a 75mg alertness claim favourably in 2011, yet the European Commission never added any caffeine claim to the list of authorised health claims, and it refused a 40–75mg alertness claim in Regulation (EU) 2016/1411. Mind Lab Pro has an EU storefront with EUR pricing and EU-compliant labelling.',
+      'Both were sold as EU food supplements. BRAINEFFECT FOCUS contained 80mg of caffeine per serving, but no caffeine cognition claim is authorised in the EU: the European Food Safety Authority (EFSA) assessed a 75mg alertness claim favourably in 2011, yet the European Commission never added any caffeine claim to the list of authorised health claims, and it refused a 40–75mg alertness claim in Regulation (EU) 2016/1411. Mind Lab Pro has an EU storefront with EUR pricing; we do not verify either product\'s labelling compliance, which is the seller\'s responsibility.',
   },
   {
     q: 'Price difference?',

@@ -113,7 +113,7 @@ export function ComparatorFilters({
       </fieldset>
       <div className="mb-[22px] pt-[14px] border-t border-ds-border flex flex-col gap-[14px]">
         <ToggleSwitch checked={caffeineFreeOnly} onChange={setCaffeineFreeOnly} label="Caffeine-free only" />
-        <ToggleSwitch checked={euCompliantOnly} onChange={setEuCompliantOnly} label="EU-compliant only" />
+        <ToggleSwitch checked={euCompliantOnly} onChange={setEuCompliantOnly} label="EU storefront only" />
         <ToggleSwitch checked={handsOnOnly} onChange={setHandsOnOnly} label="★ Hands-on tested only" />
         <ToggleSwitch
           checked={showCommission}

@@ -1,9 +1,9 @@
 #!/bin/bash
-# Usage: ./scripts/translate.sh "text to translate" "TARGET_LANG"
-# Example: ./scripts/translate.sh "Hello world" "ES"
+# Usage: DEEPL_KEY=... ./scripts/translate.sh "text to translate" "TARGET_LANG"
+# Example: DEEPL_KEY=... ./scripts/translate.sh "Hello world" "ES"
 # Supported: ES (Spanish), FR (French), JA (Japanese), PT-PT (Portuguese)
 
-DEEPL_KEY="4fba637b-33a0-4508-a9bd-3d548e9e7880"
+: "${DEEPL_KEY:?DEEPL_KEY env var required (DeepL API key)}"
 TEXT="$1"
 TARGET="$2"
 
