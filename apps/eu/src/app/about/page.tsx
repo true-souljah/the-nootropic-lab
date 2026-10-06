@@ -46,7 +46,7 @@ export default function AboutPage() {
           <p className="text-gray-700 leading-relaxed mb-3">
             We review nootropic supplements for buyers in all 27 EU member states, with localised
             coverage in English, German, French, and Portuguese. Our comparison table marks
-            which products have a dedicated EU storefront (EUR pricing, no import duties). The rules
+            which products have a dedicated EU storefront (EUR pricing; EU orders ship from a European depot per the brand). The rules
             that apply are{' '}
             <strong>EU Directive 2002/46/EC</strong> on food supplements,{' '}
             <strong>Regulation (EC) 1924/2006</strong> on EU-authorised health claims (assessed by EFSA), and{' '}

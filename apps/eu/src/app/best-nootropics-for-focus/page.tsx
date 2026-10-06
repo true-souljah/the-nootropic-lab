@@ -54,7 +54,7 @@ const picks: ListiclePick[] = [
     product: productsEU.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses, plus L-tyrosine. Caffeine-free design lets you pair it with your own coffee or matcha for the synergistic effect. Ships from a dedicated EU distribution centre at €65/mo with no import duties — the strongest EU-storefront focus pick in our coverage.',
+      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses, plus L-tyrosine. Caffeine-free design lets you pair it with your own coffee or matcha for the synergistic effect. €65/mo on the brand\'s EU store, with EU orders shipped from a European depot per the brand — the strongest EU-storefront focus pick in our coverage.',
   },
   {
     product: productsEU.find(p => p.slug === 'brainzyme-focus-pro-review')!,
@@ -89,7 +89,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'What\'s the best caffeine-free focus nootropic in the EU?',
-    a: 'Mind Lab Pro is purpose-built as caffeine-free and ships from an EU distribution centre. It pairs well with your morning coffee or matcha. If you want zero caffeine entirely, Mind Lab Pro plus a separate L-theanine capsule is the simplest evidence-backed stack with EUR pricing.',
+    a: 'Mind Lab Pro is purpose-built as caffeine-free, and EU orders ship from a European depot per the brand. It pairs well with your morning coffee or matcha. If you want zero caffeine entirely, Mind Lab Pro plus a separate L-theanine capsule is the simplest evidence-backed stack with EUR pricing.',
   },
   {
     q: 'Should I cycle focus nootropics?',
