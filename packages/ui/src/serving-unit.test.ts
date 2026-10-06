@@ -53,12 +53,12 @@ describe('templates — no hard-coded capsule wording for capsulesPerServing', (
 });
 
 const EXPECTED_UNITS: Record<'en' | 'ja', Record<ProductForm, string>> = {
-  en: { capsule: 'caps', tablet: 'tablets', sachet: 'sachets', shot: 'shots', powder: 'scoops' },
-  ja: { capsule: 'カプセル', tablet: '錠', sachet: '包', shot: '本', powder: 'スクープ' },
+  en: { capsule: 'caps', tablet: 'tablets', sachet: 'sachets', shot: 'shots', powder: 'scoops', softgel: 'softgels' },
+  ja: { capsule: 'カプセル', tablet: '錠', sachet: '包', shot: '本', powder: 'スクープ', softgel: 'ソフトジェル' },
 };
 const EXPECTED_SINGULAR: Record<'en' | 'ja', Record<ProductForm, string>> = {
-  en: { capsule: 'cap', tablet: 'tablet', sachet: 'sachet', shot: 'shot', powder: 'scoop' },
-  ja: { capsule: 'カプセル', tablet: '錠', sachet: '包', shot: '本', powder: 'スクープ' },
+  en: { capsule: 'cap', tablet: 'tablet', sachet: 'sachet', shot: 'shot', powder: 'scoop', softgel: 'softgel' },
+  ja: { capsule: 'カプセル', tablet: '錠', sachet: '包', shot: '本', powder: 'スクープ', softgel: 'ソフトジェル' },
 };
 
 describe('servingUnit / servingAmount', () => {
@@ -85,6 +85,13 @@ describe('servingUnit / servingAmount', () => {
     expect(servingAmount({ form: 'powder', capsulesPerServing: 1 }, en)).toBe('1 scoop');
     expect(servingAmount({ form: 'powder', capsulesPerServing: 2 }, en)).toBe('2 scoops');
     expect(en.productDetail.meta.productDescriptorByForm.powder).toBe('daily nootropic drink powder');
+  });
+
+  it('softgel renders "1 softgel" / "3 softgels", never capsule wording', () => {
+    const en = getStrings('en');
+    expect(servingAmount({ form: 'softgel', capsulesPerServing: 1 }, en)).toBe('1 softgel');
+    expect(servingAmount({ form: 'softgel', capsulesPerServing: 3 }, en)).toBe('3 softgels');
+    expect(en.productDetail.meta.productDescriptorByForm.softgel).toBe('daily nootropic softgel');
   });
 
   it('a zero count renders "—", never "0 …"', () => {
@@ -137,8 +144,10 @@ describe('product data — form', () => {
   it('formProblem rejects unknown values and the record rules surface it', () => {
     expect(formProblem(undefined)).toBeNull();
     for (const form of PRODUCT_FORMS) expect(formProblem(form)).toBeNull();
-    // 'powder' became an allowed form in 2026-10 (Pre Lab Pro is a scoop powder).
+    // 'powder' became an allowed form in 2026-10 (Pre Lab Pro is a scoop powder),
+    // then 'softgel' (Performance Lab Omega-3 NutriGels).
     expect(formProblem('powder')).toBeNull();
+    expect(formProblem('softgel')).toBeNull();
     expect(formProblem('gummy')).toMatch(/^form is not one of/);
     expect(formProblem('')).toMatch(/^form is not one of/);
     expect(formProblem(null)).toMatch(/^form is not one of/);
@@ -153,6 +162,7 @@ describe('product data — form', () => {
     ['jp', 'fancl-brains-review', 'tablet', 4],
     ['us', 'trubrain-review', 'shot', 1],
     ['us', 'pre-lab-pro-review', 'powder', 1],
+    ['us', 'performance-lab-omega-3-review', 'softgel', 3],
   ] as const)('%s/%s is a %s product (%i per serving)', (region, slug, form, count) => {
     const record = CATALOGUES[region].find((p) => p.slug === slug);
     expect(record, `${region}/${slug} missing`).toBeDefined();

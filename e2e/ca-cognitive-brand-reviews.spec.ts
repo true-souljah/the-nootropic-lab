@@ -38,6 +38,8 @@ const REVIEW_ROUTES = [
   '/aor-ortho-mind-review/',
   '/performance-lab-caffeine-2-review/',
   '/pre-lab-pro-review/',
+  '/performance-lab-energy-review/',
+  '/performance-lab-omega-3-review/',
 ];
 
 test.beforeEach(async ({ context }) => {
