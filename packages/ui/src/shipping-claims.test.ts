@@ -47,3 +47,42 @@ describe('shipping claims — no meta.json-derived shipping wording', () => {
     expect(offenders).toEqual([]);
   });
 });
+
+// Duty/customs guard (2026-10-06): no EU store we checked publishes a duty or
+// customs statement we could verify for Mind Lab Pro, and Hunter Focus's
+// "no customs charges" line is the brand's own terms (which contradict its
+// shipping policy). A duty/customs promise may appear only when the same line
+// attributes it to the brand.
+const DUTY_PROMISES: RegExp[] = [
+  /no import (dut(y|ies)|tax(es)?)/i,
+  /no customs (delays|charges)/i,
+  // "no import duties or customs delays" (Mind Lab Pro EU, origin/main 2026-10-06)
+  /customs delays/i,
+];
+const ATTRIBUTED = /per the brand|terms state|brand's terms/i;
+
+describe('shipping claims — duty/customs promises are attributed to the brand', () => {
+  const dataJson = readdirSync(DATA_SRC)
+    .filter((f) => f.endsWith('.json'))
+    .map((f) => join(DATA_SRC, f));
+  const euFiles = walk(join(REPO, 'apps', 'eu', 'src'));
+
+  it('scans a non-empty source set', () => {
+    expect(dataJson.length).toBeGreaterThanOrEqual(8);
+    expect(euFiles.length).toBeGreaterThan(30);
+  });
+
+  it('every duty/customs promise in data JSON or apps/eu is attributed on the same line', () => {
+    const offenders: string[] = [];
+    for (const f of [...dataJson, ...euFiles]) {
+      readFileSync(f, 'utf8')
+        .split('\n')
+        .forEach((line, i) => {
+          if (DUTY_PROMISES.some((re) => re.test(line)) && !ATTRIBUTED.test(line)) {
+            offenders.push(`${relative(REPO, f)}:${i + 1}`);
+          }
+        });
+    }
+    expect(offenders).toEqual([]);
+  });
+});
