@@ -301,7 +301,7 @@
       {
         "name": "DHA (from Algae)",
         "doseInProduct": "80mg",
-        "clinicalDose": "250-500mg",
+        "clinicalDose": "900mg-1.2g DHA/day",
         "adequatelyDosed": false
       },
       {
@@ -645,7 +645,7 @@
       {
         "name": "DHA (Docosahexaenoic Acid)",
         "doseInProduct": "200mg",
-        "clinicalDose": "500mg",
+        "clinicalDose": "900mg-1.2g DHA/day",
         "adequatelyDosed": false
       },
       {

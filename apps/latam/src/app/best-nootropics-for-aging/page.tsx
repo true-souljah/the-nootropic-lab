@@ -34,7 +34,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Citicolina (CDP-Colina) — memoria en adultos mayores',
     evidence:
       'Ensayos clínicos en adultos mayores con quejas cognitivas subjetivas muestran mejoras en memoria verbal y velocidad de procesamiento a 250–500mg/día durante 12+ semanas. Cognizin es la forma estandarizada que usan la mayoría de los productos importados.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22773333/',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
   {
     name: 'Melena de León (Hericium erinaceus)',

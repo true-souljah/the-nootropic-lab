@@ -46,7 +46,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Citicolina (CDP-Colina)',
     evidence:
       'Donante de colina y fuente de uridina. Ensayos clínicos en adultos mayores con quejas de memoria asociadas a la edad muestran mejoras en memoria verbal y velocidad de procesamiento a 250–500mg/día durante 12+ semanas.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22773333/',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
 ];
 

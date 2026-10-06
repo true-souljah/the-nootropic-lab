@@ -39,7 +39,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Citicoline — choline for cognitive demand',
     evidence:
       'Heavy cognitive demand depletes choline. Citicoline at 250–500mg/day supports phospholipid synthesis and acetylcholine availability — the neurotransmitter most associated with attention and learning. Cognizin is the standardised form. Authorised in the EU under Novel Food Regulation (EU) 2015/2283.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22773333/',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
   {
     name: 'L-Tyrosine — under-stress performance',

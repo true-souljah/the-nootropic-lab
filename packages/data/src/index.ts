@@ -9,6 +9,8 @@ export { activeProducts, isDiscontinued } from './product-status';
 export type { ProductForm } from './serving-unit';
 export { PRODUCT_FORMS, productForm, servingUnit, servingAmount, servingsComparable } from './serving-unit';
 export { affiliateUrlProblem, formulaProblem, formProblem, productRuleProblems } from './product-rules';
+export type { DosingAnchor } from './dosing-anchors';
+export { DOSING_ANCHORS, doseMg, dosingAnchorProblems } from './dosing-anchors';
 export { productsGCC, allProductsGCC } from './products-gcc';
 export { productsSEA, allProductsSEA } from './products-sea';
 export type { Ingredient, HumanEffect, HowToTake, StackPair, FAQ, IngredientSource } from './ingredients';
