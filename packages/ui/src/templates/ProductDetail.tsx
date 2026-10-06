@@ -113,7 +113,7 @@ export default function ProductDetail({
 
   const priceStat: [string, string, boolean] = [
     pd.stats.price,
-    regional?.data.price ? `${new Intl.NumberFormat(regional.data.price.locale, { style: 'currency', currency: regional.data.price.currency, maximumFractionDigits: 0 }).format(regional.data.price.amount)}${pd.stats.perMonth}` : p.priceMonthlyUSD ? `$${p.priceMonthlyUSD}${pd.stats.perMonth}` : '—',
+    regional?.data.price ? `${new Intl.NumberFormat(regional.data.price.locale, { style: 'currency', currency: regional.data.price.currency, maximumFractionDigits: 0 }).format(regional.data.price.amount)}/${pd.stats.monthUnit}` : p.priceMonthlyUSD ? `$${p.priceMonthlyUSD}/${pd.stats.monthUnit}` : '—',
     false,
   ];
 
@@ -321,9 +321,9 @@ export default function ProductDetail({
                   <div className="font-semibold text-ds-ink text-[14px] mb-1">{alt.name}</div>
                   <div className="text-[12px] text-ds-muted mb-2">{alt.brand}</div>
                   <div className="flex items-center gap-2">
-                    <span className="text-ds-good-ink font-bold text-[13px] ds-tabular">{alt.score}/10</span>
+                    <span className="text-ds-good-ink font-bold text-[13px] ds-tabular">{`${alt.score}/10`}</span>
                     {alt.priceMonthlyUSD && (
-                      <span className="text-[12px] text-ds-muted ds-tabular">${alt.priceMonthlyUSD}{pd.stats.perMonth}</span>
+                      <span className="text-[12px] text-ds-muted ds-tabular">{`$${alt.priceMonthlyUSD}/${pd.stats.monthUnit}`}</span>
                     )}
                   </div>
                 </Link>

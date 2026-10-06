@@ -343,7 +343,8 @@ export default function HeadToHead({
                 >
                   {p.score.toFixed(1)}
                 </span>
-                <span className="text-[13px] text-ds-muted">/10</span>
+                {/* Slash kept apart: a payload string "/10" is crawled as a URL (check:links rsc-string). */}
+                <span className="text-[13px] text-ds-muted">{'/'}10</span>
               </div>
               <div className="text-[11px] text-ds-muted uppercase tracking-[0.1em] font-semibold mt-[2px]">
                 Our score
@@ -509,7 +510,7 @@ export default function HeadToHead({
                   <div key={k}>
                     <div className="flex justify-between mb-1 text-ds-ink text-[13px]">
                       <span className="capitalize">{k}</span>
-                      <span className="font-semibold ds-tabular">{v}/10</span>
+                      <span className="font-semibold ds-tabular">{`${v}/10`}</span>
                     </div>
                     <Bar value={v} label={`${p.name} ${k} score`} />
                   </div>

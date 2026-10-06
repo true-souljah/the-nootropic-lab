@@ -325,7 +325,7 @@ export default function DoseCalculator({
                   {closest.product.priceMonthlyUSD && (
                     <>
                       {' '}
-                      · <strong className="text-ds-ink">${closest.product.priceMonthlyUSD}/mo</strong>
+                      · <strong className="text-ds-ink">{`$${closest.product.priceMonthlyUSD}/mo`}</strong>
                     </>
                   )}
                   .

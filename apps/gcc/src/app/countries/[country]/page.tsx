@@ -102,8 +102,8 @@ export default async function CountryPage({
                   </div>
                   <p className="text-sm text-gray-600 mb-2 line-clamp-2">{product.summary}</p>
                   <div className="flex flex-wrap gap-3 text-xs text-gray-500">
-                    <span>Score: <strong className="text-green-700">{product.score}/10</strong></span>
-                    <span>${product.priceMonthlyUSD}/mo USD</span>
+                    <span>Score: <strong className="text-green-700">{`${product.score}/10`}</strong></span>
+                    <span>${product.priceMonthlyUSD}{'/'}mo USD</span>
                   </div>
                 </div>
               </a>
