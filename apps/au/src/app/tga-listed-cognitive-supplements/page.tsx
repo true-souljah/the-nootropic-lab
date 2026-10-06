@@ -12,10 +12,10 @@ const auditDateIso = new Date().toISOString().split('T')[0];
 export const metadata: Metadata = {
   title: 'TGA-Listed Cognitive Supplements (Australia): AUST L vs AUST R + Permitted Indications Guide',
   description:
-    'Therapeutic goods sold in Australia must be entered in the ARTG with an AUST L (listed) or AUST R (registered) number. Explainer of TGA listing categories, permitted indications, the Advertising Code, Personal Importation Scheme limits, Poisons Standard scheduling, and the ARTG status of our Australian catalogue.',
+    'The TGA says supplying a therapeutic good in Australia in most cases involves entry in the ARTG, shown by an AUST L (listed) or AUST R (registered) number. Explainer of TGA listing categories, permitted indications, the Advertising Code, Personal Importation Scheme limits, Poisons Standard scheduling, and the ARTG status of our Australian catalogue.',
   alternates: buildAlternates({ regionCode: 'au', path: '/tga-listed-cognitive-supplements/', availableInRegions: ['au'] }),
-  openGraph: buildOpenGraph({ regionCode: 'au', path: '/tga-listed-cognitive-supplements/', title: 'TGA-Listed Cognitive Supplements (Australia): AUST L vs AUST R + Permitted Indications Guide', description: 'Therapeutic goods sold in Australia must be entered in the ARTG with an AUST L (listed) or AUST R (registered) number. Explainer of TGA listing categories, permitted indications, the Advertising Code, Personal Importation Scheme limits, Poisons Standard scheduling, and the ARTG status of our Australian catalogue.' }),
-  twitter: buildTwitter({ title: 'TGA-Listed Cognitive Supplements (Australia): AUST L vs AUST R + Permitted Indications Guide', description: 'Therapeutic goods sold in Australia must be entered in the ARTG with an AUST L (listed) or AUST R (registered) number. Explainer of TGA listing categories, permitted indications, the Advertising Code, Personal Importation Scheme limits, Poisons Standard scheduling, and the ARTG status of our Australian catalogue.' }),
+  openGraph: buildOpenGraph({ regionCode: 'au', path: '/tga-listed-cognitive-supplements/', title: 'TGA-Listed Cognitive Supplements (Australia): AUST L vs AUST R + Permitted Indications Guide', description: 'The TGA says supplying a therapeutic good in Australia in most cases involves entry in the ARTG, shown by an AUST L (listed) or AUST R (registered) number. Explainer of TGA listing categories, permitted indications, the Advertising Code, Personal Importation Scheme limits, Poisons Standard scheduling, and the ARTG status of our Australian catalogue.' }),
+  twitter: buildTwitter({ title: 'TGA-Listed Cognitive Supplements (Australia): AUST L vs AUST R + Permitted Indications Guide', description: 'The TGA says supplying a therapeutic good in Australia in most cases involves entry in the ARTG, shown by an AUST L (listed) or AUST R (registered) number. Explainer of TGA listing categories, permitted indications, the Advertising Code, Personal Importation Scheme limits, Poisons Standard scheduling, and the ARTG status of our Australian catalogue.' }),
 };
 
 interface ListingCategory {
@@ -26,17 +26,20 @@ interface ListingCategory {
 }
 
 const listingCategories: ListingCategory[] = [
-  { category: 'AUST L (Listed)', evidenceBar: 'Lower-risk; pre-cleared ingredients only; manufacturer self-certifies efficacy.', permittedIndications: 'Limited to TGA pre-approved Permitted Indications list. Cannot include serious-form indications.', example: 'Our earlier copy cited AUST L 246877 for Blackmores Brain Active here, which does not resolve on the ARTG. TGA\'s cancellation register lists ARTG entry 227270 for Blackmores Brain Active, cancelled 18 September 2014; we found no current ARTG entry (searched 2026-09-30).' },
+  { category: 'AUST L (Listed)', evidenceBar: 'Lower-risk; pre-cleared ingredients only; manufacturer self-certifies efficacy.', permittedIndications: 'Limited to TGA pre-approved Permitted Indications list. Cannot include serious-form indications.', example: 'Our earlier copy cited AUST L 246877 for Blackmores Brain Active here; 246877 does not resolve (HTTP 404 and no row in either TGA database, checked 2026-10-06). TGA\'s cancellations-by-sponsor database lists two Blackmores Brain Active entries, ARTG 227270 (cancelled 18 September 2014) and ARTG 227319 (cancelled 17 May 2021), and the ARTG search returned no current entry (searched 2026-10-06).' },
   { category: 'AUST L(A) (Listed Assessed)', evidenceBar: 'Listed but with TGA assessment of efficacy claims; intermediate evidentiary bar.', permittedIndications: 'May use intermediate-form indications beyond standard AUST L list, subject to assessment.', example: 'Less common; growing category for premium evidence-graded products' },
   { category: 'AUST R (Registered)', evidenceBar: 'Higher-risk products; full TGA evaluation of safety, quality, and efficacy.', permittedIndications: 'Approved indications based on submitted clinical data. May include serious-form indications.', example: 'Less common for cognitive supplements; more typical for prescription-adjacent products' },
 ];
 
-// ARTG status of every AU catalogue record (active and discontinued), from the
-// 2026-09-30 sourced fact sheet; the Performance Lab products added later were
-// searched on the ARTG on 2026-10-05 (Caffeine 2, Pre Lab Pro) and 2026-10-06
-// (Energy, Omega-3; "Performance Lab" re-searched, no results). No product
-// other than Blackmores Brain Active has any ARTG history on file; do not add
-// an AUST number without an ARTG hit.
+// ARTG status of every AU catalogue record (active and discontinued). Every
+// record was queried directly on 2026-10-06 in the ARTG search
+// (tga.gov.au/resources/artg?keywords=) and in the TGA cancellations-by-sponsor
+// database, by product name and by sponsor; the queries quoted below are the
+// ones logged in the 2026-10-06 register check. A no-entry result is published
+// only as "no matching entry returned for these queries on that date", never
+// as "not on the ARTG". Blackmores Brain Active is the only record with ARTG
+// history (two sponsor-cancelled entries); do not add an AUST number without
+// an ARTG hit.
 interface ArtgRow {
   slug: string;
   name: string;
@@ -44,25 +47,25 @@ interface ArtgRow {
   note: string;
 }
 
-const NO_ENTRY = 'No ARTG entry found (searched 2026-09-30)';
-const NO_ENTRY_2026_10_05 = 'No ARTG entry found (searched 2026-10-05)';
-const NO_ENTRY_2026_10_06 = 'No ARTG entry found (searched 2026-10-06)';
-const NO_ENTRY_WEB = 'None found by web search (2026-09-30); not confirmed by a direct ARTG query';
-const NOT_QUERIED = 'Sold as an international direct-to-consumer import. A web search found no AUST L association; we did not confirm this with a direct ARTG query.';
+const quoteList = (qs: string[]) => qs.map(q => `'${q}'`).join(', ').replace(/, ([^,]*)$/, ' or $1');
+const noEntry = (product: string[], sponsor: string[]) =>
+  `No matching entry returned for ${quoteList(product)} or sponsor ${quoteList(sponsor)} in the ARTG search or the cancellations-by-sponsor database (tga.gov.au, searched 2026-10-06)`;
+const PERFORMANCE_LAB_SPONSOR = ['Performance Lab', 'Opti-Nutra', 'Optinutra'];
+const PERFORMANCE_LAB_NOTE = 'Sold direct through performancelab.com; no AUST number shown on the product page.';
 
 const artgRows: ArtgRow[] = [
-  { slug: 'mind-lab-pro-review', name: 'Mind Lab Pro', found: NO_ENTRY, note: 'Sold direct through the brand\'s Australian storefront (au.mindlabpro.com); no AUST number shown on the storefront product page.' },
-  { slug: 'noocube-review', name: 'NooCube', found: NO_ENTRY, note: 'Sold direct through the brand\'s Australian storefront (noocube.com.au); no AUST number shown on the storefront product page.' },
-  { slug: 'performance-lab-mind-review', name: 'Performance Lab Mind', found: NO_ENTRY, note: 'Sold direct through the brand\'s own storefront; no AUST number shown on the storefront product page.' },
-  { slug: 'hunter-focus-review', name: 'Hunter Focus', found: NO_ENTRY_WEB, note: NOT_QUERIED },
-  { slug: 'onnit-alpha-brain-review', name: 'Alpha Brain', found: NO_ENTRY_WEB, note: NOT_QUERIED },
-  { slug: 'qualia-mind-review', name: 'Qualia Mind', found: NO_ENTRY_WEB, note: NOT_QUERIED },
-  { slug: 'naturebell-ginkgo-ginseng-review', name: 'NatureBell Ginkgo + Ginseng', found: NO_ENTRY_WEB, note: NOT_QUERIED },
-  { slug: 'blackmores-brain-active-review', name: 'Blackmores Brain Active', found: 'No current entry (cancelled 2014)', note: 'Our earlier copy cited AUST L 246877, which does not resolve on the ARTG. TGA\'s cancellation register lists ARTG entry 227270 for Blackmores Brain Active, cancelled 18 September 2014 under s30(1)(c); we found no current ARTG entry (searched 2026-09-30).' },
-  { slug: 'performance-lab-caffeine-2-review', name: 'Performance Lab Caffeine 2', found: NO_ENTRY_2026_10_05, note: 'Sold direct through performancelab.com; no AUST number shown on the product page. ARTG searches for "Performance Lab" (no results) and "Caffeine 2" (no Performance Lab product among the matches) found no entry.' },
-  { slug: 'pre-lab-pro-review', name: 'Pre Lab Pro', found: NO_ENTRY_2026_10_05, note: 'Sold direct through performancelab.com; no AUST number shown on the product page. ARTG searches for "Performance Lab" (no results) and "Pre Lab Pro" (only unrelated products) found no entry.' },
-  { slug: 'performance-lab-energy-review', name: 'Performance Lab Energy', found: NO_ENTRY_2026_10_06, note: 'Sold direct through performancelab.com; no AUST number shown on the product page. ARTG searches for "Performance Lab" on 5 and 6 October 2026 returned no results.' },
-  { slug: 'performance-lab-omega-3-review', name: 'Performance Lab Omega-3', found: NO_ENTRY_2026_10_06, note: 'Sold direct through performancelab.com; no AUST number shown on the product page. ARTG searches for "Performance Lab" on 5 and 6 October 2026 returned no results.' },
+  { slug: 'mind-lab-pro-review', name: 'Mind Lab Pro', found: noEntry(['Mind Lab Pro'], PERFORMANCE_LAB_SPONSOR), note: 'Sold direct through the brand\'s Australian storefront (au.mindlabpro.com); no AUST number shown on the storefront product page.' },
+  { slug: 'noocube-review', name: 'NooCube', found: noEntry(['NooCube'], ['Wolfson Brands', 'Wolfson']), note: 'Sold direct through the brand\'s Australian storefront (noocube.com.au); no AUST number shown on the storefront product page.' },
+  { slug: 'performance-lab-mind-review', name: 'Performance Lab Mind', found: noEntry(['Performance Lab Mind'], PERFORMANCE_LAB_SPONSOR), note: 'Sold direct through the brand\'s own storefront; no AUST number shown on the storefront product page.' },
+  { slug: 'hunter-focus-review', name: 'Hunter Focus', found: noEntry(['Hunter Focus'], ['Roar Ambition']), note: 'Sold as an international direct-to-consumer import. The single-word query \'Roar\' matched only unrelated products in the 25 results read of each register (87 fuzzy matches in the ARTG search, 28 in the cancellations database).' },
+  { slug: 'onnit-alpha-brain-review', name: 'Alpha Brain', found: noEntry(['Alpha Brain', 'Alpha BRAIN Instant'], ['Onnit Labs']), note: 'Sold as an international direct-to-consumer import. \'Alpha Brain\' was searched as a quoted phrase (the unquoted query matched four unrelated brain formulas), and \'Onnit Labs\' matched two unrelated device entries in the ARTG search. The single-word sponsor query \'Onnit\' was inconclusive: the search expands it to "unit" (1,587 fuzzy matches in the ARTG search, 1,407 in the cancellations database), and only the first 25 of each were read.' },
+  { slug: 'qualia-mind-review', name: 'Qualia Mind', found: noEntry(['Qualia Mind'], ['Qualia Life Sciences', 'Neurohacker']), note: 'Sold as an international direct-to-consumer import. The single-word query \'Qualia\' matched only "Qualitative" diagnostic assays.' },
+  { slug: 'naturebell-ginkgo-ginseng-review', name: 'NatureBell Ginkgo + Ginseng', found: noEntry(['NatureBell Ginkgo Ginseng'], ['NatureBell']), note: 'Sold on Amazon.com.au as an imported supplement. The quoted phrase "Ginkgo Ginseng" returned one ARTG entry (138142, Sharp Mind Advanced Formula, sponsor Pro Ma Systems Aust Pty Ltd), which is not a NatureBell product.' },
+  { slug: 'blackmores-brain-active-review', name: 'Blackmores Brain Active', found: 'No current entry returned in the ARTG search (searched 2026-10-06); two cancelled entries, 227270 and 227319, in the cancellations-by-sponsor database', note: 'TGA\'s cancellations-by-sponsor database lists ARTG 227270, cancelled 18 September 2014 under s30(1)(c), sponsor Blackmores Limited, and a second entry, ARTG 227319, cancelled 17 May 2021 (Blackmores Ltd). Our earlier copy cited AUST L 246877; 246877 does not resolve (HTTP 404 and no row in either database, checked 2026-10-06).' },
+  { slug: 'performance-lab-caffeine-2-review', name: 'Performance Lab Caffeine 2', found: noEntry(['Performance Lab Caffeine'], PERFORMANCE_LAB_SPONSOR), note: PERFORMANCE_LAB_NOTE },
+  { slug: 'pre-lab-pro-review', name: 'Pre Lab Pro', found: noEntry(['Pre Lab Pro'], PERFORMANCE_LAB_SPONSOR), note: `${PERFORMANCE_LAB_NOTE} 'Pre Lab Pro' was searched as a quoted phrase; the unquoted query matched only unrelated products.` },
+  { slug: 'performance-lab-energy-review', name: 'Performance Lab Energy', found: noEntry(['Performance Lab Energy'], PERFORMANCE_LAB_SPONSOR), note: PERFORMANCE_LAB_NOTE },
+  { slug: 'performance-lab-omega-3-review', name: 'Performance Lab Omega-3', found: noEntry(['Performance Lab Omega-3'], PERFORMANCE_LAB_SPONSOR), note: PERFORMANCE_LAB_NOTE },
 ];
 
 // Fail the build if the table drifts from the catalogue (a record added,
@@ -173,11 +176,16 @@ export default function Page() {
         </h1>
 
         <p id="hero-paragraph" className="text-lg text-gray-600 mb-6 leading-relaxed">
-          The Therapeutic Goods Administration (<abbr title="Therapeutic Goods Administration">TGA</abbr>) requires therapeutic goods sold in Australia to be entered in the <strong>Australian Register of Therapeutic
-          Goods (ARTG)</strong> with an <strong>AUST L</strong> (listed), <strong>AUST L(A)</strong> (listed
-          assessed), or <strong>AUST R</strong> (registered) number. Listed (AUST L) medicines have not been assessed by the TGA for
-          efficacy before sale, and we found no current ARTG entry for any of the {artgRows.length} products in our
-          Australian catalogue. This
+          The Therapeutic Goods Administration (<abbr title="Therapeutic Goods Administration">TGA</abbr>) says a sponsor
+          must obtain pre-market approval before a therapeutic good can be supplied in Australia, and that &ldquo;in most
+          cases this involves entry of the product in the <strong>Australian Register of Therapeutic Goods (ARTG)</strong>&rdquo;.
+          Entered medicines carry an <strong>AUST L</strong> (listed), <strong>AUST L(A)</strong> (listed
+          assessed), or <strong>AUST R</strong> (registered) number. The TGA also states that &ldquo;the inclusion of a
+          therapeutic good in the Australian Register of Therapeutic Goods (ARTG) is not an endorsement of that good by
+          the Therapeutic Goods Administration (TGA)&rdquo; (<a href="https://www.tga.gov.au/products/regulations-all-products/advertising/specialised-advertising-issues-and-topics/claim-tga-approved-must-not-be-used-advertising" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline">TGA, checked 6 October 2026</a>).
+          Listed (AUST L) medicines have not been assessed by the TGA for
+          efficacy before sale. None of the {artgRows.length} products in our Australian catalogue returned a current
+          ARTG entry when we searched on 6 October 2026. This
           page explains what each category means, how to read AUST numbers on labels, and how the Therapeutic
           Goods Advertising Code 2021 governs claim language for cognitive products. It also covers the ARTG
           status of every product in our Australian catalogue, the{' '}
@@ -214,16 +222,19 @@ export default function Page() {
         <section id="artg-status" className="my-10">
           <h2 className="text-2xl font-bold text-gray-900 mb-3">ARTG status of the products we review in Australia</h2>
           <p className="text-sm text-gray-700 leading-relaxed mb-4">
-            We checked all {artgRows.length} products in our Australian catalogue on 30 September 2026 (Performance
-            Lab Caffeine 2 and Pre Lab Pro, added later, on 5 October 2026; Performance Lab Energy and Omega-3 on
-            6 October 2026) and found
-            no current ARTG entry for any of them; for four, that rests on a web search rather than a direct ARTG
-            query, as the table notes. Blackmores Brain Active is the only one with an ARTG history we found, and
-            TGA&apos;s cancellation register shows that entry was cancelled in 2014.
+            On 6 October 2026 we queried all {artgRows.length} products in our Australian catalogue directly, by
+            product name and by sponsor, in two TGA databases: the ARTG search
+            (<code>tga.gov.au/resources/artg?keywords=</code>) and the cancellations-by-sponsor database
+            (<code>tga.gov.au/resources/cancellations-by-sponsors?keywords=</code>). None returned a current ARTG
+            entry. Blackmores Brain Active is the only one with an ARTG history: two entries, 227270 and 227319, both
+            cancelled at the sponsor&apos;s request (in 2014 and 2021). A &ldquo;no matching entry&rdquo; result means
+            only that the queries listed returned no matching row on that date; it does not prove a product was never
+            entered under another name or sponsor, and the cancellations database covers sponsor-requested
+            cancellations only.
           </p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border border-gray-200">
-              <caption className="sr-only">ARTG status of each product in our Australian catalogue, searched 30 September, 5 October and 6 October 2026</caption>
+              <caption className="sr-only">ARTG status of each product in our Australian catalogue, searched 6 October 2026</caption>
               <thead className="bg-gray-50 text-left">
                 <tr>
                   <th scope="col" className="p-3 border-b border-gray-200">Product</th>
@@ -382,7 +393,11 @@ export default function Page() {
             { type: 'Regulatory', label: 'Australian Register of Therapeutic Goods (ARTG) public summary search', url: 'https://www.tga.gov.au/resources/artg' },
             { type: 'Regulatory', label: 'Therapeutic Goods (Therapeutic Goods Advertising Code) Instrument 2021 (F2021L01661)', url: 'https://www.legislation.gov.au/F2021L01661/latest/text' },
             { type: 'Regulatory', label: 'TGA — Permitted Indications for listed medicines', url: 'https://www.tga.gov.au/resources/resource/guidance/permissible-indications-listed-medicines' },
-            { type: 'Regulatory', label: 'TGA — Blackmores Brain Active: cancelled under s30(1)(c) (ARTG 227270)', url: 'https://www.tga.gov.au/resources/cancellations-by-sponsors/blackmores-brain-active-cancelled-under-s301c' },
+            { type: 'Regulatory', label: 'TGA — Blackmores Brain Active: cancelled under s30(1)(c) (ARTG 227270; checked 2026-10-06)', url: 'https://www.tga.gov.au/resources/cancellations-by-sponsors/blackmores-brain-active-cancelled-under-s301c' },
+            { type: 'Regulatory', label: 'TGA — Blackmores Brain Active: cancelled under Section 30(1)(c) of the Act (ARTG 227319; checked 2026-10-06)', url: 'https://www.tga.gov.au/resources/cancellations-by-sponsors/blackmores-brain-active-cancelled-under-section-301c-act' },
+            { type: 'Regulatory', label: 'TGA — Cancellations by sponsors database (searched 2026-10-06)', url: 'https://www.tga.gov.au/resources/cancellations-by-sponsors' },
+            { type: 'Regulatory', label: 'TGA — Supply a therapeutic good: "In most cases this involves entry of the product in the Australian Register of Therapeutic Goods (ARTG)" (checked 2026-10-06)', url: 'https://www.tga.gov.au/products/regulations-all-products/overview-applying-market-authorisation/supply-therapeutic-good' },
+            { type: 'Regulatory', label: 'TGA — The claim \'TGA approved\' must not be used in advertising (ARTG inclusion is not an endorsement; checked 2026-10-06)', url: 'https://www.tga.gov.au/products/regulations-all-products/advertising/specialised-advertising-issues-and-topics/claim-tga-approved-must-not-be-used-advertising' },
             { type: 'Regulatory', label: 'TGA — Personal Importation Scheme', url: 'https://www.tga.gov.au/products/unapproved-therapeutic-goods/access-pathways/personal-importation-scheme' },
             { type: 'Regulatory', label: 'Australian Border Force — Medicines and substances (traveller exemption)', url: 'https://www.abf.gov.au/entering-and-leaving-australia/can-you-bring-it-in/categories/medicines-and-substances' },
             { type: 'Regulatory', label: 'TGA — Scheduling basics for medicines and chemicals in Australia', url: 'https://www.tga.gov.au/products/regulations-all-products/ingredients-and-scheduling-medicines-and-chemicals/scheduling-national-classification-system/scheduling-basics-medicines-and-chemicals-australia' },

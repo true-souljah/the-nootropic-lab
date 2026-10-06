@@ -78,7 +78,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Are these TGA-listed in Australia?',
-    a: 'No. The international multi-ingredient stacks ranked here (Mind Lab Pro, Qualia Mind) are not TGA-listed therapeutic goods — they import under the TGA Personal Importation Scheme as food supplements. Australian TGA-listed alternatives carrying AUST L numbers are stocked at Chemist Warehouse, Priceline, Amcal, and Blooms: Blackmores Bio Ginkgoforte 6000, Caruso\'s Memory Forte, Swisse Memory & Focus, Nature\'s Own Brahmi 5000mg, and Cenovis Ginkgo Biloba. These typically focus on a single ingredient (Bacopa OR Ginkgo OR fish oil); the stacks above combine multiple ingredients in one formula, which is why they are imported.',
+    a: 'Neither of the international multi-ingredient stacks ranked here (Mind Lab Pro, Qualia Mind) returned an entry when we searched the Australian Register of Therapeutic Goods (ARTG) and the TGA cancellations database by product and sponsor name on 2026-10-06; they ship under the TGA Personal Importation Scheme as food supplements. Australian TGA-listed alternatives carrying AUST L numbers are stocked at Chemist Warehouse, Priceline, Amcal, and Blooms: Blackmores Bio Ginkgoforte 6000, Caruso\'s Memory Forte, Swisse Memory & Focus, Nature\'s Own Brahmi 5000mg, and Cenovis Ginkgo Biloba. These typically focus on a single ingredient (Bacopa OR Ginkgo OR fish oil); the stacks above combine multiple ingredients in one formula, which is why they are imported.',
   },
   {
     q: 'When should I start taking these?',

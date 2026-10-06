@@ -88,7 +88,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Are these focus nootropics TGA-listed in Australia?',
-    a: 'No. The international focus stacks listed on this page (Mind Lab Pro, NooCube, Qualia Mind, Alpha Brain, Hunter Focus) are not TGA-listed therapeutic goods. They are imported under the TGA Personal Importation Scheme as food supplements — which permits Australian residents to import up to a 3-month supply for personal use. TGA-listed Australian brands (Blackmores, Caruso\'s, Swisse, Nature\'s Own, Cenovis) generally focus on broader memory and brain-health formulas (ginkgo, fish oil, B-vitamins) rather than the focus-specific stacks ranked here. We will add TGA-listed picks as their formulas evolve to include clinically-dosed focus ingredients.',
+    a: 'None of the international focus stacks listed on this page (Mind Lab Pro, NooCube, Qualia Mind, Alpha Brain, Hunter Focus) returned an entry when we searched the Australian Register of Therapeutic Goods (ARTG) and the TGA cancellations database by product and sponsor name on 2026-10-06; they ship under the TGA Personal Importation Scheme as food supplements — which permits Australian residents to import up to a 3-month supply for personal use. TGA-listed Australian brands (Blackmores, Caruso\'s, Swisse, Nature\'s Own, Cenovis) generally focus on broader memory and brain-health formulas (ginkgo, fish oil, B-vitamins) rather than the focus-specific stacks ranked here. We will add TGA-listed picks as their formulas evolve to include clinically-dosed focus ingredients.',
   },
   {
     q: 'Where can I buy these in Australia?',
@@ -115,7 +115,7 @@ export default function Page() {
       useCase="focus"
       pageTitle="Best Nootropics for Focus in Australia"
       pageDescription="Independent ranking of the best nootropics for focus and attention available to Australian buyers. Each pick must contain a clinically-dosed focus ingredient. TGA Personal Importation Scheme guidance included."
-      heroParagraph="If you want to take a supplement to support focus, the question is not 'which brand?' but 'which ingredient at what dose?' This page ranks the products available to Australian buyers that contain at least one of the four focus-validated ingredients (L-theanine + caffeine, citicoline, L-tyrosine, Alpha-GPC) at clinical dose. None of these picks are Therapeutic Goods Administration (TGA) listed therapeutic goods — they ship to Australia under the TGA Personal Importation Scheme as food supplements."
+      heroParagraph="If you want to take a supplement to support focus, the question is not 'which brand?' but 'which ingredient at what dose?' This page ranks the products available to Australian buyers that contain at least one of the four focus-validated ingredients (L-theanine + caffeine, citicoline, L-tyrosine, Alpha-GPC) at clinical dose. None of these picks returned an Australian Register of Therapeutic Goods (ARTG) entry when we searched the Therapeutic Goods Administration (TGA) databases on 2026-10-06 — they ship to Australia under the TGA Personal Importation Scheme as food supplements."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

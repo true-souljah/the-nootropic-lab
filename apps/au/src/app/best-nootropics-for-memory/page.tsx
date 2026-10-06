@@ -88,7 +88,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Are these memory nootropics TGA-listed in Australia?',
-    a: 'No — the international stacks ranked here (Mind Lab Pro, Qualia Mind, Hunter Focus, Alpha Brain) are not TGA-listed. They ship to Australia under the TGA Personal Importation Scheme as food supplements. Australian TGA-listed memory products are typically standalone Bacopa, ginkgo, or fish-oil formulas: Blackmores Bio Ginkgoforte, Caruso\'s Memory Forte, Swisse Memory & Focus, Nature\'s Own Brahmi, Cenovis Ginkgo Biloba. These carry AUST L numbers and are sold at Chemist Warehouse, Priceline, Amcal, and Blooms. The trade-off: TGA-listed Australian products typically focus on a single ingredient (Bacopa OR ginkgo OR fish oil) rather than the multi-ingredient stacks ranked above.',
+    a: 'None of the international stacks ranked here (Mind Lab Pro, Qualia Mind, Hunter Focus, Alpha Brain) returned an entry when we searched the Australian Register of Therapeutic Goods (ARTG) and the TGA cancellations database by product and sponsor name on 2026-10-06; they ship to Australia under the TGA Personal Importation Scheme as food supplements. Australian TGA-listed memory products are typically standalone Bacopa, ginkgo, or fish-oil formulas: Blackmores Bio Ginkgoforte, Caruso\'s Memory Forte, Swisse Memory & Focus, Nature\'s Own Brahmi, Cenovis Ginkgo Biloba. These carry AUST L numbers and are sold at Chemist Warehouse, Priceline, Amcal, and Blooms. The trade-off: TGA-listed Australian products typically focus on a single ingredient (Bacopa OR ginkgo OR fish oil) rather than the multi-ingredient stacks ranked above.',
   },
   {
     q: 'Should I combine a TGA-listed Bacopa with an imported stack?',
@@ -115,7 +115,7 @@ export default function Page() {
       useCase="memory"
       pageTitle="Best Nootropics for Memory in Australia"
       pageDescription="Independent ranking of nootropics for memory and recall available to Australian buyers, based on clinical evidence and TGA Personal Importation rules."
-      heroParagraph="Memory is the use case where nootropics have the most replicated evidence — primarily from Bacopa Monnieri RCTs over 30+ years. This page ranks the products available to Australian buyers that contain Bacopa, Lion's Mane, phosphatidylserine, or citicoline at or near clinical dose. None of the multi-ingredient stacks below are TGA-listed therapeutic goods; they import under the Personal Importation Scheme. TGA-listed Australian options for single-ingredient Bacopa or ginkgo are noted in the FAQ."
+      heroParagraph="Memory is the use case where nootropics have the most replicated evidence — primarily from Bacopa Monnieri RCTs over 30+ years. This page ranks the products available to Australian buyers that contain Bacopa, Lion's Mane, phosphatidylserine, or citicoline at or near clinical dose. None of the multi-ingredient stacks below returned an Australian Register of Therapeutic Goods (ARTG) entry when we searched the Therapeutic Goods Administration (TGA) databases on 2026-10-06; they import under the Personal Importation Scheme. TGA-listed Australian options for single-ingredient Bacopa or ginkgo are noted in the FAQ."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}
