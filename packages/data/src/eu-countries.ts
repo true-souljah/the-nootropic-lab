@@ -14,7 +14,7 @@ export const euCountries: EUCountry[] = [
     nativeName: 'Österreich',
     currency: 'EUR',
     regulatoryNote: 'Nootropic supplements are regulated as Nahrungsergänzungsmittel (food supplements) under EU Directive 2002/46/EC as transposed into Austrian law. Health claims must comply with Regulation (EC) 1924/2006 using EU-authorised claims (assessed by EFSA) only.',
-    shippingNote: 'All products with EU storefronts ship to Austria. Delivery estimates vary by brand and carrier, so check the estimate at checkout. No import duties within the EU single market.',
+    shippingNote: 'All products with EU storefronts ship to Austria. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
     slug: 'belgium',
@@ -38,7 +38,7 @@ export const euCountries: EUCountry[] = [
     nativeName: 'Hrvatska',
     currency: 'EUR',
     regulatoryNote: 'Croatia adopted the euro in January 2023. EU food supplement regulations apply in full. The Ministry of Health oversees supplement registration.',
-    shippingNote: 'EU storefronts ship to Croatia. Delivery estimates vary by brand and carrier, so check the estimate at checkout. No import duties as an EU member state.',
+    shippingNote: 'EU storefronts ship to Croatia. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
     slug: 'cyprus',
@@ -70,7 +70,7 @@ export const euCountries: EUCountry[] = [
     nativeName: 'Eesti',
     currency: 'EUR',
     regulatoryNote: 'Estonia uses EUR and follows EU supplement regulations. The Agriculture and Food Board oversees food supplement registration. Estonia has a growing supplement market with strong online purchasing culture.',
-    shippingNote: 'EU storefronts ship to Estonia. Delivery estimates vary by brand and carrier, so check the estimate at checkout. No import duties within the EU.',
+    shippingNote: 'EU storefronts ship to Estonia. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
     slug: 'finland',

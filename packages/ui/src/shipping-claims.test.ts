@@ -62,8 +62,10 @@ const DUTY_PROMISES: RegExp[] = [
 const ATTRIBUTED = /per the brand|terms state|brand's terms/i;
 
 describe('shipping claims — duty/customs promises are attributed to the brand', () => {
+  // JSON records plus the .ts data modules (eu-countries.ts shipping notes
+  // carried "No import duties" lines on origin/main 2026-10-06).
   const dataJson = readdirSync(DATA_SRC)
-    .filter((f) => f.endsWith('.json'))
+    .filter((f) => f.endsWith('.json') || (f.endsWith('.ts') && !f.endsWith('.test.ts')))
     .map((f) => join(DATA_SRC, f));
   const euFiles = walk(join(REPO, 'apps', 'eu', 'src'));
 
