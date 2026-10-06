@@ -239,7 +239,7 @@ export interface UIStrings {
       /** Prefix before brand name in the meta line: "By {brand}". */
       by: string;
       /** Descriptor between brand and pack count, per `Product.form`. */
-      productDescriptorByForm: { capsule: string; tablet: string; sachet: string; shot: string; powder: string };
+      productDescriptorByForm: { capsule: string; tablet: string; sachet: string; shot: string; powder: string; softgel: string };
       /** Label before the record's last-edit date (`updatedAt`), used when no `verifiedAt`. */
       updated: string;
       /** Label before the record's verification date (`verifiedAt`), e.g. "Last verified:". */
@@ -261,9 +261,9 @@ export interface UIStrings {
       /** Stat label for the per-day serving, whatever the product's form. */
       dailyServing: string;
       /** Unit label per `Product.form`, shown after `capsulesPerServing`. */
-      units: { capsule: string; tablet: string; sachet: string; shot: string; powder: string };
+      units: { capsule: string; tablet: string; sachet: string; shot: string; powder: string; softgel: string };
       /** Same labels for a count of exactly 1 ("1 sachet", not "1 sachets"). */
-      unitsSingular: { capsule: string; tablet: string; sachet: string; shot: string; powder: string };
+      unitsSingular: { capsule: string; tablet: string; sachet: string; shot: string; powder: string; softgel: string };
       /** Per-day suffix, e.g. "/day" / "/Tag". */
       perDay: string;
       moneyBack: string;
@@ -493,7 +493,7 @@ const en: UIStrings = {
     },
     meta: {
       by: 'By',
-      productDescriptorByForm: { capsule: 'daily nootropic capsule', tablet: 'daily nootropic tablet', sachet: 'daily nootropic sachet', shot: 'daily nootropic shot', powder: 'daily nootropic drink powder' },
+      productDescriptorByForm: { capsule: 'daily nootropic capsule', tablet: 'daily nootropic tablet', sachet: 'daily nootropic sachet', shot: 'daily nootropic shot', powder: 'daily nootropic drink powder', softgel: 'daily nootropic softgel' },
       updated: 'Updated:',
       lastVerified: 'Last verified:',
       reviewedBy: 'Reviewed by The Nootropic Lab editorial team',
@@ -508,8 +508,8 @@ const en: UIStrings = {
       perMonth: '/mo',
       capsules: 'Caps',
       dailyServing: 'Daily serving',
-      units: { capsule: 'caps', tablet: 'tablets', sachet: 'sachets', shot: 'shots', powder: 'scoops' },
-      unitsSingular: { capsule: 'cap', tablet: 'tablet', sachet: 'sachet', shot: 'shot', powder: 'scoop' },
+      units: { capsule: 'caps', tablet: 'tablets', sachet: 'sachets', shot: 'shots', powder: 'scoops', softgel: 'softgels' },
+      unitsSingular: { capsule: 'cap', tablet: 'tablet', sachet: 'sachet', shot: 'shot', powder: 'scoop', softgel: 'softgel' },
       perDay: '/day',
       moneyBack: 'MBG',
       days: 'days',
@@ -722,7 +722,7 @@ const es: UIStrings = {
     },
     meta: {
       by: 'Por',
-      productDescriptorByForm: { capsule: 'cápsula nootrópica diaria', tablet: 'comprimido nootrópico diario', sachet: 'sobre nootrópico diario', shot: 'shot nootrópico diario', powder: 'polvo nootrópico para beber' },
+      productDescriptorByForm: { capsule: 'cápsula nootrópica diaria', tablet: 'comprimido nootrópico diario', sachet: 'sobre nootrópico diario', shot: 'shot nootrópico diario', powder: 'polvo nootrópico para beber', softgel: 'cápsula blanda nootrópica diaria' },
       updated: 'Actualizado:',
       lastVerified: 'Última verificación:',
       reviewedBy: 'Revisado por el equipo editorial de The Nootropic Lab',
@@ -737,8 +737,8 @@ const es: UIStrings = {
       perMonth: '/mes',
       capsules: 'Cáps.',
       dailyServing: 'Dosis diaria',
-      units: { capsule: 'cáps.', tablet: 'comprimidos', sachet: 'sobres', shot: 'shots', powder: 'cacitos' },
-      unitsSingular: { capsule: 'cáp.', tablet: 'comprimido', sachet: 'sobre', shot: 'shot', powder: 'cacito' },
+      units: { capsule: 'cáps.', tablet: 'comprimidos', sachet: 'sobres', shot: 'shots', powder: 'cacitos', softgel: 'cápsulas blandas' },
+      unitsSingular: { capsule: 'cáp.', tablet: 'comprimido', sachet: 'sobre', shot: 'shot', powder: 'cacito', softgel: 'cápsula blanda' },
       perDay: '/día',
       moneyBack: 'Garantía',
       days: 'días',
@@ -951,7 +951,7 @@ const fr: UIStrings = {
     },
     meta: {
       by: 'Par',
-      productDescriptorByForm: { capsule: 'capsule nootropique quotidienne', tablet: 'comprimé nootropique quotidien', sachet: 'sachet nootropique quotidien', shot: 'shot nootropique quotidien', powder: 'poudre nootropique à diluer' },
+      productDescriptorByForm: { capsule: 'capsule nootropique quotidienne', tablet: 'comprimé nootropique quotidien', sachet: 'sachet nootropique quotidien', shot: 'shot nootropique quotidien', powder: 'poudre nootropique à diluer', softgel: 'capsule molle nootropique quotidienne' },
       updated: 'Mis à jour :',
       lastVerified: 'Dernière vérification :',
       reviewedBy: "Évalué par l'équipe éditoriale de The Nootropic Lab",
@@ -966,8 +966,8 @@ const fr: UIStrings = {
       perMonth: '/mois',
       capsules: 'Caps.',
       dailyServing: 'Dose quotidienne',
-      units: { capsule: 'gélules', tablet: 'comprimés', sachet: 'sachets', shot: 'shots', powder: 'doses' },
-      unitsSingular: { capsule: 'gélule', tablet: 'comprimé', sachet: 'sachet', shot: 'shot', powder: 'dose' },
+      units: { capsule: 'gélules', tablet: 'comprimés', sachet: 'sachets', shot: 'shots', powder: 'doses', softgel: 'capsules molles' },
+      unitsSingular: { capsule: 'gélule', tablet: 'comprimé', sachet: 'sachet', shot: 'shot', powder: 'dose', softgel: 'capsule molle' },
       perDay: '/jour',
       moneyBack: 'Garantie',
       days: 'jours',
@@ -1180,7 +1180,7 @@ const ja: UIStrings = {
     },
     meta: {
       by: '販売：',
-      productDescriptorByForm: { capsule: '毎日のノートロピクスカプセル', tablet: '毎日のノートロピクス錠剤', sachet: '毎日のノートロピクス分包', shot: '毎日のノートロピクスショット', powder: 'ノートロピクスパウダー' },
+      productDescriptorByForm: { capsule: '毎日のノートロピクスカプセル', tablet: '毎日のノートロピクス錠剤', sachet: '毎日のノートロピクス分包', shot: '毎日のノートロピクスショット', powder: 'ノートロピクスパウダー', softgel: '毎日のノートロピクスソフトジェル' },
       updated: '更新日：',
       lastVerified: '最終確認日：',
       reviewedBy: 'The Nootropic Lab 編集部による評価',
@@ -1195,8 +1195,8 @@ const ja: UIStrings = {
       perMonth: '/月',
       capsules: 'カプセル',
       dailyServing: '1日の目安量',
-      units: { capsule: 'カプセル', tablet: '錠', sachet: '包', shot: '本', powder: 'スクープ' },
-      unitsSingular: { capsule: 'カプセル', tablet: '錠', sachet: '包', shot: '本', powder: 'スクープ' },
+      units: { capsule: 'カプセル', tablet: '錠', sachet: '包', shot: '本', powder: 'スクープ', softgel: 'ソフトジェル' },
+      unitsSingular: { capsule: 'カプセル', tablet: '錠', sachet: '包', shot: '本', powder: 'スクープ', softgel: 'ソフトジェル' },
       perDay: '/日',
       moneyBack: '返金保証',
       days: '日間',
@@ -1409,7 +1409,7 @@ const pt: UIStrings = {
     },
     meta: {
       by: 'Por',
-      productDescriptorByForm: { capsule: 'cápsula nootrópica diária', tablet: 'comprimido nootrópico diário', sachet: 'sachê nootrópico diário', shot: 'shot nootrópico diário', powder: 'pó nootrópico para beber' },
+      productDescriptorByForm: { capsule: 'cápsula nootrópica diária', tablet: 'comprimido nootrópico diário', sachet: 'sachê nootrópico diário', shot: 'shot nootrópico diário', powder: 'pó nootrópico para beber', softgel: 'cápsula gelatinosa nootrópica diária' },
       updated: 'Atualizado:',
       lastVerified: 'Última verificação:',
       reviewedBy: 'Avaliado pela equipa editorial do The Nootropic Lab',
@@ -1424,8 +1424,8 @@ const pt: UIStrings = {
       perMonth: '/mês',
       capsules: 'Cáps.',
       dailyServing: 'Dose diária',
-      units: { capsule: 'cáps.', tablet: 'comprimidos', sachet: 'sachês', shot: 'shots', powder: 'doses' },
-      unitsSingular: { capsule: 'cáp.', tablet: 'comprimido', sachet: 'sachê', shot: 'shot', powder: 'dose' },
+      units: { capsule: 'cáps.', tablet: 'comprimidos', sachet: 'sachês', shot: 'shots', powder: 'doses', softgel: 'cápsulas gelatinosas' },
+      unitsSingular: { capsule: 'cáp.', tablet: 'comprimido', sachet: 'sachê', shot: 'shot', powder: 'dose', softgel: 'cápsula gelatinosa' },
       perDay: '/dia',
       moneyBack: 'Garantia',
       days: 'dias',
@@ -1638,7 +1638,7 @@ const de: UIStrings = {
     },
     meta: {
       by: 'Von',
-      productDescriptorByForm: { capsule: 'tägliche Nootropika-Kapsel', tablet: 'tägliche Nootropika-Tablette', sachet: 'täglicher Nootropika-Beutel', shot: 'täglicher Nootropika-Shot', powder: 'Nootropika-Trinkpulver' },
+      productDescriptorByForm: { capsule: 'tägliche Nootropika-Kapsel', tablet: 'tägliche Nootropika-Tablette', sachet: 'täglicher Nootropika-Beutel', shot: 'täglicher Nootropika-Shot', powder: 'Nootropika-Trinkpulver', softgel: 'tägliche Nootropika-Weichkapsel' },
       updated: 'Aktualisiert:',
       lastVerified: 'Zuletzt geprüft:',
       reviewedBy: 'Geprüft von der Redaktion von The Nootropic Lab',
@@ -1653,8 +1653,8 @@ const de: UIStrings = {
       perMonth: '/Monat',
       capsules: 'Kapseln',
       dailyServing: 'Tagesdosis',
-      units: { capsule: 'Kapseln', tablet: 'Tabletten', sachet: 'Beutel', shot: 'Shots', powder: 'Messlöffel' },
-      unitsSingular: { capsule: 'Kapsel', tablet: 'Tablette', sachet: 'Beutel', shot: 'Shot', powder: 'Messlöffel' },
+      units: { capsule: 'Kapseln', tablet: 'Tabletten', sachet: 'Beutel', shot: 'Shots', powder: 'Messlöffel', softgel: 'Weichkapseln' },
+      unitsSingular: { capsule: 'Kapsel', tablet: 'Tablette', sachet: 'Beutel', shot: 'Shot', powder: 'Messlöffel', softgel: 'Weichkapsel' },
       perDay: '/Tag',
       moneyBack: 'Geld-zurück',
       days: 'Tage',
@@ -1872,7 +1872,7 @@ const frCa: UIStrings = {
     },
     meta: {
       by: 'Par',
-      productDescriptorByForm: { capsule: 'capsule nootropique quotidienne', tablet: 'comprimé nootropique quotidien', sachet: 'sachet nootropique quotidien', shot: 'shot nootropique quotidien', powder: 'poudre nootropique à diluer' },
+      productDescriptorByForm: { capsule: 'capsule nootropique quotidienne', tablet: 'comprimé nootropique quotidien', sachet: 'sachet nootropique quotidien', shot: 'shot nootropique quotidien', powder: 'poudre nootropique à diluer', softgel: 'capsule molle nootropique quotidienne' },
       updated: 'Mis à jour :',
       lastVerified: 'Dernière vérification :',
       reviewedBy: "Évalué par l'équipe éditoriale de The Nootropic Lab",
@@ -1884,8 +1884,8 @@ const frCa: UIStrings = {
       perMonth: '/mois',
       capsules: 'Gélules',
       dailyServing: 'Dose quotidienne',
-      units: { capsule: 'gélules', tablet: 'comprimés', sachet: 'sachets', shot: 'shots', powder: 'doses' },
-      unitsSingular: { capsule: 'gélule', tablet: 'comprimé', sachet: 'sachet', shot: 'shot', powder: 'dose' },
+      units: { capsule: 'gélules', tablet: 'comprimés', sachet: 'sachets', shot: 'shots', powder: 'doses', softgel: 'capsules molles' },
+      unitsSingular: { capsule: 'gélule', tablet: 'comprimé', sachet: 'sachet', shot: 'shot', powder: 'dose', softgel: 'capsule molle' },
       perDay: '/jour',
       moneyBack: 'Remboursement',
       days: 'jours',

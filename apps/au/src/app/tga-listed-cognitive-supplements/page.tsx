@@ -32,8 +32,9 @@ const listingCategories: ListingCategory[] = [
 ];
 
 // ARTG status of every AU catalogue record (active and discontinued), from the
-// 2026-09-30 sourced fact sheet; the two Performance Lab products added later
-// (Caffeine 2, Pre Lab Pro) were searched on the ARTG on 2026-10-05. No product
+// 2026-09-30 sourced fact sheet; the Performance Lab products added later were
+// searched on the ARTG on 2026-10-05 (Caffeine 2, Pre Lab Pro) and 2026-10-06
+// (Energy, Omega-3; "Performance Lab" re-searched, no results). No product
 // other than Blackmores Brain Active has any ARTG history on file; do not add
 // an AUST number without an ARTG hit.
 interface ArtgRow {
@@ -45,6 +46,7 @@ interface ArtgRow {
 
 const NO_ENTRY = 'No ARTG entry found (searched 2026-09-30)';
 const NO_ENTRY_2026_10_05 = 'No ARTG entry found (searched 2026-10-05)';
+const NO_ENTRY_2026_10_06 = 'No ARTG entry found (searched 2026-10-06)';
 const NO_ENTRY_WEB = 'None found by web search (2026-09-30); not confirmed by a direct ARTG query';
 const NOT_QUERIED = 'Sold as an international direct-to-consumer import. A web search found no AUST L association; we did not confirm this with a direct ARTG query.';
 
@@ -59,6 +61,8 @@ const artgRows: ArtgRow[] = [
   { slug: 'blackmores-brain-active-review', name: 'Blackmores Brain Active', found: 'No current entry (cancelled 2014)', note: 'Our earlier copy cited AUST L 246877, which does not resolve on the ARTG. TGA\'s cancellation register lists ARTG entry 227270 for Blackmores Brain Active, cancelled 18 September 2014 under s30(1)(c); we found no current ARTG entry (searched 2026-09-30).' },
   { slug: 'performance-lab-caffeine-2-review', name: 'Performance Lab Caffeine 2', found: NO_ENTRY_2026_10_05, note: 'Sold direct through performancelab.com; no AUST number shown on the product page. ARTG searches for "Performance Lab" (no results) and "Caffeine 2" (no Performance Lab product among the matches) found no entry.' },
   { slug: 'pre-lab-pro-review', name: 'Pre Lab Pro', found: NO_ENTRY_2026_10_05, note: 'Sold direct through performancelab.com; no AUST number shown on the product page. ARTG searches for "Performance Lab" (no results) and "Pre Lab Pro" (only unrelated products) found no entry.' },
+  { slug: 'performance-lab-energy-review', name: 'Performance Lab Energy', found: NO_ENTRY_2026_10_06, note: 'Sold direct through performancelab.com; no AUST number shown on the product page. ARTG searches for "Performance Lab" on 5 and 6 October 2026 returned no results.' },
+  { slug: 'performance-lab-omega-3-review', name: 'Performance Lab Omega-3', found: NO_ENTRY_2026_10_06, note: 'Sold direct through performancelab.com; no AUST number shown on the product page. ARTG searches for "Performance Lab" on 5 and 6 October 2026 returned no results.' },
 ];
 
 // Fail the build if the table drifts from the catalogue (a record added,
@@ -211,14 +215,15 @@ export default function Page() {
           <h2 className="text-2xl font-bold text-gray-900 mb-3">ARTG status of the products we review in Australia</h2>
           <p className="text-sm text-gray-700 leading-relaxed mb-4">
             We checked all {artgRows.length} products in our Australian catalogue on 30 September 2026 (Performance
-            Lab Caffeine 2 and Pre Lab Pro, added later, on 5 October 2026) and found
+            Lab Caffeine 2 and Pre Lab Pro, added later, on 5 October 2026; Performance Lab Energy and Omega-3 on
+            6 October 2026) and found
             no current ARTG entry for any of them; for four, that rests on a web search rather than a direct ARTG
             query, as the table notes. Blackmores Brain Active is the only one with an ARTG history we found, and
             TGA&apos;s cancellation register shows that entry was cancelled in 2014.
           </p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border border-gray-200">
-              <caption className="sr-only">ARTG status of each product in our Australian catalogue, searched 30 September and 5 October 2026</caption>
+              <caption className="sr-only">ARTG status of each product in our Australian catalogue, searched 30 September, 5 October and 6 October 2026</caption>
               <thead className="bg-gray-50 text-left">
                 <tr>
                   <th scope="col" className="p-3 border-b border-gray-200">Product</th>

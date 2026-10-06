@@ -57,18 +57,19 @@ export interface Product {
   ingredientDosages: IngredientDosage[];
   servingsPerContainer: number;
   /**
-   * Units of `form` per daily serving (capsules, tablets, sachets, shots or
-   * powder scoops — the name predates `form`). Render it through
+   * Units of `form` per daily serving (capsules, tablets, sachets, shots,
+   * powder scoops or softgels — the name predates `form`). Render it through
    * `servingAmount()` / `servingUnit()` (serving-unit.ts), never with
    * hard-coded capsule wording.
    */
   capsulesPerServing: number;
   /**
    * Dosage form of one unit. Absent = `'capsule'` (the default for most
-   * records). `'powder'` = one scoop of a drink powder. Validated by
-   * `formProblem()` in product-rules.ts.
+   * records). `'powder'` = one scoop of a drink powder. `'softgel'` = a soft
+   * gel capsule (gelatin or plant-based shell), such as an omega-3 NutriGel.
+   * Validated by `formProblem()` in product-rules.ts.
    */
-  form?: 'capsule' | 'tablet' | 'sachet' | 'shot' | 'powder';
+  form?: 'capsule' | 'tablet' | 'sachet' | 'shot' | 'powder' | 'softgel';
   summary: string;
   whatItIs: string;
   howItWorks: string;

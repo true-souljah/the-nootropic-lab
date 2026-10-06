@@ -1372,5 +1372,176 @@
     "updatedAt": "2026-10-05",
     "trustpilotCheckedAt": "2026-10-05",
     "verifiedAt": "2026-10-05"
+  },
+  {
+    "id": "performance-lab-energy",
+    "name": "Performance Lab Energy",
+    "brand": "Performance Lab",
+    "slug": "performance-lab-energy-review",
+    "bestFor": [
+      "Energy",
+      "Brain energy",
+      "Long-term brain health"
+    ],
+    "score": 5.4,
+    "scoreBreakdown": {
+      "ingredients": 5,
+      "dosing": 3,
+      "transparency": 10,
+      "value": 3,
+      "trust": 6
+    },
+    "priceMonthlyUSD": 69,
+    "pricingModel": "both",
+    "moneyBackDays": 30,
+    "caffeineFree": true,
+    "euStorefront": false,
+    "euCompliance": "verify",
+    "trustpilotScore": 3.8,
+    "trustpilotCount": 14,
+    "affiliateUrl": "https://www.performancelab.com/products/energy?a_aid=zid0oxj1g4uny&a_bid=a2ad38c1",
+    "affiliateNetwork": "UberNet",
+    "commissionRate": "30%",
+    "cookieDays": 365,
+    "heroIngredients": [
+      "Acetyl-L-Carnitine",
+      "PQQ",
+      "CoQ10",
+      "R-Lipoic Acid"
+    ],
+    "ingredientDosages": [
+      {
+        "name": "Acetyl-L-Carnitine (from ALCAR HCl)",
+        "doseInProduct": "500mg",
+        "clinicalDose": "1500-3000mg/day",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "R-Lipoic Acid (BioEnhanced)",
+        "doseInProduct": "100mg",
+        "clinicalDose": "300-600mg (alpha-lipoic acid trials)",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "CoQ10 (MicroActive Q10)",
+        "doseInProduct": "100mg",
+        "clinicalDose": "No cognitive-trial dose; 300mg/day in cardiac trials",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "PQQ (BioPQQ)",
+        "doseInProduct": "10mg",
+        "clinicalDose": "20mg/day",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Magnesium (as magnesium malate)",
+        "doseInProduct": "60mg",
+        "clinicalDose": "420mg (DV)",
+        "adequatelyDosed": false
+      }
+    ],
+    "servingsPerContainer": 30,
+    "capsulesPerServing": 2,
+    "summary": "A caffeine-free 'cellular energy' capsule from Performance Lab: one 2-capsule serving gives 500mg acetyl-L-carnitine, 100mg R-lipoic acid, 100mg CoQ10, 10mg PQQ and 60mg magnesium, with every dose on the label. It is an energy supplement with a modest cognitive angle, not a nootropic stack, and none of its five actives reaches the reference dose in our dosing audit.",
+    "whatItIs": "Performance Lab Energy is a caffeine-free capsule sold through performancelab.com (operated by Performance Lab USA Corp., Winter Park, Florida). The vendor calls it a 'caffeine-free workout and daily energy supplement' for 'cellular energy, cardio performance, muscle strength, and clean focus'. One serving is 2 vegan pullulan capsules holding 500mg acetyl-L-carnitine (from acetyl-L-carnitine HCl), 100mg microencapsulated BioEnhanced R-lipoic acid, 100mg MicroActive Q10 (coenzyme Q10), 10mg BioPQQ (pyrroloquinoline quinone), 60mg magnesium as magnesium malate (14% of the US Daily Value) and 2.5mg BioPerine black pepper extract (95% piperine), which the vendor adds 'for enhanced absorption'; a bottle holds 30 servings. The label suggests 2 capsules in the morning or early afternoon on an empty stomach. The vendor states it is 'third-party tested for purity and potency' but names no lab. US orders ship from the brand's New Jersey fulfilment centre (per performancelab.com's shipping page, checked 2026-10-05).",
+    "howItWorks": "Energy is built around mitochondria, the parts of cells that turn food into usable energy. Acetyl-L-carnitine carries fatty acids into mitochondria and donates acetyl groups for making acetylcholine; its positive cognitive trials used 1.5-3g a day in older adults with mild cognitive impairment, mild dementia or pre-frailty (Montgomery 2003 meta-analysis; Passeri 1990; Malaguarnera 2022), at least three times the 500mg here, and we found no trial in healthy young adults. PQQ improved some memory and attention scores in three small 12-week trials at about 20mg a day (Itoh 2016, Shiojima 2021, Tamakoshi 2023), two of them with authors affiliated with the PQQ manufacturer; Energy has 10mg. The vendor describes CoQ10 and R-lipoic acid as mitochondrial cofactors and antioxidants, but we found no positive cognitive trial of either: 300mg CoQ10 a day did not improve attention or working memory over 6 months in a trial in schizophrenia (Maguire 2021), and 100mg alpha-lipoic acid a day did not improve cognition in the only dose-matched trial we found, also in schizophrenia (De Lima 2023). BioPerine is there to aid absorption; we have not verified whether 2.5mg of piperine changes how well these ingredients are absorbed. Energy itself has not been tested in a published trial.",
+    "whatToExpect": "Performance Lab says Energy starts working in around 30 minutes and that you may notice 'increased vitality', more motivation, a brighter mood and better muscle strength and cardio performance during exercise. It contains no caffeine or other stimulant. The positive cognitive trials of acetyl-L-carnitine and PQQ ran for 12 weeks or longer at 2 to 6 times these doses, so any cognitive effect at Energy's doses is uncertain. The label suggests 2 capsules in the morning or early afternoon on an empty stomach; the product page also suggests 2 capsules 30-45 minutes before a workout. In the US it costs $69 one-time for 30 servings, $62.10 a month on a monthly subscription or $51.75 a month on the 4-month plan ($207 every 4 months), checked 2026-10-05. Standard US shipping takes 4-8 business days and costs $9.95, free over $100 and on subscriptions (per performancelab.com's shipping page, checked 2026-10-05).",
+    "pros": [
+      "Caffeine-free and stimulant-free",
+      "Every dose disclosed on the label, no proprietary blend",
+      "Branded ingredient forms named on the label (BioPQQ, MicroActive Q10, BioEnhanced R-lipoic acid, BioPerine)",
+      "Vegan pullulan capsules",
+      "Ships from a US fulfilment centre in New Jersey"
+    ],
+    "cons": [
+      "None of the five actives reaches the reference dose in our dosing audit",
+      "Acetyl-L-carnitine (500mg): every positive cognitive trial we reviewed used at least 1.5g a day, three times this dose",
+      "PQQ (10mg) is half the 20mg a day used in the 12-week cognitive trials, two of which had authors affiliated with the PQQ manufacturer",
+      "An energy supplement with a modest cognitive angle, not a nootropic stack: we found no positive cognitive trial of CoQ10 or R-lipoic acid",
+      "No published trial of Energy itself; the evidence is for its ingredients",
+      "Small Trustpilot sample: 14 reviews for performancelab.com (3.8/5, checked 2026-10-05)",
+      "30-day money-back guarantee covers the first order only: one container, used up, with the claim filed within 60 days of delivery, refund minus shipping"
+    ],
+    "editorChoice": false,
+    "market": "both",
+    "updatedAt": "2026-10-06",
+    "trustpilotCheckedAt": "2026-10-05",
+    "verifiedAt": "2026-10-05"
+  },
+  {
+    "id": "performance-lab-omega-3",
+    "name": "Performance Lab Omega-3",
+    "brand": "Performance Lab",
+    "slug": "performance-lab-omega-3-review",
+    "bestFor": [
+      "Long-term brain health",
+      "Brain health",
+      "Cardiovascular support"
+    ],
+    "score": 6.2,
+    "scoreBreakdown": {
+      "ingredients": 6,
+      "dosing": 4,
+      "transparency": 10,
+      "value": 5,
+      "trust": 6
+    },
+    "priceMonthlyUSD": 49,
+    "pricingModel": "both",
+    "moneyBackDays": 30,
+    "caffeineFree": true,
+    "euStorefront": false,
+    "euCompliance": "verify",
+    "trustpilotScore": 3.8,
+    "trustpilotCount": 14,
+    "affiliateUrl": "https://www.performancelab.com/products/omega-3?a_aid=zid0oxj1g4uny&a_bid=a2ad38c1",
+    "affiliateNetwork": "UberNet",
+    "commissionRate": "30%",
+    "cookieDays": 365,
+    "heroIngredients": [
+      "DHA",
+      "EPA"
+    ],
+    "ingredientDosages": [
+      {
+        "name": "DHA (algal)",
+        "doseInProduct": "540mg",
+        "clinicalDose": "900mg-1.2g DHA/day",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "EPA (algal)",
+        "doseInProduct": "270mg",
+        "clinicalDose": "No EPA-specific cognitive anchor; mixed EPA+DHA meta-analyses used ≥500mg/day total omega-3",
+        "adequatelyDosed": true
+      }
+    ],
+    "servingsPerContainer": 30,
+    "capsulesPerServing": 3,
+    "form": "softgel",
+    "summary": "A vegan omega-3 from Performance Lab: 3 softgels give 1,800mg algal oil (life's OMEGA 60) with 990mg total omega-3, including 540mg DHA and 270mg EPA, every amount on the label. The DHA dose sits below the 900mg-1.2g a day used in the positive memory trials, so it is a general-health omega-3 with a brain-health angle rather than a nootropic; the algae source and the vendor's carrageenan-free softgels are its main differentiators.",
+    "whatItIs": "Performance Lab Omega-3 is an algae-based omega-3 supplement sold through performancelab.com (operated by Performance Lab USA Corp., Winter Park, Florida). The vendor positions it 'to support optimal health and performance of the brain, eyes, heart and (much) more'. One serving is 3 NutriGels, softgels the vendor describes as vegan and free of gelatin and carrageenan (other ingredients listed: gellan gum, pectin, starch and glycerin), holding 1,800mg algal oil from life's OMEGA 60 with 990mg total omega-3 fatty acids, of which 540mg is DHA and 270mg is EPA; a bottle holds 30 servings. The label suggests 3 softgels with your first meal of the day. The vendor states it is 'third-party tested for purity and potency' and Clean Label Project certified; the product page shows the certification logo but no certificate or batch number. US orders ship from the brand's New Jersey fulfilment centre (per performancelab.com's shipping page, checked 2026-10-05).",
+    "howItWorks": "DHA is the main structural omega-3 in brain cell membranes. In two 6-month trials it improved memory measures at 900mg a day in adults aged 55 and over with age-related cognitive decline (Yurko-Mauro 2010, sponsored by the algal-DHA maker Martek) and at 1.16g a day in healthy 18-45-year-olds with low DHA intake (Stonehouse 2013); this product supplies 540mg, below both. The wider evidence is mixed: a 2012 Cochrane review found no cognitive benefit from omega-3 supplements in cognitively healthy older adults. We found no trial of EPA alone for cognition; a 2024 dose-response meta-analysis of 24 trials of mixed EPA and DHA in adults aged 40 and over found an executive-function benefit trend above 500mg a day of total omega-3 (Suh 2024), which the 990mg here exceeds. The oil comes from algae rather than fish, so it suits vegans. Performance Lab Omega-3 itself has not been tested in a published trial.",
+    "whatToExpect": "Performance Lab says Omega-3 starts working in around 30 minutes, that you may first notice improvements to hair, nails and skin, and that other benefits build over time; both positive DHA memory trials ran for 6 months, so do not expect a quick cognitive effect. Take 3 softgels with your first meal of the day. Our DHA ingredient page notes that in a 2021 meta-analysis of cardiovascular trials, omega-3 supplements were linked to a higher risk of atrial fibrillation, more so above 1g a day; one serving here gives 990mg of total omega-3, so ask your doctor first if you have a heart-rhythm condition or already take another omega-3. In the US it costs $49 one-time for 30 servings, $44.10 a month on a monthly subscription or $36.75 a month on the 4-month plan ($147 every 4 months), checked 2026-10-05. Standard US shipping takes 4-8 business days and costs $9.95, free over $100 and on subscriptions (per performancelab.com's shipping page, checked 2026-10-05).",
+    "pros": [
+      "Vegan omega-3 from algal oil (life's OMEGA 60) rather than fish",
+      "990mg total omega-3 per serving, every amount on the label",
+      "Softgels the vendor says are free of gelatin and carrageenan",
+      "Ships from a US fulfilment centre in New Jersey"
+    ],
+    "cons": [
+      "540mg DHA is below the 900mg-1.2g a day used in the positive DHA memory trials",
+      "Ratio wording is inconsistent: the product page mostly describes an 'optimal 2:1 EPA:DHA' ratio, but the label's 540mg DHA and 270mg EPA make it 2:1 DHA to EPA; the page also says one serving provides 900mg of EPA and DHA, while those two label rows add up to 810mg",
+      "A general-health omega-3 rather than a nootropic; evidence for omega-3 and cognition in healthy adults is mixed",
+      "No published trial of Performance Lab Omega-3 itself; the evidence is for DHA and EPA",
+      "Small Trustpilot sample: 14 reviews for performancelab.com (3.8/5, checked 2026-10-05)",
+      "30-day money-back guarantee covers the first order only: one container, used up, with the claim filed within 60 days of delivery, refund minus shipping"
+    ],
+    "editorChoice": false,
+    "market": "both",
+    "updatedAt": "2026-10-06",
+    "trustpilotCheckedAt": "2026-10-05",
+    "verifiedAt": "2026-10-05"
   }
 ]
