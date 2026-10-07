@@ -81,7 +81,7 @@ const faqs = [
   },
   {
     q: 'Can I buy Mind Lab Pro in Japan?',
-    a: 'Mind Lab Pro\'s own FAQ lists Japan among the territories it ships to. It is not FFC-notified in our Japanese catalogue, so it does not carry an FFC function claim in Japan.',
+    a: 'Mind Lab Pro\'s own FAQ lists Japan among the territories it ships to. No Foods with Function Claims (FFC) notification was found under the product or company name in the Consumer Affairs Agency (CAA) database (export scanned 2026-10-06), so it does not carry an FFC function claim in Japan.',
   },
   {
     q: 'Is piracetam legal to import into Japan?',
@@ -89,7 +89,7 @@ const faqs = [
   },
   {
     q: 'Is Suntory DHA&EPA+Sesamin EX an FFC product?',
-    a: 'Not according to our catalogue, which records it as not FFC-notified. The Suntory Wellness official Rakuten listing we checked also shows no 機能性表示食品 labelling. It is a domestic Japanese product either way.',
+    a: 'No FFC notification was found for it in the Consumer Affairs Agency (CAA) database (export scanned 2026-10-06): no notified product name combines DHA/EPA with sesamin (セサミン), although Suntory Wellness holds other notifications, such as D110 オメガエイド for DHA/EPA/ARA. The Suntory Wellness official Rakuten listing we checked also shows no 機能性表示食品 labelling. It is a domestic Japanese product either way.',
   },
 ];
 
@@ -130,16 +130,18 @@ export default function Page() {
             <p>
               The phrase covers two groups that are regulated very differently. The first is domestic products that carry
               a function claim under Japan&apos;s Foods with Function Claims system (機能性表示食品, FFC). FANCL BRAINs is
-              one of them: it is FFC-notified under notification number G425.
+              one of them: it is FFC-notified under notification number G425 (商品名 ＢＲＡＩＮｓ（ブレインズ）, 届出者
+              株式会社ファンケル, notified 2021/08/18; Consumer Affairs Agency (CAA) database, checked 2026-10-06).
             </p>
             <p>
-              Not every well-known Japanese brain-health product is FFC-notified, though. Suntory DHA&amp;EPA+Sesamin EX
-              is recorded as not FFC-notified in our catalogue, and the Suntory Wellness official Rakuten listing we
-              checked shows no 機能性表示食品 labelling.
+              Not every well-known Japanese brain-health product is FFC-notified, though. For Suntory DHA&amp;EPA+Sesamin EX
+              no FFC notification was found in the CAA database (export scanned 2026-10-06), and the Suntory Wellness
+              official Rakuten listing we checked shows no 機能性表示食品 labelling.
             </p>
             <p>
               The second group is international nootropic stacks such as Mind Lab Pro, NooCube, Performance Lab Mind and
-              Hunter Focus. All four are in our Japanese catalogue, and none of them is FFC-notified. The distinction
+              Hunter Focus. All four are in our Japanese catalogue, and for none of them was an FFC notification found
+              under the product or company name in the CAA database (export scanned 2026-10-06). The distinction
               matters because an FFC function claim comes from a notification filed with the regulator before sale; a
               product with no notification has no FFC claim to display.
             </p>
@@ -183,7 +185,8 @@ export default function Page() {
               Article 43(1) of the Health Promotion Act. In the CAA&apos;s English terminology, FOSHU products are
               &ldquo;labelled with health functions under approval by the Commissioner of CAA&rdquo;, while FFC products
               are labelled under the operator&apos;s own responsibility. Our catalogue records the imported stacks
-              above in the general-foods category, with no FFC notification. When a Japanese product mentions memory or
+              above in the general-foods category: no FFC notification was found for them under the product or company
+              name in the CAA database (export scanned 2026-10-06). When a Japanese product mentions memory or
               attention, the first thing to check is which of these routes it used.
             </p>
           </div>
@@ -256,8 +259,8 @@ export default function Page() {
               make no shipping claim for them here; check at checkout.
             </p>
             <p>
-              None of these four products is FFC-notified in our catalogue, so none of them carries an FFC function claim
-              in Japan. That means the Japanese regulatory label cannot help you compare them, and you have to judge them
+              For none of these four products was an FFC notification found under the product or company name in the
+              CAA database (export scanned 2026-10-06), so none of them carries an FFC function claim in Japan. That means the Japanese regulatory label cannot help you compare them, and you have to judge them
               on their ingredients and doses instead.
             </p>
             <p>

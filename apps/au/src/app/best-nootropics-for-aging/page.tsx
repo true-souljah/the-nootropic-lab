@@ -27,7 +27,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Phosphatidylserine (PS)',
     evidence:
-      'Phospholipid component of brain cell membranes. Multiple RCTs in 50–80-year-olds at 100–300mg/day show improvements in memory, processing speed, and cognitive complaints. The strongest age-related cognitive evidence in this category. PS is not a permitted ingredient in TGA Listed Medicines, so PS-containing products available in Australia (Mind Lab Pro, Qualia Mind) are imported as food supplements under the Personal Importation Scheme.',
+      'Phospholipid component of brain cell membranes. Multiple RCTs in 50–80-year-olds at 100–300mg/day show improvements in memory, processing speed, and cognitive complaints. The strongest age-related cognitive evidence in this category. PS is not a permitted ingredient in TGA Listed Medicines; the PS-containing products ranked here (Mind Lab Pro, Qualia Mind) are sold direct to Australian buyers by their brands.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {
@@ -55,7 +55,7 @@ const picks: ListiclePick[] = [
     product: productsAU.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Includes phosphatidylserine (100mg Sharp-PS at clinical dose), citicoline (250mg Cognizin at clinical dose), Bacopa (150mg), and Lion\'s Mane (500mg fruiting body). Four of the most age-relevant ingredients in one open-formula product. Caffeine-free — no cardiovascular load for older adults sensitive to stimulants. Ships to Australia in 3–6 working days from the brand\'s Australian depot, or 7–14 working days when shipped from the UK (per mindlabpro.com, checked 2026-09-29), as a food supplement.',
+      'Includes phosphatidylserine (100mg Sharp-PS at clinical dose), citicoline (250mg Cognizin at clinical dose), Bacopa (150mg), and Lion\'s Mane (500mg fruiting body). Four of the most age-relevant ingredients in one open-formula product. Caffeine-free — no cardiovascular load for older adults sensitive to stimulants. Ships to Australia in 3–6 working days from the brand\'s Australian depot, or 7–14 working days when shipped from the UK (per mindlabpro.com, checked 2026-09-29).',
   },
   {
     product: productsAU.find(p => p.slug === 'qualia-mind-review')!,
@@ -78,7 +78,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Are these TGA-listed in Australia?',
-    a: 'No. The international multi-ingredient stacks ranked here (Mind Lab Pro, Qualia Mind) are not TGA-listed therapeutic goods — they import under the TGA Personal Importation Scheme as food supplements. Australian TGA-listed alternatives carrying AUST L numbers are stocked at Chemist Warehouse, Priceline, Amcal, and Blooms: Blackmores Bio Ginkgoforte 6000, Caruso\'s Memory Forte, Swisse Memory & Focus, Nature\'s Own Brahmi 5000mg, and Cenovis Ginkgo Biloba. These typically focus on a single ingredient (Bacopa OR Ginkgo OR fish oil); the stacks above combine multiple ingredients in one formula, which is why they are imported.',
+    a: 'Neither of the international multi-ingredient stacks ranked here (Mind Lab Pro, Qualia Mind) returned an entry when we searched the Australian Register of Therapeutic Goods (ARTG) and the TGA cancellations database by product and sponsor name on 2026-10-06; they are sold direct to Australian buyers by their brands. Australian TGA-listed alternatives carrying AUST L numbers include Blackmores Bio Ginkgoforte 6000, Caruso\'s Memory Forte, Swisse Memory & Focus, Nature\'s Own Brahmi 5000mg, and Cenovis Ginkgo Biloba. These typically focus on a single ingredient (Bacopa OR Ginkgo OR fish oil); the stacks above combine multiple ingredients in one formula.',
   },
   {
     q: 'When should I start taking these?',
@@ -98,7 +98,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Should I just buy a TGA-listed Australian product instead of importing?',
-    a: 'For a single-ingredient approach (e.g. Ginkgo or Bacopa alone), yes — TGA-listed Australian options are convenient, clearly labelled with AUST L numbers, available at Chemist Warehouse, and integrate cleanly into a Webster pack. For a multi-ingredient stack covering PS + citicoline + Bacopa + Lion\'s Mane in one capsule, the imported options above are the practical route because no equivalent multi-ingredient formula is currently TGA-listed. Many Australian seniors run a hybrid: one TGA-listed Ginkgo or Bacopa from the pharmacy + one imported PS-citicoline stack like Mind Lab Pro.',
+    a: 'For a single-ingredient approach (e.g. Ginkgo or Bacopa alone), yes — TGA-listed Australian options are convenient, clearly labelled with AUST L numbers, and integrate cleanly into a Webster pack. For a multi-ingredient stack covering PS + citicoline + Bacopa + Lion\'s Mane in one capsule, the imported options above are the practical route. Many Australian seniors run a hybrid: one TGA-listed Ginkgo or Bacopa from the pharmacy + one imported PS-citicoline stack like Mind Lab Pro.',
   },
 ];
 

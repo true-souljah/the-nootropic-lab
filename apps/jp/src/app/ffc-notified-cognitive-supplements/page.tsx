@@ -109,7 +109,11 @@ export default function Page() {
         <p id="hero-paragraph" className="text-lg text-gray-600 mb-6 leading-relaxed">
           Japan regulates functional foods through two main systems: <strong>FFC (Foods with Function Claims /
           機能性表示食品)</strong> and <strong>FOSHU (Foods for Specified Health Uses / 特定保健用食品)</strong>.
-          Cognitive supplements sold in Japan typically use the FFC notification route. Imported brands without
+          Cognitive supplements sold in Japan typically use the FFC notification route. The Consumer Affairs Agency
+          (CAA, 消費者庁) describes FFC as a system in which a business notifies the CAA Commissioner, before sale, of
+          the scientific evidence for the product&apos;s safety and function, and states that, unlike FOSHU,
+          「国が審査を行いません」 — the government does not review the notification (<a href="https://www.caa.go.jp/policies/policy/food_labeling/foods_with_function_claims/" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline">caa.go.jp, checked 2026-10-06</a>).
+          Imported brands without
           FFC status fall under "general foods" and cannot make function claims under the Pharmaceutical and
           Medical Device Act (薬機法). This page explains the categories, how to verify FFC status, and the
           ¥16,000 personal-import threshold for non-domestic brands.
@@ -165,7 +169,8 @@ export default function Page() {
           <h2 className="text-2xl font-bold text-gray-900 mb-3">Audit of our Japanese catalog</h2>
           <p className="text-sm text-gray-700 leading-relaxed mb-4">
             We track <strong>{productsJP.length} products</strong> in our Japanese catalog. The mix includes
-            domestic brands (FANCL BRAINs, FFC-notified under G425; Suntory DHA&amp;EPA+Sesamin EX, not FFC-notified) and imported brands available
+            domestic brands (FANCL BRAINs, FFC-notified under G425, confirmed in the CAA database on 2026-10-06; Suntory
+            DHA&amp;EPA+Sesamin EX; no FFC notification found, CAA export scanned 2026-10-06) and imported brands available
             via personal-import channels. Our reviews note FFC notification status where visible on packaging
             and frame imported-brand reviews as consumer experience rather than function claims, in line with
             PMD Act constraints. Per-product FFC field surfacing is on our 2026 roadmap.

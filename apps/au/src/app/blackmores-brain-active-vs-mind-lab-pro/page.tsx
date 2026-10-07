@@ -16,7 +16,7 @@ const productB = productsAU.find(p => p.slug === 'mind-lab-pro-review');
 
 const META_TITLE = `Blackmores Brain Active vs Mind Lab Pro ${CURRENT_YEAR}: Discontinued vs Personal Import`;
 const META_DESCRIPTION =
-  'Independent comparison of Blackmores Brain Active vs Mind Lab Pro for Australian buyers. A discontinued Australian brain supplement (its former Australian Register of Therapeutic Goods (ARTG) entry was cancelled in 2014) vs an international personal import.';
+  'Independent comparison of Blackmores Brain Active vs Mind Lab Pro for Australian buyers. A discontinued Australian brain supplement (its two Australian Register of Therapeutic Goods (ARTG) entries were cancelled in 2014 and 2021) vs an international personal import.';
 
 export const metadata: Metadata = {
   title: META_TITLE,
@@ -41,7 +41,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'What does TGA-listed mean?',
     a:
-      "Medicines supplied in Australia must be included in the Australian Register of Therapeutic Goods (ARTG), either as registered (AUST R) or listed (AUST L / AUST L(A)) medicines. Listed (AUST L) medicines have not been assessed by the TGA for efficacy before sale, and may only use claim wording from the TGA's pre-approved Permitted Indications list. Blackmores Brain Active no longer has an ARTG entry: its former entry (227270) was cancelled on 18 September 2014.",
+      "The TGA says that before a therapeutic good can be supplied in Australia the sponsor must obtain pre-market approval, and \"in most cases this involves entry of the product in the Australian Register of Therapeutic Goods (ARTG)\", as a registered (AUST R) or listed (AUST L / AUST L(A)) medicine. The TGA also states that ARTG inclusion \"is not an endorsement of that good\". Listed (AUST L) medicines have not been assessed by the TGA for efficacy before sale, and may only use claim wording from the TGA's pre-approved Permitted Indications list. Blackmores Brain Active returned no current entry in the ARTG search on 2026-10-06. TGA's cancellations-by-sponsor database lists ARTG 227270, cancelled 18 September 2014, sponsor Blackmores Limited, and a second entry, ARTG 227319, cancelled 17 May 2021 (Blackmores Ltd).",
   },
   {
     q: 'How does Personal Importation Scheme work?',
