@@ -134,7 +134,10 @@ describe('ingredient sources', () => {
 // Citations and claims the 2026-09 review could not trace to any PubMed
 // record (no-evidence-found) or found contradicted by the cited trials.
 const BANNED: Array<{ slugs: string[] | 'all'; pattern: RegExp; why: string }> = [
-  { slugs: 'all', pattern: /LAMA II|\bLAMA\b/, why: 'nonexistent "LAMA/LAMA II" Lutemax trial' },
+  // Corrected 2026-10-07: LAMA II is real (OmniActive's Lutemax 2020 trial, ISRCTN17604865), but the
+  // page's old "LAMA II" claims (visual processing speed, sleep "extension") match none of its
+  // published outcomes; pages cite its papers by PMID instead of the trial nickname.
+  { slugs: 'all', pattern: /LAMA II|\bLAMA\b/, why: 'unsupported "LAMA/LAMA II" claims; cite the trial\'s papers by PMID (ISRCTN17604865)' },
   { slugs: 'all', pattern: /Kennedy et al\.? \(?2017/, why: 'nonexistent Kennedy 2017 oat-straw blood-flow study' },
   { slugs: 'all', pattern: /Shevtsov/, why: 'misdated/misattributed "Shevtsov 2009" Rhodiola citation' },
   { slugs: 'all', pattern: /2012 Swedish/, why: 'nonexistent 2012 Swedish burnout RCT (real trial: Olsson 2008, 28 days)' },
@@ -241,6 +244,20 @@ describe('Lutemax screen eye-strain evidence (2026-10-06)', () => {
     const row = ing.humanEffects.find((e) => e.effect === 'Screen-related eye symptoms');
     expect(row?.evidenceStrength).toBe('mixed');
     expect(row?.studies).toBe(2);
+  });
+
+  test('the lutemax-2020 entry carries the LAMA II glare trial and the 6-month sleep caveat (2026-10-07)', () => {
+    const ing = lutemax();
+    expect(ing.sources.map((s) => s.pmid)).toContain('27857944');
+    expect(ing.studySummary).toMatch(/Stringham 2016/);
+    expect(ing.studySummary).toMatch(/not at 6 months \(Culver 2018/);
+    const glare = ing.humanEffects.find((e) => e.effect === 'Glare Recovery');
+    expect(glare?.studies).toBe(5);
+    const snapshot = JSON.parse(readFileSync(join(EVIDENCE_DIR, 'lutemax-2020.json'), 'utf8')) as {
+      verdicts: Array<{ claim: string; reason: string }>;
+    };
+    const sleep = snapshot.verdicts.find((v) => /Sleep Quality/.test(v.claim));
+    expect(sleep?.reason).toMatch(/10\.26717\/BJSTR\.2018\.09\.001775/);
   });
 
   test('the lutemax-2020 copy never says no eye-strain trial exists', () => {
