@@ -57,6 +57,20 @@ const UNSOURCED_NEGATIVE: RegExp[] = [
   /not FFC-notified/i,
   /Not currently a notified/i,
   /not notified (as|under)/i,
+  // CA: Health Canada's LNHPD and canada.ca were checked on 2026-10-07.
+  // Health Canada defines natural health products by substance and requires
+  // a product licence; we found no source for it "classifying" a given
+  // product, GUI-0116 says "personal importation" and never "PIP", and no
+  // retailer stocking claim (Health Canada-authorised retailers, GNC Canada,
+  // Amazon.ca) for Alpha Brain was confirmed: Onnit's site says it "is
+  // directed only to U.S. consumers" and amazon.ca's first results page
+  // showed no Onnit listing.
+  /Health Canada classifies/i,
+  /Health Canada-authori[sz]ed retailers/i,
+  /Personal import \(PIP\)/,
+  /reliably on Amazon\.ca/i,
+  /sometimes available at GNC/i,
+  /occasionally stocked at GNC/i,
 ];
 
 describe('no copy asserts a product is not registered with a regulator', () => {
@@ -66,6 +80,9 @@ describe('no copy asserts a product is not registered with a regulator', () => {
     expect(SOURCES.some(f => /regional-notes\/sea\.ts$/.test(f))).toBe(true);
     expect(SOURCES.some(f => /products-au\.json$/.test(f))).toBe(true);
     expect(SOURCES.some(f => /products-jp\.json$/.test(f))).toBe(true);
+    expect(SOURCES.some(f => /products-ca\.json$/.test(f))).toBe(true);
+    expect(SOURCES.some(f => /apps\/ca\/src\/app\/alpha-brain-canada\/page\.tsx$/.test(f))).toBe(true);
+    expect(SOURCES.some(f => /apps\/ca\/src\/app\/best-nootropics-for-studying\/page\.tsx$/.test(f))).toBe(true);
     expect(SOURCES.some(f => /apps\/au\/src\/app\/tga-listed-cognitive-supplements\/page\.tsx$/.test(f))).toBe(true);
     expect(SOURCES.some(f => /apps\/jp\/src\/app\/japanese-brain-supplements\/page\.tsx$/.test(f))).toBe(true);
     expect(SOURCES.every(f => existsSync(f))).toBe(true);
