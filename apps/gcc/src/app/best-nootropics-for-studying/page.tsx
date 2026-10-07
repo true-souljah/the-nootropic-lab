@@ -66,7 +66,7 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'noocube-review')!,
     rank: 3,
     whyItsHere:
-      'Lutemax 2020 is the standout ingredient for screen-heavy students — reduces digital eye strain during 6–10 hour study sessions. Includes L-theanine, choline (VitaCholine), and Bacopa (underdosed). Caffeine-free; plant-based capsules. $64.99 USD per 30-serving bottle on noocube.com — worth it if the Lutemax angle matters to you — and the brand ships to all six GCC states (shipping list checked 2026-09-28). Caveat: the noocube.com Trustpilot profile has no reviews yet — verify cancellation policy before subscribing.',
+      'Lutemax 2020 is the standout ingredient for screen-heavy students, though its evidence for screen eye strain is mixed: a 6-month trial in 48 heavy screen users, funded by Lutemax\'s maker, reported less self-rated eye strain, eye fatigue and headache (Stringham 2017), but a 2025 trial of a different lutein/zeaxanthin product found better tear-film measures without any change in self-rated eye strain (Lopresti 2025). Includes L-theanine, choline (VitaCholine), and Bacopa (underdosed). Caffeine-free; plant-based capsules. $64.99 USD per 30-serving bottle on noocube.com — worth it if the Lutemax angle matters to you — and the brand ships to all six GCC states (shipping list checked 2026-09-28). Caveat: the noocube.com Trustpilot profile has no reviews yet — verify cancellation policy before subscribing.',
   },
   {
     product: productsGCC.find(p => p.slug === 'onnit-alpha-brain-review')!,

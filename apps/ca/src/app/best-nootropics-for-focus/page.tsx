@@ -72,7 +72,7 @@ const picks: ListiclePick[] = [
     product: productsCA.find(p => p.slug === 'noocube-review')!,
     rank: 4,
     whyItsHere:
-      'Includes choline (VitaCholine, 250mg), Bacopa, and L-theanine 100mg at clinical dose. Standout ingredient is Lutemax 2020 for blue-light eye fatigue — relevant for Canadian remote workers. Open formula. The noocube.com Trustpilot profile has no reviews yet — verify subscription cancellation terms before ordering.',
+      'Includes choline (VitaCholine, 250mg), Bacopa, and L-theanine 100mg at clinical dose. Standout ingredient for Canadian remote workers is Lutemax 2020, though its evidence for screen eye strain is mixed: a 6-month trial in 48 heavy screen users, funded by Lutemax\'s maker, reported less self-rated eye strain, eye fatigue and headache (Stringham 2017), but a 2025 trial of a different lutein/zeaxanthin product found better tear-film measures without any change in self-rated eye strain (Lopresti 2025). Open formula. The noocube.com Trustpilot profile has no reviews yet — verify subscription cancellation terms before ordering.',
   },
 ];
 

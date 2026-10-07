@@ -66,7 +66,7 @@ const picks: ListiclePick[] = [
     product: productsEU.find(p => p.slug === 'noocube-review')!,
     rank: 3,
     whyItsHere:
-      'Bacopa (250mg, just under the 300mg clinical anchor) plus Lutemax 2020 for screen-related eye strain. Caffeine-free. No EUR storefront: the UK store (noocube.co.uk) prices in GBP (£54.99/mo) and ships to the UK, Ireland, Spain, Portugal, Greece, Croatia, Poland, Sweden and Denmark, but not to Germany, France or the Netherlands. The noocube.com Trustpilot profile has no reviews yet — review terms carefully before subscribing, especially for older relatives less familiar with online subscription cancellation.',
+      'Bacopa (250mg, just under the 300mg clinical anchor) plus Lutemax 2020, which has mixed evidence for screen eye strain: a 6-month trial in 48 heavy screen users, funded by Lutemax\'s maker, reported less self-rated eye strain, eye fatigue and headache (Stringham 2017), but a 2025 trial of a different lutein/zeaxanthin product found better tear-film measures without any change in self-rated eye strain (Lopresti 2025). Caffeine-free. No EUR storefront: the UK store (noocube.co.uk) prices in GBP (£54.99/mo) and ships to the UK, Ireland, Spain, Portugal, Greece, Croatia, Poland, Sweden and Denmark, but not to Germany, France or the Netherlands. The noocube.com Trustpilot profile has no reviews yet — review terms carefully before subscribing, especially for older relatives less familiar with online subscription cancellation.',
   },
 ];
 
