@@ -8,7 +8,7 @@ import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
 import { Bar } from '../primitives/Bar';
 import ShortlistButton from './ShortlistButton';
-import { servingAmount } from '@nootropic/data';
+import { servingAmount, pillarText, guaranteeDays } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 
@@ -363,8 +363,8 @@ export default function Discover({
                           style={{ gridTemplateColumns: '80px 1fr 24px' }}
                         >
                           <span className="text-[11px] text-ds-muted capitalize">{k}</span>
-                          <Bar value={v} label={`${p.name} ${k} score`} />
-                          <span className="text-[11px] text-ds-ink text-right ds-tabular">{v}</span>
+                          <Bar value={v ?? 0} decorative={v === null} label={`${p.name} ${k} score`} />
+                          <span className="text-[11px] text-ds-ink text-right ds-tabular">{pillarText(v)}</span>
                         </div>
                       );
                     })}
@@ -378,7 +378,7 @@ export default function Discover({
                           {' · '}
                         </>
                       )}
-                      {servingAmount(p, uiStrings)} · {p.moneyBackDays}d MBG
+                      {servingAmount(p, uiStrings)} · {guaranteeDays(p.moneyBackDays, (d) => `${d}d`)} MBG
                     </div>
                     <div className="flex items-center gap-2">
                       <ShortlistButton slug={p.slug} size="sm" />

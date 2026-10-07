@@ -12,7 +12,7 @@ import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
 import { Bar } from '../primitives/Bar';
 import { FaqAccordion } from '../primitives/FaqAccordion';
-import { buildPersonAuthorReference, servingAmount, servingsComparable } from '@nootropic/data';
+import { buildPersonAuthorReference, servingAmount, servingsComparable, outOfTen, guaranteeDays } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import {
   headToHeadPageEnDefaults,
@@ -219,9 +219,9 @@ export default function HeadToHead({
     },
     {
       label: s.moneyBack,
-      a: `${productA.moneyBackDays} ${s.daysSuffix}`,
-      b: `${productB.moneyBackDays} ${s.daysSuffix}`,
-      winner: productA.moneyBackDays > productB.moneyBackDays ? 'a' : productA.moneyBackDays < productB.moneyBackDays ? 'b' : 'tie',
+      a: guaranteeDays(productA.moneyBackDays, (d) => `${d} ${s.daysSuffix}`),
+      b: guaranteeDays(productB.moneyBackDays, (d) => `${d} ${s.daysSuffix}`),
+      winner: (productA.moneyBackDays ?? 0) > (productB.moneyBackDays ?? 0) ? 'a' : (productA.moneyBackDays ?? 0) < (productB.moneyBackDays ?? 0) ? 'b' : 'tie',
     },
     {
       label: s.caffeineFreeLabel,
@@ -251,9 +251,9 @@ export default function HeadToHead({
     },
     {
       label: 'Dosing pillar',
-      a: `${productA.scoreBreakdown.dosing}/10`,
-      b: `${productB.scoreBreakdown.dosing}/10`,
-      winner: productA.scoreBreakdown.dosing > productB.scoreBreakdown.dosing ? 'a' : productA.scoreBreakdown.dosing < productB.scoreBreakdown.dosing ? 'b' : 'tie',
+      a: outOfTen(productA.scoreBreakdown.dosing),
+      b: outOfTen(productB.scoreBreakdown.dosing),
+      winner: (productA.scoreBreakdown.dosing ?? 0) > (productB.scoreBreakdown.dosing ?? 0) ? 'a' : (productA.scoreBreakdown.dosing ?? 0) < (productB.scoreBreakdown.dosing ?? 0) ? 'b' : 'tie',
     },
     {
       label: 'Transparency pillar',
@@ -506,13 +506,13 @@ export default function HeadToHead({
                 <ScorePill score={p.score} />
               </div>
               <div className="flex flex-col gap-3">
-                {(Object.entries(p.scoreBreakdown) as [string, number][]).map(([k, v]) => (
+                {(Object.entries(p.scoreBreakdown) as [string, number | null][]).map(([k, v]) => (
                   <div key={k}>
                     <div className="flex justify-between mb-1 text-ds-ink text-[13px]">
                       <span className="capitalize">{k}</span>
-                      <span className="font-semibold ds-tabular">{`${v}/10`}</span>
+                      <span className="font-semibold ds-tabular">{outOfTen(v)}</span>
                     </div>
-                    <Bar value={v} label={`${p.name} ${k} score`} />
+                    <Bar value={v ?? 0} decorative={v === null} label={`${p.name} ${k} score`} />
                   </div>
                 ))}
               </div>

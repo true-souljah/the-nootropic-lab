@@ -10,7 +10,7 @@ import { ScorePill } from '../primitives/ScorePill';
 import { LiveRegion } from '../primitives/LiveRegion';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
 import { useShortlist, useShortlistNote } from './useShortlist';
-import { servingAmount } from '@nootropic/data';
+import { servingAmount, guaranteeDays } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 
@@ -121,7 +121,7 @@ export default function Shortlist({
       p.score,
       p.priceMonthlyUSD ?? '',
       servingAmount(p, uiStrings),
-      p.moneyBackDays,
+      p.moneyBackDays ?? '',
       p.trustpilotScore ?? '',
       p.caffeineFree ? 'Yes' : 'No',
       p.commissionRate,
@@ -409,7 +409,7 @@ function ShortlistRow({
             label="Price"
             value={product.priceMonthlyUSD ? `$${product.priceMonthlyUSD}/mo` : '—'}
           />
-          <SpecRow label="MBG" value={`${product.moneyBackDays} days`} />
+          <SpecRow label="MBG" value={guaranteeDays(product.moneyBackDays, (d) => `${d} days`)} />
         </div>
 
         {/* Note */}

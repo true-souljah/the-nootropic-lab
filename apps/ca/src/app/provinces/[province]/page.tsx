@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
-import { productsCA, caProvinces, buildPersonAuthorReference } from '@nootropic/data';
+import { productsCA, caProvinces, buildPersonAuthorReference, guaranteeDays } from '@nootropic/data';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -106,7 +106,7 @@ export default async function ProvincePage({
                   <div className="flex flex-wrap gap-3 text-xs text-gray-500">
                     <span>Score: <strong className="text-green-700">{`${product.score}/10`}</strong></span>
                     <span>${product.priceMonthlyUSD}{'/'}mo USD</span>
-                    <span>{product.moneyBackDays}-day money back</span>
+                    <span>{guaranteeDays(product.moneyBackDays, (d) => `${d}-day`)} money back</span>
                   </div>
                 </div>
               </a>
