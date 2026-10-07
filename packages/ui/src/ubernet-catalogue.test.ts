@@ -93,8 +93,14 @@ describe('UberNet / Performance Lab records in us, eu, ca, au', () => {
     expect(omega3.servingsPerContainer).toBe(30);
   });
 
-  it('CA records are Personal Importation Program (no licence found in the LNHPD on 2026-10-05)', () => {
-    for (const slug of SLUGS) expect(record('ca', slug).npnStatus).toEqual({ status: 'pip' });
+  it('CA records are personal imports (no licence found in the LNHPD on 2026-10-07)', () => {
+    for (const slug of SLUGS) {
+      const npn = record('ca', slug).npnStatus;
+      expect(npn?.status).toBe('pip');
+      expect(npn?.npn).toBeUndefined();
+      expect(npn?.checkedAt).toBe('2026-10-07');
+      expect(npn?.basis).toMatch(/LNHPD/);
+    }
   });
 
   it('AU records carry no AUST L number (no ARTG entry found on 2026-10-05)', () => {

@@ -150,7 +150,12 @@ export function licenceStatus(product: Product, region: RegionCode): LicenceStat
       if (!product.npnStatus) return null;
       return product.npnStatus.status === 'licensed'
         ? { label: product.npnStatus.npn ? `NPN ${product.npnStatus.npn}` : 'NPN licensed', tone: 'good' }
-        : { label: 'Personal import (PIP)', tone: 'neutral' };
+        : {
+            label: product.npnStatus.checkedAt
+              ? `No NPN found (checked ${product.npnStatus.checkedAt})`
+              : 'No NPN found',
+            tone: 'neutral',
+          };
     case 'au':
       return product.austl
         ? { label: `AUST L ${product.austl}`, tone: 'good' }
