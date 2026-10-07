@@ -1,6 +1,7 @@
 {
   "slug": "lutemax-2020",
   "generatedAt": "2026-09-28T09:39:40Z",
+  "updatedAt": "2026-10-06",
   "ourClaims": {
     "clinicalDose": "20mg/day (10mg lutein + 10mg zeaxanthin isomers)",
     "timeToEffect": "2–4 weeks for eye fatigue reduction; 6 months for measurable MPOD increase",
@@ -120,14 +121,50 @@
       "fundingConflict": "Two of three authors employed by OmniActive Health Technologies Inc.",
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/27785083/",
       "status": 200
+    },
+    {
+      "pmid": "28661438",
+      "doi": "10.3390/foods6070047",
+      "title": "Macular Carotenoid Supplementation Improves Visual Performance, Sleep Quality, and Adverse Physical Symptoms in Those with High Screen Time Exposure.",
+      "journal": "Foods (Basel, Switzerland)",
+      "year": 2017,
+      "design": "RCT, double-blind, placebo-controlled",
+      "population": "healthy college students, 18-25 years, with at least 6 h/day of near-field screen time",
+      "n": 48,
+      "dose": "24mg/day lutein + zeaxanthin + meso-zeaxanthin (83%:10%:7%)",
+      "brandedExtract": "Lutemax 2020 formulation (OmniActive) — named in the full-text methods (PMC5532554), not in the abstract",
+      "duration": "6 months",
+      "outcome": "MPOD, critical flicker fusion, contrast sensitivity, disability glare, photostress recovery; questionnaire-rated sleep quality, headache frequency, eye strain, eye fatigue, blurry vision, neck strain",
+      "result": "At 6 months vs. placebo: MPOD (p=0.015), sleep quality (p=0.01), headache frequency (p=0.029), eye strain (p=0.046), eye fatigue (p=0.016) and all visual performance measures (CFF, contrast sensitivity, disability glare, photostress recovery) improved; blurry vision and neck strain did not change. Unbalanced arms (35 active vs. 13 placebo).",
+      "fundingConflict": "Funded by OmniActive Health Technologies, which also supplied the active (Lutemax 2020 formulation) and placebo capsules; the first author consults for the funding sponsor (PubMed COI statement; PMC full-text acknowledgments)",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/28661438/",
+      "status": 200
+    },
+    {
+      "pmid": "39963662",
+      "doi": "10.3389/fnut.2025.1522302",
+      "title": "The effects of lutein/ zeaxanthin (Lute-gen®) on eye health, eye strain, sleep quality, and attention in high electronic screen users: a randomized, double-blind, placebo-controlled study.",
+      "journal": "Frontiers in nutrition",
+      "year": 2025,
+      "design": "RCT, two-arm, parallel-group, double-blind, placebo-controlled",
+      "population": "healthy adults, 18-65 years, using electronic screens more than 6 h/day (not selected for dry-eye or eye-strain symptoms)",
+      "n": 70,
+      "dose": "10mg lutein + 2mg zeaxanthin isomers/day",
+      "brandedExtract": "Lute-gen (lutein + zeaxanthin isomers) — not Lutemax 2020",
+      "duration": "6 months (180 days)",
+      "outcome": "Schirmer tear test (primary), photo-stress recovery time, contrast sensitivity, visual acuity, tear-film break-up time; self-report visual fatigue (Visual Fatigue Scale, primary), computer vision syndrome symptoms (CVS-Q), sleep (PROMIS, exploratory), attention (ELAS, exploratory)",
+      "result": "Abstract: 'Compared to the placebo, lutein and zeaxanthin supplementation was associated with greater improvements in the Schirmer tear test, photo-stress recovery time, and tear film break-up time. However, there were no between-group differences in the change in self-report measures or contrast sensitivity.' Full text: the self-reported Visual Fatigue Scale (primary) did not differ (p=0.202); the Schirmer and photo-stress differences partly reflect worsening in the placebo group, and the photo-stress difference was not significant in the per-protocol analysis (p=0.132). Well tolerated; no serious adverse reactions or clinically significant changes in safety blood measures.",
+      "fundingConflict": "Funded by Bio-gen Extracts Pvt. Ltd., which also supplied the active (Lute-gen) and placebo softgels; funder stated to have no role in data collection, interpretation or the decision to publish. First author is managing director of Clinical Research Australia, a contract research organization funded by nutraceutical companies (PMC11830589 funding and COI statements)",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/39963662/",
+      "status": 200
     }
   ],
   "verdicts": [
     {
       "claim": "Digital Eye Strain — evidenceStrength: strong, 4 studies, 'consistent reduction in screen-related eye fatigue, headache, and eye dryness at 20mg/day over 12+ weeks'",
-      "verdict": "no-evidence-found",
-      "reason": "No PubMed record was located testing lutein/zeaxanthin supplementation against digital eye strain, headache frequency, or screen-related eye fatigue as an outcome, at any dose or duration. Multiple targeted searches (digital eye strain, asthenopia, screen fatigue, headache) returned zero RCTs. The 'strong, 4 studies' rating and the specific 2019/12-week claim in studySummary could not be traced to any real trial.",
-      "pmids": []
+      "verdict": "overstated",
+      "reason": "The 2026-09-28 searches found no RCT, but a 2026-10-06 check found two 6-month RCTs in heavy screen users with conflicting symptom results. Stringham 2017 (PMID 28661438; 48 students, 24mg/day of the Lutemax 2020 formulation; funded by OmniActive, which supplied the capsules, and the first author consults for it) reported less eye strain, eye fatigue and headache frequency versus placebo. Lopresti 2025 (PMID 39963662; 70 adults, 10mg lutein + 2mg zeaxanthin isomers as Lute-gen, not Lutemax 2020; funded by Bio-gen Extracts, which supplied the softgels) found better Schirmer tear test, tear-film break-up time and photo-stress recovery versus placebo, but no difference in self-reported visual fatigue (primary outcome), computer-vision symptoms, sleep or attention. Two small, industry-funded trials that disagree on symptoms do not support 'strong, 4 studies, consistent reduction'; the specific 2019/12-week claim in studySummary still could not be traced to any real trial.",
+      "pmids": ["28661438", "39963662"]
     },
     {
       "claim": "Visual Processing Speed — 'LAMA II trial (Stringham et al., 2017)... faster reaction time on visual tasks after 6 months, mediated by MPOD increase'",
@@ -143,25 +180,25 @@
     },
     {
       "claim": "Sleep Quality — preliminary, 2 studies, 'early evidence from the LAMA II extension'",
-      "verdict": "no-evidence-found",
-      "reason": "No PubMed record on lutein/zeaxanthin and sleep quality was located in any search performed for this review, and no 'LAMA II extension' trial exists in PubMed under any searchable name. This claim appears fabricated or unverifiable from public literature.",
-      "pmids": []
+      "verdict": "overstated",
+      "reason": "No 'LAMA II extension' trial exists in PubMed under any searchable name, and the 2026-09-28 searches found no sleep trial. A 2026-10-06 check found two 6-month RCTs in heavy screen users that disagree: Stringham 2017 (PMID 28661438; Lutemax 2020 formulation, funded by OmniActive) reported better questionnaire-rated sleep quality versus placebo at 3 and 6 months, while Lopresti 2025 (PMID 39963662; Lute-gen, funded by Bio-gen Extracts) found no difference in PROMIS sleep scores (an exploratory outcome). Mixed evidence from two small, industry-funded trials, not a consistent effect.",
+      "pmids": ["28661438", "39963662"]
     }
   ],
   "doseAssessment": {
     "claimedDose": "20mg/day (10mg lutein + 10mg zeaxanthin isomers, i.e. a roughly 1:1 ratio)",
-    "trialRange": "12mg to 27mg total xanthophylls/day across the 6 RCTs found (Renzi-Hammond 12mg; Juturu 12mg; Power 22mg; Stringham 13-27mg)",
+    "trialRange": "12mg to 27mg total xanthophylls/day across the 6 RCTs reviewed (Renzi-Hammond 12mg; Juturu 12mg; Power 22mg; Stringham 2019 13-27mg; Stringham 2017 24mg; Lopresti 2025 12mg); the other 2 of the 8 studies are meta-analyses",
     "assessment": "The claimed 20mg dose sits within the range trialed in the literature, but the claimed 1:1 lutein:zeaxanthin isomer ratio directly contradicts the ingredient page's OWN mechanism text, which describes Lutemax 2020 as a '5:1 ratio' of lutein to zeaxanthin isomers — internally inconsistent. No trial found used a literal 10mg+10mg (1:1) split; every trial identified used a lutein-dominant ratio (roughly 5:1), consistent with the mechanism text but not the clinicalDose field."
   },
-  "independentTrialCount": 5,
+  "independentTrialCount": 6,
   "safetySignals": [
     "No serious adverse events reported in any trial reviewed; consistent with the general safety profile of dietary lutein/zeaxanthin.",
-    "Mild carotenodermia at very high doses is a known class effect but was not specifically observed/reported in any of the 6 trials reviewed here."
+    "Mild carotenodermia at very high doses is a known class effect but was not specifically observed/reported in any of the 8 studies reviewed here (for the two added on 2026-10-06, checked against their abstracts; Lopresti 2025 reports no serious adverse reactions)."
   ],
   "gaps": [
-    "No PubMed-indexed human trial explicitly names 'Lutemax 2020' or OmniActive as the tested material for any cognitive, visual-processing-speed, or eye-strain outcome. The manufacturer's own two published human RCTs (Juturu 2016, Gioia 2024) address skin tone and dry eye disease, not the cognitive/visual-fatigue claims made on this page.",
+    "No reviewed human trial names 'Lutemax 2020' or OmniActive as the tested material for any cognitive outcome. Stringham 2017 (PMID 28661438) names the 'Lutemax 2020 formulation' in its full-text methods, was funded by OmniActive, and measured screen-related eye symptoms, sleep and visual performance (including critical flicker fusion); the 2026-09-28 review missed it. The manufacturer's other published human RCTs (Juturu 2016, which names Lutemax 2020 in its full text, and Gioia 2024) address skin tone and dry eye disease, not the cognitive claims made on this page.",
     "The 'LAMA' and 'LAMA II' trial names cited in studySummary and the Sleep Quality note could not be located under any search strategy and may be a misattribution or fabrication.",
-    "No dedicated digital-eye-strain/headache RCT for lutein+zeaxanthin was found at all — this is the single largest gap given 'Digital Eye Strain' is rated the page's strongest claim (4 studies, 'strong').",
+    "The 2026-09-28 searches found no digital-eye-strain/headache RCT; a 2026-10-06 check found two 6-month RCTs in heavy screen users with conflicting symptom results. Stringham 2017 (PMID 28661438; Lutemax 2020 formulation, OmniActive-funded, 35 active vs. 13 placebo) reported less eye strain, eye fatigue and headache; Lopresti 2025 (PMID 39963662; Lute-gen, Bio-gen Extracts-funded, n=70) found objective dry-eye improvements but no change in self-reported eye strain or visual fatigue. Neither supports the page's former 'strong, 4 studies' Digital Eye Strain rating; an independent replication with symptom outcomes is the remaining gap. Further leads from the 2026-10-06 PubMed search (PMIDs 19541291, 22199129, 36986186, 40135032) were not reviewed.",
     "Verifying whether any of the trials used OmniActive-supplied Lutemax 2020 material specifically (vs. generic lutein/zeaxanthin from DSM, Kemin, or other suppliers) requires full-text methods sections beyond what abstracts disclose for several studies (e.g. Power 2018, Stringham 2019); this was not fully resolved and is flagged rather than asserted."
   ]
 }
