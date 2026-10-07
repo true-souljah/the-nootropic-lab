@@ -1,4 +1,4 @@
-export type { Product, EUCompliance, Market, IngredientDosage } from './products-us';
+export type { Product, EUCompliance, Market, IngredientDosage, VendorTerm, VendorTerms } from './products-us';
 export { productsUS, allProductsUS } from './products-us';
 export { productsEU, allProductsEU } from './products-eu';
 export { productsCA, allProductsCA } from './products-ca';
@@ -8,7 +8,7 @@ export { productsLatam, allProductsLatam } from './products-latam';
 export { activeProducts, isDiscontinued } from './product-status';
 export type { ProductForm } from './serving-unit';
 export { PRODUCT_FORMS, productForm, servingUnit, servingAmount, servingsComparable } from './serving-unit';
-export { affiliateUrlProblem, formulaProblem, formProblem, productRuleProblems, scoreProblem, UNSCORABLE_PILLARS, PILLAR_WEIGHTS } from './product-rules';
+export { affiliateUrlProblem, formulaProblem, formProblem, productRuleProblems, scoreProblem, UNSCORABLE_PILLARS, PILLAR_WEIGHTS, vendorTermsProblems, VENDOR_TERM_FIELDS } from './product-rules';
 export { NOT_AVAILABLE, outOfTen, pillarText, guaranteeDays } from './display-values';
 export type { DosingAnchor } from './dosing-anchors';
 export { DOSING_ANCHORS, doseMg, dosingAnchorProblems } from './dosing-anchors';

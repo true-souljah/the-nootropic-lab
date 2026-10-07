@@ -3,7 +3,7 @@
 import {
   allProductsUS, allProductsEU, allProductsCA, allProductsAU,
   allProductsJP, allProductsLatam, allProductsGCC, allProductsSEA,
-  validateRegionalNotes, productRuleProblems, DOSING_ANCHORS, dosingAnchorProblems,
+  validateRegionalNotes, productRuleProblems, DOSING_ANCHORS, dosingAnchorProblems, VENDOR_TERM_FIELDS,
 } from '../packages/data/src/index';
 import type { Product } from '../packages/data/src/index';
 
@@ -18,6 +18,8 @@ const regions: Record<string, unknown[]> = {
 // record is discontinued — and the formula (ingredientDosages) must be non-empty.
 // `form`, when set, must be one of PRODUCT_FORMS (capsule | tablet | sachet | shot | powder | softgel);
 // an unknown value fails the gate (formProblem, never grandfathered).
+// `vendorTerms`, when set, needs an ISO-date `checkedAt` and, per term, non-empty
+// `text`, an https `url` and a two-letter `lang` (vendorTermsProblems, never grandfathered).
 //
 // Records that violated a rule when it was introduced (2026-09-28) and have no
 // verified replacement value yet. Each needs a verified product URL (or
@@ -122,6 +124,25 @@ for (const key of Object.keys(KNOWN_RULE_VIOLATIONS)) {
   if (!seenKeys.has(key)) console.warn(`warn ${key}: KNOWN_RULE_VIOLATIONS entry has no record (removed?) — delete it`);
 }
 console.log(`ok record-rules: no new violations (${grandfathered} pre-existing, listed in KNOWN_RULE_VIOLATIONS)`);
+
+// Vendor terms (2026-10-07): the Pricing tab quotes only these. Their shape is
+// checked by the record rules above; a scan that finds none fails, so an
+// import that silently wrote nothing cannot pass.
+let vendorTermRecords = 0;
+let vendorTermCount = 0;
+for (const products of Object.values(regions)) {
+  for (const item of products as Product[]) {
+    if (!item.vendorTerms) continue;
+    vendorTermRecords++;
+    vendorTermCount += VENDOR_TERM_FIELDS.filter((field) => item.vendorTerms?.[field] !== undefined).length;
+  }
+}
+if (vendorTermRecords === 0) {
+  console.error('FAIL vendor-terms: no record carries vendorTerms');
+  failed++;
+} else {
+  console.log(`ok vendor-terms: ${vendorTermRecords} records carry ${vendorTermCount} quoted terms`);
+}
 
 // Regional notes (2026-09): every authored note must cite at least one
 // primary source with an http(s) URL — a note without a source is treated
