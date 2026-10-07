@@ -6,7 +6,11 @@ import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
 
 const PAGE_URL = `${SITE_URL}/halal-nootropics-indonesia-bpjph/`;
-const auditDateIso = new Date().toISOString().split('T')[0];
+// Fixed dates, never the build date. The BPJPH register was searched for every
+// SEA product and manufacturer on 2026-07-20 (commit ea11e74); the page's facts
+// were last revised on 2026-10-07 (brand-page halal check + PP 42/2024 dates).
+const bpjphSearchDateIso = '2026-07-20';
+const pageModifiedIso = '2026-10-07';
 
 
 export const metadata: Metadata = {
@@ -78,7 +82,7 @@ const articleSchema = {
   headline: 'Halal Nootropic Supplements in SEA — BPJPH + JAKIM Mandatory Compliance',
   description: 'Per-country regulator + Halal-certification reference for cognitive supplements sold across Southeast Asia (SG, MY, ID, PH, TH, VN).',
   datePublished: '2026-05-05',
-  dateModified: auditDateIso,
+  dateModified: pageModifiedIso,
   author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
   publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   reviewedBy: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
@@ -140,7 +144,7 @@ export default function Page() {
         <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 mb-4">
           <span>Reviewed by <strong className="text-gray-700">The Nootropic Lab Editorial Team</strong></span>
           <span>·</span>
-          <span>Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+          <span>Last updated: {new Date(pageModifiedIso).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</span>
         </div>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
@@ -194,7 +198,7 @@ export default function Page() {
           <p className="text-sm text-gray-700 leading-relaxed mb-4">
             We track <strong>{productsSEA.length} products</strong> in our SEA catalog, and{' '}
             <strong>none of them appears in Indonesia&apos;s BPJPH Halal register</strong>. That is an
-            audit result, not an absence of effort: on {auditDateIso}{' '}we searched the BPJPH certificate
+            audit result, not an absence of effort: on {bpjphSearchDateIso}{' '}we searched the BPJPH certificate
             register for every product on this list and for each product&apos;s manufacturer, and none
             returned a certificate. Two searches looked like matches and were not — a Lion&apos;s Mane
             mushroom powder from an unrelated Indonesian producer, and a truffle product that happens to
@@ -224,9 +228,7 @@ export default function Page() {
             18 October 2026.
           </p>
           <p className="text-xs text-gray-500 italic">
-            Until per-product Halal + regulator surfacing ships, verify each Halal claim directly with the
-            certifying authority before purchasing. For Indonesian readers, look for the BPJPH Halal logo on
-            packaging.
+            For Indonesian readers, look for the BPJPH Halal logo on packaging.
           </p>
         </section>
 
