@@ -774,7 +774,7 @@ export const ingredients: Ingredient[] = [
       { pmid: '28661438', doi: '10.3390/foods6070047', url: 'https://pubmed.ncbi.nlm.nih.gov/28661438/', title: 'Macular Carotenoid Supplementation Improves Visual Performance, Sleep Quality, and Adverse Physical Symptoms in Those with High Screen Time Exposure.', year: 2017, design: 'RCT, double-blind, placebo-controlled' },
       { pmid: '39963662', doi: '10.3389/fnut.2025.1522302', url: 'https://pubmed.ncbi.nlm.nih.gov/39963662/', title: 'The effects of lutein/ zeaxanthin (Lute-gen®) on eye health, eye strain, sleep quality, and attention in high electronic screen users: a randomized, double-blind, placebo-controlled study.', year: 2025, design: 'RCT, two-arm, parallel-group, double-blind, placebo-controlled' },
     ],
-    evidenceReviewedAt: '2026-09-28',
+    evidenceReviewedAt: '2026-10-06',
   },
   {
     slug: 'oat-straw',

@@ -187,13 +187,13 @@
   ],
   "doseAssessment": {
     "claimedDose": "20mg/day (10mg lutein + 10mg zeaxanthin isomers, i.e. a roughly 1:1 ratio)",
-    "trialRange": "12mg to 27mg total xanthophylls/day across the 6 RCTs found (Renzi-Hammond 12mg; Juturu 12mg; Power 22mg; Stringham 13-27mg)",
+    "trialRange": "12mg to 27mg total xanthophylls/day across the 6 RCTs reviewed (Renzi-Hammond 12mg; Juturu 12mg; Power 22mg; Stringham 2019 13-27mg; Stringham 2017 24mg; Lopresti 2025 12mg); the other 2 of the 8 studies are meta-analyses",
     "assessment": "The claimed 20mg dose sits within the range trialed in the literature, but the claimed 1:1 lutein:zeaxanthin isomer ratio directly contradicts the ingredient page's OWN mechanism text, which describes Lutemax 2020 as a '5:1 ratio' of lutein to zeaxanthin isomers — internally inconsistent. No trial found used a literal 10mg+10mg (1:1) split; every trial identified used a lutein-dominant ratio (roughly 5:1), consistent with the mechanism text but not the clinicalDose field."
   },
   "independentTrialCount": 6,
   "safetySignals": [
     "No serious adverse events reported in any trial reviewed; consistent with the general safety profile of dietary lutein/zeaxanthin.",
-    "Mild carotenodermia at very high doses is a known class effect but was not specifically observed/reported in any of the 6 trials reviewed here."
+    "Mild carotenodermia at very high doses is a known class effect but was not specifically observed/reported in any of the 8 studies reviewed here (for the two added on 2026-10-06, checked against their abstracts; Lopresti 2025 reports no serious adverse reactions)."
   ],
   "gaps": [
     "No reviewed human trial names 'Lutemax 2020' or OmniActive as the tested material for any cognitive outcome. Stringham 2017 (PMID 28661438) names the 'Lutemax 2020 formulation' in its full-text methods, was funded by OmniActive, and measured screen-related eye symptoms, sleep and visual performance (including critical flicker fusion); the 2026-09-28 review missed it. The manufacturer's other published human RCTs (Juturu 2016, which names Lutemax 2020 in its full text, and Gioia 2024) address skin tone and dry eye disease, not the cognitive claims made on this page.",
