@@ -38,7 +38,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Phosphatidylserine (PS)',
     evidence:
-      'Phospholipid component of brain cell membranes. The US FDA permits a qualified health claim for PS supporting cognitive function in elderly adults; Health Canada NPN monographs recognise PS for memory support. Most RCT evidence is in 50–80-year-olds at 100–300mg/day.',
+      'Phospholipid component of brain cell membranes. The US FDA permits a qualified health claim for PS supporting cognitive function in elderly adults; Health Canada NPN monographs recognise PS for memory support. Most RCT evidence is in 50–80-year-olds at 100–300mg/day. The trial linked below (Vakhapova et al. 2010) is not the basis of the FDA or Health Canada claims: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {
@@ -50,8 +50,8 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Ginkgo Biloba',
     evidence:
-      'Improves cerebral blood flow via vasodilation and platelet-activating factor inhibition. Health Canada has issued NPN-monograph approval for Ginkgo Biloba 120mg standardized extracts for memory support. Evidence in healthy adults is mixed but favourable in older adults with subjective complaints.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/12815182/',
+      'Proposed to work via cerebral blood flow (vasodilation) and platelet-activating factor inhibition. Health Canada has issued NPN-monograph approval for Ginkgo Biloba 120mg standardized extracts for memory support, but a 2026 network meta-analysis of 29 RCTs in healthy adults (Tiemtad et al.) found that high-dose Bacopa (600mg/day or more) improved working memory more than both Ginkgo doses and placebo and gave greater short-term memory benefits, with no significant differences in attention or processing speed, so the trial evidence does not single out Ginkgo as a memory enhancer.',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/41678913/',
   },
 ];
 

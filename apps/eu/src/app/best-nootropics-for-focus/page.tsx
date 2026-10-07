@@ -44,8 +44,8 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Alpha-GPC',
     evidence:
-      'Cholinergic — acute focus and reaction-time benefits in human RCTs at 300–600mg, with stronger effect than choline bitartrate. Often paired with L-theanine for "calm focus." Most EU products underdose this ingredient.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18834505/',
+      'Cholinergic. In a 2024 placebo-controlled crossover RCT in 20 resistance-trained men, a single 315mg or 630mg dose improved Stroop test performance, with no effect on N-Back or Flanker tasks — one small, acute study. Often paired with L-theanine for "calm focus." Most EU products underdose this ingredient.',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/39683633/',
   },
 ];
 

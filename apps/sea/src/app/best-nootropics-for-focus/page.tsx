@@ -44,8 +44,8 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Lutemax 2020 (Lutein + Zeaxanthin) — screen-eye focus',
     evidence:
-      'Particularly relevant in SEA tech hubs (Singapore, KL, Bangkok, Manila, HCMC) where screen-heavy work is the norm. Clinical trials at 20mg show reduced digital eye strain and end-of-day cognitive fatigue. Not a classic "focus" ingredient — a screen-fatigue mitigator.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/29097913/',
+      'Particularly relevant in SEA tech hubs (Singapore, KL, Bangkok, Manila, HCMC) where screen-heavy work is the norm. In a 6-month RCT in 70 adults using screens more than 6 hours a day (Lopresti & Smith 2025), 10mg lutein + 2mg zeaxanthin isomers (Lute-gen, not Lutemax 2020) improved tear production, tear-film stability and glare (photo-stress) recovery versus placebo, but self-rated visual fatigue, sleep and attention did not differ from placebo. An eye-health ingredient, not a focus one.',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/39963662/',
   },
 ];
 
@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'noocube-review')!,
     rank: 2,
     whyItsHere:
-      'Includes Lutemax 2020 at the clinical 20mg dose plus L-theanine 100mg — the most relevant focus formula for SEA screen-workers in Singapore, KL, Bangkok, and Manila tech roles. The current formula uses choline from VitaCholine and no longer contains Alpha-GPC or Huperzine A; Bacopa is below its clinical anchor. noocube.com ships to Singapore, Malaysia, Thailand and the Philippines; it does not list Indonesia or Vietnam. noocube.com does not publish delivery times for these countries; check the estimate at checkout. Personal-use import. Not halal-certified by JAKIM/BPJPH; capsules are typically gelatin (animal-derived) — confirm with vendor before MY/ID purchase.',
+      'Includes Lutemax 2020 (20mg) plus L-theanine 100mg; the lutein/zeaxanthin evidence is for eye comfort in heavy screen users, not attention, so its focus case rests on the theanine and the rest of the formula. The current formula uses choline from VitaCholine and no longer contains Alpha-GPC or Huperzine A; Bacopa is below its clinical anchor. noocube.com ships to Singapore, Malaysia, Thailand and the Philippines; it does not list Indonesia or Vietnam. noocube.com does not publish delivery times for these countries; check the estimate at checkout. Personal-use import. Not halal-certified by JAKIM/BPJPH; capsules are typically gelatin (animal-derived) — confirm with vendor before MY/ID purchase.',
   },
   {
     product: productsSEA.find(p => p.slug === 'qualia-mind-review')!,

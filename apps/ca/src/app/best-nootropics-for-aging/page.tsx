@@ -26,7 +26,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Phosphatidylserine (PS)',
     evidence:
-      'The US FDA permits a qualified health claim that PS may reduce risk of dementia and cognitive dysfunction in elderly. Health Canada NPN monograph also recognises PS for memory support in older adults. Multiple RCTs in 50–80-year-olds at 100–300mg/day show improvements in memory, processing speed, and cognitive complaints. The strongest age-related cognitive evidence in this category.',
+      'The US FDA permits a qualified health claim that PS may reduce risk of dementia and cognitive dysfunction in elderly. Health Canada NPN monograph also recognises PS for memory support in older adults. Multiple RCTs in 50–80-year-olds at 100–300mg/day show improvements in memory, processing speed, and cognitive complaints. The strongest age-related cognitive evidence in this category. The trial linked below (Vakhapova et al. 2010) is not the basis of the FDA or Health Canada claims: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {
@@ -50,8 +50,8 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Ginkgo Biloba',
     evidence:
-      'Improves cerebral blood flow via vasodilation. Health Canada has an NPN monograph for Ginkgo Biloba 120mg standardized extracts for memory support. Evidence is mixed in healthy younger adults but more favourable in older adults with subjective complaints. Often combined with Panax Ginseng in TCM-inspired formulas.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/12815182/',
+      'Proposed to work via cerebral blood flow (vasodilation). Health Canada has an NPN monograph for Ginkgo Biloba 120mg standardized extracts for memory support, but a 2026 network meta-analysis of 29 RCTs in healthy adults (Tiemtad et al.) found that high-dose Bacopa (600mg/day or more) improved working memory more than both Ginkgo doses and placebo and gave greater short-term memory benefits, with no significant differences in attention or processing speed, so the trial evidence does not single out Ginkgo as a memory enhancer. Often combined with Panax Ginseng in TCM-inspired formulas.',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/41678913/',
   },
 ];
 
@@ -72,7 +72,7 @@ const picks: ListiclePick[] = [
     product: productsCA.find(p => p.slug === 'naturebell-ginkgo-ginseng-review')!,
     rank: 3,
     whyItsHere:
-      'Budget pick at CAD ~$7/month. Delivers Ginkgo Biloba at the full clinical dose (120mg, 50:1 extract) — the single best-supported age-cognitive ingredient outside the premium stacks. Listed on amazon.ca. Single-mechanism (cerebral blood flow); pair with a PS supplement for fuller coverage. No NPN (Natural Product Number) found for NatureBell Ginkgo + Ginseng in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07).',
+      'Budget pick at CAD ~$7/month. Delivers Ginkgo Biloba at the full clinical dose (120mg, 50:1 extract), though a 2026 network meta-analysis in healthy adults found high-dose Bacopa improved working memory more than either Ginkgo dose (see the Ginkgo entry above). Listed on amazon.ca. Single-mechanism (cerebral blood flow); pair with a PS supplement for fuller coverage. No NPN (Natural Product Number) found for NatureBell Ginkgo + Ginseng in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07).',
   },
   {
     product: productsCA.find(p => p.slug === 'onnit-alpha-brain-review')!,

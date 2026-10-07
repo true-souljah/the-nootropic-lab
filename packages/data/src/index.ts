@@ -83,3 +83,7 @@ export { ALL_REGIONS, REGION_ONLY_ROUTES, routeAvailableIn, regionsWithProduct }
 
 // Sitemap <lastmod> from content history (2026-09 GSC work)
 export { routeDates, contentFileDate, latestDate } from './sitemap-dates';
+
+// PubMed citation allow-list (2026-10-06 citation audit)
+export type { Citation } from './citations';
+export { CITATIONS } from './citations';

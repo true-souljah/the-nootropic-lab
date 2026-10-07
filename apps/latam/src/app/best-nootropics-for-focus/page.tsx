@@ -45,8 +45,8 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Alfa-GPC',
     evidence:
-      'Colinérgico — beneficios agudos de concentración y tiempo de reacción en ensayos clínicos en humanos a 300–600mg, con un efecto más fuerte que el bitartrato de colina. Suele combinarse con L-teanina para una "concentración tranquila".',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18834505/',
+      'Colinérgico. En un ensayo clínico cruzado de 2024, controlado con placebo, con 20 hombres entrenados en fuerza, una sola dosis de 315mg o 630mg mejoró el rendimiento en la prueba de Stroop, sin efecto en las pruebas N-Back ni Flanker: un único estudio, pequeño y de efecto agudo. Suele combinarse con L-teanina para una "concentración tranquila".',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/39683633/',
   },
 ];
 
