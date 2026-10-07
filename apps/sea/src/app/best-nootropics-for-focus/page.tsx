@@ -44,7 +44,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Lutemax 2020 (Lutein + Zeaxanthin) — screen-eye focus',
     evidence:
-      'Particularly relevant in SEA tech hubs (Singapore, KL, Bangkok, Manila, HCMC) where screen-heavy work is the norm. In a 6-month RCT in 70 adults using screens more than 6 hours a day (Lopresti & Smith 2025), 10mg lutein + 2mg zeaxanthin isomers (Lute-gen, not Lutemax 2020) improved tear production, tear-film stability and glare (photo-stress) recovery versus placebo, but self-rated visual fatigue, sleep and attention did not differ from placebo. An eye-health ingredient, not a focus one.',
+      'Particularly relevant in SEA tech hubs (Singapore, KL, Bangkok, Manila, HCMC) where screen-heavy work is the norm, but the screen-use evidence is mixed. In a 6-month trial in 48 heavy screen users funded by Lutemax\'s maker (Stringham 2017), 24mg/day of the Lutemax 2020 formulation reduced self-rated eye strain, eye fatigue and headache and improved sleep versus placebo. In a 6-month RCT in 70 adults using screens more than 6 hours a day (Lopresti & Smith 2025), 10mg lutein + 2mg zeaxanthin isomers (Lute-gen, not Lutemax 2020) improved tear production, tear-film stability and glare (photo-stress) recovery versus placebo, but self-rated visual fatigue, sleep and attention did not differ from placebo. Neither trial found a focus or attention benefit (Stringham 2017 did not measure attention): an eye-health ingredient, not a focus one.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/39963662/',
   },
 ];
