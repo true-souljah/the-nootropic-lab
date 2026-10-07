@@ -25,7 +25,9 @@ test.describe('CA /alpha-brain-canada/', () => {
 
     const verdict = page.getByTestId('verdict-box');
     await expect(verdict).toBeVisible();
-    await expect(verdict).toContainText('We could not confirm any Canadian retailer');
+    // Verdict wording now states the dated findings (amazon.ca search, LNHPD licence status), 2026-10-07.
+    await expect(verdict).toContainText('We found no Onnit listing on amazon.ca');
+    await expect(verdict).toContainText('could not confirm any Canadian retailer stocking Alpha Brain');
 
     // At least one NPN-licensed alternative review link (AOR Ortho•Mind today).
     await expect(page.locator('main a[href="/aor-ortho-mind-review/"]').first()).toBeVisible();

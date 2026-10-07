@@ -86,16 +86,27 @@ export interface Product {
    */
   handsOnTested?: boolean;
   /**
-   * Canadian Natural Health Products Directorate licensing status. Only set on
-   * products served by the CA market app. `licensed` = Health Canada has issued
-   * an NPN (Natural Product Number); the `npn` field carries it. `pip` = the
-   * product reaches Canadian buyers via the Personal Importation Program — not
-   * Health Canada licensed, but legally imported in personal-use quantities.
-   * Undefined for products not surfaced to the CA market.
+   * Health Canada natural health product (NHP) licensing status, checked
+   * against the Licensed Natural Health Products Database (LNHPD). Only set on
+   * products served by the CA market app. `licensed` = the LNHPD lists an
+   * Active product licence; `npn` carries its NPN (Natural Product Number).
+   * `pip` = the LNHPD returned no active licence for the product or licence
+   * holder names searched on `checkedAt` (queries and any non-active rows in
+   * `basis`). It is not evidence that no licence exists under some other
+   * name, nor that every Canadian sale is a personal import: copy must say
+   * "we found no NPN for <names searched> ... (checked <date>)" and tell the
+   * reader to look for an eight-digit NPN on the label; only without one is
+   * personal importation under Health Canada's GUI-0116 a consumer's route.
+   * Never state that the product is unlicensed. Undefined for products not
+   * surfaced to the CA market.
    */
   npnStatus?: {
     status: 'licensed' | 'pip';
     npn?: string;
+    /** ISO date (YYYY-MM-DD) the LNHPD was checked. */
+    checkedAt?: string;
+    /** One line: the licence row confirmed, or the queries that returned no active licence. */
+    basis?: string;
   };
   /**
    * Japanese Foods with Function Claims (機能性表示食品 / FFC) notification

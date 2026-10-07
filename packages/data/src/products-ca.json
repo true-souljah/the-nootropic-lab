@@ -84,7 +84,7 @@
     "servingsPerContainer": 30,
     "capsulesPerServing": 2,
     "summary": "The most comprehensively researched nootropic stack available to Canadian buyers. Most ingredients are clinically dosed and peer-reviewed. Ships from the UK directly to Canada with reliable international delivery. Our #1 pick for the Canadian market.",
-    "whatItIs": "Mind Lab Pro is an 11-ingredient pre-formulated nootropic stack made by Opti-Nutra, a UK-based supplement company. It ships directly to Canada and is designed as a complete daily cognitive supplement covering memory, focus, mental energy, mood, and long-term brain health without caffeine or proprietary blends. Health Canada classifies it as a Natural Health Product.",
+    "whatItIs": "Mind Lab Pro is an 11-ingredient pre-formulated nootropic stack made by Opti-Nutra, a UK-based supplement company. It ships directly to Canada and is designed as a complete daily cognitive supplement covering memory, focus, mental energy, mood, and long-term brain health without caffeine or proprietary blends. Health Canada defines natural health products (NHPs) by substance, as \"vitamins and minerals, herbal remedies, homeopathic medicines, traditional medicines (like Traditional Chinese Medicines), probiotics, and other products like amino acids and essential fatty acids\", and states that \"All natural health products (NHPs) sold in Canada require a product licence before being marketed.\" We found no NPN (Natural Product Number) for Mind Lab Pro in Health Canada's Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07); the only Opti-Nutra licence-holder entry is a different, discontinued product (PhentaSlim, NPN 80068706). A licence can be held under another name, so look for an eight-digit NPN on the label; without one, a consumer's only route is personal importation, which Health Canada's GUI-0116 limits to \"no more than a 90-day supply or a single course of treatment, whichever is less\".",
     "howItWorks": "Mind Lab Pro works across six bio-pathways simultaneously. Citicoline and Phosphatidylserine support the cholinergic system and neuronal membrane integrity. Lion's Mane stimulates Nerve Growth Factor (NGF) for neuroplasticity. Bacopa Monnieri enhances synaptic communication for memory. Rhodiola Rosea and L-Tyrosine support dopamine/norepinephrine balance under stress. L-Theanine promotes alpha brain wave activity for calm focus. B-vitamins support homocysteine regulation and neurotransmitter synthesis.",
     "whatToExpect": "Within 30-60 minutes: mild calm focus from L-Theanine. Within 2-4 weeks: improved mental energy and reduced cognitive fatigue. At 8-12 weeks: measurable improvements in memory recall and learning speed. Ships from the UK to Canada -- 5-20 working days by tracked airmail or 2-7 working days by DHL courier (per mindlabpro.com, checked 2026-09-29). Canadian buyers pay in USD; no additional reformulation for the Canadian market. Best results require 3+ months of consistent daily use.",
     "pros": [
@@ -98,13 +98,15 @@
       "Premium price ($69/mo USD)",
       "2 capsules per serving (2–4 per day suggested)",
       "30-day money-back",
-      "Ships from US -- import duties may apply for large orders"
+      "Ships internationally; confirm Canadian delivery at checkout"
     ],
     "editorChoice": true,
     "market": "both",
     "updatedAt": "2026-09-28",
     "npnStatus": {
-      "status": "pip"
+      "status": "pip",
+      "checkedAt": "2026-10-07",
+      "basis": "no row for Mind Lab Pro as brand name or licence holder; the only Opti-Nutra licence-holder row is NPN 80068706 (PhentaSlim, Opti Nutra Processing Limited, Discontinued), an unrelated product; LNHPD searches plus the full register export (307,065 rows)"
     },
     "trustpilotCheckedAt": "2026-09-28",
     "verifiedAt": "2026-09-28"
@@ -216,13 +218,15 @@
       "No reviews on the noocube.com Trustpilot profile (checked 2026-09-28)",
       "Some ingredients underdosed",
       "Subscription cancellation issues (BBB)",
-      "Ships from US -- import duties may apply for large orders"
+      "Ships internationally; confirm Canadian delivery at checkout"
     ],
     "editorChoice": false,
     "market": "both",
     "updatedAt": "2026-09-28",
     "npnStatus": {
-      "status": "pip"
+      "status": "pip",
+      "checkedAt": "2026-10-07",
+      "basis": "no row for NooCube, Wolfson or Wolfson Brands as brand name or licence holder; LNHPD searches plus the full register export (307,065 rows)"
     },
     "pricing": {
       "msrp_usd": 59.99
@@ -298,8 +302,8 @@
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 2,
-    "summary": "A minimalist, ultra-clean nootropic formula using premium patented ingredients. Ships to Canada from the UK. Imported as a food supplement. Ideal for Canadian buyers who prefer a simple, transparent supplement over large multi-ingredient stacks.",
-    "whatItIs": "Performance Lab Mind is a streamlined 4-ingredient nootropic by Performance Lab, a UK-based supplement company. It ships directly to Canada and uses only NutriGenesis and licensed raw materials with full label transparency. Health Canada classifies imported natural health products like this as food supplements.",
+    "summary": "A minimalist, ultra-clean nootropic formula using premium patented ingredients. Ships to Canada from the UK. No NPN found for the searched names (LNHPD, 2026-10-07); check the label. Ideal for Canadian buyers who prefer a simple, transparent supplement over large multi-ingredient stacks.",
+    "whatItIs": "Performance Lab Mind is a streamlined 4-ingredient nootropic by Performance Lab, a UK-based supplement company. It ships directly to Canada and uses only NutriGenesis and licensed raw materials with full label transparency. Health Canada defines natural health products (NHPs) by substance, as \"vitamins and minerals, herbal remedies, homeopathic medicines, traditional medicines (like Traditional Chinese Medicines), probiotics, and other products like amino acids and essential fatty acids\", and states that \"All natural health products (NHPs) sold in Canada require a product licence before being marketed.\" We found no NPN (Natural Product Number) for Performance Lab Mind or licence holder Performance Lab in Health Canada's Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07); a licence can be held under another name, so look for an eight-digit NPN on the label; without one, a consumer's only route is personal importation, which Health Canada's GUI-0116 limits to \"no more than a 90-day supply or a single course of treatment, whichever is less\".",
     "howItWorks": "Citicoline (Cognizin) boosts brain cell membrane synthesis and acetylcholine production for focus and memory. Phosphatidylserine (Sharp-PS Green) maintains neuronal membrane fluidity and supports cortisol regulation under stress. L-Tyrosine replenishes catecholamine neurotransmitters depleted by cognitive effort. Maritime Pine Bark provides antioxidants that support cerebral blood flow.",
     "whatToExpect": "Day one: mild cognitive sharpness and sustained attention. Within 2-4 weeks: improved stress resilience and working memory. At 8 weeks: measurable reduction in mental fatigue during extended cognitive tasks. Ships from the UK to Canada -- 5-20 working days by tracked airmail or 2-7 working days by DHL courier (per performancelab.com, checked 2026-09-29). Only 2 capsules per serving -- well suited for Canadians looking for a low pill-burden daily stack.",
     "pros": [
@@ -310,11 +314,16 @@
     "cons": [
       "Fewer total ingredients",
       "Pricey per capsule",
-      "Ships from US -- import duties may apply for large orders"
+      "Ships internationally; confirm Canadian delivery at checkout"
     ],
     "editorChoice": false,
     "market": "both",
     "updatedAt": "2026-09-28",
+    "npnStatus": {
+      "status": "pip",
+      "checkedAt": "2026-10-07",
+      "basis": "no row for Performance Lab Mind as brand name or licence holder; Performance Lab as licence holder returns only Juju Performance Labs rows; LNHPD searches plus the full register export (307,065 rows)"
+    },
     "trustpilotCheckedAt": "2026-09-28",
     "discontinued": {
       "since": "2026-09-28",
@@ -409,13 +418,15 @@
       "Contains caffeine",
       "No affiliate commission",
       "Very expensive ($90/mo USD)",
-      "Ships from US -- import duties may apply for large orders"
+      "Ships internationally; confirm Canadian delivery at checkout"
     ],
     "editorChoice": false,
     "market": "both",
     "updatedAt": "2026-09-28",
     "npnStatus": {
-      "status": "pip"
+      "status": "pip",
+      "checkedAt": "2026-10-07",
+      "basis": "no row for Hunter Focus or Roar Ambition as brand name or licence holder; LNHPD searches plus the full register export (307,065 rows)"
     },
     "trustpilotCheckedAt": "2026-09-28",
     "verifiedAt": "2026-09-28"
@@ -498,10 +509,10 @@
     ],
     "servingsPerContainer": 45,
     "capsulesPerServing": 2,
-    "summary": "The most commercially recognised nootropic brand in North America, widely available to Canadian buyers. Backed by two clinical studies and NSF Certified for Sport -- a strong option for Canadian athletes and mainstream supplement shoppers.",
-    "whatItIs": "Alpha Brain is Onnit's flagship nootropic, first released in 2011 and popularised through Joe Rogan's podcast. It is the best-recognised nootropic brand in the North American market -- familiar to many Canadian buyers -- and one of only two nootropics with published clinical trial data on its specific formula. National Sanitation Foundation (NSF) Certified for Sport makes it suitable for Canadian drug-tested athletes.",
+    "summary": "The most commercially recognised nootropic brand in North America, backed by two clinical studies and NSF Certified for Sport. Its former Health Canada licence, NPN (Natural Product Number) 80041968, is listed as Discontinued in the Licensed Natural Health Products Database (LNHPD, checked 2026-10-07); we found no active Alpha Brain licence under the brand name 'Alpha Brain' or licence holder 'Onnit' — without one, a consumer's only route is personal importation (GUI-0116 limit). Confirm Canadian delivery at checkout.",
+    "whatItIs": "Alpha Brain is Onnit's flagship nootropic, first released in 2011 and popularised through Joe Rogan's podcast. It is the best-recognised nootropic brand in the North American market -- familiar to many Canadian buyers -- and one of only two nootropics with published clinical trial data on its specific formula. National Sanitation Foundation (NSF) Certified for Sport makes it suitable for Canadian drug-tested athletes. Health Canada's Licensed Natural Health Products Database (LNHPD) lists Alpha Brain under NPN (Natural Product Number) 80041968, licence holder Onnit Labs, LLC, with the licence Discontinued (checked 2026-10-07); we found no active licence. Onnit's store-locator page states that the site \"is directed only to U.S. consumers\" (onnit.com, checked 2026-10-07).",
     "howItWorks": "Alpha Brain uses three proprietary blends -- Onnit Flow Blend, Focus Blend, and Fuel Blend -- containing cholinergics (Alpha-GPC), adaptogens (Bacopa), and amino acids (Tyrosine, Theanine). Because doses are hidden in proprietary blends, individual ingredient doses cannot be verified against clinical trial thresholds. The two published studies (Onnit-funded, 2016 and 2021) tested the full formula and showed statistically significant improvements in verbal memory and executive function versus placebo.",
-    "whatToExpect": "Day one: subtle focus improvement, particularly for users new to cholinergic supplements. Caffeine-free means no energy spike -- effects are gentle. At 4-6 weeks: most Canadian users report consistent mild improvements in word retrieval and task focus. The 90-day money-back guarantee is one of the most generous in the category. Available to ship from the US to Canada with standard delivery times.",
+    "whatToExpect": "Day one: subtle focus improvement, particularly for users new to cholinergic supplements. Caffeine-free means no energy spike -- effects are gentle. At 4-6 weeks: most Canadian users report consistent mild improvements in word retrieval and task focus. The 90-day money-back guarantee is one of the most generous in the category. We found no Onnit listing on amazon.ca's first page of search results (checked 2026-10-07), so confirm Canadian delivery at checkout.",
     "pros": [
       "Two published clinical studies",
       "Highest North American brand recognition",
@@ -512,13 +523,16 @@
     "cons": [
       "Proprietary blends hide doses",
       "Subscription cancellation issues",
-      "Ships from US -- import duties may apply for large orders"
+      "Ships internationally; confirm Canadian delivery at checkout",
+      "Health Canada licence NPN 80041968 (Onnit Labs) is listed as Discontinued in the LNHPD (checked 2026-10-07)"
     ],
     "editorChoice": false,
     "market": "both",
     "updatedAt": "2026-09-28",
     "npnStatus": {
-      "status": "pip"
+      "status": "pip",
+      "checkedAt": "2026-10-07",
+      "basis": "NPN 80041968, Onnit Labs, LLC, listed as Discontinued in the LNHPD (UI and API agree), checked 2026-10-07"
     },
     "verifiedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28"
@@ -629,7 +643,9 @@
     "market": "both",
     "updatedAt": "2026-09-28",
     "npnStatus": {
-      "status": "pip"
+      "status": "pip",
+      "checkedAt": "2026-10-07",
+      "basis": "no row for Qualia, Qualia Life Sciences or Neurohacker as brand name or licence holder; LNHPD searches plus the full register export (307,065 rows)"
     },
     "verifiedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28"
@@ -685,20 +701,20 @@
     ],
     "servingsPerContainer": 150,
     "capsulesPerServing": 2,
-    "summary": "NatureBell Ginkgo + Ginseng is the most affordable nootropic in this review at approximately CAD $7/month for a 5-month supply (300 capsules). Chinese-manufactured with US branding, available on Amazon.ca with Prime shipping across Canada. Ginkgo Biloba at clinical dose (120mg) paired with Panax Ginseng. Best as a budget entry point for Canadian buyers.",
-    "whatItIs": "NatureBell is a US-registered supplement brand sourcing from Chinese manufacturers. Their Ginkgo + Ginseng formula delivers 120mg Ginkgo Biloba extract (50:1 concentration, equivalent to 6,000mg raw herb) at the full clinical dose, paired with Panax Ginseng. Available on Amazon.ca with Prime shipping to all Canadian provinces. The 300-capsule bottle provides a 5-month supply at approximately CAD $35 — by far the best per-month value in this review. Imported as a personal-use supplement; we have not verified a Natural Health Product licence, identified by a Natural Product Number (NPN), with Health Canada.",
+    "summary": "NatureBell Ginkgo + Ginseng is the most affordable nootropic in this review at approximately CAD $7/month for a 5-month supply (300 capsules). Chinese-manufactured with US branding, listed on amazon.ca. Ginkgo Biloba at clinical dose (120mg) paired with Panax Ginseng. Best as a budget entry point for Canadian buyers.",
+    "whatItIs": "NatureBell is a US-registered supplement brand sourcing from Chinese manufacturers. Their Ginkgo + Ginseng formula delivers 120mg Ginkgo Biloba extract (50:1 concentration, equivalent to 6,000mg raw herb) at the full clinical dose, paired with Panax Ginseng. It is listed on amazon.ca. The 300-capsule bottle provides a 5-month supply at approximately CAD $35 — by far the best per-month value in this review. We found no NPN (Natural Product Number) for a NatureBell Ginkgo + Ginseng product under the brand names 'NatureBell' or 'Ginkgo Ginseng' in Health Canada's Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07); the only NatureBell entry is a different product, NatureBell Magnesium Glycinate (NPN 80148146, Museo Co Inc.). Check the listing or label for an eight-digit NPN.",
     "howItWorks": "Ginkgo Biloba improves cerebral blood flow via vasodilation and platelet-activating factor (PAF) inhibition, delivering more oxygen and glucose to neurons. Panax Ginseng contains ginsenosides that modulate NMDA receptor activity and support dopaminergic signalling. The Ginkgo-Ginseng pairing is one of the oldest TCM cognitive combinations.",
     "whatToExpect": "Weeks 1-2: mild improvement in mental alertness from Ginkgo blood flow effects. Weeks 4-8: cumulative memory benefits. The Ginseng dose is well below clinical levels (10mg vs 200mg), so most benefit comes from the properly-dosed Ginkgo. Best used as a stack addition alongside a premium nootropic.",
     "pros": [
       "Cheapest nootropic in this review (~CAD $7/month)",
       "Ginkgo at full clinical dose (120mg)",
       "300 capsules — 5-month supply",
-      "Amazon.ca Prime shipping",
+      "Listed on amazon.ca",
       "60-day money-back guarantee"
     ],
     "cons": [
       "Ginseng severely underdosed",
-      "No Health Canada NPN licence verified by us",
+      "No NPN (Natural Product Number) found for NatureBell Ginkgo + Ginseng in Health Canada's Licensed Natural Health Products Database (full register export searched, 2026-10-07)",
       "No third-party CoA published",
       "Two-ingredient formula only"
     ],
@@ -706,7 +722,9 @@
     "market": "both",
     "updatedAt": "2026-05-28",
     "npnStatus": {
-      "status": "pip"
+      "status": "pip",
+      "checkedAt": "2026-10-07",
+      "basis": "no row for a NatureBell Ginkgo + Ginseng product; the only NatureBell row is NPN 80148146 (NatureBell Magnesium Glycinate, Museo Co Inc., Active), a different product; LNHPD searches plus the full register export (307,065 rows)"
     }
   },
   {
@@ -717,7 +735,7 @@
     "bestFor": [
       "Health Canada NPN compliance",
       "Open formula",
-      "Canadian pharmacy availability"
+      "Ordering direct from a Canadian company"
     ],
     "score": 8.4,
     "scoreBreakdown": {
@@ -727,90 +745,101 @@
       "value": 8,
       "trust": 9
     },
-    "priceMonthlyCAD": 65,
-    "priceMonthlyUSD": 48,
+    "priceMonthlyCAD": 98.33,
+    "priceMonthlyUSD": 69.12,
     "pricingModel": "one-time",
     "moneyBackDays": 30,
-    "caffeineFree": false,
+    "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
     "trustpilotScore": 3.7,
     "trustpilotCount": 586,
-    "affiliateUrl": "https://aor.ca/products/ortho-mind/",
+    "affiliateUrl": "https://aor.ca/product/ortho-mind/",
     "affiliateNetwork": "Direct",
     "commissionRate": "12%",
     "cookieDays": 30,
     "heroIngredients": [
-      "Lion's Mane",
-      "Bacopa Monnieri",
+      "Bacopa monnieri",
       "Citicoline",
-      "Caffeine",
-      "L-Theanine"
+      "Acetyl L-carnitine",
+      "Panax ginseng",
+      "R-a-lipoic acid"
     ],
     "ingredientDosages": [
       {
-        "name": "Lion's Mane (8:1 extract)",
-        "doseInProduct": "300mg",
-        "clinicalDose": "500-1000mg",
+        "name": "Panax ginseng (30:1 extract, root)",
+        "doseInProduct": "100.02mg (16.67 mg per capsule × 6)",
+        "clinicalDose": "200-400mg",
         "adequatelyDosed": false
       },
       {
-        "name": "Bacopa Monnieri (50% bacosides)",
-        "doseInProduct": "300mg",
+        "name": "Bacopa monnieri (50-55% Bacosides, leaf)",
+        "doseInProduct": "300mg (50 mg per capsule × 6)",
         "clinicalDose": "300mg",
         "adequatelyDosed": true
       },
       {
-        "name": "Citicoline",
-        "doseInProduct": "250mg",
+        "name": "D-Pantothenic acid (Calcium D-pantothenate)",
+        "doseInProduct": "460.02mg (76.67 mg per capsule × 6)",
+        "clinicalDose": "5-10mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "5-Oxo-L-proline, compound with L-arginine (1:1) (Arginine PCA)",
+        "doseInProduct": "1500mg (250 mg per capsule × 6)",
+        "clinicalDose": "Limited human data",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "(2R)-2-(Acetyloxy)-3-carboxy-N,N,N-trimethyl-1-propanaminium inner salt (N-Acetyl L-carnitine hydrochloride)",
+        "doseInProduct": "1500mg (250 mg per capsule × 6)",
+        "clinicalDose": "1500-3000mg/day",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Choline cytidine 5'-pyrophosphate (ester) (Citicoline)",
+        "doseInProduct": "499.98mg (83.33 mg per capsule × 6)",
         "clinicalDose": "250mg",
         "adequatelyDosed": true
       },
       {
-        "name": "Caffeine (from green coffee)",
-        "doseInProduct": "50mg",
-        "clinicalDose": "75-200mg",
-        "adequatelyDosed": false
-      },
-      {
-        "name": "L-Theanine",
-        "doseInProduct": "100mg",
-        "clinicalDose": "100-200mg",
-        "adequatelyDosed": true
-      },
-      {
-        "name": "Phosphatidylserine",
-        "doseInProduct": "50mg",
-        "clinicalDose": "100mg",
+        "name": "1,2-Dithiolane-3-pentanoic acid, (R) (R-a-lipoic acid)",
+        "doseInProduct": "100.02mg (16.67 mg per capsule × 6)",
+        "clinicalDose": "300-600mg (alpha-lipoic acid trials)",
         "adequatelyDosed": false
       }
     ],
     "servingsPerContainer": 30,
-    "capsulesPerServing": 3,
-    "summary": "AOR Ortho•Mind is the strongest Canadian-domiciled, NPN-licensed cognitive supplement in our coverage. Health Canada NPN 80037243 verified. Open formula with 6 disclosed ingredients including Bacopa, citicoline, and L-theanine at clinical dose. Available at Health Canada-authorised retailers nationwide.",
-    "whatItIs": "Advanced Orthomolecular Research (AOR) is a Calgary-based Canadian supplement company founded in 1992, recognized for evidence-graded formulation and rigorous third-party testing. Ortho•Mind is their cognitive flagship — open formula, every dose disclosed, fully Health Canada Natural Health Product (NHP) registered. The NPN (Natural Product Number) 80037243 is verifiable on the Licensed Natural Health Products Database. Sold at Pure Pharmacy, Healthy Planet, and direct via aor.ca; bilingual labelling for Quebec compliance.",
-    "howItWorks": "Multi-mechanism stack: Bacopa Monnieri at 300mg (clinical dose) supports memory consolidation over 8-12 weeks. Citicoline (Cognizin) supports phospholipid synthesis and acetylcholine availability. Lion's Mane modulates NGF for neurogenesis. Caffeine + L-theanine at modest doses (50mg + 100mg) provide acute focus support. Phosphatidylserine supports cell membrane integrity, but at half the clinical dose.",
-    "whatToExpect": "Acute (30-60 min): mild focus boost from caffeine + L-theanine combination. Weeks 4-12: cumulative Bacopa + citicoline memory and attention improvements. Lower caffeine dose (50mg) is gentler than typical pre-workouts but may be insufficient for hardcore caffeine users. The 3-capsule daily protocol is moderate friction.",
+    "capsulesPerServing": 6,
+    "summary": "AOR Ortho•Mind is the strongest Canadian-domiciled cognitive supplement with an NPN (Natural Product Number) in our coverage. Health Canada NPN 80037243 verified against the Licensed Natural Health Products Database (LNHPD) on 2026-10-07 (licence holder Advanced Orthomolecular Research Inc., Active). Open, caffeine-free formula: the licence lists 7 medicinal ingredients, and at 6 capsules a day Bacopa (300mg), citicoline (about 500mg) and acetyl-L-carnitine (1,500mg) reach our reference doses. Sold direct at aor.ca (the site offers a store locator).",
+    "whatItIs": "Advanced Orthomolecular Research (AOR) is a Calgary-based Canadian supplement company founded in 1992, recognized for evidence-graded formulation and rigorous third-party testing. Ortho•Mind is their cognitive flagship — open formula, every dose disclosed, and licensed by Health Canada as a Natural Health Product (NHP). Its NPN (Natural Product Number) 80037243 is listed as Active in the Licensed Natural Health Products Database (LNHPD), licence holder Advanced Orthomolecular Research Inc., capsule form (checked 2026-10-07). The licence lists seven medicinal ingredients per capsule: Panax ginseng 16.67 mg (30:1 extract, root), Bacopa monnieri 50 mg (50-55% bacosides, leaf), D-pantothenic acid 76.67 mg (as calcium D-pantothenate), arginine pyroglutamate 250 mg, acetyl-L-carnitine 250 mg (as the hydrochloride), citicoline 83.33 mg and R-lipoic acid 16.67 mg; the licensed adult dose is 2 capsules three times daily. The aor.ca product page lists the same seven ingredients and amounts per capsule. Sold direct at aor.ca (the site offers a store locator).",
+    "howItWorks": "At the licensed 6 capsules a day: Bacopa monnieri 300mg supports memory consolidation over 8-12 weeks, and citicoline (about 500mg; AOR uses the Xerenoos brand) supports phospholipid and neurotransmitter synthesis. AOR says R-lipoic acid and acetyl-L-carnitine \"work synergistically to support the function of mitochondria\"; the 1,500mg of acetyl-L-carnitine meets our reference dose, the 100mg of R-lipoic acid does not. Panax ginseng (100mg of a 30:1 extract) is below the 200-400mg used in trials. Arginine pyroglutamate (1,500mg) has limited human data.",
+    "whatToExpect": "Weeks 4-12: cumulative Bacopa + citicoline memory and attention effects; none of the seven ingredients is a stimulant, so do not expect an acute caffeine-style lift. The licensed dose is 2 capsules three times daily without food (6 capsules a day), so a 180-capsule bottle lasts 30 days. The label information on aor.ca says to consult a health care practitioner for use beyond 2 months.",
     "pros": [
       "Health Canada NPN-licensed (NPN 80037243)",
       "Open formula — every ingredient disclosed",
       "Canadian-domiciled (Calgary)",
-      "Bilingual labelling (English + French) for Quebec compliance",
-      "Bacopa, citicoline, L-theanine at clinical doses",
-      "Available at Canadian pharmacies + DTC"
+      "Caffeine-free",
+      "Bacopa, citicoline and acetyl-L-carnitine at or above our reference doses",
+      "Sold direct at aor.ca (store locator on the site)"
     ],
     "cons": [
-      "Lion's Mane and PS underdosed vs. clinical anchors",
-      "Caffeine dose (50mg) is modest — not for high-tolerance users",
-      "3 capsules/day adds friction",
+      "Panax ginseng and R-lipoic acid below the doses used in trials",
+      "6 capsules a day (2 capsules three times daily) adds friction",
       "Limited Trustpilot footprint vs international brands"
+    ],
+    "notes": [
+      "Formula from the Health Canada LNHPD licence record for NPN 80037243 (medicinal ingredients: https://health-products.canada.ca/api/natural-licences/medicinalingredient/?lang=en&type=json&id=7089264; licence: https://health-products.canada.ca/api/natural-licences/productlicence/?lang=en&type=json&id=80037243; dose: https://health-products.canada.ca/api/natural-licences/productdose/?lang=en&type=json&id=7089264), checked 2026-10-07. Amounts are per capsule as licensed; daily amounts use the licensed adult dose of 2 capsules three times daily.",
+      "Price: aor.ca lists the 180-capsule bottle (30 days at 6 capsules a day) at CAD $98.33 one-time purchase (https://aor.ca/product/ortho-mind/, checked 2026-10-07). USD 69.12 = 98.33 ÷ 1.4226, the Bank of Canada FXUSDCAD daily average rate for 2026-10-06, the most recent observation (https://www.bankofcanada.ca/valet/observations/FXUSDCAD/json?recent=1, checked 2026-10-07)."
     ],
     "editorChoice": false,
     "market": "ca",
     "updatedAt": "2026-09-28",
     "npnStatus": {
       "status": "licensed",
-      "npn": "80037243"
+      "npn": "80037243",
+      "checkedAt": "2026-10-07",
+      "basis": "NPN 80037243 (Ortho.Mind / Ortho Mind brand names), Advanced Orthomolecular Research Inc., Active, capsule, in the LNHPD (UI and API agree); sibling NPN 80037244 is Discontinued"
     },
     "trustpilotCheckedAt": "2026-09-28",
     "verifiedAt": "2026-09-28"
@@ -897,7 +926,7 @@
     "servingsPerContainer": 30,
     "capsulesPerServing": 1,
     "summary": "A low-dose caffeine capsule from Performance Lab: 50mg natural caffeine with 100mg L-theanine (a 2:1 ratio), 250mg L-tyrosine and four B-vitamins, with every dose on the label. Canadian orders ship from the brand's UK depot (per performancelab.com's shipping page, checked 2026-10-05), and the buyer pays any customs charges.",
-    "whatItIs": "Performance Lab Caffeine 2 is a stimulant capsule sold through performancelab.com. Each vegan pullulan capsule holds 50mg natural caffeine from Coffea robusta seeds, 100mg L-theanine, 250mg L-tyrosine and NutriGenesis vitamins B2, B6, folate and B12; a bottle holds 30 capsules. The label suggests 1-2 capsules on an empty stomach, up to a maximum of 5 capsules (250mg caffeine) a day. We found no Natural Product Number (NPN) for it in Health Canada's Licensed Natural Health Products Database (checked 2026-10-05), so Canadian buyers import it for personal use rather than buying a licensed product.",
+    "whatItIs": "Performance Lab Caffeine 2 is a stimulant capsule sold through performancelab.com. Each vegan pullulan capsule holds 50mg natural caffeine from Coffea robusta seeds, 100mg L-theanine, 250mg L-tyrosine and NutriGenesis vitamins B2, B6, folate and B12; a bottle holds 30 capsules. The label suggests 1-2 capsules on an empty stomach, up to a maximum of 5 capsules (250mg caffeine) a day. We found no Natural Product Number (NPN) for Performance Lab Caffeine 2 or licence holder Performance Lab in Health Canada's Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07); a licence can be held under another name, so look for an eight-digit NPN on the label; without one, a consumer's only route is personal importation, which Health Canada's GUI-0116 limits to \"no more than a 90-day supply or a single course of treatment, whichever is less\".",
     "howItWorks": "Caffeine blocks adenosine receptors, which dulls fatigue signals and raises alertness. L-theanine, an amino acid found in tea, is added at a 2:1 ratio to caffeine; Performance Lab cites human trials of theanine-plus-caffeine combinations for this pairing, but Caffeine 2 itself has not been tested in a published trial. L-tyrosine is a building block of dopamine and noradrenaline, and the vendor includes it to support the neurotransmitters that caffeine draws on. The four B-vitamins (B2, B6, folate, B12) supply 38-83% of the US Daily Value per capsule.",
     "whatToExpect": "Performance Lab says Caffeine 2 starts working in around 15-30 minutes. One capsule gives 50mg caffeine; two capsules (100mg caffeine, 200mg L-theanine, 500mg L-tyrosine) bring all three actives into the ranges used in our dosing audit. Count it toward your daily caffeine intake. Orders to Canada leave the UK depot by tracked airmail (5-20 working days) or DHL courier (2-7 working days), and the Canadian storefront's shipping page says the buyer is responsible for any customs charges, duties or taxes (per performancelab.com, checked 2026-10-05). We saw only US-dollar prices ($44 one-time) when we checked.",
     "pros": [
@@ -910,7 +939,7 @@
     "cons": [
       "Only 50mg caffeine per capsule, below the 75mg low end of our caffeine range",
       "L-tyrosine (250mg) sits below the 300-500mg range",
-      "No Natural Product Number (NPN) found; imported for personal use",
+      "No Natural Product Number (NPN) found for the searched names (LNHPD, 2026-10-07); check the label",
       "Ships from the UK; the buyer pays any customs charges, duties or taxes",
       "No published trial of Caffeine 2 itself; the evidence is for its ingredients",
       "Small Trustpilot sample: 14 reviews for performancelab.com (3.8/5, checked 2026-10-05)",
@@ -920,7 +949,9 @@
     "market": "both",
     "updatedAt": "2026-10-05",
     "npnStatus": {
-      "status": "pip"
+      "status": "pip",
+      "checkedAt": "2026-10-07",
+      "basis": "no Performance Lab row for Caffeine 2 (the brand-name search for 'Caffeine 2' returns only other companies' Caffeine 200 mg products); Performance Lab as licence holder returns only Juju Performance Labs rows; LNHPD searches plus the full register export (307,065 rows)"
     },
     "trustpilotCheckedAt": "2026-10-05",
     "verifiedAt": "2026-10-05"
@@ -1040,7 +1071,7 @@
     "capsulesPerServing": 1,
     "form": "powder",
     "summary": "A low-caffeine pre-workout drink powder from Performance Lab. One 13g scoop gives 80mg natural caffeine, 160mg L-theanine and 400mg L-tyrosine, all within the ranges in our dosing audit, plus a 2,200mg Setria for Sport blend (L-citrulline and glutathione, split not disclosed) and 1,500mg red beet powder that are unlikely to reach the doses used in performance trials. Canadian orders ship from the brand's UK depot (per performancelab.com's shipping page, checked 2026-10-05), and the buyer pays any customs charges.",
-    "whatItIs": "Pre Lab Pro is a natural-berry-flavoured pre-workout powder sold through performancelab.com; the buy buttons on its own site, prelabpro.com, link to that product page. A tub holds 20 servings of one 13g scoop, mixed into 300ml of water and taken 15-30 minutes before training, with no more than 2 scoops in 24 hours. Each scoop also supplies 500mg Himalayan pink salt, vitamin D3 from algae, B2, B6, folate, B12, potassium and iron. It is vegan, and the vendor states it is 'third-party tested and validated by Informed Sport'; the product page shows no certificate or batch number. We found no Natural Product Number (NPN) for it in Health Canada's Licensed Natural Health Products Database (checked 2026-10-05), so Canadian buyers import it for personal use rather than buying a licensed product.",
+    "whatItIs": "Pre Lab Pro is a natural-berry-flavoured pre-workout powder sold through performancelab.com; the buy buttons on its own site, prelabpro.com, link to that product page. A tub holds 20 servings of one 13g scoop, mixed into 300ml of water and taken 15-30 minutes before training, with no more than 2 scoops in 24 hours. Each scoop also supplies 500mg Himalayan pink salt, vitamin D3 from algae, B2, B6, folate, B12, potassium and iron. It is vegan, and the vendor states it is 'third-party tested and validated by Informed Sport'; the product page shows no certificate or batch number. We found no Natural Product Number (NPN) for Pre Lab Pro or licence holder Performance Lab in Health Canada's Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07); a licence can be held under another name, so look for an eight-digit NPN on the label; without one, a consumer's only route is personal importation, which Health Canada's GUI-0116 limits to \"no more than a 90-day supply or a single course of treatment, whichever is less\".",
     "howItWorks": "Caffeine (80mg) blocks adenosine receptors to dull fatigue signals, and L-theanine (160mg, a 2:1 ratio) plus L-tyrosine (400mg) are the nootropic trio from Performance Lab's Caffeine 2 capsule at higher amounts. L-citrulline is converted to arginine and then nitric oxide, and beetroot supplies dietary nitrate, a second nitric-oxide source; the vendor includes both for blood flow, strength and endurance. Glutathione, an antioxidant, makes up the rest of the Setria for Sport blend. Himalayan pink salt (200mg sodium) and potassium act as electrolytes. Pre Lab Pro itself has not been tested in a published trial; the vendor's claims rest on ingredient-level research.",
     "whatToExpect": "Performance Lab says Pre Lab Pro starts working in around 15-30 minutes. The vendor calls the 80mg caffeine dose moderate, and two scoops (its 24-hour limit) give 160mg; count it toward your daily caffeine total. The citrulline and beet amounts are below the doses used in performance trials, so any blood-flow or endurance benefit from them is uncertain. Orders to Canada leave the UK depot by tracked airmail (5-20 working days) or DHL courier (2-7 working days), and the Canadian storefront's shipping page says the buyer is responsible for any customs charges, duties or taxes (per performancelab.com, checked 2026-10-05). We saw only US-dollar prices ($59 one-time for 20 scoops) when we checked.",
     "pros": [
@@ -1056,7 +1087,7 @@
       "1.5g red beet powder with no stated nitrate content, very likely far below the roughly 6-8 mmol of nitrate used in beetroot trials",
       "Several verified reviews on prelabpro.com report powder that set rock-hard in the tub; the company replied it had 'a bad batch' that was 'taken off sale' (checked 2026-10-05)",
       "Strict 30-day guarantee: first order only, one tub, used up before claiming, refund minus shipping; performancelab.com allows claims within 60 days of delivery, but prelabpro.com's returns page says 30 days, so confirm the terms first",
-      "No Natural Product Number (NPN) found; imported for personal use",
+      "No Natural Product Number (NPN) found for the searched names (LNHPD, 2026-10-07); check the label",
       "Ships from the UK; the buyer pays any customs charges, duties or taxes",
       "No published trial of Pre Lab Pro itself; the evidence is for its ingredients",
       "Small Trustpilot sample: 14 reviews for performancelab.com (3.8/5, checked 2026-10-05)"
@@ -1065,7 +1096,9 @@
     "market": "both",
     "updatedAt": "2026-10-05",
     "npnStatus": {
-      "status": "pip"
+      "status": "pip",
+      "checkedAt": "2026-10-07",
+      "basis": "no row for Pre Lab Pro as brand name or licence holder; Performance Lab as licence holder returns only Juju Performance Labs rows; LNHPD searches plus the full register export (307,065 rows)"
     },
     "trustpilotCheckedAt": "2026-10-05",
     "verifiedAt": "2026-10-05"
@@ -1141,7 +1174,7 @@
     "servingsPerContainer": 30,
     "capsulesPerServing": 2,
     "summary": "A caffeine-free 'cellular energy' capsule from Performance Lab: one 2-capsule serving gives 500mg acetyl-L-carnitine, 100mg R-lipoic acid, 100mg CoQ10, 10mg PQQ and 60mg magnesium, with every dose on the label. It is an energy supplement with a modest cognitive angle, not a nootropic stack, and none of its five actives reaches the reference dose in our dosing audit. Canadian orders ship from the brand's UK depot (per performancelab.com's shipping page, checked 2026-10-05), and the buyer pays any customs charges.",
-    "whatItIs": "Performance Lab Energy is a caffeine-free capsule sold through performancelab.com. The vendor calls it a 'caffeine-free workout and daily energy supplement' for 'cellular energy, cardio performance, muscle strength, and clean focus'. One serving is 2 vegan pullulan capsules holding 500mg acetyl-L-carnitine (from acetyl-L-carnitine HCl), 100mg microencapsulated BioEnhanced R-lipoic acid, 100mg MicroActive Q10 (coenzyme Q10), 10mg BioPQQ (pyrroloquinoline quinone), 60mg magnesium as magnesium malate (14% of the US Daily Value) and 2.5mg BioPerine black pepper extract (95% piperine), which the vendor adds 'for enhanced absorption'; a bottle holds 30 servings. The label suggests 2 capsules in the morning or early afternoon on an empty stomach. The vendor states it is 'third-party tested for purity and potency' but names no lab. Health Canada's Licensed Natural Health Products Database had no Performance Lab entries when we searched it on 2026-10-05, so we found no Natural Product Number (NPN) for it, and Canadian buyers import it for personal use rather than buying a licensed product.",
+    "whatItIs": "Performance Lab Energy is a caffeine-free capsule sold through performancelab.com. The vendor calls it a 'caffeine-free workout and daily energy supplement' for 'cellular energy, cardio performance, muscle strength, and clean focus'. One serving is 2 vegan pullulan capsules holding 500mg acetyl-L-carnitine (from acetyl-L-carnitine HCl), 100mg microencapsulated BioEnhanced R-lipoic acid, 100mg MicroActive Q10 (coenzyme Q10), 10mg BioPQQ (pyrroloquinoline quinone), 60mg magnesium as magnesium malate (14% of the US Daily Value) and 2.5mg BioPerine black pepper extract (95% piperine), which the vendor adds 'for enhanced absorption'; a bottle holds 30 servings. The label suggests 2 capsules in the morning or early afternoon on an empty stomach. The vendor states it is 'third-party tested for purity and potency' but names no lab. We found no Natural Product Number (NPN) for Performance Lab Energy or licence holder Performance Lab in Health Canada's Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07); a licence can be held under another name, so look for an eight-digit NPN on the label; without one, a consumer's only route is personal importation, which Health Canada's GUI-0116 limits to \"no more than a 90-day supply or a single course of treatment, whichever is less\".",
     "howItWorks": "Energy is built around mitochondria, the parts of cells that turn food into usable energy. Acetyl-L-carnitine carries fatty acids into mitochondria and donates acetyl groups for making acetylcholine; its positive cognitive trials used 1.5-3g a day in older adults with mild cognitive impairment, mild dementia or pre-frailty (Montgomery 2003 meta-analysis; Passeri 1990; Malaguarnera 2022), at least three times the 500mg here, and we found no trial in healthy young adults. PQQ improved some memory and attention scores in three small 12-week trials at about 20mg a day (Itoh 2016, Shiojima 2021, Tamakoshi 2023), two of them with authors affiliated with the PQQ manufacturer; Energy has 10mg. The vendor describes CoQ10 and R-lipoic acid as mitochondrial cofactors and antioxidants, but we found no positive cognitive trial of either: 300mg CoQ10 a day did not improve attention or working memory over 6 months in a trial in schizophrenia (Maguire 2021), and 100mg alpha-lipoic acid a day did not improve cognition in the only dose-matched trial we found, also in schizophrenia (De Lima 2023). BioPerine is there to aid absorption; we have not verified whether 2.5mg of piperine changes how well these ingredients are absorbed. Energy itself has not been tested in a published trial.",
     "whatToExpect": "Performance Lab says Energy starts working in around 30 minutes and that you may notice 'increased vitality', more motivation, a brighter mood and better muscle strength and cardio performance during exercise. It contains no caffeine or other stimulant. The positive cognitive trials of acetyl-L-carnitine and PQQ ran for 12 weeks or longer at 2 to 6 times these doses, so any cognitive effect at Energy's doses is uncertain. The label suggests 2 capsules in the morning or early afternoon on an empty stomach; the product page also suggests 2 capsules 30-45 minutes before a workout. Orders to Canada leave the UK depot by tracked airmail (5-20 working days) or DHL courier (2-7 working days), and the Canadian storefront's shipping page says the buyer is responsible for any customs charges, duties or taxes (per performancelab.com, checked 2026-10-05). We saw only US-dollar prices ($69 one-time) when we checked.",
     "pros": [
@@ -1156,7 +1189,7 @@
       "Acetyl-L-carnitine (500mg): every positive cognitive trial we reviewed used at least 1.5g a day, three times this dose",
       "PQQ (10mg) is half the 20mg a day used in the 12-week cognitive trials, two of which had authors affiliated with the PQQ manufacturer",
       "An energy supplement with a modest cognitive angle, not a nootropic stack: we found no positive cognitive trial of CoQ10 or R-lipoic acid",
-      "No Natural Product Number (NPN) found; imported for personal use",
+      "No Natural Product Number (NPN) found for the searched names (LNHPD, 2026-10-07); check the label",
       "Ships from the UK; the buyer pays any customs charges, duties or taxes",
       "No published trial of Energy itself; the evidence is for its ingredients",
       "Small Trustpilot sample: 14 reviews for performancelab.com (3.8/5, checked 2026-10-05)",
@@ -1166,7 +1199,9 @@
     "market": "both",
     "updatedAt": "2026-10-06",
     "npnStatus": {
-      "status": "pip"
+      "status": "pip",
+      "checkedAt": "2026-10-07",
+      "basis": "no row for Performance Lab Energy as brand name or licence holder; Performance Lab as licence holder returns only Juju Performance Labs rows; LNHPD searches plus the full register export (307,065 rows)"
     },
     "trustpilotCheckedAt": "2026-10-05",
     "verifiedAt": "2026-10-05"
@@ -1223,7 +1258,7 @@
     "capsulesPerServing": 3,
     "form": "softgel",
     "summary": "A vegan omega-3 from Performance Lab: 3 softgels give 1,800mg algal oil (life's OMEGA 60) with 990mg total omega-3, including 540mg DHA and 270mg EPA, every amount on the label. The DHA dose sits below the 900mg-1.2g a day used in the positive memory trials, so it is a general-health omega-3 with a brain-health angle rather than a nootropic. Canadian orders ship from the brand's UK depot (per performancelab.com's shipping page, checked 2026-10-05), and the buyer pays any customs charges.",
-    "whatItIs": "Performance Lab Omega-3 is an algae-based omega-3 supplement sold through performancelab.com. The vendor positions it 'to support optimal health and performance of the brain, eyes, heart and (much) more'. One serving is 3 NutriGels, softgels the vendor describes as vegan and free of gelatin and carrageenan (other ingredients listed: gellan gum, pectin, starch and glycerin), holding 1,800mg algal oil from life's OMEGA 60 with 990mg total omega-3 fatty acids, of which 540mg is DHA and 270mg is EPA; a bottle holds 30 servings. The label suggests 3 softgels with your first meal of the day. The vendor states it is 'third-party tested for purity and potency' and Clean Label Project certified; the product page shows the certification logo but no certificate or batch number. Health Canada's Licensed Natural Health Products Database had no Performance Lab entries when we searched it on 2026-10-05, so we found no Natural Product Number (NPN) for it, and Canadian buyers import it for personal use rather than buying a licensed product.",
+    "whatItIs": "Performance Lab Omega-3 is an algae-based omega-3 supplement sold through performancelab.com. The vendor positions it 'to support optimal health and performance of the brain, eyes, heart and (much) more'. One serving is 3 NutriGels, softgels the vendor describes as vegan and free of gelatin and carrageenan (other ingredients listed: gellan gum, pectin, starch and glycerin), holding 1,800mg algal oil from life's OMEGA 60 with 990mg total omega-3 fatty acids, of which 540mg is DHA and 270mg is EPA; a bottle holds 30 servings. The label suggests 3 softgels with your first meal of the day. The vendor states it is 'third-party tested for purity and potency' and Clean Label Project certified; the product page shows the certification logo but no certificate or batch number. We found no Natural Product Number (NPN) for Performance Lab Omega-3 or licence holder Performance Lab in Health Canada's Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07); a licence can be held under another name, so look for an eight-digit NPN on the label; without one, a consumer's only route is personal importation, which Health Canada's GUI-0116 limits to \"no more than a 90-day supply or a single course of treatment, whichever is less\".",
     "howItWorks": "DHA is the main structural omega-3 in brain cell membranes. In two 6-month trials it improved memory measures at 900mg a day in adults aged 55 and over with age-related cognitive decline (Yurko-Mauro 2010, sponsored by the algal-DHA maker Martek) and at 1.16g a day in healthy 18-45-year-olds with low DHA intake (Stonehouse 2013); this product supplies 540mg, below both. The wider evidence is mixed: a 2012 Cochrane review found no cognitive benefit from omega-3 supplements in cognitively healthy older adults. We found no trial of EPA alone for cognition; a 2024 dose-response meta-analysis of 24 trials of mixed EPA and DHA in adults aged 40 and over found an executive-function benefit trend above 500mg a day of total omega-3 (Suh 2024), which the 990mg here exceeds. The oil comes from algae rather than fish, so it suits vegans. Performance Lab Omega-3 itself has not been tested in a published trial.",
     "whatToExpect": "Performance Lab says Omega-3 starts working in around 30 minutes, that you may first notice improvements to hair, nails and skin, and that other benefits build over time; both positive DHA memory trials ran for 6 months, so do not expect a quick cognitive effect. Take 3 softgels with your first meal of the day. Our DHA ingredient page notes that in a 2021 meta-analysis of cardiovascular trials, omega-3 supplements were linked to a higher risk of atrial fibrillation, more so above 1g a day; one serving here gives 990mg of total omega-3, so ask your doctor first if you have a heart-rhythm condition or already take another omega-3. Orders to Canada leave the UK depot by tracked airmail (5-20 working days) or DHL courier (2-7 working days), and the Canadian storefront's shipping page says the buyer is responsible for any customs charges, duties or taxes (per performancelab.com, checked 2026-10-05). We saw only US-dollar prices ($49 one-time) when we checked.",
     "pros": [
@@ -1236,7 +1271,7 @@
       "540mg DHA is below the 900mg-1.2g a day used in the positive DHA memory trials",
       "Ratio wording is inconsistent: the product page mostly describes an 'optimal 2:1 EPA:DHA' ratio, but the label's 540mg DHA and 270mg EPA make it 2:1 DHA to EPA; the page also says one serving provides 900mg of EPA and DHA, while those two label rows add up to 810mg",
       "A general-health omega-3 rather than a nootropic; evidence for omega-3 and cognition in healthy adults is mixed",
-      "No Natural Product Number (NPN) found; imported for personal use",
+      "No Natural Product Number (NPN) found for the searched names (LNHPD, 2026-10-07); check the label",
       "Ships from the UK; the buyer pays any customs charges, duties or taxes",
       "No published trial of Performance Lab Omega-3 itself; the evidence is for DHA and EPA",
       "Small Trustpilot sample: 14 reviews for performancelab.com (3.8/5, checked 2026-10-05)",
@@ -1246,7 +1281,9 @@
     "market": "both",
     "updatedAt": "2026-10-06",
     "npnStatus": {
-      "status": "pip"
+      "status": "pip",
+      "checkedAt": "2026-10-07",
+      "basis": "no row for Performance Lab Omega-3 as brand name or licence holder; Performance Lab as licence holder returns only Juju Performance Labs rows; LNHPD searches plus the full register export (307,065 rows)"
     },
     "trustpilotCheckedAt": "2026-10-05",
     "verifiedAt": "2026-10-05"

@@ -25,6 +25,15 @@ const DESCRIPTION =
 const VERIFIED_ON = '2026-09-28';
 const VERIFIED_ON_LABEL = '28 September 2026';
 
+// Checked on 2026-10-07: the Licensed Natural Health Products Database
+// (LNHPD) lists Alpha Brain under NPN 80041968, licence holder Onnit Labs,
+// LLC, status Discontinued (UI search and productlicence API agree); Onnit's
+// store-locator page carries the "directed only to U.S. consumers" statement;
+// amazon.ca's first results page for "onnit alpha brain" showed no Onnit
+// listing. Update these lines together when re-checked.
+const LNHPD_CHECKED_ON = '2026-10-07';
+const FORMER_NPN = '80041968';
+
 // USD list prices read from Onnit's Shopify store feed on VERIFIED_ON:
 //   https://www.onnit.com/products.json?limit=250
 //   .products[handle == "alpha-brain-30-ct"].variants[0].price  → "34.95"
@@ -57,7 +66,7 @@ const articleSchema = {
   headline: 'Alpha Brain in Canada: how to buy it, what it costs, and NPN-licensed alternatives',
   description: DESCRIPTION,
   datePublished: VERIFIED_ON,
-  dateModified: VERIFIED_ON,
+  dateModified: LNHPD_CHECKED_ON,
   author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
   publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   mainEntityOfPage: PAGE_URL,
@@ -76,7 +85,7 @@ const breadcrumbSchema = {
 const faqs = [
   {
     q: 'Can I buy Alpha Brain in Canada?',
-    a: 'Onnit’s storefront market list names Canada (checked 2026-09-29) and its checkout is priced in USD; onnit.com publishes no shipping-country page we could find, so confirm delivery to your address at checkout. We could not confirm any Canadian retailer stocking Alpha Brain.',
+    a: 'Onnit’s storefront market list names Canada (checked 2026-09-29) and its checkout is priced in USD; onnit.com publishes no shipping-country page we could find, so confirm delivery to your address at checkout. We found no Onnit listing on amazon.ca’s first page of search results (checked 2026-10-07) and could not confirm any Canadian retailer stocking Alpha Brain.',
   },
   {
     q: 'Is there a Canadian (CAD) Onnit store?',
@@ -90,11 +99,11 @@ const faqs = [
     q: 'Does Alpha Brain have a Health Canada NPN?',
     a: alphaBrainLicensed
       ? `Our catalogue record lists Alpha Brain as NPN-licensed${alphaBrain?.npnStatus?.npn ? ` (NPN ${alphaBrain.npnStatus.npn})` : ''}. Verify it on the Licensed Natural Health Products Database before buying.`
-      : 'Our Canadian catalogue record lists no NPN for Alpha Brain; it reaches Canadian buyers as a personal import from the US. You can check its current status on Health Canada’s Licensed Natural Health Products Database (LNHPD).',
+      : `Not an active one. Health Canada’s Licensed Natural Health Products Database (LNHPD) lists Alpha Brain under NPN (Natural Product Number) ${FORMER_NPN}, licence holder Onnit Labs, LLC, with the licence Discontinued (checked ${LNHPD_CHECKED_ON}); we found no active Alpha Brain licence under the brand name “Alpha Brain” or licence holder “Onnit”. Look for an eight-digit NPN on the label; without one, a consumer’s only route is personal importation, which Health Canada’s GUI-0116 limits to “no more than a 90-day supply or a single course of treatment, whichever is less”.`,
   },
   {
     q: 'What does “directed only to U.S. consumers” on onnit.com mean?',
-    a: 'It is a legal disclaimer in the footer of Onnit’s website about who the site is addressed to. Onnit’s storefront market list names Canada (checked 2026-09-29) and its checkout is priced in USD; onnit.com publishes no shipping-country page we could find, so confirm delivery to your address at checkout.',
+    a: `Onnit’s store-locator page states: “This website is directed only to U.S. consumers for products and services of Onnit Labs, Inc. This website is not directed to consumers outside of the U.S.” (checked ${LNHPD_CHECKED_ON}). Onnit’s storefront market list names Canada (checked 2026-09-29) and its checkout is priced in USD, but onnit.com publishes no shipping-country page we could find, so confirm delivery to your Canadian address at checkout.`,
   },
 ];
 
@@ -125,9 +134,9 @@ export default function Page() {
 
         <p id="hero-paragraph" className="text-lg text-gray-600 mb-6 leading-relaxed">
           Alpha Brain is a US product sold from a US-dollar store. This page collects what a Canadian buyer needs
-          before ordering it: whether it ships, what it costs, what to expect at the border, and which
-          Health Canada NPN-licensed alternatives exist, checked against Onnit&apos;s store data and Canadian
-          government sources. For the formula, dosing and
+          before ordering it: whether it ships, what it costs, what to expect at the border, its Health Canada
+          licence status, and which alternatives hold an active Health Canada NPN (Natural Product Number),
+          checked against Onnit&apos;s store data and Canadian government sources. For the formula, dosing and
           evidence, read our full <Link href="/onnit-alpha-brain-review/" className="text-green-700 underline">Alpha Brain review</Link>.
         </p>
 
@@ -139,7 +148,13 @@ export default function Page() {
           <h2 id="verdict-heading" className="text-xl font-bold text-green-900 mb-3">The short answer</h2>
           <ul className="text-sm text-gray-800 leading-relaxed space-y-2">
             <li><strong>Ships to Canada?</strong> Onnit&apos;s storefront market list names Canada (checked 2026-09-29) and its checkout is priced in USD; onnit.com publishes no shipping-country page we could find, so confirm delivery to your address at checkout.</li>
-            <li><strong>Canadian retailers?</strong> We could not confirm any Canadian retailer stocking Alpha Brain.</li>
+            <li><strong>Canadian retailers?</strong> We found no Onnit listing on amazon.ca&apos;s first page of search results (checked {LNHPD_CHECKED_ON}) and could not confirm any Canadian retailer stocking Alpha Brain.</li>
+            <li>
+              <strong>Health Canada licence?</strong>{' '}
+              {alphaBrainLicensed
+                ? <>Our catalogue record lists Alpha Brain as NPN-licensed.</>
+                : <>Not an active one: the Licensed Natural Health Products Database (LNHPD) lists NPN {FORMER_NPN} (Onnit Labs, LLC) as Discontinued (checked {LNHPD_CHECKED_ON}).</>}
+            </li>
             <li>
               <strong>NPN-licensed alternatives?</strong>{' '}
               {npnLicensed.length > 0
@@ -163,9 +178,11 @@ export default function Page() {
             There is no Canadian storefront, so you pay in US dollars and your card issuer handles the conversion.
           </p>
           <p className="text-sm text-gray-700 leading-relaxed">
-            The footer of onnit.com says the site is &ldquo;directed only to U.S. consumers&rdquo;. That is a legal
-            disclaimer about who the website is addressed to, not a shipping restriction. For what it means for
-            returns or guarantees on an order shipped to Canada, check Onnit&apos;s own terms before you buy.
+            Onnit&apos;s{' '}
+            <a href="https://www.onnit.com/pages/store-locator" target="_blank" rel="noopener noreferrer" className="text-green-700 underline">store-locator page</a>{' '}
+            states that the site &ldquo;is directed only to U.S. consumers&rdquo; and &ldquo;is not directed to
+            consumers outside of the U.S.&rdquo; (checked {LNHPD_CHECKED_ON}). Confirm Canadian delivery at checkout,
+            and check Onnit&apos;s own terms on returns or guarantees for an order shipped to Canada before you buy.
           </p>
         </section>
 
@@ -217,8 +234,8 @@ export default function Page() {
           <h2 className="text-2xl font-bold text-gray-900 mb-3">Where to buy Alpha Brain in Canada</h2>
           <AffiliateDisclosure />
           <p className="text-sm text-gray-700 leading-relaxed mb-3">
-            <strong>onnit.com</strong> is the one source we could verify. Orders ship from the US and are charged
-            in USD.
+            <strong>onnit.com</strong> is the one source we could verify. Orders are charged in USD; confirm
+            Canadian delivery at checkout.
           </p>
           <p className="mb-4">
             <TrackedAffiliateLink
@@ -231,7 +248,8 @@ export default function Page() {
           </p>
           <p className="text-sm text-gray-700 leading-relaxed">
             We searched amazon.ca, walmart.ca and gnc.ca and could not confirm any Canadian retailer stocking Alpha
-            Brain. That does not mean none exists; if you find one, check that the listing is sold by a
+            Brain; on {LNHPD_CHECKED_ON} amazon.ca&apos;s first page of results for &ldquo;onnit alpha brain&rdquo;
+            showed no Onnit listing. That does not mean none exists; if you find one, check that the listing is sold by a
             reputable seller and that the lot and expiry date are printed on the bottle.
           </p>
         </section>
@@ -239,10 +257,13 @@ export default function Page() {
         <section className="my-10">
           <h2 className="text-2xl font-bold text-gray-900 mb-3">NPN-licensed alternatives available in Canada</h2>
           <p className="text-sm text-gray-700 leading-relaxed mb-4">
-            Natural health products sold in Canada must hold a Natural Product Number (NPN) issued by Health
-            Canada. {alphaBrainLicensed
+            Health Canada states that &ldquo;All natural health products (NHPs) sold in Canada require a product
+            licence before being marketed&rdquo;, and a licensed product&apos;s label bears an eight-digit Natural
+            Product Number (NPN). {alphaBrainLicensed
               ? 'Our catalogue record lists Alpha Brain as NPN-licensed.'
-              : 'Our catalogue record lists no NPN for Alpha Brain; it reaches Canadian buyers as a personal import.'}{' '}
+              : <>Alpha Brain&apos;s licence, NPN {FORMER_NPN}, is listed as Discontinued in the LNHPD (checked {LNHPD_CHECKED_ON}); we found no active Alpha Brain licence under the brand name &ldquo;Alpha Brain&rdquo; or licence holder &ldquo;Onnit&rdquo;. Look for an eight-digit NPN on the label; without one, a consumer&apos;s only route is personal importation, which Health Canada&apos;s{' '}
+                  <a href="https://www.canada.ca/en/health-canada/services/drugs-health-products/compliance-enforcement/importation-exportation/personal-use-health-products-guidance/document.html" target="_blank" rel="noopener noreferrer" className="text-green-700 underline">GUI-0116 guidance</a>{' '}
+                  limits to &ldquo;no more than a 90-day supply or a single course of treatment, whichever is less&rdquo;.</>}{' '}
             If an NPN-licensed product matters to you, these are the products in our Canadian catalogue whose
             record carries a Health Canada NPN:
           </p>
@@ -286,7 +307,8 @@ export default function Page() {
 
         <p className="text-sm text-gray-600 my-8">
           <strong>Last verified:</strong> <time dateTime={VERIFIED_ON}>{VERIFIED_ON_LABEL}</time> (Onnit market
-          list and USD prices, CBSA pages, catalogue NPN records).
+          list and USD prices, CBSA pages); LNHPD licence status, Onnit store-locator statement and amazon.ca
+          search checked {LNHPD_CHECKED_ON}.
         </p>
 
         <Sources
@@ -300,6 +322,10 @@ export default function Page() {
             { type: 'Regulatory', label: 'CBSA: Importing by mail or courier, paying duty and/or taxes', url: 'https://www.cbsa-asfc.gc.ca/import/postal-postale/dtytx-drttx-eng.html' },
             { type: 'Regulatory', label: 'CBSA: Estimate duty and taxes', url: 'https://www.cbsa-asfc.gc.ca/travel-voyage/dte-acl/est-cal-eng.html' },
             { type: 'Regulatory', label: 'Licensed Natural Health Products Database (LNHPD)', url: 'https://health-products.canada.ca/lnhpd-bdpsnh/' },
+            { type: 'Regulatory', label: `LNHPD product licence record, NPN ${FORMER_NPN} (Alpha Brain, Onnit Labs, LLC, Discontinued)`, url: `https://health-products.canada.ca/api/natural-licences/productlicence/?lang=en&type=json&id=${FORMER_NPN}` },
+            { type: 'Regulatory', label: 'Health Canada: Natural health product licensing', url: 'https://www.canada.ca/en/health-canada/services/drugs-health-products/natural-non-prescription/applications-submissions/product-licensing.html' },
+            { type: 'Regulatory', label: 'Health Canada: Bringing health products into Canada for personal use (GUI-0116)', url: 'https://www.canada.ca/en/health-canada/services/drugs-health-products/compliance-enforcement/importation-exportation/personal-use-health-products-guidance/document.html' },
+            { type: 'Retailer', label: 'Onnit: store locator page ("directed only to U.S. consumers")', url: 'https://www.onnit.com/pages/store-locator' },
           ]}
         />
 
