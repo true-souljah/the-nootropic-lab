@@ -108,6 +108,8 @@
     "verifiedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28",
     "halalCertified": false,
+    "halalCheckedAt": "2026-10-07",
+    "halalBasis": "No halal certificate on mindlabpro.com's product page, homepage, ingredients page or help centre (fetched 2026-10-07); the brand blog 'Are nootropics ethical' says it does not specifically address halal certification. Product page: NutriCaps pullulan capsules, 'Suitable for vegans'.",
     "regulatoryNote": "Ships to Singapore, Thailand, the Philippines, Indonesia and Vietnam per the brand's FAQ (checked 2026-09-29; Malaysia not named on the partial list); BPOM registration and mandatory halal certification (BPJPH, UU JPH 2014) required for sales to Indonesian consumers. Singapore's Health Sciences Authority (HSA) does not subject health supplements to approval or licensing; notification is voluntary (hsa.gov.sg, checked 2026-10-06).",
     "key_features": [
       "Indonesia mandates BPJPH halal certification for supplements sold to Indonesian consumers (UU JPH 2014); imports without certification face marketing restrictions and customs scrutiny"
@@ -227,7 +229,9 @@
     "updatedAt": "2026-09-28",
     "verifiedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28",
-    "halalCertified": false
+    "halalCertified": false,
+    "halalCheckedAt": "2026-10-07",
+    "halalBasis": "No halal statement on the noocube.com homepage (fetched 2026-10-07; /faq and /pages/ingredients return 404, and a site search for halal returned nothing). The page says 'Now Suitable for Vegetarians'; the capsule shell material is not stated."
   },
   {
     "id": "qualia-mind",
@@ -335,7 +339,9 @@
     "verifiedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28",
     "importPathway": "Qualia's own international-shipping page (https://www.qualialife.com/faqs/do-we-ship-internationally, checked 2026-09-28) lists only Canada, the UK, Ireland, Australia and New Zealand outside the US. Buyers in Singapore, Malaysia, Thailand, the Philippines, Indonesia and Vietnam cannot order direct from the brand.",
-    "halalCertified": false
+    "halalCertified": false,
+    "halalCheckedAt": "2026-10-07",
+    "halalBasis": "No halal statement on qualialife.com/shop/qualia-mind or the Qualia FAQ page (fetched 2026-10-07); halal appears only on ingredient pages for other formulas (e.g. LactoSpore). Product page: '6 Vegetarian Capsules', hypromellose in other ingredients."
   },
   {
     "id": "alpha-brain",
@@ -435,7 +441,9 @@
     "updatedAt": "2026-09-28",
     "verifiedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28",
-    "halalCertified": false
+    "halalCertified": false,
+    "halalCheckedAt": "2026-10-07",
+    "halalBasis": "No halal statement on onnit.com's Alpha BRAIN product page, the Alpha BRAIN FAQ or Onnit's certifications article (fetched 2026-10-07); the certifications article names Prop 65 warnings and NSF-certified GMP facilities only. FAQ: 'vegetarian but not vegan'; the capsule shell material is not stated."
   },
   {
     "id": "thesis",
@@ -527,7 +535,9 @@
     "verifiedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28",
     "importPathway": "We could not confirm Thesis's international shipping from its site (its shipping page was unavailable on 2026-09-29) -- check at checkout.",
-    "halalCertified": false
+    "halalCertified": false,
+    "halalCheckedAt": "2026-10-07",
+    "halalBasis": "No halal statement on the takethesis.com homepage, the Clarity product page, or the Thesis FAQ (thesis.applied.guide) quality, vegan and sourcing articles (fetched 2026-10-07). FAQ: 'All our ingredients are vegan'; the capsule shell material is not stated."
   },
   {
     "id": "nootropics-depot-lions-mane",
@@ -592,7 +602,9 @@
     "updatedAt": "2026-09-28",
     "verifiedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-29",
-    "halalCertified": false
+    "halalCertified": false,
+    "halalCheckedAt": "2026-10-07",
+    "halalBasis": "No halal statement on the nootropicsdepot.com Lion's Mane 8:1 extract capsules product page (fetched 2026-10-07), which shows a VEGAN badge and does not state the capsule shell material. The halal statement on ND's Sabinsa page covers Sabinsa-supplied products, not this one."
   },
   {
     "id": "blackmores-brain-active",
@@ -679,7 +691,6 @@
     },
     "verifiedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28",
-    "halalCertified": false,
     "regulatoryNote": "Foreign brands selling in Indonesia must obtain BPOM registration and BPJPH halal certification (UU JPH 2014) to market to Indonesian consumers.",
     "key_features": [
       "Halal certification is mandatory for supplements sold to Indonesian consumers under UU JPH 2014 (BPJPH); non-certified foreign brands face marketing and import restrictions"
@@ -767,6 +778,9 @@
     "market": "both",
     "updatedAt": "2026-09-29",
     "verifiedAt": "2026-09-29",
+    "halalCertified": false,
+    "halalCheckedAt": "2026-10-07",
+    "halalBasis": "The euyansang.com.sg BrainMAX+ product page has no halal text; the SG store's Halal Certified category lists 77 items and BrainMAX+ is not among them (both fetched 2026-10-07). Sold as 3 g sachets.",
     "notes": [
       "Singapore price: S$69.90 for a 30-sachet box (3g x 30 sachets, 1 sachet daily), reduced from the S$89.90 RSP, on the euyansang.com.sg product page (https://www.euyansang.com.sg/en/brainmax-888842543107.html, checked 2026-09-29). USD figure converted at SGD 1 = USD 0.78264 (Frankfurter reference rate dated 2026-09-28, https://api.frankfurter.app/latest?from=SGD&to=USD): 69.90 × 0.78264 = USD 54.71."
     ],
@@ -846,7 +860,9 @@
     "editorChoice": false,
     "market": "both",
     "updatedAt": "2026-05-28",
-    "halalCertified": false
+    "halalCertified": false,
+    "halalCheckedAt": "2026-10-07",
+    "halalBasis": "No halal statement on the Amazon SG listing or the brand store's ginkgo product page (naturebellusa.com; naturebell.com only redirects), fetched 2026-10-07; the capsule shell material is not stated."
   },
   {
     "id": "memo-plus-gold",
@@ -917,6 +933,8 @@
     ],
     "handsOnTested": false,
     "halalCertified": false,
+    "halalCheckedAt": "2026-10-07",
+    "halalBasis": "No halal statement on davenben.com (home and Memo Plus Gold pages) or the Davenben Memo Plus Gold leaflet hosted by MIMS (fetched 2026-10-07); the mypharma.ph product page did not respond, so it was not checked. The leaflet does not state the capsule shell material.",
     "regulatoryNote": "Registered with the Philippine Food and Drug Administration (FDA Philippines) as a food supplement with no approved therapeutic claims (verification portal entry FR-4000008457622 for brand Memo Plus Gold, Davenben Enterprises Corp., valid to 15 October 2031, checked 2026-10-06). Malaysia's National Pharmaceutical Regulatory Agency (NPRA) register lists 'Memo Plus Gold Capsule 125 mg' as MAL05092320T, held by OZE Marketing Sdn. Bhd. (QUEST3+ search, checked 2026-10-06). Elsewhere it is imported under personal-use allowances; we have not verified a local product registration with the Thai FDA, the Badan Pengawas Obat dan Makanan (BPOM) in Indonesia or the Vietnam Food Administration (VFA)."
   },
   {
@@ -966,6 +984,8 @@
     "first_seen": "2026-06-25",
     "founded": null,
     "halalCertified": false,
+    "halalCheckedAt": "2026-10-07",
+    "halalBasis": "No halal statement on the supershrooms.ph Focus Nootropic product page or its Shopify product data (fetched 2026-10-07; /pages/faq returns 404). Sold by the pouch; no capsule is stated.",
     "handsOnTested": false,
     "heroIngredients": [
       "Lion's Mane",
