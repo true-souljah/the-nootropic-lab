@@ -26,7 +26,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Phosphatidylserine (PS) — FDA qualified health claim',
     evidence:
-      'The US FDA permits a qualified health claim that PS may reduce risk of dementia and cognitive dysfunction in elderly. Multiple RCTs in 50–80-year-olds at 100–300mg/day show improvements in memory, processing speed, and cognitive complaints. The strongest age-related cognitive evidence in this category. Sunflower-derived PS is the preferred form for halal-conscious buyers and those with soy allergies.',
+      'The US FDA permits a qualified health claim that PS may reduce risk of dementia and cognitive dysfunction in elderly. Multiple RCTs in 50–80-year-olds at 100–300mg/day show improvements in memory, processing speed, and cognitive complaints. The strongest age-related cognitive evidence in this category. The trial linked below (Vakhapova et al. 2010) is not the basis of the FDA claim: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo. Sunflower-derived PS is the preferred form for halal-conscious buyers and those with soy allergies.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {
@@ -50,8 +50,8 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Cera-Q (Silk Fibroin Protein) — Asia-developed',
     evidence:
-      'Korean-developed silk fibroin protein hydrolysate. Clinical trials show inhibition of amyloid-beta aggregation and acetylcholine support, with measurable improvements in memory recall in older adults at 200mg/day. Particularly common in Asia-developed memory supplements (Eu Yan Sang BrainMAX+ lists 600mg per sachet).',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/27097658/',
+      'Korean-developed silk fibroin protein hydrolysate. In a 3-week placebo-controlled trial in healthy adults averaging about 55 years (Kang et al. 2018; two of the four authors were affiliated with BrainOn Inc.), 280–600mg/day raised memory-quotient scores dose-dependently, plateauing at 400–600mg. Particularly common in Asia-developed memory supplements (Eu Yan Sang BrainMAX+ lists 600mg per sachet).',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/29462997/',
   },
 ];
 
@@ -66,7 +66,7 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'eu-yan-sang-brainmax-review')!,
     rank: 2,
     whyItsHere:
-      'A 145-year-old TCM heritage brand with 200+ stores across Singapore, Malaysia, Hong Kong, and Macau — deep trust among Chinese-heritage older buyers in SEA. Cera-Q (silk fibroin protein, clinically studied for memory in older adults) at 600mg per sachet (above the 200mg clinical dose), plus Goji Berry and Chinese Wild Ginseng (TCM tradition for cognitive health). Powder sachet format is friendlier than capsules for older adults with swallowing difficulties. Walk into any Eu Yan Sang store for in-person purchase and pharmacist consultation. Delivery outside Singapore was not confirmed — check delivery options at checkout.',
+      'A 145-year-old TCM heritage brand with 200+ stores across Singapore, Malaysia, Hong Kong, and Macau — deep trust among Chinese-heritage older buyers in SEA. Cera-Q (silk fibroin protein, studied for memory in one 3-week trial of healthy adults averaging about 55, by BrainOn-affiliated authors) at 600mg per sachet (the top of the 280–600mg/day range that trial tested), plus Goji Berry and Chinese Wild Ginseng (TCM tradition for cognitive health). Powder sachet format is friendlier than capsules for older adults with swallowing difficulties. Walk into any Eu Yan Sang store for in-person purchase and pharmacist consultation. Delivery outside Singapore was not confirmed — check delivery options at checkout.',
   },
   {
     product: productsSEA.find(p => p.slug === 'qualia-mind-review')!,

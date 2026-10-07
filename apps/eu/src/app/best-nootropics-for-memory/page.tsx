@@ -38,7 +38,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Phosphatidylserine (PS)',
     evidence:
-      'Phospholipid component of brain cell membranes. Most RCT evidence is in 50–80-year-olds at 100–300mg/day. The EU does not authorise the US-style "may reduce risk of dementia" qualified claim — EFSA has rejected several PS health claims, so EU labels describe PS in mechanism rather than outcome terms.',
+      'Phospholipid component of brain cell membranes. Most RCT evidence is in 50–80-year-olds at 100–300mg/day. The EU does not authorise the US-style "may reduce risk of dementia" qualified claim — EFSA has rejected several PS health claims, so EU labels describe PS in mechanism rather than outcome terms. The trial linked below (Vakhapova et al. 2010) is separate from these regulatory decisions: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {

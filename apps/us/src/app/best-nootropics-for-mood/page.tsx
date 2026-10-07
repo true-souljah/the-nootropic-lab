@@ -32,20 +32,20 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Theanine — anxiolytic / calming',
     evidence:
-      'Acutely reduces subjective stress and anxiety markers. Promotes alpha-wave EEG patterns associated with relaxed alertness. Most-replicated calm-focus ingredient. 100–200mg.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22214254/',
+      'In a placebo-controlled crossover trial in 34 healthy adults (White et al. 2016), an L-theanine-based nutrient drink lowered the self-rated stress response to a multitasking stressor one hour after dosing and the cortisol response at three hours; resting alpha-wave activity rose only in participants higher in trait anxiety. Typical supplement dose: 100–200mg.',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/26797633/',
   },
   {
     name: 'Bacopa Monnieri — long-term mood + cognition',
     evidence:
-      'Beyond memory consolidation, multiple RCTs show Bacopa reduces anxiety and supports overall mood in healthy adults after 8–12 weeks. Slow-onset, cumulative effect.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/23772955/',
+      'Beyond memory consolidation, a 12-week RCT in adults aged 65 and over (Calabrese et al. 2008) found 300mg/day of standardized Bacopa lowered depression (CESD-10) and combined anxiety scores, which rose on placebo; a separate mood measure (Profile of Mood States) did not change. Slow-onset, cumulative effect.',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18611150/',
   },
   {
     name: 'Saffron extract (where available)',
     evidence:
-      'Multiple RCTs show saffron extract (Affron, Crocus sativus) at 28–30mg/day improves mood scores in adults with mild-to-moderate low mood. Generally not in mainstream nootropic stacks; some standalone supplements available.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/29580657/',
+      'A 2026 meta-analysis of 34 RCTs (1,769 adults; Mahmoudi et al.) found saffron (Crocus sativus) lowered self-reported depression and anxiety scores (Beck Depression and Beck Anxiety Inventories) but not clinician-rated Hamilton scores; certainty of evidence was rated moderate. Generally not in mainstream nootropic stacks; some standalone supplements available.',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/41693488/',
   },
 ];
 
