@@ -66,7 +66,7 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'eu-yan-sang-brainmax-review')!,
     rank: 3,
     whyItsHere:
-      'Cera-Q (silk fibroin protein) is clinically studied for memory recall and learning at 200mg; Eu Yan Sang BrainMAX+ lists 600mg per sachet. Combined with Goji Berry (146mg) and Chinese Wild Ginseng (37mg). From a 145-year-old TCM heritage brand based in Singapore. Caffeine-free powder sachets, so there is no capsule shell to check. Sold on Eu Yan Sang\'s Singapore storefront; delivery to GCC addresses was not confirmed in our 2026-09-28 check. Note: silk fibroin sourcing uses cocoons; observant buyers concerned about insect-derived ingredients should be aware. We have not verified an SFDA or MOHAP product registration.',
+      'Cera-Q (silk fibroin protein) has one citable 3-week trial in healthy adults averaging about 55, run by maker-affiliated authors, in which 400–600mg/day raised memory-test scores (the trial tested 280–600mg); Eu Yan Sang BrainMAX+ lists 600mg per sachet, the top of that range. Combined with Goji Berry (146mg) and Chinese Wild Ginseng (37mg). From a 145-year-old TCM heritage brand based in Singapore. Caffeine-free powder sachets, so there is no capsule shell to check. Sold on Eu Yan Sang\'s Singapore storefront; delivery to GCC addresses was not confirmed in our 2026-09-28 check. Note: silk fibroin sourcing uses cocoons; observant buyers concerned about insect-derived ingredients should be aware. We have not verified an SFDA or MOHAP product registration. Note that Korea\'s regulator revoked Cera-Q\'s functional-ingredient recognition in 2017 after its supporting study was retracted (details in our BrainMAX+ review).',
   },
   {
     product: productsGCC.find(p => p.slug === 'nootropics-depot-lions-mane')!,
@@ -87,7 +87,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'What is the most evidence-backed nootropic for memory?',
-    a: 'Bacopa Monnieri at 300mg standardised to 50% bacosides has the most replicated RCT evidence for memory consolidation in healthy adults. Phosphatidylserine has the FDA qualified health claim for cognitive function in elderly. Citicoline has good evidence for older adults with age-related memory complaints. Cera-Q (in Eu Yan Sang BrainMAX+) is a newer ingredient with promising clinical data specifically on memory recall.',
+    a: 'Bacopa Monnieri at 300mg standardised to 50% bacosides has the most replicated RCT evidence for memory consolidation in healthy adults. Phosphatidylserine has the FDA qualified health claim for cognitive function in elderly. Citicoline has good evidence for older adults with age-related memory complaints. Cera-Q (in Eu Yan Sang BrainMAX+) is a newer ingredient whose memory evidence is one citable 3-week trial by maker-affiliated authors.',
   },
   {
     q: 'How long until memory nootropics work?',
