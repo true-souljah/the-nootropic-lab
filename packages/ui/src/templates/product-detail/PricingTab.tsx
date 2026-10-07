@@ -2,6 +2,7 @@ import { Card } from '../../primitives/Card';
 import { Chip } from '../../primitives/Chip';
 import TrackedAffiliateLink from '../../TrackedAffiliateLink';
 import type { Product, UIStrings } from '@nootropic/data';
+import { guaranteeDays } from '@nootropic/data';
 
 export interface PricingTabProps {
   product: Product;
@@ -28,7 +29,7 @@ export function PricingTab({ product: p, disclosure }: PricingTabProps) {
             </div>
           )}
           <ul className="list-none p-0 m-0 mb-4 flex flex-col gap-2">
-            {['Lowest available price', `${p.moneyBackDays}-day money-back guarantee`, 'Cancel anytime', 'Free shipping'].map((b) => (
+            {['Lowest available price', ...(p.moneyBackDays === null ? [] : [`${p.moneyBackDays}-day money-back guarantee`]), 'Cancel anytime', 'Free shipping'].map((b) => (
               <li
                 key={b}
                 className="flex gap-2 text-[13.5px] text-ds-ink-soft py-[6px] border-b border-ds-border last:border-b-0"
@@ -69,10 +70,12 @@ export function PricingTab({ product: p, disclosure }: PricingTabProps) {
               <span className="text-ds-good font-bold shrink-0" aria-hidden="true">✓</span>
               <span>No subscription commitment</span>
             </li>
-            <li className="flex gap-2 text-[13.5px] text-ds-ink-soft py-[6px] border-b border-ds-border">
-              <span className="text-ds-good font-bold shrink-0" aria-hidden="true">✓</span>
-              <span>{p.moneyBackDays}-day money-back still applies</span>
-            </li>
+            {p.moneyBackDays !== null && (
+              <li className="flex gap-2 text-[13.5px] text-ds-ink-soft py-[6px] border-b border-ds-border">
+                <span className="text-ds-good font-bold shrink-0" aria-hidden="true">✓</span>
+                <span>{p.moneyBackDays}-day money-back still applies</span>
+              </li>
+            )}
             <li className="flex gap-2 text-[13.5px] text-ds-ink-soft py-[6px] border-b border-ds-border">
               <span className="text-ds-good font-bold shrink-0" aria-hidden="true">✓</span>
               <span>Faster delivery if in stock</span>
@@ -105,9 +108,11 @@ export function PricingTab({ product: p, disclosure }: PricingTabProps) {
             <div className="text-[11px] uppercase tracking-[0.12em] font-semibold text-ds-muted mb-1">
               Money-back
             </div>
-            <div className="text-[16px] font-semibold text-ds-ink mb-1">{p.moneyBackDays} days</div>
+            <div className="text-[16px] font-semibold text-ds-ink mb-1">{guaranteeDays(p.moneyBackDays, (d) => `${d} days`)}</div>
             <p className="text-[13px] text-ds-ink-soft m-0 leading-[1.55]">
-              Full refund if you&apos;re not satisfied. Brand-direct guarantee, not Amazon&apos;s.
+              {p.moneyBackDays === null
+                ? 'No single guarantee length is published; check the brand’s refund policy for its conditions.'
+                : <>Full refund if you&apos;re not satisfied. Brand-direct guarantee, not Amazon&apos;s.</>}
             </p>
           </div>
           <div>

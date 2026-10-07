@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { BestOf, SchemaOrg, Card, Chip, ScorePill, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
-import { productsUS } from '@nootropic/data';
+import { productsUS, guaranteeDays } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -343,7 +343,7 @@ export default async function StateNootropicsPage({
                         </p>
                         <div className="flex flex-wrap gap-4 text-[12px] text-ds-muted ds-tabular">
                           {p.priceMonthlyUSD && <span>{`$${p.priceMonthlyUSD}/mo`}</span>}
-                          <span>{p.moneyBackDays}-day MBG</span>
+                          <span>{guaranteeDays(p.moneyBackDays, (d) => `${d}-day`)} MBG</span>
                           <span>{p.trustpilotScore === null ? 'Trustpilot N/A' : `Trustpilot ${p.trustpilotScore}/5`}</span>
                         </div>
                       </div>

@@ -12,7 +12,7 @@ import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
 import { Bar } from '../primitives/Bar';
 import { FaqAccordion } from '../primitives/FaqAccordion';
-import { buildPersonAuthorReference, servingAmount } from '@nootropic/data';
+import { buildPersonAuthorReference, servingAmount, pillarText, guaranteeDays } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import {
   useCaseListPageEnDefaults,
@@ -286,7 +286,7 @@ export default function Listicle({
                         <div className="text-[12.5px] text-ds-muted mb-4 ds-tabular">
                           {pick.product.priceMonthlyUSD && (
                             <>
-                              {`$${pick.product.priceMonthlyUSD}/mo`} · {servingAmount(pick.product, uiStrings)} · {pick.product.moneyBackDays}d MBG
+                              {`$${pick.product.priceMonthlyUSD}/mo`} · {servingAmount(pick.product, uiStrings)} · {guaranteeDays(pick.product.moneyBackDays, (d) => `${d}d`)} MBG
                             </>
                           )}
                         </div>
@@ -333,10 +333,11 @@ export default function Listicle({
                                   >
                                     <span className="text-[11px] text-ds-muted capitalize">{key}</span>
                                     <Bar
-                                      value={v}
+                                      value={v ?? 0}
+                                      decorative={v === null}
                                       label={`${pick.product.name} ${key} score`}
                                     />
-                                    <span className="text-[11px] text-ds-ink text-right ds-tabular">{v}</span>
+                                    <span className="text-[11px] text-ds-ink text-right ds-tabular">{pillarText(v)}</span>
                                   </div>
                                 );
                               })}

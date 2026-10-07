@@ -13,6 +13,7 @@ import {
   mbgFit,
   type QuizAnswers,
 } from './quizScoring';
+import { guaranteeDays } from '@nootropic/data';
 
 export interface QuizResultsProps {
   products: Product[];
@@ -154,8 +155,8 @@ export default function QuizResults({
             <FitRow
               label="Money-back"
               user={answers.mbg}
-              productAttr={`${top.moneyBackDays} days`}
-              tone={mbgFit(top.moneyBackDays, answers.mbg) >= 1.0 ? 'good' : 'warn'}
+              productAttr={guaranteeDays(top.moneyBackDays, (d) => `${d} days`)}
+              tone={mbgFit(top.moneyBackDays ?? 0, answers.mbg) >= 1.0 ? 'good' : 'warn'}
             />
           </div>
         </Card>
@@ -185,7 +186,7 @@ export default function QuizResults({
                   <div className="text-[12px] text-ds-muted mt-3 ds-tabular">
                     {r.product.priceMonthlyUSD ? `$${r.product.priceMonthlyUSD}/mo` : ''}
                     {r.product.priceMonthlyUSD && ' · '}
-                    {r.product.moneyBackDays}-day MBG
+                    {guaranteeDays(r.product.moneyBackDays, (d) => `${d}-day`)} MBG
                     {r.product.caffeineFree ? ' · caffeine-free' : ''}
                   </div>
                 </Card>
