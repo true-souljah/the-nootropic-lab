@@ -72,7 +72,7 @@ const picks: ListiclePick[] = [
     product: productsCA.find(p => p.slug === 'naturebell-ginkgo-ginseng-review')!,
     rank: 3,
     whyItsHere:
-      'Budget pick at CAD ~$7/month. Delivers Ginkgo Biloba at the full Health Canada-monograph clinical dose (120mg, 50:1 extract) — the single best-supported age-cognitive ingredient outside the premium stacks. Available at Shoppers Drug Mart-tier price points via Amazon.ca with Prime shipping. Single-mechanism (cerebral blood flow); pair with a PS supplement for fuller coverage. No Health Canada Natural Product Number (NPN) licence verified by us.',
+      'Budget pick at CAD ~$7/month. Delivers Ginkgo Biloba at the full clinical dose (120mg, 50:1 extract) — the single best-supported age-cognitive ingredient outside the premium stacks. Listed on amazon.ca. Single-mechanism (cerebral blood flow); pair with a PS supplement for fuller coverage. No NPN (Natural Product Number) found for NatureBell Ginkgo + Ginseng in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07).',
   },
   {
     product: productsCA.find(p => p.slug === 'onnit-alpha-brain-review')!,
@@ -89,7 +89,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'What does the FDA qualified health claim for PS mean for Canadian buyers?',
-    a: 'The US FDA allows phosphatidylserine to carry a qualified claim that "very limited and preliminary scientific research suggests that PS may reduce the risk of dementia or cognitive dysfunction in the elderly." This is a softer claim than full FDA-approved health claims. Health Canada\'s own NPN monograph for PS recognises memory support claims for older adults at 100–300mg/day; a CA-domiciled NPN-registered PS supplement carries this Health Canada-permitted claim.',
+    a: 'The US FDA allows phosphatidylserine to carry a qualified claim that "very limited and preliminary scientific research suggests that PS may reduce the risk of dementia or cognitive dysfunction in the elderly." This is a softer claim than full FDA-approved health claims. In Canada, what a PS product may claim is set by its Health Canada product licence. We have not reviewed Health Canada\'s phosphatidylserine monograph for this page, so read the recommended use printed on the label of a product that carries an eight-digit NPN (Natural Product Number).',
   },
   {
     q: 'When should I start taking these?',
@@ -108,8 +108,8 @@ const faqItems: ListicleFAQ[] = [
     a: 'Phosphatidylserine: 4–12 weeks. Citicoline: 4–12 weeks. Bacopa: 8–12 weeks. Lion\'s Mane: 8–16 weeks. Ginkgo: 4–8 weeks. None are acute-effect ingredients. Track changes over 12 weeks of consistent dosing — ideally with a baseline cognitive measure.',
   },
   {
-    q: 'Can I buy these at Shoppers Drug Mart, Rexall, or Costco in Canada?',
-    a: 'For premium multi-ingredient stacks (Mind Lab Pro, Qualia Mind, Hunter Focus): no — these are direct-to-consumer only and ship internationally to Canadian addresses. For single ingredients (PS, Bacopa, Ginkgo, Lion\'s Mane): yes — Shoppers, Rexall, and Costco all carry NPN-registered Canadian brands of these single ingredients. NatureBell Ginkgo+Ginseng is available on Amazon.ca with Prime shipping.',
+    q: 'Can I buy these in a Canadian store?',
+    a: 'The premium multi-ingredient stacks (Mind Lab Pro, Qualia Mind, Hunter Focus) are sold direct by their brands and ship internationally to Canadian addresses; we found no NPN (Natural Product Number) for any of them in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07). For single-ingredient PS, Bacopa, Ginkgo or Lion\'s Mane bought in a store, look for an eight-digit NPN on the label; the LNHPD lets you check it. NatureBell Ginkgo + Ginseng is listed on amazon.ca.',
   },
 ];
 

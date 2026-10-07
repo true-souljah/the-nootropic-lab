@@ -58,7 +58,7 @@ export default function GuidesPage() {
         </h1>
         <p className="text-lg text-gray-600 mb-10">
           Practical, evidence-based guides to understanding and using nootropics effectively.
-          All information is relevant to products available in Canada — Health Canada licensed (NPN) or via the Personal Importation Program.
+          All information is relevant to products available in Canada — licensed by Health Canada with a Natural Product Number (NPN), or bought for personal use under Health Canada&apos;s personal importation guidance (GUI-0116).
         </p>
 
         <div className="grid sm:grid-cols-2 gap-6">
