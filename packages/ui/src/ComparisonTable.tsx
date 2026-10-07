@@ -121,7 +121,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
           </button>
         ))}
         <div className="flex items-center gap-2 ml-auto text-sm text-gray-600">
-          <label htmlFor={priceInputId}>Max {currency}{formatPrice(priceMax)}/mo</label>
+          <label htmlFor={priceInputId}>Max {`${currency}${formatPrice(priceMax)}/mo`}</label>
           <input
             id={priceInputId}
             type="range"
@@ -222,7 +222,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                             : 'text-red-600 font-semibold'
                         }
                       >
-                        {p.trustpilotScore}/5
+                        {`${p.trustpilotScore}/5`}
                       </span>
                       {p.trustpilotCount !== null && (
                         <span className="text-xs text-gray-500 ml-1">
@@ -305,7 +305,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                           : 'text-red-600'
                       }
                     >
-                      {p.trustpilotScore}/5
+                      {`${p.trustpilotScore}/5`}
                     </strong>
                   ) : (
                     <span className="text-gray-500">{t?.na || 'N/A'}</span>

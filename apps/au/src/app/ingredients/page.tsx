@@ -24,7 +24,7 @@ export default function IngredientsPage() {
       '@type': 'ListItem',
       position: i + 1,
       name: ing.name,
-      url: `https://thenootropiclab.com/ingredients/${ing.slug}/`,
+      url: `https://au.thenootropiclab.com/ingredients/${ing.slug}/`,
     })),
   };
 

@@ -351,7 +351,8 @@ export default function ThreeWay({
                   >
                     {p.score.toFixed(1)}
                   </span>
-                  <span className="text-[11px] text-ds-muted">/10</span>
+                  {/* Slash kept apart: a payload string "/10" is crawled as a URL (check:links rsc-string). */}
+                  <span className="text-[11px] text-ds-muted">{'/'}10</span>
                 </div>
               </Card>
             );
@@ -382,7 +383,7 @@ export default function ThreeWay({
                     : 'bg-ds-card hover:bg-ds-card-sub text-ds-ink border border-ds-border'
                 }`}
               >
-                Check {p.name} ({formatPrice(p)}/mo) →
+                Check {p.name} ({`${formatPrice(p)}/mo`}) →
               </TrackedAffiliateLink>
             ))}
           </div>
@@ -470,7 +471,7 @@ export default function ThreeWay({
                 {(Object.entries(p.scoreBreakdown) as [string, number][]).map(([k, v]) => (
                   <div key={k} className="flex justify-between text-[12.5px] text-ds-ink-soft">
                     <span className="capitalize">{k}</span>
-                    <span className="ds-tabular font-semibold">{v}/10</span>
+                    <span className="ds-tabular font-semibold">{`${v}/10`}</span>
                   </div>
                 ))}
               </div>

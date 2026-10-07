@@ -342,7 +342,7 @@ export default async function StateNootropicsPage({
                           {p.summary}
                         </p>
                         <div className="flex flex-wrap gap-4 text-[12px] text-ds-muted ds-tabular">
-                          {p.priceMonthlyUSD && <span>${p.priceMonthlyUSD}/mo</span>}
+                          {p.priceMonthlyUSD && <span>{`$${p.priceMonthlyUSD}/mo`}</span>}
                           <span>{p.moneyBackDays}-day MBG</span>
                           <span>{p.trustpilotScore === null ? 'Trustpilot N/A' : `Trustpilot ${p.trustpilotScore}/5`}</span>
                         </div>
