@@ -8,6 +8,7 @@ import { FPTrustNote } from '../public-chrome/FPTrustNote';
 import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { Tabs, TabPanel } from '../primitives/Tabs';
+import { ProductThumb } from '../primitives/ProductThumb';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
 import { productForm, servingAmount, servingUnit, guaranteeDays } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
@@ -158,12 +159,7 @@ export default function ProductDetail({
         {/* Header card */}
         <Card padding={24} className="mb-4">
           <div className="flex gap-[22px] items-start flex-wrap">
-            <div
-              className="w-[72px] h-[72px] bg-ds-ink rounded-[16px] grid place-items-center text-white font-extrabold text-[28px] flex-shrink-0"
-              aria-hidden="true"
-            >
-              {p.name[0]}
-            </div>
+            <ProductThumb product={p} size={72} variant="lg" eager />
             <div className="flex-1 min-w-0">
               <div
                 role="group"

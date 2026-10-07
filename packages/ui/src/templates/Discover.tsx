@@ -7,6 +7,7 @@ import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
 import { Bar } from '../primitives/Bar';
+import { ProductThumb } from '../primitives/ProductThumb';
 import ShortlistButton from './ShortlistButton';
 import { servingAmount, pillarText, guaranteeDays } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
@@ -205,12 +206,7 @@ export default function Discover({
                 Top pick · {month}
               </div>
               <div className="flex items-center gap-3 mt-[10px]">
-                <div
-                  className="w-11 h-11 bg-ds-accent rounded-[10px] grid place-items-center text-white font-extrabold text-[18px] flex-shrink-0"
-                  aria-hidden="true"
-                >
-                  {topPick.name[0]}
-                </div>
+                <ProductThumb product={topPick} size={44} variant="sm" monogramBg="var(--color-ds-accent)" />
                 <div className="flex-1 min-w-0">
                   <Link
                     href={`/${topPick.slug}/`}
@@ -307,12 +303,7 @@ export default function Discover({
             {visible.map((p) => (
               <Card key={p.slug} padding={0} as="article">
                 <div className="p-[18px] flex items-start gap-3 border-b border-ds-border">
-                  <div
-                    className="w-10 h-10 bg-ds-ink rounded-[10px] grid place-items-center text-white font-extrabold text-[16px] flex-shrink-0"
-                    aria-hidden="true"
-                  >
-                    {p.name[0]}
-                  </div>
+                  <ProductThumb product={p} size={40} variant="sm" />
                   <div className="flex-1 min-w-0">
                     <div className="flex justify-between gap-2 items-start">
                       <div className="min-w-0">

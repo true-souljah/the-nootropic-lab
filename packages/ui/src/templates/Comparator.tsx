@@ -7,6 +7,7 @@ import AppShell from './AppShell';
 import { FPDisclosure } from '../public-chrome/FPDisclosure';
 import { ScorePill } from '../primitives/ScorePill';
 import { LiveRegion } from '../primitives/LiveRegion';
+import { ProductThumb } from '../primitives/ProductThumb';
 import { outOfTen } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
@@ -383,12 +384,7 @@ export default function Comparator({
                       className="px-[14px] py-3 flex items-center gap-[10px]"
                       style={{ flex: '0 0 260px' }}
                     >
-                      <div
-                        className="w-8 h-8 bg-ds-ink rounded-[7px] grid place-items-center text-white font-bold text-[13px] flex-shrink-0"
-                        aria-hidden="true"
-                      >
-                        {p.name[0]}
-                      </div>
+                      <ProductThumb product={p} size={32} variant="sm" />
                       <div className="min-w-0">
                         <Link
                           href={`/${p.slug}/`}

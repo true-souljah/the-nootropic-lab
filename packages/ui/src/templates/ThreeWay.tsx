@@ -11,6 +11,7 @@ import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
 import { FaqAccordion } from '../primitives/FaqAccordion';
+import { ProductThumb } from '../primitives/ProductThumb';
 import { buildPersonAuthorReference, servingAmount, servingsComparable, outOfTen, guaranteeDays } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
@@ -328,13 +329,8 @@ export default function ThreeWay({
                 >
                   #{place}
                 </div>
-                <div
-                  className="w-11 h-11 rounded-[10px] grid place-items-center text-white font-extrabold text-[18px] mb-3"
-                  style={{ background: badgeBg }}
-                  aria-hidden="true"
-                >
-                  {p.name[0]}
-                </div>
+                {/* Rank stays colour-coded on the #place badge above (same badgeBg). */}
+                <ProductThumb product={p} size={44} variant="sm" monogramBg={badgeBg} className="mb-3" />
                 <div className="text-[18px] font-bold tracking-[-0.015em] text-ds-ink">{p.name}</div>
                 <div className="text-ds-muted text-[12px] mt-[2px]">{p.brand}</div>
                 <div className="flex items-baseline gap-1 mt-[10px]">
