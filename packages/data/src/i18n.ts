@@ -226,7 +226,7 @@ export interface UIStrings {
       handsOnTested: string;
       /** Health Canada NPN-licensed. Number appended after the label in JSX. */
       npnLicensed: string;
-      /** Reaches CA via Personal Importation Program (not Health Canada licensed). */
+      /** No active NPN found in the LNHPD for the names searched (personal importation under GUI-0116 is the route only without a label NPN). */
       personalImport: string;
       /** JP Foods with Function Claims (機能性表示食品) notified to the Consumer Affairs Agency. */
       ffcNotified: string;

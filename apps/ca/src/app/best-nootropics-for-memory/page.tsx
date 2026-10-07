@@ -72,13 +72,13 @@ const picks: ListiclePick[] = [
     product: productsCA.find(p => p.slug === 'naturebell-ginkgo-ginseng-review')!,
     rank: 3,
     whyItsHere:
-      'The budget pick — CAD ~$7/month from Amazon.ca with Prime shipping anywhere in Canada. Delivers Ginkgo Biloba at the full Health Canada-monograph clinical dose (120mg, 50:1 extract). Single-mechanism (cerebral blood flow), not a complete memory stack. Best as a cheap addition alongside Mind Lab Pro, or as an entry-point trial. No Health Canada Natural Product Number (NPN) licence verified by us (imported as personal-use).',
+      'The budget pick — CAD ~$7/month, listed on amazon.ca. Delivers Ginkgo Biloba at the full clinical dose (120mg, 50:1 extract). Single-mechanism (cerebral blood flow), not a complete memory stack. Best as a cheap addition alongside Mind Lab Pro, or as an entry-point trial. No NPN (Natural Product Number) found for NatureBell Ginkgo + Ginseng in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07); check the listing or label for an eight-digit NPN.',
   },
   {
     product: productsCA.find(p => p.slug === 'onnit-alpha-brain-review')!,
     rank: 4,
     whyItsHere:
-      'Contains Bacopa, Lion\'s Mane, and Huperzine A (an acetylcholinesterase inhibitor with weak memory evidence). Proprietary blends mean you cannot verify Bacopa is at the 300mg clinical dose. Mainstream availability via Amazon.ca and occasional GNC Canada distribution is its strongest feature for memory buyers who want retail access.',
+      'Contains Bacopa, Lion\'s Mane, and Huperzine A (an acetylcholinesterase inhibitor with weak memory evidence). Proprietary blends mean you cannot verify Bacopa is at the 300mg clinical dose. Its former Health Canada licence, NPN 80041968, is listed as Discontinued in the LNHPD (checked 2026-10-07), and we found no Onnit listing on amazon.ca\'s first page of search results that day, so confirm Canadian delivery at checkout.',
   },
 ];
 
@@ -93,7 +93,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Are memory nootropics regulated by Health Canada?',
-    a: 'All CA-domiciled natural health products carry an NPN (Natural Product Number) issued by Health Canada that confirms safety, quality, and permitted health claims. Cross-border imports (Mind Lab Pro, Qualia Mind, Hunter Focus) do not carry an NPN — they enter as personal-use supplements. Bacopa, Ginkgo, Lion\'s Mane, and PS all have Health Canada NPN monographs that domestic Canadian brands can register against.',
+    a: 'Health Canada states that "All natural health products (NHPs) sold in Canada require a product licence before being marketed", and a licensed product\'s label bears an eight-digit NPN (Natural Product Number). We found no NPN for Mind Lab Pro, Qualia Mind or Hunter Focus in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07); a licence can be held under another name, so look for an eight-digit NPN on the label; without one, a consumer\'s only route is personal importation, which Health Canada\'s GUI-0116 limits to "no more than a 90-day supply or a single course of treatment, whichever is less".',
   },
   {
     q: 'Are memory nootropics safe long-term?',
@@ -120,7 +120,7 @@ export default function Page() {
       useCase="memory"
       pageTitle="Best Nootropics for Memory in Canada"
       pageDescription="Independent ranking of the best nootropics for memory and recall available to Canadian buyers, based on clinical evidence."
-      heroParagraph="Memory is the use case where nootropics have the most replicated evidence — primarily from Bacopa Monnieri RCTs over 30+ years. This page ranks the products available to Canadian buyers (Health Canada NPN-registered or shipped cross-border) that contain Bacopa, Lion's Mane, phosphatidylserine, citicoline, or Ginkgo at or near clinical dose."
+      heroParagraph="Memory is the use case where nootropics have the most replicated evidence — primarily from Bacopa Monnieri RCTs over 30+ years. This page ranks the products available to Canadian buyers (licensed by Health Canada with a Natural Product Number (NPN), or imported for personal use) that contain Bacopa, Lion's Mane, phosphatidylserine, citicoline, or Ginkgo at or near clinical dose."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}
