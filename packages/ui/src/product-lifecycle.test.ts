@@ -181,10 +181,13 @@ describe('scoreProblem — unscorable pillars (2026-10, SEA Supershrooms)', () =
     expect(scoreProblem({ score: 4.7, scoreBreakdown: partial, unscoredReason: '  ' })).toMatch(/without unscoredReason/);
   });
 
-  test('the overall score must be the mean of the scored pillars', () => {
-    expect(scoreProblem({ score: 4.7, scoreBreakdown: partial, unscoredReason: reason })).toBeNull();
+  test('the overall score must be the weighted mean of the scored pillars', () => {
+    // (0.25×6 + 0.20×4 + 0.10×4) / 0.55 = 4.909 — PILLAR_WEIGHTS renormalised over the scored pillars.
+    expect(scoreProblem({ score: 4.9, scoreBreakdown: partial, unscoredReason: reason })).toBeNull();
+    // An equal-weight mean (4.7) is not the published method.
+    expect(scoreProblem({ score: 4.7, scoreBreakdown: partial, unscoredReason: reason })).toMatch(/weighted mean.*4\.9/);
     // The pre-fix live value: 5.5 cannot be derived from 6, 4, 4.
-    expect(scoreProblem({ score: 5.5, scoreBreakdown: partial, unscoredReason: reason })).toMatch(/not the mean.*4\.7/);
+    expect(scoreProblem({ score: 5.5, scoreBreakdown: partial, unscoredReason: reason })).toMatch(/not the weighted mean.*4\.9/);
   });
 
   test('only dosing and value may be unscored', () => {
@@ -197,7 +200,7 @@ describe('scoreProblem — unscorable pillars (2026-10, SEA Supershrooms)', () =
       expect(scoreProblem(p), p.slug).toBeNull();
     }
     const supershrooms = allProductsSEA.find((p) => p.slug === 'supershrooms-focus-nootropic-review');
-    expect(supershrooms?.score).toBe(4.7);
+    expect(supershrooms?.score).toBe(4.9);
     expect(supershrooms?.unscoredReason).toMatch(/discloses no ingredient doses/);
   });
 });

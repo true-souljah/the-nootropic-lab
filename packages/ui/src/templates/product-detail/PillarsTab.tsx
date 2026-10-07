@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { Card } from '../../primitives/Card';
 import { Bar } from '../../primitives/Bar';
-import { PILLAR_LABELS, PILLAR_WEIGHTS, PILLAR_RATIONALE } from './constants';
+import { PILLAR_LABELS, PILLAR_RATIONALE } from './constants';
 import type { Product } from '@nootropic/data';
-import { pillarText } from '@nootropic/data';
+import { pillarText, PILLAR_WEIGHTS } from '@nootropic/data';
 
 export interface PillarsTabProps {
   product: Product;

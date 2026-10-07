@@ -28,8 +28,8 @@ export interface Product {
     trust: number;
   };
   /**
-   * Why a scoreBreakdown pillar is null. When set, `score` is the mean of the
-   * scored pillars (methodology: equal 20% weights over what can be measured).
+   * Why a scoreBreakdown pillar is null. When set, `score` is the
+   * PILLAR_WEIGHTS-weighted mean of the scored pillars (product-rules.ts).
    */
   unscoredReason?: string;
   priceMonthlyUSD?: number;

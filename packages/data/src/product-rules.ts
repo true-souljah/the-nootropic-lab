@@ -44,16 +44,28 @@ export function formProblem(form: unknown): string | null {
   return `form is not one of ${PRODUCT_FORMS.join(' | ')}: ${JSON.stringify(form) ?? String(form)}`;
 }
 
+/**
+ * Pillar weights of the overall score (operator decision 2026-10-07; the
+ * review page's "How the score is computed" panel renders them). Single
+ * source for the UI and for scoreProblem.
+ */
+export const PILLAR_WEIGHTS: Readonly<Record<keyof Product['scoreBreakdown'], number>> = {
+  ingredients: 0.25,
+  dosing: 0.30,
+  transparency: 0.20,
+  value: 0.15,
+  trust: 0.10,
+};
+
 /** Pillars that cannot be measured without disclosed doses (dosing vs. clinical dose; value per clinical-dose ingredient). */
 export const UNSCORABLE_PILLARS = ['dosing', 'value'] as const;
 
 /**
  * Why the score data is inconsistent, or null. A pillar may be null only when
  * it cannot be measured (UNSCORABLE_PILLARS); the record must then say why
- * (`unscoredReason`) and `score` must be the mean of the scored pillars,
- * rounded to one decimal — the methodology's equal weights over what can be
- * measured. Fully scored records are unaffected (editorial ±0.8 adjustments
- * on the pillar mean are existing practice).
+ * (`unscoredReason`) and `score` must be the PILLAR_WEIGHTS-weighted mean of
+ * the scored pillars, renormalised over their weights and rounded to one
+ * decimal. Fully scored records are not checked here.
  */
 export function scoreProblem(product: Pick<Product, 'score' | 'scoreBreakdown' | 'unscoredReason'>): string | null {
   const entries = Object.entries(product.scoreBreakdown) as [string, number | null][];
@@ -62,10 +74,11 @@ export function scoreProblem(product: Pick<Product, 'score' | 'scoreBreakdown' |
   const notAllowed = unscored.filter((k) => !(UNSCORABLE_PILLARS as readonly string[]).includes(k));
   if (notAllowed.length > 0) return `scoreBreakdown: only ${UNSCORABLE_PILLARS.join('/')} may be null, got ${notAllowed.join(', ')}`;
   if (!product.unscoredReason?.trim()) return `scoreBreakdown: ${unscored.join(', ')} null without unscoredReason`;
-  const scored = entries.map(([, v]) => v).filter((v): v is number => typeof v === 'number');
-  const expected = Math.round((scored.reduce((sum, v) => sum + v, 0) / scored.length) * 10) / 10;
+  const scored = entries.filter((e): e is [keyof Product['scoreBreakdown'], number] => typeof e[1] === 'number');
+  const weight = scored.reduce((sum, [k]) => sum + PILLAR_WEIGHTS[k], 0);
+  const expected = Math.round((scored.reduce((sum, [k, v]) => sum + PILLAR_WEIGHTS[k] * v, 0) / weight) * 10) / 10;
   if (Math.abs(product.score - expected) > 0.05) {
-    return `scoreBreakdown: score ${product.score} is not the mean of the scored pillars (${expected})`;
+    return `scoreBreakdown: score ${product.score} is not the weighted mean of the scored pillars (${expected})`;
   }
   return null;
 }

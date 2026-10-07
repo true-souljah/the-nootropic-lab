@@ -1073,7 +1073,7 @@
       "TH": "not verified",
       "VN": "not verified"
     },
-    "score": 4.7,
+    "score": 4.9,
     "scoreBreakdown": {
       "ingredients": 6,
       "dosing": null,
@@ -1091,7 +1091,7 @@
     ],
     "trustpilotCount": null,
     "trustpilotScore": null,
-    "unscoredReason": "The product page discloses no ingredient doses (checked 2026-10-07), and this pillar is measured against the dose. The overall score averages the three scored pillars.",
+    "unscoredReason": "The product page discloses no ingredient doses (checked 2026-10-07), and this pillar is measured against the dose. The overall score is the weighted average of the three scored pillars.",
     "updatedAt": "2026-10-07",
     "verifiedAt": "2026-09-29",
     "url": "https://supershrooms.ph/products/focus-nootropic",
