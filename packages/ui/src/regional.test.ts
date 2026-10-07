@@ -60,7 +60,10 @@ describe('licenceStatus', () => {
     expect(licenceStatus({ ...base, npnStatus: undefined }, 'ca')).toBeNull();
     expect(licenceStatus({ ...base, austl: '123456' }, 'au')?.label).toBe('AUST L 123456');
     expect(licenceStatus({ ...base, austl: undefined }, 'au')?.tone).toBe('neutral');
-    expect(licenceStatus({ ...base, ffcStatus: { notified: false } }, 'jp')?.label).toBe('Imported (not FFC-notified)');
+    expect(licenceStatus({ ...base, ffcStatus: { notified: false } }, 'jp')?.label).toBe('No FFC notification on file');
+    expect(licenceStatus({ ...base, ffcStatus: { notified: false, checkedAt: '2026-10-06' } }, 'jp')?.label).toBe(
+      'No FFC notification found (checked 2026-10-06)',
+    );
   });
   test('regions without a licence concept return null rather than a made-up label', () => {
     expect(licenceStatus(productsUS[0], 'us')).toBeNull();
