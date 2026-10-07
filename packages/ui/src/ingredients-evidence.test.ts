@@ -257,6 +257,11 @@ describe('Lutemax screen eye-strain evidence (2026-10-06)', () => {
     /2-4 weeks: reduced eye fatigue/i,
     /reduce la fatiga visual/i,
     /no trial testing lutein\/zeaxanthin against digital eye strain/i,
+    // Phrasings removed in #310/#312 (au/ca/eu focus+aging pages, SEA focus entry).
+    /reduced digital eye strain/i,
+    /screen-fatigue reduction/i,
+    /blue-light eye fatigue/i,
+    /for screen-related eye strain/i,
   ];
   const walkPages = (dir: string, out: string[] = []): string[] => {
     for (const name of readdirSync(dir)) {
