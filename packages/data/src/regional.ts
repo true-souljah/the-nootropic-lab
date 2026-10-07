@@ -159,7 +159,12 @@ export function licenceStatus(product: Product, region: RegionCode): LicenceStat
       if (!product.ffcStatus) return null;
       return product.ffcStatus.notified
         ? { label: product.ffcStatus.notificationNumber ? `FFC 届出 ${product.ffcStatus.notificationNumber}` : 'FFC notified', tone: 'good' }
-        : { label: 'Imported (not FFC-notified)', tone: 'neutral' };
+        : {
+            label: product.ffcStatus.checkedAt
+              ? `No FFC notification found (checked ${product.ffcStatus.checkedAt})`
+              : 'No FFC notification on file',
+            tone: 'neutral',
+          };
     case 'eu':
       // Only the verifiable storefront fact; `euCompliance` is a legacy
       // self-asserted flag and is never rendered.

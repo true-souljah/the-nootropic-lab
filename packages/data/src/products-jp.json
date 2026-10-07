@@ -100,7 +100,9 @@
     "market": "both",
     "updatedAt": "2026-09-28",
     "ffcStatus": {
-      "notified": false
+      "notified": false,
+      "checkedAt": "2026-10-06",
+      "basis": "no row for マインドラボ, Mind Lab Pro, Opti-Nutra or オプティヌートラ in the CAA database; full export (11,520 notifications) scanned"
     },
     "trustpilotCheckedAt": "2026-09-28",
     "verifiedAt": "2026-09-28"
@@ -214,7 +216,9 @@
     "market": "both",
     "updatedAt": "2026-09-28",
     "ffcStatus": {
-      "notified": false
+      "notified": false,
+      "checkedAt": "2026-10-06",
+      "basis": "no row for ヌーキューブ, NooCube, Wolfson or ウルフソン in the CAA database; full export (11,520 notifications) scanned"
     },
     "notes": [
       "Bulk-purchase pricing changed June 2026: 5-month supply $194.99 USD (was 6-month for $180). JP buyers purchasing direct at ~¥30,000 for 5 months vs prior ~¥27,700 for 6 months."
@@ -303,7 +307,9 @@
     "market": "both",
     "updatedAt": "2026-09-28",
     "ffcStatus": {
-      "notified": false
+      "notified": false,
+      "checkedAt": "2026-10-06",
+      "basis": "no row for パフォーマンスラボ, Performance Lab or Opti-Nutra in the CAA database; full export (11,520 notifications) scanned"
     },
     "discontinued": {
       "since": "2026-09-28",
@@ -402,7 +408,9 @@
     "market": "both",
     "updatedAt": "2026-09-28",
     "ffcStatus": {
-      "notified": false
+      "notified": false,
+      "checkedAt": "2026-10-06",
+      "basis": "no row for ハンターフォーカス, Hunter Focus or Roar Ambition in the CAA database; full export (11,520 notifications) scanned"
     },
     "verifiedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28"
@@ -460,7 +468,7 @@
     "capsulesPerServing": 4,
     "form": "tablet",
     "summary": "FANCL BRAINs is a Japanese Food with Function Claims product (機能性表示食品, notification G425) from one of Japan's most trusted health brands. It is sold through FANCL's official Rakuten store, where it is labelled 機能性表示食品. A mainstream option for Japanese consumers who prefer domestic brands with Japanese-language labels and local customer support. FANCL was acquired by Kirin Holdings in 2024. Kirin has launched an international DTC arm (KHSI Pty Ltd, Sydney) from April 2026 and is actively developing new brain health ingredients (Agrimonia pilosa). Kirin's strategic focus on longevity and cognitive health reinforces FANCL BRAINs' long-term credibility.",
-    "whatItIs": "FANCL BRAINs is a Japanese functional food supplement (機能性表示食品) formulated to support memory and cognitive function. Made by FANCL Corporation, a household name in Japanese health and beauty with over 40 years of history. Unlike imported Western nootropics, FANCL BRAINs is sold through FANCL's official Rakuten store, labelled 機能性表示食品, and is registered under Japan's Food with Function Claims system — meaning the cognitive claims have been filed with the Consumer Affairs Agency (消費者庁).",
+    "whatItIs": "FANCL BRAINs is a Japanese functional food supplement (機能性表示食品) formulated to support memory and cognitive function. Made by FANCL Corporation, a household name in Japanese health and beauty with over 40 years of history. Unlike imported Western nootropics, FANCL BRAINs is sold through FANCL's official Rakuten store, labelled 機能性表示食品, and is notified under Japan's Foods with Function Claims (FFC) system: the Consumer Affairs Agency (CAA, 消費者庁) database lists notification G425, 商品名 ＢＲＡＩＮｓ（ブレインズ）, 届出者 株式会社ファンケル, notified 2021/08/18, with the functional ingredients バコパサポニン、熟成ホップ由来苦味酸 at 15 mg + 35 mg per 4 tablets a day (CAA database, checked 2026-10-06).",
     "howItWorks": "FANCL's notified functional ingredients (機能性関与成分) are bacopa saponins (15mg per 4 tablets) and matured hop bitter acids (35mg per 4 tablets). Per FANCL's Food with Function Claims notification (届出番号 G425), bacopa saponins are reported to help maintain memory — the ability to remember and recall things seen and heard in daily life — which declines with age, and matured hop bitter acids are reported to help maintain attention (processing several pieces of information at once, and processing information correctly) and to reduce temporary feelings of anxiety in daily life. FANCL cites a 12-week trial of bacopa saponins at 12.5mg/day and 12-week trials of matured hop bitter acids at 35mg/day. As with every 機能性表示食品, these claims are the manufacturer's notified evidence, not a government evaluation.",
     "whatToExpect": "Weeks 1-2: no noticeable acute effects — this is a foundational supplement, not a stimulant. Weeks 4-6: subtle improvements in recall speed and mental clarity, particularly in adults over 40. At 12+ weeks: sustained brain health maintenance. FANCL recommends 4 tablets daily. It is sold through FANCL's official Rakuten store, labelled 機能性表示食品 (notification G425). At ¥5,479 for a 30-day bag (list price on fancl.co.jp; ¥4,930 on subscription), it is significantly cheaper than imported alternatives with zero import duty or customs risk.",
     "pros": [
@@ -476,7 +484,9 @@
     "updatedAt": "2026-09-28",
     "ffcStatus": {
       "notified": true,
-      "notificationNumber": "G425"
+      "notificationNumber": "G425",
+      "checkedAt": "2026-10-06",
+      "basis": "G425 row confirmed in the CAA database: 商品名 ＢＲＡＩＮｓ（ブレインズ）, 届出者 株式会社ファンケル, notified 2021/08/18"
     },
     "verifiedAt": "2026-09-28"
   },
@@ -539,7 +549,7 @@
     "servingsPerContainer": 30,
     "capsulesPerServing": 6,
     "summary": "Suntory's DHA & EPA + Sesamin EX is Japan's best-selling omega-3 brain supplement, backed by Suntory Wellness — a division of the ¥2.7 trillion Suntory Group. Over 30 million bottles sold since launch. The most affordable option in this review at approximately ¥4,750/month (~$32 USD). Best for budget-conscious Japanese consumers seeking foundational brain and cardiovascular support.",
-    "whatItIs": "Suntory DHA & EPA + Sesamin EX is a Japanese dietary supplement (not notified as a Food with Function Claims product) from Suntory Wellness, a subsidiary of the Suntory Group — one of Japan's largest consumer goods conglomerates (Suntory whisky, BOSS coffee, Orangina). The product combines marine-sourced omega-3 fatty acids (DHA and EPA) with sesamin, a lignan antioxidant extracted from sesame seeds — a uniquely Japanese ingredient with deep cultural resonance.",
+    "whatItIs": "Suntory DHA & EPA + Sesamin EX is a Japanese dietary supplement from Suntory Wellness; no Foods with Function Claims (FFC) notification was found for this product in the Consumer Affairs Agency (CAA) database (full export scanned 2026-10-06; Suntory Wellness holds other notifications, e.g. the sesamin-containing G139/I930/K149 and D110 オメガエイド for DHA/EPA/ARA, none combining DHA/EPA with sesamin). Suntory Wellness is a subsidiary of the Suntory Group — one of Japan's largest consumer goods conglomerates (Suntory whisky, BOSS coffee, Orangina). The product combines marine-sourced omega-3 fatty acids (DHA and EPA) with sesamin, a lignan antioxidant extracted from sesame seeds — a uniquely Japanese ingredient with deep cultural resonance.",
     "howItWorks": "DHA (400mg) is the primary structural omega-3 in brain cell membranes, supporting synaptic transmission, neuronal plasticity, and signal propagation speed. EPA (100mg) works primarily as an anti-inflammatory, reducing neuroinflammatory cytokines that impair cognition over time — particularly relevant for aging brains. Sesamin (20mg), Suntory's proprietary addition, is a potent antioxidant from sesame that inhibits lipid peroxidation, protecting the DHA/EPA from oxidative degradation both in the capsule and in the body. This is a foundational brain-health supplement, not a stimulatory nootropic — it works by maintaining structural integrity rather than acutely boosting neurotransmitter levels.",
     "whatToExpect": "Weeks 1-4: no acute cognitive effects. This is an omega-3 supplement, not a focus pill. Weeks 8-12: gradual improvements in mental clarity, mood stability, and sustained attention — consistent with the omega-3 literature showing benefits at 8+ weeks. Long-term (6+ months): brain health maintenance and cardiovascular support. Best combined with a dedicated nootropic stack (e.g. Mind Lab Pro) for users wanting both structural support and acute cognitive enhancement. At ¥4,750/month (~$32 USD), this is the most affordable entry point in this review. 6 capsules per day is a high pill burden but typical for Japanese omega-3 supplements.",
     "pros": [
@@ -556,7 +566,9 @@
     "market": "both",
     "updatedAt": "2026-05-28",
     "ffcStatus": {
-      "notified": false
+      "notified": false,
+      "checkedAt": "2026-10-06",
+      "basis": "no row for ＤＨＡ＆ＥＰＡ＋セサミンＥＸ, and no product name combining DHA/EPA with セサミン, in the CAA database; full export (11,520 notifications) scanned"
     }
   }
 ]

@@ -103,12 +103,20 @@ export interface Product {
    * `notified: true` = the manufacturer has filed scientific evidence with
    * the Consumer Affairs Agency (消費者庁) supporting the cognitive claims
    * made on the product label; the `notificationNumber` (届出番号) is
-   * carried when documented. Imported products that bypass this system
-   * carry `notified: false`. Undefined for products not surfaced to JP.
+   * carried when documented. `notified: false` means only that the CAA
+   * notification database returned no row for the product and company names
+   * searched on `checkedAt` (queries in `basis`); it is not evidence that the
+   * product is outside the system under some other name, and copy must say
+   * "no FFC notification found", never "not notified". Undefined for
+   * products not surfaced to JP.
    */
   ffcStatus?: {
     notified: boolean;
     notificationNumber?: string;
+    /** ISO date (YYYY-MM-DD) the CAA database was checked. */
+    checkedAt?: string;
+    /** One line: the row confirmed, or the queries that returned no row. */
+    basis?: string;
   };
   /**
    * Australian Therapeutic Goods Administration AUST L (Listed Medicine)
