@@ -29,7 +29,7 @@ export default function ScoreTooltip({ score, breakdown }: Props) {
         aria-label={`Score ${score} out of 10 — tap or hover for breakdown`}
         aria-expanded={open}
       >
-        {score}/10
+        {`${score}/10`}
       </button>
       {open && (
         <div role="tooltip" className="absolute z-20 bottom-full left-0 mb-2 bg-white border border-gray-200 shadow-lg rounded p-3 w-52 text-xs">

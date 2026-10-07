@@ -36,7 +36,8 @@ export interface RegionLabels {
   noProducts: string;
   licence: string;
   price: string;
-  perMonth: string;
+  /** Monthly-price unit without the slash ("month"); rendered as `${price}/${monthUnit}`. */
+  monthUnit: string;
   guides: string;
   regulatoryNote: string;
   sources: string;
@@ -64,7 +65,7 @@ const EN = (inRegion: string, geo: string): RegionLabels => ({
   noProducts: `None of the stacks we have audited are listed in our catalogue ${inRegion} yet.`,
   licence: 'Status',
   price: 'Local price',
-  perMonth: '/month',
+  monthUnit: 'month',
   guides: geo,
   regulatoryNote: 'Regulatory note',
   sources: 'Sources',
@@ -113,7 +114,7 @@ export const REGION_PROFILES: Record<RegionCode, RegionProfile> = {
       noProducts: 'Ninguno de los stacks que hemos auditado figura todavía en nuestro catálogo para América Latina.',
       licence: 'Estado',
       price: 'Precio local',
-      perMonth: '/mes',
+      monthUnit: 'mes',
       guides: 'Guías por país',
       regulatoryNote: 'Nota regulatoria',
       sources: 'Fuentes',

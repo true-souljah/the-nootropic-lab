@@ -255,8 +255,12 @@ export interface UIStrings {
     };
     stats: {
       price: string;
-      /** Monthly-price suffix, e.g. "/mo" / "/Monat". */
-      perMonth: string;
+      /**
+       * Monthly-price unit WITHOUT the slash ("mo", "Monat"); render as
+       * `${price}/${monthUnit}`. A string starting with "/" in the RSC payload
+       * is crawled by Google as a URL (GSC 404 "/mo", 2026-10).
+       */
+      monthUnit: string;
       capsules: string;
       /** Stat label for the per-day serving, whatever the product's form. */
       dailyServing: string;
@@ -264,8 +268,6 @@ export interface UIStrings {
       units: { capsule: string; tablet: string; sachet: string; shot: string; powder: string; softgel: string };
       /** Same labels for a count of exactly 1 ("1 sachet", not "1 sachets"). */
       unitsSingular: { capsule: string; tablet: string; sachet: string; shot: string; powder: string; softgel: string };
-      /** Per-day suffix, e.g. "/day" / "/Tag". */
-      perDay: string;
       moneyBack: string;
       /** "days" suffix for the money-back-guarantee value. */
       days: string;
@@ -505,12 +507,11 @@ const en: UIStrings = {
     },
     stats: {
       price: 'Price',
-      perMonth: '/mo',
+      monthUnit: 'mo',
       capsules: 'Caps',
       dailyServing: 'Daily serving',
       units: { capsule: 'caps', tablet: 'tablets', sachet: 'sachets', shot: 'shots', powder: 'scoops', softgel: 'softgels' },
       unitsSingular: { capsule: 'cap', tablet: 'tablet', sachet: 'sachet', shot: 'shot', powder: 'scoop', softgel: 'softgel' },
-      perDay: '/day',
       moneyBack: 'MBG',
       days: 'days',
       trustpilot: 'Trustpilot',
@@ -734,12 +735,11 @@ const es: UIStrings = {
     },
     stats: {
       price: 'Precio',
-      perMonth: '/mes',
+      monthUnit: 'mes',
       capsules: 'Cáps.',
       dailyServing: 'Dosis diaria',
       units: { capsule: 'cáps.', tablet: 'comprimidos', sachet: 'sobres', shot: 'shots', powder: 'cacitos', softgel: 'cápsulas blandas' },
       unitsSingular: { capsule: 'cáp.', tablet: 'comprimido', sachet: 'sobre', shot: 'shot', powder: 'cacito', softgel: 'cápsula blanda' },
-      perDay: '/día',
       moneyBack: 'Garantía',
       days: 'días',
       trustpilot: 'Trustpilot',
@@ -963,12 +963,11 @@ const fr: UIStrings = {
     },
     stats: {
       price: 'Prix',
-      perMonth: '/mois',
+      monthUnit: 'mois',
       capsules: 'Caps.',
       dailyServing: 'Dose quotidienne',
       units: { capsule: 'gélules', tablet: 'comprimés', sachet: 'sachets', shot: 'shots', powder: 'doses', softgel: 'capsules molles' },
       unitsSingular: { capsule: 'gélule', tablet: 'comprimé', sachet: 'sachet', shot: 'shot', powder: 'dose', softgel: 'capsule molle' },
-      perDay: '/jour',
       moneyBack: 'Garantie',
       days: 'jours',
       trustpilot: 'Trustpilot',
@@ -1192,12 +1191,11 @@ const ja: UIStrings = {
     },
     stats: {
       price: '価格',
-      perMonth: '/月',
+      monthUnit: '月',
       capsules: 'カプセル',
       dailyServing: '1日の目安量',
       units: { capsule: 'カプセル', tablet: '錠', sachet: '包', shot: '本', powder: 'スクープ', softgel: 'ソフトジェル' },
       unitsSingular: { capsule: 'カプセル', tablet: '錠', sachet: '包', shot: '本', powder: 'スクープ', softgel: 'ソフトジェル' },
-      perDay: '/日',
       moneyBack: '返金保証',
       days: '日間',
       trustpilot: 'Trustpilot',
@@ -1421,12 +1419,11 @@ const pt: UIStrings = {
     },
     stats: {
       price: 'Preço',
-      perMonth: '/mês',
+      monthUnit: 'mês',
       capsules: 'Cáps.',
       dailyServing: 'Dose diária',
       units: { capsule: 'cáps.', tablet: 'comprimidos', sachet: 'sachês', shot: 'shots', powder: 'doses', softgel: 'cápsulas gelatinosas' },
       unitsSingular: { capsule: 'cáp.', tablet: 'comprimido', sachet: 'sachê', shot: 'shot', powder: 'dose', softgel: 'cápsula gelatinosa' },
-      perDay: '/dia',
       moneyBack: 'Garantia',
       days: 'dias',
       trustpilot: 'Trustpilot',
@@ -1650,12 +1647,11 @@ const de: UIStrings = {
     },
     stats: {
       price: 'Preis',
-      perMonth: '/Monat',
+      monthUnit: 'Monat',
       capsules: 'Kapseln',
       dailyServing: 'Tagesdosis',
       units: { capsule: 'Kapseln', tablet: 'Tabletten', sachet: 'Beutel', shot: 'Shots', powder: 'Messlöffel', softgel: 'Weichkapseln' },
       unitsSingular: { capsule: 'Kapsel', tablet: 'Tablette', sachet: 'Beutel', shot: 'Shot', powder: 'Messlöffel', softgel: 'Weichkapsel' },
-      perDay: '/Tag',
       moneyBack: 'Geld-zurück',
       days: 'Tage',
       trustpilot: 'Trustpilot',
@@ -1881,12 +1877,11 @@ const frCa: UIStrings = {
     score: { label: 'Notre score', outOf10: 'sur 10,0' },
     stats: {
       price: 'Prix',
-      perMonth: '/mois',
+      monthUnit: 'mois',
       capsules: 'Gélules',
       dailyServing: 'Dose quotidienne',
       units: { capsule: 'gélules', tablet: 'comprimés', sachet: 'sachets', shot: 'shots', powder: 'doses', softgel: 'capsules molles' },
       unitsSingular: { capsule: 'gélule', tablet: 'comprimé', sachet: 'sachet', shot: 'shot', powder: 'dose', softgel: 'capsule molle' },
-      perDay: '/jour',
       moneyBack: 'Remboursement',
       days: 'jours',
       trustpilot: 'Trustpilot',

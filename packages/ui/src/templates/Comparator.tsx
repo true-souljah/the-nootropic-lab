@@ -409,7 +409,10 @@ export default function Comparator({
                       className="px-[14px] py-3 text-right text-ds-ink-soft ds-tabular"
                       style={{ flex: '0 0 80px' }}
                     >
-                      {p.scoreBreakdown.value}/10
+                      {/* Not a template literal: some records carry value: null at runtime
+                          (SEA Supershrooms) and must render empty, not "null"; the separate
+                          "/" keeps "/10" out of the payload (check:links rsc-string). */}
+                      {p.scoreBreakdown.value}{'/'}10
                     </div>
                     <div
                       role="gridcell"

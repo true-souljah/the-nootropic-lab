@@ -13,5 +13,5 @@ export const metadata: Metadata = {
 };
 
 export default function QuizPage() {
-  return <QuizFlow products={productsUS} resultsHref="/quiz/results" skipHref="/best-nootropics" />;
+  return <QuizFlow products={productsUS} resultsHref="/quiz/results/" skipHref="/best-nootropics/" />;
 }
