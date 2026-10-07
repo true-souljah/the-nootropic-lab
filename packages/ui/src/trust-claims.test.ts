@@ -50,6 +50,14 @@ const BANNED_PHRASES = [
   'firma de un autor con nombre',
   // Editor credentials that cannot be evidenced
   'backgrounds in pharmacology',
+  // Invented operator entity: the site is not run by a company (LATAM about/contact said
+  // "operado por <strong></strong>, una sociedad alemana de responsabilidad limitada")
+  'sociedad alemana',
+  'responsabilidad limitada',
+  'operado por <strong></strong>',
+  'operado por .',
+  'Kulik Media',
+  'FintechPays',
 ];
 
 const SOURCE_EXT = /\.(ts|tsx|json)$/;
