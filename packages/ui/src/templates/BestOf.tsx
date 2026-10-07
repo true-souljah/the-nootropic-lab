@@ -10,7 +10,7 @@ import { Bar } from '../primitives/Bar';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
 import ShortlistButton from './ShortlistButton';
 import type { AffiliateClickContext } from '../trackAffiliateClick';
-import { servingAmount } from '@nootropic/data';
+import { servingAmount, pillarText, guaranteeDays } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 
@@ -249,15 +249,15 @@ export default function BestOf({
 
                 {/* Pillars */}
                 <div>
-                  {(Object.entries(p.scoreBreakdown) as [string, number][]).map(([k, v]) => (
+                  {(Object.entries(p.scoreBreakdown) as [string, number | null][]).map(([k, v]) => (
                     <div
                       key={k}
                       className="grid items-center gap-[6px] py-[2px]"
                       style={{ gridTemplateColumns: '90px 1fr 22px' }}
                     >
                       <span className="text-[11px] text-ds-muted capitalize">{k}</span>
-                      <Bar value={v} label={`${p.name} ${k} score`} />
-                      <span className="text-[11px] text-ds-ink text-right ds-tabular">{v}</span>
+                      <Bar value={v ?? 0} decorative={v === null} label={`${p.name} ${k} score`} />
+                      <span className="text-[11px] text-ds-ink text-right ds-tabular">{pillarText(v)}</span>
                     </div>
                   ))}
                 </div>
@@ -276,7 +276,7 @@ export default function BestOf({
                   </div>
                   <div className="flex justify-between">
                     <span>MBG</span>
-                    <span className="text-ds-ink">{p.moneyBackDays}d</span>
+                    <span className="text-ds-ink">{guaranteeDays(p.moneyBackDays, (d) => `${d}d`)}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Trustpilot</span>

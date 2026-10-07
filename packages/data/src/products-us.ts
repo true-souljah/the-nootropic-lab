@@ -20,18 +20,26 @@ export interface Product {
   score: number;
   scoreBreakdown: {
     ingredients: number;
-    dosing: number;
+    /** null = not scorable (no disclosed doses); requires `unscoredReason` (product-rules.ts scoreProblem). */
+    dosing: number | null;
     transparency: number;
-    value: number;
+    /** null = not scorable (value is measured per clinical-dose ingredient); requires `unscoredReason`. */
+    value: number | null;
     trust: number;
   };
+  /**
+   * Why a scoreBreakdown pillar is null. When set, `score` is the mean of the
+   * scored pillars (methodology: equal 20% weights over what can be measured).
+   */
+  unscoredReason?: string;
   priceMonthlyUSD?: number;
   priceMonthlyEUR?: number;
   priceMonthlyCAD?: number;
   priceMonthlyAUD?: number;
   priceMonthlyJPY?: number;
   pricingModel: 'one-time' | 'subscription' | 'both';
-  moneyBackDays: number;
+  /** null = no single guarantee length is published (none, or conflicting terms); rendered as "—", never "null days". */
+  moneyBackDays: number | null;
   caffeineFree: boolean;
   euStorefront: boolean;
   /**

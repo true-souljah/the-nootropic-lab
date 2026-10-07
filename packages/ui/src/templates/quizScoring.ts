@@ -97,7 +97,7 @@ export function scoreQuiz(products: Product[], answers: QuizAnswers): QuizResult
         goalsFit(p.bestFor, answers.goals) *
         caffeineFit(p.caffeineFree, answers.caffeine) *
         budgetFit(p.priceMonthlyUSD, answers.budget) *
-        mbgFit(p.moneyBackDays, answers.mbg),
+        mbgFit(p.moneyBackDays ?? 0, answers.mbg),
     }))
     .sort((a, b) => b.score - a.score);
 
