@@ -10,7 +10,7 @@ import { Chip } from '../primitives/Chip';
 import { Tabs, TabPanel } from '../primitives/Tabs';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
 import { productForm, servingAmount, servingUnit } from '@nootropic/data';
-import type { Product, UIStrings } from '@nootropic/data';
+import type { Product, ScoredProduct, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 import type { TabId } from './product-detail/constants';
 import { OverviewTab } from './product-detail/OverviewTab';
@@ -23,8 +23,8 @@ import type { RegionalBuyingProps } from '../RegionalBuying';
 
 export interface ProductDetailProps {
   product: Product;
-  /** Up to 3 ranked alternatives surfaced at the bottom of every tab. */
-  alternatives: Product[];
+  /** Up to 3 ranked alternatives surfaced at the bottom of every tab (scored products only — pass `rankByScore(...)`). */
+  alternatives: ScoredProduct[];
   siteUrl: string;
   searchItems?: SearchItem[];
   /**
@@ -117,8 +117,11 @@ export default function ProductDetail({
     false,
   ];
 
+  // score null = unscored (a pillar is missing): the header shows the
+  // localized "not scored" state instead of a number.
+  const score = p.score;
   const scoreColor =
-    p.score >= 8.5 ? 'text-ds-good' : p.score >= 7.5 ? 'text-ds-warn-ink' : 'text-ds-bad';
+    score === null ? '' : score >= 8.5 ? 'text-ds-good' : score >= 7.5 ? 'text-ds-warn-ink' : 'text-ds-bad';
 
   return (
     <AppShell
@@ -227,10 +230,18 @@ export default function ProductDetail({
               <div className="text-[11px] uppercase tracking-[0.12em] font-semibold text-ds-muted">
                 {pd.score.label}
               </div>
-              <div className={`text-[48px] font-bold tracking-[-0.03em] leading-none ${scoreColor} ds-tabular`}>
-                {p.score.toFixed(1)}
-              </div>
-              <div className="text-[11px] text-ds-muted">{pd.score.outOf10}</div>
+              {score === null ? (
+                <div data-score-state="not-scored" className="text-[14px] font-semibold text-ds-muted mt-1 max-w-[160px]">
+                  {pd.score.notScored}
+                </div>
+              ) : (
+                <>
+                  <div className={`text-[48px] font-bold tracking-[-0.03em] leading-none ${scoreColor} ds-tabular`}>
+                    {score.toFixed(1)}
+                  </div>
+                  <div className="text-[11px] text-ds-muted">{pd.score.outOf10}</div>
+                </>
+              )}
             </div>
           </div>
 
@@ -286,13 +297,13 @@ export default function ProductDetail({
         {/* All 5 tab panels rendered statically with `hidden`; each tab body
             lives in its own file under ./product-detail/ for readability. */}
         <TabPanel idPrefix="product" id="overview" hidden={tab !== 'overview'} className="mt-5">
-          <OverviewTab product={p} />
+          <OverviewTab product={p} notScoredLabel={pd.score.notScored} />
         </TabPanel>
         <TabPanel idPrefix="product" id="dosing" hidden={tab !== 'dosing'} className="mt-5">
           <DosingTab product={p} />
         </TabPanel>
         <TabPanel idPrefix="product" id="pillars" hidden={tab !== 'pillars'} className="mt-5">
-          <PillarsTab product={p} />
+          <PillarsTab product={p} notScoredLabel={pd.score.notScored} />
         </TabPanel>
         <TabPanel idPrefix="product" id="reviews" hidden={tab !== 'reviews'} className="mt-5">
           <ReviewsTab product={p} />

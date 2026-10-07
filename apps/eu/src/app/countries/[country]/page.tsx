@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
-import { euCountries, productsEU, buildPersonAuthorReference } from '@nootropic/data';
+import { euCountries, productsEU, buildPersonAuthorReference, rankByScore } from '@nootropic/data';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -32,10 +32,7 @@ export async function generateMetadata({
   };
 }
 
-const topProducts = productsEU
-  .slice()
-  .sort((a, b) => b.score - a.score)
-  .slice(0, 3);
+const topProducts = rankByScore(productsEU).slice(0, 3);
 
 // The storefront sentence must match the listed records (`euStorefront`).
 const allTopOnEUStorefront = topProducts.every(p => p.euStorefront);

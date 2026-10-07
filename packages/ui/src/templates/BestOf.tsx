@@ -10,7 +10,7 @@ import { Bar } from '../primitives/Bar';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
 import ShortlistButton from './ShortlistButton';
 import type { AffiliateClickContext } from '../trackAffiliateClick';
-import { servingAmount } from '@nootropic/data';
+import { rankByScore, servingAmount } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 
@@ -101,9 +101,10 @@ export default function BestOf({
   regulatoryPillar,
 }: BestOfProps) {
   const pd = uiStrings.productDetail;
-  const sorted = [...products].sort((a, b) => b.score - a.score);
+  // Unscored records (score null) are audited but never ranked or counted as recommended.
+  const sorted = rankByScore(products);
   const audited = products.length;
-  const recommended = products.filter((p) => p.score >= recommendedCutoff).length;
+  const recommended = sorted.filter((p) => p.score >= recommendedCutoff).length;
   const withDoses = products.filter((p) => p.ingredientDosages.length > 0);
   const underdosedPct = withDoses.length
     ? Math.round(

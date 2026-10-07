@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
-import { latamCountries, productsLatam, buildPersonAuthorReference } from '@nootropic/data';
+import { latamCountries, productsLatam, buildPersonAuthorReference, rankByScore } from '@nootropic/data';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -32,7 +32,7 @@ export async function generateMetadata({
   };
 }
 
-const topProducts = productsLatam.slice().sort((a, b) => b.score - a.score).slice(0, 3);
+const topProducts = rankByScore(productsLatam).slice(0, 3);
 
 export default async function CountryPage({
   params,

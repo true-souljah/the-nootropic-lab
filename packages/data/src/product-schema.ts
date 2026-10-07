@@ -21,11 +21,17 @@ const ORG_NAME = 'The Nootropic Lab';
  * Build the canonical Product schema.org JSON-LD object for a product
  * review page. Emits the first-party editorial Review only (no
  * third-party aggregateRating — see file header).
+ *
+ * Returns `null` for an unscored product (score `null`, incomplete
+ * pillars): a Review without a reviewRating, or a Product with no review,
+ * offer or rating, is an invalid Product snippet, so the page emits no
+ * Product JSON-LD rather than an invented rating.
  */
 export function buildProductSchema(
   product: Product,
   siteUrl: string,
-): Record<string, unknown> {
+): Record<string, unknown> | null {
+  if (product.score === null) return null;
   return {
     '@context': 'https://schema.org',
     '@type': 'Product',

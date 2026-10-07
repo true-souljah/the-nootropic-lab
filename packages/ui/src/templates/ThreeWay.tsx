@@ -12,7 +12,7 @@ import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
 import { FaqAccordion } from '../primitives/FaqAccordion';
 import { buildPersonAuthorReference, servingAmount, servingsComparable } from '@nootropic/data';
-import type { Product, UIStrings } from '@nootropic/data';
+import type { Product, ScoredProduct, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 
 export interface ThreeWayFAQ {
@@ -21,9 +21,10 @@ export interface ThreeWayFAQ {
 }
 
 export interface ThreeWayProps {
-  productA: Product;
-  productB: Product;
-  productC: Product;
+  /** Scored products only (narrow with `hasScore`): the podium ranks by composite score. */
+  productA: ScoredProduct;
+  productB: ScoredProduct;
+  productC: ScoredProduct;
   siteUrl: string;
   verdictParagraph?: string;
   faqItems: ThreeWayFAQ[];
@@ -135,7 +136,7 @@ export default function ThreeWay({
   const winner = ranked[0];
 
   // Podium layout: [2nd, 1st, 3rd] — winner sits in the middle column
-  const podiumOrder: Array<{ product: Product; place: 1 | 2 | 3 }> = [
+  const podiumOrder: Array<{ product: ScoredProduct; place: 1 | 2 | 3 }> = [
     { product: ranked[1], place: 2 },
     { product: ranked[0], place: 1 },
     { product: ranked[2], place: 3 },

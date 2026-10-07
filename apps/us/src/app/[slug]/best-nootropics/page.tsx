@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { BestOf, SchemaOrg, Card, Chip, ScorePill, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
-import { productsUS } from '@nootropic/data';
+import { productsUS, rankByScore } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -243,10 +243,9 @@ export async function generateMetadata({
   };
 }
 
-const topProducts = productsUS
-  .slice()
-  .sort((a, b) => b.score - a.score)
-  .slice(0, 3);
+// Same ranking BestOf renders below (score desc, unscored records excluded).
+const rankedProducts = rankByScore(productsUS);
+const topProducts = rankedProducts.slice(0, 3);
 
 export default async function StateNootropicsPage({
   params,
@@ -261,7 +260,7 @@ export default async function StateNootropicsPage({
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: `Best Nootropic Supplements in ${state.name} ${CURRENT_YEAR}`,
-    itemListElement: productsUS.map((p, i) => ({
+    itemListElement: rankedProducts.map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       name: p.name,

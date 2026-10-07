@@ -61,7 +61,9 @@ export function buildSearchIndex(
       href: `/${p.slug}/`,
       type: 'product' as const,
       description: p.summary.slice(0, 100),
-      meta: { score: p.score },
+      // An unscored record (score null) stays findable — its review page
+      // exists — but carries no score pill.
+      ...(p.score !== null && { meta: { score: p.score } }),
     })),
     ...ingredients.map(i => ({
       title: i.name,

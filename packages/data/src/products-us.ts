@@ -1,6 +1,6 @@
 import productsUSData from './products-us.json';
 import { activeProducts } from './product-status';
-import type { ScoreBreakdown } from './scoring';
+import type { ScoreBreakdown, Scored } from './scoring';
 
 export type EUCompliance = 'compliant' | 'reformulated' | 'verify';
 export type Market = 'us' | 'eu' | 'ca' | 'au' | 'jp' | 'latam' | 'gcc' | 'sea' | 'both';
@@ -187,6 +187,9 @@ export interface Product {
     note: string;
   };
 }
+
+/** A product with a composite score and every pillar scored — the only kind a ranked, sorted or compared surface may show. */
+export type ScoredProduct = Product & Scored;
 
 /** Every US record, including discontinued ones — review pages, sitemap, hreflang. */
 export const allProductsUS: Product[] = productsUSData as Product[];

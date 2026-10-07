@@ -48,9 +48,19 @@ export function computeScore(breakdown: Partial<Record<Pillar, number | null>> |
   return Math.round(Number((sum * 10).toPrecision(12))) / 10;
 }
 
+/** A record whose composite score and every pillar are numbers. */
+export type Scored = { score: number; scoreBreakdown: Record<Pillar, number> };
+type Scorable = { score: number | null; scoreBreakdown: ScoreBreakdown };
+
 /** Narrows a product to one whose composite score and every pillar are numbers. */
-export function hasScore<T extends { score: number | null; scoreBreakdown: ScoreBreakdown }>(
-  product: T,
-): product is T & { score: number; scoreBreakdown: Record<Pillar, number> } {
+export function hasScore<T extends Scorable>(product: T): product is T & Scored {
   return typeof product.score === 'number' && PILLARS.every((pillar) => typeof product.scoreBreakdown[pillar] === 'number');
+}
+
+/**
+ * Scored records only, highest score first (stable: ties keep input order).
+ * Unscored records (score `null`) never enter a ranking, sort or comparison.
+ */
+export function rankByScore<T extends Scorable>(products: readonly T[]): Array<T & Scored> {
+  return products.filter((p): p is T & Scored => hasScore(p)).sort((a, b) => b.score - a.score);
 }

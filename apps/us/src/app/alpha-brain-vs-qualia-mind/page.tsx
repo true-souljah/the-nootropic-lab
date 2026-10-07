@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { HeadToHead, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { HeadToHeadFAQ } from '@nootropic/ui';
-import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsUS, getRegionalHealthDisclaimer, hasScore } from '@nootropic/data';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -73,7 +73,7 @@ const whoIsForB = [
 ];
 
 export default function Page() {
-  if (!productA || !productB) notFound();
+  if (!productA || !productB || !hasScore(productA) || !hasScore(productB)) notFound();
   return (
     <HeadToHead
       productA={productA}

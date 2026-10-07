@@ -48,20 +48,27 @@ const baseProduct: Product = {
   market: 'us',
 };
 
+/** Schema for a scored product — buildProductSchema returns null only for unscored records. */
+function scoredSchema(p: Product): Record<string, unknown> {
+  const s = buildProductSchema(p, SITE_URL);
+  if (s === null) throw new Error(`expected Product JSON-LD for scored product ${p.slug}`);
+  return s;
+}
+
 describe('buildProductSchema — always-on Review block', () => {
   test('emits @context schema.org and @type Product', () => {
-    const s = buildProductSchema(baseProduct, SITE_URL);
+    const s = scoredSchema(baseProduct);
     expect(s['@context']).toBe('https://schema.org');
     expect(s['@type']).toBe('Product');
   });
 
   test('uses product name as schema name', () => {
-    const s = buildProductSchema(baseProduct, SITE_URL);
+    const s = scoredSchema(baseProduct);
     expect(s.name).toBe('Test Product');
   });
 
   test('emits Brand block with product brand', () => {
-    const s = buildProductSchema(baseProduct, SITE_URL);
+    const s = scoredSchema(baseProduct);
     expect(s.brand).toEqual({ '@type': 'Brand', name: 'Test Brand' });
   });
 
@@ -102,7 +109,7 @@ describe('buildProductSchema — no third-party aggregateRating (OPT-2)', () => 
 
   test.each(trustpilotCases)('never emits aggregateRating: %s', (_label, score, count) => {
     const p = { ...baseProduct, trustpilotScore: score, trustpilotCount: count };
-    const s = buildProductSchema(p, SITE_URL);
+    const s = scoredSchema(p);
     expect(s.aggregateRating).toBeUndefined();
   });
 
@@ -114,5 +121,16 @@ describe('buildProductSchema — no third-party aggregateRating (OPT-2)', () => 
     const rating = review.reviewRating as Record<string, unknown>;
     expect(rating.ratingValue).toBe('8.5'); // editorial score, not Trustpilot's 4.5
     expect(rating.bestRating).toBe('10');
+  });
+});
+
+describe('buildProductSchema — unscored product (score null, 2026-10-07)', () => {
+  test('emits no Product JSON-LD rather than a rating it does not have', () => {
+    const p: Product = {
+      ...baseProduct,
+      score: null,
+      scoreBreakdown: { ...baseProduct.scoreBreakdown, dosing: null, value: null },
+    };
+    expect(buildProductSchema(p, SITE_URL)).toBeNull();
   });
 });

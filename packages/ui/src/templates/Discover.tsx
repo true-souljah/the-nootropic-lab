@@ -8,7 +8,7 @@ import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
 import { Bar } from '../primitives/Bar';
 import ShortlistButton from './ShortlistButton';
-import { servingAmount } from '@nootropic/data';
+import { rankByScore, servingAmount } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 
@@ -79,17 +79,21 @@ export default function Discover({
 }: DiscoverProps) {
   const [filter, setFilter] = useState<Filter>('All');
 
+  // The grid is labelled "Sorted by composite score": rank it, which also
+  // leaves out unscored records (score null).
+  const ranked = useMemo(() => rankByScore(products), [products]);
+
   const visible = useMemo(() => {
-    if (filter === 'All') return products;
-    if (filter === 'Caffeine-free') return products.filter((p) => p.caffeineFree);
+    if (filter === 'All') return ranked;
+    if (filter === 'Caffeine-free') return ranked.filter((p) => p.caffeineFree);
     if (filter === 'Under $50')
-      return products.filter((p) => (p.priceMonthlyUSD ?? Infinity) < 50);
-    return products.filter((p) => p.bestFor.includes(filter));
-  }, [filter, products]);
+      return ranked.filter((p) => (p.priceMonthlyUSD ?? Infinity) < 50);
+    return ranked.filter((p) => p.bestFor.includes(filter));
+  }, [filter, ranked]);
 
   const topPick = useMemo(
-    () => products.find((p) => p.editorChoice) ?? products[0],
-    [products]
+    () => ranked.find((p) => p.editorChoice) ?? ranked[0],
+    [ranked]
   );
 
   const auditStats = useMemo(() => {
@@ -272,7 +276,7 @@ export default function Discover({
               Top stacks
             </h2>
             <div className="text-[12px] text-ds-muted mt-[2px]">
-              Sorted by composite score · {visible.length} of {products.length}
+              Sorted by composite score · {visible.length} of {ranked.length}
             </div>
           </div>
           <div className="flex gap-[6px] items-center flex-wrap">

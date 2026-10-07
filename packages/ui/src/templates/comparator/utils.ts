@@ -3,7 +3,7 @@
 // to call from anywhere — guards `document` access).
 
 import { servingAmount } from '@nootropic/data';
-import type { Product, UIStrings } from '@nootropic/data';
+import type { Product, ScoredProduct, UIStrings } from '@nootropic/data';
 import type { SortKey, SortDir, Goal, Grade } from './constants';
 import { MAX_SELECTED } from './constants';
 
@@ -97,7 +97,7 @@ export function buildViewQueryString(opts: {
  * Trigger a CSV download for the given rows. Safe to call from any
  * environment — no-ops when `document` is undefined (SSR / static export).
  */
-export function exportRowsToCsv(rows: Product[], strings: UIStrings): void {
+export function exportRowsToCsv(rows: ScoredProduct[], strings: UIStrings): void {
   if (typeof document === 'undefined') return;
   const headers = [
     'Rank',

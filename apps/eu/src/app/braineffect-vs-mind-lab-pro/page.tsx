@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { HeadToHead, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { HeadToHeadFAQ } from '@nootropic/ui';
-import { allProductsEU, productsEU, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { allProductsEU, productsEU, getRegionalHealthDisclaimer, hasScore } from '@nootropic/data';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -77,7 +77,7 @@ const verdictParagraph =
   'BRAINEFFECT FOCUS has been discontinued — its brain-effect.com product page returns 404 and it is no longer in the brand\'s catalogue (checked 29 September 2026) — so this is no longer a live choice. Mind Lab Pro remains available at €65/month from its EU storefront. BRAINEFFECT still sells other products; we have not reviewed them.';
 
 export default function Page() {
-  if (!productA || !productB) notFound();
+  if (!productA || !productB || !hasScore(productA) || !hasScore(productB)) notFound();
   return (
     <HeadToHead
       productA={productA}

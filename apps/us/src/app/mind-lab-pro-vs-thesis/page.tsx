@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { HeadToHead, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { HeadToHeadFAQ } from '@nootropic/ui';
-import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsUS, getRegionalHealthDisclaimer, hasScore } from '@nootropic/data';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -76,7 +76,7 @@ const verdictParagraph =
   'Mind Lab Pro\'s single-universal-formula approach has stronger replication evidence (multiple RCTs published). Thesis\'s personalised-quiz approach has stronger user-experience data and lower friction for newcomers. For evidence-graded buyers prioritizing peer-reviewed data, Mind Lab Pro wins. For buyers who value try-multiple-formulas convenience, Thesis is fair.';
 
 export default function Page() {
-  if (!productA || !productB) notFound();
+  if (!productA || !productB || !hasScore(productA) || !hasScore(productB)) notFound();
   return (
     <HeadToHead
       productA={productA}

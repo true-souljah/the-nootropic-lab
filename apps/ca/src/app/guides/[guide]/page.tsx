@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
-import { guides, buildPersonAuthorReference, productsCA, regionalGuideNote, regionalTitleQualifier } from '@nootropic/data';
+import { guides, buildPersonAuthorReference, productsCA, rankByScore, regionalGuideNote, regionalTitleQualifier } from '@nootropic/data';
 
 import { PublicShell, RegionalAvailability, GuideEvidenceReviewed, GuideSources } from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
@@ -91,7 +91,7 @@ export default async function GuidePage({
           </section>
         ))}
 
-        <RegionalAvailability {...regionalProps(productsCA.slice().sort((a, b) => b.score - a.score).slice(0, 4))} note={regionalGuideNote('ca', g.slug)} />
+        <RegionalAvailability {...regionalProps(rankByScore(productsCA).slice(0, 4))} note={regionalGuideNote('ca', g.slug)} />
 
         <GuideSources sources={g.sources} uiStrings={uiStrings} />
 

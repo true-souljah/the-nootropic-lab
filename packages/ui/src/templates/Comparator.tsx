@@ -7,7 +7,8 @@ import AppShell from './AppShell';
 import { FPDisclosure } from '../public-chrome/FPDisclosure';
 import { ScorePill } from '../primitives/ScorePill';
 import { LiveRegion } from '../primitives/LiveRegion';
-import type { Product, UIStrings } from '@nootropic/data';
+import { hasScore } from '@nootropic/data';
+import type { Product, ScoredProduct, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 import { COLUMNS, MAX_SELECTED } from './comparator/constants';
 import type { SortKey, SortDir, Goal, Grade } from './comparator/constants';
@@ -37,6 +38,9 @@ export default function Comparator({
   searchItems,
   uiStrings,
 }: ComparatorProps) {
+  // Every row is sorted, graded and compared by score: unscored records
+  // (score null, incomplete pillars) are left out of the comparator.
+  const scored = useMemo(() => products.filter((p): p is ScoredProduct => hasScore(p)), [products]);
   const [sortKey, setSortKey] = useState<SortKey>('score');
   const [sortDir, setSortDir] = useState<SortDir>('desc');
   const [maxPrice, setMaxPrice] = useState(100);
@@ -72,7 +76,7 @@ export default function Comparator({
   // a noisy initial paint per the M6 a11y review.
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const state = parseUrlState(new URLSearchParams(window.location.search), products);
+    const state = parseUrlState(new URLSearchParams(window.location.search), scored);
     if (state.sortKey !== undefined) setSortKey(state.sortKey);
     if (state.sortDir !== undefined) setSortDir(state.sortDir);
     if (state.maxPrice !== undefined) setMaxPrice(state.maxPrice);
@@ -83,7 +87,7 @@ export default function Comparator({
     if (state.bestFor !== undefined) setBestFor(state.bestFor);
     if (state.grade !== undefined) setGrade(state.grade);
     if (state.selected !== undefined) setSelected(state.selected);
-  }, [products]);
+  }, [scored]);
 
   const reset = useCallback(() => {
     setMaxPrice(100);
@@ -95,7 +99,7 @@ export default function Comparator({
   }, []);
 
   const rows = useMemo(() => {
-    let r = products.filter((p) => (p.priceMonthlyUSD ?? Infinity) <= maxPrice);
+    let r = scored.filter((p) => (p.priceMonthlyUSD ?? Infinity) <= maxPrice);
     if (caffeineFreeOnly) r = r.filter((p) => p.caffeineFree);
     if (euCompliantOnly) r = r.filter((p) => p.euStorefront);
     if (handsOnOnly) r = r.filter((p) => p.handsOnTested === true);
@@ -108,7 +112,7 @@ export default function Comparator({
       });
     }
     return [...r].sort((a, b) => {
-      const get = (x: Product) =>
+      const get = (x: ScoredProduct) =>
         sortKey === 'score'
           ? x.score
           : sortKey === 'price'
@@ -121,7 +125,7 @@ export default function Comparator({
       return sortDir === 'desc' ? get(b) - get(a) : get(a) - get(b);
     });
   }, [
-    products,
+    scored,
     sortKey,
     sortDir,
     maxPrice,
@@ -151,8 +155,8 @@ export default function Comparator({
     });
   }
   const selectedProducts = selected
-    .map((slug) => products.find((p) => p.slug === slug))
-    .filter((p): p is Product => Boolean(p));
+    .map((slug) => scored.find((p) => p.slug === slug))
+    .filter((p): p is ScoredProduct => Boolean(p));
 
   function saveView() {
     const qs = buildViewQueryString({
@@ -204,7 +208,7 @@ export default function Comparator({
       searchItems={searchItems}
       uiStrings={uiStrings}
       hideStackCta
-      sidebarMeta={`${products.length} products`}
+      sidebarMeta={`${scored.length} products`}
     >
       <FPDisclosure methodologyHref="/methodology/" strings={uiStrings?.disclosure} />
       {/* When the mobile filter sheet is open, `inert` removes everything
@@ -227,7 +231,7 @@ export default function Comparator({
                 Comparator
               </h1>
               <div className="text-[12px] text-ds-muted mt-[2px]">
-                {rows.length} of {products.length} match · select up to {MAX_SELECTED} to compare side-by-side
+                {rows.length} of {scored.length} match · select up to {MAX_SELECTED} to compare side-by-side
               </div>
             </div>
             <div className="flex gap-[6px] items-center flex-wrap">

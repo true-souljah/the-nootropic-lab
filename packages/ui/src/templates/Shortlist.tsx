@@ -10,8 +10,8 @@ import { ScorePill } from '../primitives/ScorePill';
 import { LiveRegion } from '../primitives/LiveRegion';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
 import { useShortlist, useShortlistNote } from './useShortlist';
-import { servingAmount } from '@nootropic/data';
-import type { Product, UIStrings } from '@nootropic/data';
+import { hasScore, servingAmount } from '@nootropic/data';
+import type { Product, ScoredProduct, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 
 export interface ShortlistProps {
@@ -50,6 +50,8 @@ export default function Shortlist({
   const { slugs, hydrated, remove, move, clear, replace } = useShortlist();
   const [notice, setNotice] = useState<string | null>(null);
   const [imported, setImported] = useState(false);
+  // The shortlist compares scores ("Best scored"): unscored records (score null) are left out.
+  const scored = useMemo(() => products.filter((p): p is ScoredProduct => hasScore(p)), [products]);
 
   // One-shot URL → localStorage hydration for shareable links
   useEffect(() => {
@@ -64,13 +66,13 @@ export default function Shortlist({
     const incoming = raw
       .split(',')
       .map((s) => s.trim())
-      .filter((s) => products.some((p) => p.slug === s));
+      .filter((s) => scored.some((p) => p.slug === s));
     if (incoming.length > 0 && slugs.length === 0) {
       replace(incoming);
       flash(`Imported ${incoming.length} from shared link`);
     }
     setImported(true);
-  }, [hydrated, imported, products, replace, slugs.length]);
+  }, [hydrated, imported, scored, replace, slugs.length]);
 
   function flash(msg: string) {
     setNotice(msg);
@@ -78,13 +80,13 @@ export default function Shortlist({
   }
 
   const items = useMemo(
-    () => slugs.map((s) => products.find((p) => p.slug === s)).filter((p): p is Product => Boolean(p)),
-    [slugs, products]
+    () => slugs.map((s) => scored.find((p) => p.slug === s)).filter((p): p is ScoredProduct => Boolean(p)),
+    [slugs, scored]
   );
 
   const stats = useMemo(() => {
     if (items.length === 0) return null;
-    const priced = items.filter((p): p is Product & { priceMonthlyUSD: number } => typeof p.priceMonthlyUSD === 'number');
+    const priced = items.filter((p): p is ScoredProduct & { priceMonthlyUSD: number } => typeof p.priceMonthlyUSD === 'number');
     const cheapest = priced.length
       ? priced.reduce((min, p) => (p.priceMonthlyUSD < min.priceMonthlyUSD ? p : min))
       : null;
@@ -152,7 +154,7 @@ export default function Shortlist({
       searchItems={searchItems}
       uiStrings={uiStrings}
       hideStackCta
-      sidebarMeta={`${products.length} products`}
+      sidebarMeta={`${scored.length} products`}
     >
       <div className="px-7 pt-7 pb-10">
         {!hydrated ? (
@@ -342,7 +344,7 @@ function ShortlistRow({
   onMoveUp,
   onMoveDown,
 }: {
-  product: Product;
+  product: ScoredProduct;
   index: number;
   total: number;
   onRemove: () => void;

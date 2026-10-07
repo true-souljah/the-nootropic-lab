@@ -10,8 +10,8 @@ import { FaqAccordion } from '../primitives/FaqAccordion';
 import RegionalAvailability from '../RegionalAvailability';
 import Sources from '../Sources';
 import type { RegionalAvailabilityProps } from '../RegionalAvailability';
-import { buildPersonAuthorReference } from '@nootropic/data';
-import type { Ingredient, Product, UIStrings } from '@nootropic/data';
+import { buildPersonAuthorReference, hasScore } from '@nootropic/data';
+import type { Ingredient, Product, ScoredProduct, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 
 export interface IngredientDetailProps {
@@ -80,6 +80,8 @@ export default function IngredientDetail({
 }: IngredientDetailProps) {
   const t = uiStrings?.ingredientDetail;
   const te = uiStrings?.ingredientEvidence;
+  // The "Top stacks" cards show each product's score: unscored records (score null) are skipped.
+  const scoredProducts = containingProducts.filter((p): p is ScoredProduct => hasScore(p));
   const categoryLabels = t?.category ?? DEFAULT_CATEGORY_LABELS;
   const magnitudeLabel = t?.magnitude ?? DEFAULT_MAGNITUDE_LABEL;
   const tocSections = [
@@ -365,13 +367,13 @@ export default function IngredientDetail({
               />
             </section>
 
-            {containingProducts.length > 0 && (
+            {scoredProducts.length > 0 && (
               <section id="products" className="mt-9">
                 <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-4 text-ds-ink">
                   Top stacks containing {ing.name}
                 </h2>
                 <div className="grid sm:grid-cols-2 gap-4">
-                  {containingProducts.map((p) => (
+                  {scoredProducts.map((p) => (
                     <Link
                       key={p.slug}
                       href={`/${p.slug}/`}

@@ -8,10 +8,10 @@ import { Card } from '../../primitives/Card';
 import { ScorePill } from '../../primitives/ScorePill';
 import { Bar } from '../../primitives/Bar';
 import { servingAmount } from '@nootropic/data';
-import type { Product, UIStrings } from '@nootropic/data';
+import type { ScoredProduct, UIStrings } from '@nootropic/data';
 
 export interface ComparatorCompareCardProps {
-  selectedProducts: Product[];
+  selectedProducts: ScoredProduct[];
   uiStrings: UIStrings;
   onClear: () => void;
 }

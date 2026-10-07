@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
-import { productsJP, jpPrefectures, buildPersonAuthorReference } from '@nootropic/data';
+import { productsJP, jpPrefectures, buildPersonAuthorReference, rankByScore } from '@nootropic/data';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -34,7 +34,7 @@ export async function generateMetadata({
   };
 }
 
-const topProducts = productsJP.slice().sort((a, b) => b.score - a.score).slice(0, 3);
+const topProducts = rankByScore(productsJP).slice(0, 3);
 
 export default async function PrefecturePage({
   params,

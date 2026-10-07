@@ -8,7 +8,8 @@
  * Each *Fit() returns a multiplier in [0.3, 1.2].
  */
 
-import type { Product } from '@nootropic/data';
+import { hasScore } from '@nootropic/data';
+import type { Product, ScoredProduct } from '@nootropic/data';
 
 export type QuizGoal = 'Focus' | 'Memory' | 'Energy' | 'Mood' | 'Sleep recovery' | 'Aging support';
 export type CaffeineSensitivity = 'Very sensitive' | 'Moderate' | 'Not sensitive';
@@ -68,7 +69,7 @@ export function mbgFit(productMBGdays: number, importance: MBGImportance): numbe
 }
 
 export interface QuizMatch {
-  product: Product;
+  product: ScoredProduct;
   score: number;
   rank: number;
 }
@@ -89,7 +90,9 @@ export interface QuizResult {
 export function scoreQuiz(products: Product[], answers: QuizAnswers): QuizResult | null {
   if (products.length === 0) return null;
 
+  // baseScore needs an editorial score: unscored records (score null) never match.
   const scored = products
+    .filter((p): p is ScoredProduct => hasScore(p))
     .map((p) => ({
       product: p,
       score:

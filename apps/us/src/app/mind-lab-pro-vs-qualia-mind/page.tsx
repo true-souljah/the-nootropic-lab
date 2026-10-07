@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { HeadToHead, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { HeadToHeadFAQ } from '@nootropic/ui';
-import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsUS, getRegionalHealthDisclaimer, hasScore } from '@nootropic/data';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -72,14 +72,13 @@ const whoIsForB = [
   'Are willing to commit to subscription pricing for the introductory rate',
 ];
 
-const verdictParagraph =
-  `Mind Lab Pro scores ${productA?.score ?? 'higher'}/10; Qualia Mind scores ${productB?.score ?? 'lower'}/10. ` +
-  'Mind Lab Pro\'s lean 11-ingredient open formula scores stronger on transparency and value. ' +
-  'Qualia Mind\'s 28-ingredient megadose scores stronger on ingredient breadth but loses points on value, ' +
-  'capsule count, and the difficulty of evaluating individual contributions.';
-
 export default function Page() {
-  if (!productA || !productB) notFound();
+  if (!productA || !productB || !hasScore(productA) || !hasScore(productB)) notFound();
+  const verdictParagraph =
+    `Mind Lab Pro scores ${productA.score}/10; Qualia Mind scores ${productB.score}/10. ` +
+    'Mind Lab Pro\'s lean 11-ingredient open formula scores stronger on transparency and value. ' +
+    'Qualia Mind\'s 28-ingredient megadose scores stronger on ingredient breadth but loses points on value, ' +
+    'capsule count, and the difficulty of evaluating individual contributions.';
   return (
     <HeadToHead
       productA={productA}

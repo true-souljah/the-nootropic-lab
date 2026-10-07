@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { HeadToHead, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { HeadToHeadFAQ } from '@nootropic/ui';
-import { productsCA, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsCA, getRegionalHealthDisclaimer, hasScore } from '@nootropic/data';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -79,7 +79,7 @@ const verdictParagraph =
   'For Canadian buyers, AOR Ortho•Mind is the stronger choice on regulatory compliance, price, Bacopa dose, and Canadian-domiciled trust. Mind Lab Pro is the stronger choice on broader formula coverage, peer-reviewed RCT evidence, and caffeine-free design. If NPN compliance and Canadian retail availability are top priorities, AOR wins. If formula breadth and clinical evidence are top priorities, Mind Lab Pro is worth the international-shipping friction. Both are open-formula and well-reviewed editorially.';
 
 export default function Page() {
-  if (!productA || !productB) notFound();
+  if (!productA || !productB || !hasScore(productA) || !hasScore(productB)) notFound();
   return (
     <HeadToHead
       productA={productA}

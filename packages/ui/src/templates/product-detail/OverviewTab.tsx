@@ -3,9 +3,11 @@ import type { Product } from '@nootropic/data';
 
 export interface OverviewTabProps {
   product: Product;
+  /** Localized "not scored" label (`productDetail.score.notScored`), shown when `product.score` is null. */
+  notScoredLabel: string;
 }
 
-export function OverviewTab({ product: p }: OverviewTabProps) {
+export function OverviewTab({ product: p, notScoredLabel }: OverviewTabProps) {
   return (
     <div className="grid gap-4 items-start grid-cols-1 lg:grid-cols-[1.6fr_1fr]">
       <div className="flex flex-col gap-4">
@@ -14,7 +16,11 @@ export function OverviewTab({ product: p }: OverviewTabProps) {
             Verdict
           </div>
           <h2 className="text-[22px] font-bold tracking-[-0.02em] m-0 mb-3 text-ds-ink">
-            {p.score >= 8.5 ? (
+            {p.score === null ? (
+              <>
+                <span className="text-ds-muted">{p.name}</span>: {notScoredLabel}
+              </>
+            ) : p.score >= 8.5 ? (
               <>
                 <span className="text-ds-good">{p.name}</span> is recommended.
               </>

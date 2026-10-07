@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ProductDetail, SchemaOrg, buildAlternates} from '@nootropic/ui';
-import { allProductsSEA, productsSEA, regionsWithProduct, buildProductSchema, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { allProductsSEA, productsSEA, rankByScore, regionsWithProduct, buildProductSchema, getRegionalHealthDisclaimer } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
 import { regionalProductProps } from '@/lib/regional';
@@ -31,9 +31,11 @@ export async function generateMetadata({
   const title =
     product.seoTitle ??
     `${product.name} Review ${CURRENT_YEAR} — Independent Score & Ingredient Audit`;
+  // An unscored record (score null, incomplete pillars) states no score.
+  const scoreClause = product.score === null ? '' : ` Score: ${product.score}/10.`;
   const description =
     product.seoDescription ??
-    `Independent review of ${product.name}. Score: ${product.score}/10. Clinical dosing audit, pros and cons, and full affiliate disclosure.`;
+    `Independent review of ${product.name}.${scoreClause} Clinical dosing audit, pros and cons, and full affiliate disclosure.`;
   return {
     title,
     description,
@@ -52,11 +54,9 @@ export default async function ProductReviewPage({
   const product = allProductsSEA.find((p) => p.slug === slug);
   if (!product) notFound();
 
-  const alternatives = productsSEA
-    .filter((p) => p.slug !== product.slug)
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 3);
+  const alternatives = rankByScore(productsSEA.filter((p) => p.slug !== product.slug)).slice(0, 3);
 
+  // null for an unscored product: no Product JSON-LD without a rating.
   const productSchema = buildProductSchema(product, SITE_URL);
 
   const breadcrumbSchema = {
@@ -71,7 +71,7 @@ export default async function ProductReviewPage({
 
   return (
     <>
-      <SchemaOrg schema={productSchema} />
+      {productSchema && <SchemaOrg schema={productSchema} />}
       <SchemaOrg schema={breadcrumbSchema} />
       <ProductDetail
         product={product}

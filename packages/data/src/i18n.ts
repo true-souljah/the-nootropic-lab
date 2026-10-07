@@ -252,6 +252,8 @@ export interface UIStrings {
     score: {
       label: string;
       outOf10: string;
+      /** Shown in place of the score when a pillar is missing (Product.score null). */
+      notScored: string;
     };
     stats: {
       price: string;
@@ -504,6 +506,7 @@ const en: UIStrings = {
     score: {
       label: 'Our score',
       outOf10: 'of 10.0',
+      notScored: 'Not scored — incomplete data',
     },
     stats: {
       price: 'Price',
@@ -732,6 +735,7 @@ const es: UIStrings = {
     score: {
       label: 'Nuestra puntuación',
       outOf10: 'sobre 10,0',
+      notScored: 'Sin puntuación — datos incompletos',
     },
     stats: {
       price: 'Precio',
@@ -960,6 +964,7 @@ const fr: UIStrings = {
     score: {
       label: 'Notre note',
       outOf10: 'sur 10,0',
+      notScored: 'Non noté — données incomplètes',
     },
     stats: {
       price: 'Prix',
@@ -1188,6 +1193,7 @@ const ja: UIStrings = {
     score: {
       label: '当社の評価',
       outOf10: '10.0点満点',
+      notScored: '未評価 — データ不完全',
     },
     stats: {
       price: '価格',
@@ -1416,6 +1422,7 @@ const pt: UIStrings = {
     score: {
       label: 'Nossa pontuação',
       outOf10: 'em 10,0',
+      notScored: 'Sem pontuação — dados incompletos',
     },
     stats: {
       price: 'Preço',
@@ -1644,6 +1651,7 @@ const de: UIStrings = {
     score: {
       label: 'Unsere Bewertung',
       outOf10: 'von 10,0',
+      notScored: 'Nicht bewertet — unvollständige Daten',
     },
     stats: {
       price: 'Preis',
@@ -1874,7 +1882,7 @@ const frCa: UIStrings = {
       reviewedBy: "Évalué par l'équipe éditoriale de The Nootropic Lab",
     },
     dateLocale: 'fr-CA',
-    score: { label: 'Notre score', outOf10: 'sur 10,0' },
+    score: { label: 'Notre score', outOf10: 'sur 10,0', notScored: 'Non noté — données incomplètes' },
     stats: {
       price: 'Prix',
       monthUnit: 'mois',

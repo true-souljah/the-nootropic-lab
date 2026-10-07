@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { HeadToHead, buildAlternates, buildOpenGraph, buildTwitter } from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { HeadToHeadFAQ } from '@nootropic/ui';
-import { allProductsAU, productsAU, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { allProductsAU, productsAU, getRegionalHealthDisclaimer, hasScore } from '@nootropic/data';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -82,7 +82,7 @@ const verdictParagraph =
   'Blackmores Brain Active has been discontinued in Australia — blackmores.com.au no longer lists it and Chemist Warehouse does not stock it — so this is no longer a live choice. Mind Lab Pro remains available at A$89/month on its Australian storefront, imported under the TGA Personal Importation Scheme. If you want a pharmacy-shelf Blackmores product instead, its current brain-health range is Cognition Ultra and Omega Brain; we have not reviewed either.';
 
 export default function Page() {
-  if (!productA || !productB) notFound();
+  if (!productA || !productB || !hasScore(productA) || !hasScore(productB)) notFound();
   return (
     <HeadToHead
       productA={productA}

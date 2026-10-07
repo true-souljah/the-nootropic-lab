@@ -13,7 +13,7 @@ import { ScorePill } from '../primitives/ScorePill';
 import { Bar } from '../primitives/Bar';
 import { FaqAccordion } from '../primitives/FaqAccordion';
 import { buildPersonAuthorReference, servingAmount, servingsComparable } from '@nootropic/data';
-import type { Product, UIStrings } from '@nootropic/data';
+import type { Product, ScoredProduct, UIStrings } from '@nootropic/data';
 import {
   headToHeadPageEnDefaults,
   tpl,
@@ -27,8 +27,9 @@ export interface HeadToHeadFAQ {
 }
 
 export interface HeadToHeadProps {
-  productA: Product;
-  productB: Product;
+  /** Scored products only (narrow with `hasScore`): the page compares composite and pillar scores. */
+  productA: ScoredProduct;
+  productB: ScoredProduct;
   siteUrl: string;
   /** Methodology page path, shared by the disclosure, trust note and in-content links. */
   methodologyHref?: string;

@@ -8,7 +8,8 @@ import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
 import { LiveRegion } from '../primitives/LiveRegion';
-import type { Ingredient, Product, UIStrings } from '@nootropic/data';
+import { hasScore } from '@nootropic/data';
+import type { Ingredient, Product, ScoredProduct, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 import { parseClinicalDose, statusFor, defaultDoseFor, type DoseStatus, type ParsedDose } from './doseRange';
 
@@ -162,8 +163,10 @@ export default function DoseCalculator({
   const closest = useMemo(() => {
     if (enriched.length === 0) return null;
     const userIngredientNames = enriched.map(({ ing }) => ing.name.toLowerCase());
-    let best: { product: Product; overlap: number } | null = null;
+    let best: { product: ScoredProduct; overlap: number } | null = null;
     for (const product of products) {
+      // The suggestion shows the product's score: unscored records are skipped.
+      if (!hasScore(product)) continue;
       let overlap = 0;
       for (const userName of userIngredientNames) {
         if (

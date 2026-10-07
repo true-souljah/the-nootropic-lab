@@ -1,4 +1,4 @@
-export type { Product, EUCompliance, Market, IngredientDosage } from './products-us';
+export type { Product, ScoredProduct, EUCompliance, Market, IngredientDosage } from './products-us';
 export { productsUS, allProductsUS } from './products-us';
 export { productsEU, allProductsEU } from './products-eu';
 export { productsCA, allProductsCA } from './products-ca';
@@ -6,8 +6,8 @@ export { productsAU, allProductsAU } from './products-au';
 export { productsJP, allProductsJP } from './products-jp';
 export { productsLatam, allProductsLatam } from './products-latam';
 export { activeProducts, isDiscontinued } from './product-status';
-export type { Pillar, ScoreBreakdown } from './scoring';
-export { PILLARS, PILLAR_WEIGHTS, pillarWeightPercent, computeScore, hasScore } from './scoring';
+export type { Pillar, ScoreBreakdown, Scored } from './scoring';
+export { PILLARS, PILLAR_WEIGHTS, pillarWeightPercent, computeScore, hasScore, rankByScore } from './scoring';
 export type { ProductForm } from './serving-unit';
 export { PRODUCT_FORMS, productForm, servingUnit, servingAmount, servingsComparable } from './serving-unit';
 export { affiliateUrlProblem, formulaProblem, formProblem, productRuleProblems } from './product-rules';

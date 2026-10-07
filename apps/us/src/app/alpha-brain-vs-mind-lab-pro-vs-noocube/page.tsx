@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { ThreeWay, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ThreeWayFAQ } from '@nootropic/ui';
-import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsUS, getRegionalHealthDisclaimer, hasScore } from '@nootropic/data';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -26,10 +26,13 @@ export const metadata: Metadata = {
   twitter: { card: 'summary' },
 };
 
-const faqItems: ThreeWayFAQ[] = [
+// Scores quoted in the FAQ and verdict come from the product data (score =
+// computeScore(scoreBreakdown)); Page() fails the build if Mind Lab Pro stops
+// being the top scorer the copy names.
+const buildFaqItems = (mindLabProScore: number): ThreeWayFAQ[] => [
   {
     q: 'Which of the three is best?',
-    a: 'Mind Lab Pro scores highest in our editorial audit (9.2/10) — fully open formula, every dose disclosed, multiple peer-reviewed RCTs. Alpha Brain is the most accessible (sold at Whole Foods, CVS, Vitamin Shoppe) and lowest-priced when on autoship. NooCube is between them on price with a fully open formula but less third-party verification than Mind Lab Pro.',
+    a: `Mind Lab Pro scores highest in our editorial audit (${mindLabProScore}/10) — fully open formula, every dose disclosed, multiple peer-reviewed RCTs. Alpha Brain is the most accessible (sold at Whole Foods, CVS, Vitamin Shoppe) and lowest-priced when on autoship. NooCube is between them on price with a fully open formula but less third-party verification than Mind Lab Pro.`,
   },
   {
     q: 'Are all three caffeine-free?',
@@ -74,11 +77,16 @@ const whoIsForC = [
   'Prefer multi-bottle bundle pricing',
 ];
 
-const verdictParagraph =
-  'Mind Lab Pro earns the top score (9.2/10) on transparency, evidence base, and editorial-audit pillar coverage. NooCube (8.5/10) is a fair open-formula alternative at lower per-month cost. Alpha Brain (7.8/10) leads on accessibility and brand recognition but loses points on proprietary blends and documented subscription friction. If you can only pick one, Mind Lab Pro for transparency-priority buyers, NooCube for budget-priority buyers with similar values, Alpha Brain for retail-availability-priority buyers.';
-
 export default function Page() {
-  if (!productA || !productB || !productC) notFound();
+  if (!productA || !productB || !productC || !hasScore(productA) || !hasScore(productB) || !hasScore(productC)) notFound();
+  if (productB.score <= Math.max(productA.score, productC.score)) {
+    throw new Error(
+      `alpha-brain-vs-mind-lab-pro-vs-noocube: the copy names Mind Lab Pro the top scorer, but the data has Mind Lab Pro ${productB.score}, Alpha Brain ${productA.score}, NooCube ${productC.score} — update the verdict and FAQ.`,
+    );
+  }
+  const faqItems = buildFaqItems(productB.score);
+  const verdictParagraph =
+    `Mind Lab Pro earns the top score (${productB.score}/10) on transparency, evidence base, and editorial-audit pillar coverage. NooCube (${productC.score}/10) is a fair open-formula alternative at lower per-month cost. Alpha Brain (${productA.score}/10) leads on accessibility and brand recognition but loses points on proprietary blends and documented subscription friction. If you can only pick one, Mind Lab Pro for transparency-priority buyers, NooCube for budget-priority buyers with similar values, Alpha Brain for retail-availability-priority buyers.`;
   return (
     <ThreeWay
       productA={productA}

@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { HeadToHead, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { HeadToHeadFAQ } from '@nootropic/ui';
-import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsUS, getRegionalHealthDisclaimer, hasScore } from '@nootropic/data';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -76,7 +76,7 @@ const verdictParagraph =
   'Both are open-formula products — neither hides doses behind proprietary blends. The differentiator is brand trust signals: Mind Lab Pro carries peer-reviewed RCT evidence and Clean Label / Consumer Lab third-party testing; NooCube carries a 60-day refund window and lower per-bottle pricing on bundles. For evidence-graded buyers, Mind Lab Pro wins. For price-conscious open-formula buyers, NooCube is a fair second.';
 
 export default function Page() {
-  if (!productA || !productB) notFound();
+  if (!productA || !productB || !hasScore(productA) || !hasScore(productB)) notFound();
   return (
     <HeadToHead
       productA={productA}

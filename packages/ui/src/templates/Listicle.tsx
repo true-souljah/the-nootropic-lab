@@ -12,8 +12,8 @@ import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
 import { Bar } from '../primitives/Bar';
 import { FaqAccordion } from '../primitives/FaqAccordion';
-import { buildPersonAuthorReference, servingAmount } from '@nootropic/data';
-import type { Product, UIStrings } from '@nootropic/data';
+import { buildPersonAuthorReference, hasScore, servingAmount } from '@nootropic/data';
+import type { Product, ScoredProduct, UIStrings } from '@nootropic/data';
 import {
   useCaseListPageEnDefaults,
   tpl,
@@ -129,7 +129,11 @@ export default function Listicle({
     day: 'numeric',
   });
 
-  const sortedPicks = [...picks].sort((a, b) => (a.rank ?? 999) - (b.rank ?? 999));
+  // Each pick card shows the product's score, so an unscored record (score
+  // null, incomplete pillars) is skipped; the hand-written rank order is kept.
+  const sortedPicks = picks
+    .filter((pick): pick is ListiclePick & { product: ScoredProduct } => hasScore(pick.product))
+    .sort((a, b) => (a.rank ?? 999) - (b.rank ?? 999));
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -148,7 +152,7 @@ export default function Listicle({
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: `${pageTitle} ${currentYear}`,
-    numberOfItems: picks.length,
+    numberOfItems: sortedPicks.length,
     itemListElement: sortedPicks.map((p, i) => ({
       '@type': 'ListItem',
       position: p.rank ?? i + 1,

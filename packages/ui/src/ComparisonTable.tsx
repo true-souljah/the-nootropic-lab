@@ -1,6 +1,7 @@
 'use client';
 import { useId, useState, useMemo } from 'react';
-import type { Product, UIStrings } from '@nootropic/data';
+import { hasScore } from '@nootropic/data';
+import type { Product, ScoredProduct, UIStrings } from '@nootropic/data';
 import ScoreTooltip from './ScoreTooltip';
 import EUBadge from './EUBadge';
 
@@ -85,7 +86,8 @@ export default function ComparisonTable({ products, market, strings }: Props) {
   }
 
   const filtered = useMemo(() => {
-    let list = [...products];
+    // Rows are sorted and compared by score: unscored records (score null) are left out.
+    let list = products.filter((p): p is ScoredProduct => hasScore(p));
     if (activeFilters.has('caffeineFree')) list = list.filter(p => p.caffeineFree);
     if (activeFilters.has('euStorefront')) list = list.filter(p => p.euStorefront);
     list = list.filter(p => {

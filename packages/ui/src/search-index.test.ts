@@ -299,8 +299,24 @@ describe('buildSearchIndex — works on every real region catalog', () => {
 
     for (const item of productItems) {
       expect(item.href, `${region} ${item.title} href`).toMatch(/^\/[a-z0-9-]+\/$/);
+      const product = catalog.find((p) => `/${p.slug}/` === item.href);
+      expect(product, `${region} ${item.title} record`).toBeDefined();
+      // Unscored records (score null, 2026-10-07) stay searchable without a score pill.
+      if (product?.score === null) {
+        expect(item.meta, `${region} ${item.title} unscored: no score meta`).toBeUndefined();
+        continue;
+      }
+      expect(item.meta?.score, `${region} ${item.title} score`).toBe(product?.score);
       expect(item.meta?.score, `${region} ${item.title} score`).toBeGreaterThan(0);
       expect(item.meta?.score, `${region} ${item.title} score range`).toBeLessThanOrEqual(10);
     }
+  });
+
+  test('the unscored SEA record is indexed without a score', () => {
+    const item = buildSearchIndex(productsSEA, ingredients, guides).find(
+      (i) => i.href === '/supershrooms-focus-nootropic-review/',
+    );
+    expect(item?.type).toBe('product');
+    expect(item?.meta).toBeUndefined();
   });
 });

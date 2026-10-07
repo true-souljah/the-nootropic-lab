@@ -15,6 +15,8 @@ function p(overrides: Partial<Product> = {}): Product {
     name: 'Test',
     brand: 'Test',
     score: 8.0,
+    // scoreQuiz only matches scored records (hasScore checks every pillar).
+    scoreBreakdown: { ingredients: 8, dosing: 8, transparency: 8, value: 8, trust: 8 },
     summary: '',
     bestFor: [],
     caffeineFree: true,
@@ -201,6 +203,21 @@ describe('scoreQuiz', () => {
     });
     expect(result?.top.product.slug).toBe('win');
     expect(result?.confidence).toBeGreaterThanOrEqual(80);
+  });
+
+  test('never matches an unscored product (score null, 2026-10-07)', () => {
+    const unscored = p({
+      slug: 'unscored',
+      score: null,
+      scoreBreakdown: { ingredients: 6, dosing: null, transparency: 4, value: null, trust: 4 },
+      bestFor: ['Focus'],
+    });
+    const scored = p({ slug: 'scored', score: 5, bestFor: [] });
+    const answers = { goals: ['Focus' as const], caffeine: 'Not sensitive' as const, budget: 100, mbg: 'Not important' as const };
+    const result = scoreQuiz([unscored, scored], answers);
+    expect(result?.top.product.slug).toBe('scored');
+    expect(result?.runnerUps).toHaveLength(0);
+    expect(scoreQuiz([unscored], answers)).toBeNull();
   });
 
   test('confidence is an integer percent in [60, 99]', () => {

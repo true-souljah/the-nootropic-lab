@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Product, RegionProfile, RegionalNote } from '@nootropic/data';
-import { licenceStatus, localPrice } from '@nootropic/data';
+import { licenceStatus, localPrice, rankByScore } from '@nootropic/data';
 import { Card } from './primitives/Card';
 import { FaqAccordion } from './primitives/FaqAccordion';
 
@@ -61,10 +61,12 @@ export default function RegionalAvailability({
 }: RegionalAvailabilityProps) {
   const L = region.labels;
   const heading = L.heading.replace('{name}', subjectName ?? L.genericSubject);
-  const rows = products
-    .slice()
-    .sort((a, b) => b.score - a.score)
-    .map((p) => ({ p, status: licenceStatus(p, region.code), price: localPrice(p, region.code) }));
+  // Ranked by score with the score shown: unscored records (score null) are left out.
+  const rows = rankByScore(products).map((p) => ({
+    p,
+    status: licenceStatus(p, region.code),
+    price: localPrice(p, region.code),
+  }));
 
   return (
     <section id={id} className="mt-9" aria-labelledby={`${id}-heading`}>
