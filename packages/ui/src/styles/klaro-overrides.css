@@ -49,7 +49,9 @@
 
   --button-text-color: #ffffff;
 
-  /* Notice positioning — bottom-anchored, max 720px centered */
+  /* Notice positioning — bottom-anchored, max 720px centered. Klaro reads
+     these only at its desktop breakpoint, @media (min-width: 1024px); below
+     it the notice is full width, pinned to the bottom (right: 0). */
   --notice-position: fixed;
   --notice-bottom: 20px;
   --notice-left: 50%;
@@ -58,10 +60,36 @@
   --notice-max-width: 720px;
 }
 
-/* Center the notice horizontally (notice-left=50% needs a transform) */
+/*
+ * Center the notice horizontally (notice-left=50% needs a transform) — only
+ * where Klaro applies notice-left. Below 1024px the full-width notice already
+ * starts at the left edge, and the transform pushed half of it off screen
+ * (left -195px on a 390px phone; guarded by the consent-banner-mobile e2e specs).
+ */
 .klaro .cookie-notice:not(.cookie-modal-notice) {
-  transform: translateX(-50%);
   box-shadow: 0 12px 36px var(--box-shadow-color);
+}
+@media (min-width: 1024px) {
+  .klaro .cookie-notice:not(.cookie-modal-notice) {
+    transform: translateX(-50%);
+  }
+}
+
+/*
+ * The notice title (klaroConfig.showNoticeTitle) names the notice dialog
+ * (aria-labelledby="id-cookie-title"). It is visually hidden so the banner
+ * looks as before; screen readers still announce it as the dialog name.
+ */
+.klaro .cookie-notice #id-cookie-title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* Cookie modal sits above the page; ensure scrim picks up our dark tone */
