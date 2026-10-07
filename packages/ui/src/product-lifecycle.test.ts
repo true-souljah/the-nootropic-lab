@@ -5,6 +5,10 @@ import {
   affiliateUrlProblem,
   formulaProblem,
   productRuleProblems,
+  scoreProblem,
+  outOfTen,
+  pillarText,
+  guaranteeDays,
   productsUS, allProductsUS,
   productsEU, allProductsEU,
   productsCA, allProductsCA,
@@ -155,9 +159,63 @@ describe('record rules — affiliateUrl and formula', () => {
   });
 
   test('productRuleProblems collects both violations', () => {
-    const bad = productRuleProblems({ affiliateUrl: 'https://shop.example/s?k=x', ingredientDosages: [] });
+    const bad = productRuleProblems({ affiliateUrl: 'https://shop.example/s?k=x', ingredientDosages: [], ...scored });
     expect(bad).toHaveLength(2);
-    expect(productRuleProblems({ affiliateUrl: 'https://shop.example/p/x', ingredientDosages: [dosage] })).toEqual([]);
+    expect(productRuleProblems({ affiliateUrl: 'https://shop.example/p/x', ingredientDosages: [dosage], ...scored })).toEqual([]);
+  });
+});
+
+const scored = { score: 7.4, scoreBreakdown: { ingredients: 8, dosing: 7, transparency: 8, value: 7, trust: 7 } };
+
+describe('scoreProblem — unscorable pillars (2026-10, SEA Supershrooms)', () => {
+  const partial = { ingredients: 6, dosing: null, transparency: 4, value: null, trust: 4 };
+  const reason = 'Doses are not disclosed, so dosing and value cannot be scored.';
+
+  test('a fully scored record passes, whatever its editorial adjustment', () => {
+    expect(scoreProblem(scored)).toBeNull();
+    expect(scoreProblem({ ...scored, score: 8.1 })).toBeNull();
+  });
+
+  test('a null pillar needs unscoredReason', () => {
+    expect(scoreProblem({ score: 4.7, scoreBreakdown: partial })).toMatch(/without unscoredReason/);
+    expect(scoreProblem({ score: 4.7, scoreBreakdown: partial, unscoredReason: '  ' })).toMatch(/without unscoredReason/);
+  });
+
+  test('the overall score must be the weighted mean of the scored pillars', () => {
+    // (0.25×6 + 0.20×4 + 0.10×4) / 0.55 = 4.909 — PILLAR_WEIGHTS renormalised over the scored pillars.
+    expect(scoreProblem({ score: 4.9, scoreBreakdown: partial, unscoredReason: reason })).toBeNull();
+    // An equal-weight mean (4.7) is not the published method.
+    expect(scoreProblem({ score: 4.7, scoreBreakdown: partial, unscoredReason: reason })).toMatch(/weighted mean.*4\.9/);
+    // The pre-fix live value: 5.5 cannot be derived from 6, 4, 4.
+    expect(scoreProblem({ score: 5.5, scoreBreakdown: partial, unscoredReason: reason })).toMatch(/not the weighted mean.*4\.9/);
+  });
+
+  test('only dosing and value may be unscored', () => {
+    const badPillar = { ...partial, trust: null } as unknown as typeof partial;
+    expect(scoreProblem({ score: 5, scoreBreakdown: badPillar, unscoredReason: reason })).toMatch(/only dosing\/value may be null, got trust/);
+  });
+
+  test('every real record passes (the gate runs on these in validate-data)', () => {
+    for (const p of [...allProductsUS, ...allProductsEU, ...allProductsCA, ...allProductsAU, ...allProductsJP, ...allProductsLatam, ...allProductsGCC, ...allProductsSEA]) {
+      expect(scoreProblem(p), p.slug).toBeNull();
+    }
+    const supershrooms = allProductsSEA.find((p) => p.slug === 'supershrooms-focus-nootropic-review');
+    expect(supershrooms?.score).toBe(4.9);
+    expect(supershrooms?.unscoredReason).toMatch(/discloses no ingredient doses/);
+  });
+});
+
+describe('display-values — nullable fields never render "null"', () => {
+  test('pillars', () => {
+    expect(outOfTen(7)).toBe('7/10');
+    expect(outOfTen(null)).toBe('—');
+    expect(pillarText(0)).toBe('0');
+    expect(pillarText(null)).toBe('—');
+  });
+
+  test('guarantee length', () => {
+    expect(guaranteeDays(30, (d) => `${d} days`)).toBe('30 days');
+    expect(guaranteeDays(null, (d) => `${d} days`)).toBe('—');
   });
 });
 

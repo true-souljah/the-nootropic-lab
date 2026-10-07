@@ -11,7 +11,7 @@ import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
 import { FaqAccordion } from '../primitives/FaqAccordion';
-import { buildPersonAuthorReference, servingAmount, servingsComparable } from '@nootropic/data';
+import { buildPersonAuthorReference, servingAmount, servingsComparable, outOfTen, guaranteeDays } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 
@@ -199,8 +199,8 @@ export default function ThreeWay({
     },
     {
       label: 'Money-back',
-      values: products.map((p) => `${p.moneyBackDays} days`) as [string, string, string],
-      winner: bestIndex(products.map((p) => p.moneyBackDays)),
+      values: products.map((p) => guaranteeDays(p.moneyBackDays, (d) => `${d} days`)) as [string, string, string],
+      winner: bestIndex(products.map((p) => p.moneyBackDays ?? 0)),
     },
     {
       label: 'Caffeine-free',
@@ -223,8 +223,8 @@ export default function ThreeWay({
     },
     {
       label: 'Dosing pillar',
-      values: products.map((p) => `${p.scoreBreakdown.dosing}/10`) as [string, string, string],
-      winner: bestIndex(products.map((p) => p.scoreBreakdown.dosing)),
+      values: products.map((p) => outOfTen(p.scoreBreakdown.dosing)) as [string, string, string],
+      winner: bestIndex(products.map((p) => p.scoreBreakdown.dosing ?? 0)),
     },
     {
       label: 'Transparency pillar',
@@ -233,8 +233,8 @@ export default function ThreeWay({
     },
     {
       label: 'Value pillar',
-      values: products.map((p) => `${p.scoreBreakdown.value}/10`) as [string, string, string],
-      winner: bestIndex(products.map((p) => p.scoreBreakdown.value)),
+      values: products.map((p) => outOfTen(p.scoreBreakdown.value)) as [string, string, string],
+      winner: bestIndex(products.map((p) => p.scoreBreakdown.value ?? 0)),
     },
   ];
 
@@ -468,10 +468,10 @@ export default function ThreeWay({
                 <ScorePill score={p.score} />
               </div>
               <div className="flex flex-col gap-2">
-                {(Object.entries(p.scoreBreakdown) as [string, number][]).map(([k, v]) => (
+                {(Object.entries(p.scoreBreakdown) as [string, number | null][]).map(([k, v]) => (
                   <div key={k} className="flex justify-between text-[12.5px] text-ds-ink-soft">
                     <span className="capitalize">{k}</span>
-                    <span className="ds-tabular font-semibold">{`${v}/10`}</span>
+                    <span className="ds-tabular font-semibold">{outOfTen(v)}</span>
                   </div>
                 ))}
               </div>

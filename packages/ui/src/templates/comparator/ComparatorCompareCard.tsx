@@ -7,7 +7,7 @@ import { X } from 'lucide-react';
 import { Card } from '../../primitives/Card';
 import { ScorePill } from '../../primitives/ScorePill';
 import { Bar } from '../../primitives/Bar';
-import { servingAmount } from '@nootropic/data';
+import { servingAmount, pillarText, guaranteeDays } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 
 export interface ComparatorCompareCardProps {
@@ -73,7 +73,7 @@ export function ComparatorCompareCard({ selectedProducts, uiStrings, onClear }: 
               {[
                 ['Price', p.priceMonthlyUSD ? `$${p.priceMonthlyUSD}/mo` : '—'],
                 ['Daily', servingAmount(p, uiStrings)],
-                ['MBG', `${p.moneyBackDays} days`],
+                ['MBG', guaranteeDays(p.moneyBackDays, (d) => `${d} days`)],
                 ['Caffeine', p.caffeineFree ? 'Free' : 'Yes'],
                 ['Trustpilot', p.trustpilotScore === null
                   ? 'N/A'
@@ -98,8 +98,8 @@ export function ComparatorCompareCard({ selectedProducts, uiStrings, onClear }: 
                     style={{ gridTemplateColumns: '70px 1fr 22px' }}
                   >
                     <span className="text-[11px] text-ds-muted capitalize">{k}</span>
-                    <Bar value={v} label={`${p.name} ${k} score`} height={5} />
-                    <span className="text-[11px] text-ds-ink text-right ds-tabular">{v}</span>
+                    <Bar value={v ?? 0} decorative={v === null} label={`${p.name} ${k} score`} height={5} />
+                    <span className="text-[11px] text-ds-ink text-right ds-tabular">{pillarText(v)}</span>
                   </div>
                 );
               })}
