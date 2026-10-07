@@ -286,7 +286,7 @@ export default function Listicle({
                         <div className="text-[12.5px] text-ds-muted mb-4 ds-tabular">
                           {pick.product.priceMonthlyUSD && (
                             <>
-                              ${pick.product.priceMonthlyUSD}/mo · {servingAmount(pick.product, uiStrings)} · {pick.product.moneyBackDays}d MBG
+                              {`$${pick.product.priceMonthlyUSD}/mo`} · {servingAmount(pick.product, uiStrings)} · {pick.product.moneyBackDays}d MBG
                             </>
                           )}
                         </div>

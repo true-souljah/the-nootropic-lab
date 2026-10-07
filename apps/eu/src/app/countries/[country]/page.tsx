@@ -143,8 +143,8 @@ export default async function CountryPage({
                   </div>
                   <p className="text-sm text-gray-600 mb-2 line-clamp-2">{p.summary}</p>
                   <div className="flex flex-wrap gap-3 text-xs text-gray-500">
-                    <span>Score: <strong className="text-green-700">{p.score}/10</strong></span>
-                    {p.priceMonthlyEUR && <span>€{p.priceMonthlyEUR}/mo</span>}
+                    <span>Score: <strong className="text-green-700">{`${p.score}/10`}</strong></span>
+                    {p.priceMonthlyEUR && <span>{`€${p.priceMonthlyEUR}/mo`}</span>}
                     <span>{p.euStorefront ? '✓ EU storefront' : 'No EU storefront'}</span>
                   </div>
                 </div>

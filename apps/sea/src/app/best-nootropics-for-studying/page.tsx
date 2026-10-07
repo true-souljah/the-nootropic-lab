@@ -66,7 +66,7 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'eu-yan-sang-brainmax-review')!,
     rank: 3,
     whyItsHere:
-      'For SG/MY students who want a domestic option from a trusted heritage brand: Cera-Q silk fibroin protein (clinically studied for memory and learning) at 600mg per sachet (above the 200mg clinical dose), plus TCM-traditional Goji Berry and Wild Ginseng. Walk into any Eu Yan Sang store on campus or in your local mall. Powder sachet format (one sachet daily) is convenient for hostel and library use. Same-day delivery in Singapore.',
+      'For SG/MY students who want a domestic option from a trusted heritage brand: Cera-Q silk fibroin protein (studied for memory in one citable 3-week trial by maker-affiliated authors) at 600mg per sachet (the top of the 280–600mg/day range that trial tested), plus TCM-traditional Goji Berry and Wild Ginseng. Walk into any Eu Yan Sang store on campus or in your local mall. Powder sachet format (one sachet daily) is convenient for hostel and library use. Same-day delivery in Singapore. Note that Korea\'s regulator revoked Cera-Q\'s functional-ingredient recognition in 2017 after its supporting study was retracted (details in our BrainMAX+ review).',
   },
   {
     product: productsSEA.find(p => p.slug === 'naturebell-ginkgo-ginseng-review')!,

@@ -36,7 +36,7 @@ export default function RegionalBuying({ data, geoLinks, id = 'regional-buying' 
             <div>
               <dt className="text-[11px] uppercase tracking-[0.12em] font-semibold text-ds-muted">{L.price}</dt>
               <dd className="m-0 text-[15px] font-bold text-ds-ink ds-tabular">
-                {formatLocalPrice(data.price.amount, data.price.currency, data.price.locale)}{L.perMonth}
+                {`${formatLocalPrice(data.price.amount, data.price.currency, data.price.locale)}/${L.monthUnit}`}
               </dd>
             </div>
           )}
