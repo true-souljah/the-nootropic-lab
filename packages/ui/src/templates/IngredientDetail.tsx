@@ -379,7 +379,7 @@ export default function IngredientDetail({
                     >
                       <div className="flex justify-between items-start mb-1 gap-3">
                         <h3 className="font-bold text-ds-ink text-[14px] m-0">{p.name}</h3>
-                        <span className="text-ds-good font-bold text-[14px] ds-tabular shrink-0">{p.score}/10</span>
+                        <span className="text-ds-good font-bold text-[14px] ds-tabular shrink-0">{`${p.score}/10`}</span>
                       </div>
                       <p className="text-[12px] text-ds-muted m-0">{p.brand}</p>
                       {p.editorChoice && (

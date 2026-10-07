@@ -95,7 +95,7 @@ export default function RegionalAvailability({
               >
                 <div className="flex justify-between items-start gap-3 mb-1">
                   <span className="font-bold text-ds-ink text-[14px]">{p.name}</span>
-                  <span className="text-ds-good font-bold text-[14px] ds-tabular shrink-0">{p.score}/10</span>
+                  <span className="text-ds-good font-bold text-[14px] ds-tabular shrink-0">{`${p.score}/10`}</span>
                 </div>
                 <div className="flex flex-wrap items-center gap-2 text-[12px]">
                   {status && (
@@ -103,7 +103,7 @@ export default function RegionalAvailability({
                   )}
                   {price && (
                     <span className="text-ds-muted ds-tabular">
-                      {L.price}: <strong className="text-ds-ink">{formatLocalPrice(price.amount, price.currency, price.locale)}</strong>{L.perMonth}
+                      {L.price}: <strong className="text-ds-ink">{formatLocalPrice(price.amount, price.currency, price.locale)}</strong>/{L.monthUnit}
                     </span>
                   )}
                 </div>

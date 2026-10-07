@@ -73,8 +73,8 @@ function encodeAnswers(a: QuizAnswers): string {
  */
 export default function QuizFlow({
   products,
-  skipHref = '/best-nootropics',
-  resultsHref = '/quiz/results',
+  skipHref = '/best-nootropics/',
+  resultsHref = '/quiz/results/',
 }: QuizFlowProps) {
   const router = useRouter();
   const [step, setStep] = useState(1);

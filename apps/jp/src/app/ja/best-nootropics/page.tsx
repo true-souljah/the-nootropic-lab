@@ -93,7 +93,7 @@ export default function JaBestNootropicsPage() {
             rel="nofollow sponsored noopener noreferrer"
             className="inline-block bg-green-700 hover:bg-green-600 text-white font-bold px-5 py-2 rounded-lg text-sm transition-colors"
           >
-            現在の価格を確認 (${winner.priceMonthlyUSD}/月 USD) →
+            {`現在の価格を確認 ($${winner.priceMonthlyUSD}/月 USD) →`}
           </a>
         </div>
 

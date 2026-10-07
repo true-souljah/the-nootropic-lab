@@ -66,7 +66,7 @@ export default function QuizResults({
         </h1>
         <p className="text-[16px] text-ds-ink-soft m-0 mb-8 leading-[1.6]">
           Based on your answers — {goalText}, {answers.caffeine.toLowerCase()} to caffeine, $
-          {answers.budget}/month budget — {top.name} is the strongest match in our coverage.{' '}
+          {`${answers.budget}/month budget`} — {top.name} is the strongest match in our coverage.{' '}
           {top.summary}
         </p>
 
@@ -105,7 +105,7 @@ export default function QuizResults({
               <ScorePill score={top.score} />
               {top.priceMonthlyUSD && (
                 <div className="text-[13px] text-ds-muted mt-2 ds-tabular">
-                  ${top.priceMonthlyUSD}/mo
+                  {`$${top.priceMonthlyUSD}/mo`}
                 </div>
               )}
             </div>

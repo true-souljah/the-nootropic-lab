@@ -17,8 +17,14 @@
 // from a React key built as href + label. So every internal reference — anchor,
 // hreflang, canonical, og:url, JSON-LD URL, payload `href` prop and path-shaped React
 // key — must resolve AND, when it resolves to a directory page, end in "/"
-// (Cloudflare Pages 308s the slash-less form). Price-unit text props such as
-// perMonth "/mo" are deliberately out of scope (accepted junk, 2026-09-08).
+// (Cloudflare Pages 308s the slash-less form).
+//
+// Any other payload string that starts with "/" is crawled the same way: GSC
+// 404s included "/mo", "/day", "/10", "/5" — price units and score suffixes
+// that React emitted as separate text nodes ({price}/mo) or as i18n props.
+// So every "/"-prefixed payload string must resolve too (rsc-string); render
+// such text as one template literal (`${price}/mo`) so it starts with a digit
+// or currency sign. Next.js internals ("/_not-found") are skipped.
 import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs';
 import { join, resolve, dirname } from 'node:path';
 
@@ -86,6 +92,8 @@ const flightRe = /self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)/g;
 // (["$", type, key, props]) that look like paths.
 const payloadHrefRe = /"href":"(\/[^"]*)"/g;
 const payloadKeyRe = /\["\$","[^"]*","(\/[^"]*)"/g;
+// Every other string literal in the payload that starts with a single "/".
+const payloadStringRe = /"(\/(?![/_])(?:[^"\\]|\\.)*)"/g;
 // Every serialized element, keyed or not — proves the payload decoded into
 // elements even when no key happens to be path-shaped.
 const payloadElementRe = /\["\$","[^"]*",(?:null|"[^"]*")/g;
@@ -102,7 +110,7 @@ function absoluteUrls(node, acc = []) {
 }
 
 const failures = new Map(); // "<kind> <reason> <region><path>" -> [pages]
-const counts = { pages: 0, hreflang: 0, canonical: 0, 'og:url': 0, a: 0, 'json-ld': 0, 'rsc-href': 0, 'rsc-key': 0, flightChunks: 0, rscElements: 0 };
+const counts = { pages: 0, hreflang: 0, canonical: 0, 'og:url': 0, a: 0, 'json-ld': 0, 'rsc-href': 0, 'rsc-key': 0, 'rsc-string': 0, flightChunks: 0, rscElements: 0 };
 let skippedUnbuilt = 0;
 for (const region of scanRegions) {
   const out = join(ROOT, 'apps', region, 'out');
@@ -150,8 +158,10 @@ for (const region of scanRegions) {
       counts.flightChunks += 1;
       try { payload += JSON.parse(c[1]); } catch { fail('rsc unparseable flight chunk'); }
     }
-    for (const m of payload.matchAll(payloadHrefRe)) check('rsc-href', m[1]);
-    for (const m of payload.matchAll(payloadKeyRe)) check('rsc-key', m[1]);
+    const typed = new Set();
+    for (const m of payload.matchAll(payloadHrefRe)) { typed.add(m[1]); check('rsc-href', m[1]); }
+    for (const m of payload.matchAll(payloadKeyRe)) { typed.add(m[1]); check('rsc-key', m[1]); }
+    for (const m of payload.matchAll(payloadStringRe)) if (!typed.has(m[1])) check('rsc-string', JSON.parse(`"${m[1]}"`));
     counts.rscElements += (payload.match(payloadElementRe) ?? []).length;
   }
 }
