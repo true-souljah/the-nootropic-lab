@@ -46,8 +46,8 @@ export function formProblem(form: unknown): string | null {
 
 /**
  * Pillar weights of the overall score (operator decision 2026-10-07; the
- * review page's "How the score is computed" panel renders them). Single
- * source for the UI and for scoreProblem.
+ * review page's "How the score is computed" panel and every /methodology/
+ * page render them). Single source for the UI, weightedScore and scoreProblem.
  */
 export const PILLAR_WEIGHTS: Readonly<Record<keyof Product['scoreBreakdown'], number>> = {
   ingredients: 0.25,
@@ -57,27 +57,57 @@ export const PILLAR_WEIGHTS: Readonly<Record<keyof Product['scoreBreakdown'], nu
   trust: 0.10,
 };
 
+/** A pillar's weight as a whole-number percentage (dosing → 30), for copy such as "Dosing vs. clinical evidence (30%)". */
+export function pillarWeightPercent(pillar: keyof Product['scoreBreakdown']): number {
+  return Math.round(PILLAR_WEIGHTS[pillar] * 100);
+}
+
+/**
+ * The overall score a pillar breakdown yields: the PILLAR_WEIGHTS-weighted
+ * mean of the scored (non-null) pillars, renormalised over their weights —
+ * with all five pillars scored that is the plain weighted sum — rounded half
+ * up to one decimal. The one formula behind scoreProblem and
+ * scripts/recompute-scores.ts.
+ */
+export function weightedScore(breakdown: Product['scoreBreakdown']): number {
+  let weight = 0;
+  let sum = 0;
+  for (const [pillar, w] of Object.entries(PILLAR_WEIGHTS) as [keyof Product['scoreBreakdown'], number][]) {
+    const value = breakdown[pillar];
+    if (typeof value !== 'number') continue;
+    weight += w;
+    sum += w * value;
+  }
+  // Binary floats put exact .x5 means just below the boundary: US Performance
+  // Lab Mind (9/10/10/8/6) sums to 9.049999999999999 for 9.05. Adding
+  // Number.EPSILON does not help above 1 (it is smaller than the spacing of
+  // doubles there), so the scaled mean is snapped to 12 significant digits —
+  // far above that noise, far below the distance of any real mean from a .x5
+  // — before rounding half up.
+  return Math.round(Number(((sum / weight) * 10).toPrecision(12))) / 10;
+}
+
 /** Pillars that cannot be measured without disclosed doses (dosing vs. clinical dose; value per clinical-dose ingredient). */
 export const UNSCORABLE_PILLARS = ['dosing', 'value'] as const;
 
 /**
- * Why the score data is inconsistent, or null. A pillar may be null only when
- * it cannot be measured (UNSCORABLE_PILLARS); the record must then say why
- * (`unscoredReason`) and `score` must be the PILLAR_WEIGHTS-weighted mean of
- * the scored pillars, renormalised over their weights and rounded to one
- * decimal. Fully scored records are not checked here.
+ * Why the score data is inconsistent, or null. Every record's `score` must
+ * equal weightedScore(scoreBreakdown): the PILLAR_WEIGHTS-weighted mean of
+ * its pillars, rounded to one decimal (`npm run recompute-scores` writes it).
+ * A pillar may be null only when it cannot be measured (UNSCORABLE_PILLARS);
+ * the record must then say why (`unscoredReason`), and the mean is taken
+ * over the scored pillars, renormalised over their weights.
  */
 export function scoreProblem(product: Pick<Product, 'score' | 'scoreBreakdown' | 'unscoredReason'>): string | null {
   const entries = Object.entries(product.scoreBreakdown) as [string, number | null][];
   const unscored = entries.filter(([, v]) => v === null).map(([k]) => k);
-  if (unscored.length === 0) return null;
-  const notAllowed = unscored.filter((k) => !(UNSCORABLE_PILLARS as readonly string[]).includes(k));
-  if (notAllowed.length > 0) return `scoreBreakdown: only ${UNSCORABLE_PILLARS.join('/')} may be null, got ${notAllowed.join(', ')}`;
-  if (!product.unscoredReason?.trim()) return `scoreBreakdown: ${unscored.join(', ')} null without unscoredReason`;
-  const scored = entries.filter((e): e is [keyof Product['scoreBreakdown'], number] => typeof e[1] === 'number');
-  const weight = scored.reduce((sum, [k]) => sum + PILLAR_WEIGHTS[k], 0);
-  const expected = Math.round((scored.reduce((sum, [k, v]) => sum + PILLAR_WEIGHTS[k] * v, 0) / weight) * 10) / 10;
-  if (Math.abs(product.score - expected) > 0.05) {
+  if (unscored.length > 0) {
+    const notAllowed = unscored.filter((k) => !(UNSCORABLE_PILLARS as readonly string[]).includes(k));
+    if (notAllowed.length > 0) return `scoreBreakdown: only ${UNSCORABLE_PILLARS.join('/')} may be null, got ${notAllowed.join(', ')}`;
+    if (!product.unscoredReason?.trim()) return `scoreBreakdown: ${unscored.join(', ')} null without unscoredReason`;
+  }
+  const expected = weightedScore(product.scoreBreakdown);
+  if (product.score !== expected) {
     return `scoreBreakdown: score ${product.score} is not the weighted mean of the scored pillars (${expected})`;
   }
   return null;

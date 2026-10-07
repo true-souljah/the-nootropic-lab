@@ -6,6 +6,7 @@ import {
   formulaProblem,
   productRuleProblems,
   scoreProblem,
+  weightedScore,
   outOfTen,
   pillarText,
   guaranteeDays,
@@ -165,16 +166,37 @@ describe('record rules — affiliateUrl and formula', () => {
   });
 });
 
-const scored = { score: 7.4, scoreBreakdown: { ingredients: 8, dosing: 7, transparency: 8, value: 7, trust: 7 } };
+// 0.25×8 + 0.30×7 + 0.20×8 + 0.15×7 + 0.10×7 = 7.45 → 7.5 (half up).
+const scored = { score: 7.5, scoreBreakdown: { ingredients: 8, dosing: 7, transparency: 8, value: 7, trust: 7 } };
+
+describe('scoreProblem — a fully scored record carries the weighted mean of its pillars (2026-10-07)', () => {
+  test('the stored score must equal the PILLAR_WEIGHTS-weighted sum, rounded to one decimal', () => {
+    expect(scoreProblem(scored)).toBeNull();
+    // An editorial adjustment away from the formula fails (the pre-2026-10-07 data did this).
+    expect(scoreProblem({ ...scored, score: 8.1 })).toMatch(/not the weighted mean.*7\.5/);
+    // An equal-weight mean (7.4) is not the published method.
+    expect(scoreProblem({ ...scored, score: 7.4 })).toMatch(/not the weighted mean.*7\.5/);
+    // No tolerance: an unrounded value is a mismatch too.
+    expect(scoreProblem({ ...scored, score: 7.45 })).toMatch(/not the weighted mean.*7\.5/);
+  });
+
+  test('a .x5 mean rounds half up despite binary float noise', () => {
+    // US Performance Lab Mind: 0.25×9 + 0.30×10 + 0.20×10 + 0.15×8 + 0.10×6 = 9.05 exactly, but the
+    // float sum is 9.049999999999999 — Math.round(x * 10) / 10 and the Number.EPSILON trick both give 9.
+    const plMind = { ingredients: 9, dosing: 10, transparency: 10, value: 8, trust: 6 };
+    expect(weightedScore(plMind)).toBe(9.1);
+    expect(scoreProblem({ score: 9.1, scoreBreakdown: plMind })).toBeNull();
+    expect(scoreProblem({ score: 9, scoreBreakdown: plMind })).toMatch(/not the weighted mean.*9\.1/);
+    expect(weightedScore(scored.scoreBreakdown)).toBe(7.5);
+    // Other .x5 sums: 9.35 → 9.4 (Mind Lab Pro), 8.95 → 9.
+    expect(weightedScore({ ingredients: 9, dosing: 10, transparency: 10, value: 8, trust: 9 })).toBe(9.4);
+    expect(weightedScore({ ingredients: 9, dosing: 9, transparency: 10, value: 8, trust: 8 })).toBe(9);
+  });
+});
 
 describe('scoreProblem — unscorable pillars (2026-10, SEA Supershrooms)', () => {
   const partial = { ingredients: 6, dosing: null, transparency: 4, value: null, trust: 4 };
   const reason = 'Doses are not disclosed, so dosing and value cannot be scored.';
-
-  test('a fully scored record passes, whatever its editorial adjustment', () => {
-    expect(scoreProblem(scored)).toBeNull();
-    expect(scoreProblem({ ...scored, score: 8.1 })).toBeNull();
-  });
 
   test('a null pillar needs unscoredReason', () => {
     expect(scoreProblem({ score: 4.7, scoreBreakdown: partial })).toMatch(/without unscoredReason/);
