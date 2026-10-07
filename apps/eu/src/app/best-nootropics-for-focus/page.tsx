@@ -66,7 +66,7 @@ const picks: ListiclePick[] = [
     product: productsEU.find(p => p.slug === 'noocube-review')!,
     rank: 3,
     whyItsHere:
-      'Lutemax 2020 specifically for screen-worker eye strain. No EUR storefront: the UK store (noocube.co.uk) prices in GBP (£54.99/mo) and ships to the UK, Ireland, Spain, Portugal, Greece, Croatia, Poland, Sweden and Denmark, but not to Germany, France or the Netherlands. 100mg L-theanine at clinical dose. Choline comes from VitaCholine (250mg); the current formula no longer contains Alpha-GPC. The noocube.com Trustpilot profile has no reviews yet — read the cancellation terms before subscribing.',
+      'Lutemax 2020 has mixed evidence for screen eye strain: a 6-month trial in 48 heavy screen users, funded by Lutemax\'s maker, reported less self-rated eye strain, eye fatigue and headache (Stringham 2017), but a 2025 trial of a different lutein/zeaxanthin product found better tear-film measures without any change in self-rated eye strain (Lopresti 2025). No EUR storefront: the UK store (noocube.co.uk) prices in GBP (£54.99/mo) and ships to the UK, Ireland, Spain, Portugal, Greece, Croatia, Poland, Sweden and Denmark, but not to Germany, France or the Netherlands. 100mg L-theanine at clinical dose. Choline comes from VitaCholine (250mg); the current formula no longer contains Alpha-GPC. The noocube.com Trustpilot profile has no reviews yet — read the cancellation terms before subscribing.',
   },
 ];
 

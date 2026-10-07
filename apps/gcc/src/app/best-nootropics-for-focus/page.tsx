@@ -66,7 +66,7 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'noocube-review')!,
     rank: 3,
     whyItsHere:
-      'Lutemax 2020 (lutein/zeaxanthin) targets digital eye strain — relevant for the GCC\'s large screen-heavy professional and gaming populations. Includes choline (VitaCholine), L-theanine, and Bacopa. Caffeine-free; capsules use no porcine gelatin. Caveat: the noocube.com Trustpilot profile has no reviews yet — verify cancellation policy before subscribing. Ships to all six GCC states per the brand\'s shipping list (checked 2026-09-28); we have not verified an SFDA or MOHAP product registration.',
+      'For the GCC\'s large screen-heavy professional and gaming populations, note that Lutemax 2020 (lutein/zeaxanthin) has mixed evidence for screen eye strain: a 6-month trial in 48 heavy screen users, funded by Lutemax\'s maker, reported less self-rated eye strain, eye fatigue and headache (Stringham 2017), but a 2025 trial of a different lutein/zeaxanthin product found better tear-film measures without any change in self-rated eye strain (Lopresti 2025). Includes choline (VitaCholine), L-theanine, and Bacopa. Caffeine-free; capsules use no porcine gelatin. Caveat: the noocube.com Trustpilot profile has no reviews yet — verify cancellation policy before subscribing. Ships to all six GCC states per the brand\'s shipping list (checked 2026-09-28); we have not verified an SFDA or MOHAP product registration.',
   },
   {
     product: productsGCC.find(p => p.slug === 'onnit-alpha-brain-review')!,
