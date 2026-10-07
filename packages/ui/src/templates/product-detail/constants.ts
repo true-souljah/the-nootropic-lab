@@ -10,14 +10,6 @@ export const PILLAR_LABELS: Record<string, string> = {
   trust: 'Brand trust',
 };
 
-export const PILLAR_WEIGHTS: Record<string, number> = {
-  ingredients: 0.25,
-  dosing: 0.30,
-  transparency: 0.20,
-  value: 0.15,
-  trust: 0.10,
-};
-
 export const PILLAR_RATIONALE: Record<string, string> = {
   ingredients: 'Number and quality of evidence-graded ingredients. Trademarked extracts and standardized actives raise this score.',
   dosing: 'How many ingredients meet their clinical-trial dose. Underdosing flagship actives is the biggest score deduction.',

@@ -3,6 +3,7 @@ import { useId, useState, useMemo } from 'react';
 import type { Product, UIStrings } from '@nootropic/data';
 import ScoreTooltip from './ScoreTooltip';
 import EUBadge from './EUBadge';
+import { guaranteeDays } from '@nootropic/data';
 
 type SortKey = 'score' | 'priceMonthlyUSD' | 'priceMonthlyEUR' | 'priceMonthlyJPY' | 'priceMonthlyCAD' | 'moneyBackDays' | 'trustpilotScore';
 type SortDir = 'asc' | 'desc';
@@ -209,7 +210,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                     {p.euStorefront ? <EUBadge euStorefront /> : <span className="text-gray-500">—</span>}
                   </td>
                 )}
-                <td className="p-3">{p.moneyBackDays} days</td>
+                <td className="p-3">{guaranteeDays(p.moneyBackDays, (d) => `${d} days`)}</td>
                 <td className="p-3">
                   {p.trustpilotScore !== null && p.trustpilotScore > 0 ? (
                     <>
@@ -287,7 +288,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                 </div>
                 <div>
                   <span className="text-gray-500">{t?.moneyBack ? `${t.moneyBack}:` : 'Money-back:'} </span>
-                  <strong>{p.moneyBackDays}d</strong>
+                  <strong>{guaranteeDays(p.moneyBackDays, (d) => `${d}d`)}</strong>
                 </div>
                 <div>
                   <span className="text-gray-500">{t?.caffeineFree ? `${t.caffeineFree}:` : 'Caffeine-free:'} </span>

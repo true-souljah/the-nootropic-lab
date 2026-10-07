@@ -1,6 +1,6 @@
 import { describe, test, expect } from 'vitest';
-import { readFileSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
+import { join, relative } from 'node:path';
 import { ingredients, getStrings } from '@nootropic/data';
 import type { Ingredient, Locale } from '@nootropic/data';
 
@@ -150,7 +150,7 @@ const BANNED: Array<{ slugs: string[] | 'all'; pattern: RegExp; why: string }> =
   { slugs: 'all', pattern: /minimal tolerance development/i, why: 'unsupported "minimal tolerance" claim (no methylliberine tolerance study exists)' },
   { slugs: 'all', pattern: /over 400 clinical trials|gold-standard (studies|trials)/, why: 'unverified trial-count marketing claims' },
   { slugs: ['l-theanine', 'caffeine'], pattern: /2:1|1:2 ratio|eliminates jitteriness/, why: 'ratio/jitteriness claims contradicted by the trials (Rogers 2007; ~1:1–1.6:1 used)' },
-  { slugs: ['lutemax-2020'], pattern: /"effect":"Digital Eye Strain"|Reduced digital eye strain|reduces eye fatigue|Most users report reduced/i, why: 'untested digital eye-strain claim' },
+  { slugs: ['lutemax-2020'], pattern: /"effect":"Digital Eye Strain"|Reduced digital eye strain|reduces digital eye strain|reduces eye fatigue|Most users report reduced/i, why: 'unqualified digital eye-strain claim (two RCTs in heavy screen users disagree: Stringham 2017, OmniActive-funded, positive on self-report; Lopresti 2025, Bio-gen-funded, null on self-report)' },
   { slugs: ['lutemax-2020'], pattern: /Lutemax 2020 (daily|improved|significantly)|matching the .* protocol/, why: 'implying Lutemax 2020 was the tested material in the cognition trials' },
   { slugs: ['zynamite'], pattern: /Zynamite \+ luteolin \(Dynamine\)|300mg Zynamite acutely improved/, why: 'contradicted Zynamite claims (Dodd 2024 null at 300mg)' },
   { slugs: ['l-tyrosine'], pattern: /reduces negative mood/i, why: 'contradicted tyrosine mood claim (Deijen 1994/1999 found no mood effect)' },
@@ -207,6 +207,87 @@ describe('ingredient copy guards (2026-09 evidence review)', () => {
     expect(bySlug('lutemax-2020').studySummary).toMatch(/OmniActive/);
     expect(bySlug('lutemax-2020').studySummary).toMatch(/Abbott Nutrition/);
     expect(bySlug('phosphatidylserine').studySummary).toMatch(/IFF/);
+  });
+});
+
+// Lutemax screen eye-strain evidence (2026-10-06). The 2026-09 review missed two
+// 6-month RCTs in heavy screen users that disagree on symptoms: Stringham 2017
+// (PMID 28661438; Lutemax 2020 formulation, OmniActive-funded) reported less
+// self-rated eye strain, eye fatigue and headache; Lopresti 2025 (PMID 39963662;
+// Lute-gen, Bio-gen Extracts-funded) improved tear-film measures with no change
+// in self-rated eye strain. Copy must cite both, never say no such trial exists,
+// and never state an unqualified eye-strain benefit on a page or product record.
+describe('Lutemax screen eye-strain evidence (2026-10-06)', () => {
+  const REPO = join(__dirname, '..', '..', '..');
+  const DATA_SRC = join(REPO, 'packages', 'data', 'src');
+  const lutemax = (): Ingredient => {
+    const ing = ingredients.find((i) => i.slug === 'lutemax-2020');
+    expect(ing, 'lutemax-2020').toBeDefined();
+    return ing!;
+  };
+
+  test('the lutemax-2020 entry cites both screen-user RCTs with their funders', () => {
+    const ing = lutemax();
+    const pmids = ing.sources.map((s) => s.pmid);
+    expect(pmids).toContain('28661438');
+    expect(pmids).toContain('39963662');
+    expect(ing.studySummary).toMatch(/Stringham 2017/);
+    expect(ing.studySummary).toMatch(/Lopresti & Smith 2025/);
+    expect(ing.studySummary).toMatch(/Bio-gen Extracts/);
+    const eyeFaq = ing.faqs.find((f) => /eye strain/i.test(f.question));
+    expect(eyeFaq, 'eye-strain FAQ').toBeDefined();
+    expect(eyeFaq!.answer).toMatch(/Stringham 2017/);
+    expect(eyeFaq!.answer).toMatch(/Lopresti & Smith 2025/);
+    const row = ing.humanEffects.find((e) => e.effect === 'Screen-related eye symptoms');
+    expect(row?.evidenceStrength).toBe('mixed');
+    expect(row?.studies).toBe(2);
+  });
+
+  test('the lutemax-2020 copy never says no eye-strain trial exists', () => {
+    expect(copyOf(lutemax())).not.toMatch(
+      /no trial (has tested|testing)[^.]*eye strain|No published cognitive or eye-strain trial/i,
+    );
+  });
+
+  const UNQUALIFIED: RegExp[] = [
+    /reduces digital eye strain/i,
+    /reducing digital eye strain/i,
+    /targets digital eye strain/i,
+    /reducing eye fatigue/i,
+    /2-4 weeks: reduced eye fatigue/i,
+    /reduce la fatiga visual/i,
+    /no trial testing lutein\/zeaxanthin against digital eye strain/i,
+  ];
+  const walkPages = (dir: string, out: string[] = []): string[] => {
+    for (const name of readdirSync(dir)) {
+      if (name === 'node_modules' || name === '.next' || name === 'out') continue;
+      const p = join(dir, name);
+      if (statSync(p).isDirectory()) walkPages(p, out);
+      else if (name === 'page.tsx') out.push(p);
+    }
+    return out;
+  };
+  const productFiles = readdirSync(DATA_SRC)
+    .filter((f) => /^products-.*\.json$/.test(f))
+    .map((f) => join(DATA_SRC, f));
+  const pageFiles = readdirSync(join(REPO, 'apps'))
+    .filter((app) => existsSync(join(REPO, 'apps', app, 'src', 'app')))
+    .flatMap((app) => walkPages(join(REPO, 'apps', app, 'src', 'app')));
+
+  test('scans a non-empty page and product set (guards against a silently empty glob)', () => {
+    expect(productFiles.length).toBeGreaterThanOrEqual(8);
+    expect(pageFiles.length).toBeGreaterThan(100);
+  });
+
+  test('no app page or product record states an unqualified eye-strain benefit', () => {
+    const offenders: string[] = [];
+    for (const f of [...pageFiles, ...productFiles]) {
+      const text = readFileSync(f, 'utf8');
+      for (const re of UNQUALIFIED) {
+        if (re.test(text)) offenders.push(`${relative(REPO, f)}: ${re.source}`);
+      }
+    }
+    expect(offenders).toEqual([]);
   });
 });
 

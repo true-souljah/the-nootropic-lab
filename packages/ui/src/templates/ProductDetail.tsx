@@ -9,7 +9,7 @@ import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { Tabs, TabPanel } from '../primitives/Tabs';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
-import { productForm, servingAmount, servingUnit } from '@nootropic/data';
+import { productForm, servingAmount, servingUnit, guaranteeDays } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 import type { TabId } from './product-detail/constants';
@@ -240,7 +240,7 @@ export default function ProductDetail({
             {[
               ...(discontinued ? [] : [priceStat]),
               [pd.stats.dailyServing, servingAmount(p, uiStrings), false],
-              [pd.stats.moneyBack, `${p.moneyBackDays} ${pd.stats.days}`, false],
+              [pd.stats.moneyBack, guaranteeDays(p.moneyBackDays, (d) => `${d} ${pd.stats.days}`), false],
               [
                 pd.stats.trustpilot,
                 p.trustpilotScore === null
