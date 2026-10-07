@@ -67,7 +67,7 @@ const picks: ListiclePick[] = [
     product: productsLatam.find(p => p.slug === 'noocube-review')!,
     rank: 3,
     whyItsHere:
-      'Incluye colina (VitaCholine), L-teanina y Lutemax 2020 (útil para fatiga visual frente a pantallas, frecuente en trabajo remoto en Latam). Fórmula abierta — las dosis se declaran. Atención: el perfil de noocube.com en Trustpilot aún no tiene reseñas; verifica la política de cancelación antes de comprar.',
+      'Incluye colina (VitaCholine), L-teanina y Lutemax 2020. Para la fatiga visual frente a pantallas, frecuente en el trabajo remoto en Latam, su evidencia es mixta: un ensayo de 6 meses en 48 usuarios intensivos de pantallas, financiado por el fabricante de Lutemax, reportó menos fatiga visual, cansancio ocular y dolores de cabeza autoevaluados (Stringham 2017), pero un ensayo de 2025 con otro producto de luteína/zeaxantina mejoró las medidas de la película lagrimal sin cambios en la fatiga visual autoevaluada (Lopresti 2025). Fórmula abierta — las dosis se declaran. Atención: el perfil de noocube.com en Trustpilot aún no tiene reseñas; verifica la política de cancelación antes de comprar.',
   },
 ];
 
