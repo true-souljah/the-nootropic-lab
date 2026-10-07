@@ -745,8 +745,8 @@
       "value": 8,
       "trust": 9
     },
-    "priceMonthlyCAD": 65,
-    "priceMonthlyUSD": 48,
+    "priceMonthlyCAD": 98.33,
+    "priceMonthlyUSD": 69.12,
     "pricingModel": "one-time",
     "moneyBackDays": 30,
     "caffeineFree": true,
@@ -829,7 +829,8 @@
       "Limited Trustpilot footprint vs international brands"
     ],
     "notes": [
-      "Formula from the Health Canada LNHPD licence record for NPN 80037243 (medicinal ingredients: https://health-products.canada.ca/api/natural-licences/medicinalingredient/?lang=en&type=json&id=7089264; licence: https://health-products.canada.ca/api/natural-licences/productlicence/?lang=en&type=json&id=80037243; dose: https://health-products.canada.ca/api/natural-licences/productdose/?lang=en&type=json&id=7089264), checked 2026-10-07. Amounts are per capsule as licensed; daily amounts use the licensed adult dose of 2 capsules three times daily."
+      "Formula from the Health Canada LNHPD licence record for NPN 80037243 (medicinal ingredients: https://health-products.canada.ca/api/natural-licences/medicinalingredient/?lang=en&type=json&id=7089264; licence: https://health-products.canada.ca/api/natural-licences/productlicence/?lang=en&type=json&id=80037243; dose: https://health-products.canada.ca/api/natural-licences/productdose/?lang=en&type=json&id=7089264), checked 2026-10-07. Amounts are per capsule as licensed; daily amounts use the licensed adult dose of 2 capsules three times daily.",
+      "Price: aor.ca lists the 180-capsule bottle (30 days at 6 capsules a day) at CAD $98.33 one-time purchase (https://aor.ca/product/ortho-mind/, checked 2026-10-07). USD 69.12 = 98.33 ÷ 1.4226, the Bank of Canada FXUSDCAD daily average rate for 2026-10-06, the most recent observation (https://www.bankofcanada.ca/valet/observations/FXUSDCAD/json?recent=1, checked 2026-10-07)."
     ],
     "editorChoice": false,
     "market": "ca",

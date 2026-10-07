@@ -39,7 +39,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Price difference?',
     a:
-      'AOR Ortho•Mind: ~CAD $65/month direct from aor.ca. Mind Lab Pro: ~CAD $95/month including international shipping (USD $69 + currency + shipping). AOR is meaningfully cheaper for Canadian buyers because no international shipping or currency conversion friction.',
+      'AOR Ortho•Mind: CAD $98.33 for a 180-capsule bottle direct from aor.ca (checked 2026-10-07), which lasts 30 days at the licensed 6 capsules a day. Mind Lab Pro: ~CAD $95/month including international shipping (USD $69 + currency + shipping). The monthly cost is similar; AOR avoids international shipping and currency conversion.',
   },
   {
     q: 'Capsule count and friction?',
@@ -71,11 +71,11 @@ const whoIsForB = [
   'Want phosphatidylserine, Lion\'s Mane, citicoline, Rhodiola in one capsule',
   'Are caffeine-free user (Mind Lab Pro is fully caffeine-free)',
   'Don\'t mind international shipping (5-20 working days by airmail or 2-7 working days by DHL, per mindlabpro.com, checked 2026-09-29)',
-  'Are willing to pay 50% premium for the broader 11-ingredient formula',
+  'Want the broader 11-ingredient formula at a similar monthly cost',
 ];
 
 const verdictParagraph =
-  'For Canadian buyers, AOR Ortho•Mind is the stronger choice on regulatory compliance, price, Bacopa dose, and Canadian-domiciled trust. Mind Lab Pro is the stronger choice on broader formula coverage, peer-reviewed RCT evidence, and caffeine-free design. If an active NPN and a Canadian seller are top priorities, AOR wins. If formula breadth and clinical evidence are top priorities, Mind Lab Pro is worth the international-shipping friction. Both are open-formula and well-reviewed editorially.';
+  'For Canadian buyers, AOR Ortho•Mind is the stronger choice on regulatory compliance, Bacopa dose, and Canadian-domiciled trust. Mind Lab Pro is the stronger choice on broader formula coverage and peer-reviewed RCT evidence, with 2 capsules a day instead of 6. If an active NPN and a Canadian seller are top priorities, AOR wins. If formula breadth and clinical evidence are top priorities, Mind Lab Pro is worth the international-shipping friction. Both are open-formula and well-reviewed editorially.';
 
 export default function Page() {
   if (!productA || !productB) notFound();
