@@ -1,0 +1,97 @@
+{
+  "alpha-brain": {
+    "sourcePageUrl": "https://www.onnit.com/products/alpha-brain-90-ct",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0910/2901/2770/files/2024-AB-90-PDP_dab4edc3-9537-467c-8287-6d40f4d4c3f6.png?v=1787944462",
+    "fetchedAt": "2026-10-07"
+  },
+  "aor-ortho-mind": {
+    "sourcePageUrl": "https://aor.ca/products/ortho-mind/",
+    "imageUrl": "https://aor.ca/wp-content/uploads/2023/01/AOR04280-Ortho-Mind-180s.png",
+    "fetchedAt": "2026-10-07"
+  },
+  "brainmd-brain-memory-power-boost": {
+    "sourcePageUrl": "https://brainmd.com/products/brain-memory-power-boost",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0696/2656/0681/files/Brain_And_Memory_Power_Boost_PDP_Image_1_a68911e7-8cd3-4551-b300-460b39e94f82.png?v=1767895544",
+    "fetchedAt": "2026-10-07"
+  },
+  "brainzyme-focus-pro": {
+    "sourcePageUrl": "https://www.brainzyme.com/products/brainzyme-professional-stronger-formula",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/1719/2651/files/New_Graphics_PP_Carousel_08_PRO_40e6c51e-5e67-4925-946e-2438bba69be0.webp?v=1786377659",
+    "fetchedAt": "2026-10-07"
+  },
+  "eu-yan-sang-brainmax": {
+    "sourcePageUrl": "https://www.euyansang.com.sg/en/brainmax-888842543107.html",
+    "imageUrl": "https://www.euyansang.com.sg/on/demandware.static/-/Sites-EYS_SG_Nav_Catalog/default/dwa0bd8e87/images/1000x1000-brainmax+-front-888842543107-fy2025-euyansang.jpg",
+    "fetchedAt": "2026-10-07"
+  },
+  "fancl-brains": {
+    "sourcePageUrl": "https://www.fancl.co.jp/healthy/item/5248a/",
+    "imageUrl": "https://www.fancl.co.jp/ItemImages/large/5248a.jpg",
+    "fetchedAt": "2026-10-07"
+  },
+  "hunter-focus": {
+    "sourcePageUrl": "https://www.hunterevolve.com/en-us/hunter-focus",
+    "imageUrl": "https://www.hunterevolve.com/en-us/static/frontend/Roarambition/Hunter/en_US/images/focus/png/header-isolated-product2@2x.png",
+    "fetchedAt": "2026-10-07"
+  },
+  "mind-lab-pro": {
+    "sourcePageUrl": "https://www.mindlabpro.com/products/mind-lab-pro",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0060/9920/6178/files/1_month_large_f65489e5-08ba-460a-9c9e-74a5997c8144.webp?v=1764670069",
+    "fetchedAt": "2026-10-07"
+  },
+  "naturebell-ginkgo-ginseng": {
+    "sourcePageUrl": "https://www.naturebellusa.com/products/ginkgo",
+    "imageUrl": "https://www.naturebellusa.com/cdn/shop/files/For-Website_9cfdf2bf-a180-4364-bb38-785a7bd2cfa0.jpg",
+    "fetchedAt": "2026-10-07"
+  },
+  "noocube": {
+    "sourcePageUrl": "https://www.noocube.com/products/bottle",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0580/7643/0544/products/1-Bottle.png?v=1632324815",
+    "fetchedAt": "2026-10-07"
+  },
+  "nootropics-depot-lions-mane": {
+    "sourcePageUrl": "https://nootropicsdepot.com/lions-mane-mushroom-capsules-8-1-extract/",
+    "imageUrl": "https://cdn11.bigcommerce.com/s-cebedmpn/images/stencil/1280w/products/370/6858/8-1-LionsManeCapsulesSPLASH__91979.1691520075.jpg?c=2",
+    "fetchedAt": "2026-10-07"
+  },
+  "performance-lab-caffeine-2": {
+    "sourcePageUrl": "https://www.performancelab.com/products/caffeine-2",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0111/4682/1696/files/product-caffeine-2-main-1_53b755b7-59af-4f73-924a-09e3409c0fe8.webp?v=1742913240",
+    "fetchedAt": "2026-10-07"
+  },
+  "performance-lab-energy": {
+    "sourcePageUrl": "https://www.performancelab.com/products/energy",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0111/4682/1696/files/product-energy-main-1_d23548d8-832d-46ee-955b-fab394c9ea03.webp?v=1742913315",
+    "fetchedAt": "2026-10-07"
+  },
+  "performance-lab-omega-3": {
+    "sourcePageUrl": "https://www.performancelab.com/products/omega-3",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0111/4682/1696/files/product-omega-3-main-1_bed94b90-fa25-4274-bb3c-b262cbd12ea5.webp?v=1742913451",
+    "fetchedAt": "2026-10-07"
+  },
+  "pre-lab-pro": {
+    "sourcePageUrl": "https://www.performancelab.com/products/pre-lab-pro",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0111/4682/1696/files/product-prelabpro-main-1.webp?v=1701253591",
+    "fetchedAt": "2026-10-07"
+  },
+  "qualia-mind": {
+    "sourcePageUrl": "https://www.qualialife.com/shop/qualia-mind",
+    "imageUrl": "https://cdn1.neurohacker.com/60ijsnweluhyvvz8r3oexwh3zuj2.png",
+    "fetchedAt": "2026-10-07"
+  },
+  "supershrooms-focus-nootropic": {
+    "sourcePageUrl": "https://supershrooms.ph/products/focus-nootropic",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0696/1709/0817/files/174_71f9c836-8228-45fe-b48f-c34d578453fb.png?v=1752228476",
+    "fetchedAt": "2026-10-07"
+  },
+  "thesis": {
+    "sourcePageUrl": "https://takethesis.com/",
+    "imageUrl": "https://cdn.builder.io/api/v1/image/assets%2Fa234f4b0c5124803810dcb45b606db1c%2F2349cca1e3814501983961442089fe52",
+    "fetchedAt": "2026-10-07"
+  },
+  "trubrain": {
+    "sourcePageUrl": "https://www.trubrain.com/products/fb22",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/1210/5358/files/nootropicsshelfpack_tiny.png?v=1786059105",
+    "fetchedAt": "2026-10-07"
+  }
+}

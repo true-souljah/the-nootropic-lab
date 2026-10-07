@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node ../../scripts/sync-product-images.mjs ca",
     "dev": "next dev --port 3002",
+    "prebuild": "node ../../scripts/sync-product-images.mjs ca",
     "build": "next build",
     "start": "next start --port 3002",
     "lint": "eslint"
