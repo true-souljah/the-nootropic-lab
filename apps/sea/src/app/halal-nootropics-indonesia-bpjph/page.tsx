@@ -120,7 +120,7 @@ const faqs = [
   { q: 'What is BPJPH and how does it differ from MUI?', a: 'BPJPH (Badan Penyelenggara Jaminan Produk Halal) is the Halal Product Assurance Agency, a government body under the Ministry of Religious Affairs that issues Halal certificates. MUI (Majelis Ulama Indonesia) is the Indonesian Ulema Council; under the JPH 2014 law, MUI provides the technical fatwa assessment, but the certificate itself is now issued by BPJPH. Pre-2019 certifications were issued by MUI directly; post-2019 they are issued by BPJPH with MUI fatwa backing.' },
   { q: 'How is JAKIM Malaysia different from BPJPH Indonesia?', a: 'JAKIM (Department of Islamic Development Malaysia) certifies Halal compliance for products marketed in Malaysia and is widely recognised internationally as the gold standard. JAKIM certification is required if a product is marketed AS Halal in Malaysia; it is not a precondition for sale of supplements that do not make Halal claims. BPJPH Indonesia is mandatory regardless of whether the product makes Halal claims — for food and beverages that took effect on 17 October 2024, and for health supplements it takes effect on 17 October 2026.' },
   { q: 'What about HSA notification in Singapore?', a: 'The Health Sciences Authority Singapore regulates supplements as Health Supplements under the Health Products Act. Singapore\'s Health Sciences Authority (HSA) does not subject health supplements to approval or licensing; notification is voluntary (hsa.gov.sg, checked 2026-10-06). Singaporean Muslim consumers expect MUIS (Majlis Ugama Islam Singapura) Halal certification.' },
-  { q: 'Why does this site weight Halal-certified products higher for ID/MY traffic?', a: 'For Indonesian readers, Halal certification becomes a legal requirement for supplements on 17 October 2026 — so a non-certified product recommended today may not be legally distributable there within months. For Malaysian readers, JAKIM certification carries strong consumer-trust weight even where not legally mandatory. We surface Halal status on every product card and weight Halal-certified products higher in listicle ranking when serving ID/MY traffic, where verifiable from manufacturer documentation.' },
+  { q: 'Does Halal status change this site\'s rankings for ID/MY readers?', a: 'For Indonesian readers, Halal certification becomes a legal requirement for supplements on 17 October 2026 — so a non-certified product recommended today may not be legally distributable there within months. For Malaysian readers, JAKIM certification carries strong consumer-trust weight even where not legally mandatory. We do not adjust scores or rankings for Halal status: every reader sees the same ranking. Where we have checked a product, its review page shows the Halal status we found on the brand\'s own pages, with the date we checked. A brand\'s pages are not a registry, so readers in Indonesia or Malaysia should verify the product in the BPJPH register (bpjph.halal.go.id) or check its manufacturer in JAKIM\'s MYeHALAL directory (myehalal.halal.gov.my) before buying.' },
 ];
 
 export default function Page() {
@@ -164,10 +164,10 @@ export default function Page() {
           <strong>17 October 2026</strong> — the close of the phase covering herbal medicines, quasi medicines
           and health supplements. The 17 October 2024 deadline you may have seen quoted applied to food and
           beverage products, not supplements. In Malaysia, the Trade Descriptions (Halal Definition) Order 2011
-          governs products marketed as Halal. We weight Halal-certified products higher in our SEA listicle
-          ranking when serving ID/MY traffic, and surface Halal status on every product card where verifiable.
-          If you are uncertain about a product&apos;s Halal status, verify directly with the certifying authority
-          before purchase.
+          governs products marketed as Halal. We do not adjust our rankings for Halal status. Where we have
+          checked a product, its review page shows the Halal status we found on the brand&apos;s own pages, with
+          the date we checked. Before buying, verify the product in the BPJPH register (bpjph.halal.go.id) or
+          check its manufacturer in JAKIM&apos;s MYeHALAL directory (myehalal.halal.gov.my); the steps are below.
         </section>
 
         <section className="my-10">
