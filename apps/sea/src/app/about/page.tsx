@@ -73,7 +73,7 @@ export default function AboutPage() {
               <strong>Malaysia — NPRA (National Pharmaceutical Regulatory Agency).</strong> Domestically sold
               supplements require MAL registration. Imported products for personal use are generally allowed
               within reasonable quantities. <strong>Halal certification (JAKIM)</strong> is required for any
-              product described as Halal (Trade Descriptions Orders 2011, per Malaysia&apos;s WTO notification).
+              product described as Halal (Trade Descriptions Orders 2011, per Malaysia&apos;s World Trade Organization notification).
             </li>
             <li>
               <strong>Indonesia — BPOM (Badan Pengawas Obat dan Makanan).</strong> Most restrictive market for
