@@ -63,6 +63,33 @@ describe('getStrings', () => {
     }
   });
 
+  test('every locale translates the Pricing-tab labels and keeps their placeholders (2026-10-07)', () => {
+    // PricingTab.tsx renders only these strings around the vendor's own quotes;
+    // an English copy left in a locale block would ship English on ja/es pages.
+    const en = getStrings('en').productDetail.pricing;
+    const keys = Object.keys(en) as Array<keyof typeof en>;
+    expect(keys.length).toBeGreaterThanOrEqual(13);
+    const placeholders: Partial<Record<keyof typeof en, string[]>> = {
+      attribution: ['{domain}', '{date}'],
+      visitVendor: ['{brand}'],
+      cookieTerms: ['{days}', '{rate}'],
+    };
+    for (const locale of ALL_LOCALES) {
+      const pricing = getStrings(locale).productDetail.pricing;
+      expect(Object.keys(pricing).sort(), `${locale} pricing keys`).toEqual([...keys].sort());
+      for (const key of keys) {
+        expect(pricing[key].trim(), `${locale} pricing.${key} is empty`).not.toBe('');
+        if (locale !== 'en') expect(pricing[key], `${locale} pricing.${key} is the English copy`).not.toBe(en[key]);
+        for (const token of placeholders[key] ?? []) {
+          expect(pricing[key], `${locale} pricing.${key} keeps ${token}`).toContain(token);
+        }
+        for (const token of pricing[key].match(/\{\w+\}/g) ?? []) {
+          expect(placeholders[key] ?? [], `${locale} pricing.${key}: unknown placeholder ${token}`).toContain(token);
+        }
+      }
+    }
+  });
+
   test('every locale carries a BCP-47 dateLocale code', () => {
     const expected: Record<Locale, string> = {
       en: 'en-US',

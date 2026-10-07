@@ -299,7 +299,7 @@ export default function ProductDetail({
         </TabPanel>
         {!discontinued && (
           <TabPanel idPrefix="product" id="pricing" hidden={tab !== 'pricing'} className="mt-5">
-            <PricingTab product={p} disclosure={uiStrings.disclosure} />
+            <PricingTab product={p} disclosure={uiStrings.disclosure} strings={pd} />
           </TabPanel>
         )}
 
