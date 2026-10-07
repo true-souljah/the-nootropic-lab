@@ -54,13 +54,13 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Includes phosphatidylserine (100mg Sharp-PS at clinical dose), citicoline (250mg Cognizin at clinical dose), Bacopa, and Lion\'s Mane. Four of the most age-relevant ingredients in one open-formula product. Plant-based HPMC capsules — no porcine gelatin, halal-friendly. Caffeine-free — no cardiovascular load for older adults sensitive to stimulants. mindlabpro.com names Saudi Arabia, the UAE, Qatar and Kuwait among its shipping territories (its FAQ, checked 2026-09-29); Bahrain and Oman are not named on that partial list, so confirm at checkout. We have not verified a product registration with the Saudi Food and Drug Authority (SFDA) or the Ministry of Health and Prevention (MOHAP).',
+      'Includes phosphatidylserine (100mg Sharp-PS at clinical dose), citicoline (250mg Cognizin at clinical dose), Bacopa, and Lion\'s Mane. Four of the most age-relevant ingredients in one open-formula product. Pullulan (NutriCaps) capsules, suitable for vegans per the brand (checked 2026-10-07). Caffeine-free — no cardiovascular load for older adults sensitive to stimulants. mindlabpro.com names Saudi Arabia, the UAE, Qatar and Kuwait among its shipping territories (its FAQ, checked 2026-09-29); Bahrain and Oman are not named on that partial list, so confirm at checkout. We have not verified a product registration with the Saudi Food and Drug Authority (SFDA) or the Ministry of Health and Prevention (MOHAP).',
   },
   {
     product: productsGCC.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes phosphatidylserine (200mg, well above clinical anchor), Bacopa (300mg at clinical dose), Alpha-GPC, and additional age-relevant cofactors. Plant-based capsules. Most complete coverage but the 6-capsule daily protocol can be hard to maintain for older adults — consider whether the breadth justifies that friction. Caveat: default formula contains caffeine — older adults sensitive to stimulants should choose the caffeine-free variant where offered. Qualia does not ship to any GCC state (brand shipping page, checked 2026-09-28).',
+      'Includes phosphatidylserine (200mg, well above clinical anchor), Bacopa (300mg at clinical dose), Alpha-GPC, and additional age-relevant cofactors. Vegetarian capsules (hypromellose), per the brand (checked 2026-10-07). Most complete coverage but the 6-capsule daily protocol can be hard to maintain for older adults — consider whether the breadth justifies that friction. Caveat: default formula contains caffeine — older adults sensitive to stimulants should choose the caffeine-free variant where offered. Qualia does not ship to any GCC state (brand shipping page, checked 2026-09-28).',
   },
   {
     product: productsGCC.find(p => p.slug === 'eu-yan-sang-brainmax-review')!,
@@ -72,7 +72,7 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'nootropics-depot-lions-mane')!,
     rank: 4,
     whyItsHere:
-      'Single-ingredient Lion\'s Mane fruiting-body extract at 500mg from a brand with the strongest third-party Certificate-of-Analysis culture in this review. The right pick if you want to test Lion\'s Mane in isolation, possibly stacked with a phosphatidylserine supplement. Mushroom-derived — halal-compliant. Caffeine-free, plant-based capsules. Ships from US.',
+      'Single-ingredient Lion\'s Mane fruiting-body extract at 500mg from a brand with the strongest third-party Certificate-of-Analysis culture in this review. The right pick if you want to test Lion\'s Mane in isolation, possibly stacked with a phosphatidylserine supplement. Mushroom-derived; no halal certificate shown on the brand\'s page we fetched (checked 2026-10-07). Caffeine-free; labelled vegan on the brand\'s product page, which does not state the capsule shell material. Ships from US.',
   },
 ];
 
@@ -83,7 +83,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Are these supplements halal?',
-    a: 'The capsule products in this list use plant-based HPMC or pullulan capsules with no porcine gelatin; BrainMAX+ is a powder sachet. Note on phosphatidylserine: most products use soy-derived PS (halal); some use bovine-derived PS (would need halal-slaughter verification) or sunflower-derived PS (always halal). For Lion\'s Mane (mushroom-derived), halal status is straightforward. For Cera-Q in Eu Yan Sang BrainMAX+ (silk fibroin protein), observant buyers concerned about insect-derived ingredients should verify their personal halal interpretation.',
+    a: 'On capsules, Mind Lab Pro states pullulan (NutriCaps) capsules and Qualia Mind vegetarian (hypromellose) capsules; Nootropics Depot labels its Lion\'s Mane vegan but does not state the capsule shell material (checked 2026-10-07); BrainMAX+ is a powder sachet. Note on phosphatidylserine: most products use soy-derived PS (halal); some use bovine-derived PS (would need halal-slaughter verification) or sunflower-derived PS (always halal). For Lion\'s Mane (mushroom-derived), halal status is straightforward. For Cera-Q in Eu Yan Sang BrainMAX+ (silk fibroin protein), observant buyers concerned about insect-derived ingredients should verify their personal halal interpretation.',
   },
   {
     q: 'Which of these are SFDA-registered or MOHAP-registered?',

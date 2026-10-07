@@ -3,7 +3,7 @@
 import {
   allProductsUS, allProductsEU, allProductsCA, allProductsAU,
   allProductsJP, allProductsLatam, allProductsGCC, allProductsSEA,
-  validateRegionalNotes, productRuleProblems, DOSING_ANCHORS, dosingAnchorProblems,
+  validateRegionalNotes, productRuleProblems, DOSING_ANCHORS, dosingAnchorProblems, halalEvidenceProblem,
 } from '../packages/data/src/index';
 import type { Product } from '../packages/data/src/index';
 
@@ -122,6 +122,23 @@ for (const key of Object.keys(KNOWN_RULE_VIOLATIONS)) {
   if (!seenKeys.has(key)) console.warn(`warn ${key}: KNOWN_RULE_VIOLATIONS entry has no record (removed?) — delete it`);
 }
 console.log(`ok record-rules: no new violations (${grandfathered} pre-existing, listed in KNOWN_RULE_VIOLATIONS)`);
+
+// Halal evidence (2026-10-07): a record with `halalCertified` defined must
+// carry `halalCheckedAt` (YYYY-MM-DD) and a non-empty `halalBasis`, and `true`
+// must name a certifier (halalEvidenceProblem). Enforced in the record-rules
+// loop above via productRuleProblems and never grandfathered. A scan that sees
+// no halal record fails too, so a dropped field cannot pass silently.
+const halalRecords = Object.values(regions).flat() as Product[];
+const halalChecked = halalRecords.filter((p) => p.halalCertified !== undefined);
+const halalFailing = halalChecked.filter((p) => halalEvidenceProblem(p) !== null).length;
+if (halalChecked.length === 0) {
+  console.error('FAIL halal-evidence: no record carries halalCertified');
+  failed++;
+} else if (halalFailing === 0) {
+  console.log(`ok halal-evidence: ${halalChecked.length} records with halalCertified carry halalCheckedAt + halalBasis`);
+} else {
+  console.error(`FAIL halal-evidence: ${halalFailing} of ${halalChecked.length} records lack evidence (listed above)`);
+}
 
 // Regional notes (2026-09): every authored note must cite at least one
 // primary source with an http(s) URL — a note without a source is treated

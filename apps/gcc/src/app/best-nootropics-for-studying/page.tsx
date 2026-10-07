@@ -54,25 +54,25 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Caffeine-free design pairs perfectly with whatever caffeine source you use during study sessions (Arabic coffee, matcha, gahwa). Includes L-theanine, Bacopa, citicoline, and L-tyrosine — covers all four study-relevant mechanisms in one open formula. Plant-based HPMC capsules — halal-friendly. Take daily through the term for cumulative Bacopa effect. Suitable for Ramadan use (caffeine-free; take with suhoor or iftar). mindlabpro.com names Saudi Arabia, the UAE, Qatar and Kuwait among its shipping territories (its FAQ, checked 2026-09-29); Bahrain and Oman are not named on that partial list, so confirm at checkout.',
+      'Caffeine-free design pairs perfectly with whatever caffeine source you use during study sessions (Arabic coffee, matcha, gahwa). Includes L-theanine, Bacopa, citicoline, and L-tyrosine — covers all four study-relevant mechanisms in one open formula. Pullulan (NutriCaps) capsules, suitable for vegans per the brand (checked 2026-10-07). Take daily through the term for cumulative Bacopa effect. Suitable for Ramadan use (caffeine-free; take with suhoor or iftar). mindlabpro.com names Saudi Arabia, the UAE, Qatar and Kuwait among its shipping territories (its FAQ, checked 2026-09-29); Bahrain and Oman are not named on that partial list, so confirm at checkout.',
   },
   {
     product: productsGCC.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Most complete study stack: includes Bacopa at clinical dose, plus Alpha-GPC, citicoline, Rhodiola, and L-theanine. Plant-based capsules. Caveat: default formula contains caffeine — students should choose the caffeine-free variant, particularly for Ramadan use or evening study sessions. The 7+ capsules/day is friction during finals week and the $159 USD list price is real friction for student budgets. Qualia does not ship to any GCC state (brand shipping page, checked 2026-09-28).',
+      'Most complete study stack: includes Bacopa at clinical dose, plus Alpha-GPC, citicoline, Rhodiola, and L-theanine. Vegetarian capsules (hypromellose), per the brand (checked 2026-10-07). Caveat: default formula contains caffeine — students should choose the caffeine-free variant, particularly for Ramadan use or evening study sessions. The 7+ capsules/day is friction during finals week and the $159 USD list price is real friction for student budgets. Qualia does not ship to any GCC state (brand shipping page, checked 2026-09-28).',
   },
   {
     product: productsGCC.find(p => p.slug === 'noocube-review')!,
     rank: 3,
     whyItsHere:
-      'Lutemax 2020 is the standout ingredient for screen-heavy students, though its evidence for screen eye strain is mixed: a 6-month trial in 48 heavy screen users, funded by Lutemax\'s maker, reported less self-rated eye strain, eye fatigue and headache (Stringham 2017), but a 2025 trial of a different lutein/zeaxanthin product found better tear-film measures without any change in self-rated eye strain (Lopresti 2025). Includes L-theanine, choline (VitaCholine), and Bacopa (underdosed). Caffeine-free; plant-based capsules. $64.99 USD per 30-serving bottle on noocube.com — worth it if the Lutemax angle matters to you — and the brand ships to all six GCC states (shipping list checked 2026-09-28). Caveat: the noocube.com Trustpilot profile has no reviews yet — verify cancellation policy before subscribing.',
+      'Lutemax 2020 is the standout ingredient for screen-heavy students, though its evidence for screen eye strain is mixed: a 6-month trial in 48 heavy screen users, funded by Lutemax\'s maker, reported less self-rated eye strain, eye fatigue and headache (Stringham 2017), but a 2025 trial of a different lutein/zeaxanthin product found better tear-film measures without any change in self-rated eye strain (Lopresti 2025). Includes L-theanine, choline (VitaCholine), and Bacopa (underdosed). Caffeine-free; suitable for vegetarians per the brand, which does not state the capsule shell material (checked 2026-10-07). $64.99 USD per 30-serving bottle on noocube.com — worth it if the Lutemax angle matters to you — and the brand ships to all six GCC states (shipping list checked 2026-09-28). Caveat: the noocube.com Trustpilot profile has no reviews yet — verify cancellation policy before subscribing.',
   },
   {
     product: productsGCC.find(p => p.slug === 'onnit-alpha-brain-review')!,
     rank: 4,
     whyItsHere:
-      'Caffeine-free Classic version with Bacopa + L-theanine + Alpha-GPC. National Sanitation Foundation (NSF) Certified for Sport — relevant for student athletes in drug-tested university sports. Plant-based capsules. Two published clinical studies on the formula. Doses are hidden in proprietary blends so clinical thresholds cannot be verified. onnit.com\'s market list names Bahrain and Oman; shipping to the other GCC states could not be confirmed from the brand\'s site on 2026-09-29 — check at checkout. We have not verified a product registration with the Saudi Food and Drug Authority (SFDA) or the Ministry of Health and Prevention (MOHAP).',
+      'Caffeine-free Classic version with Bacopa + L-theanine + Alpha-GPC. National Sanitation Foundation (NSF) Certified for Sport — relevant for student athletes in drug-tested university sports. Vegetarian but not vegan per the brand\'s FAQ; capsule shell material not stated (checked 2026-10-07). Two published clinical studies on the formula. Doses are hidden in proprietary blends so clinical thresholds cannot be verified. onnit.com\'s market list names Bahrain and Oman; shipping to the other GCC states could not be confirmed from the brand\'s site on 2026-09-29 — check at checkout. We have not verified a product registration with the Saudi Food and Drug Authority (SFDA) or the Ministry of Health and Prevention (MOHAP).',
   },
   {
     product: productsGCC.find(p => p.slug === 'thesis-nootropics-review')!,
@@ -85,7 +85,7 @@ const picks: ListiclePick[] = [
 const faqItems: ListicleFAQ[] = [
   {
     q: 'Are these supplements halal?',
-    a: 'All five picks use plant-based HPMC or pullulan capsules with no porcine gelatin. None of these brands carry formal halal certification (HALAL India, JAKIM, MUI, ESMA), so observant student buyers should verify each brand\'s latest ingredient sourcing.',
+    a: 'On capsules, Mind Lab Pro states pullulan (NutriCaps) capsules and Qualia Mind vegetarian (hypromellose) capsules; NooCube (suitable for vegetarians), Alpha Brain (vegetarian but not vegan) and Thesis (all ingredients vegan) do not state the capsule shell material. None of these brands shows a halal certificate on its pages (checked 2026-10-07), so observant student buyers should verify each brand\'s latest ingredient sourcing.',
   },
   {
     q: 'Can I take these during Ramadan?',

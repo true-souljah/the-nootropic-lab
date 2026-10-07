@@ -54,13 +54,13 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Includes Bacopa, citicoline (250mg Cognizin at clinical dose), AND phosphatidylserine (100mg Sharp-PS at clinical dose) — three of the four memory-evidence ingredients in one open formula. Plus Lion\'s Mane fruiting-body extract at 500mg. Plant-based HPMC capsules — no porcine gelatin, halal-friendly. Bacopa dose is 150mg (under the 300mg clinical anchor) so consider stacking with a separate Bacopa supplement for full effect. mindlabpro.com names Saudi Arabia, the UAE, Qatar and Kuwait among its shipping territories (its FAQ, checked 2026-09-29); Bahrain and Oman are not named on that partial list, so confirm at checkout.',
+      'Includes Bacopa, citicoline (250mg Cognizin at clinical dose), AND phosphatidylserine (100mg Sharp-PS at clinical dose) — three of the four memory-evidence ingredients in one open formula. Plus Lion\'s Mane fruiting-body extract at 500mg. Pullulan (NutriCaps) capsules, suitable for vegans per the brand (checked 2026-10-07). Bacopa dose is 150mg (under the 300mg clinical anchor) so consider stacking with a separate Bacopa supplement for full effect. mindlabpro.com names Saudi Arabia, the UAE, Qatar and Kuwait among its shipping territories (its FAQ, checked 2026-09-29); Bahrain and Oman are not named on that partial list, so confirm at checkout.',
   },
   {
     product: productsGCC.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes Bacopa (300mg at clinical dose), phosphatidylserine (200mg, well above clinical anchor), Alpha-GPC, and additional memory cofactors — the most complete memory-ingredient stack in this review. Plant-based capsules. Caveat: contains caffeine in default formula — choose the caffeine-free variant where offered. 7+ capsules/day and the $159 USD list price are real friction points. We have not verified a product registration with the Saudi Food and Drug Authority (SFDA) or the Ministry of Health and Prevention (MOHAP), and Qualia does not ship to any GCC state (brand shipping page, checked 2026-09-28).',
+      'Includes Bacopa (300mg at clinical dose), phosphatidylserine (200mg, well above clinical anchor), Alpha-GPC, and additional memory cofactors — the most complete memory-ingredient stack in this review. Vegetarian capsules (hypromellose), per the brand (checked 2026-10-07). Caveat: contains caffeine in default formula — choose the caffeine-free variant where offered. 7+ capsules/day and the $159 USD list price are real friction points. We have not verified a product registration with the Saudi Food and Drug Authority (SFDA) or the Ministry of Health and Prevention (MOHAP), and Qualia does not ship to any GCC state (brand shipping page, checked 2026-09-28).',
   },
   {
     product: productsGCC.find(p => p.slug === 'eu-yan-sang-brainmax-review')!,
@@ -72,14 +72,14 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'nootropics-depot-lions-mane')!,
     rank: 4,
     whyItsHere:
-      'Single-ingredient Lion\'s Mane fruiting-body extract at 500mg from a brand with the strongest third-party Certificate-of-Analysis culture in this review. Mushroom-derived — halal-compliant. Single-ingredient profile may also clear GCC customs more easily than multi-ingredient stacks. Caffeine-free, plant-based capsules. Pair with Mind Lab Pro or a separate Bacopa supplement for full memory-stack coverage. Ships from US.',
+      'Single-ingredient Lion\'s Mane fruiting-body extract at 500mg from a brand with the strongest third-party Certificate-of-Analysis culture in this review. Mushroom-derived; no halal certificate shown on the brand\'s page we fetched (checked 2026-10-07). Single-ingredient profile may also clear GCC customs more easily than multi-ingredient stacks. Caffeine-free; labelled vegan on the brand\'s product page, which does not state the capsule shell material. Pair with Mind Lab Pro or a separate Bacopa supplement for full memory-stack coverage. Ships from US.',
   },
 ];
 
 const faqItems: ListicleFAQ[] = [
   {
     q: 'Are these supplements halal?',
-    a: 'The capsule products on this page (Mind Lab Pro, Qualia Mind, Nootropics Depot) use plant-based HPMC or pullulan capsules with no porcine gelatin; Eu Yan Sang BrainMAX+ is a powder sachet, so it has no capsule shell. None of these brands (Mind Lab Pro, Qualia Mind, Eu Yan Sang BrainMAX+, Nootropics Depot) carry formal halal certification (HALAL India, JAKIM, MUI, ESMA), so observant buyers should verify each brand\'s latest ingredient sourcing. Note on phosphatidylserine: most products use soy-derived PS (halal); some use bovine-derived PS (would need halal-slaughter verification) or sunflower-derived PS (always halal).',
+    a: 'On capsules, Mind Lab Pro states pullulan (NutriCaps) capsules and Qualia Mind vegetarian (hypromellose) capsules; Nootropics Depot labels its Lion\'s Mane vegan but does not state the capsule shell material; Eu Yan Sang BrainMAX+ is a powder sachet, so it has no capsule shell. None of these brands (Mind Lab Pro, Qualia Mind, Eu Yan Sang BrainMAX+, Nootropics Depot) shows a halal certificate on its pages (checked 2026-10-07), and BrainMAX+ is not among the 77 items in Eu Yan Sang Singapore\'s Halal Certified category, so observant buyers should verify each brand\'s latest ingredient sourcing. Note on phosphatidylserine: most products use soy-derived PS (halal); some use bovine-derived PS (would need halal-slaughter verification) or sunflower-derived PS (always halal).',
   },
   {
     q: 'Which of these are SFDA-registered or MOHAP-registered?',
