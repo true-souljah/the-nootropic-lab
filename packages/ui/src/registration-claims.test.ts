@@ -129,6 +129,12 @@ const HALAL_UNSOURCED: RegExp[] = [
   /not halal-certified by (JAKIM|BPJPH)/i,
   /\b(do(es)? not|none of [^.]{0,100}) carry (BPJPH|JAKIM)\b/i,
   /weight(s|ed)? Halal-certified products higher/i,
+  // Round 2 (2026-10-07 brand-page check): absolute negatives and capsule
+  // claims no brand page supports, and a host that does not exist (NXDOMAIN).
+  /not (currently |formally )?halal[- ]certified/i,
+  /carry formal halal certification/i,
+  /typically gelatin/i,
+  /verify\.halal\.gov\.my/i,
 ];
 
 describe('no copy asserts a product is not halal-certified or that rankings weight halal status', () => {
