@@ -29,7 +29,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Which is better for Canadian buyers, AOR Ortho•Mind or Mind Lab Pro?',
     a:
-      'Different trust frameworks. AOR Ortho•Mind holds an Active Health Canada licence, NPN (Natural Product Number) 80037243 (checked 2026-10-07), is Calgary-domiciled, with bilingual EN/FR labelling for Quebec compliance. Mind Lab Pro is international, ships to Canada as a personal import, and has multiple peer-reviewed RCTs; we found no NPN for it in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07). If regulatory compliance + Canadian-domiciled trust matters most, AOR. If product-specific clinical evidence + broader formula matters most, Mind Lab Pro.',
+      'Different trust frameworks. AOR Ortho•Mind holds an Active Health Canada licence, NPN (Natural Product Number) 80037243 (checked 2026-10-07) and is Calgary-domiciled. Mind Lab Pro is international, ships to Canada as a personal import, and has multiple peer-reviewed RCTs; we found no NPN for it in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07). If regulatory compliance + Canadian-domiciled trust matters most, AOR. If product-specific clinical evidence + broader formula matters most, Mind Lab Pro.',
   },
   {
     q: 'Is the NPN important for buyers?',
@@ -44,12 +44,12 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Capsule count and friction?',
     a:
-      'AOR Ortho•Mind: 3 capsules/day. Mind Lab Pro: 2 capsules/day. Both are reasonable; Mind Lab Pro slightly less friction.',
+      'AOR Ortho•Mind: 6 capsules/day (the licensed adult dose is 2 capsules three times daily). Mind Lab Pro: 2 capsules/day. Mind Lab Pro is clearly less friction.',
   },
   {
     q: 'Bacopa dose?',
     a:
-      'AOR Ortho•Mind: 300mg Bacopa standardized to 50% bacosides — at clinical dose. Mind Lab Pro: 150mg Bacopa standardized — below clinical dose. For memory consolidation specifically, AOR has the better Bacopa dose.',
+      'AOR Ortho•Mind: 300mg Bacopa a day (50 mg per capsule × 6, standardized to 50-55% bacosides) — at clinical dose. Mind Lab Pro: 150mg Bacopa standardized — below clinical dose. For memory consolidation specifically, AOR has the better Bacopa dose.',
   },
   {
     q: 'Where to buy each?',
@@ -61,7 +61,6 @@ const faqItems: HeadToHeadFAQ[] = [
 const whoIsForA = [
   'Care about Health Canada NPN compliance',
   'Want a Calgary-domiciled Canadian brand',
-  'Need bilingual EN/FR labelling (Quebec compliance)',
   'Want to order direct from a Canadian company (aor.ca)',
   'Prioritize Bacopa at clinical dose (300mg) for memory',
   'Want CAD pricing without international shipping',

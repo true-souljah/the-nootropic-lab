@@ -98,7 +98,7 @@
       "Premium price ($69/mo USD)",
       "2 capsules per serving (2–4 per day suggested)",
       "30-day money-back",
-      "Ships from US -- import duties may apply for large orders"
+      "Ships internationally; confirm Canadian delivery at checkout"
     ],
     "editorChoice": true,
     "market": "both",
@@ -218,7 +218,7 @@
       "No reviews on the noocube.com Trustpilot profile (checked 2026-09-28)",
       "Some ingredients underdosed",
       "Subscription cancellation issues (BBB)",
-      "Ships from US -- import duties may apply for large orders"
+      "Ships internationally; confirm Canadian delivery at checkout"
     ],
     "editorChoice": false,
     "market": "both",
@@ -314,7 +314,7 @@
     "cons": [
       "Fewer total ingredients",
       "Pricey per capsule",
-      "Ships from US -- import duties may apply for large orders"
+      "Ships internationally; confirm Canadian delivery at checkout"
     ],
     "editorChoice": false,
     "market": "both",
@@ -418,7 +418,7 @@
       "Contains caffeine",
       "No affiliate commission",
       "Very expensive ($90/mo USD)",
-      "Ships from US -- import duties may apply for large orders"
+      "Ships internationally; confirm Canadian delivery at checkout"
     ],
     "editorChoice": false,
     "market": "both",
@@ -523,7 +523,7 @@
     "cons": [
       "Proprietary blends hide doses",
       "Subscription cancellation issues",
-      "Ships from US -- import duties may apply for large orders",
+      "Ships internationally; confirm Canadian delivery at checkout",
       "Health Canada licence NPN 80041968 (Onnit Labs) is listed as Discontinued in the LNHPD (checked 2026-10-07)"
     ],
     "editorChoice": false,
@@ -749,79 +749,87 @@
     "priceMonthlyUSD": 48,
     "pricingModel": "one-time",
     "moneyBackDays": 30,
-    "caffeineFree": false,
+    "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
     "trustpilotScore": 3.7,
     "trustpilotCount": 586,
-    "affiliateUrl": "https://aor.ca/products/ortho-mind/",
+    "affiliateUrl": "https://aor.ca/product/ortho-mind/",
     "affiliateNetwork": "Direct",
     "commissionRate": "12%",
     "cookieDays": 30,
     "heroIngredients": [
-      "Lion's Mane",
-      "Bacopa Monnieri",
+      "Bacopa monnieri",
       "Citicoline",
-      "Caffeine",
-      "L-Theanine"
+      "Acetyl L-carnitine",
+      "Panax ginseng",
+      "R-a-lipoic acid"
     ],
     "ingredientDosages": [
       {
-        "name": "Lion's Mane (8:1 extract)",
-        "doseInProduct": "300mg",
-        "clinicalDose": "500-1000mg",
+        "name": "Panax ginseng (30:1 extract, root)",
+        "doseInProduct": "100.02mg (16.67 mg per capsule × 6)",
+        "clinicalDose": "200-400mg",
         "adequatelyDosed": false
       },
       {
-        "name": "Bacopa Monnieri (50% bacosides)",
-        "doseInProduct": "300mg",
+        "name": "Bacopa monnieri (50-55% Bacosides, leaf)",
+        "doseInProduct": "300mg (50 mg per capsule × 6)",
         "clinicalDose": "300mg",
         "adequatelyDosed": true
       },
       {
-        "name": "Citicoline",
-        "doseInProduct": "250mg",
+        "name": "D-Pantothenic acid (Calcium D-pantothenate)",
+        "doseInProduct": "460.02mg (76.67 mg per capsule × 6)",
+        "clinicalDose": "5-10mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "5-Oxo-L-proline, compound with L-arginine (1:1) (Arginine PCA)",
+        "doseInProduct": "1500mg (250 mg per capsule × 6)",
+        "clinicalDose": "Limited human data",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "(2R)-2-(Acetyloxy)-3-carboxy-N,N,N-trimethyl-1-propanaminium inner salt (N-Acetyl L-carnitine hydrochloride)",
+        "doseInProduct": "1500mg (250 mg per capsule × 6)",
+        "clinicalDose": "1500-3000mg/day",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Choline cytidine 5'-pyrophosphate (ester) (Citicoline)",
+        "doseInProduct": "499.98mg (83.33 mg per capsule × 6)",
         "clinicalDose": "250mg",
         "adequatelyDosed": true
       },
       {
-        "name": "Caffeine (from green coffee)",
-        "doseInProduct": "50mg",
-        "clinicalDose": "75-200mg",
-        "adequatelyDosed": false
-      },
-      {
-        "name": "L-Theanine",
-        "doseInProduct": "100mg",
-        "clinicalDose": "100-200mg",
-        "adequatelyDosed": true
-      },
-      {
-        "name": "Phosphatidylserine",
-        "doseInProduct": "50mg",
-        "clinicalDose": "100mg",
+        "name": "1,2-Dithiolane-3-pentanoic acid, (R) (R-a-lipoic acid)",
+        "doseInProduct": "100.02mg (16.67 mg per capsule × 6)",
+        "clinicalDose": "300-600mg (alpha-lipoic acid trials)",
         "adequatelyDosed": false
       }
     ],
     "servingsPerContainer": 30,
-    "capsulesPerServing": 3,
-    "summary": "AOR Ortho•Mind is the strongest Canadian-domiciled cognitive supplement with an NPN (Natural Product Number) in our coverage. Health Canada NPN 80037243 verified against the Licensed Natural Health Products Database (LNHPD) on 2026-10-07 (licence holder Advanced Orthomolecular Research Inc., Active). Open formula with 6 disclosed ingredients including Bacopa, citicoline, and L-theanine at clinical dose. Sold direct at aor.ca (the site offers a store locator).",
-    "whatItIs": "Advanced Orthomolecular Research (AOR) is a Calgary-based Canadian supplement company founded in 1992, recognized for evidence-graded formulation and rigorous third-party testing. Ortho•Mind is their cognitive flagship — open formula, every dose disclosed, and licensed by Health Canada as a Natural Health Product (NHP). Its NPN (Natural Product Number) 80037243 is listed as Active in the Licensed Natural Health Products Database (LNHPD), licence holder Advanced Orthomolecular Research Inc., capsule form (checked 2026-10-07). Sold direct at aor.ca (the site offers a store locator); bilingual labelling for Quebec compliance.",
-    "howItWorks": "Multi-mechanism stack: Bacopa Monnieri at 300mg (clinical dose) supports memory consolidation over 8-12 weeks. Citicoline (Cognizin) supports phospholipid synthesis and acetylcholine availability. Lion's Mane modulates NGF for neurogenesis. Caffeine + L-theanine at modest doses (50mg + 100mg) provide acute focus support. Phosphatidylserine supports cell membrane integrity, but at half the clinical dose.",
-    "whatToExpect": "Acute (30-60 min): mild focus boost from caffeine + L-theanine combination. Weeks 4-12: cumulative Bacopa + citicoline memory and attention improvements. Lower caffeine dose (50mg) is gentler than typical pre-workouts but may be insufficient for hardcore caffeine users. The 3-capsule daily protocol is moderate friction.",
+    "capsulesPerServing": 6,
+    "summary": "AOR Ortho•Mind is the strongest Canadian-domiciled cognitive supplement with an NPN (Natural Product Number) in our coverage. Health Canada NPN 80037243 verified against the Licensed Natural Health Products Database (LNHPD) on 2026-10-07 (licence holder Advanced Orthomolecular Research Inc., Active). Open, caffeine-free formula: the licence lists 7 medicinal ingredients, and at 6 capsules a day Bacopa (300mg), citicoline (about 500mg) and acetyl-L-carnitine (1,500mg) reach our reference doses. Sold direct at aor.ca (the site offers a store locator).",
+    "whatItIs": "Advanced Orthomolecular Research (AOR) is a Calgary-based Canadian supplement company founded in 1992, recognized for evidence-graded formulation and rigorous third-party testing. Ortho•Mind is their cognitive flagship — open formula, every dose disclosed, and licensed by Health Canada as a Natural Health Product (NHP). Its NPN (Natural Product Number) 80037243 is listed as Active in the Licensed Natural Health Products Database (LNHPD), licence holder Advanced Orthomolecular Research Inc., capsule form (checked 2026-10-07). The licence lists seven medicinal ingredients per capsule: Panax ginseng 16.67 mg (30:1 extract, root), Bacopa monnieri 50 mg (50-55% bacosides, leaf), D-pantothenic acid 76.67 mg (as calcium D-pantothenate), arginine pyroglutamate 250 mg, acetyl-L-carnitine 250 mg (as the hydrochloride), citicoline 83.33 mg and R-lipoic acid 16.67 mg; the licensed adult dose is 2 capsules three times daily. The aor.ca product page lists the same seven ingredients and amounts per capsule. Sold direct at aor.ca (the site offers a store locator).",
+    "howItWorks": "At the licensed 6 capsules a day: Bacopa monnieri 300mg supports memory consolidation over 8-12 weeks, and citicoline (about 500mg; AOR uses the Xerenoos brand) supports phospholipid and neurotransmitter synthesis. AOR says R-lipoic acid and acetyl-L-carnitine \"work synergistically to support the function of mitochondria\"; the 1,500mg of acetyl-L-carnitine meets our reference dose, the 100mg of R-lipoic acid does not. Panax ginseng (100mg of a 30:1 extract) is below the 200-400mg used in trials. Arginine pyroglutamate (1,500mg) has limited human data.",
+    "whatToExpect": "Weeks 4-12: cumulative Bacopa + citicoline memory and attention effects; none of the seven ingredients is a stimulant, so do not expect an acute caffeine-style lift. The licensed dose is 2 capsules three times daily without food (6 capsules a day), so a 180-capsule bottle lasts 30 days. The label information on aor.ca says to consult a health care practitioner for use beyond 2 months.",
     "pros": [
       "Health Canada NPN-licensed (NPN 80037243)",
       "Open formula — every ingredient disclosed",
       "Canadian-domiciled (Calgary)",
-      "Bilingual labelling (English + French) for Quebec compliance",
-      "Bacopa, citicoline, L-theanine at clinical doses",
+      "Caffeine-free",
+      "Bacopa, citicoline and acetyl-L-carnitine at or above our reference doses",
       "Sold direct at aor.ca (store locator on the site)"
     ],
     "cons": [
-      "Lion's Mane and PS underdosed vs. clinical anchors",
-      "Caffeine dose (50mg) is modest — not for high-tolerance users",
-      "3 capsules/day adds friction",
+      "Panax ginseng and R-lipoic acid below the doses used in trials",
+      "6 capsules a day (2 capsules three times daily) adds friction",
       "Limited Trustpilot footprint vs international brands"
+    ],
+    "notes": [
+      "Formula from the Health Canada LNHPD licence record for NPN 80037243 (medicinal ingredients: https://health-products.canada.ca/api/natural-licences/medicinalingredient/?lang=en&type=json&id=7089264; licence: https://health-products.canada.ca/api/natural-licences/productlicence/?lang=en&type=json&id=80037243; dose: https://health-products.canada.ca/api/natural-licences/productdose/?lang=en&type=json&id=7089264), checked 2026-10-07. Amounts are per capsule as licensed; daily amounts use the licensed adult dose of 2 capsules three times daily."
     ],
     "editorChoice": false,
     "market": "ca",
