@@ -38,8 +38,8 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Citicoline (CDP-Choline)',
     evidence:
-      'Choline donor + uridine source. A 2008 RCT in adolescent males (Silveri et al.) showed attention improvements at 250–500mg/day. Generally well-tolerated; potentially complementary to ADHD medication under clinician supervision.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18834505/',
+      'Choline donor + uridine source. A 2015 RCT in 75 healthy adolescent males (McGlade et al.; three co-authors were affiliated with Kyowa Hakko) found 28 days of Cognizin citicoline at 250 or 500mg/day improved attention and psychomotor speed versus placebo. The boys were healthy volunteers, not an ADHD sample, so this does not show an ADHD treatment effect. Generally well-tolerated; potentially complementary to ADHD medication under clinician supervision.',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/26179181/',
   },
   {
     name: 'L-Theanine + Caffeine',
