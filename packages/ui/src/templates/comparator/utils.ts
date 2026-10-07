@@ -113,7 +113,7 @@ export function exportRowsToCsv(rows: Product[], strings: UIStrings): void {
     p.score,
     p.priceMonthlyUSD ?? '',
     servingAmount(p, strings),
-    p.moneyBackDays,
+    p.moneyBackDays ?? '',
     p.trustpilotScore ?? '',
     p.bestFor.join('; '),
   ]);

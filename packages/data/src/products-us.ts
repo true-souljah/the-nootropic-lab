@@ -20,18 +20,26 @@ export interface Product {
   score: number;
   scoreBreakdown: {
     ingredients: number;
-    dosing: number;
+    /** null = not scorable (no disclosed doses); requires `unscoredReason` (product-rules.ts scoreProblem). */
+    dosing: number | null;
     transparency: number;
-    value: number;
+    /** null = not scorable (value is measured per clinical-dose ingredient); requires `unscoredReason`. */
+    value: number | null;
     trust: number;
   };
+  /**
+   * Why a scoreBreakdown pillar is null. When set, `score` is the
+   * PILLAR_WEIGHTS-weighted mean of the scored pillars (product-rules.ts).
+   */
+  unscoredReason?: string;
   priceMonthlyUSD?: number;
   priceMonthlyEUR?: number;
   priceMonthlyCAD?: number;
   priceMonthlyAUD?: number;
   priceMonthlyJPY?: number;
   pricingModel: 'one-time' | 'subscription' | 'both';
-  moneyBackDays: number;
+  /** null = no single guarantee length is published (none, or conflicting terms); rendered as "—", never "null days". */
+  moneyBackDays: number | null;
   caffeineFree: boolean;
   euStorefront: boolean;
   /**
@@ -80,16 +88,27 @@ export interface Product {
   market: Market;
   updatedAt?: string;
   /**
-   * Canadian Natural Health Products Directorate licensing status. Only set on
-   * products served by the CA market app. `licensed` = Health Canada has issued
-   * an NPN (Natural Product Number); the `npn` field carries it. `pip` = the
-   * product reaches Canadian buyers via the Personal Importation Program — not
-   * Health Canada licensed, but legally imported in personal-use quantities.
-   * Undefined for products not surfaced to the CA market.
+   * Health Canada natural health product (NHP) licensing status, checked
+   * against the Licensed Natural Health Products Database (LNHPD). Only set on
+   * products served by the CA market app. `licensed` = the LNHPD lists an
+   * Active product licence; `npn` carries its NPN (Natural Product Number).
+   * `pip` = the LNHPD returned no active licence for the product or licence
+   * holder names searched on `checkedAt` (queries and any non-active rows in
+   * `basis`). It is not evidence that no licence exists under some other
+   * name, nor that every Canadian sale is a personal import: copy must say
+   * "we found no NPN for <names searched> ... (checked <date>)" and tell the
+   * reader to look for an eight-digit NPN on the label; only without one is
+   * personal importation under Health Canada's GUI-0116 a consumer's route.
+   * Never state that the product is unlicensed. Undefined for products not
+   * surfaced to the CA market.
    */
   npnStatus?: {
     status: 'licensed' | 'pip';
     npn?: string;
+    /** ISO date (YYYY-MM-DD) the LNHPD was checked. */
+    checkedAt?: string;
+    /** One line: the licence row confirmed, or the queries that returned no active licence. */
+    basis?: string;
   };
   /**
    * Japanese Foods with Function Claims (機能性表示食品 / FFC) notification

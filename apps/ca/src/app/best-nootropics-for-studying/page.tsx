@@ -72,7 +72,7 @@ const picks: ListiclePick[] = [
     product: productsCA.find(p => p.slug === 'onnit-alpha-brain-review')!,
     rank: 4,
     whyItsHere:
-      'Caffeine-free Classic version is occasionally available at GNC Canada and consistently on Amazon.ca — useful when Canadian students need a study supplement on short notice without waiting for international shipping. Bacopa + L-theanine + Alpha-GPC are present but proprietary blends prevent verifying clinical doses.',
+      'Caffeine-free Classic version. Its former Health Canada licence, NPN (Natural Product Number) 80041968, is listed as Discontinued in the Licensed Natural Health Products Database (LNHPD, checked 2026-10-07), and we found no Onnit listing on amazon.ca\'s first page of search results that day, so confirm Canadian delivery at checkout and allow for shipping time. Bacopa + L-theanine + Alpha-GPC are present but proprietary blends prevent verifying clinical doses.',
   },
 ];
 
@@ -102,8 +102,8 @@ const faqItems: ListicleFAQ[] = [
     a: 'For most Canadian students, caffeine + L-theanine (1:2 ratio) is the most cost-effective focus stack — and the most-evidence-backed. You can DIY this with a coffee + a $10 bottle of L-theanine from Amazon.ca. The supplements on this page add memory-consolidation ingredients (Bacopa, citicoline) on top, which compounds for actual retention of studied material over the term.',
   },
   {
-    q: 'Where can students buy these in Canada — Shoppers, Costco, or online?',
-    a: 'Mind Lab Pro, Hunter Focus, and Qualia Mind are direct-to-consumer only (international shipping to Canadian addresses). Onnit Alpha Brain is sometimes available at GNC Canada and reliably on Amazon.ca. Single-ingredient supplements (L-theanine, Bacopa, Lion\'s Mane) are widely available at Canadian retail — Shoppers Drug Mart, Rexall, and Costco all carry them, generally with NPN-registered Canadian brands.',
+    q: 'Where can students buy these in Canada — in a store or online?',
+    a: 'Mind Lab Pro, Hunter Focus, and Qualia Mind are sold direct by their brands (international shipping to Canadian addresses). Onnit Alpha Brain\'s Health Canada licence, NPN (Natural Product Number) 80041968, is listed as Discontinued in the Licensed Natural Health Products Database (LNHPD, checked 2026-10-07), and we found no Onnit listing on amazon.ca\'s first page of search results that day, so confirm Canadian delivery at checkout. For single-ingredient supplements (L-theanine, Bacopa, Lion\'s Mane) bought in a Canadian store, look for an eight-digit NPN on the label; Health Canada\'s LNHPD lets you check it.',
   },
 ];
 

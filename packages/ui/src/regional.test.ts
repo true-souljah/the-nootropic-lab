@@ -56,7 +56,11 @@ describe('licenceStatus', () => {
   test('CA maps npnStatus; AU maps austl; JP maps ffcStatus', () => {
     const base = productsUS[0];
     expect(licenceStatus({ ...base, npnStatus: { status: 'licensed', npn: '80012345' } }, 'ca')).toEqual({ label: 'NPN 80012345', tone: 'good' });
-    expect(licenceStatus({ ...base, npnStatus: { status: 'pip' } }, 'ca')).toEqual({ label: 'Personal import (PIP)', tone: 'neutral' });
+    expect(licenceStatus({ ...base, npnStatus: { status: 'pip' } }, 'ca')).toEqual({ label: 'No NPN found', tone: 'neutral' });
+    expect(licenceStatus({ ...base, npnStatus: { status: 'pip', checkedAt: '2026-10-07' } }, 'ca')).toEqual({
+      label: 'No NPN found (checked 2026-10-07)',
+      tone: 'neutral',
+    });
     expect(licenceStatus({ ...base, npnStatus: undefined }, 'ca')).toBeNull();
     expect(licenceStatus({ ...base, austl: '123456' }, 'au')?.label).toBe('AUST L 123456');
     expect(licenceStatus({ ...base, austl: undefined }, 'au')?.tone).toBe('neutral');

@@ -7,6 +7,7 @@ import AppShell from './AppShell';
 import { FPDisclosure } from '../public-chrome/FPDisclosure';
 import { ScorePill } from '../primitives/ScorePill';
 import { LiveRegion } from '../primitives/LiveRegion';
+import { outOfTen } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 import { COLUMNS, MAX_SELECTED } from './comparator/constants';
@@ -112,7 +113,7 @@ export default function Comparator({
             : sortKey === 'trust'
               ? x.trustpilotScore ?? 0
               : sortKey === 'value'
-                ? x.scoreBreakdown.value
+                ? x.scoreBreakdown.value ?? 0
                 : 0;
       return sortDir === 'desc' ? get(b) - get(a) : get(a) - get(b);
     });
@@ -401,10 +402,7 @@ export default function Comparator({
                       className="px-[14px] py-3 text-right text-ds-ink-soft ds-tabular"
                       style={{ flex: '0 0 80px' }}
                     >
-                      {/* Not a template literal: some records carry value: null at runtime
-                          (SEA Supershrooms) and must render empty, not "null"; the separate
-                          "/" keeps "/10" out of the payload (check:links rsc-string). */}
-                      {p.scoreBreakdown.value}{'/'}10
+                      {outOfTen(p.scoreBreakdown.value)}
                     </div>
                     <div
                       role="gridcell"

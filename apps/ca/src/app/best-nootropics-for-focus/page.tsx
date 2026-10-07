@@ -72,7 +72,7 @@ const picks: ListiclePick[] = [
     product: productsCA.find(p => p.slug === 'noocube-review')!,
     rank: 4,
     whyItsHere:
-      'Includes choline (VitaCholine, 250mg), Bacopa, and L-theanine 100mg at clinical dose. Standout ingredient is Lutemax 2020 for blue-light eye fatigue — relevant for Canadian remote workers. Open formula. The noocube.com Trustpilot profile has no reviews yet — verify subscription cancellation terms before ordering.',
+      'Includes choline (VitaCholine, 250mg), Bacopa, and L-theanine 100mg at clinical dose. Standout ingredient for Canadian remote workers is Lutemax 2020, though its evidence for screen eye strain is mixed: a 6-month trial in 48 heavy screen users, funded by Lutemax\'s maker, reported less self-rated eye strain, eye fatigue and headache (Stringham 2017), but a 2025 trial of a different lutein/zeaxanthin product found better tear-film measures without any change in self-rated eye strain (Lopresti 2025). Open formula. The noocube.com Trustpilot profile has no reviews yet — verify subscription cancellation terms before ordering.',
   },
 ];
 
@@ -87,7 +87,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Are these focus nootropics regulated by Health Canada?',
-    a: 'Mind Lab Pro is sold internationally and is treated by Health Canada as a Natural Health Product when imported for personal use. Domestically-marketed nootropics in Canada must carry an NPN (Natural Product Number) issued by Health Canada — cross-border imports do not. Check the label: an NPN means Health Canada has reviewed the product\'s safety, efficacy, and quality claims.',
+    a: 'Health Canada states that "All natural health products (NHPs) sold in Canada require a product licence before being marketed", and a licensed product\'s label bears an eight-digit NPN (Natural Product Number). We found no NPN for Mind Lab Pro in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07); a licence can be held under another name, so look for an eight-digit NPN on the label; without one, a consumer\'s only route is personal importation, which Health Canada\'s GUI-0116 limits to "no more than a 90-day supply or a single course of treatment, whichever is less". Check the label for an NPN and look it up in the LNHPD.',
   },
   {
     q: 'Are focus nootropics safe to take daily?',
@@ -102,8 +102,8 @@ const faqItems: ListicleFAQ[] = [
     a: 'Mind Lab Pro is purpose-built as caffeine-free and is our top CA pick. It pairs well with your morning coffee or matcha if you want to add caffeine yourself.',
   },
   {
-    q: 'Where can I buy focus nootropics in Canada — Shoppers Drug Mart, Costco, or online?',
-    a: 'The premium picks on this page (Mind Lab Pro, Hunter Focus, Qualia Mind) are direct-to-consumer only — they do not appear on Shoppers Drug Mart, Rexall, or Costco shelves. Canadian retail pharmacies typically stock generic single-ingredient supplements (Bacopa, Ginkgo, L-theanine) but rarely the multi-ingredient stacks with clinically-validated dosing covered here. Onnit Alpha Brain is occasionally stocked at GNC Canada and Amazon.ca.',
+    q: 'Where can I buy focus nootropics in Canada — in a store or online?',
+    a: 'The premium picks on this page (Mind Lab Pro, Hunter Focus, Qualia Mind) are sold direct by their brands and shipped to Canadian addresses; confirm Canadian delivery at checkout. Onnit Alpha Brain\'s Health Canada licence, NPN 80041968, is listed as Discontinued in the LNHPD (checked 2026-10-07), and we found no Onnit listing on amazon.ca\'s first page of search results that day. Whatever you buy in a Canadian store, look for an eight-digit NPN on the label; the LNHPD lets you check it.',
   },
 ];
 

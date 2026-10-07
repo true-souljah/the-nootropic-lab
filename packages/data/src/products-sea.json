@@ -207,9 +207,9 @@
     "servingsPerContainer": 30,
     "capsulesPerServing": 4,
     "summary": "Strong formula anchored by Lutemax 2020 -- especially relevant for screen-heavy workers across SEA tech hubs in Singapore, KL, Bangkok, and Manila. noocube.com's own FAQ gives no Southeast Asia delivery statement; confirm at checkout. Priced at USD $64.99 for a 30-serving bottle. Imported as a personal-use supplement; we have not verified a local product registration with the National Pharmaceutical Regulatory Agency (NPRA) in Malaysia, the Thai FDA, FDA Philippines, the Badan Pengawas Obat dan Makanan (BPOM) in Indonesia or the Vietnam Food Administration (VFA). Note: the noocube.com Trustpilot profile has no reviews yet -- verify subscription cancellation terms independently before purchasing.",
-    "whatItIs": "NooCube is a 12-ingredient nootropic stack made by Wolfson Brands, a large supplement manufacturer known for multiple health product lines. Its standout feature is Lutemax 2020 -- a patented lutein and zeaxanthin extract specifically researched for reducing the effects of digital eye strain and blue-light-related cognitive fatigue, making it particularly relevant for the screen-heavy work culture common in Singapore, Malaysia, Thailand, the Philippines, and Indonesia. For SEA buyers, NooCube is one of the more affordable premium imports at USD $64.99 per 30-serving bottle. It is imported under personal-use supplement rules; we have not verified a local product registration with the National Pharmaceutical Regulatory Agency (NPRA) in Malaysia, the Thai FDA, FDA Philippines, the Badan Pengawas Obat dan Makanan (BPOM) in Indonesia or the Vietnam Food Administration (VFA). noocube.com's own FAQ gives no Southeast Asia delivery statement; confirm at checkout. Buyers should also confirm current personal-import limits with their national customs authority, as these were not confirmed from an official page in our 2026-10-05 check.",
-    "howItWorks": "Lutemax 2020 filters high-energy blue light in the retina, reducing eye fatigue that accumulates during screen use -- an indirect but real cognitive benefit for office workers and gamers. Choline from VitaCholine (250mg) supports the cholinergic system; the current formula no longer contains Alpha-GPC or Huperzine A. L-Theanine provides calm focus. Bacopa Monnieri targets memory consolidation over weeks.",
-    "whatToExpect": "Day one: mild calm focus from L-Theanine. Within 2-4 weeks: reduced eye fatigue and better end-of-day mental stamina (Lutemax). At 8 weeks: modest memory improvements (Bacopa, though underdosed). Manage expectations accordingly: Bacopa is below the 300mg clinical anchor. The noocube.com Trustpilot profile has no reviews yet -- verify the cancellation policy before purchasing.",
+    "whatItIs": "NooCube is a 12-ingredient nootropic stack made by Wolfson Brands, a large supplement manufacturer known for multiple health product lines. Its standout feature for the screen-heavy work culture common in Singapore, Malaysia, Thailand, the Philippines, and Indonesia is Lutemax 2020 -- a patented lutein and zeaxanthin extract with mixed evidence for screen eye strain: a 6-month trial funded by Lutemax's maker found less self-rated eye strain and eye fatigue (Stringham 2017), but a 2025 trial of a different lutein/zeaxanthin product found no change in self-rated eye strain (Lopresti 2025). For SEA buyers, NooCube is one of the more affordable premium imports at USD $64.99 per 30-serving bottle. It is imported under personal-use supplement rules; we have not verified a local product registration with the National Pharmaceutical Regulatory Agency (NPRA) in Malaysia, the Thai FDA, FDA Philippines, the Badan Pengawas Obat dan Makanan (BPOM) in Indonesia or the Vietnam Food Administration (VFA). noocube.com's own FAQ gives no Southeast Asia delivery statement; confirm at checkout. Buyers should also confirm current personal-import limits with their national customs authority, as these were not confirmed from an official page in our 2026-10-05 check.",
+    "howItWorks": "Lutemax 2020 filters high-energy blue light in the retina; trial results on screen-related eye fatigue are mixed (one maker-funded trial positive, a trial of a different lutein/zeaxanthin product null on self-rated eye strain). Choline from VitaCholine (250mg) supports the cholinergic system; the current formula no longer contains Alpha-GPC or Huperzine A. L-Theanine provides calm focus. Bacopa Monnieri targets memory consolidation over weeks.",
+    "whatToExpect": "Day one: mild calm focus from L-Theanine. Lutemax: its eye-strain trials ran 6 months and disagree, so do not count on a quick eye-fatigue effect. At 8 weeks: modest memory improvements (Bacopa, though underdosed). Manage expectations accordingly: Bacopa is below the 300mg clinical anchor. The noocube.com Trustpilot profile has no reviews yet -- verify the cancellation policy before purchasing.",
     "pros": [
       "Lutemax 2020 for screen workers",
       "Good value at $64.99/mo",
@@ -1044,7 +1044,8 @@
     "notes": [
       "Philippine retail price: PHP 1,680 for one pouch, which the product page labels a 1-month supply (https://supershrooms.ph/products/focus-nootropic, checked 2026-09-29). USD figure converted at PHP 1 = USD 0.016 (Frankfurter reference rate dated 2026-09-28, https://api.frankfurter.app/latest?from=PHP&to=USD): 1,680 × 0.016 = USD 26.88/month.",
       "The product page FAQ cites a company FDA licence number (CFRR-NCR-FI/W-703236); no product registration number and no halal certification are shown on the page (https://supershrooms.ph/products/focus-nootropic, checked 2026-09-29).",
-      "The brand's FAQ describes its manufacturing facility as \"registered with the US FDA\" and gives \"FDA License No. CFRR-NCR-FI/W-703236\"; the number follows the format used by FDA Philippines' Center for Food Regulation and Research (CFRR). Its status was not looked up in the FDA Verification Portal (https://supershrooms.ph/pages/frequently-asked-questions, checked 2026-09-30)."
+      "The brand's FAQ describes its manufacturing facility as \"registered with the US FDA\" and gives \"FDA License No. CFRR-NCR-FI/W-703236\"; the number follows the format used by FDA Philippines' Center for Food Regulation and Research (CFRR). Its status was not looked up in the FDA Verification Portal (https://supershrooms.ph/pages/frequently-asked-questions, checked 2026-09-30).",
+      "The refund policy states \"We have a 7-day return policy, which means you have 30 days after receiving your item to request a return\" and accepts returns only of unused items in their original packaging, so no single guarantee length is recorded (https://supershrooms.ph/policies/refund-policy, checked 2026-10-07). The product page shows a \"Money-back guarantee\" badge with no terms."
     ],
     "priceMonthlyEUR": null,
     "priceMonthlyUSD": 26.88,
@@ -1070,7 +1071,7 @@
       "TH": "not verified",
       "VN": "not verified"
     },
-    "score": 5.5,
+    "score": 4.9,
     "scoreBreakdown": {
       "ingredients": 6,
       "dosing": null,
@@ -1088,7 +1089,8 @@
     ],
     "trustpilotCount": null,
     "trustpilotScore": null,
-    "updatedAt": "2026-09-30",
+    "unscoredReason": "The product page discloses no ingredient doses (checked 2026-10-07), and this pillar is measured against the dose. The overall score is the weighted average of the three scored pillars.",
+    "updatedAt": "2026-10-07",
     "verifiedAt": "2026-09-29",
     "url": "https://supershrooms.ph/products/focus-nootropic",
     "weaknesses": [

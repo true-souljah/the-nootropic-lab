@@ -1,17 +1,11 @@
 'use client';
 import { useState } from 'react';
-
-interface Breakdown {
-  ingredients: number;
-  dosing: number;
-  transparency: number;
-  value: number;
-  trust: number;
-}
+import { pillarText } from '@nootropic/data';
+import type { Product } from '@nootropic/data';
 
 interface Props {
   score: number;
-  breakdown: Breakdown;
+  breakdown: Product['scoreBreakdown'];
 }
 
 export default function ScoreTooltip({ score, breakdown }: Props) {
@@ -34,13 +28,13 @@ export default function ScoreTooltip({ score, breakdown }: Props) {
       {open && (
         <div role="tooltip" className="absolute z-20 bottom-full left-0 mb-2 bg-white border border-gray-200 shadow-lg rounded p-3 w-52 text-xs">
           <div className="font-bold text-gray-700 mb-2">Score breakdown</div>
-          {(Object.entries(breakdown) as [string, number][]).map(([key, val]) => (
+          {(Object.entries(breakdown) as [string, number | null][]).map(([key, val]) => (
             <div key={key} className="flex items-center gap-2 mb-1">
               <span className="w-24 capitalize text-gray-500">{key}</span>
               <div className="score-bar flex-1">
-                <div className="score-bar-fill" style={{ width: `${val * 10}%` }} />
+                <div className="score-bar-fill" style={{ width: `${(val ?? 0) * 10}%` }} />
               </div>
-              <span className="w-4 text-right font-semibold text-gray-700">{val}</span>
+              <span className="w-4 text-right font-semibold text-gray-700">{pillarText(val)}</span>
             </div>
           ))}
         </div>
