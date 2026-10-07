@@ -72,7 +72,7 @@ const picks: ListiclePick[] = [
     product: productsCA.find(p => p.slug === 'naturebell-ginkgo-ginseng-review')!,
     rank: 3,
     whyItsHere:
-      'The budget pick — CAD ~$7/month, listed on amazon.ca. Delivers Ginkgo Biloba at the full clinical dose (120mg, 50:1 extract). Single-mechanism (cerebral blood flow), not a complete memory stack. Best as a cheap addition alongside Mind Lab Pro, or as an entry-point trial. No NPN (Natural Product Number) found for NatureBell Ginkgo + Ginseng in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07); imported for personal use.',
+      'The budget pick — CAD ~$7/month, listed on amazon.ca. Delivers Ginkgo Biloba at the full clinical dose (120mg, 50:1 extract). Single-mechanism (cerebral blood flow), not a complete memory stack. Best as a cheap addition alongside Mind Lab Pro, or as an entry-point trial. No NPN (Natural Product Number) found for NatureBell Ginkgo + Ginseng in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07); check the listing or label for an eight-digit NPN.',
   },
   {
     product: productsCA.find(p => p.slug === 'onnit-alpha-brain-review')!,
@@ -93,7 +93,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Are memory nootropics regulated by Health Canada?',
-    a: 'Health Canada states that "All natural health products (NHPs) sold in Canada require a product licence before being marketed", and a licensed product\'s label bears an eight-digit NPN (Natural Product Number). We found no NPN for Mind Lab Pro, Qualia Mind or Hunter Focus in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07); they reach Canadian buyers by personal importation, which Health Canada\'s GUI-0116 guidance limits to "no more than a 90-day supply or a single course of treatment, whichever is less".',
+    a: 'Health Canada states that "All natural health products (NHPs) sold in Canada require a product licence before being marketed", and a licensed product\'s label bears an eight-digit NPN (Natural Product Number). We found no NPN for Mind Lab Pro, Qualia Mind or Hunter Focus in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07); a licence can be held under another name, so look for an eight-digit NPN on the label; without one, a consumer\'s only route is personal importation, which Health Canada\'s GUI-0116 limits to "no more than a 90-day supply or a single course of treatment, whichever is less".',
   },
   {
     q: 'Are memory nootropics safe long-term?',

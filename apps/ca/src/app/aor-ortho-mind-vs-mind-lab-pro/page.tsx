@@ -34,7 +34,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Is the NPN important for buyers?',
     a:
-      'Health Canada states that "All natural health products (NHPs) sold in Canada require a product licence before being marketed", and a licensed product\'s label bears an eight-digit NPN (Natural Product Number). AOR Ortho•Mind\'s NPN 80037243 is listed as Active in the Licensed Natural Health Products Database (LNHPD), licence holder Advanced Orthomolecular Research Inc. (checked 2026-10-07). We found no NPN for Mind Lab Pro in the LNHPD (full register export searched, 2026-10-07), so it reaches Canadian buyers by personal importation, which Health Canada\'s GUI-0116 guidance limits to "no more than a 90-day supply or a single course of treatment, whichever is less".',
+      'Health Canada states that "All natural health products (NHPs) sold in Canada require a product licence before being marketed", and a licensed product\'s label bears an eight-digit NPN (Natural Product Number). AOR Ortho•Mind\'s NPN 80037243 is listed as Active in the Licensed Natural Health Products Database (LNHPD), licence holder Advanced Orthomolecular Research Inc. (checked 2026-10-07). We found no NPN for Mind Lab Pro in the LNHPD (full register export searched, 2026-10-07); a licence can be held under another name, so look for an eight-digit NPN on the label; without one, a consumer\'s only route is personal importation, which Health Canada\'s GUI-0116 limits to "no more than a 90-day supply or a single course of treatment, whichever is less".',
   },
   {
     q: 'Price difference?',

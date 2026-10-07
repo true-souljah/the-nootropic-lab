@@ -87,7 +87,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Are these focus nootropics regulated by Health Canada?',
-    a: 'Health Canada states that "All natural health products (NHPs) sold in Canada require a product licence before being marketed", and a licensed product\'s label bears an eight-digit NPN (Natural Product Number). We found no NPN for Mind Lab Pro in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07); it reaches Canadian buyers by personal importation, which Health Canada\'s GUI-0116 guidance limits to "no more than a 90-day supply or a single course of treatment, whichever is less". Check the label for an NPN and look it up in the LNHPD.',
+    a: 'Health Canada states that "All natural health products (NHPs) sold in Canada require a product licence before being marketed", and a licensed product\'s label bears an eight-digit NPN (Natural Product Number). We found no NPN for Mind Lab Pro in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07); a licence can be held under another name, so look for an eight-digit NPN on the label; without one, a consumer\'s only route is personal importation, which Health Canada\'s GUI-0116 limits to "no more than a 90-day supply or a single course of treatment, whichever is less". Check the label for an NPN and look it up in the LNHPD.',
   },
   {
     q: 'Are focus nootropics safe to take daily?',

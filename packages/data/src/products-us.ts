@@ -92,11 +92,13 @@ export interface Product {
    * Active product licence; `npn` carries its NPN (Natural Product Number).
    * `pip` = the LNHPD returned no active licence for the product or licence
    * holder names searched on `checkedAt` (queries and any non-active rows in
-   * `basis`), so the product reaches Canadian buyers only by personal
-   * importation under Health Canada's GUI-0116 guidance. It is not evidence
-   * that no licence exists under some other name: copy must say "no NPN found
-   * ... (checked <date>)", never that the product is unlicensed. Undefined for
-   * products not surfaced to the CA market.
+   * `basis`). It is not evidence that no licence exists under some other
+   * name, nor that every Canadian sale is a personal import: copy must say
+   * "we found no NPN for <names searched> ... (checked <date>)" and tell the
+   * reader to look for an eight-digit NPN on the label; only without one is
+   * personal importation under Health Canada's GUI-0116 a consumer's route.
+   * Never state that the product is unlicensed. Undefined for products not
+   * surfaced to the CA market.
    */
   npnStatus?: {
     status: 'licensed' | 'pip';

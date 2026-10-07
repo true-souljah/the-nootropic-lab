@@ -71,6 +71,12 @@ const UNSOURCED_NEGATIVE: RegExp[] = [
   /reliably on Amazon\.ca/i,
   /sometimes available at GNC/i,
   /occasionally stocked at GNC/i,
+  // A no-row LNHPD result covers only the names searched: it cannot show that
+  // a product reaches Canada only by personal importation (NatureBell, for
+  // one, is listed on amazon.ca). Copy says "look for an eight-digit NPN on
+  // the label; without one, a consumer's only route is personal importation".
+  /reaches Canadian buyers (only )?by personal importation/i,
+  /import(s)? it for personal use/i,
 ];
 
 describe('no copy asserts a product is not registered with a regulator', () => {

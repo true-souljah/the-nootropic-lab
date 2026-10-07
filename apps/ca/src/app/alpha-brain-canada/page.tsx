@@ -99,7 +99,7 @@ const faqs = [
     q: 'Does Alpha Brain have a Health Canada NPN?',
     a: alphaBrainLicensed
       ? `Our catalogue record lists Alpha Brain as NPN-licensed${alphaBrain?.npnStatus?.npn ? ` (NPN ${alphaBrain.npnStatus.npn})` : ''}. Verify it on the Licensed Natural Health Products Database before buying.`
-      : `Not an active one. Health Canada’s Licensed Natural Health Products Database (LNHPD) lists Alpha Brain under NPN (Natural Product Number) ${FORMER_NPN}, licence holder Onnit Labs, LLC, with the licence Discontinued (checked ${LNHPD_CHECKED_ON}). With no active licence, it reaches Canadian buyers only by personal importation, which Health Canada’s GUI-0116 guidance limits to “no more than a 90-day supply or a single course of treatment, whichever is less”.`,
+      : `Not an active one. Health Canada’s Licensed Natural Health Products Database (LNHPD) lists Alpha Brain under NPN (Natural Product Number) ${FORMER_NPN}, licence holder Onnit Labs, LLC, with the licence Discontinued (checked ${LNHPD_CHECKED_ON}); we found no active Alpha Brain licence under the brand name “Alpha Brain” or licence holder “Onnit”. Look for an eight-digit NPN on the label; without one, a consumer’s only route is personal importation, which Health Canada’s GUI-0116 limits to “no more than a 90-day supply or a single course of treatment, whichever is less”.`,
   },
   {
     q: 'What does “directed only to U.S. consumers” on onnit.com mean?',
@@ -261,7 +261,7 @@ export default function Page() {
             licence before being marketed&rdquo;, and a licensed product&apos;s label bears an eight-digit Natural
             Product Number (NPN). {alphaBrainLicensed
               ? 'Our catalogue record lists Alpha Brain as NPN-licensed.'
-              : <>Alpha Brain&apos;s licence, NPN {FORMER_NPN}, is listed as Discontinued in the LNHPD (checked {LNHPD_CHECKED_ON}), so it reaches Canadian buyers only by personal importation, which Health Canada&apos;s{' '}
+              : <>Alpha Brain&apos;s licence, NPN {FORMER_NPN}, is listed as Discontinued in the LNHPD (checked {LNHPD_CHECKED_ON}); we found no active Alpha Brain licence under the brand name &ldquo;Alpha Brain&rdquo; or licence holder &ldquo;Onnit&rdquo;. Look for an eight-digit NPN on the label; without one, a consumer&apos;s only route is personal importation, which Health Canada&apos;s{' '}
                   <a href="https://www.canada.ca/en/health-canada/services/drugs-health-products/compliance-enforcement/importation-exportation/personal-use-health-products-guidance/document.html" target="_blank" rel="noopener noreferrer" className="text-green-700 underline">GUI-0116 guidance</a>{' '}
                   limits to &ldquo;no more than a 90-day supply or a single course of treatment, whichever is less&rdquo;.</>}{' '}
             If an NPN-licensed product matters to you, these are the products in our Canadian catalogue whose
