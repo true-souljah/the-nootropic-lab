@@ -178,7 +178,13 @@ export function licenceStatus(product: Product, region: RegionCode): LicenceStat
     case 'sea': {
       const halal = product.halalCertified;
       if (halal === true) return { label: 'Halal certified', tone: 'good' };
-      if (halal === false) return { label: 'No halal certification', tone: 'neutral' };
+      if (halal === false)
+        return {
+          label: product.halalCheckedAt
+            ? `No halal certificate shown by the brand (checked ${product.halalCheckedAt})`
+            : 'No halal certificate shown by the brand',
+          tone: 'neutral',
+        };
       return null;
     }
     default:
