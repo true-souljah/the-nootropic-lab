@@ -147,14 +147,24 @@ export interface Product {
    * Halal certification status. Meaningful primarily on products served by
    * the SEA + GCC market apps, where halal is a federal-law requirement for
    * Indonesian (BPJPH) and Malaysian (JAKIM) consumers and a strong trust
-   * signal across GCC. `true` only when a verifiable certification body has
-   * issued one (JAKIM, MUI, BPJPH, IFANCA, GAC, etc.); `false` is a
-   * confident "not certified" claim (no body has issued one and we have
-   * sufficient evidence — e.g. Western imports with gelatin capsules and
-   * no halal claim). Undefined means we have not verified — UI should
-   * render no chip rather than guess.
+   * signal across GCC. `true` requires a named certification body (JAKIM,
+   * MUI, BPJPH, IFANCA, GAC, etc.) and the certificate's source in
+   * `halalBasis`. `false` means only that the brand's own pages we fetched
+   * on `halalCheckedAt` (listed in `halalBasis`) showed no halal
+   * certificate; it is NOT a finding that the product is not halal, and
+   * says nothing about registries we did not search. Copy must say "no
+   * halal certificate shown by the brand", never that the product is not
+   * certified. Undefined means we have not checked — UI renders no chip
+   * rather than guess.
    */
   halalCertified?: boolean;
+  /** ISO date (YYYY-MM-DD) the brand pages behind `halalCertified` were checked. */
+  halalCheckedAt?: string;
+  /**
+   * One line: for `true`, the certifier and where the certificate was seen;
+   * for `false`, the brand pages fetched that showed no certificate.
+   */
+  halalBasis?: string;
   /**
    * Optional per-product SEO override for the review page `<title>` (the
    * text before the layout's `%s | The Nootropic Lab …` brand suffix).

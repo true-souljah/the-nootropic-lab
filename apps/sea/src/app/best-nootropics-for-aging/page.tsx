@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Includes phosphatidylserine (100mg Sharp-PS at clinical dose), citicoline (250mg Cognizin at clinical dose), Bacopa, and Lion\'s Mane. Four of the most age-relevant ingredients in one open-formula product. Caffeine-free — no cardiovascular load for older adults sensitive to stimulants in tropical heat. mindlabpro.com names Singapore, Thailand, the Philippines, Indonesia and Vietnam among its shipping territories (its FAQ, checked 2026-09-29); Malaysia is not named on that partial list, so confirm at checkout. Personal-use import. Not BPJPH/JAKIM halal-certified — older Muslim buyers in MY/ID should check the certifying body\'s register before buying.',
+      'Includes phosphatidylserine (100mg Sharp-PS at clinical dose), citicoline (250mg Cognizin at clinical dose), Bacopa, and Lion\'s Mane. Four of the most age-relevant ingredients in one open-formula product. Caffeine-free — no cardiovascular load for older adults sensitive to stimulants in tropical heat. mindlabpro.com names Singapore, Thailand, the Philippines, Indonesia and Vietnam among its shipping territories (its FAQ, checked 2026-09-29); Malaysia is not named on that partial list, so confirm at checkout. Personal-use import. Halal: no BPJPH/JAKIM certificate shown by the brand\'s pages — older Muslim buyers in MY/ID should check the certifying body\'s register before buying.',
   },
   {
     product: productsSEA.find(p => p.slug === 'eu-yan-sang-brainmax-review')!,
@@ -89,7 +89,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Are these halal-certified for older Muslim buyers in MY/ID?',
-    a: 'Imported brands (Mind Lab Pro, Qualia Mind, Nootropics Depot Lion\'s Mane) do not carry BPJPH (Indonesia) or JAKIM (Malaysia) halal certification. For JAKIM-certified alternatives, verify the specific product on its packaging or via verify.halal.gov.my. Eu Yan Sang BrainMAX+ uses vegetarian capsules but is not formally halal-certified. When uncertain, consult your local imam, halal authority, or pharmacist before purchase — older relatives often value this consultation step regardless.',
+    a: 'Imported brands (Mind Lab Pro, Qualia Mind, Nootropics Depot Lion\'s Mane) show no BPJPH (Indonesia) or JAKIM (Malaysia) halal certificate on their own pages. For JAKIM-certified alternatives, verify the specific product on its packaging, or check its manufacturer in JAKIM\'s MYeHALAL directory (myehalal.halal.gov.my), which lists certified companies rather than products. Eu Yan Sang BrainMAX+ uses vegetarian capsules but is not formally halal-certified. When uncertain, consult your local imam, halal authority, or pharmacist before purchase — older relatives often value this consultation step regardless.',
   },
   {
     q: 'Which are best via Shopee/Lazada/Watsons vs cross-border iHerb for older buyers?',

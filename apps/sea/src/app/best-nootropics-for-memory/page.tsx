@@ -54,7 +54,7 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Includes Bacopa, citicoline (250mg Cognizin at clinical dose), AND phosphatidylserine (100mg Sharp-PS at clinical dose) plus Lion\'s Mane fruiting-body extract — four of the four memory-evidence ingredients in one open formula. Bacopa dose is 150mg (under the 300mg clinical anchor) so consider stacking with a separate Brahmi/Bacopa supplement (widely available across SEA). mindlabpro.com names Singapore, Thailand, the Philippines, Indonesia and Vietnam among its shipping territories (its FAQ, checked 2026-09-29); Malaysia is not named on that partial list, so confirm at checkout. Personal-use import. Not BPJPH/JAKIM halal-certified.',
+      'Includes Bacopa, citicoline (250mg Cognizin at clinical dose), AND phosphatidylserine (100mg Sharp-PS at clinical dose) plus Lion\'s Mane fruiting-body extract — four of the four memory-evidence ingredients in one open formula. Bacopa dose is 150mg (under the 300mg clinical anchor) so consider stacking with a separate Brahmi/Bacopa supplement (widely available across SEA). mindlabpro.com names Singapore, Thailand, the Philippines, Indonesia and Vietnam among its shipping territories (its FAQ, checked 2026-09-29); Malaysia is not named on that partial list, so confirm at checkout. Personal-use import. Halal: no BPJPH/JAKIM certificate shown by the brand\'s pages.',
   },
   {
     product: productsSEA.find(p => p.slug === 'qualia-mind-review')!,
@@ -79,7 +79,7 @@ const picks: ListiclePick[] = [
 const faqItems: ListicleFAQ[] = [
   {
     q: 'Are these memory nootropics halal-certified?',
-    a: 'Imported brands (Mind Lab Pro, Qualia Mind, Nootropics Depot Lion\'s Mane) do not carry BPJPH (Indonesia) or JAKIM (Malaysia) halal certification. Capsules are gelatin-based with vendor disclosure varying. For halal-certified options: some Blackmores SKUs carry JAKIM certification — verify on the specific product label, and consult the JAKIM halal verification portal (verify.halal.gov.my) or BPJPH portal (halal.go.id) for the latest status. Eu Yan Sang BrainMAX+ is a powder sachet (no capsule shell) and is positioned for Chinese-heritage buyers but is not halal-certified. When uncertain, contact the brand or check the local halal database before purchase.',
+    a: 'Imported brands (Mind Lab Pro, Qualia Mind, Nootropics Depot Lion\'s Mane) show no BPJPH (Indonesia) or JAKIM (Malaysia) halal certificate on their own pages. Capsules are gelatin-based with vendor disclosure varying. For halal-certified options: some Blackmores SKUs carry JAKIM certification — verify on the specific product label, and consult JAKIM\'s MYeHALAL directory (myehalal.halal.gov.my, which lists certified companies rather than products) or the BPJPH register (bpjph.halal.go.id) for the latest status. Eu Yan Sang BrainMAX+ is a powder sachet (no capsule shell) and is positioned for Chinese-heritage buyers but is not halal-certified. When uncertain, contact the brand or check the local halal database before purchase.',
   },
   {
     q: 'Which memory nootropics are best via Shopee/Lazada vs cross-border iHerb?',
