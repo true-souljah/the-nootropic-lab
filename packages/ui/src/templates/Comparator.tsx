@@ -27,7 +27,7 @@ export interface ComparatorProps {
  * Comparator — Phase 1's interactive flagship surface. 260px filter
  * sidebar inside the AppShell main content (which itself sits beside
  * the dark sidebar). Sortable table with checkbox-selectable rows
- * (max 3 FIFO), per-Phase-5 EU + Hands-on toggles, Save view → URL
+ * (max 3 FIFO), per-Phase-5 EU storefront toggle, Save view → URL
  * + clipboard copy. Compare drawer renders below the table when ≥1
  * row is selected.
  */
@@ -42,7 +42,6 @@ export default function Comparator({
   const [maxPrice, setMaxPrice] = useState(100);
   const [caffeineFreeOnly, setCaffeineFreeOnly] = useState(false);
   const [euCompliantOnly, setEuCompliantOnly] = useState(false);
-  const [handsOnOnly, setHandsOnOnly] = useState(false);
   const [showCommission, setShowCommission] = useState(true);
   const [bestFor, setBestFor] = useState<Goal>('Any');
   const [grade, setGrade] = useState<Grade>('All');
@@ -78,7 +77,6 @@ export default function Comparator({
     if (state.maxPrice !== undefined) setMaxPrice(state.maxPrice);
     if (state.caffeineFreeOnly !== undefined) setCaffeineFreeOnly(state.caffeineFreeOnly);
     if (state.euCompliantOnly !== undefined) setEuCompliantOnly(state.euCompliantOnly);
-    if (state.handsOnOnly !== undefined) setHandsOnOnly(state.handsOnOnly);
     if (state.showCommission !== undefined) setShowCommission(state.showCommission);
     if (state.bestFor !== undefined) setBestFor(state.bestFor);
     if (state.grade !== undefined) setGrade(state.grade);
@@ -89,7 +87,6 @@ export default function Comparator({
     setMaxPrice(100);
     setCaffeineFreeOnly(false);
     setEuCompliantOnly(false);
-    setHandsOnOnly(false);
     setBestFor('Any');
     setGrade('All');
   }, []);
@@ -98,7 +95,6 @@ export default function Comparator({
     let r = products.filter((p) => (p.priceMonthlyUSD ?? Infinity) <= maxPrice);
     if (caffeineFreeOnly) r = r.filter((p) => p.caffeineFree);
     if (euCompliantOnly) r = r.filter((p) => p.euStorefront);
-    if (handsOnOnly) r = r.filter((p) => p.handsOnTested === true);
     if (bestFor !== 'Any') r = r.filter((p) => p.bestFor.includes(bestFor));
     if (grade !== 'All') {
       r = r.filter((p) => {
@@ -127,7 +123,6 @@ export default function Comparator({
     maxPrice,
     caffeineFreeOnly,
     euCompliantOnly,
-    handsOnOnly,
     bestFor,
     grade,
   ]);
@@ -161,7 +156,6 @@ export default function Comparator({
       maxPrice,
       caffeineFreeOnly,
       euCompliantOnly,
-      handsOnOnly,
       showCommission,
       bestFor,
       grade,
@@ -190,8 +184,6 @@ export default function Comparator({
     setCaffeineFreeOnly,
     euCompliantOnly,
     setEuCompliantOnly,
-    handsOnOnly,
-    setHandsOnOnly,
     showCommission,
     setShowCommission,
     onReset: reset,

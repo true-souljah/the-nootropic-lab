@@ -104,7 +104,10 @@ describe('UberNet / Performance Lab records in us, eu, ca, au', () => {
   it('no record claims hands-on testing or a non-USD price we have not verified', () => {
     for (const [region, slug] of cases) {
       const p = record(region, slug);
-      expect(p.handsOnTested, `${region}/${slug}`).toBeUndefined();
+      // The hands-on testing field was removed from the Product type on
+      // 2026-10-07 (no testing evidence exists); no record may carry any
+      // hands-on key at all.
+      expect(Object.keys(p).filter((k) => /hands/i.test(k)), `${region}/${slug}`).toEqual([]);
       expect([p.priceMonthlyEUR, p.priceMonthlyCAD, p.priceMonthlyAUD, p.priceMonthlyJPY], `${region}/${slug}`)
         .toEqual([undefined, undefined, undefined, undefined]);
     }

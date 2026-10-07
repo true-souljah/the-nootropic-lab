@@ -271,9 +271,6 @@ export default function Listicle({
                           ) : (
                             <Chip tone="warn">Caffeine</Chip>
                           )}
-                          {pick.product.handsOnTested && (
-                            <Chip tone="accent">★ Hands-on tested</Chip>
-                          )}
                           <span className="text-[12px] text-ds-muted ml-1">{pick.product.brand}</span>
                         </div>
 

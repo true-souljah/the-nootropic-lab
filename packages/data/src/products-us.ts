@@ -79,12 +79,6 @@ export interface Product {
   editorChoice: boolean;
   market: Market;
   updatedAt?: string;
-  /** True if this product has been independently tested by the editorial team
-   * (full hands-on review with sample, dosing audit, and verdict). False or
-   * undefined = catalog entry sourced from public product information; we have
-   * not held the bottle. Surfaced as a trust badge on listicle + review pages.
-   */
-  handsOnTested?: boolean;
   /**
    * Canadian Natural Health Products Directorate licensing status. Only set on
    * products served by the CA market app. `licensed` = Health Canada has issued
