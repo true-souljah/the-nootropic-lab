@@ -88,8 +88,8 @@ export default function HomePage() {
             <span className="text-green-700">Cognitive Supplements</span>
           </h1>
           <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
-            We test every ingredient dose against peer-reviewed clinical trials. No anonymous
-            authors. No hidden commissions. Canadian shipping verified.
+            We check every ingredient dose against peer-reviewed clinical trials. No hidden
+            commissions. Canadian shipping verified.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link

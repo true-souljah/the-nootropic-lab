@@ -100,9 +100,7 @@ export default function AboutPage() {
             The Nootropic Lab es operado por <strong></strong>, una sociedad alemana de
             responsabilidad limitada que construye sitios de comparación basados en evidencia en verticales
             regulados (servicios financieros, suplementos, mercados de predicción). La línea editorial está
-            dirigida por The Nootropic Lab Editorial Team. Cada reseña lleva la firma de un autor con nombre — sin contenido
-            anónimo.{' '}
-            Conoce al editor.
+            dirigida por The Nootropic Lab Editorial Team.
           </p>
         </section>
 

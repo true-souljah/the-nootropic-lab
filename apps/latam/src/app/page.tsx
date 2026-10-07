@@ -92,7 +92,7 @@ export default function HomePage() {
           </h1>
           <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
             Comprobamos la dosis de cada ingrediente con ensayos clínicos revisados por expertos.
-            Sin autores anónimos. Sin comisiones ocultas.
+            Sin comisiones ocultas.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link

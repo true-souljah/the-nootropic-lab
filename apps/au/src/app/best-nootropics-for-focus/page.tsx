@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Best Nootropics for Focus Australia — Evidence-Graded',
     description:
-      'Clinical-dose audit of every focus pick available in Australia. Personal Importation Scheme rules included. No proprietary blends, no anonymous bylines.',
+      'Clinical-dose audit of every focus pick available in Australia. Personal Importation Scheme rules included. No proprietary blends.',
     type: 'article',
   },
   twitter: { card: 'summary' },

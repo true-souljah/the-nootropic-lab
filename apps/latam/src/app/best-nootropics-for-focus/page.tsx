@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Mejores Nootrópicos para Concentración — Selección Basada en Evidencia',
     description:
-      'Auditoría de dosis clínica de cada selección para Latam. Sin mezclas patentadas, sin firmas anónimas. ANVISA, COFEPRIS, ANMAT, ISP e INVIMA en consideración.',
+      'Auditoría de dosis clínica de cada selección para Latam. Sin mezclas patentadas. ANVISA, COFEPRIS, ANMAT, ISP e INVIMA en consideración.',
     type: 'article',
   },
   twitter: { card: 'summary' },
