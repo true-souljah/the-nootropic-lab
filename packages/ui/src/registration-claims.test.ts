@@ -104,3 +104,50 @@ describe('no copy asserts a product is not registered with a regulator', () => {
     expect(hits).toEqual([]);
   });
 });
+
+// Halal (2026-10-07). `halalCertified: false` was hand-set on the SEA records
+// in the 2026-06 import with no per-product evidence, and nothing in the code
+// ranks, sorts or filters by halal status. Copy may say only what the brand's
+// own pages showed on the check date ("no halal certificate shown by the
+// brand"), never that a product is not BPJPH/JAKIM-certified, and must not
+// claim halal-weighted rankings.
+const HALAL_SOURCES = [
+  ...walk(DATA_DIR),
+  ...walk(resolve(APPS_DIR, 'sea', 'src')),
+  ...walk(resolve(APPS_DIR, 'gcc', 'src')),
+];
+
+const HALAL_UNSOURCED: RegExp[] = [
+  // The old SEA licence-status chip label. Case-sensitive: sourced findings
+  // such as "no halal certification are shown on the page (…, checked …)"
+  // stay allowed.
+  /No halal certification\b/,
+  /not BPJPH\/JAKIM-certified/i,
+  // Variants: "Not BPJPH/JAKIM halal-certified", "Not halal-certified by
+  // JAKIM/BPJPH", "do not carry BPJPH or JAKIM halal certification".
+  /\bnot\b[^.]{0,20}\b(BPJPH|JAKIM)\b[^.]{0,20}\bcertified\b/i,
+  /not halal-certified by (JAKIM|BPJPH)/i,
+  /\b(do(es)? not|none of [^.]{0,100}) carry (BPJPH|JAKIM)\b/i,
+  /weight(s|ed)? Halal-certified products higher/i,
+];
+
+describe('no copy asserts a product is not halal-certified or that rankings weight halal status', () => {
+  test('scanned a non-empty file set', () => {
+    expect(HALAL_SOURCES.length).toBeGreaterThan(100);
+    expect(HALAL_SOURCES.some(f => /packages\/data\/src\/regional\.ts$/.test(f))).toBe(true);
+    expect(HALAL_SOURCES.some(f => /packages\/data\/src\/products-sea\.json$/.test(f))).toBe(true);
+    expect(HALAL_SOURCES.some(f => /apps\/sea\/src\/app\/halal-nootropics-indonesia-bpjph\/page\.tsx$/.test(f))).toBe(true);
+    expect(HALAL_SOURCES.some(f => /apps\/sea\/src\/app\/best-nootropics-for-focus\/page\.tsx$/.test(f))).toBe(true);
+    expect(HALAL_SOURCES.some(f => /apps\/gcc\/src\/app\/halal-certified-nootropics\/page\.tsx$/.test(f))).toBe(true);
+  });
+
+  test('no data or SEA/GCC app source uses the unsourced halal negative or the ranking claim', () => {
+    const hits = HALAL_SOURCES.flatMap(file => {
+      const lines = readFileSync(file, 'utf8').split('\n');
+      return lines.flatMap((line, i) =>
+        HALAL_UNSOURCED.some(re => re.test(line)) ? [`${file.slice(REPO_ROOT.length + 1)}:${i + 1}`] : [],
+      );
+    });
+    expect(hits).toEqual([]);
+  });
+});
