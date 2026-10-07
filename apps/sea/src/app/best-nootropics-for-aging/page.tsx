@@ -50,7 +50,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Cera-Q (Silk Fibroin Protein) — Asia-developed',
     evidence:
-      'Korean-developed silk fibroin protein hydrolysate. In a 3-week placebo-controlled trial in healthy adults averaging about 55 years (Kang et al. 2018; two of the four authors were affiliated with BrainOn Inc.), 280–600mg/day raised memory-quotient scores dose-dependently, plateauing at 400–600mg. Particularly common in Asia-developed memory supplements (Eu Yan Sang BrainMAX+ lists 600mg per sachet).',
+      'Korean-developed silk fibroin protein hydrolysate. In a 3-week placebo-controlled trial in healthy adults averaging about 55 years (Kang et al. 2018; two of the four authors were affiliated with BrainOn Inc.), doses of 280–600mg/day were tested and memory-quotient gains were reported at doses over 280mg, with a plateau at 400–600mg. Particularly common in Asia-developed memory supplements (Eu Yan Sang BrainMAX+ lists 600mg per sachet). Korea\'s food regulator revoked Cera-Q\'s functional-ingredient recognition in 2017 after its supporting mouse study was retracted for data fabrication; in Korea it is sold as a general food (details in our BrainMAX+ review).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/29462997/',
   },
 ];
@@ -66,7 +66,7 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'eu-yan-sang-brainmax-review')!,
     rank: 2,
     whyItsHere:
-      'A 145-year-old TCM heritage brand with 200+ stores across Singapore, Malaysia, Hong Kong, and Macau — deep trust among Chinese-heritage older buyers in SEA. Cera-Q (silk fibroin protein, studied for memory in one 3-week trial of healthy adults averaging about 55, by BrainOn-affiliated authors) at 600mg per sachet (the top of the 280–600mg/day range that trial tested), plus Goji Berry and Chinese Wild Ginseng (TCM tradition for cognitive health). Powder sachet format is friendlier than capsules for older adults with swallowing difficulties. Walk into any Eu Yan Sang store for in-person purchase and pharmacist consultation. Delivery outside Singapore was not confirmed — check delivery options at checkout.',
+      'A 145-year-old TCM heritage brand with 200+ stores across Singapore, Malaysia, Hong Kong, and Macau — deep trust among Chinese-heritage older buyers in SEA. Cera-Q (silk fibroin protein, studied for memory in one citable 3-week trial of healthy adults averaging about 55, by BrainOn-affiliated authors) at 600mg per sachet (the top of the 280–600mg/day range that trial tested), plus Goji Berry and Chinese Wild Ginseng (TCM tradition for cognitive health). Powder sachet format is friendlier than capsules for older adults with swallowing difficulties. Walk into any Eu Yan Sang store for in-person purchase and pharmacist consultation. Delivery outside Singapore was not confirmed — check delivery options at checkout. Note that Korea\'s regulator revoked Cera-Q\'s functional-ingredient recognition in 2017 after its supporting study was retracted (details in our BrainMAX+ review).',
   },
   {
     product: productsSEA.find(p => p.slug === 'qualia-mind-review')!,
