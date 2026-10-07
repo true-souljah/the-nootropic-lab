@@ -66,7 +66,7 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'suntory-dha-epa-sesamin-review')!,
     rank: 3,
     whyItsHere:
-      'The budget-friendly Japanese domestic option for students. ¥4,800/month — by far the most affordable in this Japan review. DHA + EPA from Suntory Wellness; it is not FFC-notified (機能性表示食品) in our catalogue. Foundational omega-3 support for the duration of a term — best paired with a focus-targeted stack like Mind Lab Pro for acute study sessions.',
+      'The budget-friendly Japanese domestic option for students. ¥4,800/month — by far the most affordable in this Japan review. DHA + EPA from Suntory Wellness; no Foods with Function Claims (FFC, 機能性表示食品) notification found in the Consumer Affairs Agency (CAA) database (export scanned 2026-10-06). Foundational omega-3 support for the duration of a term — best paired with a focus-targeted stack like Mind Lab Pro for acute study sessions.',
   },
 ];
 

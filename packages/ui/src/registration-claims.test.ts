@@ -30,6 +30,8 @@ const SOURCES = [
   ...readdirSync(NOTES_DIR)
     .filter(n => n.endsWith('.ts'))
     .map(n => resolve(NOTES_DIR, n)),
+  // Source of the regional licence-status badge labels.
+  resolve(DATA_DIR, 'regional.ts'),
   ...readdirSync(APPS_DIR)
     .map(n => resolve(APPS_DIR, n, 'src'))
     .filter(p => existsSync(p))
@@ -44,6 +46,17 @@ const UNSOURCED_NEGATIVE: RegExp[] = [
   /\bnot\b[^.]{0,40}\b(SFDA|MOHAP|HSA|NPRA|BPOM|VFA|COFEPRIS|ANVISA|ANMAT|INVIMA|DIGEMID|NPN|Health Canada)\b[^.]{0,30}\b(registered|licensed)\b/i,
   /not formally registered/i,
   /not been (formally )?registered/i,
+  // AU (ARTG) and JP (CAA FFC database) were queried directly on 2026-10-06,
+  // but a register search that returns no row proves only that those queries
+  // returned nothing on that date. Copy must say so ("no ARTG entry returned
+  // for ... (searched 2026-10-06)", "no FFC notification found ... (export
+  // scanned 2026-10-06)"), never assert absence from the register.
+  /not TGA-listed/i,
+  /not (TGA|Therapeutic Goods Administration( \(TGA\))?)[- ]registered/i,
+  /Not on the Australian Register/i,
+  /not FFC-notified/i,
+  /Not currently a notified/i,
+  /not notified (as|under)/i,
 ];
 
 describe('no copy asserts a product is not registered with a regulator', () => {
@@ -51,6 +64,11 @@ describe('no copy asserts a product is not registered with a regulator', () => {
     expect(SOURCES.length).toBeGreaterThan(100);
     expect(SOURCES.some(f => /products-sea\.json$/.test(f))).toBe(true);
     expect(SOURCES.some(f => /regional-notes\/sea\.ts$/.test(f))).toBe(true);
+    expect(SOURCES.some(f => /products-au\.json$/.test(f))).toBe(true);
+    expect(SOURCES.some(f => /products-jp\.json$/.test(f))).toBe(true);
+    expect(SOURCES.some(f => /apps\/au\/src\/app\/tga-listed-cognitive-supplements\/page\.tsx$/.test(f))).toBe(true);
+    expect(SOURCES.some(f => /apps\/jp\/src\/app\/japanese-brain-supplements\/page\.tsx$/.test(f))).toBe(true);
+    expect(SOURCES.every(f => existsSync(f))).toBe(true);
   });
 
   test('no product data, regional note or app source uses the unsourced negative', () => {
