@@ -1,4 +1,6 @@
 // Types + pillar constants for the ProductDetail template.
+// Pillar weights live in @nootropic/data (PILLAR_WEIGHTS, scoring.ts) — the
+// same constant computes every stored score.
 
 export type TabId = 'overview' | 'dosing' | 'pillars' | 'reviews' | 'pricing';
 
@@ -8,14 +10,6 @@ export const PILLAR_LABELS: Record<string, string> = {
   transparency: 'Formula transparency',
   value: 'Value for money',
   trust: 'Brand trust',
-};
-
-export const PILLAR_WEIGHTS: Record<string, number> = {
-  ingredients: 0.25,
-  dosing: 0.30,
-  transparency: 0.20,
-  value: 0.15,
-  trust: 0.10,
 };
 
 export const PILLAR_RATIONALE: Record<string, string> = {

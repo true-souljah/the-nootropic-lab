@@ -1,11 +1,12 @@
 // Lightweight, dependency-free validation gate for product data.
-// Fails (exit 1) on missing required fields, non-numeric score, or duplicate id within a region.
+// Fails (exit 1) on missing required fields, a score that differs from
+// computeScore(scoreBreakdown), or duplicate id within a region.
 import {
   allProductsUS, allProductsEU, allProductsCA, allProductsAU,
   allProductsJP, allProductsLatam, allProductsGCC, allProductsSEA,
-  validateRegionalNotes, productRuleProblems, DOSING_ANCHORS, dosingAnchorProblems,
+  validateRegionalNotes, productRuleProblems, DOSING_ANCHORS, dosingAnchorProblems, computeScore,
 } from '../packages/data/src/index';
-import type { Product } from '../packages/data/src/index';
+import type { Pillar, Product } from '../packages/data/src/index';
 
 // Full lists: discontinued records still render a review page, so they are validated too.
 const regions: Record<string, unknown[]> = {
@@ -57,6 +58,9 @@ const KNOWN_RULE_VIOLATIONS: Readonly<Record<string, { rules: readonly RuleName[
 };
 
 let failed = 0;
+let scoreDrift = 0;
+let scoreChecked = 0;
+const unscored: string[] = [];
 for (const [region, products] of Object.entries(regions)) {
   if (!Array.isArray(products)) {
     console.error(`FAIL ${region}: export is not an array`);
@@ -73,10 +77,20 @@ for (const [region, products] of Object.entries(regions)) {
         failed++;
       }
     }
-    if (typeof p.score !== 'number') {
-      console.error(`FAIL ${region}: product ${String(p.id ?? '?')} has non-numeric score`);
+    // Composite score (2026-10-07): the stored score must equal
+    // computeScore(scoreBreakdown) — the PILLAR_WEIGHTS-weighted sum the review
+    // and methodology pages publish. `null` only when a pillar is missing.
+    // Fix drift with `npm run recompute-scores`, never by hand-editing a score.
+    const expectedScore = computeScore(p.scoreBreakdown as Partial<Record<Pillar, number | null>> | undefined);
+    scoreChecked++;
+    if (p.score !== expectedScore) {
+      console.error(
+        `FAIL ${region}: product ${String(p.id ?? '?')} score ${JSON.stringify(p.score)} !== computeScore(scoreBreakdown) ${JSON.stringify(expectedScore)} — run npm run recompute-scores`,
+      );
       failed++;
+      scoreDrift++;
     }
+    if (expectedScore === null) unscored.push(`${region}/${String(p.slug)}`);
     const id = String(p.id);
     if (ids.has(id)) {
       console.error(`FAIL ${region}: duplicate id "${id}"`);
@@ -94,6 +108,17 @@ for (const [region, products] of Object.entries(regions)) {
     slugs.add(slug);
   }
   console.log(`ok ${region}: ${products.length} products`);
+}
+if (scoreChecked === 0) {
+  console.error('FAIL scores: no product record was checked against computeScore');
+  failed++;
+} else if (scoreDrift === 0) {
+  console.log(
+    `ok scores: ${scoreChecked} records match computeScore(scoreBreakdown)` +
+      (unscored.length > 0 ? ` (unscored, incomplete pillars: ${unscored.join(', ')})` : ''),
+  );
+} else {
+  console.error(`FAIL scores: ${scoreDrift} of ${scoreChecked} records drift from computeScore(scoreBreakdown)`);
 }
 
 const seenKeys = new Set<string>();

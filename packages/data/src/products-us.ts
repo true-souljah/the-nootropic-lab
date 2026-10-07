@@ -1,5 +1,6 @@
 import productsUSData from './products-us.json';
 import { activeProducts } from './product-status';
+import type { ScoreBreakdown } from './scoring';
 
 export type EUCompliance = 'compliant' | 'reformulated' | 'verify';
 export type Market = 'us' | 'eu' | 'ca' | 'au' | 'jp' | 'latam' | 'gcc' | 'sea' | 'both';
@@ -17,14 +18,17 @@ export interface Product {
   brand: string;
   slug: string;
   bestFor: string[];
-  score: number;
-  scoreBreakdown: {
-    ingredients: number;
-    dosing: number;
-    transparency: number;
-    value: number;
-    trust: number;
-  };
+  /**
+   * Composite review score = computeScore(scoreBreakdown) (scoring.ts): the
+   * PILLAR_WEIGHTS-weighted sum rounded to one decimal, written by
+   * `npm run recompute-scores` and enforced by `npm run validate-data`.
+   * `null` = unscored: at least one pillar is missing, so the product is
+   * left out of every ranked, sorted or compared surface and its review page
+   * shows the "not scored" state instead of a number.
+   */
+  score: number | null;
+  /** Pillar scores 0-10; a `null` pillar could not be scored from the available data. */
+  scoreBreakdown: ScoreBreakdown;
   priceMonthlyUSD?: number;
   priceMonthlyEUR?: number;
   priceMonthlyCAD?: number;

@@ -6,6 +6,8 @@ export { productsAU, allProductsAU } from './products-au';
 export { productsJP, allProductsJP } from './products-jp';
 export { productsLatam, allProductsLatam } from './products-latam';
 export { activeProducts, isDiscontinued } from './product-status';
+export type { Pillar, ScoreBreakdown } from './scoring';
+export { PILLARS, PILLAR_WEIGHTS, pillarWeightPercent, computeScore, hasScore } from './scoring';
 export type { ProductForm } from './serving-unit';
 export { PRODUCT_FORMS, productForm, servingUnit, servingAmount, servingsComparable } from './serving-unit';
 export { affiliateUrlProblem, formulaProblem, formProblem, productRuleProblems } from './product-rules';
