@@ -135,6 +135,13 @@ const HALAL_UNSOURCED: RegExp[] = [
   /carry formal halal certification/i,
   /typically gelatin/i,
   /verify\.halal\.gov\.my/i,
+  // Round 3 (2026-10-07, p5/halal-evidence.json): no religious-compliance
+  // verdict on an ingredient, capsule or product ("halal-compliant", "always
+  // halal"); copy states the sourcing fact and whether a certificate is shown.
+  // Rankings are hand-set and never adjusted for halal or porcine status.
+  /halal-compliant/i,
+  /always halal/i,
+  /porcine-free (formulations|options)/i,
 ];
 
 describe('no copy asserts a product is not halal-certified or that rankings weight halal status', () => {
@@ -145,6 +152,8 @@ describe('no copy asserts a product is not halal-certified or that rankings weig
     expect(HALAL_SOURCES.some(f => /apps\/sea\/src\/app\/halal-nootropics-indonesia-bpjph\/page\.tsx$/.test(f))).toBe(true);
     expect(HALAL_SOURCES.some(f => /apps\/sea\/src\/app\/best-nootropics-for-focus\/page\.tsx$/.test(f))).toBe(true);
     expect(HALAL_SOURCES.some(f => /apps\/gcc\/src\/app\/halal-certified-nootropics\/page\.tsx$/.test(f))).toBe(true);
+    expect(HALAL_SOURCES.some(f => /apps\/gcc\/src\/app\/best-nootropics-for-aging\/page\.tsx$/.test(f))).toBe(true);
+    expect(HALAL_SOURCES.some(f => /apps\/gcc\/src\/app\/page\.tsx$/.test(f))).toBe(true);
   });
 
   test('no data or SEA/GCC app source uses the unsourced halal negative or the ranking claim', () => {
