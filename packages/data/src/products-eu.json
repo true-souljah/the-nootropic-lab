@@ -107,6 +107,10 @@
       "checkedAt": "2026-10-07",
       "shipping": {
         "text": "If you live in the EU, your order will be shipped from our depot in Europe. | Expected delivery time: 4 - 12 working days (depending on destination)",
+        "fragments": [
+          "If you live in the EU, your order will be shipped from our depot in Europe.",
+          "Expected delivery time: 4 - 12 working days (depending on destination)"
+        ],
         "url": "https://eu.mindlabpro.com/pages/shipping-returns",
         "lang": "en"
       },
@@ -236,16 +240,38 @@
       "checkedAt": "2026-10-07",
       "shipping": {
         "text": "For customers in Europe, Canada or Australia you should expect delivery within 10 business days. | FREE SHIPPING OVER $79.99",
+        "fragments": [
+          "For customers in Europe, Canada or Australia you should expect delivery within 10 business days.",
+          "FREE SHIPPING OVER $79.99"
+        ],
         "url": "https://www.noocube.com/",
         "lang": "en"
       },
       "cancellation": {
         "text": "NO COMMITMENT | CANCEL ANYTIME",
+        "fragments": [
+          "NO COMMITMENT",
+          "CANCEL ANYTIME"
+        ],
         "url": "https://www.noocube.com/",
         "lang": "en"
       },
       "oneTimePrice": {
         "text": "1-MONTH SUPPLY | Single Purchase | Subscribe 15% OFF | RETAIL: | $79.99 | $79.99 | $64.99 | $55.24 | SAVINGS: | $15.00 | $24.75 | 60 CAPSULES",
+        "fragments": [
+          "1-MONTH SUPPLY",
+          "Single Purchase",
+          "Subscribe 15% OFF",
+          "RETAIL:",
+          "$79.99",
+          "$79.99",
+          "$64.99",
+          "$55.24",
+          "SAVINGS:",
+          "$15.00",
+          "$24.75",
+          "60 CAPSULES"
+        ],
         "url": "https://www.noocube.com/",
         "lang": "en"
       },
@@ -546,6 +572,12 @@
       "checkedAt": "2026-10-07",
       "shipping": {
         "text": "Germany: 2-3 working days | Austria & Switzerland: 3-5 working days | France: 2-3 working days | Belgium & Switzerland: 3-5 working days",
+        "fragments": [
+          "Germany: 2-3 working days",
+          "Austria & Switzerland: 3-5 working days",
+          "France: 2-3 working days",
+          "Belgium & Switzerland: 3-5 working days"
+        ],
         "url": "https://www.brainzyme.com/pages/international-shipping",
         "lang": "en"
       },
@@ -556,6 +588,10 @@
       },
       "oneTimePrice": {
         "text": "1 MONAT: 2 Packs, 60 Kapseln | 31,75 €",
+        "fragments": [
+          "1 MONAT: 2 Packs, 60 Kapseln",
+          "31,75 €"
+        ],
         "url": "https://www.brainzyme.de/products/brainzyme-professional",
         "lang": "de"
       },
@@ -667,11 +703,23 @@
       "checkedAt": "2026-10-07",
       "shipping": {
         "text": "Any orders to Europe are sent from our depot in England. | FedEx International Connect | Delivery time: 3-6 working days | FedEx International Express | Delivery time: 1-2 working days",
+        "fragments": [
+          "Any orders to Europe are sent from our depot in England.",
+          "FedEx International Connect",
+          "Delivery time: 3-6 working days",
+          "FedEx International Express",
+          "Delivery time: 1-2 working days"
+        ],
         "url": "https://www.roarambition.com/policies/shipping-policy",
         "lang": "en"
       },
       "oneTimePrice": {
         "text": "Hunter Focus | $90.00 | Add to cart",
+        "fragments": [
+          "Hunter Focus",
+          "$90.00",
+          "Add to cart"
+        ],
         "url": "https://www.roarambition.com/products/hunter-focus",
         "lang": "en"
       },
@@ -791,6 +839,10 @@
       "checkedAt": "2026-10-07",
       "shipping": {
         "text": "If you live in the EU, your order will be shipped from our depot in Europe. | Expected delivery time: 4 - 12 working days (depending on destination)",
+        "fragments": [
+          "If you live in the EU, your order will be shipped from our depot in Europe.",
+          "Expected delivery time: 4 - 12 working days (depending on destination)"
+        ],
         "url": "https://eu.performancelab.com/pages/shipping-returns",
         "lang": "en"
       },
@@ -801,6 +853,10 @@
       },
       "oneTimePrice": {
         "text": "One-time purchase | Price: €45,00",
+        "fragments": [
+          "One-time purchase",
+          "Price: €45,00"
+        ],
         "url": "https://eu.performancelab.com/products/caffeine-2",
         "lang": "en"
       },
@@ -955,6 +1011,10 @@
       "checkedAt": "2026-10-07",
       "shipping": {
         "text": "If you live in the EU, your order will be shipped from our depot in Europe. | Expected delivery time: 4 - 12 working days (depending on destination)",
+        "fragments": [
+          "If you live in the EU, your order will be shipped from our depot in Europe.",
+          "Expected delivery time: 4 - 12 working days (depending on destination)"
+        ],
         "url": "https://eu.performancelab.com/pages/shipping-returns",
         "lang": "en"
       },
@@ -965,6 +1025,10 @@
       },
       "oneTimePrice": {
         "text": "One-time purchase | Price: €45,00",
+        "fragments": [
+          "One-time purchase",
+          "Price: €45,00"
+        ],
         "url": "https://eu.performancelab.com/products/pre-lab-pro",
         "lang": "en"
       },
@@ -1075,6 +1139,10 @@
       "checkedAt": "2026-10-07",
       "shipping": {
         "text": "If you live in the EU, your order will be shipped from our depot in Europe. | Expected delivery time: 4 - 12 working days (depending on destination)",
+        "fragments": [
+          "If you live in the EU, your order will be shipped from our depot in Europe.",
+          "Expected delivery time: 4 - 12 working days (depending on destination)"
+        ],
         "url": "https://eu.performancelab.com/pages/shipping-returns",
         "lang": "en"
       },
@@ -1085,6 +1153,10 @@
       },
       "oneTimePrice": {
         "text": "One-time purchase | Price: €59,00",
+        "fragments": [
+          "One-time purchase",
+          "Price: €59,00"
+        ],
         "url": "https://eu.performancelab.com/products/energy",
         "lang": "en"
       },
@@ -1174,6 +1246,10 @@
       "checkedAt": "2026-10-07",
       "shipping": {
         "text": "If you live in the EU, your order will be shipped from our depot in Europe. | Expected delivery time: 4 - 12 working days (depending on destination)",
+        "fragments": [
+          "If you live in the EU, your order will be shipped from our depot in Europe.",
+          "Expected delivery time: 4 - 12 working days (depending on destination)"
+        ],
         "url": "https://eu.performancelab.com/pages/shipping-returns",
         "lang": "en"
       },
@@ -1184,6 +1260,10 @@
       },
       "oneTimePrice": {
         "text": "One-time purchase | Price: €45,00",
+        "fragments": [
+          "One-time purchase",
+          "Price: €45,00"
+        ],
         "url": "https://eu.performancelab.com/products/omega-3",
         "lang": "en"
       },

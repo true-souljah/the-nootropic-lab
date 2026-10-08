@@ -243,11 +243,29 @@
       "checkedAt": "2026-10-07",
       "cancellation": {
         "text": "NO COMMITMENT | CANCEL ANYTIME",
+        "fragments": [
+          "NO COMMITMENT",
+          "CANCEL ANYTIME"
+        ],
         "url": "https://www.noocube.com/",
         "lang": "en"
       },
       "oneTimePrice": {
         "text": "1-MONTH SUPPLY | Single Purchase | Subscribe 15% OFF | RETAIL: | $79.99 | $79.99 | $64.99 | $55.24 | SAVINGS: | $15.00 | $24.75 | 60 CAPSULES",
+        "fragments": [
+          "1-MONTH SUPPLY",
+          "Single Purchase",
+          "Subscribe 15% OFF",
+          "RETAIL:",
+          "$79.99",
+          "$79.99",
+          "$64.99",
+          "$55.24",
+          "SAVINGS:",
+          "$15.00",
+          "$24.75",
+          "60 CAPSULES"
+        ],
         "url": "https://www.noocube.com/",
         "lang": "en"
       },
@@ -373,6 +391,11 @@
       },
       "oneTimePrice": {
         "text": "$159.00 $39.00 first shipment, $139.00 thereafter | Subscribe & Save 75% | Purchase this time only",
+        "fragments": [
+          "$159.00 $39.00 first shipment, $139.00 thereafter",
+          "Subscribe & Save 75%",
+          "Purchase this time only"
+        ],
         "url": "https://www.qualialife.com/shop/qualia-mind",
         "lang": "en"
       },
@@ -493,6 +516,10 @@
       },
       "oneTimePrice": {
         "text": "Capsules–90 Count | $79.95",
+        "fragments": [
+          "Capsules–90 Count",
+          "$79.95"
+        ],
         "url": "https://www.onnit.com/products/alpha-brain-90-ct",
         "lang": "en"
       },
@@ -681,6 +708,10 @@
       "checkedAt": "2026-10-07",
       "oneTimePrice": {
         "text": "Now: | $29.99",
+        "fragments": [
+          "Now:",
+          "$29.99"
+        ],
         "url": "https://nootropicsdepot.com/lions-mane-mushroom-capsules-8-1-extract",
         "lang": "en"
       },

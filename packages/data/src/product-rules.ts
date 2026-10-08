@@ -56,7 +56,8 @@ function isIsoDate(value: unknown): boolean {
  * Why `vendorTerms` is malformed (one line per problem), or [] when it is
  * absent or valid. `checkedAt` must be an ISO date (YYYY-MM-DD); every term
  * present needs non-empty `text`, an absolute https `url` and a two-letter
- * `lang`; no other keys are allowed (a typo would silently render nothing).
+ * `lang`, and optional `fragments` must join with " | " back to `text`; no
+ * other vendorTerms keys are allowed (a typo would silently render nothing).
  */
 export function vendorTermsProblems(terms: unknown): string[] {
   if (terms === undefined) return [];
@@ -76,8 +77,17 @@ export function vendorTermsProblems(terms: unknown): string[] {
       problems.push(`vendorTerms.${field} is not an object`);
       continue;
     }
-    const { text, url, lang } = term as Record<string, unknown>;
+    const { text, url, lang, fragments } = term as Record<string, unknown>;
     if (typeof text !== 'string' || text.trim() === '') problems.push(`vendorTerms.${field}.text is empty`);
+    if (
+      fragments !== undefined &&
+      (!Array.isArray(fragments) ||
+        fragments.length < 2 ||
+        fragments.some((f) => typeof f !== 'string' || f.trim() === '') ||
+        fragments.join(' | ') !== text)
+    ) {
+      problems.push(`vendorTerms.${field}.fragments must be 2+ non-empty strings that join with " | " to text`);
+    }
     let protocol: string | null = null;
     try {
       protocol = typeof url === 'string' ? new URL(url).protocol : null;

@@ -70,7 +70,12 @@ export function PricingTab({ product: p, disclosure, strings }: PricingTabProps)
                       lang={term.lang !== pageLang ? term.lang : undefined}
                       className="m-0 pl-3 border-l-[3px] border-l-ds-border text-[14px] text-ds-ink leading-[1.55] break-words"
                     >
-                      <p className="m-0">{term.text}</p>
+                      {/* Fragments are separate page snippets the evidence joined with " | ": one line each. */}
+                      {(term.fragments ?? [term.text]).map((line, i) => (
+                        <p key={i} className="m-0">
+                          {line}
+                        </p>
+                      ))}
                     </blockquote>
                     <p className="text-[12px] text-ds-muted m-0 mt-2 leading-[1.5]">
                       {fill(t.attribution, {

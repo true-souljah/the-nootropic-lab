@@ -14,7 +14,10 @@
 //   - only fields whose verify.status is "PASS";
 //   - `text` is the verbatim `quote` (never the researcher's paraphrased `value`;
 //     `note`, `reason` and the unverified `extraQuotes` are not imported);
-//   - `lang` is the quote's language, from the page's host (QUOTE_LANG_BY_HOST).
+//   - `lang` is the quote's language, from the page's host (QUOTE_LANG_BY_HOST);
+//   - `fragments` (the quote split on " | ") only for evidence files whose
+//     manifest.json entry says " | " joins separate page fragments, so the tab
+//     renders each on its own line; elsewhere a " | " is page text and stays.
 // It then applies the moneyBackDays / pricingModel corrections listed below,
 // each backed by a PASS quote. Deterministic and idempotent; the JSON files are
 // edited in place (only the added/changed keys move — no re-serialisation, so
@@ -26,7 +29,12 @@ import { join } from 'node:path';
 
 const ROOT = join(__dirname, '..');
 const EVIDENCE_DIR = join(ROOT, 'packages', 'data', 'evidence', 'vendor-terms-2026-10');
-const EVIDENCE_FILES = ['us-ca.verified.json', 'eu-gcc-latam.verified.json', 'au-sea-jp.verified.json'];
+/** Evidence files and how each uses " | " (packages/data/evidence/vendor-terms-2026-10/manifest.json). */
+const MANIFEST = JSON.parse(readFileSync(join(EVIDENCE_DIR, 'manifest.json'), 'utf8')) as {
+  files: Record<string, { pipe: 'literal' | 'joins-fragments' }>;
+};
+const EVIDENCE_FILES = Object.keys(MANIFEST.files);
+const FRAGMENT_SEPARATOR = ' | ';
 const REGIONS = ['us', 'eu', 'ca', 'au', 'jp', 'latam', 'gcc', 'sea'] as const;
 type Region = (typeof REGIONS)[number];
 
@@ -180,6 +188,7 @@ interface EvidenceRecord {
 }
 interface Term {
   text: string;
+  fragments?: string[];
   url: string;
   lang: string;
 }
@@ -194,7 +203,7 @@ function quoteLang(url: string, text: string): string {
   return lang;
 }
 
-function termsFor(record: EvidenceRecord, where: string): VendorTerms | null {
+function termsFor(record: EvidenceRecord, where: string, joinsFragments: boolean): VendorTerms | null {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(record.checkedAt)) throw new Error(`${where}: checkedAt is not an ISO date: ${record.checkedAt}`);
   const terms: VendorTerms = { checkedAt: record.checkedAt };
   let count = 0;
@@ -205,7 +214,9 @@ function termsFor(record: EvidenceRecord, where: string): VendorTerms | null {
     if (typeof quote !== 'string' || quote.trim() === '' || typeof url !== 'string' || new URL(url).protocol !== 'https:') {
       throw new Error(`${where}.${from}: PASS field without a quote or https url`);
     }
-    terms[to] = { text: quote, url, lang: quoteLang(url, quote) };
+    const fragments = joinsFragments && quote.includes(FRAGMENT_SEPARATOR) ? quote.split(FRAGMENT_SEPARATOR) : undefined;
+    if (fragments?.some((f) => f.trim() === '')) throw new Error(`${where}.${from}: empty fragment in "${quote}"`);
+    terms[to] = { text: quote, ...(fragments ? { fragments } : {}), url, lang: quoteLang(url, quote) };
     count++;
   }
   return count > 0 ? terms : null;
@@ -322,11 +333,15 @@ function applyEdits(s: string, edits: Edit[]): string {
 
 function main(): void {
   const evidence = new Map<Region, Map<string, EvidenceRecord>>();
+  const joinsFragments = new Map<Region, boolean>();
   for (const file of EVIDENCE_FILES) {
+    const pipe = MANIFEST.files[file].pipe;
+    if (pipe !== 'literal' && pipe !== 'joins-fragments') throw new Error(`manifest.json: ${file} has an unknown pipe mode "${pipe}"`);
     const data = JSON.parse(readFileSync(join(EVIDENCE_DIR, file), 'utf8')) as Record<string, EvidenceRecord[]>;
     for (const [region, records] of Object.entries(data)) {
       if (!(REGIONS as readonly string[]).includes(region)) throw new Error(`${file}: unknown region "${region}"`);
       if (evidence.has(region as Region)) throw new Error(`${file}: region "${region}" appears in two evidence files`);
+      joinsFragments.set(region as Region, pipe === 'joins-fragments');
       const byId = new Map<string, EvidenceRecord>();
       for (const record of records) {
         if (byId.has(record.id)) throw new Error(`${file}: duplicate ${region}/${record.id}`);
@@ -365,7 +380,7 @@ function main(): void {
       const record = byId.get(id);
       if (record) {
         if (record.slug !== slug) throw new Error(`${region}/${id}: evidence slug "${record.slug}" ≠ product slug "${slug}"`);
-        const terms = termsFor(record, `${region}/${id}`);
+        const terms = termsFor(record, `${region}/${id}`, joinsFragments.get(region) === true);
         const existing = get('vendorTerms');
         if (terms) {
           termCount += Object.keys(terms).length - 1;

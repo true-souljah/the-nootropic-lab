@@ -19,6 +19,13 @@ export interface VendorTerm {
    * from a PASS-verified quote in packages/data/evidence/vendor-terms-*.
    */
   text: string;
+  /**
+   * Present when `text` joins separate page fragments with " | " (an evidence
+   * file convention, per the manifest.json beside the vendor-terms evidence):
+   * the fragments in page order, rendered as separate lines of one quote.
+   * Absent when a " | " in `text` is the vendor's own page text.
+   */
+  fragments?: string[];
   /** The vendor page the quote was read from (https). */
   url: string;
   /** BCP-47 primary language subtag of `text` ("en", "ja", "de"), for the quote's `lang` attribute. */

@@ -41,16 +41,25 @@ interface EvidenceField {
 }
 type EvidenceRecord = { id: string; slug: string; checkedAt: string } & Record<string, unknown>;
 
-function loadEvidence(): Map<string, EvidenceRecord> {
+/** How each evidence file uses " | " (also read by scripts/import-vendor-terms.ts). */
+const MANIFEST = JSON.parse(readFileSync(join(EVIDENCE_DIR, 'manifest.json'), 'utf8')) as {
+  files: Record<string, { pipe: 'literal' | 'joins-fragments' }>;
+};
+
+/** Evidence records by "region/id", and the regions whose file joins page fragments with " | ". */
+function loadEvidence(): { records: Map<string, EvidenceRecord>; joiningRegions: Set<string> } {
   const files = readdirSync(EVIDENCE_DIR).filter((f) => f.endsWith('.verified.json'));
-  const out = new Map<string, EvidenceRecord>();
+  expect(Object.keys(MANIFEST.files).sort(), 'manifest.json lists every evidence file').toEqual([...files].sort());
+  const records = new Map<string, EvidenceRecord>();
+  const joiningRegions = new Set<string>();
   for (const file of files) {
     const data = JSON.parse(readFileSync(join(EVIDENCE_DIR, file), 'utf8')) as Record<string, EvidenceRecord[]>;
-    for (const [region, records] of Object.entries(data)) {
-      for (const record of records) out.set(`${region}/${record.id}`, record);
+    for (const [region, list] of Object.entries(data)) {
+      if (MANIFEST.files[file].pipe === 'joins-fragments') joiningRegions.add(region);
+      for (const record of list) records.set(`${region}/${record.id}`, record);
     }
   }
-  return out;
+  return { records, joiningRegions };
 }
 
 const PASS = (field: unknown): field is EvidenceField & { quote: string; url: string } =>
@@ -86,7 +95,7 @@ describe('PricingTab — no fixed promises', () => {
 });
 
 describe('vendorTerms data — every quote is a PASS quote from the evidence files', () => {
-  const evidence = loadEvidence();
+  const { records: evidence, joiningRegions } = loadEvidence();
   const withTerms = Object.entries(REGIONS).flatMap(([region, products]) =>
     products.filter((p) => p.vendorTerms).map((p) => ({ region, p })),
   );
@@ -114,9 +123,29 @@ describe('vendorTerms data — every quote is a PASS quote from the evidence fil
         if (!PASS(source)) problems.push(`${key}.${field}: evidence field is not PASS`);
         else if (source.quote !== term.text) problems.push(`${key}.${field}: text is not the verbatim evidence quote`);
         else if (source.url !== term.url) problems.push(`${key}.${field}: url differs from the evidence`);
+        else {
+          // " | " joins page fragments only in files the manifest marks so; elsewhere it is page text.
+          const expected = joiningRegions.has(region) && source.quote.includes(' | ') ? source.quote.split(' | ') : undefined;
+          if (JSON.stringify(term.fragments) !== JSON.stringify(expected)) {
+            problems.push(`${key}.${field}: fragments ${JSON.stringify(term.fragments)} ≠ ${JSON.stringify(expected)}`);
+          }
+        }
       }
     }
     expect(problems).toEqual([]);
+  });
+
+  test('fragments exist only where the manifest says " | " joins page fragments', () => {
+    const withFragments = withTerms.flatMap(({ region, p }) =>
+      VENDOR_TERM_FIELDS.filter((f) => p.vendorTerms![f]?.fragments).map((f) => ({ region, f })),
+    );
+    expect(joiningRegions.size).toBeGreaterThan(0);
+    expect(withFragments.length).toBeGreaterThan(0);
+    expect(withFragments.filter(({ region }) => !joiningRegions.has(region))).toEqual([]);
+    // Literal pipes on the vendor's own page stay inside one quote (US Mind Lab Pro shipping).
+    const mlp = allProductsUS.find((p) => p.id === 'mind-lab-pro')!.vendorTerms!.shipping!;
+    expect(mlp.text).toContain('($9.95 | FREE');
+    expect(mlp.fragments).toBeUndefined();
   });
 
   test('every PASS evidence field is present in the data (nothing dropped)', () => {
@@ -183,6 +212,16 @@ describe('vendorTermsProblems (validate-data rule)', () => {
     expect(vendorTermsProblems({ checkedAt: '2026-10-07', shipping: { ...term, lang: 'english' } })[0]).toMatch(
       /^vendorTerms\.shipping\.lang/,
     );
+  });
+
+  test('fragments must join with " | " back to text', () => {
+    const joined = { ...term, text: 'NO COMMITMENT | CANCEL ANYTIME' };
+    expect(vendorTermsProblems({ checkedAt: '2026-10-07', cancellation: { ...joined, fragments: ['NO COMMITMENT', 'CANCEL ANYTIME'] } })).toEqual([]);
+    for (const fragments of [['NO COMMITMENT'], ['NO COMMITMENT', 'CANCEL'], ['NO COMMITMENT', ' '], 'NO COMMITMENT']) {
+      expect(vendorTermsProblems({ checkedAt: '2026-10-07', cancellation: { ...joined, fragments } })[0]).toMatch(
+        /^vendorTerms\.cancellation\.fragments/,
+      );
+    }
   });
 
   test('unknown keys and an empty terms object fail', () => {
