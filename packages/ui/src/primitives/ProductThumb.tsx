@@ -41,7 +41,8 @@ function tileStyle(size: number) {
  * ProductThumb — the product's vendor pack-shot on a white rounded square,
  * or the letter monogram when the product has no image (see
  * packages/data/src/product-images.ts). Explicit width/height on both paths,
- * so swapping one for the other never shifts layout.
+ * so swapping one for the other never shifts layout. Both paths carry
+ * data-product-id so built pages can be audited (image vs monogram per id).
  */
 export function ProductThumb({
   product,
@@ -57,9 +58,10 @@ export function ProductThumb({
   if (!image) {
     return (
       <div
-        className={`grid place-items-center text-white flex-shrink-0 ${className}`}
+        className={`grid place-items-center text-white flex-shrink-0 ${className}`.trim()}
         style={{ width: size, height: size, borderRadius: radius, background: monogramBg, fontSize, fontWeight }}
         aria-hidden="true"
+        data-product-id={product.id}
       >
         {product.name[0]}
       </div>
@@ -80,8 +82,9 @@ export function ProductThumb({
       alt={product.name}
       loading={eager ? 'eager' : 'lazy'}
       decoding="async"
-      className={`block flex-shrink-0 bg-ds-card border border-ds-border object-contain ${className}`}
+      className={`block flex-shrink-0 bg-ds-card border border-ds-border object-contain ${className}`.trim()}
       style={{ width: size, height: size, borderRadius: radius }}
+      data-product-id={product.id}
     />
   );
 }
