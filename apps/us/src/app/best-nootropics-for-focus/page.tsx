@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   alternates: buildAlternates({ regionCode: 'us', path: '/best-nootropics-for-focus/' }),
   openGraph: {
     title: 'Best Nootropics for Focus — Evidence-Graded Picks',
-    description: 'Clinical-dose audit of every focus pick. No proprietary blends, no anonymous bylines.',
+    description: 'Clinical-dose audit of every focus pick. No proprietary blends.',
     type: 'article',
   },
   twitter: { card: 'summary' },

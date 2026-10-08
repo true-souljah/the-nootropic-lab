@@ -88,7 +88,7 @@ export default function HomePage() {
           <p className="text-base text-gray-400 mb-2">ノートロピクスの独立比較レビュー</p>
           <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
             We compare international and Japanese domestic nootropics. Every ingredient dose
-            tested against clinical evidence. MHLW import guidelines clearly stated.
+            checked against clinical evidence. MHLW import guidelines clearly stated.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link

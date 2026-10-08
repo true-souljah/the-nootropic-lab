@@ -8,12 +8,12 @@ const CURRENT_YEAR = new Date().getFullYear();
 
 
 export const metadata: Metadata = {
-  title: `Beste Nootropika ${CURRENT_YEAR}: Getestet & Verglichen für Deutschland`,
+  title: `Beste Nootropika ${CURRENT_YEAR}: Nach Studienlage verglichen für Deutschland`,
   description:
     'Unabhängiger Nootropika Vergleich für Deutschland, Österreich und die Schweiz. Produkte mit EU-Shop gekennzeichnet, EUR-Preise, klinische Dosierungsanalyse.',
   alternates: buildAlternates({ regionCode: 'eu', path: '/de/beste-nootropika/', availableInRegions: ['eu'] }),
-  openGraph: buildOpenGraph({ regionCode: 'eu', path: '/de/beste-nootropika/', title: `Beste Nootropika ${CURRENT_YEAR}: Getestet & Verglichen für Deutschland`, description: 'Unabhängiger Nootropika Vergleich für Deutschland, Österreich und die Schweiz. Produkte mit EU-Shop gekennzeichnet, EUR-Preise, klinische Dosierungsanalyse.' }),
-  twitter: buildTwitter({ title: `Beste Nootropika ${CURRENT_YEAR}: Getestet & Verglichen für Deutschland`, description: 'Unabhängiger Nootropika Vergleich für Deutschland, Österreich und die Schweiz. Produkte mit EU-Shop gekennzeichnet, EUR-Preise, klinische Dosierungsanalyse.' }),
+  openGraph: buildOpenGraph({ regionCode: 'eu', path: '/de/beste-nootropika/', title: `Beste Nootropika ${CURRENT_YEAR}: Nach Studienlage verglichen für Deutschland`, description: 'Unabhängiger Nootropika Vergleich für Deutschland, Österreich und die Schweiz. Produkte mit EU-Shop gekennzeichnet, EUR-Preise, klinische Dosierungsanalyse.' }),
+  twitter: buildTwitter({ title: `Beste Nootropika ${CURRENT_YEAR}: Nach Studienlage verglichen für Deutschland`, description: 'Unabhängiger Nootropika Vergleich für Deutschland, Österreich und die Schweiz. Produkte mit EU-Shop gekennzeichnet, EUR-Preise, klinische Dosierungsanalyse.' }),
 };
 
 export default function BestNootropikaDE() {
@@ -31,7 +31,7 @@ export default function BestNootropikaDE() {
       <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
         Beste Nootropika {CURRENT_YEAR}:
         <br />
-        Getestet &amp; Verglichen für Deutschland
+        Nach Studienlage verglichen für Deutschland
       </h1>
       <p className="text-lg text-gray-600 mb-6 leading-relaxed">
         Wir kennzeichnen, welche Produkte über einen EU-Shop mit EUR-Preisen erhältlich sind —

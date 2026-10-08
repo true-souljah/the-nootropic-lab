@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 /**
  * Editorial Standards section appended to /methodology/ pages across the
- * portfolio. Documents the testing protocol, conflict-of-interest policy,
+ * portfolio. Documents the review protocol, conflict-of-interest policy,
  * correction policy, source-citation policy, and the editorial-team identity
  * statement.
  *
@@ -29,16 +29,11 @@ export default function EditorialStandardsSection() {
 
         <div className="space-y-5">
           <div className="border border-gray-200 rounded-xl p-5">
-            <h3 className="font-bold text-gray-900 mb-2">1. Testing &amp; review protocol</h3>
+            <h3 className="font-bold text-gray-900 mb-2">1. Review protocol</h3>
             <p className="text-sm text-gray-700 leading-relaxed">
-              Products are categorised as <strong>hands-on tested</strong> or <strong>catalog only</strong>.
-              Hands-on tested products are sourced through retail or manufacturer channels (never from
-              affiliate-program promo samples), used by an editor for a minimum of 30 days under
-              consistent stack conditions, and audited against label claims via a clinical-dose
-              cross-reference. Catalog-only products are evaluated from manufacturer-published ingredient
-              lists, regulatory filings, and third-party Certificates of Analysis when available. Every
-              listicle pick and comparison row is tagged so readers can self-filter trust. We never
-              imply hands-on testing where none has occurred.
+              Products are evaluated from manufacturer-published ingredient lists, regulatory filings,
+              and third-party Certificates of Analysis when available. Each ingredient dose on the label
+              is compared with the doses used in peer-reviewed clinical trials.
             </p>
           </div>
 
@@ -103,9 +98,8 @@ export default function EditorialStandardsSection() {
           <div className="border border-gray-200 rounded-xl p-5">
             <h3 className="font-bold text-gray-900 mb-2">5. Editorial-team identity</h3>
             <p className="text-sm text-gray-700 leading-relaxed">
-              The Nootropic Lab operates as an independent editorial collective. Reviews are produced
-              collaboratively by editors with backgrounds in pharmacology, evidence synthesis, and
-              consumer-product analysis. We do not disclose individual contributors by name and do not
+              The Nootropic Lab operates as an independent editorial collective. We do not disclose
+              individual contributors by name and do not
               feature personal brands within reviews. This is a deliberate choice: it keeps the focus
               on the methodology and the data, and reduces the risk that a single contributor&apos;s
               preferences disproportionately influence rankings. Every review applies the same 5-pillar
