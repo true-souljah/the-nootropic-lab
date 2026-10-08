@@ -23,248 +23,255 @@ import { defineConfig, devices } from '@playwright/test';
 // `serve` resolves trailing-slash URLs to those files automatically —
 // we deliberately do NOT pass `--single` (SPA fallback) which would
 // short-circuit that.
+const allProjects = [
+  // testMatch is a regex against the full path. The `[/\\]` prefix
+  // forces the region tag to appear at the start of the basename
+  // (after the directory separator) — without it, a substring
+  // match like the "us-" inside "stat​**us-**messages" causes
+  // jp-status-messages.spec.ts to also match us-chromium. PR-Q31 #95
+  // surfaced and fixed that bug.
+  {
+    name: 'jp-chromium',
+    testMatch: /[/\\]jp-.*\.spec\.ts$/,
+    use: {
+      ...devices['Desktop Chrome'],
+      baseURL: 'http://127.0.0.1:4173',
+    },
+  },
+  {
+    name: 'latam-chromium',
+    testMatch: /[/\\]latam-.*\.spec\.ts$/,
+    use: {
+      ...devices['Desktop Chrome'],
+      baseURL: 'http://127.0.0.1:4174',
+    },
+  },
+  {
+    name: 'ca-chromium',
+    testMatch: /[/\\]ca-.*\.spec\.ts$/,
+    use: {
+      ...devices['Desktop Chrome'],
+      baseURL: 'http://127.0.0.1:4175',
+    },
+  },
+  {
+    name: 'eu-chromium',
+    testMatch: /[/\\]eu-.*\.spec\.ts$/,
+    use: {
+      ...devices['Desktop Chrome'],
+      baseURL: 'http://127.0.0.1:4176',
+    },
+  },
+  {
+    name: 'us-chromium',
+    testMatch: /[/\\]us-.*\.spec\.ts$/,
+    use: {
+      ...devices['Desktop Chrome'],
+      baseURL: 'http://127.0.0.1:4177',
+    },
+  },
+  // Cross-browser axis (PR-Q77). WebKit project runs ONLY the
+  // engine-divergence-prone specs: axe (computed contrast +
+  // role differences), focus-appearance (Webkit default
+  // outline differs from Chromium), AT-tree (WebKit
+  // accessibility tree computation differs). Other specs
+  // (touch / keyboard hydration / Tab walks) are excluded
+  // because they exercise behaviors that depend on Chromium-
+  // specific input timing; running them on WebKit produces
+  // engine-noise flakes, not portfolio bugs.
+  //
+  // Per the Q76 refined Category A/B model: engine-rendered
+  // defaults are Category A (the substrate can't enforce them),
+  // so Webkit-on-existing-specs is the highest-EV new probe
+  // category likely to surface a bug.
+  {
+    name: 'us-webkit',
+    testMatch: /[/\\]us-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+    use: {
+      ...devices['Desktop Safari'],
+      baseURL: 'http://127.0.0.1:4177',
+    },
+  },
+  // PR-Q78 portfolio sweep — WebKit projects for the 7 remaining
+  // regions on the SAME testMatch shape (axe / focus-appearance /
+  // accessibility-tree only). Closes the cross-browser axis at
+  // 8/8. Each project bound to its region's webServer port.
+  {
+    name: 'au-webkit',
+    testMatch: /[/\\]au-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+    use: {
+      ...devices['Desktop Safari'],
+      baseURL: 'http://127.0.0.1:4178',
+    },
+  },
+  {
+    name: 'gcc-webkit',
+    testMatch: /[/\\]gcc-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+    use: {
+      ...devices['Desktop Safari'],
+      baseURL: 'http://127.0.0.1:4179',
+    },
+  },
+  {
+    name: 'sea-webkit',
+    testMatch: /[/\\]sea-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+    use: {
+      ...devices['Desktop Safari'],
+      baseURL: 'http://127.0.0.1:4180',
+    },
+  },
+  {
+    name: 'jp-webkit',
+    testMatch: /[/\\]jp-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+    use: {
+      ...devices['Desktop Safari'],
+      baseURL: 'http://127.0.0.1:4173',
+    },
+  },
+  {
+    name: 'latam-webkit',
+    testMatch: /[/\\]latam-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+    use: {
+      ...devices['Desktop Safari'],
+      baseURL: 'http://127.0.0.1:4174',
+    },
+  },
+  {
+    name: 'ca-webkit',
+    testMatch: /[/\\]ca-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+    use: {
+      ...devices['Desktop Safari'],
+      baseURL: 'http://127.0.0.1:4175',
+    },
+  },
+  {
+    name: 'eu-webkit',
+    testMatch: /[/\\]eu-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+    use: {
+      ...devices['Desktop Safari'],
+      baseURL: 'http://127.0.0.1:4176',
+    },
+  },
+  // Firefox cross-browser axis (PR-Q80). Third engine after
+  // Chromium (default) + WebKit (Q77). Same testMatch subset
+  // as us-webkit: axe / focus-appearance / accessibility-tree.
+  // Other specs excluded (Firefox input timing differs).
+  //
+  // Per the Q77 model: engine-rendered defaults are Category A
+  // (substrate can't enforce them). Firefox has known divergences
+  // from Chromium AND Safari on focus-visible behavior, default
+  // outline styles, computed roles, and keyboard navigation
+  // edge cases. Likely surfaces a new Category A bug missed by
+  // both Chromium and WebKit.
+  {
+    name: 'us-firefox',
+    testMatch: /[/\\]us-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+    use: {
+      ...devices['Desktop Firefox'],
+      baseURL: 'http://127.0.0.1:4177',
+    },
+  },
+  // PR-Q81 portfolio sweep — Firefox projects for the 7 remaining
+  // regions on the same testMatch shape as us-firefox (Q80).
+  // Closes the 15th axis (Firefox cross-browser) at 8/8.
+  {
+    name: 'au-firefox',
+    testMatch: /[/\\]au-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+    use: {
+      ...devices['Desktop Firefox'],
+      baseURL: 'http://127.0.0.1:4178',
+    },
+  },
+  {
+    name: 'gcc-firefox',
+    testMatch: /[/\\]gcc-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+    use: {
+      ...devices['Desktop Firefox'],
+      baseURL: 'http://127.0.0.1:4179',
+    },
+  },
+  {
+    name: 'sea-firefox',
+    testMatch: /[/\\]sea-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+    use: {
+      ...devices['Desktop Firefox'],
+      baseURL: 'http://127.0.0.1:4180',
+    },
+  },
+  {
+    name: 'jp-firefox',
+    testMatch: /[/\\]jp-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+    use: {
+      ...devices['Desktop Firefox'],
+      baseURL: 'http://127.0.0.1:4173',
+    },
+  },
+  {
+    name: 'latam-firefox',
+    testMatch: /[/\\]latam-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+    use: {
+      ...devices['Desktop Firefox'],
+      baseURL: 'http://127.0.0.1:4174',
+    },
+  },
+  {
+    name: 'ca-firefox',
+    testMatch: /[/\\]ca-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+    use: {
+      ...devices['Desktop Firefox'],
+      baseURL: 'http://127.0.0.1:4175',
+    },
+  },
+  {
+    name: 'eu-firefox',
+    testMatch: /[/\\]eu-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
+    use: {
+      ...devices['Desktop Firefox'],
+      baseURL: 'http://127.0.0.1:4176',
+    },
+  },
+  {
+    name: 'au-chromium',
+    testMatch: /[/\\]au-.*\.spec\.ts$/,
+    use: {
+      ...devices['Desktop Chrome'],
+      baseURL: 'http://127.0.0.1:4178',
+    },
+  },
+  {
+    name: 'gcc-chromium',
+    testMatch: /[/\\]gcc-.*\.spec\.ts$/,
+    use: {
+      ...devices['Desktop Chrome'],
+      baseURL: 'http://127.0.0.1:4179',
+    },
+  },
+  {
+    name: 'sea-chromium',
+    testMatch: /[/\\]sea-.*\.spec\.ts$/,
+    use: {
+      ...devices['Desktop Chrome'],
+      baseURL: 'http://127.0.0.1:4180',
+    },
+  },
+];
+
 export default defineConfig({
   testDir: './e2e',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
+  // Local runs are chromium-only with 2 workers to keep memory bounded on a
+  // 24 GB machine (2026-10-08: kernel jetsam with 8 Playwright Firefox
+  // instances alive). Set PW_ALL_BROWSERS=1 to run the full webkit + firefox
+  // matrix locally. CI is unchanged: all 24 projects, workers 1, 3 shards
+  // (.github/workflows/build.yml).
+  workers: process.env.CI ? 1 : 2,
   reporter: 'list',
   use: {
     trace: 'on-first-retry',
   },
-  projects: [
-    // testMatch is a regex against the full path. The `[/\\]` prefix
-    // forces the region tag to appear at the start of the basename
-    // (after the directory separator) — without it, a substring
-    // match like the "us-" inside "stat​**us-**messages" causes
-    // jp-status-messages.spec.ts to also match us-chromium. PR-Q31 #95
-    // surfaced and fixed that bug.
-    {
-      name: 'jp-chromium',
-      testMatch: /[/\\]jp-.*\.spec\.ts$/,
-      use: {
-        ...devices['Desktop Chrome'],
-        baseURL: 'http://127.0.0.1:4173',
-      },
-    },
-    {
-      name: 'latam-chromium',
-      testMatch: /[/\\]latam-.*\.spec\.ts$/,
-      use: {
-        ...devices['Desktop Chrome'],
-        baseURL: 'http://127.0.0.1:4174',
-      },
-    },
-    {
-      name: 'ca-chromium',
-      testMatch: /[/\\]ca-.*\.spec\.ts$/,
-      use: {
-        ...devices['Desktop Chrome'],
-        baseURL: 'http://127.0.0.1:4175',
-      },
-    },
-    {
-      name: 'eu-chromium',
-      testMatch: /[/\\]eu-.*\.spec\.ts$/,
-      use: {
-        ...devices['Desktop Chrome'],
-        baseURL: 'http://127.0.0.1:4176',
-      },
-    },
-    {
-      name: 'us-chromium',
-      testMatch: /[/\\]us-.*\.spec\.ts$/,
-      use: {
-        ...devices['Desktop Chrome'],
-        baseURL: 'http://127.0.0.1:4177',
-      },
-    },
-    // Cross-browser axis (PR-Q77). WebKit project runs ONLY the
-    // engine-divergence-prone specs: axe (computed contrast +
-    // role differences), focus-appearance (Webkit default
-    // outline differs from Chromium), AT-tree (WebKit
-    // accessibility tree computation differs). Other specs
-    // (touch / keyboard hydration / Tab walks) are excluded
-    // because they exercise behaviors that depend on Chromium-
-    // specific input timing; running them on WebKit produces
-    // engine-noise flakes, not portfolio bugs.
-    //
-    // Per the Q76 refined Category A/B model: engine-rendered
-    // defaults are Category A (the substrate can't enforce them),
-    // so Webkit-on-existing-specs is the highest-EV new probe
-    // category likely to surface a bug.
-    {
-      name: 'us-webkit',
-      testMatch: /[/\\]us-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
-      use: {
-        ...devices['Desktop Safari'],
-        baseURL: 'http://127.0.0.1:4177',
-      },
-    },
-    // PR-Q78 portfolio sweep — WebKit projects for the 7 remaining
-    // regions on the SAME testMatch shape (axe / focus-appearance /
-    // accessibility-tree only). Closes the cross-browser axis at
-    // 8/8. Each project bound to its region's webServer port.
-    {
-      name: 'au-webkit',
-      testMatch: /[/\\]au-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
-      use: {
-        ...devices['Desktop Safari'],
-        baseURL: 'http://127.0.0.1:4178',
-      },
-    },
-    {
-      name: 'gcc-webkit',
-      testMatch: /[/\\]gcc-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
-      use: {
-        ...devices['Desktop Safari'],
-        baseURL: 'http://127.0.0.1:4179',
-      },
-    },
-    {
-      name: 'sea-webkit',
-      testMatch: /[/\\]sea-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
-      use: {
-        ...devices['Desktop Safari'],
-        baseURL: 'http://127.0.0.1:4180',
-      },
-    },
-    {
-      name: 'jp-webkit',
-      testMatch: /[/\\]jp-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
-      use: {
-        ...devices['Desktop Safari'],
-        baseURL: 'http://127.0.0.1:4173',
-      },
-    },
-    {
-      name: 'latam-webkit',
-      testMatch: /[/\\]latam-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
-      use: {
-        ...devices['Desktop Safari'],
-        baseURL: 'http://127.0.0.1:4174',
-      },
-    },
-    {
-      name: 'ca-webkit',
-      testMatch: /[/\\]ca-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
-      use: {
-        ...devices['Desktop Safari'],
-        baseURL: 'http://127.0.0.1:4175',
-      },
-    },
-    {
-      name: 'eu-webkit',
-      testMatch: /[/\\]eu-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
-      use: {
-        ...devices['Desktop Safari'],
-        baseURL: 'http://127.0.0.1:4176',
-      },
-    },
-    // Firefox cross-browser axis (PR-Q80). Third engine after
-    // Chromium (default) + WebKit (Q77). Same testMatch subset
-    // as us-webkit: axe / focus-appearance / accessibility-tree.
-    // Other specs excluded (Firefox input timing differs).
-    //
-    // Per the Q77 model: engine-rendered defaults are Category A
-    // (substrate can't enforce them). Firefox has known divergences
-    // from Chromium AND Safari on focus-visible behavior, default
-    // outline styles, computed roles, and keyboard navigation
-    // edge cases. Likely surfaces a new Category A bug missed by
-    // both Chromium and WebKit.
-    {
-      name: 'us-firefox',
-      testMatch: /[/\\]us-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
-      use: {
-        ...devices['Desktop Firefox'],
-        baseURL: 'http://127.0.0.1:4177',
-      },
-    },
-    // PR-Q81 portfolio sweep — Firefox projects for the 7 remaining
-    // regions on the same testMatch shape as us-firefox (Q80).
-    // Closes the 15th axis (Firefox cross-browser) at 8/8.
-    {
-      name: 'au-firefox',
-      testMatch: /[/\\]au-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
-      use: {
-        ...devices['Desktop Firefox'],
-        baseURL: 'http://127.0.0.1:4178',
-      },
-    },
-    {
-      name: 'gcc-firefox',
-      testMatch: /[/\\]gcc-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
-      use: {
-        ...devices['Desktop Firefox'],
-        baseURL: 'http://127.0.0.1:4179',
-      },
-    },
-    {
-      name: 'sea-firefox',
-      testMatch: /[/\\]sea-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
-      use: {
-        ...devices['Desktop Firefox'],
-        baseURL: 'http://127.0.0.1:4180',
-      },
-    },
-    {
-      name: 'jp-firefox',
-      testMatch: /[/\\]jp-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
-      use: {
-        ...devices['Desktop Firefox'],
-        baseURL: 'http://127.0.0.1:4173',
-      },
-    },
-    {
-      name: 'latam-firefox',
-      testMatch: /[/\\]latam-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
-      use: {
-        ...devices['Desktop Firefox'],
-        baseURL: 'http://127.0.0.1:4174',
-      },
-    },
-    {
-      name: 'ca-firefox',
-      testMatch: /[/\\]ca-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
-      use: {
-        ...devices['Desktop Firefox'],
-        baseURL: 'http://127.0.0.1:4175',
-      },
-    },
-    {
-      name: 'eu-firefox',
-      testMatch: /[/\\]eu-(axe-|focus-appearance|accessibility-tree).*\.spec\.ts$/,
-      use: {
-        ...devices['Desktop Firefox'],
-        baseURL: 'http://127.0.0.1:4176',
-      },
-    },
-    {
-      name: 'au-chromium',
-      testMatch: /[/\\]au-.*\.spec\.ts$/,
-      use: {
-        ...devices['Desktop Chrome'],
-        baseURL: 'http://127.0.0.1:4178',
-      },
-    },
-    {
-      name: 'gcc-chromium',
-      testMatch: /[/\\]gcc-.*\.spec\.ts$/,
-      use: {
-        ...devices['Desktop Chrome'],
-        baseURL: 'http://127.0.0.1:4179',
-      },
-    },
-    {
-      name: 'sea-chromium',
-      testMatch: /[/\\]sea-.*\.spec\.ts$/,
-      use: {
-        ...devices['Desktop Chrome'],
-        baseURL: 'http://127.0.0.1:4180',
-      },
-    },
-  ],
+  projects: process.env.CI || process.env.PW_ALL_BROWSERS ? allProjects : allProjects.filter((p) => p.name.endsWith('-chromium')),
   webServer: [
     {
       command: 'npx serve apps/jp/out --listen 4173',

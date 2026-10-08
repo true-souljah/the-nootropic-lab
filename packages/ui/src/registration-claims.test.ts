@@ -135,6 +135,20 @@ const HALAL_UNSOURCED: RegExp[] = [
   /carry formal halal certification/i,
   /typically gelatin/i,
   /verify\.halal\.gov\.my/i,
+  // Round 3 (2026-10-07, p5/halal-evidence.json): no religious-compliance
+  // verdict on an ingredient, capsule or product ("halal-compliant", "always
+  // halal"); copy states the sourcing fact and whether a certificate is shown.
+  // Rankings are hand-set and never adjusted for halal or porcine status.
+  /halal-compliant/i,
+  /always halal/i,
+  /porcine-free (formulations|options)/i,
+  // "Halal-friendly" / "halal-neutral" labels assert the same judgement, and
+  // caffeine status is shown per product (caffeineFree chip) but never feeds
+  // the hand-set scores or ranks.
+  /Halal-friendly/i,
+  /halal-neutral/i,
+  /(caffeine|stimulant)-free (options |formulations )?prioritised/i,
+  /prioriti[sz]e caffeine-free/i,
 ];
 
 describe('no copy asserts a product is not halal-certified or that rankings weight halal status', () => {
@@ -145,6 +159,8 @@ describe('no copy asserts a product is not halal-certified or that rankings weig
     expect(HALAL_SOURCES.some(f => /apps\/sea\/src\/app\/halal-nootropics-indonesia-bpjph\/page\.tsx$/.test(f))).toBe(true);
     expect(HALAL_SOURCES.some(f => /apps\/sea\/src\/app\/best-nootropics-for-focus\/page\.tsx$/.test(f))).toBe(true);
     expect(HALAL_SOURCES.some(f => /apps\/gcc\/src\/app\/halal-certified-nootropics\/page\.tsx$/.test(f))).toBe(true);
+    expect(HALAL_SOURCES.some(f => /apps\/gcc\/src\/app\/best-nootropics-for-aging\/page\.tsx$/.test(f))).toBe(true);
+    expect(HALAL_SOURCES.some(f => /apps\/gcc\/src\/app\/page\.tsx$/.test(f))).toBe(true);
   });
 
   test('no data or SEA/GCC app source uses the unsourced halal negative or the ranking claim', () => {
@@ -152,6 +168,73 @@ describe('no copy asserts a product is not halal-certified or that rankings weig
       const lines = readFileSync(file, 'utf8').split('\n');
       return lines.flatMap((line, i) =>
         HALAL_UNSOURCED.some(re => re.test(line)) ? [`${file.slice(REPO_ROOT.length + 1)}:${i + 1}`] : [],
+      );
+    });
+    expect(hits).toEqual([]);
+  });
+});
+
+// AU legal statements (2026-10-08, research p5/au-permissible-ingredients.json).
+// The Therapeutic Goods (Permissible Ingredients) Determination (No. 2) 2026
+// (F2026L00707, as compiled 17 September 2026) lists phosphatidylserine as
+// soy phosphatidylserine-enriched soy lecithin (Schedule 1 items 4689/4690),
+// so copy calling an ingredient "not a permitted ingredient" must name the
+// Schedule 1 item it rests on. Huperzine A copy states the name-level search
+// results (not found in Schedule 1; no huperz* entry in the Poisons Standard)
+// instead of guessing that it "may attract TGA scrutiny". The June 2026
+// Poisons Standard (F2026L00633) was repealed by the October 2026 instrument
+// (F2026L01327), so the old instrument must not be cited as current.
+const AU_LEGAL_SOURCES = [
+  ...walk(resolve(APPS_DIR, 'au', 'src')),
+  ...walk(DATA_DIR),
+];
+
+const NOT_PERMITTED = /not a permitted ingredient/i;
+// A concrete Schedule 1 item reference ("item 4689", "items 4689 and 4690");
+// the bare word "item(s)" ("see other items") does not count.
+const SCHEDULE_ITEM_REF = /\bitems? \d{2,5}\b/i;
+const unsourcedNotPermitted = (line: string): boolean =>
+  NOT_PERMITTED.test(line) && !SCHEDULE_ITEM_REF.test(line);
+
+const AU_LEGAL_UNSOURCED: RegExp[] = [
+  /may (attract|require) (Therapeutic Goods Administration \()?TGA\)? (scrutiny|oversight)/i,
+  /F2026L00633/,
+];
+
+describe('AU legal statements follow the Permissible Ingredients Determination and the current Poisons Standard', () => {
+  test('scanned a non-empty file set', () => {
+    expect(AU_LEGAL_SOURCES.length).toBeGreaterThan(50);
+    expect(AU_LEGAL_SOURCES.some(f => /packages\/data\/src\/products-au\.json$/.test(f))).toBe(true);
+    expect(AU_LEGAL_SOURCES.some(f => /packages\/data\/src\/regional-notes\/au\.ts$/.test(f))).toBe(true);
+    expect(AU_LEGAL_SOURCES.some(f => /apps\/au\/src\/app\/tga-listed-cognitive-supplements\/page\.tsx$/.test(f))).toBe(true);
+    expect(AU_LEGAL_SOURCES.some(f => /apps\/au\/src\/app\/best-nootropics-for-memory\/page\.tsx$/.test(f))).toBe(true);
+    expect(AU_LEGAL_SOURCES.some(f => /apps\/au\/src\/app\/best-nootropics-for-aging\/page\.tsx$/.test(f))).toBe(true);
+    expect(AU_LEGAL_SOURCES.some(f => /apps\/au\/src\/app\/best-nootropics-for-focus\/page\.tsx$/.test(f))).toBe(true);
+    expect(AU_LEGAL_SOURCES.every(f => existsSync(f))).toBe(true);
+  });
+
+  test('the Schedule 1 item exception needs a numbered item, not the bare word', () => {
+    expect(unsourcedNotPermitted('X is not a permitted ingredient; see other items.')).toBe(true);
+    expect(unsourcedNotPermitted('X is not a permitted ingredient in listed medicines.')).toBe(true);
+    expect(unsourcedNotPermitted('X is not a permitted ingredient except as Schedule 1 item 4689.')).toBe(false);
+    expect(unsourcedNotPermitted('X is not a permitted ingredient except as items 4689 and 4690.')).toBe(false);
+  });
+
+  test('"not a permitted ingredient" appears only on a line that names its Schedule 1 item', () => {
+    const hits = AU_LEGAL_SOURCES.flatMap(file => {
+      const lines = readFileSync(file, 'utf8').split('\n');
+      return lines.flatMap((line, i) =>
+        unsourcedNotPermitted(line) ? [`${file.slice(REPO_ROOT.length + 1)}:${i + 1}`] : [],
+      );
+    });
+    expect(hits).toEqual([]);
+  });
+
+  test('no "may attract TGA scrutiny" speculation and no citation of the repealed June 2026 Poisons Standard', () => {
+    const hits = AU_LEGAL_SOURCES.flatMap(file => {
+      const lines = readFileSync(file, 'utf8').split('\n');
+      return lines.flatMap((line, i) =>
+        AU_LEGAL_UNSOURCED.some(re => re.test(line)) ? [`${file.slice(REPO_ROOT.length + 1)}:${i + 1}`] : [],
       );
     });
     expect(hits).toEqual([]);
