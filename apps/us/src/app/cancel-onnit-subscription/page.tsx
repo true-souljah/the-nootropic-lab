@@ -66,7 +66,7 @@ const faqItems: CancellationFAQ[] = [
   },
   {
     q: 'Will I get a refund for the most recent shipment?',
-    a: 'Onnit\'s standard return policy: 90-day money-back guarantee on first orders, but auto-renewal shipments past the trial typically have a stricter 30-day return window. Check your specific subscription terms. Return for refund: contact customer service to request an RMA (return merchandise authorization) before shipping anything back.',
+    a: 'Onnit\'s 30-day money-back guarantee applies to your first-time purchase of an Onnit supplement (per Onnit\'s help centre), not to later renewal shipments of the same product. Check your specific subscription terms. Return for refund: contact customer service to request an RMA (return merchandise authorization) before shipping anything back.',
   },
   {
     q: 'I cancelled but they still charged me — what now?',
