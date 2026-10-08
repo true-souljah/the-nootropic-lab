@@ -102,7 +102,6 @@
     "editorChoice": true,
     "market": "both",
     "updatedAt": "2026-09-28",
-    "handsOnTested": true,
     "trustpilotCheckedAt": "2026-09-28",
     "verifiedAt": "2026-09-28"
   },
@@ -216,7 +215,6 @@
     "editorChoice": false,
     "market": "both",
     "updatedAt": "2026-09-28",
-    "handsOnTested": true,
     "trustpilotCheckedAt": "2026-09-28",
     "verifiedAt": "2026-09-28"
   },
@@ -323,7 +321,6 @@
     "editorChoice": false,
     "market": "us",
     "updatedAt": "2026-09-28",
-    "handsOnTested": true,
     "verifiedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28"
   },
@@ -423,7 +420,6 @@
     "editorChoice": false,
     "market": "us",
     "updatedAt": "2026-09-28",
-    "handsOnTested": true,
     "verifiedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28"
   },

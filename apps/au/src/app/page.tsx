@@ -101,7 +101,7 @@ export default function HomePage() {
             <span className="text-green-700">Cognitive Supplements</span>
           </h1>
           <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
-            We test every ingredient dose against peer-reviewed clinical trials. TGA personal
+            We check every ingredient dose against peer-reviewed clinical trials. TGA personal
             importation guidelines explained for every product.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">

@@ -8,10 +8,10 @@ const CURRENT_YEAR = new Date().getFullYear();
 
 export const metadata: Metadata = {
   title: 'Nootropic Comparator — Filter and Compare Side-by-Side (JP)',
-  description: 'Filter by goal, price, grade, caffeine, EU storefront, and hands-on testing. Sort by score, price, value, or Trustpilot. Pick up to 3 products to compare side-by-side.',
+  description: 'Filter by goal, price, grade, caffeine, and EU storefront. Sort by score, price, value, or Trustpilot. Pick up to 3 products to compare side-by-side.',
   alternates: buildAlternates({ regionCode: 'jp', path: '/nootropic-comparison/' }),
-  openGraph: buildOpenGraph({ regionCode: 'jp', path: '/nootropic-comparison/', title: 'Nootropic Comparator — Filter and Compare Side-by-Side (JP)', description: 'Filter by goal, price, grade, caffeine, EU storefront, and hands-on testing. Sort by score, price, value, or Trustpilot. Pick up to 3 products to compare side-by-side.' }),
-  twitter: buildTwitter({ title: 'Nootropic Comparator — Filter and Compare Side-by-Side (JP)', description: 'Filter by goal, price, grade, caffeine, EU storefront, and hands-on testing. Sort by score, price, value, or Trustpilot. Pick up to 3 products to compare side-by-side.' }),
+  openGraph: buildOpenGraph({ regionCode: 'jp', path: '/nootropic-comparison/', title: 'Nootropic Comparator — Filter and Compare Side-by-Side (JP)', description: 'Filter by goal, price, grade, caffeine, and EU storefront. Sort by score, price, value, or Trustpilot. Pick up to 3 products to compare side-by-side.' }),
+  twitter: buildTwitter({ title: 'Nootropic Comparator — Filter and Compare Side-by-Side (JP)', description: 'Filter by goal, price, grade, caffeine, and EU storefront. Sort by score, price, value, or Trustpilot. Pick up to 3 products to compare side-by-side.' }),
 };
 
 export default function ComparisonToolPage() {

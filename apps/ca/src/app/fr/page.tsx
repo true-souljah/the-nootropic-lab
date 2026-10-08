@@ -84,8 +84,8 @@ export default function FrHomePage() {
             <span className="text-green-700">suppléments cognitifs</span>
           </h1>
           <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
-            Nous comparons la dose de chaque ingrédient avec les résultats d\'essais cliniques révisés
-            par des pairs. Pas d\'auteurs anonymes. Pas de commissions cachées. Livraison au Canada
+            Nous comparons la dose de chaque ingrédient avec les résultats d’essais cliniques révisés
+            par des pairs. Pas de commissions cachées. Livraison au Canada
             vérifiée.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
