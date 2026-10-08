@@ -27,7 +27,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Bacopa Monnieri',
     evidence:
-      'The most-replicated memory ingredient in nootropics. Multiple double-blind RCTs in adults show improved memory consolidation and recall after 8–12 weeks at 300mg standardised to 50% bacosides. Onset is slow — daily for 8+ weeks. Not an acute-effect ingredient. Bacopa is permitted in TGA Listed Medicines, so several Australian brands (Blackmores, Caruso\'s, Nature\'s Own) sell standalone Bacopa products under AUST L numbers.',
+      'The most-replicated memory ingredient in nootropics. Multiple double-blind RCTs in adults show improved memory consolidation and recall after 8–12 weeks at 300mg standardised to 50% bacosides. Onset is slow — daily for 8+ weeks. Not an acute-effect ingredient. Bacopa is permitted in TGA Listed Medicines (Therapeutic Goods (Permissible Ingredients) Determination (No. 2) 2026, F2026L00707, as compiled 17 September 2026 — Compilation No. 1, F2026C00940 — Schedule 1 item 754; checked 2026-10-08), so several Australian brands (Blackmores, Caruso\'s, Nature\'s Own) sell standalone Bacopa products under AUST L numbers.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
   },
   {
@@ -39,7 +39,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Phosphatidylserine (PS)',
     evidence:
-      'Phospholipid component of brain cell membranes. Most RCT evidence is in 50–80-year-olds at 100–300mg/day. Less-strong evidence for memory in healthy younger adults. PS is not a permitted ingredient for therapeutic claims in TGA Listed Medicines; the PS-containing products ranked here (Mind Lab Pro, Qualia Mind) are sold direct to Australian buyers by their brands.',
+      'Phospholipid component of brain cell membranes. Most RCT evidence is in 50–80-year-olds at 100–300mg/day. Less-strong evidence for memory in healthy younger adults. PS is listed for TGA Listed Medicines as soy phosphatidylserine-enriched soy lecithin (liquid or powder), an active ingredient whose maximum recommended daily dose must not provide more than 300 mg of soy phosphatidylserine (Permissible Ingredients Determination, Schedule 1 items 4689 and 4690; checked 2026-10-08); the PS-containing products ranked here (Mind Lab Pro, Qualia Mind) are sold direct to Australian buyers by their brands.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {
