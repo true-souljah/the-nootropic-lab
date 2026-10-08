@@ -10,15 +10,15 @@ _Tick `- [x]` to mark an item done, then commit. Grouped by priority, then sourc
 - [ ] **Cooperation: Double Wood Supplements — affiliate via Impact (10% new / 2% existing, 30d)** — `doublewoodsupplements.com` · Verified at doublewoodsupplements.com/pages/affiliate… <!--id:gsc:96bef663d1f1019a-->
 - [ ] **Cooperation: Life Extension Europe — affiliate (10%, 30d, EU storefronts)** — `lifeextensioneurope.com` · Verified at lifeextensioneurope.com/membership/affilia… <!--id:gsc:dbaa0a5d38545e5e-->
 - [ ] **Cooperation: Neutonic — affiliate via Awin (8%, 30d)** — `neutonic.com` · Verified at Awin merchant profile 121846: 8% per… <!--id:gsc:9593ef0d8a9b6842-->
-- [ ] **Fix 0-click title/meta for eu-yan-sang-brainmax+ at position 9** — `/eu-yan-sang-brainmax-review` · 32 impr · pos 9.4 <!--id:gsc:157650bccac5d765-->
-- [ ] **Fix zero-click title/meta for Eu Yan Sang BrainMax+ review at pos 9.4** — `/eu-yan-sang-brainmax-review` · 32 impr · pos 9.4 <!--id:gsc:5a32b8db19fe91ab-->
+- [x] **Fix 0-click title/meta for eu-yan-sang-brainmax+ at position 9** — `/eu-yan-sang-brainmax-review` · 32 impr · pos 9.4 · DONE 2026-10-08 (branch fix/review-title-meta-brainmax-blackmores-2026-10): SEA + GCC review titles/descriptions rewritten via seoTitle/seoDescription (Cera-Q evidence, 600mg dose, 2017 MFDS revocation, price / GCC delivery); GCC route now reads the override; validate-data gates override drift. Ranking items stay open. <!--id:gsc:157650bccac5d765-->
+- [x] **Fix zero-click title/meta for Eu Yan Sang BrainMax+ review at pos 9.4** — `/eu-yan-sang-brainmax-review` · 32 impr · pos 9.4 · DONE 2026-10-08 (branch fix/review-title-meta-brainmax-blackmores-2026-10): duplicate of the BrainMAX+ title/meta item above; same change. <!--id:gsc:5a32b8db19fe91ab-->
 - [ ] **Push 'blackmores brain active' review from pos 11 to page 1** — `/blackmores-brain-active-review` · 31 impr · pos 11.1 <!--id:gsc:35a5b25c2f2b2a5b-->
 - [ ] **Push 'eu yan sang brainmax' from pos 14.2 to page 1** — `/eu-yan-sang-brainmax-review/` · 33 impr · pos 14.2 <!--id:gsc:20e355b326f2a5ce-->
 - [ ] **Push 'nootropics avis' from pos 24.5 to page 1** — `/fr/meilleurs-nootropiques/` · 60 impr · pos 24.5 <!--id:gsc:a6cc6c80b6f3d622-->
 - [ ] **Push /countries/peru to page 1** — `/countries/peru` · 18 impr · 0 clk · pos 18.4 — best-ranking page on the… <!--id:gsc:752d33c335ee2fe0-->
 - [ ] **Push EU Yan Sang Brainmax review from pos 12.8 onto page 1** — `/eu-yan-sang-brainmax-review/` · 16 impr · 0 clk · pos 12.8 (90d). Positioned just off… <!--id:gsc:7eb82f85ddfabf60-->
 - [ ] **Push Eu Yan Sang BrainMax review to page 1** — `/eu-yan-sang-brainmax-review` · 53 impr · pos 11.3 <!--id:gsc:60728af4ae868de2-->
-- [ ] **Rewrite title/meta for Blackmores Brain Active review — page-1 rank, zero clicks** — `/blackmores-brain-active-review/` · 24 impr · 0 clk · pos 10.2 (90d). Sits at the bottom… <!--id:gsc:234347e0bca19051-->
+- [x] **Rewrite title/meta for Blackmores Brain Active review — page-1 rank, zero clicks** — `/blackmores-brain-active-review/` · 24 impr · 0 clk · pos 10.2 (90d). Sits at the bottom… · DONE 2026-10-08 (branch fix/review-title-meta-brainmax-blackmores-2026-10): SEA title/description now say the product is discontinued and point to its doses and alternatives (the earlier "pharmacy pick" override was removed 2026-09-29 as stale); validate-data requires "discontinued" in overrides on discontinued records. <!--id:gsc:234347e0bca19051-->
 
 ## P2
 
