@@ -19,7 +19,9 @@
 //   packages/data/assets/products/<id>-480.webp  480×480 (review-page hero)
 // Pack-shots on a white/transparent background are trimmed to the product and
 // re-padded so it fills the tile; full-bleed studio photos (coloured backdrop
-// edge to edge) keep their backdrop and fill the square.
+// edge to edge) keep their backdrop and fill the square. Nothing is ever
+// enlarged: a product smaller than the target is centred at its native size
+// on the white square (e.g. Suntory's 400px original in the 480 file).
 //
 // sharp is not a declared dependency: it is present in node_modules as an
 // optional dependency of `next`. CI and Cloudflare install with
@@ -76,14 +78,14 @@ async function render({ buffer, fullBleed }, size, quality) {
   const meta = await sharp(buffer).metadata();
   const aspect = meta.width / meta.height;
   let pipeline;
-  if (fullBleed && aspect > 0.9 && aspect < 1.1) {
+  if (fullBleed && aspect > 0.9 && aspect < 1.1 && Math.min(meta.width, meta.height) >= size) {
     // Near-square studio photo: fill the square (crops < 5% of backdrop) so no
     // white sliver frames one pair of sides.
     pipeline = sharp(buffer).resize(size, size, { fit: 'cover', position: 'centre' });
   } else {
     const inner = fullBleed ? size : Math.round(size * (1 - 2 * PAD));
     const fitted = await sharp(buffer)
-      .resize(inner, inner, { fit: 'contain', background: WHITE })
+      .resize(inner, inner, { fit: 'contain', background: WHITE, withoutEnlargement: true })
       .toBuffer();
     pipeline = sharp({ create: { width: size, height: size, channels: 3, background: WHITE } }).composite([
       { input: fitted, gravity: 'centre' },

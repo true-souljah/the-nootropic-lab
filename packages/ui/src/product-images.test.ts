@@ -14,8 +14,8 @@ const ASSETS = join(REPO_ROOT, 'packages', 'data', 'assets', 'products');
 const REGIONS = ['us', 'eu', 'ca', 'au', 'jp', 'latam', 'gcc', 'sea'] as const;
 
 // Active products with no vendor image: Memo Plus Gold has no vendor-owned
-// page; suntory-kenko.com refused every download (manifest 2026-10-07).
-const ACTIVE_WITHOUT_IMAGE = ['memo-plus-gold', 'suntory-dha-epa-sesamin'];
+// page (manifest 2026-10-07; the operator must supply one).
+const ACTIVE_WITHOUT_IMAGE = ['memo-plus-gold'];
 // Discontinued products keep their review page (monogram) — no current
 // vendor page to take a pack-shot from.
 const DISCONTINUED_WITHOUT_IMAGE = ['blackmores-brain-active', 'braineffect-focus', 'performance-lab-mind'];
@@ -52,7 +52,7 @@ function webpSize(buf: Buffer): { width: number; height: number } {
 
 describe('product images', () => {
   it('has entries and reads every region catalogue', () => {
-    expect(entries.length).toBeGreaterThanOrEqual(19);
+    expect(entries.length).toBeGreaterThanOrEqual(20);
     for (const r of REGIONS) expect(regionProducts[r].length, r).toBeGreaterThan(0);
   });
 
