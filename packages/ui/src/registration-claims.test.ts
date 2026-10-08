@@ -142,6 +142,13 @@ const HALAL_UNSOURCED: RegExp[] = [
   /halal-compliant/i,
   /always halal/i,
   /porcine-free (formulations|options)/i,
+  // "Halal-friendly" / "halal-neutral" labels assert the same judgement, and
+  // caffeine status is shown per product (caffeineFree chip) but never feeds
+  // the hand-set scores or ranks.
+  /Halal-friendly/i,
+  /halal-neutral/i,
+  /(caffeine|stimulant)-free (options |formulations )?prioritised/i,
+  /prioriti[sz]e caffeine-free/i,
 ];
 
 describe('no copy asserts a product is not halal-certified or that rankings weight halal status', () => {
