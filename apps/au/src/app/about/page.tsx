@@ -81,8 +81,7 @@ export default function AboutPage() {
             The Nootropic Lab is editorially independent.{' '}
             <strong>The Nootropic Lab</strong> is an independent editorial team building evidence-graded
             comparison sites in regulated verticals (financial services, supplements, prediction markets).
-            Editorial is led by The Nootropic Lab Editorial Team. Every review carries a named author byline &mdash; no
-            anonymous content. Meet the editor.
+            Editorial is led by The Nootropic Lab Editorial Team.
           </p>
         </section>
 

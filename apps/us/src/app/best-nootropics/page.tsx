@@ -8,11 +8,11 @@ import { SITE_URL } from '@/lib/region';
 const CURRENT_YEAR = new Date().getFullYear();
 
 export const metadata: Metadata = {
-  title: `Best Nootropics ${CURRENT_YEAR}: Expert-Tested & Ranked for Focus, Memory and Energy`,
+  title: `Best Nootropics ${CURRENT_YEAR}: Evidence-Graded & Ranked for Focus, Memory and Energy`,
   description: `Independent comparison of the best nootropic supplements in ${CURRENT_YEAR}. Every ingredient audited against clinical trials. Transparent scoring and affiliate disclosure.`,
   alternates: buildAlternates({ regionCode: 'us', path: '/best-nootropics/' }),
-  openGraph: buildOpenGraph({ regionCode: 'us', path: '/best-nootropics/', title: `Best Nootropics ${CURRENT_YEAR}: Expert-Tested & Ranked for Focus, Memory and Energy`, description: `Independent comparison of the best nootropic supplements in ${CURRENT_YEAR}. Every ingredient audited against clinical trials. Transparent scoring and affiliate disclosure.` }),
-  twitter: buildTwitter({ title: `Best Nootropics ${CURRENT_YEAR}: Expert-Tested & Ranked for Focus, Memory and Energy`, description: `Independent comparison of the best nootropic supplements in ${CURRENT_YEAR}. Every ingredient audited against clinical trials. Transparent scoring and affiliate disclosure.` }),
+  openGraph: buildOpenGraph({ regionCode: 'us', path: '/best-nootropics/', title: `Best Nootropics ${CURRENT_YEAR}: Evidence-Graded & Ranked for Focus, Memory and Energy`, description: `Independent comparison of the best nootropic supplements in ${CURRENT_YEAR}. Every ingredient audited against clinical trials. Transparent scoring and affiliate disclosure.` }),
+  twitter: buildTwitter({ title: `Best Nootropics ${CURRENT_YEAR}: Evidence-Graded & Ranked for Focus, Memory and Energy`, description: `Independent comparison of the best nootropic supplements in ${CURRENT_YEAR}. Every ingredient audited against clinical trials. Transparent scoring and affiliate disclosure.` }),
 };
 
 const faqItems = [
@@ -58,7 +58,7 @@ export default function BestNootropicsUSPage() {
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: `Best Nootropics ${CURRENT_YEAR}: Expert-Tested & Ranked`,
+    headline: `Best Nootropics ${CURRENT_YEAR}: Evidence-Graded & Ranked`,
     datePublished: '2026-01-15',
     dateModified: new Date().toISOString().split('T')[0],
     author: buildPersonAuthorReference(undefined, SITE_URL),
