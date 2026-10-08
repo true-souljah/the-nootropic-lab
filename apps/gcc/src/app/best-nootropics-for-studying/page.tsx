@@ -10,13 +10,13 @@ const CURRENT_YEAR = new Date().getFullYear();
 
 
 export const metadata: Metadata = {
-  title: `Best Nootropics for Studying in the GCC ${CURRENT_YEAR}: Halal-Friendly Picks for Students in Saudi, UAE & Gulf`,
+  title: `Best Nootropics for Studying in the GCC ${CURRENT_YEAR}: Student Picks for Saudi, UAE & Gulf with Capsule & Halal-Certificate Notes`,
   description:
-    'Independent ranking of nootropics for sustained study sessions for GCC students. Caffeine-free options prioritised. Halal status and SFDA/MOHAP registration noted.',
+    'Independent ranking of nootropics for sustained study sessions for GCC students. Each pick is marked caffeine-free or caffeinated; rankings are not adjusted for it. Halal status and SFDA/MOHAP registration noted.',
   alternates: buildAlternates({ regionCode: 'gcc', path: '/best-nootropics-for-studying/' }),
   openGraph: {
     title: 'Best Nootropics for Studying — GCC Student\'s Guide',
-    description: 'Sustained focus + memory consolidation for GCC students. Halal-friendly, caffeine-free options for Ramadan-compatible use.',
+    description: 'Sustained focus + memory consolidation for GCC students, with capsule-shell and halal-certificate notes, caffeine-free picks marked, and Ramadan timing notes.',
     type: 'article',
   },
   twitter: { card: 'summary' },
@@ -32,19 +32,19 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Bacopa Monnieri — long-term memory consolidation',
     evidence:
-      'Critical for retention of studied material. Bacopa improves memory consolidation — what your brain does during sleep with material you studied that day. 300mg standardised to 50% bacosides daily for 8+ weeks. Start at the beginning of the term, not the night before the exam. Plant-derived, halal-compliant.',
+      'Critical for retention of studied material. Bacopa improves memory consolidation — what your brain does during sleep with material you studied that day. 300mg standardised to 50% bacosides daily for 8+ weeks. Start at the beginning of the term, not the night before the exam. Plant-derived.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
   },
   {
     name: 'Citicoline — choline for cognitive demand',
     evidence:
-      'Heavy cognitive demand depletes choline. Citicoline at 250–500mg/day supports phospholipid synthesis and acetylcholine availability — the neurotransmitter most associated with attention and learning. Cognizin is the standardised form. Synthesised, not animal-derived — halal-compliant.',
+      'Heavy cognitive demand depletes choline. Citicoline at 250–500mg/day supports phospholipid synthesis and acetylcholine availability — the neurotransmitter most associated with attention and learning. Cognizin is the standardised form. Synthesised, not animal-derived.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
   {
     name: 'L-Tyrosine — under-stress performance',
     evidence:
-      'Acute exam stress and sleep deprivation deplete catecholamines. Tyrosine supplementation has documented benefit for cognitive performance specifically under stress, sleep loss, or cold. 300–500mg as NALT for short bursts; not for daily continuous use. Vegetarian/halal-friendly.',
+      'Acute exam stress and sleep deprivation deplete catecholamines. Tyrosine supplementation has documented benefit for cognitive performance specifically under stress, sleep loss, or cold. 300–500mg as NALT for short bursts; not for daily continuous use. Vegetarian.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/26424423/',
   },
 ];
@@ -115,7 +115,7 @@ export default function Page() {
     <Listicle
       useCase="studying"
       pageTitle="Best Nootropics for Studying in the GCC"
-      pageDescription="Independent ranking of nootropics for sustained study sessions for GCC students. Caffeine-free options prioritised; halal status noted."
+      pageDescription="Independent ranking of nootropics for sustained study sessions for GCC students. Each pick is marked caffeine-free or caffeinated (rankings are not adjusted for it); halal status noted."
       heroParagraph="Studying combines two distinct cognitive demands: sustained focus during study sessions and memory consolidation between them. The best study stack covers both — acute-effect focus ingredients (L-theanine + caffeine) plus daily-use memory ingredients (Bacopa, citicoline). For GCC students, the additional considerations are halal compliance, capsule source (plant-based HPMC/pullulan vs. animal-derived gelatin), Ramadan compatibility (caffeine-free formats and timing flexibility), and SFDA/MOHAP registration status. This page ranks the products that include both focus and memory mechanisms with these GCC-specific considerations annotated. Distribution: BinSina, Aster, Life Pharmacy (UAE); Al-Dawaa, Nahdi (KSA); iHerb Saudi-compliant DC for international imports."
       ingredientMechanism={ingredientMechanism}
       picks={picks}

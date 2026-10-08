@@ -10,13 +10,13 @@ const CURRENT_YEAR = new Date().getFullYear();
 
 
 export const metadata: Metadata = {
-  title: `Best Nootropics for Focus in the GCC ${CURRENT_YEAR}: Halal-Friendly Picks for Saudi, UAE & Gulf Buyers`,
+  title: `Best Nootropics for Focus in the GCC ${CURRENT_YEAR}: Saudi, UAE & Gulf Picks with Capsule & Halal-Certificate Notes`,
   description:
-    'Independent ranking of the best nootropics for focus available in the GCC. Halal status and SFDA/MOHAP registration noted per pick. Caffeine-free options prioritised.',
+    'Independent ranking of the best nootropics for focus available in the GCC. Halal status and SFDA/MOHAP registration noted per pick. Each pick is marked caffeine-free or caffeinated; rankings are not adjusted for it.',
   alternates: buildAlternates({ regionCode: 'gcc', path: '/best-nootropics-for-focus/' }),
   openGraph: {
     title: 'Best Nootropics for Focus — GCC Buyer\'s Guide',
-    description: 'Halal-friendly focus supplements for Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, Oman. Capsule sources disclosed.',
+    description: 'Focus supplements for Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, Oman. Notes each brand’s capsule-shell statement and whether a halal certificate is shown.',
     type: 'article',
   },
   twitter: { card: 'summary' },
@@ -38,7 +38,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Tyrosine (or NALT)',
     evidence:
-      'Precursor to dopamine + norepinephrine. Effective specifically under cognitive load or stress — improves performance on attention tasks during sleep deprivation, multitasking, or cold exposure. Clinical doses 300–500mg as N-acetyl-L-tyrosine. Vegetarian/halal-friendly (synthesised, not animal-derived).',
+      'Precursor to dopamine + norepinephrine. Effective specifically under cognitive load or stress — improves performance on attention tasks during sleep deprivation, multitasking, or cold exposure. Clinical doses 300–500mg as N-acetyl-L-tyrosine. Vegetarian (synthesised, not animal-derived).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/26424423/',
   },
   {
