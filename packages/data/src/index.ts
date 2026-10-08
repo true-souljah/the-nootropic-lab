@@ -6,6 +6,8 @@ export { productsAU, allProductsAU } from './products-au';
 export { productsJP, allProductsJP } from './products-jp';
 export { productsLatam, allProductsLatam } from './products-latam';
 export { activeProducts, isDiscontinued } from './product-status';
+export type { ProductImage, ProductImageFile, ProductImageVariant } from './product-images';
+export { PRODUCT_IMAGE_SIZES, productImages, productImage } from './product-images';
 export type { ProductForm } from './serving-unit';
 export { PRODUCT_FORMS, productForm, servingUnit, servingAmount, servingsComparable } from './serving-unit';
 export { affiliateUrlProblem, formulaProblem, formProblem, productRuleProblems, scoreProblem, UNSCORABLE_PILLARS, PILLAR_WEIGHTS, halalEvidenceProblem, HALAL_CERTIFIERS } from './product-rules';

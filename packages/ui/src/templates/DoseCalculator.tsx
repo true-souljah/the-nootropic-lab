@@ -8,6 +8,7 @@ import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
 import { LiveRegion } from '../primitives/LiveRegion';
+import { ProductThumb } from '../primitives/ProductThumb';
 import type { Ingredient, Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 import { parseClinicalDose, statusFor, defaultDoseFor, type DoseStatus, type ParsedDose } from './doseRange';
@@ -302,12 +303,7 @@ export default function DoseCalculator({
                   Closest off-the-shelf
                 </div>
                 <div className="flex items-start gap-3 mb-3">
-                  <div
-                    className="w-10 h-10 bg-ds-ink rounded-[10px] grid place-items-center text-white font-extrabold text-[16px] flex-shrink-0"
-                    aria-hidden="true"
-                  >
-                    {closest.product.name[0]}
-                  </div>
+                  <ProductThumb product={closest.product} size={40} variant="sm" />
                   <div className="flex-1 min-w-0">
                     <Link
                       href={`/${closest.product.slug}/`}

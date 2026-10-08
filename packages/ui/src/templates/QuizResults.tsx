@@ -3,6 +3,7 @@ import { Card } from '../primitives/Card';
 import { BrandMark } from '../primitives/BrandMark';
 import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
+import { ProductThumb } from '../primitives/ProductThumb';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
 import type { Product } from '@nootropic/data';
 import {
@@ -81,12 +82,7 @@ export default function QuizResults({
           </div>
 
           <div className="flex gap-5 items-start mt-3 flex-wrap">
-            <div
-              className="w-16 h-16 bg-ds-ink rounded-[14px] grid place-items-center text-white font-extrabold text-[24px] flex-shrink-0"
-              aria-hidden="true"
-            >
-              {top.name[0]}
-            </div>
+            <ProductThumb product={top} size={64} variant="sm" />
             <div className="flex-1 min-w-[200px]">
               <div className="flex flex-wrap gap-[6px] mb-2">
                 {top.editorChoice && <Chip tone="accent">★ Editor&apos;s pick</Chip>}
