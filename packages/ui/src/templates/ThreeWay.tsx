@@ -378,6 +378,8 @@ export default function ThreeWay({
                     ? 'bg-ds-accent hover:bg-ds-accent-press text-white'
                     : 'bg-ds-card hover:bg-ds-card-sub text-ds-ink border border-ds-border'
                 }`}
+                noticeStrings={uiStrings.noPurchaseLink}
+                noticeClassName="w-full"
               >
                 Check {p.name} ({`${formatPrice(p)}/mo`}) →
               </TrackedAffiliateLink>

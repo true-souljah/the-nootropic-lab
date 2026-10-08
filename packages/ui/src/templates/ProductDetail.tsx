@@ -10,6 +10,7 @@ import { Chip } from '../primitives/Chip';
 import { Tabs, TabPanel } from '../primitives/Tabs';
 import { ProductThumb } from '../primitives/ProductThumb';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
+import NoPurchaseLinkNotice from '../NoPurchaseLinkNotice';
 import { productForm, servingAmount, servingUnit, guaranteeDays } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
@@ -156,6 +157,10 @@ export default function ProductDetail({
           </aside>
         )}
 
+        {/* No purchase link in this edition (Product.noPurchaseLink): the full
+            notice here; the CTA slots below show the short label. */}
+        <NoPurchaseLinkNotice product={p} strings={uiStrings.noPurchaseLink} id="no-purchase-link" className="mb-4" />
+
         {/* Header card */}
         <Card padding={24} className="mb-4">
           <div className="flex gap-[22px] items-start flex-wrap">
@@ -262,6 +267,8 @@ export default function ProductDetail({
                 position={1}
                 surface="review"
                 className="inline-block bg-ds-accent hover:bg-ds-accent-press text-white border-0 px-[18px] py-[10px] rounded-[8px] text-[13px] font-semibold focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
+                noticeStrings={uiStrings.noPurchaseLink}
+                noticeVariant="compact"
               >
                 {pd.visitBrand}
               </TrackedAffiliateLink>
@@ -294,7 +301,7 @@ export default function ProductDetail({
         </TabPanel>
         {!discontinued && (
           <TabPanel idPrefix="product" id="pricing" hidden={tab !== 'pricing'} className="mt-5">
-            <PricingTab product={p} disclosure={uiStrings.disclosure} />
+            <PricingTab product={p} disclosure={uiStrings.disclosure} noticeStrings={uiStrings.noPurchaseLink} />
           </TabPanel>
         )}
 

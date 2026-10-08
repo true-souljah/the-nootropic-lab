@@ -3,7 +3,8 @@ import { useId, useState, useMemo } from 'react';
 import type { Product, UIStrings } from '@nootropic/data';
 import ScoreTooltip from './ScoreTooltip';
 import EUBadge from './EUBadge';
-import { guaranteeDays } from '@nootropic/data';
+import NoPurchaseLinkNotice from './NoPurchaseLinkNotice';
+import { guaranteeDays, purchaseUrl, NO_PURCHASE_LINK_STRINGS } from '@nootropic/data';
 
 type SortKey = 'score' | 'priceMonthlyUSD' | 'priceMonthlyEUR' | 'priceMonthlyJPY' | 'priceMonthlyCAD' | 'moneyBackDays' | 'trustpilotScore';
 type SortDir = 'asc' | 'desc';
@@ -37,6 +38,21 @@ function SortBtn({ col, sortKey, sortDir, onSort, t }: SortBtnProps) {
 
 export default function ComparisonTable({ products, market, strings }: Props) {
   const t = strings?.table;
+  // Same English fallback as the rest of this table when no bundle is passed.
+  const noticeStrings = strings?.noPurchaseLink ?? NO_PURCHASE_LINK_STRINGS.en;
+  // Buy link through the purchaseUrl() gate; the short notice when the
+  // edition shows no purchase link for the product.
+  const buyLink = (p: Product, className: string, label: string) => {
+    const href = purchaseUrl(p);
+    if (href === null) {
+      return <NoPurchaseLinkNotice product={p} strings={noticeStrings} variant="compact" />;
+    }
+    return (
+      <a href={href} target="_blank" rel="nofollow sponsored noopener noreferrer" className={className}>
+        {label}
+      </a>
+    );
+  };
   const uid = useId();
   const [activeFilters, setActiveFilters] = useState<Set<string>>(new Set());
   // Per-market price slider bounds. JPY products span ~¥4,000-10,000 — a
@@ -236,14 +252,11 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                   )}
                 </td>
                 <td className="p-3">
-                  <a
-                    href={p.affiliateUrl}
-                    target="_blank"
-                    rel="nofollow sponsored noopener noreferrer"
-                    className="bg-green-700 hover:bg-green-600 text-white text-xs font-bold px-3 py-1.5 rounded whitespace-nowrap"
-                  >
-                    {t?.checkPrice || 'Check Price →'}
-                  </a>
+                  {buyLink(
+                    p,
+                    'bg-green-700 hover:bg-green-600 text-white text-xs font-bold px-3 py-1.5 rounded whitespace-nowrap',
+                    t?.checkPrice || 'Check Price →',
+                  )}
                 </td>
               </tr>
             ))}
@@ -318,14 +331,11 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                   <EUBadge euStorefront />
                 </div>
               )}
-              <a
-                href={p.affiliateUrl}
-                target="_blank"
-                rel="nofollow sponsored noopener noreferrer"
-                className="block w-full bg-green-700 hover:bg-green-600 text-white text-sm font-bold py-2 rounded text-center"
-              >
-                {t?.checkPrice || 'Check Current Price →'}
-              </a>
+              {buyLink(
+                p,
+                'block w-full bg-green-700 hover:bg-green-600 text-white text-sm font-bold py-2 rounded text-center',
+                t?.checkPrice || 'Check Current Price →',
+              )}
             </div>
           </div>
         ))}

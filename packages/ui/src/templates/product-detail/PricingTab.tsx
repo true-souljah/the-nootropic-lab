@@ -8,9 +8,11 @@ export interface PricingTabProps {
   product: Product;
   /** Locale disclosure bundle — the commission sentence must render in the page locale. */
   disclosure: UIStrings['disclosure'];
+  /** Short notice in place of the buy buttons when the edition shows no purchase link. */
+  noticeStrings: UIStrings['noPurchaseLink'];
 }
 
-export function PricingTab({ product: p, disclosure }: PricingTabProps) {
+export function PricingTab({ product: p, disclosure, noticeStrings }: PricingTabProps) {
   return (
     <div className="grid gap-4 grid-cols-1 lg:grid-cols-2">
       {(p.pricingModel === 'subscription' || p.pricingModel === 'both') && (
@@ -44,6 +46,8 @@ export function PricingTab({ product: p, disclosure }: PricingTabProps) {
             position={1}
             surface="review"
             className="block w-full text-center bg-ds-accent hover:bg-ds-accent-press text-white border-0 py-[10px] rounded-[8px] text-[13px] font-semibold focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
+            noticeStrings={noticeStrings}
+            noticeVariant="compact"
           >
             Visit {p.brand} →
           </TrackedAffiliateLink>
@@ -90,6 +94,8 @@ export function PricingTab({ product: p, disclosure }: PricingTabProps) {
             position={2}
             surface="review"
             className="block w-full text-center bg-ds-card hover:bg-ds-card-sub text-ds-ink border border-ds-border py-[10px] rounded-[8px] text-[13px] font-semibold no-underline focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
+            noticeStrings={noticeStrings}
+            noticeVariant="compact"
           >
             Buy single bottle →
           </TrackedAffiliateLink>
