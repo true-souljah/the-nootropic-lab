@@ -190,6 +190,11 @@ const AU_LEGAL_SOURCES = [
 ];
 
 const NOT_PERMITTED = /not a permitted ingredient/i;
+// A concrete Schedule 1 item reference ("item 4689", "items 4689 and 4690");
+// the bare word "item(s)" ("see other items") does not count.
+const SCHEDULE_ITEM_REF = /\bitems? \d{2,5}\b/i;
+const unsourcedNotPermitted = (line: string): boolean =>
+  NOT_PERMITTED.test(line) && !SCHEDULE_ITEM_REF.test(line);
 
 const AU_LEGAL_UNSOURCED: RegExp[] = [
   /may (attract|require) (Therapeutic Goods Administration \()?TGA\)? (scrutiny|oversight)/i,
@@ -208,11 +213,18 @@ describe('AU legal statements follow the Permissible Ingredients Determination a
     expect(AU_LEGAL_SOURCES.every(f => existsSync(f))).toBe(true);
   });
 
+  test('the Schedule 1 item exception needs a numbered item, not the bare word', () => {
+    expect(unsourcedNotPermitted('X is not a permitted ingredient; see other items.')).toBe(true);
+    expect(unsourcedNotPermitted('X is not a permitted ingredient in listed medicines.')).toBe(true);
+    expect(unsourcedNotPermitted('X is not a permitted ingredient except as Schedule 1 item 4689.')).toBe(false);
+    expect(unsourcedNotPermitted('X is not a permitted ingredient except as items 4689 and 4690.')).toBe(false);
+  });
+
   test('"not a permitted ingredient" appears only on a line that names its Schedule 1 item', () => {
     const hits = AU_LEGAL_SOURCES.flatMap(file => {
       const lines = readFileSync(file, 'utf8').split('\n');
       return lines.flatMap((line, i) =>
-        NOT_PERMITTED.test(line) && !/\bitems?\b/i.test(line) ? [`${file.slice(REPO_ROOT.length + 1)}:${i + 1}`] : [],
+        unsourcedNotPermitted(line) ? [`${file.slice(REPO_ROOT.length + 1)}:${i + 1}`] : [],
       );
     });
     expect(hits).toEqual([]);
