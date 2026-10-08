@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     'Independent nootropic reviews for GCC buyers. Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, Oman — evidence-graded with import and VAT notes.',
   openGraph: {
     title: 'The Nootropic Lab GCC — Independent Cognitive Supplement Reviews',
-    description: 'Evidence-graded nootropic reviews for GCC buyers. Clinical dosing audits. Halal-friendly options.',
+    description: 'Evidence-graded nootropic reviews for GCC buyers. Clinical dosing audits. Capsule-shell and halal-certificate notes.',
     url: 'https://gcc.thenootropiclab.com',
     siteName: 'The Nootropic Lab GCC',
     type: 'website',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'The Nootropic Lab GCC — Independent Cognitive Supplement Reviews',
-    description: 'Evidence-graded nootropic reviews for GCC buyers. Clinical dosing audits. Halal-friendly options.',
+    description: 'Evidence-graded nootropic reviews for GCC buyers. Clinical dosing audits. Capsule-shell and halal-certificate notes.',
   },
   alternates: buildAlternates({ regionCode: 'gcc', path: '/' }),
 };
@@ -50,8 +50,8 @@ const features = [
   },
   {
     icon: '🌙',
-    title: 'Halal-friendly options',
-    desc: 'We prioritise caffeine-free, porcine-free formulations suitable for GCC buyers. Ingredient sources clearly noted.',
+    title: 'Capsule and halal-certificate notes',
+    desc: 'We record each brand’s capsule-shell statement and whether a halal certificate is shown (none of the brands we checked shows one, checked 2026-10-07); rankings are not adjusted for it.',
   },
   {
     icon: '📦',
@@ -87,7 +87,7 @@ export default function HomePage() {
       <section className="bg-gradient-to-b from-green-50 to-white py-16 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full mb-4">
-            GCC Market · Evidence-Graded · Halal-Friendly Options
+            GCC Market · Evidence-Graded · Capsule &amp; Certificate Notes
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
             The Independent GCC Guide to

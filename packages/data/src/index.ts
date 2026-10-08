@@ -14,6 +14,7 @@ export { affiliateUrlProblem, formulaProblem, formProblem, productRuleProblems, 
 export { NOT_AVAILABLE, outOfTen, pillarText, guaranteeDays } from './display-values';
 export type { DosingAnchor } from './dosing-anchors';
 export { DOSING_ANCHORS, doseMg, dosingAnchorProblems } from './dosing-anchors';
+export { SEO_TITLE_MAX, SEO_DESCRIPTION_MAX, seoOverrideProblems } from './seo-overrides';
 export { productsGCC, allProductsGCC } from './products-gcc';
 export { productsSEA, allProductsSEA } from './products-sea';
 export type { Ingredient, HumanEffect, HowToTake, StackPair, FAQ, IngredientSource } from './ingredients';
