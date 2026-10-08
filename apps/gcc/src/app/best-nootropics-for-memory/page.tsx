@@ -26,25 +26,25 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Bacopa Monnieri',
     evidence:
-      'The most-replicated memory ingredient in nootropics. Multiple double-blind RCTs in adults show improved memory consolidation and recall after 8–12 weeks at 300mg standardised to 50% bacosides. Onset is slow — daily for 8+ weeks. Plant-derived; halal-compliant. Widely used in Ayurvedic medicine and increasingly available in GCC pharmacies.',
+      'The most-replicated memory ingredient in nootropics. Multiple double-blind RCTs in adults show improved memory consolidation and recall after 8–12 weeks at 300mg standardised to 50% bacosides. Onset is slow — daily for 8+ weeks. Plant-derived. Widely used in Ayurvedic medicine and increasingly available in GCC pharmacies.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
   },
   {
     name: 'Lion\'s Mane (Hericium erinaceus)',
     evidence:
-      'Modulates Nerve Growth Factor (NGF) and may support neurogenesis. Small RCTs (notably Mori et al. 2009 in older adults with mild cognitive impairment) showed memory improvements at 1g/day fruiting-body extract over 16 weeks. Mushroom-derived — halal by default. Look for fruiting-body extract, not mycelium-on-grain.',
+      'Modulates Nerve Growth Factor (NGF) and may support neurogenesis. Small RCTs (notably Mori et al. 2009 in older adults with mild cognitive impairment) showed memory improvements at 1g/day fruiting-body extract over 16 weeks. Mushroom-derived. Look for fruiting-body extract, not mycelium-on-grain.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18844328/',
   },
   {
     name: 'Phosphatidylserine (PS)',
     evidence:
-      'Phospholipid component of brain cell membranes. The FDA permits a qualified health claim for PS supporting cognitive function in elderly adults. Most RCT evidence is in 50–80-year-olds at 100–300mg/day. The trial linked below (Vakhapova et al. 2010) is not the basis of the FDA claim: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo. GCC note: PS is most commonly soy-derived (halal-friendly); some products use bovine-sourced PS — verify the source if observing strict halal slaughter requirements. Sunflower-derived PS is also available.',
+      'Phospholipid component of brain cell membranes. The FDA permits a qualified health claim for PS supporting cognitive function in elderly adults. Most RCT evidence is in 50–80-year-olds at 100–300mg/day. The trial linked below (Vakhapova et al. 2010) is not the basis of the FDA claim: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo. GCC note: PS source (soy, sunflower or bovine) is not stated by every brand — check the label.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {
     name: 'Citicoline (CDP-Choline)',
     evidence:
-      'Choline donor + uridine source. RCTs in older adults with age-related memory complaints show improvements in verbal memory and processing speed at 250–500mg/day for 12+ weeks. Synthesised, not animal-derived — halal-compliant.',
+      'Choline donor + uridine source. RCTs in older adults with age-related memory complaints show improvements in verbal memory and processing speed at 250–500mg/day for 12+ weeks. Synthesised, not animal-derived.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
 ];
@@ -79,7 +79,7 @@ const picks: ListiclePick[] = [
 const faqItems: ListicleFAQ[] = [
   {
     q: 'Are these supplements halal?',
-    a: 'On capsules, Mind Lab Pro states pullulan (NutriCaps) capsules and Qualia Mind vegetarian (hypromellose) capsules; Nootropics Depot labels its Lion\'s Mane vegan but does not state the capsule shell material; Eu Yan Sang BrainMAX+ is a powder sachet, so it has no capsule shell. None of these brands (Mind Lab Pro, Qualia Mind, Eu Yan Sang BrainMAX+, Nootropics Depot) shows a halal certificate on its pages (checked 2026-10-07), and BrainMAX+ is not among the 77 items in Eu Yan Sang Singapore\'s Halal Certified category, so observant buyers should verify each brand\'s latest ingredient sourcing. Note on phosphatidylserine: most products use soy-derived PS (halal); some use bovine-derived PS (would need halal-slaughter verification) or sunflower-derived PS (always halal).',
+    a: 'On capsules, Mind Lab Pro states pullulan (NutriCaps) capsules and Qualia Mind vegetarian (hypromellose) capsules; Nootropics Depot labels its Lion\'s Mane vegan but does not state the capsule shell material; Eu Yan Sang BrainMAX+ is a powder sachet, so it has no capsule shell. None of these brands (Mind Lab Pro, Qualia Mind, Eu Yan Sang BrainMAX+, Nootropics Depot) shows a halal certificate on its pages (checked 2026-10-07), and BrainMAX+ is not among the 77 items in Eu Yan Sang Singapore\'s Halal Certified category, so observant buyers should verify each brand\'s latest ingredient sourcing. Note on phosphatidylserine: PS source (soy, sunflower or bovine) is not stated by every brand — check the label.',
   },
   {
     q: 'Which of these are SFDA-registered or MOHAP-registered?',

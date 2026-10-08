@@ -50,8 +50,8 @@ const features = [
   },
   {
     icon: '🌙',
-    title: 'Halal-friendly options',
-    desc: 'We prioritise caffeine-free, porcine-free formulations suitable for GCC buyers. Ingredient sources clearly noted.',
+    title: 'Capsule and halal-certificate notes',
+    desc: 'We record each brand’s capsule-shell statement and whether a halal certificate is shown (none of the brands we checked shows one, checked 2026-10-07); rankings are not adjusted for it.',
   },
   {
     icon: '📦',

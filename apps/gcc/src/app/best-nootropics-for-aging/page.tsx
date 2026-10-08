@@ -26,25 +26,25 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Phosphatidylserine (PS) — FDA qualified health claim',
     evidence:
-      'The FDA permits a qualified health claim that PS may reduce risk of dementia and cognitive dysfunction in elderly. Multiple RCTs in 50–80-year-olds at 100–300mg/day show improvements in memory, processing speed, and cognitive complaints. The strongest age-related cognitive evidence in this category. The trial linked below (Vakhapova et al. 2010) is not the basis of the FDA claim: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo. GCC note: most products use soy-derived PS (halal); some use bovine-derived PS (verify halal-slaughter sourcing); sunflower-derived PS is always halal-compliant.',
+      'The FDA permits a qualified health claim that PS may reduce risk of dementia and cognitive dysfunction in elderly. Multiple RCTs in 50–80-year-olds at 100–300mg/day show improvements in memory, processing speed, and cognitive complaints. The strongest age-related cognitive evidence in this category. The trial linked below (Vakhapova et al. 2010) is not the basis of the FDA claim: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo. GCC note: PS source (soy, sunflower or bovine) is not stated by every brand — check the label.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {
     name: 'Citicoline (CDP-Choline) — older-adult memory',
     evidence:
-      'RCTs in older adults with subjective cognitive complaints show improvements in verbal memory and processing speed at 250–500mg/day for 12+ weeks. Cognizin is the standardised form most products use. Synthesised, not animal-derived — halal-compliant.',
+      'RCTs in older adults with subjective cognitive complaints show improvements in verbal memory and processing speed at 250–500mg/day for 12+ weeks. Cognizin is the standardised form most products use. Synthesised, not animal-derived.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
   {
     name: 'Lion\'s Mane (Hericium erinaceus)',
     evidence:
-      'Mori et al. 2009 — small RCT in older Japanese adults with mild cognitive impairment. 1g/day fruiting-body extract over 16 weeks improved cognitive function scores. Mushroom-derived — halal-compliant by default. Evidence is promising for early age-related changes; not evaluated for dementia treatment.',
+      'Mori et al. 2009 — small RCT in older Japanese adults with mild cognitive impairment. 1g/day fruiting-body extract over 16 weeks improved cognitive function scores. Mushroom-derived. Evidence is promising for early age-related changes; not evaluated for dementia treatment.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18844328/',
   },
   {
     name: 'Bacopa Monnieri',
     evidence:
-      'Multiple RCTs across age groups show memory consolidation benefits. Studies specifically in older adults (Stough et al., Calabrese et al.) show retention and recall improvements after 8–12 weeks at 300mg standardised to 50% bacosides. Plant-derived; halal-compliant.',
+      'Multiple RCTs across age groups show memory consolidation benefits. Studies specifically in older adults (Stough et al., Calabrese et al.) show retention and recall improvements after 8–12 weeks at 300mg standardised to 50% bacosides. Plant-derived.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22747190/',
   },
 ];
@@ -83,7 +83,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Are these supplements halal?',
-    a: 'On capsules, Mind Lab Pro states pullulan (NutriCaps) capsules and Qualia Mind vegetarian (hypromellose) capsules; Nootropics Depot labels its Lion\'s Mane vegan but does not state the capsule shell material (checked 2026-10-07); BrainMAX+ is a powder sachet. Note on phosphatidylserine: most products use soy-derived PS (halal); some use bovine-derived PS (would need halal-slaughter verification) or sunflower-derived PS (always halal). For Lion\'s Mane (mushroom-derived), halal status is straightforward. For Cera-Q in Eu Yan Sang BrainMAX+ (silk fibroin protein), observant buyers concerned about insect-derived ingredients should verify their personal halal interpretation.',
+    a: 'On capsules, Mind Lab Pro states pullulan (NutriCaps) capsules and Qualia Mind vegetarian (hypromellose) capsules; Nootropics Depot labels its Lion\'s Mane vegan but does not state the capsule shell material (checked 2026-10-07); BrainMAX+ is a powder sachet. Note on phosphatidylserine: PS source (soy, sunflower or bovine) is not stated by every brand — check the label. Lion\'s Mane is mushroom-derived. For Cera-Q in Eu Yan Sang BrainMAX+ (silk fibroin protein), observant buyers concerned about insect-derived ingredients should verify their personal halal interpretation.',
   },
   {
     q: 'Which of these are SFDA-registered or MOHAP-registered?',

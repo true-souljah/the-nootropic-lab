@@ -32,19 +32,19 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Bacopa Monnieri — long-term memory consolidation',
     evidence:
-      'Critical for retention of studied material. Bacopa improves memory consolidation — what your brain does during sleep with material you studied that day. 300mg standardised to 50% bacosides daily for 8+ weeks. Start at the beginning of the term, not the night before the exam. Plant-derived, halal-compliant.',
+      'Critical for retention of studied material. Bacopa improves memory consolidation — what your brain does during sleep with material you studied that day. 300mg standardised to 50% bacosides daily for 8+ weeks. Start at the beginning of the term, not the night before the exam. Plant-derived.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
   },
   {
     name: 'Citicoline — choline for cognitive demand',
     evidence:
-      'Heavy cognitive demand depletes choline. Citicoline at 250–500mg/day supports phospholipid synthesis and acetylcholine availability — the neurotransmitter most associated with attention and learning. Cognizin is the standardised form. Synthesised, not animal-derived — halal-compliant.',
+      'Heavy cognitive demand depletes choline. Citicoline at 250–500mg/day supports phospholipid synthesis and acetylcholine availability — the neurotransmitter most associated with attention and learning. Cognizin is the standardised form. Synthesised, not animal-derived.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
   {
     name: 'L-Tyrosine — under-stress performance',
     evidence:
-      'Acute exam stress and sleep deprivation deplete catecholamines. Tyrosine supplementation has documented benefit for cognitive performance specifically under stress, sleep loss, or cold. 300–500mg as NALT for short bursts; not for daily continuous use. Vegetarian/halal-friendly.',
+      'Acute exam stress and sleep deprivation deplete catecholamines. Tyrosine supplementation has documented benefit for cognitive performance specifically under stress, sleep loss, or cold. 300–500mg as NALT for short bursts; not for daily continuous use. Vegetarian.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/26424423/',
   },
 ];
