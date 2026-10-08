@@ -79,7 +79,11 @@ export function ProductThumb({
       sizes={lg ? `${size}px` : undefined}
       width={size}
       height={size}
-      alt={product.name}
+      // Decorative: every caller renders the product name as text right next to
+      // the tile (card title, table cell, the review page's H1), so a named alt
+      // would make screen readers announce the name twice. The monogram fallback
+      // is aria-hidden for the same reason.
+      alt=""
       loading={eager ? 'eager' : 'lazy'}
       decoding="async"
       className={`block flex-shrink-0 bg-ds-card border border-ds-border object-contain ${className}`.trim()}
