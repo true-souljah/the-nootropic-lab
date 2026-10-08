@@ -132,9 +132,50 @@ export function scoreProblem(product: Pick<Product, 'score' | 'scoreBreakdown' |
   return null;
 }
 
+/**
+ * Halal certification bodies a `halalCertified: true` record may cite in
+ * `halalBasis`. Matched as whole words. Extend deliberately when a verified
+ * certificate names another body.
+ */
+export const HALAL_CERTIFIERS = [
+  'JAKIM', 'BPJPH', 'MUI', 'MUIS', 'IFANCA', 'ESMA', 'GAC', 'CICOT', 'HCA', 'HFA', 'HMC', 'SANHA', 'HALAL India',
+] as const;
+
+/**
+ * Why the halal evidence is incomplete, or null. A record with
+ * `halalCertified` defined must carry `halalCheckedAt` (a real YYYY-MM-DD date)
+ * and a non-empty `halalBasis`; `true` additionally requires `halalBasis` to
+ * name a certifier from HALAL_CERTIFIERS. Undefined `halalCertified` is not
+ * checked (no chip renders).
+ */
+export function halalEvidenceProblem(
+  product: Pick<Product, 'halalCertified' | 'halalCheckedAt' | 'halalBasis'>,
+): string | null {
+  const { halalCertified, halalCheckedAt, halalBasis } = product;
+  if (halalCertified === undefined) return null;
+  if (typeof halalCertified !== 'boolean') return `halalCertified is not a boolean: ${JSON.stringify(halalCertified)}`;
+  const checked = typeof halalCheckedAt === 'string' ? new Date(`${halalCheckedAt}T00:00:00Z`) : null;
+  if (
+    !checked ||
+    !/^\d{4}-\d{2}-\d{2}$/.test(halalCheckedAt as string) ||
+    Number.isNaN(checked.getTime()) ||
+    checked.toISOString().slice(0, 10) !== halalCheckedAt
+  ) {
+    return `halalCheckedAt is not a YYYY-MM-DD date: ${JSON.stringify(halalCheckedAt) ?? 'undefined'}`;
+  }
+  if (typeof halalBasis !== 'string' || !halalBasis.trim()) return 'halalBasis is empty';
+  if (halalCertified && !HALAL_CERTIFIERS.some((c) => new RegExp(`\\b${c}\\b`).test(halalBasis))) {
+    return `halalBasis does not name a certifier (${HALAL_CERTIFIERS.join(', ')}) for halalCertified: true`;
+  }
+  return null;
+}
+
 /** All rule violations for one record. */
 export function productRuleProblems(
-  product: Pick<Product, 'affiliateUrl' | 'ingredientDosages' | 'discontinued' | 'form' | 'score' | 'scoreBreakdown' | 'unscoredReason' | 'vendorTerms'>,
+  product: Pick<
+    Product,
+    'affiliateUrl' | 'ingredientDosages' | 'discontinued' | 'form' | 'score' | 'scoreBreakdown' | 'unscoredReason' | 'halalCertified' | 'halalCheckedAt' | 'halalBasis' | 'vendorTerms'
+  >,
 ): string[] {
   const problems: string[] = [];
   const url = affiliateUrlProblem(product.affiliateUrl, product.discontinued != null);
@@ -145,6 +186,8 @@ export function productRuleProblems(
   if (form) problems.push(form);
   const score = scoreProblem(product);
   if (score) problems.push(score);
+  const halal = halalEvidenceProblem(product);
+  if (halal) problems.push(halal);
   problems.push(...vendorTermsProblems(product.vendorTerms));
   return problems;
 }

@@ -54,32 +54,32 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design suits GCC consumers who avoid stimulants. Capsule shell is plant-based HPMC — no porcine gelatin, halal-friendly. mindlabpro.com names Saudi Arabia, the UAE, Qatar and Kuwait among its shipping territories (its FAQ, checked 2026-09-29); Bahrain and Oman are not named on that partial list, so confirm at checkout. We have not verified a product registration with the Saudi Food and Drug Authority (SFDA) or the Ministry of Health and Prevention (MOHAP).',
+      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design suits GCC consumers who avoid stimulants. Capsules are pullulan (NutriCaps) and the product is suitable for vegans, per the brand (checked 2026-10-07). mindlabpro.com names Saudi Arabia, the UAE, Qatar and Kuwait among its shipping territories (its FAQ, checked 2026-09-29); Bahrain and Oman are not named on that partial list, so confirm at checkout. We have not verified a product registration with the Saudi Food and Drug Authority (SFDA) or the Ministry of Health and Prevention (MOHAP).',
   },
   {
     product: productsGCC.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes citicoline, Alpha-GPC, L-theanine, and L-tyrosine — covers nearly every evidence-backed focus mechanism. Plant-based capsules (no pork gelatin). Caveat for GCC buyers: the default formula contains 90mg caffeine per serving — request the caffeine-free variant where offered. We have not verified an SFDA or MOHAP product registration, and Qualia does not ship to any GCC state (brand shipping page, checked 2026-09-28). Premium price ($159 list) and 7+ capsules/day are real friction points.',
+      'Includes citicoline, Alpha-GPC, L-theanine, and L-tyrosine — covers nearly every evidence-backed focus mechanism. Vegetarian capsules (hypromellose), per the brand (checked 2026-10-07). Caveat for GCC buyers: the default formula contains 90mg caffeine per serving — request the caffeine-free variant where offered. We have not verified an SFDA or MOHAP product registration, and Qualia does not ship to any GCC state (brand shipping page, checked 2026-09-28). Premium price ($159 list) and 7+ capsules/day are real friction points.',
   },
   {
     product: productsGCC.find(p => p.slug === 'noocube-review')!,
     rank: 3,
     whyItsHere:
-      'For the GCC\'s large screen-heavy professional and gaming populations, note that Lutemax 2020 (lutein/zeaxanthin) has mixed evidence for screen eye strain: a 6-month trial in 48 heavy screen users, funded by Lutemax\'s maker, reported less self-rated eye strain, eye fatigue and headache (Stringham 2017), but a 2025 trial of a different lutein/zeaxanthin product found better tear-film measures without any change in self-rated eye strain (Lopresti 2025). Includes choline (VitaCholine), L-theanine, and Bacopa. Caffeine-free; capsules use no porcine gelatin. Caveat: the noocube.com Trustpilot profile has no reviews yet — verify cancellation policy before subscribing. Ships to all six GCC states per the brand\'s shipping list (checked 2026-09-28); we have not verified an SFDA or MOHAP product registration.',
+      'For the GCC\'s large screen-heavy professional and gaming populations, note that Lutemax 2020 (lutein/zeaxanthin) has mixed evidence for screen eye strain: a 6-month trial in 48 heavy screen users, funded by Lutemax\'s maker, reported less self-rated eye strain, eye fatigue and headache (Stringham 2017), but a 2025 trial of a different lutein/zeaxanthin product found better tear-film measures without any change in self-rated eye strain (Lopresti 2025). Includes choline (VitaCholine), L-theanine, and Bacopa. Caffeine-free; suitable for vegetarians per the brand, which does not state the capsule shell material (checked 2026-10-07). Caveat: the noocube.com Trustpilot profile has no reviews yet — verify cancellation policy before subscribing. Ships to all six GCC states per the brand\'s shipping list (checked 2026-09-28); we have not verified an SFDA or MOHAP product registration.',
   },
   {
     product: productsGCC.find(p => p.slug === 'onnit-alpha-brain-review')!,
     rank: 4,
     whyItsHere:
-      'Caffeine-free formula with Alpha-GPC, L-theanine, L-tyrosine, and Bacopa. National Sanitation Foundation (NSF) Certified for Sport — relevant for GCC athletes and military buyers facing drug-tested events. Vegetarian capsules; no porcine gelatin. Two published clinical studies on the formula. Doses are hidden in proprietary blends — you cannot verify clinical thresholds. onnit.com\'s market list names Bahrain and Oman; shipping to the other GCC states could not be confirmed from the brand\'s site on 2026-09-29 — check at checkout. We have not verified an SFDA or MOHAP product registration.',
+      'Caffeine-free formula with Alpha-GPC, L-theanine, L-tyrosine, and Bacopa. National Sanitation Foundation (NSF) Certified for Sport — relevant for GCC athletes and military buyers facing drug-tested events. Vegetarian but not vegan per the brand\'s FAQ; capsule shell material not stated (checked 2026-10-07). Two published clinical studies on the formula. Doses are hidden in proprietary blends — you cannot verify clinical thresholds. onnit.com\'s market list names Bahrain and Oman; shipping to the other GCC states could not be confirmed from the brand\'s site on 2026-09-29 — check at checkout. We have not verified an SFDA or MOHAP product registration.',
   },
 ];
 
 const faqItems: ListicleFAQ[] = [
   {
     q: 'Are these supplements halal?',
-    a: 'The picks on this page (Mind Lab Pro, Qualia Mind, Alpha Brain, NooCube) use plant-based HPMC or pullulan capsules with no porcine gelatin. None of these brands carry formal halal certification (HALAL India, JAKIM, MUI, ESMA), so observant buyers should verify the latest ingredient sourcing on each brand\'s website before ordering. Always check the capsule source: HPMC and pullulan are plant-derived; gelatin is typically bovine or porcine.',
+    a: 'On capsules, the brands state: Mind Lab Pro uses pullulan (NutriCaps) capsules and Qualia Mind vegetarian (hypromellose) capsules; Alpha Brain is vegetarian but not vegan and NooCube is suitable for vegetarians, but neither states the capsule shell material. None of these brands shows a halal certificate on its pages (checked 2026-10-07), so observant buyers should verify the latest ingredient sourcing on each brand\'s website before ordering. Always check the capsule source: HPMC and pullulan are plant-derived; gelatin is typically bovine or porcine.',
   },
   {
     q: 'Which of these are SFDA-registered for sale in Saudi Arabia?',

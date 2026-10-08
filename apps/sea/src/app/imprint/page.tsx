@@ -23,7 +23,7 @@ export default function Page() {
       siteUrl={SITE_URL}
       marketLabel="Southeast Asia edition (SG, MY, ID, PH, TH, VN)"
       contactEmail={CONTACT_EMAIL}
-      regionNote="Health supplements in Singapore are regulated by the Health Sciences Authority (HSA); in Malaysia by NPRA; in Indonesia by BPOM; in the Philippines by FDA Philippines; in Thailand by FDA Thailand. Halal certification is mandatory for supplements marketed to Indonesian (BPJPH) and Malaysian (JAKIM) consumers under federal law. We surface certification status per product where verifiable."
+      regionNote="Health supplements in Singapore are regulated by the Health Sciences Authority (HSA); in Malaysia by NPRA; in Indonesia by BPOM; in the Philippines by FDA Philippines; in Thailand by FDA Thailand. Halal certification (BPJPH) is required by law for supplements marketed to Indonesian consumers from 18 October 2026; in Malaysia, products described as halal must be certified (JAKIM). We surface certification status per product where verifiable."
     />
     </PublicShell>
   );
