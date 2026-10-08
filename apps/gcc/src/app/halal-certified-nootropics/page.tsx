@@ -61,7 +61,7 @@ const capsuleAudit: CapsuleAuditRow[] = [
   { slug: 'onnit-alpha-brain-review', name: 'Onnit Alpha Brain', format: 'The brand says “The original Alpha BRAIN® formula is vegetarian but not vegan.” The capsule material is not named on the product page (checked 2026-10-07).', halalClaim: 'No halal certificate is claimed on the brand’s pages (checked 2026-10-07).', sourceLabel: 'onnit.com — Alpha Brain', sourceUrl: 'https://www.onnit.com/products/alpha-brain-90-ct' },
   { slug: 'thesis-nootropics-review', name: 'Thesis', format: 'The brand’s FAQ says “All our ingredients are vegan and free from gluten, eggs, and nuts”, without a certified-vegan guarantee. The capsule material is not named on the Clarity product page (checked 2026-10-07).', halalClaim: 'No halal certificate is claimed on the brand’s pages (checked 2026-10-07).', sourceLabel: 'takethesis.com — Clarity', sourceUrl: 'https://takethesis.com/products/clarity' },
   { slug: 'nootropics-depot-lions-mane', name: 'Nootropics Depot Lion’s Mane', format: 'The product page carries “LACTOSE FREE”, “GLUTEN FREE”, “NON-GMO” and “VEGAN” badges. The capsule material is not named on the product page (checked 2026-10-07).', halalClaim: 'No halal certificate is claimed on the brand’s page (checked 2026-10-07).', sourceLabel: 'nootropicsdepot.com — Lion’s Mane 8:1 Extract capsules', sourceUrl: 'https://nootropicsdepot.com/lions-mane-mushroom-capsules-8-1-extract' },
-  { slug: 'eu-yan-sang-brainmax-review', name: 'Eu Yan Sang BrainMAX+', format: 'Sold as 3g sachets (30 per box), not capsules, so there is no capsule shell.', halalClaim: 'The Singapore store has a “Halal Certified” category, but we could not confirm that BrainMAX+ itself carries the tag.', sourceLabel: 'euyansang.com.sg — BrainMAX+', sourceUrl: 'https://www.euyansang.com.sg/en/brainmax-888842543107.html' },
+  { slug: 'eu-yan-sang-brainmax-review', name: 'Eu Yan Sang BrainMAX+', format: 'Sold as 3g sachets (30 per box), not capsules, so there is no capsule shell.', halalClaim: 'BrainMAX+ is not among the 77 items in the Singapore store’s “Halal Certified” category, and its product page has no halal text (checked 2026-10-07).', sourceLabel: 'euyansang.com.sg — BrainMAX+', sourceUrl: 'https://www.euyansang.com.sg/en/brainmax-888842543107.html' },
 ];
 
 const articleSchema = {
@@ -106,7 +106,7 @@ const breadcrumbSchema = {
 
 const faqs = [
   { q: 'Why does Halal certification matter for nootropic supplements?', a: 'Two reasons. First, capsule shells: NOW Foods, a brand that sells halal-certified supplements, says its halal gelatin capsules use bovine- or fish-derived gelatin, never porcine; plant-based shells (HPMC, pullulan) avoid the gelatin question. Second, ingredients: alcohol used as a carrier in flavourings and some animal-derived additives, such as L-cysteine, need verification. Formal Halal certification confirms both elements have been audited.' },
-  { q: 'What is HPMC and is it Halal?', a: 'HPMC (hydroxypropyl methylcellulose) is a plant-derived capsule material made from cellulose. It is intrinsically Halal-friendly and Vegan-friendly, requiring no animal sourcing audit. Not every plant-based capsule is HPMC: Mind Lab Pro uses pullulan capsules (NutriCaps), and most other brands in our GCC catalogue do not name their capsule material on their product pages (see the audit above). We surface capsule-source information where it is verifiable from manufacturer documentation.' },
+  { q: 'What is HPMC and is it Halal?', a: 'HPMC (hydroxypropyl methylcellulose) is a plant-derived capsule material made from cellulose. Because it is plant-derived, the shell itself involves no animal sourcing. Not every plant-based capsule is HPMC: Mind Lab Pro uses pullulan capsules (NutriCaps), and most other brands in our GCC catalogue do not name their capsule material on their product pages (see the audit above). We surface capsule-source information where it is verifiable from manufacturer documentation.' },
   { q: 'Which Halal authority is most widely recognised in the GCC?', a: 'We could not confirm from an official page which foreign certifying bodies each GCC state accepts (2026-10-05 check). In the UAE, the Ministry of Industry and Advanced Technology (MoIAT) cites Cabinet Decree 10/2014, under which establishments must obtain halal certificates from certification bodies registered by the ministry. Check with the regulator in your state before relying on a particular certificate.' },
   { q: 'Can I trust a "Halal" claim without third-party certification?', a: 'A formal certification mark from a third-party certifying body carries more weight. Manufacturer self-declarations of "Halal" or "suitable for Halal diet" without third-party certification are weaker signals. We surface formal certifications where verifiable and never fabricate certifications. For products without formal certification but using HPMC capsules and no alcohol/animal extracts, we describe the ingredient and capsule source so consumers can make informed decisions.' },
   { q: 'What is SFDA and how does it differ from Halal certification?', a: 'The Saudi Food and Drug Authority regulates safety, efficacy, and quality of supplements sold in Saudi Arabia. SFDA registration confirms regulatory clearance to sell — separate from Halal certification, which addresses religious dietary compliance. A product may be SFDA-registered without Halal certification (and vice versa, in theory).' },
@@ -142,7 +142,7 @@ export default function Page() {
           GCC buyers ask two separate questions: is taking a nootropic permissible at all, and does a specific
           product meet halal requirements? For the second, two factors matter: <strong>capsule shell
           composition</strong> (gelatin requires Halal-slaughter provenance; HPMC vegetable cellulose is
-          intrinsically Halal-friendly) and <strong>ingredient sourcing</strong> (alcohol extracts and
+          plant-derived) and <strong>ingredient sourcing</strong> (alcohol extracts and
           animal-derived ingredients require verification). This page covers what a published fatwa says on the
           first question, the main certifying authorities and what we could confirm about their recognition in the GCC, capsule-source
           taxonomy, and what each brand in our GCC catalogue says about its capsules. For our rankings, see{' '}
@@ -173,9 +173,9 @@ export default function Page() {
             <div className="border border-green-300 rounded-xl p-5 bg-green-50">
               <h3 className="font-bold text-green-900 mb-2">✓ HPMC / Pullulan (plant-based)</h3>
               <p className="text-sm text-gray-700 leading-relaxed">
-                Hydroxypropyl methylcellulose (HPMC) and pullulan are plant-derived capsule materials.
-                Intrinsically Halal-friendly and Vegan-friendly. No animal sourcing audit required. Common in
-                premium Western brands.
+                Hydroxypropyl methylcellulose (HPMC) and pullulan are plant-derived capsule materials, so the
+                shell itself involves no animal sourcing. In the audit below, Mind Lab Pro states pullulan
+                capsules and Qualia Mind lists hypromellose (HPMC).
               </p>
             </div>
             <div className="border border-amber-300 rounded-xl p-5 bg-amber-50">
@@ -188,9 +188,9 @@ export default function Page() {
             <div className="border border-red-300 rounded-xl p-5 bg-red-50">
               <h3 className="font-bold text-red-900 mb-2">✗ Porcine gelatin</h3>
               <p className="text-sm text-gray-700 leading-relaxed">
-                Not Halal under any framework. Some U.S.-domiciled supplement brands use porcine gelatin
-                without prominent labelling — verify capsule-source on the supplement-facts panel before
-                purchasing.
+                NOW Foods, a brand that sells halal-certified supplements, says in its halal FAQ (see Sources):
+                &ldquo;Our halal gelatin-encapsulated supplements use either bovine- or fish-derived gelatin,
+                never porcine.&rdquo; Check the capsule source on the supplement-facts panel before purchasing.
               </p>
             </div>
             <div className="border border-gray-300 rounded-xl p-5 bg-gray-50">
@@ -336,6 +336,7 @@ export default function Page() {
             { type: 'Editorial', label: 'Ingredicheck — Halal diet guide: pork-derived E-numbers and alcohol in flavourings', url: 'https://www.ingredicheck.app/blog/halal-diet-guide-pork-derived-e-numbers-alcohol-in-flavourings-and-certification-marks-explained' },
             { type: 'Brand page', label: 'Mind Lab Pro blog — Are nootropics ethical?', url: 'https://www.mindlabpro.com/blogs/nootropics/are-nootropics-ethical' },
             { type: 'Brand page', label: 'Thesis FAQ — Are your ingredients allergen-free and/or vegan?', url: 'https://thesis.applied.guide/hc/en-us/are-your-ingredients-allergen-free-andor-vegan' },
+            { type: 'Brand page', label: 'Eu Yan Sang Singapore — Halal Certified category (77 items, checked 2026-10-07)', url: 'https://www.euyansang.com.sg/en/halal-2/?sz=500&start=0' },
             ...capsuleAudit.map(row => ({ type: 'Brand page', label: row.sourceLabel, url: row.sourceUrl })),
             { type: 'Editorial', label: 'The Nootropic Lab — Methodology', url: `${SITE_URL}/methodology/` },
           ]}

@@ -10,7 +10,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 
 
 export const metadata: Metadata = {
-  title: `Best Nootropics for Aging Brain in the GCC ${CURRENT_YEAR}: Halal-Friendly Picks for Saudi, UAE & Gulf Buyers`,
+  title: `Best Nootropics for Aging Brain in the GCC ${CURRENT_YEAR}: Saudi, UAE & Gulf Picks with Capsule & Halal-Certificate Notes`,
   description:
     'Independent ranking of nootropics for adults concerned about age-related cognitive changes, available in the GCC. Halal status and SFDA/MOHAP registration noted. NOT a treatment for dementia.',
   alternates: buildAlternates({ regionCode: 'gcc', path: '/best-nootropics-for-aging/' }),

@@ -10,7 +10,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 
 
 export const metadata: Metadata = {
-  title: `Best Nootropics for Memory in the GCC ${CURRENT_YEAR}: Halal-Friendly Picks for Saudi, UAE & Gulf Buyers`,
+  title: `Best Nootropics for Memory in the GCC ${CURRENT_YEAR}: Saudi, UAE & Gulf Picks with Capsule & Halal-Certificate Notes`,
   description:
     'Independent ranking of the best memory nootropics available in the GCC. Halal status, SFDA/MOHAP registration, and capsule sources disclosed for each pick.',
   alternates: buildAlternates({ regionCode: 'gcc', path: '/best-nootropics-for-memory/' }),
