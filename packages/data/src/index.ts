@@ -1,4 +1,4 @@
-export type { Product, EUCompliance, Market, IngredientDosage } from './products-us';
+export type { Product, EUCompliance, Market, IngredientDosage, NoPurchaseLink, NoPurchaseLinkIngredient, NoPurchaseLinkReason } from './products-us';
 export { productsUS, allProductsUS } from './products-us';
 export { productsEU, allProductsEU } from './products-eu';
 export { productsCA, allProductsCA } from './products-ca';
@@ -6,6 +6,16 @@ export { productsAU, allProductsAU } from './products-au';
 export { productsJP, allProductsJP } from './products-jp';
 export { productsLatam, allProductsLatam } from './products-latam';
 export { activeProducts, isDiscontinued } from './product-status';
+export type { NoPurchaseLinkStrings } from './purchase-link';
+export {
+  purchaseUrl,
+  vendorHost,
+  purchaseLinkBlock,
+  noPurchaseLinkIngredientList,
+  noPurchaseLinkProblem,
+  NO_PURCHASE_LINK_REASON_REGION,
+  NO_PURCHASE_LINK_STRINGS,
+} from './purchase-link';
 export type { ProductImage, ProductImageFile, ProductImageVariant } from './product-images';
 export { PRODUCT_IMAGE_SIZES, productImages, productImage } from './product-images';
 export type { ProductForm } from './serving-unit';
