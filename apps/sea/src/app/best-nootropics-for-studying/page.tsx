@@ -63,14 +63,8 @@ const picks: ListiclePick[] = [
       'For SEA students doing 6+ hour Zoom lectures, online tutorials, and screen-heavy revision, note that Lutemax 2020 (20mg) has mixed evidence for screen eye strain: a 6-month trial in 48 heavy screen users, funded by Lutemax\'s maker, reported less self-rated eye strain, eye fatigue and headache (Stringham 2017), but a 2025 trial of a different lutein/zeaxanthin product found better tear-film measures without any change in self-rated eye strain (Lopresti 2025). L-theanine 100mg present for calm focus. Bacopa is present but underdosed, and the current formula uses choline from VitaCholine rather than Alpha-GPC. noocube.com ships to Singapore, Malaysia, Thailand and the Philippines; it does not list Indonesia or Vietnam. noocube.com does not publish delivery times for these countries; check the estimate at checkout. At USD $64.99 per 30-serving bottle it is the most cost-conscious premium import option for students.',
   },
   {
-    product: productsSEA.find(p => p.slug === 'eu-yan-sang-brainmax-review')!,
-    rank: 3,
-    whyItsHere:
-      'For SG/MY students who want a domestic option from a trusted heritage brand: Cera-Q silk fibroin protein (studied for memory in one citable 3-week trial by maker-affiliated authors) at 600mg per sachet (the top of the 280–600mg/day range that trial tested), plus TCM-traditional Goji Berry and Wild Ginseng. Walk into any Eu Yan Sang store on campus or in your local mall. Powder sachet format (one sachet daily) is convenient for hostel and library use. Same-day delivery in Singapore. Note that Korea\'s regulator revoked Cera-Q\'s functional-ingredient recognition in 2017 after its supporting study was retracted (details in our BrainMAX+ review).',
-  },
-  {
     product: productsSEA.find(p => p.slug === 'naturebell-ginkgo-ginseng-review')!,
-    rank: 4,
+    rank: 3,
     whyItsHere:
       'The cheapest legitimate brain supplement in this list at ~SGD $7/month (~$5 USD) for a 5-month supply via Amazon.sg. Ginkgo Biloba at full clinical dose (120mg). Ginseng underdosed. The right pick for first-year university students testing whether nootropics do anything for them before committing to a premium stack. 60-day money-back guarantee.',
   },
@@ -79,7 +73,7 @@ const picks: ListiclePick[] = [
 const faqItems: ListicleFAQ[] = [
   {
     q: 'Are these student-friendly nootropics halal-certified?',
-    a: 'For Muslim students in Indonesia, Malaysia, southern Thailand, southern Philippines, and Brunei: imported brands (Mind Lab Pro, NooCube, Qualia Mind, Onnit Alpha Brain) show no BPJPH, JAKIM or other halal certificate on the brand pages we fetched (checked 2026-10-07). Mind Lab Pro states pullulan (NutriCaps) capsules and Qualia Mind vegetarian (hypromellose) capsules; NooCube (suitable for vegetarians) and Alpha Brain (vegetarian but not vegan) do not state the capsule shell material. Halal-friendlier options: some Blackmores SKUs carry JAKIM certification (verify the specific product), Eu Yan Sang BrainMAX+ is a powder sachet with no capsule shell (no halal text on its product page, and not among the 77 items in Eu Yan Sang Singapore\'s Halal Certified category, checked 2026-10-07), and single-ingredient L-theanine or Brahmi from Halal-certified local brands on Lazada/Shopee. Check JAKIM\'s MYeHALAL directory (myehalal.halal.gov.my, company-level, Malaysia) or the BPJPH register (bpjph.halal.go.id, Indonesia) for current status before ordering.',
+    a: 'For Muslim students in Indonesia, Malaysia, southern Thailand, southern Philippines, and Brunei: imported brands (Mind Lab Pro, NooCube, Qualia Mind, Onnit Alpha Brain) show no BPJPH, JAKIM or other halal certificate on the brand pages we fetched (checked 2026-10-07). Mind Lab Pro states pullulan (NutriCaps) capsules and Qualia Mind vegetarian (hypromellose) capsules; NooCube (suitable for vegetarians) and Alpha Brain (vegetarian but not vegan) do not state the capsule shell material. Halal-friendlier options: some Blackmores SKUs carry JAKIM certification (verify the specific product), and single-ingredient L-theanine or Brahmi from Halal-certified local brands on Lazada/Shopee. Check JAKIM\'s MYeHALAL directory (myehalal.halal.gov.my, company-level, Malaysia) or the BPJPH register (bpjph.halal.go.id, Indonesia) for current status before ordering.',
   },
   {
     q: 'Which are best for SEA students via Shopee/Lazada vs cross-border iHerb?',
