@@ -70,15 +70,17 @@ export default function AboutPage() {
             </li>
             <li>
               <strong>Halal certification.</strong> Halal status is a primary purchase factor for many GCC
-              consumers. We note when a product carries third-party halal certification (e.g., JAKIM, MUI,
-              ESMA-recognised certifiers) versus when it is only halal-friendly by ingredient composition but
-              uncertified.
+              consumers. We note whether a brand shows a third-party halal certificate on its own pages (none
+              of the brands we checked does, checked 2026-10-07) and what the brand says about its ingredients,
+              such as plant-derived or synthesised, with the date we checked.
             </li>
             <li>
-              <strong>Capsule source disclosure.</strong> Capsule shells are a frequent oversight. Bovine and
-              porcine gelatin shells are common in Western formulations; HPMC (hydroxypropyl methylcellulose,
-              plant-based) shells are halal-neutral. We disclose capsule type — HPMC vs gelatin, and gelatin
-              source where vendors publish it.
+              <strong>Capsule source disclosure.</strong> Capsule shells vary by brand. The brands we checked
+              state: Mind Lab Pro, pullulan (NutriCaps) capsules; Qualia Mind, hypromellose (HPMC). NooCube,
+              Onnit Alpha Brain, Thesis and Nootropics Depot do not name the capsule material on the pages we
+              checked, and Eu Yan Sang BrainMAX+ is a powder sachet (checked 2026-10-07). See our{' '}
+              <Link href="/halal-certified-nootropics/" className="text-green-700 underline">halal guide</Link>{' '}
+              for the brand-by-brand audit.
             </li>
             <li>
               <strong>Arabic labelling.</strong> GCC Standardisation Organisation (GSO) regulations require

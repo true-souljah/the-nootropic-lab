@@ -27,7 +27,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Phosphatidylserine (PS)',
     evidence:
-      'Phospholipid component of brain cell membranes. Multiple RCTs in 50–80-year-olds at 100–300mg/day show improvements in memory, processing speed, and cognitive complaints. The strongest age-related cognitive evidence in this category. PS is not a permitted ingredient in TGA Listed Medicines; the PS-containing products ranked here (Mind Lab Pro, Qualia Mind) are sold direct to Australian buyers by their brands.',
+      'Phospholipid component of brain cell membranes. Multiple RCTs in 50–80-year-olds at 100–300mg/day show improvements in memory, processing speed, and cognitive complaints. The strongest age-related cognitive evidence in this category. PS is listed for TGA Listed Medicines as soy phosphatidylserine-enriched soy lecithin (liquid or powder), an active ingredient whose maximum recommended daily dose must not provide more than 300 mg of soy phosphatidylserine (Therapeutic Goods (Permissible Ingredients) Determination (No. 2) 2026, F2026L00707, as compiled 17 September 2026 — Compilation No. 1, F2026C00940 — Schedule 1 items 4689 and 4690; checked 2026-10-08); the PS-containing products ranked here (Mind Lab Pro, Qualia Mind) are sold direct to Australian buyers by their brands.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {
@@ -45,13 +45,13 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Bacopa Monnieri',
     evidence:
-      'Multiple RCTs across age groups show memory consolidation benefits, with studies specifically in older adults showing retention and recall improvements after 8–12 weeks at 300mg standardised to 50% bacosides. Bacopa is permitted in TGA Listed Medicines, so Australian seniors have AUST L-listed Bacopa options at any pharmacy (Nature\'s Own Brahmi, Swisse Memory & Focus).',
+      'Multiple RCTs across age groups show memory consolidation benefits, with studies specifically in older adults showing retention and recall improvements after 8–12 weeks at 300mg standardised to 50% bacosides. Bacopa is permitted in TGA Listed Medicines (Permissible Ingredients Determination, Schedule 1 item 754; checked 2026-10-08), so Australian seniors have AUST L-listed Bacopa options at any pharmacy (Nature\'s Own Brahmi, Swisse Memory & Focus).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22747190/',
   },
   {
     name: 'Ginkgo Biloba',
     evidence:
-      'Proposed to work via cerebral blood flow. A 2026 network meta-analysis of 29 RCTs in healthy adults (Tiemtad et al.) found that high-dose Bacopa (600mg/day or more) improved working memory more than both Ginkgo doses and placebo and gave greater short-term memory benefits, with no significant differences in attention or processing speed, so the trial evidence does not single out Ginkgo as a memory enhancer, even though it is permitted in TGA Listed Medicines (AUST L-listed options include Blackmores Bio Ginkgoforte 6000 and Caruso\'s Ginkgo).',
+      'Proposed to work via cerebral blood flow. A 2026 network meta-analysis of 29 RCTs in healthy adults (Tiemtad et al.) found that high-dose Bacopa (600mg/day or more) improved working memory more than both Ginkgo doses and placebo and gave greater short-term memory benefits, with no significant differences in attention or processing speed, so the trial evidence does not single out Ginkgo as a memory enhancer, even though it is permitted in TGA Listed Medicines as an active ingredient, excipient or homoeopathic ingredient (Permissible Ingredients Determination, Schedule 1 item 2357; checked 2026-10-08); AUST L-listed options include Blackmores Bio Ginkgoforte 6000 and Caruso\'s Ginkgo.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/41678913/',
   },
 ];
@@ -115,7 +115,7 @@ export default function Page() {
       useCase="aging"
       pageTitle="Best Nootropics for Aging Brain in Australia"
       pageDescription="Independent ranking of nootropics for Australian adults concerned about age-related cognitive changes."
-      heroParagraph="Age-related cognitive change is normal — memory recall slows, processing speed reduces. The supplements on this page have evidence specifically in older adults with subjective cognitive complaints. They are NOT treatments for dementia, Alzheimer's, or any clinical cognitive disease. For those, see your GP for referral. Most picks below import under the TGA Personal Importation Scheme; TGA-listed Australian alternatives (Blackmores Bio Ginkgoforte, Caruso's Memory Forte, Swisse Memory & Focus, Nature's Own Brahmi) are noted in the FAQ for buyers who prefer pharmacy-stocked Listed Medicines."
+      heroParagraph="Age-related cognitive change is normal — memory recall slows, processing speed reduces. The supplements on this page have evidence specifically in older adults with subjective cognitive complaints. They are NOT treatments for dementia, Alzheimer's, or any clinical cognitive disease. For those, see your GP for referral. Most picks below import under the Therapeutic Goods Administration (TGA) Personal Importation Scheme; TGA-listed Australian alternatives (Blackmores Bio Ginkgoforte, Caruso's Memory Forte, Swisse Memory & Focus, Nature's Own Brahmi) are noted in the FAQ for buyers who prefer pharmacy-stocked Listed Medicines."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

@@ -23,8 +23,14 @@ export async function generateMetadata({
   const { slug } = await params;
   const product = allProductsGCC.find((p) => p.slug === slug);
   if (!product) return {};
-  const title = `${product.name} Review ${CURRENT_YEAR} — Independent Score & Ingredient Audit`;
-  const description = `Independent review of ${product.name}. Score: ${product.score}/10. Clinical dosing audit, pros and cons, and full affiliate disclosure.`;
+  // Per-product SEO override (seoTitle/seoDescription) wins when set; this
+  // route reads productsGCC only, so an override never reaches another region.
+  const title =
+    product.seoTitle ??
+    `${product.name} Review ${CURRENT_YEAR} — Independent Score & Ingredient Audit`;
+  const description =
+    product.seoDescription ??
+    `Independent review of ${product.name}. Score: ${product.score}/10. Clinical dosing audit, pros and cons, and full affiliate disclosure.`;
   return {
     title,
     description,
