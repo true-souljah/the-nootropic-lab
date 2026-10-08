@@ -178,7 +178,6 @@ export default function ProductDetail({
                   <Chip tone="warn">{pd.chips.hasCaffeine}</Chip>
                 )}
                 {allAdequate && <Chip tone="good">{pd.chips.allClinicalDoses}</Chip>}
-                {p.handsOnTested && <Chip tone="accent">{pd.chips.handsOnTested}</Chip>}
                 {p.npnStatus?.status === 'licensed' && (
                   <Chip tone="good">
                     {pd.chips.npnLicensed}

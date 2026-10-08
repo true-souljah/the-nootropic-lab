@@ -79,10 +79,9 @@ export default function ContactPage() {
         </div>
 
         <section className="mt-10 bg-gray-50 rounded-xl p-6">
-          <h2 className="text-lg font-bold text-gray-900 mb-2">Operador</h2>
+          <h2 className="text-lg font-bold text-gray-900 mb-2">Editorial</h2>
           <p className="text-sm text-gray-700">
-            The Nootropic Lab es operado por <strong></strong>, una sociedad alemana de
-            responsabilidad limitada. Para correspondencia legal, contacta a{' '}
+            The Nootropic Lab es editorialmente independiente. Para correspondencia legal, contacta a{' '}
             <a href="mailto:legal@thenootropiclab.com" className="text-green-700 underline">
               legal@thenootropiclab.com
             </a>.

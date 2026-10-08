@@ -236,14 +236,8 @@ export default function Discover({
             </Card>
 
             <Card padding={20}>
-              <div className="flex justify-between items-baseline">
-                <div className="text-[11px] uppercase tracking-[0.12em] text-ds-muted font-semibold">
-                  Audit this cycle
-                </div>
-                <span className="text-[11px] text-ds-good-ink font-semibold inline-flex items-center gap-[5px]">
-                  <span aria-hidden="true" className="w-[6px] h-[6px] bg-ds-good rounded-full inline-block" />
-                  Live
-                </span>
+              <div className="text-[11px] uppercase tracking-[0.12em] text-ds-muted font-semibold">
+                Audit this cycle
               </div>
               <div className="grid grid-cols-3 gap-3 mt-3">
                 {[
