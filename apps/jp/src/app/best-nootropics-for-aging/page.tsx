@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   alternates: buildAlternates({ regionCode: 'jp', path: '/best-nootropics-for-aging/' }),
   openGraph: {
     title: 'Best Nootropics for Aging Brain in Japan — Evidence-Graded',
-    description: 'Domestic picks (FFC-notified FANCL BRAINs, plus Suntory DHA) and international Phosphatidylserine and citicoline picks. Japan\'s aging-population context.',
+    description: 'Domestic options (FFC-notified FANCL BRAINs, plus Suntory DHA) and international Phosphatidylserine and citicoline picks. Japan\'s aging-population context.',
     type: 'article',
   },
   twitter: { card: 'summary' },

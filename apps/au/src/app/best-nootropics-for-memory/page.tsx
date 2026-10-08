@@ -88,7 +88,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Are these memory nootropics TGA-listed in Australia?',
-    a: 'None of the international stacks ranked here (Mind Lab Pro, Qualia Mind, Hunter Focus, Alpha Brain) returned an entry when we searched the Australian Register of Therapeutic Goods (ARTG) and the TGA cancellations database by product and sponsor name on 2026-10-06; they are sold direct to Australian buyers by their brands. Australian TGA-listed memory products are typically standalone Bacopa, ginkgo, or fish-oil formulas: Blackmores Bio Ginkgoforte, Caruso\'s Memory Forte, Swisse Memory & Focus, Nature\'s Own Brahmi, Cenovis Ginkgo Biloba. These carry AUST L numbers. The trade-off: TGA-listed Australian products typically focus on a single ingredient (Bacopa OR ginkgo OR fish oil) rather than the multi-ingredient stacks ranked above.',
+    a: 'None of the international stacks on this page (Mind Lab Pro, Qualia Mind, Hunter Focus, Alpha Brain) returned an entry when we searched the Australian Register of Therapeutic Goods (ARTG) and the TGA cancellations database by product and sponsor name on 2026-10-06; they are sold direct to Australian buyers by their brands. Australian TGA-listed memory products are typically standalone Bacopa, ginkgo, or fish-oil formulas: Blackmores Bio Ginkgoforte, Caruso\'s Memory Forte, Swisse Memory & Focus, Nature\'s Own Brahmi, Cenovis Ginkgo Biloba. These carry AUST L numbers. The trade-off: TGA-listed Australian products typically focus on a single ingredient (Bacopa OR ginkgo OR fish oil) rather than the multi-ingredient stacks ranked above.',
   },
   {
     q: 'Should I combine a TGA-listed Bacopa with an imported stack?',
