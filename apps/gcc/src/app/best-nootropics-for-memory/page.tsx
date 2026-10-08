@@ -63,14 +63,8 @@ const picks: ListiclePick[] = [
       'Includes Bacopa (300mg at clinical dose), phosphatidylserine (200mg, well above clinical anchor), Alpha-GPC, and additional memory cofactors — the most complete memory-ingredient stack in this review. Vegetarian capsules (hypromellose), per the brand (checked 2026-10-07). Caveat: contains caffeine in default formula — choose the caffeine-free variant where offered. 7+ capsules/day and the $159 USD list price are real friction points. We have not verified a product registration with the Saudi Food and Drug Authority (SFDA) or the Ministry of Health and Prevention (MOHAP), and Qualia does not ship to any GCC state (brand shipping page, checked 2026-09-28).',
   },
   {
-    product: productsGCC.find(p => p.slug === 'eu-yan-sang-brainmax-review')!,
-    rank: 3,
-    whyItsHere:
-      'Cera-Q (silk fibroin protein) has one citable 3-week trial in healthy adults averaging about 55, run by maker-affiliated authors, in which 400–600mg/day raised memory-test scores (the trial tested 280–600mg); Eu Yan Sang BrainMAX+ lists 600mg per sachet, the top of that range. Combined with Goji Berry (146mg) and Chinese Wild Ginseng (37mg). From a 145-year-old TCM heritage brand based in Singapore. Caffeine-free powder sachets, so there is no capsule shell to check. Sold on Eu Yan Sang\'s Singapore storefront; delivery to GCC addresses was not confirmed in our 2026-09-28 check. Note: silk fibroin sourcing uses cocoons; observant buyers concerned about insect-derived ingredients should be aware. We have not verified an SFDA or MOHAP product registration. Note that Korea\'s regulator revoked Cera-Q\'s functional-ingredient recognition in 2017 after its supporting study was retracted (details in our BrainMAX+ review).',
-  },
-  {
     product: productsGCC.find(p => p.slug === 'nootropics-depot-lions-mane')!,
-    rank: 4,
+    rank: 3,
     whyItsHere:
       'Single-ingredient Lion\'s Mane fruiting-body extract at 500mg from a brand with the strongest third-party Certificate-of-Analysis culture in this review. Mushroom-derived; no halal certificate shown on the brand\'s page we fetched (checked 2026-10-07). Single-ingredient profile may also clear GCC customs more easily than multi-ingredient stacks. Caffeine-free; labelled vegan on the brand\'s product page, which does not state the capsule shell material. Pair with Mind Lab Pro or a separate Bacopa supplement for full memory-stack coverage. Ships from US.',
   },
@@ -79,15 +73,15 @@ const picks: ListiclePick[] = [
 const faqItems: ListicleFAQ[] = [
   {
     q: 'Are these supplements halal?',
-    a: 'On capsules, Mind Lab Pro states pullulan (NutriCaps) capsules and Qualia Mind vegetarian (hypromellose) capsules; Nootropics Depot labels its Lion\'s Mane vegan but does not state the capsule shell material; Eu Yan Sang BrainMAX+ is a powder sachet, so it has no capsule shell. None of these brands (Mind Lab Pro, Qualia Mind, Eu Yan Sang BrainMAX+, Nootropics Depot) shows a halal certificate on its pages (checked 2026-10-07), and BrainMAX+ is not among the 77 items in Eu Yan Sang Singapore\'s Halal Certified category, so observant buyers should verify each brand\'s latest ingredient sourcing. Note on phosphatidylserine: most products use soy-derived PS (halal); some use bovine-derived PS (would need halal-slaughter verification) or sunflower-derived PS (always halal).',
+    a: 'On capsules, Mind Lab Pro states pullulan (NutriCaps) capsules and Qualia Mind vegetarian (hypromellose) capsules; Nootropics Depot labels its Lion\'s Mane vegan but does not state the capsule shell material. None of these brands (Mind Lab Pro, Qualia Mind, Nootropics Depot) shows a halal certificate on its pages (checked 2026-10-07), so observant buyers should verify each brand\'s latest ingredient sourcing. Note on phosphatidylserine: most products use soy-derived PS (halal); some use bovine-derived PS (would need halal-slaughter verification) or sunflower-derived PS (always halal).',
   },
   {
     q: 'Which of these are SFDA-registered or MOHAP-registered?',
-    a: 'We have not verified an SFDA or MOHAP registration for any of the picks on this page. The international brands here (Mind Lab Pro, Qualia Mind, Eu Yan Sang BrainMAX+, Nootropics Depot) enter the region as personal-use dietary supplements. Verify import status with your local authority before ordering. iHerb\'s Saudi-compliant DC handles import paperwork for many international supplements.',
+    a: 'We have not verified an SFDA or MOHAP registration for any of the picks on this page. The international brands here (Mind Lab Pro, Qualia Mind, Nootropics Depot) enter the region as personal-use dietary supplements. Verify import status with your local authority before ordering. iHerb\'s Saudi-compliant DC handles import paperwork for many international supplements.',
   },
   {
     q: 'What is the most evidence-backed nootropic for memory?',
-    a: 'Bacopa Monnieri at 300mg standardised to 50% bacosides has the most replicated RCT evidence for memory consolidation in healthy adults. Phosphatidylserine has the FDA qualified health claim for cognitive function in elderly. Citicoline has good evidence for older adults with age-related memory complaints. Cera-Q (in Eu Yan Sang BrainMAX+) is a newer ingredient whose memory evidence is one citable 3-week trial by maker-affiliated authors.',
+    a: 'Bacopa Monnieri at 300mg standardised to 50% bacosides has the most replicated RCT evidence for memory consolidation in healthy adults. Phosphatidylserine has the FDA qualified health claim for cognitive function in elderly. Citicoline has good evidence for older adults with age-related memory complaints. Cera-Q (the silk fibroin protein in Eu Yan Sang BrainMAX+) is a newer ingredient whose memory evidence is one citable 3-week trial by maker-affiliated authors, and Korea\'s regulator revoked its functional-ingredient recognition in 2017 after its supporting study was retracted, so BrainMAX+ is not among our picks.',
   },
   {
     q: 'How long until memory nootropics work?',
@@ -110,7 +104,7 @@ export default function Page() {
       useCase="memory"
       pageTitle="Best Nootropics for Memory in the GCC"
       pageDescription="Independent ranking of the best memory nootropics available in the GCC, with halal status and SFDA/MOHAP registration noted per pick."
-      heroParagraph="Memory is the use case where nootropics have the most replicated evidence — primarily from Bacopa Monnieri RCTs spanning 30+ years, plus phosphatidylserine\'s FDA qualified health claim. For GCC buyers, the question is not just \'does it work?\' but \'is it halal?\', \'is it SFDA or MOHAP registered?\', and \'is the capsule plant-based or animal-derived?\'. This page ranks memory products for buyers in Saudi Arabia, the UAE, Qatar, Kuwait, Bahrain, and Oman — imported international brands (Mind Lab Pro, Qualia Mind, Eu Yan Sang BrainMAX+, Nootropics Depot), with each pick noting whether the brand ships to the GCC. Distribution: BinSina, Aster, Life Pharmacy (UAE); Al-Dawaa, Nahdi (KSA); iHerb Saudi-compliant DC for many international imports."
+      heroParagraph="Memory is the use case where nootropics have the most replicated evidence — primarily from Bacopa Monnieri RCTs spanning 30+ years, plus phosphatidylserine\'s FDA qualified health claim. For GCC buyers, the question is not just \'does it work?\' but \'is it halal?\', \'is it SFDA or MOHAP registered?\', and \'is the capsule plant-based or animal-derived?\'. This page ranks memory products for buyers in Saudi Arabia, the UAE, Qatar, Kuwait, Bahrain, and Oman — imported international brands (Mind Lab Pro, Qualia Mind, Nootropics Depot), with each pick noting whether the brand ships to the GCC. Distribution: BinSina, Aster, Life Pharmacy (UAE); Al-Dawaa, Nahdi (KSA); iHerb Saudi-compliant DC for many international imports."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

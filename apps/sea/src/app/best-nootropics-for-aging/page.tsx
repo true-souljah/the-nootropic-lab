@@ -63,20 +63,14 @@ const picks: ListiclePick[] = [
       'Includes phosphatidylserine (100mg Sharp-PS at clinical dose), citicoline (250mg Cognizin at clinical dose), Bacopa, and Lion\'s Mane. Four of the most age-relevant ingredients in one open-formula product. Caffeine-free — no cardiovascular load for older adults sensitive to stimulants in tropical heat. mindlabpro.com names Singapore, Thailand, the Philippines, Indonesia and Vietnam among its shipping territories (its FAQ, checked 2026-09-29); Malaysia is not named on that partial list, so confirm at checkout. Personal-use import. Halal: no halal certificate shown on the brand\'s pages we fetched (checked 2026-10-07) — older Muslim buyers in MY/ID should check the certifying body\'s register before buying.',
   },
   {
-    product: productsSEA.find(p => p.slug === 'eu-yan-sang-brainmax-review')!,
-    rank: 2,
-    whyItsHere:
-      'A 145-year-old TCM heritage brand with 200+ stores across Singapore, Malaysia, Hong Kong, and Macau — deep trust among Chinese-heritage older buyers in SEA. Cera-Q (silk fibroin protein, studied for memory in one citable 3-week trial of healthy adults averaging about 55, by BrainOn-affiliated authors) at 600mg per sachet (the top of the 280–600mg/day range that trial tested), plus Goji Berry and Chinese Wild Ginseng (TCM tradition for cognitive health). Powder sachet format is friendlier than capsules for older adults with swallowing difficulties. Walk into any Eu Yan Sang store for in-person purchase and pharmacist consultation. Delivery outside Singapore was not confirmed — check delivery options at checkout. Note that Korea\'s regulator revoked Cera-Q\'s functional-ingredient recognition in 2017 after its supporting study was retracted (details in our BrainMAX+ review).',
-  },
-  {
     product: productsSEA.find(p => p.slug === 'qualia-mind-review')!,
-    rank: 3,
+    rank: 2,
     whyItsHere:
       'Includes phosphatidylserine 200mg, Bacopa 300mg, Alpha-GPC, Lion\'s Mane, and Uridine plus 23 additional ingredients. Most complete coverage but the 6-capsule daily protocol can be hard to maintain for older adults — consider whether the breadth justifies that friction. Contains caffeine (90mg/serving) which may be unsuitable for older adults with cardiovascular conditions or hypertension. Availability caveat: Qualia does not ship to any SEA country (brand shipping page, checked 2026-09-28).',
   },
   {
     product: productsSEA.find(p => p.slug === 'nootropics-depot-lions-mane')!,
-    rank: 4,
+    rank: 3,
     whyItsHere:
       'Single-ingredient Lion\'s Mane fruiting-body extract from a brand with an ISO-certified in-house lab and a published Certificate of Analysis per batch. The right pick if an older buyer wants to test Lion\'s Mane in isolation, possibly stacked with PS or a TCM heritage brand. Lion\'s Mane has cultural acceptance in Chinese-heritage SEA which eases regulatory ambiguity. Lowest customs-exposure premium import at $25/mo. One capsule daily — easiest pill burden of any pick.',
   },
@@ -89,11 +83,11 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Are these halal-certified for older Muslim buyers in MY/ID?',
-    a: 'Imported brands (Mind Lab Pro, Qualia Mind, Nootropics Depot Lion\'s Mane) show no BPJPH (Indonesia), JAKIM (Malaysia) or other halal certificate on the brand pages we fetched (checked 2026-10-07). For JAKIM-certified alternatives, verify the specific product on its packaging, or check its manufacturer in JAKIM\'s MYeHALAL directory (myehalal.halal.gov.my), which lists certified companies rather than products. Eu Yan Sang BrainMAX+ is sold as 3 g sachets, not capsules; its product page has no halal text and it is not among the 77 items in Eu Yan Sang Singapore\'s Halal Certified category (checked 2026-10-07). When uncertain, consult your local imam, halal authority, or pharmacist before purchase — older relatives often value this consultation step regardless.',
+    a: 'Imported brands (Mind Lab Pro, Qualia Mind, Nootropics Depot Lion\'s Mane) show no BPJPH (Indonesia), JAKIM (Malaysia) or other halal certificate on the brand pages we fetched (checked 2026-10-07). For JAKIM-certified alternatives, verify the specific product on its packaging, or check its manufacturer in JAKIM\'s MYeHALAL directory (myehalal.halal.gov.my), which lists certified companies rather than products. When uncertain, consult your local imam, halal authority, or pharmacist before purchase — older relatives often value this consultation step regardless.',
   },
   {
     q: 'Which are best via Shopee/Lazada/Watsons vs cross-border iHerb for older buyers?',
-    a: 'Shopee/Lazada/in-store: Eu Yan Sang BrainMAX+ via official store or in-person. This is the right route for older buyers who value in-person pharmacist or shop assistant consultation in their local language (English, Malay, Mandarin, Tagalog, Thai, Vietnamese, Bahasa Indonesia). Cross-border iHerb: best for premium imports (Mind Lab Pro, Nootropics Depot) where lab transparency and ingredient breadth matter more than in-person purchase. Adult children buying for parents often prefer the iHerb route for documentation and re-ordering convenience.',
+    a: 'Shopee/Lazada/in-store: buy from the brand\'s official store or in person. This is the right route for older buyers who value in-person pharmacist or shop assistant consultation in their local language (English, Malay, Mandarin, Tagalog, Thai, Vietnamese, Bahasa Indonesia). Cross-border iHerb: best for premium imports (Mind Lab Pro, Nootropics Depot) where lab transparency and ingredient breadth matter more than in-person purchase. Adult children buying for parents often prefer the iHerb route for documentation and re-ordering convenience.',
   },
   {
     q: 'What does the FDA qualified health claim for PS mean?',
@@ -116,7 +110,7 @@ export default function Page() {
       useCase="aging"
       pageTitle="Best Nootropics for Aging Brain in SEA"
       pageDescription="Independent ranking of nootropics for SEA adults concerned about age-related cognitive changes."
-      heroParagraph="Age-related cognitive change is normal — memory recall slows, processing speed reduces. Most of the supplements on this page have evidence in older adults with subjective cognitive complaints; BrainMAX+'s one citable trial was in healthy adults averaging about 55. They are NOT treatments for dementia, Alzheimer's, or any clinical cognitive disease. For those, see a neurologist at NUH/SGH (Singapore), UMMC (Malaysia), Siriraj (Thailand), PGH (Philippines), or your equivalent regional centre. This page ranks the options for SEA buyers — including Asia-developed formulas (Eu Yan Sang BrainMAX+ with Cera-Q) and imported stacks, noting where a brand does not ship to the region. Halal status (Indonesia’s Badan Penyelenggara Jaminan Produk Halal (BPJPH) and the Department of Islamic Development Malaysia (JAKIM)), distribution route, and import notes per country (Singapore’s Health Sciences Authority (HSA), Malaysia’s National Pharmaceutical Regulatory Agency (NPRA), Indonesia’s Badan Pengawas Obat dan Makanan (BPOM), and the Thai and Philippine Food and Drug Administrations (FDA)) included where known."
+      heroParagraph="Age-related cognitive change is normal — memory recall slows, processing speed reduces. Most of the supplements on this page have evidence in older adults with subjective cognitive complaints. They are NOT treatments for dementia, Alzheimer's, or any clinical cognitive disease. For those, see a neurologist at NUH/SGH (Singapore), UMMC (Malaysia), Siriraj (Thailand), PGH (Philippines), or your equivalent regional centre. This page ranks imported stacks for SEA buyers, noting where a brand does not ship to the region. Halal status (Indonesia’s Badan Penyelenggara Jaminan Produk Halal (BPJPH) and the Department of Islamic Development Malaysia (JAKIM)), distribution route, and import notes per country (Singapore’s Health Sciences Authority (HSA), Malaysia’s National Pharmaceutical Regulatory Agency (NPRA), Indonesia’s Badan Pengawas Obat dan Makanan (BPOM), and the Thai and Philippine Food and Drug Administrations (FDA)) included where known."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}
