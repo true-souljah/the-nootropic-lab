@@ -17,6 +17,11 @@ export interface Product {
   brand: string;
   slug: string;
   bestFor: string[];
+  /**
+   * Overall score: weightedScore(scoreBreakdown), the PILLAR_WEIGHTS-weighted
+   * mean of the pillars rounded to one decimal (product-rules.ts). Written by
+   * `npm run recompute-scores`; `npm run validate-data` fails on any drift.
+   */
   score: number;
   scoreBreakdown: {
     ingredients: number;
@@ -28,8 +33,9 @@ export interface Product {
     trust: number;
   };
   /**
-   * Why a scoreBreakdown pillar is null. When set, `score` is the
-   * PILLAR_WEIGHTS-weighted mean of the scored pillars (product-rules.ts).
+   * Why a scoreBreakdown pillar is null. The null pillars are left out of
+   * `score`, which is then the PILLAR_WEIGHTS-weighted mean of the scored
+   * pillars (product-rules.ts weightedScore).
    */
   unscoredReason?: string;
   priceMonthlyUSD?: number;

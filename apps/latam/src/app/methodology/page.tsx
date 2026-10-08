@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { SchemaOrg, EditorialStandardsSection, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
-import { buildPersonAuthorReference } from '@nootropic/data';
+import { buildPersonAuthorReference, pillarWeightPercent } from '@nootropic/data';
 
 import { PublicShell } from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
@@ -16,11 +16,11 @@ export const metadata: Metadata = {
 };
 
 const pillars = [
-  { num: '01', title: 'Calidad de los ingredientes (20%)', desc: 'Evaluamos si cada ingrediente cuenta con evidencia de ensayos clínicos humanos revisados por pares que demuestren beneficios cognitivos. Las mezclas patentadas con dosis ocultas son penalizadas.' },
-  { num: '02', title: 'Dosis vs. evidencia clínica (20%)', desc: 'Para cada ingrediente activo, comparamos la dosis del producto con la dosis mínima efectiva de ensayos clínicos publicados (obtenidos de PubMed). Los ingredientes subdosificados son señalados.' },
-  { num: '03', title: 'Transparencia de la fórmula (20%)', desc: 'La divulgación completa de todas las dosis de ingredientes recibe la puntuación más alta. Las mezclas tipo "matriz" o los ingredientes sin datos de estandarización reducen la puntuación.' },
-  { num: '04', title: 'Relación calidad-precio (20%)', desc: 'Precio por porción dividido entre el número de ingredientes con dosis clínica.' },
-  { num: '05', title: 'Confianza en la marca (20%)', desc: 'Compuesto por la puntuación en Trustpilot (50%), volumen de quejas, transparencia en la cancelación de suscripciones y documentación de pruebas por terceros.' },
+  { num: '01', title: `Calidad de los ingredientes (${pillarWeightPercent('ingredients')}%)`, desc: 'Evaluamos si cada ingrediente cuenta con evidencia de ensayos clínicos humanos revisados por pares que demuestren beneficios cognitivos. Las mezclas patentadas con dosis ocultas son penalizadas.' },
+  { num: '02', title: `Dosis vs. evidencia clínica (${pillarWeightPercent('dosing')}%)`, desc: 'Para cada ingrediente activo, comparamos la dosis del producto con la dosis mínima efectiva de ensayos clínicos publicados (obtenidos de PubMed). Los ingredientes subdosificados son señalados.' },
+  { num: '03', title: `Transparencia de la fórmula (${pillarWeightPercent('transparency')}%)`, desc: 'La divulgación completa de todas las dosis de ingredientes recibe la puntuación más alta. Las mezclas tipo "matriz" o los ingredientes sin datos de estandarización reducen la puntuación.' },
+  { num: '04', title: `Relación calidad-precio (${pillarWeightPercent('value')}%)`, desc: 'Precio por porción dividido entre el número de ingredientes con dosis clínica.' },
+  { num: '05', title: `Confianza en la marca (${pillarWeightPercent('trust')}%)`, desc: 'Compuesto por la puntuación en Trustpilot (50%), volumen de quejas, transparencia en la cancelación de suscripciones y documentación de pruebas por terceros.' },
 ];
 
 export default function MethodologyPage() {
