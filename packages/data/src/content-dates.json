@@ -233,6 +233,8 @@
  "packages/data/src/ingredients.ts": "2026-10-07T12:48:31+03:00",
  "packages/data/src/jp-prefectures.ts": "2026-09-29T14:12:23+03:00",
  "packages/data/src/latam-countries.ts": "2026-10-05T14:44:38+03:00",
+ "packages/data/src/product-images.json": "2026-10-08T10:54:30+03:00",
+ "packages/data/src/product-images.ts": "2026-10-07T13:10:17+03:00",
  "packages/data/src/product-rules.ts": "2026-10-07T12:52:44+03:00",
  "packages/data/src/product-schema.ts": "2026-07-07T15:07:57+03:00",
  "packages/data/src/product-status.ts": "2026-09-28T15:24:17+03:00",
