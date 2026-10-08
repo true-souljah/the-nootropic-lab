@@ -69,6 +69,19 @@ describe('licenceStatus', () => {
       'No FFC notification found (checked 2026-10-06)',
     );
   });
+  test('SEA maps halalCertified: false reports only what the brand pages showed, dated when checked', () => {
+    const base = productsUS[0];
+    expect(licenceStatus({ ...base, halalCertified: true }, 'sea')).toEqual({ label: 'Halal certified', tone: 'good' });
+    expect(licenceStatus({ ...base, halalCertified: false }, 'sea')).toEqual({
+      label: 'No halal certificate shown by the brand',
+      tone: 'neutral',
+    });
+    expect(licenceStatus({ ...base, halalCertified: false, halalCheckedAt: '2026-10-07' }, 'sea')).toEqual({
+      label: 'No halal certificate shown by the brand (checked 2026-10-07)',
+      tone: 'neutral',
+    });
+    expect(licenceStatus({ ...base, halalCertified: undefined }, 'sea')).toBeNull();
+  });
   test('regions without a licence concept return null rather than a made-up label', () => {
     expect(licenceStatus(productsUS[0], 'us')).toBeNull();
     expect(licenceStatus(productsGCC[0], 'gcc')).toBeNull();

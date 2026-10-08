@@ -43,7 +43,10 @@ that touches `apps/{region}/**` triggers that region's Pages deploy.
 ## Affiliate links: UberNet (Performance Lab, Mind Lab Pro, Pre Lab Pro)
 
 The Performance Lab family (Performance Lab, Mind Lab Pro, Pre Lab Pro) is
-tracked through UberNet (affiliate id `a_aid=zid0oxj1g4uny`).
+tracked through UberNet (affiliate id `a_aid=zid0oxj1g4uny`). The catalogue's
+`commissionRate: "30%"` and `cookieDays: 365` for these records were confirmed
+by the operator from the UberNet dashboard on 2026-10-08 (the public programme
+page publishes no numbers).
 
 - **On these sites** a UberNet DirectLink integration attributes clicks by
   referrer, so a plain vendor URL already earns. Catalogue records still carry
