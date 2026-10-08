@@ -182,7 +182,7 @@ export interface Product {
    * zero-click) — do not set it network-wide. Because each region app
    * reads only its own `products-{region}.json`, setting this on a product
    * in one region's data file cannot leak into any other region's page.
-   * Only the SEA and GCC routes read it so far; a region whose route ignores
+   * Only the SEA, GCC and EU routes read it so far; a region whose route ignores
    * it fails seo-overrides.test.ts. Keep ≤ 60 chars (the brand suffix is
    * appended by the layout template); validate-data enforces the length and
    * the other seoOverrideProblems rules (seo-overrides.ts).
