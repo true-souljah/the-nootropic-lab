@@ -9,10 +9,10 @@ import { SITE_URL } from '@/lib/region';
 export const metadata: Metadata = {
   title: 'Acerca de The Nootropic Lab Latam',
   description:
-    'The Nootropic Lab Latam es un sitio independiente de comparación de suplementos cognitivos para América Latina, operado por . Reseñas basadas en evidencia, auditorías de dosificación clínica y divulgación transparente de afiliados.',
+    'The Nootropic Lab Latam es un sitio independiente de comparación de suplementos cognitivos para América Latina. Reseñas basadas en evidencia, auditorías de dosificación clínica y divulgación transparente de afiliados.',
   alternates: buildAlternates({ regionCode: 'latam', path: '/about/' }),
-  openGraph: buildOpenGraph({ regionCode: 'latam', path: '/about/', title: 'Acerca de The Nootropic Lab Latam', description: 'The Nootropic Lab Latam es un sitio independiente de comparación de suplementos cognitivos para América Latina, operado por . Reseñas basadas en evidencia, auditorías de dosificación clínica y divulgación transparente de afiliados.' }),
-  twitter: buildTwitter({ title: 'Acerca de The Nootropic Lab Latam', description: 'The Nootropic Lab Latam es un sitio independiente de comparación de suplementos cognitivos para América Latina, operado por . Reseñas basadas en evidencia, auditorías de dosificación clínica y divulgación transparente de afiliados.' }),
+  openGraph: buildOpenGraph({ regionCode: 'latam', path: '/about/', title: 'Acerca de The Nootropic Lab Latam', description: 'The Nootropic Lab Latam es un sitio independiente de comparación de suplementos cognitivos para América Latina. Reseñas basadas en evidencia, auditorías de dosificación clínica y divulgación transparente de afiliados.' }),
+  twitter: buildTwitter({ title: 'Acerca de The Nootropic Lab Latam', description: 'The Nootropic Lab Latam es un sitio independiente de comparación de suplementos cognitivos para América Latina. Reseñas basadas en evidencia, auditorías de dosificación clínica y divulgación transparente de afiliados.' }),
 };
 
 const aboutSchema = {
@@ -97,12 +97,9 @@ export default function AboutPage() {
         <section className="mb-10">
           <h2 className="text-xl font-bold text-gray-900 mb-3">Quiénes somos</h2>
           <p className="text-gray-700 leading-relaxed">
-            The Nootropic Lab es operado por <strong></strong>, una sociedad alemana de
-            responsabilidad limitada que construye sitios de comparación basados en evidencia en verticales
+            The Nootropic Lab es un equipo editorial independiente que construye sitios de comparación basados en evidencia en verticales
             regulados (servicios financieros, suplementos, mercados de predicción). La línea editorial está
-            dirigida por The Nootropic Lab Editorial Team. Cada reseña lleva la firma de un autor con nombre — sin contenido
-            anónimo.{' '}
-            Conoce al editor.
+            dirigida por The Nootropic Lab Editorial Team.
           </p>
         </section>
 

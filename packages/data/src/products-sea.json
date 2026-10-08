@@ -935,7 +935,6 @@
     "notes": [
       "Philippine retail price: PHP 517.50 for a 30-capsule bottle (15 days at the label dose) at Southstar Drug (https://southstardrug.com.ph/products/memo-plus-gold-capsule-30s, checked 2026-09-28)."
     ],
-    "handsOnTested": false,
     "halalCertified": false,
     "halalCheckedAt": "2026-10-07",
     "halalBasis": "No halal statement on davenben.com (home and Memo Plus Gold pages) or the Davenben Memo Plus Gold leaflet hosted by MIMS (fetched 2026-10-07); the mypharma.ph product page did not respond, so it was not checked. The leaflet does not state the capsule shell material.",
@@ -990,7 +989,6 @@
     "halalCertified": false,
     "halalCheckedAt": "2026-10-07",
     "halalBasis": "No halal statement on the supershrooms.ph Focus Nootropic product page or its Shopify product data (fetched 2026-10-07; /pages/faq returns 404). Sold by the pouch; no capsule is stated.",
-    "handsOnTested": false,
     "heroIngredients": [
       "Lion's Mane",
       "Cordyceps",

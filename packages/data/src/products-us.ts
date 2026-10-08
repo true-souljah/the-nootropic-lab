@@ -87,12 +87,6 @@ export interface Product {
   editorChoice: boolean;
   market: Market;
   updatedAt?: string;
-  /** True if this product has been independently tested by the editorial team
-   * (full hands-on review with sample, dosing audit, and verdict). False or
-   * undefined = catalog entry sourced from public product information; we have
-   * not held the bottle. Surfaced as a trust badge on listicle + review pages.
-   */
-  handsOnTested?: boolean;
   /**
    * Health Canada natural health product (NHP) licensing status, checked
    * against the Licensed Natural Health Products Database (LNHPD). Only set on
