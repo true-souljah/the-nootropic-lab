@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { SchemaOrg, EditorialStandardsSection, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
-import { buildPersonAuthorReference } from '@nootropic/data';
+import { buildPersonAuthorReference, pillarWeightPercent } from '@nootropic/data';
 
 import { PublicShell } from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
@@ -16,11 +16,11 @@ export const metadata: Metadata = {
 };
 
 const pillars = [
-  { num: '01', title: 'Ingredient quality (20%)', desc: 'We assess whether each ingredient has peer-reviewed human clinical trial evidence for cognitive benefits. Proprietary blends with hidden doses are penalised.' },
-  { num: '02', title: 'Dosing vs. clinical evidence (20%)', desc: 'For each active ingredient, we compare the product dose to the minimum effective dose from published clinical trials (sourced from PubMed). Underdosed ingredients are flagged.' },
-  { num: '03', title: 'Formula transparency (20%)', desc: 'Full disclosure of all ingredient doses scores highest. "Matrix" blends or ingredients without standardisation data reduce scores.' },
-  { num: '04', title: 'Value for money (20%)', desc: 'Price per serving divided by the number of clinical-dose ingredients.' },
-  { num: '05', title: 'Brand trust (20%)', desc: 'Composite of Trustpilot score (50%), BBB complaint volume, subscription cancellation transparency, and third-party testing documentation.' },
+  { num: '01', title: `Ingredient quality (${pillarWeightPercent('ingredients')}%)`, desc: 'We assess whether each ingredient has peer-reviewed human clinical trial evidence for cognitive benefits. Proprietary blends with hidden doses are penalised.' },
+  { num: '02', title: `Dosing vs. clinical evidence (${pillarWeightPercent('dosing')}%)`, desc: 'For each active ingredient, we compare the product dose to the minimum effective dose from published clinical trials (sourced from PubMed). Underdosed ingredients are flagged.' },
+  { num: '03', title: `Formula transparency (${pillarWeightPercent('transparency')}%)`, desc: 'Full disclosure of all ingredient doses scores highest. "Matrix" blends or ingredients without standardisation data reduce scores.' },
+  { num: '04', title: `Value for money (${pillarWeightPercent('value')}%)`, desc: 'Price per serving divided by the number of clinical-dose ingredients.' },
+  { num: '05', title: `Brand trust (${pillarWeightPercent('trust')}%)`, desc: 'Composite of Trustpilot score (50%), BBB complaint volume, subscription cancellation transparency, and third-party testing documentation.' },
 ];
 
 export default function MethodologyPage() {

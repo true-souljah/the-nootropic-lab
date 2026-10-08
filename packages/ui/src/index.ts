@@ -60,6 +60,8 @@ export { BrandMark } from './primitives/BrandMark';
 export type { BrandMarkProps } from './primitives/BrandMark';
 export { LiveRegion } from './primitives/LiveRegion';
 export type { LiveRegionProps } from './primitives/LiveRegion';
+export { ProductThumb } from './primitives/ProductThumb';
+export type { ProductThumbProps } from './primitives/ProductThumb';
 
 // Public-surface chrome (Stack redesign — M2A foundation)
 export { FPDisclosure } from './public-chrome/FPDisclosure';

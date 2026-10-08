@@ -9,7 +9,7 @@
       "Memory",
       "Long-term brain health"
     ],
-    "score": 9.2,
+    "score": 9.4,
     "scoreBreakdown": {
       "ingredients": 9,
       "dosing": 10,
@@ -125,7 +125,7 @@
       "Screen workers",
       "Budget"
     ],
-    "score": 7.8,
+    "score": 7.6,
     "scoreBreakdown": {
       "ingredients": 8,
       "dosing": 7,
@@ -243,7 +243,7 @@
       "Neurohackers",
       "Complex stacks"
     ],
-    "score": 8.1,
+    "score": 8.3,
     "scoreBreakdown": {
       "ingredients": 10,
       "dosing": 8,
@@ -353,7 +353,7 @@
       "Brand recognition",
       "Athletes"
     ],
-    "score": 7.2,
+    "score": 6.6,
     "scoreBreakdown": {
       "ingredients": 7,
       "dosing": 6,
@@ -482,7 +482,7 @@
       "Personalisation",
       "Custom stack optimisers"
     ],
-    "score": 7.6,
+    "score": 7.5,
     "scoreBreakdown": {
       "ingredients": 8,
       "dosing": 7,
@@ -577,7 +577,7 @@
       "Long-term brain health",
       "Nerve growth"
     ],
-    "score": 8.5,
+    "score": 9.1,
     "scoreBreakdown": {
       "ingredients": 9,
       "dosing": 9,
@@ -639,6 +639,8 @@
     "name": "Blackmores Brain Active",
     "brand": "Blackmores (Sydney, AU)",
     "slug": "blackmores-brain-active-review",
+    "seoTitle": "Blackmores Brain Active (Discontinued): Doses & Alternatives",
+    "seoDescription": "Discontinued: Brain Active is gone from Blackmores Singapore's brain range and Guardian's shelf (checked Sep 2026). See its old doses and alternatives.",
     "bestFor": [
       "Memory",
       "Brain health"
@@ -729,12 +731,14 @@
     "name": "Eu Yan Sang BrainMAX+",
     "brand": "Eu Yan Sang",
     "slug": "eu-yan-sang-brainmax-review",
+    "seoTitle": "Eu Yan Sang BrainMAX+ Review: Cera-Q Evidence & Price",
+    "seoDescription": "BrainMAX+ uses 600mg Cera-Q silk protein, backed by one 3-week maker-affiliated trial; Korea's MFDS revoked its recognition in 2017. S$69.90/30 sachets.",
     "bestFor": [
       "Memory",
       "Cognitive health",
       "TCM heritage brand"
     ],
-    "score": 7.1,
+    "score": 6.8,
     "scoreBreakdown": {
       "ingredients": 7,
       "dosing": 7,
@@ -828,7 +832,7 @@
       "Memory",
       "TCM-inspired formula"
     ],
-    "score": 6.8,
+    "score": 7,
     "scoreBreakdown": {
       "ingredients": 7,
       "dosing": 7,
@@ -902,7 +906,7 @@
       "Learning",
       "Budget option"
     ],
-    "score": 6.4,
+    "score": 6.2,
     "scoreBreakdown": {
       "ingredients": 6,
       "dosing": 6,

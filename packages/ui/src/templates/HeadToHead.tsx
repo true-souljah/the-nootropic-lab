@@ -12,6 +12,7 @@ import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
 import { Bar } from '../primitives/Bar';
 import { FaqAccordion } from '../primitives/FaqAccordion';
+import { ProductThumb } from '../primitives/ProductThumb';
 import { buildPersonAuthorReference, servingAmount, servingsComparable, outOfTen, guaranteeDays } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import {
@@ -321,13 +322,12 @@ export default function HeadToHead({
         <div className="grid gap-3 mt-6 items-stretch grid-cols-1 lg:grid-cols-[1fr_80px_1fr]">
           {[productA, productB].map((p, idx) => (
             <Card key={p.id} padding={22}>
-              <div
-                className="w-14 h-14 rounded-[12px] grid place-items-center text-white font-extrabold text-[22px]"
-                style={{ background: idx === 0 ? 'var(--color-ds-accent)' : 'var(--color-ds-ink)' }}
-                aria-hidden="true"
-              >
-                {p.name[0]}
-              </div>
+              <ProductThumb
+                product={p}
+                size={56}
+                variant="sm"
+                monogramBg={idx === 0 ? 'var(--color-ds-accent)' : 'var(--color-ds-ink)'}
+              />
               <h2 className="text-[26px] font-bold tracking-[-0.02em] mt-4 mb-1">{p.name}</h2>
               <div className="text-ds-muted text-[13px]">{p.brand}</div>
               <div className="flex items-baseline gap-[6px] mt-[18px] pt-4 border-t border-ds-border">
