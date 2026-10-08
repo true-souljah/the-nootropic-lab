@@ -93,7 +93,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Will I have customs issues importing these to Japan?',
-    a: 'Japan permits personal-use imports of supplements within MHLW (厚生労働省) guidelines — generally up to a 2-month supply per order, value under approximately ¥16,000. All four picks above are formulated within MHLW-permissible ingredient categories. Modafinil and prescription stimulants are not permitted via personal import.',
+    a: 'Japan permits personal-use imports of supplements within MHLW (厚生労働省) guidelines — generally up to a 2-month supply per order, value under approximately ¥16,000. All the picks above are formulated within MHLW-permissible ingredient categories. Modafinil and prescription stimulants are not permitted via personal import.',
   },
 ];
 

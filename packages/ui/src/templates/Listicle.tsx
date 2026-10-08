@@ -12,6 +12,7 @@ import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
 import { Bar } from '../primitives/Bar';
 import { FaqAccordion } from '../primitives/FaqAccordion';
+import { ProductThumb } from '../primitives/ProductThumb';
 import { buildPersonAuthorReference, servingAmount, pillarText, guaranteeDays } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import {
@@ -19,6 +20,13 @@ import {
   tpl,
   type UseCaseListPageStrings,
 } from '../templateStrings';
+import {
+  LISTICLE_MIN_SCORE,
+  belowBarReason,
+  formatListicleScore,
+  howWeChooseText,
+  splitListiclePicks,
+} from './listicleRanking';
 import type { SearchItem } from '../SearchModal';
 
 export interface ListicleFAQ {
@@ -129,7 +137,10 @@ export default function Listicle({
     day: 'numeric',
   });
 
-  const sortedPicks = [...picks].sort((a, b) => (a.rank ?? 999) - (b.rank ?? 999));
+  // Only picks at or above LISTICLE_MIN_SCORE are ranked (cards, "#N", CTAs,
+  // TOC, ItemList); the rest render unranked under "Also considered".
+  const { ranked, alsoConsidered } = splitListiclePicks(picks);
+  const minScoreText = formatListicleScore(LISTICLE_MIN_SCORE);
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -148,10 +159,10 @@ export default function Listicle({
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: `${pageTitle} ${currentYear}`,
-    numberOfItems: picks.length,
-    itemListElement: sortedPicks.map((p, i) => ({
+    numberOfItems: ranked.length,
+    itemListElement: ranked.map((p) => ({
       '@type': 'ListItem',
-      position: p.rank ?? i + 1,
+      position: p.rank,
       name: p.product.name,
       url: `${siteUrl}/${p.product.slug}/`,
     })),
@@ -255,9 +266,9 @@ export default function Listicle({
               <FPTrustNote strings={uiStrings.disclosure} className="mb-6" />
 
               <div className="flex flex-col gap-5">
-                {sortedPicks.map((pick, i) => {
-                  const rank = pick.rank ?? i + 1;
-                  const isTop = i === 0;
+                {ranked.map((pick) => {
+                  const rank = pick.rank;
+                  const isTop = rank === 1;
                   return (
                     <Card key={pick.product.slug} padding={0} as="article">
                       <div className="p-6">
@@ -348,6 +359,47 @@ export default function Listicle({
               </div>
             </section>
 
+            {/* Picks below LISTICLE_MIN_SCORE: kept on the page with their score
+                and the reason, but unranked and with no affiliate link — this
+                section is not a recommendation (site-owner decision 2026-10-08). */}
+            {alsoConsidered.length > 0 && (
+              <section id="also-considered" aria-labelledby="also-considered-heading" className="my-10">
+                <h2 id="also-considered-heading" className="text-[22px] font-bold text-ds-ink mb-2">
+                  {tpl(s.alsoConsideredHeading, { minScore: minScoreText })}
+                </h2>
+                <p className="text-[14px] text-ds-muted mb-4 leading-[1.55]">
+                  {tpl(s.alsoConsideredIntro, { minScore: minScoreText })}
+                </p>
+                <ul className="list-none p-0 m-0 flex flex-col gap-3">
+                  {alsoConsidered.map((pick) => (
+                    <Card key={pick.product.slug} as="li" padding={16}>
+                      <div className="flex items-start gap-3">
+                        <ProductThumb product={pick.product} size={40} variant="sm" />
+                        <div className="min-w-0">
+                          <h3
+                            id={`also-considered-${pick.product.slug}`}
+                            className="text-[17px] font-semibold text-ds-ink m-0"
+                          >
+                            {pick.product.name}
+                          </h3>
+                          <p className="text-[12.5px] text-ds-muted m-0 mt-[2px] ds-tabular">
+                            {pick.product.brand} · {belowBarReason(s, pick.product.score)}
+                          </p>
+                          <p className="text-[13.5px] leading-[1.6] text-ds-ink-soft m-0 mt-2">{pick.whyItsHere}</p>
+                          <Link
+                            href={`/${pick.product.slug}/`}
+                            className="inline-block mt-2 text-[13px] font-semibold text-ds-accent underline focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded"
+                          >
+                            {s.readFullReview}
+                          </Link>
+                        </div>
+                      </div>
+                    </Card>
+                  ))}
+                </ul>
+              </section>
+            )}
+
             <section className="my-10">
               <h2 className="text-[26px] font-bold text-ds-ink mb-4">{s.faqHeading}</h2>
               <FaqAccordion items={faqItems} />
@@ -419,7 +471,7 @@ export default function Listicle({
             >
               <h2 className="text-[18px] font-bold text-ds-ink mb-2">{s.howWeChoose}</h2>
               <p className="text-[14px] leading-[1.6] text-ds-ink-soft mb-3">
-                {s.howWeChooseBody}{' '}
+                {howWeChooseText(s)}{' '}
                 <Link href="/methodology/" className="text-ds-accent underline">
                   {s.fullMethodology}
                 </Link>
@@ -440,19 +492,32 @@ export default function Listicle({
                 In this guide
               </div>
               <ul className="list-none p-0 m-0 flex flex-col gap-2">
-                {sortedPicks.map((pick, i) => (
+                {ranked.map((pick) => (
                   <li key={pick.product.slug} className="text-[13px]">
                     <a
                       href={`#pick-${pick.product.slug}`}
                       className="text-ds-ink-soft hover:text-ds-accent focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded"
                     >
                       <span className="text-ds-muted ds-tabular mr-2">
-                        #{pick.rank ?? i + 1}
+                        #{pick.rank}
                       </span>
                       {pick.product.name}
                     </a>
                   </li>
                 ))}
+                {/* One unnumbered link to the section, not the products: the
+                    numbered list stays the ranking, and below-bar products get
+                    no name-and-number entry that reads like a rank. */}
+                {alsoConsidered.length > 0 && (
+                  <li className="text-[13px] border-t border-ds-border pt-2 mt-1">
+                    <a
+                      href="#also-considered"
+                      className="text-ds-ink-soft hover:text-ds-accent focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded"
+                    >
+                      {s.alsoConsideredToc}
+                    </a>
+                  </li>
+                )}
               </ul>
             </Card>
           </aside>

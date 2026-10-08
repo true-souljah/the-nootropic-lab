@@ -89,7 +89,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'I take a cholinesterase inhibitor (donepezil / アリセプト). Should I avoid certain ingredients?',
-    a: 'Yes — discuss with your neurologist. Huperzine A is itself an acetylcholinesterase inhibitor and stacking with donepezil (アリセプト) is not advised. None of the four picks above contain Huperzine A. Citicoline is a different mechanism (choline donor) and is sometimes used alongside cholinesterase inhibitors under clinician supervision, but combine only with medical input.',
+    a: 'Yes — discuss with your neurologist. Huperzine A is itself an acetylcholinesterase inhibitor and stacking with donepezil (アリセプト) is not advised. None of the products above contain Huperzine A. Citicoline is a different mechanism (choline donor) and is sometimes used alongside cholinesterase inhibitors under clinician supervision, but combine only with medical input.',
   },
   {
     q: 'Where can my elderly parents buy these in Japan?',
