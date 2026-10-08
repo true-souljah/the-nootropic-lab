@@ -96,7 +96,7 @@ export default function Discover({
     const audited = products.length;
     const withDoses = products.filter((p) => p.ingredientDosages.length > 0);
     const underdosed = withDoses.filter((p) =>
-      p.ingredientDosages.some((ing) => !ing.adequatelyDosed)
+      p.ingredientDosages.some((ing) => ing.adequatelyDosed === false)
     ).length;
     const underdosedPct = withDoses.length
       ? Math.round((underdosed / withDoses.length) * 100)

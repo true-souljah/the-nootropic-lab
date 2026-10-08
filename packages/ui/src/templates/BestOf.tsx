@@ -107,7 +107,7 @@ export default function BestOf({
   const withDoses = products.filter((p) => p.ingredientDosages.length > 0);
   const underdosedPct = withDoses.length
     ? Math.round(
-        (withDoses.filter((p) => p.ingredientDosages.some((ing) => !ing.adequatelyDosed)).length /
+        (withDoses.filter((p) => p.ingredientDosages.some((ing) => ing.adequatelyDosed === false)).length /
           withDoses.length) *
           100
       )
