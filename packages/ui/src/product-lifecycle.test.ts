@@ -7,6 +7,7 @@ import {
   productRuleProblems,
   scoreProblem,
   weightedScore,
+  halalEvidenceProblem,
   outOfTen,
   pillarText,
   guaranteeDays,
@@ -224,6 +225,40 @@ describe('scoreProblem — unscorable pillars (2026-10, SEA Supershrooms)', () =
     const supershrooms = allProductsSEA.find((p) => p.slug === 'supershrooms-focus-nootropic-review');
     expect(supershrooms?.score).toBe(4.9);
     expect(supershrooms?.unscoredReason).toMatch(/discloses no ingredient doses/);
+  });
+});
+
+describe('halalEvidenceProblem — halal status needs dated evidence (2026-10-07)', () => {
+  const basis = 'No halal statement on the brand product page (fetched 2026-10-07).';
+
+  test('undefined halalCertified is not checked', () => {
+    expect(halalEvidenceProblem({})).toBeNull();
+  });
+
+  test('false needs a real YYYY-MM-DD halalCheckedAt and a non-empty halalBasis', () => {
+    expect(halalEvidenceProblem({ halalCertified: false, halalCheckedAt: '2026-10-07', halalBasis: basis })).toBeNull();
+    expect(halalEvidenceProblem({ halalCertified: false, halalBasis: basis })).toMatch(/halalCheckedAt is not a YYYY-MM-DD date/);
+    expect(halalEvidenceProblem({ halalCertified: false, halalCheckedAt: '7 Oct 2026', halalBasis: basis })).toMatch(/halalCheckedAt/);
+    expect(halalEvidenceProblem({ halalCertified: false, halalCheckedAt: '2026-02-30', halalBasis: basis })).toMatch(/halalCheckedAt/);
+    expect(halalEvidenceProblem({ halalCertified: false, halalCheckedAt: '2026-10-07' })).toBe('halalBasis is empty');
+    expect(halalEvidenceProblem({ halalCertified: false, halalCheckedAt: '2026-10-07', halalBasis: '  ' })).toBe('halalBasis is empty');
+  });
+
+  test('true additionally needs a named certifier', () => {
+    expect(halalEvidenceProblem({ halalCertified: true, halalCheckedAt: '2026-10-07', halalBasis: basis })).toMatch(/does not name a certifier/);
+    expect(
+      halalEvidenceProblem({ halalCertified: true, halalCheckedAt: '2026-10-07', halalBasis: 'JAKIM certificate on the brand page' }),
+    ).toBeNull();
+  });
+
+  test('productRuleProblems reports it, and every real record passes', () => {
+    expect(productRuleProblems({ affiliateUrl: 'https://shop.example/p/x', ingredientDosages: [dosage], ...scored, halalCertified: false })).toEqual([
+      'halalCheckedAt is not a YYYY-MM-DD date: undefined',
+    ]);
+    const all = [...allProductsUS, ...allProductsEU, ...allProductsCA, ...allProductsAU, ...allProductsJP, ...allProductsLatam, ...allProductsGCC, ...allProductsSEA];
+    const withHalal = all.filter((p) => p.halalCertified !== undefined);
+    expect(withHalal.length).toBeGreaterThanOrEqual(10);
+    for (const p of withHalal) expect(halalEvidenceProblem(p), p.slug).toBeNull();
   });
 });
 
