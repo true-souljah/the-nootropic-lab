@@ -173,3 +173,58 @@ describe('no copy asserts a product is not halal-certified or that rankings weig
     expect(hits).toEqual([]);
   });
 });
+
+// AU legal statements (2026-10-08, research p5/au-permissible-ingredients.json).
+// The Therapeutic Goods (Permissible Ingredients) Determination (No. 2) 2026
+// (F2026L00707, as compiled 17 September 2026) lists phosphatidylserine as
+// soy phosphatidylserine-enriched soy lecithin (Schedule 1 items 4689/4690),
+// so copy calling an ingredient "not a permitted ingredient" must name the
+// Schedule 1 item it rests on. Huperzine A copy states the name-level search
+// results (not found in Schedule 1; no huperz* entry in the Poisons Standard)
+// instead of guessing that it "may attract TGA scrutiny". The June 2026
+// Poisons Standard (F2026L00633) was repealed by the October 2026 instrument
+// (F2026L01327), so the old instrument must not be cited as current.
+const AU_LEGAL_SOURCES = [
+  ...walk(resolve(APPS_DIR, 'au', 'src')),
+  ...walk(DATA_DIR),
+];
+
+const NOT_PERMITTED = /not a permitted ingredient/i;
+
+const AU_LEGAL_UNSOURCED: RegExp[] = [
+  /may (attract|require) (Therapeutic Goods Administration \()?TGA\)? (scrutiny|oversight)/i,
+  /F2026L00633/,
+];
+
+describe('AU legal statements follow the Permissible Ingredients Determination and the current Poisons Standard', () => {
+  test('scanned a non-empty file set', () => {
+    expect(AU_LEGAL_SOURCES.length).toBeGreaterThan(50);
+    expect(AU_LEGAL_SOURCES.some(f => /packages\/data\/src\/products-au\.json$/.test(f))).toBe(true);
+    expect(AU_LEGAL_SOURCES.some(f => /packages\/data\/src\/regional-notes\/au\.ts$/.test(f))).toBe(true);
+    expect(AU_LEGAL_SOURCES.some(f => /apps\/au\/src\/app\/tga-listed-cognitive-supplements\/page\.tsx$/.test(f))).toBe(true);
+    expect(AU_LEGAL_SOURCES.some(f => /apps\/au\/src\/app\/best-nootropics-for-memory\/page\.tsx$/.test(f))).toBe(true);
+    expect(AU_LEGAL_SOURCES.some(f => /apps\/au\/src\/app\/best-nootropics-for-aging\/page\.tsx$/.test(f))).toBe(true);
+    expect(AU_LEGAL_SOURCES.some(f => /apps\/au\/src\/app\/best-nootropics-for-focus\/page\.tsx$/.test(f))).toBe(true);
+    expect(AU_LEGAL_SOURCES.every(f => existsSync(f))).toBe(true);
+  });
+
+  test('"not a permitted ingredient" appears only on a line that names its Schedule 1 item', () => {
+    const hits = AU_LEGAL_SOURCES.flatMap(file => {
+      const lines = readFileSync(file, 'utf8').split('\n');
+      return lines.flatMap((line, i) =>
+        NOT_PERMITTED.test(line) && !/\bitems?\b/i.test(line) ? [`${file.slice(REPO_ROOT.length + 1)}:${i + 1}`] : [],
+      );
+    });
+    expect(hits).toEqual([]);
+  });
+
+  test('no "may attract TGA scrutiny" speculation and no citation of the repealed June 2026 Poisons Standard', () => {
+    const hits = AU_LEGAL_SOURCES.flatMap(file => {
+      const lines = readFileSync(file, 'utf8').split('\n');
+      return lines.flatMap((line, i) =>
+        AU_LEGAL_UNSOURCED.some(re => re.test(line)) ? [`${file.slice(REPO_ROOT.length + 1)}:${i + 1}`] : [],
+      );
+    });
+    expect(hits).toEqual([]);
+  });
+});
