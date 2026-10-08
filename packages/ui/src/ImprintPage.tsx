@@ -54,8 +54,7 @@ export default function ImprintPage({ siteUrl, marketLabel, contactEmail, region
           <p className="text-gray-700 leading-relaxed mb-3">
             The Nootropic Lab is an independent editorial publication that reviews cognitive supplements
             using a transparent five-pillar methodology. We operate as an editorial collective and do not
-            disclose individual contributors by name. Reviews are produced collaboratively by editors with
-            backgrounds in pharmacology, evidence synthesis, and consumer-product analysis.
+            disclose individual contributors by name.
           </p>
           <p className="text-gray-700 leading-relaxed">
             We do not accept payment for reviews, do not feature sponsored placements, and disclose every
@@ -87,7 +86,6 @@ export default function ImprintPage({ siteUrl, marketLabel, contactEmail, region
             <li>Every product review applies the same five-pillar scoring framework.</li>
             <li>Ingredient doses are evaluated against minimum effective doses from peer-reviewed human clinical trials (PubMed-indexed).</li>
             <li>Affiliate disclosure renders at the top of every commercial page, before the first call-to-action.</li>
-            <li>Catalog products (entries based on public product information) and hands-on tested products are visually distinguished by a badge.</li>
             <li>Region-specific regulatory disclaimers are surfaced on every commercial page (for example the Dietary Supplement Health and Education Act (DSHEA), the European Food Safety Authority (EFSA), the Therapeutic Goods Administration (TGA), Health Canada’s Natural Product Number (NPN), Japan’s Foods with Function Claims (FFC), Argentina’s Administración Nacional de Medicamentos, Alimentos y Tecnología Médica (ANMAT), the Saudi Food and Drug Authority (SFDA), Indonesia’s Badan Penyelenggara Jaminan Produk Halal (BPJPH) and the Department of Islamic Development Malaysia (JAKIM)).</li>
             <li>Errors are corrected promptly and transparently. We never delete or quietly edit factual claims after publication.</li>
           </ul>

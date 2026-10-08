@@ -21,8 +21,6 @@ export interface ComparatorFiltersProps {
   setCaffeineFreeOnly: Dispatch<SetStateAction<boolean>>;
   euCompliantOnly: boolean;
   setEuCompliantOnly: Dispatch<SetStateAction<boolean>>;
-  handsOnOnly: boolean;
-  setHandsOnOnly: Dispatch<SetStateAction<boolean>>;
   showCommission: boolean;
   setShowCommission: Dispatch<SetStateAction<boolean>>;
   onReset: () => void;
@@ -40,8 +38,6 @@ export function ComparatorFilters({
   setCaffeineFreeOnly,
   euCompliantOnly,
   setEuCompliantOnly,
-  handsOnOnly,
-  setHandsOnOnly,
   showCommission,
   setShowCommission,
   onReset,
@@ -114,7 +110,6 @@ export function ComparatorFilters({
       <div className="mb-[22px] pt-[14px] border-t border-ds-border flex flex-col gap-[14px]">
         <ToggleSwitch checked={caffeineFreeOnly} onChange={setCaffeineFreeOnly} label="Caffeine-free only" />
         <ToggleSwitch checked={euCompliantOnly} onChange={setEuCompliantOnly} label="EU storefront only" />
-        <ToggleSwitch checked={handsOnOnly} onChange={setHandsOnOnly} label="★ Hands-on tested only" />
         <ToggleSwitch
           checked={showCommission}
           onChange={setShowCommission}

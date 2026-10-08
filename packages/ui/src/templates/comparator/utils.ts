@@ -13,7 +13,6 @@ export interface UrlState {
   maxPrice?: number;
   caffeineFreeOnly?: boolean;
   euCompliantOnly?: boolean;
-  handsOnOnly?: boolean;
   showCommission?: boolean;
   bestFor?: Goal;
   grade?: Grade;
@@ -39,7 +38,6 @@ export function parseUrlState(params: URLSearchParams, products: Product[]): Url
   if (Number.isFinite(m) && m >= 20 && m <= 100) state.maxPrice = m;
   if (params.get('caf') === '1') state.caffeineFreeOnly = true;
   if (params.get('eu') === '1') state.euCompliantOnly = true;
-  if (params.get('hands') === '1') state.handsOnOnly = true;
   if (params.get('comm') === '0') state.showCommission = false;
   const f = params.get('for');
   if (f === 'Any' || f === 'Focus' || f === 'Memory' || f === 'Energy' || f === 'Beginners' || f === 'Budget') {
@@ -73,7 +71,6 @@ export function buildViewQueryString(opts: {
   maxPrice: number;
   caffeineFreeOnly: boolean;
   euCompliantOnly: boolean;
-  handsOnOnly: boolean;
   showCommission: boolean;
   bestFor: Goal;
   grade: Grade;
@@ -85,7 +82,6 @@ export function buildViewQueryString(opts: {
   if (opts.maxPrice !== 100) params.set('max', String(opts.maxPrice));
   if (opts.caffeineFreeOnly) params.set('caf', '1');
   if (opts.euCompliantOnly) params.set('eu', '1');
-  if (opts.handsOnOnly) params.set('hands', '1');
   if (!opts.showCommission) params.set('comm', '0');
   if (opts.bestFor !== 'Any') params.set('for', opts.bestFor);
   if (opts.grade !== 'All') params.set('grade', opts.grade);

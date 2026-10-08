@@ -88,7 +88,7 @@ export default function HomePage() {
           eyebrow: `US Market · Evidence-Graded · Audited ${CURRENT_YEAR}`,
           h1: 'The Independent US Guide to Cognitive Supplements',
           dek:
-            'We test every ingredient dose against peer-reviewed clinical trials. No anonymous authors. No hidden commissions.',
+            'We check every ingredient dose against peer-reviewed clinical trials. No hidden commissions.',
           ctas: [
             { label: `Best Nootropics ${CURRENT_YEAR} →`, href: '/best-nootropics/', variant: 'primary' },
             { label: 'Compare All Brands', href: '/nootropic-comparison/', variant: 'secondary' },

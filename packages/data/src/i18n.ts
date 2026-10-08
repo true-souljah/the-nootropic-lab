@@ -223,7 +223,6 @@ export interface UIStrings {
       caffeineFree: string;
       hasCaffeine: string;
       allClinicalDoses: string;
-      handsOnTested: string;
       /** Health Canada NPN-licensed. Number appended after the label in JSX. */
       npnLicensed: string;
       /** No active NPN found in the LNHPD for the names searched (personal importation under GUI-0116 is the route only without a label NPN). */
@@ -519,7 +518,6 @@ const en: UIStrings = {
       caffeineFree: 'Caffeine-free',
       hasCaffeine: 'Caffeine',
       allClinicalDoses: 'All clinical doses',
-      handsOnTested: 'Hands-on tested',
       npnLicensed: 'Health Canada NPN',
       personalImport: 'Personal Import',
       ffcNotified: 'FFC notified',
@@ -762,7 +760,6 @@ const es: UIStrings = {
       caffeineFree: 'Sin cafeína',
       hasCaffeine: 'Con cafeína',
       allClinicalDoses: 'Todas las dosis clínicas',
-      handsOnTested: 'Probado en persona',
       npnLicensed: 'NPN de Health Canada',
       personalImport: 'Importación personal',
       ffcNotified: 'Notificado al FFC',
@@ -1005,7 +1002,6 @@ const fr: UIStrings = {
       caffeineFree: 'Sans caféine',
       hasCaffeine: 'Contient de la caféine',
       allClinicalDoses: 'Toutes les doses cliniques',
-      handsOnTested: 'Testé en main',
       npnLicensed: 'NPN Santé Canada',
       personalImport: 'Importation personnelle',
       ffcNotified: 'Notifié FFC',
@@ -1248,7 +1244,6 @@ const ja: UIStrings = {
       caffeineFree: 'カフェインフリー',
       hasCaffeine: 'カフェイン含有',
       allClinicalDoses: '全成分が臨床用量',
-      handsOnTested: '実機テスト済み',
       npnLicensed: 'カナダ保健省 NPN',
       personalImport: '個人輸入',
       ffcNotified: '機能性表示食品',
@@ -1491,7 +1486,6 @@ const pt: UIStrings = {
       caffeineFree: 'Sem cafeína',
       hasCaffeine: 'Com cafeína',
       allClinicalDoses: 'Todas as doses clínicas',
-      handsOnTested: 'Testado pessoalmente',
       npnLicensed: 'NPN Health Canada',
       personalImport: 'Importação pessoal',
       ffcNotified: 'Notificado FFC',
@@ -1734,7 +1728,6 @@ const de: UIStrings = {
       caffeineFree: 'Koffeinfrei',
       hasCaffeine: 'Koffeinhaltig',
       allClinicalDoses: 'Alle klinischen Dosen',
-      handsOnTested: 'Praxistest absolviert',
       npnLicensed: 'Health-Canada-NPN',
       personalImport: 'Privatimport',
       ffcNotified: 'FFC-notifiziert',
@@ -1791,7 +1784,7 @@ const de: UIStrings = {
       affiliateCookie: 'Unser Affiliate-Cookie',
       cookieTerms: '{days} Tage · {rate} Provision',
     },
-    discontinued: { heading: 'Nicht mehr erhältlich', successorLink: 'Zu unserem Test des Nachfolgers' },
+    discontinued: { heading: 'Nicht mehr erhältlich', successorLink: 'Zu unserer Bewertung des Nachfolgers' },
     healthDisclaimerHeading: 'Gesundheitshinweis',
     chipGroupLabel: 'Produktmerkmale',
   },
@@ -1982,7 +1975,6 @@ const frCa: UIStrings = {
       caffeineFree: 'Sans caféine',
       hasCaffeine: 'Caféine',
       allClinicalDoses: 'Toutes les doses cliniques',
-      handsOnTested: 'Testé en pratique',
       npnLicensed: 'NPN Santé Canada',
       personalImport: 'Importation personnelle',
       ffcNotified: 'Notifié FFC',
