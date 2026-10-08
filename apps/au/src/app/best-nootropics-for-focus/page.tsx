@@ -27,7 +27,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Theanine + Caffeine (1:2 to 2:1 ratio)',
     evidence:
-      'Among the best-replicated cognitive findings: L-theanine paired with caffeine improves attention switching and reduces mental fatigue, with smoother subjective focus than caffeine alone. Effective at 100–200mg L-theanine + 100mg caffeine. Both are permitted ingredients in TGA-listed therapeutic goods.',
+      'Among the best-replicated cognitive findings: L-theanine paired with caffeine improves attention switching and reduces mental fatigue, with smoother subjective focus than caffeine alone. Effective at 100–200mg L-theanine + 100mg caffeine. Both are permitted ingredients in TGA-listed therapeutic goods: theanine as an active ingredient, and caffeine as an active ingredient only for oral use in adults when the medicine consists principally of other designated active ingredients (Therapeutic Goods (Permissible Ingredients) Determination (No. 2) 2026, F2026L00707, as compiled 17 September 2026 — Compilation No. 1, F2026C00940 — Schedule 1 items 4911 and 1054; checked 2026-10-08).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
   },
   {
@@ -45,7 +45,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Alpha-GPC',
     evidence:
-      'Cholinergic. In a 2024 placebo-controlled crossover RCT in 20 resistance-trained men, a single 315mg or 630mg dose improved Stroop test performance, with no effect on N-Back or Flanker tasks — one small, acute study. Often paired with L-theanine for "calm focus." Not in the TGA permitted-ingredients list for Listed Medicines.',
+      'Cholinergic. In a 2024 placebo-controlled crossover RCT in 20 resistance-trained men, a single 315mg or 630mg dose improved Stroop test performance, with no effect on N-Back or Flanker tasks — one small, acute study. Often paired with L-theanine for "calm focus." Not found under the names alpha-GPC, choline alfoscerate, glycerylphosphorylcholine or glycerophosphocholine in Schedule 1 of the Permissible Ingredients Determination (checked 2026-10-08).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/39683633/',
   },
 ];
@@ -61,7 +61,7 @@ const picks: ListiclePick[] = [
     product: productsAU.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes citicoline, Alpha-GPC, L-theanine, and L-tyrosine — covers nearly every evidence-backed focus mechanism. Loses ground to Mind Lab Pro on capsule count (7+/day) and price (AUD $215/mo subscription) but wins on ingredient breadth. Contains caffeine. Note: Huperzine A in this formula may attract TGA scrutiny if therapeutic claims are attached.',
+      'Includes citicoline, Alpha-GPC, L-theanine, and L-tyrosine — covers nearly every evidence-backed focus mechanism. Loses ground to Mind Lab Pro on capsule count (7+/day) and price (AUD $215/mo subscription) but wins on ingredient breadth. Contains caffeine. Huperzine A, also in this formula, was not found under the names huperzine A or Huperzia serrata in Schedule 1 of the Permissible Ingredients Determination, and the TGA says an ingredient not listed there can\'t be used in listed or assessed listed medicines; no entry under huperzine or Huperzia was found in the current Poisons Standard either (name-level searches, checked 2026-10-08).',
   },
   {
     product: productsAU.find(p => p.slug === 'onnit-alpha-brain-review')!,
