@@ -8,6 +8,7 @@ import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
 import { LiveRegion } from '../primitives/LiveRegion';
+import { ProductThumb } from '../primitives/ProductThumb';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
 import { useShortlist, useShortlistNote } from './useShortlist';
 import { servingAmount, guaranteeDays, guaranteeDaysValue } from '@nootropic/data';
@@ -377,12 +378,7 @@ function ShortlistRow({
 
         {/* Identity */}
         <div className="flex items-start gap-3 min-w-0">
-          <div
-            className="w-11 h-11 bg-ds-ink rounded-[10px] grid place-items-center text-white font-extrabold text-[16px] flex-shrink-0"
-            aria-hidden="true"
-          >
-            {product.name[0]}
-          </div>
+          <ProductThumb product={product} size={44} variant="sm" />
           <div className="min-w-0">
             <Link
               href={`/${product.slug}/`}

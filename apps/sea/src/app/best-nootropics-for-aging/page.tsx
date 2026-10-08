@@ -83,7 +83,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Are these halal-certified for older Muslim buyers in MY/ID?',
-    a: 'Imported brands (Mind Lab Pro, Qualia Mind, Nootropics Depot Lion\'s Mane) show no BPJPH (Indonesia), JAKIM (Malaysia) or other halal certificate on the brand pages we fetched (checked 2026-10-07). For JAKIM-certified alternatives, verify the specific product on its packaging, or check its manufacturer in JAKIM\'s MYeHALAL directory (myehalal.halal.gov.my), which lists certified companies rather than products. When uncertain, consult your local imam, halal authority, or pharmacist before purchase — older relatives often value this consultation step regardless.',
+    a: 'Imported brands (Mind Lab Pro, Qualia Mind, Nootropics Depot Lion\'s Mane) show no BPJPH (Indonesia), JAKIM (Malaysia) or other halal certificate on the brand pages we fetched (checked 2026-10-07). For JAKIM-certified alternatives, verify the specific product on its packaging, or check its manufacturer in JAKIM\'s MYeHALAL directory (myehalal.halal.gov.my), which is searched by company name and lists each company\'s certified products on its detail page. When uncertain, consult your local imam, halal authority, or pharmacist before purchase — older relatives often value this consultation step regardless.',
   },
   {
     q: 'Which are best via Shopee/Lazada/Watsons vs cross-border iHerb for older buyers?',

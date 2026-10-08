@@ -27,13 +27,13 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Theanine + Caffeine — sustained focus',
     evidence:
-      'For sustained study sessions, the L-theanine + caffeine combo is the foundation. Reduces caffeine jitter and post-coffee crash, smooths attention switching. 100–200mg L-theanine + 100mg caffeine, repeated 4–6 hours later if needed. Both are TGA-permitted ingredients.',
+      'For sustained study sessions, the L-theanine + caffeine combo is the foundation. Reduces caffeine jitter and post-coffee crash, smooths attention switching. 100–200mg L-theanine + 100mg caffeine, repeated 4–6 hours later if needed. Both are TGA-permitted ingredients: theanine as an active ingredient, and caffeine as an active ingredient only for oral use in adults when the medicine consists principally of other designated active ingredients (Therapeutic Goods (Permissible Ingredients) Determination (No. 2) 2026, F2026L00707, as compiled 17 September 2026 — Compilation No. 1, F2026C00940 — Schedule 1 items 4911 and 1054; checked 2026-10-08).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
   },
   {
     name: 'Bacopa Monnieri — long-term memory consolidation',
     evidence:
-      'Critical for retention of studied material. Bacopa improves memory consolidation — what your brain does during sleep with material you studied that day. 300mg standardised to 50% bacosides daily for 8+ weeks. Start at the beginning of the semester, not the night before the exam. TGA-permitted; available as standalone TGA-listed products at any Australian pharmacy (Blackmores Brahmi, Caruso\'s Memory Forte, Nature\'s Own Brahmi).',
+      'Critical for retention of studied material. Bacopa improves memory consolidation — what your brain does during sleep with material you studied that day. 300mg standardised to 50% bacosides daily for 8+ weeks. Start at the beginning of the semester, not the night before the exam. TGA-permitted (Permissible Ingredients Determination, Schedule 1 item 754; checked 2026-10-08); available as standalone TGA-listed products at any Australian pharmacy (Blackmores Brahmi, Caruso\'s Memory Forte, Nature\'s Own Brahmi).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
   },
   {
@@ -109,7 +109,7 @@ export default function Page() {
       useCase="studying"
       pageTitle="Best Nootropics for Studying in Australia"
       pageDescription="Independent ranking of nootropics for sustained study sessions available to Australian students. Focus + memory consolidation + safety for daily use."
-      heroParagraph="Studying combines two distinct cognitive demands: sustained focus during study sessions and memory consolidation between them. The best study stack covers both — acute-effect focus ingredients (L-theanine + caffeine) plus daily-use memory ingredients (Bacopa, citicoline). This page ranks the products available to Australian students. Note that L-theanine and Bacopa are TGA-permitted and stocked at any Australian pharmacy as TGA-listed Listed Medicines; the multi-ingredient international stacks below import under the Personal Importation Scheme."
+      heroParagraph="Studying combines two distinct cognitive demands: sustained focus during study sessions and memory consolidation between them. The best study stack covers both — acute-effect focus ingredients (L-theanine + caffeine) plus daily-use memory ingredients (Bacopa, citicoline). This page ranks the products available to Australian students. Note that L-theanine and Bacopa are permitted ingredients for Therapeutic Goods Administration (TGA) Listed Medicines (Permissible Ingredients Determination, Schedule 1 items 4911 and 754; checked 2026-10-08) and stocked at any Australian pharmacy as TGA-listed Listed Medicines; the multi-ingredient international stacks below import under the Personal Importation Scheme."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

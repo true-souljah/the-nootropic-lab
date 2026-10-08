@@ -5,6 +5,7 @@ import {
   allProductsJP, allProductsLatam, allProductsGCC, allProductsSEA,
   validateRegionalNotes, productRuleProblems, DOSING_ANCHORS, dosingAnchorProblems, halalEvidenceProblem,
   VENDOR_TERM_FIELDS,
+  seoOverrideProblems,
 } from '../packages/data/src/index';
 import type { Product } from '../packages/data/src/index';
 
@@ -195,6 +196,26 @@ if (anchoredRows === 0) {
 failed += anchorProblems;
 if (anchorProblems === 0) {
   console.log(`ok dosing-anchors: ${anchoredRows} rows match their DOSING_ANCHORS clinicalDose and adequacy verdict`);
+}
+
+// Review-page SEO overrides (packages/data/src/seo-overrides.ts, 2026-10-08):
+// seoTitle/seoDescription stay within their documented lengths, say
+// "discontinued" on a discontinued record, and quote no number that is absent
+// from the rest of the record. No grandfather list.
+let overrides = 0;
+let overrideProblems = 0;
+for (const [region, products] of Object.entries(regions)) {
+  for (const item of products as Product[]) {
+    if (item.seoTitle !== undefined || item.seoDescription !== undefined) overrides++;
+    for (const problem of seoOverrideProblems(item)) {
+      console.error(`FAIL ${region}/${problem}`);
+      overrideProblems++;
+    }
+  }
+}
+failed += overrideProblems;
+if (overrideProblems === 0) {
+  console.log(`ok seo-overrides: ${overrides} records with seoTitle/seoDescription pass`);
 }
 
 if (failed > 0) {

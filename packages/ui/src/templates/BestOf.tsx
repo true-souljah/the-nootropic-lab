@@ -7,6 +7,7 @@ import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
 import { Bar } from '../primitives/Bar';
+import { ProductThumb } from '../primitives/ProductThumb';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
 import ShortlistButton from './ShortlistButton';
 import type { AffiliateClickContext } from '../trackAffiliateClick';
@@ -215,12 +216,7 @@ export default function BestOf({
                 {/* Identity */}
                 <div className="min-w-0 w-full">
                   <div className="flex items-center gap-3 mb-2 min-w-0">
-                    <div
-                      className="w-9 h-9 bg-ds-ink rounded-[8px] grid place-items-center text-white font-extrabold text-[14px] flex-shrink-0"
-                      aria-hidden="true"
-                    >
-                      {p.name[0]}
-                    </div>
+                    <ProductThumb product={p} size={36} variant="sm" />
                     <div className="min-w-0">
                       <Link
                         href={`/${p.slug}/`}

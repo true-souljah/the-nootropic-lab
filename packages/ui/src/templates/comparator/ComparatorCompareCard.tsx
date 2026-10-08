@@ -7,6 +7,7 @@ import { X } from 'lucide-react';
 import { Card } from '../../primitives/Card';
 import { ScorePill } from '../../primitives/ScorePill';
 import { Bar } from '../../primitives/Bar';
+import { ProductThumb } from '../../primitives/ProductThumb';
 import { servingAmount, pillarText, guaranteeDays } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 
@@ -52,12 +53,7 @@ export function ComparatorCompareCard({ selectedProducts, uiStrings, onClear }: 
         {selectedProducts.map((p) => (
           <Card key={p.slug} variant="subdued" padding={14}>
             <div className="flex items-center gap-[10px]">
-              <div
-                className="w-8 h-8 bg-ds-ink rounded-[7px] grid place-items-center text-white font-bold text-[13px] flex-shrink-0"
-                aria-hidden="true"
-              >
-                {p.name[0]}
-              </div>
+              <ProductThumb product={p} size={32} variant="sm" />
               <div className="flex-1 min-w-0">
                 <Link
                   href={`/${p.slug}/`}

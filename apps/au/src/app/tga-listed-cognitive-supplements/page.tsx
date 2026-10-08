@@ -89,14 +89,18 @@ interface ScheduleRow {
   entry: string;
 }
 
-// Poisons Standard F2026L00633 (in force from 1 June 2026). Entry text is the
-// instrument's own wording as captured on 2026-09-30.
+// Poisons Standard F2026L01327, the Therapeutic Goods (Poisons Standard—October
+// 2026) Instrument 2026: registered 30 September 2026, commenced 1 October 2026
+// under its own section 2 table, and repealed the June 2026 instrument
+// (section 4). Entry text is the instrument's own wording as extracted on
+// 2026-10-08 (research p5, items poisons-*); the text extract drops hyphens,
+// which are restored here as printed in the instrument's names.
 const scheduleRows: ScheduleRow[] = [
   { substance: 'Phenibut', schedule: 'Schedule 9 — Prohibited Substance', entry: 'PHENIBUT cross reference: BETA-PHENYL-GAMMA-AMINOBUTYRIC ACID (CAS No. 1078-21-3), PHENIBUT HYDROCHLORIDE (CAS No. 3060-41-1), PHENIBUT HYDROBROMIDE (CAS No. 103095-38-1) Schedule 9' },
-  { substance: 'Piracetam, phenylpiracetam, methylphenylpiracetam, aniracetam, oxiracetam, nefiracetam (racetams)', schedule: 'Schedule 4 — Prescription Only Medicine', entry: 'RACETAMS except when separately specified in these Schedules. … PIRACETAM cross reference: RACETAMS Schedule 4 … PHENYLPIRACETAM cross reference: RACETAMS Schedule 4' },
-  { substance: 'Noopept', schedule: 'Schedule 4 — Prescription Only Medicine', entry: 'RACETAMS, NOOPEPT, N-PHENYLACETYL-L-PROLYLGLYCINE ETHYL ESTER Schedule 4' },
+  { substance: 'Aniracetam, methylphenylpiracetam, nefiracetam, oxiracetam, phenylpiracetam, piracetam (racetams)', schedule: 'Schedule 4 — Prescription Only Medicine (each a separate entry, plus a RACETAMS class entry)', entry: 'ANIRACETAM. … METHYLPHENYLPIRACETAM. … NEFIRACETAM. … OXIRACETAM. … PHENYLPIRACETAM. … PIRACETAM. … RACETAMS except when separately specified in these Schedules. (Schedule 4; each racetam\'s index line reads "cross reference: RACETAMS")' },
+  { substance: 'Noopept (listed as omberacetam)', schedule: 'Schedule 4 — Prescription Only Medicine', entry: 'OMBERACETAM. (Schedule 4) … Index: OMBERACETAM cross reference: RACETAMS, NOOPEPT, N-PHENYLACETYL-L-PROLYLGLYCINE ETHYL ESTER Schedule 4' },
   { substance: 'Modafinil and armodafinil', schedule: 'Schedule 4 — Prescription Only Medicine', entry: 'MODAFINIL Schedule 4 … ARMODAFINIL Schedule 4' },
-  { substance: 'Huperzine A', schedule: 'Not listed', entry: 'No occurrence of "huperzine" in the full text of the current Poisons Standard.' },
+  { substance: 'Huperzine A', schedule: 'No entry found under these names', entry: 'No entry under "huperz", "huperzia" or "huperzine" in the text of the current Poisons Standard (name-level search, checked 2026-10-08).' },
 ];
 
 const articleSchema = {
@@ -146,8 +150,8 @@ const faqs = [
   { q: 'What are "permitted indications"?', a: 'Permitted Indications are the specific health claim phrasings the TGA has pre-approved for AUST L medicines. AUST L sponsors may only make claims drawn from this list. Claims outside this list (for example, treating a named disease) push a product into the higher AUST R registration category.' },
   { q: 'What is the Therapeutic Goods Advertising Code?', a: 'The Therapeutic Goods (Therapeutic Goods Advertising Code) Instrument 2021 sets the rules for advertising therapeutic goods to the public in Australia. Restricted representations (references to serious diseases or conditions that need a health professional to diagnose or treat) cannot be used in advertising without the TGA\'s prior approval or permission. Prohibited representations include claims to treat, cure, prevent, diagnose or monitor cancer, sexually transmitted diseases, HIV, hepatitis C or mental illness. AUST L listed medicines may only use claim wording drawn from the TGA\'s pre-approved Permitted Indications list.' },
   { q: 'How much can I import under the Personal Importation Scheme?', a: 'The TGA states: "The import cannot be more than a 3-month supply at the maximum prescribed dose (prescription-only medicines) or dose recommended by the manufacturer (non-prescription medicine). The total quantity imported within any 12-month period must not exceed a 15-month supply." If the medicine is prescription-only in Australia, you must hold a valid Australian prescription or written authority at the time of importation, and the TGA says electronic prescriptions (eScripts) cannot be accepted as that written authority.' },
-  { q: 'How is phenibut scheduled in Australia?', a: 'Phenibut is listed in Schedule 9 (Prohibited Substance) of the current Poisons Standard, the Therapeutic Goods (Poisons Standard-June 2026) Instrument 2026 (F2026L00633), in force from 1 June 2026. The entry also covers beta-phenyl-gamma-aminobutyric acid, phenibut hydrochloride and phenibut hydrobromide.' },
-  { q: 'Are racetams, Noopept and modafinil prescription-only in Australia?', a: 'Yes. In the current Poisons Standard (F2026L00633), racetams as a class (piracetam, phenylpiracetam, methylphenylpiracetam, aniracetam, oxiracetam and nefiracetam), Noopept, modafinil and armodafinil are all Schedule 4, which the TGA labels Prescription Only Medicine.' },
+  { q: 'How is phenibut scheduled in Australia?', a: 'Phenibut is listed in Schedule 9 (Prohibited Substance) of the current Poisons Standard, the Therapeutic Goods (Poisons Standard—October 2026) Instrument 2026 (F2026L01327), which commenced on 1 October 2026 (checked 2026-10-08). The entry also covers beta-phenyl-gamma-aminobutyric acid, phenibut hydrochloride and phenibut hydrobromide.' },
+  { q: 'Are racetams, Noopept and modafinil prescription-only in Australia?', a: 'Yes. In the current Poisons Standard (F2026L01327, checked 2026-10-08), piracetam, phenylpiracetam, methylphenylpiracetam, aniracetam, oxiracetam and nefiracetam are each a separate Schedule 4 entry, and a class entry, "RACETAMS except when separately specified in these Schedules", is also Schedule 4. Noopept is listed as omberacetam: the instrument\'s index cross-references NOOPEPT to the Schedule 4 entry OMBERACETAM. Modafinil and armodafinil are Schedule 4 too, which the TGA labels Prescription Only Medicine.' },
 ];
 
 
@@ -305,13 +309,15 @@ export default function Page() {
           <h2 className="text-2xl font-bold text-gray-900 mb-3">How the Poisons Standard schedules common nootropic substances</h2>
           <p className="text-sm text-gray-700 leading-relaxed mb-4">
             Australia classifies medicines and poisons in the Poisons Standard. The current version is the
-            Therapeutic Goods (Poisons Standard-June 2026) Instrument 2026 (F2026L00633), in force from 1 June 2026.
+            Therapeutic Goods (Poisons Standard—October 2026) Instrument 2026 (F2026L01327), registered on
+            30 September 2026 and in force from 1 October 2026 under its own commencement provision; it repealed
+            the June 2026 instrument (checked 2026-10-08).
             In the TGA&apos;s scheduling table, Schedule 4 is Prescription Only Medicine, Schedule 8 is Controlled Drug
             and Schedule 9 is Prohibited Substance.
           </p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border border-gray-200">
-              <caption className="sr-only">Poisons Standard schedule for common nootropic substances, F2026L00633</caption>
+              <caption className="sr-only">Poisons Standard schedule for common nootropic substances, F2026L01327 (checked 2026-10-08)</caption>
               <thead className="bg-gray-50 text-left">
                 <tr>
                   <th scope="col" className="p-3 border-b border-gray-200">Substance</th>
@@ -331,8 +337,11 @@ export default function Page() {
             </table>
           </div>
           <p className="text-xs text-gray-500 italic mt-3">
-            Huperzine A not being scheduled does not by itself mean it is a permitted ingredient in listed medicines;
-            that is a separate question we have not checked. We have also not confirmed how the Personal Importation
+            A name-level search cannot rule out a class or generic entry that captures huperzine A. Separately,
+            huperzine A and Huperzia serrata were not found under those names in Schedule 1 of the Therapeutic Goods
+            (Permissible Ingredients) Determination (No. 2) 2026, F2026L00707, as compiled 17 September 2026 —
+            Compilation No. 1, F2026C00940 (checked 2026-10-08); the TGA says an ingredient not listed in the
+            Determination can&apos;t be used in listed or assessed listed medicines. We have also not confirmed how the Personal Importation
             Scheme conditions apply to each Schedule 4 substance, so check with the TGA before importing anything
             prescription-only.
           </p>
@@ -401,7 +410,9 @@ export default function Page() {
             { type: 'Regulatory', label: 'TGA — Personal Importation Scheme', url: 'https://www.tga.gov.au/products/unapproved-therapeutic-goods/access-pathways/personal-importation-scheme' },
             { type: 'Regulatory', label: 'Australian Border Force — Medicines and substances (traveller exemption)', url: 'https://www.abf.gov.au/entering-and-leaving-australia/can-you-bring-it-in/categories/medicines-and-substances' },
             { type: 'Regulatory', label: 'TGA — Scheduling basics for medicines and chemicals in Australia', url: 'https://www.tga.gov.au/products/regulations-all-products/ingredients-and-scheduling-medicines-and-chemicals/scheduling-national-classification-system/scheduling-basics-medicines-and-chemicals-australia' },
-            { type: 'Regulatory', label: 'Therapeutic Goods (Poisons Standard-June 2026) Instrument 2026 (F2026L00633)', url: 'https://www.legislation.gov.au/F2026L00633/latest/text' },
+            { type: 'Regulatory', label: 'Therapeutic Goods (Poisons Standard—October 2026) Instrument 2026 (F2026L01327; in force from 1 October 2026, checked 2026-10-08)', url: 'https://www.legislation.gov.au/F2026L01327/latest/text' },
+            { type: 'Regulatory', label: 'Therapeutic Goods (Permissible Ingredients) Determination (No. 2) 2026 (F2026L00707), as compiled 17 September 2026 (Compilation No. 1, F2026C00940; checked 2026-10-08)', url: 'https://www.legislation.gov.au/F2026L00707/latest/text' },
+            { type: 'Regulatory', label: 'TGA — Permissible ingredients determination: "If an ingredient isn’t listed in the Determination, it can’t be used in listed or assessed listed medicines." (checked 2026-10-08)', url: 'https://www.tga.gov.au/products/regulations-all-products/ingredients-and-scheduling-medicines-and-chemicals/permissible-ingredients-determination' },
             { type: 'Regulatory', label: 'TGA — Therapeutic Goods Advertising Code Instrument 2021', url: 'https://www.tga.gov.au/resources/legislation/therapeutic-goods-therapeutic-goods-advertising-code-instrument-2021' },
             { type: 'Regulatory', label: 'TGA — Applying the Advertising Code', url: 'https://www.tga.gov.au/products/regulations-all-products/advertising/applying-advertising-code' },
             { type: 'Regulatory', label: 'TGA — Restricted and prohibited representations in advertising', url: 'https://www.tga.gov.au/products/regulations-all-products/advertising/applying-advertising-code/restricted-and-prohibited-representations-advertising' },
