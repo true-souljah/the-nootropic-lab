@@ -183,4 +183,21 @@ describe('app pages state each product’s guarantee length as stored', () => {
     expect(checked).toBeGreaterThan(5);
     expect(stale).toEqual([]);
   });
+
+  test('every rendered moneyBackDays goes through guaranteeDays / guaranteeDaysValue (0 never shows as "0 days")', () => {
+    // A raw `${p.moneyBackDays}`, `{p.moneyBackDays}` or `moneyBackDays ?? ''`
+    // prints "0 days" / "0" for a record with no guarantee. Sorting, scoring
+    // and the Pricing-tab label may read the number directly.
+    const files = [...walk(join(REPO, 'packages', 'ui', 'src')), ...appFiles];
+    expect(files.length).toBeGreaterThan(150);
+    const raw: string[] = [];
+    for (const file of files) {
+      readFileSync(file, 'utf8').split('\n').forEach((line, i) => {
+        if (/\$\{[^}]*moneyBackDays[^}]*\}|moneyBackDays\s*\?\?\s*''|\{\s*[\w.]*\.moneyBackDays\s*\}/.test(line)) {
+          raw.push(`${relative(REPO, file)}:${i + 1}`);
+        }
+      });
+    }
+    expect(raw).toEqual([]);
+  });
 });

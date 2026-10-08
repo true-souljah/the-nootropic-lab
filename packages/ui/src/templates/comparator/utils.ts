@@ -2,7 +2,7 @@
 // download triggers a DOM operation, but the function itself is safe
 // to call from anywhere — guards `document` access).
 
-import { servingAmount } from '@nootropic/data';
+import { servingAmount, guaranteeDaysValue } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SortKey, SortDir, Goal, Grade } from './constants';
 import { MAX_SELECTED } from './constants';
@@ -117,7 +117,7 @@ export function exportRowsToCsv(rows: Product[], strings: UIStrings): void {
     p.score,
     p.priceMonthlyUSD ?? '',
     servingAmount(p, strings),
-    p.moneyBackDays ?? '',
+    guaranteeDaysValue(p.moneyBackDays),
     p.trustpilotScore ?? '',
     p.bestFor.join('; '),
   ]);
