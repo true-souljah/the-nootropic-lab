@@ -144,3 +144,21 @@ describe('applyActiveLangToKlaroConfig — integration', () => {
     expect((klaroConfig as { lang?: string }).lang).toBe('es');
   });
 });
+
+// The notice dialog is named by its title (aria-labelledby="id-cookie-title",
+// rendered because showNoticeTitle is on). The consent-banner-mobile e2e specs
+// check the name live on us/eu/jp; this covers every locale bundle, so a
+// missing title in any region's language fails here.
+describe('consent notice title — the dialog accessible name', () => {
+  const bundles = Object.entries(klaroConfig.translations).filter(([lang]) => lang !== 'zz');
+
+  test('showNoticeTitle is on and every regional locale has a bundle', () => {
+    expect(klaroConfig.showNoticeTitle).toBe(true);
+    expect(bundles.map(([lang]) => lang)).toEqual(expect.arrayContaining(['en', 'es', 'de', 'fr', 'fr-CA', 'pt', 'ja']));
+  });
+
+  test.each(bundles)('%s has a non-empty consentNotice.title', (_lang, bundle) => {
+    const title = (bundle as { consentNotice?: { title?: string } }).consentNotice?.title ?? '';
+    expect(title.trim().length).toBeGreaterThan(0);
+  });
+});

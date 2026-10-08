@@ -56,6 +56,12 @@ export interface KlaroConfig {
   hideDeclineAll: boolean;
   hideLearnMore: boolean;
   noticeAsModal: boolean;
+  /**
+   * Render `consentNotice.title` as the notice's `<h2 id="id-cookie-title">`.
+   * The notice (role="dialog") always sets aria-labelledby="id-cookie-title",
+   * so without the heading the dialog has no accessible name.
+   */
+  showNoticeTitle: boolean;
   /** Hide Klaro's "powered by" link (it rendered as "[missing translation: en/poweredBy]"). */
   disablePoweredBy: boolean;
   privacyPolicy: string;
@@ -78,6 +84,8 @@ export const klaroConfig: KlaroConfig = {
   hideDeclineAll: false,
   hideLearnMore: false,
   noticeAsModal: false,
+  // Visually hidden in klaro-overrides.css: it only names the dialog.
+  showNoticeTitle: true,
   disablePoweredBy: true,
   privacyPolicy: '/privacy-policy/',
   translations: {
