@@ -44,6 +44,15 @@ describe('seoOverrideProblems', () => {
     expect(problems).toEqual(['eu-yan-sang-brainmax-review: seoDescription quotes "59.90", which appears nowhere else in the record']);
   });
 
+  it('compares whole numbers, not substrings of longer ones', () => {
+    // The record states "S$69.90" and "600mg"; "9.90" and "60" are different numbers.
+    const problems = seoOverrideProblems({ ...bare(brainmax), seoDescription: 'Now S$9.90 with 60mg Cera-Q.' });
+    expect(problems).toEqual([
+      'eu-yan-sang-brainmax-review: seoDescription quotes "9.90", which appears nowhere else in the record',
+      'eu-yan-sang-brainmax-review: seoDescription quotes "60", which appears nowhere else in the record',
+    ]);
+  });
+
   it('accepts numbers that the record states elsewhere', () => {
     expect(seoOverrideProblems({ ...bare(brainmax), seoDescription: 'BrainMAX+ costs S$69.90 for 30 sachets of 600mg Cera-Q.' })).toEqual([]);
   });

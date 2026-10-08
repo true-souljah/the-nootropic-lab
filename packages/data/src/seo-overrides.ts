@@ -18,9 +18,12 @@ export const SEO_DESCRIPTION_MAX = 155;
  *   until the override is updated too.
  * Records without overrides have no problems.
  */
+const NUMBER = /\d+(?:[.,]\d+)*/g;
+
 export function seoOverrideProblems(product: Product): string[] {
   const { seoTitle, seoDescription, ...rest } = product;
-  const recordText = JSON.stringify(rest);
+  // Whole numbers only: "9.90" must not pass because the record says "69.90".
+  const recordNumbers = new Set(JSON.stringify(rest).match(NUMBER) ?? []);
   const fields: Array<[string, string | undefined, number]> = [
     ['seoTitle', seoTitle, SEO_TITLE_MAX],
     ['seoDescription', seoDescription, SEO_DESCRIPTION_MAX],
@@ -36,8 +39,8 @@ export function seoOverrideProblems(product: Product): string[] {
     if (product.discontinued && !/discontinued/i.test(value)) {
       problems.push(`${product.slug}: ${field} must say "discontinued" (record is discontinued)`);
     }
-    for (const number of value.match(/\d+(?:[.,]\d+)*/g) ?? []) {
-      if (!recordText.includes(number)) {
+    for (const number of value.match(NUMBER) ?? []) {
+      if (!recordNumbers.has(number)) {
         problems.push(`${product.slug}: ${field} quotes "${number}", which appears nowhere else in the record`);
       }
     }
