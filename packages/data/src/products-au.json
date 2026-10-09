@@ -727,8 +727,6 @@
       "trust": 9
     },
     "unscoredReason": "Value is not scored: the product is discontinued and has no current price to measure against its clinical-dose ingredient. The overall score is the weighted average of the four scored pillars.",
-    "priceMonthlyAUD": 35,
-    "priceMonthlyUSD": 23,
     "pricingModel": "one-time",
     "moneyBackDays": 30,
     "caffeineFree": true,
