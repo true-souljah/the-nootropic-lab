@@ -39,7 +39,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Why is Mind Lab Pro more expensive?',
     a:
-      'Mind Lab Pro: $69/month at full price. NooCube: ~$55/month single bottle, lower per-bottle pricing on multi-pack bundles. The price gap reflects (a) Mind Lab Pro\'s peer-reviewed clinical research investment, (b) trademarked extracts (Cognizin citicoline, Sharp-PS phosphatidylserine), (c) UK-based Opti-Nutra\'s direct-to-consumer model vs Wolfson\'s aggregator portfolio.',
+      'Mind Lab Pro: $69/month at full price. NooCube: ~$55/month single bottle, lower per-bottle pricing on multi-pack bundles. The price gap reflects (a) Mind Lab Pro\'s peer-reviewed clinical research investment, (b) trademarked extracts (Cognizin citicoline, Sharp-PS phosphatidylserine), (c) the direct-to-consumer model of Performance Lab Group Ltd (UK), the company mindlabpro.com\'s terms name, vs Wolfson\'s aggregator portfolio.',
   },
   {
     q: 'Which has better third-party testing?',

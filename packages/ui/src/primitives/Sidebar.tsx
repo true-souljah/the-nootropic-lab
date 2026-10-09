@@ -14,6 +14,8 @@ import {
   HelpCircle,
   DollarSign,
 } from 'lucide-react';
+import type { RegionalRegionCode as RegionCode } from '@nootropic/data';
+import { ALL_REGIONS, routeAvailableIn } from '@nootropic/data';
 
 export interface SidebarItem {
   label: string;
@@ -39,7 +41,7 @@ export interface SidebarProps {
   footer?: ReactNode;
 }
 
-const DEFAULT_GROUPS: SidebarGroup[] = [
+export const DEFAULT_GROUPS: SidebarGroup[] = [
   {
     label: 'Browse',
     items: [
@@ -77,6 +79,26 @@ export function isActiveHref(pathname: string | null, href: string): boolean {
 }
 
 /**
+ * Keep only items whose route exists on `region`'s host. /dose-calculator/
+ * and /shortlist/ exist only in apps/us; the unfiltered rail linked them on
+ * every region (dead links, found once the rail moved into the static HTML).
+ */
+export function groupsForRegion(groups: SidebarGroup[], region: RegionCode): SidebarGroup[] {
+  return groups
+    .map((group) => ({ ...group, items: group.items.filter((item) => routeAvailableIn(item.href, region)) }))
+    .filter((group) => group.items.length > 0);
+}
+
+/** Build-time region (`env.NEXT_PUBLIC_REGION` in each app's next.config.ts); fails closed like FPFooter. */
+function buildRegion(): RegionCode {
+  const tag = process.env.NEXT_PUBLIC_REGION;
+  if (tag === undefined || !(ALL_REGIONS as readonly string[]).includes(tag)) {
+    throw new Error(`Sidebar: NEXT_PUBLIC_REGION is "${tag ?? ''}" — set it to one of ${ALL_REGIONS.join('|')}.`);
+  }
+  return tag as RegionCode;
+}
+
+/**
  * Sidebar — dark navigation rail used on app surfaces. Renders the
  * green-flask brand mark + grouped nav items + footer slot. Each link
  * marks `aria-current="page"` when its href matches the active route.
@@ -88,6 +110,7 @@ export function Sidebar({
   footer,
 }: SidebarProps) {
   const pathname = usePathname();
+  const regionGroups = groupsForRegion(groups, buildRegion());
 
   return (
     <nav
@@ -113,7 +136,7 @@ export function Sidebar({
         </div>
       </div>
 
-      {groups.map((group) => (
+      {regionGroups.map((group) => (
         <div key={group.label} className="px-3 pt-[10px] pb-[4px]">
           <div className="text-[10px] tracking-[0.14em] uppercase text-ds-side-muted px-[10px] py-[6px]">
             {group.label}

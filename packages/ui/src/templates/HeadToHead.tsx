@@ -367,6 +367,8 @@ export default function HeadToHead({
                   position={idx + 1}
                   surface="h2h"
                   className="block w-full mt-[14px] bg-ds-accent hover:bg-ds-accent-press text-white text-[13px] font-semibold py-[10px] rounded-[8px] text-center focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
+                  noticeStrings={uiStrings.noPurchaseLink}
+                  noticeClassName="mt-[14px]"
                 >
                   {tpl(s.checkProductWithPrice, { name: p.name, price: formatPrice(p) })}
                 </TrackedAffiliateLink>

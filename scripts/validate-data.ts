@@ -5,7 +5,7 @@ import {
   allProductsJP, allProductsLatam, allProductsGCC, allProductsSEA,
   validateRegionalNotes, productRuleProblems, DOSING_ANCHORS, dosingAnchorProblems, halalEvidenceProblem,
   VENDOR_TERM_FIELDS,
-  seoOverrideProblems,
+  seoOverrideProblems, noPurchaseLinkProblem, purchaseUrl,
 } from '../packages/data/src/index';
 import type { Product } from '../packages/data/src/index';
 
@@ -212,6 +212,34 @@ for (const [region, products] of Object.entries(regions)) {
 failed += overrideProblems;
 if (overrideProblems === 0) {
   console.log(`ok seo-overrides: ${overrides} records with seoTitle/seoDescription pass`);
+}
+
+// Suppressed purchase links (packages/data/src/purchase-link.ts, 2026-10-08):
+// a record with `noPurchaseLink` names a known reason for its own region, at
+// least one ingredient its formula lists (with plant and list entry), an
+// https source and YYYY-MM-DD dates, and purchaseUrl() yields null for it.
+// No grandfather list.
+const blocked: string[] = [];
+let blockProblems = 0;
+for (const [region, products] of Object.entries(regions)) {
+  for (const item of products as Product[]) {
+    const problem = noPurchaseLinkProblem(item, region);
+    if (problem) {
+      console.error(`FAIL ${region}/${item.slug}: ${problem}`);
+      blockProblems++;
+    }
+    if (item.noPurchaseLink !== undefined) {
+      blocked.push(`${region}/${item.slug}`);
+      if (purchaseUrl(item) !== null) {
+        console.error(`FAIL ${region}/${item.slug}: carries noPurchaseLink but purchaseUrl() returns a URL`);
+        blockProblems++;
+      }
+    }
+  }
+}
+failed += blockProblems;
+if (blockProblems === 0) {
+  console.log(`ok no-purchase-link: ${blocked.length} record(s) without a purchase link${blocked.length ? ` (${blocked.join(', ')})` : ''}`);
 }
 
 if (failed > 0) {

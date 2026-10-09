@@ -1,5 +1,6 @@
 import { Card } from '../../primitives/Card';
 import type { Product } from '@nootropic/data';
+import { vendorHost } from '@nootropic/data';
 
 export interface ReviewsTabProps {
   product: Product;
@@ -38,13 +39,10 @@ export function ReviewsTab({ product: p }: ReviewsTabProps) {
     );
   }
 
-  const trustpilotHost = (() => {
-    try {
-      return new URL(p.affiliateUrl).host;
-    } catch {
-      return p.affiliateUrl;
-    }
-  })();
+  // The vendor's domain names its Trustpilot page; this is a review link, not
+  // a purchase link, so it stays when the edition shows no purchase link.
+  // validate-data requires an absolute vendor URL, so the host always parses.
+  const trustpilotHost = vendorHost(p) ?? '';
   const reviewCount = p.trustpilotCount ?? 0;
 
   return (
