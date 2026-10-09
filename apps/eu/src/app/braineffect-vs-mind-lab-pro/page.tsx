@@ -36,7 +36,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'EU rules — how did the two compare?',
     a:
-      'Both were sold as EU food supplements. BRAINEFFECT FOCUS contained 80mg of caffeine per serving, but no caffeine cognition claim is authorised in the EU: the European Food Safety Authority (EFSA) assessed a 75mg alertness claim favourably in 2011, yet the European Commission never added any caffeine claim to the list of authorised health claims, and it refused a 40–75mg alertness claim in Regulation (EU) 2016/1411. Mind Lab Pro has an EU storefront with EUR pricing; we do not verify either product\'s labelling compliance, which is the seller\'s responsibility.',
+      'Both were sold as EU food supplements, whose labels may carry only EU-authorised health claims. BRAINEFFECT FOCUS contained no caffeine; its product page tied its claims to pantothenic acid (vitamin B5) and vitamin B12. Mind Lab Pro has an EU storefront with EUR pricing; we do not verify either product\'s labelling compliance, which is the seller\'s responsibility.',
   },
   {
     q: 'Price difference?',
@@ -46,12 +46,12 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Caffeine content?',
     a:
-      'BRAINEFFECT FOCUS contained 80mg of caffeine per serving. Mind Lab Pro is caffeine-free — designed to be paired with your own coffee or tea, so you control the caffeine dose.',
+      'Neither contains caffeine. BRAINEFFECT FOCUS listed none on its label, and the brand said its capsules contained no caffeine (product page archived 24 August 2025). Mind Lab Pro is caffeine-free — designed to be paired with your own coffee or tea, so you control the caffeine dose.',
   },
   {
     q: 'Which has more peer-reviewed evidence?',
     a:
-      'Mind Lab Pro has multiple published RCTs (University of Leeds 2019 + follow-ups) — uniquely so among multi-ingredient nootropics. BRAINEFFECT FOCUS relied on ingredient-level evidence for caffeine, Panax Ginseng, Ginkgo and Bacopa rather than trials of the product itself.',
+      'Mind Lab Pro has multiple published RCTs (University of Leeds 2019 + follow-ups) — uniquely so among multi-ingredient nootropics. BRAINEFFECT FOCUS relied on ingredient-level evidence for citicoline, acetyl-L-carnitine, Bacopa and Panax Ginseng rather than trials of the product itself.',
   },
   {
     q: 'Are these substitutes for ADHD medication?',
