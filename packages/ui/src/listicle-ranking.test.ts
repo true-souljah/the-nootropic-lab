@@ -143,8 +143,8 @@ describe('Listicle template wiring', () => {
 // bar. Characterization of the data on 2026-10-08 (after the weighted-score
 // recompute, #323): 24 of 128 picks on 20 of the 36 listicles score below 7.5.
 // 2026-10-09, after the computed dosing pillar (dosing-anchors.ts) and the
-// #333/#334 label rows (Thesis, Hunter Focus, Qualia Mind): 73 picks on 35
-// listicles; every listicle keeps at least one ranked pick.
+// #333/#334/#336 label rows: 88 picks on all 36 listicles; every listicle
+// keeps at least one ranked pick (Mind Lab Pro at 7.5 ranks on all 36).
 // When a score, a pick or a page changes, update the expected counts below on
 // purpose, after checking that the page still reads right.
 // ---------------------------------------------------------------------------
@@ -201,19 +201,20 @@ describe('every Listicle page ranks only picks at or above the bar', () => {
     expect(alsoConsidered.every((p) => p.product.score < LISTICLE_MIN_SCORE)).toBe(true);
   });
 
-  it('moves the 73 below-bar picks (35 pages) to "Also considered" — 2026-10-09 data', () => {
+  it('moves the 88 below-bar picks (36 pages) to "Also considered" — 2026-10-09 data', () => {
     const below = pages.flatMap((p) => splitListiclePicks(p.picks).alsoConsidered.map((x) => ({ page: p.rel, slug: x.product.slug })));
-    expect(below).toHaveLength(73);
-    expect(new Set(below.map((b) => b.page)).size).toBe(35);
+    expect(below).toHaveLength(88);
+    expect(new Set(below.map((b) => b.page)).size).toBe(36);
     const bySlug = below.reduce<Record<string, number>>((acc, b) => ({ ...acc, [b.slug]: (acc[b.slug] ?? 0) + 1 }), {});
     expect(bySlug).toEqual({
       'qualia-mind-review': 27,
+      'noocube-review': 17,
       'onnit-alpha-brain-review': 15,
       'nootropics-depot-lions-mane': 8,
       'thesis-nootropics-review': 7,
       'hunter-focus-review': 7,
-      'naturebell-ginkgo-ginseng-review': 4,
       'suntory-dha-epa-sesamin-review': 3,
+      'brainzyme-focus-pro-review': 2,
       'fancl-brains-review': 2,
     });
   });
