@@ -23,7 +23,7 @@ import { PricingTab } from './product-detail/PricingTab';
 import RegionalBuying from '../RegionalBuying';
 import { formatLocalPrice } from '../RegionalAvailability';
 import type { RegionalBuyingProps } from '../RegionalBuying';
-import { scoreTier } from './listicleRanking';
+import { SCORE_TIER_TEXT_CLASS, scoreTier } from './listicleRanking';
 
 export interface ProductDetailProps {
   product: Product;
@@ -129,7 +129,7 @@ export default function ProductDetail({
     false,
   ];
 
-  const scoreColor = { good: 'text-ds-good', warn: 'text-ds-warn-ink', bad: 'text-ds-bad' }[scoreTier(p.score)];
+  const scoreColor = SCORE_TIER_TEXT_CLASS[scoreTier(p.score)];
 
   return (
     <AppShell
@@ -349,7 +349,7 @@ export default function ProductDetail({
                   <div className="font-semibold text-ds-ink text-[14px] mb-1">{alt.name}</div>
                   <div className="text-[12px] text-ds-muted mb-2">{alt.brand}</div>
                   <div className="flex items-center gap-2">
-                    <span className="text-ds-good-ink font-bold text-[13px] ds-tabular">{`${alt.score}/10`}</span>
+                    <span className={`${SCORE_TIER_TEXT_CLASS[scoreTier(alt.score)]} font-bold text-[13px] ds-tabular`}>{`${alt.score}/10`}</span>
                     {alt.priceMonthlyUSD && (
                       <span className="text-[12px] text-ds-muted ds-tabular">{`$${alt.priceMonthlyUSD}/${pd.stats.monthUnit}`}</span>
                     )}

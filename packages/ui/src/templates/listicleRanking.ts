@@ -33,6 +33,19 @@ export function scoreTier(score: number): ScoreTier {
   return 'bad';
 }
 
+/**
+ * Design-system text colour of a product score per tier, as the review header
+ * colours its score (ProductDetail). Read by every surface that prints the
+ * score as plain text: the geo pages' "Score: x/10", ScoreTooltip, the
+ * product cards in RegionalAvailability and IngredientDetail, and
+ * ProductDetail's alternatives. score-tiers.test.ts fails on a fixed colour.
+ */
+export const SCORE_TIER_TEXT_CLASS: Record<ScoreTier, string> = {
+  good: 'text-ds-good',
+  warn: 'text-ds-warn-ink',
+  bad: 'text-ds-bad',
+};
+
 /** A score as listicle copy prints it: one decimal ("7.5", "7.0"). */
 export function formatListicleScore(score: number): string {
   return score.toFixed(1);
@@ -52,21 +65,30 @@ type DosageRows = ReadonlyArray<Pick<IngredientDosage, 'name' | 'adequatelyDosed
 
 /**
  * Rule (b) of "How we choose" — a pick doses a use-case evidence ingredient at
- * or near the clinical-trial dose — as data: the page's evidence ingredients
- * whose row on the product's label is proven at our reference dose, i.e. the
- * row's dosing anchor (dosing-anchors.ts) is one of the cards' slugs and its
- * `adequatelyDosed` is `true` (validate-data holds every verdict to
- * rowVerdict). An empty result means the pick fails rule (b) on that page.
+ * or near the clinical-trial dose — as data. An ingredient is proven when one
+ * of the product's rows anchors to it (dosing-anchors.ts) with
+ * `adequatelyDosed === true` (validate-data holds every verdict to
+ * rowVerdict). An evidence card counts when EVERY ingredient it lists is
+ * proven: a single-ingredient card needs its one ingredient, a combination
+ * card ("L-Theanine + Caffeine") needs all of them (site-owner decision
+ * 2026-10-09); a card listing no library page never counts. Returns the
+ * ingredients of the cards that count; an empty result means the pick fails
+ * rule (b) on that page.
  */
 export function evidenceAtReferenceDose(
   product: { ingredientDosages: DosageRows },
   evidence: readonly ListicleEvidenceIngredients[],
 ): string[] {
-  const wanted = new Set(evidence.flatMap((card) => card.ingredientSlugs));
-  const met = new Set<string>();
+  const proven = new Set<string>();
   for (const row of product.ingredientDosages) {
     const anchor = dosingAnchorFor(row);
-    if (anchor && wanted.has(anchor.ingredientSlug) && row.adequatelyDosed === true) met.add(anchor.ingredientSlug);
+    if (anchor && row.adequatelyDosed === true) proven.add(anchor.ingredientSlug);
+  }
+  const met = new Set<string>();
+  for (const card of evidence) {
+    if (card.ingredientSlugs.length > 0 && card.ingredientSlugs.every((slug) => proven.has(slug))) {
+      for (const slug of card.ingredientSlugs) met.add(slug);
+    }
   }
   return [...met];
 }
@@ -94,10 +116,11 @@ export interface ListicleSplit<T> {
  * Splits a page's hand-ordered picks into ranked and "Also considered". A pick
  * is ranked only when it scores at least LISTICLE_MIN_SCORE (a score that is
  * not >= the bar, including NaN, is below it) AND its label proves at least
- * one of the page's evidence ingredients at our reference dose (rule (b),
- * evidenceAtReferenceDose). Hand order is the page's `rank` (picks without one
- * follow those with one, in array order) and is kept within both groups: the
- * rules remove picks from the ranking, they never reorder the editor's list.
+ * one of the page's evidence cards at our reference dose — every ingredient of
+ * a combination card (rule (b), evidenceAtReferenceDose). Hand order is the
+ * page's `rank` (picks without one follow those with one, in array order) and
+ * is kept within both groups: the rules remove picks from the ranking, they
+ * never reorder the editor's list.
  * Every pick lands in exactly one group.
  */
 export function splitListiclePicks<T extends SplittablePick>(
@@ -128,7 +151,7 @@ export function belowBarReason(s: Pick<UseCaseListPageStrings, 'belowBarReason'>
   });
 }
 
-/** "Scores 7.0/10, but its label shows none of this guide's evidence ingredients at our reference dose." */
+/** The reason line of a pick that meets the bar but fails rule (b) (doseRuleReason in templateStrings.ts). */
 export function doseRuleReason(s: Pick<UseCaseListPageStrings, 'doseRuleReason'>, score: number): string {
   return tpl(s.doseRuleReason, { score: formatListicleScore(score) });
 }

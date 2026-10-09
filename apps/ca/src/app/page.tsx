@@ -34,7 +34,7 @@ const features = [
   {
     icon: '🔬',
     title: 'Clinical dosing audits',
-    desc: 'Every product review includes a dosing-vs-evidence table comparing each ingredient to the minimum effective dose from peer-reviewed trials.',
+    desc: 'Every product review includes a dosing-vs-evidence table: where our ingredient pages give a reference dose from peer-reviewed trials, it compares the label amount with that minimum; other ingredients are listed but not scored.',
   },
   {
     icon: '🍁',
@@ -88,8 +88,8 @@ export default function HomePage() {
             <span className="text-green-700">Cognitive Supplements</span>
           </h1>
           <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
-            We check every ingredient dose against peer-reviewed clinical trials. No hidden
-            commissions.
+            We check label doses against the reference doses from peer-reviewed trials on our
+            ingredient pages, where one exists. No hidden commissions.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link

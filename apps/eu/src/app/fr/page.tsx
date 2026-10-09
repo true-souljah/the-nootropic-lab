@@ -38,7 +38,7 @@ const features = [
     icon: '🔬',
     title: 'Audits de dosage clinique',
     desc:
-      "Chaque évaluation inclut un tableau comparant le dosage utilisé dans le produit aux doses minimales efficaces issues d'études cliniques avec comité de lecture.",
+      "Chaque évaluation inclut un tableau de dosage : lorsque nos pages d'ingrédients donnent une dose de référence issue d'études cliniques avec comité de lecture, il compare la quantité indiquée sur l'étiquette à ce minimum ; les autres ingrédients sont listés sans être notés.",
   },
   {
     icon: '🇪🇺',

@@ -38,8 +38,8 @@ export interface ListicleFAQ {
 /**
  * One "What the evidence actually says" card. `ingredientSlugs` names the
  * ingredient-library pages the card is about (see ListicleEvidenceIngredients):
- * rule (b) ranks a pick only when its label proves one of them at our
- * reference dose.
+ * rule (b) ranks a pick only when its label proves, for at least one card,
+ * every ingredient the card lists at our reference dose.
  */
 export interface ListicleIngredientMechanism extends ListicleEvidenceIngredients {
   name: string;
@@ -148,7 +148,8 @@ export default function Listicle({
   });
 
   // Only picks at or above LISTICLE_MIN_SCORE whose label proves one of this
-  // page's evidence ingredients at our reference dose (rule (b)) are ranked
+  // page's evidence cards at our reference dose — every ingredient of a
+  // combination card (rule (b)) — are ranked
   // (cards, "#N", CTAs, TOC, ItemList); the rest render unranked under
   // "Also considered" with the rule they fail.
   const { ranked, alsoConsidered } = splitListiclePicks(picks, ingredientMechanism);

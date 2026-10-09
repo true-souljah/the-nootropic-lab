@@ -33,7 +33,7 @@ const features = [
   {
     icon: '🔬',
     title: 'Audits de dosage clinique',
-    desc: 'Chaque analyse de produit comprend un tableau dosage/données probantes comparant chaque ingrédient à la dose minimale efficace tirée d\'essais cliniques révisés par des pairs.',
+    desc: 'Chaque analyse de produit comprend un tableau dosage/données probantes : lorsque nos pages d\'ingrédients donnent une dose de référence tirée d\'essais cliniques révisés par des pairs, il compare la quantité indiquée sur l\'étiquette à ce minimum ; les autres ingrédients sont listés sans être notés.',
   },
   {
     icon: '🍁',
@@ -84,8 +84,9 @@ export default function FrHomePage() {
             <span className="text-green-700">suppléments cognitifs</span>
           </h1>
           <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
-            Nous comparons la dose de chaque ingrédient avec les résultats d’essais cliniques révisés
-            par des pairs. Pas de commissions cachées.
+            Nous comparons les doses indiquées sur l’étiquette aux doses de référence tirées d’essais
+            cliniques révisés par des pairs de nos pages d’ingrédients, lorsqu’elles existent. Pas de
+            commissions cachées.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link

@@ -32,8 +32,9 @@ export default function EditorialStandardsSection() {
             <h3 className="font-bold text-gray-900 mb-2">1. Review protocol</h3>
             <p className="text-sm text-gray-700 leading-relaxed">
               Products are evaluated from manufacturer-published ingredient lists, regulatory filings,
-              and third-party Certificates of Analysis when available. Each ingredient dose on the label
-              is compared with the doses used in peer-reviewed clinical trials.
+              and third-party Certificates of Analysis when available. Each label dose of an ingredient
+              with a reference dose on our ingredient pages is compared with that dose, taken from
+              peer-reviewed clinical trials; ingredients without one are listed but not scored.
             </p>
           </div>
 

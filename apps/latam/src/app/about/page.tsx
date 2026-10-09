@@ -45,8 +45,10 @@ export default function AboutPage() {
           <h2 className="text-xl font-bold text-gray-900 mb-3">Lo que hacemos</h2>
           <p className="text-gray-700 leading-relaxed mb-3">
             Reseñamos suplementos nootrópicos para compradores en México, Brasil, Argentina, Colombia, Chile
-            y Perú. Cada reseña incluye una auditoría de dosificación clínica que compara cada ingrediente
-            con la dosis mínima efectiva de ensayos revisados por pares. Puntuamos las marcas en calidad de
+            y Perú. Cada reseña incluye una auditoría de dosificación clínica que compara la cantidad de cada
+            ingrediente que tiene una dosis de referencia en nuestras páginas de ingredientes con el mínimo de
+            esa página, tomado de ensayos revisados por pares; los ingredientes sin dosis de referencia se
+            listan pero no se puntúan. Puntuamos las marcas en calidad de
             ingredientes, dosis vs. evidencia, transparencia de la fórmula, relación calidad-precio y
             confianza en la marca. Cubrimos canales de compra transfronterizos como Mercado Libre e iHerb,
             que dominan la distribución de nootrópicos en América Latina.

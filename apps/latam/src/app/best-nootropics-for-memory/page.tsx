@@ -65,7 +65,7 @@ const picks: ListiclePick[] = [
     product: productsLatam.find(p => p.slug === 'nootropics-depot-lions-mane')!,
     rank: 2,
     whyItsHere:
-      'Extracto de Melena de León del cuerpo fructífero, ingrediente único, de una marca con sólida reputación en pruebas de terceros (publica Certificado de Análisis por lote — útil para presentar ante aduanas en Latam si se solicita). La opción correcta si quieres probar Melena de León de forma aislada. No es un "nootrópico diario" — combínalo con Bacopa o Mind Lab Pro para una cobertura completa de memoria.',
+      'Extracto de Melena de León del cuerpo fructífero, ingrediente único, de una marca con sólida reputación en pruebas de terceros (publica Certificado de Análisis por lote — útil para presentar ante aduanas en Latam si se solicita). Aporta 500mg de Melena de León, la mitad del mínimo de 1g al día de nuestra dosis de referencia.',
   },
   {
     product: productsLatam.find(p => p.slug === 'qualia-mind-review')!,

@@ -47,7 +47,7 @@ const features = [
   {
     icon: '🔬',
     title: 'Clinical dosing audits',
-    desc: 'Every product review includes a dosing-vs-evidence table comparing each ingredient to the minimum effective dose from peer-reviewed trials.',
+    desc: 'Every product review includes a dosing-vs-evidence table: where our ingredient pages give a reference dose from peer-reviewed trials, it compares the label amount with that minimum; other ingredients are listed but not scored.',
   },
   {
     icon: '🌏',

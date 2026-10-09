@@ -64,7 +64,7 @@ const picks: ListiclePick[] = [
     product: productsUS.find(p => p.slug === 'nootropics-depot-lions-mane')!,
     rank: 2,
     whyItsHere:
-      'Single-ingredient Lion\'s Mane fruiting-body extract from a brand with strong third-party CoA testing reputation. The right choice if you want to test Lion\'s Mane in isolation. Not a "daily nootropic" — pair with Bacopa or Mind Lab Pro for memory-stack coverage.',
+      'Single-ingredient Lion\'s Mane fruiting-body extract from a brand with strong third-party CoA testing reputation. One 500mg capsule is half the 1,000mg low end of our Lion\'s Mane reference dose.',
   },
   {
     product: productsUS.find(p => p.slug === 'qualia-mind-review')!,
