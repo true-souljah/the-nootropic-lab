@@ -66,7 +66,10 @@ describe('LISTICLE_MIN_SCORE', () => {
 
   it.each(methodologyPages)('%s methodology renders the bar from the constant and its history ends at it', (app, file) => {
     const src = readFileSync(file, 'utf8');
-    expect(src).toContain('{formatListicleScore(LISTICLE_MIN_SCORE)}/10');
+    // One template literal: a JSX run `{score}/10 …` puts a "/10 …" string in the RSC payload,
+    // which check:links (rsc-string) rejects as a dead path.
+    expect(src).toContain('${formatListicleScore(LISTICLE_MIN_SCORE)}/10');
+    expect(src).not.toMatch(/(?<!\$)\{formatListicleScore\(LISTICLE_MIN_SCORE\)\}\/10/);
     expect(src).toContain(app === 'latam' ? `se fijó en ${BAR} cuando` : `was set to ${BAR} when`);
   });
 });
