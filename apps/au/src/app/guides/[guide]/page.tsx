@@ -1,12 +1,15 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
-import { guides, buildPersonAuthorReference, productsAU, regionalGuideNote, regionalTitleQualifier } from '@nootropic/data';
+import { guidesForRegion, buildPersonAuthorReference, productsAU, regionalGuideNote, regionalTitleQualifier } from '@nootropic/data';
 
-import { PublicShell, RegionalAvailability, GuideEvidenceReviewed, GuideSources } from "@nootropic/ui";
+import { PublicShell, RegionalAvailability, GuideEvidenceReviewed, GuideSources, GuideBody } from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import { SITE_URL } from '@/lib/region';
 import { regionalProps } from '@/lib/regional';
+
+// Only the guides this host serves; generateStaticParams, the page and hreflang read it.
+const guides = guidesForRegion('au');
 
 export const dynamicParams = false;
 
@@ -24,9 +27,9 @@ export async function generateMetadata({
   if (!g) return {};
   const q = regionalTitleQualifier('au', 0, regionalGuideNote('au', guide));
   return {
-    title: `${g.title}${q} — The Nootropic Lab AU`,
+    title: `${g.title}${q}`,
     description: g.description,
-    alternates: buildAlternates({ regionCode: 'au', path: `/guides/${guide}/` }),
+    alternates: buildAlternates({ regionCode: 'au', path: `/guides/${guide}/`, availableInRegions: g.regions }),
     openGraph: buildOpenGraph({ regionCode: 'au', path: `/guides/${guide}/`, title: `${g.title}${q} — The Nootropic Lab AU`, description: g.description }),
     twitter: buildTwitter({ title: `${g.title}${q} — The Nootropic Lab AU`, description: g.description }),
   };
@@ -84,12 +87,7 @@ export default async function GuidePage({
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{g.title}</h1>
         <p className="text-lg text-gray-600 mb-10 leading-relaxed">{g.description}</p>
 
-        {g.sections.map(section => (
-          <section key={section.heading} className="mb-8">
-            <h2 className="text-xl font-bold text-gray-900 mb-3">{section.heading}</h2>
-            <p className="text-gray-700 leading-relaxed">{section.content}</p>
-          </section>
-        ))}
+        <GuideBody sections={g.sections} />
 
         <RegionalAvailability {...regionalProps(productsAU.slice().sort((a, b) => b.score - a.score).slice(0, 4))} note={regionalGuideNote('au', g.slug)} />
 

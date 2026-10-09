@@ -1,4 +1,4 @@
-export type { Product, EUCompliance, Market, IngredientDosage, NoPurchaseLink, NoPurchaseLinkIngredient, NoPurchaseLinkReason, VendorTerm, VendorTerms } from './products-us';
+export type { Product, EUCompliance, Market, IngredientDosage, NoPurchaseLink, NoPurchaseLinkIngredient, NoPurchaseLinkReason, VendorTerm, VendorTerms, PriceBasis } from './products-us';
 export { productsUS, allProductsUS } from './products-us';
 export { productsEU, allProductsEU } from './products-eu';
 export { productsCA, allProductsCA } from './products-ca';
@@ -21,6 +21,8 @@ export { PRODUCT_IMAGE_SIZES, productImages, productImage } from './product-imag
 export type { ProductForm } from './serving-unit';
 export { PRODUCT_FORMS, productForm, servingUnit, servingAmount, servingsComparable } from './serving-unit';
 export { affiliateUrlProblem, formulaProblem, formProblem, productRuleProblems, scoreProblem, weightedScore, pillarWeightPercent, UNSCORABLE_PILLARS, PILLAR_WEIGHTS, halalEvidenceProblem, HALAL_CERTIFIERS, vendorTermsProblems, VENDOR_TERM_FIELDS } from './product-rules';
+export type { QuotedPrice, QuoteSupply, QuoteMonthly, PriceDerivation, SupplyFields } from './vendor-price';
+export { DAYS_PER_MONTH, SERVINGS_PER_DAY, parseAmount, parseQuotedPrices, quoteSupply, currencyDigits, monthlyPriceFromQuote, deriveRegionalMonthlyPrice, priceBasisProblems } from './vendor-price';
 export { NOT_AVAILABLE, outOfTen, pillarText, guaranteeDays, guaranteeDaysValue } from './display-values';
 export type { DosingAnchor } from './dosing-anchors';
 export { DOSING_ANCHORS, doseMg, dosingAnchorProblems } from './dosing-anchors';
@@ -29,9 +31,10 @@ export { productsGCC, allProductsGCC } from './products-gcc';
 export { productsSEA, allProductsSEA } from './products-sea';
 export type { Ingredient, HumanEffect, HowToTake, StackPair, FAQ, IngredientSource } from './ingredients';
 export { ingredients } from './ingredients';
-export type { Guide, GuideSection, GuideSource } from './guides';
+export type { Guide, GuideSection, GuideSource, GuideBlock, GuideTranslation } from './guides';
 export { guides, guideSources } from './guides';
 export { guidesEs } from './guides-es';
+export { guidesForRegion, selectGuidesForRegion } from './guide-regions';
 export type { EUCountry } from './eu-countries';
 export { euCountries } from './eu-countries';
 export type { LatamCountry } from './latam-countries';

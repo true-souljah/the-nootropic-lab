@@ -42,9 +42,11 @@ const TONE: Record<'good' | 'neutral' | 'warn', string> = {
   warn: 'bg-ds-warn-soft text-ds-warn',
 };
 
+/** Whole amounts print without decimals; any other amount keeps its cents as stored (€31.75, not €32). */
 export function formatLocalPrice(amount: number, currency: string, locale: string): string {
   try {
-    return new Intl.NumberFormat(locale, { style: 'currency', currency, maximumFractionDigits: 0 }).format(amount);
+    const digits: Intl.NumberFormatOptions = Number.isInteger(amount) ? { maximumFractionDigits: 0 } : {};
+    return new Intl.NumberFormat(locale, { style: 'currency', currency, ...digits }).format(amount);
   } catch {
     return `${currency} ${amount}`;
   }

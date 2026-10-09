@@ -1,6 +1,6 @@
 export const dynamic = 'force-static';
 import type { MetadataRoute } from 'next';
-import { routeDates, allProductsAU, ingredients, guides, auStates } from '@nootropic/data';
+import { routeDates, allProductsAU, ingredients, guidesForRegion, auStates } from '@nootropic/data';
 
 const BASE = 'https://au.thenootropiclab.com';
 
@@ -43,7 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const guidePages: MetadataRoute.Sitemap = [
     { url: `${BASE}/guides/`, lastModified: d.guidesHub(), changeFrequency: 'monthly', priority: 0.7 },
-    ...guides.map(g => ({
+    ...guidesForRegion('au').map(g => ({
       url: `${BASE}/guides/${g.slug}/`,
       lastModified: d.guide(),
       changeFrequency: 'monthly' as const,

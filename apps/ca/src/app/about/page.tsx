@@ -7,7 +7,7 @@ import { searchItems, uiStrings } from "@/lib/search";
 import { SITE_URL } from '@/lib/region';
 
 export const metadata: Metadata = {
-  title: 'About The Nootropic Lab Canada',
+  title: { absolute: 'About The Nootropic Lab Canada' },
   description:
     'The Nootropic Lab Canada is an independent cognitive-supplement comparison site Bilingual (en-CA / fr-CA), Health Canada NPN-aware reviews, transparent affiliate disclosure.',
   alternates: buildAlternates({ regionCode: 'ca', path: '/about/' }),
@@ -62,7 +62,7 @@ export default function AboutPage() {
             Canada under the Natural and Non-prescription Health Products Directorate. Products legally sold
             in Canada should display a <strong>Natural Product Number (NPN)</strong> or, for homeopathic
             preparations, a DIN-HM. We flag products without a Canadian NPN and explain the import path
-            (CUSMA/USMCA personal-use orders, customs treatment) for international brands.
+            (personal importation, CBSA duty and tax thresholds) for international brands.
           </p>
           <p className="text-gray-700 leading-relaxed">
             We are not a pharmacy and do not sell products. We rate the brands we link to and disclose every
