@@ -13,6 +13,7 @@ import type { Locale, Product } from '@nootropic/data';
 import TrackedAffiliateLink from './TrackedAffiliateLink';
 import ComparisonTable from './ComparisonTable';
 import NoPurchaseLinkNotice from './NoPurchaseLinkNotice';
+import { PricingTab } from './templates/product-detail/PricingTab';
 
 // Site-owner decision 2026-10-08: the Japanese edition shows no purchase link
 // for products whose formula contains an ingredient from a plant on Japan's
@@ -187,6 +188,31 @@ describe('rendered CTAs', () => {
     // Desktop row + mobile card.
     expect(html.match(/data-no-purchase-link="jp-mhlw-medicine-only-ingredient"/g)).toHaveLength(2);
     expect(html).toContain(vendorHref(mlp));
+  });
+
+  // PricingTab quotes the vendor's own terms and links each quote to the vendor
+  // page it came from (#326). Those citation links lead to the vendor's shop, so
+  // a blocked product must show the notice instead of its terms.
+  test('PricingTab shows the notice and no vendor link for a blocked product', () => {
+    const s = getStrings('ja');
+    expect(hunter.vendorTerms, 'fixture must carry vendor terms for this test to mean anything').toBeTruthy();
+    const html = renderToStaticMarkup(
+      createElement(PricingTab, { product: hunter, disclosure: s.disclosure, strings: s.productDetail, noticeStrings: s.noPurchaseLink }),
+    );
+    expect(html).not.toMatch(/href="https?:\/\/(www\.)?(hunterevolve|roarambition)\.com/);
+    expect(html).not.toContain('data-vendor-term');
+    expect(html).toContain('No purchase link in Japan');
+  });
+
+  test('PricingTab still quotes and links the vendor terms of an unblocked product', () => {
+    const s = getStrings('ja');
+    const withTerms = allProductsJP.find((p) => p.vendorTerms && purchaseUrl(p) !== null)!;
+    expect(withTerms).toBeTruthy();
+    const html = renderToStaticMarkup(
+      createElement(PricingTab, { product: withTerms, disclosure: s.disclosure, strings: s.productDetail, noticeStrings: s.noPurchaseLink }),
+    );
+    expect(html).toContain('data-vendor-term');
+    expect(html).not.toContain('No purchase link');
   });
 
   test('NoPurchaseLinkNotice renders nothing for a product without a block', () => {

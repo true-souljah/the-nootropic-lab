@@ -1,8 +1,9 @@
 import { Fragment, type ReactNode } from 'react';
 import { Card } from '../../primitives/Card';
 import TrackedAffiliateLink from '../../TrackedAffiliateLink';
+import NoPurchaseLinkNotice from '../../NoPurchaseLinkNotice';
 import type { Product, UIStrings, VendorTerms } from '@nootropic/data';
-import { NOT_AVAILABLE, VENDOR_TERM_FIELDS } from '@nootropic/data';
+import { NOT_AVAILABLE, VENDOR_TERM_FIELDS, purchaseUrl } from '@nootropic/data';
 
 export interface PricingTabProps {
   product: Product;
@@ -55,7 +56,11 @@ export function PricingTab({ product: p, disclosure, strings, noticeStrings }: P
     <div className="grid gap-4 grid-cols-1 lg:grid-cols-2">
       <Card padding={22} style={{ gridColumn: '1 / -1' }}>
         <h3 className="text-[16px] font-semibold m-0 mb-1 text-ds-ink">{t.vendorTermsHeading}</h3>
-        {terms ? (
+        {/* No purchase link in this edition (Product.noPurchaseLink): the vendor's
+            price/shipping quotes cite and link its shop pages, so show the notice instead. */}
+        {purchaseUrl(p) === null ? (
+          <NoPurchaseLinkNotice product={p} strings={noticeStrings} variant="full" />
+        ) : terms ? (
           <>
             <p className="text-[13px] text-ds-muted m-0 mb-4 leading-[1.55]">{t.vendorTermsLede}</p>
             <div className="grid gap-5 md:grid-cols-2">
