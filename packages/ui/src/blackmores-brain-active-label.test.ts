@@ -50,23 +50,23 @@ describe.each(REGIONS)('%s Blackmores Brain Active matches its label', (_region,
   });
 });
 
-describe('discontinued notes state each market\'s own facts', () => {
+// The discontinued block is one global fact (cross-region-consistency.test.ts),
+// so both markets carry the same note. It used to give only Australian facts;
+// it now also says Blackmores Singapore dropped the page and Blackmores Vietnam
+// still sells the product, which is true for readers in either market.
+describe('one discontinued note, true in both markets', () => {
   const au = brainActive(allProductsAU);
   const sea = brainActive(allProductsSEA);
 
-  test('same discontinuation date in both markets', () => {
-    expect(sea.discontinued?.since).toBe(au.discontinued?.since);
+  test('AU and SEA carry the same discontinued block', () => {
+    expect(sea.discontinued).toEqual(au.discontinued);
   });
 
-  test('the SEA note cites SEA facts only', () => {
-    const note = sea.discontinued?.note ?? '';
+  test('the note gives the AU, Singapore and Vietnam facts', () => {
+    const note = au.discontinued?.note ?? '';
+    expect(note).toMatch(/blackmores\.com\.au/);
     expect(note).toMatch(/Blackmores Singapore no longer has a Brain Active product page \(checked 8 October 2026\)/);
     expect(note).toContain('https://www.blackmores.com.vn/en/products/brain-active');
-    expect(note).not.toMatch(/blackmores\.com\.au|Chemist Warehouse|Cognition Ultra|Omega Brain/);
-  });
-
-  test('the AU note is unchanged', () => {
-    expect(au.discontinued?.note).toBe('No longer listed on blackmores.com.au or at Chemist Warehouse; Blackmores now sells Cognition Ultra / Omega Brain.');
   });
 });
 
