@@ -142,6 +142,8 @@ describe('Listicle template wiring', () => {
 // Every Listicle page in every app: the ranked set never holds a pick below the
 // bar. Characterization of the data on 2026-10-08 (after the weighted-score
 // recompute, #323): 24 of 128 picks on 20 of the 36 listicles score below 7.5.
+// 2026-10-09, after the computed dosing pillar (dosing-anchors.ts): 62 picks
+// on 34 listicles; every listicle keeps at least one ranked pick.
 // When a score, a pick or a page changes, update the expected counts below on
 // purpose, after checking that the page still reads right.
 // ---------------------------------------------------------------------------
@@ -198,14 +200,17 @@ describe('every Listicle page ranks only picks at or above the bar', () => {
     expect(alsoConsidered.every((p) => p.product.score < LISTICLE_MIN_SCORE)).toBe(true);
   });
 
-  it('moves the 24 below-bar picks (20 pages) to "Also considered" — 2026-10-08 data', () => {
+  it('moves the 62 below-bar picks (34 pages) to "Also considered" — 2026-10-09 data', () => {
     const below = pages.flatMap((p) => splitListiclePicks(p.picks).alsoConsidered.map((x) => ({ page: p.rel, slug: x.product.slug })));
-    expect(below).toHaveLength(24);
-    expect(new Set(below.map((b) => b.page)).size).toBe(20);
+    expect(below).toHaveLength(62);
+    expect(new Set(below.map((b) => b.page)).size).toBe(34);
     const bySlug = below.reduce<Record<string, number>>((acc, b) => ({ ...acc, [b.slug]: (acc[b.slug] ?? 0) + 1 }), {});
     expect(bySlug).toEqual({
+      'qualia-mind-review': 27,
       'onnit-alpha-brain-review': 15,
+      'nootropics-depot-lions-mane': 8,
       'naturebell-ginkgo-ginseng-review': 4,
+      'hunter-focus-review': 3,
       'suntory-dha-epa-sesamin-review': 3,
       'fancl-brains-review': 2,
     });

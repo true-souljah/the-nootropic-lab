@@ -9,10 +9,10 @@
       "Memory",
       "Long-term brain health"
     ],
-    "score": 9.4,
+    "score": 7.6,
     "scoreBreakdown": {
       "ingredients": 9,
-      "dosing": 10,
+      "dosing": 4.3,
       "transparency": 10,
       "value": 8,
       "trust": 9
@@ -41,43 +41,43 @@
       {
         "name": "Lion's Mane (fruiting body)",
         "doseInProduct": "500mg",
-        "clinicalDose": "500mg",
-        "adequatelyDosed": true
+        "clinicalDose": "1000-1800mg/day",
+        "adequatelyDosed": false
       },
       {
         "name": "Citicoline (Cognizin)",
         "doseInProduct": "250mg",
-        "clinicalDose": "250mg",
+        "clinicalDose": "250-500mg/day",
         "adequatelyDosed": true
       },
       {
         "name": "Bacopa Monnieri (full-spectrum, 24% bacosides)",
         "doseInProduct": "150mg",
-        "clinicalDose": "300mg",
+        "clinicalDose": "300-450mg/day (55% bacosides)",
         "adequatelyDosed": false
       },
       {
         "name": "Rhodiola Rosea (3% rosavins)",
         "doseInProduct": "50mg",
-        "clinicalDose": "200mg",
+        "clinicalDose": "200-600mg/day",
         "adequatelyDosed": false
       },
       {
         "name": "L-Theanine",
         "doseInProduct": "100mg",
-        "clinicalDose": "100-200mg",
+        "clinicalDose": "100-200mg/day",
         "adequatelyDosed": true
       },
       {
         "name": "Phosphatidylserine (Sharp-PS)",
         "doseInProduct": "100mg",
-        "clinicalDose": "100mg",
+        "clinicalDose": "100-300mg/day",
         "adequatelyDosed": true
       },
       {
         "name": "L-Tyrosine (NALT)",
         "doseInProduct": "175mg",
-        "clinicalDose": "300-500mg as NALT",
+        "clinicalDose": "2000mg/day (lowest positive trial)",
         "adequatelyDosed": false
       }
     ],
@@ -138,10 +138,10 @@
       "Screen workers",
       "Budget"
     ],
-    "score": 7.6,
+    "score": 7.5,
     "scoreBreakdown": {
       "ingredients": 8,
-      "dosing": 7,
+      "dosing": 6.7,
       "transparency": 7,
       "value": 9,
       "trust": 7
@@ -173,50 +173,50 @@
       {
         "name": "Lutemax 2020 (Lutein/Zeaxanthin)",
         "doseInProduct": "20mg",
-        "clinicalDose": "20mg",
+        "clinicalDose": "12-27mg/day",
         "adequatelyDosed": true
       },
       {
         "name": "Bacopa Monnieri (12:1, 20% bacosides)",
         "doseInProduct": "250mg",
-        "clinicalDose": "300mg",
+        "clinicalDose": "300-450mg/day (55% bacosides)",
         "adequatelyDosed": false
       },
       {
         "name": "Panax Ginseng (200:1 concentrate)",
         "doseInProduct": "20mg",
-        "clinicalDose": "Limited human data",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Choline (VitaCholine)",
         "doseInProduct": "250mg",
-        "clinicalDose": "Limited human data",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Cat's Claw (4:1 extract)",
         "doseInProduct": "Undisclosed",
-        "clinicalDose": "Limited human data",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Resveratrol (99%)",
         "doseInProduct": "14.3mg",
-        "clinicalDose": "Limited human data",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "L-Theanine",
         "doseInProduct": "100mg",
-        "clinicalDose": "100-200mg",
+        "clinicalDose": "100-200mg/day",
         "adequatelyDosed": true
       },
       {
         "name": "Pterostilbene",
         "doseInProduct": "140mcg",
-        "clinicalDose": "Limited human data",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       }
     ],
     "servingsPerContainer": 30,
@@ -274,10 +274,10 @@
       "Neurohackers",
       "Complex stacks"
     ],
-    "score": 8.3,
+    "score": 6.4,
     "scoreBreakdown": {
       "ingredients": 10,
-      "dosing": 8,
+      "dosing": 1.7,
       "transparency": 9,
       "value": 6,
       "trust": 7
@@ -306,31 +306,31 @@
       {
         "name": "Phosphatidylserine",
         "doseInProduct": "200mg",
-        "clinicalDose": "100-300mg",
+        "clinicalDose": "100-300mg/day",
         "adequatelyDosed": true
       },
       {
         "name": "Alpha-GPC",
         "doseInProduct": "200mg",
-        "clinicalDose": "300-600mg",
+        "clinicalDose": "300-600mg/day",
         "adequatelyDosed": false
       },
       {
         "name": "Huperzine A",
         "doseInProduct": "50mcg",
-        "clinicalDose": "50-200mcg",
-        "adequatelyDosed": true
+        "clinicalDose": "100-200mcg/day",
+        "adequatelyDosed": false
       },
       {
         "name": "Bacopa Monnieri",
         "doseInProduct": "300mg",
-        "clinicalDose": "300mg",
-        "adequatelyDosed": true
+        "clinicalDose": "300-450mg/day (55% bacosides)",
+        "adequatelyDosed": null
       },
       {
         "name": "Rhodiola Rosea",
         "doseInProduct": "150mg",
-        "clinicalDose": "200-600mg",
+        "clinicalDose": "200-600mg/day",
         "adequatelyDosed": false
       },
       {
@@ -342,8 +342,8 @@
       {
         "name": "Uridine Monophosphate",
         "doseInProduct": "250mg",
-        "clinicalDose": "250mg",
-        "adequatelyDosed": true
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       }
     ],
     "servingsPerContainer": 20,
@@ -403,10 +403,10 @@
       "Brand recognition",
       "Athletes"
     ],
-    "score": 6.6,
+    "score": 5.2,
     "scoreBreakdown": {
       "ingredients": 7,
-      "dosing": 6,
+      "dosing": 1.4,
       "transparency": 6,
       "value": 7,
       "trust": 8
@@ -434,43 +434,43 @@
       {
         "name": "Bacopa Monnieri (Focus Blend)",
         "doseInProduct": "100mg",
-        "clinicalDose": "300–450mg/day",
+        "clinicalDose": "300-450mg/day (55% bacosides)",
         "adequatelyDosed": false
       },
       {
         "name": "Alpha-GPC (Focus Blend)",
         "doseInProduct": "Not stated; at most 140mg (240mg blend incl. 100mg Bacopa)",
-        "clinicalDose": "300–600mg/day",
+        "clinicalDose": "300-600mg/day",
         "adequatelyDosed": false
       },
       {
         "name": "Huperzine A (Toothed Clubmoss, Focus Blend)",
         "doseInProduct": "400mcg",
-        "clinicalDose": "100–200mcg/day in trials",
+        "clinicalDose": "100-200mcg/day",
         "adequatelyDosed": true
       },
       {
         "name": "L-Tyrosine (Flow Blend)",
         "doseInProduct": "Not stated; at most 650mg (blend total)",
-        "clinicalDose": "100–150mg/kg (about 7–10g) in stress trials",
+        "clinicalDose": "2000mg/day (lowest positive trial)",
         "adequatelyDosed": false
       },
       {
         "name": "L-Theanine (Flow Blend)",
         "doseInProduct": "Not stated (share of 650mg blend)",
-        "clinicalDose": "100–200mg/day",
+        "clinicalDose": "100-200mg/day",
         "adequatelyDosed": null
       },
       {
         "name": "Phosphatidylserine (Flow Blend)",
         "doseInProduct": "Not stated (share of 650mg blend)",
-        "clinicalDose": "100–300mg/day",
+        "clinicalDose": "100-300mg/day",
         "adequatelyDosed": null
       },
       {
         "name": "Oat Straw Extract (Flow Blend)",
         "doseInProduct": "Not stated (share of 650mg blend)",
-        "clinicalDose": "430–1600mg/day in trials",
+        "clinicalDose": "430-1600mg/day",
         "adequatelyDosed": null
       },
       {
@@ -552,10 +552,10 @@
       "Personalisation",
       "Custom stack optimisers"
     ],
-    "score": 7.5,
+    "score": 7.8,
     "scoreBreakdown": {
       "ingredients": 8,
-      "dosing": 7,
+      "dosing": 8,
       "transparency": 8,
       "value": 7,
       "trust": 7
@@ -583,32 +583,32 @@
       {
         "name": "Ashwagandha (KSM-66)",
         "doseInProduct": "300mg",
-        "clinicalDose": "300-600mg",
+        "clinicalDose": "300-600mg/day (KSM-66)",
         "adequatelyDosed": true
       },
       {
         "name": "Alpha-GPC",
         "doseInProduct": "200mg",
-        "clinicalDose": "300mg",
+        "clinicalDose": "300-600mg/day",
         "adequatelyDosed": false
       },
       {
         "name": "L-Theanine",
         "doseInProduct": "200mg",
-        "clinicalDose": "100-200mg",
+        "clinicalDose": "100-200mg/day",
         "adequatelyDosed": true
       },
       {
         "name": "Zynamite (Mango leaf extract)",
         "doseInProduct": "140mg",
-        "clinicalDose": "140mg",
+        "clinicalDose": "140-300mg/day",
         "adequatelyDosed": true
       },
       {
         "name": "Dynamine (Methylliberine)",
         "doseInProduct": "100mg",
-        "clinicalDose": "Limited data",
-        "adequatelyDosed": false
+        "clinicalDose": "100-150mg/day",
+        "adequatelyDosed": true
       }
     ],
     "servingsPerContainer": 30,
@@ -666,10 +666,10 @@
       "Long-term brain health",
       "Nerve growth"
     ],
-    "score": 9.1,
+    "score": 6.4,
     "scoreBreakdown": {
       "ingredients": 9,
-      "dosing": 9,
+      "dosing": 0,
       "transparency": 10,
       "value": 9,
       "trust": 8
@@ -747,10 +747,10 @@
       "Memory",
       "TCM-inspired formula"
     ],
-    "score": 7,
+    "score": 4.9,
     "scoreBreakdown": {
       "ingredients": 7,
-      "dosing": 7,
+      "dosing": 0,
       "transparency": 6,
       "value": 9,
       "trust": 6
@@ -775,14 +775,14 @@
       {
         "name": "Ginkgo Biloba Extract (50:1)",
         "doseInProduct": "120mg",
-        "clinicalDose": "120mg",
-        "adequatelyDosed": true
+        "clinicalDose": "240mg/day (24/6 extract)",
+        "adequatelyDosed": false
       },
       {
         "name": "Panax Ginseng Extract",
         "doseInProduct": "10mg",
-        "clinicalDose": "200mg",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       }
     ],
     "servingsPerContainer": 150,
@@ -831,10 +831,10 @@
       "Stim-free focus",
       "Stackable formula"
     ],
-    "score": 9.1,
+    "score": 7.6,
     "scoreBreakdown": {
       "ingredients": 9,
-      "dosing": 10,
+      "dosing": 5,
       "transparency": 10,
       "value": 8,
       "trust": 6
@@ -861,26 +861,26 @@
       {
         "name": "Citicoline (Cognizin)",
         "doseInProduct": "250mg",
-        "clinicalDose": "250mg",
+        "clinicalDose": "250-500mg/day",
         "adequatelyDosed": true
       },
       {
         "name": "Phosphatidylserine (Sharp-PS Green)",
         "doseInProduct": "100mg",
-        "clinicalDose": "100mg",
+        "clinicalDose": "100-300mg/day",
         "adequatelyDosed": true
       },
       {
         "name": "L-Tyrosine (Ajipure)",
         "doseInProduct": "250mg",
-        "clinicalDose": "300-500mg",
+        "clinicalDose": "2000mg/day (lowest positive trial)",
         "adequatelyDosed": false
       },
       {
         "name": "Maritime Pine Bark Extract (95% proanthocyanidins)",
         "doseInProduct": "75mg",
-        "clinicalDose": "50-100mg",
-        "adequatelyDosed": true
+        "clinicalDose": "100-200mg/day",
+        "adequatelyDosed": false
       }
     ],
     "servingsPerContainer": 30,
@@ -924,10 +924,10 @@
       "Executive nootropic",
       "Comprehensive stack"
     ],
-    "score": 8.3,
+    "score": 7.1,
     "scoreBreakdown": {
       "ingredients": 9,
-      "dosing": 8,
+      "dosing": 4,
       "transparency": 10,
       "value": 6,
       "trust": 7
@@ -956,104 +956,104 @@
       {
         "name": "Citicoline",
         "doseInProduct": "250mg",
-        "clinicalDose": "250mg",
+        "clinicalDose": "250-500mg/day",
         "adequatelyDosed": true
       },
       {
         "name": "Lion's Mane Mushroom (10:1 extract)",
         "doseInProduct": "500mg",
-        "clinicalDose": "500mg",
-        "adequatelyDosed": true
+        "clinicalDose": "1000-1800mg/day",
+        "adequatelyDosed": null
       },
       {
         "name": "Bacopa Monnieri (50% bacosides)",
         "doseInProduct": "300mg",
-        "clinicalDose": "300mg",
-        "adequatelyDosed": true
+        "clinicalDose": "300-450mg/day (55% bacosides)",
+        "adequatelyDosed": false
       },
       {
         "name": "L-Tyrosine",
         "doseInProduct": "500mg",
-        "clinicalDose": "300-500mg",
-        "adequatelyDosed": true
+        "clinicalDose": "2000mg/day (lowest positive trial)",
+        "adequatelyDosed": false
       },
       {
         "name": "L-Theanine",
         "doseInProduct": "200mg",
-        "clinicalDose": "100-200mg",
+        "clinicalDose": "100-200mg/day",
         "adequatelyDosed": true
       },
       {
         "name": "Phosphatidylserine",
         "doseInProduct": "200mg",
-        "clinicalDose": "100-300mg",
+        "clinicalDose": "100-300mg/day",
         "adequatelyDosed": true
       },
       {
         "name": "Ashwagandha Extract",
         "doseInProduct": "300mg",
-        "clinicalDose": "300-600mg",
-        "adequatelyDosed": true
+        "clinicalDose": "300-600mg/day (KSM-66)",
+        "adequatelyDosed": null
       },
       {
         "name": "Rhodiola Rosea (3% rosavins)",
         "doseInProduct": "100mg",
-        "clinicalDose": "200-600mg",
+        "clinicalDose": "200-600mg/day",
         "adequatelyDosed": false
       },
       {
         "name": "Maritime Pine Bark Extract",
         "doseInProduct": "75mg",
-        "clinicalDose": "50-100mg",
-        "adequatelyDosed": true
+        "clinicalDose": "100-200mg/day",
+        "adequatelyDosed": false
       },
       {
         "name": "Panax Ginseng",
         "doseInProduct": "100mg",
-        "clinicalDose": "200-400mg",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "N-Acetyl L-Cysteine (NAC)",
         "doseInProduct": "250mg",
-        "clinicalDose": "600-1200mg",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Caffeine Anhydrous",
         "doseInProduct": "100mg",
-        "clinicalDose": "50-200mg",
+        "clinicalDose": "100-200mg",
         "adequatelyDosed": true
       },
       {
         "name": "Vitamin C",
         "doseInProduct": "120mg",
-        "clinicalDose": "90-120mg",
-        "adequatelyDosed": true
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Vitamin D3",
         "doseInProduct": "50mcg (2000 IU)",
-        "clinicalDose": "15-50mcg",
-        "adequatelyDosed": true
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Vitamin B6 (P-5-P)",
         "doseInProduct": "2.5mg",
-        "clinicalDose": "1.3-2mg",
-        "adequatelyDosed": true
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Vitamin B9 (Folate)",
         "doseInProduct": "333mcg",
-        "clinicalDose": "400mcg",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Vitamin B12 (Methylcobalamin)",
         "doseInProduct": "20mcg",
-        "clinicalDose": "2.4mcg",
-        "adequatelyDosed": true
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       }
     ],
     "servingsPerContainer": 30,
@@ -1112,10 +1112,10 @@
       "Memory support",
       "Older adults"
     ],
-    "score": 7.1,
+    "score": 5.8,
     "scoreBreakdown": {
       "ingredients": 8,
-      "dosing": 7,
+      "dosing": 2.5,
       "transparency": 7,
       "value": 6,
       "trust": 7
@@ -1142,7 +1142,7 @@
       {
         "name": "Phosphatidylserine",
         "doseInProduct": "100mg",
-        "clinicalDose": "100-300mg",
+        "clinicalDose": "100-300mg/day",
         "adequatelyDosed": true
       },
       {
@@ -1154,32 +1154,32 @@
       {
         "name": "Ginkgo Biloba (24% glycosides, 6% lactones)",
         "doseInProduct": "120mg",
-        "clinicalDose": "120-240mg",
-        "adequatelyDosed": true
+        "clinicalDose": "240mg/day (24/6 extract)",
+        "adequatelyDosed": false
       },
       {
         "name": "Huperzine A",
         "doseInProduct": "50mcg",
-        "clinicalDose": "50-200mcg",
-        "adequatelyDosed": true
+        "clinicalDose": "100-200mcg/day",
+        "adequatelyDosed": false
       },
       {
         "name": "Vinpocetine",
         "doseInProduct": "5mg",
-        "clinicalDose": "15-30mg",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "N-Acetyl L-Cysteine (NAC)",
         "doseInProduct": "300mg",
-        "clinicalDose": "600-1200mg",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Alpha Lipoic Acid",
         "doseInProduct": "50mg",
-        "clinicalDose": "300-600mg",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       }
     ],
     "servingsPerContainer": 30,
@@ -1243,10 +1243,10 @@
       "On-the-go use",
       "Pill-averse users"
     ],
-    "score": 7.4,
+    "score": 7.3,
     "scoreBreakdown": {
       "ingredients": 8,
-      "dosing": 8,
+      "dosing": 7.5,
       "transparency": 8,
       "value": 6,
       "trust": 5
@@ -1274,37 +1274,37 @@
       {
         "name": "Citicoline (CDP-Choline)",
         "doseInProduct": "250mg",
-        "clinicalDose": "250mg",
+        "clinicalDose": "250-500mg/day",
         "adequatelyDosed": true
       },
       {
         "name": "L-Tyrosine",
         "doseInProduct": "500mg",
-        "clinicalDose": "300-500mg",
-        "adequatelyDosed": true
+        "clinicalDose": "2000mg/day (lowest positive trial)",
+        "adequatelyDosed": false
       },
       {
         "name": "L-Theanine",
         "doseInProduct": "200mg",
-        "clinicalDose": "100-200mg",
+        "clinicalDose": "100-200mg/day",
         "adequatelyDosed": true
       },
       {
         "name": "Magnesium (as Magtein L-Threonate)",
         "doseInProduct": "85mg elemental",
-        "clinicalDose": "144mg elemental (2g Magtein)",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Centrophenoxine",
         "doseInProduct": "250mg",
-        "clinicalDose": "250-1000mg",
-        "adequatelyDosed": true
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Caffeine",
         "doseInProduct": "100mg",
-        "clinicalDose": "50-200mg",
+        "clinicalDose": "100-200mg",
         "adequatelyDosed": true
       }
     ],
@@ -1362,10 +1362,10 @@
       "Focus",
       "Budget"
     ],
-    "score": 7.2,
+    "score": 6.3,
     "scoreBreakdown": {
       "ingredients": 8,
-      "dosing": 6,
+      "dosing": 3.3,
       "transparency": 10,
       "value": 5,
       "trust": 6
@@ -1391,44 +1391,44 @@
       {
         "name": "Natural Caffeine (Coffea robusta)",
         "doseInProduct": "50mg",
-        "clinicalDose": "75-200mg",
+        "clinicalDose": "100-200mg",
         "adequatelyDosed": false
       },
       {
         "name": "L-Theanine",
         "doseInProduct": "100mg",
-        "clinicalDose": "100-200mg",
+        "clinicalDose": "100-200mg/day",
         "adequatelyDosed": true
       },
       {
         "name": "L-Tyrosine",
         "doseInProduct": "250mg",
-        "clinicalDose": "300-500mg",
+        "clinicalDose": "2000mg/day (lowest positive trial)",
         "adequatelyDosed": false
       },
       {
         "name": "Riboflavin (Vitamin B2)",
         "doseInProduct": "500mcg",
-        "clinicalDose": "1.3mg (DV)",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Vitamin B6",
         "doseInProduct": "750mcg",
-        "clinicalDose": "1.3-2mg",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Folate (Vitamin B9)",
         "doseInProduct": "170mcg DFE",
-        "clinicalDose": "400mcg",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Vitamin B12",
         "doseInProduct": "2mcg",
-        "clinicalDose": "2.4mcg",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       }
     ],
     "servingsPerContainer": 30,
@@ -1490,10 +1490,10 @@
       "Athletes",
       "Focus"
     ],
-    "score": 6.2,
+    "score": 5.7,
     "scoreBreakdown": {
       "ingredients": 7,
-      "dosing": 5,
+      "dosing": 3.3,
       "transparency": 8,
       "value": 5,
       "trust": 6
@@ -1521,74 +1521,74 @@
       {
         "name": "Natural Caffeine (Coffea robusta)",
         "doseInProduct": "80mg",
-        "clinicalDose": "75-200mg",
-        "adequatelyDosed": true
+        "clinicalDose": "100-200mg",
+        "adequatelyDosed": false
       },
       {
         "name": "L-Theanine (from green tea)",
         "doseInProduct": "160mg",
-        "clinicalDose": "100-200mg",
+        "clinicalDose": "100-200mg/day",
         "adequatelyDosed": true
       },
       {
         "name": "L-Tyrosine",
         "doseInProduct": "400mg",
-        "clinicalDose": "300-500mg",
-        "adequatelyDosed": true
+        "clinicalDose": "2000mg/day (lowest positive trial)",
+        "adequatelyDosed": false
       },
       {
         "name": "Setria for Sport blend (L-Citrulline + L-Glutathione)",
         "doseInProduct": "2200mg blend (split undisclosed)",
-        "clinicalDose": "3-6g L-citrulline (share undisclosed)",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Red Beetroot Powder (Beta vulgaris root)",
         "doseInProduct": "1500mg",
-        "clinicalDose": "6-8 mmol nitrate (content undisclosed)",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Vitamin D3 (from algae)",
         "doseInProduct": "12.5mcg",
-        "clinicalDose": "15-50mcg",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Riboflavin (Vitamin B2)",
         "doseInProduct": "0.5mg",
-        "clinicalDose": "1.3mg (DV)",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Vitamin B6",
         "doseInProduct": "0.75mg",
-        "clinicalDose": "1.3-2mg",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Folate (Vitamin B9)",
         "doseInProduct": "167mcg DFE",
-        "clinicalDose": "400mcg",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Vitamin B12",
         "doseInProduct": "2mcg",
-        "clinicalDose": "2.4mcg",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Potassium",
         "doseInProduct": "49.5mg",
-        "clinicalDose": "4700mg (DV)",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Iron",
         "doseInProduct": "2.5mg",
-        "clinicalDose": "18mg (DV)",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       }
     ],
     "servingsPerContainer": 20,
@@ -1653,10 +1653,10 @@
       "Brain energy",
       "Long-term brain health"
     ],
-    "score": 5.2,
+    "score": 4.3,
     "scoreBreakdown": {
       "ingredients": 5,
-      "dosing": 3,
+      "dosing": 0,
       "transparency": 10,
       "value": 3,
       "trust": 6
@@ -1689,26 +1689,26 @@
       {
         "name": "R-Lipoic Acid (BioEnhanced)",
         "doseInProduct": "100mg",
-        "clinicalDose": "300-600mg (alpha-lipoic acid trials)",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "CoQ10 (MicroActive Q10)",
         "doseInProduct": "100mg",
-        "clinicalDose": "No cognitive-trial dose; 300mg/day in cardiac trials",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "PQQ (BioPQQ)",
         "doseInProduct": "10mg",
-        "clinicalDose": "20mg/day",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Magnesium (as magnesium malate)",
         "doseInProduct": "60mg",
-        "clinicalDose": "420mg (DV)",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       }
     ],
     "servingsPerContainer": 30,
@@ -1772,10 +1772,10 @@
       "Brain health",
       "Cardiovascular support"
     ],
-    "score": 6.1,
+    "score": 4.9,
     "scoreBreakdown": {
       "ingredients": 6,
-      "dosing": 4,
+      "dosing": 0,
       "transparency": 10,
       "value": 5,
       "trust": 6
@@ -1806,8 +1806,8 @@
       {
         "name": "EPA (algal)",
         "doseInProduct": "270mg",
-        "clinicalDose": "No EPA-specific cognitive anchor; mixed EPA+DHA meta-analyses used ≥500mg/day total omega-3",
-        "adequatelyDosed": true
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       }
     ],
     "servingsPerContainer": 30,

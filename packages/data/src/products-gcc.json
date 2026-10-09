@@ -9,10 +9,10 @@
       "Memory",
       "Long-term brain health"
     ],
-    "score": 9.4,
+    "score": 7.6,
     "scoreBreakdown": {
       "ingredients": 9,
-      "dosing": 10,
+      "dosing": 4.3,
       "transparency": 10,
       "value": 8,
       "trust": 9
@@ -41,43 +41,43 @@
       {
         "name": "Lion's Mane (fruiting body)",
         "doseInProduct": "500mg",
-        "clinicalDose": "500mg",
-        "adequatelyDosed": true
+        "clinicalDose": "1000-1800mg/day",
+        "adequatelyDosed": false
       },
       {
         "name": "Citicoline (Cognizin)",
         "doseInProduct": "250mg",
-        "clinicalDose": "250mg",
+        "clinicalDose": "250-500mg/day",
         "adequatelyDosed": true
       },
       {
         "name": "Bacopa Monnieri (full-spectrum, 24% bacosides)",
         "doseInProduct": "150mg",
-        "clinicalDose": "300mg",
+        "clinicalDose": "300-450mg/day (55% bacosides)",
         "adequatelyDosed": false
       },
       {
         "name": "Rhodiola Rosea (3% rosavins)",
         "doseInProduct": "50mg",
-        "clinicalDose": "200mg",
+        "clinicalDose": "200-600mg/day",
         "adequatelyDosed": false
       },
       {
         "name": "L-Theanine",
         "doseInProduct": "100mg",
-        "clinicalDose": "100-200mg",
+        "clinicalDose": "100-200mg/day",
         "adequatelyDosed": true
       },
       {
         "name": "Phosphatidylserine (Sharp-PS)",
         "doseInProduct": "100mg",
-        "clinicalDose": "100mg",
+        "clinicalDose": "100-300mg/day",
         "adequatelyDosed": true
       },
       {
         "name": "L-Tyrosine (NALT)",
         "doseInProduct": "175mg",
-        "clinicalDose": "300-500mg as NALT",
+        "clinicalDose": "2000mg/day (lowest positive trial)",
         "adequatelyDosed": false
       }
     ],
@@ -132,10 +132,10 @@
       "Screen workers",
       "Budget"
     ],
-    "score": 7.6,
+    "score": 7.5,
     "scoreBreakdown": {
       "ingredients": 8,
-      "dosing": 7,
+      "dosing": 6.7,
       "transparency": 7,
       "value": 9,
       "trust": 7
@@ -167,50 +167,50 @@
       {
         "name": "Lutemax 2020 (Lutein/Zeaxanthin)",
         "doseInProduct": "20mg",
-        "clinicalDose": "20mg",
+        "clinicalDose": "12-27mg/day",
         "adequatelyDosed": true
       },
       {
         "name": "Bacopa Monnieri (12:1, 20% bacosides)",
         "doseInProduct": "250mg",
-        "clinicalDose": "300mg",
+        "clinicalDose": "300-450mg/day (55% bacosides)",
         "adequatelyDosed": false
       },
       {
         "name": "Panax Ginseng (200:1 concentrate)",
         "doseInProduct": "20mg",
-        "clinicalDose": "Limited human data",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Choline (VitaCholine)",
         "doseInProduct": "250mg",
-        "clinicalDose": "Limited human data",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Cat's Claw (4:1 extract)",
         "doseInProduct": "Undisclosed",
-        "clinicalDose": "Limited human data",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Resveratrol (99%)",
         "doseInProduct": "14.3mg",
-        "clinicalDose": "Limited human data",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "L-Theanine",
         "doseInProduct": "100mg",
-        "clinicalDose": "100-200mg",
+        "clinicalDose": "100-200mg/day",
         "adequatelyDosed": true
       },
       {
         "name": "Pterostilbene",
         "doseInProduct": "140mcg",
-        "clinicalDose": "Limited human data",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       }
     ],
     "servingsPerContainer": 30,
@@ -287,10 +287,10 @@
       "Neurohackers",
       "Complex stacks"
     ],
-    "score": 8.3,
+    "score": 6.4,
     "scoreBreakdown": {
       "ingredients": 10,
-      "dosing": 8,
+      "dosing": 1.7,
       "transparency": 9,
       "value": 6,
       "trust": 7
@@ -319,31 +319,31 @@
       {
         "name": "Phosphatidylserine",
         "doseInProduct": "200mg",
-        "clinicalDose": "100-300mg",
+        "clinicalDose": "100-300mg/day",
         "adequatelyDosed": true
       },
       {
         "name": "Alpha-GPC",
         "doseInProduct": "200mg",
-        "clinicalDose": "300-600mg",
+        "clinicalDose": "300-600mg/day",
         "adequatelyDosed": false
       },
       {
         "name": "Huperzine A",
         "doseInProduct": "50mcg",
-        "clinicalDose": "50-200mcg",
-        "adequatelyDosed": true
+        "clinicalDose": "100-200mcg/day",
+        "adequatelyDosed": false
       },
       {
         "name": "Bacopa Monnieri",
         "doseInProduct": "300mg",
-        "clinicalDose": "300mg",
-        "adequatelyDosed": true
+        "clinicalDose": "300-450mg/day (55% bacosides)",
+        "adequatelyDosed": null
       },
       {
         "name": "Rhodiola Rosea",
         "doseInProduct": "150mg",
-        "clinicalDose": "200-600mg",
+        "clinicalDose": "200-600mg/day",
         "adequatelyDosed": false
       },
       {
@@ -355,8 +355,8 @@
       {
         "name": "Uridine Monophosphate",
         "doseInProduct": "250mg",
-        "clinicalDose": "250mg",
-        "adequatelyDosed": true
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       }
     ],
     "servingsPerContainer": 20,
@@ -417,10 +417,10 @@
       "Brand recognition",
       "Athletes"
     ],
-    "score": 6.6,
+    "score": 5.2,
     "scoreBreakdown": {
       "ingredients": 7,
-      "dosing": 6,
+      "dosing": 1.4,
       "transparency": 6,
       "value": 7,
       "trust": 8
@@ -448,43 +448,43 @@
       {
         "name": "Bacopa Monnieri (Focus Blend)",
         "doseInProduct": "100mg",
-        "clinicalDose": "300–450mg/day",
+        "clinicalDose": "300-450mg/day (55% bacosides)",
         "adequatelyDosed": false
       },
       {
         "name": "Alpha-GPC (Focus Blend)",
         "doseInProduct": "Not stated; at most 140mg (240mg blend incl. 100mg Bacopa)",
-        "clinicalDose": "300–600mg/day",
+        "clinicalDose": "300-600mg/day",
         "adequatelyDosed": false
       },
       {
         "name": "Huperzine A (Toothed Clubmoss, Focus Blend)",
         "doseInProduct": "400mcg",
-        "clinicalDose": "100–200mcg/day in trials",
+        "clinicalDose": "100-200mcg/day",
         "adequatelyDosed": true
       },
       {
         "name": "L-Tyrosine (Flow Blend)",
         "doseInProduct": "Not stated; at most 650mg (blend total)",
-        "clinicalDose": "100–150mg/kg (about 7–10g) in stress trials",
+        "clinicalDose": "2000mg/day (lowest positive trial)",
         "adequatelyDosed": false
       },
       {
         "name": "L-Theanine (Flow Blend)",
         "doseInProduct": "Not stated (share of 650mg blend)",
-        "clinicalDose": "100–200mg/day",
+        "clinicalDose": "100-200mg/day",
         "adequatelyDosed": null
       },
       {
         "name": "Phosphatidylserine (Flow Blend)",
         "doseInProduct": "Not stated (share of 650mg blend)",
-        "clinicalDose": "100–300mg/day",
+        "clinicalDose": "100-300mg/day",
         "adequatelyDosed": null
       },
       {
         "name": "Oat Straw Extract (Flow Blend)",
         "doseInProduct": "Not stated (share of 650mg blend)",
-        "clinicalDose": "430–1600mg/day in trials",
+        "clinicalDose": "430-1600mg/day",
         "adequatelyDosed": null
       },
       {
@@ -568,10 +568,10 @@
       "Personalisation",
       "Custom stack optimisers"
     ],
-    "score": 7.5,
+    "score": 7.8,
     "scoreBreakdown": {
       "ingredients": 8,
-      "dosing": 7,
+      "dosing": 8,
       "transparency": 8,
       "value": 7,
       "trust": 7
@@ -599,32 +599,32 @@
       {
         "name": "Ashwagandha (KSM-66)",
         "doseInProduct": "300mg",
-        "clinicalDose": "300-600mg",
+        "clinicalDose": "300-600mg/day (KSM-66)",
         "adequatelyDosed": true
       },
       {
         "name": "Alpha-GPC",
         "doseInProduct": "200mg",
-        "clinicalDose": "300mg",
+        "clinicalDose": "300-600mg/day",
         "adequatelyDosed": false
       },
       {
         "name": "L-Theanine",
         "doseInProduct": "200mg",
-        "clinicalDose": "100-200mg",
+        "clinicalDose": "100-200mg/day",
         "adequatelyDosed": true
       },
       {
         "name": "Zynamite (Mango leaf extract)",
         "doseInProduct": "140mg",
-        "clinicalDose": "140mg",
+        "clinicalDose": "140-300mg/day",
         "adequatelyDosed": true
       },
       {
         "name": "Dynamine (Methylliberine)",
         "doseInProduct": "100mg",
-        "clinicalDose": "Limited data",
-        "adequatelyDosed": false
+        "clinicalDose": "100-150mg/day",
+        "adequatelyDosed": true
       }
     ],
     "servingsPerContainer": 30,
@@ -680,10 +680,10 @@
       "Long-term brain health",
       "Nerve growth"
     ],
-    "score": 9.1,
+    "score": 6.4,
     "scoreBreakdown": {
       "ingredients": 9,
-      "dosing": 9,
+      "dosing": 0,
       "transparency": 10,
       "value": 9,
       "trust": 8
@@ -763,14 +763,15 @@
       "Cognitive health",
       "TCM heritage brand"
     ],
-    "score": 6.8,
+    "score": 6.6,
     "scoreBreakdown": {
       "ingredients": 7,
-      "dosing": 7,
+      "dosing": null,
       "transparency": 6,
       "value": 6,
       "trust": 8
     },
+    "unscoredReason": "None of BrainMAX+'s ingredients (Cera-Q silk fibroin protein, goji berry extract, Chinese wild ginseng extract) has a reference dose on our ingredient pages, and this pillar is measured against those reference doses. The overall score is the weighted average of the four scored pillars.",
     "priceMonthlyUSD": 54.71,
     "pricingModel": "one-time",
     "moneyBackDays": null,
@@ -792,20 +793,20 @@
       {
         "name": "Cera-Q (Silk Fibroin Protein)",
         "doseInProduct": "600mg",
-        "clinicalDose": "400-600mg/day (one 3-week trial)",
-        "adequatelyDosed": true
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Goji Berry Extract",
         "doseInProduct": "146mg",
-        "clinicalDose": "100mg",
-        "adequatelyDosed": true
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Chinese Wild Ginseng Extract",
         "doseInProduct": "37mg",
-        "clinicalDose": "200mg",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       }
     ],
     "servingsPerContainer": 30,

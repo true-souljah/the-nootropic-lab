@@ -252,8 +252,11 @@ describe('scoreProblem — unscorable pillars (2026-10)', () => {
     for (const p of [...allProductsUS, ...allProductsEU, ...allProductsCA, ...allProductsAU, ...allProductsJP, ...allProductsLatam, ...allProductsGCC, ...allProductsSEA]) {
       expect(scoreProblem(p), p.slug).toBeNull();
     }
+    // Supershrooms hides every dose: dosing 0 since the formula (operator 2026-10-09),
+    // (0.25×6 + 0.30×0 + 0.20×4 + 0.10×4) / 0.85 = 3.18 → 3.2; value stays unscored.
     const supershrooms = allProductsSEA.find((p) => p.slug === 'supershrooms-focus-nootropic-review');
-    expect(supershrooms?.score).toBe(4.9);
+    expect(supershrooms?.scoreBreakdown).toMatchObject({ dosing: 0, value: null });
+    expect(supershrooms?.score).toBe(3.2);
     expect(supershrooms?.unscoredReason).toMatch(/discloses no ingredient doses/);
   });
 });
