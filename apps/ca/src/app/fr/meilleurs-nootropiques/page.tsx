@@ -19,15 +19,22 @@ export const metadata: Metadata = {
 const faqItems = [
   {
     q: 'Les nootropiques sont-ils légaux au Canada?',
-    a: 'La plupart des suppléments nootropiques sont légaux au Canada en tant que produits de santé naturels (PSN) réglementés par Santé Canada. Les produits portant un NPN (numéro de produit naturel) ont été évalués pour leur innocuité. Certains composés (p. ex. les racétams, le modafinil) sont réservés sur ordonnance. Tous les produits que nous recommandons utilisent des ingrédients autorisés par Santé Canada.',
+    a: 'La plupart des suppléments nootropiques sont légaux au Canada en tant que produits de santé naturels (PSN) réglementés par Santé Canada. Les produits portant un NPN (numéro de produit naturel) ont été examinés et approuvés par Santé Canada pour leur innocuité et leur efficacité (canada.ca, consulté le 2026-10-08). Certains composés (p. ex. les racétams, le modafinil) sont réservés sur ordonnance.',
   },
   {
     q: 'Dois-je payer des droits de douane sur les nootropiques commandés des États-Unis ou du Royaume-Uni?',
-    a: 'Les commandes de moins de 150 $ CAD en provenance des États-Unis entrent généralement en franchise de droits dans le cadre de l\'ACEUM/CUSMA. Les commandes du Royaume-Uni peuvent être assujetties à des droits après les changements post-Brexit. Les produits expédiés depuis l\'Amérique du Nord constituent votre meilleure option pour éviter les délais d\'importation.',
+    // Thresholds quoted verbatim from the CBSA page "Augmentation au seuil
+    // d'expédition de faible valeur et autres changements"
+    // (https://www.cbsa-asfc.gc.ca/services/cusma-aceum/lvs-efv-fra.html,
+    // fetched 2026-10-09, page dated 2025-11-25). Amounts are CAD value for duty.
+    a: 'Cela dépend du mode d\'expédition et du pays d\'origine. Selon l\'Agence des services frontaliers du Canada (ASFC), pour un envoi par messagerie importé des États-Unis ou du Mexique : « Jusqu\'à 40 $ : en franchise de droits et de taxes », « Plus de 40 $ jusqu\'à 150 $ : en franchise de droits, mais les taxes s\'appliquent toujours » et « Plus de 150 $ : des droits et des taxes s\'appliquent ». Pour un envoi par messagerie importé d\'un autre pays, dont le Royaume-Uni : « Jusqu\'à 20 $ : en franchise de droits et de taxes ». Pour un envoi par la poste : « Plus de 20 $ : des droits et des taxes s\'appliquent lorsqu\'ils sont expédiés depuis n\'importe quel pays, y compris les États-Unis et le Mexique ». Les montants sont en dollars canadiens et correspondent à la valeur en douane (ASFC, consulté le 2026-10-09).',
   },
   {
     q: 'Quel nootropique est livré le plus rapidement au Canada?',
-    a: 'Mind Lab Pro est expédié directement au Canada depuis ses entrepôts au Royaume-Uni et en Europe, avec une livraison habituelle de 5 à 10 jours ouvrables. Les marques américaines comme Alpha Brain expédient depuis des entrepôts aux États-Unis vers le Canada en 3 à 7 jours.',
+    // Mind Lab Pro: vendorTerms.shipping in products-ca.json (ca.mindlabpro.com,
+    // checked 2026-10-07). Onnit: store-locator statement (checked 2026-10-07,
+    // same check as apps/ca/src/app/alpha-brain-canada/page.tsx).
+    a: 'Nous ne publions pas de comparaison des délais de livraison : confirmez le délai pour votre adresse lors du paiement. Mind Lab Pro indique que les colis à destination du Canada sont expédiés depuis son entrepôt au Royaume-Uni, par courrier aérien international suivi ou par messagerie DHL (ca.mindlabpro.com, consulté le 2026-10-07). Pour Alpha Brain, Onnit indique que son site est « directed only to U.S. consumers » (onnit.com, consulté le 2026-10-07) ; confirmez la livraison au Canada avant de commander.',
   },
 ];
 
@@ -91,10 +98,13 @@ export default function FrMeilleursNootropiquesPage() {
         <div className="bg-green-50 border border-green-200 rounded-xl p-5 mb-6">
           <h2 className="font-bold text-green-900 mb-2">Note pour les acheteurs canadiens</h2>
           <p className="text-sm text-green-800 leading-relaxed">
-            Les acheteurs canadiens bénéficient de l\'ACEUM/CUSMA — les commandes de moins de
-            150 $ CAD en provenance des États-Unis entrent généralement en franchise de droits. Les
-            marques britanniques comme Mind Lab Pro offrent la livraison
-            internationale avec un délai standard de 5 à 10 jours ouvrables.
+            Pour un envoi par messagerie importé des États-Unis ou du Mexique, l&apos;ASFC indique :
+            « Jusqu&apos;à 40 $ : en franchise de droits et de taxes » et « Plus de 40 $ jusqu&apos;à
+            150 $ : en franchise de droits, mais les taxes s&apos;appliquent toujours » (
+            <a href="https://www.cbsa-asfc.gc.ca/services/cusma-aceum/lvs-efv-fra.html" target="_blank" rel="noopener noreferrer" className="underline">ASFC</a>,
+            consulté le 2026-10-09). Mind Lab Pro indique que les colis à destination du Canada sont
+            expédiés depuis son entrepôt au Royaume-Uni (ca.mindlabpro.com, consulté le 2026-10-07) ;
+            confirmez le délai de livraison lors du paiement.
           </p>
         </div>
 
