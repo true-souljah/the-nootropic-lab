@@ -10,10 +10,10 @@ const CURRENT_YEAR = new Date().getFullYear();
 export const metadata: Metadata = {
   title: `Les meilleurs nootropiques au Canada ${new Date().getFullYear()} — Guide de l'acheteur canadien`,
   description:
-    'Les suppléments nootropiques les mieux notés pour les acheteurs canadiens. Livraison au Canada confirmée, analyses fondées sur les données probantes et audit complet de dosage clinique.',
+    'Les suppléments nootropiques les mieux notés pour les acheteurs canadiens. Analyses fondées sur les données probantes et audit complet de dosage clinique.',
   alternates: buildAlternates({ regionCode: 'ca', path: '/fr/meilleurs-nootropiques/', availableInRegions: ['ca'] }),
-  openGraph: buildOpenGraph({ regionCode: 'ca', path: '/fr/meilleurs-nootropiques/', title: `Les meilleurs nootropiques au Canada ${new Date().getFullYear()} — Guide de l'acheteur canadien`, description: 'Les suppléments nootropiques les mieux notés pour les acheteurs canadiens. Livraison au Canada confirmée, analyses fondées sur les données probantes et audit complet de dosage clinique.' }),
-  twitter: buildTwitter({ title: `Les meilleurs nootropiques au Canada ${new Date().getFullYear()} — Guide de l'acheteur canadien`, description: 'Les suppléments nootropiques les mieux notés pour les acheteurs canadiens. Livraison au Canada confirmée, analyses fondées sur les données probantes et audit complet de dosage clinique.' }),
+  openGraph: buildOpenGraph({ regionCode: 'ca', path: '/fr/meilleurs-nootropiques/', title: `Les meilleurs nootropiques au Canada ${new Date().getFullYear()} — Guide de l'acheteur canadien`, description: 'Les suppléments nootropiques les mieux notés pour les acheteurs canadiens. Analyses fondées sur les données probantes et audit complet de dosage clinique.' }),
+  twitter: buildTwitter({ title: `Les meilleurs nootropiques au Canada ${new Date().getFullYear()} — Guide de l'acheteur canadien`, description: 'Les suppléments nootropiques les mieux notés pour les acheteurs canadiens. Analyses fondées sur les données probantes et audit complet de dosage clinique.' }),
 };
 
 const faqItems = [
@@ -83,9 +83,9 @@ export default function FrMeilleursNootropiquesPage() {
           Les meilleurs nootropiques au Canada {CURRENT_YEAR}
         </h1>
         <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-          Tous les produits listés ci-dessous sont expédiés directement au Canada. Nous vérifions
-          la disponibilité canadienne, le statut PSN de Santé Canada le cas échéant, et indiquons
-          les droits d\'importation pour chaque marque.
+          Pour chaque produit, nous indiquons son statut de licence de Santé Canada (numéro de
+          produit naturel). Confirmez la livraison et les éventuels droits d’importation auprès de
+          la marque avant d’acheter.
         </p>
 
         <div className="bg-green-50 border border-green-200 rounded-xl p-5 mb-6">

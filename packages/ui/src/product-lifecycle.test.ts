@@ -11,6 +11,7 @@ import {
   outOfTen,
   pillarText,
   guaranteeDays,
+  guaranteeDaysValue,
   productsUS, allProductsUS,
   productsEU, allProductsEU,
   productsCA, allProductsCA,
@@ -273,6 +274,11 @@ describe('display-values — nullable fields never render "null"', () => {
   test('guarantee length', () => {
     expect(guaranteeDays(30, (d) => `${d} days`)).toBe('30 days');
     expect(guaranteeDays(null, (d) => `${d} days`)).toBe('—');
+    // 0 = no guarantee: rendered like null, never "0 days" (2026-10-08).
+    expect(guaranteeDays(0, (d) => `${d} days`)).toBe('—');
+    expect(guaranteeDaysValue(30)).toBe(30);
+    expect(guaranteeDaysValue(0)).toBe('');
+    expect(guaranteeDaysValue(null)).toBe('');
   });
 });
 
