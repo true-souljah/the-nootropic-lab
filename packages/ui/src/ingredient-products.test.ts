@@ -15,9 +15,10 @@ import type { Product } from '@nootropic/data';
 //
 // Rule: every listed product must exist, and at least one regional record of
 // it must name the ingredient in its ingredientDosages or heroIngredients.
-// The match is the first word (3+ letters) of the ingredient's name, so it is
-// a coarse check: it catches a product with none of the ingredient, not a
-// wrong dose.
+// The match is the ingredient's full name before any parenthesis ("DHA",
+// "Acetyl-L-Carnitine", "Bacopa Monnieri"), or an alias in ALIASES where a
+// label uses shorter wording. It catches a product with none of the
+// ingredient, not a wrong dose.
 
 const CATALOGUES: Product[][] = [
   allProductsUS, allProductsEU, allProductsCA, allProductsAU,
@@ -36,34 +37,52 @@ const KNOWN_MISMATCHES = new Set<string>([
   'dha-omega-3/fancl-brains-review',
 ]);
 
-const norm = (s: string) => s.toLowerCase().normalize('NFKD').replace(/[^a-z0-9 ]/g, ' ');
-const keyOf = (name: string) => norm(name).split(/\s+/).find((w) => w.length > 2) ?? '';
+// Label wording shorter than the ingredient page's name. Keep each alias
+// specific to its ingredient: a generic word ("acetyl", "vitamin") would let an
+// unrelated row match.
+const ALIASES: Readonly<Record<string, readonly string[]>> = {
+  'bacopa-monnieri': ['bacopa'], // Hunter Focus label: "Bacopa"
+};
+
+const norm = (s: string) => s.toLowerCase().normalize('NFKD').replace(/[^a-z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim();
 
 const pairs = ingredients.flatMap((ing) =>
-  (ing.productsContaining ?? []).map((slug) => ({ ingredient: ing.slug, key: keyOf(ing.name), slug })),
+  (ing.productsContaining ?? []).map((slug) => ({
+    ingredient: ing.slug,
+    keys: [norm(ing.name.split('(')[0]), ...(ALIASES[ing.slug] ?? [])],
+    slug,
+  })),
 );
 
-function contains(slug: string, key: string): boolean | null {
+function contains(slug: string, keys: string[]): boolean | null {
   const records = CATALOGUES.flatMap((c) => c.filter((p) => p.slug === slug));
   if (records.length === 0) return null;
   return records.some((p) =>
-    [...p.ingredientDosages.map((d) => d.name), ...(p.heroIngredients ?? [])].some((n) => norm(n).includes(key)),
+    [...p.ingredientDosages.map((d) => d.name), ...(p.heroIngredients ?? [])].some((n) =>
+      keys.some((k) => norm(n).includes(k)),
+    ),
   );
 }
 
 describe('ingredient pages list only products that contain the ingredient', () => {
   test('scans a non-empty set of ingredient/product pairs', () => {
     expect(pairs.length).toBeGreaterThan(40);
-    expect(pairs.every((p) => p.key.length > 2)).toBe(true);
+    expect(pairs.every((p) => p.keys.every((k) => k.length > 2))).toBe(true);
+  });
+
+  test('a generic first word does not count as a match', () => {
+    // N-Acetyl-L-Tyrosine must not satisfy Acetyl-L-Carnitine.
+    const alcar = norm('Acetyl-L-Carnitine (ALCAR)'.split('(')[0]);
+    expect(norm('N-Acetyl L-Tyrosine (NALT)').includes(alcar)).toBe(false);
   });
 
   test('every listed product exists and names the ingredient (outside KNOWN_MISMATCHES)', () => {
     const problems: string[] = [];
-    for (const { ingredient, key, slug } of pairs) {
+    for (const { ingredient, keys, slug } of pairs) {
       const id = `${ingredient}/${slug}`;
-      const hit = contains(slug, key);
+      const hit = contains(slug, keys);
       if (hit === null) problems.push(`${id}: no product record has this slug`);
-      else if (!hit && !KNOWN_MISMATCHES.has(id)) problems.push(`${id}: no regional record names "${key}"`);
+      else if (!hit && !KNOWN_MISMATCHES.has(id)) problems.push(`${id}: no regional record names "${keys.join('" or "')}"`);
       else if (hit && KNOWN_MISMATCHES.has(id)) problems.push(`${id} matches now — remove it from KNOWN_MISMATCHES`);
     }
     const ids = new Set(pairs.map((p) => `${p.ingredient}/${p.slug}`));
