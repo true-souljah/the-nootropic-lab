@@ -19,7 +19,11 @@ export const metadata: Metadata = {
 const faqItems = [
   {
     q: 'Les nootropiques sont-ils légaux au Canada?',
-    a: 'La plupart des suppléments nootropiques sont légaux au Canada en tant que produits de santé naturels (PSN) réglementés par Santé Canada. Les produits portant un NPN (numéro de produit naturel) ont été examinés et approuvés par Santé Canada pour leur innocuité et leur efficacité (canada.ca, consulté le 2026-10-08). Certains composés (p. ex. les racétams, le modafinil) sont réservés sur ordonnance.',
+    // Modafinil: Liste des drogues sur ordonnance, usage humain, row
+    // "Modafinil ou ses sels" (effective 2013-12-19), fetched 2026-10-09 from
+    // https://hpr-rps.hres.ca/pdl-phu.php?lang=fr. Piracetam, aniracetam and
+    // phenylpiracetam were not found on that list, so no schedule is stated.
+    a: 'La plupart des suppléments nootropiques sont légaux au Canada en tant que produits de santé naturels (PSN) réglementés par Santé Canada. Les produits portant un NPN (numéro de produit naturel) ont été examinés et approuvés par Santé Canada pour leur innocuité et leur efficacité (canada.ca, consulté le 2026-10-08). Le modafinil figure sur la Liste des drogues sur ordonnance de Santé Canada (« Modafinil ou ses sels » ; Liste des drogues sur ordonnance de Santé Canada, consultée le 2026-10-09). Pour les racétams, vérifiez leur statut dans la Liste des drogues sur ordonnance de Santé Canada avant d’importer.',
   },
   {
     q: 'Dois-je payer des droits de douane sur les nootropiques commandés des États-Unis ou du Royaume-Uni?',
@@ -135,7 +139,7 @@ export default function FrMeilleursNootropiquesPage() {
             Comparatif de nootropiques au Canada {CURRENT_YEAR}
           </h2>
           <p className="text-sm text-gray-500 mb-4">
-            Prix en USD (les marques internationales affichent leurs prix en USD pour les commandes canadiennes).
+            Prix mensuels indiqués en dollars canadiens; le prix affiché au moment du paiement fait foi.
           </p>
           <ComparisonTable products={productsCA} market="ca" />
         </section>
@@ -168,8 +172,8 @@ export default function FrMeilleursNootropiquesPage() {
           <h2 className="text-xl font-bold text-green-900 mb-4">Lectures recommandées</h2>
           <div className="grid sm:grid-cols-2 gap-3">
             <a href="/guides/what-are-nootropics/" className="block bg-white rounded-lg p-4 border border-green-100 hover:border-green-300 transition-colors">
-              <div className="font-semibold text-gray-900 text-sm mb-1">Qu\'est-ce que les nootropiques?</div>
-              <div className="text-xs text-gray-500">Un guide d\'introduction aux suppléments cognitifs</div>
+              <div className="font-semibold text-gray-900 text-sm mb-1">Qu’est-ce que les nootropiques?</div>
+              <div className="text-xs text-gray-500">Un guide d’introduction aux suppléments cognitifs</div>
             </a>
             <a href="/guides/how-to-stack-nootropics/" className="block bg-white rounded-lg p-4 border border-green-100 hover:border-green-300 transition-colors">
               <div className="font-semibold text-gray-900 text-sm mb-1">Comment combiner les nootropiques</div>
