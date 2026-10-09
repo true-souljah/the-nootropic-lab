@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { ComparisonTable, AffiliateDisclosure, StickyCtaBar, CookieSettingsBar, SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
-import { productsJP, getStrings } from '@nootropic/data';
+import { ComparisonTable, AffiliateDisclosure, StickyCtaBar, CookieSettingsBar, NoPurchaseLinkNotice, SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
+import { productsJP, getStrings, purchaseUrl } from '@nootropic/data';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -30,6 +30,9 @@ const faqItems = [
 
 export default function JaBestNootropicsPage() {
   const winner = productsJP.find(p => p.editorChoice)!;
+  // No sticky bar and a notice in place of the CTA when the edition shows no
+  // purchase link for the pick (Product.noPurchaseLink).
+  const winnerUrl = purchaseUrl(winner);
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -45,13 +48,15 @@ export default function JaBestNootropicsPage() {
   return (
     <div lang="ja">
       <SchemaOrg schema={articleSchema} />
-      <StickyCtaBar
-        productName={winner.name}
-        affiliateUrl={winner.affiliateUrl}
-        pickLabel="編集部のおすすめ第1位："
-        ctaLabel="価格を確認 →"
-        ariaLabel="おすすめ第1位"
-      />
+      {winnerUrl !== null && (
+        <StickyCtaBar
+          productName={winner.name}
+          href={winnerUrl}
+          pickLabel="編集部のおすすめ第1位："
+          ctaLabel="価格を確認 →"
+          ariaLabel="おすすめ第1位"
+        />
+      )}
 
       <article className="max-w-5xl mx-auto px-4 py-10">
         <div className="mb-2 text-xs text-gray-500">
@@ -87,14 +92,18 @@ export default function JaBestNootropicsPage() {
               日本へ発送
             </span>
           </div>
-          <a
-            href={winner.affiliateUrl}
-            target="_blank"
-            rel="nofollow sponsored noopener noreferrer"
-            className="inline-block bg-green-700 hover:bg-green-600 text-white font-bold px-5 py-2 rounded-lg text-sm transition-colors"
-          >
-            {`現在の価格を確認 ($${winner.priceMonthlyUSD}/月 USD) →`}
-          </a>
+          {winnerUrl === null ? (
+            <NoPurchaseLinkNotice product={winner} strings={getStrings('ja').noPurchaseLink} />
+          ) : (
+            <a
+              href={winnerUrl}
+              target="_blank"
+              rel="nofollow sponsored noopener noreferrer"
+              className="inline-block bg-green-700 hover:bg-green-600 text-white font-bold px-5 py-2 rounded-lg text-sm transition-colors"
+            >
+              {`現在の価格を確認 ($${winner.priceMonthlyUSD}/月 USD) →`}
+            </a>
+          )}
         </div>
 
         <section id="comparison-table">

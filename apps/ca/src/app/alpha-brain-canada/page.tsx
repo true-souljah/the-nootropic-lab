@@ -242,6 +242,7 @@ export default function Page() {
               product={alphaBrain}
               surface="best_of_ca"
               className="inline-block bg-green-700 hover:bg-green-800 text-white text-sm font-semibold px-5 py-3 rounded-lg"
+              noticeStrings={uiStrings.noPurchaseLink}
             >
               Check Alpha Brain on onnit.com
             </TrackedAffiliateLink>
