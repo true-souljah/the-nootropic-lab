@@ -25,3 +25,16 @@ export function selectGuidesForRegion(english: Guide[], spanish: GuideTranslatio
     return { ...es, regions: g.regions };
   });
 }
+
+/**
+ * Every host that serves /guides/<slug>/, across all variants of that slug (e.g.
+ * the US edition and the regionalised edition of the same guide). Guide pages
+ * pass this to hreflang, so each variant links the full set of localized
+ * alternates — the page is the same topic in every region even when its text is
+ * region-specific.
+ */
+export function guideHosts(slug: string): RegionCode[] {
+  const hosts = new Set<RegionCode>();
+  for (const g of guides) if (g.slug === slug) for (const r of g.regions) hosts.add(r);
+  return [...hosts];
+}
