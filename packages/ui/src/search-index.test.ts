@@ -97,6 +97,7 @@ function stubGuide(over: Partial<Guide> = {}): Guide {
     sections: [],
     sources: [],
     evidenceReviewedAt: '2026-09-28',
+    regions: ['us'],
     ...over,
   };
 }
