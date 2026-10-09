@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsEU.find(p => p.slug === 'brainzyme-focus-pro-review')!,
     rank: 2,
     whyItsHere:
-      'Combines natural caffeine from matcha (~40mg) and guarana (~20mg) with 100mg L-theanine — a textbook L-theanine + caffeine focus stack at €40/mo. Best value for buyers who want the acute focus effect rather than long-term cognitive support.',
+      'Combines natural caffeine from matcha (~40mg) and guarana (~20mg) with 100mg L-theanine — a textbook L-theanine + caffeine focus stack at €31.75/mo. Best value for buyers who want the acute focus effect rather than long-term cognitive support.',
   },
   {
     product: productsEU.find(p => p.slug === 'noocube-review')!,
