@@ -61,13 +61,13 @@ const picks: ListiclePick[] = [
     product: productsLatam.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Stack más completo para estudio: incluye todo lo de Mind Lab Pro más Alfa-GPC, Rhodiola y cofactores que apoyan la colina. Las 7+ cápsulas/día son una fricción durante semana de exámenes; los $139 USD/mes en suscripción son una fricción para presupuestos estudiantiles. Estudiantes en Argentina deben confirmar que su tarjeta procese cargos recurrentes en USD bajo controles cambiarios.',
+      'Stack más completo para estudio: incluye todo lo de Mind Lab Pro salvo Bacopa y corteza de pino marítimo, más Alfa-GPC y cofactores que apoyan la colina. Las 6 cápsulas/día son una fricción durante semana de exámenes; los $139 USD/mes en suscripción son una fricción para presupuestos estudiantiles. Estudiantes en Argentina deben confirmar que su tarjeta procese cargos recurrentes en USD bajo controles cambiarios.',
   },
   {
     product: productsLatam.find(p => p.slug === 'thesis-nootropics-review')!,
     rank: 3,
     whyItsHere:
-      'La personalización puede adaptarse a estudiantes con patrones específicos (la fórmula "Clarity" para concentración o "Logic" para trabajo analítico). Modelo de suscripción con costo mensual que se acumula durante el semestre. Cada envío mensual es una importación separada; los aranceles de importación y el despacho aduanero corren por cuenta del comprador en cada envío.',
+      'La personalización puede adaptarse a estudiantes con patrones específicos (la fórmula "Clarity" para concentración). Modelo de suscripción con costo mensual que se acumula durante el semestre. Cada envío mensual es una importación separada; los aranceles de importación y el despacho aduanero corren por cuenta del comprador en cada envío.',
   },
   {
     product: productsLatam.find(p => p.slug === 'noocube-review')!,

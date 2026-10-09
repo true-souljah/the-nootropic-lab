@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { Discover, SchemaOrg, Card, buildAlternates} from '@nootropic/ui';
-import { productsUS } from '@nootropic/data';
+import { productsUS, guides } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
 
@@ -68,6 +68,16 @@ const goalLinks = [
   { href: '/natural-adderall-alternatives/', title: 'Natural Adderall alternatives', desc: 'No supplement is equivalent — what evidence shows' },
 ];
 
+// Beginner entry point into the guides hub — the home page had no link to
+// /guides/ at all (2026-10 content plan). Titles come from the guide data so
+// the cards cannot drift from the pages they link to.
+const START_HERE_SLUGS = ['what-are-nootropics', 'how-nootropics-work', 'what-to-expect', 'how-to-stack-nootropics'];
+const startHereGuides = START_HERE_SLUGS.map((slug) => {
+  const g = guides.find((x) => x.slug === slug);
+  if (!g) throw new Error(`home "Start here": guide "${slug}" not found in @nootropic/data guides`);
+  return g;
+});
+
 const comparisonLinks = [
   { href: '/mind-lab-pro-vs-alpha-brain/', title: 'Mind Lab Pro vs Alpha Brain' },
   { href: '/mind-lab-pro-vs-qualia-mind/', title: 'Mind Lab Pro vs Qualia Mind' },
@@ -108,6 +118,31 @@ export default function HomePage() {
                     <h3 className="font-semibold text-ds-ink text-[14px] m-0 mb-1">{f.title}</h3>
                     <p className="text-[13px] text-ds-muted leading-[1.6] m-0">{f.desc}</p>
                   </Card>
+                ))}
+              </div>
+            </section>
+
+            {/* New to nootropics — guides entry point */}
+            <section className="mt-12">
+              <h2 className="text-[22px] font-bold text-ds-ink m-0 mb-1 tracking-[-0.01em]">
+                New to nootropics? Start here
+              </h2>
+              <p className="text-[13px] text-ds-muted mb-5">
+                Plain-language guides with the studies behind each claim.{' '}
+                <Link href="/guides/" className="text-ds-accent underline">
+                  All guides
+                </Link>
+              </p>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {startHereGuides.map((g) => (
+                  <Link
+                    key={g.slug}
+                    href={`/guides/${g.slug}/`}
+                    className="block border border-ds-border rounded-[10px] p-4 hover:border-ds-accent-border bg-ds-card focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
+                  >
+                    <div className="font-semibold text-ds-ink text-[14px] mb-1">{g.title}</div>
+                    <div className="text-[12px] text-ds-muted">{g.readingTimeMin} min read</div>
+                  </Link>
                 ))}
               </div>
             </section>

@@ -68,7 +68,7 @@ const whoIsForA = [
 
 const whoIsForB = [
   'Care about peer-reviewed product-specific RCT evidence',
-  'Want phosphatidylserine, Lion\'s Mane, citicoline, Rhodiola in one capsule',
+  'Want phosphatidylserine, Lion\'s Mane, citicoline, Rhodiola in one formula',
   'Are caffeine-free user (Mind Lab Pro is fully caffeine-free)',
   // Durations quoted verbatim from vendorTerms.shipping in products-ca.json.
   'Don\'t mind international shipping (Mind Lab Pro: “Airmail expected delivery time: 5 - 20 working days”, “DHL expected delivery time: 2 - 7 working days”; ca.mindlabpro.com, checked 2026-10-07)',

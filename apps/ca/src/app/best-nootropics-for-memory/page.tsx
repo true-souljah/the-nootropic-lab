@@ -38,7 +38,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Phosphatidylserine (PS)',
     evidence:
-      'Phospholipid component of brain cell membranes. The US FDA permits a qualified health claim for PS supporting cognitive function in elderly adults; Health Canada NPN monographs recognise PS for memory support. Most RCT evidence is in 50–80-year-olds at 100–300mg/day. The trial linked below (Vakhapova et al. 2010) is not the basis of the FDA or Health Canada claims: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo.',
+      'Phospholipid component of brain cell membranes. The US FDA permits a qualified health claim for PS supporting cognitive function in elderly adults; Health Canada\'s Phosphatidylserine monograph (27 February 2026) lists one use, "Helps support cognitive/brain health/function", at "300 milligrams of Phosphatidylserine, per day" for adults 18 years and older, with no memory claim (Natural Health Products Ingredients Database (NHPID), checked 2026-10-08). Most RCT evidence is in 50–80-year-olds at 100–300mg/day. The trial linked below (Vakhapova et al. 2010) is not the basis of the FDA or Health Canada claims: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {
@@ -50,7 +50,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Ginkgo Biloba',
     evidence:
-      'Proposed to work via cerebral blood flow (vasodilation) and platelet-activating factor inhibition. Health Canada has issued NPN-monograph approval for Ginkgo Biloba 120mg standardized extracts for memory support, but a 2026 network meta-analysis of 29 RCTs in healthy adults (Tiemtad et al.) found that high-dose Bacopa (600mg/day or more) improved working memory more than both Ginkgo doses and placebo and gave greater short-term memory benefits, with no significant differences in attention or processing speed, so the trial evidence does not single out Ginkgo as a memory enhancer.',
+      'Proposed to work via cerebral blood flow (vasodilation) and platelet-activating factor inhibition. Health Canada\'s Ginkgo monograph (25 July 2025) allows "Helps to enhance memory in adults" and "Helps to enhance cognitive function in adults" at "80 - 240 milligrams of extract, per day", "standardized to 22-27% flavonoid glycosides and 5-7% terpene lactones", for adults 18 years and older (NHPID, checked 2026-10-08), but a 2026 network meta-analysis of 29 RCTs in healthy adults (Tiemtad et al.) found that high-dose Bacopa (600mg/day or more) improved working memory more than both Ginkgo doses and placebo and gave greater short-term memory benefits, with no significant differences in attention or processing speed, so the trial evidence does not single out Ginkgo as a memory enhancer.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/41678913/',
   },
 ];
@@ -60,19 +60,19 @@ const picks: ListiclePick[] = [
     product: productsCA.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Includes Bacopa, citicoline (250mg Cognizin at clinical dose), Lion\'s Mane (500mg fruiting body at clinical dose), AND phosphatidylserine (100mg at clinical dose) — four of the five memory-evidence ingredients in one open formula. Bacopa dose is 150mg (under the 300mg clinical anchor) so consider stacking with a separate Bacopa supplement for full effect. Ships UK→Canada.',
+      'Includes Bacopa, citicoline (250mg Cognizin at clinical dose), Lion\'s Mane (500mg fruiting body, below the 1,000mg reference dose), AND phosphatidylserine (100mg at clinical dose) — four of the five memory-evidence ingredients in one open formula. Bacopa dose is 150mg (under the 300mg clinical anchor) so consider stacking with a separate Bacopa supplement for full effect. Ships UK→Canada.',
   },
   {
     product: productsCA.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes Bacopa at full 300mg clinical dose, citicoline, phosphatidylserine 200mg, AND Lion\'s Mane — the most complete memory-ingredient stack of any product available to Canadian buyers. Loses ground on capsule count (7+/day), price (CAD ~$190/mo subscription), and on US-domiciled order tracking. For memory specifically, the breadth justifies the trade-off if you can tolerate the daily friction.',
+      'Includes citicoline, phosphatidylserine 100mg, AND Lion\'s Mane — the most complete memory-ingredient stack of any product available to Canadian buyers. Loses ground on capsule count (6/day), price (CAD ~$190/mo subscription), and on US-domiciled order tracking. For memory specifically, the breadth justifies the trade-off if you can tolerate the daily friction.',
   },
   {
     product: productsCA.find(p => p.slug === 'naturebell-ginkgo-ginseng-review')!,
     rank: 3,
     whyItsHere:
-      'Budget-priced — CAD ~$7/month, listed on amazon.ca. Delivers Ginkgo Biloba at the full clinical dose (120mg, 50:1 extract). Single-mechanism (cerebral blood flow), not a complete memory stack. At most a cheap addition alongside Mind Lab Pro, or an entry-point trial. No NPN (Natural Product Number) found for NatureBell Ginkgo + Ginseng in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07); check the listing or label for an eight-digit NPN.',
+      'Budget-priced — CAD ~$7/month, listed on amazon.ca. Delivers Ginkgo Biloba at the full clinical dose (500mg of a 12:1 extract, standardised to 120mg flavone glycosides). Single-mechanism (cerebral blood flow), not a complete memory stack. At most a cheap addition alongside Mind Lab Pro, or an entry-point trial. No NPN (Natural Product Number) found for NatureBell Ginkgo + Ginseng in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07); check the listing or label for an eight-digit NPN.',
   },
   {
     product: productsCA.find(p => p.slug === 'onnit-alpha-brain-review')!,
@@ -85,7 +85,7 @@ const picks: ListiclePick[] = [
 const faqItems: ListicleFAQ[] = [
   {
     q: 'What is the most evidence-backed nootropic for memory available in Canada?',
-    a: 'Bacopa Monnieri at 300mg standardized to 50% bacosides has the most replicated RCT evidence for memory consolidation in healthy adults — Qualia Mind delivers this dose. Phosphatidylserine has the strongest age-related memory claim and Mind Lab Pro delivers 100mg at clinical dose. Citicoline at 250–500mg has good evidence for older adults.',
+    a: 'Bacopa Monnieri at 300mg standardized to 50% bacosides has the most replicated RCT evidence for memory consolidation in healthy adults. Phosphatidylserine has the strongest age-related memory claim and Mind Lab Pro delivers 100mg at clinical dose. Citicoline at 250–500mg has good evidence for older adults.',
   },
   {
     q: 'How long until memory nootropics work?',
@@ -105,7 +105,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Lion\'s Mane: fruiting body or mycelium?',
-    a: 'Fruiting body. Most clinical research uses fruiting-body extract. Mycelium-on-grain products (common at Canadian retail like Costco-sized mushroom blends) contain a high percentage of grain (oats, brown rice) by weight and lower beta-glucan content. Mind Lab Pro and Hunter Focus both use fruiting body. Read labels carefully and prefer products that disclose β-glucan percentage.',
+    a: 'Fruiting body. Most clinical research uses fruiting-body extract. Mycelium-on-grain products (common at Canadian retail like Costco-sized mushroom blends) contain a high percentage of grain (oats, brown rice) by weight and lower beta-glucan content. Mind Lab Pro\'s label states fruiting body; Hunter Focus\'s label lists organic Lion\'s Mane mushroom without naming the part used. Read labels carefully and prefer products that disclose β-glucan percentage.',
   },
   {
     q: 'Will Bacopa make me feel anything?',

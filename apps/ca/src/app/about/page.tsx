@@ -7,7 +7,7 @@ import { searchItems, uiStrings } from "@/lib/search";
 import { SITE_URL } from '@/lib/region';
 
 export const metadata: Metadata = {
-  title: 'About The Nootropic Lab Canada',
+  title: { absolute: 'About The Nootropic Lab Canada' },
   description:
     'The Nootropic Lab Canada is an independent cognitive-supplement comparison site Bilingual (en-CA / fr-CA), Health Canada NPN-aware reviews, transparent affiliate disclosure.',
   alternates: buildAlternates({ regionCode: 'ca', path: '/about/' }),

@@ -39,56 +39,80 @@
     ],
     "ingredientDosages": [
       {
-        "name": "Lion's Mane (fruiting body)",
+        "name": "Lion's Mane Mushroom",
         "doseInProduct": "500mg",
-        "clinicalDose": "500mg",
-        "adequatelyDosed": true
+        "clinicalDose": "1000-1800mg/day",
+        "adequatelyDosed": false
       },
       {
         "name": "Citicoline (Cognizin)",
         "doseInProduct": "250mg",
-        "clinicalDose": "250mg",
+        "clinicalDose": "250-500mg/day",
         "adequatelyDosed": true
       },
       {
-        "name": "Bacopa Monnieri (full-spectrum, 24% bacosides)",
+        "name": "Bacopa Monnieri (full-spectrum extract, 24% bacosides)",
         "doseInProduct": "150mg",
-        "clinicalDose": "300mg",
+        "clinicalDose": "300-450mg/day (55% bacosides)",
         "adequatelyDosed": false
       },
       {
-        "name": "Rhodiola Rosea (3% rosavins)",
+        "name": "Rhodiola Rosea (3% rosavins, 1% salidrosides)",
         "doseInProduct": "50mg",
-        "clinicalDose": "200mg",
+        "clinicalDose": "200-600mg/day",
         "adequatelyDosed": false
       },
       {
         "name": "L-Theanine",
         "doseInProduct": "100mg",
-        "clinicalDose": "100-200mg",
+        "clinicalDose": "100-200mg/day",
         "adequatelyDosed": true
       },
       {
-        "name": "Phosphatidylserine (Sharp-PS)",
+        "name": "Phosphatidylserine",
         "doseInProduct": "100mg",
-        "clinicalDose": "100mg",
+        "clinicalDose": "100-300mg/day",
         "adequatelyDosed": true
       },
       {
-        "name": "L-Tyrosine (NALT)",
+        "name": "N-Acetyl L-Tyrosine (NALT)",
         "doseInProduct": "175mg",
-        "clinicalDose": "300-500mg as NALT",
+        "clinicalDose": "2000mg/day (lowest positive trial)",
         "adequatelyDosed": false
+      },
+      {
+        "name": "Maritime Pine Bark Extract (95% proanthocyanidins)",
+        "doseInProduct": "75mg",
+        "clinicalDose": "100-200mg/day",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Vitamin B6 (NutriGenesis)",
+        "doseInProduct": "2.5mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin B9 (NutriGenesis)",
+        "doseInProduct": "100mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin B12 (NutriGenesis)",
+        "doseInProduct": "7.5mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       }
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 2,
-    "summary": "The most comprehensively researched nootropic stack on the market. Most ingredients are clinically dosed and backed by peer-reviewed evidence. Our #1 pick for overall cognitive support.",
-    "whatItIs": "Mind Lab Pro is an 11-ingredient pre-formulated nootropic stack made by Opti-Nutra, a UK-based supplement company. It is designed as a complete daily cognitive supplement covering memory, focus, mental energy, mood, and long-term brain health without caffeine or proprietary blends.",
+    "summary": "The most comprehensively researched nootropic stack on the market. Every dose is disclosed and the ingredients are backed by peer-reviewed evidence, though only citicoline, phosphatidylserine and L-theanine meet our reference doses. Our #1 pick for overall cognitive support.",
+    "whatItIs": "Mind Lab Pro is an 11-ingredient pre-formulated nootropic stack sold by Performance Lab Group Ltd (Royal Leamington Spa, UK) per mindlabpro.com's terms; the brand's own posts say it was formulated by Opti-Nutra in the UK (checked 2026-10-08). It is designed as a complete daily cognitive supplement covering memory, focus, mental energy, mood, and long-term brain health without caffeine or proprietary blends.",
     "howItWorks": "Mind Lab Pro works across six bio-pathways simultaneously. Citicoline and Phosphatidylserine support the cholinergic system and neuronal membrane integrity. Lion's Mane stimulates Nerve Growth Factor (NGF) for neuroplasticity. Bacopa Monnieri enhances synaptic communication for memory. Rhodiola Rosea and L-Tyrosine support dopamine/norepinephrine balance under stress. L-Theanine promotes alpha brain wave activity for calm focus. B-vitamins (B6, B9, B12) support homocysteine regulation and neurotransmitter synthesis.",
     "whatToExpect": "Within 30-60 minutes: mild calm focus from L-Theanine. Within 2-4 weeks: improved mental energy and reduced cognitive fatigue (Citicoline, Tyrosine). At 8-12 weeks: measurable improvements in memory recall and learning speed (Bacopa, Lion's Mane). Mind Lab Pro is a long-game supplement -- most users report subtle but sustained improvement rather than dramatic day-one effects. Best results require 3+ months of consistent daily use.",
     "pros": [
-      "11 ingredients at clinical doses",
+      "11 ingredients, every dose disclosed",
       "Third-party tested, allergen-free",
       "EU and US storefronts",
       "Caffeine-free",
@@ -126,7 +150,10 @@
         "url": "https://www.mindlabpro.com/pages/shipping-returns",
         "lang": "en"
       }
-    }
+    },
+    "notes": [
+      "Ingredient amounts from Mind Lab Pro's label at https://www.mindlabpro.com/products/mind-lab-pro, checked 2026-10-08."
+    ]
   },
   {
     "id": "noocube",
@@ -171,59 +198,83 @@
     ],
     "ingredientDosages": [
       {
-        "name": "Lutemax 2020 (Lutein/Zeaxanthin)",
-        "doseInProduct": "20mg",
-        "clinicalDose": "20mg",
-        "adequatelyDosed": true
+        "name": "Vitamin B1 (Thiamine HCl)",
+        "doseInProduct": "1.1mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
-        "name": "Bacopa Monnieri (12:1, 20% bacosides)",
-        "doseInProduct": "250mg",
-        "clinicalDose": "300mg",
-        "adequatelyDosed": false
+        "name": "Vitamin B12 (Cyanocobalamin)",
+        "doseInProduct": "2.5mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
-        "name": "Panax Ginseng (200:1 concentrate)",
-        "doseInProduct": "20mg",
-        "clinicalDose": "Limited human data",
-        "adequatelyDosed": false
+        "name": "Biotin (D-Biotin)",
+        "doseInProduct": "50mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Choline (VitaCholine)",
+        "doseInProduct": "100mg (from 250mg Choline Bitartrate)",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Bacopa Monnieri Extract (herb, 20% bacosides)",
         "doseInProduct": "250mg",
-        "clinicalDose": "Limited human data",
+        "clinicalDose": "300-450mg/day (55% bacosides)",
         "adequatelyDosed": false
       },
       {
-        "name": "Cat's Claw (4:1 extract)",
-        "doseInProduct": "Undisclosed",
-        "clinicalDose": "Limited human data",
+        "name": "L-Tyrosine",
+        "doseInProduct": "250mg",
+        "clinicalDose": "2000mg/day (lowest positive trial)",
         "adequatelyDosed": false
       },
       {
-        "name": "Resveratrol (99%)",
-        "doseInProduct": "14.3mg",
-        "clinicalDose": "Limited human data",
-        "adequatelyDosed": false
+        "name": "Cat's Claw Concentrated Extract (Uncaria tomentosa bark)",
+        "doseInProduct": "175mg (4:1 extract)",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "L-Theanine",
         "doseInProduct": "100mg",
-        "clinicalDose": "100-200mg",
+        "clinicalDose": "100-200mg/day",
         "adequatelyDosed": true
+      },
+      {
+        "name": "Panax Ginseng Concentrated Extract",
+        "doseInProduct": "20mg (8:1 extract, equivalent to 160mg Panax Ginseng powder)",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Lutemax 2020 (Marigold Flower Extract, Tagetes erecta)",
+        "doseInProduct": "20mg",
+        "clinicalDose": "12-27mg/day",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Trans-Resveratrol (Polygonum cuspidatum root)",
+        "doseInProduct": "14.3mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Pterostilbene",
         "doseInProduct": "140mcg",
-        "clinicalDose": "Limited human data",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       }
     ],
     "servingsPerContainer": 30,
-    "capsulesPerServing": 4,
+    "capsulesPerServing": 2,
     "summary": "Strong formula anchored by Lutemax 2020. $64.99 for a 30-serving bottle on noocube.com. Note: the noocube.com Trustpilot profile has no reviews yet -- verify independently before purchasing.",
     "whatItIs": "NooCube is a 12-ingredient nootropic stack made by Wolfson Brands, a large supplement manufacturer known for multiple health product lines. Its standout feature for screen-heavy workers is Lutemax 2020 -- a patented lutein and zeaxanthin extract with mixed evidence for screen eye strain: a 6-month trial funded by Lutemax's maker found less self-rated eye strain and eye fatigue (Stringham 2017), but a 2025 trial of a different lutein/zeaxanthin product found no change in self-rated eye strain (Lopresti 2025).",
-    "howItWorks": "Lutemax 2020 filters high-energy blue light in the retina; trial results on screen-related eye fatigue are mixed (one maker-funded trial positive, a trial of a different lutein/zeaxanthin product null on self-rated eye strain). Choline from VitaCholine (250mg) supports the cholinergic system; the current formula no longer contains Alpha-GPC or Huperzine A. L-Theanine provides calm focus. Bacopa Monnieri targets memory consolidation over weeks.",
+    "howItWorks": "Lutemax 2020 filters high-energy blue light in the retina; trial results on screen-related eye fatigue are mixed (one maker-funded trial positive, a trial of a different lutein/zeaxanthin product null on self-rated eye strain). Choline (100mg, from 250mg VitaCholine choline bitartrate) supports the cholinergic system; the current formula no longer contains Alpha-GPC or Huperzine A. L-Theanine provides calm focus. Bacopa Monnieri targets memory consolidation over weeks.",
     "whatToExpect": "Day one: mild calm focus from L-Theanine. Lutemax: its eye-strain trials ran 6 months and disagree, so do not count on a quick eye-fatigue effect. At 8 weeks: modest memory improvements (Bacopa, though underdosed). Manage expectations accordingly: Bacopa is below the 300mg clinical anchor. The noocube.com Trustpilot profile has no reviews yet -- verify the cancellation policy before purchasing.",
     "pros": [
       "Lutemax 2020 for screen workers",
@@ -262,7 +313,10 @@
         "url": "https://www.noocube.com/pages/guarantee",
         "lang": "en"
       }
-    }
+    },
+    "notes": [
+      "Ingredient amounts from NooCube's label at https://noocube.com/cdn/shop/t/90/assets/noocube-label-usa-v3.jpg?v=141477061997521322691727969792, checked 2026-10-08."
+    ]
   },
   {
     "id": "qualia-mind",
@@ -297,63 +351,207 @@
     "heroIngredients": [
       "Phosphatidylserine",
       "Alpha-GPC",
-      "Huperzine A",
-      "Bacopa Monnieri",
+      "Acetyl-L-Carnitine",
       "Rhodiola",
-      "DHA"
+      "Ginkgo",
+      "Nutricog"
     ],
     "ingredientDosages": [
       {
-        "name": "Phosphatidylserine",
-        "doseInProduct": "200mg",
-        "clinicalDose": "100-300mg",
-        "adequatelyDosed": true
+        "name": "Vitamin C (ascorbic acid)",
+        "doseInProduct": "45mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
-        "name": "Alpha-GPC",
-        "doseInProduct": "200mg",
-        "clinicalDose": "300-600mg",
+        "name": "Vitamin D (cholecalciferol)",
+        "doseInProduct": "15mcg (600 IU)",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Thiamine (thiamine HCl)",
+        "doseInProduct": "2.5mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Riboflavin",
+        "doseInProduct": "2mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Niacin (niacinamide)",
+        "doseInProduct": "16mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin B6 (pyridoxal 5'-phosphate)",
+        "doseInProduct": "2mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Folate (L-5-methyltetrahydrofolate calcium)",
+        "doseInProduct": "333mcg DFE",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin B12 (methylcobalamin)",
+        "doseInProduct": "100mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Biotin",
+        "doseInProduct": "30mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Pantothenic Acid (D-calcium pantothenate)",
+        "doseInProduct": "5mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Magnesium (magnesium aspartate)",
+        "doseInProduct": "84mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Acetyl-L-Carnitine HCl",
+        "doseInProduct": "500mg",
+        "clinicalDose": "1500-3000mg/day",
         "adequatelyDosed": false
       },
       {
-        "name": "Huperzine A",
-        "doseInProduct": "50mcg",
-        "clinicalDose": "50-200mcg",
+        "name": "Rhodiola rosea Root Extract (3% rosavins, 1% salidrosides)",
+        "doseInProduct": "370mg",
+        "clinicalDose": "200-600mg/day",
         "adequatelyDosed": true
       },
       {
-        "name": "Bacopa Monnieri",
+        "name": "Nutricog (Terminalia chebula fruit and Boswellia serrata gum resin extracts)",
         "doseInProduct": "300mg",
-        "clinicalDose": "300mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "N-Acetyl-L-Tyrosine",
+        "doseInProduct": "250mg",
+        "clinicalDose": "2000mg/day (lowest positive trial)",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Taurine",
+        "doseInProduct": "200mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "L-Theanine",
+        "doseInProduct": "200mg",
+        "clinicalDose": "100-200mg/day",
         "adequatelyDosed": true
       },
       {
-        "name": "Rhodiola Rosea",
-        "doseInProduct": "150mg",
-        "clinicalDose": "200-600mg",
+        "name": "Organic Lion's Mane Mushroom Extract (RealLionsMane)",
+        "doseInProduct": "125mg (8:1 extract)",
+        "clinicalDose": "1000-1800mg/day",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Ginkgo biloba Leaf Extract (24% glycosides)",
+        "doseInProduct": "120mg",
+        "clinicalDose": "240mg/day (24/6 extract)",
         "adequatelyDosed": false
       },
       {
-        "name": "DHA (from Algae)",
-        "doseInProduct": "80mg",
-        "clinicalDose": "900mg-1.2g DHA/day",
+        "name": "Alpha-GPC (L-alpha-glycerylphosphorylcholine)",
+        "doseInProduct": "115mg",
+        "clinicalDose": "300-600mg/day",
         "adequatelyDosed": false
       },
       {
-        "name": "Uridine Monophosphate",
-        "doseInProduct": "250mg",
-        "clinicalDose": "250mg",
+        "name": "Caffeine (from Coffeeberry coffee fruit extract, guarana seed extract and anhydrous caffeine)",
+        "doseInProduct": "100mg",
+        "clinicalDose": "100-200mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Phosphatidylserine (from sunflower lecithin)",
+        "doseInProduct": "100mg",
+        "clinicalDose": "100-300mg/day",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Polygala tenuifolia Root Extract",
+        "doseInProduct": "100mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "SmartSeed (Celastrus paniculatus seed extract)",
+        "doseInProduct": "90mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Cognizin (citicoline)",
+        "doseInProduct": "50mg",
+        "clinicalDose": "250-500mg/day",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Sabroxy (Oroxylum indicum bark extract)",
+        "doseInProduct": "50mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Saffron Stigma Extract",
+        "doseInProduct": "30mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Lutein (Lutemax Brain marigold flower extract)",
+        "doseInProduct": "10mg (12mg lutein + zeaxanthin together)",
+        "clinicalDose": "12-27mg/day",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Pyrroloquinoline Quinone Disodium Salt (PQQ)",
+        "doseInProduct": "10mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Boron (boron glycinate)",
+        "doseInProduct": "3mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Zeaxanthin (Lutemax Brain marigold flower extract)",
+        "doseInProduct": "2mg (12mg lutein + zeaxanthin together)",
+        "clinicalDose": "12-27mg/day",
         "adequatelyDosed": true
       }
     ],
     "servingsPerContainer": 20,
     "capsulesPerServing": 6,
-    "summary": "28 active ingredients -- the most comprehensive formula. Best for experienced biohackers. Not recommended for EU buyers (no EU storefront).",
-    "whatItIs": "Qualia Mind is a 28-ingredient nootropic stack developed by Neurohacker Collective, a San Diego-based company with a focus on systems biology and complex supplementation. It is the most ingredient-rich formula in this review and is designed for experienced supplement users who want a comprehensive single-product cognitive stack.",
-    "howItWorks": "Qualia Mind covers more cognitive pathways than any competitor: cholinergics (Alpha-GPC, Huperzine A, Citicoline), adaptogens (Rhodiola, Bacopa), neuro-nutrients (DHA, PS), amino acid precursors (Tyrosine, Taurine, Theanine), B-vitamin complex, and several novel ingredients (Uridine Monophosphate, Pyrroloquinoline Quinone). The theory is synergistic optimisation across all cognitive systems simultaneously. Neurohacker publishes a proprietary research program supporting the formula.",
-    "whatToExpect": "Acute effects on day one: sustained attention, moderate energy boost from caffeine (90mg per serving). Within 2-4 weeks: improved mental endurance and working memory. At 8-12 weeks: cumulative adaptogen and memory benefits. Important: 6 capsules per serving is a significant daily pill burden. Start with the recommended 7-day loading cycle (2 days off per week) to assess tolerance. Not suitable for EU buyers due to lack of EU storefront and uncertain EU regulatory status for some ingredients.",
+    "summary": "31 active ingredients -- the most comprehensive formula. Best for experienced biohackers. Not recommended for EU buyers (no EU storefront).",
+    "whatItIs": "Qualia Mind is a 31-ingredient nootropic stack developed by Neurohacker Collective, a San Diego-based company with a focus on systems biology and complex supplementation. It is the most ingredient-rich formula in this review and is designed for experienced supplement users who want a comprehensive single-product cognitive stack.",
+    "howItWorks": "Qualia Mind covers more cognitive pathways than any competitor: cholinergics (Alpha-GPC, Citicoline as Cognizin), adaptogens (Rhodiola), neuro-nutrients (PS), amino acid precursors (Tyrosine, Taurine, Theanine), B-vitamin complex, and several novel ingredients (SmartSeed, Sabroxy, Pyrroloquinoline Quinone). The theory is synergistic optimisation across all cognitive systems simultaneously. Neurohacker publishes a proprietary research program supporting the formula.",
+    "whatToExpect": "Acute effects on day one: sustained attention, moderate energy boost from caffeine (100mg per serving). Within 2-4 weeks: improved mental endurance and working memory. At 8-12 weeks: cumulative adaptogen and memory benefits. Important: 6 capsules per serving is a significant daily pill burden. Start with the recommended 7-day loading cycle (2 days off per week) to assess tolerance. Not suitable for EU buyers due to lack of EU storefront and uncertain EU regulatory status for some ingredients.",
     "pros": [
-      "28 active ingredients",
+      "31 active ingredients",
       "100-day money-back",
       "Published research program",
       "Respected in biohacking community"
@@ -363,6 +561,9 @@
       "6 capsules per serving",
       "No EU storefront",
       "Contains caffeine"
+    ],
+    "notes": [
+      "Ingredient amounts from Qualia Life Sciences' Qualia Mind 2.0 label at https://www.qualialife.com/shop/qualia-mind, checked 2026-10-08."
     ],
     "editorChoice": false,
     "market": "us",
@@ -573,50 +774,224 @@
     "commissionRate": "20%",
     "cookieDays": 30,
     "heroIngredients": [
-      "Ashwagandha",
-      "Zynamite",
-      "Alpha-GPC",
+      "CDP Choline",
+      "Lion's Mane",
       "Dynamine",
-      "L-Theanine"
+      "L-Theanine",
+      "Ashwagandha"
     ],
     "ingredientDosages": [
       {
-        "name": "Ashwagandha (KSM-66)",
-        "doseInProduct": "300mg",
-        "clinicalDose": "300-600mg",
+        "name": "CDP Choline (Clarity)",
+        "doseInProduct": "250mg",
+        "clinicalDose": "250-500mg/day",
         "adequatelyDosed": true
       },
       {
-        "name": "Alpha-GPC",
+        "name": "Panax Ginseng (Clarity)",
         "doseInProduct": "200mg",
-        "clinicalDose": "300mg",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
-        "name": "L-Theanine",
-        "doseInProduct": "200mg",
+        "name": "Lion's Mane (Hericium erinaceus) (Clarity)",
+        "doseInProduct": "500mg",
+        "clinicalDose": "1000-1800mg/day",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "7,8-Dihydroxyflavone (Clarity)",
+        "doseInProduct": "30mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin B6 (pyridoxal-5'-phosphate) (Clarity)",
+        "doseInProduct": "5mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Caffeine Anhydrous (capsules with caffeine only) (Clarity)",
+        "doseInProduct": "100mg",
         "clinicalDose": "100-200mg",
         "adequatelyDosed": true
       },
       {
-        "name": "Zynamite (Mango leaf extract)",
-        "doseInProduct": "140mg",
-        "clinicalDose": "140mg",
+        "name": "Dynamine (methylliberine) (Motivation)",
+        "doseInProduct": "100mg",
+        "clinicalDose": "100-150mg/day",
         "adequatelyDosed": true
       },
       {
-        "name": "Dynamine (Methylliberine)",
+        "name": "Theacrine (Motivation)",
         "doseInProduct": "100mg",
-        "clinicalDose": "Limited data",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "N-Acetyl-L-Tyrosine (NALT) (Motivation)",
+        "doseInProduct": "400mg",
+        "clinicalDose": "2000mg/day (lowest positive trial)",
         "adequatelyDosed": false
+      },
+      {
+        "name": "Rhodiola Rosea (fermented salidrosides) (Motivation)",
+        "doseInProduct": "60mg",
+        "clinicalDose": "200-600mg/day",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin B6 (pyridoxal-5'-phosphate) (Motivation)",
+        "doseInProduct": "5mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin B12 (methylcobalamin) (Motivation)",
+        "doseInProduct": "1000mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "L-Theanine (Camellia sinensis) (Motivation)",
+        "doseInProduct": "200mg",
+        "clinicalDose": "100-200mg/day",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Caffeine Anhydrous (Motivation)",
+        "doseInProduct": "150mg",
+        "clinicalDose": "100-200mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Ashwagandha (Withania somnifera) (Stress Reset)",
+        "doseInProduct": "120mg",
+        "clinicalDose": "300-600mg/day (KSM-66)",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Saffron (Crocus sativus) (Stress Reset)",
+        "doseInProduct": "28mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Zembrin (Sceletium tortuosum) (Stress Reset)",
+        "doseInProduct": "25mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Rhodiola Rosea (fermented salidrosides) (Stress Reset)",
+        "doseInProduct": "30mg",
+        "clinicalDose": "200-600mg/day",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Magnesium Bisglycinate (Stress Reset)",
+        "doseInProduct": "84mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Dihydrohonokiol-B (honokiol extract) (Stress Reset)",
+        "doseInProduct": "10mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Caffeine Anhydrous (capsules with caffeine only) (Stress Reset)",
+        "doseInProduct": "100mg",
+        "clinicalDose": "100-200mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "L-Theanine (Camellia sinensis, capsules with caffeine only) (Stress Reset)",
+        "doseInProduct": "100mg",
+        "clinicalDose": "100-200mg/day",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Bacopa Monnieri (Neuroprotection)",
+        "doseInProduct": "300mg",
+        "clinicalDose": "300-450mg/day (55% bacosides)",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Ginkgo Biloba (Neuroprotection)",
+        "doseInProduct": "120mg",
+        "clinicalDose": "240mg/day (24/6 extract)",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Mustard Seed (Sinapis alba) (Neuroprotection)",
+        "doseInProduct": "50mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Broccoli Seed (Brassica oleracea) (Neuroprotection)",
+        "doseInProduct": "125mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Turmeric (Curcuma longa) (Neuroprotection)",
+        "doseInProduct": "200mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "CoQ10 (coenzyme Q10 phospholipid) (Neuroprotection)",
+        "doseInProduct": "100mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "PQQ (pyrroloquinoline quinone disodium salt) (Neuroprotection)",
+        "doseInProduct": "20mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "NADH (reduced nicotinamide adenine dinucleotide) (Neuroprotection)",
+        "doseInProduct": "20mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Spermidine Trihydrochloride (Neuroprotection)",
+        "doseInProduct": "10mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Selenium (amino acid chelate) (Neuroprotection)",
+        "doseInProduct": "200mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "L-Theanine (Camellia sinensis, capsules with caffeine only) (Neuroprotection)",
+        "doseInProduct": "100mg",
+        "clinicalDose": "100-200mg/day",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Caffeine Anhydrous (capsules with caffeine only) (Neuroprotection)",
+        "doseInProduct": "100mg",
+        "clinicalDose": "100-200mg",
+        "adequatelyDosed": true
       }
     ],
     "servingsPerContainer": 30,
-    "capsulesPerServing": 3,
+    "capsulesPerServing": 2,
     "summary": "4 personalised formula blends per month -- rotate until you find what works. Best for people who want to experiment. Ships from the US; the brand publishes no shipping-country list (its refund policy refers to orders outside the US) — confirm delivery to your address at checkout (checked 2026-09-30).",
-    "whatItIs": "Thesis is a personalised nootropic subscription service that sends you four different formula blends each month -- Energy, Clarity, Logic, and Motivation -- along with access to a nootropics coaching service. Rather than a single fixed formula, Thesis lets you rotate blends on different days to find which works best for your specific cognitive profile.",
-    "howItWorks": "Each Thesis blend targets a different cognitive mode. Energy blend: stimulating compounds (Zynamite, Dynamine, Ashwagandha) for high-output days. Clarity blend: cholinergics and focus ingredients for clear thinking. Logic blend: memory and processing speed ingredients. Motivation blend: dopaminergic support. Each blend has a caffeine-free and caffeinated option. The personalisation model allows you to match your cognitive demand of the day with the appropriate formula.",
-    "whatToExpect": "First month: expect an experimentation period. You'll rotate through 4 blends, 7 days each, to assess which has the most noticeable effect for you. Energy blend effects are immediate (stimulating compounds work within 30-60 minutes). Clarity and Logic blend effects build over 2-4 weeks. Coaching service adds value for users who want guidance on optimising their protocol. Ships from the US; the brand publishes no shipping-country list (its refund policy refers to orders outside the US) — confirm delivery to your address at checkout (checked 2026-09-30).",
+    "whatItIs": "Thesis is a personalised nootropic subscription service that offers four formula blends -- Clarity, Motivation, Stress Reset and Neuroprotection -- along with access to a nootropics coaching service. Rather than a single fixed formula, Thesis lets you rotate blends on different days to find which works best for your specific cognitive profile. The ingredient rows on this page cover the four formulas whose labels Thesis publishes; the Energy, Logic, Creativity and Confidence product pages returned 404 when we checked on 8 October 2026.",
+    "howItWorks": "Each Thesis formula targets a different goal, and Thesis lists an amount for every ingredient. Clarity: CDP choline 250mg, Panax ginseng 200mg, Lion's Mane 500mg, 7,8-dihydroxyflavone 30mg and vitamin B6 5mg. Motivation: Dynamine (methylliberine) 100mg, theacrine 100mg, N-acetyl-L-tyrosine 400mg, Rhodiola (fermented salidrosides) 60mg, vitamin B6 5mg, vitamin B12 1000mcg, L-theanine 200mg and caffeine 150mg. Stress Reset: ashwagandha 120mg, saffron 28mg, Zembrin 25mg, Rhodiola (fermented salidrosides) 30mg, magnesium bisglycinate 84mg and dihydrohonokiol-B 10mg. Neuroprotection: Bacopa 300mg, Ginkgo 120mg, mustard seed 50mg, broccoli seed 125mg, turmeric 200mg, CoQ10 100mg, PQQ 20mg, NADH 20mg, spermidine 10mg and selenium 200mcg. Clarity, Stress Reset and Neuroprotection are sold with or without caffeine (the caffeinated capsules add caffeine 100mg, plus L-theanine 100mg in Stress Reset and Neuroprotection); Motivation contains 150mg caffeine per two-capsule serving. The personalisation model allows you to match your cognitive demand of the day with the appropriate formula.",
+    "whatToExpect": "First month: expect an experimentation period. You'll rotate through 4 blends, 7 days each, to assess which has the most noticeable effect for you. Clarity blend effects build over 2-4 weeks. Coaching service adds value for users who want guidance on optimising their protocol. Ships from the US; the brand publishes no shipping-country list (its refund policy refers to orders outside the US) — confirm delivery to your address at checkout (checked 2026-09-30).",
     "pros": [
       "4 personalised formulas/month",
       "Nootropics coach included",
@@ -632,6 +1007,10 @@
     "updatedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28",
     "verifiedAt": "2026-09-28",
+    "notes": [
+      "Ingredient amounts from the ingredient lists on Thesis's product pages (https://takethesis.com/products/clarity, https://takethesis.com/products/motivation, https://takethesis.com/products/stress-reset and https://takethesis.com/products/neuroprotection), checked 2026-10-08.",
+      "Thesis publishes no Supplement Facts panel. We read its amounts per two-capsule serving (it directs two capsules daily, and the Motivation page states its 150mg caffeine is per serving); where a per-capsule reading would change the verdict (Clarity's Lion's Mane, Neuroprotection's Ginkgo) the dose is marked not verifiable."
+    ],
     "vendorTerms": {
       "checkedAt": "2026-10-07",
       "shipping": {
@@ -769,37 +1148,37 @@
     "cookieDays": 24,
     "heroIngredients": [
       "Ginkgo Biloba",
-      "Panax Ginseng"
+      "Korean Red Ginseng"
     ],
     "ingredientDosages": [
       {
-        "name": "Ginkgo Biloba Extract (50:1)",
-        "doseInProduct": "120mg",
-        "clinicalDose": "120mg",
+        "name": "Ginkgo Biloba Extract (leaf)",
+        "doseInProduct": "500mg (12:1 extract; 120mg ginkgo flavone glycosides)",
+        "clinicalDose": "240mg/day (24/6 extract)",
         "adequatelyDosed": true
       },
       {
-        "name": "Panax Ginseng Extract",
-        "doseInProduct": "10mg",
-        "clinicalDose": "200mg",
-        "adequatelyDosed": false
+        "name": "Korean Red Ginseng Extract (Panax ginseng root)",
+        "doseInProduct": "50mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       }
     ],
     "servingsPerContainer": 150,
     "capsulesPerServing": 2,
-    "summary": "NatureBell Ginkgo + Ginseng is the most affordable nootropic in this review at approximately $5 USD/month for a 5-month supply (300 capsules for ~$25). Chinese-manufactured with US branding, available on Amazon with Prime shipping. Combines Ginkgo Biloba (clinically dosed at 120mg) with Panax Ginseng — a TCM-inspired pairing for cerebral blood flow and cognitive energy. Best as a budget entry point or stack addition.",
-    "whatItIs": "NatureBell is a US-registered supplement brand sourcing ingredients from Chinese manufacturers. Their Ginkgo + Ginseng formula uses a 50:1 Ginkgo Biloba extract (equivalent to 6,000mg raw herb per serving) at the clinical dose of 120mg, paired with Panax Ginseng extract. Available exclusively through Amazon with Prime shipping across the US, Canada, Australia, and select international markets. The 300-capsule bottle provides a 5-month supply — the best per-month value in this entire review.",
+    "summary": "NatureBell Ginkgo + Ginseng is the most affordable nootropic in this review at approximately $5 USD/month for a 5-month supply (300 capsules for ~$25). Chinese-manufactured with US branding, available on Amazon with Prime shipping. Combines Ginkgo Biloba (clinically dosed: a 500mg extract standardised to 120mg flavone glycosides) with Panax Ginseng — a TCM-inspired pairing for cerebral blood flow and cognitive energy. Best as a budget entry point or stack addition.",
+    "whatItIs": "NatureBell is a US-registered supplement brand sourcing ingredients from Chinese manufacturers. Their Ginkgo + Ginseng formula uses 500mg of a 12:1 Ginkgo Biloba leaf extract (equivalent to 6,000mg of ginkgo per serving), standardised to 120mg flavone glycosides, paired with 50mg Korean Red Ginseng (Panax ginseng) extract. Available exclusively through Amazon with Prime shipping across the US, Canada, Australia, and select international markets. The 300-capsule bottle provides a 5-month supply — the best per-month value in this entire review.",
     "howItWorks": "Ginkgo Biloba improves cerebral blood flow via vasodilation and platelet-activating factor (PAF) inhibition, delivering more oxygen and glucose to neurons. Panax Ginseng contains ginsenosides that modulate NMDA receptor activity, support dopaminergic signalling, and may improve working memory under fatigue. The combination is one of the oldest TCM cognitive pairings, now supported by modern clinical evidence for Ginkgo in particular.",
-    "whatToExpect": "Weeks 1-2: mild improvement in mental alertness from Ginkgo blood flow effects. Weeks 4-8: cumulative memory and concentration benefits. At 12+ weeks: sustained cognitive maintenance. The Ginseng dose is well below clinical levels (10mg vs 200mg needed), so most cognitive benefit comes from the properly-dosed Ginkgo component. Best used as a stack addition alongside a premium nootropic rather than a standalone solution.",
+    "whatToExpect": "Weeks 1-2: mild improvement in mental alertness from Ginkgo blood flow effects. Weeks 4-8: cumulative memory and concentration benefits. At 12+ weeks: sustained cognitive maintenance. The label gives 50mg of Korean Red Ginseng extract with no ginsenoside amount, and we have no reference dose on file for ginseng, so most cognitive benefit comes from the properly-dosed Ginkgo component. Best used as a stack addition alongside a premium nootropic rather than a standalone solution.",
     "pros": [
       "Cheapest nootropic in this review (~$5/month)",
-      "Ginkgo at full clinical dose (120mg)",
+      "Ginkgo at full clinical dose (500mg extract, 120mg flavone glycosides)",
       "300 capsules — 5-month supply",
       "Amazon Prime shipping",
       "60-day money-back guarantee"
     ],
     "cons": [
-      "Ginseng severely underdosed (10mg vs 200mg clinical)",
+      "Ginseng: 50mg extract, ginsenoside content not stated",
       "Chinese-manufactured — limited transparency",
       "No third-party CoA published",
       "Two-ingredient formula only"
@@ -819,7 +1198,10 @@
         "url": "https://www.naturebellusa.com/pages/return-policy",
         "lang": "en"
       }
-    }
+    },
+    "notes": [
+      "Ingredient amounts from NatureBell's label at https://cdn.shopify.com/s/files/1/1970/8683/files/newbottleamazonpic2-03_3f7931dc-caaf-4809-bf0f-f99f20987eca.jpg?v=1758321497, checked 2026-10-08."
+    ]
   },
   {
     "id": "performance-lab-mind",
@@ -852,47 +1234,47 @@
     "commissionRate": "30%",
     "cookieDays": 365,
     "heroIngredients": [
-      "Cognizin Citicoline",
-      "Sharp-PS Phosphatidylserine",
-      "Ajipure L-Tyrosine",
-      "Maritime Pine Bark Extract"
+      "Citicoline",
+      "Phosphatidylserine",
+      "L-Tyrosine",
+      "Maritime Pine Bark"
     ],
     "ingredientDosages": [
       {
-        "name": "Citicoline (Cognizin)",
+        "name": "Citicoline (stabilized cytidine 5'-diphosphocholine)",
         "doseInProduct": "250mg",
-        "clinicalDose": "250mg",
+        "clinicalDose": "250-500mg/day",
         "adequatelyDosed": true
       },
       {
-        "name": "Phosphatidylserine (Sharp-PS Green)",
+        "name": "Phosphatidylserine (from sunflower lecithin)",
         "doseInProduct": "100mg",
-        "clinicalDose": "100mg",
+        "clinicalDose": "100-300mg/day",
         "adequatelyDosed": true
       },
       {
-        "name": "L-Tyrosine (Ajipure)",
+        "name": "L-Tyrosine",
         "doseInProduct": "250mg",
-        "clinicalDose": "300-500mg",
+        "clinicalDose": "2000mg/day (lowest positive trial)",
         "adequatelyDosed": false
       },
       {
-        "name": "Maritime Pine Bark Extract (95% proanthocyanidins)",
+        "name": "Maritime Pine Bark Extract (Pinus pinaster, 95% proanthocyanidins)",
         "doseInProduct": "75mg",
-        "clinicalDose": "50-100mg",
-        "adequatelyDosed": true
+        "clinicalDose": "100-200mg/day",
+        "adequatelyDosed": false
       }
     ],
     "servingsPerContainer": 30,
-    "capsulesPerServing": 2,
-    "summary": "A minimalist 4-ingredient cognitive stack from Opti-Nutra (the same UK parent that makes Mind Lab Pro). Every ingredient is a branded, standardized extract dosed at or near clinical evidence. Best for people who want a clean, stackable formula rather than a kitchen-sink approach.",
-    "whatItIs": "Performance Lab Mind is a 4-ingredient stim-free nootropic produced by Opti-Nutra Ltd, the same Leamington Spa company that makes our editor-choice pick Mind Lab Pro. It uses only branded standardized extracts — Cognizin citicoline, Sharp-PS Green phosphatidylserine, Ajipure L-tyrosine, and Maritime Pine Bark — delivered in NutriCaps prebiotic-infused vegan capsules. The product is positioned as the lean, stackable counterpart to Mind Lab Pro for users who want focused dosing without ingredient overlap. It is manufactured in the USA in an FDA-registered current Good Manufacturing Practice (cGMP) facility and only sold via the official website.",
+    "capsulesPerServing": 1,
+    "summary": "A minimalist 4-ingredient cognitive stack from Performance Lab; posts on mindlabpro.com say Performance Lab supplements are formulated by Opti-Nutra in the UK, which they call the maker of Mind Lab Pro (checked 2026-10-08). Every amount is on the label: 250mg citicoline, 100mg phosphatidylserine, 250mg L-tyrosine and 75mg maritime pine bark extract in one capsule. Best for people who want a clean, stackable formula rather than a kitchen-sink approach.",
+    "whatItIs": "Performance Lab Mind is a 4-ingredient stim-free nootropic from Performance Lab; posts on mindlabpro.com say Performance Lab supplements are formulated by Opti-Nutra in the UK, which they call the maker of our editor-choice pick Mind Lab Pro (checked 2026-10-08). It uses only branded standardized extracts — Cognizin citicoline, Sharp-PS Green phosphatidylserine, Ajipure L-tyrosine, and Maritime Pine Bark — delivered in NutriCaps prebiotic-infused vegan capsules. The product is positioned as the lean, stackable counterpart to Mind Lab Pro for users who want focused dosing without ingredient overlap. It is manufactured in the USA in an FDA-registered current Good Manufacturing Practice (cGMP) facility and only sold via the official website.",
     "howItWorks": "Cognizin citicoline raises brain phosphatidylcholine and supports acetylcholine synthesis for membrane integrity and focus. Sharp-PS Green phosphatidylserine targets the FDA-qualified claim for cognitive decline and supports neuronal membrane fluidity. Ajipure L-tyrosine is a precursor for dopamine and norepinephrine, blunting cognitive decline under acute stress and sleep loss. Maritime Pine Bark proanthocyanidins cross the blood-brain barrier, support cerebral blood flow, and act as long-acting antioxidants. The four-ingredient logic is membrane + neurotransmitter precursor + circulation — the minimum complete stack for cognitive support.",
     "whatToExpect": "Within 30-60 minutes: subtle calm focus and improved working memory from citicoline and tyrosine. Within 2-4 weeks: noticeable mental endurance under cognitive load and stress. At 8-12 weeks: cumulative neuroprotective benefits from PS and pine bark. Most users report this stack feels cleaner than multi-ingredient formulas — fewer ingredients also means fewer GI or jitter complaints. Best for users who already supplement separately for adaptogens, mushrooms, or B-vitamins and want a focused base layer.",
     "pros": [
-      "Every ingredient at or near clinical dose",
+      "Every ingredient amount disclosed",
       "Only branded standardized extracts (Cognizin, Sharp-PS, Ajipure)",
-      "Just 2 capsules per serving",
+      "Just 1 capsule per serving",
       "365-day affiliate cookie",
       "Stackable with Performance Lab Energy and other PL products"
     ],
@@ -900,7 +1282,7 @@
       "Only 14 Trustpilot reviews (performancelab.com profile) — limited social proof",
       "4-ingredient formula will feel sparse versus 11+ ingredient competitors",
       "No Amazon or retail availability",
-      "Tyrosine slightly under clinical range",
+      "L-Tyrosine (250mg) and pine bark (75mg) below our reference doses",
       "Less brand recognition than sister product Mind Lab Pro"
     ],
     "editorChoice": false,
@@ -912,7 +1294,10 @@
       "successorSlug": "mind-lab-pro-review",
       "note": "Opti-Nutra merged Performance Lab Mind into Mind Lab Pro; the vendor URL now redirects to Mind Lab Pro."
     },
-    "verifiedAt": "2026-09-28"
+    "verifiedAt": "2026-09-28",
+    "notes": [
+      "Ingredient amounts from Performance Lab's label at https://web.archive.org/web/20241009212007/https://www.performancelab.com/products/mind, checked 2026-10-08."
+    ]
   },
   {
     "id": "hunter-focus",
@@ -947,124 +1332,142 @@
     "heroIngredients": [
       "Lion's Mane",
       "Citicoline",
-      "Bacopa Monnieri",
       "L-Theanine",
       "Phosphatidylserine",
-      "Ashwagandha"
+      "Ashwagandha",
+      "Caffeine"
     ],
     "ingredientDosages": [
       {
-        "name": "Citicoline",
-        "doseInProduct": "250mg",
-        "clinicalDose": "250mg",
-        "adequatelyDosed": true
+        "name": "Vitamin B6 (Pyridoxal-5-phosphate)",
+        "doseInProduct": "2.5mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
-        "name": "Lion's Mane Mushroom (10:1 extract)",
-        "doseInProduct": "500mg",
-        "clinicalDose": "500mg",
-        "adequatelyDosed": true
+        "name": "Vitamin B9",
+        "doseInProduct": "100mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
-        "name": "Bacopa Monnieri (50% bacosides)",
-        "doseInProduct": "300mg",
-        "clinicalDose": "300mg",
-        "adequatelyDosed": true
+        "name": "Vitamin B12 (Methylcobalamin)",
+        "doseInProduct": "7.5mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin C (Ascorbic Acid)",
+        "doseInProduct": "200mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin D3 (Cholecalciferol)",
+        "doseInProduct": "75mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin K2 (MK7)",
+        "doseInProduct": "100mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Acetyl-L-Carnitine",
+        "doseInProduct": "800mg",
+        "clinicalDose": "1500-3000mg/day",
+        "adequatelyDosed": false
       },
       {
         "name": "L-Tyrosine",
         "doseInProduct": "500mg",
-        "clinicalDose": "300-500mg",
+        "clinicalDose": "2000mg/day (lowest positive trial)",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Organic Lion's Mane Mushroom (Hericium erinaceus)",
+        "doseInProduct": "500mg",
+        "clinicalDose": "1000-1800mg/day",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Bacopa",
+        "doseInProduct": "300mg",
+        "clinicalDose": "300-450mg/day (55% bacosides)",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Ashwagandha Root (Withania somnifera)",
+        "doseInProduct": "300mg",
+        "clinicalDose": "300-600mg/day (KSM-66)",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Citicoline",
+        "doseInProduct": "250mg",
+        "clinicalDose": "250-500mg/day",
         "adequatelyDosed": true
       },
       {
         "name": "L-Theanine",
         "doseInProduct": "200mg",
-        "clinicalDose": "100-200mg",
+        "clinicalDose": "100-200mg/day",
         "adequatelyDosed": true
       },
       {
-        "name": "Phosphatidylserine",
-        "doseInProduct": "200mg",
-        "clinicalDose": "100-300mg",
-        "adequatelyDosed": true
-      },
-      {
-        "name": "Ashwagandha Extract",
-        "doseInProduct": "300mg",
-        "clinicalDose": "300-600mg",
-        "adequatelyDosed": true
-      },
-      {
-        "name": "Rhodiola Rosea (3% rosavins)",
-        "doseInProduct": "100mg",
-        "clinicalDose": "200-600mg",
-        "adequatelyDosed": false
-      },
-      {
-        "name": "Maritime Pine Bark Extract",
-        "doseInProduct": "75mg",
-        "clinicalDose": "50-100mg",
-        "adequatelyDosed": true
-      },
-      {
-        "name": "Panax Ginseng",
-        "doseInProduct": "100mg",
-        "clinicalDose": "200-400mg",
-        "adequatelyDosed": false
-      },
-      {
-        "name": "N-Acetyl L-Cysteine (NAC)",
-        "doseInProduct": "250mg",
-        "clinicalDose": "600-1200mg",
+        "name": "Ginkgo Biloba",
+        "doseInProduct": "120mg",
+        "clinicalDose": "240mg/day (24/6 extract)",
         "adequatelyDosed": false
       },
       {
         "name": "Caffeine Anhydrous",
         "doseInProduct": "100mg",
-        "clinicalDose": "50-200mg",
+        "clinicalDose": "100-200mg",
         "adequatelyDosed": true
       },
       {
-        "name": "Vitamin C",
-        "doseInProduct": "120mg",
-        "clinicalDose": "90-120mg",
+        "name": "Phosphatidylserine",
+        "doseInProduct": "100mg",
+        "clinicalDose": "100-300mg/day",
         "adequatelyDosed": true
       },
       {
-        "name": "Vitamin D3",
-        "doseInProduct": "50mcg (2000 IU)",
-        "clinicalDose": "15-50mcg",
-        "adequatelyDosed": true
-      },
-      {
-        "name": "Vitamin B6 (P-5-P)",
-        "doseInProduct": "2.5mg",
-        "clinicalDose": "1.3-2mg",
-        "adequatelyDosed": true
-      },
-      {
-        "name": "Vitamin B9 (Folate)",
-        "doseInProduct": "333mcg",
-        "clinicalDose": "400mcg",
+        "name": "Maritime Pine Bark Extract",
+        "doseInProduct": "75mg",
+        "clinicalDose": "100-200mg/day",
         "adequatelyDosed": false
       },
       {
-        "name": "Vitamin B12 (Methylcobalamin)",
-        "doseInProduct": "20mcg",
-        "clinicalDose": "2.4mcg",
-        "adequatelyDosed": true
+        "name": "Rhodiola rosea Extract",
+        "doseInProduct": "50mg",
+        "clinicalDose": "200-600mg/day",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Panax Ginseng",
+        "doseInProduct": "40mg (10:1 extract)",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Spanish Sage",
+        "doseInProduct": "25mg (4:1 extract)",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       }
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 6,
-    "summary": "A 20-ingredient fully-disclosed open-label nootropic from Roar Ambition (UK). Most ingredients are at or near clinical doses. Premium positioning for ambitious professionals 30+; the 6-capsule serving and $90 single-bottle price are the main barriers.",
+    "summary": "A 20-ingredient fully-disclosed open-label nootropic from Roar Ambition (UK). Citicoline, L-Theanine, phosphatidylserine and caffeine meet this site's reference doses; Lion's Mane, ALCAR, L-Tyrosine, Ginkgo, Rhodiola and Pine Bark are below them. Premium positioning for ambitious professionals 30+; the 6-capsule serving and $90 single-bottle price are the main barriers.",
     "whatItIs": "Hunter Focus is the cognitive product in the Hunter Evolve premium men-and-women supplement line, made by Roar Ambition / Stacked Brands in Leeds, UK. It uses a fully transparent 20-ingredient formula organized into three proprietary \"zones\": Concentration Activation, Memory Matrix, and Mood Amplification. The brand is positioned for ambitious professionals aged 30+ and is manufactured in current Good Manufacturing Practice (cGMP) certified facilities in the USA and UK. It is sold only through the Hunter Evolve official website with no Amazon or retail distribution.",
     "howItWorks": "The 20-ingredient stack covers four main pathways. Cholinergics (Citicoline) and acetylcholinesterase support drive day-one focus. Adaptogens (Ashwagandha, Rhodiola, Panax Ginseng) buffer cortisol and stress-induced cognitive decline. Membrane and neurotrophic compounds (Phosphatidylserine, Lion's Mane) build long-term brain health and neuroplasticity. Catecholamine precursors (L-Tyrosine) plus L-Theanine and a moderate caffeine dose provide acute mental energy. The B-vitamin complex supports homocysteine regulation and neurotransmitter synthesis. The Ultimate Bundle (4-month supply at $270) brings the effective monthly cost down to roughly $67.50.",
     "whatToExpect": "Day one: noticeable focus and energy from caffeine + tyrosine + citicoline within 30-60 minutes. The L-theanine softens any caffeine jitter. Within 2-4 weeks: improved stress resilience and stable mood under workload (adaptogens). At 8-12 weeks: measurable memory and learning benefits from Lion's Mane and Bacopa. The 6-capsule daily serving is the highest in this review and may be a deal-breaker for capsule-averse users. Stack is built around moderate caffeine — not suitable if you already drink multiple cups of coffee.",
     "pros": [
       "Fully open-label 20-ingredient formula — no proprietary blends",
-      "Most ingredients at clinical doses",
+      "Citicoline, L-Theanine, phosphatidylserine and caffeine at reference doses",
       "Comprehensive multi-pathway coverage",
       "Returns of unused, unopened, sealed product accepted within 30 days in the USA/Canada (14 days elsewhere)",
       "Ultimate Bundle drops effective price below $70/month",
@@ -1076,7 +1479,10 @@
       "Contains 100mg caffeine — not stim-free",
       "No subscription option, only multi-month bundles",
       "Limited Trustpilot footprint — minimal independent social proof",
-      "Folate, NAC, ginseng, and rhodiola underdosed versus clinical evidence"
+      "Lion's Mane, ALCAR, L-Tyrosine, Ginkgo, Rhodiola and Pine Bark below this site's reference doses"
+    ],
+    "notes": [
+      "Ingredient amounts from Roar Ambition's label at https://www.hunterevolve.com/en-us/hunter-focus (Supplement Facts image: https://cdn.shopify.com/s/files/1/0975/0262/6137/files/hunter-focus-evolve-supplement-facts_1_1.png?v=1760606452), checked 2026-10-08."
     ],
     "editorChoice": false,
     "market": "us",
@@ -1140,56 +1546,50 @@
     ],
     "ingredientDosages": [
       {
-        "name": "Phosphatidylserine",
-        "doseInProduct": "100mg",
-        "clinicalDose": "100-300mg",
-        "adequatelyDosed": true
-      },
-      {
-        "name": "Acetyl-L-Carnitine",
-        "doseInProduct": "500mg",
+        "name": "Acetyl-L-Carnitine (as acetyl-L-carnitine HCl)",
+        "doseInProduct": "665mg",
         "clinicalDose": "1500-3000mg/day",
         "adequatelyDosed": false
       },
       {
-        "name": "Ginkgo Biloba (24% glycosides, 6% lactones)",
-        "doseInProduct": "120mg",
-        "clinicalDose": "120-240mg",
-        "adequatelyDosed": true
-      },
-      {
-        "name": "Huperzine A",
-        "doseInProduct": "50mcg",
-        "clinicalDose": "50-200mcg",
-        "adequatelyDosed": true
-      },
-      {
-        "name": "Vinpocetine",
-        "doseInProduct": "5mg",
-        "clinicalDose": "15-30mg",
-        "adequatelyDosed": false
-      },
-      {
-        "name": "N-Acetyl L-Cysteine (NAC)",
-        "doseInProduct": "300mg",
-        "clinicalDose": "600-1200mg",
-        "adequatelyDosed": false
+        "name": "N-Acetyl-L-Cysteine (NAC)",
+        "doseInProduct": "400mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Alpha Lipoic Acid",
-        "doseInProduct": "50mg",
-        "clinicalDose": "300-600mg",
+        "doseInProduct": "200mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Ginkgo Biloba Extract (leaf; 24% ginkgo flavonols, 6% terpene lactones)",
+        "doseInProduct": "120mg",
+        "clinicalDose": "240mg/day (24/6 extract)",
         "adequatelyDosed": false
+      },
+      {
+        "name": "Phosphatidylserine (SharpPS Green, from sunflower)",
+        "doseInProduct": "100mg",
+        "clinicalDose": "100-300mg/day",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Huperzine A (Huperzia serrata whole-herb extract)",
+        "doseInProduct": "100mcg",
+        "clinicalDose": "100-200mcg/day",
+        "adequatelyDosed": true
       }
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 4,
-    "summary": "A doctor-formulated brain-and-memory stack from Dr. Daniel Amen's BrainMD line. Three of the four headline ingredients (PS, Ginkgo, Huperzine) are clinically dosed; ALCAR, at 500mg, is below the 1.5–3g/day used in its positive trials, and several supporting ingredients are not clinically dosed either. Positioned for older adults and patients in the Amen Clinics ecosystem.",
-    "whatItIs": "BrainMD Brain & Memory Power Boost is the flagship cognitive product from BrainMD, the supplement company founded by Dr. Daniel Amen — the psychiatrist and bestselling author known for the Amen Clinics and SPECT imaging-based brain assessments. The product is a 7-ingredient memory-and-aging-focused stack manufactured to pharmaceutical-grade quality standards in current Good Manufacturing Practice (cGMP) compliant facilities. It is sold direct via brainmd.com, on Amazon, and through Costco, with broad reach into the older-adult and clinician-referred consumer segment.",
-    "howItWorks": "Phosphatidylserine supports neuronal membrane fluidity and carries an FDA-qualified health claim for cognitive decline. Acetyl-L-Carnitine crosses the blood-brain barrier, supports mitochondrial energy in neurons, and has trial evidence for mild cognitive impairment. Ginkgo Biloba improves cerebral blood flow via vasodilation and PAF inhibition. Huperzine A is a reversible acetylcholinesterase inhibitor that elevates synaptic acetylcholine — clinically used for memory in some markets. Vinpocetine, NAC, and Alpha Lipoic Acid are present at sub-clinical doses but contribute supporting antioxidant and neuroprotective activity.",
+    "summary": "A doctor-formulated brain-and-memory stack from Dr. Daniel Amen's BrainMD line. Two of the four headline ingredients (PS, Huperzine A) meet our reference doses; ALCAR, at 665mg, is below the 1.5–3g/day used in its positive trials, and Ginkgo, at 120mg, is half the 240mg reference dose. Positioned for older adults and patients in the Amen Clinics ecosystem.",
+    "whatItIs": "BrainMD Brain & Memory Power Boost is the flagship cognitive product from BrainMD, the supplement company founded by Dr. Daniel Amen — the psychiatrist and bestselling author known for the Amen Clinics and SPECT imaging-based brain assessments. The product is a 6-ingredient memory-and-aging-focused stack manufactured to pharmaceutical-grade quality standards in current Good Manufacturing Practice (cGMP) compliant facilities. It is sold direct via brainmd.com, on Amazon, and through Costco, with broad reach into the older-adult and clinician-referred consumer segment.",
+    "howItWorks": "Phosphatidylserine supports neuronal membrane fluidity and carries an FDA-qualified health claim for cognitive decline. Acetyl-L-Carnitine crosses the blood-brain barrier, supports mitochondrial energy in neurons, and has trial evidence for mild cognitive impairment. Ginkgo Biloba improves cerebral blood flow via vasodilation and PAF inhibition. Huperzine A is a reversible acetylcholinesterase inhibitor that elevates synaptic acetylcholine — clinically used for memory in some markets. NAC (400mg) and Alpha Lipoic Acid (200mg) complete the formula; we have no reference dose on file for either.",
     "whatToExpect": "This is a long-game memory product — expect minimal day-one effects. Within 2-4 weeks: subtle improvements in word retrieval and short-term recall (Ginkgo + Huperzine A). At 8-12 weeks: cumulative membrane and mitochondrial benefits from PS and ALCAR. Best suited for adults over 50 working on long-term memory maintenance rather than acute focus. Huperzine A has a long half-life; no trial has tested a cycling schedule, so follow the label and stop if you notice cholinergic side effects (nausea, cramps, vivid dreams).",
     "pros": [
-      "Three of four headline ingredients (PS, Ginkgo, Huperzine A) clinically dosed",
+      "Two of four headline ingredients (PS, Huperzine A) at our reference doses",
       "Pharmaceutical-grade cGMP manufacturing",
       "Caffeine-free",
       "Available on Amazon and at Costco",
@@ -1197,7 +1597,7 @@
       "Strong recognition among older demographics and clinician-referred patients"
     ],
     "cons": [
-      "Vinpocetine, NAC, and Alpha Lipoic Acid significantly underdosed versus clinical evidence",
+      "Acetyl-L-Carnitine (665mg) and Ginkgo (120mg) below our reference doses",
       "$64.95/month list price on brainmd.com (30 servings at 4 capsules per day)",
       "4 capsules per serving",
       "Transparency note: Dr. Amen's SPECT-imaging diagnostic claims have been criticized by mainstream psychiatry — buy on the formula, not the founder narrative",
@@ -1231,7 +1631,10 @@
         "url": "https://brainmd.com/policies/refund-policy",
         "lang": "en"
       }
-    }
+    },
+    "notes": [
+      "Ingredient amounts from BrainMD's label at https://cdn.shopify.com/s/files/1/0696/2656/0681/files/Brain-And-Memory-Power-Boost-Supplement-BrainMD-6.png?v=1767895544, checked 2026-10-08."
+    ]
   },
   {
     "id": "trubrain",
@@ -1264,62 +1667,79 @@
     "commissionRate": "15%",
     "cookieDays": 14,
     "heroIngredients": [
-      "Citicoline",
-      "L-Tyrosine",
+      "Noopept",
+      "Uridine Monophosphate",
+      "Centrophenoxine",
       "L-Theanine",
-      "Magnesium Threonate",
-      "Centrophenoxine"
+      "Caffeine"
     ],
     "ingredientDosages": [
       {
-        "name": "Citicoline (CDP-Choline)",
-        "doseInProduct": "250mg",
-        "clinicalDose": "250mg",
-        "adequatelyDosed": true
+        "name": "Vitamin C (as ascorbic acid)",
+        "doseInProduct": "300mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
-        "name": "L-Tyrosine",
+        "name": "Noopept",
+        "doseInProduct": "20mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Acetyl L-Carnitine",
         "doseInProduct": "500mg",
-        "clinicalDose": "300-500mg",
-        "adequatelyDosed": true
+        "clinicalDose": "1500-3000mg/day",
+        "adequatelyDosed": false
       },
       {
-        "name": "L-Theanine",
-        "doseInProduct": "200mg",
-        "clinicalDose": "100-200mg",
-        "adequatelyDosed": true
-      },
-      {
-        "name": "Magnesium (as Magtein L-Threonate)",
-        "doseInProduct": "85mg elemental",
-        "clinicalDose": "144mg elemental (2g Magtein)",
+        "name": "N-Acetyl Tyrosine",
+        "doseInProduct": "350mg",
+        "clinicalDose": "2000mg/day (lowest positive trial)",
         "adequatelyDosed": false
       },
       {
         "name": "Centrophenoxine",
         "doseInProduct": "250mg",
-        "clinicalDose": "250-1000mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Magnesium (Glycinate)",
+        "doseInProduct": "200mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "L-Theanine",
+        "doseInProduct": "160mg",
+        "clinicalDose": "100-200mg/day",
         "adequatelyDosed": true
+      },
+      {
+        "name": "Uridine Monophosphate",
+        "doseInProduct": "500mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Caffeine",
         "doseInProduct": "100mg",
-        "clinicalDose": "50-200mg",
+        "clinicalDose": "100-200mg",
         "adequatelyDosed": true
       }
     ],
     "servingsPerContainer": 20,
     "capsulesPerServing": 1,
     "form": "shot",
-    "summary": "The only major nootropic in liquid-shot format. Co-founded by UCLA-trained neuroscientist Dr. Andrew Hill. Disclosed doses are mostly clinical, but the 2.6/5 Trustpilot score and aggressive autoship complaints are a real concern — read the cancellation terms before subscribing.",
-    "whatItIs": "TruBrain is a liquid nootropic delivered in 1-oz drink shots, founded in 2012 in Santa Monica, California. The company was co-founded by Dr. Andrew Hill, a UCLA-trained cognitive neuroscientist, which is the brand's primary credibility anchor. The standard subscription is a 20-shot monthly box at roughly $75/month ($3.75 per shot). TruBrain also sells variants — Focus, Ketones, Mellow, Extra — plus a capsule version for users who prefer pills. The product is sold direct via trubrain.com only.",
-    "howItWorks": "Each shot delivers a synergistic stack. Citicoline raises brain phosphatidylcholine and supports acetylcholine for focus. L-Tyrosine is a precursor to dopamine and norepinephrine, supporting performance under stress and sleep loss. L-Theanine paired with caffeine produces calm focus while smoothing the caffeine spike. Magnesium L-Threonate (Magtein) is the only magnesium form clinically shown to raise brain magnesium concentrations, supporting NMDA receptor function and synaptic plasticity. Centrophenoxine is a cholinergic compound related to DMAE that supports acetylcholine and clears lipofuscin from neurons.",
-    "whatToExpect": "Onset is fast because of the liquid format — most users feel focus and energy within 15-30 minutes (faster than capsule competitors). The taste is divisive — multiple reviews describe it as thick and medicinal. Within 2-4 weeks: cumulative magnesium threonate and centrophenoxine benefits for memory and learning. Important warnings: (1) the autoship enrollment is aggressive and customer service is often slow to cancel — review the cancellation steps before the first charge; (2) most products carry no money-back guarantee; (3) the Trustpilot score of 2.6/5 is driven primarily by billing and cancellation complaints, not formula complaints.",
+    "summary": "The only major nootropic in liquid-shot format. Co-founded by UCLA-trained neuroscientist Dr. Andrew Hill. Every dose is printed on the label, but the 2.6/5 Trustpilot score and aggressive autoship complaints are a real concern — read the cancellation terms before subscribing.",
+    "whatItIs": "TruBrain is a liquid nootropic delivered in 1-oz drink shots, founded in 2012 in Santa Monica, California. The company was co-founded by Dr. Andrew Hill, a UCLA-trained cognitive neuroscientist, which is the brand's primary credibility anchor. The standard subscription is a 20-shot monthly box at roughly $75/month ($3.75 per shot). The shot comes in Strong, Extra Strong (the Strong formula plus 150mg Adrafinil) and Sleep versions, and TruBrain also sells a capsule version for users who prefer pills; this review covers the Strong shot. The product is sold direct via trubrain.com only.",
+    "howItWorks": "Each 30ml Strong shot lists eight active nootropics plus 300mg vitamin C: Noopept 20mg, acetyl L-carnitine 500mg, N-acetyl tyrosine 350mg, centrophenoxine 250mg, magnesium (glycinate) 200mg, L-theanine 160mg, uridine monophosphate 500mg and caffeine 100mg. N-Acetyl Tyrosine (NALT) is a form of L-Tyrosine, an amino acid precursor to dopamine and norepinephrine; no trial comparing NALT with plain L-Tyrosine for cognition was found. L-Theanine with caffeine is the most studied nootropic pairing: in trials the combination improved attention and reaction time more than either alone, though in a controlled trial theanine did not significantly reduce caffeine jitteriness. Centrophenoxine is a cholinergic compound related to DMAE that supports acetylcholine and clears lipofuscin from neurons.",
+    "whatToExpect": "Onset is fast because of the liquid format — most users feel focus and energy within 15-30 minutes (faster than capsule competitors). The taste is divisive — multiple reviews describe it as thick and medicinal. Within 2-4 weeks: cumulative centrophenoxine benefits for memory and learning. Important warnings: (1) the autoship enrollment is aggressive and customer service is often slow to cancel — review the cancellation steps before the first charge; (2) most products carry no money-back guarantee; (3) the Trustpilot score of 2.6/5 is driven primarily by billing and cancellation complaints, not formula complaints.",
     "pros": [
       "Only major liquid-format nootropic — best for pill-averse users",
       "Fast onset (15-30 min) versus capsule formats",
       "Clinically-trained co-founder (Dr. Andrew Hill, UCLA neuroscience)",
-      "Magnesium L-Threonate is a high-quality, expensive ingredient most competitors skip",
       "Disclosed doses for all ingredients",
       "Convenient on-the-go format"
     ],
@@ -1327,7 +1747,7 @@
       "Trustpilot 2.6/5 — significant complaints about billing and customer service",
       "Aggressive autoship enrollment; cancellation reportedly difficult",
       "No money-back guarantee on most products",
-      "Magnesium dose below Magtein clinical trial level (full 2g)",
+      "Acetyl L-carnitine (500mg) and N-acetyl tyrosine (350mg) per shot sit below this site's reference doses (1,500mg and 2,000mg a day)",
       "Taste divisive — thick and medicinal per reviews",
       "Premium per-serving price ($3.75/shot) versus capsules",
       "Customer support response times reportedly up to a week",
@@ -1338,6 +1758,7 @@
     "updatedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28",
     "verifiedAt": "2026-09-28",
+    "notes": "Ingredient amounts from TruBrain's label at https://www.trubrain.com/products/fb22, checked 2026-10-08.",
     "vendorTerms": {
       "checkedAt": "2026-10-07",
       "shipping": {

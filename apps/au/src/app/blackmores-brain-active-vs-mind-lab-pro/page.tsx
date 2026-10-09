@@ -56,12 +56,12 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Bacopa dose?',
     a:
-      'Both contain Bacopa at clinical dose (300mg standardized to 50% bacosides). On the most-replicated memory ingredient, they tie.',
+      'Mind Lab Pro\'s label lists 150mg Bacopa (full-spectrum extract, 24% bacosides), half the 300mg clinical dose.',
   },
   {
     q: 'What does Blackmores miss that Mind Lab Pro has?',
     a:
-      'Mind Lab Pro adds Lion\'s Mane, citicoline (Cognizin), L-theanine, L-tyrosine, phosphatidylserine, Rhodiola, and a higher Ginkgo dose. If you want any of these specific ingredients, Mind Lab Pro is the only choice between these two. Blackmores keeps it simple at Bacopa + Ginkgo + B-vitamins.',
+      'Mind Lab Pro adds Lion\'s Mane, citicoline (Cognizin), L-theanine, L-tyrosine, phosphatidylserine and Rhodiola. If you want any of these specific ingredients, Mind Lab Pro is the only choice between these two. Blackmores keeps it simple at Bacopa + Ginkgo + B-vitamins.',
   },
 ];
 
