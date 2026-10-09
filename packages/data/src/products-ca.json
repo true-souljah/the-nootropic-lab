@@ -134,6 +134,29 @@
     },
     "trustpilotCheckedAt": "2026-09-28",
     "verifiedAt": "2026-09-28",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "Parcels going to Canada and the Rest of the World will be shipped from our depot in the UK by international tracked airmail or DHL Courier. Airmail expected delivery time: 5 - 20 working days DHL expected delivery time: 2 - 7 working days",
+        "url": "https://ca.mindlabpro.com/pages/shipping-returns",
+        "lang": "en"
+      },
+      "cancellation": {
+        "text": "Update or cancel anytime",
+        "url": "https://ca.mindlabpro.com/products/mind-lab-pro",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "One-time purchase Price: CA$89.00",
+        "url": "https://ca.mindlabpro.com/products/mind-lab-pro",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "Put us to the test for a full 30 days. If you don't see results, we will gladly refund your money (minus any shipping costs).",
+        "url": "https://ca.mindlabpro.com/pages/shipping-returns",
+        "lang": "en"
+      }
+    },
     "notes": [
       "Ingredient amounts from Mind Lab Pro's label at https://ca.mindlabpro.com/products/mind-lab-pro, checked 2026-10-08."
     ]
@@ -287,7 +310,30 @@
       "Ingredient amounts from NooCube's label at https://noocube.com/cdn/shop/t/90/assets/noocube-label-usa-v3.jpg?v=141477061997521322691727969792, checked 2026-10-08."
     ],
     "verifiedAt": "2026-09-28",
-    "trustpilotCheckedAt": "2026-09-28"
+    "trustpilotCheckedAt": "2026-09-28",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "FREE SHIPPING OVER $79.99",
+        "url": "https://www.noocube.com/",
+        "lang": "en"
+      },
+      "cancellation": {
+        "text": "NO COMMITMENT CANCEL ANYTIME",
+        "url": "https://www.noocube.com/",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "1-MONTH SUPPLY Single Purchase Subscribe 15% OFF CHEAPEST OPTION RETAIL: $79.99 $55.24 SAVINGS: $24.75 60 CAPSULES",
+        "url": "https://www.noocube.com/",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "we offer a 60-day money-back guarantee.",
+        "url": "https://www.noocube.com/pages/guarantee",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "performance-lab-mind",
@@ -407,7 +453,7 @@
     "priceMonthlyUSD": 90,
     "priceMonthlyCAD": 123,
     "pricingModel": "one-time",
-    "moneyBackDays": 30,
+    "moneyBackDays": null,
     "caffeineFree": false,
     "euStorefront": false,
     "euCompliance": "verify",
@@ -483,7 +529,25 @@
       "basis": "no row for Hunter Focus or Roar Ambition as brand name or licence holder; LNHPD searches plus the full register export (307,065 rows)"
     },
     "trustpilotCheckedAt": "2026-09-28",
-    "verifiedAt": "2026-09-28"
+    "verifiedAt": "2026-09-28",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "USPS International Delivery time Canada: 5-15 working days",
+        "url": "https://www.roarambition.com/en-ca/policies/shipping-policy",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "Hunter Focus $90.00 Add to cart",
+        "url": "https://www.roarambition.com/en-ca/products/hunter-focus",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "Have you received your order within the last 30 days for USA/Canada or within 14 days for UK & the rest of the world, are your products unused, unopened, still sealed and the product packaging undamaged?",
+        "url": "https://www.roarambition.com/en-ca/policies/refund-policy",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "alpha-brain",
@@ -617,7 +681,20 @@
       "basis": "NPN 80041968, Onnit Labs, LLC, listed as Discontinued in the LNHPD (UI and API agree), checked 2026-10-07"
     },
     "verifiedAt": "2026-09-28",
-    "trustpilotCheckedAt": "2026-09-28"
+    "trustpilotCheckedAt": "2026-09-28",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "cancellation": {
+        "text": "You may cancel or modify your Onnit subscriptions at any time by visiting your Account Dashboard .",
+        "url": "https://www.onnit.com/pages/subscription-program",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "30-day money back guarantee",
+        "url": "https://www.onnit.com/products/alpha-brain-90-ct",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "qualia-mind",
@@ -639,7 +716,7 @@
     },
     "priceMonthlyUSD": 139,
     "priceMonthlyCAD": 190,
-    "pricingModel": "subscription",
+    "pricingModel": "both",
     "moneyBackDays": 100,
     "caffeineFree": false,
     "euStorefront": false,
@@ -730,7 +807,30 @@
       "basis": "no row for Qualia, Qualia Life Sciences or Neurohacker as brand name or licence holder; LNHPD searches plus the full register export (307,065 rows)"
     },
     "verifiedAt": "2026-09-28",
-    "trustpilotCheckedAt": "2026-09-28"
+    "trustpilotCheckedAt": "2026-09-28",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "International orders to the following countries can be placed on the Qualia Shop page: Canada",
+        "url": "https://www.qualialife.com/faqs/orders-shipping/category_index",
+        "lang": "en"
+      },
+      "cancellation": {
+        "text": "you can cancel or adjust it at any time, with no conditions or mandatory length of subscription.",
+        "url": "https://www.qualialife.com/shop/qualia-mind",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "$159.00 $39.00 first shipment, $139.00 thereafter Subscribe & Save 75% Purchase this time only",
+        "url": "https://www.qualialife.com/shop/qualia-mind",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "Feel 100% Satisfied within 100 days or get a 100% refund.",
+        "url": "https://www.qualialife.com/refund-policy",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "naturebell-ginkgo-ginseng",
@@ -808,6 +908,14 @@
       "checkedAt": "2026-10-07",
       "basis": "no row for a NatureBell Ginkgo + Ginseng product; the only NatureBell row is NPN 80148146 (NatureBell Magnesium Glycinate, Museo Co Inc., Active), a different product; LNHPD searches plus the full register export (307,065 rows)"
     },
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "guarantee": {
+        "text": "We are here to offer you a 60-Days Money Back Guarantee in case you have encountered a quality issue or have experienced an unpleasant health-related concern after taking our supplement(s).",
+        "url": "https://www.naturebellusa.com/pages/return-policy",
+        "lang": "en"
+      }
+    },
     "notes": [
       "Ingredient amounts from NatureBell's label at https://cdn.shopify.com/s/files/1/1970/8683/files/newbottleamazonpic2-03_3f7931dc-caaf-4809-bf0f-f99f20987eca.jpg?v=1758321497, checked 2026-10-08."
     ]
@@ -832,7 +940,7 @@
     },
     "priceMonthlyCAD": 98.33,
     "priceMonthlyUSD": 69.12,
-    "pricingModel": "one-time",
+    "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
     "euStorefront": false,
@@ -927,7 +1035,25 @@
       "basis": "NPN 80037243 (Ortho.Mind / Ortho Mind brand names), Advanced Orthomolecular Research Inc., Active, capsule, in the LNHPD (UI and API agree); sibling NPN 80037244 is Discontinued"
     },
     "trustpilotCheckedAt": "2026-09-28",
-    "verifiedAt": "2026-09-28"
+    "verifiedAt": "2026-09-28",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "Any orders above $75 (CAD) after discounts have been applied will qualify for free shipping. Orders under $75 will be subject to a $10 flat shipping fee.",
+        "url": "https://aor.ca/shipping-policy/",
+        "lang": "en"
+      },
+      "cancellation": {
+        "text": "If you decide a subscription is not for you, it can be cancelled after 2 renewals.",
+        "url": "https://aor.ca/product/ortho-mind/",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "$98.33 Buy more, save more*",
+        "url": "https://aor.ca/product/ortho-mind/",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "performance-lab-caffeine-2",
@@ -1039,7 +1165,30 @@
       "basis": "no Performance Lab row for Caffeine 2 (the brand-name search for 'Caffeine 2' returns only other companies' Caffeine 200 mg products); Performance Lab as licence holder returns only Juju Performance Labs rows; LNHPD searches plus the full register export (307,065 rows)"
     },
     "trustpilotCheckedAt": "2026-10-05",
-    "verifiedAt": "2026-10-05"
+    "verifiedAt": "2026-10-05",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "Parcels going to Canada and the Rest of the World will be shipped from our depot in the UK by international tracked airmail or DHL Courier. Airmail expected delivery time: 5 - 20 working days DHL expected delivery time: 2 - 7 working days",
+        "url": "https://ca.performancelab.com/pages/shipping-returns",
+        "lang": "en"
+      },
+      "cancellation": {
+        "text": "Update or cancel anytime",
+        "url": "https://ca.performancelab.com/products/caffeine-2",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "One-time purchase Price: CA$59.00",
+        "url": "https://ca.performancelab.com/products/caffeine-2",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "You're invited to put Performance Lab ® to the test for a full 30 days. If you don't see results, we will gladly refund your money (minus any shipping costs).",
+        "url": "https://ca.performancelab.com/pages/shipping-returns",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "pre-lab-pro",
@@ -1186,7 +1335,30 @@
       "basis": "no row for Pre Lab Pro as brand name or licence holder; Performance Lab as licence holder returns only Juju Performance Labs rows; LNHPD searches plus the full register export (307,065 rows)"
     },
     "trustpilotCheckedAt": "2026-10-05",
-    "verifiedAt": "2026-10-05"
+    "verifiedAt": "2026-10-05",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "Parcels going to Canada and the Rest of the World will be shipped from our depot in the UK by international tracked airmail or DHL Courier. Airmail expected delivery time: 5 - 20 working days DHL expected delivery time: 2 - 7 working days",
+        "url": "https://ca.performancelab.com/pages/shipping-returns",
+        "lang": "en"
+      },
+      "cancellation": {
+        "text": "Update or cancel anytime",
+        "url": "https://ca.performancelab.com/products/pre-lab-pro",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "One-time purchase Price: CA$79.00",
+        "url": "https://ca.performancelab.com/products/pre-lab-pro",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "You're invited to put Performance Lab ® to the test for a full 30 days. If you don't see results, we will gladly refund your money (minus any shipping costs).",
+        "url": "https://ca.performancelab.com/pages/shipping-returns",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "performance-lab-energy",
@@ -1289,7 +1461,30 @@
       "basis": "no row for Performance Lab Energy as brand name or licence holder; Performance Lab as licence holder returns only Juju Performance Labs rows; LNHPD searches plus the full register export (307,065 rows)"
     },
     "trustpilotCheckedAt": "2026-10-05",
-    "verifiedAt": "2026-10-05"
+    "verifiedAt": "2026-10-05",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "Parcels going to Canada and the Rest of the World will be shipped from our depot in the UK by international tracked airmail or DHL Courier. Airmail expected delivery time: 5 - 20 working days DHL expected delivery time: 2 - 7 working days",
+        "url": "https://ca.performancelab.com/pages/shipping-returns",
+        "lang": "en"
+      },
+      "cancellation": {
+        "text": "Update or cancel anytime",
+        "url": "https://ca.performancelab.com/products/energy",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "One-time purchase Price: CA$89.00",
+        "url": "https://ca.performancelab.com/products/energy",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "You're invited to put Performance Lab ® to the test for a full 30 days. If you don't see results, we will gladly refund your money (minus any shipping costs).",
+        "url": "https://ca.performancelab.com/pages/shipping-returns",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "performance-lab-omega-3",
@@ -1371,6 +1566,29 @@
       "basis": "no row for Performance Lab Omega-3 as brand name or licence holder; Performance Lab as licence holder returns only Juju Performance Labs rows; LNHPD searches plus the full register export (307,065 rows)"
     },
     "trustpilotCheckedAt": "2026-10-05",
-    "verifiedAt": "2026-10-05"
+    "verifiedAt": "2026-10-05",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "Parcels going to Canada and the Rest of the World will be shipped from our depot in the UK by international tracked airmail or DHL Courier. Airmail expected delivery time: 5 - 20 working days DHL expected delivery time: 2 - 7 working days",
+        "url": "https://ca.performancelab.com/pages/shipping-returns",
+        "lang": "en"
+      },
+      "cancellation": {
+        "text": "Update or cancel anytime",
+        "url": "https://ca.performancelab.com/products/omega-3",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "One-time purchase Price: CA$69.00",
+        "url": "https://ca.performancelab.com/products/omega-3",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "You're invited to put Performance Lab ® to the test for a full 30 days. If you don't see results, we will gladly refund your money (minus any shipping costs).",
+        "url": "https://ca.performancelab.com/pages/shipping-returns",
+        "lang": "en"
+      }
+    }
   }
 ]

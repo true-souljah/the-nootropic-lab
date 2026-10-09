@@ -1,0 +1,1312 @@
+{
+ "us": [
+  {
+   "id": "mind-lab-pro",
+   "slug": "mind-lab-pro-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "Standard shipping $9.95, free over $100 and on all subscriptions; 4-8 business days (contiguous US)",
+    "quote": "Standard Shipping: 4 - 8 business days ($9.95 | FREE on orders over $100 and all subscriptions)",
+    "url": "https://www.mindlabpro.com/pages/shipping-returns",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": "Update or cancel anytime (no minimum stated on page)",
+    "quote": "Update or cancel anytime",
+    "url": "https://www.mindlabpro.com/products/mind-lab-pro",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": {
+     "amount": 69,
+     "currency": "USD",
+     "pack": "1 bottle (Servings per container: 30)"
+    },
+    "quote": "One-time purchase Price: $69.00",
+    "url": "https://www.mindlabpro.com/products/mind-lab-pro",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 30,
+    "quote": "Put us to the test for a full 30 days. If you don't see results, we will gladly refund your money (minus any shipping costs).",
+    "url": "https://www.mindlabpro.com/pages/shipping-returns",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "noocube",
+   "slug": "noocube-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "Free shipping over $79.99; US delivery within 5 business days",
+    "quote": "FREE SHIPPING OVER $79.99",
+    "url": "https://www.noocube.com/",
+    "extraQuotes": [
+     {
+      "quote": "If you live in the United States, your order should arrive within 5 business days.",
+      "url": "https://www.noocube.com/"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": "Cancel anytime, no commitment (no minimum stated)",
+    "quote": "NO COMMITMENT CANCEL ANYTIME",
+    "url": "https://www.noocube.com/",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": {
+     "amount": 79.99,
+     "currency": "USD",
+     "pack": "60 capsules (1-month supply)",
+     "note": "RETAIL listed $79.99; page block also shows $55.24 and savings $24.75 without labelling which is single vs subscribe; amount = RETAIL figure"
+    },
+    "quote": "1-MONTH SUPPLY Single Purchase Subscribe 15% OFF CHEAPEST OPTION RETAIL: $79.99 $55.24 SAVINGS: $24.75 60 CAPSULES",
+    "url": "https://www.noocube.com/",
+    "verify": {
+     "status": "PASS",
+     "detail": "browser"
+    }
+   },
+   "guaranteeDays": {
+    "value": 60,
+    "quote": "we offer a 60-day money-back guarantee.",
+    "url": "https://www.noocube.com/pages/guarantee",
+    "extraQuotes": [
+     {
+      "quote": "We’ll refund 100% of the product price (excluding shipping charges) minus a small handling fee of 5% of your order.",
+      "url": "https://www.noocube.com/pages/guarantee"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "qualia-mind",
+   "slug": "qualia-mind-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "US shipping: Standard $8.98 (3-5 business days after ship), Priority $13.98 (2-3 business days); no free-shipping threshold stated on this page",
+    "quote": "US Shipping Cost: Standard $8.98 Priority $13.98",
+    "url": "https://www.qualialife.com/faqs/orders-shipping/category_index",
+    "extraQuotes": [
+     {
+      "quote": "Standard = 3-5 business days from the day it ships",
+      "url": "https://www.qualialife.com/faqs/orders-shipping/category_index"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": "Cancel or adjust any time, no conditions or mandatory subscription length",
+    "quote": "you can cancel or adjust it at any time, with no conditions or mandatory length of subscription.",
+    "url": "https://www.qualialife.com/shop/qualia-mind",
+    "extraQuotes": [
+     {
+      "quote": "You can cancel your subscription at anytime by logging into your account and managing your subscription.",
+      "url": "https://www.qualialife.com/faqs"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": {
+     "amount": 159,
+     "currency": "USD",
+     "pack": "Qualia Mind 2.0 - 120 count Boxed",
+     "note": "Pack size is stated on the subscription panel; one-time ('Purchase this time only') pack not separately labelled on page"
+    },
+    "quote": "$159.00 $39.00 first shipment, $139.00 thereafter Subscribe & Save 75% Purchase this time only",
+    "url": "https://www.qualialife.com/shop/qualia-mind",
+    "extraQuotes": [
+     {
+      "quote": "1 shipment (1 x Qualia Mind 2.0 - 120 count Boxed)",
+      "url": "https://www.qualialife.com/shop/qualia-mind"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 100,
+    "quote": "Feel 100% Satisfied within 100 days or get a 100% refund.",
+    "url": "https://www.qualialife.com/refund-policy",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "alpha-brain",
+   "slug": "onnit-alpha-brain-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "Free shipping on orders of $100 USD+ (contiguous US only); otherwise standard shipping rates apply",
+    "quote": "Free shipping is available on orders with a subtotal of $100 USD or more (after any discounts are applied).",
+    "url": "https://help.onnit.com/en-US/free-shipping-policy-6039824",
+    "extraQuotes": [
+     {
+      "quote": "This offer is valid only within the contiguous United States (excludes Alaska, Hawaii, and U.S. territories).",
+      "url": "https://help.onnit.com/en-US/free-shipping-policy-6039824"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": "Cancel or modify any time via Account Dashboard; leave without penalty (no minimum stated)",
+    "quote": "You may cancel or modify your Onnit subscriptions at any time by visiting your Account Dashboard .",
+    "url": "https://www.onnit.com/pages/subscription-program",
+    "extraQuotes": [
+     {
+      "quote": "You may join the program whenever you’d like and leave the program whenever you’d like, without penalty.",
+      "url": "https://www.onnit.com/pages/subscription-program"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": {
+     "amount": 79.95,
+     "currency": "USD",
+     "pack": "90 Count (45-day supply)",
+     "note": "Pack shown selected by default on product page"
+    },
+    "quote": "ONE-TIME PURCHASE Standard Shipping Rates Apply $79.95",
+    "url": "https://www.onnit.com/products/alpha-brain-90-ct",
+    "extraQuotes": [
+     {
+      "quote": "90 Count 45-day supply",
+      "url": "https://www.onnit.com/products/alpha-brain-90-ct"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "browser"
+    }
+   },
+   "guaranteeDays": {
+    "value": 30,
+    "quote": "30-day money back guarantee",
+    "url": "https://www.onnit.com/products/alpha-brain-90-ct",
+    "extraQuotes": [
+     {
+      "quote": "Head to our Contact Us page within 30 days of your purchase date.",
+      "url": "https://help.onnit.com/en-US/30-day-money-back-guarantee-6327406"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "thesis",
+   "slug": "thesis-nootropics-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "Free shipping (no threshold, cost or delivery time stated); no delivery time stated",
+    "quote": "30-day money-back guarantee Free shipping Free gifts with your subscription",
+    "url": "https://takethesis.com/products/clarity",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": "Cancel any time in Thesis Account or by contacting the team; no minimum stated",
+    "quote": "You can cancel your subscription at any time in your Thesis Account or if you need assistance you can contact our team at hello@takethesis.com",
+    "url": "https://takethesis.com/policies/refund-policy",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": {
+     "amount": 129,
+     "currency": "USD",
+     "pack": "1 Month Supply (Clarity)",
+     "note": "Thesis sells several formulas; Clarity page used. Page shows subscription from $59 first order"
+    },
+    "quote": "1 Month Supply $129 $ 59 Save 54 % then $ 79 /mo $2.36 /dose · Ships Every 25 Days",
+    "url": "https://takethesis.com/products/clarity",
+    "extraQuotes": [
+     {
+      "quote": "One time purchase, $129",
+      "url": "https://takethesis.com/products/clarity"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 30,
+    "quote": "you may request a refund within 30 days of delivery of your first order.",
+    "url": "https://takethesis.com/policies/refund-policy",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "nootropics-depot-lions-mane",
+   "slug": "nootropics-depot-lions-mane",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "Free shipping on US orders $50+ (FedEx 2-3 Day); shipping cost below threshold not stated on this page",
+    "quote": "Domestic orders $50 and more Ship via FedEx 2-3 Day Shipping.",
+    "url": "https://support.nootropicsdepot.com/article/67-how-do-i-select-free-shipping-during-checkout",
+    "extraQuotes": [
+     {
+      "quote": "Get free same-day shipping on US orders over $50, and international orders over $200, when placed Mon-Fri by 4pm, or Sat. by 12pm AZ MST.",
+      "url": "https://nootropicsdepot.com/lions-mane-hericium-erinaceus-whole-fruiting-body-medicinal-mushroom-extract-500mg-capsules/"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": null,
+    "reason": "Vendor states it does not offer subscriptions: 'Nootropics Depot does not currently offer subscriptions or monthly automatic shipments on NootropicsDepot.com.' (https://support.nootropicsdepot.com/article/65-does-nootropics-depot-offer-subscriptions-or-monthly-automatic-shipments). Stored pricingModel 'both' conflicts with this."
+   },
+   "oneTimePrice": {
+    "value": {
+     "amount": 19.99,
+     "currency": "USD",
+     "pack": "60 capsules (60CT., 60 servings)",
+     "note": "Product page title: Lion's Mane Mushroom 1:1 Capsules; 500mg (One Capsule)"
+    },
+    "quote": "$19.99 $0.33 / Serving Size (60 servings) 60CT. 180CT.",
+    "url": "https://nootropicsdepot.com/lions-mane-hericium-erinaceus-whole-fruiting-body-medicinal-mushroom-extract-500mg-capsules/",
+    "verify": {
+     "status": "PASS",
+     "detail": "browser"
+    }
+   },
+   "guaranteeDays": {
+    "value": 30,
+    "quote": "Nootropics Depot accepts returns of unopened product within 30 days of its delivery date. We do not accept returns or exchanges for opened and/or used product.",
+    "url": "https://support.nootropicsdepot.com/article/28-product-returns-policy",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "naturebell-ginkgo-ginseng",
+   "slug": "naturebell-ginkgo-ginseng-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "Free shipping on orders with subtotal of at least $49, otherwise standard shipping fee $7.95; no delivery time stated (site banner says over $50)",
+    "quote": "Our free shipping applies to any order of a subtotal of at least $49. To qualify, assure you have reached a subtotal of at least $49 before tax and after any discount that may be applied to your order. Otherwise, there will be a standard shipping fee of $7.95.",
+    "url": "https://www.naturebellusa.com/pages/return-policy",
+    "extraQuotes": [
+     {
+      "quote": "Free shipping on all orders over $50",
+      "url": "https://www.naturebellusa.com/products/ginkgo"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": null,
+    "reason": "No subscription option appears on the vendor's own product page (naturebellusa.com); the affiliate destination is an Amazon listing, which is a retailer and not used"
+   },
+   "oneTimePrice": {
+    "value": null,
+    "reason": "Vendor's own product page (naturebellusa.com/products/ginkgo) shows 'Sold Out' with no visible price; the affiliate link goes to an Amazon listing (retailer, not used)"
+   },
+   "guaranteeDays": {
+    "value": 60,
+    "quote": "We are here to offer you a 60-Days Money Back Guarantee in case you have encountered a quality issue or have experienced an unpleasant health-related concern after taking our supplement(s).",
+    "url": "https://www.naturebellusa.com/pages/return-policy",
+    "extraQuotes": [
+     {
+      "quote": "We can only issue refunds on products that were purchased directly from Naturebell.com. If you purchased through another online retailer, please contact them for your refund, as their own return policies will apply.",
+      "url": "https://www.naturebellusa.com/pages/return-policy"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "hunter-focus",
+   "slug": "hunter-focus-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "USPS Priority, 2-4 working days; free delivery shown only on 2-month and larger bundles, no cost/threshold stated for the 1-month bottle",
+    "quote": "Any orders in the US (including Hawaii, Alaska & Puerto Rico), Mexico and Canada are sent from our depots in Tennessee and Salt Lake City. Shipping: USPS Priority Delivery time: 2-4 working days",
+    "url": "https://www.hunterevolve.com/en-us/shipping-returns",
+    "extraQuotes": [
+     {
+      "quote": "2 Month - Brain Booster Pack 360 Capsules FREE Boss Workouts (Worth: $596) - Easy to follow video programs - Detailed nutrition E-Books - 12-week body transformation FREE USA & UK delivery",
+      "url": "https://www.hunterevolve.com/en-us/hunter-focus"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": null,
+    "reason": "Vendor states it offers no subscriptions: 'No. We don’t bill cards monthly as we offer no subscriptions. We only charge what you see at the checkout page.' (https://www.hunterevolve.com/en-us/faqs)"
+   },
+   "oneTimePrice": {
+    "value": {
+     "amount": 90,
+     "currency": "USD",
+     "pack": "180 capsules (1 Month - Starter Bottle)"
+    },
+    "quote": "1 Month – Starter Bottle 180 capsules Improved formula $90.00",
+    "url": "https://www.hunterevolve.com/en-us/hunter-focus",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 30,
+    "quote": "Have you received your order within the last 30 days for USA/Canada or within 14 days for UK & the rest of the world, are your products unused, unopened, still sealed and the product packaging undamaged?",
+    "url": "https://www.hunterevolve.com/en-us/shipping-returns",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "brainmd-brain-memory-power-boost",
+   "slug": "brainmd-brain-memory-power-boost-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "Free Economy shipping on orders over $75 (5-10 business days); subscription shipments free; excludes AK, HI and US territories",
+    "quote": "Free Economy shipping is available on orders over $75 (Excludes Alaska, Hawaii, American Samoa, Guam, U.S. Virgin Islands, Northern Mariana Islands, and Puerto Rico).",
+    "url": "https://brainmd.com/pages/shipping-info",
+    "extraQuotes": [
+     {
+      "quote": "Please note that Free Shipping may take 5 to 10 business days for delivery.",
+      "url": "https://brainmd.com/pages/shipping-info"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": "Online cancellation limited to California residents; all others cancel via Customer Care (email, phone or live chat); page also says 'Cancel anytime!'; no minimum stated",
+    "quote": "Online cancellation is currently limited to California residents. All other customers can cancel by reaching out to our Customer Care Team via email, phone, or live chat (see below).",
+    "url": "https://brainmd.com/pages/free-trials-and-subscriptions",
+    "extraQuotes": [
+     {
+      "quote": "Cancel anytime!",
+      "url": "https://brainmd.com/pages/free-trials-and-subscriptions"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": {
+     "amount": 64.95,
+     "currency": "USD",
+     "pack": null,
+     "note": "Page labels it '1 Unit'; capsule count not stated on page"
+    },
+    "quote": "One-time purchase 1 Unit one-time delivery $64.95",
+    "url": "https://brainmd.com/brain-memory-power-boost",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 60,
+    "quote": "Return unopened products within 60 days of purchase for a full refund of the purchase price (less original and return shipping costs).",
+    "url": "https://brainmd.com/policies/refund-policy",
+    "extraQuotes": [
+     {
+      "quote": "100% Money Back Guarantee",
+      "url": "https://brainmd.com/brain-memory-power-boost"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "trubrain",
+   "slug": "trubrain-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "Free shipping on orders over $55 (Trial ships free within the US); typical US delivery 2-4 business days",
+    "quote": "Yes, we do. Our Trial product ships free within the US! We also offer free shipping on all orders over $55+.",
+    "url": "https://www.trubrain.com/pages/faq",
+    "extraQuotes": [
+     {
+      "quote": "Orders typically arrive within 2-4 business days.",
+      "url": "https://www.trubrain.com/pages/faq"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": "Subscriptions renew every 30 days; cancellation request must be received before the renewal date; no minimum term stated",
+    "quote": "All subscriptions renew every 30 days. We are always happy to process cancellations before your subscription is renewed.",
+    "url": "https://www.trubrain.com/pages/faq",
+    "extraQuotes": [
+     {
+      "quote": "Request for cancellation of subscription must be received prior to subscription renew date.",
+      "url": "https://www.trubrain.com/pages/faq"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": null,
+    "reason": "Drinks product page (https://www.trubrain.com/products/drinks) is a build-your-own box; shown price is 'ADD TO CART - $45' with Subscribe & Save 'Yes' selected and heading 'Personalized Drinks | $45 / Mo'; no labelled one-time price for a standard pack is displayed without interacting. FAQ says one-time order is possible by clicking 'No' next to Subscribe & Save."
+   },
+   "guaranteeDays": {
+    "value": null,
+    "reason": "No money-back guarantee stated. FAQ return policy only: 'We can process a refund on your account if you ship the box back to our fulfillment center. The box must have been delivered to you within 7 days of return, unopened, and untampered with' (https://www.trubrain.com/pages/faq). Consistent with stored moneyBackDays 0."
+   }
+  },
+  {
+   "id": "performance-lab-caffeine-2",
+   "slug": "performance-lab-caffeine-2-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "Standard shipping $9.95, free on orders over $100 and all subscriptions; 4-8 business days (contiguous US)",
+    "quote": "Standard Shipping: 4 - 8 business days ($9.95 | FREE on orders over $100 and all subscriptions)",
+    "url": "https://www.performancelab.com/pages/shipping-returns",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": "Update or cancel anytime (no minimum stated on page)",
+    "quote": "Update or cancel anytime",
+    "url": "https://www.performancelab.com/products/caffeine-2",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": {
+     "amount": 44,
+     "currency": "USD",
+     "pack": "1 container (Servings per container: 30; Serving Size: 1 NutriCaps)"
+    },
+    "quote": "One-time purchase Price: $44.00",
+    "url": "https://www.performancelab.com/products/caffeine-2",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 30,
+    "quote": "You're invited to put Performance Lab ® to the test for a full 30 days. If you don't see results, we will gladly refund your money (minus any shipping costs).",
+    "url": "https://www.performancelab.com/pages/shipping-returns",
+    "extraQuotes": [
+     {
+      "quote": "Any claim must be submitted within 60 days of delivery.",
+      "url": "https://www.performancelab.com/pages/shipping-returns"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "pre-lab-pro",
+   "slug": "pre-lab-pro-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "Standard shipping $9.95, free on orders over $100 and all subscriptions; 4-8 business days (contiguous US)",
+    "quote": "Standard Shipping: 4 - 8 business days ($9.95 | FREE on orders over $100 and all subscriptions)",
+    "url": "https://www.performancelab.com/pages/shipping-returns",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": "Update or cancel anytime (no minimum stated on page)",
+    "quote": "Update or cancel anytime",
+    "url": "https://www.performancelab.com/products/pre-lab-pro",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": {
+     "amount": 59,
+     "currency": "USD",
+     "pack": "1 container (Servings per container: 20; Serving Size: 1 scoop (13g))"
+    },
+    "quote": "One-time purchase Price: $59.00",
+    "url": "https://www.performancelab.com/products/pre-lab-pro",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 30,
+    "quote": "You're invited to put Performance Lab ® to the test for a full 30 days. If you don't see results, we will gladly refund your money (minus any shipping costs).",
+    "url": "https://www.performancelab.com/pages/shipping-returns",
+    "extraQuotes": [
+     {
+      "quote": "Any claim must be submitted within 60 days of delivery.",
+      "url": "https://www.performancelab.com/pages/shipping-returns"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "performance-lab-energy",
+   "slug": "performance-lab-energy-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "Standard shipping $9.95, free on orders over $100 and all subscriptions; 4-8 business days (contiguous US)",
+    "quote": "Standard Shipping: 4 - 8 business days ($9.95 | FREE on orders over $100 and all subscriptions)",
+    "url": "https://www.performancelab.com/pages/shipping-returns",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": "Update or cancel anytime (no minimum stated on page)",
+    "quote": "Update or cancel anytime",
+    "url": "https://www.performancelab.com/products/energy",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": {
+     "amount": 69,
+     "currency": "USD",
+     "pack": "1 container (Servings per container: 30; Serving Size: 2 NutriCaps)"
+    },
+    "quote": "One-time purchase Price: $69.00",
+    "url": "https://www.performancelab.com/products/energy",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 30,
+    "quote": "You're invited to put Performance Lab ® to the test for a full 30 days. If you don't see results, we will gladly refund your money (minus any shipping costs).",
+    "url": "https://www.performancelab.com/pages/shipping-returns",
+    "extraQuotes": [
+     {
+      "quote": "Any claim must be submitted within 60 days of delivery.",
+      "url": "https://www.performancelab.com/pages/shipping-returns"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "performance-lab-omega-3",
+   "slug": "performance-lab-omega-3-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "Standard shipping $9.95, free on orders over $100 and all subscriptions; 4-8 business days (contiguous US)",
+    "quote": "Standard Shipping: 4 - 8 business days ($9.95 | FREE on orders over $100 and all subscriptions)",
+    "url": "https://www.performancelab.com/pages/shipping-returns",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": "Update or cancel anytime (no minimum stated on page)",
+    "quote": "Update or cancel anytime",
+    "url": "https://www.performancelab.com/products/omega-3",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": {
+     "amount": 49,
+     "currency": "USD",
+     "pack": "1 container (Servings per container: 30; Serving Size: 3 NutriGels)"
+    },
+    "quote": "One-time purchase Price: $49.00",
+    "url": "https://www.performancelab.com/products/omega-3",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 30,
+    "quote": "You're invited to put Performance Lab ® to the test for a full 30 days. If you don't see results, we will gladly refund your money (minus any shipping costs).",
+    "url": "https://www.performancelab.com/pages/shipping-returns",
+    "extraQuotes": [
+     {
+      "quote": "Any claim must be submitted within 60 days of delivery.",
+      "url": "https://www.performancelab.com/pages/shipping-returns"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  }
+ ],
+ "ca": [
+  {
+   "id": "mind-lab-pro",
+   "slug": "mind-lab-pro-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "Ships to Canada from UK depot by tracked airmail (5-20 working days) or DHL (2-7 working days); no cost or free-shipping threshold stated for Canada on this page",
+    "quote": "Parcels going to Canada and the Rest of the World will be shipped from our depot in the UK by international tracked airmail or DHL Courier. Airmail expected delivery time: 5 - 20 working days DHL expected delivery time: 2 - 7 working days",
+    "url": "https://ca.mindlabpro.com/pages/shipping-returns",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": "Update or cancel anytime (no minimum stated on page)",
+    "quote": "Update or cancel anytime",
+    "url": "https://ca.mindlabpro.com/products/mind-lab-pro",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": {
+     "amount": 89,
+     "currency": "CAD",
+     "pack": "1 bottle"
+    },
+    "quote": "One-time purchase Price: CA$89.00",
+    "url": "https://ca.mindlabpro.com/products/mind-lab-pro",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 30,
+    "quote": "Put us to the test for a full 30 days. If you don't see results, we will gladly refund your money (minus any shipping costs).",
+    "url": "https://ca.mindlabpro.com/pages/shipping-returns",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "noocube",
+   "slug": "noocube-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "Free shipping over $79.99; Canada delivery within 10 business days (Europe, Canada or Australia)",
+    "quote": "FREE SHIPPING OVER $79.99",
+    "url": "https://www.noocube.com/",
+    "extraQuotes": [
+     {
+      "quote": "For customers in Europe, Canada or Australia you should expect delivery within 10 business days.",
+      "url": "https://www.noocube.com/"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": "Cancel anytime, no commitment (no minimum stated)",
+    "quote": "NO COMMITMENT CANCEL ANYTIME",
+    "url": "https://www.noocube.com/",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": {
+     "amount": 79.99,
+     "currency": "USD",
+     "pack": "60 capsules (1-month supply)",
+     "note": "No CAD storefront found: page shows USD; same as US. RETAIL listed $79.99; page block also shows $55.24 without labelling"
+    },
+    "quote": "1-MONTH SUPPLY Single Purchase Subscribe 15% OFF CHEAPEST OPTION RETAIL: $79.99 $55.24 SAVINGS: $24.75 60 CAPSULES",
+    "url": "https://www.noocube.com/",
+    "verify": {
+     "status": "PASS",
+     "detail": "browser"
+    }
+   },
+   "guaranteeDays": {
+    "value": 60,
+    "quote": "we offer a 60-day money-back guarantee.",
+    "url": "https://www.noocube.com/pages/guarantee",
+    "extraQuotes": [
+     {
+      "quote": "We’ll refund 100% of the product price (excluding shipping charges) minus a small handling fee of 5% of your order.",
+      "url": "https://www.noocube.com/pages/guarantee"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "hunter-focus",
+   "slug": "hunter-focus-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "Canada: USPS International, 5-15 working days, shipped from US depots; cost/free threshold not stated",
+    "quote": "USPS International Delivery time Canada: 5-15 working days",
+    "url": "https://www.roarambition.com/en-ca/policies/shipping-policy",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": null,
+    "reason": "Vendor states it offers no subscriptions: 'No. We don’t bill cards monthly as we offer no subscriptions.' (https://www.hunterevolve.com/en-us/faqs, sister site of Roar Ambition)"
+   },
+   "oneTimePrice": {
+    "value": {
+     "amount": 90,
+     "currency": "USD",
+     "pack": null,
+     "note": "roarambition.com en-ca product page shows USD, no CAD price; pack size not stated on this page (hunterevolve.com US page: 180 capsules)"
+    },
+    "quote": "Hunter Focus $90.00 Add to cart",
+    "url": "https://www.roarambition.com/en-ca/products/hunter-focus",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 30,
+    "quote": "Have you received your order within the last 30 days for USA/Canada or within 14 days for UK & the rest of the world, are your products unused, unopened, still sealed and the product packaging undamaged?",
+    "url": "https://www.roarambition.com/en-ca/policies/refund-policy",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "alpha-brain",
+   "slug": "onnit-alpha-brain-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": null,
+    "reason": "Onnit help center states only a contiguous-US free-shipping policy; its international section (UPS Worldwide Express/Saver, 2 - 7 business days, import duties paid by Onnit) does not name Canada, and no Canadian storefront was found"
+   },
+   "cancellation": {
+    "value": "Cancel or modify any time via Account Dashboard; leave without penalty (no minimum stated)",
+    "quote": "You may cancel or modify your Onnit subscriptions at any time by visiting your Account Dashboard .",
+    "url": "https://www.onnit.com/pages/subscription-program",
+    "extraQuotes": [
+     {
+      "quote": "You may join the program whenever you’d like and leave the program whenever you’d like, without penalty.",
+      "url": "https://www.onnit.com/pages/subscription-program"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": null,
+    "reason": "No Canadian storefront/CAD price found on onnit.com; product page shows a single price with no currency or Canada-specific pricing"
+   },
+   "guaranteeDays": {
+    "value": 30,
+    "quote": "30-day money back guarantee",
+    "url": "https://www.onnit.com/products/alpha-brain-90-ct",
+    "extraQuotes": [
+     {
+      "quote": "Head to our Contact Us page within 30 days of your purchase date.",
+      "url": "https://help.onnit.com/en-US/30-day-money-back-guarantee-6327406"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "qualia-mind",
+   "slug": "qualia-mind-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "Ships to Canada: international shipping $13.98, estimated 15-22 days; customer pays import VAT/sales tax/duties",
+    "quote": "International orders to the following countries can be placed on the Qualia Shop page: Canada",
+    "url": "https://www.qualialife.com/faqs/orders-shipping/category_index",
+    "extraQuotes": [
+     {
+      "quote": "International Shipping cost is $13.98 Estimated shipping time is 15-22 days, which can vary, depending on customs protocols and checkpoints in each respective country.",
+      "url": "https://www.qualialife.com/faqs/orders-shipping/category_index"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": "Cancel or adjust any time, no conditions or mandatory subscription length",
+    "quote": "you can cancel or adjust it at any time, with no conditions or mandatory length of subscription.",
+    "url": "https://www.qualialife.com/shop/qualia-mind",
+    "extraQuotes": [
+     {
+      "quote": "You can cancel your subscription at anytime by logging into your account and managing your subscription.",
+      "url": "https://www.qualialife.com/faqs"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": {
+     "amount": 159,
+     "currency": "USD",
+     "pack": "Qualia Mind 2.0 - 120 count Boxed",
+     "note": "Page shows USD; no CAD storefront found. Pack size is stated on the subscription panel; one-time pack not separately labelled"
+    },
+    "quote": "$159.00 $39.00 first shipment, $139.00 thereafter Subscribe & Save 75% Purchase this time only",
+    "url": "https://www.qualialife.com/shop/qualia-mind",
+    "extraQuotes": [
+     {
+      "quote": "1 shipment (1 x Qualia Mind 2.0 - 120 count Boxed)",
+      "url": "https://www.qualialife.com/shop/qualia-mind"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 100,
+    "quote": "Feel 100% Satisfied within 100 days or get a 100% refund.",
+    "url": "https://www.qualialife.com/refund-policy",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "naturebell-ginkgo-ginseng",
+   "slug": "naturebell-ginkgo-ginseng-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": null,
+    "reason": "naturebellusa.com is a US storefront; its shipping policy does not mention Canada; affiliate destination is amazon.ca (retailer, not used)"
+   },
+   "cancellation": {
+    "value": null,
+    "reason": "No subscription option appears on the vendor's own product page (naturebellusa.com); the affiliate destination is an Amazon listing, which is a retailer and not used"
+   },
+   "oneTimePrice": {
+    "value": null,
+    "reason": "No Canadian storefront or CAD price on vendor's own site; US product page shows 'Sold Out'; affiliate destination is amazon.ca (retailer, not used)"
+   },
+   "guaranteeDays": {
+    "value": 60,
+    "quote": "We are here to offer you a 60-Days Money Back Guarantee in case you have encountered a quality issue or have experienced an unpleasant health-related concern after taking our supplement(s).",
+    "url": "https://www.naturebellusa.com/pages/return-policy",
+    "extraQuotes": [
+     {
+      "quote": "We can only issue refunds on products that were purchased directly from Naturebell.com. If you purchased through another online retailer, please contact them for your refund, as their own return policies will apply.",
+      "url": "https://www.naturebellusa.com/pages/return-policy"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "aor-ortho-mind",
+   "slug": "aor-ortho-mind-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "Free shipping on orders above $75 CAD (after discounts), otherwise $10 flat fee; typically 2-5 business days after processing (1-2 business days)",
+    "quote": "Any orders above $75 (CAD) after discounts have been applied will qualify for free shipping. Orders under $75 will be subject to a $10 flat shipping fee.",
+    "url": "https://aor.ca/shipping-policy/",
+    "extraQuotes": [
+     {
+      "quote": "packages typically take between 2 to 5 business days to arrive",
+      "url": "https://aor.ca/shipping-policy/"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": "Cancellable only after 2 renewals; subscription orders under $75 pay $10 flat shipping",
+    "quote": "If you decide a subscription is not for you, it can be cancelled after 2 renewals.",
+    "url": "https://aor.ca/product/ortho-mind/",
+    "extraQuotes": [
+     {
+      "quote": "Subscription orders above $75 qualify for free shipping. If your subscription order is below $75 after discounts are applied, it is ineligible for free shipping, and you will be charged a $10 flat rate shipping fee.",
+      "url": "https://aor.ca/shipping-policy/"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": {
+     "amount": 98.33,
+     "currency": "CAD",
+     "pack": null,
+     "note": "Price shown without currency label on Canadian site (shipping policy states CAD); pack size not stated on product page; 'Buy more, save more' tiers and 'Subscribe & Save 20% ... $78.66' also shown. Stored pricingModel 'one-time' but page offers subscription"
+    },
+    "quote": "$98.33 Buy more, save more*",
+    "url": "https://aor.ca/product/ortho-mind/",
+    "extraQuotes": [
+     {
+      "quote": "One-time Purchase Subscribe & Save 20% at checkout: $78.66",
+      "url": "https://aor.ca/product/ortho-mind/"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "browser"
+    }
+   },
+   "guaranteeDays": {
+    "value": null,
+    "reason": "No money-back guarantee stated. Return policy: 'we are declining all returns (excluding Adverse Reactions and Damaged products) for the safety of our customers and associates.' (https://aor.ca/return-policy/). Conflicts with stored moneyBackDays 30."
+   }
+  },
+  {
+   "id": "performance-lab-caffeine-2",
+   "slug": "performance-lab-caffeine-2-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "Ships to Canada from UK depot by tracked airmail (5-20 working days) or DHL (2-7 working days); no cost or free-shipping threshold stated for Canada on this page; product page shows 'FREE shipping' on smart subscription",
+    "quote": "Parcels going to Canada and the Rest of the World will be shipped from our depot in the UK by international tracked airmail or DHL Courier. Airmail expected delivery time: 5 - 20 working days DHL expected delivery time: 2 - 7 working days",
+    "url": "https://ca.performancelab.com/pages/shipping-returns",
+    "extraQuotes": [
+     {
+      "quote": "FREE shipping",
+      "url": "https://ca.performancelab.com/products/caffeine-2"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": "Update or cancel anytime (no minimum stated on page)",
+    "quote": "Update or cancel anytime",
+    "url": "https://ca.performancelab.com/products/caffeine-2",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": {
+     "amount": 59,
+     "currency": "CAD",
+     "pack": "1 container (Servings per container: 30; Serving Size: 1 NutriCaps)"
+    },
+    "quote": "One-time purchase Price: CA$59.00",
+    "url": "https://ca.performancelab.com/products/caffeine-2",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 30,
+    "quote": "You're invited to put Performance Lab ® to the test for a full 30 days. If you don't see results, we will gladly refund your money (minus any shipping costs).",
+    "url": "https://ca.performancelab.com/pages/shipping-returns",
+    "extraQuotes": [
+     {
+      "quote": "Any claim must be submitted within 60 days of delivery.",
+      "url": "https://ca.performancelab.com/pages/shipping-returns"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "pre-lab-pro",
+   "slug": "pre-lab-pro-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "Ships to Canada from UK depot by tracked airmail (5-20 working days) or DHL (2-7 working days); no cost or free-shipping threshold stated for Canada on this page; product page shows 'FREE shipping' on smart subscription",
+    "quote": "Parcels going to Canada and the Rest of the World will be shipped from our depot in the UK by international tracked airmail or DHL Courier. Airmail expected delivery time: 5 - 20 working days DHL expected delivery time: 2 - 7 working days",
+    "url": "https://ca.performancelab.com/pages/shipping-returns",
+    "extraQuotes": [
+     {
+      "quote": "FREE shipping",
+      "url": "https://ca.performancelab.com/products/pre-lab-pro"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": "Update or cancel anytime (no minimum stated on page)",
+    "quote": "Update or cancel anytime",
+    "url": "https://ca.performancelab.com/products/pre-lab-pro",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": {
+     "amount": 79,
+     "currency": "CAD",
+     "pack": "1 container (Servings per container: 20; Serving Size: 1 scoop (13g))"
+    },
+    "quote": "One-time purchase Price: CA$79.00",
+    "url": "https://ca.performancelab.com/products/pre-lab-pro",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 30,
+    "quote": "You're invited to put Performance Lab ® to the test for a full 30 days. If you don't see results, we will gladly refund your money (minus any shipping costs).",
+    "url": "https://ca.performancelab.com/pages/shipping-returns",
+    "extraQuotes": [
+     {
+      "quote": "Any claim must be submitted within 60 days of delivery.",
+      "url": "https://ca.performancelab.com/pages/shipping-returns"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "performance-lab-energy",
+   "slug": "performance-lab-energy-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "Ships to Canada from UK depot by tracked airmail (5-20 working days) or DHL (2-7 working days); no cost or free-shipping threshold stated for Canada on this page; product page shows 'FREE shipping' on smart subscription",
+    "quote": "Parcels going to Canada and the Rest of the World will be shipped from our depot in the UK by international tracked airmail or DHL Courier. Airmail expected delivery time: 5 - 20 working days DHL expected delivery time: 2 - 7 working days",
+    "url": "https://ca.performancelab.com/pages/shipping-returns",
+    "extraQuotes": [
+     {
+      "quote": "FREE shipping",
+      "url": "https://ca.performancelab.com/products/energy"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": "Update or cancel anytime (no minimum stated on page)",
+    "quote": "Update or cancel anytime",
+    "url": "https://ca.performancelab.com/products/energy",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": {
+     "amount": 89,
+     "currency": "CAD",
+     "pack": "1 container (Servings per container: 30; Serving Size: 2 NutriCaps)"
+    },
+    "quote": "One-time purchase Price: CA$89.00",
+    "url": "https://ca.performancelab.com/products/energy",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 30,
+    "quote": "You're invited to put Performance Lab ® to the test for a full 30 days. If you don't see results, we will gladly refund your money (minus any shipping costs).",
+    "url": "https://ca.performancelab.com/pages/shipping-returns",
+    "extraQuotes": [
+     {
+      "quote": "Any claim must be submitted within 60 days of delivery.",
+      "url": "https://ca.performancelab.com/pages/shipping-returns"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "performance-lab-omega-3",
+   "slug": "performance-lab-omega-3-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "Ships to Canada from UK depot by tracked airmail (5-20 working days) or DHL (2-7 working days); no cost or free-shipping threshold stated for Canada on this page; product page shows 'FREE shipping' on smart subscription",
+    "quote": "Parcels going to Canada and the Rest of the World will be shipped from our depot in the UK by international tracked airmail or DHL Courier. Airmail expected delivery time: 5 - 20 working days DHL expected delivery time: 2 - 7 working days",
+    "url": "https://ca.performancelab.com/pages/shipping-returns",
+    "extraQuotes": [
+     {
+      "quote": "FREE shipping",
+      "url": "https://ca.performancelab.com/products/omega-3"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": "Update or cancel anytime (no minimum stated on page)",
+    "quote": "Update or cancel anytime",
+    "url": "https://ca.performancelab.com/products/omega-3",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": {
+     "amount": 69,
+     "currency": "CAD",
+     "pack": "1 container (Servings per container: 30; Serving Size: 3 NutriGels)"
+    },
+    "quote": "One-time purchase Price: CA$69.00",
+    "url": "https://ca.performancelab.com/products/omega-3",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 30,
+    "quote": "You're invited to put Performance Lab ® to the test for a full 30 days. If you don't see results, we will gladly refund your money (minus any shipping costs).",
+    "url": "https://ca.performancelab.com/pages/shipping-returns",
+    "extraQuotes": [
+     {
+      "quote": "Any claim must be submitted within 60 days of delivery.",
+      "url": "https://ca.performancelab.com/pages/shipping-returns"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  }
+ ]
+}

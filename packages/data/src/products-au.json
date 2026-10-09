@@ -128,6 +128,29 @@
     "updatedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28",
     "verifiedAt": "2026-09-28",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "If you live in Australia, your order will be shipped from our depot in Australia or the UK. Australia - Expected delivery time: 3 - 6 working days (depending on destination) UK - Expected delivery time: 7 - 14 workings days (depending on destination)",
+        "url": "https://www.mindlabpro.com/pages/shipping-returns",
+        "lang": "en"
+      },
+      "cancellation": {
+        "text": "Update or cancel anytime",
+        "url": "https://www.mindlabpro.com/products/mind-lab-pro",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "One-time purchase Price: $69.00",
+        "url": "https://www.mindlabpro.com/products/mind-lab-pro",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "Try Mind Lab Pro® for 30 days - risk-free.",
+        "url": "https://www.mindlabpro.com/pages/shipping-returns",
+        "lang": "en"
+      }
+    },
     "notes": [
       "Ingredient amounts from Mind Lab Pro's label at https://au.mindlabpro.com/products/mind-lab-pro, checked 2026-10-08."
     ]
@@ -272,7 +295,30 @@
       "Ingredient amounts from NooCube's label at https://noocube.com/cdn/shop/t/90/assets/noocube-label-usa-v3.jpg?v=141477061997521322691727969792, checked 2026-10-08."
     ],
     "trustpilotCheckedAt": "2026-09-28",
-    "verifiedAt": "2026-09-28"
+    "verifiedAt": "2026-09-28",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "Free Shipping Over $109.99 Free worldwide delivery when you spend over $109.99",
+        "url": "https://noocube.com.au/pages/guarantee",
+        "lang": "en"
+      },
+      "cancellation": {
+        "text": "NO COMMITMENT CANCEL ANYTIME",
+        "url": "https://noocube.com.au/",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "RETAIL: $99.99 $99.99 $84.99 $72.24",
+        "url": "https://noocube.com.au/",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "we offer a 60-day money-back guarantee.",
+        "url": "https://noocube.com.au/pages/guarantee",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "performance-lab-mind",
@@ -386,7 +432,7 @@
     "priceMonthlyUSD": 90,
     "priceMonthlyAUD": 140,
     "pricingModel": "one-time",
-    "moneyBackDays": 30,
+    "moneyBackDays": null,
     "caffeineFree": false,
     "euStorefront": false,
     "euCompliance": "verify",
@@ -456,7 +502,25 @@
     "market": "both",
     "updatedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28",
-    "verifiedAt": "2026-09-28"
+    "verifiedAt": "2026-09-28",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "Australia and the rest of the world Orders outside of the USA, UK and Europe are sent from our depot in England. FedEx International Connect Delivery time: 5-15 working days",
+        "url": "https://www.roarambition.com/en-us/policies/shipping-policy",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "Hunter Focus $90.00 Add to cart",
+        "url": "https://www.roarambition.com/en-us/products/hunter-focus",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "within the last 30 days for USA/Canada or within 14 days for UK & the rest of the world",
+        "url": "https://www.roarambition.com/en-us/policies/refund-policy",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "alpha-brain",
@@ -583,7 +647,25 @@
     "market": "both",
     "updatedAt": "2026-10-08",
     "trustpilotCheckedAt": "2026-09-28",
-    "verifiedAt": "2026-09-28"
+    "verifiedAt": "2026-09-28",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "UPS Worldwide Express is an express service that delivers Monday through Friday in most countries. The transit and delivery timeline is anticipated within 2 - 7 business days, location dependent and barring any unforeseen issues at customs. Import duties and/or taxes are paid for by Onnit on your behalf.",
+        "url": "https://help.onnit.com/en-US/how-will-you-ship-my-order-6039833",
+        "lang": "en"
+      },
+      "cancellation": {
+        "text": "Select the subscription you'd like to cancel Click Cancel Subscription",
+        "url": "https://help.onnit.com/en-US/how-to-cancel-a-product-subscription-6038388",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "The 30 Day Money Back Guarantee applies to your first-time purchase of any Onnit supplement.",
+        "url": "https://help.onnit.com/en-US/30-day-money-back-guarantee-6327406",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "qualia-mind",
@@ -605,7 +687,7 @@
     },
     "priceMonthlyUSD": 139,
     "priceMonthlyAUD": 215,
-    "pricingModel": "subscription",
+    "pricingModel": "both",
     "moneyBackDays": 100,
     "caffeineFree": false,
     "euStorefront": false,
@@ -690,7 +772,30 @@
     "market": "both",
     "updatedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28",
-    "verifiedAt": "2026-09-28"
+    "verifiedAt": "2026-09-28",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "International Shipping cost is $13.98 Estimated shipping time is 15-22 days, which can vary, depending on customs protocols and checkpoints in each respective country.",
+        "url": "https://www.qualialife.com/faqs/orders-shipping/category_index",
+        "lang": "en"
+      },
+      "cancellation": {
+        "text": "Keep in mind, subscriptions can be cancelled at any time; there is no minimum timeline or contract.",
+        "url": "https://www.qualialife.com/faqs/account-subscription/category_index?selected=how-can-i-cancel-my-subscription",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "$159.00 $39.00 first shipment, $139.00 thereafter Subscribe & Save 75% Purchase this time only",
+        "url": "https://www.qualialife.com/shop/qualia-mind",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "Feel 100% Satisfied within 100 days or get a 100% refund.",
+        "url": "https://www.qualialife.com/faqs/what-is-our-refund-policy",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "naturebell-ginkgo-ginseng",
@@ -969,7 +1074,30 @@
     "market": "both",
     "updatedAt": "2026-10-05",
     "trustpilotCheckedAt": "2026-10-05",
-    "verifiedAt": "2026-10-05"
+    "verifiedAt": "2026-10-05",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "If you live in Australia, your order will be shipped from our depot in Australia or the UK. Australia - Expected delivery time: 3 - 6 working days (depending on destination) UK - Expected delivery time: 7 - 14 workings days (depending on destination)",
+        "url": "https://www.performancelab.com/pages/shipping-returns",
+        "lang": "en"
+      },
+      "cancellation": {
+        "text": "Update or cancel anytime",
+        "url": "https://www.performancelab.com/products/caffeine-2",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "One-time purchase Price: $44.00",
+        "url": "https://www.performancelab.com/products/caffeine-2",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "Try Performance Lab ® for 30 days - risk-free.",
+        "url": "https://www.performancelab.com/pages/shipping-returns",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "pre-lab-pro",
@@ -1110,7 +1238,30 @@
     "market": "both",
     "updatedAt": "2026-10-05",
     "trustpilotCheckedAt": "2026-10-05",
-    "verifiedAt": "2026-10-05"
+    "verifiedAt": "2026-10-05",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "If you live in Australia, your order will be shipped from our depot in Australia or the UK. Australia - Expected delivery time: 3 - 6 working days (depending on destination) UK - Expected delivery time: 7 - 14 workings days (depending on destination)",
+        "url": "https://www.performancelab.com/pages/shipping-returns",
+        "lang": "en"
+      },
+      "cancellation": {
+        "text": "Update or cancel anytime",
+        "url": "https://www.performancelab.com/products/pre-lab-pro",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "One-time purchase Price: $59.00",
+        "url": "https://www.performancelab.com/products/pre-lab-pro",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "Try Performance Lab ® for 30 days - risk-free.",
+        "url": "https://www.performancelab.com/pages/shipping-returns",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "performance-lab-energy",
@@ -1207,7 +1358,30 @@
     "market": "both",
     "updatedAt": "2026-10-06",
     "trustpilotCheckedAt": "2026-10-05",
-    "verifiedAt": "2026-10-05"
+    "verifiedAt": "2026-10-05",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "If you live in Australia, your order will be shipped from our depot in Australia or the UK. Australia - Expected delivery time: 3 - 6 working days (depending on destination) UK - Expected delivery time: 7 - 14 workings days (depending on destination)",
+        "url": "https://www.performancelab.com/pages/shipping-returns",
+        "lang": "en"
+      },
+      "cancellation": {
+        "text": "Update or cancel anytime",
+        "url": "https://www.performancelab.com/products/energy",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "One-time purchase Price: $69.00",
+        "url": "https://www.performancelab.com/products/energy",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "Try Performance Lab ® for 30 days - risk-free.",
+        "url": "https://www.performancelab.com/pages/shipping-returns",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "performance-lab-omega-3",
@@ -1283,6 +1457,29 @@
     "market": "both",
     "updatedAt": "2026-10-06",
     "trustpilotCheckedAt": "2026-10-05",
-    "verifiedAt": "2026-10-05"
+    "verifiedAt": "2026-10-05",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "If you live in Australia, your order will be shipped from our depot in Australia or the UK. Australia - Expected delivery time: 3 - 6 working days (depending on destination) UK - Expected delivery time: 7 - 14 workings days (depending on destination)",
+        "url": "https://www.performancelab.com/pages/shipping-returns",
+        "lang": "en"
+      },
+      "cancellation": {
+        "text": "Update or cancel anytime",
+        "url": "https://www.performancelab.com/products/omega-3",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "One-time purchase Price: $49.00",
+        "url": "https://www.performancelab.com/products/omega-3",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "Try Performance Lab ® for 30 days - risk-free.",
+        "url": "https://www.performancelab.com/pages/shipping-returns",
+        "lang": "en"
+      }
+    }
   }
 ]

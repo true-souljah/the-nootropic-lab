@@ -58,6 +58,19 @@ const BANNED_PHRASES = [
   'operado por .',
   'Kulik Media',
   'FintechPays',
+  // Blanket shipping/regulatory guarantees with no evidence behind them (owner
+  // decision 2026-10-08). Per-product statements backed by vendor terms stay.
+  'shipping verified',
+  'shipping confirmed',
+  'Shipping confirmed to',
+  'All products listed',
+  'Livraison au Canada vérifiée',
+  'livraison au Canada confirmée',
+  'Tous les produits listés',
+  'sont expédiés directement au Canada',
+  'Envío a Latam verificado',
+  'Todos los productos se envían',
+  'Verificamos el estado regulatorio',
 ];
 
 const SOURCE_EXT = /\.(ts|tsx|json)$/;

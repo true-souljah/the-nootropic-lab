@@ -44,6 +44,65 @@ export function formProblem(form: unknown): string | null {
   return `form is not one of ${PRODUCT_FORMS.join(' | ')}: ${JSON.stringify(form) ?? String(form)}`;
 }
 
+export const VENDOR_TERM_FIELDS = ['shipping', 'cancellation', 'oneTimePrice', 'guarantee'] as const;
+
+function isIsoDate(value: unknown): boolean {
+  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  const date = new Date(`${value}T00:00:00Z`);
+  return !Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === value;
+}
+
+/**
+ * Why `vendorTerms` is malformed (one line per problem), or [] when it is
+ * absent or valid. `checkedAt` must be an ISO date (YYYY-MM-DD); every term
+ * present needs non-empty `text`, an absolute https `url` and a two-letter
+ * `lang`, and optional `fragments` must join with " | " back to `text`; no
+ * other vendorTerms keys are allowed (a typo would silently render nothing).
+ */
+export function vendorTermsProblems(terms: unknown): string[] {
+  if (terms === undefined) return [];
+  if (terms === null || typeof terms !== 'object' || Array.isArray(terms)) return ['vendorTerms is not an object'];
+  const record = terms as Record<string, unknown>;
+  const problems: string[] = [];
+  if (!isIsoDate(record.checkedAt)) problems.push(`vendorTerms.checkedAt is not an ISO date (YYYY-MM-DD): ${JSON.stringify(record.checkedAt)}`);
+  for (const key of Object.keys(record)) {
+    if (key !== 'checkedAt' && !(VENDOR_TERM_FIELDS as readonly string[]).includes(key)) {
+      problems.push(`vendorTerms has an unknown key "${key}" (allowed: checkedAt, ${VENDOR_TERM_FIELDS.join(', ')})`);
+    }
+  }
+  for (const field of VENDOR_TERM_FIELDS) {
+    const term = record[field];
+    if (term === undefined) continue;
+    if (term === null || typeof term !== 'object' || Array.isArray(term)) {
+      problems.push(`vendorTerms.${field} is not an object`);
+      continue;
+    }
+    const { text, url, lang, fragments } = term as Record<string, unknown>;
+    if (typeof text !== 'string' || text.trim() === '') problems.push(`vendorTerms.${field}.text is empty`);
+    if (
+      fragments !== undefined &&
+      (!Array.isArray(fragments) ||
+        fragments.length < 2 ||
+        fragments.some((f) => typeof f !== 'string' || f.trim() === '') ||
+        fragments.join(' | ') !== text)
+    ) {
+      problems.push(`vendorTerms.${field}.fragments must be 2+ non-empty strings that join with " | " to text`);
+    }
+    let protocol: string | null = null;
+    try {
+      protocol = typeof url === 'string' ? new URL(url).protocol : null;
+    } catch {
+      protocol = null;
+    }
+    if (protocol !== 'https:') problems.push(`vendorTerms.${field}.url is not an absolute https URL: ${JSON.stringify(url)}`);
+    if (typeof lang !== 'string' || !/^[a-z]{2}$/.test(lang)) problems.push(`vendorTerms.${field}.lang is not a two-letter language code: ${JSON.stringify(lang)}`);
+  }
+  if (problems.length === 0 && VENDOR_TERM_FIELDS.every((field) => record[field] === undefined)) {
+    problems.push('vendorTerms has no terms (omit the key instead)');
+  }
+  return problems;
+}
+
 /**
  * Pillar weights of the overall score (operator decision 2026-10-07; the
  * review page's "How the score is computed" panel and every /methodology/
@@ -155,7 +214,7 @@ export function halalEvidenceProblem(
 export function productRuleProblems(
   product: Pick<
     Product,
-    'affiliateUrl' | 'ingredientDosages' | 'discontinued' | 'form' | 'score' | 'scoreBreakdown' | 'unscoredReason' | 'halalCertified' | 'halalCheckedAt' | 'halalBasis'
+    'affiliateUrl' | 'ingredientDosages' | 'discontinued' | 'form' | 'score' | 'scoreBreakdown' | 'unscoredReason' | 'halalCertified' | 'halalCheckedAt' | 'halalBasis' | 'vendorTerms'
   >,
 ): string[] {
   const problems: string[] = [];
@@ -169,5 +228,6 @@ export function productRuleProblems(
   if (score) problems.push(score);
   const halal = halalEvidenceProblem(product);
   if (halal) problems.push(halal);
+  problems.push(...vendorTermsProblems(product.vendorTerms));
   return problems;
 }
