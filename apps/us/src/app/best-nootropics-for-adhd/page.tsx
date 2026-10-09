@@ -26,7 +26,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Tyrosine (and NALT)',
     evidence:
-      'Precursor to dopamine and norepinephrine — the same neurotransmitter systems targeted by ADHD stimulants (Adderall, Ritalin). Tyrosine does NOT replicate stimulant effects but may modestly support attention under cognitive load or stress. Studied at 300–500mg as NALT or 1500–2000mg as free tyrosine.',
+      'Precursor to dopamine and norepinephrine — the same neurotransmitter systems targeted by ADHD stimulants (Adderall, Ritalin). Tyrosine does NOT replicate stimulant effects but may modestly support attention under cognitive load or stress. The stress trials with positive results used plain (free) L-tyrosine at 2g a day or 100–150mg/kg.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/26424423/',
   },
   {

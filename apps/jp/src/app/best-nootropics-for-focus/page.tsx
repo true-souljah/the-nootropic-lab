@@ -38,7 +38,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Tyrosine (or NALT)',
     evidence:
-      'Precursor to dopamine + norepinephrine. Effective specifically under cognitive load or stress — improves performance on attention tasks during sleep deprivation, multitasking, or cold exposure. Clinical doses 300–500mg as N-acetyl-L-tyrosine.',
+      'Precursor to dopamine + norepinephrine. Effective specifically under cognitive load or stress — improves performance on attention tasks during sleep deprivation, multitasking, or cold exposure. The stress trials with positive results used plain L-tyrosine at 2g a day or 100–150mg/kg.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/26424423/',
   },
   {
@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'hunter-focus-review')!,
     rank: 2,
     whyItsHere:
-      'High-dose stack with 100mg caffeine + 200mg L-theanine in the classic 1:2 ratio for clean stimulated focus, plus 250mg citicoline and 500mg Lion\'s Mane. Note: contains caffeine and the label is in English only — Japanese buyers sensitive to stimulants should pick a caffeine-free option above. 6 capsules/day is a heavy pill burden.',
+      'Stack with 100mg caffeine + 200mg L-theanine in the classic 1:2 ratio for clean stimulated focus, plus 250mg citicoline and 500mg Lion\'s Mane. Note: contains caffeine and the label is in English only — Japanese buyers sensitive to stimulants should pick a caffeine-free option above. 6 capsules/day is a heavy pill burden.',
   },
   {
     product: productsJP.find(p => p.slug === 'noocube-review')!,

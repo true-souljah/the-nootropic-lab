@@ -44,7 +44,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Tyrosine — under-stress performance',
     evidence:
-      'Acute exam stress, sleep deprivation (a SEA student staple during finals weeks), and tropical heat all deplete catecholamines. Tyrosine supplementation has documented benefit for cognitive performance specifically under stress, sleep loss, or heat exposure. 300–500mg as NALT for short bursts during exam periods; not for daily continuous use.',
+      'Acute exam stress, sleep deprivation (a SEA student staple during finals weeks), and tropical heat all deplete catecholamines. Tyrosine supplementation has documented benefit for cognitive performance specifically under stress, sleep loss, or heat exposure. The stress trials with positive results used plain L-tyrosine at 2g a day or 100–150mg/kg, for short bursts during exam periods; not for daily continuous use.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/26424423/',
   },
 ];
@@ -77,7 +77,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Which are best for SEA students via Shopee/Lazada vs cross-border iHerb?',
-    a: 'NatureBell Ginkgo+Ginseng on Amazon.sg (~SGD $7/mo) avoids customs and credit-card cross-border fees, but it scores below our bar for ranked picks (listed under Also considered above). For premium stacks: cross-border iHerb to Singapore is the most reliable route for Mind Lab Pro, NooCube, and Nootropics Depot products. Direct from the brand is also an option for Mind Lab Pro: its FAQ names Singapore, Thailand, the Philippines, Indonesia and Vietnam among its shipping territories (checked 2026-09-29; Malaysia not named on that partial list).',
+    a: 'NatureBell Ginkgo+Ginseng on Amazon.sg (~SGD $7/mo) avoids customs and credit-card cross-border fees, and it is one of the ranked picks above. For premium stacks: cross-border iHerb to Singapore is the most reliable route for Mind Lab Pro, NooCube, and Nootropics Depot products. Direct from the brand is also an option for Mind Lab Pro: its FAQ names Singapore, Thailand, the Philippines, Indonesia and Vietnam among its shipping territories (checked 2026-09-29; Malaysia not named on that partial list).',
   },
   {
     q: 'When should I start taking nootropics for studying?',

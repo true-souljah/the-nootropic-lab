@@ -45,7 +45,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Tirosina — rendimiento bajo estrés',
     evidence:
-      'El estrés agudo de exámenes y la falta de sueño agotan las catecolaminas. La suplementación con tirosina tiene beneficio documentado para el rendimiento cognitivo específicamente bajo estrés, pérdida de sueño o frío. 300–500mg como NALT para uso puntual; no para uso continuo diario.',
+      'El estrés agudo de exámenes y la falta de sueño agotan las catecolaminas. La suplementación con tirosina tiene beneficio documentado para el rendimiento cognitivo específicamente bajo estrés, pérdida de sueño o frío. Los ensayos de estrés con resultados positivos usaron L-tirosina simple a 2g al día o 100–150mg/kg, para uso puntual; no para uso continuo diario.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/26424423/',
   },
 ];

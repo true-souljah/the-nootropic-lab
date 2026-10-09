@@ -26,7 +26,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Tyrosine (and NALT) — partial dopamine pathway overlap',
     evidence:
-      'L-tyrosine is the precursor amino acid to dopamine and norepinephrine — the same neurotransmitters Adderall manipulates. Critical caveat: tyrosine supplementation provides building blocks, while Adderall actively releases stored dopamine and inhibits its reuptake. The mechanisms differ fundamentally. Tyrosine has documented benefit specifically under acute stress, sleep deprivation, or cold exposure (300–500mg as NALT, or 1500–2000mg free).',
+      'L-tyrosine is the precursor amino acid to dopamine and norepinephrine — the same neurotransmitters Adderall manipulates. Critical caveat: tyrosine supplementation provides building blocks, while Adderall actively releases stored dopamine and inhibits its reuptake. The mechanisms differ fundamentally. Tyrosine has documented benefit specifically under acute stress, sleep deprivation, or cold exposure (the stress trials with positive results used plain L-tyrosine at 2g a day or 100–150mg/kg).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/26424423/',
   },
   {

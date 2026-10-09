@@ -39,7 +39,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Tirosina (o NALT)',
     evidence:
-      'Precursor de la dopamina y noradrenalina. Especialmente útil bajo carga cognitiva o estrés — mejora el rendimiento en tareas de atención durante la falta de sueño, multitarea o exposición al frío. Dosis clínicas de 300–500mg como N-acetil-L-tirosina.',
+      'Precursor de la dopamina y noradrenalina. Especialmente útil bajo carga cognitiva o estrés — mejora el rendimiento en tareas de atención durante la falta de sueño, multitarea o exposición al frío. Los ensayos de estrés con resultados positivos usaron L-tirosina simple a 2g al día o 100–150mg/kg.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/26424423/',
   },
   {

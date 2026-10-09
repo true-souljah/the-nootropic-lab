@@ -77,7 +77,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Which memory nootropics are best via Shopee/Lazada vs cross-border iHerb?',
-    a: 'Shopee/Lazada/TikTok Shop: buy from the brand\'s official store where one exists. NatureBell Ginkgo+Ginseng is available on Amazon.sg at a budget price but scores below our bar for ranked picks. Cross-border iHerb: best route for Nootropics Depot Lion\'s Mane and other premium single-ingredient products into Singapore and Malaysia (consolidated warehouses minimise customs friction). Direct from brand: Mind Lab Pro\'s FAQ names Singapore, Thailand, the Philippines, Indonesia and Vietnam among its shipping territories (checked 2026-09-29). Qualia Mind does not ship to any SEA country (brand shipping page, checked 2026-09-28).',
+    a: 'Shopee/Lazada/TikTok Shop: buy from the brand\'s official store where one exists. NatureBell Ginkgo+Ginseng is available on Amazon.sg at a budget price; it is not one of this page\'s picks. Cross-border iHerb: best route for Nootropics Depot Lion\'s Mane and other premium single-ingredient products into Singapore and Malaysia (consolidated warehouses minimise customs friction). Direct from brand: Mind Lab Pro\'s FAQ names Singapore, Thailand, the Philippines, Indonesia and Vietnam among its shipping territories (checked 2026-09-29). Qualia Mind does not ship to any SEA country (brand shipping page, checked 2026-09-28).',
   },
   {
     q: 'What is the most evidence-backed nootropic for memory?',

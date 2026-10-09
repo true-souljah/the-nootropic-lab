@@ -65,7 +65,7 @@ export default function FrMeilleursNootropiquesPage() {
       <StickyCtaBar
         productName={winner.name}
         href={winner.affiliateUrl}
-        pickLabel="Notre choix nº 1 :"
+        pickLabel="Le choix de la rédaction :"
         ctaLabel={uiStrings.table.checkPrice}
         ariaLabel="Notre recommandation principale"
       />

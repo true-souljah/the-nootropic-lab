@@ -49,7 +49,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Bacopa dose?',
     a:
-      'AOR Ortho•Mind: 300mg Bacopa a day (50 mg per capsule × 6, standardized to 50-55% bacosides) — at clinical dose. Mind Lab Pro: 150mg Bacopa standardized — below clinical dose. For memory consolidation specifically, AOR has the better Bacopa dose.',
+      'AOR Ortho•Mind: 300mg Bacopa a day (50 mg per capsule × 6, standardized to 50-55% bacosides), so 150-165mg of bacosides — at or just below the 165mg in our reference dose. Mind Lab Pro: 150mg Bacopa standardized to 24% bacosides — below our reference dose. For memory consolidation specifically, AOR has the better Bacopa dose.',
   },
   {
     q: 'Where to buy each?',
@@ -62,7 +62,7 @@ const whoIsForA = [
   'Care about Health Canada NPN compliance',
   'Want a Calgary-domiciled Canadian brand',
   'Want to order direct from a Canadian company (aor.ca)',
-  'Prioritize Bacopa at clinical dose (300mg) for memory',
+  'Prioritize a higher Bacopa dose (300mg a day) for memory',
   'Want CAD pricing without international shipping',
 ];
 

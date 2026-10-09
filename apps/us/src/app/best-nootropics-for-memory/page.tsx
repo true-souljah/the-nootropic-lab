@@ -12,7 +12,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 export const metadata: Metadata = {
   title: `Best Nootropics for Memory ${CURRENT_YEAR} (incl. Nootropics Depot)`,
   description:
-    "Best nootropics for memory, ranked by clinical evidence - including Nootropics Depot Lion's Mane and Mind Lab Pro. Which picks hit clinical dose?",
+    "Best nootropics for memory, ranked by clinical evidence - including Mind Lab Pro, with Nootropics Depot Lion's Mane also considered. Which picks hit clinical dose?",
   alternates: buildAlternates({ regionCode: 'us', path: '/best-nootropics-for-memory/' }),
   openGraph: {
     title: 'Best Nootropics for Memory — Evidence-Graded',
