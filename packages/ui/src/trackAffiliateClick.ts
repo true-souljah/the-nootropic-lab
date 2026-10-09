@@ -7,6 +7,7 @@
 // call pushed into a dataLayer stub would be sent after a later Accept.
 
 import type { Product } from '@nootropic/data';
+import { vendorHost } from '@nootropic/data';
 import { isAnalyticsActive } from './analytics-consent';
 
 export interface AffiliateClickContext {
@@ -45,12 +46,8 @@ export function trackAffiliateClick({ product, position, surface }: AffiliateCli
   if (!isAnalyticsActive(window) || typeof window.gtag !== 'function') return;
   // Portfolio-standard params (registered as event-scoped custom dimensions
   // via gsc-data ga4-setup.mjs) alongside the site-specific payload.
-  let linkDomain = '';
-  try {
-    linkDomain = new URL(product.affiliateUrl).host;
-  } catch {
-    // malformed/missing affiliate URL — dimension stays empty for this click
-  }
+  // Malformed/missing vendor URL — the dimension stays empty for this click.
+  const linkDomain = vendorHost(product) ?? '';
   window.gtag('event', 'affiliate_click', {
     partner: product.brand,
     product: product.slug,
