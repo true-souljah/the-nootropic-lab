@@ -829,7 +829,7 @@
     "euCompliance": "verify",
     "trustpilotScore": 4.7,
     "trustpilotCount": 2715,
-    "affiliateUrl": "https://nootropicsdepot.com/",
+    "affiliateUrl": "https://nootropicsdepot.com/lions-mane-hericium-erinaceus-whole-fruiting-body-medicinal-mushroom-extract-500mg-capsules/",
     "affiliateNetwork": "Impact",
     "commissionRate": "15%",
     "cookieDays": 30,
@@ -838,13 +838,13 @@
     ],
     "ingredientDosages": [
       {
-        "name": "Lion's Mane fruiting body (standardised)",
+        "name": "Lion's Mane fruiting body extract (1:1)",
         "doseInProduct": "500mg",
-        "clinicalDose": "500-1000mg",
-        "adequatelyDosed": true
+        "clinicalDose": "1000-1800mg/day",
+        "adequatelyDosed": false
       }
     ],
-    "servingsPerContainer": 90,
+    "servingsPerContainer": 60,
     "capsulesPerServing": 1,
     "summary": "Gold standard for single-ingredient Lion's Mane. ISO in-house lab publishes CoA per batch. Best for buyers who want one ingredient done right.",
     "whatItIs": "Nootropics Depot Lion's Mane Extract is a single-ingredient supplement providing standardised Hericium erinaceus fruiting body extract at 500mg per capsule. Nootropics Depot is widely regarded as the most rigorous ingredient-quality focused retailer in the US nootropics market, operating an ISO-certified in-house testing laboratory and publishing a Certificate of Analysis (CoA) for each batch.",

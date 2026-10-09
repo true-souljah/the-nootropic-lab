@@ -66,18 +66,18 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'naturebell-ginkgo-ginseng-review')!,
     rank: 3,
     whyItsHere:
-      'The cheapest legitimate brain supplement in this list at ~SGD $7/month (~$5 USD) for a 5-month supply via Amazon.sg. Ginkgo Biloba at full clinical dose (120mg). Ginseng underdosed. The right pick for first-year university students testing whether nootropics do anything for them before committing to a premium stack. 60-day money-back guarantee.',
+      'The cheapest legitimate brain supplement on this page at ~SGD $7/month (~$5 USD) for a 5-month supply via Amazon.sg. Ginkgo Biloba at full clinical dose (120mg). Ginseng underdosed. Its low price appeals to first-year university students testing whether nootropics do anything for them before committing to a premium stack. 60-day money-back guarantee.',
   },
 ];
 
 const faqItems: ListicleFAQ[] = [
   {
     q: 'Are these student-friendly nootropics halal-certified?',
-    a: 'For Muslim students in Indonesia, Malaysia, southern Thailand, southern Philippines, and Brunei: imported brands (Mind Lab Pro, NooCube, Qualia Mind, Onnit Alpha Brain) show no BPJPH, JAKIM or other halal certificate on the brand pages we fetched (checked 2026-10-07). Mind Lab Pro states pullulan (NutriCaps) capsules and Qualia Mind vegetarian (hypromellose) capsules; NooCube (suitable for vegetarians) and Alpha Brain (vegetarian but not vegan) do not state the capsule shell material. Blackmores (Malaysia) Sdn Bhd holds JAKIM halal certificates for 37 products — none named as a cognitive or nootropic product, and Brain Active is not among them; all expire 30 November 2026 (MYeHALAL directory, checked 2026-10-08). Another route is single-ingredient L-theanine or Brahmi from Halal-certified local brands on Lazada/Shopee. Check JAKIM\'s MYeHALAL directory (myehalal.halal.gov.my, Malaysia; searched by company name, with each company\'s certified products listed on its detail page) or the BPJPH register (bpjph.halal.go.id, Indonesia) for current status before ordering.',
+    a: 'For Muslim students in Indonesia, Malaysia, southern Thailand, southern Philippines, and Brunei: imported brands (Mind Lab Pro, NooCube) show no BPJPH, JAKIM or other halal certificate on the brand pages we fetched (checked 2026-10-07). Mind Lab Pro states pullulan (NutriCaps) capsules; NooCube (suitable for vegetarians) does not state the capsule shell material. Blackmores (Malaysia) Sdn Bhd holds JAKIM halal certificates for 37 products — none named as a cognitive or nootropic product, and Brain Active is not among them; all expire 30 November 2026 (MYeHALAL directory, checked 2026-10-08). Another route is single-ingredient L-theanine or Brahmi from Halal-certified local brands on Lazada/Shopee. Check JAKIM\'s MYeHALAL directory (myehalal.halal.gov.my, Malaysia; searched by company name, with each company\'s certified products listed on its detail page) or the BPJPH register (bpjph.halal.go.id, Indonesia) for current status before ordering.',
   },
   {
     q: 'Which are best for SEA students via Shopee/Lazada vs cross-border iHerb?',
-    a: 'For students on a budget who want to avoid customs and credit-card cross-border fees: NatureBell Ginkgo+Ginseng on Amazon.sg (~SGD $7/mo). For premium stacks: cross-border iHerb to Singapore is the most reliable route for Mind Lab Pro, NooCube, and Nootropics Depot products. Direct from the brand is also an option for Mind Lab Pro: its FAQ names Singapore, Thailand, the Philippines, Indonesia and Vietnam among its shipping territories (checked 2026-09-29; Malaysia not named on that partial list).',
+    a: 'NatureBell Ginkgo+Ginseng on Amazon.sg (~SGD $7/mo) avoids customs and credit-card cross-border fees, but it scores below our bar for ranked picks (listed under Also considered above). For premium stacks: cross-border iHerb to Singapore is the most reliable route for Mind Lab Pro, NooCube, and Nootropics Depot products. Direct from the brand is also an option for Mind Lab Pro: its FAQ names Singapore, Thailand, the Philippines, Indonesia and Vietnam among its shipping territories (checked 2026-09-29; Malaysia not named on that partial list).',
   },
   {
     q: 'When should I start taking nootropics for studying?',
