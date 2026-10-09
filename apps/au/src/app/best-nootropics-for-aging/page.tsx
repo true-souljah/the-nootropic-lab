@@ -73,7 +73,7 @@ const picks: ListiclePick[] = [
     product: productsAU.find(p => p.slug === 'naturebell-ginkgo-ginseng-review')!,
     rank: 3,
     whyItsHere:
-      'The cheapest product on this page at approximately AUD $8/month for a 5-month supply via Amazon.com.au with Prime shipping. Ginkgo Biloba at full clinical dose (120mg). Its low price is the main appeal for older Australian adults. Ginseng is severely underdosed (10mg vs 200mg clinical). Not a substitute for the multi-ingredient stacks above; more useful as a stack addition or low-cost trial of Ginkgo before committing to a TGA-listed Australian Ginkgo product like Blackmores Bio Ginkgoforte 6000.',
+      'The cheapest product on this page at approximately AUD $8/month for a 5-month supply via Amazon.com.au with Prime shipping. Ginkgo Biloba at full clinical dose (500mg extract standardised to 120mg flavone glycosides). Its low price is the main appeal for older Australian adults. Ginseng is 50mg of Korean Red Ginseng extract with no ginsenoside amount stated. Not a substitute for the multi-ingredient stacks above; more useful as a stack addition or low-cost trial of Ginkgo before committing to a TGA-listed Australian Ginkgo product like Blackmores Bio Ginkgoforte 6000.',
   },
 ];
 
@@ -104,7 +104,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Should I just buy a TGA-listed Australian product instead of importing?',
-    a: 'For a single-ingredient approach (e.g. Ginkgo or Bacopa alone), yes — TGA-listed Australian options are convenient, clearly labelled with AUST L numbers, and integrate cleanly into a Webster pack. For a multi-ingredient stack covering PS + citicoline + Bacopa + Lion\'s Mane in one capsule, the imported options above are the practical route. Many Australian seniors run a hybrid: one TGA-listed Ginkgo or Bacopa from the pharmacy + one imported PS-citicoline stack like Mind Lab Pro.',
+    a: 'For a single-ingredient approach (e.g. Ginkgo or Bacopa alone), yes — TGA-listed Australian options are convenient, clearly labelled with AUST L numbers, and integrate cleanly into a Webster pack. For a multi-ingredient stack covering PS + citicoline + Bacopa + Lion\'s Mane in one formula, the imported options above are the practical route. Many Australian seniors run a hybrid: one TGA-listed Ginkgo or Bacopa from the pharmacy + one imported PS-citicoline stack like Mind Lab Pro.',
   },
 ];
 

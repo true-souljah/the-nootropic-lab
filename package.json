@@ -26,6 +26,7 @@
     "validate-data": "npx --yes tsx scripts/validate-data.ts",
     "recompute-scores": "npx --yes tsx scripts/recompute-scores.ts",
     "check:links": "node scripts/check-built-links.mjs",
+    "check:titles": "node scripts/check-built-titles.mjs",
     "check:consent": "node scripts/check-consent-built.mjs",
     "content-dates": "node scripts/content-dates.mjs",
     "check": "npm run validate-data",

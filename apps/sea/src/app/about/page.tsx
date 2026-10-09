@@ -7,7 +7,7 @@ import { searchItems, uiStrings } from "@/lib/search";
 import { SITE_URL } from '@/lib/region';
 
 export const metadata: Metadata = {
-  title: 'About The Nootropic Lab SEA',
+  title: { absolute: 'About The Nootropic Lab SEA' },
   description:
     'The Nootropic Lab SEA is an independent cognitive-supplement comparison site for Southeast Asia, Per-country regulatory notes for HSA, NPRA, BPOM, FDA, VFA — Halal certification flagged for ID/MY.',
   alternates: buildAlternates({ regionCode: 'sea', path: '/about/' }),

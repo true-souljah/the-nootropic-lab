@@ -27,7 +27,7 @@ export async function generateMetadata({
   if (!g) return {};
   const q = regionalTitleQualifier('us', 0, regionalGuideNote('us', guide));
   return {
-    title: `${g.title}${q} — The Nootropic Lab`,
+    title: `${g.title}${q}`,
     description: g.description,
     alternates: buildAlternates({ regionCode: 'us', path: `/guides/${guide}/`, availableInRegions: g.regions }),
     openGraph: buildOpenGraph({ regionCode: 'us', path: `/guides/${guide}/`, title: `${g.title}${q} — The Nootropic Lab`, description: g.description }),

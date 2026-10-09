@@ -72,7 +72,7 @@ const picks: ListiclePick[] = [
     product: productsCA.find(p => p.slug === 'naturebell-ginkgo-ginseng-review')!,
     rank: 3,
     whyItsHere:
-      'Budget-priced at CAD ~$7/month. Delivers Ginkgo Biloba at the full clinical dose (120mg, 50:1 extract), though a 2026 network meta-analysis in healthy adults found high-dose Bacopa improved working memory more than either Ginkgo dose (see the Ginkgo entry above). Listed on amazon.ca. Single-mechanism (cerebral blood flow); pair with a PS supplement for fuller coverage. No NPN (Natural Product Number) found for NatureBell Ginkgo + Ginseng in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07).',
+      'Budget-priced at CAD ~$7/month. Delivers Ginkgo Biloba at the full clinical dose (500mg of a 12:1 extract, standardised to 120mg flavone glycosides), though a 2026 network meta-analysis in healthy adults found high-dose Bacopa improved working memory more than either Ginkgo dose (see the Ginkgo entry above). Listed on amazon.ca. Single-mechanism (cerebral blood flow); pair with a PS supplement for fuller coverage. No NPN (Natural Product Number) found for NatureBell Ginkgo + Ginseng in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07).',
   },
   {
     product: productsCA.find(p => p.slug === 'onnit-alpha-brain-review')!,
