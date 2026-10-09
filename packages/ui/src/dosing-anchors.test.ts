@@ -98,46 +98,44 @@ describe('anchor matching — on the base name (text before the first " (")', ()
     expect(baseName('L-Theanine')).toBe('L-Theanine');
   });
 
-  // FORMULA-SPEC §7A (2026-10-09): the base name decides when it matches an
-  // anchor; only when it matches none is the full name tested. The CA AOR
-  // Ortho Mind rows are named by their Health Canada (LNHPD) chemical names
-  // with the ingredient in parentheses and must anchor to ALCAR and citicoline.
-  const AOR_ALCAR = '(2R)-2-(Acetyloxy)-3-carboxy-N,N,N-trimethyl-1-propanaminium inner salt (N-Acetyl L-carnitine hydrochloride)';
-  const AOR_CITICOLINE = "Choline cytidine 5'-pyrophosphate (ester) (Citicoline)";
-
-  test('7A: a base name that matches no anchor falls back to the full name (CA AOR chemical names)', () => {
-    expect(matchingAnchors({ name: AOR_ALCAR }).map((a) => a.ingredientSlug)).toEqual(['acetyl-l-carnitine']);
-    expect(matchingAnchors({ name: AOR_CITICOLINE }).map((a) => a.ingredientSlug)).toEqual(['citicoline']);
-    expect(verdictOf([label(AOR_ALCAR, '1500mg (250 mg per capsule × 6)')])).toBe(true);
-    expect(verdictOf([label(AOR_CITICOLINE, '499.98mg (83.33 mg per capsule × 6)')])).toBe(true);
-    expect(verdictOf([label(AOR_ALCAR, '500mg')])).toBe(false); // synthetic: below 1500
+  // FORMULA-SPEC §8 (2026-10-09): base-name matching only. A full-name
+  // fallback (§7A) was withdrawn after it anchored the rows below and credited
+  // matcha, guarana and a whole EMT blend as caffeine or L-theanine. Rows name
+  // their ingredient first instead; the CA AOR rows were renamed to AOR's panel
+  // wording for that.
+  test.each([
+    'Matcha (natural caffeine ~40mg)',
+    'Guarana (natural caffeine ~20mg)',
+    'Camellia Sinensis Extracts (EMT Blend: Pure Matcha, Polyphenols, EGCG, L-Theanine)',
+    '(2R)-2-(Acetyloxy)-3-carboxy-N,N,N-trimethyl-1-propanaminium inner salt (N-Acetyl L-carnitine hydrochloride)',
+  ])('a parenthetical never anchors a row: "%s" has no reference dose', (name) => {
+    expect(matchingAnchors({ name })).toEqual([]);
+    expect(problemsFor(row({ name, doseInProduct: '400mg', clinicalDose: NO_REFERENCE_DOSE, adequatelyDosed: null }))).toEqual([]);
   });
 
-  test('7A: a base name that matches an anchor wins; the parentheses are not consulted', () => {
+  test('the base name decides: a base that names an anchor wins over its parentheses', () => {
     // "capsules with caffeine only" must not make the Thesis theanine row a caffeine row.
     const theanine = 'L-Theanine (Camellia sinensis, capsules with caffeine only) (Stress Reset)';
     expect(matchingAnchors({ name: theanine }).map((a) => a.ingredientSlug)).toEqual(['l-theanine']);
     expect(matchingAnchors({ name: 'Cognizin (citicoline)' }).map((a) => a.ingredientSlug)).toEqual(['citicoline']);
-    // Neither name mentions an anchor anywhere → no anchor.
-    expect(matchingAnchors({ name: '5-Oxo-L-proline, compound with L-arginine (1:1) (Arginine PCA)' })).toEqual([]);
   });
 
-  test('7A: a full-name fallback that hits two anchors is an error (synthetic)', () => {
-    expect(() => dosingAnchorFor({ name: 'Eye blend (lutein, DHA)' })).toThrow(/more than one dosing anchor/);
+  test('CA AOR Ortho Mind, renamed to its panel wording (§8), anchors ALCAR and citicoline', () => {
+    expect(matchingAnchors({ name: 'ALCAR (Acetyl-L-carnitine)' }).map((a) => a.ingredientSlug)).toEqual(['acetyl-l-carnitine']);
+    expect(matchingAnchors({ name: 'Citicoline (Xerenoos®)' }).map((a) => a.ingredientSlug)).toEqual(['citicoline']);
+    expect(matchingAnchors({ name: 'Arginine pyroglutamate' })).toEqual([]);
+    expect(matchingAnchors({ name: 'R(α)-Lipoic acid (sodium salt)' })).toEqual([]);
+    expect(verdictOf([label('ALCAR (Acetyl-L-carnitine)', '1500mg (250 mg per capsule × 6)')])).toBe(true);
+    expect(verdictOf([label('Citicoline (Xerenoos®)', '499.98mg (83.33 mg per capsule × 6)')])).toBe(true);
+    expect(verdictOf([label('ALCAR (Acetyl-L-carnitine)', '500mg')])).toBe(false); // synthetic: below 1500
   });
 
-  // Since §7A a plain anchor also reaches the parentheses, but only when no
-  // anchor matches the base name; a matchFull anchor is tested on the full name
-  // in the first pass, next to the base-name matches.
-  test('matchFull tests the whole name in the first pass (brand-specific anchors; synthetic anchors)', () => {
+  test('matchFull tests the whole name (brand-specific anchors; synthetic anchors)', () => {
     const brand: DosingAnchor = { ingredientSlug: 'longvida', match: /longvida/i, matchFull: true, clinicalDose: 'x', minMg: 400, basis: 'extract' };
     const plain: DosingAnchor = { ...brand, matchFull: false };
-    const curcumin: DosingAnchor = { ...plain, ingredientSlug: 'curcumin', match: /curcumin/i };
     const row = { name: 'Curcumin (Longvida® turmeric extract)' };
     expect(matchingAnchors(row, [brand])).toEqual([brand]);
-    expect(matchingAnchors(row, [plain])).toEqual([plain]); // §7A fallback: no base-name match
-    expect(matchingAnchors(row, [curcumin, plain])).toEqual([curcumin]); // the base name wins
-    expect(matchingAnchors(row, [curcumin, brand])).toEqual([curcumin, brand]); // matchFull competes → two anchors
+    expect(matchingAnchors(row, [plain])).toEqual([]);
   });
 
   test('a row matching two anchors is an error (synthetic)', () => {

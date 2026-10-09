@@ -102,15 +102,14 @@ export function baseName(name: string): string {
 }
 
 /**
- * The anchors that govern a row: those whose `match` hits the row's base name
- * (the full name for `matchFull` anchors); when none does, those whose `match`
- * hits the full name (FORMULA-SPEC §7A — e.g. CA AOR rows named by their LNHPD
- * chemical name with the ingredient in parentheses). More than one is a data
- * (or regex) error.
+ * Every anchor whose `match` hits the row's base name (the full name for
+ * `matchFull` anchors). More than one is a data (or regex) error. Base-name
+ * only: a full-name fallback (FORMULA-SPEC §7A) was withdrawn in §8 because it
+ * anchored "Matcha (natural caffeine ~40mg)" to caffeine and an EMT blend
+ * naming L-theanine to L-theanine; rows must name their ingredient first.
  */
 export function matchingAnchors(row: Pick<IngredientDosage, 'name'>, anchors: readonly DosingAnchor[] = DOSING_ANCHORS): DosingAnchor[] {
-  const onBase = anchors.filter((anchor) => anchor.match.test(anchor.matchFull ? row.name : baseName(row.name)));
-  return onBase.length > 0 ? onBase : anchors.filter((anchor) => anchor.match.test(row.name));
+  return anchors.filter((anchor) => anchor.match.test(anchor.matchFull ? row.name : baseName(row.name)));
 }
 
 /** The anchor that governs a row, or null. Throws when the row matches more than one anchor. */
