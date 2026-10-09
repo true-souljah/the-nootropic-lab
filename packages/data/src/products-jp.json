@@ -460,6 +460,19 @@
     },
     "verifiedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28",
+    "noPurchaseLink": {
+      "reason": "jp-mhlw-medicine-only-ingredient",
+      "ingredients": [
+        {
+          "name": "Ashwagandha",
+          "plant": "Withania somnifera",
+          "listedAs": "ウィザニア・ソムニフェラ / Withania somnifera (L.) Dunal / 他名等: ウィザニア/アシュワガンダ / 部位等: 全草"
+        }
+      ],
+      "sourceUrl": "https://www.mhlw.go.jp/content/001734637.pdf",
+      "listUpdated": "2026-08-05",
+      "checkedAt": "2026-10-08"
+    },
     "vendorTerms": {
       "checkedAt": "2026-10-07",
       "shipping": {
