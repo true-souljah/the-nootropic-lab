@@ -55,7 +55,7 @@ export default function SiteHeader({ market, searchItems = [], strings }: { mark
               The Nootropic<br />
               <span className="text-green-700">Lab</span>
               {marketLabel[market] && (
-                <span className="text-xs font-normal text-gray-400 ml-1">{marketLabel[market]}</span>
+                <span className="text-xs font-normal text-ds-muted ml-1">{marketLabel[market]}</span>
               )}
             </span>
           </Link>

@@ -65,7 +65,7 @@ export default function JaBestNootropicsPage() {
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
           {CURRENT_YEAR}年 日本向け最高のノートロピクス
         </h1>
-        <p className="text-base text-gray-400 mb-4">{CURRENT_YEAR}年 日本向けノートロピクスガイド — 厚生労働省輸入情報</p>
+        <p className="text-base text-ds-muted mb-4">{CURRENT_YEAR}年 日本向けノートロピクスガイド — 厚生労働省輸入情報</p>
 
         <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 mb-6">
           <h2 className="font-bold text-amber-900 mb-2">厚生労働省 輸入に関する注意</h2>

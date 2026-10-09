@@ -80,7 +80,7 @@ export default async function GuidePage({
           <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full capitalize">
             {g.category}
           </span>
-          <span className="text-xs text-gray-400">{g.readingTimeMin} min read</span>
+          <span className="text-xs text-ds-muted">{g.readingTimeMin} min read</span>
           <GuideEvidenceReviewed date={g.evidenceReviewedAt} uiStrings={uiStrings} />
         </div>
 
