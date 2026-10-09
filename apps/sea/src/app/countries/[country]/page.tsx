@@ -92,7 +92,7 @@ export default async function CountryPage({
                 href={`/${product.slug}/`}
                 className="flex items-start gap-4 bg-white border border-gray-200 rounded-xl p-5 hover:border-green-400 hover:shadow-md transition-all"
               >
-                <span className="text-2xl font-black text-gray-300 shrink-0">#{i + 1}</span>
+                <span className="text-2xl font-black text-ds-muted shrink-0">#{i + 1}</span>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1">
                     <h3 className="font-bold text-gray-900">{product.name}</h3>
