@@ -8,7 +8,7 @@ import { searchItems, uiStrings } from "@/lib/search";
 import { SITE_URL } from '@/lib/region';
 
 export const metadata: Metadata = {
-  title: 'Imprint / Aviso legal — The Nootropic Lab LATAM',
+  title: 'Imprint / Aviso legal',
   description:
     'Imprint for the Latin American edition of The Nootropic Lab. Publisher information, contact details, editorial standards, and affiliate-disclosure policy.',
   alternates: buildAlternates({ regionCode: 'latam', path: '/imprint/' }),

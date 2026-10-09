@@ -6,7 +6,7 @@ import { searchItems, uiStrings } from "@/lib/search";
 import { SITE_URL } from '@/lib/region';
 
 export const metadata: Metadata = {
-  title: 'Contact The Nootropic Lab GCC',
+  title: { absolute: 'Contact The Nootropic Lab GCC' },
   description:
     'Editorial corrections, partnership inquiries, reader feedback. Reach The Nootropic Lab GCC editorial team.',
   alternates: buildAlternates({ regionCode: 'gcc', path: '/contact/' }),
