@@ -102,7 +102,29 @@
     "market": "both",
     "updatedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28",
-    "verifiedAt": "2026-09-28"
+    "verifiedAt": "2026-09-28",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "If you live in the EU, your order will be shipped from our depot in Europe. | Expected delivery time: 4 - 12 working days (depending on destination)",
+        "fragments": [
+          "If you live in the EU, your order will be shipped from our depot in Europe.",
+          "Expected delivery time: 4 - 12 working days (depending on destination)"
+        ],
+        "url": "https://eu.mindlabpro.com/pages/shipping-returns",
+        "lang": "en"
+      },
+      "cancellation": {
+        "text": "Update or cancel anytime",
+        "url": "https://eu.mindlabpro.com/products/mind-lab-pro",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "Put us to the test for a full 30 days. If you don't see results, we will gladly refund your money (minus any shipping costs).",
+        "url": "https://eu.mindlabpro.com/pages/shipping-returns",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "noocube",
@@ -213,7 +235,52 @@
     "market": "both",
     "updatedAt": "2026-09-28",
     "verifiedAt": "2026-09-28",
-    "trustpilotCheckedAt": "2026-09-28"
+    "trustpilotCheckedAt": "2026-09-28",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "For customers in Europe, Canada or Australia you should expect delivery within 10 business days. | FREE SHIPPING OVER $79.99",
+        "fragments": [
+          "For customers in Europe, Canada or Australia you should expect delivery within 10 business days.",
+          "FREE SHIPPING OVER $79.99"
+        ],
+        "url": "https://www.noocube.com/",
+        "lang": "en"
+      },
+      "cancellation": {
+        "text": "NO COMMITMENT | CANCEL ANYTIME",
+        "fragments": [
+          "NO COMMITMENT",
+          "CANCEL ANYTIME"
+        ],
+        "url": "https://www.noocube.com/",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "1-MONTH SUPPLY | Single Purchase | Subscribe 15% OFF | RETAIL: | $79.99 | $79.99 | $64.99 | $55.24 | SAVINGS: | $15.00 | $24.75 | 60 CAPSULES",
+        "fragments": [
+          "1-MONTH SUPPLY",
+          "Single Purchase",
+          "Subscribe 15% OFF",
+          "RETAIL:",
+          "$79.99",
+          "$79.99",
+          "$64.99",
+          "$55.24",
+          "SAVINGS:",
+          "$15.00",
+          "$24.75",
+          "60 CAPSULES"
+        ],
+        "url": "https://www.noocube.com/",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "We’re so confident in NooCube and our commitment to customer satisfaction that we offer a 60-day money-back guarantee.",
+        "url": "https://www.noocube.com/pages/guarantee",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "performance-lab-mind",
@@ -309,6 +376,8 @@
     "name": "BRAINEFFECT FOCUS",
     "brand": "BRAINEFFECT (Schwabe Group)",
     "slug": "braineffect-focus-review",
+    "seoTitle": "BRAINEFFECT FOCUS (Discontinued): Doses & Alternatives",
+    "seoDescription": "Discontinued: BRAINEFFECT FOCUS is no longer sold on brain-effect.com (product page 404, checked Sep 2026). See its old doses and current alternatives.",
     "bestFor": [
       "DACH buyers",
       "German market",
@@ -423,7 +492,7 @@
     },
     "priceMonthlyEUR": 40,
     "pricingModel": "both",
-    "moneyBackDays": 30,
+    "moneyBackDays": 365,
     "caffeineFree": false,
     "euStorefront": true,
     "euCompliance": "compliant",
@@ -489,7 +558,7 @@
       "Strong Trustpilot 4.8/5",
       "Popular with students",
       "Only 2 capsules",
-      "30-day money-back"
+      "365-day refund or exchange if not satisfied (all items returned)"
     ],
     "cons": [
       "Contains caffeine",
@@ -500,7 +569,40 @@
     "market": "eu",
     "updatedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28",
-    "verifiedAt": "2026-09-28"
+    "verifiedAt": "2026-09-28",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "Germany: 2-3 working days | Austria & Switzerland: 3-5 working days | France: 2-3 working days | Belgium & Switzerland: 3-5 working days",
+        "fragments": [
+          "Germany: 2-3 working days",
+          "Austria & Switzerland: 3-5 working days",
+          "France: 2-3 working days",
+          "Belgium & Switzerland: 3-5 working days"
+        ],
+        "url": "https://www.brainzyme.com/pages/international-shipping",
+        "lang": "en"
+      },
+      "cancellation": {
+        "text": "To cancel your subscription, simply select “Cancel my subscription” which can be located underneath your payment method information.",
+        "url": "https://www.brainzyme.com/products/brainzyme-professional-stronger-formula",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "1 MONAT: 2 Packs, 60 Kapseln | 31,75 €",
+        "fragments": [
+          "1 MONAT: 2 Packs, 60 Kapseln",
+          "31,75 €"
+        ],
+        "url": "https://www.brainzyme.de/products/brainzyme-professional",
+        "lang": "de"
+      },
+      "guarantee": {
+        "text": "If you are not satisfied, simply return all items within 365 days for a full refund or exchange.",
+        "url": "https://www.brainzyme.com/policies/refund-policy",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "hunter-focus",
@@ -523,7 +625,7 @@
     "priceMonthlyUSD": 90,
     "priceMonthlyEUR": 85,
     "pricingModel": "both",
-    "moneyBackDays": 30,
+    "moneyBackDays": null,
     "caffeineFree": false,
     "euStorefront": true,
     "euCompliance": "compliant",
@@ -686,7 +788,37 @@
     "market": "both",
     "updatedAt": "2026-09-28",
     "verifiedAt": "2026-09-28",
-    "trustpilotCheckedAt": "2026-09-28"
+    "trustpilotCheckedAt": "2026-09-28",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "Any orders to Europe are sent from our depot in England. | FedEx International Connect | Delivery time: 3-6 working days | FedEx International Express | Delivery time: 1-2 working days",
+        "fragments": [
+          "Any orders to Europe are sent from our depot in England.",
+          "FedEx International Connect",
+          "Delivery time: 3-6 working days",
+          "FedEx International Express",
+          "Delivery time: 1-2 working days"
+        ],
+        "url": "https://www.roarambition.com/policies/shipping-policy",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "Hunter Focus | $90.00 | Add to cart",
+        "fragments": [
+          "Hunter Focus",
+          "$90.00",
+          "Add to cart"
+        ],
+        "url": "https://www.roarambition.com/products/hunter-focus",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "Have you received your order within the last 30 days for USA/Canada or within 14 days for UK & the rest of the world, are your products unused, unopened, still sealed and the product packaging undamaged?",
+        "url": "https://www.roarambition.com/policies/refund-policy",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "performance-lab-caffeine-2",
@@ -792,7 +924,38 @@
     "market": "both",
     "updatedAt": "2026-10-05",
     "trustpilotCheckedAt": "2026-10-05",
-    "verifiedAt": "2026-10-05"
+    "verifiedAt": "2026-10-05",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "If you live in the EU, your order will be shipped from our depot in Europe. | Expected delivery time: 4 - 12 working days (depending on destination)",
+        "fragments": [
+          "If you live in the EU, your order will be shipped from our depot in Europe.",
+          "Expected delivery time: 4 - 12 working days (depending on destination)"
+        ],
+        "url": "https://eu.performancelab.com/pages/shipping-returns",
+        "lang": "en"
+      },
+      "cancellation": {
+        "text": "Update or cancel anytime",
+        "url": "https://eu.performancelab.com/products/caffeine-2",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "One-time purchase | Price: €45,00",
+        "fragments": [
+          "One-time purchase",
+          "Price: €45,00"
+        ],
+        "url": "https://eu.performancelab.com/products/caffeine-2",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "You're invited to put Performance Lab ® to the test for a full 30 days. If you don't see results, we will gladly refund your money (minus any shipping costs).",
+        "url": "https://eu.performancelab.com/pages/shipping-returns",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "pre-lab-pro",
@@ -933,7 +1096,38 @@
     "market": "both",
     "updatedAt": "2026-10-05",
     "trustpilotCheckedAt": "2026-10-05",
-    "verifiedAt": "2026-10-05"
+    "verifiedAt": "2026-10-05",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "If you live in the EU, your order will be shipped from our depot in Europe. | Expected delivery time: 4 - 12 working days (depending on destination)",
+        "fragments": [
+          "If you live in the EU, your order will be shipped from our depot in Europe.",
+          "Expected delivery time: 4 - 12 working days (depending on destination)"
+        ],
+        "url": "https://eu.performancelab.com/pages/shipping-returns",
+        "lang": "en"
+      },
+      "cancellation": {
+        "text": "Update or cancel anytime",
+        "url": "https://eu.performancelab.com/products/pre-lab-pro",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "One-time purchase | Price: €45,00",
+        "fragments": [
+          "One-time purchase",
+          "Price: €45,00"
+        ],
+        "url": "https://eu.performancelab.com/products/pre-lab-pro",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "You're invited to put Performance Lab ® to the test for a full 30 days. If you don't see results, we will gladly refund your money (minus any shipping costs).",
+        "url": "https://eu.performancelab.com/pages/shipping-returns",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "performance-lab-energy",
@@ -1030,7 +1224,38 @@
     "market": "both",
     "updatedAt": "2026-10-06",
     "trustpilotCheckedAt": "2026-10-05",
-    "verifiedAt": "2026-10-05"
+    "verifiedAt": "2026-10-05",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "If you live in the EU, your order will be shipped from our depot in Europe. | Expected delivery time: 4 - 12 working days (depending on destination)",
+        "fragments": [
+          "If you live in the EU, your order will be shipped from our depot in Europe.",
+          "Expected delivery time: 4 - 12 working days (depending on destination)"
+        ],
+        "url": "https://eu.performancelab.com/pages/shipping-returns",
+        "lang": "en"
+      },
+      "cancellation": {
+        "text": "Update or cancel anytime",
+        "url": "https://eu.performancelab.com/products/energy",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "One-time purchase | Price: €59,00",
+        "fragments": [
+          "One-time purchase",
+          "Price: €59,00"
+        ],
+        "url": "https://eu.performancelab.com/products/energy",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "You're invited to put Performance Lab ® to the test for a full 30 days. If you don't see results, we will gladly refund your money (minus any shipping costs).",
+        "url": "https://eu.performancelab.com/pages/shipping-returns",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "performance-lab-omega-3",
@@ -1106,6 +1331,37 @@
     "market": "both",
     "updatedAt": "2026-10-06",
     "trustpilotCheckedAt": "2026-10-05",
-    "verifiedAt": "2026-10-05"
+    "verifiedAt": "2026-10-05",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "If you live in the EU, your order will be shipped from our depot in Europe. | Expected delivery time: 4 - 12 working days (depending on destination)",
+        "fragments": [
+          "If you live in the EU, your order will be shipped from our depot in Europe.",
+          "Expected delivery time: 4 - 12 working days (depending on destination)"
+        ],
+        "url": "https://eu.performancelab.com/pages/shipping-returns",
+        "lang": "en"
+      },
+      "cancellation": {
+        "text": "Update or cancel anytime",
+        "url": "https://eu.performancelab.com/products/omega-3",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "One-time purchase | Price: €45,00",
+        "fragments": [
+          "One-time purchase",
+          "Price: €45,00"
+        ],
+        "url": "https://eu.performancelab.com/products/omega-3",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "You're invited to put Performance Lab ® to the test for a full 30 days. If you don't see results, we will gladly refund your money (minus any shipping costs).",
+        "url": "https://eu.performancelab.com/pages/shipping-returns",
+        "lang": "en"
+      }
+    }
   }
 ]

@@ -107,7 +107,20 @@
     "updatedAt": "2026-09-28",
     "importPathway": "mindlabpro.com names Saudi Arabia, the UAE, Qatar and Kuwait among its shipping territories (its FAQ, https://www.mindlabpro.com/, checked 2026-09-29); Bahrain and Oman are not named but the list is partial -- confirm at checkout. Rest-of-world orders ship from the brand's UK depot by tracked airmail (5-20 working days) or DHL (2-7 working days) per https://www.mindlabpro.com/pages/shipping-returns.",
     "verifiedAt": "2026-09-28",
-    "trustpilotCheckedAt": "2026-09-28"
+    "trustpilotCheckedAt": "2026-09-28",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "cancellation": {
+        "text": "Update or cancel anytime",
+        "url": "https://www.mindlabpro.com/products/mind-lab-pro",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "Put us to the test for a full 30 days. If you don't see results, we will gladly refund your money (minus any shipping costs).",
+        "url": "https://www.mindlabpro.com/pages/shipping-returns",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "noocube",
@@ -226,7 +239,43 @@
       "Bulk-purchase pricing changed June 2026: 5-month supply $194.99 USD (was 6-month for $180). GCC buyers on iHerb or direct affected."
     ],
     "verifiedAt": "2026-09-28",
-    "trustpilotCheckedAt": "2026-09-28"
+    "trustpilotCheckedAt": "2026-09-28",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "cancellation": {
+        "text": "NO COMMITMENT | CANCEL ANYTIME",
+        "fragments": [
+          "NO COMMITMENT",
+          "CANCEL ANYTIME"
+        ],
+        "url": "https://www.noocube.com/",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "1-MONTH SUPPLY | Single Purchase | Subscribe 15% OFF | RETAIL: | $79.99 | $79.99 | $64.99 | $55.24 | SAVINGS: | $15.00 | $24.75 | 60 CAPSULES",
+        "fragments": [
+          "1-MONTH SUPPLY",
+          "Single Purchase",
+          "Subscribe 15% OFF",
+          "RETAIL:",
+          "$79.99",
+          "$79.99",
+          "$64.99",
+          "$55.24",
+          "SAVINGS:",
+          "$15.00",
+          "$24.75",
+          "60 CAPSULES"
+        ],
+        "url": "https://www.noocube.com/",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "We’re so confident in NooCube and our commitment to customer satisfaction that we offer a 60-day money-back guarantee.",
+        "url": "https://www.noocube.com/pages/guarantee",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "qualia-mind",
@@ -247,7 +296,7 @@
       "trust": 7
     },
     "priceMonthlyUSD": 159,
-    "pricingModel": "subscription",
+    "pricingModel": "both",
     "moneyBackDays": 100,
     "caffeineFree": false,
     "euStorefront": false,
@@ -480,7 +529,30 @@
     "updatedAt": "2026-09-28",
     "importPathway": "Qualia's own international-shipping page (https://www.qualialife.com/faqs/do-we-ship-internationally, checked 2026-09-28) lists only Canada, the UK, Ireland, Australia and New Zealand outside the US. GCC buyers cannot order direct from the brand.",
     "verifiedAt": "2026-09-28",
-    "trustpilotCheckedAt": "2026-09-28"
+    "trustpilotCheckedAt": "2026-09-28",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "cancellation": {
+        "text": "Your Qualia subscription will renew automatically, but you can cancel or adjust it at any time, with no conditions or mandatory length of subscription.",
+        "url": "https://www.qualialife.com/shop/qualia-mind",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "$159.00 $39.00 first shipment, $139.00 thereafter | Subscribe & Save 75% | Purchase this time only",
+        "fragments": [
+          "$159.00 $39.00 first shipment, $139.00 thereafter",
+          "Subscribe & Save 75%",
+          "Purchase this time only"
+        ],
+        "url": "https://www.qualialife.com/shop/qualia-mind",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "Feel 100% Satisfied within 100 days or get a 100% refund.",
+        "url": "https://www.qualialife.com/faqs/orders-shipping/category_index",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "alpha-brain",
@@ -610,7 +682,29 @@
     "updatedAt": "2026-10-08",
     "importPathway": "onnit.com's market list names Bahrain and Oman; shipping to the other GCC states could not be confirmed from the brand's site on 2026-09-29 (its shipping help page was unavailable) -- check at checkout.",
     "verifiedAt": "2026-09-28",
-    "trustpilotCheckedAt": "2026-09-28"
+    "trustpilotCheckedAt": "2026-09-28",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "cancellation": {
+        "text": "you can cancel the new order and the subscription by visiting your Account Dashboard",
+        "url": "https://www.onnit.com/pages/subscription-program",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "Capsules–90 Count | $79.95",
+        "fragments": [
+          "Capsules–90 Count",
+          "$79.95"
+        ],
+        "url": "https://www.onnit.com/products/alpha-brain-90-ct",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "The 30 Day Money Back Guarantee applies to your first-time purchase of any Onnit supplement.",
+        "url": "https://help.onnit.com/en-US/30-day-money-back-guarantee-6327406",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "thesis",
@@ -630,7 +724,7 @@
       "trust": 7
     },
     "priceMonthlyUSD": 79,
-    "pricingModel": "subscription",
+    "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": false,
     "euStorefront": false,
@@ -682,7 +776,7 @@
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 3,
-    "summary": "Four personalised formula blends per month at $79 USD/month, subscription only. Each blend has a caffeinated and caffeine-free variant. We could not confirm Thesis's international shipping from its site (its shipping page was unavailable on 2026-09-29) -- check at checkout.",
+    "summary": "Four personalised formula blends per month at $79 USD/month on subscription; a one-time purchase of Clarity costs $129. Each blend has a caffeinated and caffeine-free variant. We could not confirm Thesis's international shipping from its site (its shipping page was unavailable on 2026-09-29) -- check at checkout.",
     "whatItIs": "Thesis is a personalised nootropic subscription service that ships four different formula blends each month -- Energy, Clarity, Logic, and Motivation -- along with access to a nootropics coaching service. Rather than a single fixed formula, Thesis lets you rotate blends on different days to match your cognitive demand. For GCC buyers: each blend is available in a caffeine-free variant, making it compatible with consumers who avoid stimulants for dietary or religious reasons. All ingredients are vegan per the brand's FAQ; capsule shell material not stated (checked 2026-10-07). We have not verified a local product registration with the Saudi Food and Drug Authority (SFDA), the Ministry of Health and Prevention (MOHAP) or the health ministries of other GCC states. We could not confirm Thesis's international shipping from its site (its shipping page was unavailable on 2026-09-29) -- check at checkout.",
     "howItWorks": "Each Thesis blend targets a different cognitive mode. Energy blend: stimulating compounds (Zynamite, Dynamine, Ashwagandha) for high-output days. Clarity blend: cholinergics and focus ingredients for clear thinking. Logic blend: memory and processing speed ingredients. Motivation blend: dopaminergic support. Each blend has a caffeine-free and caffeinated option. The personalisation model allows you to match your cognitive demand of the day with the appropriate formula.",
     "whatToExpect": "First month: expect an experimentation period. You'll rotate through 4 blends, 7 days each, to assess which has the most noticeable effect for you. Energy blend effects are immediate (stimulating compounds work within 30-60 minutes). Clarity and Logic blend effects build over 2-4 weeks. Coaching service adds value for users who want guidance on optimising their protocol. Select caffeine-free blend variants for GCC conservative market preference.",
@@ -693,7 +787,7 @@
       "Caffeine-free blend variants available"
     ],
     "cons": [
-      "Subscription only",
+      "One-time purchase costs $129 (Clarity) vs $79/month on subscription",
       "Requires experimentation",
       "Contains caffeine in default blends -- not preferred for conservative GCC market",
       "GCC shipping could not be confirmed from the brand's site (checked 2026-09-29) -- check at checkout"
@@ -703,7 +797,25 @@
     "updatedAt": "2026-09-28",
     "importPathway": "We could not confirm Thesis's international shipping from its site (its shipping page was unavailable on 2026-09-29) -- check at checkout.",
     "verifiedAt": "2026-09-28",
-    "trustpilotCheckedAt": "2026-09-28"
+    "trustpilotCheckedAt": "2026-09-28",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "cancellation": {
+        "text": "If you want to cancel or change your subscription, you can do so at any time. Email us at hello@takethesis.com or call us at 646-647-3599.",
+        "url": "https://takethesis.com/policies/terms-of-service",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "One time purchase, $129",
+        "url": "https://takethesis.com/products/clarity",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "If for any reason you are not 100% satisfied with your purchase, you may request a refund within 30 days of delivery of your first order.",
+        "url": "https://takethesis.com/policies/refund-policy",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "nootropics-depot-lions-mane",
@@ -725,7 +837,7 @@
     },
     "priceMonthlyUSD": 25,
     "pricingModel": "both",
-    "moneyBackDays": 30,
+    "moneyBackDays": null,
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
@@ -767,7 +879,24 @@
     "market": "both",
     "updatedAt": "2026-09-28",
     "verifiedAt": "2026-09-28",
-    "trustpilotCheckedAt": "2026-09-29"
+    "trustpilotCheckedAt": "2026-09-29",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "oneTimePrice": {
+        "text": "Now: | $29.99",
+        "fragments": [
+          "Now:",
+          "$29.99"
+        ],
+        "url": "https://nootropicsdepot.com/lions-mane-mushroom-capsules-8-1-extract",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "Nootropics Depot accepts returns of unopened product within 30 days of its delivery date.",
+        "url": "https://support.nootropicsdepot.com/article/28-product-returns-policy",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "eu-yan-sang-brainmax",
@@ -791,7 +920,7 @@
     },
     "priceMonthlyUSD": 54.71,
     "pricingModel": "one-time",
-    "moneyBackDays": 0,
+    "moneyBackDays": null,
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
@@ -854,6 +983,26 @@
     "notes": [
       "Singapore price: S$69.90 for a 30-sachet box (3g x 30 sachets, 1 sachet daily), reduced from the S$89.90 RSP, on the euyansang.com.sg product page (https://www.euyansang.com.sg/en/brainmax-888842543107.html, checked 2026-09-29). USD figure converted at SGD 1 = USD 0.78264 (Frankfurter reference rate dated 2026-09-28, https://api.frankfurter.app/latest?from=SGD&to=USD): 69.90 × 0.78264 = USD 54.71."
     ],
-    "importPathway": "BrainMAX+ is sold on Eu Yan Sang's Singapore storefront (https://www.euyansang.com.sg/en/brainmax-888842543107.html, checked 2026-09-28); the brand's US storefront does not carry it. Delivery terms to GCC addresses could not be confirmed."
+    "importPathway": "BrainMAX+ is sold on Eu Yan Sang's Singapore storefront (https://www.euyansang.com.sg/en/brainmax-888842543107.html, checked 2026-09-28); the brand's US storefront does not carry it. Delivery terms to GCC addresses could not be confirmed.",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "oneTimePrice": {
+        "text": "3g x 30 sachets | Price reduced from | S$89.90 | to | S$69.90",
+        "fragments": [
+          "3g x 30 sachets",
+          "Price reduced from",
+          "S$89.90",
+          "to",
+          "S$69.90"
+        ],
+        "url": "https://www.euyansang.com.sg/en/brainmax-888842543107.html",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "b. Request must be made within 14 days from the date of invoice/receipt.",
+        "url": "https://www.euyansang.com.sg/en/returns-and-refunds/eys-returns-refunds.html",
+        "lang": "en"
+      }
+    }
   }
 ]

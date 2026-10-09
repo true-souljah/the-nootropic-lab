@@ -106,7 +106,20 @@
     "market": "both",
     "updatedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28",
-    "verifiedAt": "2026-09-28"
+    "verifiedAt": "2026-09-28",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "cancellation": {
+        "text": "Update or cancel anytime",
+        "url": "https://www.mindlabpro.com/products/mind-lab-pro",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "Put us to the test for a full 30 days. If you don't see results, we will gladly refund your money (minus any shipping costs).",
+        "url": "https://www.mindlabpro.com/pages/shipping-returns",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "noocube",
@@ -225,7 +238,43 @@
       "Bulk-purchase pricing changed June 2026: 5-month supply $194.99 USD (was 6-month for $180). LATAM buyers importing direct will see equivalent BRL/MXN price increases."
     ],
     "verifiedAt": "2026-09-28",
-    "trustpilotCheckedAt": "2026-09-28"
+    "trustpilotCheckedAt": "2026-09-28",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "cancellation": {
+        "text": "NO COMMITMENT | CANCEL ANYTIME",
+        "fragments": [
+          "NO COMMITMENT",
+          "CANCEL ANYTIME"
+        ],
+        "url": "https://www.noocube.com/",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "1-MONTH SUPPLY | Single Purchase | Subscribe 15% OFF | RETAIL: | $79.99 | $79.99 | $64.99 | $55.24 | SAVINGS: | $15.00 | $24.75 | 60 CAPSULES",
+        "fragments": [
+          "1-MONTH SUPPLY",
+          "Single Purchase",
+          "Subscribe 15% OFF",
+          "RETAIL:",
+          "$79.99",
+          "$79.99",
+          "$64.99",
+          "$55.24",
+          "SAVINGS:",
+          "$15.00",
+          "$24.75",
+          "60 CAPSULES"
+        ],
+        "url": "https://www.noocube.com/",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "We’re so confident in NooCube and our commitment to customer satisfaction that we offer a 60-day money-back guarantee.",
+        "url": "https://www.noocube.com/pages/guarantee",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "qualia-mind",
@@ -246,7 +295,7 @@
       "trust": 7
     },
     "priceMonthlyUSD": 139,
-    "pricingModel": "subscription",
+    "pricingModel": "both",
     "moneyBackDays": 100,
     "caffeineFree": false,
     "euStorefront": false,
@@ -479,7 +528,30 @@
     "market": "both",
     "updatedAt": "2026-09-28",
     "verifiedAt": "2026-09-28",
-    "trustpilotCheckedAt": "2026-09-28"
+    "trustpilotCheckedAt": "2026-09-28",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "cancellation": {
+        "text": "Your Qualia subscription will renew automatically, but you can cancel or adjust it at any time, with no conditions or mandatory length of subscription.",
+        "url": "https://www.qualialife.com/shop/qualia-mind",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "$159.00 $39.00 first shipment, $139.00 thereafter | Subscribe & Save 75% | Purchase this time only",
+        "fragments": [
+          "$159.00 $39.00 first shipment, $139.00 thereafter",
+          "Subscribe & Save 75%",
+          "Purchase this time only"
+        ],
+        "url": "https://www.qualialife.com/shop/qualia-mind",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "Feel 100% Satisfied within 100 days or get a 100% refund.",
+        "url": "https://www.qualialife.com/faqs/orders-shipping/category_index",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "alpha-brain",
@@ -609,7 +681,29 @@
     "updatedAt": "2026-10-08",
     "importPathway": "onnit.com's market list names Brazil, Argentina, Colombia, Chile and Peru (checked 2026-09-29); shipping to Mexico could not be confirmed from the brand's site (its shipping help page was unavailable) -- check at checkout.",
     "verifiedAt": "2026-09-28",
-    "trustpilotCheckedAt": "2026-09-28"
+    "trustpilotCheckedAt": "2026-09-28",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "cancellation": {
+        "text": "you can cancel the new order and the subscription by visiting your Account Dashboard",
+        "url": "https://www.onnit.com/pages/subscription-program",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "Capsules–90 Count | $79.95",
+        "fragments": [
+          "Capsules–90 Count",
+          "$79.95"
+        ],
+        "url": "https://www.onnit.com/products/alpha-brain-90-ct",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "The 30 Day Money Back Guarantee applies to your first-time purchase of any Onnit supplement.",
+        "url": "https://help.onnit.com/en-US/30-day-money-back-guarantee-6327406",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "thesis",
@@ -629,7 +723,7 @@
       "trust": 7
     },
     "priceMonthlyUSD": 79,
-    "pricingModel": "subscription",
+    "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": false,
     "euStorefront": false,
@@ -681,7 +775,7 @@
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 3,
-    "summary": "4 personalised formula blends per month with a nootropics coaching service — the most flexible option for LATAM buyers who want to optimise their stack before committing long-term. Priced at $79 USD/month (subscription only) with no local currency option. Ships from the US; check the delivery estimate at checkout. Note: as a subscription service, each monthly shipment is a separate import, and import duties and customs clearance are the buyer's responsibility each time; Argentine buyers should confirm ongoing USD billing is feasible under current currency controls.",
+    "summary": "4 personalised formula blends per month with a nootropics coaching service — the most flexible option for LATAM buyers who want to optimise their stack before committing long-term. Priced at $79 USD/month on subscription ($129 as a one-time purchase of Clarity) with no local currency option. Ships from the US; check the delivery estimate at checkout. Note: as a subscription service, each monthly shipment is a separate import, and import duties and customs clearance are the buyer's responsibility each time; Argentine buyers should confirm ongoing USD billing is feasible under current currency controls.",
     "whatItIs": "Thesis is a personalised nootropic subscription that sends four different formula blends each month — Energy, Clarity, Logic, and Motivation — along with access to a nootropics coaching service. Rather than a fixed formula, it lets you rotate blends on different days to find what works best for your cognitive profile. For LATAM buyers, Thesis operates exclusively in USD with no local currency checkout and ships from the US as a personal-use supplement subscription. None of the blends are registered with the Comisión Federal para la Protección contra Riesgos Sanitarios (COFEPRIS) in Mexico, the Agência Nacional de Vigilância Sanitária (ANVISA) in Brazil, ANMAT (Argentina), the Instituto Nacional de Vigilancia de Medicamentos y Alimentos (INVIMA) in Colombia, ISP (Chile), or DIGEMID (Peru). Because Thesis is subscription-based, each monthly shipment is a separate import event, which increases cumulative exposure to customs duties and delays — particularly relevant for buyers in Brazil and Argentina.",
     "howItWorks": "Each Thesis blend targets a different cognitive mode. Energy blend: stimulating compounds (Zynamite, Dynamine, Ashwagandha) for high-output days. Clarity blend: cholinergics and focus ingredients for clear thinking. Logic blend: memory and processing speed ingredients. Motivation blend: dopaminergic support. Each blend has a caffeine-free and caffeinated option. The personalisation model allows you to match your cognitive demand of the day with the appropriate formula.",
     "whatToExpect": "First month: expect an experimentation period. You'll rotate through 4 blends, 7 days each, to assess which has the most noticeable effect for you. Energy blend effects are immediate (stimulating compounds work within 30-60 minutes). Clarity and Logic blend effects build over 2-4 weeks. Coaching service adds value for users who want guidance on optimising their protocol.",
@@ -692,7 +786,7 @@
       "Ships from the US — its refund policy covers orders to countries outside the US but lists no countries; Latin American delivery not confirmed (checked 2026-10-05)"
     ],
     "cons": [
-      "Subscription only",
+      "One-time purchase costs $129 (Clarity) vs $79/month on subscription",
       "Requires experimentation",
       "International shipping to Latam -- check the delivery estimate at checkout",
       "Customs/import taxes may apply depending on destination country"
@@ -701,7 +795,25 @@
     "market": "both",
     "updatedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28",
-    "verifiedAt": "2026-09-28"
+    "verifiedAt": "2026-09-28",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "cancellation": {
+        "text": "If you want to cancel or change your subscription, you can do so at any time. Email us at hello@takethesis.com or call us at 646-647-3599.",
+        "url": "https://takethesis.com/policies/terms-of-service",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "One time purchase, $129",
+        "url": "https://takethesis.com/products/clarity",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "If for any reason you are not 100% satisfied with your purchase, you may request a refund within 30 days of delivery of your first order.",
+        "url": "https://takethesis.com/policies/refund-policy",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "nootropics-depot-lions-mane",
@@ -723,7 +835,7 @@
     },
     "priceMonthlyUSD": 25,
     "pricingModel": "both",
-    "moneyBackDays": 30,
+    "moneyBackDays": null,
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
@@ -766,6 +878,23 @@
     "market": "both",
     "updatedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-29",
-    "verifiedAt": "2026-09-28"
+    "verifiedAt": "2026-09-28",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "oneTimePrice": {
+        "text": "Now: | $29.99",
+        "fragments": [
+          "Now:",
+          "$29.99"
+        ],
+        "url": "https://nootropicsdepot.com/lions-mane-mushroom-capsules-8-1-extract",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "Nootropics Depot accepts returns of unopened product within 30 days of its delivery date.",
+        "url": "https://support.nootropicsdepot.com/article/28-product-returns-policy",
+        "lang": "en"
+      }
+    }
   }
 ]

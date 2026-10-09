@@ -113,7 +113,30 @@
     "regulatoryNote": "Ships to Singapore, Thailand, the Philippines, Indonesia and Vietnam per the brand's FAQ (checked 2026-09-29; Malaysia not named on the partial list); BPOM registration required for sales to Indonesian consumers, and BPJPH halal certification from 18 October 2026, imports included (Government Regulation 42/2024, Art. 145 and 161). Singapore's Health Sciences Authority (HSA) does not subject health supplements to approval or licensing; notification is voluntary (hsa.gov.sg, checked 2026-10-06).",
     "key_features": [
       "Indonesia requires BPJPH halal certification for supplements from 18 October 2026, when the phase-in under Government Regulation 42/2024 (Art. 161) ends; imports are covered (Art. 145: 'Produk luar negeri yang masuk ke Indonesia wajib bersertifikat halal')"
-    ]
+    ],
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "Parcels going to Canada and the Rest of the World will be shipped from our depot in the UK by international tracked airmail or DHL Courier. Airmail expected delivery time: 5 - 20 working days DHL expected delivery time: 2 - 7 working days",
+        "url": "https://www.mindlabpro.com/pages/shipping-returns",
+        "lang": "en"
+      },
+      "cancellation": {
+        "text": "Update or cancel anytime",
+        "url": "https://www.mindlabpro.com/products/mind-lab-pro",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "One-time purchase Price: $69.00",
+        "url": "https://www.mindlabpro.com/products/mind-lab-pro",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "Try Mind Lab Pro® for 30 days - risk-free.",
+        "url": "https://www.mindlabpro.com/pages/shipping-returns",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "noocube",
@@ -231,7 +254,30 @@
     "trustpilotCheckedAt": "2026-09-28",
     "halalCertified": false,
     "halalCheckedAt": "2026-10-07",
-    "halalBasis": "No halal statement on the noocube.com homepage (fetched 2026-10-07; /faq and /pages/ingredients return 404, and a site search for halal returned nothing). The page says 'Now Suitable for Vegetarians'; the capsule shell material is not stated."
+    "halalBasis": "No halal statement on the noocube.com homepage (fetched 2026-10-07; /faq and /pages/ingredients return 404, and a site search for halal returned nothing). The page says 'Now Suitable for Vegetarians'; the capsule shell material is not stated.",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "Free shipping We also offer worldwide delivery to over 100 countries",
+        "url": "https://noocube.com/pages/guarantee",
+        "lang": "en"
+      },
+      "cancellation": {
+        "text": "NO COMMITMENT CANCEL ANYTIME",
+        "url": "https://noocube.com/",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "RETAIL: $79.99 $79.99 $64.99 $55.24",
+        "url": "https://noocube.com/",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "we offer a 60-day money-back guarantee.",
+        "url": "https://noocube.com/pages/guarantee",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "qualia-mind",
@@ -252,7 +298,7 @@
       "trust": 7
     },
     "priceMonthlyUSD": 139,
-    "pricingModel": "subscription",
+    "pricingModel": "both",
     "moneyBackDays": 100,
     "caffeineFree": false,
     "euStorefront": false,
@@ -488,7 +534,30 @@
     "importPathway": "Qualia's own international-shipping page (https://www.qualialife.com/faqs/do-we-ship-internationally, checked 2026-09-28) lists only Canada, the UK, Ireland, Australia and New Zealand outside the US. Buyers in Singapore, Malaysia, Thailand, the Philippines, Indonesia and Vietnam cannot order direct from the brand.",
     "halalCertified": false,
     "halalCheckedAt": "2026-10-07",
-    "halalBasis": "No halal statement on qualialife.com/shop/qualia-mind or the Qualia FAQ page (fetched 2026-10-07); halal appears only on ingredient pages for other formulas (e.g. LactoSpore). Product page: '6 Vegetarian Capsules', hypromellose in other ingredients."
+    "halalBasis": "No halal statement on qualialife.com/shop/qualia-mind or the Qualia FAQ page (fetched 2026-10-07); halal appears only on ingredient pages for other formulas (e.g. LactoSpore). Product page: '6 Vegetarian Capsules', hypromellose in other ingredients.",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "International orders to the following countries can be placed on the Qualia Shop page: Canada United Kingdom Ireland Australia New Zealand",
+        "url": "https://www.qualialife.com/faqs/orders-shipping/category_index",
+        "lang": "en"
+      },
+      "cancellation": {
+        "text": "Keep in mind, subscriptions can be cancelled at any time; there is no minimum timeline or contract.",
+        "url": "https://www.qualialife.com/faqs/account-subscription/category_index?selected=how-can-i-cancel-my-subscription",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "$159.00 $39.00 first shipment, $139.00 thereafter Subscribe & Save 75% Purchase this time only",
+        "url": "https://www.qualialife.com/shop/qualia-mind",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "Feel 100% Satisfied within 100 days or get a 100% refund.",
+        "url": "https://www.qualialife.com/faqs/what-is-our-refund-policy",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "alpha-brain",
@@ -618,7 +687,25 @@
     "trustpilotCheckedAt": "2026-09-28",
     "halalCertified": false,
     "halalCheckedAt": "2026-10-07",
-    "halalBasis": "No halal statement on onnit.com's Alpha BRAIN product page, the Alpha BRAIN FAQ or Onnit's certifications article (fetched 2026-10-07); the certifications article names Prop 65 warnings and NSF-certified GMP facilities only. FAQ: 'vegetarian but not vegan'; the capsule shell material is not stated."
+    "halalBasis": "No halal statement on onnit.com's Alpha BRAIN product page, the Alpha BRAIN FAQ or Onnit's certifications article (fetched 2026-10-07); the certifications article names Prop 65 warnings and NSF-certified GMP facilities only. FAQ: 'vegetarian but not vegan'; the capsule shell material is not stated.",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "UPS Worldwide Express is an express service that delivers Monday through Friday in most countries. The transit and delivery timeline is anticipated within 2 - 7 business days, location dependent and barring any unforeseen issues at customs. Import duties and/or taxes are paid for by Onnit on your behalf.",
+        "url": "https://help.onnit.com/en-US/how-will-you-ship-my-order-6039833",
+        "lang": "en"
+      },
+      "cancellation": {
+        "text": "Select the subscription you'd like to cancel Click Cancel Subscription",
+        "url": "https://help.onnit.com/en-US/how-to-cancel-a-product-subscription-6038388",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "The 30 Day Money Back Guarantee applies to your first-time purchase of any Onnit supplement.",
+        "url": "https://help.onnit.com/en-US/30-day-money-back-guarantee-6327406",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "thesis",
@@ -638,7 +725,7 @@
       "trust": 7
     },
     "priceMonthlyUSD": 79,
-    "pricingModel": "subscription",
+    "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": false,
     "euStorefront": false,
@@ -690,8 +777,8 @@
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 3,
-    "summary": "4 personalised formula blends per month -- the only subscription service in this review that adapts to your cognitive profile rather than prescribing a single fixed formula. We could not confirm Thesis's international shipping from its site (its shipping page was unavailable on 2026-09-29) -- check at checkout. Priced at USD $79/month on subscription (approx. SGD $107 / MYR $362 / THB $2,815). We have not verified a local product registration with the National Pharmaceutical Regulatory Agency (NPRA) in Malaysia, the Thai FDA, FDA Philippines, the Badan Pengawas Obat dan Makanan (BPOM) in Indonesia or the Vietnam Food Administration (VFA). Note: subscription-only model means cancellation policy should be reviewed before purchasing.",
-    "whatItIs": "Thesis is a personalised nootropic subscription service that sends you four different formula blends each month -- Energy, Clarity, Logic, and Motivation -- along with access to a nootropics coaching service. Rather than a single fixed formula, Thesis lets you rotate blends on different days to find which works best for your specific cognitive profile. For SEA buyers, availability is the open question: we could not confirm Thesis's international shipping from its site (its shipping page was unavailable on 2026-09-29), so check delivery to your country at checkout. The subscription-only model means buyers cannot purchase a one-time trial box -- confirm you can cancel easily before committing.",
+    "summary": "4 personalised formula blends per month -- the only subscription service in this review that adapts to your cognitive profile rather than prescribing a single fixed formula. We could not confirm Thesis's international shipping from its site (its shipping page was unavailable on 2026-09-29) -- check at checkout. Priced at USD $79/month on subscription (approx. SGD $107 / MYR $362 / THB $2,815). We have not verified a local product registration with the National Pharmaceutical Regulatory Agency (NPRA) in Malaysia, the Thai FDA, FDA Philippines, the Badan Pengawas Obat dan Makanan (BPOM) in Indonesia or the Vietnam Food Administration (VFA). Note: review the cancellation policy before subscribing.",
+    "whatItIs": "Thesis is a personalised nootropic subscription service that sends you four different formula blends each month -- Energy, Clarity, Logic, and Motivation -- along with access to a nootropics coaching service. Rather than a single fixed formula, Thesis lets you rotate blends on different days to find which works best for your specific cognitive profile. For SEA buyers, availability is the open question: we could not confirm Thesis's international shipping from its site (its shipping page was unavailable on 2026-09-29), so check delivery to your country at checkout. A one-time purchase is offered ($129 for Clarity); if you subscribe, confirm you can cancel easily before committing.",
     "howItWorks": "Each Thesis blend targets a different cognitive mode. Energy blend: stimulating compounds (Zynamite, Dynamine, Ashwagandha) for high-output days. Clarity blend: cholinergics and focus ingredients for clear thinking. Logic blend: memory and processing speed ingredients. Motivation blend: dopaminergic support. Each blend has a caffeine-free and caffeinated option. The personalisation model allows you to match your cognitive demand of the day with the appropriate formula.",
     "whatToExpect": "First month: expect an experimentation period. You'll rotate through 4 blends, 7 days each, to assess which has the most noticeable effect for you. Energy blend effects are immediate (stimulating compounds work within 30-60 minutes). Clarity and Logic blend effects build over 2-4 weeks. Coaching service adds value for users who want guidance on optimising their protocol.",
     "pros": [
@@ -700,7 +787,7 @@
       "Good formula transparency"
     ],
     "cons": [
-      "Subscription only",
+      "One-time purchase costs $129 (Clarity) vs $79/month on subscription",
       "Requires experimentation",
       "SEA shipping could not be confirmed from the brand's site (checked 2026-09-29) -- check at checkout"
     ],
@@ -712,7 +799,25 @@
     "importPathway": "We could not confirm Thesis's international shipping from its site (its shipping page was unavailable on 2026-09-29) -- check at checkout.",
     "halalCertified": false,
     "halalCheckedAt": "2026-10-07",
-    "halalBasis": "No halal statement on the takethesis.com homepage, the Clarity product page, or the Thesis FAQ (thesis.applied.guide) quality, vegan and sourcing articles (fetched 2026-10-07). FAQ: 'All our ingredients are vegan'; the capsule shell material is not stated."
+    "halalBasis": "No halal statement on the takethesis.com homepage, the Clarity product page, or the Thesis FAQ (thesis.applied.guide) quality, vegan and sourcing articles (fetched 2026-10-07). FAQ: 'All our ingredients are vegan'; the capsule shell material is not stated.",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "cancellation": {
+        "text": "You can cancel your subscription at any time in your Thesis Account or if you need assistance you can contact our team at hello@takethesis.com",
+        "url": "https://takethesis.com/policies/refund-policy",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "One time purchase, $129",
+        "url": "https://takethesis.com/products/clarity",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "you may request a refund within 30 days of delivery of your first order",
+        "url": "https://takethesis.com/policies/refund-policy",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "nootropics-depot-lions-mane",
@@ -734,7 +839,7 @@
     },
     "priceMonthlyUSD": 25,
     "pricingModel": "both",
-    "moneyBackDays": 30,
+    "moneyBackDays": null,
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
@@ -779,7 +884,20 @@
     "trustpilotCheckedAt": "2026-09-29",
     "halalCertified": false,
     "halalCheckedAt": "2026-10-07",
-    "halalBasis": "No halal statement on the nootropicsdepot.com Lion's Mane 8:1 extract capsules product page (fetched 2026-10-07), which shows a VEGAN badge and does not state the capsule shell material. The halal statement on ND's Sabinsa page covers Sabinsa-supplied products, not this one."
+    "halalBasis": "No halal statement on the nootropicsdepot.com Lion's Mane 8:1 extract capsules product page (fetched 2026-10-07), which shows a VEGAN badge and does not state the capsule shell material. The halal statement on ND's Sabinsa page covers Sabinsa-supplied products, not this one.",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "International orders $200+ Ship via Asendia Standard Worldwide Mail | Please note that all prices on our website are displayed and transacted in USD. Additional customs duties and fees may apply.",
+        "url": "https://support.nootropicsdepot.com/article/67-how-do-i-select-free-shipping-during-checkout",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "Nootropics Depot accepts returns of unopened product within 30 days of its delivery date.",
+        "url": "https://support.nootropicsdepot.com/article/28-product-returns-policy",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "blackmores-brain-active",
@@ -895,7 +1013,7 @@
     },
     "priceMonthlyUSD": 54.71,
     "pricingModel": "one-time",
-    "moneyBackDays": 0,
+    "moneyBackDays": null,
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
@@ -967,7 +1085,25 @@
       "euyansang.com.sg",
       "amazon.sg",
       "KrisShop (Singapore Airlines)"
-    ]
+    ],
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "Courier Service delivery is free for orders $150 and above (w.e.f 1 May 2026). If order does not exceed $150, delivery fee of $13 will be charged.",
+        "url": "https://www.euyansang.com.sg/en/order-processing-delivery/eys-order-processing-delivery.html",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "Price reduced from S$89.90 to S$69.90",
+        "url": "https://www.euyansang.com.sg/en/brainmax-888842543107.html",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "Expiry: May 2027 (No Refund / Exchange Allowed)",
+        "url": "https://www.euyansang.com.sg/en/brainmax-888842543107.html",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "naturebell-ginkgo-ginseng",
@@ -1300,6 +1436,19 @@
       "No independent clinical evidence cited"
     ],
     "whatItIs": "Focus Nootropic is the cognitive blend from Supershrooms, which describes itself as a Philippine brand of mushroom-based food supplements sold on its own site and on Shopee, Lazada and TikTok Shop. It combines two mushrooms (Lion's Mane and Cordyceps) with L-theanine, Rhodiola Rosea, Cacao, Gotu Kola, Bacopa Monnieri and Ginkgo Biloba; the product page gives no per-ingredient doses, so the formula cannot be checked against clinical doses. The brand says the blend supports focus, energy and memory; we have not tested it.",
-    "whatToExpect": ""
+    "whatToExpect": "",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "Enjoy complimentary shipping on orders totaling P1000 or more. Otherwise, standard shipping is available for P150. Your orders are typically processed within 24-48 hours, Monday to Saturdays with no shipping on Sundays. Delivery time varies. Expect your Supershrooms package within 2-5 days for Metro Manila, 5-7 days for Visayas, and over 7 days for Mindanao.",
+        "url": "https://supershrooms.ph/policies/shipping-policy",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "1 Pouch (1 month supply) ₱1,680",
+        "url": "https://supershrooms.ph/products/focus-nootropic",
+        "lang": "en"
+      }
+    }
   }
 ]
