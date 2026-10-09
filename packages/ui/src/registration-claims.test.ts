@@ -462,3 +462,117 @@ describe('round twelve: NPN review, SEA framework, Mind Lab Pro delivery, seller
     expect(hits).toEqual([]);
   });
 });
+
+// Round thirteen (2026-10-09): unsourced superlatives. No sales, popularity,
+// trust or research-volume data exists for any brand, and no regulator source
+// ranks one market's rules as "stricter" or "most permissive", so those claims
+// are dropped or rewritten to the fact underneath ("an 11-ingredient stack",
+// "the most of any single formula in this review"). Claims attributed to a
+// quoted source stay: Suntory's own product page ("DHAサプリメント市場18年連続
+// 売上No.1"; it does not give the "30 million bottles" we had) and MIDA's
+// description of JAKIM as "widely regarded as the gold standard in halal
+// certification" (raw pages saved 2026-10-09). "Most affordable" stays only
+// where the region's own priceMonthlyUSD data proves it (checked below).
+const ROUND_THIRTEEN_SOURCES = [
+  ...walk(DATA_DIR),
+  ...readdirSync(APPS_DIR)
+    .map(n => resolve(APPS_DIR, n, 'src'))
+    .filter(p => existsSync(p))
+    .flatMap(p => walk(p)),
+];
+
+const ROUND_THIRTEEN_UNSOURCED: RegExp[] = [
+  /most comprehensively researched/i,
+  /most comprehensive (formula|trials)/i,
+  /(stack|cobertura) más complet[ao]/i,
+  /most commercially (successful|recognised)/i,
+  /most recogni[sz](ed|able)\b/i,
+  /most trusted/i,
+  /most popular/i,
+  /most permissive/i,
+  /widely regarded as the most/i,
+  /best-known memory supplement|most widely recognised memory supplements/i,
+  /only sold via/i,
+  /only available via/i,
+  /30 million bottles/i,
+  /stricter (supplement|route|ADAS)|processing is stricter/i,
+  /reliable international delivery/i,
+];
+
+describe('round thirteen: no unsourced superlatives in data or app copy', () => {
+  test('scanned a non-empty file set', () => {
+    expect(ROUND_THIRTEEN_SOURCES.length).toBeGreaterThan(100);
+    expect(ROUND_THIRTEEN_SOURCES.some(f => /packages\/data\/src\/products-jp\.json$/.test(f))).toBe(true);
+    expect(ROUND_THIRTEEN_SOURCES.some(f => /packages\/data\/src\/eu-countries\.ts$/.test(f))).toBe(true);
+    expect(ROUND_THIRTEEN_SOURCES.some(f => /packages\/data\/src\/guides-es\.ts$/.test(f))).toBe(true);
+    expect(ROUND_THIRTEEN_SOURCES.some(f => /apps\/sea\/src\/app\/about\/page\.tsx$/.test(f))).toBe(true);
+    expect(ROUND_THIRTEEN_SOURCES.some(f => /apps\/jp\/src\/app\/japanese-brain-supplements\/page\.tsx$/.test(f))).toBe(true);
+    expect(ROUND_THIRTEEN_SOURCES.some(f => /apps\/latam\/src\/app\/best-nootropics-for-memory\/page\.tsx$/.test(f))).toBe(true);
+    expect(ROUND_THIRTEEN_SOURCES.every(f => existsSync(f))).toBe(true);
+  });
+
+  test('the patterns catch the removed wording', () => {
+    const removed = [
+      'The most comprehensively researched nootropic stack on the market.',
+      '31 active ingredients -- the most comprehensive formula in this review',
+      'Split dosing (300mg AM + 300mg PM) is used in the most comprehensive trials.',
+      'La cobertura más completa, pero el protocolo diario',
+      'el stack más completo para memoria en un solo producto.',
+      'The most commercially recognised nootropic brand in North America',
+      'Most commercially successful US nootropic.',
+      'It is the most recognised nootropic brand in the English-speaking world',
+      'easily the most recognisable brand among SEA buyers',
+      "from one of Japan's most trusted health brands.",
+      "from Southeast Asia's most trusted Traditional Chinese Medicine (TCM) brand",
+      "Mind Lab Pro and NooCube are the most popular stacks among Toronto's professional community.",
+      'Most permissive personal-import regime in the region.',
+      'Nootropics Depot is widely regarded as the most rigorous quality-focused retailer',
+      "Memo Plus Gold is the Philippines' best-known memory supplement",
+      'It is one of the most widely recognised memory supplements in the Philippines',
+      'It is manufactured in the USA in an FDA-registered cGMP facility and only sold via the official website.',
+      'a product is TGA-listed, available via Australian retailers, or only available via',
+      'but is only available via imports.',
+      "Japan's best-selling omega-3 brain supplement (over 30 million bottles sold)",
+      'Belgium has one of the stricter supplement regulatory frameworks in the EU.',
+      'FOSHU (特定保健用食品, often shortened to トクホ) is the stricter route.',
+      'improved MMSE but not the stricter ADAS-Cog scale.',
+      'where personal-import customs processing is stricter.',
+      'Ships from the UK directly to Canada with reliable international delivery.',
+    ];
+    for (const s of removed) expect(ROUND_THIRTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(true);
+  });
+
+  test('no data or app source uses the unsourced wording', () => {
+    const hits = ROUND_THIRTEEN_SOURCES.flatMap(file => {
+      const lines = readFileSync(file, 'utf8').split('\n');
+      return lines.flatMap((line, i) =>
+        ROUND_THIRTEEN_UNSOURCED.some(re => re.test(line)) ? [`${relative(REPO_ROOT, file)}:${i + 1}`] : [],
+      );
+    });
+    expect(hits).toEqual([]);
+  });
+
+  test('a "cheapest in this review" claim in product data names the region\'s lowest priceMonthlyUSD', () => {
+    const CHEAPEST_CLAIM = /most affordable|lowest monthly price in this review|lowest-priced product in this review/i;
+    type Rec = { slug: string; discontinued?: unknown; priceMonthlyUSD?: number | null } & Record<string, unknown>;
+    let claims = 0;
+    const wrong: string[] = [];
+    for (const file of PRODUCT_FILES) {
+      const recs = JSON.parse(readFileSync(file, 'utf8')) as Rec[];
+      const live = recs.filter(r => !r.discontinued);
+      for (const r of recs) {
+        const texts = Object.values(r).filter((v): v is string => typeof v === 'string');
+        if (!texts.some(t => CHEAPEST_CLAIM.test(t))) continue;
+        claims++;
+        // Every live record needs a USD price, or the comparison cannot be proved.
+        const unpriced = live.filter(x => typeof x.priceMonthlyUSD !== 'number').map(x => x.slug);
+        const min = Math.min(...live.map(x => x.priceMonthlyUSD as number));
+        if (unpriced.length > 0 || r.discontinued || r.priceMonthlyUSD !== min) {
+          wrong.push(`${relative(REPO_ROOT, file)} ${r.slug}: ${r.priceMonthlyUSD} vs min ${min}; unpriced ${unpriced.join(',')}`);
+        }
+      }
+    }
+    expect(claims).toBeGreaterThanOrEqual(5);
+    expect(wrong).toEqual([]);
+  });
+});
