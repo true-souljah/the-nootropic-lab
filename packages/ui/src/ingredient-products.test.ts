@@ -25,17 +25,13 @@ const CATALOGUES: Product[][] = [
   allProductsJP, allProductsLatam, allProductsGCC, allProductsSEA,
 ];
 
-// Pairs that failed the rule when it was introduced (2026-10-09) and have not
-// been checked against the product label yet. The list can only shrink: an
-// entry that now matches, or whose pair is gone, fails until it is removed.
-// (Brainzyme/Bacopa, NooCube/Alpha-GPC and /Huperzine A and Qualia/ALCAR left
-// the list when the 2026-10-09 label rebuilds, #334 and #336, landed.)
-const KNOWN_MISMATCHES = new Set<string>([
-  'lions-mane/onnit-alpha-brain-review',
-  'phosphatidylserine/fancl-brains-review',
-  'ginkgo-biloba/fancl-brains-review',
-  'dha-omega-3/fancl-brains-review',
-]);
+// Pairs that fail the rule but have not been checked against the product
+// label yet. Empty since 2026-10-09: the eight pairs found when the rule was
+// introduced were resolved by the label rebuilds (#334, #336) or removed from
+// the ingredient pages after a label check (FANCL BRAINs: Bacopa saponins and
+// hop bitter acids only; Onnit Alpha Brain: no Lion's Mane). The list can only
+// shrink: an entry that now matches, or whose pair is gone, fails until removed.
+const KNOWN_MISMATCHES = new Set<string>([]);
 
 // Label wording shorter than the ingredient page's name. Keep each alias
 // specific to its ingredient: a generic word ("acetyl", "vitamin") would let an
@@ -97,6 +93,9 @@ describe('ingredient pages list only products that contain the ingredient', () =
       expect(p.ingredientDosages.map((d) => d.name)).toEqual(['Curcumin (Longvida® turmeric extract)']);
       expect(p.ingredientDosages[0].doseInProduct).toBe('400mg (80mg curcumin)');
     }
-    expect(ingredients.filter((i) => i.productsContaining?.includes('blackmores-brain-active-review'))).toEqual([]);
+    // Its one active has its own evidence page; no other ingredient page may list it.
+    expect(
+      ingredients.filter((i) => i.productsContaining?.includes('blackmores-brain-active-review')).map((i) => i.slug),
+    ).toEqual(['longvida-curcumin']);
   });
 });

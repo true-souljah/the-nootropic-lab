@@ -62,7 +62,7 @@ export default function AboutPage() {
             Canada under the Natural and Non-prescription Health Products Directorate. Products legally sold
             in Canada should display a <strong>Natural Product Number (NPN)</strong> or, for homeopathic
             preparations, a DIN-HM. We flag products without a Canadian NPN and explain the import path
-            (CUSMA/USMCA personal-use orders, customs treatment) for international brands.
+            (personal importation, CBSA duty and tax thresholds) for international brands.
           </p>
           <p className="text-gray-700 leading-relaxed">
             We are not a pharmacy and do not sell products. We rate the brands we link to and disclose every
