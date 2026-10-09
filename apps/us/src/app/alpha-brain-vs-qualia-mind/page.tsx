@@ -34,7 +34,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Why does Qualia Mind cost so much more?',
     a:
-      'Qualia Mind one-time is $159/month vs Alpha Brain at ~$67-80/month. Qualia\'s pricing reflects (a) 31-ingredient formulation cost, (b) trademarked extracts (e.g. SmartSeed, RealLionsMane), (c) direct-to-consumer-only distribution. Alpha Brain has scale economies through retail distribution.',
+      'Qualia Mind is $159 for a one-time 4-week box, or $139 per 4-week subscription shipment, vs Alpha Brain at $79.95 for a 90-count bottle that Onnit calls a 45-day supply (both checked October 2026). Qualia\'s pricing reflects (a) 31-ingredient formulation cost, (b) trademarked extracts (e.g. SmartSeed, RealLionsMane), (c) direct-to-consumer-only distribution. Alpha Brain has scale economies through retail distribution.',
   },
   {
     q: 'Are both safe to take daily?',

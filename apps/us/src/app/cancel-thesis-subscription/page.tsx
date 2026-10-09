@@ -31,7 +31,7 @@ const steps: CancellationStep[] = [
   },
   {
     title: 'Identify which formula(s) to cancel',
-    body: 'Thesis bills $59/month per formula. If you took the 4-week starter and continued with 2-3 formulas, you have 2-3 separate subscription lines — each must be cancelled individually OR you can cancel the entire account.',
+    body: 'On Thesis\'s US Clarity page a 1-month subscription is $59 a month and a one-time purchase is $89 plus $6.90 shipping (checked 9 October 2026). If you took the 4-week starter and continued with 2-3 formulas, you have 2-3 separate subscription lines — each must be cancelled individually OR you can cancel the entire account.',
   },
   {
     title: 'Click "Manage" on the formula you want to cancel',
@@ -62,7 +62,7 @@ const watchouts = [
 const faqItems: CancellationFAQ[] = [
   {
     q: 'Can I get a refund on the starter pack?',
-    a: 'Generally no — the 4-week starter pack ($119) is positioned as a trial rather than a full-cost subscription, and Thesis\'s satisfaction guarantee typically applies to full single-formula months, not the starter. Contact customer support if you have unopened formula packets — they may offer partial refund as goodwill.',
+    a: 'Yes, if it was your first order. Thesis\'s refund policy (last updated 9 May 2024, checked 9 October 2026) lets you request a refund within 30 days of delivery of your first order, for the full cost of the product including shipping. Refunds apply to the first order only; later shipments can be rescheduled, skipped or cancelled in your Thesis Account.',
   },
   {
     q: 'How do I cancel ALL formulas at once?',
@@ -99,7 +99,7 @@ export default function Page() {
       siteUrl={SITE_URL}
       pageTitle="How to Cancel Your Thesis Nootropics Subscription"
       pageDescription="Cancel your Thesis Nootropics subscription per-formula. Step-by-step, with the friction points and FTC complaint path."
-      heroParagraph="Thesis bills $59/month per formula. If you signed up for the starter and continued with 2-3 formulas, each is its own subscription that must be cancelled separately. This guide walks through the per-formula cancellation flow and what to do if you want a refund on unopened packets."
+      heroParagraph="On Thesis's US Clarity page a 1-month subscription is $59 a month and a one-time purchase is $89 plus $6.90 shipping (checked 9 October 2026). If you signed up for the starter and continued with 2-3 formulas, each is its own subscription that must be cancelled separately. This guide walks through the per-formula cancellation flow and what to do if you want a refund on unopened packets."
       steps={steps}
       totalTimeMinutes={8}
       watchouts={watchouts}

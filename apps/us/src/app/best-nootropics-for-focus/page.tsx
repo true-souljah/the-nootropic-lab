@@ -82,7 +82,7 @@ const picks: ListiclePick[] = [
     product: productsUS.find(p => p.slug === 'thesis-nootropics-review')!,
     rank: 5,
     whyItsHere:
-      'Personalized via questionnaire — includes a "Clarity" formula targeted at focus with CDP choline (250mg), Lion\'s Mane (500mg) and, in its caffeinated version, caffeine (100mg). Subscription model is the main friction; pricing is $59/month per formula.',
+      'Personalized via questionnaire — includes a "Clarity" formula targeted at focus with CDP choline (250mg), Lion\'s Mane (500mg) and, in its caffeinated version, caffeine (100mg). Subscription model is the main friction: a 1-month Clarity subscription is $59 a month (one-time purchase $89 plus shipping, checked 9 October 2026).',
   },
 ];
 
