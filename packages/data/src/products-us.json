@@ -19,8 +19,15 @@
       "value": 8,
       "trust": 9
     },
-    "priceMonthlyUSD": 69,
-    "priceMonthlyEUR": 65,
+    "storePrice": {
+      "amount": 69,
+      "currency": "USD",
+      "text": "$69.00",
+      "pack": "Servings per container: 30",
+      "directions": "Take 2 to 4 capsules per day in the morning or early afternoon on an empty stomach.",
+      "url": "https://www.mindlabpro.com/products/mind-lab-pro",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
@@ -175,8 +182,16 @@
       "value": 9,
       "trust": 7
     },
-    "priceMonthlyUSD": 65,
-    "priceMonthlyEUR": 55,
+    "storePrice": {
+      "amount": 64.99,
+      "currency": "USD",
+      "text": "$64.99",
+      "pack": "60 CAPSULES",
+      "supply": "1-MONTH SUPPLY",
+      "directions": "Simply take 2 easy-to-swallow capsules of Noocube with water. It can be taken with or without food.",
+      "url": "https://noocube.com/",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 60,
     "caffeineFree": true,
@@ -338,7 +353,16 @@
       "value": 6,
       "trust": 7
     },
-    "priceMonthlyUSD": 159,
+    "storePrice": {
+      "amount": 159,
+      "currency": "USD",
+      "text": "$159.00",
+      "pack": "1 x Qualia Mind 2.0 - 120 count Boxed",
+      "supply": "delivered every 4 weeks",
+      "directions": "You should take it for 5 days followed by 2 days off each week to maximize benefits and prevent habituation.",
+      "url": "https://www.qualialife.com/shop/qualia-mind",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 100,
     "caffeineFree": false,
@@ -614,7 +638,16 @@
       "value": 7,
       "trust": 8
     },
-    "priceMonthlyUSD": 79,
+    "storePrice": {
+      "amount": 79.95,
+      "currency": "USD",
+      "text": "$79.95",
+      "pack": "90 Count",
+      "supply": "45-day supply",
+      "directions": "Gradually increase your dose to a full serving (2 capsules) if well-tolerated.",
+      "url": "https://www.onnit.com/products/alpha-brain-90-ct",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
@@ -763,7 +796,6 @@
       "value": 7,
       "trust": 7
     },
-    "priceMonthlyUSD": 119,
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": false,
@@ -1055,7 +1087,15 @@
       "value": 9,
       "trust": 8
     },
-    "priceMonthlyUSD": 25,
+    "storePrice": {
+      "amount": 19.99,
+      "currency": "USD",
+      "text": "$19.99",
+      "pack": "60ct.",
+      "directions": "take 1-2 daily with or without food",
+      "url": "https://nootropicsdepot.com/lions-mane-hericium-erinaceus-whole-fruiting-body-medicinal-mushroom-extract-500mg-capsules/",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": null,
     "caffeineFree": true,
@@ -1136,7 +1176,15 @@
       "value": 9,
       "trust": 6
     },
-    "priceMonthlyUSD": 5,
+    "storePrice": {
+      "amount": 14.99,
+      "currency": "USD",
+      "text": "$14.99",
+      "pack": "300 Count",
+      "supply": "up to a 5 month supply",
+      "url": "https://www.amazon.com/Naturebell-Capsules-GinkoVida-Strength-Supplement/dp/B09F4ML3FF",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "one-time",
     "moneyBackDays": 60,
     "caffeineFree": true,
@@ -1223,7 +1271,6 @@
       "value": 8,
       "trust": 6
     },
-    "priceMonthlyUSD": 49,
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
@@ -1319,12 +1366,15 @@
       "value": 6,
       "trust": 7
     },
-    "priceMonthlyUSD": 90,
-    "priceBasis": {
-      "source": "vendor-one-time",
-      "quoteField": "vendorTerms.oneTimePrice",
-      "monthsOfSupply": 1,
-      "checkedAt": "2026-10-07"
+    "storePrice": {
+      "amount": 90,
+      "currency": "USD",
+      "text": "$90.00",
+      "pack": "180 capsules",
+      "supply": "This will last you one month.",
+      "directions": "There are 180 capsules per package, and you should take 6 a day.",
+      "url": "https://www.hunterevolve.com/en-us/hunter-focus",
+      "checkedAt": "2026-10-09"
     },
     "pricingModel": "one-time",
     "moneyBackDays": null,
@@ -1534,12 +1584,14 @@
       "value": 6,
       "trust": 7
     },
-    "priceMonthlyUSD": 64.95,
-    "priceBasis": {
-      "source": "vendor-one-time",
-      "quoteField": "vendorTerms.oneTimePrice",
-      "monthsOfSupply": 1,
-      "checkedAt": "2026-10-07"
+    "storePrice": {
+      "amount": 64.95,
+      "currency": "USD",
+      "text": "$64.95",
+      "pack": "1 Unit",
+      "directions": "Take 4 capsules daily with food for optimal cognitive support.",
+      "url": "https://brainmd.com/products/brain-memory-power-boost",
+      "checkedAt": "2026-10-09"
     },
     "pricingModel": "both",
     "moneyBackDays": null,
@@ -1668,7 +1720,6 @@
       "value": 6,
       "trust": 5
     },
-    "priceMonthlyUSD": 75,
     "pricingModel": "subscription",
     "moneyBackDays": 0,
     "caffeineFree": false,
@@ -1805,7 +1856,15 @@
       "value": 5,
       "trust": 6
     },
-    "priceMonthlyUSD": 44,
+    "storePrice": {
+      "amount": 44,
+      "currency": "USD",
+      "text": "$44.00",
+      "pack": "Single servings per container: 30",
+      "directions": "Take 1–2 capsules on an empty stomach.",
+      "url": "https://www.performancelab.com/products/caffeine-2",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": false,
@@ -1933,7 +1992,15 @@
       "value": 5,
       "trust": 6
     },
-    "priceMonthlyUSD": 59,
+    "storePrice": {
+      "amount": 59,
+      "currency": "USD",
+      "text": "$59.00",
+      "pack": "Servings per container: 20",
+      "directions": "Mix 1 scoop in 10oz of water and take 30 minutes before exercise.",
+      "url": "https://www.performancelab.com/products/pre-lab-pro",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": false,
@@ -2096,7 +2163,15 @@
       "value": 3,
       "trust": 6
     },
-    "priceMonthlyUSD": 69,
+    "storePrice": {
+      "amount": 69,
+      "currency": "USD",
+      "text": "$69.00",
+      "pack": "Servings per container: 30",
+      "directions": "Take 2 capsules in the morning before eating.",
+      "url": "https://www.performancelab.com/products/energy",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
@@ -2215,7 +2290,15 @@
       "value": 5,
       "trust": 6
     },
-    "priceMonthlyUSD": 49,
+    "storePrice": {
+      "amount": 49,
+      "currency": "USD",
+      "text": "$49.00",
+      "pack": "Servings per container: 30",
+      "directions": "Take 3 Omega-3 softgels with your first meal of the day.",
+      "url": "https://www.performancelab.com/products/omega-3",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,

@@ -1,4 +1,5 @@
 import type { Product } from './products-us';
+import { monthlyStorePrice, type Money } from './store-price';
 import { regionalNotesCA } from './regional-notes/ca';
 import { regionalNotesEU } from './regional-notes/eu';
 import { regionalNotesAU } from './regional-notes/au';
@@ -19,13 +20,6 @@ import { regionalNotesJP } from './regional-notes/jp';
  */
 
 export type RegionCode = 'us' | 'eu' | 'ca' | 'au' | 'jp' | 'latam' | 'gcc' | 'sea';
-
-export type LocalPriceField =
-  | 'priceMonthlyUSD'
-  | 'priceMonthlyEUR'
-  | 'priceMonthlyCAD'
-  | 'priceMonthlyAUD'
-  | 'priceMonthlyJPY';
 
 export interface RegionLabels {
   /** "in Canada" — appended to titles when the page has regional substance. */
@@ -48,10 +42,8 @@ export interface RegionLabels {
 export interface RegionProfile {
   code: RegionCode;
   name: string;
-  currency: string;
-  /** Intl locale used to format the local price. */
+  /** Intl locale used to format prices (each in its store's own currency; never converted). */
   priceLocale: string;
-  priceField: LocalPriceField;
   /** Short regulator label shown next to licence status. */
   regulator: string;
   geoHub: { path: string; label: string };
@@ -74,37 +66,37 @@ const EN = (inRegion: string, geo: string): RegionLabels => ({
 
 export const REGION_PROFILES: Record<RegionCode, RegionProfile> = {
   us: {
-    code: 'us', name: 'United States', currency: 'USD', priceLocale: 'en-US', priceField: 'priceMonthlyUSD',
+    code: 'us', name: 'United States', priceLocale: 'en-US',
     regulator: 'FDA (DSHEA dietary supplement)',
     geoHub: { path: '/best-nootropics/', label: 'Best nootropics in the US' },
     labels: EN('in the United States', 'US buyer\'s guides'),
   },
   eu: {
-    code: 'eu', name: 'European Union', currency: 'EUR', priceLocale: 'en-IE', priceField: 'priceMonthlyEUR',
+    code: 'eu', name: 'European Union', priceLocale: 'en-IE',
     regulator: 'EU food supplement (Reg. 1924/2006 claims)',
     geoHub: { path: '/countries/', label: 'Country guides' },
     labels: EN('in the EU', 'EU country guides'),
   },
   ca: {
-    code: 'ca', name: 'Canada', currency: 'CAD', priceLocale: 'en-CA', priceField: 'priceMonthlyCAD',
+    code: 'ca', name: 'Canada', priceLocale: 'en-CA',
     regulator: 'Health Canada (NPN)',
     geoHub: { path: '/provinces/', label: 'Province guides' },
     labels: EN('in Canada', 'Province guides'),
   },
   au: {
-    code: 'au', name: 'Australia', currency: 'AUD', priceLocale: 'en-AU', priceField: 'priceMonthlyAUD',
+    code: 'au', name: 'Australia', priceLocale: 'en-AU',
     regulator: 'TGA (AUST L)',
     geoHub: { path: '/states/', label: 'State & territory guides' },
     labels: EN('in Australia', 'State & territory guides'),
   },
   jp: {
-    code: 'jp', name: 'Japan', currency: 'JPY', priceLocale: 'ja-JP', priceField: 'priceMonthlyJPY',
+    code: 'jp', name: 'Japan', priceLocale: 'ja-JP',
     regulator: 'Consumer Affairs Agency (FFC)',
     geoHub: { path: '/prefectures/', label: 'Prefecture guides' },
     labels: EN('in Japan', 'Prefecture guides'),
   },
   latam: {
-    code: 'latam', name: 'América Latina', currency: 'EUR', priceLocale: 'es-419', priceField: 'priceMonthlyEUR',
+    code: 'latam', name: 'América Latina', priceLocale: 'es-419',
     regulator: 'ANVISA / COFEPRIS / INVIMA',
     geoHub: { path: '/countries/', label: 'Guías por país' },
     labels: {
@@ -122,13 +114,13 @@ export const REGION_PROFILES: Record<RegionCode, RegionProfile> = {
     },
   },
   gcc: {
-    code: 'gcc', name: 'GCC', currency: 'EUR', priceLocale: 'en-AE', priceField: 'priceMonthlyEUR',
+    code: 'gcc', name: 'GCC', priceLocale: 'en-AE',
     regulator: 'SFDA / Dubai Municipality',
     geoHub: { path: '/countries/', label: 'Country guides' },
     labels: EN('in the Gulf', 'GCC country guides'),
   },
   sea: {
-    code: 'sea', name: 'Southeast Asia', currency: 'EUR', priceLocale: 'en-SG', priceField: 'priceMonthlyEUR',
+    code: 'sea', name: 'Southeast Asia', priceLocale: 'en-SG',
     regulator: 'HSA / NPRA / BPOM / FDA PH / Thai FDA',
     geoHub: { path: '/countries/', label: 'Country guides' },
     labels: EN('in Southeast Asia', 'SEA country guides'),
@@ -193,17 +185,27 @@ export function licenceStatus(product: Product, region: RegionCode): LicenceStat
 }
 
 export interface LocalPrice {
-  amount: number;
-  currency: string;
+  /** One pack's price as the store this region links to states it, in the store's currency. */
+  pack: Money;
+  /** The vendor's own pack wording ("90 Count", "Servings per container: 30"). */
+  packText: string;
+  /** Per month in the same currency, only when the pack's supply is stated (store-price.ts). */
+  monthly: Money | null;
+  /** Intl locale of the region, for formatting. */
   locale: string;
 }
 
-/** Local monthly price from the region's own price field; null when absent. */
+/** The record's store price for display in this region; null when the record has none. */
 export function localPrice(product: Product, region: RegionCode): LocalPrice | null {
-  const profile = REGION_PROFILES[region];
-  const amount = product[profile.priceField];
-  if (typeof amount !== 'number' || !(amount > 0)) return null;
-  return { amount, currency: profile.currency, locale: profile.priceLocale };
+  const sp = product.storePrice;
+  if (!sp) return null;
+  const monthly = monthlyStorePrice(product);
+  return {
+    pack: { amount: sp.amount, currency: sp.currency },
+    packText: sp.pack,
+    monthly: monthly && { amount: monthly.amount, currency: monthly.currency },
+    locale: REGION_PROFILES[region].priceLocale,
+  };
 }
 
 export interface RegionalSource {

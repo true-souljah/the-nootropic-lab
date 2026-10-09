@@ -4,6 +4,7 @@ import { BestOf, SchemaOrg, Card, Chip, FaqAccordion, NoPurchaseLinkNotice, buil
 import { productsJP, buildPersonAuthorReference, purchaseUrl } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
+import { priceText } from '@nootropic/ui';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -52,7 +53,7 @@ export default function BestNootropicsJPPage() {
                 <NoPurchaseLinkNotice product={winner} strings={uiStrings.noPurchaseLink} />
               ) : (
                 <a href={winnerUrl} target="_blank" rel="nofollow sponsored noopener noreferrer" className="inline-block bg-ds-accent hover:bg-ds-accent-press text-white font-semibold px-5 py-[10px] rounded-[8px] text-[13px] no-underline focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2">
-                  {winner.priceMonthlyJPY ? `Check JP price (¥${winner.priceMonthlyJPY.toLocaleString()}/mo) →` : winner.priceMonthlyUSD ? `Check price ($${winner.priceMonthlyUSD}/mo USD) →` : 'Check price →'}
+                  {priceText(winner, uiStrings) ? `Check price (${priceText(winner, uiStrings)!.short}) →` : 'Check price →'}
                 </a>
               )}
             </Card>

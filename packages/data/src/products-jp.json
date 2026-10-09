@@ -17,8 +17,15 @@
       "value": 8,
       "trust": 9
     },
-    "priceMonthlyUSD": 69,
-    "priceMonthlyJPY": 10350,
+    "storePrice": {
+      "amount": 69,
+      "currency": "USD",
+      "text": "$69.00",
+      "pack": "Servings per container: 30",
+      "directions": "For best results take 2 capsules in the morning before eating.",
+      "url": "https://global.mindlabpro.com/products/mind-lab-pro",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
@@ -175,8 +182,16 @@
       "value": 9,
       "trust": 7
     },
-    "priceMonthlyUSD": 64.99,
-    "priceMonthlyJPY": 8850,
+    "storePrice": {
+      "amount": 64.99,
+      "currency": "USD",
+      "text": "$64.99",
+      "pack": "60 CAPSULES",
+      "supply": "1-MONTH SUPPLY",
+      "directions": "Simply take 2 easy-to-swallow capsules of Noocube with water.",
+      "url": "https://noocube.com/",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 60,
     "caffeineFree": true,
@@ -342,8 +357,6 @@
       "value": 7,
       "trust": 9
     },
-    "priceMonthlyUSD": 69,
-    "priceMonthlyJPY": 10350,
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
@@ -437,8 +450,16 @@
       "value": 6,
       "trust": 8
     },
-    "priceMonthlyUSD": 90,
-    "priceMonthlyJPY": 13500,
+    "storePrice": {
+      "amount": 90,
+      "currency": "USD",
+      "text": "$90.00",
+      "pack": "180 capsules",
+      "supply": "This will last you one month.",
+      "directions": "you should take 6 a day",
+      "url": "https://www.hunterevolve.com/en-us/hunter-focus",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "one-time",
     "moneyBackDays": null,
     "caffeineFree": false,
@@ -658,8 +679,16 @@
       "value": 8,
       "trust": 7
     },
-    "priceMonthlyUSD": 50,
-    "priceMonthlyJPY": 5479,
+    "storePrice": {
+      "amount": 5479,
+      "currency": "JPY",
+      "text": "5,479円",
+      "pack": "30日分",
+      "supply": "30日分",
+      "directions": "【１日の目安】4粒",
+      "url": "https://www.fancl.co.jp/healthy/item/5248a/",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "one-time",
     "moneyBackDays": 90,
     "caffeineFree": true,
@@ -756,8 +785,15 @@
       "value": 9,
       "trust": 7
     },
-    "priceMonthlyUSD": 32,
-    "priceMonthlyJPY": 4800,
+    "storePrice": {
+      "amount": 11457,
+      "currency": "JPY",
+      "text": "￥11,457",
+      "pack": "240粒入/約60日分",
+      "supply": "約60日分",
+      "url": "https://www.amazon.co.jp/dp/B00A693YIA",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "one-time",
     "moneyBackDays": 0,
     "caffeineFree": true,

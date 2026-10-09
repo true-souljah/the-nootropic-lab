@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Product, RegionProfile, RegionalNote } from '@nootropic/data';
 import { licenceStatus, localPrice } from '@nootropic/data';
+import { localPriceShort } from './price-text';
 import { Card } from './primitives/Card';
 import { FaqAccordion } from './primitives/FaqAccordion';
 
@@ -41,16 +42,6 @@ const TONE: Record<'good' | 'neutral' | 'warn', string> = {
   neutral: 'bg-ds-card-sub text-ds-muted',
   warn: 'bg-ds-warn-soft text-ds-warn',
 };
-
-/** Whole amounts print without decimals; any other amount keeps its cents as stored (€31.75, not €32). */
-export function formatLocalPrice(amount: number, currency: string, locale: string): string {
-  try {
-    const digits: Intl.NumberFormatOptions = Number.isInteger(amount) ? { maximumFractionDigits: 0 } : {};
-    return new Intl.NumberFormat(locale, { style: 'currency', currency, ...digits }).format(amount);
-  } catch {
-    return `${currency} ${amount}`;
-  }
-}
 
 export default function RegionalAvailability({
   region,
@@ -105,7 +96,7 @@ export default function RegionalAvailability({
                   )}
                   {price && (
                     <span className="text-ds-muted ds-tabular">
-                      {L.price}: <strong className="text-ds-ink">{formatLocalPrice(price.amount, price.currency, price.locale)}</strong>/{L.monthUnit}
+                      {L.price}: <strong className="text-ds-ink">{localPriceShort(price, L.monthUnit)}</strong>
                     </span>
                   )}
                 </div>

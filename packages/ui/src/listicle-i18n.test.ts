@@ -8,6 +8,7 @@ import {
   tpl,
   type UseCaseListPageStrings,
 } from './templateStrings';
+import { getStrings } from '@nootropic/data';
 
 // The Listicle renders in English everywhere except LATAM, which passes
 // useCaseListPageEsStrings. Until 2026-10-09 the template hard-coded part of its
@@ -52,7 +53,8 @@ describe('Listicle template renders no hard-coded English', () => {
       's.useCaseLabels[useCase] ?? useCase',
       '{s.caffeineFree}',
       '{s.hasCaffeine}',
-      '${s.monthUnit}',
+      // The price line is the shared store-price text, localized through uiStrings.
+      'priceText(pick.product, uiStrings)',
       'tpl(s.moneyBackDays',
       '{s.moneyBackLabel}',
       '{s.ourScore}',
@@ -91,15 +93,15 @@ describe('Spanish Listicle strings are complete', () => {
 
   it('keeps the English output the template rendered before the move', () => {
     const en = getUseCaseListStrings('en');
-    expect(`$59/${en.monthUnit}`).toBe('$59/mo');
     expect(`${tpl(en.moneyBackDays, { days: 30 })} ${en.moneyBackLabel}`).toBe('30d MBG');
     expect(tpl(en.scoreAriaLabel, { score: '9.4', max: '10.0' })).toBe('Score 9.4 out of 10.0');
     expect(tpl(en.pillarScoreLabel, { name: 'Mind Lab Pro', pillar: en.pillarLabels.dosing })).toBe('Mind Lab Pro dosing score');
     expect(en.useCaseLabels).toEqual({});
   });
 
-  it('Spanish monthly unit has no leading slash (a "/"-led string in the RSC payload is crawled as a URL)', () => {
-    expect(getUseCaseListStrings('es').monthUnit).not.toMatch(/^\//);
-    expect(getUseCaseListStrings('en').monthUnit).not.toMatch(/^\//);
+  it('the monthly unit the price line renders has no leading slash in any locale (a "/"-led string in the RSC payload is crawled as a URL)', () => {
+    for (const locale of ['en', 'es', 'fr', 'fr-CA', 'de', 'pt', 'ja'] as const) {
+      expect(getStrings(locale).productDetail.stats.monthUnit, locale).not.toMatch(/^\//);
+    }
   });
 });

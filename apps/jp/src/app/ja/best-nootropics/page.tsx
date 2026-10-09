@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { ComparisonTable, AffiliateDisclosure, StickyCtaBar, CookieSettingsBar, NoPurchaseLinkNotice, SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { productsJP, getStrings, purchaseUrl } from '@nootropic/data';
+import { priceText } from '@nootropic/ui';
+import { uiStrings } from '@/lib/search';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -101,7 +103,7 @@ export default function JaBestNootropicsPage() {
               rel="nofollow sponsored noopener noreferrer"
               className="inline-block bg-green-700 hover:bg-green-600 text-white font-bold px-5 py-2 rounded-lg text-sm transition-colors"
             >
-              {`現在の価格を確認 ($${winner.priceMonthlyUSD}/月 USD) →`}
+              {priceText(winner, uiStrings) ? `現在の価格を確認 (${priceText(winner, uiStrings)!.short}) →` : '現在の価格を確認 →'}
             </a>
           )}
         </div>

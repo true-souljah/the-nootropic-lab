@@ -17,8 +17,15 @@
       "value": 8,
       "trust": 9
     },
-    "priceMonthlyUSD": 69,
-    "priceMonthlyAUD": 89,
+    "storePrice": {
+      "amount": 89,
+      "currency": "AUD",
+      "text": "AU$89.00",
+      "pack": "Servings per container: 30",
+      "directions": "For best results take 2 capsules in the morning before eating.",
+      "url": "https://au.mindlabpro.com/products/mind-lab-pro",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
@@ -173,8 +180,16 @@
       "value": 9,
       "trust": 7
     },
-    "priceMonthlyUSD": 64.99,
-    "priceMonthlyAUD": 84.99,
+    "storePrice": {
+      "amount": 84.99,
+      "currency": "AUD",
+      "text": "$84.99",
+      "pack": "60 CAPSULES",
+      "supply": "1-MONTH SUPPLY",
+      "directions": "Simply take 2 easy-to-swallow capsules of Noocube with water.",
+      "url": "https://noocube.com.au/",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 60,
     "caffeineFree": true,
@@ -338,8 +353,6 @@
       "value": 7,
       "trust": 9
     },
-    "priceMonthlyUSD": 69,
-    "priceMonthlyAUD": 107,
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
@@ -429,8 +442,6 @@
       "value": 6,
       "trust": 8
     },
-    "priceMonthlyUSD": 90,
-    "priceMonthlyAUD": 140,
     "pricingModel": "one-time",
     "moneyBackDays": null,
     "caffeineFree": false,
@@ -634,8 +645,16 @@
       "value": 7,
       "trust": 8
     },
-    "priceMonthlyUSD": 79,
-    "priceMonthlyAUD": 122,
+    "storePrice": {
+      "amount": 79.95,
+      "currency": "USD",
+      "text": "$79.95",
+      "pack": "90 Count",
+      "supply": "45-day supply",
+      "directions": "Don't take more than one serving (2 capsules) within a 24-hour period.",
+      "url": "https://www.onnit.com/products/alpha-brain-90-ct",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
@@ -779,8 +798,16 @@
       "value": 6,
       "trust": 7
     },
-    "priceMonthlyUSD": 139,
-    "priceMonthlyAUD": 215,
+    "storePrice": {
+      "amount": 159,
+      "currency": "USD",
+      "text": "$159.00",
+      "pack": "1 x Qualia Mind 2.0 - 120 count Boxed",
+      "supply": "delivered every 4 weeks",
+      "directions": "You can get started with Qualia Mind simply by taking your daily serving early in the morning with a large glass of water, with or without food.",
+      "url": "https://www.qualialife.com/shop/qualia-mind",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 100,
     "caffeineFree": false,
@@ -1056,8 +1083,6 @@
       "value": 9,
       "trust": 6
     },
-    "priceMonthlyUSD": 5,
-    "priceMonthlyAUD": 8,
     "pricingModel": "one-time",
     "moneyBackDays": 60,
     "caffeineFree": true,
@@ -1198,7 +1223,15 @@
       "value": 5,
       "trust": 6
     },
-    "priceMonthlyUSD": 44,
+    "storePrice": {
+      "amount": 59,
+      "currency": "AUD",
+      "text": "AU$59.00",
+      "pack": "Servings Per Container: 30",
+      "directions": "For best results take 1-2 capsule(s) on an empty stomach.",
+      "url": "https://au.performancelab.com/products/caffeine-2",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": false,
@@ -1327,7 +1360,15 @@
       "value": 5,
       "trust": 6
     },
-    "priceMonthlyUSD": 59,
+    "storePrice": {
+      "amount": 79,
+      "currency": "AUD",
+      "text": "AU$79.00",
+      "pack": "Servings per container: 20",
+      "directions": "Take 1 scoop 30 minutes before exercise.",
+      "url": "https://au.performancelab.com/products/pre-lab-pro",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": false,
@@ -1491,7 +1532,15 @@
       "value": 3,
       "trust": 6
     },
-    "priceMonthlyUSD": 69,
+    "storePrice": {
+      "amount": 89,
+      "currency": "AUD",
+      "text": "AU$89.00",
+      "pack": "Servings per container: 30",
+      "directions": "Take 2 capsules in the morning before eating.",
+      "url": "https://au.performancelab.com/products/energy",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
@@ -1611,7 +1660,15 @@
       "value": 5,
       "trust": 6
     },
-    "priceMonthlyUSD": 49,
+    "storePrice": {
+      "amount": 69,
+      "currency": "AUD",
+      "text": "AU$69.00",
+      "pack": "Servings per container: 30",
+      "directions": "Take 3 Omega-3 softgels with your first meal of the day.",
+      "url": "https://au.performancelab.com/products/omega-3",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,

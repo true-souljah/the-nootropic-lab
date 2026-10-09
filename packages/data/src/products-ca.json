@@ -17,8 +17,15 @@
       "value": 8,
       "trust": 9
     },
-    "priceMonthlyUSD": 69,
-    "priceMonthlyCAD": 89,
+    "storePrice": {
+      "amount": 89,
+      "currency": "CAD",
+      "text": "CA$89.00",
+      "pack": "Servings per container: 30",
+      "directions": "Take 2 to 4 capsules per day in the morning or early afternoon on an empty stomach.",
+      "url": "https://ca.mindlabpro.com/products/mind-lab-pro",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
@@ -179,8 +186,16 @@
       "value": 9,
       "trust": 7
     },
-    "priceMonthlyUSD": 64.99,
-    "priceMonthlyCAD": 81,
+    "storePrice": {
+      "amount": 89.99,
+      "currency": "CAD",
+      "text": "$89.99",
+      "pack": "60 CAPSULES",
+      "supply": "1-MONTH SUPPLY",
+      "directions": "Simply take 2 easy-to-swallow capsules of Noocube with water. It can be taken with or without food.",
+      "url": "https://noocube.ca/",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 60,
     "caffeineFree": true,
@@ -353,8 +368,6 @@
       "value": 7,
       "trust": 9
     },
-    "priceMonthlyUSD": 69,
-    "priceMonthlyCAD": 95,
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
@@ -450,8 +463,6 @@
       "value": 6,
       "trust": 8
     },
-    "priceMonthlyUSD": 90,
-    "priceMonthlyCAD": 123,
     "pricingModel": "one-time",
     "moneyBackDays": null,
     "caffeineFree": false,
@@ -661,8 +672,16 @@
       "value": 7,
       "trust": 8
     },
-    "priceMonthlyUSD": 79,
-    "priceMonthlyCAD": 108,
+    "storePrice": {
+      "amount": 79.95,
+      "currency": "USD",
+      "text": "$79.95",
+      "pack": "90 Count",
+      "supply": "45-day supply",
+      "directions": "Gradually increase your dose to a full serving (2 capsules) if well-tolerated.",
+      "url": "https://www.onnit.com/products/alpha-brain-90-ct",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
@@ -808,8 +827,16 @@
       "value": 6,
       "trust": 7
     },
-    "priceMonthlyUSD": 139,
-    "priceMonthlyCAD": 190,
+    "storePrice": {
+      "amount": 159,
+      "currency": "USD",
+      "text": "$159.00",
+      "pack": "1 x Qualia Mind 2.0 - 120 count Boxed",
+      "supply": "delivered every 4 weeks",
+      "directions": "You should take it for 5 days followed by 2 days off each week to maximize benefits and prevent habituation.",
+      "url": "https://www.qualialife.com/shop/qualia-mind",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 100,
     "caffeineFree": false,
@@ -1091,8 +1118,6 @@
       "value": 9,
       "trust": 6
     },
-    "priceMonthlyUSD": 5,
-    "priceMonthlyCAD": 7,
     "pricingModel": "one-time",
     "moneyBackDays": 60,
     "caffeineFree": true,
@@ -1179,8 +1204,6 @@
       "value": 8,
       "trust": 9
     },
-    "priceMonthlyCAD": 98.33,
-    "priceMonthlyUSD": 69.12,
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
@@ -1314,7 +1337,15 @@
       "value": 5,
       "trust": 6
     },
-    "priceMonthlyUSD": 44,
+    "storePrice": {
+      "amount": 59,
+      "currency": "CAD",
+      "text": "CA$59.00",
+      "pack": "Single servings per container: 30",
+      "directions": "Take 1 capsule for stimulation.",
+      "url": "https://ca.performancelab.com/products/caffeine-2",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": false,
@@ -1449,7 +1480,15 @@
       "value": 5,
       "trust": 6
     },
-    "priceMonthlyUSD": 59,
+    "storePrice": {
+      "amount": 79,
+      "currency": "CAD",
+      "text": "CA$79.00",
+      "pack": "Servings per container: 20",
+      "directions": "Mix 1 scoop in 300ml of water and take 30 minutes before exercise.",
+      "url": "https://ca.performancelab.com/products/pre-lab-pro",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": false,
@@ -1619,7 +1658,15 @@
       "value": 3,
       "trust": 6
     },
-    "priceMonthlyUSD": 69,
+    "storePrice": {
+      "amount": 89,
+      "currency": "CAD",
+      "text": "CA$89.00",
+      "pack": "Servings per container: 30",
+      "directions": "Take 2 capsules in the morning before eating.",
+      "url": "https://ca.performancelab.com/products/energy",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
@@ -1745,7 +1792,15 @@
       "value": 5,
       "trust": 6
     },
-    "priceMonthlyUSD": 49,
+    "storePrice": {
+      "amount": 69,
+      "currency": "CAD",
+      "text": "CA$69.00",
+      "pack": "Servings per container: 30",
+      "directions": "Take 3 Omega-3 softgels with your first meal of the day.",
+      "url": "https://ca.performancelab.com/products/omega-3",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,

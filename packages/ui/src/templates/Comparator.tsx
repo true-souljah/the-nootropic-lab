@@ -16,6 +16,8 @@ import type { SortKey, SortDir, Goal, Grade } from './comparator/constants';
 import { parseUrlState, buildViewQueryString, exportRowsToCsv } from './comparator/utils';
 import { ComparatorFilters } from './comparator/ComparatorFilters';
 import { ComparatorCompareCard } from './comparator/ComparatorCompareCard';
+import { PRICE_SLIDER_MAX } from './comparator/ComparatorFilters';
+import { priceText, priceLocaleOf } from '../price-text';
 
 export interface ComparatorProps {
   products: Product[];
@@ -106,8 +108,23 @@ export default function Comparator({
     setGrade('All');
   }, []);
 
+  // Prices stay in each store's own currency (never converted). The max-price
+  // filter and price sort compare per-month figures, so the filter shows only
+  // when they share one non-yen currency; the slider's top means "no limit".
+  const prices = useMemo(() => new Map(products.map((p) => [p.slug, priceText(p, uiStrings)])), [products, uiStrings]);
+  const monthlyOf = useCallback((p: Product) => prices.get(p.slug)?.monthlyMoney ?? null, [prices]);
+  const monthlyCurrency = useMemo(() => {
+    const currencies = new Set(products.flatMap((p) => (monthlyOf(p) ? [monthlyOf(p)!.currency] : [])));
+    const only = currencies.size === 1 ? [...currencies][0] : null;
+    return only === 'JPY' ? null : only;
+  }, [products, monthlyOf]);
+
   const rows = useMemo(() => {
-    let r = products.filter((p) => (p.priceMonthlyUSD ?? Infinity) <= maxPrice);
+    let r = products.filter((p) => {
+      if (!monthlyCurrency || maxPrice >= PRICE_SLIDER_MAX) return true;
+      const m = monthlyOf(p);
+      return !m || m.amount <= maxPrice;
+    });
     if (caffeineFreeOnly) r = r.filter((p) => p.caffeineFree);
     if (euCompliantOnly) r = r.filter((p) => p.euStorefront);
     if (bestFor !== 'Any') r = r.filter((p) => p.bestFor.includes(bestFor));
@@ -123,7 +140,7 @@ export default function Comparator({
         sortKey === 'score'
           ? x.score
           : sortKey === 'price'
-            ? x.priceMonthlyUSD ?? Infinity
+            ? monthlyOf(x)?.amount ?? Infinity
             : sortKey === 'trust'
               ? x.trustpilotScore ?? 0
               : sortKey === 'value'
@@ -136,6 +153,8 @@ export default function Comparator({
     sortKey,
     sortDir,
     maxPrice,
+    monthlyCurrency,
+    monthlyOf,
     caffeineFreeOnly,
     euCompliantOnly,
     bestFor,
@@ -193,6 +212,9 @@ export default function Comparator({
     setBestFor,
     maxPrice,
     setMaxPrice,
+    priceFilter: monthlyCurrency
+      ? { currency: monthlyCurrency, locale: priceLocaleOf(uiStrings), monthUnit: uiStrings.productDetail.stats.monthUnit }
+      : null,
     grade,
     setGrade,
     caffeineFreeOnly,
@@ -418,7 +440,17 @@ export default function Comparator({
                       className="px-[14px] py-3 text-right font-semibold ds-tabular"
                       style={{ flex: '0 0 80px' }}
                     >
-                      {p.priceMonthlyUSD ? `$${p.priceMonthlyUSD}` : '—'}
+                      {(() => {
+                        const price = prices.get(p.slug);
+                        if (!price) return '—';
+                        if (price.monthly) return price.monthly;
+                        return (
+                          <>
+                            {price.pack}
+                            <span className="block text-[10.5px] font-normal text-ds-muted">{price.packText}</span>
+                          </>
+                        );
+                      })()}
                     </div>
                     <div
                       role="gridcell"

@@ -197,7 +197,7 @@ describe('rendered CTAs', () => {
     const s = getStrings('ja');
     expect(hunter.vendorTerms, 'fixture must carry vendor terms for this test to mean anything').toBeTruthy();
     const html = renderToStaticMarkup(
-      createElement(PricingTab, { product: hunter, disclosure: s.disclosure, strings: s.productDetail, noticeStrings: s.noPurchaseLink }),
+      createElement(PricingTab, { product: hunter, disclosure: s.disclosure, strings: s.productDetail, noticeStrings: s.noPurchaseLink, price: null }),
     );
     expect(html).not.toMatch(/href="https?:\/\/(www\.)?(hunterevolve|roarambition)\.com/);
     expect(html).not.toContain('data-vendor-term');
@@ -209,7 +209,7 @@ describe('rendered CTAs', () => {
     const withTerms = allProductsJP.find((p) => p.vendorTerms && purchaseUrl(p) !== null)!;
     expect(withTerms).toBeTruthy();
     const html = renderToStaticMarkup(
-      createElement(PricingTab, { product: withTerms, disclosure: s.disclosure, strings: s.productDetail, noticeStrings: s.noPurchaseLink }),
+      createElement(PricingTab, { product: withTerms, disclosure: s.disclosure, strings: s.productDetail, noticeStrings: s.noPurchaseLink, price: null }),
     );
     expect(html).toContain('data-vendor-term');
     expect(html).not.toContain('No purchase link');

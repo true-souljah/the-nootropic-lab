@@ -199,7 +199,8 @@ export { default as GeoIndexPage, buildGeoIndexLinks } from './templates/GeoInde
 export type { GeoIndexItem, GeoIndexLink, GeoIndexPageProps } from './templates/GeoIndexPage';
 
 // Regional overlay block (2026-09 audit)
-export { default as RegionalAvailability, formatLocalPrice } from './RegionalAvailability';
+export { default as RegionalAvailability } from './RegionalAvailability';
 export type { RegionalAvailabilityProps, RegionalGeoLink } from './RegionalAvailability';
 export { default as RegionalBuying } from './RegionalBuying';
 export type { RegionalBuyingProps } from './RegionalBuying';
+export { priceText, priceLocaleOf, localPriceShort, type PriceText } from './price-text';

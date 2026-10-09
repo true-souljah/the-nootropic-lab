@@ -7,11 +7,12 @@ import { Card } from '../primitives/Card';
 import { BrandMark } from '../primitives/BrandMark';
 import { CookieSettingsBar } from '../CookieSettingsButton';
 import type { Product } from '@nootropic/data';
-import type {
-  QuizAnswers,
-  QuizGoal,
-  CaffeineSensitivity,
-  MBGImportance,
+import {
+  monthlyUSD,
+  type QuizAnswers,
+  type QuizGoal,
+  type CaffeineSensitivity,
+  type MBGImportance,
 } from './quizScoring';
 
 export interface QuizFlowProps {
@@ -121,9 +122,7 @@ export default function QuizFlow({
   }
 
   // Number of products that fit the budget — surfaced in Step 3.
-  const budgetMatches = products.filter(
-    (p) => (p.priceMonthlyUSD ?? Infinity) <= budget
-  ).length;
+  const budgetMatches = products.filter((p) => (monthlyUSD(p) ?? Infinity) <= budget).length;
 
   return (
     <div

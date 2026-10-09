@@ -7,6 +7,13 @@ import { Chip } from '../../primitives/Chip';
 import { ToggleSwitch } from '../../primitives/ToggleSwitch';
 import { GOALS, GRADES } from './constants';
 import type { Goal, Grade } from './constants';
+import { formatMoney } from '@nootropic/data';
+
+export const PRICE_SLIDER_MIN = 20;
+/** The slider's top position means "no limit" (products above it are not hidden). */
+export const PRICE_SLIDER_MAX = 100;
+
+const money = (amount: number, f: { currency: string; locale: string }) => formatMoney({ amount, currency: f.currency }, f.locale);
 
 export interface ComparatorFiltersProps {
   /** Unique prefix for form element ids (e.g. 'd' for desktop, 'm' for mobile). */
@@ -15,6 +22,8 @@ export interface ComparatorFiltersProps {
   setBestFor: Dispatch<SetStateAction<Goal>>;
   maxPrice: number;
   setMaxPrice: Dispatch<SetStateAction<number>>;
+  /** Per-month price filter in the one currency the listed prices share; null hides it (never converted). */
+  priceFilter: { currency: string; locale: string; monthUnit: string } | null;
   grade: Grade;
   setGrade: Dispatch<SetStateAction<Grade>>;
   caffeineFreeOnly: boolean;
@@ -32,6 +41,7 @@ export function ComparatorFilters({
   setBestFor,
   maxPrice,
   setMaxPrice,
+  priceFilter,
   grade,
   setGrade,
   caffeineFreeOnly,
@@ -57,28 +67,32 @@ export function ComparatorFilters({
           ))}
         </div>
       </div>
+      {priceFilter && (
       <div className="mb-[22px]">
         <div className="flex justify-between mb-2">
           <label htmlFor={`${idPrefix}-max-price`} className="text-[12px] font-semibold text-ds-ink">
-            Max $/month
+            Max ≈ per {priceFilter.monthUnit}
           </label>
-          <span className="text-[12px] font-bold text-ds-accent ds-tabular">${maxPrice}</span>
+          <span className="text-[12px] font-bold text-ds-accent ds-tabular">
+            {maxPrice >= PRICE_SLIDER_MAX ? 'Any' : money(maxPrice, priceFilter)}
+          </span>
         </div>
         <input
           id={`${idPrefix}-max-price`}
           type="range"
-          min={20}
-          max={100}
+          min={PRICE_SLIDER_MIN}
+          max={PRICE_SLIDER_MAX}
           value={maxPrice}
           onChange={(e) => setMaxPrice(Number(e.target.value))}
           className="w-full"
           style={{ accentColor: 'var(--color-ds-accent)' }}
         />
         <div className="flex justify-between text-[10px] text-ds-muted mt-[2px] ds-tabular">
-          <span>$20</span>
-          <span>$100</span>
+          <span>{money(PRICE_SLIDER_MIN, priceFilter)}</span>
+          <span>{money(PRICE_SLIDER_MAX, priceFilter)}+</span>
         </div>
       </div>
+      )}
       <fieldset className="mb-[22px] m-0 p-0 border-0">
         <legend className="text-[12px] font-semibold mb-2 text-ds-ink">Our grade</legend>
         <div className="flex flex-col gap-1">

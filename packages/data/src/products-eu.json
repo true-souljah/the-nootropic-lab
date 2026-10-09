@@ -17,8 +17,15 @@
       "value": 8,
       "trust": 9
     },
-    "priceMonthlyUSD": 69,
-    "priceMonthlyEUR": 65,
+    "storePrice": {
+      "amount": 64.95,
+      "currency": "EUR",
+      "text": "€64,95",
+      "pack": "Servings per container: 30",
+      "directions": "Take 2 to 4 capsules per day in the morning or early afternoon on an empty stomach.",
+      "url": "https://eu.mindlabpro.com/products/mind-lab-pro",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
@@ -171,7 +178,16 @@
       "value": 9,
       "trust": 7
     },
-    "priceMonthlyUSD": 64.99,
+    "storePrice": {
+      "amount": 64.99,
+      "currency": "USD",
+      "text": "$64.99",
+      "pack": "60 CAPSULES",
+      "supply": "1-MONTH SUPPLY",
+      "directions": "Simply take 2 easy-to-swallow capsules of Noocube with water. It can be taken with or without food.",
+      "url": "https://noocube.com/",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 60,
     "caffeineFree": true,
@@ -354,8 +370,6 @@
       "value": 8,
       "trust": 9
     },
-    "priceMonthlyUSD": 59,
-    "priceMonthlyEUR": 55,
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
@@ -446,12 +460,15 @@
       "value": 8,
       "trust": 8
     },
-    "priceMonthlyEUR": 31.75,
-    "priceBasis": {
-      "source": "vendor-one-time",
-      "quoteField": "vendorTerms.oneTimePrice",
-      "monthsOfSupply": 1,
-      "checkedAt": "2026-10-07"
+    "storePrice": {
+      "amount": 31.75,
+      "currency": "EUR",
+      "text": "31,75 €",
+      "pack": "1 MONAT: 2 Packs, 60 Kapseln",
+      "supply": "1 MONAT: 2 Packs, 60 Kapseln",
+      "directions": "Nehmen Sie 2 Kapseln, 60 Minuten nach dem Essen.",
+      "url": "https://www.brainzyme.de/products/brainzyme-professional",
+      "checkedAt": "2026-10-09"
     },
     "pricingModel": "both",
     "moneyBackDays": 365,
@@ -672,8 +689,6 @@
       "value": 7,
       "trust": 8
     },
-    "priceMonthlyUSD": 90,
-    "priceMonthlyEUR": 85,
     "pricingModel": "both",
     "moneyBackDays": null,
     "caffeineFree": false,
@@ -888,7 +903,15 @@
       "value": 5,
       "trust": 6
     },
-    "priceMonthlyUSD": 44,
+    "storePrice": {
+      "amount": 45,
+      "currency": "EUR",
+      "text": "€45,00",
+      "pack": "Single servings per container: 30",
+      "directions": "Take 1 capsule for stimulation.",
+      "url": "https://eu.performancelab.com/products/caffeine-2",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": false,
@@ -1004,8 +1027,7 @@
         "url": "https://eu.performancelab.com/pages/shipping-returns",
         "lang": "en"
       }
-    },
-    "priceMonthlyEUR": 45
+    }
   },
   {
     "id": "pre-lab-pro",
@@ -1025,7 +1047,15 @@
       "value": 5,
       "trust": 6
     },
-    "priceMonthlyUSD": 59,
+    "storePrice": {
+      "amount": 45,
+      "currency": "EUR",
+      "text": "€45,00",
+      "pack": "Servings per container: 20",
+      "directions": "Mix 1 scoop in 300ml of water and take 30 minutes before exercise.",
+      "url": "https://eu.performancelab.com/products/pre-lab-pro",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": false,
@@ -1176,8 +1206,7 @@
         "url": "https://eu.performancelab.com/pages/shipping-returns",
         "lang": "en"
       }
-    },
-    "priceMonthlyEUR": 45
+    }
   },
   {
     "id": "performance-lab-energy",
@@ -1197,7 +1226,15 @@
       "value": 3,
       "trust": 6
     },
-    "priceMonthlyUSD": 69,
+    "storePrice": {
+      "amount": 59,
+      "currency": "EUR",
+      "text": "€59,00",
+      "pack": "Servings per container: 30",
+      "directions": "Take 2 capsules in the morning before eating.",
+      "url": "https://eu.performancelab.com/products/energy",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
@@ -1304,8 +1341,7 @@
         "url": "https://eu.performancelab.com/pages/shipping-returns",
         "lang": "en"
       }
-    },
-    "priceMonthlyEUR": 59
+    }
   },
   {
     "id": "performance-lab-omega-3",
@@ -1325,7 +1361,15 @@
       "value": 5,
       "trust": 6
     },
-    "priceMonthlyUSD": 49,
+    "storePrice": {
+      "amount": 45,
+      "currency": "EUR",
+      "text": "€45,00",
+      "pack": "Servings per container: 30",
+      "directions": "Take 3 Omega-3 softgels with your first meal of the day.",
+      "url": "https://eu.performancelab.com/products/omega-3",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
@@ -1411,7 +1455,6 @@
         "url": "https://eu.performancelab.com/pages/shipping-returns",
         "lang": "en"
       }
-    },
-    "priceMonthlyEUR": 45
+    }
   }
 ]

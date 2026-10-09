@@ -17,8 +17,15 @@
       "value": 8,
       "trust": 9
     },
-    "priceMonthlyUSD": 69,
-    "priceMonthlyEUR": 65,
+    "storePrice": {
+      "amount": 69,
+      "currency": "USD",
+      "text": "$69.00",
+      "pack": "Servings per container: 30",
+      "directions": "For best results take 2 capsules in the morning before eating.",
+      "url": "https://global.mindlabpro.com/products/mind-lab-pro",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
@@ -167,8 +174,16 @@
       "value": 9,
       "trust": 7
     },
-    "priceMonthlyUSD": 64.99,
-    "priceMonthlyEUR": 55,
+    "storePrice": {
+      "amount": 64.99,
+      "currency": "USD",
+      "text": "$64.99",
+      "pack": "60 CAPSULES",
+      "supply": "1-MONTH SUPPLY",
+      "directions": "Simply take 2 easy-to-swallow capsules of Noocube with water.",
+      "url": "https://noocube.com/",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 60,
     "caffeineFree": true,
@@ -347,7 +362,16 @@
       "value": 6,
       "trust": 7
     },
-    "priceMonthlyUSD": 159,
+    "storePrice": {
+      "amount": 159,
+      "currency": "USD",
+      "text": "$159.00",
+      "pack": "1 x Qualia Mind 2.0 - 120 count Boxed",
+      "supply": "delivered every 4 weeks",
+      "directions": "You can get started with Qualia Mind simply by taking your daily serving early in the morning with a large glass of water, with or without food.",
+      "url": "https://www.qualialife.com/shop/qualia-mind",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 100,
     "caffeineFree": false,
@@ -624,7 +648,16 @@
       "value": 7,
       "trust": 8
     },
-    "priceMonthlyUSD": 79,
+    "storePrice": {
+      "amount": 79.95,
+      "currency": "USD",
+      "text": "$79.95",
+      "pack": "90 Count",
+      "supply": "45-day supply",
+      "directions": "Don't take more than one serving (2 capsules) within a 24-hour period.",
+      "url": "https://www.onnit.com/products/alpha-brain-90-ct",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
@@ -775,7 +808,6 @@
       "value": 7,
       "trust": 7
     },
-    "priceMonthlyUSD": 79,
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": false,
@@ -1065,7 +1097,15 @@
       "value": 9,
       "trust": 8
     },
-    "priceMonthlyUSD": 25,
+    "storePrice": {
+      "amount": 19.99,
+      "currency": "USD",
+      "text": "$19.99",
+      "pack": "60ct.",
+      "directions": "take 1-2 daily with or without food",
+      "url": "https://nootropicsdepot.com/lions-mane-hericium-erinaceus-whole-fruiting-body-medicinal-mushroom-extract-500mg-capsules/",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": null,
     "caffeineFree": true,
@@ -1148,7 +1188,15 @@
       "value": 6,
       "trust": 8
     },
-    "priceMonthlyUSD": 54.71,
+    "storePrice": {
+      "amount": 89.9,
+      "currency": "SGD",
+      "text": "S$89.90",
+      "pack": "3g x 30 sachets",
+      "directions": "Take 1 sachet once daily.",
+      "url": "https://www.euyansang.com.sg/en/brainmax-888842543107.html",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "one-time",
     "moneyBackDays": null,
     "caffeineFree": true,
