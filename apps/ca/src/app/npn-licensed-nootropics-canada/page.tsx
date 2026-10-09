@@ -117,12 +117,12 @@ export default function Page() {
         <section className="my-10">
           <h2 className="text-2xl font-bold text-gray-900 mb-3">What an NPN actually verifies</h2>
           <p className="text-sm text-gray-700 leading-relaxed mb-3">
-            Health Canada&apos;s NPN review confirms three things:
+            What Health Canada&apos;s licensing covers, in its own words:
           </p>
           <ul className="list-disc list-inside text-sm text-gray-700 leading-relaxed space-y-2 ml-2">
-            <li><strong>Safety</strong> — ingredients have known safety profiles at the proposed dose for the proposed duration of use; no contraindicated combinations.</li>
-            <li><strong>Efficacy</strong> — the medicinal-claim language is supported by an accepted evidence category (compendial monograph, traditional use, or modern scientific evidence).</li>
-            <li><strong>Quality</strong> — manufacturer holds a Site Licence; manufacturing follows Good Manufacturing Practice.</li>
+            <li><strong>Product licence</strong> — the licence number on the label &ldquo;assures consumers that the product has been reviewed and approved by Health Canada for safety and efficacy&rdquo; (canada.ca product-licensing page, checked 2026-10-08).</li>
+            <li><strong>The regulations&apos; goal</strong> — &ldquo;The goal of the regulations is to ensure safety, efficacy, and quality, while enabling consumer access to these products.&rdquo; (canada.ca natural and non-prescription health products page, checked 2026-10-08)</li>
+            <li><strong>Site licence</strong> — &ldquo;The site licensing system requires that all manufacturers, packagers, labellers, and importers be licensed.&rdquo; &ldquo;They must also demonstrate that they meet good manufacturing practice requirements.&rdquo; (canada.ca site-licensing page, checked 2026-10-09)</li>
           </ul>
           <p className="text-sm text-gray-700 leading-relaxed mt-3">
             What NPN does <strong>not</strong> verify: comparative effectiveness vs other products, dose
@@ -187,6 +187,8 @@ export default function Page() {
           sources={[
             { type: 'Regulatory', label: 'Natural Health Products Regulations (SOR/2003-196)', url: 'https://laws-lois.justice.gc.ca/eng/regulations/sor-2003-196/' },
             { type: 'Regulatory', label: 'Health Canada — Natural Health Products', url: 'https://www.canada.ca/en/health-canada/services/drugs-health-products/natural-non-prescription.html' },
+            { type: 'Regulatory', label: 'Health Canada — Product licensing (natural health products)', url: 'https://www.canada.ca/en/health-canada/services/drugs-health-products/natural-non-prescription/applications-submissions/product-licensing.html' },
+            { type: 'Regulatory', label: 'Health Canada — Site licensing (natural health products)', url: 'https://www.canada.ca/en/health-canada/services/drugs-health-products/natural-non-prescription/applications-submissions/site-licensing.html' },
             { type: 'Regulatory', label: 'Licensed Natural Health Products Database (LNHPD)', url: 'https://health-products.canada.ca/lnhpd-bdpsnh/' },
             { type: 'Regulatory', label: 'Health Canada — Natural Health Products Ingredients Database (NHPID)', url: 'http://webprod.hc-sc.gc.ca/nhpid-bdipsn/search-rechercheReq.do' },
             { type: 'Editorial', label: 'The Nootropic Lab — Methodology', url: `${SITE_URL}/methodology/` },
