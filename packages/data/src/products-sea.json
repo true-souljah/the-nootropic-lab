@@ -443,61 +443,85 @@
     "commissionRate": "12%",
     "cookieDays": 30,
     "heroIngredients": [
-      "Lion's Mane",
-      "Bacopa Monnieri",
+      "L-Theanine",
+      "Huperzine A",
+      "Vitamin B6",
       "Alpha-GPC",
-      "L-Tyrosine",
-      "Oat Straw"
+      "Phosphatidylserine"
     ],
     "ingredientDosages": [
       {
-        "name": "Lion's Mane (proprietary blend)",
-        "doseInProduct": "Undisclosed",
-        "clinicalDose": "500mg",
+        "name": "Bacopa Monnieri (Focus Blend)",
+        "doseInProduct": "100mg",
+        "clinicalDose": "300–450mg/day",
         "adequatelyDosed": false
       },
       {
-        "name": "Alpha-GPC (proprietary blend)",
-        "doseInProduct": "Undisclosed",
-        "clinicalDose": "300mg",
+        "name": "Alpha-GPC (Focus Blend)",
+        "doseInProduct": "Not stated; at most 140mg (240mg blend incl. 100mg Bacopa)",
+        "clinicalDose": "300–600mg/day",
         "adequatelyDosed": false
       },
       {
-        "name": "Bacopa Monnieri (proprietary blend)",
-        "doseInProduct": "Undisclosed",
-        "clinicalDose": "300mg",
+        "name": "Huperzine A (Toothed Clubmoss, Focus Blend)",
+        "doseInProduct": "400mcg",
+        "clinicalDose": "100–200mcg/day in trials",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "L-Tyrosine (Flow Blend)",
+        "doseInProduct": "Not stated; at most 650mg (blend total)",
+        "clinicalDose": "100–150mg/kg (about 7–10g) in stress trials",
         "adequatelyDosed": false
       },
       {
-        "name": "L-Tyrosine (proprietary blend)",
-        "doseInProduct": "Undisclosed",
-        "clinicalDose": "500mg",
-        "adequatelyDosed": false
+        "name": "L-Theanine (Flow Blend)",
+        "doseInProduct": "Not stated (share of 650mg blend)",
+        "clinicalDose": "100–200mg/day",
+        "adequatelyDosed": null
       },
       {
-        "name": "L-Theanine (proprietary blend)",
-        "doseInProduct": "Undisclosed",
-        "clinicalDose": "100-200mg",
-        "adequatelyDosed": false
+        "name": "Phosphatidylserine (Flow Blend)",
+        "doseInProduct": "Not stated (share of 650mg blend)",
+        "clinicalDose": "100–300mg/day",
+        "adequatelyDosed": null
       },
       {
-        "name": "Phosphatidylserine",
-        "doseInProduct": "Undisclosed",
-        "clinicalDose": "100mg",
-        "adequatelyDosed": false
+        "name": "Oat Straw Extract (Flow Blend)",
+        "doseInProduct": "Not stated (share of 650mg blend)",
+        "clinicalDose": "430–1600mg/day in trials",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Cat's Claw Bark Extract",
+        "doseInProduct": "350mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin B6 (Pyridoxine HCl)",
+        "doseInProduct": "10mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "L-Leucine + Pterostilbene (Fuel Blend)",
+        "doseInProduct": "60mg (blend total)",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       }
     ],
     "servingsPerContainer": 45,
     "capsulesPerServing": 2,
     "summary": "Most commercially successful US nootropic and easily the most recognisable brand among SEA buyers already familiar with the US market. Backed by two published clinical studies. onnit.com's market list names all six SEA countries (checked 2026-09-29); confirm at checkout. The brand publishes no SEA delivery estimate. Priced at USD $79/month (approx. SGD $107 / MYR $362 / THB $2,815). Imported under personal-use supplement allowances; we have not verified a local product registration with the National Pharmaceutical Regulatory Agency (NPRA) in Malaysia, the Thai FDA, FDA Philippines, the Badan Pengawas Obat dan Makanan (BPOM) in Indonesia or the Vietnam Food Administration (VFA). NSF Certified for Sport -- relevant for competitive athletes in the region subject to anti-doping rules.",
     "whatItIs": "Alpha Brain is Onnit's flagship nootropic product, first released in 2011 and popularised through Joe Rogan's podcast endorsements. It is the best-recognised nootropic brand in the mainstream US market and one of only two nootropic supplements with published clinical trial data on its specific formula. It is National Sanitation Foundation (NSF) Certified for Sport, making it suitable for drug-tested athletes. For SEA buyers, Alpha Brain's mainstream name recognition means it is easier to research and find community reviews in local languages -- a meaningful advantage over niche brands. It ships from Onnit's US warehouse and enters the region as a personal-use supplement; we have not verified a local product registration with the National Pharmaceutical Regulatory Agency (NPRA) in Malaysia, the Thai FDA, FDA Philippines, the Badan Pengawas Obat dan Makanan (BPOM) in Indonesia or the Vietnam Food Administration (VFA). Its caffeine-free formula is a practical benefit for buyers in hot, humid climates who are sensitive to stimulant effects.",
-    "howItWorks": "Alpha Brain uses three proprietary blends -- Onnit Flow Blend, Focus Blend, and Fuel Blend -- containing cholinergics (Alpha-GPC), adaptogens (Bacopa), and amino acids (Tyrosine, Theanine). Because doses are hidden in proprietary blends, we cannot verify whether individual ingredient doses match clinical trial thresholds. The two published studies (Onnit-funded, 2016 and 2021) tested the full formula and showed statistically significant improvements in verbal memory and executive function versus placebo.",
-    "whatToExpect": "Day one: subtle focus improvement, particularly noticeable for users who haven't taken cholinergic supplements before. The lack of caffeine means no energy spike -- effects are gentle. The proprietary blend means dosing is optimised for the formula as a whole, not for individual ingredients. At 4-6 weeks: most users report consistent mild improvements in word retrieval and task focus. Onnit's 30-day money-back guarantee applies to a first-time purchase.",
+    "howItWorks": "Alpha Brain uses three proprietary blends -- Onnit Flow Blend, Focus Blend, and Fuel Blend -- containing cholinergics (Alpha-GPC), adaptogens (Bacopa), and amino acids (Tyrosine, Theanine). The label states each blend's total and two individual amounts (Bacopa 100mg, Huperzine A 400mcg): Bacopa, Alpha-GPC (at most 140mg) and L-Tyrosine (at most 650mg) fall short of their clinical doses, and the other blend members cannot be checked individually. The two published studies (Onnit-funded, 2016 and 2021) tested the full formula and showed statistically significant improvements in verbal memory and executive function versus placebo.",
+    "whatToExpect": "Day one: subtle focus improvement, particularly noticeable for users who haven't taken cholinergic supplements before. The lack of caffeine means no energy spike -- effects are gentle. At 4-6 weeks: most users report consistent mild improvements in word retrieval and task focus. Onnit's 30-day money-back guarantee covers the first purchase of each product made directly on Onnit.com.",
     "pros": [
       "Two published clinical studies",
       "Highest US brand recognition",
       "Only 2 capsules",
-      "30-day money-back on a first-time purchase",
+      "30-day money-back on a first purchase",
       "NSF Certified for Sport"
     ],
     "cons": [
@@ -505,9 +529,13 @@
       "Subscription cancellation issues",
       "BPOM (Indonesia) registration not verified by us -- imported as personal use supplement"
     ],
+    "notes": [
+      "Formula per the Supplement Facts on the product page (https://www.onnit.com/products/alpha-brain-90-ct, checked 2026-10-08): per 2 capsules, Vitamin B6 10mg; Onnit Flow Blend 650mg (L-Tyrosine, L-Theanine, Oat straw extract, Phosphatidylserine); Cat's Claw bark extract 350mg; Onnit Focus Blend 240mg (Alpha-GPC, Bacopa extract 100mg, Toothed Clubmoss extract providing Huperzine A 400mcg); Onnit Fuel Blend 60mg (L-Leucine, Pterostilbene). Reference doses are this site's ingredient pages.",
+      "Onnit's money-back guarantee is 30 days, for the first purchase of each product bought directly on Onnit.com, refunding the product cost but not shipping (https://help.onnit.com/en-US/30-day-money-back-guarantee-6327406, checked 2026-10-08)."
+    ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-09-28",
+    "updatedAt": "2026-10-08",
     "verifiedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28",
     "halalCertified": false,

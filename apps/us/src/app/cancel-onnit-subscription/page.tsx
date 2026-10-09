@@ -66,7 +66,7 @@ const faqItems: CancellationFAQ[] = [
   },
   {
     q: 'Will I get a refund for the most recent shipment?',
-    a: 'Onnit\'s 30-day money-back guarantee applies to your first-time purchase of an Onnit supplement (per Onnit\'s help centre), not to later renewal shipments of the same product. Check your specific subscription terms. Return for refund: contact customer service to request an RMA (return merchandise authorization) before shipping anything back.',
+    a: 'Only if that shipment is your first purchase of the product. Onnit\'s 30-day money-back guarantee covers the first purchase of each product bought directly on Onnit.com: contact Onnit within 30 days of the purchase date with your order ID, and an approved refund covers the product cost (not shipping) with no return needed. Onnit does not accept returns of supplements, so repeat auto-renewal shipments are not covered.',
   },
   {
     q: 'I cancelled but they still charged me — what now?',

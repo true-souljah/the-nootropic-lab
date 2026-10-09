@@ -8,7 +8,13 @@ export interface IngredientDosage {
   name: string;
   doseInProduct: string;
   clinicalDose: string;
-  adequatelyDosed: boolean;
+  /**
+   * true/false = the published dose meets / misses the clinical dose (a dose
+   * inside a blend counts as missing it when even the blend's remaining room
+   * is below the clinical minimum). null = not verifiable from the label: the
+   * dose is not stated inside a blend, or there is no reference dose on file.
+   */
+  adequatelyDosed: boolean | null;
 }
 
 /** One term as the vendor states it on its own site. */
