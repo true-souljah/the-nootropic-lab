@@ -42,7 +42,7 @@ export interface BestOfProps {
    * `?? getStrings('en')` defensive fallback because it produced a
    * latent WCAG 3.1.2 leak: a future caller could silently render
    * English content under a non-EN `<html lang>`. Pass the bundle
-   * from `buildRegionSearchContext(productsX, locale)` at the page.
+   * from `buildRegionSearchContext(productsX, locale, region)` at the page.
    */
   uiStrings: UIStrings;
   /** Rendered above the ranked list (editor's choice, intro paragraph). */

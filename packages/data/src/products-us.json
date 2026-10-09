@@ -1267,7 +1267,7 @@
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 1,
-    "summary": "A minimalist 4-ingredient cognitive stack from Performance Lab; posts on mindlabpro.com say Performance Lab supplements are formulated by Opti-Nutra in the UK, which they call the maker of Mind Lab Pro (checked 2026-10-08). Every amount is on the label: 250mg citicoline, 100mg phosphatidylserine, 250mg L-tyrosine and 75mg maritime pine bark extract in one capsule. Best for people who want a clean, stackable formula rather than a kitchen-sink approach.",
+    "summary": "A minimalist 4-ingredient cognitive stack from Performance Lab; posts on mindlabpro.com say Performance Lab supplements are formulated by Opti-Nutra in the UK, which they call the maker of Mind Lab Pro (checked 2026-10-08). Every amount is on the label: 250mg citicoline, 100mg phosphatidylserine, 250mg L-tyrosine and 75mg maritime pine bark extract per one-capsule serving. Best for people who want a clean, stackable formula rather than a kitchen-sink approach.",
     "whatItIs": "Performance Lab Mind is a 4-ingredient stim-free nootropic from Performance Lab; posts on mindlabpro.com say Performance Lab supplements are formulated by Opti-Nutra in the UK, which they call the maker of our editor-choice pick Mind Lab Pro (checked 2026-10-08). It uses only branded standardized extracts — Cognizin citicoline, Sharp-PS Green phosphatidylserine, Ajipure L-tyrosine, and Maritime Pine Bark — delivered in NutriCaps prebiotic-infused vegan capsules. The product is positioned as the lean, stackable counterpart to Mind Lab Pro for users who want focused dosing without ingredient overlap. It is manufactured in the USA in an FDA-registered current Good Manufacturing Practice (cGMP) facility and only sold via the official website.",
     "howItWorks": "Cognizin citicoline raises brain phosphatidylcholine and supports acetylcholine synthesis for membrane integrity and focus. Sharp-PS Green phosphatidylserine targets the FDA-qualified claim for cognitive decline and supports neuronal membrane fluidity. Ajipure L-tyrosine is a precursor for dopamine and norepinephrine, blunting cognitive decline under acute stress and sleep loss. Maritime Pine Bark proanthocyanidins cross the blood-brain barrier, support cerebral blood flow, and act as long-acting antioxidants. The four-ingredient logic is membrane + neurotransmitter precursor + circulation — the minimum complete stack for cognitive support.",
     "whatToExpect": "Within 30-60 minutes: subtle calm focus and improved working memory from citicoline and tyrosine. Within 2-4 weeks: noticeable mental endurance under cognitive load and stress. At 8-12 weeks: cumulative neuroprotective benefits from PS and pine bark. Most users report this stack feels cleaner than multi-ingredient formulas — fewer ingredients also means fewer GI or jitter complaints. Best for users who already supplement separately for adaptogens, mushrooms, or B-vitamins and want a focused base layer.",
@@ -1318,6 +1318,12 @@
       "trust": 7
     },
     "priceMonthlyUSD": 90,
+    "priceBasis": {
+      "source": "vendor-one-time",
+      "quoteField": "vendorTerms.oneTimePrice",
+      "monthsOfSupply": 1,
+      "checkedAt": "2026-10-07"
+    },
     "pricingModel": "one-time",
     "moneyBackDays": null,
     "caffeineFree": false,
@@ -1527,6 +1533,12 @@
       "trust": 7
     },
     "priceMonthlyUSD": 64.95,
+    "priceBasis": {
+      "source": "vendor-one-time",
+      "quoteField": "vendorTerms.oneTimePrice",
+      "monthsOfSupply": 1,
+      "checkedAt": "2026-10-07"
+    },
     "pricingModel": "both",
     "moneyBackDays": null,
     "caffeineFree": true,

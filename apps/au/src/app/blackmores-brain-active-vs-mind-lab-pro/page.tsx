@@ -54,14 +54,14 @@ const faqItems: HeadToHeadFAQ[] = [
       'Blackmores Brain Active has no current price because it is no longer sold. Mind Lab Pro is A$89/month (one-time purchase) on au.mindlabpro.com, checked 28 September 2026.',
   },
   {
-    q: 'Bacopa dose?',
+    q: 'What did Blackmores Brain Active contain?',
     a:
-      'Mind Lab Pro\'s label lists 150mg Bacopa (full-spectrum extract, 24% bacosides), half the 300mg clinical dose.',
+      'One active ingredient: Longvida® turmeric extract, 400mg per capsule (80mg curcumin), one capsule daily with breakfast (blackmores.com.au product page, archived 2015 and 2019). It contained no Bacopa. 400mg Longvida is the dose tested in two placebo-controlled trials in healthy adults aged 50-85 (Cox et al. 2015 and 2020); the 2020 trial was funded by Longvida\'s maker. Correction (2026-10-09): an earlier version of this answer said both products contain Bacopa at clinical dose.',
   },
   {
-    q: 'What does Blackmores miss that Mind Lab Pro has?',
+    q: 'How do the two formulas differ?',
     a:
-      'Mind Lab Pro adds Lion\'s Mane, citicoline (Cognizin), L-theanine, L-tyrosine, phosphatidylserine and Rhodiola. If you want any of these specific ingredients, Mind Lab Pro is the only choice between these two. Blackmores keeps it simple at Bacopa + Ginkgo + B-vitamins.',
+      'They share no ingredients. Brain Active was curcumin alone. Mind Lab Pro\'s label lists Lion\'s Mane 500mg, citicoline (Cognizin) 250mg, N-acetyl L-tyrosine 175mg, Bacopa Monnieri 150mg (24% bacosides, half the 300mg clinical dose), L-theanine 100mg, phosphatidylserine 100mg, maritime pine bark extract 75mg, Rhodiola Rosea 50mg and vitamins B6, B9 and B12; it contains no curcumin and no Ginkgo.',
   },
 ];
 
@@ -73,7 +73,7 @@ const whoIsForA = [
 const whoIsForB = [
   'Want broader formula (Lion\'s Mane, citicoline, PS, Rhodiola, L-theanine)',
   'Care about peer-reviewed product-specific RCT evidence',
-  'Are willing to pay 4× premium for the wider ingredient coverage',
+  'Want a product that is still sold (A$89/month on au.mindlabpro.com, checked 28 September 2026)',
   'Are caffeine-free user',
   'Don\'t mind 5-10 day international shipping under Personal Importation Scheme',
 ];

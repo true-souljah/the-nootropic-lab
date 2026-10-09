@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { Discover, SchemaOrg, Card, buildAlternates} from '@nootropic/ui';
-import { productsUS, guides } from '@nootropic/data';
+import { productsUS, guidesForRegion } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
 
@@ -72,9 +72,10 @@ const goalLinks = [
 // /guides/ at all (2026-10 content plan). Titles come from the guide data so
 // the cards cannot drift from the pages they link to.
 const START_HERE_SLUGS = ['what-are-nootropics', 'how-nootropics-work', 'what-to-expect', 'how-to-stack-nootropics'];
+const usGuides = guidesForRegion('us');
 const startHereGuides = START_HERE_SLUGS.map((slug) => {
-  const g = guides.find((x) => x.slug === slug);
-  if (!g) throw new Error(`home "Start here": guide "${slug}" not found in @nootropic/data guides`);
+  const g = usGuides.find((x) => x.slug === slug);
+  if (!g) throw new Error(`home "Start here": guide "${slug}" is not served on the US host (guidesForRegion('us'))`);
   return g;
 });
 
