@@ -44,8 +44,8 @@ const features = [
   },
   {
     icon: '🌎',
-    title: 'Envío a Latam verificado',
-    desc: 'Todos los productos se envían internacionalmente a México, Brasil, Argentina, Colombia, Chile y Perú. Se incluyen notas de aduanas y derechos de importación para cada país.',
+    title: 'Notas de aduana por país',
+    desc: 'Para México, Brasil, Argentina, Colombia, Chile y Perú resumimos las reglas de aduana e importación, con enlaces a las fuentes oficiales. Confirma el envío con la marca antes de comprar.',
   },
   {
     icon: '⚖️',
