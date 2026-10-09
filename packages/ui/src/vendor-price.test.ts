@@ -296,6 +296,8 @@ describe('prose states the vendor-derived price', () => {
 
   test.each(cases)('%s: record copy and listicle picks state the stored price', (region, product) => {
     const field = REGION_PROFILES[region].priceField;
+    // Without a marker the matcher would silently find nothing.
+    expect(MARKERS[field], `currency marker for ${field}`).toBeDefined();
     const stored = product[field];
     const record = [
       product.summary, product.whatItIs, product.howItWorks, product.whatToExpect,
@@ -315,6 +317,10 @@ describe('prose states the vendor-derived price', () => {
       }
     }
     for (const [where, n] of stated) expect(n, `${where} states ${n}, ${region} ${field} is ${stored}`).toBe(stored);
-    if (product.slug === 'brainzyme-focus-pro-review') expect(picksScanned, 'EU focus + studying picks scanned').toBe(2);
+    if (product.slug === 'brainzyme-focus-pro-review') {
+      expect(picksScanned, 'EU focus + studying picks scanned').toBe(2);
+      // Both picks state the monthly price, so the matcher must have read them.
+      expect(stated.filter(([where]) => where.endsWith('page.tsx')).length, 'prices read from the EU picks').toBe(2);
+    }
   });
 });
