@@ -31,7 +31,7 @@ _Tick `- [x]` to mark an item done, then commit. Grouped by priority, then sourc
 ## P2
 
 ### GSC
-- [ ] **Consolidate Mind Lab Pro comparison queries across 3 pages — 105+ impressions** — 41 impr · pos 26.6 <!--id:gsc:5098ec7696c17423-->
+- [x] **Consolidate Mind Lab Pro comparison queries across 3 pages — 105+ impressions** — 41 impr · pos 26.6 · DONE 2026-10-09 (branch chore/consolidate-3way-mlp-noocube-2026-10): live query×page GSC (90d to 2026-10-03) showed 'noocube vs mind lab pro' split across /mind-lab-pro-vs-noocube (141 impr, pos 23), the 3-way /alpha-brain-vs-mind-lab-pro-vs-noocube (43, pos 29.7) and /mind-lab-pro-vs-alpha-brain (29, pos 62); operator decision: 3-way page 301 → /mind-lab-pro-vs-noocube/. Watch: /mind-lab-pro-vs-alpha-brain still collects other MLP queries (incl. brand 'mind lab pro'). <!--id:gsc:5098ec7696c17423-->
 - [ ] **Consolidate overlapping memory/focus/general nootropics pages or sharpen their distinction** — 159 impr · pos 77.9 <!--id:gsc:93b401ab02ad8e64-->
 - [ ] **Cooperation: Gorilla Mind — affiliate (conflicting terms — reconcile first)** — `gorillamind.com` · Verified Awin profile 119295 pays 5% default with… <!--id:gsc:3d3472af4ae38a9b-->
 - [ ] **Push 'best nootropics for studying' from pos 39 to page 1** — `/best-nootropics-for-studying` · 31 impr · pos 38.8 <!--id:gsc:a9aff3e8b8fd62eb-->

@@ -10,5 +10,10 @@
 /de/beste-nootropika  https://eu.thenootropiclab.com/de/beste-nootropika/  301
 /de/beste-nootropika/  https://eu.thenootropiclab.com/de/beste-nootropika/  301
 
+# 3-way Alpha Brain vs Mind Lab Pro vs NooCube consolidated into the 2-way page
+# (2026-10-09): it ranked below the 2-way pages on every query it shared.
+/alpha-brain-vs-mind-lab-pro-vs-noocube  /mind-lab-pro-vs-noocube/  301
+/alpha-brain-vs-mind-lab-pro-vs-noocube/  /mind-lab-pro-vs-noocube/  301
+
 # Existing fallback (kept from prior _redirects)
 /* /404.html 404
