@@ -187,13 +187,16 @@ export function quoteSupply(text: string, record: SupplyFields): QuoteSupply {
     return { ok: true, monthsOfSupply: roundTo(statedMonths[0], 4), basis: `"${stated[0].text}" = "${counted[0].text}" at ${counted[0].perServing}, one serving a day` };
   }
   if (statedMonths.length === 1) return { ok: true, monthsOfSupply: roundTo(statedMonths[0], 4), basis: `"${stated[0].text}"` };
-  if (countedMonths.length === 1) {
-    return { ok: true, monthsOfSupply: roundTo(countedMonths[0], 4), basis: `"${counted[0].text}" at ${counted[0].perServing}, one serving a day` };
-  }
 
   const containers: { count: number; text: string }[] = [];
   for (const m of text.matchAll(CONTAINERS)) containers.push({ count: Number(m[1] ?? m[2]), text: m[0].trim() });
   const containerCounts = distinct(containers.map((c) => c.count));
+  if (countedMonths.length === 1) {
+    // "3 bottles, 60 capsules" does not say whether 60 is per bottle or in total.
+    const multi = containers.find((c) => c.count > 1);
+    if (multi) return { ok: false, reason: `"${counted[0].text}" with "${multi.text}": the quote does not say whether the count is per container or in total` };
+    return { ok: true, monthsOfSupply: roundTo(countedMonths[0], 4), basis: `"${counted[0].text}" at ${counted[0].perServing}, one serving a day` };
+  }
   if (containerCounts.length > 1) return { ok: false, reason: `several pack counts (${containers.map((c) => `"${c.text}"`).join(', ')})` };
   if (containerCounts.length === 1) {
     if (!(containerCounts[0] > 0)) return { ok: false, reason: `pack count "${containers[0].text}" is zero` };

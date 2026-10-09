@@ -93,6 +93,8 @@ describe('quoteSupply — months from the quote\'s own pack statement', () => {
   test('a unit count alone (90 Count at 2/serving = 45 days)', () => {
     expect(quoteSupply('Capsules–90 Count | $79.95', { servingsPerContainer: 45, capsulesPerServing: 2 }))
       .toMatchObject({ ok: true, monthsOfSupply: 1.5 });
+    // One container: the count can only be that container's.
+    expect(quoteSupply('1 Bottle 60 capsules $50', CAPSULES)).toMatchObject({ ok: true, monthsOfSupply: 1 });
   });
 
   test('a stated supply alone, in days or Japanese', () => {
@@ -116,6 +118,7 @@ describe('quoteSupply — months from the quote\'s own pack statement', () => {
     ['3g x 30 sachets S$69.90', CAPSULES, /counts sachets but the record's form is capsule/],
     ['1 Unit $64.95', { servingsPerContainer: 0, capsulesPerServing: 4 }, /needs servingsPerContainer/],
     ['90 Count $79.95', { servingsPerContainer: 45, capsulesPerServing: 0 }, /needs capsulesPerServing/],
+    ['3 Bottles 60 capsules $150', CAPSULES, /per container or in total/],
   ])('refuses "%s"', (text, record, reason) => {
     const result = quoteSupply(text, record);
     expect(result.ok).toBe(false);
