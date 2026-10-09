@@ -70,7 +70,7 @@ const whoIsForB = [
   'Are caffeine-sensitive or already get caffeine from coffee/tea',
   'Care about peer-reviewed product-specific RCT evidence',
   'Are willing to pay €65/month for the broader formula',
-  'Want phosphatidylserine, Bacopa, Lion\'s Mane, and Rhodiola in one capsule',
+  'Want phosphatidylserine, Bacopa, Lion\'s Mane, and Rhodiola in one formula',
 ];
 
 const verdictParagraph =

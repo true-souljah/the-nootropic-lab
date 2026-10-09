@@ -7,7 +7,7 @@ import { searchItems, uiStrings } from "@/lib/search";
 import { SITE_URL } from '@/lib/region';
 
 export const metadata: Metadata = {
-  title: 'Acerca de The Nootropic Lab Latam',
+  title: { absolute: 'Acerca de The Nootropic Lab Latam' },
   description:
     'The Nootropic Lab Latam es un sitio independiente de comparación de suplementos cognitivos para América Latina. Reseñas basadas en evidencia, auditorías de dosificación clínica y divulgación transparente de afiliados.',
   alternates: buildAlternates({ regionCode: 'latam', path: '/about/' }),

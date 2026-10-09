@@ -68,7 +68,7 @@ const whoIsForA = [
 
 const whoIsForB = [
   'Care about peer-reviewed product-specific RCT evidence',
-  'Want phosphatidylserine, Lion\'s Mane, citicoline, Rhodiola in one capsule',
+  'Want phosphatidylserine, Lion\'s Mane, citicoline, Rhodiola in one formula',
   'Are caffeine-free user (Mind Lab Pro is fully caffeine-free)',
   'Don\'t mind international shipping (5-20 working days by airmail or 2-7 working days by DHL, per mindlabpro.com, checked 2026-09-29)',
   'Want the broader 11-ingredient formula at a similar monthly cost',

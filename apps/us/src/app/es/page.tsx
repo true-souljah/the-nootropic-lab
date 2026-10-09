@@ -5,7 +5,7 @@ import { searchItems, uiStrings } from '@/lib/search';
 
 
 export const metadata: Metadata = {
-  title: 'The Nootropic Lab — Suplementos Cognitivos Independientes',
+  title: { absolute: 'The Nootropic Lab — Suplementos Cognitivos Independientes' },
   description:
     'Comparativa independiente de suplementos nootrópicos para compradores en EE. UU. Análisis de dosificación clínica y divulgación transparente de afiliados.',
   alternates: buildAlternates({ regionCode: 'us', path: '/es/', availableInRegions: ['us'] }),

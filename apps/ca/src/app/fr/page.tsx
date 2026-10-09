@@ -5,7 +5,7 @@ import { searchItems, uiStrings } from '@/lib/search-fr-ca';
 
 
 export const metadata: Metadata = {
-  title: 'The Nootropic Lab CA — Comparatifs Indépendants de Suppléments Cognitifs',
+  title: { absolute: 'The Nootropic Lab CA — Comparatifs Indépendants de Suppléments Cognitifs' },
   description:
     'La plateforme indépendante de comparaison de nootropiques pour les acheteurs canadiens. Analyses fondées sur les données probantes, audits de dosage clinique et divulgation transparente des affiliés.',
   alternates: buildAlternates({ regionCode: 'ca', path: '/fr/', availableInRegions: ['ca'] }),
