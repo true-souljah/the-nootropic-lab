@@ -1,6 +1,6 @@
 import { describe, test, expect } from 'vitest';
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
-import { resolve, dirname, extname } from 'node:path';
+import { resolve, dirname, extname, relative } from 'node:path';
 
 // No national product register (Health Canada NPN, SFDA/MOHAP, COFEPRIS,
 // ANVISA, NPRA, BPOM, VFA, ...) was ever checked for the products we review;
@@ -295,7 +295,7 @@ describe('round ten: monograph, Singapore import, Mind Lab Pro maker and EU pric
       const lines = readFileSync(file, 'utf8').split('\n');
       return lines.flatMap((line, i) =>
         !BRAND_FIELD_LINE.test(line) && ROUND_TEN_UNSOURCED.some(re => re.test(line))
-          ? [`${file.slice(REPO_ROOT.length + 1)}:${i + 1}`]
+          ? [`${relative(REPO_ROOT, file)}:${i + 1}`]
           : [],
       );
     });
