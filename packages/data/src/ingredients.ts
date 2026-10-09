@@ -915,7 +915,7 @@ export const ingredients: Ingredient[] = [
       'Turmeric and curcumin supplements (not Longvida specifically) have been linked to rare cases of acute liver injury',
       'In a laboratory study on pig liver cells, curcumin changed the activity of enzymes that clear warfarin; ask a doctor before combining curcumin with an anticoagulant',
     ],
-    productsContaining: [],
+    productsContaining: ['blackmores-brain-active-review'],
     humanEffects: [
       { effect: 'Working Memory', evidenceStrength: 'mixed', magnitude: 'small', studies: 4, notes: 'Better at 400mg/day after 4 weeks (Cox 2015) and 12 weeks (Cox 2020); no change at 2000mg/day over 12 weeks in healthy adults (Santos-Parker 2018) or 12 months in chronic kidney disease (Gimblet 2024).' },
       { effect: 'Fatigue & Mood', evidenceStrength: 'preliminary', magnitude: 'small', studies: 2, notes: 'Lower fatigue at 4 weeks (Cox 2015) and at 4 and 12 weeks (Cox 2020), both at 400mg/day; the 2020 trial\'s other mood gains were seen at 4 weeks only.' },
