@@ -39,7 +39,7 @@
     ],
     "ingredientDosages": [
       {
-        "name": "Lion's Mane (fruiting body)",
+        "name": "Lion's Mane Mushroom",
         "doseInProduct": "500mg",
         "clinicalDose": "1000-1800mg/day",
         "adequatelyDosed": false
@@ -51,13 +51,13 @@
         "adequatelyDosed": true
       },
       {
-        "name": "Bacopa Monnieri (full-spectrum, 24% bacosides)",
+        "name": "Bacopa Monnieri (full-spectrum extract, 24% bacosides)",
         "doseInProduct": "150mg",
         "clinicalDose": "300-450mg/day (55% bacosides)",
         "adequatelyDosed": false
       },
       {
-        "name": "Rhodiola Rosea (3% rosavins)",
+        "name": "Rhodiola Rosea (3% rosavins, 1% salidrosides)",
         "doseInProduct": "50mg",
         "clinicalDose": "200-600mg/day",
         "adequatelyDosed": false
@@ -69,16 +69,40 @@
         "adequatelyDosed": true
       },
       {
-        "name": "Phosphatidylserine (Sharp-PS)",
+        "name": "Phosphatidylserine",
         "doseInProduct": "100mg",
         "clinicalDose": "100-300mg/day",
         "adequatelyDosed": true
       },
       {
-        "name": "L-Tyrosine (NALT)",
+        "name": "N-Acetyl L-Tyrosine (NALT)",
         "doseInProduct": "175mg",
         "clinicalDose": "2000mg/day (lowest positive trial)",
         "adequatelyDosed": false
+      },
+      {
+        "name": "Maritime Pine Bark Extract (95% proanthocyanidins)",
+        "doseInProduct": "75mg",
+        "clinicalDose": "100-200mg/day",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Vitamin B6 (NutriGenesis)",
+        "doseInProduct": "2.5mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin B9 (NutriGenesis)",
+        "doseInProduct": "100mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin B12 (NutriGenesis)",
+        "doseInProduct": "7.5mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       }
     ],
     "servingsPerContainer": 30,
@@ -89,7 +113,7 @@
     "whatToExpect": "Within 30-60 minutes: mild calm focus from L-Theanine. Within 2-4 weeks: improved mental energy and reduced cognitive fatigue. At 8-12 weeks: measurable improvements in memory recall and learning speed. EU orders are shipped from the brand's depot in Europe, with an expected delivery time of 4-12 working days depending on destination (eu.mindlabpro.com shipping page, checked 2026-10-06). Mind Lab Pro is a long-game supplement -- most users report subtle but sustained improvement rather than dramatic day-one effects.",
     "pros": [
       "Dedicated EU storefront with EUR pricing",
-      "11 ingredients at clinical doses",
+      "11 ingredients, every dose disclosed",
       "Third-party tested",
       "Caffeine-free"
     ],
@@ -124,7 +148,10 @@
         "url": "https://eu.mindlabpro.com/pages/shipping-returns",
         "lang": "en"
       }
-    }
+    },
+    "notes": [
+      "Ingredient amounts from Mind Lab Pro's label at https://eu.mindlabpro.com/products/mind-lab-pro, checked 2026-10-08."
+    ]
   },
   {
     "id": "noocube",
@@ -168,38 +195,44 @@
     ],
     "ingredientDosages": [
       {
-        "name": "Lutemax 2020 (Lutein/Zeaxanthin)",
-        "doseInProduct": "20mg",
-        "clinicalDose": "12-27mg/day",
-        "adequatelyDosed": true
+        "name": "Vitamin B1 (Thiamine HCl)",
+        "doseInProduct": "1.1mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
-        "name": "Bacopa Monnieri (12:1, 20% bacosides)",
-        "doseInProduct": "250mg",
-        "clinicalDose": "300-450mg/day (55% bacosides)",
-        "adequatelyDosed": false
+        "name": "Vitamin B12 (Cyanocobalamin)",
+        "doseInProduct": "2.5mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
-        "name": "Panax Ginseng (200:1 concentrate)",
-        "doseInProduct": "20mg",
+        "name": "Biotin (D-Biotin)",
+        "doseInProduct": "50mcg",
         "clinicalDose": "No reference dose on file",
         "adequatelyDosed": null
       },
       {
         "name": "Choline (VitaCholine)",
+        "doseInProduct": "100mg (from 250mg Choline Bitartrate)",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Bacopa Monnieri Extract (herb, 20% bacosides)",
         "doseInProduct": "250mg",
-        "clinicalDose": "No reference dose on file",
-        "adequatelyDosed": null
+        "clinicalDose": "300-450mg/day (55% bacosides)",
+        "adequatelyDosed": false
       },
       {
-        "name": "Cat's Claw (4:1 extract)",
-        "doseInProduct": "Undisclosed",
-        "clinicalDose": "No reference dose on file",
-        "adequatelyDosed": null
+        "name": "L-Tyrosine",
+        "doseInProduct": "250mg",
+        "clinicalDose": "2000mg/day (lowest positive trial)",
+        "adequatelyDosed": false
       },
       {
-        "name": "Resveratrol (99%)",
-        "doseInProduct": "14.3mg",
+        "name": "Cat's Claw Concentrated Extract (Uncaria tomentosa bark)",
+        "doseInProduct": "175mg (4:1 extract)",
         "clinicalDose": "No reference dose on file",
         "adequatelyDosed": null
       },
@@ -210,6 +243,24 @@
         "adequatelyDosed": true
       },
       {
+        "name": "Panax Ginseng Concentrated Extract",
+        "doseInProduct": "20mg (8:1 extract, equivalent to 160mg Panax Ginseng powder)",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Lutemax 2020 (Marigold Flower Extract, Tagetes erecta)",
+        "doseInProduct": "20mg",
+        "clinicalDose": "12-27mg/day",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Trans-Resveratrol (Polygonum cuspidatum root)",
+        "doseInProduct": "14.3mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
         "name": "Pterostilbene",
         "doseInProduct": "140mcg",
         "clinicalDose": "No reference dose on file",
@@ -217,10 +268,10 @@
       }
     ],
     "servingsPerContainer": 30,
-    "capsulesPerServing": 4,
+    "capsulesPerServing": 2,
     "summary": "Formula with Lutemax 2020 for screen workers. No EUR storefront: noocube.co.uk sells it at £54.99/mo and does not ship to Germany, France or the Netherlands. Important: the noocube.com Trustpilot profile has no reviews yet -- check the cancellation terms carefully before subscribing.",
     "whatItIs": "NooCube is a 12-ingredient nootropic stack from Wolfson Brands. There is no EUR-priced storefront: the UK store (noocube.co.uk) prices in GBP and lists shipping to Ireland, Spain, Portugal, Greece, Croatia, Poland, Sweden and Denmark, but not to Germany, France or the Netherlands. Its standout feature is Lutemax 2020 -- a clinically-studied lutein and zeaxanthin extract with mixed evidence for screen eye strain: a 6-month trial funded by Lutemax's maker found less self-rated eye strain and eye fatigue (Stringham 2017), but a 2025 trial of a different lutein/zeaxanthin product found no change in self-rated eye strain (Lopresti 2025). It is EU Directive 2002/46/EC compliant.",
-    "howItWorks": "Lutemax 2020 filters high-energy blue light in the retina; trial results on screen-related eye fatigue are mixed (one maker-funded trial positive, a trial of a different lutein/zeaxanthin product null on self-rated eye strain). Choline from VitaCholine (250mg) supports acetylcholine availability; the current formula no longer contains Alpha-GPC or Huperzine A. L-Theanine provides calm focus. Bacopa supports memory consolidation over 8+ weeks.",
+    "howItWorks": "Lutemax 2020 filters high-energy blue light in the retina; trial results on screen-related eye fatigue are mixed (one maker-funded trial positive, a trial of a different lutein/zeaxanthin product null on self-rated eye strain). Choline (100mg, from 250mg VitaCholine choline bitartrate) supports acetylcholine availability; the current formula no longer contains Alpha-GPC or Huperzine A. L-Theanine provides calm focus. Bacopa supports memory consolidation over 8+ weeks.",
     "whatToExpect": "Day one: mild calm focus from L-Theanine. Lutemax: its eye-strain trials ran 6 months and disagree, so do not count on a quick eye-fatigue effect. At 8 weeks: modest memory improvements. The noocube.com Trustpilot profile has no reviews yet -- read the cancellation terms carefully before subscribing.",
     "pros": [
       "Lutemax 2020 for blue-light",
@@ -280,7 +331,10 @@
         "url": "https://www.noocube.com/pages/guarantee",
         "lang": "en"
       }
-    }
+    },
+    "notes": [
+      "Ingredient amounts from NooCube's label at https://noocube.com/cdn/shop/t/90/assets/noocube-label-usa-v3.jpg?v=141477061997521322691727969792, checked 2026-10-08."
+    ]
   },
   {
     "id": "performance-lab-mind",
@@ -314,45 +368,45 @@
     "commissionRate": "30%",
     "cookieDays": 365,
     "heroIngredients": [
-      "Citicoline (CDP-Choline)",
+      "Citicoline",
       "Phosphatidylserine",
-      "Lion's Mane",
-      "L-Tyrosine"
+      "L-Tyrosine",
+      "Maritime Pine Bark"
     ],
     "ingredientDosages": [
       {
-        "name": "Citicoline (Cognizin)",
+        "name": "Citicoline (stabilized cytidine 5'-diphosphocholine)",
         "doseInProduct": "250mg",
         "clinicalDose": "250-500mg/day",
         "adequatelyDosed": true
       },
       {
-        "name": "Phosphatidylserine (Sharp-PS)",
+        "name": "Phosphatidylserine (from sunflower lecithin)",
         "doseInProduct": "100mg",
         "clinicalDose": "100-300mg/day",
         "adequatelyDosed": true
       },
       {
-        "name": "Lion's Mane (fruiting body)",
-        "doseInProduct": "500mg",
-        "clinicalDose": "1000-1800mg/day",
+        "name": "L-Tyrosine",
+        "doseInProduct": "250mg",
+        "clinicalDose": "2000mg/day (lowest positive trial)",
         "adequatelyDosed": false
       },
       {
-        "name": "L-Tyrosine (NALT)",
-        "doseInProduct": "300mg",
-        "clinicalDose": "2000mg/day (lowest positive trial)",
+        "name": "Maritime Pine Bark Extract (Pinus pinaster, 95% proanthocyanidins)",
+        "doseInProduct": "75mg",
+        "clinicalDose": "100-200mg/day",
         "adequatelyDosed": false
       }
     ],
     "servingsPerContainer": 30,
-    "capsulesPerServing": 2,
-    "summary": "Performance Lab's streamlined 4-ingredient formula; posts on mindlabpro.com say Performance Lab supplements are formulated by Opti-Nutra in the UK (checked 2026-10-08). Every ingredient at clinical dose. Only 2 capsules/day. Same manufacturer as Mind Lab Pro.",
-    "whatItIs": "Performance Lab Mind is a 4-ingredient cognitive supplement from Performance Lab; posts on mindlabpro.com say Performance Lab supplements are formulated by Opti-Nutra in the UK, which they call the maker of Mind Lab Pro (checked 2026-10-08). It is designed as a precision stack where every single ingredient is at or above its clinical trial dose. With only 2 capsules per day, it has the lowest pill burden of any clinically-dosed nootropic in this review.",
-    "howItWorks": "Citicoline (250mg Cognizin) boosts acetylcholine synthesis and supports neuronal membrane phospholipid production. Phosphatidylserine (100mg Sharp-PS) enhances synaptic signal transduction and reduces cortisol. Lion's Mane (500mg fruiting body) stimulates NGF for long-term neuroplasticity. L-Tyrosine (300mg NALT) replenishes dopamine and norepinephrine precursors for working memory under stress. Each ingredient is at or above the dose used in clinical trials -- no filler, no underdosed compounds.",
-    "whatToExpect": "Acute (30-60 min): mild focus from Tyrosine and Citicoline's acetylcholine boost. 2-4 weeks: improved mental endurance and reduced cognitive fatigue. 8-12 weeks: memory and neuroprotective benefits from Lion's Mane and Phosphatidylserine accumulate. Performance Lab Mind is ideal as a standalone for minimalists, or stacked with Performance Lab Energy for a comprehensive cognitive + energy protocol.",
+    "capsulesPerServing": 1,
+    "summary": "Performance Lab's streamlined 4-ingredient formula; posts on mindlabpro.com say Performance Lab supplements are formulated by Opti-Nutra in the UK (checked 2026-10-08). Every ingredient amount disclosed. Only 1 capsule/day. Same manufacturer as Mind Lab Pro.",
+    "whatItIs": "Performance Lab Mind is a 4-ingredient cognitive supplement from Performance Lab; posts on mindlabpro.com say Performance Lab supplements are formulated by Opti-Nutra in the UK, which they call the maker of Mind Lab Pro (checked 2026-10-08). It is designed as a precision stack of four ingredients, each with its amount on the label, taken as 1 capsule per day.",
+    "howItWorks": "Citicoline (250mg Cognizin) boosts acetylcholine synthesis and supports neuronal membrane phospholipid production. Phosphatidylserine (100mg Sharp-PS) enhances synaptic signal transduction and reduces cortisol. L-Tyrosine (250mg) replenishes dopamine and norepinephrine precursors for working memory under stress. Maritime Pine Bark (75mg, 95% proanthocyanidins) provides antioxidants that support cerebral blood flow. L-Tyrosine and pine bark are below our reference doses.",
+    "whatToExpect": "Acute (30-60 min): mild focus from Tyrosine and Citicoline's acetylcholine boost. 2-4 weeks: improved mental endurance and reduced cognitive fatigue. 8-12 weeks: memory and neuroprotective benefits from Phosphatidylserine and pine bark accumulate. Performance Lab Mind is ideal as a standalone for minimalists, or stacked with Performance Lab Energy for a comprehensive cognitive + energy protocol.",
     "pros": [
-      "Only 2 capsules per serving",
+      "Only 1 capsule per serving",
       "Citicoline at 250mg clinical dose",
       "Soy-free phosphatidylserine"
     ],
@@ -369,7 +423,10 @@
       "successorSlug": "mind-lab-pro-review",
       "note": "Opti-Nutra merged Performance Lab Mind into Mind Lab Pro; the vendor URL now redirects to Mind Lab Pro."
     },
-    "verifiedAt": "2026-09-28"
+    "verifiedAt": "2026-09-28",
+    "notes": [
+      "Ingredient amounts from Performance Lab's label at https://web.archive.org/web/20241009212007/https://www.performancelab.com/products/mind, checked 2026-10-08."
+    ]
   },
   {
     "id": "braineffect-focus",
@@ -512,54 +569,139 @@
     "heroIngredients": [
       "Matcha",
       "Guarana",
-      "Choline Bitartrate",
+      "Choline",
       "L-Theanine",
-      "Vitamins B6 & B12"
+      "Ginkgo Biloba",
+      "L-Tyrosine"
     ],
     "ingredientDosages": [
       {
-        "name": "Matcha (natural caffeine ~40mg)",
-        "doseInProduct": "400mg matcha",
+        "name": "Camellia Sinensis Extracts (EMT Blend: Pure Matcha, Polyphenols, EGCG, L-Theanine)",
+        "doseInProduct": "350mg (equivalent weight)",
         "clinicalDose": "No reference dose on file",
         "adequatelyDosed": null
       },
       {
-        "name": "Guarana (natural caffeine ~20mg)",
-        "doseInProduct": "200mg guarana",
-        "clinicalDose": "No reference dose on file",
-        "adequatelyDosed": null
-      },
-      {
-        "name": "L-Theanine",
-        "doseInProduct": "100mg",
+        "name": "L-Theanine (EMT Blend)",
+        "doseInProduct": "Not stated (share of 350mg EMT blend)",
         "clinicalDose": "100-200mg/day",
-        "adequatelyDosed": true
+        "adequatelyDosed": null
       },
       {
-        "name": "Choline Bitartrate",
-        "doseInProduct": "250mg",
+        "name": "Guarana Seed",
+        "doseInProduct": "330mg (equivalent weight)",
         "clinicalDose": "No reference dose on file",
         "adequatelyDosed": null
       },
       {
-        "name": "Vitamin B6",
-        "doseInProduct": "1.4mg",
+        "name": "Choline",
+        "doseInProduct": "290mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Ginkgo Biloba",
+        "doseInProduct": "240mg (equivalent weight)",
+        "clinicalDose": "240mg/day (24/6 extract)",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "L-Tyrosine",
+        "doseInProduct": "230mg",
+        "clinicalDose": "2000mg/day (lowest positive trial)",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Magnesium",
+        "doseInProduct": "56mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Bromelain (1,200 GDU/g)",
+        "doseInProduct": "20mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Maca Root",
+        "doseInProduct": "20mg (equivalent weight)",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin C",
+        "doseInProduct": "16mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin B3 (Niacin)",
+        "doseInProduct": "8mg NE",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin D3 (400IU)",
+        "doseInProduct": "10mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Zinc",
+        "doseInProduct": "3mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin B5 (Pantothenic Acid)",
+        "doseInProduct": "3mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Boron",
+        "doseInProduct": "3mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin B6 (Pyridoxine)",
+        "doseInProduct": "2.8mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin B1 (Thiamine)",
+        "doseInProduct": "0.56mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin B9 (Folate)",
+        "doseInProduct": "100mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Iodine",
+        "doseInProduct": "75mcg",
         "clinicalDose": "No reference dose on file",
         "adequatelyDosed": null
       },
       {
         "name": "Vitamin B12",
-        "doseInProduct": "2.5mcg",
+        "doseInProduct": "5mcg",
         "clinicalDose": "No reference dose on file",
         "adequatelyDosed": null
       }
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 2,
-    "summary": "Natural caffeine from matcha + guarana paired with L-theanine for smooth focus.",
-    "whatItIs": "Brainzyme Focus Pro is a nootropic supplement using exclusively natural ingredient sources. Its caffeine comes from matcha and guarana rather than synthetic caffeine -- producing a smoother, more sustained focus curve. Brainzyme, operated by Nutraceutical Logistics Global (t/a Brainzyme, Edinburgh), runs separate EUR stores: its international-shipping page directs France, Belgium and Switzerland to brainzyme.fr and Germany, Austria and Switzerland to brainzyme.de, and lists other countries, such as Bulgaria, under rest-of-world shipping from the UK with shipping fees in GBP (brainzyme.com, checked 2026-10-06).",
-    "howItWorks": "Matcha provides ~40mg natural caffeine plus EGCG (a catechin with mild nootropic properties). Guarana adds ~20mg additional natural caffeine for a total of ~60mg -- lower than coffee but enough for noticeable alertness. L-Theanine (100mg) smooths the caffeine response, reducing jitteriness and extending focus duration. Choline Bitartrate supports acetylcholine synthesis (lower bioavailability than Alpha-GPC but effective at 250mg). B-vitamins support neurological function per EU Regulation 1924/2006.",
-    "whatToExpect": "Acute (30-45 min): smooth, gradual focus from natural caffeine + L-theanine combination. Less of a spike-and-crash than synthetic caffeine products. 2-4 weeks: sustained daily mental energy. Note: this is primarily a stimulant-based nootropic -- the cognitive enhancement is largely driven by caffeine + theanine synergy. Long-term neuroprotective benefits are limited compared to Citicoline/Bacopa-based stacks.",
+    "summary": "A 2-capsule formula built on a 350mg Camellia sinensis (matcha) EMT blend with L-theanine, plus guarana seed, choline, ginkgo and L-tyrosine.",
+    "whatItIs": "Brainzyme Focus Pro is a nootropic supplement using exclusively natural ingredient sources. Its label lists matcha (in a Camellia sinensis \"EMT\" blend) and guarana seed but states no caffeine amount. Brainzyme, operated by Nutraceutical Logistics Global (t/a Brainzyme, Edinburgh), runs separate EUR stores: its international-shipping page directs France, Belgium and Switzerland to brainzyme.fr and Germany, Austria and Switzerland to brainzyme.de, and lists other countries, such as Bulgaria, under rest-of-world shipping from the UK with shipping fees in GBP (brainzyme.com, checked 2026-10-06).",
+    "howItWorks": "The main active is a 350mg Camellia sinensis \"EMT\" blend of matcha, polyphenols, EGCG and L-theanine; the label does not split it, so the L-theanine amount is not stated. Guarana seed (330mg, equivalent weight), choline (290mg), ginkgo biloba (240mg, equivalent weight) and L-tyrosine (230mg) follow. Choline supports acetylcholine synthesis. B-vitamins support neurological function per EU Regulation 1924/2006.",
+    "whatToExpect": "2-4 weeks: sustained daily mental energy. The label states no caffeine amount for its matcha and guarana and does not split the EMT blend, so the L-theanine dose cannot be checked against its reference dose. Long-term neuroprotective benefits are limited compared to Citicoline/Bacopa-based stacks.",
     "pros": [
       "EUR stores brainzyme.de (ships from Germany) and brainzyme.fr (ships from France), per the brand's shipping pages (checked 2026-10-06)",
       "Strong Trustpilot 4.8/5",
@@ -568,7 +710,7 @@
       "365-day refund or exchange if not satisfied (all items returned)"
     ],
     "cons": [
-      "Contains caffeine",
+      "No caffeine amount stated on the label",
       "Narrower formula than MLP",
       "Not shipped to Ireland (contains Ginkgo biloba, per the brand's international-shipping page, checked 2026-10-06)"
     ],
@@ -609,7 +751,10 @@
         "url": "https://www.brainzyme.com/policies/refund-policy",
         "lang": "en"
       }
-    }
+    },
+    "notes": [
+      "Ingredient amounts from Brainzyme's label at https://cdn.shopify.com/s/files/1/1719/2651/files/New_Graphics_PP_Carousel_02_PRO_5f484815-8305-45f7-adaf-f6389a5a6db2.webp?v=1786377659 (product page https://www.brainzyme.com/products/brainzyme-professional-stronger-formula), checked 2026-10-08; the FOCUS PRO panel on brainzyme.de lists the same 20 amounts (checked 2026-10-09)."
+    ]
   },
   {
     "id": "hunter-focus",
@@ -846,7 +991,6 @@
       "trust": 6
     },
     "priceMonthlyUSD": 44,
-    "priceMonthlyEUR": 45,
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": false,
@@ -962,7 +1106,8 @@
         "url": "https://eu.performancelab.com/pages/shipping-returns",
         "lang": "en"
       }
-    }
+    },
+    "priceMonthlyEUR": 45
   },
   {
     "id": "pre-lab-pro",
@@ -983,7 +1128,6 @@
       "trust": 6
     },
     "priceMonthlyUSD": 59,
-    "priceMonthlyEUR": 45,
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": false,
@@ -1134,7 +1278,8 @@
         "url": "https://eu.performancelab.com/pages/shipping-returns",
         "lang": "en"
       }
-    }
+    },
+    "priceMonthlyEUR": 45
   },
   {
     "id": "performance-lab-energy",
@@ -1155,7 +1300,6 @@
       "trust": 6
     },
     "priceMonthlyUSD": 69,
-    "priceMonthlyEUR": 59,
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
@@ -1262,7 +1406,8 @@
         "url": "https://eu.performancelab.com/pages/shipping-returns",
         "lang": "en"
       }
-    }
+    },
+    "priceMonthlyEUR": 59
   },
   {
     "id": "performance-lab-omega-3",
@@ -1283,7 +1428,6 @@
       "trust": 6
     },
     "priceMonthlyUSD": 49,
-    "priceMonthlyEUR": 45,
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
@@ -1369,6 +1513,7 @@
         "url": "https://eu.performancelab.com/pages/shipping-returns",
         "lang": "en"
       }
-    }
+    },
+    "priceMonthlyEUR": 45
   }
 ]
