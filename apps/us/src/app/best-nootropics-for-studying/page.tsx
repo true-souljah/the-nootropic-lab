@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsUS.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Most complete study stack: includes everything in Mind Lab Pro plus Alpha-GPC, Rhodiola, and choline-supporting cofactors. The 7+ capsules/day is friction during finals week; the $139/mo subscription is friction for student budgets.',
+      'Most complete study stack: includes everything in Mind Lab Pro except Bacopa and Pine Bark, plus Alpha-GPC and choline-supporting cofactors. The 6 capsules/day is friction during finals week; the $139/mo subscription is friction for student budgets.',
   },
   {
     product: productsUS.find(p => p.slug === 'onnit-alpha-brain-review')!,
@@ -72,7 +72,7 @@ const picks: ListiclePick[] = [
     product: productsUS.find(p => p.slug === 'thesis-nootropics-review')!,
     rank: 4,
     whyItsHere:
-      'Personalization may suit students with specific patterns (e.g., the "Clarity" formula for focus or "Logic" for analytical work). Subscription model with monthly cost can add up over a semester.',
+      'Personalization may suit students with specific patterns (e.g., the "Clarity" formula for focus). Subscription model with monthly cost can add up over a semester.',
   },
 ];
 
