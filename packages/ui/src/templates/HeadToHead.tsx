@@ -21,6 +21,7 @@ import {
   type HeadToHeadPageStrings,
 } from '../templateStrings';
 import type { SearchItem } from '../SearchModal';
+import { DoseVerdictMark } from '../primitives/DoseVerdictMark';
 
 export interface HeadToHeadFAQ {
   q: string;
@@ -463,11 +464,7 @@ export default function HeadToHead({
                       {row.aDose ? (
                         <span className="inline-flex items-center gap-1">
                           {row.aDose}
-                          {row.aAdequate ? (
-                            <span className="text-ds-good font-bold" aria-label="adequately dosed">✓</span>
-                          ) : (
-                            <span className="text-ds-bad font-bold" aria-label="underdosed">✗</span>
-                          )}
+                          <DoseVerdictMark adequate={row.aAdequate} />
                         </span>
                       ) : (
                         <span className="text-ds-faint">—</span>
@@ -477,11 +474,7 @@ export default function HeadToHead({
                       {row.bDose ? (
                         <span className="inline-flex items-center gap-1">
                           {row.bDose}
-                          {row.bAdequate ? (
-                            <span className="text-ds-good font-bold" aria-label="adequately dosed">✓</span>
-                          ) : (
-                            <span className="text-ds-bad font-bold" aria-label="underdosed">✗</span>
-                          )}
+                          <DoseVerdictMark adequate={row.bAdequate} />
                         </span>
                       ) : (
                         <span className="text-ds-faint">—</span>

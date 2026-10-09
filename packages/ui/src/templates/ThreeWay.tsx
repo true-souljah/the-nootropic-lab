@@ -15,6 +15,7 @@ import { ProductThumb } from '../primitives/ProductThumb';
 import { buildPersonAuthorReference, servingAmount, servingsComparable, outOfTen, guaranteeDays } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
+import { DoseVerdictMark } from '../primitives/DoseVerdictMark';
 
 export interface ThreeWayFAQ {
   q: string;
@@ -244,11 +245,7 @@ export default function ThreeWay({
     return (
       <span className="inline-flex items-center gap-1">
         {cell.dose}
-        {cell.adequate ? (
-          <span className="text-ds-good font-bold" aria-label="adequately dosed">✓</span>
-        ) : (
-          <span className="text-ds-bad font-bold" aria-label="underdosed">✗</span>
-        )}
+        <DoseVerdictMark adequate={cell.adequate} />
       </span>
     );
   }
