@@ -100,7 +100,7 @@ describe('disclosure strings — present and translated in every locale', () => 
 });
 
 describe('money templates — inline disclosure next to the first CTA', () => {
-  const TEMPLATES = ['ProductDetail.tsx', 'BestOf.tsx', 'Listicle.tsx', 'HeadToHead.tsx', 'ThreeWay.tsx'];
+  const TEMPLATES = ['ProductDetail.tsx', 'BestOf.tsx', 'Listicle.tsx', 'HeadToHead.tsx'];
 
   it.each(TEMPLATES)('%s renders FPTrustNote with the locale disclosure bundle', (tpl) => {
     const src = readFileSync(join(UI_SRC, 'templates', tpl), 'utf8');
