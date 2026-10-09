@@ -23,6 +23,7 @@ import { PricingTab } from './product-detail/PricingTab';
 import RegionalBuying from '../RegionalBuying';
 import { formatLocalPrice } from '../RegionalAvailability';
 import type { RegionalBuyingProps } from '../RegionalBuying';
+import { scoreTier } from './listicleRanking';
 
 export interface ProductDetailProps {
   product: Product;
@@ -121,8 +122,7 @@ export default function ProductDetail({
     false,
   ];
 
-  const scoreColor =
-    p.score >= 8.5 ? 'text-ds-good' : p.score >= 7.5 ? 'text-ds-warn-ink' : 'text-ds-bad';
+  const scoreColor = { good: 'text-ds-good', warn: 'text-ds-warn-ink', bad: 'text-ds-bad' }[scoreTier(p.score)];
 
   return (
     <AppShell

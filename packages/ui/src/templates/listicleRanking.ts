@@ -12,6 +12,26 @@ import { tpl, type UseCaseListPageStrings } from '../templateStrings';
  */
 export const LISTICLE_MIN_SCORE = 7.0;
 
+/**
+ * The colour and label tiers of a PRODUCT score, read by every surface that
+ * colours or grades one: ScorePill, the review header and verdict, the
+ * comparator grade filter, head-to-head and three-way scores, and BestOf's
+ * "Recommended" count. Site-owner decision 2026-10-09: green "good" /
+ * "Recommended" from 7.5, amber "warn" / "Worth a look" from the listicle
+ * bar, red below. `warn` IS the bar, so a pick a listicle ranks is never
+ * shown red. score-tiers.test.ts fails if a component types a tier number.
+ */
+export const SCORE_TIERS = { good: 7.5, warn: LISTICLE_MIN_SCORE } as const;
+
+export type ScoreTier = 'good' | 'warn' | 'bad';
+
+/** The tier of a product score. Anything not >= SCORE_TIERS.warn (including NaN) is 'bad'. */
+export function scoreTier(score: number): ScoreTier {
+  if (score >= SCORE_TIERS.good) return 'good';
+  if (score >= SCORE_TIERS.warn) return 'warn';
+  return 'bad';
+}
+
 /** A score as listicle copy prints it: one decimal ("7.5", "7.0"). */
 export function formatListicleScore(score: number): string {
   return score.toFixed(1);
