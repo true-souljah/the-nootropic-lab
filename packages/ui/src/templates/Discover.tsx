@@ -119,7 +119,7 @@ export default function Discover({
     'Find the nootropic that fits you, not the one with the biggest ad budget.';
   const welcomeBody =
     welcomeCard?.body ??
-    'We audit every product against its clinical-trial doses. Use the comparator to filter by goal, price, and ingredients — then see exactly how we score it.';
+    'We check label doses against the reference doses on our ingredient pages, where one exists. Use the comparator to filter by goal, price, and ingredients — then see exactly how we score it.';
   const welcomePrimary = welcomeCard?.primaryCta ?? {
     label: 'Open comparator →',
     href: comparatorHref,
