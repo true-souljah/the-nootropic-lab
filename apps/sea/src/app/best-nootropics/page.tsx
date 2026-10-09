@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 const faqItems = [
   { q: 'Are nootropics regulated differently across SEA countries?', a: 'Yes. In Singapore, the Health Sciences Authority (HSA) states that "Health supplements are not subject to approvals and licensing by HSA for their importation, manufacture and sales" (hsa.gov.sg, checked 2026-10-08); HSA\'s "up to 3 months’ supply" rule is on its personal-medications page, not for supplements, and we found no personal-import quantity rule for supplements on HSA or Singapore Food Agency (SFA) pages. Thailand, Philippines, and Vietnam allow personal imports but formal registration is required for commercial sale.' },
-  { q: 'Which SEA country has the fastest delivery?', a: 'None of the brands in this list publish delivery estimates for Southeast Asia; delivery depends on the carrier and on customs clearance in each country, so check the estimate at checkout and expect longer times for Indonesia and Vietnam, where personal-import customs processing is stricter.' },
+  { q: 'Which SEA country has the fastest delivery?', a: 'None of the brands in this list publish delivery estimates for Southeast Asia; delivery depends on the carrier and on customs clearance in each country, so check the estimate at checkout.' },
   { q: 'How is Mind Lab Pro delivered to Singapore?', a: 'It can be ordered from mindlabpro.com; its shipping page says "Parcels going to Canada and the Rest of the World will be shipped from our depot in the UK", with "Airmail expected delivery time: 5 - 20 working days" and "DHL expected delivery time: 2 - 7 working days" (mindlabpro.com, checked 2026-10-09). It does not give a Singapore-specific delivery time.' },
 ];
 
