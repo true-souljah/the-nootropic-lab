@@ -69,9 +69,9 @@ export default function AboutPage() {
             For products not listed on the ARTG, Australian residents may legally import them under
             the <strong>TGA Personal Importation Scheme</strong> &mdash; up to a 3-month supply for
             personal use, subject to the scheme&apos;s conditions: prescription-only medicines need a valid
-            Australian prescription, and controlled substances cannot be imported this way. Our country-and-state-specific reviews call out whether
-            a product is TGA-listed, available via Australian retailers, or only available via
-            personal import.
+            Australian prescription, and controlled substances cannot be imported this way. Our country-and-state-specific reviews note whether
+            a product returned an ARTG entry when we searched, where we found it sold in Australia,
+            and when the route we describe is a personal import.
           </p>
         </section>
 
