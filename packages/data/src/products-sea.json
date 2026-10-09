@@ -9,10 +9,10 @@
       "Memory",
       "Long-term brain health"
     ],
-    "score": 9.4,
+    "score": 7.5,
     "scoreBreakdown": {
       "ingredients": 9,
-      "dosing": 10,
+      "dosing": 3.8,
       "transparency": 10,
       "value": 8,
       "trust": 9
@@ -107,7 +107,7 @@
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 2,
-    "summary": "An 11-ingredient nootropic stack. mindlabpro.com names Singapore, Thailand, the Philippines, Indonesia and Vietnam among its shipping territories (its FAQ, checked 2026-09-29); Malaysia is not named but the list is partial -- confirm at checkout. Orders ship from the brand's UK depot by tracked airmail (5-20 working days) or DHL (2-7 working days) per its shipping page. Priced at USD $69/month (approx. SGD $94 / MYR $325 / THB $2,450). Imported under personal-use supplement allowances; we have not verified a local product registration with the National Pharmaceutical Regulatory Agency (NPRA) in Malaysia, the Thai FDA, FDA Philippines, the Badan Pengawas Obat dan Makanan (BPOM) in Indonesia or the Vietnam Food Administration (VFA). Our #1 overall pick for SEA buyers who want a fully transparent, caffeine-free daily cognitive stack.",
+    "summary": "An 11-ingredient nootropic stack. mindlabpro.com names Singapore, Thailand, the Philippines, Indonesia and Vietnam among its shipping territories (its FAQ, checked 2026-09-29); Malaysia is not named but the list is partial -- confirm at checkout. Orders ship from the brand's UK depot by tracked airmail (5-20 working days) or DHL (2-7 working days) per its shipping page. Priced at USD $69/month (approx. SGD $94 / MYR $325 / THB $2,450). Imported under personal-use supplement allowances; we have not verified a local product registration with the National Pharmaceutical Regulatory Agency (NPRA) in Malaysia, the Thai FDA, FDA Philippines, the Badan Pengawas Obat dan Makanan (BPOM) in Indonesia or the Vietnam Food Administration (VFA). Our editor's choice for SEA buyers who want a fully transparent, caffeine-free daily cognitive stack.",
     "whatItIs": "Mind Lab Pro is an 11-ingredient pre-formulated nootropic stack sold by Performance Lab Group Ltd (Royal Leamington Spa, UK) per mindlabpro.com's terms; the brand's own posts say it was formulated by Opti-Nutra in the UK (checked 2026-10-08). Opti-Nutra Ltd is the former name of Performance Lab Ltd (Companies House 09439153; checked 2026-10-09). It is designed as a complete daily cognitive supplement covering memory, focus, mental energy, mood, and long-term brain health without caffeine or proprietary blends. For SEA buyers it is a premium import: the brand's FAQ names Singapore, Thailand, the Philippines, Indonesia and Vietnam among the territories it ships to (checked 2026-09-29); Malaysia is not named on that partial list, so confirm delivery to your country and any duties at checkout before ordering. It is brought in as a personal-use supplement; we have not verified a local product registration with the National Pharmaceutical Regulatory Agency (NPRA) in Malaysia, the Thai FDA, FDA Philippines, the Badan Pengawas Obat dan Makanan (BPOM) in Indonesia or the Vietnam Food Administration (VFA). Personal-import quantity rules were not confirmed from an official page in our 2026-10-05 check, so confirm them with your national customs authority before ordering; import duties and customs clearance are the buyer's responsibility.",
     "howItWorks": "Mind Lab Pro works across six bio-pathways simultaneously. Citicoline and Phosphatidylserine support the cholinergic system and neuronal membrane integrity. Lion's Mane stimulates Nerve Growth Factor (NGF) for neuroplasticity. Bacopa Monnieri enhances synaptic communication for memory. Rhodiola Rosea and L-Tyrosine support dopamine/norepinephrine balance under stress. L-Theanine promotes alpha brain wave activity for calm focus. B-vitamins (B6, B9, B12) support homocysteine regulation and neurotransmitter synthesis.",
     "whatToExpect": "Within 30-60 minutes: mild calm focus from L-Theanine. Within 2-4 weeks: improved mental energy and reduced cognitive fatigue (Citicoline, Tyrosine). At 8-12 weeks: measurable improvements in memory recall and learning speed (Bacopa, Lion's Mane). Mind Lab Pro is a long-game supplement -- most users report subtle but sustained improvement rather than dramatic day-one effects. Best results require 3+ months of consistent daily use.",
@@ -174,10 +174,10 @@
       "Screen workers",
       "Budget"
     ],
-    "score": 7.6,
+    "score": 7,
     "scoreBreakdown": {
       "ingredients": 8,
-      "dosing": 7,
+      "dosing": 5,
       "transparency": 7,
       "value": 9,
       "trust": 7
@@ -342,10 +342,10 @@
       "Neurohackers",
       "Complex stacks"
     ],
-    "score": 8.3,
+    "score": 7.3,
     "scoreBreakdown": {
       "ingredients": 10,
-      "dosing": 8,
+      "dosing": 4.5,
       "transparency": 9,
       "value": 6,
       "trust": 7
@@ -622,10 +622,10 @@
       "Brand recognition",
       "Athletes"
     ],
-    "score": 6.6,
+    "score": 5.2,
     "scoreBreakdown": {
       "ingredients": 7,
-      "dosing": 6,
+      "dosing": 1.4,
       "transparency": 6,
       "value": 7,
       "trust": 8
@@ -653,43 +653,43 @@
       {
         "name": "Bacopa Monnieri (Focus Blend)",
         "doseInProduct": "100mg",
-        "clinicalDose": "300–450mg/day",
+        "clinicalDose": "300-450mg/day (55% bacosides)",
         "adequatelyDosed": false
       },
       {
         "name": "Alpha-GPC (Focus Blend)",
         "doseInProduct": "Not stated; at most 140mg (240mg blend incl. 100mg Bacopa)",
-        "clinicalDose": "300–600mg/day",
+        "clinicalDose": "300-600mg/day",
         "adequatelyDosed": false
       },
       {
         "name": "Huperzine A (Toothed Clubmoss, Focus Blend)",
         "doseInProduct": "400mcg",
-        "clinicalDose": "100–200mcg/day in trials",
+        "clinicalDose": "100-200mcg/day",
         "adequatelyDosed": true
       },
       {
         "name": "L-Tyrosine (Flow Blend)",
         "doseInProduct": "Not stated; at most 650mg (blend total)",
-        "clinicalDose": "100–150mg/kg (about 7–10g) in stress trials",
+        "clinicalDose": "2000mg/day (lowest positive trial)",
         "adequatelyDosed": false
       },
       {
         "name": "L-Theanine (Flow Blend)",
         "doseInProduct": "Not stated (share of 650mg blend)",
-        "clinicalDose": "100–200mg/day",
+        "clinicalDose": "100-200mg/day",
         "adequatelyDosed": null
       },
       {
         "name": "Phosphatidylserine (Flow Blend)",
         "doseInProduct": "Not stated (share of 650mg blend)",
-        "clinicalDose": "100–300mg/day",
+        "clinicalDose": "100-300mg/day",
         "adequatelyDosed": null
       },
       {
         "name": "Oat Straw Extract (Flow Blend)",
         "doseInProduct": "Not stated (share of 650mg blend)",
-        "clinicalDose": "430–1600mg/day in trials",
+        "clinicalDose": "430-1600mg/day",
         "adequatelyDosed": null
       },
       {
@@ -769,10 +769,10 @@
       "Personalisation",
       "Custom stack optimisers"
     ],
-    "score": 7.5,
+    "score": 7,
     "scoreBreakdown": {
       "ingredients": 8,
-      "dosing": 7,
+      "dosing": 5.6,
       "transparency": 8,
       "value": 7,
       "trust": 7
@@ -783,7 +783,7 @@
     "caffeineFree": false,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 4.0,
+    "trustpilotScore": 4,
     "trustpilotCount": 116,
     "affiliateUrl": "https://takethesis.com/",
     "affiliateNetwork": "Thesis Direct",
@@ -811,7 +811,7 @@
       },
       {
         "name": "Lion's Mane (Hericium erinaceus) (Clarity)",
-        "doseInProduct": "500mg",
+        "doseInProduct": "500mg per capsule or per serving (not stated)",
         "clinicalDose": "1000-1800mg/day",
         "adequatelyDosed": null
       },
@@ -853,7 +853,7 @@
       },
       {
         "name": "Rhodiola Rosea (fermented salidrosides) (Motivation)",
-        "doseInProduct": "60mg",
+        "doseInProduct": "60mg (basis not stated)",
         "clinicalDose": "200-600mg/day",
         "adequatelyDosed": null
       },
@@ -901,7 +901,7 @@
       },
       {
         "name": "Rhodiola Rosea (fermented salidrosides) (Stress Reset)",
-        "doseInProduct": "30mg",
+        "doseInProduct": "30mg (basis not stated)",
         "clinicalDose": "200-600mg/day",
         "adequatelyDosed": null
       },
@@ -937,7 +937,7 @@
       },
       {
         "name": "Ginkgo Biloba (Neuroprotection)",
-        "doseInProduct": "120mg",
+        "doseInProduct": "120mg per capsule or per serving (not stated)",
         "clinicalDose": "240mg/day (24/6 extract)",
         "adequatelyDosed": null
       },
@@ -1060,10 +1060,10 @@
       "Long-term brain health",
       "Nerve growth"
     ],
-    "score": 9.1,
+    "score": 6.4,
     "scoreBreakdown": {
       "ingredients": 9,
-      "dosing": 9,
+      "dosing": 0,
       "transparency": 10,
       "value": 9,
       "trust": 8
@@ -1140,15 +1140,15 @@
       "Memory",
       "Brain health"
     ],
-    "score": 7.4,
+    "score": 7.8,
     "scoreBreakdown": {
       "ingredients": 6,
-      "dosing": 9,
+      "dosing": 10,
       "transparency": 7,
       "value": null,
       "trust": 7
     },
-    "unscoredReason": "Value is not scored: the product is discontinued and has no current price to measure against its clinical-dose ingredient. The overall score is the weighted average of the four scored pillars.",
+    "unscoredReason": "Value is not scored: the product is discontinued, so there is no current price to measure value against. The overall score is the weighted average of the four scored pillars.",
     "pricingModel": "one-time",
     "moneyBackDays": 0,
     "caffeineFree": true,
@@ -1167,7 +1167,7 @@
       {
         "name": "Curcumin (Longvida® turmeric extract)",
         "doseInProduct": "400mg (80mg curcumin)",
-        "clinicalDose": "400mg Longvida/day (Cox 2015, 2020)",
+        "clinicalDose": "400mg/day (Longvida)",
         "adequatelyDosed": true
       }
     ],
@@ -1215,14 +1215,15 @@
       "Cognitive health",
       "TCM heritage brand"
     ],
-    "score": 6.8,
+    "score": 6.6,
     "scoreBreakdown": {
       "ingredients": 7,
-      "dosing": 7,
+      "dosing": null,
       "transparency": 6,
       "value": 6,
       "trust": 8
     },
+    "unscoredReason": "None of BrainMAX+'s ingredients (Cera-Q silk fibroin protein, goji berry extract, Chinese wild ginseng extract) has a reference dose on our ingredient pages, and this pillar is measured against those reference doses. The overall score is the weighted average of the four scored pillars.",
     "priceMonthlyUSD": 54.71,
     "pricingModel": "one-time",
     "moneyBackDays": null,
@@ -1244,20 +1245,20 @@
       {
         "name": "Cera-Q (Silk Fibroin Protein)",
         "doseInProduct": "600mg",
-        "clinicalDose": "400-600mg/day (one 3-week trial)",
-        "adequatelyDosed": true
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Goji Berry Extract",
         "doseInProduct": "146mg",
-        "clinicalDose": "100mg",
-        "adequatelyDosed": true
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Chinese Wild Ginseng Extract",
         "doseInProduct": "37mg",
-        "clinicalDose": "200mg",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       }
     ],
     "servingsPerContainer": 30,
@@ -1278,7 +1279,7 @@
       "Cera-Q's evidence is one citable 3-week trial with maker-affiliated authors; an earlier supporting paper was retracted",
       "Premium price (S$69.90, ~US$54.71/month)",
       "No money-back guarantee",
-      "Ginseng underdosed vs. clinical standard",
+      "Chinese Wild Ginseng: 37mg extract, ginsenoside content not stated",
       "No affiliate commission",
       "Limited independent third-party testing",
       "Delivery outside Singapore not confirmed (checked 2026-09-29)"
@@ -1327,10 +1328,10 @@
       "Memory",
       "TCM-inspired formula"
     ],
-    "score": 7,
+    "score": 7.9,
     "scoreBreakdown": {
       "ingredients": 7,
-      "dosing": 7,
+      "dosing": 10,
       "transparency": 6,
       "value": 9,
       "trust": 6
@@ -1404,10 +1405,10 @@
       "Learning",
       "Budget option"
     ],
-    "score": 6.2,
+    "score": 4.4,
     "scoreBreakdown": {
       "ingredients": 6,
-      "dosing": 6,
+      "dosing": 0,
       "transparency": 5,
       "value": 8,
       "trust": 7
@@ -1431,7 +1432,7 @@
       {
         "name": "Bacopa Monnieri (extract; standardisation not stated)",
         "doseInProduct": "250mg/day (2 × 125mg)",
-        "clinicalDose": "300mg",
+        "clinicalDose": "300-450mg/day (55% bacosides)",
         "adequatelyDosed": false
       }
     ],
@@ -1530,50 +1531,50 @@
       {
         "name": "L-Theanine",
         "doseInProduct": "Undisclosed",
-        "clinicalDose": "Not stated (dose undisclosed)",
-        "adequatelyDosed": false
+        "clinicalDose": "100-200mg/day",
+        "adequatelyDosed": null
       },
       {
         "name": "Cordyceps",
         "doseInProduct": "Undisclosed",
-        "clinicalDose": "Not stated (dose undisclosed)",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Lion's Mane",
         "doseInProduct": "Undisclosed",
-        "clinicalDose": "Not stated (dose undisclosed)",
-        "adequatelyDosed": false
+        "clinicalDose": "1000-1800mg/day",
+        "adequatelyDosed": null
       },
       {
         "name": "Rhodiola Rosea",
         "doseInProduct": "Undisclosed",
-        "clinicalDose": "Not stated (dose undisclosed)",
-        "adequatelyDosed": false
+        "clinicalDose": "200-600mg/day",
+        "adequatelyDosed": null
       },
       {
         "name": "Cacao",
         "doseInProduct": "Undisclosed",
-        "clinicalDose": "Not stated (dose undisclosed)",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Gotu Kola",
         "doseInProduct": "Undisclosed",
-        "clinicalDose": "Not stated (dose undisclosed)",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Bacopa Monnieri",
         "doseInProduct": "Undisclosed",
-        "clinicalDose": "Not stated (dose undisclosed)",
-        "adequatelyDosed": false
+        "clinicalDose": "300-450mg/day (55% bacosides)",
+        "adequatelyDosed": null
       },
       {
         "name": "Ginkgo Biloba",
         "doseInProduct": "Undisclosed",
-        "clinicalDose": "Not stated (dose undisclosed)",
-        "adequatelyDosed": false
+        "clinicalDose": "240mg/day (24/6 extract)",
+        "adequatelyDosed": null
       }
     ],
     "keyFeatures": [
@@ -1621,10 +1622,10 @@
       "TH": "not verified",
       "VN": "not verified"
     },
-    "score": 4.9,
+    "score": 3.2,
     "scoreBreakdown": {
       "ingredients": 6,
-      "dosing": null,
+      "dosing": 0,
       "transparency": 4,
       "value": null,
       "trust": 4
@@ -1639,7 +1640,7 @@
     ],
     "trustpilotCount": null,
     "trustpilotScore": null,
-    "unscoredReason": "The product page discloses no ingredient doses (checked 2026-10-07), and this pillar is measured against the dose. The overall score is the weighted average of the three scored pillars.",
+    "unscoredReason": "The product page discloses no ingredient doses (checked 2026-10-07), and value is measured per clinical-dose ingredient. The overall score is the weighted average of the four scored pillars.",
     "updatedAt": "2026-10-07",
     "verifiedAt": "2026-09-29",
     "url": "https://supershrooms.ph/products/focus-nootropic",

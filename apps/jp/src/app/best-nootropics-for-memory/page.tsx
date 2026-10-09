@@ -25,24 +25,28 @@ export const metadata: Metadata = {
 const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Bacopa Monnieri',
+    ingredientSlugs: ['bacopa-monnieri'],
     evidence:
       'The most-replicated memory ingredient in nootropics. Multiple double-blind RCTs in adults show improved memory consolidation and recall after 8–12 weeks at 300mg standardized to 50% bacosides. Onset is slow — daily for 8+ weeks. In Japan, bacopa saponins (バコパサポニン) are one of the two notified functional ingredients in FANCL BRAINs (Foods with Function Claims notification G425, 15 mg per 4 tablets; Consumer Affairs Agency database, checked 2026-10-06).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
   },
   {
     name: 'Lion\'s Mane (Hericium erinaceus / ヤマブシタケ)',
+    ingredientSlugs: ['lions-mane'],
     evidence:
       'Modulates Nerve Growth Factor (NGF) and may support neurogenesis. Mori et al. 2009 — a small RCT in older Japanese adults with mild cognitive impairment — showed memory improvements at 1g/day fruiting-body extract over 16 weeks. The Lion\'s Mane evidence base is uniquely Japanese in origin. Look for fruiting-body extract, not mycelium-on-grain.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18844328/',
   },
   {
     name: 'DHA (Docosahexaenoic Acid) — FFC-notified in Japan',
+    ingredientSlugs: ['dha-omega-3'],
     evidence:
       'DHA is the most-notified functional ingredient under Japan\'s FFC system, with claims around memory support in middle-aged and older adults. The brain is approximately 60% fat by dry weight and DHA is its primary structural omega-3. The positive memory trials we reviewed used 900mg–1.2g DHA/day for 24 weeks or longer (see our DHA ingredient page). Suntory and FANCL are the dominant Japanese DHA brands.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20434961/',
   },
   {
     name: 'Phosphatidylserine (PS)',
+    ingredientSlugs: ['phosphatidylserine'],
     evidence:
       'Phospholipid component of brain cell membranes. The FDA permits a qualified health claim for PS supporting cognitive function in elderly adults. Most RCT evidence is in 50–80-year-olds at 100–300mg/day. The trial linked below (Vakhapova et al. 2010) is not the basis of the FDA claim: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo. Used in Mind Lab Pro (100mg Sharp-PS).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',

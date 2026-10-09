@@ -26,24 +26,28 @@ export const metadata: Metadata = {
 const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Fosfatidilserina (PS) — declaración calificada de la FDA',
+    ingredientSlugs: ['phosphatidylserine'],
     evidence:
       'La FDA permite una declaración calificada de salud que indica que la PS puede reducir el riesgo de demencia y disfunción cognitiva en personas mayores. Múltiples ensayos clínicos en personas de 50–80 años a 100–300mg/día muestran mejoras en memoria, velocidad de procesamiento y quejas cognitivas. La evidencia más fuerte sobre apoyo cognitivo asociado a la edad en esta categoría. El ensayo enlazado abajo (Vakhapova et al. 2010) no es la base de la declaración de la FDA: en un ensayo clínico exploratorio de 15 semanas con 157 adultos mayores sin demencia y con quejas de memoria, la PS-DHA mejoró el recuerdo verbal inmediato frente a placebo.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {
     name: 'Citicolina (CDP-Colina) — memoria en adultos mayores',
+    ingredientSlugs: ['citicoline'],
     evidence:
       'Ensayos clínicos en adultos mayores con quejas cognitivas subjetivas muestran mejoras en memoria verbal y velocidad de procesamiento a 250–500mg/día durante 12+ semanas. Cognizin es la forma estandarizada que usan la mayoría de los productos importados.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
   {
     name: 'Melena de León (Hericium erinaceus)',
+    ingredientSlugs: ['lions-mane'],
     evidence:
       'Mori et al. 2009 — pequeño ensayo clínico en adultos mayores japoneses con deterioro cognitivo leve. 1g/día de extracto del cuerpo fructífero durante 16 semanas mejoró las puntuaciones de función cognitiva. Evidencia prometedora para cambios tempranos asociados a la edad; no evaluada para tratamiento de demencia.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18844328/',
   },
   {
     name: 'Bacopa Monnieri',
+    ingredientSlugs: ['bacopa-monnieri'],
     evidence:
       'Múltiples ensayos clínicos en distintos grupos de edad muestran beneficios en consolidación de memoria. Estudios específicamente en adultos mayores (Stough et al., Calabrese et al.) muestran mejoras en retención y recuerdo tras 8–12 semanas a 300mg estandarizado al 50% de bacósidos.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22747190/',

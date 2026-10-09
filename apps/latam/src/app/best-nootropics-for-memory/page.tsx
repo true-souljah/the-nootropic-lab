@@ -26,24 +26,28 @@ export const metadata: Metadata = {
 const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Bacopa Monnieri',
+    ingredientSlugs: ['bacopa-monnieri'],
     evidence:
       'El ingrediente para memoria más replicado en nootrópicos. Múltiples ensayos clínicos doble ciego en adultos muestran mejor consolidación y recuerdo de la memoria tras 8–12 semanas a 300mg estandarizado al 50% de bacósidos. El inicio es lento — diario por 8+ semanas. No es un ingrediente de efecto agudo.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
   },
   {
     name: 'Melena de León (Hericium erinaceus)',
+    ingredientSlugs: ['lions-mane'],
     evidence:
       'Modula el Factor de Crecimiento Nervioso (NGF) y puede apoyar la neurogénesis. Pequeños ensayos clínicos (Mori et al. 2009 en adultos mayores con deterioro cognitivo leve) mostraron mejoras en memoria con 1g/día de extracto del cuerpo fructífero durante 16 semanas. La evidencia es prometedora pero menor que para Bacopa. Busca extracto del cuerpo fructífero, no micelio sobre grano.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18844328/',
   },
   {
     name: 'Fosfatidilserina (PS)',
+    ingredientSlugs: ['phosphatidylserine'],
     evidence:
       'Componente fosfolípido de las membranas neuronales. La FDA permite una declaración de salud calificada para PS en función cognitiva en adultos mayores. La mayor parte de la evidencia clínica está en personas de 50–80 años a 100–300mg/día. Evidencia más débil en adultos jóvenes sanos. El ensayo enlazado abajo (Vakhapova et al. 2010) no es la base de la declaración de la FDA: en un ensayo clínico exploratorio de 15 semanas con 157 adultos mayores sin demencia y con quejas de memoria, la PS-DHA mejoró el recuerdo verbal inmediato frente a placebo.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {
     name: 'Citicolina (CDP-Colina)',
+    ingredientSlugs: ['citicoline'],
     evidence:
       'Donante de colina y fuente de uridina. Ensayos clínicos en adultos mayores con quejas de memoria asociadas a la edad muestran mejoras en memoria verbal y velocidad de procesamiento a 250–500mg/día durante 12+ semanas.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',

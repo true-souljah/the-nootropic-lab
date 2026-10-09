@@ -26,24 +26,28 @@ export const metadata: Metadata = {
 const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Teanina + Cafeína (proporción 1:2 a 2:1)',
+    ingredientSlugs: ['l-theanine', 'caffeine'],
     evidence:
       'Uno de los hallazgos cognitivos mejor replicados: la L-teanina combinada con cafeína mejora la atención y reduce la fatiga mental, con una sensación subjetiva de concentración más estable que la cafeína sola. Eficaz a 100–200mg de L-teanina + 100mg de cafeína. En Latam la cafeína proviene fácilmente de un café local, por lo que basta con un suplemento sin cafeína que aporte L-teanina.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
   },
   {
     name: 'Citicolina (CDP-Colina)',
+    ingredientSlugs: ['citicoline'],
     evidence:
       'Donante de colina y fuente de uridina que apoya la síntesis de fosfolípidos y la producción de acetilcolina. Múltiples ensayos clínicos muestran beneficios en atención y esfuerzo cognitivo en adultos sanos a 250–500mg/día. Cognizin es la forma estandarizada que usan la mayoría de los productos importados.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
   {
     name: 'L-Tirosina (o NALT)',
+    ingredientSlugs: ['l-tyrosine'],
     evidence:
-      'Precursor de la dopamina y noradrenalina. Especialmente útil bajo carga cognitiva o estrés — mejora el rendimiento en tareas de atención durante la falta de sueño, multitarea o exposición al frío. Dosis clínicas de 300–500mg como N-acetil-L-tirosina.',
+      'Precursor de la dopamina y noradrenalina. Especialmente útil bajo carga cognitiva o estrés — mejora el rendimiento en tareas de atención durante la falta de sueño, multitarea o exposición al frío. Los ensayos de estrés con resultados positivos usaron L-tirosina simple a 2g al día o 100–150mg/kg.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/26424423/',
   },
   {
     name: 'Alfa-GPC',
+    ingredientSlugs: ['alpha-gpc'],
     evidence:
       'Colinérgico. En un ensayo clínico cruzado de 2024, controlado con placebo, con 20 hombres entrenados en fuerza, una sola dosis de 315mg o 630mg mejoró el rendimiento en la prueba de Stroop, sin efecto en las pruebas N-Back ni Flanker: un único estudio, pequeño y de efecto agudo. Suele combinarse con L-teanina para una "concentración tranquila".',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/39683633/',

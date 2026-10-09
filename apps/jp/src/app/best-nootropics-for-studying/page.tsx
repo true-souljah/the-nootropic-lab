@@ -25,24 +25,28 @@ export const metadata: Metadata = {
 const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Theanine + Caffeine — sustained focus',
+    ingredientSlugs: ['l-theanine', 'caffeine'],
     evidence:
       'For sustained study sessions, the L-theanine + caffeine combo is the foundation. Reduces caffeine jitter and post-coffee crash, smooths attention switching. 100–200mg L-theanine + 100mg caffeine — the same pairing naturally found in matcha (抹茶), already familiar to Japanese students.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
   },
   {
     name: 'Bacopa Monnieri — long-term memory consolidation',
+    ingredientSlugs: ['bacopa-monnieri'],
     evidence:
       'Critical for retention of studied material. Bacopa improves memory consolidation — what your brain does during sleep with material you studied that day. 300mg standardized to 50% bacosides daily for 8+ weeks. Start at the beginning of the term, not the night before the exam (試験前夜では遅すぎる).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
   },
   {
     name: 'Citicoline — choline for cognitive demand',
+    ingredientSlugs: ['citicoline'],
     evidence:
       'Heavy cognitive demand depletes choline. Citicoline at 250–500mg/day supports phospholipid synthesis and acetylcholine availability — the neurotransmitter most associated with attention and learning. Cognizin is the standardized form.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
   {
     name: 'DHA — foundational for retention (FFC-notified)',
+    ingredientSlugs: ['dha-omega-3'],
     evidence:
       'DHA is Japan\'s most-notified FFC ingredient for cognitive function. As the brain\'s primary structural omega-3, DHA supports synaptic transmission and signal propagation — relevant for sustained study over a multi-month term. Suntory DHA & EPA + Sesamin EX provides 300mg DHA per 4 capsules.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20434961/',

@@ -25,24 +25,28 @@ export const metadata: Metadata = {
 const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Bacopa Monnieri (Brahmi)',
+    ingredientSlugs: ['bacopa-monnieri'],
     evidence:
       'The most-replicated memory ingredient in nootropics. Multiple double-blind RCTs in adults show improved memory consolidation and recall after 8–12 weeks at 300mg standardized to 50% bacosides. Onset is slow — daily for 8+ weeks. Widely recognised across SEA under the Ayurvedic name "Brahmi" (especially in Malaysia, Indonesia, Thailand) and culturally familiar.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
   },
   {
     name: 'Lion\'s Mane (Hericium erinaceus)',
+    ingredientSlugs: ['lions-mane'],
     evidence:
       'Modulates Nerve Growth Factor (NGF) and may support neurogenesis. Small RCTs (notably Mori et al. 2009 in older adults with mild cognitive impairment) showed memory improvements at 1g/day fruiting-body extract over 16 weeks. Lion\'s Mane is a familiar functional mushroom in Chinese-heritage SEA food culture (Singapore, Malaysia, parts of Indonesia and Vietnam) — buyers in TCM-aware markets often face less regulatory ambiguity. Look for fruiting-body extract, not mycelium-on-grain.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18844328/',
   },
   {
     name: 'Phosphatidylserine (PS)',
+    ingredientSlugs: ['phosphatidylserine'],
     evidence:
       'Phospholipid component of brain cell membranes. The US FDA permits a qualified health claim for PS supporting cognitive function in elderly adults. Most RCT evidence is in 50–80-year-olds at 100–300mg/day. The trial linked below (Vakhapova et al. 2010) is not the basis of the FDA claim: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo. Sunflower-derived PS is preferred over soy-derived for halal-conscious buyers and those concerned about soy allergens.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {
     name: 'Citicoline (CDP-Choline)',
+    ingredientSlugs: ['citicoline'],
     evidence:
       'Choline donor + uridine source. RCTs in older adults with age-related memory complaints show improvements in verbal memory and processing speed at 250–500mg/day for 12+ weeks.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
@@ -77,7 +81,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Which memory nootropics are best via Shopee/Lazada vs cross-border iHerb?',
-    a: 'Shopee/Lazada/TikTok Shop: buy from the brand\'s official store where one exists. NatureBell Ginkgo+Ginseng is available on Amazon.sg at a budget price but scores below our bar for ranked picks. Cross-border iHerb: best route for Nootropics Depot Lion\'s Mane and other premium single-ingredient products into Singapore and Malaysia (consolidated warehouses minimise customs friction). Direct from brand: Mind Lab Pro\'s FAQ names Singapore, Thailand, the Philippines, Indonesia and Vietnam among its shipping territories (checked 2026-09-29). Qualia Mind does not ship to any SEA country (brand shipping page, checked 2026-09-28).',
+    a: 'Shopee/Lazada/TikTok Shop: buy from the brand\'s official store where one exists. NatureBell Ginkgo+Ginseng is available on Amazon.sg at a budget price; it is not one of this page\'s picks. Cross-border iHerb: best route for Nootropics Depot Lion\'s Mane and other premium single-ingredient products into Singapore and Malaysia (consolidated warehouses minimise customs friction). Direct from brand: Mind Lab Pro\'s FAQ names Singapore, Thailand, the Philippines, Indonesia and Vietnam among its shipping territories (checked 2026-09-29). Qualia Mind does not ship to any SEA country (brand shipping page, checked 2026-09-28).',
   },
   {
     q: 'What is the most evidence-backed nootropic for memory?',

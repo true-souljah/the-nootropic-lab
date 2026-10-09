@@ -22,6 +22,14 @@ import {
 } from '../templateStrings';
 import type { SearchItem } from '../SearchModal';
 import { DoseVerdictMark } from '../primitives/DoseVerdictMark';
+import { scoreTier, type ScoreTier } from './listicleRanking';
+
+/** Colour of the big score numeral per SCORE_TIERS tier. */
+const SCORE_TIER_COLOR: Record<ScoreTier, string> = {
+  good: 'var(--color-ds-good)',
+  warn: 'var(--color-ds-warn-ink)',
+  bad: 'var(--color-ds-bad)',
+};
 
 export interface HeadToHeadFAQ {
   q: string;
@@ -333,14 +341,7 @@ export default function HeadToHead({
               <div className="flex items-baseline gap-[6px] mt-[18px] pt-4 border-t border-ds-border">
                 <span
                   className="text-[44px] font-bold tracking-[-0.03em] ds-tabular"
-                  style={{
-                    color:
-                      p.score >= 8.5
-                        ? 'var(--color-ds-good)'
-                        : p.score >= 7.5
-                          ? 'var(--color-ds-warn-ink)'
-                          : 'var(--color-ds-bad)',
-                  }}
+                  style={{ color: SCORE_TIER_COLOR[scoreTier(p.score)] }}
                 >
                   {p.score.toFixed(1)}
                 </span>

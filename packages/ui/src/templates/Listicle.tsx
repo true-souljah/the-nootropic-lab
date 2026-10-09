@@ -22,11 +22,11 @@ import {
   type UseCaseListPageStrings,
 } from '../templateStrings';
 import {
-  LISTICLE_MIN_SCORE,
-  belowBarReason,
-  formatListicleScore,
+  alsoConsideredText,
   howWeChooseText,
+  notRankedReason,
   splitListiclePicks,
+  type ListicleEvidenceIngredients,
 } from './listicleRanking';
 import type { SearchItem } from '../SearchModal';
 
@@ -35,7 +35,13 @@ export interface ListicleFAQ {
   a: string;
 }
 
-export interface ListicleIngredientMechanism {
+/**
+ * One "What the evidence actually says" card. `ingredientSlugs` names the
+ * ingredient-library pages the card is about (see ListicleEvidenceIngredients):
+ * rule (b) ranks a pick only when its label proves one of them at our
+ * reference dose.
+ */
+export interface ListicleIngredientMechanism extends ListicleEvidenceIngredients {
   name: string;
   evidence: string;
   citationUrl?: string;
@@ -141,10 +147,12 @@ export default function Listicle({
     day: 'numeric',
   });
 
-  // Only picks at or above LISTICLE_MIN_SCORE are ranked (cards, "#N", CTAs,
-  // TOC, ItemList); the rest render unranked under "Also considered".
-  const { ranked, alsoConsidered } = splitListiclePicks(picks);
-  const minScoreText = formatListicleScore(LISTICLE_MIN_SCORE);
+  // Only picks at or above LISTICLE_MIN_SCORE whose label proves one of this
+  // page's evidence ingredients at our reference dose (rule (b)) are ranked
+  // (cards, "#N", CTAs, TOC, ItemList); the rest render unranked under
+  // "Also considered" with the rule they fail.
+  const { ranked, alsoConsidered } = splitListiclePicks(picks, ingredientMechanism);
+  const alsoConsideredCopy = alsoConsideredText(s, alsoConsidered);
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -378,16 +386,17 @@ export default function Listicle({
               </div>
             </section>
 
-            {/* Picks below LISTICLE_MIN_SCORE: kept on the page with their score
-                and the reason, but unranked and with no affiliate link — this
-                section is not a recommendation (site-owner decision 2026-10-08). */}
+            {/* Picks below LISTICLE_MIN_SCORE (site-owner decision 2026-10-08)
+                or failing rule (b) (2026-10-09): kept on the page with their
+                score and the reason, but unranked and with no affiliate link —
+                this section is not a recommendation. */}
             {alsoConsidered.length > 0 && (
               <section id="also-considered" aria-labelledby="also-considered-heading" className="my-10">
                 <h2 id="also-considered-heading" className="text-[22px] font-bold text-ds-ink mb-2">
-                  {tpl(s.alsoConsideredHeading, { minScore: minScoreText })}
+                  {alsoConsideredCopy.heading}
                 </h2>
                 <p className="text-[14px] text-ds-muted mb-4 leading-[1.55]">
-                  {tpl(s.alsoConsideredIntro, { minScore: minScoreText })}
+                  {alsoConsideredCopy.intro}
                 </p>
                 <ul className="list-none p-0 m-0 flex flex-col gap-3">
                   {alsoConsidered.map((pick) => (
@@ -402,7 +411,7 @@ export default function Listicle({
                             {pick.product.name}
                           </h3>
                           <p className="text-[12.5px] text-ds-muted m-0 mt-[2px] ds-tabular">
-                            {pick.product.brand} · {belowBarReason(s, pick.product.score)}
+                            {pick.product.brand} · {notRankedReason(s, pick)}
                           </p>
                           <p className="text-[13.5px] leading-[1.6] text-ds-ink-soft m-0 mt-2">{pick.whyItsHere}</p>
                           <Link
