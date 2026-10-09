@@ -39,7 +39,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Lion\'s Mane (Hericium erinaceus)',
     evidence:
-      'Mori et al. 2009 — small RCT in older Japanese adults with mild cognitive impairment. 1g/day fruiting-body extract over 16 weeks improved cognitive function scores. Evidence is promising for early age-related changes; not evaluated for dementia treatment. Available in Australia via Mind Lab Pro and Hunter Focus (both fruiting-body extract) under the Personal Importation Scheme.',
+      'Mori et al. 2009 — small RCT in older Japanese adults with mild cognitive impairment. 1g/day fruiting-body extract over 16 weeks improved cognitive function scores. Evidence is promising for early age-related changes; not evaluated for dementia treatment. Available in Australia via Mind Lab Pro (fruiting body, per its label) and Hunter Focus (its label does not name the part used) under the Personal Importation Scheme.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18844328/',
   },
   {
@@ -67,13 +67,13 @@ const picks: ListiclePick[] = [
     product: productsAU.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes phosphatidylserine (200mg), citicoline, Bacopa (300mg fully dosed), and supporting cofactors. Most complete coverage but the 6-capsule daily protocol can be hard to maintain for older adults — consider whether the breadth justifies the friction. Contains caffeine and Huperzine A: caution for older adults on cholinergic medications like donepezil.',
+      'Includes phosphatidylserine (100mg), citicoline, and supporting cofactors. Most complete coverage but the 6-capsule daily protocol can be hard to maintain for older adults — consider whether the breadth justifies the friction. Contains caffeine.',
   },
   {
     product: productsAU.find(p => p.slug === 'naturebell-ginkgo-ginseng-review')!,
     rank: 3,
     whyItsHere:
-      'The cheapest product on this page at approximately AUD $8/month for a 5-month supply via Amazon.com.au with Prime shipping. Ginkgo Biloba at full clinical dose (120mg). Its low price is the main appeal for older Australian adults. Ginseng is severely underdosed (10mg vs 200mg clinical). Not a substitute for the multi-ingredient stacks above; more useful as a stack addition or low-cost trial of Ginkgo before committing to a TGA-listed Australian Ginkgo product like Blackmores Bio Ginkgoforte 6000.',
+      'The cheapest product on this page at approximately AUD $8/month for a 5-month supply via Amazon.com.au with Prime shipping. Ginkgo Biloba at full clinical dose (500mg extract standardised to 120mg flavone glycosides). Its low price is the main appeal for older Australian adults. Ginseng is 50mg of Korean Red Ginseng extract with no ginsenoside amount stated. Not a substitute for the multi-ingredient stacks above; more useful as a stack addition or low-cost trial of Ginkgo before committing to a TGA-listed Australian Ginkgo product like Blackmores Bio Ginkgoforte 6000.',
   },
 ];
 
@@ -96,7 +96,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'I take a cholinesterase inhibitor (donepezil, etc.). Should I avoid certain ingredients?',
-    a: 'Yes — discuss with your neurologist or geriatrician. Huperzine A (in Onnit Alpha Brain and Qualia Mind) is itself an acetylcholinesterase inhibitor and stacking is not advised. Citicoline is a different mechanism (choline donor) and is sometimes used alongside cholinesterase inhibitors under clinician supervision, but combine only with medical input.',
+    a: 'Yes — discuss with your neurologist or geriatrician. Huperzine A (in Onnit Alpha Brain) is itself an acetylcholinesterase inhibitor and stacking is not advised. Citicoline is a different mechanism (choline donor) and is sometimes used alongside cholinesterase inhibitors under clinician supervision, but combine only with medical input.',
   },
   {
     q: 'How long until I notice anything?',
@@ -104,7 +104,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Should I just buy a TGA-listed Australian product instead of importing?',
-    a: 'For a single-ingredient approach (e.g. Ginkgo or Bacopa alone), yes — TGA-listed Australian options are convenient, clearly labelled with AUST L numbers, and integrate cleanly into a Webster pack. For a multi-ingredient stack covering PS + citicoline + Bacopa + Lion\'s Mane in one capsule, the imported options above are the practical route. Many Australian seniors run a hybrid: one TGA-listed Ginkgo or Bacopa from the pharmacy + one imported PS-citicoline stack like Mind Lab Pro.',
+    a: 'For a single-ingredient approach (e.g. Ginkgo or Bacopa alone), yes — TGA-listed Australian options are convenient, clearly labelled with AUST L numbers, and integrate cleanly into a Webster pack. For a multi-ingredient stack covering PS + citicoline + Bacopa + Lion\'s Mane in one formula, the imported options above are the practical route. Many Australian seniors run a hybrid: one TGA-listed Ginkgo or Bacopa from the pharmacy + one imported PS-citicoline stack like Mind Lab Pro.',
   },
 ];
 

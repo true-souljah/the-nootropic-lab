@@ -154,6 +154,9 @@ jobs:
       # Dead-link gate over all 8 builds: every hreflang alternate and internal
       # anchor must resolve in the target region's out/ (GSC 404 class guard).
       - run: npm run check:links
+      # Title gate over all 8 builds: one non-empty <title> per page and the
+      # brand never repeated (page title + layout template suffix).
+      - run: npm run check:titles
       # Consent gate over all 8 builds: no pre-consent tracker fetch
       # (script src / preload), Klaro mount + "Cookie settings" control on
       # every page.

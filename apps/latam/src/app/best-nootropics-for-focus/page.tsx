@@ -61,7 +61,7 @@ const picks: ListiclePick[] = [
     product: productsLatam.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Incluye citicolina, Alfa-GPC, L-teanina y L-tirosina — cubre casi todos los mecanismos de concentración respaldados por evidencia. Pierde puntos frente a Mind Lab Pro por la cantidad de cápsulas (7+/día) y precio ($139 USD/mes en suscripción), pero gana en amplitud de ingredientes. Contiene cafeína, lo que puede ser un factor para quienes ya consumen café fuerte.',
+      'Incluye citicolina, Alfa-GPC, L-teanina y L-tirosina — cubre casi todos los mecanismos de concentración respaldados por evidencia. Pierde puntos frente a Mind Lab Pro por la cantidad de cápsulas (6/día) y precio ($139 USD/mes en suscripción), pero gana en amplitud de ingredientes. Contiene cafeína, lo que puede ser un factor para quienes ya consumen café fuerte.',
   },
   {
     product: productsLatam.find(p => p.slug === 'noocube-review')!,

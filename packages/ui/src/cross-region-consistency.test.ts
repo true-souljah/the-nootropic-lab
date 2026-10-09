@@ -34,25 +34,16 @@ function value(p: Product, field: Field): string {
 // (gcc/sea). Each entry must still be a real mismatch — delete it once fixed.
 //
 // Primary regions: the formula differs between records and the 2026-09-28
-// vendor verification could not read either supplement-facts panel (Hunter
-// Focus panel is an image; Performance Lab Mind is discontinued and the two
-// source descriptions conflict). Needs a verified panel before unifying.
-const PRIMARY_BASELINE = new Set<string>([
-  'hunter-focus-review/heroIngredients',
-  'hunter-focus-review/ingredientDosages',
-  'performance-lab-mind-review/heroIngredients',
-  'performance-lab-mind-review/ingredientDosages',
-]);
-// GCC/SEA: SEA's Blackmores Brain Active record lists a different formula
-// (Keenmind Bacopa 160mg, Ginkgo, DHA, PS) from the AU record, and the
-// 2026-09-28 vendor verification found the product delisted in both markets,
-// so neither supplement-facts panel could be read to settle which is right.
-// Brand, Trustpilot and the discontinued block are unified; the formula
-// stays listed here until a verified panel exists.
-const GCC_SEA_BASELINE = new Set<string>([
-  'sea/blackmores-brain-active-review/heroIngredients',
-  'sea/blackmores-brain-active-review/ingredientDosages',
-]);
+// vendor verification could not read the supplement-facts panel. Empty: Hunter
+// Focus was unified from its label image and Performance Lab Mind from its
+// archived 2024-10-09 label on 2026-10-09 (hunter-focus-label.test.ts and
+// performance-lab-mind-label.test.ts pin them).
+const PRIMARY_BASELINE = new Set<string>([]);
+// GCC/SEA: no known differences. (Blackmores Brain Active was listed here
+// until 2026-10-09, when archived Blackmores AU/SG product pages showed both
+// regional formulas were wrong; both records now carry the verified
+// Longvida-only formula.)
+const GCC_SEA_BASELINE = new Set<string>([]);
 
 const sharedSlugs = [...new Set(Object.values(CATALOGUES).flatMap((ps) => ps.map((p) => p.slug)))]
   .filter((slug) => Object.values(CATALOGUES).filter((ps) => ps.some((p) => p.slug === slug)).length > 1)

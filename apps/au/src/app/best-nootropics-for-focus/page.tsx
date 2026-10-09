@@ -61,7 +61,7 @@ const picks: ListiclePick[] = [
     product: productsAU.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes citicoline, Alpha-GPC, L-theanine, and L-tyrosine — covers nearly every evidence-backed focus mechanism. Loses ground to Mind Lab Pro on capsule count (7+/day) and price (AUD $215/mo subscription) but wins on ingredient breadth. Contains caffeine. Huperzine A, also in this formula, was not found under the names huperzine A or Huperzia serrata in Schedule 1 of the Permissible Ingredients Determination, and the TGA says an ingredient not listed there can\'t be used in listed or assessed listed medicines; no entry under huperzine or Huperzia was found in the current Poisons Standard either (name-level searches, checked 2026-10-08).',
+      'Includes citicoline, Alpha-GPC, L-theanine, and L-tyrosine — covers nearly every evidence-backed focus mechanism. Loses ground to Mind Lab Pro on capsule count (6/day) and price (AUD $215/mo subscription) but wins on ingredient breadth. Contains caffeine.',
   },
   {
     product: productsAU.find(p => p.slug === 'onnit-alpha-brain-review')!,
@@ -73,7 +73,7 @@ const picks: ListiclePick[] = [
     product: productsAU.find(p => p.slug === 'noocube-review')!,
     rank: 4,
     whyItsHere:
-      'Includes choline (VitaCholine, 250mg), L-tyrosine (250mg), L-theanine (100mg), plus Lutemax 2020 lutein/zeaxanthin for Australian remote and office workers, though its evidence for screen eye strain is mixed: a 6-month trial in 48 heavy screen users, funded by Lutemax\'s maker, reported less self-rated eye strain, eye fatigue and headache (Stringham 2017), but a 2025 trial of a different lutein/zeaxanthin product found better tear-film measures without any change in self-rated eye strain (Lopresti 2025). Open formula. The noocube.com Trustpilot profile has no reviews yet — verify subscription cancellation terms before ordering. Delivery to Australia is quoted as within 10 business days (per noocube.com, checked 2026-09-29).',
+      'Includes choline (100mg, from 250mg VitaCholine choline bitartrate), L-tyrosine (250mg), L-theanine (100mg), plus Lutemax 2020 lutein/zeaxanthin for Australian remote and office workers, though its evidence for screen eye strain is mixed: a 6-month trial in 48 heavy screen users, funded by Lutemax\'s maker, reported less self-rated eye strain, eye fatigue and headache (Stringham 2017), but a 2025 trial of a different lutein/zeaxanthin product found better tear-film measures without any change in self-rated eye strain (Lopresti 2025). Open formula. The noocube.com Trustpilot profile has no reviews yet — verify subscription cancellation terms before ordering. Delivery to Australia is quoted as within 10 business days (per noocube.com, checked 2026-09-29).',
   },
 ];
 

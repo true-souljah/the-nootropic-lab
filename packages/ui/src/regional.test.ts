@@ -147,7 +147,8 @@ describe('buildRegionalBuying', () => {
     expect(b.channels).toContain('euyansang.com.sg');
     const withNotes = buildRegionalBuying({ ...productsUS[0], notes: 'one note' }, 'us');
     expect(withNotes.notes).toEqual(['one note']);
-    const empty = buildRegionalBuying({ ...productsUS[0], priceMonthlyUSD: undefined }, 'us');
+    // No price and no notes = nothing to show (productsUS[0] now carries a label-source note).
+    const empty = buildRegionalBuying({ ...productsUS[0], priceMonthlyUSD: undefined, notes: undefined }, 'us');
     expect(hasRegionalBuyingContent(empty)).toBe(false);
   });
 });

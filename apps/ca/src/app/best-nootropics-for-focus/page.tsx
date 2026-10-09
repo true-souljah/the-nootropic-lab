@@ -66,13 +66,13 @@ const picks: ListiclePick[] = [
     product: productsCA.find(p => p.slug === 'qualia-mind-review')!,
     rank: 3,
     whyItsHere:
-      'Includes citicoline, Alpha-GPC, L-theanine, and L-tyrosine — covers nearly every evidence-backed focus mechanism. Loses ground to Mind Lab Pro on capsule count (7+/day), price (CAD ~$190/mo subscription), and on Canadian buyers paying in USD with potential customs scrutiny on larger orders. Wins on ingredient breadth.',
+      'Includes citicoline, Alpha-GPC, L-theanine, and L-tyrosine — covers nearly every evidence-backed focus mechanism. Loses ground to Mind Lab Pro on capsule count (6/day), price (CAD ~$190/mo subscription), and on Canadian buyers paying in USD with potential customs scrutiny on larger orders. Wins on ingredient breadth.',
   },
   {
     product: productsCA.find(p => p.slug === 'noocube-review')!,
     rank: 4,
     whyItsHere:
-      'Includes choline (VitaCholine, 250mg), Bacopa, and L-theanine 100mg at clinical dose. Standout ingredient for Canadian remote workers is Lutemax 2020, though its evidence for screen eye strain is mixed: a 6-month trial in 48 heavy screen users, funded by Lutemax\'s maker, reported less self-rated eye strain, eye fatigue and headache (Stringham 2017), but a 2025 trial of a different lutein/zeaxanthin product found better tear-film measures without any change in self-rated eye strain (Lopresti 2025). Open formula. The noocube.com Trustpilot profile has no reviews yet — verify subscription cancellation terms before ordering.',
+      'Includes choline (100mg, from 250mg VitaCholine choline bitartrate), Bacopa, and L-theanine 100mg at clinical dose. Standout ingredient for Canadian remote workers is Lutemax 2020, though its evidence for screen eye strain is mixed: a 6-month trial in 48 heavy screen users, funded by Lutemax\'s maker, reported less self-rated eye strain, eye fatigue and headache (Stringham 2017), but a 2025 trial of a different lutein/zeaxanthin product found better tear-film measures without any change in self-rated eye strain (Lopresti 2025). Open formula. The noocube.com Trustpilot profile has no reviews yet — verify subscription cancellation terms before ordering.',
   },
 ];
 

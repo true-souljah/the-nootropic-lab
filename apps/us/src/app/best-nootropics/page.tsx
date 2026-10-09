@@ -41,7 +41,7 @@ const goalLinks = [
 
 const comparisonLinks = [
   { href: '/mind-lab-pro-vs-alpha-brain/', title: 'Mind Lab Pro vs Alpha Brain', desc: 'Open formula vs proprietary blends' },
-  { href: '/mind-lab-pro-vs-qualia-mind/', title: 'Mind Lab Pro vs Qualia Mind', desc: '11 ingredients vs 28 megadose' },
+  { href: '/mind-lab-pro-vs-qualia-mind/', title: 'Mind Lab Pro vs Qualia Mind', desc: '11 ingredients vs 31 megadose' },
   { href: '/alpha-brain-vs-qualia-mind/', title: 'Alpha Brain vs Qualia Mind', desc: 'Mainstream brand vs premium megadose' },
 ];
 

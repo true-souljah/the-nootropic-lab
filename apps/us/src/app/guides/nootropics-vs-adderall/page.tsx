@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   description:
     'Adderall is a Schedule II prescription stimulant. Nootropics are dietary supplements. They are not equivalents. This guide explains the actual differences in mechanism, evidence, and regulation.',
   alternates: buildAlternates({ regionCode: 'us', path: '/guides/nootropics-vs-adderall/', availableInRegions: ['us'] }),
+  // Kept out of the index until an evidence-reviewed, cited comparison replaces
+  // this page (2026-10 content plan): it currently carries no citations.
+  robots: { index: false },
   openGraph: {
     title: 'Nootropics vs Adderall — Honest Comparison',
     description: 'Different mechanisms. Different regulation. Different efficacy. Here is what the science actually says.',
@@ -254,7 +257,7 @@ export default function Page() {
             evaluation.
           </p>
           <p className="text-gray-700 leading-relaxed">
-            For US readers without a clinician relationship, telehealth ADHD evaluation (Done, Cerebral, ADHD Online) is widely available.
+            If you have no clinician relationship, a telehealth ADHD evaluation is an option.
             Vet the provider — choose one that conducts proper diagnostic interviews, not a 5-minute quiz mill.
           </p>
         </section>

@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Most complete study stack: includes Bacopa at clinical dose, plus Alpha-GPC, citicoline, Rhodiola, and L-theanine. Vegetarian capsules (hypromellose), per the brand (checked 2026-10-07). Caveat: default formula contains caffeine — students should choose the caffeine-free variant, particularly for Ramadan use or evening study sessions. The 7+ capsules/day is friction during finals week and the $159 USD list price is real friction for student budgets. Qualia does not ship to any GCC state (brand shipping page, checked 2026-09-28).',
+      'Most complete study stack: includes Alpha-GPC, citicoline, Rhodiola, and L-theanine. Vegetarian capsules (hypromellose), per the brand (checked 2026-10-07). Caveat: default formula contains caffeine — students should choose the caffeine-free variant, particularly for Ramadan use or evening study sessions. The 6 capsules/day is friction during finals week and the $159 USD list price is real friction for student budgets. Qualia does not ship to any GCC state (brand shipping page, checked 2026-09-28).',
   },
   {
     product: productsGCC.find(p => p.slug === 'noocube-review')!,
@@ -78,7 +78,7 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'thesis-nootropics-review')!,
     rank: 5,
     whyItsHere:
-      'Personalisation may suit students with specific patterns (e.g., the "Clarity" formula for focus or "Logic" for analytical work). Each blend has a caffeine-free variant — students should select the caffeine-free option at checkout for Ramadan compatibility and conservative GCC dietary preferences. Subscription model with monthly cost can add up over a semester. Availability caveat: we could not confirm Thesis\'s international shipping from its site (its shipping page was unavailable on 2026-09-29) — check at checkout.',
+      'Personalisation may suit students with specific patterns (e.g., the "Clarity" formula for focus). Clarity, Stress Reset and Neuroprotection come in caffeine-free versions (Motivation contains 150mg caffeine per serving) — students should select a caffeine-free option at checkout for Ramadan compatibility and conservative GCC dietary preferences. Subscription model with monthly cost can add up over a semester. Availability caveat: we could not confirm Thesis\'s international shipping from its site (its shipping page was unavailable on 2026-09-29) — check at checkout.',
   },
 ];
 
