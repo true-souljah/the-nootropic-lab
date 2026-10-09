@@ -3,6 +3,7 @@ import { existsSync, readdirSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { ALL_REGIONS, REGION_ONLY_ROUTES, routeAvailableIn, regionsWithProduct, getStrings, productsUS } from '@nootropic/data';
 import { columnsFromStrings, filterColumnsForRegion } from './public-chrome/FPFooter';
+import { DEFAULT_GROUPS, groupsForRegion } from './primitives/Sidebar';
 
 // REGION_ONLY_ROUTES is the runtime source of truth the footer filters on.
 // This test pins it to the filesystem: every listed route must exist as
@@ -95,5 +96,27 @@ describe('footer columns per region only link pages that exist on that host', ()
     expect(h2h).toEqual(['/blackmores-brain-active-vs-mind-lab-pro/', '/nootropic-comparison/']);
     const ids = au.map((c) => c.id);
     expect(ids).toEqual(us.map((c) => c.id));
+  });
+});
+
+// The AppShell sidebar rail is in the static HTML of every persistent-mode
+// page (desktop CLS fix, 2026-10-08), so its links are crawlable everywhere.
+describe('sidebar per region only links pages that exist on that host', () => {
+  const inventory = new Map(ALL_REGIONS.map((r) => [r, staticRoutes(r)] as const));
+  for (const region of ALL_REGIONS) {
+    test(`${region}: every sidebar href has a page.tsx`, () => {
+      const hrefs = groupsForRegion(DEFAULT_GROUPS, region).flatMap((g) => g.items.map((i) => i.href));
+      expect(hrefs.length).toBeGreaterThanOrEqual(7);
+      for (const href of hrefs) {
+        expect(inventory.get(region)!.has(href.split('#')[0].replace(/(.)\/$/, '$1')), `${region} sidebar → ${href}`).toBe(true);
+      }
+    });
+  }
+
+  test('us keeps the dose calculator and shortlist; other regions drop them', () => {
+    const tools = (r: (typeof ALL_REGIONS)[number]) =>
+      groupsForRegion(DEFAULT_GROUPS, r).find((g) => g.label === 'Tools')!.items.map((i) => i.href);
+    expect(tools('us')).toEqual(['/nootropic-comparison/', '/dose-calculator/', '/shortlist/']);
+    expect(tools('eu')).toEqual(['/nootropic-comparison/']);
   });
 });
