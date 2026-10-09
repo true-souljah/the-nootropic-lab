@@ -1,6 +1,6 @@
 import { describe, test, expect } from 'vitest';
 import { guides, guidesEs, guideSources } from '@nootropic/data';
-import type { Guide } from '@nootropic/data';
+import type { GuideTranslation } from '@nootropic/data';
 
 // Guards for the 2026-09 guide evidence review (fix/guides-evidence-2026-09).
 // Every educational guide renders a Sources block and an "Evidence reviewed"
@@ -9,7 +9,7 @@ import type { Guide } from '@nootropic/data';
 // The copy guards below stop the corrected claims from regressing when the
 // guides are regenerated or re-translated.
 
-const LOCALES: Array<[string, Guide[]]> = [
+const LOCALES: Array<[string, GuideTranslation[]]> = [
   ['en', guides],
   ['es', guidesEs],
 ];

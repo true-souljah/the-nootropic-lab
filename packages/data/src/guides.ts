@@ -1,7 +1,20 @@
-export interface GuideSection {
-  heading: string;
-  content: string;
-}
+import type { RegionCode } from './regional';
+
+/**
+ * One block of structured guide content. Text fields may link to other pages
+ * on the same host as `[label](/path/)` — internal, trailing-slash paths only
+ * (guide-model.test.ts); check:links re-verifies every target on the built site.
+ */
+export type GuideBlock =
+  | { type: 'p'; text: string }
+  | { type: 'ul' | 'ol'; items: string[] }
+  | { type: 'table'; caption: string; head: string[]; rows: string[][] }
+  | { type: 'callout'; tone: 'note' | 'caution'; title?: string; text: string };
+
+/** A guide section: one plain paragraph (`content`) or structured `blocks`. */
+export type GuideSection =
+  | { heading: string; content: string; blocks?: never }
+  | { heading: string; blocks: GuideBlock[]; content?: never };
 
 /**
  * A cited source for a guide. Entries come only from the fact-check
@@ -31,7 +44,19 @@ export interface Guide {
   sources: GuideSource[];
   /** ISO date (YYYY-MM-DD) of the last evidence review of this guide. */
   evidenceReviewedAt: string;
+  /**
+   * Hosts that serve this guide at /guides/<slug>/ (in that host's language).
+   * New guides ship US-only (2026-10 content plan): an English page cloned onto
+   * several hosts is de-duplicated by Google (2026-09 audit), so add a region
+   * only once the guide carries region-specific content for it. Listing 'latam'
+   * requires a Spanish translation in guides-es.ts. Read through
+   * guidesForRegion() — never filter `guides` by hand.
+   */
+  regions: readonly RegionCode[];
 }
+
+/** A translated guide; its host list is the English guide's `regions`. */
+export type GuideTranslation = Omit<Guide, 'regions'>;
 
 /**
  * Per-guide sources, keyed by slug. Shared by the English guides and their
@@ -100,6 +125,7 @@ export const guides: Guide[] = [
     readingTimeMin: 7,
     sources: guideSources['what-are-nootropics'],
     evidenceReviewedAt: '2026-09-28',
+    regions: ['us', 'eu', 'ca', 'au', 'jp', 'latam', 'gcc', 'sea'],
     sections: [
       {
         heading: 'The definition',
@@ -131,6 +157,7 @@ export const guides: Guide[] = [
     readingTimeMin: 9,
     sources: guideSources['how-nootropics-work'],
     evidenceReviewedAt: '2026-09-28',
+    regions: ['us', 'eu', 'ca', 'au', 'jp', 'latam', 'gcc', 'sea'],
     sections: [
       {
         heading: 'The cholinergic system',
@@ -166,6 +193,7 @@ export const guides: Guide[] = [
     readingTimeMin: 6,
     sources: guideSources['what-to-expect'],
     evidenceReviewedAt: '2026-09-28',
+    regions: ['us', 'eu', 'ca', 'au', 'jp', 'latam', 'gcc', 'sea'],
     sections: [
       {
         heading: 'The two categories: acute vs. cumulative',
@@ -197,6 +225,7 @@ export const guides: Guide[] = [
     readingTimeMin: 8,
     sources: guideSources['how-to-stack-nootropics'],
     evidenceReviewedAt: '2026-09-28',
+    regions: ['us', 'eu', 'ca', 'au', 'jp', 'latam', 'gcc', 'sea'],
     sections: [
       {
         heading: 'What is a nootropic stack?',
@@ -232,6 +261,7 @@ export const guides: Guide[] = [
     readingTimeMin: 6,
     sources: guideSources['nootropics-for-focus-vs-memory'],
     evidenceReviewedAt: '2026-09-28',
+    regions: ['us', 'eu', 'ca', 'au', 'jp', 'latam', 'gcc', 'sea'],
     sections: [
       {
         heading: 'Defining the goals',
@@ -263,6 +293,7 @@ export const guides: Guide[] = [
     readingTimeMin: 7,
     sources: guideSources['natural-vs-synthetic-nootropics'],
     evidenceReviewedAt: '2026-09-28',
+    regions: ['us', 'eu', 'ca', 'au', 'jp', 'latam', 'gcc', 'sea'],
     sections: [
       {
         heading: 'Defining the categories',

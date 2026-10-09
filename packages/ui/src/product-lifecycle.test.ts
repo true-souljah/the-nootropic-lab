@@ -278,7 +278,7 @@ describe('display-values — nullable fields never render "null"', () => {
 
 describe('search — discontinued products stay findable', () => {
   test('AU search index includes Blackmores Brain Active, labelled discontinued', () => {
-    const { searchItems } = buildRegionSearchContext(allProductsAU, 'en');
+    const { searchItems } = buildRegionSearchContext(allProductsAU, 'en', 'au');
     const row = searchItems.find((i) => i.href === '/blackmores-brain-active-review/');
     expect(row?.title).toBe('Blackmores Brain Active (Discontinued)');
     const live = searchItems.find((i) => i.href === '/mind-lab-pro-review/');

@@ -4,4 +4,4 @@ import { allProductsCA, buildRegionSearchContext } from '@nootropic/data';
 // so nav, footer, table headers, breadcrumbs, and consent UI render in
 // Canadian French instead of falling back to the English bundle. Closes
 // the CA Wave-1 audit's Quebec Bill 96 / WCAG 3.1.2 chrome leak.
-export const { searchItems, uiStrings } = buildRegionSearchContext(allProductsCA, 'fr-CA');
+export const { searchItems, uiStrings } = buildRegionSearchContext(allProductsCA, 'fr-CA', 'ca');

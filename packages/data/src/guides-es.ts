@@ -8,9 +8,9 @@
 // (and /guides/[guide]/page.tsx) replace `import { guides }` with
 // `import { guidesEs as guides }`.
 
-import { guideSources, type Guide } from './guides';
+import { guideSources, type GuideTranslation } from './guides';
 
-export const guidesEs: Guide[] = [
+export const guidesEs: GuideTranslation[] = [
   {
     "slug": "what-are-nootropics",
     "title": "¿Qué son los nootrópicos? Una guía completa para principiantes",
