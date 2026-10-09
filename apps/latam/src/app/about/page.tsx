@@ -59,9 +59,8 @@ export default function AboutPage() {
         <section className="mb-10">
           <h2 className="text-xl font-bold text-gray-900 mb-3">Panorama regulatorio en América Latina</h2>
           <p className="text-gray-700 leading-relaxed mb-3">
-            Cada país de América Latina tiene su propia agencia regulatoria de suplementos. Verificamos el
-            estado regulatorio de cada producto que reseñamos contra los reglamentos vigentes en los
-            mercados principales:
+            Cada país de América Latina tiene su propia agencia regulatoria de suplementos. Estas son las
+            agencias de los mercados principales:
           </p>
           <ul className="space-y-2 text-gray-700">
             <li>

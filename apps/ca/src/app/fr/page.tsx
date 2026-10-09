@@ -37,8 +37,8 @@ const features = [
   },
   {
     icon: '🍁',
-    title: 'Livraison au Canada vérifiée',
-    desc: 'Tous les produits répertoriés sont expédiés directement au Canada. Nous indiquons le statut d\'importation de Santé Canada et les informations douanières pour chaque marque.',
+    title: 'Statut de licence de Santé Canada',
+    desc: 'Chaque fiche produit indique son statut de licence auprès de Santé Canada : le numéro de produit naturel (NPN) lorsqu’il est inscrit, ou la date de notre dernière vérification sans résultat.',
   },
   {
     icon: '⚖️',
@@ -51,7 +51,7 @@ const quickLinks = [
   {
     href: '/fr/meilleurs-nootropiques/',
     title: `Les meilleurs nootropiques au Canada ${new Date().getFullYear()}`,
-    desc: 'Comparatif complet des meilleures marques avec livraison au Canada confirmée.',
+    desc: 'Comparatif complet des meilleures marques de notre catalogue canadien.',
   },
   {
     href: '/fr/comparer/',
@@ -85,8 +85,7 @@ export default function FrHomePage() {
           </h1>
           <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
             Nous comparons la dose de chaque ingrédient avec les résultats d’essais cliniques révisés
-            par des pairs. Pas de commissions cachées. Livraison au Canada
-            vérifiée.
+            par des pairs. Pas de commissions cachées.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
