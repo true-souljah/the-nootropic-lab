@@ -55,6 +55,12 @@ export default function MethodologyPage() {
               </div>
             ))}
           </div>
+          <p className="text-sm text-gray-600 leading-relaxed mt-4">
+            Nuestras guías de mejores nootrópicos clasifican solo productos con una puntuación de 7.0/10 o más;
+            el umbral era 7.5 hasta el 9 de octubre de 2026 y se fijó en 7.0 cuando el pilar de dosificación
+            pasó a calcularse a partir de las dosis de la etiqueta, lo que redujo las puntuaciones en
+            aproximadamente un punto en general.
+          </p>
         </section>
 
         <section className="mb-10">

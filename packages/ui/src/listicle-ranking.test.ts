@@ -12,9 +12,11 @@ import {
 } from './templates/listicleRanking';
 import { getUseCaseListStrings, type TemplateLocale } from './templateStrings';
 
-// Site-owner decision 2026-10-08: every listicle says a pick must "score ≥ 7.5/10
+// Site-owner decision 2026-10-08: every listicle says a pick must "score ≥ {bar}/10
 // in our 5-pillar editorial audit". Ranked picks must meet that bar; picks below
 // it stay on the page, unranked and without a buy link, under "Also considered".
+// The bar was 7.5 (2026-10-08) and is 7.0 since 2026-10-09 (site-owner decision,
+// when the dosing pillar became computed from label doses).
 
 const REPO = join(__dirname, '..', '..', '..');
 const UI_SRC = __dirname;
@@ -27,15 +29,32 @@ function pick(name: string, score: number, rank?: number) {
 const names = (picks: Array<{ product: { name: string } }>) => picks.map((p) => p.product.name);
 
 describe('LISTICLE_MIN_SCORE', () => {
-  it('is the 7.5 bar the site owner set (2026-10-08) — change it deliberately', () => {
-    expect(LISTICLE_MIN_SCORE).toBe(7.5);
-    expect(BAR).toBe('7.5');
+  it('is the 7.0 bar the site owner set (2026-10-09, was 7.5) — change it deliberately', () => {
+    expect(LISTICLE_MIN_SCORE).toBe(7.0);
+    expect(BAR).toBe('7.0');
+  });
+
+  // The methodology pages state the bar and its history in prose (it cannot be
+  // templated: the history sentence names the old and new bar). When the bar
+  // changes, this fails until every methodology page is rewritten by hand.
+  const methodologyPages = readdirSync(join(REPO, 'apps'))
+    .map((app) => [app, join(REPO, 'apps', app, 'src', 'app', 'methodology', 'page.tsx')] as const)
+    .filter(([, file]) => existsSync(file));
+
+  it('finds all 8 methodology pages (guards against an empty scan)', () => {
+    expect(methodologyPages.map(([app]) => app).sort()).toEqual(['au', 'ca', 'eu', 'gcc', 'jp', 'latam', 'sea', 'us']);
+  });
+
+  it.each(methodologyPages)('%s methodology states the current bar', (app, file) => {
+    const src = readFileSync(file, 'utf8');
+    const rule = app === 'latam' ? `con una puntuación de ${BAR}/10 o más` : `scoring ${BAR}/10 or more`;
+    expect(src).toContain(rule);
   });
 });
 
 describe('splitListiclePicks', () => {
-  it('ranks a pick scoring exactly the bar; a 7.4 pick is not ranked', () => {
-    const { ranked, alsoConsidered } = splitListiclePicks([pick('At bar', 7.5, 1), pick('Just under', 7.4, 2)]);
+  it('ranks a pick scoring exactly the bar; a 6.9 pick is not ranked', () => {
+    const { ranked, alsoConsidered } = splitListiclePicks([pick('At bar', 7.0, 1), pick('Just under', 6.9, 2)]);
     expect(names(ranked)).toEqual(['At bar']);
     expect(names(alsoConsidered)).toEqual(['Just under']);
   });
@@ -46,7 +65,7 @@ describe('splitListiclePicks', () => {
       pick('A', 7.6, 1),
       pick('B', 6.6, 2),
       pick('E', 8.3, 5),
-      pick('D', 7.0, 4),
+      pick('D', 6.9, 4),
     ]);
     expect(ranked.map((p) => [p.product.name, p.rank])).toEqual([['A', 1], ['C', 2], ['E', 3]]);
     expect(names(alsoConsidered)).toEqual(['B', 'D']);
@@ -143,8 +162,10 @@ describe('Listicle template wiring', () => {
 // bar. Characterization of the data on 2026-10-08 (after the weighted-score
 // recompute, #323): 24 of 128 picks on 20 of the 36 listicles score below 7.5.
 // 2026-10-09, after the computed dosing pillar (dosing-anchors.ts) and the
-// #333/#334/#336 label rows: 88 picks on all 36 listicles; every listicle
-// keeps at least one ranked pick (Mind Lab Pro at 7.5 ranks on all 36).
+// #333/#334/#336 label rows: 88 picks on all 36 listicles at the 7.5 bar.
+// 2026-10-09, bar 7.0 (site-owner decision): 37 picks on 30 listicles; every
+// listicle keeps at least one ranked pick (Mind Lab Pro at 7.5 ranks on all
+// 36; EU studying, JP aging and JP memory rank only Mind Lab Pro).
 // When a score, a pick or a page changes, update the expected counts below on
 // purpose, after checking that the page still reads right.
 // ---------------------------------------------------------------------------
@@ -201,17 +222,14 @@ describe('every Listicle page ranks only picks at or above the bar', () => {
     expect(alsoConsidered.every((p) => p.product.score < LISTICLE_MIN_SCORE)).toBe(true);
   });
 
-  it('moves the 88 below-bar picks (36 pages) to "Also considered" — 2026-10-09 data', () => {
+  it('moves the 37 below-bar picks (30 pages) to "Also considered" — 2026-10-09 data, bar 7.0', () => {
     const below = pages.flatMap((p) => splitListiclePicks(p.picks).alsoConsidered.map((x) => ({ page: p.rel, slug: x.product.slug })));
-    expect(below).toHaveLength(88);
-    expect(new Set(below.map((b) => b.page)).size).toBe(36);
+    expect(below).toHaveLength(37);
+    expect(new Set(below.map((b) => b.page)).size).toBe(30);
     const bySlug = below.reduce<Record<string, number>>((acc, b) => ({ ...acc, [b.slug]: (acc[b.slug] ?? 0) + 1 }), {});
     expect(bySlug).toEqual({
-      'qualia-mind-review': 27,
-      'noocube-review': 17,
       'onnit-alpha-brain-review': 15,
       'nootropics-depot-lions-mane': 8,
-      'thesis-nootropics-review': 7,
       'hunter-focus-review': 7,
       'suntory-dha-epa-sesamin-review': 3,
       'brainzyme-focus-pro-review': 2,

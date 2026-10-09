@@ -55,6 +55,11 @@ export default function MethodologyPage() {
               </div>
             ))}
           </div>
+          <p className="text-sm text-gray-600 leading-relaxed mt-4">
+            Our best-nootropics guides rank only products scoring 7.0/10 or more; the bar was 7.5 until
+            9 October 2026 and was set to 7.0 when the dosing pillar became computed from label doses,
+            which lowered scores by about a point overall.
+          </p>
         </section>
 
         <section className="mb-10">
