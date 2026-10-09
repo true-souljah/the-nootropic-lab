@@ -1,3 +1,5 @@
+import { NO_PURCHASE_LINK_STRINGS, type NoPurchaseLinkStrings } from './purchase-link';
+
 export type Locale = 'en' | 'es' | 'fr' | 'ja' | 'pt' | 'de' | 'fr-CA';
 
 export interface UIStrings {
@@ -332,6 +334,13 @@ export interface UIStrings {
     /** aria-label for the chip row above the product name (groups Editor's pick, Caffeine-free, regulatory chips, etc.). */
     chipGroupLabel: string;
   };
+  /**
+   * Notice that replaces a buy CTA when `purchaseUrl(product)` is null
+   * (`Product.noPurchaseLink`). The strings live in ./purchase-link
+   * (NO_PURCHASE_LINK_STRINGS) so client templates without a bundle can read
+   * them without shipping every locale to the browser.
+   */
+  noPurchaseLink: NoPurchaseLinkStrings;
   /** Educational guide pages (/guides/<slug>/). */
   guide: {
     /** Heading of the collapsible Sources block at the end of a guide. */
@@ -578,6 +587,7 @@ const en: UIStrings = {
     healthDisclaimerHeading: 'Health disclaimer',
     chipGroupLabel: 'Product attributes',
   },
+  noPurchaseLink: NO_PURCHASE_LINK_STRINGS.en,
   guide: {
     sources: 'Sources',
     expand: 'expand',
@@ -820,6 +830,7 @@ const es: UIStrings = {
     healthDisclaimerHeading: 'Aviso de salud',
     chipGroupLabel: 'Atributos del producto',
   },
+  noPurchaseLink: NO_PURCHASE_LINK_STRINGS.es,
   guide: {
     sources: 'Fuentes',
     expand: 'ampliar',
@@ -1062,6 +1073,7 @@ const fr: UIStrings = {
     healthDisclaimerHeading: 'Avis de santé',
     chipGroupLabel: 'Attributs du produit',
   },
+  noPurchaseLink: NO_PURCHASE_LINK_STRINGS.fr,
   guide: {
     sources: 'Sources',
     expand: 'afficher',
@@ -1304,6 +1316,7 @@ const ja: UIStrings = {
     healthDisclaimerHeading: '健康に関する免責事項',
     chipGroupLabel: '製品の属性',
   },
+  noPurchaseLink: NO_PURCHASE_LINK_STRINGS.ja,
   guide: {
     sources: '出典',
     expand: '展開',
@@ -1546,6 +1559,7 @@ const pt: UIStrings = {
     healthDisclaimerHeading: 'Aviso de saúde',
     chipGroupLabel: 'Atributos do produto',
   },
+  noPurchaseLink: NO_PURCHASE_LINK_STRINGS.pt,
   guide: {
     sources: 'Fontes',
     expand: 'expandir',
@@ -1788,6 +1802,7 @@ const de: UIStrings = {
     healthDisclaimerHeading: 'Gesundheitshinweis',
     chipGroupLabel: 'Produktmerkmale',
   },
+  noPurchaseLink: NO_PURCHASE_LINK_STRINGS.de,
   guide: {
     sources: 'Quellen',
     expand: 'ausklappen',
@@ -2032,6 +2047,7 @@ const frCa: UIStrings = {
     healthDisclaimerHeading: 'Avis de santé',
     chipGroupLabel: 'Caractéristiques du produit',
   },
+  noPurchaseLink: NO_PURCHASE_LINK_STRINGS['fr-CA'],
   guide: {
     sources: 'Sources',
     expand: 'afficher',

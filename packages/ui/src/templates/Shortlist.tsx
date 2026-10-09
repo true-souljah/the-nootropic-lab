@@ -253,6 +253,7 @@ export default function Shortlist({
                   onRemove={() => remove(p.slug)}
                   onMoveUp={() => move(p.slug, -1)}
                   onMoveDown={() => move(p.slug, 1)}
+                  noticeStrings={uiStrings.noPurchaseLink}
                 />
               ))}
             </div>
@@ -342,6 +343,7 @@ function ShortlistRow({
   onRemove,
   onMoveUp,
   onMoveDown,
+  noticeStrings,
 }: {
   product: Product;
   index: number;
@@ -349,6 +351,7 @@ function ShortlistRow({
   onRemove: () => void;
   onMoveUp: () => void;
   onMoveDown: () => void;
+  noticeStrings: UIStrings['noPurchaseLink'];
 }) {
   const [note, setNote] = useShortlistNote(product.slug);
   return (
@@ -432,6 +435,9 @@ function ShortlistRow({
             position={index + 1}
             surface="review"
             className="inline-flex items-center justify-center gap-1 bg-ds-accent hover:bg-ds-accent-press text-white px-3 py-[8px] rounded-[8px] text-[12px] font-semibold no-underline focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
+            noticeStrings={noticeStrings}
+            noticeVariant="compact"
+            noticeClassName="text-center"
           >
             Visit
             <ExternalLink size={11} strokeWidth={2.4} aria-hidden={true} />
