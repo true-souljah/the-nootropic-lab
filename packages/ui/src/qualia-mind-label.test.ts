@@ -48,16 +48,17 @@ const LABEL: [string, string][] = [
   ['Cognizin (citicoline)', '50mg'],
   ['Sabroxy (Oroxylum indicum bark extract)', '50mg'],
   ['Saffron Stigma Extract', '30mg'],
-  ['Lutein (Lutemax Brain marigold flower extract)', '10mg'],
+  ['Lutein (Lutemax Brain marigold flower extract)', '10mg (12mg lutein + zeaxanthin together)'],
   ['Pyrroloquinoline Quinone Disodium Salt (PQQ)', '10mg'],
   ['Boron (boron glycinate)', '3mg'],
-  ['Zeaxanthin (Lutemax Brain marigold flower extract)', '2mg'],
+  ['Zeaxanthin (Lutemax Brain marigold flower extract)', '2mg (12mg lutein + zeaxanthin together)'],
 ];
 
 // Rows covered by the site's ingredient library: exact reference string and
 // the verdict the label proves. Lion's Mane is an 8:1 extract with no amount
 // on the library's dry-weight basis, so null. Lutein and zeaxanthin share the
-// library's TOTAL lutein + zeaxanthin anchor (12-27mg/day): 10 + 2 = 12mg.
+// library's TOTAL lutein + zeaxanthin anchor (12-27mg/day): 10 + 2 = 12mg, so
+// each row says so — a bare "Zeaxanthin 2mg ✓ 12-27mg/day" would mislead.
 const ANCHORED: Record<string, [string, boolean | null]> = {
   'Acetyl-L-Carnitine HCl': ['1500-3000mg/day', false],
   'Rhodiola rosea Root Extract (3% rosavins, 1% salidrosides)': ['200-600mg/day', true],

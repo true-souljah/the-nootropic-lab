@@ -430,7 +430,7 @@
       },
       {
         "name": "Lutein (Lutemax Brain marigold flower extract)",
-        "doseInProduct": "10mg",
+        "doseInProduct": "10mg (12mg lutein + zeaxanthin together)",
         "clinicalDose": "12-27mg/day",
         "adequatelyDosed": true
       },
@@ -448,7 +448,7 @@
       },
       {
         "name": "Zeaxanthin (Lutemax Brain marigold flower extract)",
-        "doseInProduct": "2mg",
+        "doseInProduct": "2mg (12mg lutein + zeaxanthin together)",
         "clinicalDose": "12-27mg/day",
         "adequatelyDosed": true
       }
