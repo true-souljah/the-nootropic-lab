@@ -8,6 +8,12 @@ export interface FPTrustNoteProps {
    * disclosure under a non-EN `<html lang>`.
    */
   strings: UIStrings['disclosure'];
+  /**
+   * False on the review page of a product we earn no commission on
+   * (`earnsCommission(product)` from @nootropic/data): the note says so
+   * instead of the commission sentence; the ranking statement stays.
+   */
+  earnsCommission?: boolean;
   /** Path to the methodology page. */
   methodologyHref?: string;
   className?: string;
@@ -25,6 +31,7 @@ export interface FPTrustNoteProps {
  */
 export function FPTrustNote({
   strings: d,
+  earnsCommission = true,
   methodologyHref = '/methodology/',
   className = '',
 }: FPTrustNoteProps) {
@@ -36,7 +43,7 @@ export function FPTrustNote({
     >
       <span className="text-ds-warn-ink font-semibold">{d.badge}</span>
       <span aria-hidden="true"> · </span>
-      {d.inline} {d.ranking}{' '}
+      {earnsCommission ? d.inline : d.noCommission} {d.ranking}{' '}
       <Link
         href={methodologyHref}
         className="text-ds-accent font-medium underline hover:text-ds-accent-press focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded-[2px]"

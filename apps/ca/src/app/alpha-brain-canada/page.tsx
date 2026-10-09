@@ -11,7 +11,7 @@ import {
   buildTwitter,
   PublicShell,
 } from '@nootropic/ui';
-import { productsCA, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsCA, getRegionalHealthDisclaimer, earnsCommission } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
 
@@ -109,9 +109,13 @@ const faqs = [
 
 export default function Page() {
   if (!alphaBrain) notFound();
+  // The page's only buy link is Alpha Brain's. With no affiliate deal for it
+  // (commissionRate "0%"), the page carries no affiliate link: no top
+  // disclosure strip, and a no-commission note in place of the affiliate one.
+  const commission = earnsCommission(alphaBrain);
 
   return (
-    <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
+    <PublicShell searchItems={searchItems} uiStrings={uiStrings} hideDisclosure={!commission}>
       <SchemaOrg schema={articleSchema} />
       <SchemaOrg schema={breadcrumbSchema} />
 
@@ -232,7 +236,14 @@ export default function Page() {
 
         <section className="my-10">
           <h2 className="text-2xl font-bold text-gray-900 mb-3">Where to buy Alpha Brain in Canada</h2>
-          <AffiliateDisclosure />
+          {commission ? (
+            <AffiliateDisclosure />
+          ) : (
+            <div className="disclosure-banner mb-6" role="note" aria-label="Affiliate disclosure">
+              We don&apos;t earn a commission on Alpha Brain: we have no affiliate deal with Onnit, so the
+              onnit.com link below is not an affiliate link.
+            </div>
+          )}
           <p className="text-sm text-gray-700 leading-relaxed mb-3">
             <strong>onnit.com</strong> is the one source we could verify. Orders are charged in USD; confirm
             Canadian delivery at checkout.
