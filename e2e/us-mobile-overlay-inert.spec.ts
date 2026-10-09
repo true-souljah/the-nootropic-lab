@@ -27,6 +27,23 @@ async function canFocus(page: Page, selector: string): Promise<boolean> {
   });
 }
 
+/**
+ * Presses Tab `presses` times and returns the first focused element that
+ * matches `forbidden` (or sits inside it), as a short description; null if
+ * keyboard focus never reached it.
+ */
+async function tabReaches(page: Page, forbidden: string, presses: number): Promise<string | null> {
+  for (let i = 0; i < presses; i++) {
+    await page.keyboard.press('Tab');
+    const hit = await page.evaluate((sel) => {
+      const el = document.activeElement;
+      return el && el.closest(sel) ? `${el.tagName.toLowerCase()} ${el.getAttribute('href') ?? el.textContent?.trim().slice(0, 40)}` : null;
+    }, forbidden);
+    if (hit) return hit;
+  }
+  return null;
+}
+
 test('menu drawer: the page behind it is inert while open, interactive after close', async ({ page }) => {
   const res = await page.goto('/best-nootropics/');
   expect(res?.status()).toBe(200);
@@ -37,12 +54,17 @@ test('menu drawer: the page behind it is inert while open, interactive after clo
   await page.getByRole('button', { name: 'Open menu' }).click();
   const drawer = page.locator('#appshell-mobile-drawer');
   await expect(drawer).toBeVisible();
+  expect(await page.evaluate(() => !!document.activeElement?.closest('#appshell-mobile-drawer')), 'focus moves into the drawer').toBe(true);
   await expect(page.locator('[inert] #main-content')).toHaveCount(1);
   expect(await canFocus(page, behind), 'page link focusable while the drawer is open').toBe(false);
+  // Opening moves focus into the drawer; Tab then never reaches the page behind it.
+  await drawer.locator('button[aria-label="Close menu"]').last().focus();
+  expect(await tabReaches(page, '#main-content', 40), 'Tab reached the page behind the drawer').toBeNull();
 
   await drawer.locator('button[aria-label="Close menu"]').last().click();
   await expect(drawer).toHaveCount(0);
-  await expect(page.locator('[inert]')).toHaveCount(0);
+  await expect(page.locator('[inert] #main-content')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Open menu' }), 'focus returns to the menu button').toBeFocused();
   expect(await canFocus(page, behind), 'page link focusable after closing').toBe(true);
 });
 
@@ -59,11 +81,15 @@ test('comparator filter sheet: the page behind it is inert while open, interacti
   await expect(sheet).toBeVisible();
   await expect(page.locator('[inert] a[href="/mind-lab-pro-review/"]').first()).toBeAttached();
   expect(await canFocus(page, behind), 'row link focusable while the sheet is open').toBe(false);
+  expect(await page.evaluate(() => !!document.activeElement?.closest('#comparator-mobile-filters')), 'focus moves into the sheet').toBe(true);
+  // Product rows exist only in the grid behind the sheet: Tab must never reach one.
+  expect(await tabReaches(page, '#main-content a[href$="-review/"]', 60), 'Tab reached a product row behind the sheet').toBeNull();
 
   // The sheet's own X button (the first "Close filters" is the full-screen backdrop, covered by the sheet).
   await sheet.locator('button[aria-label="Close filters"]').last().click();
   await expect(sheet).toHaveCount(0);
-  await expect(page.locator('[inert]')).toHaveCount(0);
+  await expect(page.locator('[inert] a[href="/mind-lab-pro-review/"]')).toHaveCount(0);
+  await expect(page.locator('button[aria-controls="comparator-mobile-filters"]'), 'focus returns to the Filters button').toBeFocused();
   expect(await canFocus(page, behind), 'row link focusable after closing').toBe(true);
 });
 
@@ -74,7 +100,7 @@ test('menu drawer: widening to desktop while open leaves no inert page', async (
   await page.getByRole('button', { name: 'Open menu' }).click();
   await expect(page.locator('[inert] #main-content')).toHaveCount(1);
   await page.setViewportSize({ width: 1280, height: 900 });
-  await expect(page.locator('[inert]')).toHaveCount(0);
+  await expect(page.locator('[inert] #main-content')).toHaveCount(0);
   expect(await canFocus(page, '#main-content a[href]')).toBe(true);
 });
 
@@ -83,6 +109,6 @@ test('comparator filter sheet: widening to desktop while open leaves no inert pa
   await page.locator('button[aria-controls="comparator-mobile-filters"]').click();
   await expect(page.locator('[inert] a[href="/mind-lab-pro-review/"]').first()).toBeAttached();
   await page.setViewportSize({ width: 1280, height: 900 });
-  await expect(page.locator('[inert]')).toHaveCount(0);
+  await expect(page.locator('[inert] a[href="/mind-lab-pro-review/"]')).toHaveCount(0);
   expect(await canFocus(page, '#main-content a[href="/mind-lab-pro-review/"]')).toBe(true);
 });
