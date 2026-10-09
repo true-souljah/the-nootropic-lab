@@ -53,6 +53,19 @@ export default function Comparator({
   const filtersTriggerRef = useRef<HTMLButtonElement>(null);
   const filterSheetRef = useRef<HTMLDivElement>(null);
 
+  // The sheet is `lg:hidden`: if the viewport grows to desktop while it is open
+  // (a tablet rotated to landscape), the page must not stay inert behind a sheet
+  // nobody can see. Same breakpoint guard as AppShell's drawer.
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const mql = window.matchMedia('(max-width: 1023.98px)');
+    setIsMobile(mql.matches);
+    const onChange = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mql.addEventListener('change', onChange);
+    return () => mql.removeEventListener('change', onChange);
+  }, []);
+  const filterSheetVisible = mobileFiltersOpen && isMobile;
+
   // Move focus into the filter sheet on open; restore to the trigger on close.
   // The wasOpenRef guard prevents stealing focus on initial mount when the
   // sheet has never been open.
@@ -205,7 +218,7 @@ export default function Comparator({
           else from tab order + AT focus — keyboard users can't escape the
           dialog into obscured content. */}
       <div
-        inert={mobileFiltersOpen}
+        inert={filterSheetVisible}
         className="grid items-start grid-cols-1 lg:grid-cols-[260px_1fr]"
       >
         {/* Desktop filter sidebar — sticky column on lg+ */}

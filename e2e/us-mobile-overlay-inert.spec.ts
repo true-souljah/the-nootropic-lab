@@ -66,3 +66,23 @@ test('comparator filter sheet: the page behind it is inert while open, interacti
   await expect(page.locator('[inert]')).toHaveCount(0);
   expect(await canFocus(page, behind), 'row link focusable after closing').toBe(true);
 });
+
+// A tablet rotated to landscape crosses the 1024px breakpoint with the overlay
+// open: the overlay is `lg:hidden`, so the page must not stay inert behind it.
+test('menu drawer: widening to desktop while open leaves no inert page', async ({ page }) => {
+  await page.goto('/best-nootropics/');
+  await page.getByRole('button', { name: 'Open menu' }).click();
+  await expect(page.locator('[inert] #main-content')).toHaveCount(1);
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await expect(page.locator('[inert]')).toHaveCount(0);
+  expect(await canFocus(page, '#main-content a[href]')).toBe(true);
+});
+
+test('comparator filter sheet: widening to desktop while open leaves no inert page', async ({ page }) => {
+  await page.goto('/nootropic-comparison/');
+  await page.locator('button[aria-controls="comparator-mobile-filters"]').click();
+  await expect(page.locator('[inert] a[href="/mind-lab-pro-review/"]').first()).toBeAttached();
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await expect(page.locator('[inert]')).toHaveCount(0);
+  expect(await canFocus(page, '#main-content a[href="/mind-lab-pro-review/"]')).toBe(true);
+});
