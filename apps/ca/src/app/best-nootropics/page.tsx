@@ -18,15 +18,27 @@ export const metadata: Metadata = {
 const faqItems = [
   {
     q: 'Are nootropics legal in Canada?',
-    a: 'Most nootropic supplements are legal in Canada as Natural Health Products (NHPs) regulated by Health Canada. Products with an NPN (Natural Product Number) have been reviewed for safety. Some compounds (e.g. racetams, modafinil) are prescription-only. All products we recommend use Health Canada-permissible ingredients.',
+    // NPN wording: Health Canada product-licensing page (checked 2026-10-08).
+    // Modafinil: Prescription Drug List, human use, row "Modafinil or its
+    // salts" (effective 2013-12-19), fetched 2026-10-09 from
+    // https://hpr-rps.hres.ca/pdl-phu.php. Piracetam, aniracetam and
+    // phenylpiracetam were not found on that list, so no schedule is stated.
+    a: 'Most nootropic supplements are legal in Canada as Natural Health Products (NHPs) regulated by Health Canada. Products with an NPN (Natural Product Number) have been reviewed and approved by Health Canada for safety and efficacy (canada.ca, checked 2026-10-08). Modafinil is on Health Canada’s Prescription Drug List (“Modafinil or its salts”; Health Canada Prescription Drug List, checked 2026-10-09). For racetams, check their status on Health Canada’s Prescription Drug List before importing.',
   },
   {
     q: 'Do I pay customs duties on nootropics ordered from the US or UK?',
-    a: 'Orders under CAD $150 from the US typically enter duty-free under CUSMA/USMCA. UK orders may attract duties after Brexit changes. Products shipped from within North America are your safest bet for avoiding import delays.',
+    // Thresholds quoted verbatim from the CBSA page "Increase to low-value
+    // shipment thresholds and other changes"
+    // (https://www.cbsa-asfc.gc.ca/services/cusma-aceum/lvs-efv-eng.html,
+    // fetched 2026-10-09, page dated 2025-11-25). Amounts are CAD value for duty.
+    a: 'It depends on how the parcel is shipped and where it comes from. For a shipment imported by courier from the US or Mexico, the Canada Border Services Agency (CBSA) lists: “Up to $40: duty and tax free”, “Above $40 to $150: duty free, but taxes still apply” and “Above $150: duties and taxes apply”. For a courier shipment from any other country, including the UK: “Up to $20: duty and tax free”. For a shipment imported by mail: “Above $20: duties and taxes apply when imported from any country, including the US and Mexico”. The amounts are in Canadian dollars and refer to the value for duty (CBSA, checked 2026-10-09).',
   },
   {
     q: 'Which nootropic ships fastest to Canada?',
-    a: 'Mind Lab Pro ships to Canada from its UK depot by tracked airmail (5-20 working days) or DHL courier (2-7 working days) (per mindlabpro.com, checked 2026-09-29). For US-based brands like Alpha Brain, check the delivery estimate for Canada at checkout.',
+    // Mind Lab Pro: vendorTerms.shipping in products-ca.json (ca.mindlabpro.com,
+    // checked 2026-10-07). Onnit: store-locator statement (checked 2026-10-07,
+    // same check as apps/ca/src/app/alpha-brain-canada/page.tsx).
+    a: 'We do not publish a delivery-time comparison: confirm the estimate for your address at checkout. Mind Lab Pro says “Parcels going to Canada and the Rest of the World will be shipped from our depot in the UK by international tracked airmail or DHL Courier” (ca.mindlabpro.com, checked 2026-10-07). For Alpha Brain, Onnit says its website “is directed only to U.S. consumers” (onnit.com, checked 2026-10-07); confirm Canadian delivery before you order.',
   },
 ];
 
@@ -75,9 +87,11 @@ export default function BestNootropicsCAPage() {
             <Card variant="subdued" padding={20} className="border-l-[3px] border-l-ds-good" as="aside" aria-labelledby="ca-note-heading">
               <h2 id="ca-note-heading" className="text-[16px] font-bold text-ds-ink m-0 mb-2">Canada buyer&apos;s note</h2>
               <p className="text-[13.5px] text-ds-ink-soft m-0 leading-[1.65]">
-                Canadian buyers benefit from CUSMA/USMCA — orders under CAD $150 from the US typically
-                enter duty-free. UK brands like Mind Lab Pro ship internationally; Mind Lab Pro quotes
-                5-20 working days by tracked airmail or 2-7 working days by DHL courier (per mindlabpro.com, checked 2026-09-29).
+                For a shipment imported by courier from the US or Mexico, the CBSA lists &ldquo;Up to $40: duty
+                and tax free&rdquo; and &ldquo;Above $40 to $150: duty free, but taxes still apply&rdquo; (
+                <a href="https://www.cbsa-asfc.gc.ca/services/cusma-aceum/lvs-efv-eng.html" target="_blank" rel="noopener noreferrer" className="underline">CBSA</a>,
+                checked 2026-10-09). Mind Lab Pro ships parcels to Canada from its depot in the UK
+                (ca.mindlabpro.com, checked 2026-10-07); confirm the delivery estimate at checkout.
               </p>
             </Card>
             <Card variant="subdued" padding={20} className="border-l-[3px] border-l-ds-accent">

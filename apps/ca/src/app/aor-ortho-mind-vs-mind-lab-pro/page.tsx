@@ -54,7 +54,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Where to buy each?',
     a:
-      'AOR Ortho•Mind: sold direct at aor.ca (the site offers a store locator); in a store, check for NPN 80037243 on the label. Mind Lab Pro: only via mindlabpro.com (international shipping to Canada: 5-20 working days by tracked airmail or 2-7 working days by DHL courier, per mindlabpro.com, checked 2026-09-29).',
+      'AOR Ortho•Mind: sold direct at aor.ca (the site offers a store locator); in a store, check for NPN 80037243 on the label. Mind Lab Pro: only via mindlabpro.com (shipping to Canada, per Mind Lab Pro: “Airmail expected delivery time: 5 - 20 working days”, “DHL expected delivery time: 2 - 7 working days”; ca.mindlabpro.com, checked 2026-10-07).',
   },
 ];
 
@@ -70,7 +70,8 @@ const whoIsForB = [
   'Care about peer-reviewed product-specific RCT evidence',
   'Want phosphatidylserine, Lion\'s Mane, citicoline, Rhodiola in one formula',
   'Are caffeine-free user (Mind Lab Pro is fully caffeine-free)',
-  'Don\'t mind international shipping (5-20 working days by airmail or 2-7 working days by DHL, per mindlabpro.com, checked 2026-09-29)',
+  // Durations quoted verbatim from vendorTerms.shipping in products-ca.json.
+  'Don\'t mind international shipping (Mind Lab Pro: “Airmail expected delivery time: 5 - 20 working days”, “DHL expected delivery time: 2 - 7 working days”; ca.mindlabpro.com, checked 2026-10-07)',
   'Want the broader 11-ingredient formula at a similar monthly cost',
 ];
 

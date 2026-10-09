@@ -182,10 +182,10 @@
     "euCompliance": "compliant",
     "trustpilotScore": null,
     "trustpilotCount": null,
-    "affiliateUrl": "https://www.noocube.com/",
+    "affiliateUrl": "https://www.wb22trk.com/ZCRDHC3/KMKS9/",
     "affiliateNetwork": "FanFuel",
-    "commissionRate": "31.5%",
-    "cookieDays": 30,
+    "commissionRate": "55%",
+    "cookieDays": null,
     "heroIngredients": [
       "Lutemax 2020",
       "Bacopa Monnieri",
@@ -1318,6 +1318,12 @@
       "trust": 7
     },
     "priceMonthlyUSD": 90,
+    "priceBasis": {
+      "source": "vendor-one-time",
+      "quoteField": "vendorTerms.oneTimePrice",
+      "monthsOfSupply": 1,
+      "checkedAt": "2026-10-07"
+    },
     "pricingModel": "one-time",
     "moneyBackDays": null,
     "caffeineFree": false,
@@ -1527,6 +1533,12 @@
       "trust": 7
     },
     "priceMonthlyUSD": 64.95,
+    "priceBasis": {
+      "source": "vendor-one-time",
+      "quoteField": "vendorTerms.oneTimePrice",
+      "monthsOfSupply": 1,
+      "checkedAt": "2026-10-07"
+    },
     "pricingModel": "both",
     "moneyBackDays": null,
     "caffeineFree": true,

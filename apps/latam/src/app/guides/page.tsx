@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
-import { guidesEs as guides } from '@nootropic/data';
+import { guidesForRegion } from '@nootropic/data';
 
 const CURRENT_YEAR = new Date().getFullYear();
 import { PublicShell } from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
+
+const guides = guidesForRegion('latam');
 
 export const metadata: Metadata = {
   title: `Guías de Nootrópicos ${CURRENT_YEAR} — De Principiante a Avanzado`,

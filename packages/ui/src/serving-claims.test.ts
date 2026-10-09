@@ -10,8 +10,10 @@ import { resolve, dirname, join, relative } from 'node:path';
 // takes 2+ capsules per serving according to its own record
 // (`capsulesPerServing`). Say "in one formula" or "per serving" instead.
 //
-// Rule: a source file that names a product whose records ALL have
-// capsulesPerServing > 1 must not contain a "in one capsule" phrasing.
+// Rule (pages and other sources): a file that names a product whose records ALL
+// have capsulesPerServing > 1 must not contain a "in one capsule" phrasing.
+// Rule (products-*.json): each record is checked against its OWN
+// capsulesPerServing, because those files name every product.
 // Products recorded as 1 capsule in any region are left out (the phrase can
 // be true for them), so the check never fires on a correct statement about a
 // single-capsule product unless the same file also names a multi-capsule one.
@@ -22,12 +24,14 @@ const REPO_ROOT = resolve(dirname(new URL(import.meta.url).pathname), '../../..'
 const DATA = resolve(REPO_ROOT, 'packages/data/src');
 const ONE_CAPSULE = /\bin (?:just |a single |one )capsule\b|\ball[- ]in[- ]one capsule\b/i;
 
-type Rec = { name: string; capsulesPerServing?: number | null };
+type Rec = { slug?: string; name: string; capsulesPerServing?: number | null };
 const counts = new Map<string, { multi: number; single: number }>();
+const recordsByFile = new Map<string, Rec[]>();
 const productFiles = readdirSync(DATA).filter((f) => /^products-[a-z]+\.json$/.test(f));
 for (const f of productFiles) {
   const raw = JSON.parse(readFileSync(join(DATA, f), 'utf8')) as Rec[] | { products: Rec[] };
   const recs = Array.isArray(raw) ? raw : raw.products;
+  recordsByFile.set(f, recs);
   for (const r of recs) {
     if (typeof r.capsulesPerServing !== 'number') continue;
     const c = counts.get(r.name) ?? { multi: 0, single: 0 };
@@ -57,6 +61,17 @@ const roots = [
   DATA,
 ];
 const files = roots.flatMap((r) => walk(r, []));
+// Product data files name every product, so a file-level check would flag a
+// true statement about a single-capsule product (2026-10-09: Performance Lab
+// Mind, 1 capsule per serving). They are checked record by record instead.
+const isProductFile = (file: string) => /\/packages\/data\/src\/products-[a-z]+\.json$/.test(file);
+
+function strings(v: unknown, acc: string[] = []): string[] {
+  if (typeof v === 'string') acc.push(v);
+  else if (Array.isArray(v)) v.forEach((x) => strings(x, acc));
+  else if (v && typeof v === 'object') Object.values(v).forEach((x) => strings(x, acc));
+  return acc;
+}
 
 describe('serving-size claims', () => {
   test('inputs are non-empty (fail closed)', () => {
@@ -68,6 +83,7 @@ describe('serving-size claims', () => {
   test('no "in one capsule" claim in a file that names a multi-capsule product', () => {
     const hits: string[] = [];
     for (const file of files) {
+      if (isProductFile(file)) continue;
       const text = readFileSync(file, 'utf8');
       const named = multiCapsuleNames.filter((n) => text.includes(n));
       if (!named.length) continue;
@@ -76,5 +92,16 @@ describe('serving-size claims', () => {
       });
     }
     expect(hits, `"in one capsule" next to multi-capsule products — use "in one formula":\n${hits.join('\n')}`).toEqual([]);
+  });
+
+  test('no product record with more than one capsule per serving says "in one capsule"', () => {
+    const hits: string[] = [];
+    for (const [f, recs] of recordsByFile) {
+      for (const r of recs) {
+        if (typeof r.capsulesPerServing !== 'number' || r.capsulesPerServing <= 1) continue;
+        for (const t of strings(r)) if (ONE_CAPSULE.test(t)) hits.push(`${f} ${r.slug ?? r.name} (${r.capsulesPerServing} capsules per serving): "${t.slice(0, 120)}"`);
+      }
+    }
+    expect(hits, `"in one capsule" in a multi-capsule product record:\n${hits.join('\n')}`).toEqual([]);
   });
 });

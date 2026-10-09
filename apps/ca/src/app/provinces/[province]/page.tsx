@@ -75,8 +75,15 @@ export default async function ProvincePage({
         <div className="bg-gray-50 rounded-xl p-5 mb-8">
           <h2 className="font-bold text-gray-900 mb-2">Customs & Duties for {p.name}</h2>
           <p className="text-sm text-gray-700 leading-relaxed">
-            Orders under CAD $150 from the US typically enter duty-free under CUSMA/USMCA.
-            UK brands like Mind Lab Pro add shipping but no Canadian duties on personal orders.
+            {/* Quoted verbatim from the CBSA page "Increase to low-value shipment
+                thresholds and other changes" (fetched 2026-10-09, page dated
+                2025-11-25); same quote as /best-nootropics/. */}
+            For a shipment imported by courier from the US or Mexico, the CBSA lists &ldquo;Up to $40: duty
+            and tax free&rdquo; and &ldquo;Above $40 to $150: duty free, but taxes still apply&rdquo; (
+            <a href="https://www.cbsa-asfc.gc.ca/services/cusma-aceum/lvs-efv-eng.html" target="_blank" rel="noopener noreferrer" className="text-green-700 underline">CBSA</a>,
+            checked 2026-10-09). For a courier shipment from any other country, including the UK, it lists
+            &ldquo;Up to $20: duty and tax free&rdquo;; by mail, &ldquo;Above $20: duties and taxes apply when
+            imported from any country, including the US and Mexico&rdquo;.
             All prices are in USD — check current CAD/USD exchange rate before ordering.
           </p>
         </div>

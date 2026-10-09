@@ -158,7 +158,7 @@ export default function HomePage() {
           </Link>
           <Link href="/best-nootropics-for-aging/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
             <div className="font-semibold text-gray-900 text-sm mb-1">For aging brain</div>
-            <div className="text-xs text-gray-500">PS + Ginkgo Health Canada-recognised</div>
+            <div className="text-xs text-gray-500">PS + Ginkgo: Health Canada monographs</div>
           </Link>
         </div>
       </section>
