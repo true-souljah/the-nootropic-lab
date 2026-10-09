@@ -72,7 +72,7 @@ export default function AppShell({
   // 240px grid column are in the server-rendered HTML and shown by CSS at
   // lg+ (`hidden lg:block`). Opening it from a post-hydration matchMedia
   // effect added the column after first paint and pushed the whole main
-  // column right — CLS 0.57–0.60 at 1440px (2026-10-08).
+  // column right — live CLS 0.17–0.60 at 1440px (2026-10-08).
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const showInline = mode === 'persistent' || sidebarOpen;
