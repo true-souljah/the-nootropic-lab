@@ -67,7 +67,7 @@ const picks: ListiclePick[] = [
     product: productsLatam.find(p => p.slug === 'thesis-nootropics-review')!,
     rank: 3,
     whyItsHere:
-      'La personalización puede adaptarse a estudiantes con patrones específicos (la fórmula "Clarity" para concentración o "Logic" para trabajo analítico). Modelo de suscripción con costo mensual que se acumula durante el semestre. Cada envío mensual es una importación separada; los aranceles de importación y el despacho aduanero corren por cuenta del comprador en cada envío.',
+      'La personalización puede adaptarse a estudiantes con patrones específicos (la fórmula "Clarity" para concentración). Modelo de suscripción con costo mensual que se acumula durante el semestre. Cada envío mensual es una importación separada; los aranceles de importación y el despacho aduanero corren por cuenta del comprador en cada envío.',
   },
   {
     product: productsLatam.find(p => p.slug === 'noocube-review')!,

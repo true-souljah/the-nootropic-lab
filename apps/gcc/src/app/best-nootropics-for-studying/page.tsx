@@ -78,7 +78,7 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'thesis-nootropics-review')!,
     rank: 5,
     whyItsHere:
-      'Personalisation may suit students with specific patterns (e.g., the "Clarity" formula for focus or "Logic" for analytical work). Each blend has a caffeine-free variant — students should select the caffeine-free option at checkout for Ramadan compatibility and conservative GCC dietary preferences. Subscription model with monthly cost can add up over a semester. Availability caveat: we could not confirm Thesis\'s international shipping from its site (its shipping page was unavailable on 2026-09-29) — check at checkout.',
+      'Personalisation may suit students with specific patterns (e.g., the "Clarity" formula for focus). Clarity, Stress Reset and Neuroprotection come in caffeine-free versions (Motivation contains 150mg caffeine per serving) — students should select a caffeine-free option at checkout for Ramadan compatibility and conservative GCC dietary preferences. Subscription model with monthly cost can add up over a semester. Availability caveat: we could not confirm Thesis\'s international shipping from its site (its shipping page was unavailable on 2026-09-29) — check at checkout.',
   },
 ];
 

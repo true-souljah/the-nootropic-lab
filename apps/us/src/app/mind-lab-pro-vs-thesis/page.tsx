@@ -29,7 +29,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Which is better, Mind Lab Pro or Thesis?',
     a:
-      'Different philosophies. Mind Lab Pro takes a single universal formula approach — same 11 ingredients for everyone, every dose disclosed, $69/month. Thesis takes a personalisation approach — 4-week trial pack of 4 different formulas (Energy, Clarity, Logic, Motivation), then you pick which works for you, $59/month per formula. Universal formulas have more replication evidence; personalisation has stronger user-experience data.',
+      'Different philosophies. Mind Lab Pro takes a single universal formula approach — same 11 ingredients for everyone, every dose disclosed, $69/month. Thesis takes a personalisation approach — 4-week trial pack of different formulas, then you pick which works for you, $59/month per formula; its site sells four formulas (Clarity, Motivation, Stress Reset and Neuroprotection, checked 8 October 2026). Universal formulas have more replication evidence; personalisation has stronger user-experience data.',
   },
   {
     q: 'Is Thesis personalisation evidence-based?',
@@ -44,7 +44,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Are both caffeine-free?',
     a:
-      'Mind Lab Pro is fully caffeine-free. Thesis varies by formula — Energy includes caffeine, Clarity / Logic / Motivation are caffeine-free. Check each formula\'s label.',
+      'Mind Lab Pro is fully caffeine-free. Thesis varies by formula — Motivation contains 150mg caffeine per two-capsule serving; Clarity, Stress Reset and Neuroprotection are sold with or without caffeine (100mg in the caffeinated versions). Check each formula\'s label.',
   },
   {
     q: 'Which has better subscription transparency?',

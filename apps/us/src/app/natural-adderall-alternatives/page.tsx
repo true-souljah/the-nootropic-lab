@@ -72,7 +72,7 @@ const picks: ListiclePick[] = [
     product: productsUS.find(p => p.slug === 'thesis-nootropics-review')!,
     rank: 4,
     whyItsHere:
-      'Personalized via questionnaire — their "Energy" formula leans on the caffeine + L-theanine combo, while "Clarity" includes Alpha-GPC and L-tyrosine. Subscription model is the friction.',
+      'Personalized via questionnaire — their "Motivation" formula pairs caffeine (150mg) with L-theanine (200mg) and N-acetyl-L-tyrosine (400mg), while "Clarity" includes CDP choline (250mg). Subscription model is the friction.',
   },
 ];
 
