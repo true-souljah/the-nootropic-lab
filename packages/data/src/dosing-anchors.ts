@@ -101,9 +101,16 @@ export function baseName(name: string): string {
   return cut === -1 ? name : name.slice(0, cut);
 }
 
-/** Every anchor whose `match` hits the row. More than one is a data (or regex) error. */
+/**
+ * The anchors that govern a row: those whose `match` hits the row's base name
+ * (the full name for `matchFull` anchors); when none does, those whose `match`
+ * hits the full name (FORMULA-SPEC §7A — e.g. CA AOR rows named by their LNHPD
+ * chemical name with the ingredient in parentheses). More than one is a data
+ * (or regex) error.
+ */
 export function matchingAnchors(row: Pick<IngredientDosage, 'name'>, anchors: readonly DosingAnchor[] = DOSING_ANCHORS): DosingAnchor[] {
-  return anchors.filter((anchor) => anchor.match.test(anchor.matchFull ? row.name : baseName(row.name)));
+  const onBase = anchors.filter((anchor) => anchor.match.test(anchor.matchFull ? row.name : baseName(row.name)));
+  return onBase.length > 0 ? onBase : anchors.filter((anchor) => anchor.match.test(row.name));
 }
 
 /** The anchor that governs a row, or null. Throws when the row matches more than one anchor. */
@@ -174,15 +181,20 @@ function isRatioExtract(text: string): boolean {
   return false;
 }
 
+/** A word between an amount and its marker ("120mg ginkgo flavone glycosides"): letters, apostrophes, hyphens. */
+const WORD = "[A-Za-z\\u00C0-\\u024F'’-]+";
+
 /**
  * The marker amount a row prints, as an interval in mg, or null when it prints
- * none. Checked in this order: "<n><unit> <marker>" ("92mg bacopasides"), then
- * "<p>% <marker>" of a stated extract amount (marker = amount × p/100; a
- * printed range "50-55%" gives [amount × 50%, amount × 55%]), then a base
- * name that is itself the marker ("Bacopa saponins": the amount is the marker).
+ * none. Checked in this order: "<n><unit> <marker>" with up to two words
+ * between the unit and the marker ("92mg bacopasides", "120mg ginkgo flavone
+ * glycosides" — FORMULA-SPEC §7B), then "<p>% <marker>" of a stated extract
+ * amount (marker = amount × p/100; a printed range "50-55%" gives
+ * [amount × 50%, amount × 55%]). A base name that is itself the marker is
+ * handled before this, in rowVerdict (§7C).
  */
-function markerInterval(rows: readonly IngredientDosage[], pattern: RegExp, text: string, lo: number, hi: number): [number, number] | null {
-  const stated = new RegExp(`(\\d+(?:\\.\\d+)?)\\s*${UNIT}\\s+(?:${pattern.source})`, 'i').exec(text);
+function markerInterval(pattern: RegExp, text: string, lo: number, hi: number): [number, number] | null {
+  const stated = new RegExp(`(\\d+(?:\\.\\d+)?)\\s*${UNIT}\\s+(?:${WORD}\\s+){0,2}(?:${pattern.source})`, 'i').exec(text);
   if (stated) {
     const mg = toMg(Number(stated[1]), stated[2]);
     return [mg, mg];
@@ -193,26 +205,33 @@ function markerInterval(rows: readonly IngredientDosage[], pattern: RegExp, text
     const pLo = percent[1] === undefined ? pHi : Number(percent[1]);
     return [(lo * pLo) / 100, (hi * pHi) / 100];
   }
-  if (rows.some((row) => pattern.test(baseName(row.name)))) return [lo, hi];
   return null;
 }
 
 /**
  * The `adequatelyDosed` verdict of an anchored row ("score dosing from what the
- * label proves"). `row` must be one of `recordRows`.
- * 1. A combined anchor sums lo and hi over all its rows in the record.
- * 2. hi < minMg → false (proven below), whatever the basis — except a ratio
- *    extract on a raw basis (the amount is concentrated) → null.
- * 3. A printed marker decides: marker ≥ marker minimum (else false; a marker
- *    range straddling it → null) AND, unless the amount is a ratio or
- *    equivalent weight, lo ≥ minMg (else null).
- * 4. An equivalent (dried-herb) weight on an extract basis → null; on a raw
- *    basis it is compared as is.
- * 5. A ratio extract on a raw basis → null; on an extract basis the ratio is
- *    ignored (an extract weight is an extract weight).
- * 6. Extract basis, lo ≥ minMg, but the standardisation is not printed in the
- *    name or dose → null.
- * 7. lo ≥ minMg → true; otherwise null (the interval straddles the minimum).
+ * label proves"). `row` must be one of `recordRows`. Numbers are
+ * FORMULA-SPEC §2, letters its §7 amendments.
+ * 1.  A combined anchor sums lo and hi over all its rows in the record.
+ * 7D. "basis not stated" in the name or dose → null: the label does not say
+ *     whether the amount is the extract or its marker.
+ * 7C. A base name that is itself the marker ("Bacopa saponins"): the amount is
+ *     the marker, so the extract-weight minimum is skipped and the marker
+ *     minimum alone decides — hi below it → false, lo at or above it → true,
+ *     otherwise null.
+ * 2.  hi < minMg → false (proven below), whatever the basis — except a ratio
+ *     extract on a raw basis (the amount is concentrated) → null.
+ * 3.  A printed marker amount ("<n><unit> <marker>", up to two words between —
+ *     7B) or "<p>% <marker>" decides: marker ≥ marker minimum (else false; a
+ *     marker range straddling it → null) AND, unless the amount is a ratio or
+ *     equivalent weight, lo ≥ minMg (else null).
+ * 4.  An equivalent (dried-herb) weight on an extract basis → null; on a raw
+ *     basis it is compared as is.
+ * 5.  A ratio extract on a raw basis → null; on an extract basis the ratio is
+ *     ignored (an extract weight is an extract weight).
+ * 6.  Extract basis, lo ≥ minMg, but the standardisation is not printed in the
+ *     name or dose → null.
+ * 7.  lo ≥ minMg → true; otherwise null (the interval straddles the minimum).
  */
 export function rowVerdict(
   row: IngredientDosage,
@@ -232,9 +251,14 @@ export function rowVerdict(
   const ratio = isRatioExtract(text);
   const equivalent = /equivalent/i.test(text);
 
+  if (/basis not stated/i.test(text)) return null;
+  if (anchor.marker && rows.some((r) => anchor.marker!.pattern.test(baseName(r.name)))) {
+    if (hi < anchor.marker.minMg) return false;
+    return lo >= anchor.marker.minMg ? true : null;
+  }
   if (hi < anchor.minMg) return anchor.basis === 'raw' && ratio ? null : false;
   if (anchor.marker) {
-    const marker = markerInterval(rows, anchor.marker.pattern, text, lo, hi);
+    const marker = markerInterval(anchor.marker.pattern, text, lo, hi);
     if (marker) {
       if (marker[1] < anchor.marker.minMg) return false;
       if (marker[0] < anchor.marker.minMg) return null;
@@ -283,6 +307,16 @@ export function dosingUnits(product: DosingRecord): Array<boolean | null> {
     units.push(rowVerdict(row, anchor, product, rows));
   }
   return units;
+}
+
+/**
+ * The counts behind the review page's "X / Y adequate" chip and "All clinical
+ * doses" chip (FORMULA-SPEC §7E): dosing units proven adequate out of all
+ * dosing units — the same units dosingScore scores, not every row.
+ */
+export function dosingTally(product: DosingRecord): { adequate: number; total: number } {
+  const units = dosingUnits(product);
+  return { adequate: units.filter((verdict) => verdict === true).length, total: units.length };
 }
 
 /**

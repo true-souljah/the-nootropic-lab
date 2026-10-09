@@ -31,6 +31,7 @@ export {
   doseInterval,
   dosingAnchorFor,
   dosingAnchorProblems,
+  dosingTally,
   dosingUnits,
   expectedDosingRows,
   matchingAnchors,

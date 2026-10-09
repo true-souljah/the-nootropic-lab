@@ -3,7 +3,7 @@
 // (packages/ui/src/product-lifecycle.test.ts).
 import type { Product } from './products-us';
 import { PRODUCT_FORMS } from './serving-unit';
-import { dosingUnits, matchingAnchors } from './dosing-anchors';
+import { dosingTally, matchingAnchors } from './dosing-anchors';
 
 const SEARCH_PAGE_MARKERS = ['/s?', '?q=', '&q=', '?k=', '&k='];
 
@@ -164,9 +164,8 @@ export function weightedScore(breakdown: Product['scoreBreakdown']): number {
  * Throws on a row that matches more than one anchor.
  */
 export function dosingScore(product: Pick<Product, 'ingredientDosages'> & Partial<Pick<Product, 'capsulesPerServing'>>): number | null {
-  const units = dosingUnits(product);
-  if (units.length === 0) return null;
-  return roundToTenth((10 * units.filter((verdict) => verdict === true).length) / units.length);
+  const { adequate, total } = dosingTally(product);
+  return total === 0 ? null : roundToTenth((10 * adequate) / total);
 }
 
 /** Pillars that cannot be measured: dosing when no ingredient has a reference dose; value per clinical-dose ingredient. */

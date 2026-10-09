@@ -11,7 +11,7 @@ import { Tabs, TabPanel } from '../primitives/Tabs';
 import { ProductThumb } from '../primitives/ProductThumb';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
 import NoPurchaseLinkNotice from '../NoPurchaseLinkNotice';
-import { productForm, servingAmount, servingUnit, guaranteeDays } from '@nootropic/data';
+import { productForm, servingAmount, servingUnit, guaranteeDays, dosingTally } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 import type { TabId } from './product-detail/constants';
@@ -97,9 +97,10 @@ export default function ProductDetail({
         })
       : null;
 
-  const adequateCount = p.ingredientDosages.filter((d) => d.adequatelyDosed).length;
-  const totalDoses = p.ingredientDosages.length;
-  const allAdequate = totalDoses > 0 && adequateCount === totalDoses;
+  // "All clinical doses" = every dosing unit (row with a reference dose, a
+  // combined anchor once) proven adequate — the units the dosing pillar scores.
+  const dosing = dosingTally(p);
+  const allAdequate = dosing.total > 0 && dosing.adequate === dosing.total;
 
   // A discontinued product keeps its review page but loses every buy surface:
   // no affiliate CTAs, no price stat, no Pricing tab, no "Buying in" block.

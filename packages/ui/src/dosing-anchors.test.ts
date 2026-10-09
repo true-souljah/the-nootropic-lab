@@ -8,6 +8,7 @@ import {
   dosingAnchorFor,
   dosingAnchorProblems,
   dosingScore,
+  dosingTally,
   matchingAnchors,
   rowVerdict,
   ingredients,
@@ -97,18 +98,46 @@ describe('anchor matching — on the base name (text before the first " (")', ()
     expect(baseName('L-Theanine')).toBe('L-Theanine');
   });
 
-  test('a parenthetical never anchors a row: "Matcha (natural caffeine ~40mg)" is not caffeine', () => {
-    expect(matchingAnchors({ name: 'Matcha (natural caffeine ~40mg)' })).toEqual([]);
-    expect(matchingAnchors({ name: 'Camellia Sinensis Extracts (EMT Blend: Pure Matcha, Polyphenols, EGCG, L-Theanine)' })).toEqual([]);
-    expect(matchingAnchors({ name: 'Cognizin (citicoline)' }).map((a) => a.ingredientSlug)).toEqual(['citicoline']);
+  // FORMULA-SPEC §7A (2026-10-09): the base name decides when it matches an
+  // anchor; only when it matches none is the full name tested. The CA AOR
+  // Ortho Mind rows are named by their Health Canada (LNHPD) chemical names
+  // with the ingredient in parentheses and must anchor to ALCAR and citicoline.
+  const AOR_ALCAR = '(2R)-2-(Acetyloxy)-3-carboxy-N,N,N-trimethyl-1-propanaminium inner salt (N-Acetyl L-carnitine hydrochloride)';
+  const AOR_CITICOLINE = "Choline cytidine 5'-pyrophosphate (ester) (Citicoline)";
+
+  test('7A: a base name that matches no anchor falls back to the full name (CA AOR chemical names)', () => {
+    expect(matchingAnchors({ name: AOR_ALCAR }).map((a) => a.ingredientSlug)).toEqual(['acetyl-l-carnitine']);
+    expect(matchingAnchors({ name: AOR_CITICOLINE }).map((a) => a.ingredientSlug)).toEqual(['citicoline']);
+    expect(verdictOf([label(AOR_ALCAR, '1500mg (250 mg per capsule × 6)')])).toBe(true);
+    expect(verdictOf([label(AOR_CITICOLINE, '499.98mg (83.33 mg per capsule × 6)')])).toBe(true);
+    expect(verdictOf([label(AOR_ALCAR, '500mg')])).toBe(false); // synthetic: below 1500
   });
 
-  test('matchFull tests the whole name (brand-specific anchors; synthetic anchor)', () => {
-    const brand: DosingAnchor = { ingredientSlug: 'x', match: /longvida/i, matchFull: true, clinicalDose: 'x', minMg: 400, basis: 'extract' };
+  test('7A: a base name that matches an anchor wins; the parentheses are not consulted', () => {
+    // "capsules with caffeine only" must not make the Thesis theanine row a caffeine row.
+    const theanine = 'L-Theanine (Camellia sinensis, capsules with caffeine only) (Stress Reset)';
+    expect(matchingAnchors({ name: theanine }).map((a) => a.ingredientSlug)).toEqual(['l-theanine']);
+    expect(matchingAnchors({ name: 'Cognizin (citicoline)' }).map((a) => a.ingredientSlug)).toEqual(['citicoline']);
+    // Neither name mentions an anchor anywhere → no anchor.
+    expect(matchingAnchors({ name: '5-Oxo-L-proline, compound with L-arginine (1:1) (Arginine PCA)' })).toEqual([]);
+  });
+
+  test('7A: a full-name fallback that hits two anchors is an error (synthetic)', () => {
+    expect(() => dosingAnchorFor({ name: 'Eye blend (lutein, DHA)' })).toThrow(/more than one dosing anchor/);
+  });
+
+  // Since §7A a plain anchor also reaches the parentheses, but only when no
+  // anchor matches the base name; a matchFull anchor is tested on the full name
+  // in the first pass, next to the base-name matches.
+  test('matchFull tests the whole name in the first pass (brand-specific anchors; synthetic anchors)', () => {
+    const brand: DosingAnchor = { ingredientSlug: 'longvida', match: /longvida/i, matchFull: true, clinicalDose: 'x', minMg: 400, basis: 'extract' };
     const plain: DosingAnchor = { ...brand, matchFull: false };
-    const curcumin = { name: 'Curcumin (Longvida® turmeric extract)' };
-    expect(matchingAnchors(curcumin, [brand])).toEqual([brand]);
-    expect(matchingAnchors(curcumin, [plain])).toEqual([]);
+    const curcumin: DosingAnchor = { ...plain, ingredientSlug: 'curcumin', match: /curcumin/i };
+    const row = { name: 'Curcumin (Longvida® turmeric extract)' };
+    expect(matchingAnchors(row, [brand])).toEqual([brand]);
+    expect(matchingAnchors(row, [plain])).toEqual([plain]); // §7A fallback: no base-name match
+    expect(matchingAnchors(row, [curcumin, plain])).toEqual([curcumin]); // the base name wins
+    expect(matchingAnchors(row, [curcumin, brand])).toEqual([curcumin, brand]); // matchFull competes → two anchors
   });
 
   test('a row matching two anchors is an error (synthetic)', () => {
@@ -184,6 +213,47 @@ describe('rowVerdict — "score dosing from what the label proves"', () => {
     expect(verdictOf([label('L-Theanine', 'Undisclosed')])).toBeNull();
     expect(verdictOf([label('L-Theanine', '60mg per capsule or per serving')], 2)).toBeNull(); // synthetic: 60–120mg
     expect(verdictOf([label('L-Theanine', '60mg per capsule or per serving')], 1)).toBe(false); // synthetic: 60mg
+  });
+
+  test('7B: up to two words may stand between the marker amount and the marker', () => {
+    // NatureBell (label correction #336): the 120mg is read as the marker now, not just the standardisation word.
+    expect(verdictOf([label('Ginkgo Biloba Extract (leaf)', '500mg (12:1 extract; 120mg ginkgo flavone glycosides)')])).toBe(true);
+    // synthetic: one word between, marker below 57.6 → false (the "glycosid" standardisation word alone would say true)
+    expect(verdictOf([label('Ginkgo Biloba Extract (leaf)', '500mg (12:1 extract; 50mg ginkgo flavone glycosides)')])).toBe(false);
+    // synthetic: two words between still counts
+    expect(verdictOf([label('Ginkgo Biloba Extract (leaf)', '300mg (50mg standardised ginkgo flavone glycosides)')])).toBe(false);
+    // synthetic: three words between is not a printed marker amount → decided on the extract weight
+    expect(verdictOf([label('Ginkgo Biloba Extract (leaf)', '300mg (50mg from standardised leaf flavone glycosides)')])).toBe(true);
+  });
+
+  test('7C: a base name that is the marker is judged on the marker minimum only, not the extract weight', () => {
+    expect(verdictOf([label('Bacopa saponins (バコパサポニン)', '15mg')])).toBe(false); // FANCL BRAINs: 15 < 165
+    expect(verdictOf([label('Bacopa saponins', '200mg')])).toBe(true); // synthetic: 200 ≥ 165, below the 300mg extract minimum
+    expect(verdictOf([label('Bacopa saponins', 'Not stated (share of 400mg blend)')])).toBeNull(); // synthetic: 0–400 straddles 165
+  });
+
+  test('7D: "basis not stated" → null, even below the minimum (Thesis fermented-salidroside Rhodiola)', () => {
+    expect(verdictOf([label('Rhodiola Rosea (fermented salidrosides; basis not stated) (Motivation)', '60mg')])).toBeNull();
+    expect(verdictOf([label('Rhodiola Rosea (Motivation)', '60mg (fermented salidrosides; basis not stated)')])).toBeNull();
+    // The same row without the note is proven below the 200mg minimum.
+    expect(verdictOf([label('Rhodiola Rosea (fermented salidrosides) (Motivation)', '60mg')])).toBe(false);
+  });
+});
+
+describe('dosingTally — the review page\'s "X / Y adequate" chip counts dosing units (FORMULA-SPEC §7E)', () => {
+  test('rows without a reference dose are not counted; a combined anchor counts once', () => {
+    const rows = [
+      label('Lutein (Lutemax Brain marigold flower extract)', '10mg (12mg lutein + zeaxanthin together)'),
+      label('Zeaxanthin (Lutemax Brain marigold flower extract)', '2mg (12mg lutein + zeaxanthin together)'),
+      label('Alpha-GPC (L-alpha-glycerylphosphorylcholine)', '115mg'),
+      label('Taurine', '200mg'),
+      label('Vitamin B6 (pyridoxal 5\'-phosphate)', '2mg'),
+    ];
+    expect(dosingTally({ ingredientDosages: rows })).toEqual({ adequate: 1, total: 2 }); // not 5 rows
+  });
+
+  test('no anchored row → 0 of 0 (the chip is hidden)', () => {
+    expect(dosingTally({ ingredientDosages: [label('Cera-Q (Silk Fibroin Protein)', '600mg')] })).toEqual({ adequate: 0, total: 0 });
   });
 });
 
