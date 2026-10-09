@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ProductDetail, SchemaOrg, buildAlternates} from '@nootropic/ui';
-import { allProductsUS, productsUS, regionsWithProduct, buildProductSchema, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { allProductsUS, productsUS, regionsWithProduct, headToHeadFor, buildProductSchema, getRegionalHealthDisclaimer } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
 import { regionalProductProps } from '@/lib/regional';
@@ -23,8 +23,14 @@ export async function generateMetadata({
   const { slug } = await params;
   const product = allProductsUS.find((p) => p.slug === slug);
   if (!product) return {};
-  const title = `${product.name} Review ${CURRENT_YEAR} — Independent Score & Ingredient Audit`;
-  const description = `Independent review of ${product.name}. Score: ${product.score}/10. Clinical dosing audit, pros and cons, and full affiliate disclosure.`;
+  // Per-product SEO override (seoTitle/seoDescription) wins when set; this
+  // route reads productsUS only, so an override never reaches another region.
+  const title =
+    product.seoTitle ??
+    `${product.name} Review ${CURRENT_YEAR} — Independent Score & Ingredient Audit`;
+  const description =
+    product.seoDescription ??
+    `Independent review of ${product.name}. Score: ${product.score}/10. Clinical dosing audit, pros and cons, and full affiliate disclosure.`;
   return {
     title,
     description,
@@ -75,6 +81,7 @@ export default async function ProductReviewPage({
       <ProductDetail
         product={product}
         alternatives={alternatives}
+        headToHead={headToHeadFor(product.slug, 'us')}
         siteUrl={SITE_URL}
         searchItems={searchItems}
         uiStrings={uiStrings}
