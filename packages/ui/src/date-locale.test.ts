@@ -9,7 +9,7 @@ import { join } from 'node:path';
 // de/fr/pt/ja/es pages instead of the locale-native form.
 
 const TEMPLATES_DIR = join(__dirname, 'templates');
-const DATE_TEMPLATES = ['ThreeWay.tsx', 'Listicle.tsx', 'HeadToHead.tsx', 'IngredientDetail.tsx'];
+const DATE_TEMPLATES = ['Listicle.tsx', 'HeadToHead.tsx', 'IngredientDetail.tsx'];
 
 describe('locale-aware "last updated" dates', () => {
   it.each(DATE_TEMPLATES)('%s does not hardcode en-US in toLocaleDateString', (tpl) => {

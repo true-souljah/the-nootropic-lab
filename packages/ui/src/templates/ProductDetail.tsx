@@ -11,7 +11,7 @@ import { Tabs, TabPanel } from '../primitives/Tabs';
 import { ProductThumb } from '../primitives/ProductThumb';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
 import NoPurchaseLinkNotice from '../NoPurchaseLinkNotice';
-import { earnsCommission, productForm, servingAmount, servingUnit, guaranteeDays } from '@nootropic/data';
+import { earnsCommission, productForm, servingAmount, servingUnit, guaranteeDays, dosingTally } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 import type { TabId } from './product-detail/constants';
@@ -23,6 +23,7 @@ import { PricingTab } from './product-detail/PricingTab';
 import RegionalBuying from '../RegionalBuying';
 import { formatLocalPrice } from '../RegionalAvailability';
 import type { RegionalBuyingProps } from '../RegionalBuying';
+import { scoreTier } from './listicleRanking';
 
 export interface ProductDetailProps {
   product: Product;
@@ -105,9 +106,10 @@ export default function ProductDetail({
         })
       : null;
 
-  const adequateCount = p.ingredientDosages.filter((d) => d.adequatelyDosed).length;
-  const totalDoses = p.ingredientDosages.length;
-  const allAdequate = totalDoses > 0 && adequateCount === totalDoses;
+  // "All clinical doses" = every dosing unit (row with a reference dose, a
+  // combined anchor once) proven adequate — the units the dosing pillar scores.
+  const dosing = dosingTally(p);
+  const allAdequate = dosing.total > 0 && dosing.adequate === dosing.total;
 
   // A discontinued product keeps its review page but loses every buy surface:
   // no affiliate CTAs, no price stat, no Pricing tab, no "Buying in" block.
@@ -131,8 +133,7 @@ export default function ProductDetail({
     false,
   ];
 
-  const scoreColor =
-    p.score >= 8.5 ? 'text-ds-good' : p.score >= 7.5 ? 'text-ds-warn-ink' : 'text-ds-bad';
+  const scoreColor = { good: 'text-ds-good', warn: 'text-ds-warn-ink', bad: 'text-ds-bad' }[scoreTier(p.score)];
 
   return (
     <AppShell

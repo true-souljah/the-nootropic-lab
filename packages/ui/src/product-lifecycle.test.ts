@@ -152,15 +152,28 @@ describe('record rules — affiliateUrl and formula', () => {
     expect(formulaProblem({ ingredientDosages: [dosage] })).toBeNull();
   });
 
-  test('productRuleProblems collects both violations', () => {
-    const bad = productRuleProblems({ affiliateUrl: 'https://shop.example/s?k=x', ingredientDosages: [], ...scored });
-    expect(bad).toHaveLength(2);
-    expect(productRuleProblems({ affiliateUrl: 'https://shop.example/p/x', ingredientDosages: [dosage], ...scored })).toEqual([]);
+  // Since the dosing formula (2026-10-09) an empty formula also breaks the
+  // dosing pillar: a scored dosing of 7 with no anchored row is a third violation.
+  test('productRuleProblems collects every violation', () => {
+    const bad = productRuleProblems({ ...scored, affiliateUrl: 'https://shop.example/s?k=x', ingredientDosages: [] });
+    expect(bad).toHaveLength(3);
+    expect(bad[0]).toMatch(/search page/);
+    expect(bad[1]).toMatch(/ingredientDosages is empty/);
+    expect(bad[2]).toMatch(/dosing 7 is not the dosing formula's null/);
+    expect(productRuleProblems({ ...scored, affiliateUrl: 'https://shop.example/p/x' })).toEqual([]);
   });
 });
 
+const theanine = (doseInProduct: string, adequatelyDosed: boolean) => ({
+  name: 'L-Theanine', doseInProduct, clinicalDose: '100-200mg/day', adequatelyDosed,
+});
+// Dosing 7 = 7 of 10 anchored rows proven adequate (dosingScore).
+const sevenOfTen = [
+  ...Array.from({ length: 7 }, () => theanine('200mg', true)),
+  ...Array.from({ length: 3 }, () => theanine('50mg', false)),
+];
 // 0.25×8 + 0.30×7 + 0.20×8 + 0.15×7 + 0.10×7 = 7.45 → 7.5 (half up).
-const scored = { score: 7.5, scoreBreakdown: { ingredients: 8, dosing: 7, transparency: 8, value: 7, trust: 7 } };
+const scored = { score: 7.5, scoreBreakdown: { ingredients: 8, dosing: 7, transparency: 8, value: 7, trust: 7 }, ingredientDosages: sevenOfTen };
 
 describe('scoreProblem — a fully scored record carries the weighted mean of its pillars (2026-10-07)', () => {
   test('the stored score must equal the PILLAR_WEIGHTS-weighted sum, rounded to one decimal', () => {
@@ -173,13 +186,26 @@ describe('scoreProblem — a fully scored record carries the weighted mean of it
     expect(scoreProblem({ ...scored, score: 7.45 })).toMatch(/not the weighted mean.*7\.5/);
   });
 
+  test('the dosing pillar must be the dosing formula\'s (2026-10-09): no hand-set dosing values', () => {
+    // 0.25×8 + 0.30×8 + 0.20×8 + 0.15×7 + 0.10×7 = 7.75 → 7.8: consistent with its pillars, but 8 is not 7 of 10.
+    const handSet = { ...scored, score: 7.8, scoreBreakdown: { ...scored.scoreBreakdown, dosing: 8 } };
+    expect(scoreProblem(handSet)).toMatch(/^scoreBreakdown: dosing 8 is not the dosing formula's 7 /);
+    // Dosing may be null only when no row has a reference dose.
+    const unscored = { ...scored, score: 7.6, scoreBreakdown: { ...scored.scoreBreakdown, dosing: null }, unscoredReason: 'x' };
+    expect(scoreProblem(unscored)).toMatch(/dosing null is not the dosing formula's 7 /);
+    // A row matching two anchors cannot be scored.
+    const ambiguous = { ...scored, ingredientDosages: [...sevenOfTen, { ...theanine('200mg', true), name: 'Lutein + DHA complex' }] };
+    expect(scoreProblem(ambiguous)).toMatch(/"Lutein \+ DHA complex" match more than one dosing anchor/);
+  });
+
   test('a .x5 mean rounds half up despite binary float noise', () => {
     // US Performance Lab Mind: 0.25×9 + 0.30×10 + 0.20×10 + 0.15×8 + 0.10×6 = 9.05 exactly, but the
     // float sum is 9.049999999999999 — Math.round(x * 10) / 10 and the Number.EPSILON trick both give 9.
     const plMind = { ingredients: 9, dosing: 10, transparency: 10, value: 8, trust: 6 };
+    const allAdequate = [theanine('200mg', true)];
     expect(weightedScore(plMind)).toBe(9.1);
-    expect(scoreProblem({ score: 9.1, scoreBreakdown: plMind })).toBeNull();
-    expect(scoreProblem({ score: 9, scoreBreakdown: plMind })).toMatch(/not the weighted mean.*9\.1/);
+    expect(scoreProblem({ score: 9.1, scoreBreakdown: plMind, ingredientDosages: allAdequate })).toBeNull();
+    expect(scoreProblem({ score: 9, scoreBreakdown: plMind, ingredientDosages: allAdequate })).toMatch(/not the weighted mean.*9\.1/);
     expect(weightedScore(scored.scoreBreakdown)).toBe(7.5);
     // Other .x5 sums: 9.35 → 9.4 (Mind Lab Pro), 8.95 → 9.
     expect(weightedScore({ ingredients: 9, dosing: 10, transparency: 10, value: 8, trust: 9 })).toBe(9.4);
@@ -187,35 +213,41 @@ describe('scoreProblem — a fully scored record carries the weighted mean of it
   });
 });
 
-describe('scoreProblem — unscorable pillars (2026-10, SEA Supershrooms)', () => {
+// Since the dosing formula (2026-10-09) dosing is null only when no row has a
+// reference dose (SEA Supershrooms, the first null-pillar record, now scores 0).
+describe('scoreProblem — unscorable pillars (2026-10)', () => {
   const partial = { ingredients: 6, dosing: null, transparency: 4, value: null, trust: 4 };
   const reason = 'Doses are not disclosed, so dosing and value cannot be scored.';
+  const ingredientDosages = [{ name: 'Cordyceps', doseInProduct: 'Undisclosed', clinicalDose: 'No reference dose on file', adequatelyDosed: null }];
 
   test('a null pillar needs unscoredReason', () => {
-    expect(scoreProblem({ score: 4.7, scoreBreakdown: partial })).toMatch(/without unscoredReason/);
-    expect(scoreProblem({ score: 4.7, scoreBreakdown: partial, unscoredReason: '  ' })).toMatch(/without unscoredReason/);
+    expect(scoreProblem({ score: 4.7, scoreBreakdown: partial, ingredientDosages })).toMatch(/without unscoredReason/);
+    expect(scoreProblem({ score: 4.7, scoreBreakdown: partial, unscoredReason: '  ', ingredientDosages })).toMatch(/without unscoredReason/);
   });
 
   test('the overall score must be the weighted mean of the scored pillars', () => {
     // (0.25×6 + 0.20×4 + 0.10×4) / 0.55 = 4.909 — PILLAR_WEIGHTS renormalised over the scored pillars.
-    expect(scoreProblem({ score: 4.9, scoreBreakdown: partial, unscoredReason: reason })).toBeNull();
+    expect(scoreProblem({ score: 4.9, scoreBreakdown: partial, unscoredReason: reason, ingredientDosages })).toBeNull();
     // An equal-weight mean (4.7) is not the published method.
-    expect(scoreProblem({ score: 4.7, scoreBreakdown: partial, unscoredReason: reason })).toMatch(/weighted mean.*4\.9/);
+    expect(scoreProblem({ score: 4.7, scoreBreakdown: partial, unscoredReason: reason, ingredientDosages })).toMatch(/weighted mean.*4\.9/);
     // The pre-fix live value: 5.5 cannot be derived from 6, 4, 4.
-    expect(scoreProblem({ score: 5.5, scoreBreakdown: partial, unscoredReason: reason })).toMatch(/not the weighted mean.*4\.9/);
+    expect(scoreProblem({ score: 5.5, scoreBreakdown: partial, unscoredReason: reason, ingredientDosages })).toMatch(/not the weighted mean.*4\.9/);
   });
 
   test('only dosing and value may be unscored', () => {
     const badPillar = { ...partial, trust: null } as unknown as typeof partial;
-    expect(scoreProblem({ score: 5, scoreBreakdown: badPillar, unscoredReason: reason })).toMatch(/only dosing\/value may be null, got trust/);
+    expect(scoreProblem({ score: 5, scoreBreakdown: badPillar, unscoredReason: reason, ingredientDosages })).toMatch(/only dosing\/value may be null, got trust/);
   });
 
   test('every real record passes (the gate runs on these in validate-data)', () => {
     for (const p of [...allProductsUS, ...allProductsEU, ...allProductsCA, ...allProductsAU, ...allProductsJP, ...allProductsLatam, ...allProductsGCC, ...allProductsSEA]) {
       expect(scoreProblem(p), p.slug).toBeNull();
     }
+    // Supershrooms hides every dose: dosing 0 since the formula (operator 2026-10-09),
+    // (0.25×6 + 0.30×0 + 0.20×4 + 0.10×4) / 0.85 = 3.18 → 3.2; value stays unscored.
     const supershrooms = allProductsSEA.find((p) => p.slug === 'supershrooms-focus-nootropic-review');
-    expect(supershrooms?.score).toBe(4.9);
+    expect(supershrooms?.scoreBreakdown).toMatchObject({ dosing: 0, value: null });
+    expect(supershrooms?.score).toBe(3.2);
     expect(supershrooms?.unscoredReason).toMatch(/discloses no ingredient doses/);
   });
 });
@@ -244,7 +276,7 @@ describe('halalEvidenceProblem — halal status needs dated evidence (2026-10-07
   });
 
   test('productRuleProblems reports it, and every real record passes', () => {
-    expect(productRuleProblems({ affiliateUrl: 'https://shop.example/p/x', ingredientDosages: [dosage], ...scored, halalCertified: false })).toEqual([
+    expect(productRuleProblems({ affiliateUrl: 'https://shop.example/p/x', ...scored, halalCertified: false })).toEqual([
       'halalCheckedAt is not a YYYY-MM-DD date: undefined',
     ]);
     const all = [...allProductsUS, ...allProductsEU, ...allProductsCA, ...allProductsAU, ...allProductsJP, ...allProductsLatam, ...allProductsGCC, ...allProductsSEA];

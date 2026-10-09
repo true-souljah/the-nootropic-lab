@@ -25,24 +25,28 @@ export const metadata: Metadata = {
 const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Tyrosine (and NALT)',
+    ingredientSlugs: ['l-tyrosine'],
     evidence:
-      'Precursor to dopamine and norepinephrine — the same neurotransmitter systems targeted by ADHD stimulants (Adderall, Ritalin). Tyrosine does NOT replicate stimulant effects but may modestly support attention under cognitive load or stress. Studied at 300–500mg as NALT or 1500–2000mg as free tyrosine.',
+      'Precursor to dopamine and norepinephrine — the same neurotransmitter systems targeted by ADHD stimulants (Adderall, Ritalin). Tyrosine does NOT replicate stimulant effects but may modestly support attention under cognitive load or stress. The stress trials with positive results used plain (free) L-tyrosine at 2g a day or 100–150mg/kg.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/26424423/',
   },
   {
     name: 'Bacopa Monnieri',
+    ingredientSlugs: ['bacopa-monnieri'],
     evidence:
       'Multiple RCTs in adults (and a smaller body of evidence in children with ADHD) show modest improvements in attention, memory consolidation, and impulse control after 12+ weeks at 300mg standardized to 50% bacosides. Onset is slow — this is not an acute-effect ingredient.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
   },
   {
     name: 'Citicoline (CDP-Choline)',
+    ingredientSlugs: ['citicoline'],
     evidence:
       'Choline donor + uridine source. A 2015 RCT in 75 healthy adolescent males (McGlade et al.; three co-authors were affiliated with Kyowa Hakko) found 28 days of Cognizin citicoline at 250 or 500mg/day improved attention and psychomotor speed versus placebo. The boys were healthy volunteers, not an ADHD sample, so this does not show an ADHD treatment effect. Generally well-tolerated; potentially complementary to ADHD medication under clinician supervision.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/26179181/',
   },
   {
     name: 'L-Theanine + Caffeine',
+    ingredientSlugs: ['l-theanine', 'caffeine'],
     evidence:
       'Smooths the focus-and-jitter profile of caffeine. People who need caffeine for focus but find it makes them anxious or shaky often respond better to a 1:2 to 2:1 L-theanine/caffeine ratio. Not specific to ADHD but useful for the caffeine-using subset.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',

@@ -56,6 +56,12 @@ export interface UseCaseListPageStrings {
   alsoConsideredIntro: string;
   /** Per-product reason line — uses {score} and {minScore} */
   belowBarReason: string;
+  /** Heading of that section when a pick in it meets the bar but fails rule (b), the dose rule */
+  alsoConsideredRulesHeading: string;
+  /** Lead paragraph of that section in that case (names both rules) — uses {minScore} */
+  alsoConsideredRulesIntro: string;
+  /** Reason line of a pick that meets the bar but fails rule (b) — uses {score} */
+  doseRuleReason: string;
   /** "In this guide" sidebar link to that section */
   alsoConsideredToc: string;
   /** "Audited · {date}" chip label above the H1 */
@@ -128,6 +134,10 @@ export const useCaseListPageEnDefaults: UseCaseListPageStrings = {
   alsoConsideredIntro:
     'Products audited for this guide that score below the {minScore}/10 a ranked pick needs in our 5-pillar editorial audit. Listed for transparency, not ranked or recommended.',
   belowBarReason: 'Scores {score}/10 — below our {minScore} bar',
+  alsoConsideredRulesHeading: 'Also considered — not ranked',
+  alsoConsideredRulesIntro:
+    "Products audited for this guide that we do not rank: each either scores below the {minScore}/10 a ranked pick needs in our 5-pillar editorial audit, or its label shows none of this guide's evidence ingredients at our reference dose. Listed for transparency, not ranked or recommended.",
+  doseRuleReason: "Scores {score}/10, but its label shows none of this guide's evidence ingredients at our reference dose",
   alsoConsideredToc: 'Also considered',
   audited: 'Audited',
   bylineAttribution: 'By The Nootropic Lab editorial team',
@@ -184,6 +194,11 @@ export const useCaseListPageEsStrings: Partial<UseCaseListPageStrings> = {
   alsoConsideredIntro:
     'Productos auditados para esta guía cuya puntuación queda por debajo del {minScore}/10 que necesita una selección clasificada en nuestra auditoría editorial de 5 pilares. Se incluyen por transparencia; no están clasificados ni recomendados.',
   belowBarReason: 'Puntuación de {score}/10 — por debajo de nuestro umbral de {minScore}',
+  alsoConsideredRulesHeading: 'También evaluados — sin clasificar',
+  alsoConsideredRulesIntro:
+    'Productos auditados para esta guía que no clasificamos: cada uno obtiene una puntuación por debajo del {minScore}/10 que necesita una selección clasificada en nuestra auditoría editorial de 5 pilares, o su etiqueta no muestra ninguno de los ingredientes con evidencia de esta guía en nuestra dosis de referencia. Se incluyen por transparencia; no están clasificados ni recomendados.',
+  doseRuleReason:
+    'Puntuación de {score}/10, pero su etiqueta no muestra ninguno de los ingredientes con evidencia de esta guía en nuestra dosis de referencia',
   alsoConsideredToc: 'También evaluados',
   audited: 'Auditado',
   bylineAttribution: 'Por el equipo editorial de The Nootropic Lab',

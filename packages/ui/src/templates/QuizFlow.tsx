@@ -199,7 +199,7 @@ export default function QuizFlow({
         {step === 3 && (
           <Step
             title="What's your monthly budget?"
-            subtitle="Most fully-dosed formulas land between $40 and $80/month."
+            subtitle="We match the products whose monthly price fits your budget."
           >
             <Card padding={24}>
               <div className="flex justify-between items-baseline mb-4 flex-wrap gap-2">
@@ -248,9 +248,9 @@ export default function QuizFlow({
             {budget < 40 && (
               <Card variant="subdued" padding={16} className="mt-3 border-l-[3px] border-l-ds-warn">
                 <div className="text-[13px] text-ds-ink-soft m-0 leading-[1.55]">
-                  <strong className="text-ds-warn-ink">Heads up:</strong> products under $40/month
-                  typically underdose at least one flagship ingredient. You may want to budget at
-                  least $45–50 to cover a fully-dosed formula.
+                  <strong className="text-ds-warn-ink">Heads up:</strong> at this budget, check the
+                  dosing tab of each match: it compares each ingredient&apos;s label amount with the
+                  reference dose on our ingredient pages, where one exists.
                 </div>
               </Card>
             )}

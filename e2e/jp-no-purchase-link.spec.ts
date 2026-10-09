@@ -63,15 +63,16 @@ test.describe('JP no purchase link: Hunter Focus', () => {
     expect(await page.locator('a[rel~="sponsored"]').count()).toBeGreaterThan(0);
   });
 
-  test('/best-nootropics-for-focus/ pick #2 shows the full notice instead of its CTA', async ({ page }) => {
+  test('/best-nootropics-for-focus/ lists Hunter Focus under "Also considered", with no purchase link', async ({ page }) => {
+    // Since the dosing formula (#357) Hunter Focus scores below the 7.0 listicle bar in
+    // JP, so it is no longer a ranked pick with a CTA (where the full notice used to
+    // replace the link): its unranked entry carries only a review link. The ranked-pick
+    // notice stays covered by the review-page tests above and purchase-link.test.ts.
     const res = await page.goto('/best-nootropics-for-focus/');
     expect(res?.status()).toBe(200);
-    await expect(page.locator('#pick-hunter-focus-review')).toBeVisible();
+    await expect(page.locator('#also-considered-hunter-focus-review')).toBeVisible();
+    await expect(page.locator('#pick-hunter-focus-review')).toHaveCount(0);
     await expect(page.locator(VENDOR_LINK)).toHaveCount(0);
-    const notice = page.locator('[role="note"][data-no-purchase-link]');
-    await expect(notice).toHaveCount(1);
-    await expect(notice).toBeVisible();
-    await expect(notice.locator('[lang="ja"]')).toHaveText(JA_LINE);
     expect(await page.locator('a[rel~="sponsored"]').count()).toBeGreaterThan(0);
   });
 
