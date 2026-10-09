@@ -110,9 +110,6 @@ export default function Page() {
       faqItems={faqItems}
       siteUrl={SITE_URL}
       regulatoryPillar={{ label: 'EU-authorised cognitive health claims (assessed by EFSA)', href: '/efsa-approved-cognitive-supplements/' }}
-      relatedCompares={[
-        { label: "BRAINEFFECT vs Mind Lab Pro", href: '/braineffect-vs-mind-lab-pro/' },
-      ]}
       healthDisclaimer={getRegionalHealthDisclaimer('eu')}
       searchItems={searchItems}
       uiStrings={uiStrings}

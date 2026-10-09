@@ -34,7 +34,7 @@ export { ingredients } from './ingredients';
 export type { Guide, GuideSection, GuideSource, GuideBlock, GuideTranslation } from './guides';
 export { guides, guideSources } from './guides';
 export { guidesEs } from './guides-es';
-export { guidesForRegion, selectGuidesForRegion } from './guide-regions';
+export { guidesForRegion, selectGuidesForRegion, guideHosts } from './guide-regions';
 export type { EUCountry } from './eu-countries';
 export { euCountries } from './eu-countries';
 export type { LatamCountry } from './latam-countries';

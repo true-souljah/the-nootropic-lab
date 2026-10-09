@@ -18,7 +18,7 @@ const REGIONS = ['us', 'eu', 'ca', 'au', 'jp', 'latam', 'gcc', 'sea'] as const;
 const ACTIVE_WITHOUT_IMAGE = ['memo-plus-gold'];
 // Discontinued products keep their review page (monogram) — no current
 // vendor page to take a pack-shot from.
-const DISCONTINUED_WITHOUT_IMAGE = ['blackmores-brain-active', 'braineffect-focus', 'performance-lab-mind'];
+const DISCONTINUED_WITHOUT_IMAGE = ['blackmores-brain-active', 'performance-lab-mind'];
 
 interface RegionProduct {
   id: string;

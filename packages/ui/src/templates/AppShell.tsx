@@ -122,8 +122,9 @@ export default function AppShell({
       {/* When the mobile drawer is visible, `inert` keeps the keyboard +
           AT focus inside the drawer — prevents Tab from escaping into the
           obscured page. Only applied at the mobile breakpoint; desktop
-          ignores it. */}
-      <div {...(drawerVisible ? { inert: '' as unknown as undefined } : {})}>
+          ignores it. React 19 treats `inert` as a boolean: an empty string
+          renders no attribute at all. */}
+      <div inert={drawerVisible}>
         <div
           className={`grid items-start ${
             showInline ? 'lg:grid-cols-[240px_1fr]' : 'lg:grid-cols-[1fr]'

@@ -88,14 +88,6 @@ describe('activeProducts — discontinued products are never recommendable', () 
     expect(productsGCC.every((p) => p.discontinued === undefined)).toBe(true);
   });
 
-  test('eu: BRAINEFFECT FOCUS is discontinued without a successor', () => {
-    const focus = allProductsEU.find((p) => p.slug === 'braineffect-focus-review');
-    expect(focus).toBeDefined();
-    expect(focus!.discontinued).toBeDefined();
-    expect(focus!.discontinued!.successorSlug).toBeUndefined();
-    expect(productsEU.some((p) => p.slug === 'braineffect-focus-review')).toBe(false);
-  });
-
   test('every successorSlug resolves to a live review page in the same region', () => {
     for (const [all, active] of [
       [allProductsUS, productsUS], [allProductsEU, productsEU], [allProductsCA, productsCA],
@@ -116,7 +108,6 @@ describe('activeProducts — discontinued products are never recommendable', () 
     expect(regionsWithProduct('blackmores-brain-active-review')).toEqual(
       expect.arrayContaining(['au', 'sea']),
     );
-    expect(regionsWithProduct('braineffect-focus-review')).toEqual(['eu']);
   });
 });
 

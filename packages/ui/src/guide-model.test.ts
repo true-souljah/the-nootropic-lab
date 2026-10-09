@@ -5,6 +5,7 @@ import {
   buildRegionSearchContext,
   guides,
   guidesEs,
+  guideHosts,
   guidesForRegion,
   ingredients,
   selectGuidesForRegion,
@@ -69,7 +70,14 @@ function blockProblems(section: GuideSection): string[] {
   return out;
 }
 
-const englishBySlug = new Map(guides.map((g) => [g.slug, g]));
+// A slug may have several English variants with disjoint hosts (e.g. a US edition
+// plus the regionalised edition). hostsBySlug is the union of their hosts.
+const hostsBySlug = new Map<string, Set<string>>();
+for (const g of guides) {
+  const set = hostsBySlug.get(g.slug) ?? new Set<string>();
+  g.regions.forEach((r) => set.add(r));
+  hostsBySlug.set(g.slug, set);
+}
 const ingredientSlugs = new Set(ingredients.map((i) => i.slug));
 
 describe('guide regions', () => {
@@ -99,8 +107,17 @@ describe('guide regions', () => {
     expect(selectGuidesForRegion([g], guidesEs, 'eu')).toEqual([]);
   });
 
-  test('slugs are unique', () => {
-    expect(new Set(guides.map((g) => g.slug)).size).toBe(guides.length);
+  test('no host is served two variants of the same slug', () => {
+    const clashes: string[] = [];
+    for (const r of ALL_REGIONS) {
+      const slugs = guides.filter((g) => g.regions.includes(r)).map((g) => g.slug);
+      slugs.filter((s, i) => slugs.indexOf(s) !== i).forEach((s) => clashes.push(`${r}: ${s}`));
+    }
+    expect(clashes).toEqual([]);
+  });
+
+  test('guideHosts(slug) is the union of every variant’s hosts', () => {
+    for (const [slug, hosts] of hostsBySlug) expect(new Set(guideHosts(slug))).toEqual(hosts);
   });
 
   test('every guide served on LATAM has a Spanish translation with the same section structure, and vice versa', () => {
@@ -119,7 +136,7 @@ describe('guide regions', () => {
       });
     }
     for (const es of guidesEs) {
-      if (!englishBySlug.get(es.slug)?.regions.includes('latam')) problems.push(`${es.slug}: Spanish translation of a guide not served on LATAM`);
+      if (!hostsBySlug.get(es.slug)?.has('latam')) problems.push(`${es.slug}: Spanish translation of a guide not served on LATAM`);
     }
     expect(problems).toEqual([]);
   });
@@ -144,8 +161,9 @@ describe('guide regions', () => {
 
 describe('guide content', () => {
   const all = [
-    ...guides.map((g) => ({ label: g.slug, g, regions: g.regions })),
-    ...guidesEs.map((g) => ({ label: `es:${g.slug}`, g, regions: englishBySlug.get(g.slug)?.regions ?? [] })),
+    ...guides.map((g) => ({ label: `${g.slug} [${g.regions.join(',')}]`, g, regions: g.regions })),
+    // A Spanish guide is only ever served on LATAM.
+    ...guidesEs.map((g) => ({ label: `es:${g.slug}`, g, regions: ['latam'] as const })),
   ];
 
   test.each(all.map((x) => [x.label, x]))('%s: sections are well-formed', (_l, { g }) => {
@@ -165,9 +183,9 @@ describe('guide content', () => {
           }
           const guide = /^\/guides\/([a-z0-9-]+)\/$/.exec(target);
           if (guide) {
-            const t = englishBySlug.get(guide[1]);
+            const t = hostsBySlug.get(guide[1]);
             if (!t) problems.push(`${raw}: no such guide`);
-            else for (const r of regions) if (!t.regions.includes(r)) problems.push(`${raw}: guide not served on ${r}`);
+            else for (const r of regions) if (!t.has(r)) problems.push(`${raw}: guide not served on ${r}`);
           }
           const ing = /^\/ingredients\/([a-z0-9-]+)\/$/.exec(target);
           if (ing && !ingredientSlugs.has(ing[1])) problems.push(`${raw}: no such ingredient`);

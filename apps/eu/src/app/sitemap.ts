@@ -16,7 +16,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/best-nootropics-for-aging/`, lastModified: d.productListing('best-nootropics-for-aging'), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE}/nootropic-comparison/`, lastModified: d.productListing('nootropic-comparison'), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE}/efsa-approved-cognitive-supplements/`, lastModified: d.productListing('efsa-approved-cognitive-supplements'), changeFrequency: 'monthly', priority: 0.75 },
-    { url: `${BASE}/braineffect-vs-mind-lab-pro/`, lastModified: d.productListing('braineffect-vs-mind-lab-pro'), changeFrequency: 'weekly', priority: 0.75 },
     { url: `${BASE}/methodology/`, lastModified: d.page('methodology'), changeFrequency: 'monthly', priority: 0.5 },
     { url: `${BASE}/about/`, lastModified: d.page('about'), changeFrequency: 'monthly', priority: 0.5 },
     { url: `${BASE}/contact/`, lastModified: d.page('contact'), changeFrequency: 'yearly', priority: 0.3 },

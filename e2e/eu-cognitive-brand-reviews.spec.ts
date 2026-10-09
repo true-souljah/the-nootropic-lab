@@ -29,14 +29,13 @@ const REVIEW_ROUTES = [
   '/mind-lab-pro-review/',
   '/noocube-review/',
   '/performance-lab-mind-review/',
-  '/braineffect-focus-review/',
   '/brainzyme-focus-pro-review/',
   '/hunter-focus-review/',
 ];
 
-// Discontinued products (Performance Lab Mind 2026-09-28, BRAINEFFECT FOCUS
-// 2026-09-29) keep their review page with a notice and no buy CTA.
-const DISCONTINUED_ROUTES = ['/performance-lab-mind-review/', '/braineffect-focus-review/'];
+// Discontinued products (Performance Lab Mind 2026-09-28) keep their review
+// page with a notice and no buy CTA.
+const DISCONTINUED_ROUTES = ['/performance-lab-mind-review/'];
 
 test.beforeEach(async ({ context }) => {
   await context.addCookies([

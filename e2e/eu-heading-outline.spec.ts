@@ -67,8 +67,8 @@ const ROUTES = [
   { path: '/efsa-approved-cognitive-supplements/', template: 'EU EFSA pillar' },
   { path: '/best-nootropics-for-focus/', template: 'Listicle' },
   { path: '/mind-lab-pro-review/', template: 'ProductDetail (international brand)' },
-  // Discontinued since 2026-09-29: the notice must not add a heading level.
-  { path: '/braineffect-focus-review/', template: 'EU brand (BRAINEFFECT, discontinued)' },
+  // Discontinued since 2026-09-28: the notice must not add a heading level.
+  { path: '/performance-lab-mind-review/', template: 'ProductDetail (discontinued)' },
   { path: '/ingredients/l-theanine/', template: 'IngredientDetail' },
 ];
 
