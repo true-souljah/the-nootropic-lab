@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
-import { guidesForRegion, buildPersonAuthorReference, productsCA, regionalGuideNote, regionalTitleQualifier } from '@nootropic/data';
+import { guidesForRegion, guideHosts, buildPersonAuthorReference, productsCA, regionalGuideNote, regionalTitleQualifier } from '@nootropic/data';
 
 import { PublicShell, RegionalAvailability, GuideEvidenceReviewed, GuideSources, GuideBody } from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
@@ -29,7 +29,7 @@ export async function generateMetadata({
   return {
     title: `${g.title}${q}`,
     description: g.description,
-    alternates: buildAlternates({ regionCode: 'ca', path: `/guides/${guide}/`, availableInRegions: g.regions }),
+    alternates: buildAlternates({ regionCode: 'ca', path: `/guides/${guide}/`, availableInRegions: guideHosts(g.slug) }),
     openGraph: buildOpenGraph({ regionCode: 'ca', path: `/guides/${guide}/`, title: `${g.title}${q} — The Nootropic Lab`, description: g.description }),
     twitter: buildTwitter({ title: `${g.title}${q} — The Nootropic Lab`, description: g.description }),
   };

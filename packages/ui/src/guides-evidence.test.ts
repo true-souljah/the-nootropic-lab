@@ -42,13 +42,19 @@ describe('guide sources', () => {
     });
   }
 
-  test('Spanish guides cover the same slugs and cite the same sources as English', () => {
-    expect(guidesEs.map((g) => g.slug)).toEqual(guides.map((g) => g.slug));
+  test('Spanish guides cover exactly the English versions LATAM serves and cite the same sources', () => {
+    // A slug can have a US-only edition with its own sources (e.g. the 2026-10 What
+    // Are Nootropics? rewrite); the Spanish set mirrors the versions that list latam.
+    const translated = guides.filter((g) => g.regions.includes('latam'));
+    expect(guidesEs.map((g) => g.slug)).toEqual(translated.map((g) => g.slug));
     for (const g of guidesEs) {
       expect(g.sources, g.slug).toBe(guideSources[g.slug]);
     }
-    for (const g of guides) {
+    for (const g of translated) {
       expect(g.sources, g.slug).toBe(guideSources[g.slug]);
+    }
+    for (const g of guides.filter((x) => !x.regions.includes('latam'))) {
+      expect(g.sources, `${g.slug} [${g.regions.join(',')}] has its own sources`).not.toBe(guideSources[g.slug]);
     }
   });
 });
