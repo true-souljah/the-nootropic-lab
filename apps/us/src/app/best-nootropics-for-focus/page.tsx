@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsUS.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes citicoline, Alpha-GPC, L-theanine, and L-tyrosine — covers nearly every evidence-backed focus mechanism. Loses ground to Mind Lab Pro on capsule count (7+/day) and price ($139/mo subscription) but wins on ingredient breadth.',
+      'Includes citicoline, Alpha-GPC, L-theanine, and L-tyrosine — covers nearly every evidence-backed focus mechanism. Loses ground to Mind Lab Pro on capsule count (6/day) and price ($139/mo subscription) but wins on ingredient breadth.',
   },
   {
     product: productsUS.find(p => p.slug === 'onnit-alpha-brain-review')!,

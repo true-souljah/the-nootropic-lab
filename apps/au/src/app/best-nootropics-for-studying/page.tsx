@@ -61,7 +61,7 @@ const picks: ListiclePick[] = [
     product: productsAU.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Most complete study stack: includes everything in Mind Lab Pro plus Alpha-GPC, Rhodiola, and choline-supporting cofactors with Bacopa fully dosed at 300mg. The 7+ capsules/day is friction during exam block; the AUD $215/mo subscription is significant friction for Australian student budgets (cheaper to buy a Mind Lab Pro + standalone TGA-listed Bacopa stack).',
+      'Most complete study stack: includes everything in Mind Lab Pro except Bacopa and Pine Bark, plus Alpha-GPC and choline-supporting cofactors. The 6 capsules/day is friction during exam block; the AUD $215/mo subscription is significant friction for Australian student budgets (cheaper to buy a Mind Lab Pro + standalone TGA-listed Bacopa stack).',
   },
   {
     product: productsAU.find(p => p.slug === 'onnit-alpha-brain-review')!,

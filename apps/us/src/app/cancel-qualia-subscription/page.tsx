@@ -78,7 +78,7 @@ const faqItems: CancellationFAQ[] = [
   },
   {
     q: 'Are there alternatives to Qualia Mind?',
-    a: 'Mind Lab Pro is the most direct alternative — single universal formula, every dose disclosed, $69/month with no autoship (manual reorder only). The capsule count is also lower (2/day vs Qualia\'s 7+/day). Read our Mind Lab Pro vs Qualia Mind head-to-head.',
+    a: 'Mind Lab Pro is the most direct alternative — single universal formula, every dose disclosed, $69/month with no autoship (manual reorder only). The capsule count is also lower (2/day vs Qualia\'s 6/day). Read our Mind Lab Pro vs Qualia Mind head-to-head.',
   },
 ];
 

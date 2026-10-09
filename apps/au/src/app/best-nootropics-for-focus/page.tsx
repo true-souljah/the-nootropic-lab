@@ -61,7 +61,7 @@ const picks: ListiclePick[] = [
     product: productsAU.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes citicoline, Alpha-GPC, L-theanine, and L-tyrosine — covers nearly every evidence-backed focus mechanism. Loses ground to Mind Lab Pro on capsule count (7+/day) and price (AUD $215/mo subscription) but wins on ingredient breadth. Contains caffeine. Huperzine A, also in this formula, was not found under the names huperzine A or Huperzia serrata in Schedule 1 of the Permissible Ingredients Determination, and the TGA says an ingredient not listed there can\'t be used in listed or assessed listed medicines; no entry under huperzine or Huperzia was found in the current Poisons Standard either (name-level searches, checked 2026-10-08).',
+      'Includes citicoline, Alpha-GPC, L-theanine, and L-tyrosine — covers nearly every evidence-backed focus mechanism. Loses ground to Mind Lab Pro on capsule count (6/day) and price (AUD $215/mo subscription) but wins on ingredient breadth. Contains caffeine.',
   },
   {
     product: productsAU.find(p => p.slug === 'onnit-alpha-brain-review')!,

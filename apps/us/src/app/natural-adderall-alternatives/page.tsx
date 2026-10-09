@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsUS.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes both citicoline and L-tyrosine plus Alpha-GPC and Rhodiola — covers the broadest spectrum of "Adderall-adjacent" mechanisms in a single product. Caveat: 7+ capsules/day and $139/month makes it the highest-friction option. Available with caffeinated and caffeine-free SKUs.',
+      'Includes both citicoline and L-tyrosine plus Alpha-GPC and Rhodiola — covers the broadest spectrum of "Adderall-adjacent" mechanisms in a single product. Caveat: 6 capsules/day and $139/month makes it the highest-friction option. Available with caffeinated and caffeine-free SKUs.',
   },
   {
     product: productsUS.find(p => p.slug === 'noocube-review')!,

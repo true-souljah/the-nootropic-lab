@@ -66,7 +66,7 @@ const picks: ListiclePick[] = [
     product: productsCA.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes phosphatidylserine 200mg, citicoline, Bacopa at full clinical dose, and Lion\'s Mane plus 25 additional ingredients. Most complete coverage but the 6-capsule daily protocol can be hard to maintain for older adults — and the 90mg caffeine per serving rules it out for caffeine-sensitive seniors. Consider whether the breadth justifies that friction.',
+      'Includes phosphatidylserine 100mg, citicoline, and Lion\'s Mane plus 28 additional ingredients. Most complete coverage but the 6-capsule daily protocol can be hard to maintain for older adults — and the 100mg caffeine per serving rules it out for caffeine-sensitive seniors. Consider whether the breadth justifies that friction.',
   },
   {
     product: productsCA.find(p => p.slug === 'naturebell-ginkgo-ginseng-review')!,

@@ -66,7 +66,7 @@ const picks: ListiclePick[] = [
     product: productsUS.find(p => p.slug === 'qualia-mind-review')!,
     rank: 3,
     whyItsHere:
-      'Includes Bacopa, citicoline, phosphatidylserine, AND Lion\'s Mane — the most complete memory-ingredient stack in one product. Loses ground on capsule count (7+/day) and price ($139/mo subscription). For memory specifically, the breadth justifies the trade-off if you can tolerate the daily friction.',
+      'Includes citicoline, phosphatidylserine, AND Lion\'s Mane — the most complete memory-ingredient stack in one product. Loses ground on capsule count (6/day) and price ($139/mo subscription). For memory specifically, the breadth justifies the trade-off if you can tolerate the daily friction.',
   },
   {
     product: productsUS.find(p => p.slug === 'onnit-alpha-brain-review')!,
