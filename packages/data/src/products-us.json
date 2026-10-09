@@ -274,10 +274,10 @@
       "Neurohackers",
       "Complex stacks"
     ],
-    "score": 6.4,
+    "score": 7.3,
     "scoreBreakdown": {
       "ingredients": 10,
-      "dosing": 1.7,
+      "dosing": 4.5,
       "transparency": 9,
       "value": 6,
       "trust": 7
@@ -743,7 +743,7 @@
         "name": "Lion's Mane (Hericium erinaceus) (Clarity)",
         "doseInProduct": "500mg per capsule or per serving (not stated)",
         "clinicalDose": "1000-1800mg/day",
-        "adequatelyDosed": false
+        "adequatelyDosed": null
       },
       {
         "name": "7,8-Dihydroxyflavone (Clarity)",
@@ -785,7 +785,7 @@
         "name": "Rhodiola Rosea (fermented salidrosides) (Motivation)",
         "doseInProduct": "60mg (basis not stated)",
         "clinicalDose": "200-600mg/day",
-        "adequatelyDosed": false
+        "adequatelyDosed": null
       },
       {
         "name": "Vitamin B6 (pyridoxal-5'-phosphate) (Motivation)",
@@ -833,7 +833,7 @@
         "name": "Rhodiola Rosea (fermented salidrosides) (Stress Reset)",
         "doseInProduct": "30mg (basis not stated)",
         "clinicalDose": "200-600mg/day",
-        "adequatelyDosed": false
+        "adequatelyDosed": null
       },
       {
         "name": "Magnesium Bisglycinate (Stress Reset)",
@@ -869,7 +869,7 @@
         "name": "Ginkgo Biloba (Neuroprotection)",
         "doseInProduct": "120mg per capsule or per serving (not stated)",
         "clinicalDose": "240mg/day (24/6 extract)",
-        "adequatelyDosed": false
+        "adequatelyDosed": null
       },
       {
         "name": "Mustard Seed (Sinapis alba) (Neuroprotection)",
@@ -1249,10 +1249,10 @@
       "Executive nootropic",
       "Comprehensive stack"
     ],
-    "score": 7.1,
+    "score": 6.8,
     "scoreBreakdown": {
       "ingredients": 9,
-      "dosing": 4,
+      "dosing": 3.3,
       "transparency": 10,
       "value": 6,
       "trust": 7

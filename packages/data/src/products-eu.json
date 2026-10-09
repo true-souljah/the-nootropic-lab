@@ -520,14 +520,14 @@
       {
         "name": "Matcha (natural caffeine ~40mg)",
         "doseInProduct": "400mg matcha",
-        "clinicalDose": "100-200mg",
-        "adequatelyDosed": true
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Guarana (natural caffeine ~20mg)",
         "doseInProduct": "200mg guarana",
-        "clinicalDose": "100-200mg",
-        "adequatelyDosed": true
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "L-Theanine",
@@ -621,10 +621,10 @@
       "Premium buyers",
       "Focus + mood"
     ],
-    "score": 7,
+    "score": 6.4,
     "scoreBreakdown": {
       "ingredients": 8,
-      "dosing": 5,
+      "dosing": 3.3,
       "transparency": 8,
       "value": 7,
       "trust": 8
