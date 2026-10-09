@@ -8,7 +8,7 @@ import { searchItems, uiStrings } from "@/lib/search";
 import { SITE_URL } from '@/lib/region';
 
 export const metadata: Metadata = {
-  title: 'Imprint / 運営者情報 — The Nootropic Lab Japan',
+  title: 'Imprint / 運営者情報',
   description:
     'Imprint for the Japanese edition of The Nootropic Lab. Publisher information, contact details, editorial standards, and affiliate-disclosure policy.',
   alternates: buildAlternates({ regionCode: 'jp', path: '/imprint/' }),

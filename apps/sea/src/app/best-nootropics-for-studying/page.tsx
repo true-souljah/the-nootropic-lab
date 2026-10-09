@@ -66,7 +66,7 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'naturebell-ginkgo-ginseng-review')!,
     rank: 3,
     whyItsHere:
-      'The cheapest legitimate brain supplement on this page at ~SGD $7/month (~$5 USD) for a 5-month supply via Amazon.sg. Ginkgo Biloba at full clinical dose (120mg). Ginseng underdosed. Its low price appeals to first-year university students testing whether nootropics do anything for them before committing to a premium stack. 60-day money-back guarantee.',
+      'The cheapest legitimate brain supplement on this page at ~SGD $7/month (~$5 USD) for a 5-month supply via Amazon.sg. Ginkgo Biloba at full clinical dose (500mg extract standardised to 120mg flavone glycosides). Ginseng is 50mg of Korean Red Ginseng extract with no ginsenoside amount stated. Its low price appeals to first-year university students testing whether nootropics do anything for them before committing to a premium stack. 60-day money-back guarantee.',
   },
 ];
 

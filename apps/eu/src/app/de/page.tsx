@@ -6,7 +6,7 @@ import { searchItems, uiStrings } from '@/lib/search-de';
 const CURRENT_YEAR = new Date().getFullYear();
 
 export const metadata: Metadata = {
-  title: 'The Nootropic Lab EU — Unabhängige Bewertungen kognitiver Nahrungsergänzungsmittel in Europa',
+  title: { absolute: 'The Nootropic Lab EU — Unabhängige Bewertungen kognitiver Nahrungsergänzungsmittel in Europa' },
   description:
     'Die unabhängige Nootropika-Vergleichsplattform für europäische Käufer. EUR-Preise, Produkte mit EU-Shop und regulatorische Orientierung.',
   alternates: buildAlternates({ regionCode: 'eu', path: '/de/', availableInRegions: ['eu'] }),

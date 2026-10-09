@@ -39,56 +39,80 @@
     ],
     "ingredientDosages": [
       {
-        "name": "Lion's Mane (fruiting body)",
+        "name": "Lion's Mane Mushroom",
         "doseInProduct": "500mg",
-        "clinicalDose": "500mg",
-        "adequatelyDosed": true
+        "clinicalDose": "1000-1800mg/day",
+        "adequatelyDosed": false
       },
       {
         "name": "Citicoline (Cognizin)",
         "doseInProduct": "250mg",
-        "clinicalDose": "250mg",
+        "clinicalDose": "250-500mg/day",
         "adequatelyDosed": true
       },
       {
-        "name": "Bacopa Monnieri (full-spectrum, 24% bacosides)",
+        "name": "Bacopa Monnieri (full-spectrum extract, 24% bacosides)",
         "doseInProduct": "150mg",
-        "clinicalDose": "300mg",
+        "clinicalDose": "300-450mg/day (55% bacosides)",
         "adequatelyDosed": false
       },
       {
-        "name": "Rhodiola Rosea (3% rosavins)",
+        "name": "Rhodiola Rosea (3% rosavins, 1% salidrosides)",
         "doseInProduct": "50mg",
-        "clinicalDose": "200mg",
+        "clinicalDose": "200-600mg/day",
         "adequatelyDosed": false
       },
       {
         "name": "L-Theanine",
         "doseInProduct": "100mg",
-        "clinicalDose": "100-200mg",
+        "clinicalDose": "100-200mg/day",
         "adequatelyDosed": true
       },
       {
-        "name": "Phosphatidylserine (Sharp-PS)",
+        "name": "Phosphatidylserine",
         "doseInProduct": "100mg",
-        "clinicalDose": "100mg",
+        "clinicalDose": "100-300mg/day",
         "adequatelyDosed": true
       },
       {
-        "name": "L-Tyrosine (NALT)",
+        "name": "N-Acetyl L-Tyrosine (NALT)",
         "doseInProduct": "175mg",
-        "clinicalDose": "300-500mg as NALT",
+        "clinicalDose": "2000mg/day (lowest positive trial)",
         "adequatelyDosed": false
+      },
+      {
+        "name": "Maritime Pine Bark Extract (95% proanthocyanidins)",
+        "doseInProduct": "75mg",
+        "clinicalDose": "100-200mg/day",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Vitamin B6 (NutriGenesis)",
+        "doseInProduct": "2.5mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin B9 (NutriGenesis)",
+        "doseInProduct": "100mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin B12 (NutriGenesis)",
+        "doseInProduct": "7.5mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       }
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 2,
-    "summary": "The most comprehensively researched nootropic stack available to Canadian buyers. Most ingredients are clinically dosed and peer-reviewed. Ships from the UK directly to Canada with reliable international delivery. Our #1 pick for the Canadian market.",
+    "summary": "The most comprehensively researched nootropic stack available to Canadian buyers. Its ingredients are peer-reviewed and every dose is disclosed, though only citicoline, phosphatidylserine and L-theanine meet our reference doses. Ships from the UK directly to Canada with reliable international delivery. Our #1 pick for the Canadian market.",
     "whatItIs": "Mind Lab Pro is an 11-ingredient pre-formulated nootropic stack sold by Performance Lab Group Ltd (Royal Leamington Spa, UK) per mindlabpro.com's terms; the brand's own posts say it was formulated by Opti-Nutra in the UK (checked 2026-10-08). It ships directly to Canada and is designed as a complete daily cognitive supplement covering memory, focus, mental energy, mood, and long-term brain health without caffeine or proprietary blends. Health Canada defines natural health products (NHPs) by substance, as \"vitamins and minerals, herbal remedies, homeopathic medicines, traditional medicines (like Traditional Chinese Medicines), probiotics, and other products like amino acids and essential fatty acids\", and states that \"All natural health products (NHPs) sold in Canada require a product licence before being marketed.\" We found no NPN (Natural Product Number) for Mind Lab Pro in Health Canada's Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07); the only Opti-Nutra licence-holder entry is a different, discontinued product (PhentaSlim, NPN 80068706). A licence can be held under another name, so look for an eight-digit NPN on the label; without one, a consumer's only route is personal importation, which Health Canada's GUI-0116 limits to \"no more than a 90-day supply or a single course of treatment, whichever is less\".",
     "howItWorks": "Mind Lab Pro works across six bio-pathways simultaneously. Citicoline and Phosphatidylserine support the cholinergic system and neuronal membrane integrity. Lion's Mane stimulates Nerve Growth Factor (NGF) for neuroplasticity. Bacopa Monnieri enhances synaptic communication for memory. Rhodiola Rosea and L-Tyrosine support dopamine/norepinephrine balance under stress. L-Theanine promotes alpha brain wave activity for calm focus. B-vitamins support homocysteine regulation and neurotransmitter synthesis.",
     "whatToExpect": "Within 30-60 minutes: mild calm focus from L-Theanine. Within 2-4 weeks: improved mental energy and reduced cognitive fatigue. At 8-12 weeks: measurable improvements in memory recall and learning speed. Ships from the UK to Canada -- 5-20 working days by tracked airmail or 2-7 working days by DHL courier (per mindlabpro.com, checked 2026-09-29). Canadian buyers pay in USD; no additional reformulation for the Canadian market. Best results require 3+ months of consistent daily use.",
     "pros": [
-      "11 ingredients at clinical doses",
+      "11 ingredients, every dose disclosed",
       "Third-party tested, allergen-free",
       "Caffeine-free",
       "365-day affiliate cookie",
@@ -132,7 +156,10 @@
         "url": "https://ca.mindlabpro.com/pages/shipping-returns",
         "lang": "en"
       }
-    }
+    },
+    "notes": [
+      "Ingredient amounts from Mind Lab Pro's label at https://ca.mindlabpro.com/products/mind-lab-pro, checked 2026-10-08."
+    ]
   },
   {
     "id": "noocube",
@@ -177,59 +204,83 @@
     ],
     "ingredientDosages": [
       {
-        "name": "Lutemax 2020 (Lutein/Zeaxanthin)",
-        "doseInProduct": "20mg",
-        "clinicalDose": "20mg",
-        "adequatelyDosed": true
+        "name": "Vitamin B1 (Thiamine HCl)",
+        "doseInProduct": "1.1mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
-        "name": "Bacopa Monnieri (12:1, 20% bacosides)",
-        "doseInProduct": "250mg",
-        "clinicalDose": "300mg",
-        "adequatelyDosed": false
+        "name": "Vitamin B12 (Cyanocobalamin)",
+        "doseInProduct": "2.5mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
-        "name": "Panax Ginseng (200:1 concentrate)",
-        "doseInProduct": "20mg",
-        "clinicalDose": "Limited human data",
-        "adequatelyDosed": false
+        "name": "Biotin (D-Biotin)",
+        "doseInProduct": "50mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Choline (VitaCholine)",
+        "doseInProduct": "100mg (from 250mg Choline Bitartrate)",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Bacopa Monnieri Extract (herb, 20% bacosides)",
         "doseInProduct": "250mg",
-        "clinicalDose": "Limited human data",
+        "clinicalDose": "300-450mg/day (55% bacosides)",
         "adequatelyDosed": false
       },
       {
-        "name": "Cat's Claw (4:1 extract)",
-        "doseInProduct": "Undisclosed",
-        "clinicalDose": "Limited human data",
+        "name": "L-Tyrosine",
+        "doseInProduct": "250mg",
+        "clinicalDose": "2000mg/day (lowest positive trial)",
         "adequatelyDosed": false
       },
       {
-        "name": "Resveratrol (99%)",
-        "doseInProduct": "14.3mg",
-        "clinicalDose": "Limited human data",
-        "adequatelyDosed": false
+        "name": "Cat's Claw Concentrated Extract (Uncaria tomentosa bark)",
+        "doseInProduct": "175mg (4:1 extract)",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "L-Theanine",
         "doseInProduct": "100mg",
-        "clinicalDose": "100-200mg",
+        "clinicalDose": "100-200mg/day",
         "adequatelyDosed": true
+      },
+      {
+        "name": "Panax Ginseng Concentrated Extract",
+        "doseInProduct": "20mg (8:1 extract, equivalent to 160mg Panax Ginseng powder)",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Lutemax 2020 (Marigold Flower Extract, Tagetes erecta)",
+        "doseInProduct": "20mg",
+        "clinicalDose": "12-27mg/day",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Trans-Resveratrol (Polygonum cuspidatum root)",
+        "doseInProduct": "14.3mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Pterostilbene",
         "doseInProduct": "140mcg",
-        "clinicalDose": "Limited human data",
-        "adequatelyDosed": false
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       }
     ],
     "servingsPerContainer": 30,
-    "capsulesPerServing": 4,
+    "capsulesPerServing": 2,
     "summary": "Strong formula anchored by Lutemax 2020 for screen workers. Ships to Canada from the UK/EU. Priced at $64.99 USD for a 30-serving bottle on noocube.com. Note: the noocube.com Trustpilot profile has no reviews yet -- verify independently before purchasing.",
     "whatItIs": "NooCube is a 12-ingredient nootropic stack made by Wolfson Brands. Its standout feature is Lutemax 2020 -- a patented lutein and zeaxanthin extract with mixed evidence for screen eye strain: a 6-month trial funded by Lutemax's maker found less self-rated eye strain and eye fatigue (Stringham 2017), but a 2025 trial of a different lutein/zeaxanthin product found no change in self-rated eye strain (Lopresti 2025). Available for international shipping to Canada, it is one of the more affordable options for Canadian buyers paying in USD.",
-    "howItWorks": "Lutemax 2020 filters high-energy blue light in the retina; for Canadian remote workers and office professionals, trial results on screen-related eye fatigue are mixed (one maker-funded trial positive, a trial of a different lutein/zeaxanthin product null on self-rated eye strain). Choline from VitaCholine (250mg) supports the cholinergic system; the current formula no longer contains Alpha-GPC or Huperzine A. L-Theanine provides calm focus. Bacopa Monnieri targets memory consolidation over weeks.",
+    "howItWorks": "Lutemax 2020 filters high-energy blue light in the retina; for Canadian remote workers and office professionals, trial results on screen-related eye fatigue are mixed (one maker-funded trial positive, a trial of a different lutein/zeaxanthin product null on self-rated eye strain). Choline (100mg, from 250mg VitaCholine choline bitartrate) supports the cholinergic system; the current formula no longer contains Alpha-GPC or Huperzine A. L-Theanine provides calm focus. Bacopa Monnieri targets memory consolidation over weeks.",
     "whatToExpect": "Day one: mild calm focus from L-Theanine. Lutemax: its eye-strain trials ran 6 months and disagree, so do not count on a quick eye-fatigue effect. At 8 weeks: modest memory improvements from Bacopa. NooCube ships internationally to Canada with delivery quoted as within 10 business days (per noocube.com, checked 2026-09-29). The noocube.com Trustpilot profile has no reviews yet -- verify the cancellation policy before purchasing.",
     "pros": [
       "Lutemax 2020 for screen workers",
@@ -255,7 +306,8 @@
       "msrp_usd": 59.99
     },
     "notes": [
-      "Bulk-purchase pricing changed June 2026: 5-month supply $194.99 (was 6-month for $180). Per-bottle cost increased ~8% on bundles."
+      "Bulk-purchase pricing changed June 2026: 5-month supply $194.99 (was 6-month for $180). Per-bottle cost increased ~8% on bundles.",
+      "Ingredient amounts from NooCube's label at https://noocube.com/cdn/shop/t/90/assets/noocube-label-usa-v3.jpg?v=141477061997521322691727969792, checked 2026-10-08."
     ],
     "verifiedAt": "2026-09-28",
     "trustpilotCheckedAt": "2026-09-28",
@@ -322,40 +374,39 @@
     ],
     "ingredientDosages": [
       {
-        "name": "Citicoline (Cognizin)",
+        "name": "Citicoline (stabilized cytidine 5'-diphosphocholine)",
         "doseInProduct": "250mg",
-        "clinicalDose": "250mg",
+        "clinicalDose": "250-500mg/day",
         "adequatelyDosed": true
       },
       {
-        "name": "Phosphatidylserine (Sharp-PS Green)",
+        "name": "Phosphatidylserine (from sunflower lecithin)",
         "doseInProduct": "100mg",
-        "clinicalDose": "100mg",
+        "clinicalDose": "100-300mg/day",
         "adequatelyDosed": true
       },
       {
-        "name": "L-Tyrosine (Ajipure)",
-        "doseInProduct": "300mg",
-        "clinicalDose": "500mg",
+        "name": "L-Tyrosine",
+        "doseInProduct": "250mg",
+        "clinicalDose": "2000mg/day (lowest positive trial)",
         "adequatelyDosed": false
       },
       {
-        "name": "Maritime Pine Bark Extract",
+        "name": "Maritime Pine Bark Extract (Pinus pinaster, 95% proanthocyanidins)",
         "doseInProduct": "75mg",
-        "clinicalDose": "100mg",
+        "clinicalDose": "100-200mg/day",
         "adequatelyDosed": false
       }
     ],
     "servingsPerContainer": 30,
-    "capsulesPerServing": 2,
+    "capsulesPerServing": 1,
     "summary": "A minimalist, ultra-clean nootropic formula using premium patented ingredients. Ships to Canada from the UK. No NPN found for the searched names (LNHPD, 2026-10-07); check the label. Ideal for Canadian buyers who prefer a simple, transparent supplement over large multi-ingredient stacks.",
-    "whatItIs": "Performance Lab Mind is a streamlined 4-ingredient nootropic by Performance Lab, a UK-based supplement company. It ships directly to Canada and uses only NutriGenesis and licensed raw materials with full label transparency. Health Canada defines natural health products (NHPs) by substance, as \"vitamins and minerals, herbal remedies, homeopathic medicines, traditional medicines (like Traditional Chinese Medicines), probiotics, and other products like amino acids and essential fatty acids\", and states that \"All natural health products (NHPs) sold in Canada require a product licence before being marketed.\" We found no NPN (Natural Product Number) for Performance Lab Mind or licence holder Performance Lab in Health Canada's Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07); a licence can be held under another name, so look for an eight-digit NPN on the label; without one, a consumer's only route is personal importation, which Health Canada's GUI-0116 limits to \"no more than a 90-day supply or a single course of treatment, whichever is less\".",
+    "whatItIs": "Performance Lab Mind is a streamlined 4-ingredient nootropic by Performance Lab, a UK-based supplement company. It ships directly to Canada and uses only licensed raw materials with full label transparency. Health Canada defines natural health products (NHPs) by substance, as \"vitamins and minerals, herbal remedies, homeopathic medicines, traditional medicines (like Traditional Chinese Medicines), probiotics, and other products like amino acids and essential fatty acids\", and states that \"All natural health products (NHPs) sold in Canada require a product licence before being marketed.\" We found no NPN (Natural Product Number) for Performance Lab Mind or licence holder Performance Lab in Health Canada's Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07); a licence can be held under another name, so look for an eight-digit NPN on the label; without one, a consumer's only route is personal importation, which Health Canada's GUI-0116 limits to \"no more than a 90-day supply or a single course of treatment, whichever is less\".",
     "howItWorks": "Citicoline (Cognizin) boosts brain cell membrane synthesis and acetylcholine production for focus and memory. Phosphatidylserine (Sharp-PS Green) maintains neuronal membrane fluidity and supports cortisol regulation under stress. L-Tyrosine replenishes catecholamine neurotransmitters depleted by cognitive effort. Maritime Pine Bark provides antioxidants that support cerebral blood flow.",
-    "whatToExpect": "Day one: mild cognitive sharpness and sustained attention. Within 2-4 weeks: improved stress resilience and working memory. At 8 weeks: measurable reduction in mental fatigue during extended cognitive tasks. Ships from the UK to Canada -- 5-20 working days by tracked airmail or 2-7 working days by DHL courier (per performancelab.com, checked 2026-09-29). Only 2 capsules per serving -- well suited for Canadians looking for a low pill-burden daily stack.",
+    "whatToExpect": "Day one: mild cognitive sharpness and sustained attention. Within 2-4 weeks: improved stress resilience and working memory. At 8 weeks: measurable reduction in mental fatigue during extended cognitive tasks. Ships from the UK to Canada -- 5-20 working days by tracked airmail or 2-7 working days by DHL courier (per performancelab.com, checked 2026-09-29). Only 1 capsule per serving -- well suited for Canadians looking for a low pill-burden daily stack.",
     "pros": [
       "Minimalist clean formula",
-      "NutriGenesis nutrients",
-      "Only 2 capsules/day"
+      "Only 1 capsule/day"
     ],
     "cons": [
       "Fewer total ingredients",
@@ -376,7 +427,10 @@
       "successorSlug": "mind-lab-pro-review",
       "note": "Opti-Nutra merged Performance Lab Mind into Mind Lab Pro; the vendor URL now redirects to Mind Lab Pro."
     },
-    "verifiedAt": "2026-09-28"
+    "verifiedAt": "2026-09-28",
+    "notes": [
+      "Ingredient amounts from Performance Lab's label at https://web.archive.org/web/20241009212007/https://www.performancelab.com/products/mind, checked 2026-10-08."
+    ]
   },
   {
     "id": "hunter-focus",
@@ -1052,37 +1106,37 @@
     "cookieDays": 24,
     "heroIngredients": [
       "Ginkgo Biloba",
-      "Panax Ginseng"
+      "Korean Red Ginseng"
     ],
     "ingredientDosages": [
       {
-        "name": "Ginkgo Biloba Extract (50:1)",
-        "doseInProduct": "120mg",
-        "clinicalDose": "120mg",
+        "name": "Ginkgo Biloba Extract (leaf)",
+        "doseInProduct": "500mg (12:1 extract; 120mg ginkgo flavone glycosides)",
+        "clinicalDose": "240mg/day (24/6 extract)",
         "adequatelyDosed": true
       },
       {
-        "name": "Panax Ginseng Extract",
-        "doseInProduct": "10mg",
-        "clinicalDose": "200mg",
-        "adequatelyDosed": false
+        "name": "Korean Red Ginseng Extract (Panax ginseng root)",
+        "doseInProduct": "50mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       }
     ],
     "servingsPerContainer": 150,
     "capsulesPerServing": 2,
-    "summary": "NatureBell Ginkgo + Ginseng is the most affordable nootropic in this review at approximately CAD $7/month for a 5-month supply (300 capsules). Chinese-manufactured with US branding, listed on amazon.ca. Ginkgo Biloba at clinical dose (120mg) paired with Panax Ginseng. Best as a budget entry point for Canadian buyers.",
-    "whatItIs": "NatureBell is a US-registered supplement brand sourcing from Chinese manufacturers. Their Ginkgo + Ginseng formula delivers 120mg Ginkgo Biloba extract (50:1 concentration, equivalent to 6,000mg raw herb) at the full clinical dose, paired with Panax Ginseng. It is listed on amazon.ca. The 300-capsule bottle provides a 5-month supply at approximately CAD $35 — by far the best per-month value in this review. We found no NPN (Natural Product Number) for a NatureBell Ginkgo + Ginseng product under the brand names 'NatureBell' or 'Ginkgo Ginseng' in Health Canada's Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07); the only NatureBell entry is a different product, NatureBell Magnesium Glycinate (NPN 80148146, Museo Co Inc.). Check the listing or label for an eight-digit NPN.",
+    "summary": "NatureBell Ginkgo + Ginseng is the most affordable nootropic in this review at approximately CAD $7/month for a 5-month supply (300 capsules). Chinese-manufactured with US branding, listed on amazon.ca. Ginkgo Biloba at clinical dose (500mg extract, 120mg flavone glycosides) paired with Panax Ginseng. Best as a budget entry point for Canadian buyers.",
+    "whatItIs": "NatureBell is a US-registered supplement brand sourcing from Chinese manufacturers. Their Ginkgo + Ginseng formula delivers 500mg of a 12:1 Ginkgo Biloba extract (equivalent to 6,000mg of ginkgo), standardised to 120mg flavone glycosides, at the full clinical dose, paired with 50mg Korean Red Ginseng (Panax ginseng) extract. It is listed on amazon.ca. The 300-capsule bottle provides a 5-month supply at approximately CAD $35 — by far the best per-month value in this review. We found no NPN (Natural Product Number) for a NatureBell Ginkgo + Ginseng product under the brand names 'NatureBell' or 'Ginkgo Ginseng' in Health Canada's Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07); the only NatureBell entry is a different product, NatureBell Magnesium Glycinate (NPN 80148146, Museo Co Inc.). Check the listing or label for an eight-digit NPN.",
     "howItWorks": "Ginkgo Biloba improves cerebral blood flow via vasodilation and platelet-activating factor (PAF) inhibition, delivering more oxygen and glucose to neurons. Panax Ginseng contains ginsenosides that modulate NMDA receptor activity and support dopaminergic signalling. The Ginkgo-Ginseng pairing is one of the oldest TCM cognitive combinations.",
-    "whatToExpect": "Weeks 1-2: mild improvement in mental alertness from Ginkgo blood flow effects. Weeks 4-8: cumulative memory benefits. The Ginseng dose is well below clinical levels (10mg vs 200mg), so most benefit comes from the properly-dosed Ginkgo. Best used as a stack addition alongside a premium nootropic.",
+    "whatToExpect": "Weeks 1-2: mild improvement in mental alertness from Ginkgo blood flow effects. Weeks 4-8: cumulative memory benefits. The label gives 50mg of Korean Red Ginseng extract with no ginsenoside amount, and we have no reference dose on file for ginseng, so most benefit comes from the properly-dosed Ginkgo. Best used as a stack addition alongside a premium nootropic.",
     "pros": [
       "Cheapest nootropic in this review (~CAD $7/month)",
-      "Ginkgo at full clinical dose (120mg)",
+      "Ginkgo at full clinical dose (500mg extract, 120mg flavone glycosides)",
       "300 capsules — 5-month supply",
       "Listed on amazon.ca",
       "60-day money-back guarantee"
     ],
     "cons": [
-      "Ginseng severely underdosed",
+      "Ginseng: 50mg extract, ginsenoside content not stated",
       "No NPN (Natural Product Number) found for NatureBell Ginkgo + Ginseng in Health Canada's Licensed Natural Health Products Database (full register export searched, 2026-10-07)",
       "No third-party CoA published",
       "Two-ingredient formula only"
@@ -1102,7 +1156,10 @@
         "url": "https://www.naturebellusa.com/pages/return-policy",
         "lang": "en"
       }
-    }
+    },
+    "notes": [
+      "Ingredient amounts from NatureBell's label at https://cdn.shopify.com/s/files/1/1970/8683/files/newbottleamazonpic2-03_3f7931dc-caaf-4809-bf0f-f99f20987eca.jpg?v=1758321497, checked 2026-10-08."
+    ]
   },
   {
     "id": "aor-ortho-mind",
