@@ -76,8 +76,8 @@ export default function AboutPage() {
               product described as Halal (Trade Descriptions Orders 2011, per Malaysia&apos;s World Trade Organization notification).
             </li>
             <li>
-              <strong>Indonesia — BPOM (Badan Pengawas Obat dan Makanan).</strong> Most restrictive market for
-              commercial sale: BPOM registration is required, and <strong>Halal certification (BPJPH)</strong>{' '}
+              <strong>Indonesia — BPOM (Badan Pengawas Obat dan Makanan).</strong> For commercial sale,
+              BPOM registration is required, and <strong>Halal certification (BPJPH)</strong>{' '}
               is mandatory by law for food products and, from 18 October 2026, for supplements, imports included
               (Government Regulation 42/2024). Personal imports are permitted in limited
               quantities.
