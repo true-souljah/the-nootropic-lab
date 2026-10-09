@@ -502,6 +502,15 @@ const ROUND_THIRTEEN_UNSOURCED: RegExp[] = [
   /reliable international delivery/i,
   /200\+ (retail|stores)|over 200 retail/i,
   /unmatched trust|carries deep trust/i,
+  // Last pass: "most complete" (Qualia Mind now states its 31 ingredients,
+  // Hunter Focus in the EU its tie at 20), Alpha Brain's recognition claims,
+  // "unmatched", JAKIM's "consumer-trust weight", and Eu Yan Sang's derived
+  // "145-year" age (founded 1879; its page says "146 Years").
+  /most complete/i,
+  /best[- ]recogni[sz]ed|name recognition|widely recognised through mainstream/i,
+  /\bunmatched\b/i,
+  /consumer-trust weight/i,
+  /145-year/i,
 ];
 
 // Collapse every whitespace run (newlines included) to one space before
@@ -623,6 +632,15 @@ describe('round thirteen: no unsourced superlatives in data or app copy', () => 
       '200+ stores across SEA',
       'For SEA buyers, Eu Yan Sang offers unmatched trust and accessibility:',
       'but the Eu Yan Sang brand carries deep trust across Chinese-heritage communities',
+      'Most complete study stack: includes everything in Mind Lab Pro except Bacopa and Pine Bark',
+      'the most complete memory-ingredient stack in one product available to Australian buyers.',
+      'It is the best-recognised nootropic brand in the North American market',
+      "For SEA buyers, Alpha Brain's mainstream name recognition means it is easier to research",
+      'first released in 2011 and widely recognised through mainstream US media.',
+      'for serious test prep over a full semester, the breadth of mechanism coverage is unmatched.',
+      'For Malaysian readers, JAKIM certification carries strong consumer-trust weight',
+      'Eu Yan Sang is a 145-year-old Traditional Chinese Medicine company founded in 1879',
+      '145-year TCM heritage brand',
     ];
     for (const s of removed) expect(ROUND_THIRTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(true);
   });
