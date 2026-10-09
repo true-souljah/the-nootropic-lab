@@ -351,63 +351,207 @@
     "heroIngredients": [
       "Phosphatidylserine",
       "Alpha-GPC",
-      "Huperzine A",
-      "Bacopa Monnieri",
+      "Acetyl-L-Carnitine",
       "Rhodiola",
-      "DHA"
+      "Ginkgo",
+      "Nutricog"
     ],
     "ingredientDosages": [
       {
-        "name": "Phosphatidylserine",
-        "doseInProduct": "200mg",
-        "clinicalDose": "100-300mg",
-        "adequatelyDosed": true
+        "name": "Vitamin C (ascorbic acid)",
+        "doseInProduct": "45mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
-        "name": "Alpha-GPC",
-        "doseInProduct": "200mg",
-        "clinicalDose": "300-600mg",
+        "name": "Vitamin D (cholecalciferol)",
+        "doseInProduct": "15mcg (600 IU)",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Thiamine (thiamine HCl)",
+        "doseInProduct": "2.5mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Riboflavin",
+        "doseInProduct": "2mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Niacin (niacinamide)",
+        "doseInProduct": "16mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin B6 (pyridoxal 5'-phosphate)",
+        "doseInProduct": "2mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Folate (L-5-methyltetrahydrofolate calcium)",
+        "doseInProduct": "333mcg DFE",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin B12 (methylcobalamin)",
+        "doseInProduct": "100mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Biotin",
+        "doseInProduct": "30mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Pantothenic Acid (D-calcium pantothenate)",
+        "doseInProduct": "5mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Magnesium (magnesium aspartate)",
+        "doseInProduct": "84mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Acetyl-L-Carnitine HCl",
+        "doseInProduct": "500mg",
+        "clinicalDose": "1500-3000mg/day",
         "adequatelyDosed": false
       },
       {
-        "name": "Huperzine A",
-        "doseInProduct": "50mcg",
-        "clinicalDose": "50-200mcg",
+        "name": "Rhodiola rosea Root Extract (3% rosavins, 1% salidrosides)",
+        "doseInProduct": "370mg",
+        "clinicalDose": "200-600mg/day",
         "adequatelyDosed": true
       },
       {
-        "name": "Bacopa Monnieri",
+        "name": "Nutricog (Terminalia chebula fruit and Boswellia serrata gum resin extracts)",
         "doseInProduct": "300mg",
-        "clinicalDose": "300mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "N-Acetyl-L-Tyrosine",
+        "doseInProduct": "250mg",
+        "clinicalDose": "2000mg/day (lowest positive trial)",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Taurine",
+        "doseInProduct": "200mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "L-Theanine",
+        "doseInProduct": "200mg",
+        "clinicalDose": "100-200mg/day",
         "adequatelyDosed": true
       },
       {
-        "name": "Rhodiola Rosea",
-        "doseInProduct": "150mg",
-        "clinicalDose": "200-600mg",
+        "name": "Organic Lion's Mane Mushroom Extract (RealLionsMane)",
+        "doseInProduct": "125mg (8:1 extract)",
+        "clinicalDose": "1000-1800mg/day",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Ginkgo biloba Leaf Extract (24% glycosides)",
+        "doseInProduct": "120mg",
+        "clinicalDose": "240mg/day (24/6 extract)",
         "adequatelyDosed": false
       },
       {
-        "name": "DHA (from Algae)",
-        "doseInProduct": "80mg",
-        "clinicalDose": "900mg-1.2g DHA/day",
+        "name": "Alpha-GPC (L-alpha-glycerylphosphorylcholine)",
+        "doseInProduct": "115mg",
+        "clinicalDose": "300-600mg/day",
         "adequatelyDosed": false
       },
       {
-        "name": "Uridine Monophosphate",
-        "doseInProduct": "250mg",
-        "clinicalDose": "250mg",
+        "name": "Caffeine (from Coffeeberry coffee fruit extract, guarana seed extract and anhydrous caffeine)",
+        "doseInProduct": "100mg",
+        "clinicalDose": "100-200mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Phosphatidylserine (from sunflower lecithin)",
+        "doseInProduct": "100mg",
+        "clinicalDose": "100-300mg/day",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Polygala tenuifolia Root Extract",
+        "doseInProduct": "100mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "SmartSeed (Celastrus paniculatus seed extract)",
+        "doseInProduct": "90mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Cognizin (citicoline)",
+        "doseInProduct": "50mg",
+        "clinicalDose": "250-500mg/day",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Sabroxy (Oroxylum indicum bark extract)",
+        "doseInProduct": "50mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Saffron Stigma Extract",
+        "doseInProduct": "30mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Lutein (Lutemax Brain marigold flower extract)",
+        "doseInProduct": "10mg (12mg lutein + zeaxanthin together)",
+        "clinicalDose": "12-27mg/day",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Pyrroloquinoline Quinone Disodium Salt (PQQ)",
+        "doseInProduct": "10mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Boron (boron glycinate)",
+        "doseInProduct": "3mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Zeaxanthin (Lutemax Brain marigold flower extract)",
+        "doseInProduct": "2mg (12mg lutein + zeaxanthin together)",
+        "clinicalDose": "12-27mg/day",
         "adequatelyDosed": true
       }
     ],
     "servingsPerContainer": 20,
     "capsulesPerServing": 6,
-    "summary": "28 active ingredients -- the most comprehensive formula. Best for experienced biohackers. Not recommended for EU buyers (no EU storefront).",
-    "whatItIs": "Qualia Mind is a 28-ingredient nootropic stack developed by Neurohacker Collective, a San Diego-based company with a focus on systems biology and complex supplementation. It is the most ingredient-rich formula in this review and is designed for experienced supplement users who want a comprehensive single-product cognitive stack.",
-    "howItWorks": "Qualia Mind covers more cognitive pathways than any competitor: cholinergics (Alpha-GPC, Huperzine A, Citicoline), adaptogens (Rhodiola, Bacopa), neuro-nutrients (DHA, PS), amino acid precursors (Tyrosine, Taurine, Theanine), B-vitamin complex, and several novel ingredients (Uridine Monophosphate, Pyrroloquinoline Quinone). The theory is synergistic optimisation across all cognitive systems simultaneously. Neurohacker publishes a proprietary research program supporting the formula.",
-    "whatToExpect": "Acute effects on day one: sustained attention, moderate energy boost from caffeine (90mg per serving). Within 2-4 weeks: improved mental endurance and working memory. At 8-12 weeks: cumulative adaptogen and memory benefits. Important: 6 capsules per serving is a significant daily pill burden. Start with the recommended 7-day loading cycle (2 days off per week) to assess tolerance. Not suitable for EU buyers due to lack of EU storefront and uncertain EU regulatory status for some ingredients.",
+    "summary": "31 active ingredients -- the most comprehensive formula. Best for experienced biohackers. Not recommended for EU buyers (no EU storefront).",
+    "whatItIs": "Qualia Mind is a 31-ingredient nootropic stack developed by Neurohacker Collective, a San Diego-based company with a focus on systems biology and complex supplementation. It is the most ingredient-rich formula in this review and is designed for experienced supplement users who want a comprehensive single-product cognitive stack.",
+    "howItWorks": "Qualia Mind covers more cognitive pathways than any competitor: cholinergics (Alpha-GPC, Citicoline as Cognizin), adaptogens (Rhodiola), neuro-nutrients (PS), amino acid precursors (Tyrosine, Taurine, Theanine), B-vitamin complex, and several novel ingredients (SmartSeed, Sabroxy, Pyrroloquinoline Quinone). The theory is synergistic optimisation across all cognitive systems simultaneously. Neurohacker publishes a proprietary research program supporting the formula.",
+    "whatToExpect": "Acute effects on day one: sustained attention, moderate energy boost from caffeine (100mg per serving). Within 2-4 weeks: improved mental endurance and working memory. At 8-12 weeks: cumulative adaptogen and memory benefits. Important: 6 capsules per serving is a significant daily pill burden. Start with the recommended 7-day loading cycle (2 days off per week) to assess tolerance. Not suitable for EU buyers due to lack of EU storefront and uncertain EU regulatory status for some ingredients.",
     "pros": [
-      "28 active ingredients",
+      "31 active ingredients",
       "100-day money-back",
       "Published research program",
       "Respected in biohacking community"
@@ -417,6 +561,9 @@
       "6 capsules per serving",
       "No EU storefront",
       "Contains caffeine"
+    ],
+    "notes": [
+      "Ingredient amounts from Qualia Life Sciences' Qualia Mind 2.0 label at https://www.qualialife.com/shop/qualia-mind, checked 2026-10-08."
     ],
     "editorChoice": false,
     "market": "us",
@@ -1185,124 +1332,142 @@
     "heroIngredients": [
       "Lion's Mane",
       "Citicoline",
-      "Bacopa Monnieri",
       "L-Theanine",
       "Phosphatidylserine",
-      "Ashwagandha"
+      "Ashwagandha",
+      "Caffeine"
     ],
     "ingredientDosages": [
       {
-        "name": "Citicoline",
-        "doseInProduct": "250mg",
-        "clinicalDose": "250mg",
-        "adequatelyDosed": true
+        "name": "Vitamin B6 (Pyridoxal-5-phosphate)",
+        "doseInProduct": "2.5mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
-        "name": "Lion's Mane Mushroom (10:1 extract)",
-        "doseInProduct": "500mg",
-        "clinicalDose": "500mg",
-        "adequatelyDosed": true
+        "name": "Vitamin B9",
+        "doseInProduct": "100mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
-        "name": "Bacopa Monnieri (50% bacosides)",
-        "doseInProduct": "300mg",
-        "clinicalDose": "300mg",
-        "adequatelyDosed": true
+        "name": "Vitamin B12 (Methylcobalamin)",
+        "doseInProduct": "7.5mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin C (Ascorbic Acid)",
+        "doseInProduct": "200mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin D3 (Cholecalciferol)",
+        "doseInProduct": "75mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin K2 (MK7)",
+        "doseInProduct": "100mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Acetyl-L-Carnitine",
+        "doseInProduct": "800mg",
+        "clinicalDose": "1500-3000mg/day",
+        "adequatelyDosed": false
       },
       {
         "name": "L-Tyrosine",
         "doseInProduct": "500mg",
-        "clinicalDose": "300-500mg",
+        "clinicalDose": "2000mg/day (lowest positive trial)",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Organic Lion's Mane Mushroom (Hericium erinaceus)",
+        "doseInProduct": "500mg",
+        "clinicalDose": "1000-1800mg/day",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Bacopa",
+        "doseInProduct": "300mg",
+        "clinicalDose": "300-450mg/day (55% bacosides)",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Ashwagandha Root (Withania somnifera)",
+        "doseInProduct": "300mg",
+        "clinicalDose": "300-600mg/day (KSM-66)",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Citicoline",
+        "doseInProduct": "250mg",
+        "clinicalDose": "250-500mg/day",
         "adequatelyDosed": true
       },
       {
         "name": "L-Theanine",
         "doseInProduct": "200mg",
-        "clinicalDose": "100-200mg",
+        "clinicalDose": "100-200mg/day",
         "adequatelyDosed": true
       },
       {
-        "name": "Phosphatidylserine",
-        "doseInProduct": "200mg",
-        "clinicalDose": "100-300mg",
-        "adequatelyDosed": true
-      },
-      {
-        "name": "Ashwagandha Extract",
-        "doseInProduct": "300mg",
-        "clinicalDose": "300-600mg",
-        "adequatelyDosed": true
-      },
-      {
-        "name": "Rhodiola Rosea (3% rosavins)",
-        "doseInProduct": "100mg",
-        "clinicalDose": "200-600mg",
-        "adequatelyDosed": false
-      },
-      {
-        "name": "Maritime Pine Bark Extract",
-        "doseInProduct": "75mg",
-        "clinicalDose": "50-100mg",
-        "adequatelyDosed": true
-      },
-      {
-        "name": "Panax Ginseng",
-        "doseInProduct": "100mg",
-        "clinicalDose": "200-400mg",
-        "adequatelyDosed": false
-      },
-      {
-        "name": "N-Acetyl L-Cysteine (NAC)",
-        "doseInProduct": "250mg",
-        "clinicalDose": "600-1200mg",
+        "name": "Ginkgo Biloba",
+        "doseInProduct": "120mg",
+        "clinicalDose": "240mg/day (24/6 extract)",
         "adequatelyDosed": false
       },
       {
         "name": "Caffeine Anhydrous",
         "doseInProduct": "100mg",
-        "clinicalDose": "50-200mg",
+        "clinicalDose": "100-200mg",
         "adequatelyDosed": true
       },
       {
-        "name": "Vitamin C",
-        "doseInProduct": "120mg",
-        "clinicalDose": "90-120mg",
+        "name": "Phosphatidylserine",
+        "doseInProduct": "100mg",
+        "clinicalDose": "100-300mg/day",
         "adequatelyDosed": true
       },
       {
-        "name": "Vitamin D3",
-        "doseInProduct": "50mcg (2000 IU)",
-        "clinicalDose": "15-50mcg",
-        "adequatelyDosed": true
-      },
-      {
-        "name": "Vitamin B6 (P-5-P)",
-        "doseInProduct": "2.5mg",
-        "clinicalDose": "1.3-2mg",
-        "adequatelyDosed": true
-      },
-      {
-        "name": "Vitamin B9 (Folate)",
-        "doseInProduct": "333mcg",
-        "clinicalDose": "400mcg",
+        "name": "Maritime Pine Bark Extract",
+        "doseInProduct": "75mg",
+        "clinicalDose": "100-200mg/day",
         "adequatelyDosed": false
       },
       {
-        "name": "Vitamin B12 (Methylcobalamin)",
-        "doseInProduct": "20mcg",
-        "clinicalDose": "2.4mcg",
-        "adequatelyDosed": true
+        "name": "Rhodiola rosea Extract",
+        "doseInProduct": "50mg",
+        "clinicalDose": "200-600mg/day",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Panax Ginseng",
+        "doseInProduct": "40mg (10:1 extract)",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Spanish Sage",
+        "doseInProduct": "25mg (4:1 extract)",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       }
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 6,
-    "summary": "A 20-ingredient fully-disclosed open-label nootropic from Roar Ambition (UK). Most ingredients are at or near clinical doses. Premium positioning for ambitious professionals 30+; the 6-capsule serving and $90 single-bottle price are the main barriers.",
+    "summary": "A 20-ingredient fully-disclosed open-label nootropic from Roar Ambition (UK). Citicoline, L-Theanine, phosphatidylserine and caffeine meet this site's reference doses; Lion's Mane, ALCAR, L-Tyrosine, Ginkgo, Rhodiola and Pine Bark are below them. Premium positioning for ambitious professionals 30+; the 6-capsule serving and $90 single-bottle price are the main barriers.",
     "whatItIs": "Hunter Focus is the cognitive product in the Hunter Evolve premium men-and-women supplement line, made by Roar Ambition / Stacked Brands in Leeds, UK. It uses a fully transparent 20-ingredient formula organized into three proprietary \"zones\": Concentration Activation, Memory Matrix, and Mood Amplification. The brand is positioned for ambitious professionals aged 30+ and is manufactured in current Good Manufacturing Practice (cGMP) certified facilities in the USA and UK. It is sold only through the Hunter Evolve official website with no Amazon or retail distribution.",
     "howItWorks": "The 20-ingredient stack covers four main pathways. Cholinergics (Citicoline) and acetylcholinesterase support drive day-one focus. Adaptogens (Ashwagandha, Rhodiola, Panax Ginseng) buffer cortisol and stress-induced cognitive decline. Membrane and neurotrophic compounds (Phosphatidylserine, Lion's Mane) build long-term brain health and neuroplasticity. Catecholamine precursors (L-Tyrosine) plus L-Theanine and a moderate caffeine dose provide acute mental energy. The B-vitamin complex supports homocysteine regulation and neurotransmitter synthesis. The Ultimate Bundle (4-month supply at $270) brings the effective monthly cost down to roughly $67.50.",
     "whatToExpect": "Day one: noticeable focus and energy from caffeine + tyrosine + citicoline within 30-60 minutes. The L-theanine softens any caffeine jitter. Within 2-4 weeks: improved stress resilience and stable mood under workload (adaptogens). At 8-12 weeks: measurable memory and learning benefits from Lion's Mane and Bacopa. The 6-capsule daily serving is the highest in this review and may be a deal-breaker for capsule-averse users. Stack is built around moderate caffeine — not suitable if you already drink multiple cups of coffee.",
     "pros": [
       "Fully open-label 20-ingredient formula — no proprietary blends",
-      "Most ingredients at clinical doses",
+      "Citicoline, L-Theanine, phosphatidylserine and caffeine at reference doses",
       "Comprehensive multi-pathway coverage",
       "Returns of unused, unopened, sealed product accepted within 30 days in the USA/Canada (14 days elsewhere)",
       "Ultimate Bundle drops effective price below $70/month",
@@ -1314,7 +1479,10 @@
       "Contains 100mg caffeine — not stim-free",
       "No subscription option, only multi-month bundles",
       "Limited Trustpilot footprint — minimal independent social proof",
-      "Folate, NAC, ginseng, and rhodiola underdosed versus clinical evidence"
+      "Lion's Mane, ALCAR, L-Tyrosine, Ginkgo, Rhodiola and Pine Bark below this site's reference doses"
+    ],
+    "notes": [
+      "Ingredient amounts from Roar Ambition's label at https://www.hunterevolve.com/en-us/hunter-focus (Supplement Facts image: https://cdn.shopify.com/s/files/1/0975/0262/6137/files/hunter-focus-evolve-supplement-facts_1_1.png?v=1760606452), checked 2026-10-08."
     ],
     "editorChoice": false,
     "market": "us",

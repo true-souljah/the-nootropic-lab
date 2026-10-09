@@ -361,63 +361,207 @@
     "heroIngredients": [
       "Phosphatidylserine",
       "Alpha-GPC",
-      "Huperzine A",
-      "Bacopa Monnieri",
+      "Acetyl-L-Carnitine",
       "Rhodiola",
-      "DHA"
+      "Ginkgo",
+      "Nutricog"
     ],
     "ingredientDosages": [
       {
-        "name": "Phosphatidylserine",
-        "doseInProduct": "200mg",
-        "clinicalDose": "100-300mg",
-        "adequatelyDosed": true
+        "name": "Vitamin C (ascorbic acid)",
+        "doseInProduct": "45mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
-        "name": "Alpha-GPC",
-        "doseInProduct": "200mg",
-        "clinicalDose": "300-600mg",
+        "name": "Vitamin D (cholecalciferol)",
+        "doseInProduct": "15mcg (600 IU)",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Thiamine (thiamine HCl)",
+        "doseInProduct": "2.5mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Riboflavin",
+        "doseInProduct": "2mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Niacin (niacinamide)",
+        "doseInProduct": "16mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin B6 (pyridoxal 5'-phosphate)",
+        "doseInProduct": "2mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Folate (L-5-methyltetrahydrofolate calcium)",
+        "doseInProduct": "333mcg DFE",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin B12 (methylcobalamin)",
+        "doseInProduct": "100mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Biotin",
+        "doseInProduct": "30mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Pantothenic Acid (D-calcium pantothenate)",
+        "doseInProduct": "5mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Magnesium (magnesium aspartate)",
+        "doseInProduct": "84mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Acetyl-L-Carnitine HCl",
+        "doseInProduct": "500mg",
+        "clinicalDose": "1500-3000mg/day",
         "adequatelyDosed": false
       },
       {
-        "name": "Huperzine A",
-        "doseInProduct": "50mcg",
-        "clinicalDose": "50-200mcg",
+        "name": "Rhodiola rosea Root Extract (3% rosavins, 1% salidrosides)",
+        "doseInProduct": "370mg",
+        "clinicalDose": "200-600mg/day",
         "adequatelyDosed": true
       },
       {
-        "name": "Bacopa Monnieri",
+        "name": "Nutricog (Terminalia chebula fruit and Boswellia serrata gum resin extracts)",
         "doseInProduct": "300mg",
-        "clinicalDose": "300mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "N-Acetyl-L-Tyrosine",
+        "doseInProduct": "250mg",
+        "clinicalDose": "2000mg/day (lowest positive trial)",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Taurine",
+        "doseInProduct": "200mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "L-Theanine",
+        "doseInProduct": "200mg",
+        "clinicalDose": "100-200mg/day",
         "adequatelyDosed": true
       },
       {
-        "name": "Rhodiola Rosea",
-        "doseInProduct": "150mg",
-        "clinicalDose": "200-600mg",
+        "name": "Organic Lion's Mane Mushroom Extract (RealLionsMane)",
+        "doseInProduct": "125mg (8:1 extract)",
+        "clinicalDose": "1000-1800mg/day",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Ginkgo biloba Leaf Extract (24% glycosides)",
+        "doseInProduct": "120mg",
+        "clinicalDose": "240mg/day (24/6 extract)",
         "adequatelyDosed": false
       },
       {
-        "name": "DHA (from Algae)",
-        "doseInProduct": "80mg",
-        "clinicalDose": "900mg-1.2g DHA/day",
+        "name": "Alpha-GPC (L-alpha-glycerylphosphorylcholine)",
+        "doseInProduct": "115mg",
+        "clinicalDose": "300-600mg/day",
         "adequatelyDosed": false
       },
       {
-        "name": "Uridine Monophosphate",
-        "doseInProduct": "250mg",
-        "clinicalDose": "250mg",
+        "name": "Caffeine (from Coffeeberry coffee fruit extract, guarana seed extract and anhydrous caffeine)",
+        "doseInProduct": "100mg",
+        "clinicalDose": "100-200mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Phosphatidylserine (from sunflower lecithin)",
+        "doseInProduct": "100mg",
+        "clinicalDose": "100-300mg/day",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Polygala tenuifolia Root Extract",
+        "doseInProduct": "100mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "SmartSeed (Celastrus paniculatus seed extract)",
+        "doseInProduct": "90mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Cognizin (citicoline)",
+        "doseInProduct": "50mg",
+        "clinicalDose": "250-500mg/day",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Sabroxy (Oroxylum indicum bark extract)",
+        "doseInProduct": "50mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Saffron Stigma Extract",
+        "doseInProduct": "30mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Lutein (Lutemax Brain marigold flower extract)",
+        "doseInProduct": "10mg (12mg lutein + zeaxanthin together)",
+        "clinicalDose": "12-27mg/day",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Pyrroloquinoline Quinone Disodium Salt (PQQ)",
+        "doseInProduct": "10mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Boron (boron glycinate)",
+        "doseInProduct": "3mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Zeaxanthin (Lutemax Brain marigold flower extract)",
+        "doseInProduct": "2mg (12mg lutein + zeaxanthin together)",
+        "clinicalDose": "12-27mg/day",
         "adequatelyDosed": true
       }
     ],
     "servingsPerContainer": 20,
     "capsulesPerServing": 6,
-    "summary": "28 active ingredients — the most comprehensive formula in this review and the premium-tier option for experienced LATAM biohackers. Priced at $139 USD/month with no local currency option. Qualia does not ship direct to Latin America: its FAQ lists only Canada, the UK, Ireland, Australia and New Zealand for direct international orders and directs other countries to iHerb (checked 2026-10-05). Argentine buyers should confirm their bank will process USD charges before ordering. Best for experienced users comfortable navigating import logistics.",
-    "whatItIs": "Qualia Mind is a 28-ingredient nootropic stack developed by Neurohacker Collective, a San Diego-based company focused on systems biology and complex supplementation. It is the most ingredient-rich formula in this review and targets experienced supplement users who want a comprehensive single-product cognitive stack. For LATAM buyers, it is sold in USD via a US storefront that does not ship direct to Latin America (Qualia's FAQ directs other countries to iHerb). Qualia Mind enters LATAM markets under personal-import allowances; we have not verified a local product registration with the Comisión Federal para la Protección contra Riesgos Sanitarios (COFEPRIS) in Mexico, the Agência Nacional de Vigilância Sanitária (ANVISA) in Brazil, the Administración Nacional de Medicamentos, Alimentos y Tecnología Médica (ANMAT) in Argentina, the Instituto Nacional de Vigilancia de Medicamentos y Alimentos (INVIMA) in Colombia, the Instituto de Salud Pública (ISP) in Chile or the Dirección General de Medicamentos, Insumos y Drogas (DIGEMID) in Peru. The capsule count is high: 6 per serving, 20 servings per container.",
-    "howItWorks": "Qualia Mind covers more cognitive pathways than any competitor: cholinergics (Alpha-GPC, Huperzine A, Citicoline), adaptogens (Rhodiola, Bacopa), neuro-nutrients (DHA, PS), amino acid precursors (Tyrosine, Taurine, Theanine), B-vitamin complex, and several novel ingredients (Uridine Monophosphate, Pyrroloquinoline Quinone). The theory is synergistic optimisation across all cognitive systems simultaneously. Neurohacker publishes a proprietary research program supporting the formula.",
-    "whatToExpect": "Acute effects on day one: sustained attention, moderate energy boost from caffeine (90mg per serving). Within 2-4 weeks: improved mental endurance and working memory. At 8-12 weeks: cumulative adaptogen and memory benefits. Important: 6 capsules per serving is a significant daily pill burden. Start with the recommended 7-day loading cycle (2 days off per week) to assess tolerance.",
+    "summary": "31 active ingredients — the most comprehensive formula in this review and the premium-tier option for experienced LATAM biohackers. Priced at $139 USD/month with no local currency option. Qualia does not ship direct to Latin America: its FAQ lists only Canada, the UK, Ireland, Australia and New Zealand for direct international orders and directs other countries to iHerb (checked 2026-10-05). Argentine buyers should confirm their bank will process USD charges before ordering. Best for experienced users comfortable navigating import logistics.",
+    "whatItIs": "Qualia Mind is a 31-ingredient nootropic stack developed by Neurohacker Collective, a San Diego-based company focused on systems biology and complex supplementation. It is the most ingredient-rich formula in this review and targets experienced supplement users who want a comprehensive single-product cognitive stack. For LATAM buyers, it is sold in USD via a US storefront that does not ship direct to Latin America (Qualia's FAQ directs other countries to iHerb). Qualia Mind enters LATAM markets under personal-import allowances; we have not verified a local product registration with the Comisión Federal para la Protección contra Riesgos Sanitarios (COFEPRIS) in Mexico, the Agência Nacional de Vigilância Sanitária (ANVISA) in Brazil, the Administración Nacional de Medicamentos, Alimentos y Tecnología Médica (ANMAT) in Argentina, the Instituto Nacional de Vigilancia de Medicamentos y Alimentos (INVIMA) in Colombia, the Instituto de Salud Pública (ISP) in Chile or the Dirección General de Medicamentos, Insumos y Drogas (DIGEMID) in Peru. The capsule count is high: 6 per serving, 20 servings per container.",
+    "howItWorks": "Qualia Mind covers more cognitive pathways than any competitor: cholinergics (Alpha-GPC, Citicoline as Cognizin), adaptogens (Rhodiola), neuro-nutrients (PS), amino acid precursors (Tyrosine, Taurine, Theanine), B-vitamin complex, and several novel ingredients (SmartSeed, Sabroxy, Pyrroloquinoline Quinone). The theory is synergistic optimisation across all cognitive systems simultaneously. Neurohacker publishes a proprietary research program supporting the formula.",
+    "whatToExpect": "Acute effects on day one: sustained attention, moderate energy boost from caffeine (100mg per serving). Within 2-4 weeks: improved mental endurance and working memory. At 8-12 weeks: cumulative adaptogen and memory benefits. Important: 6 capsules per serving is a significant daily pill burden. Start with the recommended 7-day loading cycle (2 days off per week) to assess tolerance.",
     "pros": [
-      "28 active ingredients",
+      "31 active ingredients",
       "100-day money-back",
       "Published research program",
       "Respected in biohacking community"
@@ -428,6 +572,9 @@
       "Contains caffeine",
       "Does not ship direct to Latin America — Qualia's FAQ lists only Canada, the UK, Ireland, Australia and New Zealand for direct international orders and directs other countries to iHerb (checked 2026-10-05)",
       "Customs/import taxes may apply depending on destination country"
+    ],
+    "notes": [
+      "Ingredient amounts from Qualia Life Sciences' Qualia Mind 2.0 label at https://www.qualialife.com/shop/qualia-mind, checked 2026-10-08."
     ],
     "editorChoice": false,
     "market": "both",

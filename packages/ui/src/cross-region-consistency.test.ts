@@ -34,14 +34,11 @@ function value(p: Product, field: Field): string {
 // (gcc/sea). Each entry must still be a real mismatch — delete it once fixed.
 //
 // Primary regions: the formula differs between records and the 2026-09-28
-// vendor verification could not read the supplement-facts panel (Hunter
-// Focus panel is an image). Needs a verified panel before unifying.
-// (Performance Lab Mind was unified on 2026-10-09 from its archived
-// 2024-10-09 label.)
-const PRIMARY_BASELINE = new Set<string>([
-  'hunter-focus-review/heroIngredients',
-  'hunter-focus-review/ingredientDosages',
-]);
+// vendor verification could not read the supplement-facts panel. Empty: Hunter
+// Focus was unified from its label image and Performance Lab Mind from its
+// archived 2024-10-09 label on 2026-10-09 (hunter-focus-label.test.ts and
+// performance-lab-mind-label.test.ts pin them).
+const PRIMARY_BASELINE = new Set<string>([]);
 // GCC/SEA: SEA's Blackmores Brain Active record lists a different formula
 // (Keenmind Bacopa 160mg, Ginkgo, DHA, PS) from the AU record, and the
 // 2026-09-28 vendor verification found the product delisted in both markets,

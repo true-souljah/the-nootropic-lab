@@ -39,7 +39,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Lion\'s Mane (Hericium erinaceus)',
     evidence:
-      'Mori et al. 2009 — small RCT in older Japanese adults with mild cognitive impairment. 1g/day fruiting-body extract over 16 weeks improved cognitive function scores. Evidence is promising for early age-related changes; not evaluated for dementia treatment. Available in Australia via Mind Lab Pro and Hunter Focus (both fruiting-body extract) under the Personal Importation Scheme.',
+      'Mori et al. 2009 — small RCT in older Japanese adults with mild cognitive impairment. 1g/day fruiting-body extract over 16 weeks improved cognitive function scores. Evidence is promising for early age-related changes; not evaluated for dementia treatment. Available in Australia via Mind Lab Pro (fruiting body, per its label) and Hunter Focus (its label does not name the part used) under the Personal Importation Scheme.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18844328/',
   },
   {
@@ -67,7 +67,7 @@ const picks: ListiclePick[] = [
     product: productsAU.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes phosphatidylserine (200mg), citicoline, Bacopa (300mg fully dosed), and supporting cofactors. Most complete coverage but the 6-capsule daily protocol can be hard to maintain for older adults — consider whether the breadth justifies the friction. Contains caffeine and Huperzine A: caution for older adults on cholinergic medications like donepezil.',
+      'Includes phosphatidylserine (100mg), citicoline, and supporting cofactors. Most complete coverage but the 6-capsule daily protocol can be hard to maintain for older adults — consider whether the breadth justifies the friction. Contains caffeine.',
   },
   {
     product: productsAU.find(p => p.slug === 'naturebell-ginkgo-ginseng-review')!,
@@ -96,7 +96,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'I take a cholinesterase inhibitor (donepezil, etc.). Should I avoid certain ingredients?',
-    a: 'Yes — discuss with your neurologist or geriatrician. Huperzine A (in Onnit Alpha Brain and Qualia Mind) is itself an acetylcholinesterase inhibitor and stacking is not advised. Citicoline is a different mechanism (choline donor) and is sometimes used alongside cholinesterase inhibitors under clinician supervision, but combine only with medical input.',
+    a: 'Yes — discuss with your neurologist or geriatrician. Huperzine A (in Onnit Alpha Brain) is itself an acetylcholinesterase inhibitor and stacking is not advised. Citicoline is a different mechanism (choline donor) and is sometimes used alongside cholinesterase inhibitors under clinician supervision, but combine only with medical input.',
   },
   {
     q: 'How long until I notice anything?',

@@ -61,7 +61,7 @@ const picks: ListiclePick[] = [
     product: productsLatam.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Incluye fosfatidilserina, citicolina, Bacopa y Melena de León más ingredientes adicionales. La cobertura más completa, pero el protocolo diario de 7 cápsulas puede ser difícil de mantener para adultos mayores — considera si la amplitud justifica esa fricción. Contiene cafeína, lo que puede ser un problema para quienes tienen presión arterial elevada o medicación cardiovascular.',
+      'Incluye fosfatidilserina, citicolina y Melena de León más ingredientes adicionales. La cobertura más completa, pero el protocolo diario de 6 cápsulas puede ser difícil de mantener para adultos mayores — considera si la amplitud justifica esa fricción. Contiene cafeína, lo que puede ser un problema para quienes tienen presión arterial elevada o medicación cardiovascular.',
   },
   {
     product: productsLatam.find(p => p.slug === 'nootropics-depot-lions-mane')!,

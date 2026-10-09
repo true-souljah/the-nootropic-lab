@@ -15,7 +15,7 @@ const productB = productsUS.find(p => p.slug === 'qualia-mind-review');
 export const metadata: Metadata = {
   title: `Alpha Brain vs Qualia Mind ${CURRENT_YEAR}: Mainstream Brand vs Premium Megadose`,
   description:
-    'Independent comparison of Onnit Alpha Brain vs Qualia Mind. Mainstream retail-distributed nootropic vs premium 28-ingredient stack. Side-by-side dosing audit and verdict.',
+    'Independent comparison of Onnit Alpha Brain vs Qualia Mind. Mainstream retail-distributed nootropic vs premium 31-ingredient stack. Side-by-side dosing audit and verdict.',
   alternates: buildAlternates({ regionCode: 'us', path: '/alpha-brain-vs-qualia-mind/', availableInRegions: ['us'] }),
   openGraph: {
     title: 'Alpha Brain vs Qualia Mind — Independent Head-to-Head',
@@ -29,12 +29,12 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Which is better, Alpha Brain or Qualia Mind?',
     a:
-      'They occupy different market positions. Alpha Brain is mainstream — sold at Whole Foods, Amazon, CVS, Vitamin Shoppe — with broad media credibility (Joe Rogan equity partner). Qualia Mind is premium-positioned with 28 ingredients and a doctor-formulated narrative. Alpha Brain hides doses in proprietary blends; Qualia Mind discloses each ingredient. If you prioritize transparency, Qualia wins. If you prioritize accessibility and lower price, Alpha Brain.',
+      'They occupy different market positions. Alpha Brain is mainstream — sold at Whole Foods, Amazon, CVS, Vitamin Shoppe — with broad media credibility (Joe Rogan equity partner). Qualia Mind is premium-positioned with 31 ingredients and a doctor-formulated narrative. Alpha Brain hides doses in proprietary blends; Qualia Mind discloses each ingredient. If you prioritize transparency, Qualia wins. If you prioritize accessibility and lower price, Alpha Brain.',
   },
   {
     q: 'Why does Qualia Mind cost so much more?',
     a:
-      'Qualia Mind one-time is $159/month vs Alpha Brain at ~$67-80/month. Qualia\'s pricing reflects (a) 28-ingredient formulation cost, (b) trademarked extracts (e.g. SmartSeed, RealLionsMane), (c) direct-to-consumer-only distribution. Alpha Brain has scale economies through retail distribution.',
+      'Qualia Mind one-time is $159/month vs Alpha Brain at ~$67-80/month. Qualia\'s pricing reflects (a) 31-ingredient formulation cost, (b) trademarked extracts (e.g. SmartSeed, RealLionsMane), (c) direct-to-consumer-only distribution. Alpha Brain has scale economies through retail distribution.',
   },
   {
     q: 'Are both safe to take daily?',
@@ -67,8 +67,8 @@ const whoIsForA = [
 
 const whoIsForB = [
   'Want every ingredient and dose disclosed',
-  'Believe in 28-ingredient broad-spectrum cognitive support',
-  'Are willing to take 7+ capsules per day',
+  'Believe in 31-ingredient broad-spectrum cognitive support',
+  'Are willing to take 6 capsules per day',
   'Are comfortable with $139/mo subscription pricing for the breadth',
 ];
 

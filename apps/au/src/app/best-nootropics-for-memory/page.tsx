@@ -61,13 +61,13 @@ const picks: ListiclePick[] = [
     product: productsAU.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes Bacopa (300mg at clinical dose), citicoline, phosphatidylserine (200mg), AND a comprehensive cholinergic stack — the most complete memory-ingredient stack in one product available to Australian buyers. Loses ground on capsule count (7+/day) and price (AUD $215/mo). For memory specifically, the breadth justifies the trade-off if you can tolerate the daily friction. International delivery is estimated at 15–22 days (per qualialife.com, checked 2026-09-29). Note: contains Huperzine A and caffeine.',
+      'Includes citicoline, phosphatidylserine (100mg), AND a comprehensive cholinergic stack — the most complete memory-ingredient stack in one product available to Australian buyers. Loses ground on capsule count (6/day) and price (AUD $215/mo). For memory specifically, the breadth justifies the trade-off if you can tolerate the daily friction. International delivery is estimated at 15–22 days (per qualialife.com, checked 2026-09-29). Note: contains caffeine.',
   },
   {
     product: productsAU.find(p => p.slug === 'hunter-focus-review')!,
     rank: 3,
     whyItsHere:
-      'Lion\'s Mane fruiting-body extract at the full 500mg clinical dose, plus citicoline (250mg) — the only AU-shippable stack with Lion\'s Mane fully dosed alongside cholinergic support. No Bacopa or PS. Premium pricing (AUD $140/mo). Contains caffeine. The right choice if you want a Lion\'s Mane focus on memory rather than the broader Mind Lab Pro stack.',
+      'Lion\'s Mane (500mg organic mushroom, below the 1–1.8g/day used in healthy-adult trials) plus citicoline (250mg), Bacopa (300mg) and phosphatidylserine (100mg). Premium pricing (AUD $140/mo). Contains caffeine. The right choice if you want Lion\'s Mane, citicoline, Bacopa and PS in one caffeinated stack rather than the Mind Lab Pro stack.',
   },
   {
     product: productsAU.find(p => p.slug === 'onnit-alpha-brain-review')!,
@@ -104,7 +104,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Lion\'s Mane: fruiting body or mycelium?',
-    a: 'Fruiting body. Most clinical research uses fruiting-body extract. Mycelium-on-grain products contain a high percentage of grain (oats, brown rice) by weight and lower beta-glucan content. Mind Lab Pro and Hunter Focus both use fruiting-body extract — verify on the label of any Lion\'s Mane product before ordering.',
+    a: 'Fruiting body. Most clinical research uses fruiting-body extract. Mycelium-on-grain products contain a high percentage of grain (oats, brown rice) by weight and lower beta-glucan content. Mind Lab Pro\'s label states fruiting body; Hunter Focus\'s label lists organic Lion\'s Mane mushroom without naming the part used — verify on the label of any Lion\'s Mane product before ordering.',
   },
 ];
 

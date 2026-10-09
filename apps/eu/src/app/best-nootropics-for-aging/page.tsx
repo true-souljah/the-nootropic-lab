@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsEU.find(p => p.slug === 'hunter-focus-review')!,
     rank: 2,
     whyItsHere:
-      'Includes phosphatidylserine, Lion\'s Mane (500mg fruiting body), and Bacopa, plus Ashwagandha (cortisol/stress) and ALCAR (mitochondrial energy). Contains 100mg caffeine — not ideal for stimulant-sensitive older adults. €85/mo and 6 capsules/day are friction; pick this only if you specifically want the broader stack.',
+      'Includes phosphatidylserine, Lion\'s Mane (500mg), and Bacopa, plus Ashwagandha (cortisol/stress) and ALCAR (mitochondrial energy). Contains 100mg caffeine — not ideal for stimulant-sensitive older adults. €85/mo and 6 capsules/day are friction; pick this only if you specifically want the broader stack.',
   },
   {
     product: productsEU.find(p => p.slug === 'noocube-review')!,
