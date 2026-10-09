@@ -4,7 +4,11 @@ import { CONSENT_CHOICE_EVENT, hasConsentChoice } from './CookieBanner';
 
 interface Props {
   productName: string;
-  affiliateUrl: string;
+  /**
+   * Buy link: pass `purchaseUrl(product)` and render no bar when it is null
+   * (Product.noPurchaseLink).
+   */
+  href: string;
   /** Localized lead-in before the product name (default English). */
   pickLabel?: string;
   /** Localized CTA link text (default English). */
@@ -15,7 +19,7 @@ interface Props {
 
 export default function StickyCtaBar({
   productName,
-  affiliateUrl,
+  href,
   pickLabel = 'Our #1 Pick:',
   ctaLabel = 'Check Current Price →',
   ariaLabel = 'Top pick recommendation',
@@ -68,7 +72,7 @@ export default function StickyCtaBar({
         {pickLabel} {productName}
       </span>
       <a
-        href={affiliateUrl}
+        href={href}
         target="_blank"
         rel="nofollow sponsored noopener noreferrer"
         className="bg-green-600 hover:bg-green-500 text-white text-sm font-bold px-5 py-2 rounded"

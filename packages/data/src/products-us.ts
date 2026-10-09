@@ -277,6 +277,45 @@ export interface Product {
     /** Reader-facing explanation, shown verbatim in the notice. */
     note: string;
   };
+  /**
+   * Set when this edition must not link to any shop for the product. The
+   * product keeps its review page and its place in lists (site-owner decision
+   * 2026-10-08: links only), but every buy CTA renders a notice instead:
+   * `purchaseUrl()` (./purchase-link) returns null, and templates read the
+   * vendor URL only through that helper (guarded by purchase-link.test.ts).
+   * Shape checked by `noPurchaseLinkProblem()` in validate-data.
+   */
+  noPurchaseLink?: NoPurchaseLink;
+}
+
+/** Why an edition shows no purchase link for a product. */
+export type NoPurchaseLinkReason =
+  /**
+   * The formula contains an ingredient from a plant on Japan's MHLW list of
+   * ingredients used exclusively as medicines (専ら医薬品として使用される成分本質
+   * （原材料）リスト). JP records only.
+   */
+  'jp-mhlw-medicine-only-ingredient';
+
+export interface NoPurchaseLinkIngredient {
+  /** The ingredient as the record names it; must match a heroIngredients entry or an ingredientDosages name. */
+  name: string;
+  /** Botanical name of the source plant. */
+  plant: string;
+  /** The list entry as printed in the source (name, botanical name, other names, part). */
+  listedAs: string;
+}
+
+export interface NoPurchaseLink {
+  reason: NoPurchaseLinkReason;
+  /** Non-empty: the ingredients that put the record under `reason`. */
+  ingredients: NoPurchaseLinkIngredient[];
+  /** The primary source (absolute https URL). */
+  sourceUrl: string;
+  /** YYYY-MM-DD update date printed on the source. */
+  listUpdated: string;
+  /** YYYY-MM-DD the source was last read against this record. */
+  checkedAt: string;
 }
 
 /** Every US record, including discontinued ones — review pages, sitemap, hreflang. */
