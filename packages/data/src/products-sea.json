@@ -640,9 +640,9 @@
     "trustpilotScore": 4.2,
     "trustpilotCount": 15776,
     "affiliateUrl": "https://www.onnit.com/alphabrain/",
-    "affiliateNetwork": "Impact",
-    "commissionRate": "12%",
-    "cookieDays": 30,
+    "affiliateNetwork": "Onnit Direct",
+    "commissionRate": "0%",
+    "cookieDays": 0,
     "heroIngredients": [
       "L-Theanine",
       "Huperzine A",
@@ -787,9 +787,9 @@
     "trustpilotScore": 4.0,
     "trustpilotCount": 116,
     "affiliateUrl": "https://takethesis.com/",
-    "affiliateNetwork": "Impact",
-    "commissionRate": "20%",
-    "cookieDays": 30,
+    "affiliateNetwork": "Thesis Direct",
+    "commissionRate": "0%",
+    "cookieDays": 0,
     "heroIngredients": [
       "CDP Choline",
       "Lion's Mane",
@@ -1078,9 +1078,9 @@
     "trustpilotScore": 4.7,
     "trustpilotCount": 2715,
     "affiliateUrl": "https://nootropicsdepot.com/lions-mane-hericium-erinaceus-whole-fruiting-body-medicinal-mushroom-extract-500mg-capsules/",
-    "affiliateNetwork": "Impact",
-    "commissionRate": "15%",
-    "cookieDays": 30,
+    "affiliateNetwork": "Nootropics Depot Direct",
+    "commissionRate": "0%",
+    "cookieDays": 0,
     "heroIngredients": [
       "Lion's Mane (standardised fruiting body extract)"
     ],
