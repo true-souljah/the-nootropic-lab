@@ -14,7 +14,7 @@ import {
   mbgFit,
   type QuizAnswers,
 } from './quizScoring';
-import { guaranteeDays } from '@nootropic/data';
+import { guaranteeDays, NO_PURCHASE_LINK_STRINGS } from '@nootropic/data';
 
 export interface QuizResultsProps {
   products: Product[];
@@ -114,6 +114,9 @@ export default function QuizResults({
               position={1}
               surface="review"
               className="bg-ds-accent hover:bg-ds-accent-press text-white px-5 py-[10px] rounded-[8px] text-[13px] font-semibold no-underline focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
+              // This template's copy is English-only (no locale bundle).
+              noticeStrings={NO_PURCHASE_LINK_STRINGS.en}
+              noticeClassName="w-full"
             >
               Visit {top.brand} →
             </TrackedAffiliateLink>

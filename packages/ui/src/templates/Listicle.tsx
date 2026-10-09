@@ -322,6 +322,8 @@ export default function Listicle({
                                 position={rank}
                                 surface="listicle"
                                 className="bg-ds-accent hover:bg-ds-accent-press text-white text-[13px] font-semibold px-5 py-[10px] rounded-[8px] focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
+                                noticeStrings={uiStrings.noPurchaseLink}
+                                noticeClassName="w-full"
                               >
                                 {tpl(s.checkProduct, { name: pick.product.name })}
                               </TrackedAffiliateLink>
