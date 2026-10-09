@@ -267,10 +267,10 @@ export default function Page() {
           <p className="text-gray-700 leading-relaxed mb-3">
             Start with caffeine + L-theanine. It is the most-evidence-backed legal cognitive enhancement combination,
             available at any pharmacy for ~$8/month. See our{' '}
-            <Link href="/guides/best-nootropic-stack-for-beginners/" className="text-green-700 underline">
-              beginner stack guide
+            <Link href="/guides/nootropics-for-beginners/" className="text-green-700 underline">
+              nootropics for beginners guide
             </Link>{' '}
-            for the full sequencing.
+            for how to start one ingredient at a time.
           </p>
           <p className="text-gray-700 leading-relaxed">
             For multi-ingredient stacks, see{' '}
