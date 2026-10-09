@@ -205,7 +205,7 @@ export default function Comparator({
           else from tab order + AT focus — keyboard users can't escape the
           dialog into obscured content. */}
       <div
-        {...(mobileFiltersOpen ? { inert: '' as unknown as undefined } : {})}
+        inert={mobileFiltersOpen}
         className="grid items-start grid-cols-1 lg:grid-cols-[260px_1fr]"
       >
         {/* Desktop filter sidebar — sticky column on lg+ */}
