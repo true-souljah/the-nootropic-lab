@@ -19,7 +19,7 @@ export const seaCountries: SEACountry[] = [
     currency: 'SGD',
     language: 'English',
     shippingNote: 'International supplement parcels enter Singapore as personal-use imports. Carriers and brands do not publish country-specific delivery estimates for supplements, so check the estimate at checkout.',
-    regulatoryNote: 'Singapore\'s Health Sciences Authority (HSA) does not subject health supplements to approval or licensing; notification is voluntary (hsa.gov.sg, checked 2026-10-06). Most nootropic supplements imported for personal use are classified as health products and allowed in quantities up to 3 months supply. Products are not required to be HSA-registered for personal import, but they must not contain any listed controlled substances. Singapore has a well-enforced regulatory environment -- verify ingredient lists against the HSA prohibited substances list.',
+    regulatoryNote: 'Singapore\'s Health Sciences Authority (HSA) states that "Health supplements are not subject to approvals and licensing by HSA for their importation, manufacture and sales", and a company may voluntarily notify HSA of a product (hsa.gov.sg, checked 2026-10-08). HSA\'s rule that a traveller "may bring up to 3 months’ supply" is on its personal-medications page and covers medications, not supplements; we found no personal-import quantity rule for supplements on HSA or Singapore Food Agency (SFA) pages, and SFA\'s traveller limit ("5kg or 5 litres" and "$100 per traveller") covers processed food and does not mention supplements (checked 2026-10-08). HSA states that health supplements imported or sold must not contain ingredients controlled and prohibited under the Poisons Act and the Misuse of Drugs Act. Check ingredient lists against HSA\'s Guidelines on Prohibited and Restricted Ingredients in Health Supplements and Traditional Medicines.',
     popularBrands: ['Mind Lab Pro', 'Performance Lab Mind', 'Nootropics Depot'],
   },
   {
@@ -39,7 +39,7 @@ export const seaCountries: SEACountry[] = [
     currency: 'THB',
     language: 'Thai',
     shippingNote: 'International supplement parcels enter Thailand as personal-use imports. Carriers and brands do not publish country-specific delivery estimates for supplements, so check the estimate at checkout.',
-    regulatoryNote: 'The Thai Food and Drug Administration (Thai FDA), under the Ministry of Public Health, regulates dietary supplements in Thailand. Personal-use imports are generally permitted in small quantities (typically up to 3 months supply). Supplements with unapproved health claims or controlled ingredients may be detained. Thai FDA registration is required for commercial sale.',
+    regulatoryNote: 'The Thai Food and Drug Administration (Thai FDA), under the Ministry of Public Health, regulates dietary supplements in Thailand. The Thai FDA\'s personal-import limit for food supplements is a "Total of all items not exceeding 15 pieces", where "each item has a quantity equivalent to 3 months of consumption by product" (en.fda.moph.go.th, checked 2026-09-30). Supplements with unapproved health claims or controlled ingredients may be detained. Thai FDA registration is required for commercial sale.',
     popularBrands: ['Mind Lab Pro', 'NooCube', 'Qualia Mind'],
     guide: { href: '/nootropics-in-thailand/', label: 'Full guide: Thai FDA supplement rules, personal-import limits and controlled substances' },
   },
