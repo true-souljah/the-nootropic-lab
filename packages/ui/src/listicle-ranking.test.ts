@@ -25,7 +25,9 @@ import { getUseCaseListStrings, type TemplateLocale } from './templateStrings';
 // Site-owner decision 2026-10-09: rule (b) — a pick doses one of the page's
 // evidence ingredients at or near the clinical-trial dose — is enforced too: a
 // pick whose label proves none of them at our reference dose (dosing-anchors.ts)
-// moves to "Also considered" with that reason.
+// moves to "Also considered" with that reason. Site-owner decision 2026-10-09
+// (later): a combination evidence card ("L-Theanine + Caffeine") counts only
+// when EVERY ingredient it lists is proven; single-ingredient cards unchanged.
 
 const REPO = join(__dirname, '..', '..', '..');
 const UI_SRC = __dirname;
@@ -129,9 +131,11 @@ function rowVerdicts(product: Product, slug: string) {
     .map((row) => [row.name, row.adequatelyDosed]);
 }
 const cards = (...slugs: string[][]): ListicleEvidenceIngredients[] => slugs.map((ingredientSlugs) => ({ ingredientSlugs }));
-// The evidence cards of EU memory (Bacopa, Lion's Mane, PS, citicoline) and SEA studying (L-theanine + caffeine, Bacopa, citicoline, L-tyrosine).
+// The evidence cards of EU memory (Bacopa, Lion's Mane, PS, citicoline), SEA studying (L-theanine + caffeine, Bacopa,
+// citicoline, L-tyrosine) and US focus (L-theanine + caffeine, citicoline, L-tyrosine, Alpha-GPC).
 const EU_MEMORY = cards(['bacopa-monnieri'], ['lions-mane'], ['phosphatidylserine'], ['citicoline']);
 const SEA_STUDYING = cards(['l-theanine', 'caffeine'], ['bacopa-monnieri'], ['citicoline'], ['l-tyrosine']);
+const US_FOCUS = cards(['l-theanine', 'caffeine'], ['citicoline'], ['l-tyrosine'], ['alpha-gpc']);
 
 describe('rule (b): a ranked pick doses one of the page’s evidence ingredients at our reference dose', () => {
   const mlpEU = record('productsEU', 'mind-lab-pro-review');
@@ -176,6 +180,52 @@ describe('rule (b): a ranked pick doses one of the page’s evidence ingredients
   it('a page with no evidence ingredient ranks nothing (fails closed)', () => {
     expect(evidenceAtReferenceDose(mlpEU, cards([]))).toEqual([]);
     expect(splitListiclePicks([{ product: mlpEU, rank: 1 }], cards([])).ranked).toEqual([]);
+  });
+
+  describe('a combination card counts only when every ingredient it lists is proven', () => {
+    const qualiaUS = record('productsUS', 'qualia-mind-review');
+    const noocubeUS = record('productsUS', 'noocube-review');
+    const mlpUS = record('productsUS', 'mind-lab-pro-review');
+    const THEANINE_CAFFEINE = cards(['l-theanine', 'caffeine']);
+
+    it('both met → counts: Qualia Mind (US) proves L-theanine 200mg and caffeine 100mg', () => {
+      expect(rowVerdicts(qualiaUS, 'l-theanine')).toEqual([['L-Theanine', true]]);
+      expect(rowVerdicts(qualiaUS, 'caffeine').map(([, verdict]) => verdict)).toEqual([true]);
+      expect(evidenceAtReferenceDose(qualiaUS, THEANINE_CAFFEINE).sort()).toEqual(['caffeine', 'l-theanine']);
+    });
+
+    it('one met → does not count: NooCube (US) proves L-theanine 100mg but has no caffeine row', () => {
+      expect(rowVerdicts(noocubeUS, 'l-theanine')).toEqual([['L-Theanine', true]]);
+      expect(rowVerdicts(noocubeUS, 'caffeine')).toEqual([]);
+      expect(evidenceAtReferenceDose(noocubeUS, THEANINE_CAFFEINE)).toEqual([]);
+    });
+
+    it('a single-ingredient card is unchanged: NooCube’s L-theanine alone counts on an L-theanine card', () => {
+      expect(evidenceAtReferenceDose(noocubeUS, cards(['l-theanine']))).toEqual(['l-theanine']);
+    });
+
+    it('US focus: NooCube (7.0, L-theanine only) moves to "Also considered"; Mind Lab Pro ranks on citicoline', () => {
+      expect(noocubeUS.score).toBeGreaterThanOrEqual(LISTICLE_MIN_SCORE);
+      for (const slug of ['citicoline', 'l-tyrosine', 'alpha-gpc']) {
+        expect(rowVerdicts(noocubeUS, slug).some(([, verdict]) => verdict === true), slug).toBe(false);
+      }
+      expect(rowVerdicts(mlpUS, 'citicoline')).toEqual([['Citicoline (Cognizin)', true]]);
+      const { ranked, alsoConsidered } = splitListiclePicks(
+        [{ product: mlpUS, rank: 1 }, { product: qualiaUS, rank: 2 }, { product: noocubeUS, rank: 3 }],
+        US_FOCUS,
+      );
+      expect(ranked.map((p) => [p.product.slug, p.rank])).toEqual([['mind-lab-pro-review', 1], ['qualia-mind-review', 2]]);
+      expect(alsoConsidered.map((p) => [p.product.slug, p.notRanked])).toEqual([['noocube-review', 'doseRule']]);
+    });
+
+    it('the ingredients of every counting card are returned, those of a half-met combination are not', () => {
+      // Mind Lab Pro: citicoline 250mg proven; L-theanine 100mg proven but no caffeine.
+      expect(rowVerdicts(mlpUS, 'l-theanine')).toEqual([['L-Theanine', true]]);
+      expect(evidenceAtReferenceDose(mlpUS, US_FOCUS)).toEqual(['citicoline']);
+      // Qualia Mind: only the combination card counts (its citicoline is 50mg, below).
+      expect(rowVerdicts(qualiaUS, 'citicoline')).toEqual([['Cognizin (citicoline)', false]]);
+      expect(evidenceAtReferenceDose(qualiaUS, US_FOCUS).sort()).toEqual(['caffeine', 'l-theanine']);
+    });
   });
 
   it('the bar is checked first: a pick below it is "belowBar" even when it also fails rule (b)', () => {
@@ -228,10 +278,21 @@ describe('the rule text and the also-considered copy render LISTICLE_MIN_SCORE',
     expect(notRankedReason(s, { product: { score: 6.6 }, notRanked: 'belowBar' })).toBe(belowBarReason(s, 6.6));
   });
 
+  // Reworded 2026-10-09 when combination cards started to need every ingredient:
+  // "shows none of this guide's evidence ingredients at our reference dose" was
+  // false for NooCube on the focus pages, whose L-theanine (half of the
+  // "L-Theanine + Caffeine" card) is at our reference dose.
   it('English rule (b) reason reads as specified', () => {
     expect(doseRuleReason(getUseCaseListStrings('en'), 7)).toBe(
-      "Scores 7.0/10, but its label shows none of this guide's evidence ingredients at our reference dose",
+      'Scores 7.0/10, but its label does not reach our reference dose for any evidence entry above (for a combination, every ingredient in it)',
     );
+  });
+
+  it.each(LOCALES)('%s: the rule (b) reason and the section intro both state the combination rule', (locale) => {
+    const s = getUseCaseListStrings(locale);
+    const combination = locale === 'es' ? 'en una combinación, en cada uno de sus ingredientes' : 'for a combination, every ingredient in it';
+    expect(s.doseRuleReason).toContain(combination);
+    expect(s.alsoConsideredRulesIntro).toContain(combination);
   });
 
   it.each(LOCALES)('%s: the section heading and intro name both rules once a pick is there for rule (b)', (locale) => {
@@ -305,6 +366,10 @@ describe('Listicle template wiring', () => {
 // 2026-10-09, rule (b) enforced (site-owner decision): 3 more picks move —
 // NooCube on EU aging and EU memory, NatureBell on SEA studying — so 40 picks
 // on 31 listicles; EU aging and EU memory now rank only Mind Lab Pro too.
+// 2026-10-09, combination cards need every ingredient (site-owner decision):
+// NooCube (L-theanine, no caffeine) moves on 13 more focus/studying/ADHD
+// pages, so 53 picks on 34 listicles; EU focus, JP focus, JP studying and SEA
+// studying now rank only Mind Lab Pro too (9 single-pick listicles, none at 0).
 // When a score, a pick or a page changes, update the expected counts below on
 // purpose, after checking that the page still reads right.
 // ---------------------------------------------------------------------------
@@ -326,6 +391,39 @@ const listiclePages = readdirSync(join(REPO, 'apps'))
   .filter((file) => /<Listicle\b/.test(readFileSync(file, 'utf8')))
   .sort();
 
+/**
+ * The value of a pick's `whyItsHere:` — one string literal ('…', "…" or a
+ * `…` without ${}) or several joined with `+` — or a loud error for anything
+ * else, so the blurb guard below never scans a half-read string.
+ */
+function whyItsHereOf(file: string, entry: string): string {
+  const at = entry.indexOf('whyItsHere:');
+  if (at < 0) throw new Error(`${file}: pick without whyItsHere "${entry.slice(0, 80)}"`);
+  let i = at + 'whyItsHere:'.length;
+  const parts: string[] = [];
+  for (;;) {
+    while (/\s/.test(entry[i] ?? '')) i++;
+    const quote = entry[i];
+    if (quote !== "'" && quote !== '"' && quote !== '`') throw new Error(`${file}: unparsed whyItsHere "${entry.slice(at, at + 80)}"`);
+    let text = '';
+    for (i++; entry[i] !== quote; i++) {
+      if (i >= entry.length) throw new Error(`${file}: unterminated whyItsHere "${entry.slice(at, at + 80)}"`);
+      if (quote === '`' && entry.startsWith('${', i)) throw new Error(`${file}: whyItsHere with a template expression`);
+      if (entry[i] === '\\') i++;
+      text += entry[i];
+    }
+    parts.push(text);
+    i++;
+    while (/\s/.test(entry[i] ?? '')) i++;
+    if (entry[i] === '+') {
+      i++;
+      continue;
+    }
+    if (entry[i] !== ',' && entry[i] !== '}') throw new Error(`${file}: unexpected "${entry.slice(i, i + 40)}" after whyItsHere`);
+    return parts.join('');
+  }
+}
+
 function pagePicks(file: string) {
   const src = readFileSync(file, 'utf8');
   const block = src.match(/: ListiclePick\[\] = \[([\s\S]*?)\n\];/)?.[1];
@@ -338,7 +436,7 @@ function pagePicks(file: string) {
     const product = allSets[set]?.find((p) => p.slug === slug);
     if (!product) throw new Error(`${file}: ${set} has no product "${slug}"`);
     const rank = entry.match(/\brank:\s*(\d+)/)?.[1];
-    return { product, whyItsHere: '', ...(rank ? { rank: Number(rank) } : {}) };
+    return { product, whyItsHere: whyItsHereOf(file, entry), ...(rank ? { rank: Number(rank) } : {}) };
   });
 }
 
@@ -405,15 +503,18 @@ describe('every Listicle page ranks only picks at or above the bar that pass rul
     expect(ranked.filter((p) => p.product.score < LISTICLE_MIN_SCORE)).toEqual([]);
     expect(ranked.map((p) => p.rank)).toEqual(ranked.map((_, i) => i + 1));
     // Rule (b), recomputed from the formula (expectedDosingRows), not from the
-    // stored verdicts the split reads: each ranked pick has a row for one of
-    // the page's evidence ingredients that the label proves at the reference dose.
-    const slugs = new Set(evidence.flatMap((card) => card.ingredientSlugs));
+    // stored verdicts the split reads: for each ranked pick, at least one of
+    // the page's evidence cards has EVERY ingredient it lists on a row that the
+    // label proves at the reference dose.
     for (const p of ranked) {
       const verdicts = data.expectedDosingRows(p.product);
-      const proving = p.product.ingredientDosages.filter(
-        (row, i) => slugs.has(data.dosingAnchorFor(row)?.ingredientSlug ?? '') && verdicts[i].adequatelyDosed === true,
+      const proven = new Set(
+        p.product.ingredientDosages
+          .filter((_, i) => verdicts[i].adequatelyDosed === true)
+          .map((row) => data.dosingAnchorFor(row)?.ingredientSlug),
       );
-      expect(proving.length, `${p.product.slug} fails rule (b)`).toBeGreaterThan(0);
+      const met = evidence.filter((card) => card.ingredientSlugs.length > 0 && card.ingredientSlugs.every((slug) => proven.has(slug)));
+      expect(met.length, `${p.product.slug} fails rule (b)`).toBeGreaterThan(0);
     }
     for (const p of alsoConsidered) {
       if (p.notRanked === 'belowBar') expect(p.product.score).toBeLessThan(LISTICLE_MIN_SCORE);
@@ -421,12 +522,12 @@ describe('every Listicle page ranks only picks at or above the bar that pass rul
     }
   });
 
-  it('moves 40 picks (31 pages) to "Also considered": 37 below the 7.0 bar, 3 for rule (b) — 2026-10-09 data', () => {
+  it('moves 53 picks (34 pages) to "Also considered": 37 below the 7.0 bar, 16 for rule (b) — 2026-10-09 data', () => {
     const moved = pages.flatMap((p) =>
       splitListiclePicks(p.picks, p.evidence).alsoConsidered.map((x) => ({ page: p.rel, slug: x.product.slug, why: x.notRanked })),
     );
-    expect(moved).toHaveLength(40);
-    expect(new Set(moved.map((m) => m.page)).size).toBe(31);
+    expect(moved).toHaveLength(53);
+    expect(new Set(moved.map((m) => m.page)).size).toBe(34);
     const bySlug = moved
       .filter((m) => m.why === 'belowBar')
       .reduce<Record<string, number>>((acc, m) => ({ ...acc, [m.slug]: (acc[m.slug] ?? 0) + 1 }), {});
@@ -439,23 +540,146 @@ describe('every Listicle page ranks only picks at or above the bar that pass rul
       'fancl-brains-review': 2,
     });
     expect(moved.filter((m) => m.why === 'doseRule').map((m) => [m.page, m.slug])).toEqual([
+      ['apps/au/src/app/best-nootropics-for-focus/page.tsx', 'noocube-review'],
+      ['apps/ca/src/app/best-nootropics-for-focus/page.tsx', 'noocube-review'],
       ['apps/eu/src/app/best-nootropics-for-aging/page.tsx', 'noocube-review'],
+      ['apps/eu/src/app/best-nootropics-for-focus/page.tsx', 'noocube-review'],
       ['apps/eu/src/app/best-nootropics-for-memory/page.tsx', 'noocube-review'],
+      ['apps/gcc/src/app/best-nootropics-for-focus/page.tsx', 'noocube-review'],
+      ['apps/gcc/src/app/best-nootropics-for-studying/page.tsx', 'noocube-review'],
+      ['apps/jp/src/app/best-nootropics-for-focus/page.tsx', 'noocube-review'],
+      ['apps/jp/src/app/best-nootropics-for-studying/page.tsx', 'noocube-review'],
+      ['apps/latam/src/app/best-nootropics-for-focus/page.tsx', 'noocube-review'],
+      ['apps/latam/src/app/best-nootropics-for-studying/page.tsx', 'noocube-review'],
+      ['apps/sea/src/app/best-nootropics-for-studying/page.tsx', 'noocube-review'],
       ['apps/sea/src/app/best-nootropics-for-studying/page.tsx', 'naturebell-ginkgo-ginseng-review'],
+      ['apps/us/src/app/best-nootropics-for-adhd/page.tsx', 'noocube-review'],
+      ['apps/us/src/app/best-nootropics-for-focus/page.tsx', 'noocube-review'],
+      ['apps/us/src/app/natural-adderall-alternatives/page.tsx', 'noocube-review'],
     ]);
   });
 
-  it('five listicles rank a single pick (Mind Lab Pro) — none ranks zero', () => {
+  it('nine listicles rank a single pick (Mind Lab Pro) — none ranks zero', () => {
     const single = pages
       .map((p) => ({ page: p.rel, ranked: splitListiclePicks(p.picks, p.evidence).ranked }))
       .filter((p) => p.ranked.length === 1);
     expect(single.map((p) => p.page)).toEqual([
       'apps/eu/src/app/best-nootropics-for-aging/page.tsx',
+      'apps/eu/src/app/best-nootropics-for-focus/page.tsx',
       'apps/eu/src/app/best-nootropics-for-memory/page.tsx',
       'apps/eu/src/app/best-nootropics-for-studying/page.tsx',
       'apps/jp/src/app/best-nootropics-for-aging/page.tsx',
+      'apps/jp/src/app/best-nootropics-for-focus/page.tsx',
       'apps/jp/src/app/best-nootropics-for-memory/page.tsx',
+      'apps/jp/src/app/best-nootropics-for-studying/page.tsx',
+      'apps/sea/src/app/best-nootropics-for-studying/page.tsx',
     ]);
     expect(single.every((p) => p.ranked[0].product.slug === 'mind-lab-pro-review')).toBe(true);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Guard (2026-10-09): the "Also considered" section is "not ranked or
+// recommended", so the blurb (`whyItsHere`) of a pick the split puts there must
+// not recommend it. The blurb is written once per pick and the split decides
+// where it renders, so this runs on the split of every page: a score change
+// that moves a pick fails here until its blurb reads neutrally.
+// ---------------------------------------------------------------------------
+
+/** Recommendation wording, English and Spanish (the two listicle locales). */
+const RECOMMENDS: readonly RegExp[] = [
+  /\bthe right (?:pick|choice|option)\b/i,
+  /\bpick (?:this|it)\b/i,
+  /\bbest (?:for|value|paired|pick|choice|option|bet)\b/i,
+  /\bcheapest legitimate\b/i,
+  /\bwe recommend\b/i,
+  /\brecommended (?:for|if|pick)\b/i,
+  /\bworth (?:it|buying|trying|a try|a look|considering)\b/i,
+  /\b(?:good|great|solid) value\b/i,
+  /\b(?:pair|combine) (?:it |this )?with\b/i,
+  /\bstack (?:it|this) with\b/i,
+  /(?<!\bnot )\b(?:ideal|perfect|great) (?:for|if)\b/i,
+  /\buseful (?:if|when)\b/i,
+  /\bstandout\b/i,
+  /\bour (?:top |#\d+ )?pick\b/i,
+  /\bcost-conscious\b/i,
+  /\bthe leading\b/i,
+  /\breasonable (?:for|choice|pick)\b/i,
+  /\bsolid [\w-]+ coverage\b/i,
+  /\bappeals to\b/i,
+  /\boption for\b/i,
+  /\bla opci[oó]n correcta\b/i,
+  /\bmejor opci[oó]n\b/i,
+  /\bmejor para\b/i,
+  /\brecomendamos\b/i,
+  /\bbuen valor\b/i,
+  /\bvale la pena\b/i,
+  /\bcomb[ií]n(?:alo|ala)\b/i,
+  /\bcombinad[oa] con\b/i,
+  /\bideal para\b/i,
+  /\bm[aá]s barat[oa] leg[ií]tim[oa]\b/i,
+  /\bel[ií]ge(?:lo|la)\b/i,
+];
+const recommendationIn = (text: string) => RECOMMENDS.filter((re) => re.test(text)).map((re) => text.match(re)?.[0]);
+
+describe('an "Also considered" blurb does not recommend the pick', () => {
+  const alsoConsidered = listiclePages.flatMap((file) => {
+    const { alsoConsidered: moved } = splitListiclePicks(pagePicks(file), pageEvidence(file));
+    return moved.map((p) => ({ page: relative(REPO, file), slug: p.product.slug, whyItsHere: p.whyItsHere }));
+  });
+
+  it('scans the blurb of every also-considered pick: 53 on 34 pages, none empty (guards against an empty scan)', () => {
+    expect(alsoConsidered).toHaveLength(53);
+    expect(new Set(alsoConsidered.map((p) => p.page)).size).toBe(34);
+    for (const p of alsoConsidered) expect(p.whyItsHere.length, `${p.page} ${p.slug}`).toBeGreaterThan(40);
+  });
+
+  it.each(alsoConsidered.map((p) => [`${p.page} ${p.slug}`, p.whyItsHere] as const))('%s', (_name, whyItsHere) => {
+    expect(recommendationIn(whyItsHere)).toEqual([]);
+  });
+
+  // The guard's own phrase list, proven against the wording it exists to catch
+  // (the 2026-10-09 blurbs it replaced) and against neutral wording it must pass.
+  it.each([
+    'The right pick if you want to test Lion\'s Mane in isolation.',
+    'The right choice for Canadian professionals who want energy + focus in one supplement.',
+    '€85/mo and 6 capsules/day are friction; pick this only if you specifically want the broader stack.',
+    'Best value for buyers who want the acute focus effect rather than long-term cognitive support.',
+    'Lacks long-term memory ingredients, so best for acute study sessions rather than term-long retention.',
+    'The cheapest legitimate brain supplement on this page at ~SGD $7/month.',
+    '$64.99 USD per 30-serving bottle on noocube.com — worth it if the Lutemax angle matters to you.',
+    'Best paired with a dedicated nootropic stack like Mind Lab Pro for users wanting both.',
+    'Not a "daily nootropic" — pair with Bacopa or Mind Lab Pro for memory-stack coverage.',
+    'Lutemax 2020 is the standout ingredient for screen-heavy students.',
+    'Marketing-heavy positioning, but the formula is reasonable for ADHD-adjacent focus support.',
+    'Lower trust score than Mind Lab Pro but solid focus-ingredient coverage.',
+    'Caffeine-free Classic version is widely available — useful when you need a study supplement on short notice.',
+    'At USD $64.99 per 30-serving bottle it is the most cost-conscious premium import option for students.',
+    'The leading domestic Japanese option for aging adults.',
+    'The budget-friendly Japanese domestic option for students.',
+    'Its low price appeals to first-year university students.',
+    'Ideal for long study sessions.',
+    'We recommend it for beginners.',
+    'La opción correcta si quieres probar Melena de León de forma aislada.',
+    'No es un "nootrópico diario" — combínalo con Bacopa o Mind Lab Pro.',
+    'Buen valor a $64.99 USD/mes con 60 días de garantía.',
+    'Posiblemente combinada con un suplemento separado de fosfatidilserina.',
+    'Es la mejor opción para estudiantes.',
+    'Te recomendamos empezar con media dosis.',
+  ])('flags: %s', (text) => {
+    expect(recommendationIn(text).length).toBeGreaterThan(0);
+  });
+
+  it.each([
+    'Single-ingredient Lion\'s Mane fruiting-body extract at 500mg, half the 1,000mg low end of our Lion\'s Mane reference dose.',
+    'Stack with 100mg caffeine + 200mg L-theanine in the classic 1:2 ratio, plus 250mg citicoline and 500mg Lion\'s Mane.',
+    'Pairs a 350mg Camellia sinensis (matcha) EMT blend that includes L-theanine with 330mg guarana seed.',
+    'Japanese buyers sensitive to stimulants should pick a caffeine-free option above.',
+    'Contains Bacopa and Huperzine A. Mainstream availability is its strongest feature for memory buyers.',
+    'Contains 100mg caffeine — not ideal for stimulant-sensitive older adults.',
+    'Cuesta $64.99 USD/mes, con 60 días de garantía.',
+    'Aporta 500mg de Melena de León, la mitad del mínimo de 1g al día de nuestra dosis de referencia.',
+  ])('passes: %s', (text) => {
+    expect(recommendationIn(text)).toEqual([]);
   });
 });

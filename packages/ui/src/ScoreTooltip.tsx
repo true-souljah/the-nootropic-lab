@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { pillarText } from '@nootropic/data';
 import type { Product } from '@nootropic/data';
+import { SCORE_TIER_TEXT_CLASS, scoreTier } from './templates/listicleRanking';
 
 interface Props {
   score: number;
@@ -19,7 +20,7 @@ export default function ScoreTooltip({ score, breakdown }: Props) {
         onMouseLeave={() => setOpen(false)}
         onFocus={() => setOpen(true)}
         onBlur={() => setOpen(false)}
-        className="font-bold text-green-700 cursor-help border-b border-dashed border-green-700"
+        className={`font-bold ${SCORE_TIER_TEXT_CLASS[scoreTier(score)]} cursor-help border-b border-dashed border-current`}
         aria-label={`Score ${score} out of 10 — tap or hover for breakdown`}
         aria-expanded={open}
       >

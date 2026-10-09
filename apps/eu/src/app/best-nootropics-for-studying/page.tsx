@@ -64,13 +64,13 @@ const picks: ListiclePick[] = [
     product: productsEU.find(p => p.slug === 'brainzyme-focus-pro-review')!,
     rank: 2,
     whyItsHere:
-      'UK-made and explicitly positioned for university students. A 350mg Camellia sinensis (matcha) EMT blend that includes L-theanine, plus guarana seed, choline, ginkgo and L-tyrosine; the label states no caffeine amount and does not split the blend. €31.75/mo is the lowest price on this list. Lacks long-term memory ingredients (no Bacopa or Lion\'s Mane), so best for acute study sessions rather than term-long retention.',
+      'UK-made and explicitly positioned for university students. A 350mg Camellia sinensis (matcha) EMT blend that includes L-theanine, plus guarana seed, choline, ginkgo and L-tyrosine; the label states no caffeine amount and does not split the blend. €31.75/mo is the lowest price on this list. Lacks long-term memory ingredients (no Bacopa or Lion\'s Mane).',
   },
   {
     product: productsEU.find(p => p.slug === 'hunter-focus-review')!,
     rank: 3,
     whyItsHere:
-      '20 ingredients, tied with Brainzyme Focus Pro for the most in this review: Lion\'s Mane, Bacopa, Phosphatidylserine, Ashwagandha (stress resilience for exam season), ALCAR, plus 100mg caffeine. €85/mo and 6 capsules/day are significant friction — pick this if you want maximum ingredient breadth and can absorb the cost and pill burden.',
+      '20 ingredients, tied with Brainzyme Focus Pro for the most in this review: Lion\'s Mane, Bacopa, Phosphatidylserine, Ashwagandha and ALCAR, plus 100mg caffeine. €85/mo and 6 capsules/day are significant friction.',
   },
 ];
 

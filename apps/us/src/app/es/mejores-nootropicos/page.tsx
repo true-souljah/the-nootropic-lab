@@ -8,10 +8,10 @@ const CURRENT_YEAR = new Date().getFullYear();
 
 export const metadata: Metadata = {
   title: `Mejores Nootrópicos ${CURRENT_YEAR}: Comparativa Experta para EE. UU.`,
-  description: `Comparativa independiente de los mejores suplementos nootrópicos en ${CURRENT_YEAR}. Cada ingrediente auditado frente a ensayos clínicos. Puntuación transparente y divulgación de afiliados.`,
+  description: `Comparativa independiente de los mejores suplementos nootrópicos en ${CURRENT_YEAR}. Dosis de la etiqueta comparadas con nuestras dosis de referencia. Puntuación transparente y divulgación de afiliados.`,
   alternates: buildAlternates({ regionCode: 'us', path: '/es/mejores-nootropicos/', availableInRegions: ['us'] }),
-  openGraph: buildOpenGraph({ regionCode: 'us', path: '/es/mejores-nootropicos/', title: `Mejores Nootrópicos ${CURRENT_YEAR}: Comparativa Experta para EE. UU.`, description: `Comparativa independiente de los mejores suplementos nootrópicos en ${CURRENT_YEAR}. Cada ingrediente auditado frente a ensayos clínicos. Puntuación transparente y divulgación de afiliados.` }),
-  twitter: buildTwitter({ title: `Mejores Nootrópicos ${CURRENT_YEAR}: Comparativa Experta para EE. UU.`, description: `Comparativa independiente de los mejores suplementos nootrópicos en ${CURRENT_YEAR}. Cada ingrediente auditado frente a ensayos clínicos. Puntuación transparente y divulgación de afiliados.` }),
+  openGraph: buildOpenGraph({ regionCode: 'us', path: '/es/mejores-nootropicos/', title: `Mejores Nootrópicos ${CURRENT_YEAR}: Comparativa Experta para EE. UU.`, description: `Comparativa independiente de los mejores suplementos nootrópicos en ${CURRENT_YEAR}. Dosis de la etiqueta comparadas con nuestras dosis de referencia. Puntuación transparente y divulgación de afiliados.` }),
+  twitter: buildTwitter({ title: `Mejores Nootrópicos ${CURRENT_YEAR}: Comparativa Experta para EE. UU.`, description: `Comparativa independiente de los mejores suplementos nootrópicos en ${CURRENT_YEAR}. Dosis de la etiqueta comparadas con nuestras dosis de referencia. Puntuación transparente y divulgación de afiliados.` }),
 };
 
 export default function EsMejoresNootropicosPage() {
@@ -46,8 +46,9 @@ export default function EsMejoresNootropicosPage() {
           Comparativa Experta para EE. UU.
         </h1>
         <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-          Hemos analizado {productsUS.length} suplementos nootrópicos, comparando la dosis de
-          cada ingrediente con los resultados de ensayos clínicos revisados por expertos. A
+          Hemos analizado {productsUS.length} suplementos nootrópicos, comparando las dosis de la
+          etiqueta con las dosis de referencia de ensayos clínicos revisados por expertos de nuestras
+          páginas de ingredientes, cuando existen. A
           continuación, te presentamos nuestra comparativa con una clasificación y un desglose
           completo de las puntuaciones.
         </p>

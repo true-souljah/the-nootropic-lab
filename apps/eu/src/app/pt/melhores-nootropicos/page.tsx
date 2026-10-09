@@ -11,10 +11,10 @@ const CURRENT_YEAR = new Date().getFullYear();
 export const metadata: Metadata = {
   title: `Melhores Nootrópicos ${CURRENT_YEAR} Europa: Comparação Completa`,
   description:
-    'Comparação independente dos melhores nootrópicos disponíveis na Europa. Preços em EUR, lojas UE assinaladas, auditoria clínica de cada ingrediente.',
+    'Comparação independente dos melhores nootrópicos disponíveis na Europa. Preços em EUR, lojas UE assinaladas, doses do rótulo comparadas com as nossas doses de referência.',
   alternates: buildAlternates({ regionCode: 'eu', path: '/pt/melhores-nootropicos/', availableInRegions: ['eu'] }),
-  openGraph: buildOpenGraph({ regionCode: 'eu', path: '/pt/melhores-nootropicos/', title: `Melhores Nootrópicos ${CURRENT_YEAR} Europa: Comparação Completa`, description: 'Comparação independente dos melhores nootrópicos disponíveis na Europa. Preços em EUR, lojas UE assinaladas, auditoria clínica de cada ingrediente.' }),
-  twitter: buildTwitter({ title: `Melhores Nootrópicos ${CURRENT_YEAR} Europa: Comparação Completa`, description: 'Comparação independente dos melhores nootrópicos disponíveis na Europa. Preços em EUR, lojas UE assinaladas, auditoria clínica de cada ingrediente.' }),
+  openGraph: buildOpenGraph({ regionCode: 'eu', path: '/pt/melhores-nootropicos/', title: `Melhores Nootrópicos ${CURRENT_YEAR} Europa: Comparação Completa`, description: 'Comparação independente dos melhores nootrópicos disponíveis na Europa. Preços em EUR, lojas UE assinaladas, doses do rótulo comparadas com as nossas doses de referência.' }),
+  twitter: buildTwitter({ title: `Melhores Nootrópicos ${CURRENT_YEAR} Europa: Comparação Completa`, description: 'Comparação independente dos melhores nootrópicos disponíveis na Europa. Preços em EUR, lojas UE assinaladas, doses do rótulo comparadas com as nossas doses de referência.' }),
 };
 
 export default function MelhoresNootropicosPT() {
@@ -62,8 +62,8 @@ export default function MelhoresNootropicosPT() {
         Esta comparação foi concebida especificamente para compradores europeus. Assinalamos os
         produtos vendidos a partir de uma loja UE (preços em EUR, sem direitos aduaneiros). Não
         verificamos a conformidade regulamentar de cada produto; a rotulagem é da responsabilidade
-        do vendedor. Cada ingrediente foi analisado
-        em função de estudos clínicos.
+        do vendedor. Comparamos as doses do rótulo com as doses de referência de estudos clínicos
+        das nossas páginas de ingredientes, quando existem.
       </p>
 
       <div className="bg-blue-50 border border-blue-200 rounded-xl p-5 mb-6">

@@ -84,7 +84,7 @@ export default function ImprintPage({ siteUrl, marketLabel, contactEmail, region
           <h2 className="text-xl font-bold text-gray-900 mb-3">Editorial standards</h2>
           <ul className="list-disc list-inside space-y-2 text-gray-700 leading-relaxed">
             <li>Every product review applies the same five-pillar scoring framework.</li>
-            <li>Ingredient doses are evaluated against minimum effective doses from peer-reviewed human clinical trials (PubMed-indexed).</li>
+            <li>Ingredient doses are evaluated against the minimum doses on our ingredient pages, from peer-reviewed human clinical trials (PubMed-indexed), where a page gives one; ingredients without a reference dose are listed but not scored.</li>
             <li>Affiliate disclosure renders at the top of every commercial page, before the first call-to-action.</li>
             <li>Region-specific regulatory disclaimers are surfaced on every commercial page (for example the Dietary Supplement Health and Education Act (DSHEA), the European Food Safety Authority (EFSA), the Therapeutic Goods Administration (TGA), Health Canada’s Natural Product Number (NPN), Japan’s Foods with Function Claims (FFC), Argentina’s Administración Nacional de Medicamentos, Alimentos y Tecnología Médica (ANMAT), the Saudi Food and Drug Authority (SFDA), Indonesia’s Badan Penyelenggara Jaminan Produk Halal (BPJPH) and the Department of Islamic Development Malaysia (JAKIM)).</li>
             <li>Errors are corrected promptly and transparently. We never delete or quietly edit factual claims after publication.</li>

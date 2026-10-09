@@ -64,13 +64,13 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'noocube-review')!,
     rank: 2,
     whyItsHere:
-      'Caffeine-free, includes choline (VitaCholine), Bacopa, L-theanine (100mg, clinical dose), and L-tyrosine. 60-day money-back guarantee — useful if you finish a term and decide it didn\'t help. Choosing the single purchase rather than the subscription means no recurring billing — straightforward for Japanese student buyers unfamiliar with international subscription supplements.',
+      'Caffeine-free, includes choline (VitaCholine), Bacopa, L-theanine (100mg, clinical dose), and L-tyrosine. 60-day money-back guarantee. Sold as a single purchase or a subscription; the single purchase has no recurring billing.',
   },
   {
     product: productsJP.find(p => p.slug === 'suntory-dha-epa-sesamin-review')!,
     rank: 3,
     whyItsHere:
-      'A Japanese domestic option for students at ¥4,800/month. DHA + EPA from Suntory Wellness; no Foods with Function Claims (FFC, 機能性表示食品) notification found in the Consumer Affairs Agency (CAA) database (export scanned 2026-10-06). Foundational omega-3 support for the duration of a term — best paired with a focus-targeted stack like Mind Lab Pro for acute study sessions.',
+      'A Japanese domestic DHA + EPA supplement from Suntory Wellness at ¥4,800/month. No Foods with Function Claims (FFC, 機能性表示食品) notification found in the Consumer Affairs Agency (CAA) database (export scanned 2026-10-06). Its 300mg DHA is below the 900mg low end of our DHA reference dose.',
   },
 ];
 

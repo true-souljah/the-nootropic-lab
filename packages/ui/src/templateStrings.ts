@@ -136,8 +136,9 @@ export const useCaseListPageEnDefaults: UseCaseListPageStrings = {
   belowBarReason: 'Scores {score}/10 — below our {minScore} bar',
   alsoConsideredRulesHeading: 'Also considered — not ranked',
   alsoConsideredRulesIntro:
-    "Products audited for this guide that we do not rank: each either scores below the {minScore}/10 a ranked pick needs in our 5-pillar editorial audit, or its label shows none of this guide's evidence ingredients at our reference dose. Listed for transparency, not ranked or recommended.",
-  doseRuleReason: "Scores {score}/10, but its label shows none of this guide's evidence ingredients at our reference dose",
+    'Products audited for this guide that we do not rank: each either scores below the {minScore}/10 a ranked pick needs in our 5-pillar editorial audit, or its label does not reach our reference dose for any evidence entry above (for a combination, every ingredient in it). Listed for transparency, not ranked or recommended.',
+  doseRuleReason:
+    'Scores {score}/10, but its label does not reach our reference dose for any evidence entry above (for a combination, every ingredient in it)',
   alsoConsideredToc: 'Also considered',
   audited: 'Audited',
   bylineAttribution: 'By The Nootropic Lab editorial team',
@@ -196,9 +197,9 @@ export const useCaseListPageEsStrings: Partial<UseCaseListPageStrings> = {
   belowBarReason: 'Puntuación de {score}/10 — por debajo de nuestro umbral de {minScore}',
   alsoConsideredRulesHeading: 'También evaluados — sin clasificar',
   alsoConsideredRulesIntro:
-    'Productos auditados para esta guía que no clasificamos: cada uno obtiene una puntuación por debajo del {minScore}/10 que necesita una selección clasificada en nuestra auditoría editorial de 5 pilares, o su etiqueta no muestra ninguno de los ingredientes con evidencia de esta guía en nuestra dosis de referencia. Se incluyen por transparencia; no están clasificados ni recomendados.',
+    'Productos auditados para esta guía que no clasificamos: cada uno obtiene una puntuación por debajo del {minScore}/10 que necesita una selección clasificada en nuestra auditoría editorial de 5 pilares, o su etiqueta no alcanza nuestra dosis de referencia en ninguna de las entradas de evidencia anteriores (en una combinación, en cada uno de sus ingredientes). Se incluyen por transparencia; no están clasificados ni recomendados.',
   doseRuleReason:
-    'Puntuación de {score}/10, pero su etiqueta no muestra ninguno de los ingredientes con evidencia de esta guía en nuestra dosis de referencia',
+    'Puntuación de {score}/10, pero su etiqueta no alcanza nuestra dosis de referencia en ninguna de las entradas de evidencia anteriores (en una combinación, en cada uno de sus ingredientes)',
   alsoConsideredToc: 'También evaluados',
   audited: 'Auditado',
   bylineAttribution: 'Por el equipo editorial de The Nootropic Lab',
@@ -322,7 +323,7 @@ export const headToHeadPageEnDefaults: HeadToHeadPageStrings = {
   notTracked: 'Not tracked',
   clinicalDosingHeading: 'Clinical dosing audit',
   clinicalDosingIntro:
-    'Each disclosed ingredient dose vs. minimum effective dose from peer-reviewed human clinical trials. Underdosed ingredients flagged. Ingredients hidden inside proprietary blends cannot be evaluated.',
+    'Each disclosed ingredient dose vs. the minimum on our ingredient page for it, from peer-reviewed human clinical trials, where the page gives one; ingredients without a reference dose are listed but not scored. Underdosed ingredients flagged. Ingredients hidden inside proprietary blends cannot be evaluated.',
   ingredient: 'Ingredient',
   clinicalDose: 'Clinical dose',
   citationFooter: 'Clinical-dose anchors sourced from PubMed-indexed human RCTs and Examine.com syntheses. See our',
@@ -368,7 +369,7 @@ export const headToHeadPageEsStrings: Partial<HeadToHeadPageStrings> = {
   notTracked: 'No registrado',
   clinicalDosingHeading: 'Auditoría de dosificación clínica',
   clinicalDosingIntro:
-    'Cada dosis de ingrediente declarada frente a la dosis mínima efectiva de los ensayos clínicos humanos revisados por expertos. Los ingredientes subdosificados están marcados. Los ingredientes ocultos en mezclas propietarias no pueden ser evaluados.',
+    'Cada dosis de ingrediente declarada frente al mínimo de nuestra página de ese ingrediente, tomado de ensayos clínicos humanos revisados por expertos, cuando la página lo indica; los ingredientes sin dosis de referencia se listan pero no se puntúan. Los ingredientes subdosificados están marcados. Los ingredientes ocultos en mezclas propietarias no pueden ser evaluados.',
   ingredient: 'Ingrediente',
   clinicalDose: 'Dosis clínica',
   citationFooter:

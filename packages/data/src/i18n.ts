@@ -370,7 +370,7 @@ const en: UIStrings = {
   },
   footer: {
     tagline:
-      "We audit every nootropic against its clinical-trial doses. Affiliate commissions are disclosed inline and don't move scores.",
+      "We check each nootropic's label doses against the reference doses on our ingredient pages, where one exists. Affiliate commissions are disclosed inline and don't move scores.",
     copyrightLine:
       '© {year} Nootropic Lab · Information is not medical advice. Consult a clinician before starting any supplement.',
     lastAuditLabel: 'Last full re-audit:',
@@ -613,7 +613,7 @@ const es: UIStrings = {
   },
   footer: {
     tagline:
-      'Auditamos cada nootrópico contra sus dosis de ensayos clínicos. Las comisiones de afiliados se divulgan en línea y no afectan las puntuaciones.',
+      'Comparamos las dosis de la etiqueta de cada nootrópico con las dosis de referencia de nuestras páginas de ingredientes, cuando existen. Las comisiones de afiliados se divulgan en línea y no afectan las puntuaciones.',
     copyrightLine:
       '© {year} Nootropic Lab · La información no es asesoramiento médico. Consulte a un médico antes de comenzar cualquier suplemento.',
     lastAuditLabel: 'Última auditoría completa:',
@@ -856,7 +856,7 @@ const fr: UIStrings = {
   },
   footer: {
     tagline:
-      "Nous auditons chaque nootropique selon les doses des essais cliniques. Les commissions d'affiliation sont divulguées en ligne et n'influencent pas les notes.",
+      "Nous comparons les doses indiquées sur l'étiquette de chaque nootropique aux doses de référence de nos pages d'ingrédients, lorsqu'elles existent. Les commissions d'affiliation sont divulguées en ligne et n'influencent pas les notes.",
     copyrightLine:
       "© {year} Nootropic Lab · Les informations ne constituent pas un avis médical. Consultez un clinicien avant de commencer tout supplément.",
     lastAuditLabel: 'Dernier audit complet :',
@@ -1099,7 +1099,7 @@ const ja: UIStrings = {
   },
   footer: {
     tagline:
-      'すべてのノートロピクスを臨床試験の用量で監査しています。アフィリエイト報酬はインラインで開示され、評価には影響しません。',
+      '各ノートロピクスのラベル記載用量を、当サイトの成分ページの基準用量（ある場合）と照合しています。アフィリエイト報酬はインラインで開示され、評価には影響しません。',
     copyrightLine:
       '© {year} Nootropic Lab · 情報は医学的助言ではありません。サプリメントを開始する前に医師に相談してください。',
     lastAuditLabel: '最終全面監査:',
@@ -1342,7 +1342,7 @@ const pt: UIStrings = {
   },
   footer: {
     tagline:
-      'Auditamos cada nootrópico contra as suas doses de ensaios clínicos. As comissões de afiliados são divulgadas em linha e não influenciam as pontuações.',
+      'Comparamos as doses do rótulo de cada nootrópico com as doses de referência das nossas páginas de ingredientes, quando existem. As comissões de afiliados são divulgadas em linha e não influenciam as pontuações.',
     copyrightLine:
       '© {year} Nootropic Lab · As informações não são aconselhamento médico. Consulte um clínico antes de iniciar qualquer suplemento.',
     lastAuditLabel: 'Última auditoria completa:',
@@ -1585,7 +1585,7 @@ const de: UIStrings = {
   },
   footer: {
     tagline:
-      'Wir prüfen jedes Nootropikum gegen die Dosen aus klinischen Studien. Affiliate-Provisionen werden inline offengelegt und beeinflussen die Bewertungen nicht.',
+      'Wir vergleichen die Etikettendosen jedes Nootropikums mit den Referenzdosen unserer Inhaltsstoffseiten, sofern vorhanden. Affiliate-Provisionen werden inline offengelegt und beeinflussen die Bewertungen nicht.',
     copyrightLine:
       '© {year} Nootropic Lab · Informationen sind keine medizinische Beratung. Konsultieren Sie einen Arzt, bevor Sie ein Nahrungsergänzungsmittel einnehmen.',
     lastAuditLabel: 'Letzte vollständige Prüfung:',
@@ -1833,7 +1833,7 @@ const frCa: UIStrings = {
   },
   footer: {
     tagline:
-      "Nous vérifions chaque nootropique selon les doses des essais cliniques. Les commissions d'affiliation sont divulguées en ligne et n'influencent pas les notes.",
+      "Nous vérifions les doses indiquées sur l'étiquette de chaque nootropique par rapport aux doses de référence de nos pages d'ingrédients, lorsqu'elles existent. Les commissions d'affiliation sont divulguées en ligne et n'influencent pas les notes.",
     copyrightLine:
       "© {year} Nootropic Lab · L'information ne constitue pas un avis médical. Consultez un professionnel de la santé avant de prendre tout supplément.",
     lastAuditLabel: 'Dernière vérification complète :',

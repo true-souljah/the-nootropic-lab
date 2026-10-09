@@ -41,7 +41,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'L-Tyrosine (or NALT)',
     ingredientSlugs: ['l-tyrosine'],
     evidence:
-      'Precursor to dopamine + norepinephrine. Effective specifically under cognitive load or stress — improves performance on attention tasks during sleep deprivation, multitasking, or the heat/humidity stress common in tropical SEA work environments. The stress trials with positive results used plain L-tyrosine at 2g a day or 100–150mg/kg.',
+      'Precursor to dopamine + norepinephrine. Effective specifically under cognitive load or stress — improves performance on attention tasks during sleep deprivation or multitasking, but it did not protect cognition under exercise heat stress (Coull 2016). The stress trials with positive results used plain L-tyrosine at 2g a day or 100–150mg/kg.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/26424423/',
   },
   {

@@ -64,13 +64,13 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'fancl-brains-review')!,
     rank: 2,
     whyItsHere:
-      'The leading Japanese domestic option: FFC-notified (機能性表示食品) with cognitive claims filed with the Consumer Affairs Agency (消費者庁). Its notified functional ingredients are bacopa saponins (15mg, memory) and matured hop bitter acids (35mg, attention), per FANCL\'s notification G425. Sold through FANCL\'s official Rakuten store, labelled 機能性表示食品. No customs risk, Japanese-language label, ¥5,479 per 30-day bag (list price on fancl.co.jp).',
+      'A Japanese domestic product, FFC-notified (機能性表示食品) with cognitive claims filed with the Consumer Affairs Agency (消費者庁). Its notified functional ingredients are bacopa saponins (15mg, memory) and matured hop bitter acids (35mg, attention), per FANCL\'s notification G425. Sold through FANCL\'s official Rakuten store, labelled 機能性表示食品. No customs risk, Japanese-language label, ¥5,479 per 30-day bag (list price on fancl.co.jp).',
   },
   {
     product: productsJP.find(p => p.slug === 'suntory-dha-epa-sesamin-review')!,
     rank: 3,
     whyItsHere:
-      'An omega-3 brain supplement whose maker\'s product page calls it 「DHAサプリメント市場18年連続売上No.1」 (No. 1 in DHA-supplement sales for 18 years running; suntory-kenko.com, checked 2026-10-09); no Foods with Function Claims (FFC, 機能性表示食品) notification found in the Consumer Affairs Agency (CAA) database (export scanned 2026-10-06). 300mg DHA + 100mg EPA + 10mg sesamin per 4 capsules from Suntory Wellness — backed by a household-name conglomerate familiar to every Japanese consumer. Foundational rather than acute: works by maintaining structural membrane integrity. Best paired with a dedicated nootropic stack like Mind Lab Pro for users wanting both. ¥4,800/month.',
+      'An omega-3 brain supplement whose maker\'s product page calls it 「DHAサプリメント市場18年連続売上No.1」 (No. 1 in DHA-supplement sales for 18 years running; suntory-kenko.com, checked 2026-10-09); no Foods with Function Claims (FFC, 機能性表示食品) notification found in the Consumer Affairs Agency (CAA) database (export scanned 2026-10-06). 300mg DHA + 100mg EPA + 10mg sesamin per 4 capsules from Suntory Wellness — backed by a household-name conglomerate familiar to every Japanese consumer. Its 300mg DHA is below the 900mg low end of our DHA reference dose. ¥4,800/month.',
   },
 ];
 

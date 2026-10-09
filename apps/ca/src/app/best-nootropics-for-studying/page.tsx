@@ -64,7 +64,7 @@ const picks: ListiclePick[] = [
     product: productsCA.find(p => p.slug === 'hunter-focus-review')!,
     rank: 2,
     whyItsHere:
-      'Pre-built caffeine + L-theanine 1:2 stack (100mg caffeine + 200mg L-theanine) means no need to time your coffee around dosing. 250mg citicoline + 500mg Lion\'s Mane support attention and long-term neuroplasticity. Pricier (~CAD $123/mo) and a 6-capsule daily regimen — best for graduate students or working professionals studying part-time.',
+      'Pre-built caffeine + L-theanine 1:2 stack (100mg caffeine + 200mg L-theanine), plus 250mg citicoline and 500mg Lion\'s Mane. Pricier (~CAD $123/mo) and a 6-capsule daily regimen.',
   },
   {
     product: productsCA.find(p => p.slug === 'qualia-mind-review')!,

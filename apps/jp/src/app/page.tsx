@@ -37,7 +37,7 @@ const features = [
   {
     icon: '🔬',
     title: 'Clinical dosing audits',
-    desc: 'Every product review includes a dosing-vs-evidence table comparing each ingredient to the minimum effective dose from peer-reviewed trials.',
+    desc: 'Every product review includes a dosing-vs-evidence table: where our ingredient pages give a reference dose from peer-reviewed trials, it compares the label amount with that minimum; other ingredients are listed but not scored.',
   },
   {
     icon: '🗾',
@@ -87,8 +87,9 @@ export default function HomePage() {
           </h1>
           <p className="text-base text-ds-muted mb-2">ノートロピクスの独立比較レビュー</p>
           <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
-            We compare international and Japanese domestic nootropics. Every ingredient dose
-            checked against clinical evidence. MHLW import guidelines clearly stated.
+            We compare international and Japanese domestic nootropics. Label doses checked against
+            the reference doses on our ingredient pages, where one exists. MHLW import guidelines
+            clearly stated.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link

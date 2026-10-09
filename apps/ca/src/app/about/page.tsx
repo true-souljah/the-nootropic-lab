@@ -46,8 +46,9 @@ export default function AboutPage() {
           <p className="text-gray-700 leading-relaxed mb-3">
             We review nootropic supplements for buyers in Canada in both English (en-CA) and French (fr-CA),
             with bilingual product labelling expectations baked into our editorial process. Every review
-            includes a clinical dosing audit comparing each ingredient against the minimum effective dose
-            from peer-reviewed trials. We score brands across ingredient quality, dosing-vs-evidence, formula
+            includes a clinical dosing audit comparing each ingredient that has a reference dose on our
+            ingredient pages against that page&apos;s minimum from peer-reviewed trials; ingredients without
+            one are listed but not scored. We score brands across ingredient quality, dosing-vs-evidence, formula
             transparency, value for money, and brand trust.
           </p>
           <p className="text-gray-700 leading-relaxed">

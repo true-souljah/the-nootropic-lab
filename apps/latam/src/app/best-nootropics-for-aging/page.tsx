@@ -71,7 +71,7 @@ const picks: ListiclePick[] = [
     product: productsLatam.find(p => p.slug === 'nootropics-depot-lions-mane')!,
     rank: 3,
     whyItsHere:
-      'Extracto de Melena de León del cuerpo fructífero de un solo ingrediente, de una marca con sólida trayectoria en pruebas de terceros (Certificado de Análisis publicado por lote). La opción correcta si quieres probar Melena de León de forma aislada, posiblemente combinada con un suplemento separado de fosfatidilserina.',
+      'Extracto de Melena de León del cuerpo fructífero de un solo ingrediente, de una marca con sólida trayectoria en pruebas de terceros (Certificado de Análisis publicado por lote). Aporta 500mg de Melena de León, la mitad del mínimo de 1g al día de nuestra dosis de referencia.',
   },
 ];
 

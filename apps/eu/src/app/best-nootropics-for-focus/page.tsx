@@ -64,7 +64,7 @@ const picks: ListiclePick[] = [
     product: productsEU.find(p => p.slug === 'brainzyme-focus-pro-review')!,
     rank: 2,
     whyItsHere:
-      'Pairs a 350mg Camellia sinensis (matcha) EMT blend that includes L-theanine with 330mg guarana seed, 240mg ginkgo and 230mg L-tyrosine, at €31.75/mo. The label states no caffeine amount and does not split the EMT blend, so the L-theanine dose is not stated. Best value for buyers who want the acute focus effect rather than long-term cognitive support.',
+      'Pairs a 350mg Camellia sinensis (matcha) EMT blend that includes L-theanine with 330mg guarana seed, 240mg ginkgo and 230mg L-tyrosine, at €31.75/mo. The label states no caffeine amount and does not split the EMT blend, so the L-theanine dose is not stated.',
   },
   {
     product: productsEU.find(p => p.slug === 'noocube-review')!,

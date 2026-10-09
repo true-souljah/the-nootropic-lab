@@ -40,7 +40,7 @@ const features = [
   {
     icon: '🔬',
     title: 'Auditorías clínicas de dosificación',
-    desc: 'Cada revisión de producto incluye una tabla de dosificación frente a evidencia que compara cada ingrediente con la dosis mínima efectiva de los ensayos revisados por expertos.',
+    desc: 'Cada revisión de producto incluye una tabla de dosificación frente a evidencia: cuando nuestras páginas de ingredientes dan una dosis de referencia de ensayos revisados por expertos, compara la cantidad de la etiqueta con ese mínimo; los demás ingredientes se listan pero no se puntúan.',
   },
   {
     icon: '🌎',
@@ -91,8 +91,8 @@ export default function HomePage() {
             para América Latina
           </h1>
           <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
-            Comprobamos la dosis de cada ingrediente con ensayos clínicos revisados por expertos.
-            Sin comisiones ocultas.
+            Comprobamos las dosis de la etiqueta con las dosis de referencia de ensayos revisados por
+            expertos de nuestras páginas de ingredientes, cuando existen. Sin comisiones ocultas.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
