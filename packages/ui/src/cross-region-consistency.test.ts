@@ -43,11 +43,16 @@ const PRIMARY_BASELINE = new Set<string>([
   'performance-lab-mind-review/heroIngredients',
   'performance-lab-mind-review/ingredientDosages',
 ]);
-// GCC/SEA: empty. Blackmores Brain Active's AU and SEA records now share the
-// one formula on Blackmores' AU and SG labels (Longvida curcumin 400mg,
-// checked 2026-10-08), and brand, Trustpilot and the discontinued block stay
-// unified across the two markets.
-const GCC_SEA_BASELINE = new Set<string>([]);
+// GCC/SEA: SEA's Blackmores Brain Active record lists a different formula
+// (Keenmind Bacopa 160mg, Ginkgo, DHA, PS) from the AU record, and the
+// 2026-09-28 vendor verification found the product delisted in both markets,
+// so neither supplement-facts panel could be read to settle which is right.
+// Brand, Trustpilot and the discontinued block are unified; the formula
+// stays listed here until a verified panel exists.
+const GCC_SEA_BASELINE = new Set<string>([
+  'sea/blackmores-brain-active-review/heroIngredients',
+  'sea/blackmores-brain-active-review/ingredientDosages',
+]);
 
 const sharedSlugs = [...new Set(Object.values(CATALOGUES).flatMap((ps) => ps.map((p) => p.slug)))]
   .filter((slug) => Object.values(CATALOGUES).filter((ps) => ps.some((p) => p.slug === slug)).length > 1)

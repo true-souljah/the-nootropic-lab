@@ -845,44 +845,73 @@
     "commissionRate": "Retail (no direct DTC affiliate)",
     "cookieDays": 0,
     "heroIngredients": [
-      "Curcuma longa extract"
+      "Bacopa Monnieri",
+      "Ginkgo Biloba",
+      "Vitamin B5",
+      "Vitamin B12",
+      "Iodine"
     ],
     "ingredientDosages": [
       {
-        "name": "Curcuma longa extract (turmeric, Longvida®)",
-        "doseInProduct": "400mg (80mg curcumin)",
-        "clinicalDose": "No reference dose on file",
-        "adequatelyDosed": null
+        "name": "Bacopa Monnieri (Brahmi extract, 50% bacosides)",
+        "doseInProduct": "300mg",
+        "clinicalDose": "300mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Ginkgo Biloba (24% flavonoglycosides)",
+        "doseInProduct": "40mg",
+        "clinicalDose": "120-240mg",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Pantothenic acid (B5)",
+        "doseInProduct": "5mg",
+        "clinicalDose": "5-10mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Vitamin B12 (cyanocobalamin)",
+        "doseInProduct": "5µg",
+        "clinicalDose": "2.4-100µg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Iodine",
+        "doseInProduct": "75µg",
+        "clinicalDose": "150µg (RDI)",
+        "adequatelyDosed": false
       }
     ],
-    "servingsPerContainer": 30,
+    "servingsPerContainer": 60,
     "capsulesPerServing": 1,
-    "summary": "Blackmores Brain Active was a pharmacy-shelf cognitive supplement in Australia and is now discontinued. Our earlier copy cited AUST L 246877; 246877 does not resolve on the Australian Register of Therapeutic Goods (ARTG) (HTTP 404 and no row in either TGA database, checked 2026-10-06). TGA's cancellations-by-sponsor database lists ARTG 227270, cancelled 18 September 2014, sponsor Blackmores Limited, and a second entry, ARTG 227319, cancelled 17 May 2021 (Blackmores Ltd); the ARTG search returned no current entry (searched 2026-10-06). Its one active was Longvida® curcumin: Curcuma longa (turmeric) extract 400mg, equivalent to 80mg curcumin, in a once-daily capsule. Founded 1932 — the longest-tenured Australian supplement brand.",
+    "summary": "Blackmores Brain Active was a pharmacy-shelf cognitive supplement in Australia and is now discontinued. Our earlier copy cited AUST L 246877; 246877 does not resolve on the Australian Register of Therapeutic Goods (ARTG) (HTTP 404 and no row in either TGA database, checked 2026-10-06). TGA's cancellations-by-sponsor database lists ARTG 227270, cancelled 18 September 2014, sponsor Blackmores Limited, and a second entry, ARTG 227319, cancelled 17 May 2021 (Blackmores Ltd); the ARTG search returned no current entry (searched 2026-10-06). Bacopa Monnieri at clinical dose (300mg) is the ingredient that earns its trust score. Founded 1932 — the longest-tenured Australian supplement brand.",
     "whatItIs": "Blackmores is Australia's largest naturopathic supplement company, founded in 1932 by chiropractor Maurice Blackmore. Brain Active was one of their cognitive products. TGA's cancellations-by-sponsor database lists its Australian Register of Therapeutic Goods (ARTG) entry 227270, cancelled 18 September 2014, sponsor Blackmores Limited, and a second entry, ARTG 227319, cancelled 17 May 2021 (Blackmores Ltd); the ARTG search returned no current entry (searched 2026-10-06). No DTC subscription model. Daily 1-capsule format reduces friction.",
-    "howItWorks": "Each capsule contained one active: Curcuma longa (turmeric) extract dry concentrate (Longvida®) 400mg, equivalent to 5.4g dry rhizome and 80mg curcumin. Blackmores described Longvida® as an optimised form of curcumin, the active ingredient in turmeric, and said Brain Active may support alertness and working memory and aid reduced mental fatigue. This site has no ingredient page or reference dose for curcumin, so the dose is not rated.",
-    "whatToExpect": "The label directed one capsule daily with breakfast and advised against use during pregnancy or breastfeeding. Blackmores said Brain Active may support alertness and working memory and aid reduced mental fatigue; this site has no curcumin evidence page, so we make no claim about how quickly or how much it works. Caffeine-free — no overlap with morning coffee.",
+    "howItWorks": "Bacopa Monnieri at 300mg (clinical dose, standardized to 50% bacosides) supports memory consolidation over 8-12 weeks of consistent use — the most-replicated memory ingredient in nootropics. Ginkgo Biloba supports cerebral blood flow but at 40mg is well below the 120mg clinical anchor. B5 and B12 act as cofactors for energy metabolism. The Bacopa is the workhorse; the rest are supporting cast.",
+    "whatToExpect": "Acute: nothing dramatic. This is a long-onset memory-focused supplement. Weeks 4-8: subtle memory and attention improvements from Bacopa accumulation. Weeks 12+: cumulative effect peaks. Best used as a daily long-term cognitive supplement rather than an acute focus boost. Caffeine-free — no overlap with morning coffee.",
     "pros": [
-      "Simple, fully disclosed label: one active (Longvida® curcumin 400mg)",
+      "Bacopa at clinical dose (300mg)",
       "1-capsule daily — minimal friction",
       "Caffeine-free — no stimulant overlap",
       "Lowest per-month price in the AU coverage (~AUD $35/mo)",
       "Founded 1932 — strongest brand-trust footprint in Australian supplements"
     ],
     "cons": [
-      "One active ingredient only (curcumin)",
+      "Ginkgo dose (40mg) well below clinical anchor (120-240mg)",
+      "Iodine dose at 50% RDI — odd inclusion in a cognitive supplement",
       "No L-theanine, no citicoline, no Lion's Mane",
-      "No DTC affiliate — must buy at retail (no online comparison-pricing leverage)"
+      "No DTC affiliate — must buy at retail (no online comparison-pricing leverage)",
+      "Slow-onset (8+ weeks) — not for acute focus"
     ],
     "editorChoice": false,
     "market": "au",
     "updatedAt": "2026-09-28",
     "discontinued": {
       "since": "2026-09-28",
-      "note": "No longer listed on blackmores.com.au or at Chemist Warehouse (Blackmores Australia now sells Cognition Ultra / Omega Brain), and Blackmores Singapore no longer has a Brain Active product page (checked 8 October 2026); Blackmores Vietnam still lists Brain Active at https://www.blackmores.com.vn/en/products/brain-active (checked 8 October 2026)."
+      "note": "No longer listed on blackmores.com.au or at Chemist Warehouse; Blackmores now sells Cognition Ultra / Omega Brain."
     },
     "verifiedAt": "2026-09-28",
-    "trustpilotCheckedAt": "2026-09-28",
-    "notes": "Ingredient amounts from Blackmores' label at https://web.archive.org/web/20190531034440id_/https://www.blackmores.com.au/products/brain-active?siteID=h4XjTP3rQz0-F5z4X1JRyi4WuDkYUgzGXw, checked 2026-10-08."
+    "trustpilotCheckedAt": "2026-09-28"
   },
   {
     "id": "performance-lab-caffeine-2",

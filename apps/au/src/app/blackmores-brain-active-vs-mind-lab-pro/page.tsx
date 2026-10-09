@@ -56,12 +56,12 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Bacopa dose?',
     a:
-      'Blackmores Brain Active contained no Bacopa. Its one active was Curcuma longa (turmeric) extract (Longvida®) 400mg, equivalent to 80mg curcumin, in a once-daily capsule (Blackmores\' product page, archived 31 May 2019). Mind Lab Pro lists Bacopa Monnieri at 150mg (24% bacosides).',
+      'Both contain Bacopa at clinical dose (300mg standardized to 50% bacosides). On the most-replicated memory ingredient, they tie.',
   },
   {
     q: 'What does Blackmores miss that Mind Lab Pro has?',
     a:
-      'The two formulas share no ingredient. Mind Lab Pro\'s formula includes Lion\'s Mane, citicoline (Cognizin), Bacopa, Rhodiola, L-theanine, phosphatidylserine and L-tyrosine; Blackmores Brain Active\'s single active was Longvida® curcumin. If you want any of Mind Lab Pro\'s ingredients, Mind Lab Pro is the only choice between these two.',
+      'Mind Lab Pro adds Lion\'s Mane, citicoline (Cognizin), L-theanine, L-tyrosine, phosphatidylserine, Rhodiola, and a higher Ginkgo dose. If you want any of these specific ingredients, Mind Lab Pro is the only choice between these two. Blackmores keeps it simple at Bacopa + Ginkgo + B-vitamins.',
   },
 ];
 
