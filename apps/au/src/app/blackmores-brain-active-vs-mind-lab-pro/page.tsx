@@ -54,14 +54,14 @@ const faqItems: HeadToHeadFAQ[] = [
       'Blackmores Brain Active has no current price because it is no longer sold. Mind Lab Pro is A$89/month (one-time purchase) on au.mindlabpro.com, checked 28 September 2026.',
   },
   {
-    q: 'Bacopa dose?',
+    q: 'What did Blackmores Brain Active contain?',
     a:
-      'Both contain Bacopa at clinical dose (300mg standardized to 50% bacosides). On the most-replicated memory ingredient, they tie.',
+      'One active ingredient: Longvida® turmeric extract, 400mg per capsule (80mg curcumin), one capsule daily with breakfast (blackmores.com.au product page, archived 2015 and 2019). It contained no Bacopa. 400mg Longvida is the dose tested in two placebo-controlled trials in healthy adults aged 50-85 (Cox et al. 2015 and 2020); the 2020 trial was funded by Longvida\'s maker. Correction (2026-10-09): an earlier version of this answer said both products contain Bacopa at clinical dose.',
   },
   {
-    q: 'What does Blackmores miss that Mind Lab Pro has?',
+    q: 'How do the two formulas differ?',
     a:
-      'Mind Lab Pro adds Lion\'s Mane, citicoline (Cognizin), L-theanine, L-tyrosine, phosphatidylserine, Rhodiola, and a higher Ginkgo dose. If you want any of these specific ingredients, Mind Lab Pro is the only choice between these two. Blackmores keeps it simple at Bacopa + Ginkgo + B-vitamins.',
+      'They share no ingredients. Brain Active was curcumin alone. Mind Lab Pro combines Lion\'s Mane 500mg, citicoline (Cognizin) 250mg, Bacopa Monnieri 150mg (24% bacosides), L-tyrosine 175mg, L-theanine 100mg, phosphatidylserine 100mg and Rhodiola Rosea 50mg; it contains no curcumin and no Ginkgo.',
   },
 ];
 
@@ -73,7 +73,7 @@ const whoIsForA = [
 const whoIsForB = [
   'Want broader formula (Lion\'s Mane, citicoline, PS, Rhodiola, L-theanine)',
   'Care about peer-reviewed product-specific RCT evidence',
-  'Are willing to pay 4× premium for the wider ingredient coverage',
+  'Want a product that is still sold (A$89/month on au.mindlabpro.com, checked 28 September 2026)',
   'Are caffeine-free user',
   'Don\'t mind 5-10 day international shipping under Personal Importation Scheme',
 ];

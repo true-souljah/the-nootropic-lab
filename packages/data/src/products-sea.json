@@ -645,14 +645,15 @@
       "Memory",
       "Brain health"
     ],
-    "score": 6.9,
+    "score": 7.4,
     "scoreBreakdown": {
-      "ingredients": 7,
-      "dosing": 6,
+      "ingredients": 6,
+      "dosing": 9,
       "transparency": 7,
-      "value": 8,
+      "value": null,
       "trust": 7
     },
+    "unscoredReason": "Value is not scored: the product is discontinued and has no current price to measure against its clinical-dose ingredient. The overall score is the weighted average of the four scored pillars.",
     "priceMonthlyUSD": 28,
     "pricingModel": "one-time",
     "moneyBackDays": 0,
@@ -666,55 +667,37 @@
     "commissionRate": "0%",
     "cookieDays": 0,
     "heroIngredients": [
-      "Bacopa Monnieri",
-      "Ginkgo Biloba",
-      "DHA",
-      "Phosphatidylserine"
+      "Curcumin (Longvida®)"
     ],
     "ingredientDosages": [
       {
-        "name": "Bacopa Monnieri (Keenmind)",
-        "doseInProduct": "160mg",
-        "clinicalDose": "300mg",
-        "adequatelyDosed": false
-      },
-      {
-        "name": "Ginkgo Biloba",
-        "doseInProduct": "80mg",
-        "clinicalDose": "120mg",
-        "adequatelyDosed": false
-      },
-      {
-        "name": "DHA (Docosahexaenoic Acid)",
-        "doseInProduct": "200mg",
-        "clinicalDose": "900mg-1.2g DHA/day",
-        "adequatelyDosed": false
-      },
-      {
-        "name": "Phosphatidylserine",
-        "doseInProduct": "50mg",
-        "clinicalDose": "100mg",
-        "adequatelyDosed": false
+        "name": "Curcumin (Longvida® turmeric extract)",
+        "doseInProduct": "400mg (80mg curcumin)",
+        "clinicalDose": "400mg Longvida/day (Cox 2015, 2020)",
+        "adequatelyDosed": true
       }
     ],
     "servingsPerContainer": 30,
-    "capsulesPerServing": 2,
-    "summary": "Blackmores Brain Active is a discontinued brain health supplement from Australian brand Blackmores. It no longer appears in Blackmores Singapore's brain-health range or on Guardian Singapore's brain-supplement shelf (both checked 2026-09-28), and Blackmores has also delisted it in Australia. This review is kept for reference; it is not a current recommendation for SEA buyers.",
-    "whatItIs": "Blackmores is an Australian health company founded in 1932. Brain Active was a Bacopa-based memory formula; this record lists Bacopa Monnieri (Keenmind branded extract), Ginkgo Biloba, DHA omega-3, and Phosphatidylserine. The product has been discontinued: Blackmores Singapore's brain-health category and Guardian Singapore's brain shelf no longer carry it (checked 2026-09-28).",
-    "howItWorks": "Bacopa Monnieri (Keenmind extract) supports memory consolidation via synaptic communication. Ginkgo Biloba improves cerebral blood flow through vasodilation and PAF inhibition. DHA supports neuronal membrane fluidity and synaptic plasticity. Phosphatidylserine maintains cell membrane integrity and supports cortisol regulation. This is a foundational brain health formula from a trusted pharmaceutical-grade manufacturer.",
-    "whatToExpect": "No acute effects on day one. At 4-6 weeks: subtle improvements in recall and mental clarity, particularly from Bacopa. At 8-12 weeks: cumulative brain health maintenance. Effects are milder than premium imported stacks (Mind Lab Pro, NooCube) due to lower ingredient doses.",
+    "capsulesPerServing": 1,
+    "summary": "Blackmores Brain Active is a discontinued Blackmores supplement with one active ingredient: Longvida® turmeric extract, 400mg per capsule (80mg curcumin), one capsule daily (Blackmores Singapore product page, archived 2019-07-17 to 2022-05-23). It no longer appears in Blackmores Singapore's brain-health range or on Guardian Singapore's brain-supplement shelf (both checked 2026-09-28), and Blackmores has also delisted it in Australia. This review is kept for reference; it is not a current recommendation for SEA buyers. Correction (2026-10-09): an earlier version of this review listed a Bacopa, Ginkgo, DHA and phosphatidylserine formula that the product never had.",
+    "whatItIs": "Blackmores is an Australian health company founded in 1932. Brain Active contained one active ingredient: Longvida® turmeric extract (Curcuma longa dry concentrate), 400mg per capsule, equivalent to 5.4g dry rhizome and 80mg curcumin. Blackmores Singapore sold it in packs of 30 capsules at an RSP of S$51 (product page archived 2022-05-23). The product has been discontinued: Blackmores Singapore's brain-health category and Guardian Singapore's brain shelf no longer carry it (checked 2026-09-28).",
+    "howItWorks": "Curcumin is the main active compound in turmeric. Longvida is a solid lipid curcumin formulation that Blackmores Singapore described as an enhanced bioavailable form of curcumin. Two placebo-controlled trials by the same research group tested 400mg Longvida daily (80mg curcumin) in healthy older adults: Cox et al. 2015 (J Psychopharmacol; 60 adults aged 60-85) found better sustained attention and working memory one hour after a dose, and better working memory and less fatigue after 4 weeks; Cox et al. 2020 (Nutrients; 80 adults aged 50-80) found better working memory at 12 weeks and lower fatigue scores at 4 and 12 weeks. The 2020 trial was funded by Verdure Sciences, which makes Longvida.",
+    "whatToExpect": "Based on the two Longvida trials: possible effects on working memory and fatigue over 4 to 12 weeks of daily use, plus attention and working-memory effects one hour after a dose in the 2015 trial. Both trials studied healthy adults aged 50 to 85; neither tested younger adults. In the 2020 trial, blood glucose was higher in the curcumin group than with placebo. The product is discontinued, so this describes what the formula offered, not a product you can buy.",
     "pros": [
-      "Keenmind branded Bacopa extract"
+      "One fully disclosed active ingredient, at the 400mg Longvida dose used in two placebo-controlled trials",
+      "One capsule a day",
+      "Caffeine-free"
     ],
     "cons": [
-      "Below clinical doses for all ingredients",
-      "No money-back guarantee",
-      "No affiliate commission",
-      "Lower potency than imported stacks"
+      "Discontinued: no longer sold by Blackmores in Singapore or Australia",
+      "Evidence is two small trials from one research group, in healthy adults aged 50-85; the 2020 trial was funded by Longvida's maker",
+      "In the 2020 trial, blood glucose was higher with curcumin than with placebo",
+      "A single ingredient: no Bacopa, citicoline, L-theanine or other cognitive ingredients",
+      "No affiliate commission"
     ],
     "editorChoice": false,
     "market": "both",
-    "updatedAt": "2026-09-28",
+    "updatedAt": "2026-10-09",
     "discontinued": {
       "since": "2026-09-28",
       "note": "No longer listed on blackmores.com.au or at Chemist Warehouse; Blackmores now sells Cognition Ultra / Omega Brain."
