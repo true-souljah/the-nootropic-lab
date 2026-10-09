@@ -72,7 +72,7 @@ const picks: ListiclePick[] = [
     product: productsUS.find(p => p.slug === 'thesis-nootropics-review')!,
     rank: 4,
     whyItsHere:
-      'Personalization may suit students with specific patterns (e.g., the "Clarity" formula for focus or "Logic" for analytical work). Subscription model with monthly cost can add up over a semester.',
+      'Personalization may suit students with specific patterns (e.g., the "Clarity" formula for focus). Subscription model with monthly cost can add up over a semester.',
   },
 ];
 

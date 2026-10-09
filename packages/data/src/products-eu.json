@@ -84,7 +84,7 @@
     "servingsPerContainer": 30,
     "capsulesPerServing": 2,
     "summary": "The most comprehensively researched nootropic stack available in the EU, priced in EUR on the brand's EU store, which ships EU orders from its depot in Europe. Our #1 pick for European buyers.",
-    "whatItIs": "Mind Lab Pro is an 11-ingredient nootropic stack made by Opti-Nutra (UK). It is designed as a complete daily cognitive supplement covering memory, focus, mental energy, mood, and long-term brain health. For EU buyers, eu.mindlabpro.com prices in EUR, and its shipping page says EU orders are shipped from the brand's depot in Europe (eu.mindlabpro.com shipping page, checked 2026-10-06). The EU store names Performance Lab Europe Ltd, Dublin (company 698988), as its operator, and its terms make customers ordering from outside the US or UK the Importer of Record for their shipments.",
+    "whatItIs": "Mind Lab Pro is an 11-ingredient nootropic stack sold by Performance Lab Group Ltd (Royal Leamington Spa, UK) per mindlabpro.com's terms; the brand's own posts say it was formulated by Opti-Nutra in the UK (checked 2026-10-08). It is designed as a complete daily cognitive supplement covering memory, focus, mental energy, mood, and long-term brain health. For EU buyers, eu.mindlabpro.com prices in EUR, and its shipping page says EU orders are shipped from the brand's depot in Europe (eu.mindlabpro.com shipping page, checked 2026-10-06). The EU store names Performance Lab Europe Ltd, Dublin (company 698988), as its operator, and its terms make customers ordering from outside the US or UK the Importer of Record for their shipments.",
     "howItWorks": "Mind Lab Pro works across six bio-pathways simultaneously. Citicoline and Phosphatidylserine support the cholinergic system and neuronal membrane integrity. Lion's Mane stimulates Nerve Growth Factor (NGF) for neuroplasticity. Bacopa Monnieri enhances synaptic communication for memory. Rhodiola Rosea and L-Tyrosine support dopamine/norepinephrine balance under stress. L-Theanine promotes alpha brain wave activity for calm focus. The EU formula is sold as a food supplement under EU Directive 2002/46/EC, so its label may carry only EU-authorised health claims (assessed by EFSA).",
     "whatToExpect": "Within 30-60 minutes: mild calm focus from L-Theanine. Within 2-4 weeks: improved mental energy and reduced cognitive fatigue. At 8-12 weeks: measurable improvements in memory recall and learning speed. EU orders are shipped from the brand's depot in Europe, with an expected delivery time of 4-12 working days depending on destination (eu.mindlabpro.com shipping page, checked 2026-10-06). Mind Lab Pro is a long-game supplement -- most users report subtle but sustained improvement rather than dramatic day-one effects.",
     "pros": [
@@ -347,8 +347,8 @@
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 2,
-    "summary": "Opti-Nutra's streamlined 4-ingredient formula. Every ingredient at clinical dose. Only 2 capsules/day. Same manufacturer as Mind Lab Pro.",
-    "whatItIs": "Performance Lab Mind is a 4-ingredient cognitive supplement from Opti-Nutra -- the same manufacturer as Mind Lab Pro. It is designed as a precision stack where every single ingredient is at or above its clinical trial dose. With only 2 capsules per day, it has the lowest pill burden of any clinically-dosed nootropic in this review.",
+    "summary": "Performance Lab's streamlined 4-ingredient formula; posts on mindlabpro.com say Performance Lab supplements are formulated by Opti-Nutra in the UK (checked 2026-10-08). Every ingredient at clinical dose. Only 2 capsules/day. Same manufacturer as Mind Lab Pro.",
+    "whatItIs": "Performance Lab Mind is a 4-ingredient cognitive supplement from Performance Lab; posts on mindlabpro.com say Performance Lab supplements are formulated by Opti-Nutra in the UK, which they call the maker of Mind Lab Pro (checked 2026-10-08). It is designed as a precision stack where every single ingredient is at or above its clinical trial dose. With only 2 capsules per day, it has the lowest pill burden of any clinically-dosed nootropic in this review.",
     "howItWorks": "Citicoline (250mg Cognizin) boosts acetylcholine synthesis and supports neuronal membrane phospholipid production. Phosphatidylserine (100mg Sharp-PS) enhances synaptic signal transduction and reduces cortisol. Lion's Mane (500mg fruiting body) stimulates NGF for long-term neuroplasticity. L-Tyrosine (300mg NALT) replenishes dopamine and norepinephrine precursors for working memory under stress. Each ingredient is at or above the dose used in clinical trials -- no filler, no underdosed compounds.",
     "whatToExpect": "Acute (30-60 min): mild focus from Tyrosine and Citicoline's acetylcholine boost. 2-4 weeks: improved mental endurance and reduced cognitive fatigue. 8-12 weeks: memory and neuroprotective benefits from Lion's Mane and Phosphatidylserine accumulate. Performance Lab Mind is ideal as a standalone for minimalists, or stacked with Performance Lab Energy for a comprehensive cognitive + energy protocol.",
     "pros": [
@@ -394,7 +394,7 @@
     "priceMonthlyEUR": 45,
     "pricingModel": "both",
     "moneyBackDays": 14,
-    "caffeineFree": false,
+    "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "compliant",
     "trustpilotScore": null,
@@ -404,61 +404,67 @@
     "commissionRate": "Contact brand",
     "cookieDays": 30,
     "heroIngredients": [
+      "Citicoline",
       "Bacopa Monnieri",
       "Panax Ginseng",
-      "Ginkgo Biloba",
-      "Vitamin B complex",
-      "Caffeine"
+      "Acetyl-L-Carnitine",
+      "Pantothenic Acid"
     ],
     "ingredientDosages": [
       {
-        "name": "Bacopa Monnieri",
-        "doseInProduct": "200mg",
+        "name": "Citicoline (CDP-Choline)",
+        "doseInProduct": "450mg",
+        "clinicalDose": "250-500mg/day",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Acetyl-L-Carnitine",
+        "doseInProduct": "212mg",
+        "clinicalDose": "1500-3000mg/day",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Bacopa Monnieri (Brahmi extract)",
+        "doseInProduct": "460mg (92mg bacopasides)",
         "clinicalDose": "300-450mg/day (55% bacosides)",
         "adequatelyDosed": false
       },
       {
-        "name": "Panax Ginseng",
-        "doseInProduct": "200mg",
+        "name": "Panax Ginseng (extract, stem and root)",
+        "doseInProduct": "50mg (40mg ginsenosides)",
         "clinicalDose": "No reference dose on file",
         "adequatelyDosed": null
       },
       {
-        "name": "Ginkgo Biloba (24% flavonoids)",
-        "doseInProduct": "120mg",
-        "clinicalDose": "240mg/day (24/6 extract)",
-        "adequatelyDosed": false
+        "name": "Pantothenic Acid (Vitamin B5)",
+        "doseInProduct": "12mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
-        "name": "Caffeine",
-        "doseInProduct": "80mg",
-        "clinicalDose": "100-200mg",
-        "adequatelyDosed": false
-      },
-      {
-        "name": "Vitamin B6",
-        "doseInProduct": "1.4mg",
+        "name": "Zinc",
+        "doseInProduct": "2.5mg",
         "clinicalDose": "No reference dose on file",
         "adequatelyDosed": null
       },
       {
         "name": "Vitamin B12",
-        "doseInProduct": "2.5mcg",
+        "doseInProduct": "4.0mcg",
         "clinicalDose": "No reference dose on file",
         "adequatelyDosed": null
       }
     ],
     "servingsPerContainer": 30,
-    "capsulesPerServing": 3,
-    "summary": "BRAINEFFECT FOCUS is a discontinued caffeine-based focus supplement from the Berlin brand BRAINEFFECT. Its product page on brain-effect.com returns 404 and FOCUS no longer appears in the brand's catalogue (checked 2026-09-29). BRAINEFFECT still sells other products, which we have not reviewed. This review is kept for reference; it is not a current recommendation.",
-    "whatItIs": "BRAINEFFECT FOCUS was a nootropic supplement from BRAINEFFECT, a Berlin-based brand, aimed at the DACH market (Germany, Austria, Switzerland). Its ingredients were permitted under EU food supplement rules, and as an EU food supplement its label could carry only EU-authorised health claims (assessed by the European Food Safety Authority, EFSA), which rules out any caffeine cognition claim: none is authorised in the EU. The product has been discontinued: its brain-effect.com product page returns 404 and it is no longer in the brand's catalogue (checked 2026-09-29).",
-    "howItWorks": "Panax Ginseng and Ginkgo Biloba were included for circulatory and cognitive support, although neither carries an EU-authorised health claim. Bacopa Monnieri targets memory consolidation. Caffeine (80mg -- equivalent to a small coffee) provides acute focus and alertness. B-vitamins (B6, B12) support energy metabolism and normal psychological function per EU Regulation 1924/2006.",
-    "whatToExpect": "Acute (30-60 min): focus and alertness from caffeine. 2-4 weeks: improved mental energy and concentration. 8 weeks: modest memory support from Bacopa (note: underdosed at 200mg vs. 300mg clinical threshold).",
+    "capsulesPerServing": 2,
+    "summary": "BRAINEFFECT FOCUS is a discontinued caffeine-free focus supplement from the Berlin brand BRAINEFFECT. Its product page on brain-effect.com returns 404 and FOCUS no longer appears in the brand's catalogue (checked 2026-09-29). BRAINEFFECT still sells other products, which we have not reviewed. This review is kept for reference; it is not a current recommendation.",
+    "whatItIs": "BRAINEFFECT FOCUS was a nootropic supplement from BRAINEFFECT, a Berlin-based brand, aimed at the DACH market (Germany, Austria, Switzerland). Its ingredients were permitted under EU food supplement rules, and as an EU food supplement its label could carry only EU-authorised health claims (assessed by the European Food Safety Authority, EFSA). It contained no caffeine. The product has been discontinued: its brain-effect.com product page returns 404 and it is no longer in the brand's catalogue (checked 2026-09-29).",
+    "howItWorks": "Citicoline (450mg per two-capsule daily dose) formed the base of the formula, according to the brand, alongside acetyl-L-carnitine (212mg) and zinc (2.5mg). Panax Ginseng was included for cognitive support, although it carries no EU-authorised health claim. Bacopa Monnieri targets memory consolidation. The brand's page tied its claims to pantothenic acid (vitamin B5: mental performance) and vitamin B12 (normal psychological function). The capsules contained no caffeine.",
+    "whatToExpect": "The label directed 2 capsules in the morning or at least 60 minutes before a period of concentration. No caffeine: the brand said this lets you keep setting your own caffeine intake. 2-4 weeks: improved mental energy and concentration. 8 weeks: modest memory support from Bacopa (note: the 460mg Brahmi extract carries 92mg bacopasides, below the 165mg of bacosides in the 300mg, 55%-bacoside reference dose).",
     "pros": [
-      "Made in Germany"
+      "Made in Germany",
+      "Caffeine-free"
     ],
     "cons": [
-      "Contains caffeine",
       "Only 14-day money-back",
       "Lower dosing scores vs. MLP"
     ],
@@ -470,7 +476,8 @@
       "since": "2026-09",
       "note": "https://www.brain-effect.com/products/focus returned 404 and FOCUS is absent from the brain-effect.com catalogue (checked 2026-09-29)"
     },
-    "verifiedAt": "2026-09-29"
+    "verifiedAt": "2026-09-29",
+    "notes": "Ingredient amounts from BRAINEFFECT's label (archived 24 August 2025) at https://web.archive.org/web/20250824202832id_/https://www.brain-effect.com/focus-kapseln-pantothensaeure, checked 2026-10-08."
   },
   {
     "id": "brainzyme-focus-pro",
@@ -751,10 +758,11 @@
       "trust": 6
     },
     "priceMonthlyUSD": 44,
+    "priceMonthlyEUR": 45,
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": false,
-    "euStorefront": false,
+    "euStorefront": true,
     "euCompliance": "verify",
     "trustpilotScore": 3.8,
     "trustpilotCount": 14,
@@ -813,10 +821,10 @@
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 1,
-    "summary": "A low-dose caffeine capsule from Performance Lab: 50mg natural caffeine with 100mg L-theanine (a 2:1 ratio), 250mg L-tyrosine and four B-vitamins, with every dose on the label. EU orders ship from the brand's European depot in 4-12 working days (per performancelab.com's shipping page, checked 2026-10-05); we could not confirm a euro price.",
+    "summary": "A low-dose caffeine capsule from Performance Lab: 50mg natural caffeine with 100mg L-theanine (a 2:1 ratio), 250mg L-tyrosine and four B-vitamins, with every dose on the label. EU orders ship from the brand's European depot in 4-12 working days (per performancelab.com's shipping page, checked 2026-10-05); it is €45 one-time on eu.performancelab.com (30 servings; subscription priced separately; checked 2026-10-08).",
     "whatItIs": "Performance Lab Caffeine 2 is a stimulant capsule sold through performancelab.com. Each vegan pullulan capsule holds 50mg natural caffeine from Coffea robusta seeds, 100mg L-theanine, 250mg L-tyrosine and NutriGenesis vitamins B2, B6, folate and B12; a bottle holds 30 capsules. The label suggests 1-2 capsules on an empty stomach, up to a maximum of 5 capsules (250mg caffeine) a day. Per performancelab.com's shipping page (checked 2026-10-05), EU orders are shipped from the brand's depot in Europe; the page does not list individual EU countries, so confirm delivery to your country at checkout.",
     "howItWorks": "Caffeine blocks adenosine receptors, which dulls fatigue signals and raises alertness. L-theanine, an amino acid found in tea, is added at a 2:1 ratio to caffeine; Performance Lab cites human trials of theanine-plus-caffeine combinations for this pairing, but Caffeine 2 itself has not been tested in a published trial. L-tyrosine is a building block of dopamine and noradrenaline, and the vendor includes it to support the neurotransmitters that caffeine draws on. The four B-vitamins (B2, B6, folate, B12) supply 38-83% of the US Daily Value per capsule. Supplements sold in the EU fall under Directive 2002/46/EC, so the label may carry only EU-authorised health claims, and the EU register holds no authorised caffeine claim for alertness or concentration (a caffeine alertness claim was refused under Regulation (EU) 2016/1411).",
-    "whatToExpect": "Performance Lab says Caffeine 2 starts working in around 15-30 minutes. One capsule gives 50mg caffeine; two capsules (100mg caffeine, 200mg L-theanine, 500mg L-tyrosine) bring all three actives into the ranges used in our dosing audit. Count it toward your daily caffeine intake. EU delivery is expected in 4-12 working days depending on destination (per performancelab.com's shipping page, checked 2026-10-05). We saw only US-dollar prices ($44 one-time for 30 capsules) when we checked, so confirm the euro total at checkout.",
+    "whatToExpect": "Performance Lab says Caffeine 2 starts working in around 15-30 minutes. One capsule gives 50mg caffeine; two capsules (100mg caffeine, 200mg L-theanine, 500mg L-tyrosine) bring all three actives into the ranges used in our dosing audit. Count it toward your daily caffeine intake. EU delivery is expected in 4-12 working days depending on destination (per performancelab.com's shipping page, checked 2026-10-05). It is €45 one-time on eu.performancelab.com (30 servings; subscription priced separately; checked 2026-10-08), so confirm the total at checkout.",
     "pros": [
       "Every dose disclosed on the label, no proprietary blend",
       "2:1 L-theanine to caffeine ratio",
@@ -828,7 +836,6 @@
       "Only 50mg caffeine per capsule, below the 75mg low end of our caffeine range",
       "L-tyrosine (250mg) sits below the 300-500mg range",
       "No published trial of Caffeine 2 itself; the evidence is for its ingredients",
-      "Euro price not confirmed (only US-dollar prices seen on 2026-10-05)",
       "Small Trustpilot sample: 14 reviews for performancelab.com (3.8/5, checked 2026-10-05)",
       "30-day money-back guarantee covers the first order only: one container, used up, with the claim filed within 60 days of delivery, refund minus shipping"
     ],
@@ -888,10 +895,11 @@
       "trust": 6
     },
     "priceMonthlyUSD": 59,
+    "priceMonthlyEUR": 45,
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": false,
-    "euStorefront": false,
+    "euStorefront": true,
     "euCompliance": "verify",
     "trustpilotScore": 3.8,
     "trustpilotCount": 14,
@@ -983,10 +991,10 @@
     "servingsPerContainer": 20,
     "capsulesPerServing": 1,
     "form": "powder",
-    "summary": "A low-caffeine pre-workout drink powder from Performance Lab. One 13g scoop gives 80mg natural caffeine, 160mg L-theanine and 400mg L-tyrosine, all within the ranges in our dosing audit, plus a 2,200mg Setria for Sport blend (L-citrulline and glutathione, split not disclosed) and 1,500mg red beet powder that are unlikely to reach the doses used in performance trials. EU orders ship from the brand's European depot in 4-12 working days (per performancelab.com's shipping page, checked 2026-10-05); we could not confirm a euro price.",
+    "summary": "A low-caffeine pre-workout drink powder from Performance Lab. One 13g scoop gives 80mg natural caffeine, 160mg L-theanine and 400mg L-tyrosine, all within the ranges in our dosing audit, plus a 2,200mg Setria for Sport blend (L-citrulline and glutathione, split not disclosed) and 1,500mg red beet powder that are unlikely to reach the doses used in performance trials. EU orders ship from the brand's European depot in 4-12 working days (per performancelab.com's shipping page, checked 2026-10-05); it is €45 one-time on eu.performancelab.com (20 servings; subscription priced separately; checked 2026-10-08).",
     "whatItIs": "Pre Lab Pro is a natural-berry-flavoured pre-workout powder sold through performancelab.com; the buy buttons on its own site, prelabpro.com, link to that product page. A tub holds 20 servings of one 13g scoop, mixed into 300ml of water and taken 15-30 minutes before training, with no more than 2 scoops in 24 hours. Each scoop also supplies 500mg Himalayan pink salt, vitamin D3 from algae, B2, B6, folate, B12, potassium and iron. It is vegan, and the vendor states it is 'third-party tested and validated by Informed Sport'; the product page shows no certificate or batch number. EU orders are shipped from the brand's depot in Europe; the shipping page does not list individual EU countries, so confirm delivery to your country at checkout.",
     "howItWorks": "Caffeine (80mg) blocks adenosine receptors to dull fatigue signals, and L-theanine (160mg, a 2:1 ratio) plus L-tyrosine (400mg) are the nootropic trio from Performance Lab's Caffeine 2 capsule at higher amounts. L-citrulline is converted to arginine and then nitric oxide, and beetroot supplies dietary nitrate, a second nitric-oxide source; the vendor includes both for blood flow, strength and endurance. Glutathione, an antioxidant, makes up the rest of the Setria for Sport blend. Himalayan pink salt (200mg sodium) and potassium act as electrolytes. Pre Lab Pro itself has not been tested in a published trial; the vendor's claims rest on ingredient-level research. Supplements sold in the EU fall under Directive 2002/46/EC, so the label may carry only EU-authorised health claims, and the EU register holds no authorised caffeine claim for alertness or concentration (a caffeine alertness claim was refused under Regulation (EU) 2016/1411).",
-    "whatToExpect": "Performance Lab says Pre Lab Pro starts working in around 15-30 minutes. The vendor calls the 80mg caffeine dose moderate, and two scoops (its 24-hour limit) give 160mg; count it toward your daily caffeine total. The citrulline and beet amounts are below the doses used in performance trials, so any blood-flow or endurance benefit from them is uncertain. EU delivery is expected in 4-12 working days depending on destination (per performancelab.com's shipping page, checked 2026-10-05). We saw only US-dollar prices ($59 one-time for 20 scoops) when we checked, so confirm the euro total at checkout.",
+    "whatToExpect": "Performance Lab says Pre Lab Pro starts working in around 15-30 minutes. The vendor calls the 80mg caffeine dose moderate, and two scoops (its 24-hour limit) give 160mg; count it toward your daily caffeine total. The citrulline and beet amounts are below the doses used in performance trials, so any blood-flow or endurance benefit from them is uncertain. EU delivery is expected in 4-12 working days depending on destination (per performancelab.com's shipping page, checked 2026-10-05). It is €45 one-time on eu.performancelab.com (20 servings; subscription priced separately; checked 2026-10-08), so confirm the total at checkout.",
     "pros": [
       "Caffeine, L-theanine and L-tyrosine all within our dosing-audit ranges",
       "Moderate 80mg caffeine per scoop",
@@ -1000,7 +1008,6 @@
       "1.5g red beet powder with no stated nitrate content, very likely far below the roughly 6-8 mmol of nitrate used in beetroot trials",
       "Several verified reviews on prelabpro.com report powder that set rock-hard in the tub; the company replied it had 'a bad batch' that was 'taken off sale' (checked 2026-10-05)",
       "Strict 30-day guarantee: first order only, one tub, used up before claiming, refund minus shipping; performancelab.com allows claims within 60 days of delivery, but prelabpro.com's returns page says 30 days, so confirm the terms first",
-      "Euro price not confirmed (only US-dollar prices seen on 2026-10-05)",
       "No published trial of Pre Lab Pro itself; the evidence is for its ingredients",
       "Small Trustpilot sample: 14 reviews for performancelab.com (3.8/5, checked 2026-10-05)"
     ],
@@ -1060,10 +1067,11 @@
       "trust": 6
     },
     "priceMonthlyUSD": 69,
+    "priceMonthlyEUR": 59,
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
-    "euStorefront": false,
+    "euStorefront": true,
     "euCompliance": "verify",
     "trustpilotScore": 3.8,
     "trustpilotCount": 14,
@@ -1111,10 +1119,10 @@
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 2,
-    "summary": "A caffeine-free 'cellular energy' capsule from Performance Lab: one 2-capsule serving gives 500mg acetyl-L-carnitine, 100mg R-lipoic acid, 100mg CoQ10, 10mg PQQ and 60mg magnesium, with every dose on the label. It is an energy supplement with a modest cognitive angle, not a nootropic stack, and none of its five actives reaches the reference dose in our dosing audit. EU orders ship from the brand's European depot in 4-12 working days (per performancelab.com's shipping page, checked 2026-10-05); we could not confirm a euro price.",
+    "summary": "A caffeine-free 'cellular energy' capsule from Performance Lab: one 2-capsule serving gives 500mg acetyl-L-carnitine, 100mg R-lipoic acid, 100mg CoQ10, 10mg PQQ and 60mg magnesium, with every dose on the label. It is an energy supplement with a modest cognitive angle, not a nootropic stack, and none of its five actives reaches the reference dose in our dosing audit. EU orders ship from the brand's European depot in 4-12 working days (per performancelab.com's shipping page, checked 2026-10-05); it is €59 one-time on eu.performancelab.com (30 servings; subscription priced separately; checked 2026-10-08).",
     "whatItIs": "Performance Lab Energy is a caffeine-free capsule sold through performancelab.com. The vendor calls it a 'caffeine-free workout and daily energy supplement' for 'cellular energy, cardio performance, muscle strength, and clean focus'. One serving is 2 vegan pullulan capsules holding 500mg acetyl-L-carnitine (from acetyl-L-carnitine HCl), 100mg microencapsulated BioEnhanced R-lipoic acid, 100mg MicroActive Q10 (coenzyme Q10), 10mg BioPQQ (pyrroloquinoline quinone), 60mg magnesium as magnesium malate (14% of the US Daily Value) and 2.5mg BioPerine black pepper extract (95% piperine), which the vendor adds 'for enhanced absorption'; a bottle holds 30 servings. The label suggests 2 capsules in the morning or early afternoon on an empty stomach. The vendor states it is 'third-party tested for purity and potency' but names no lab. Per performancelab.com's shipping page (checked 2026-10-05), EU orders are shipped from the brand's depot in Europe; the page does not list individual EU countries, so confirm delivery to your country at checkout.",
     "howItWorks": "Energy is built around mitochondria, the parts of cells that turn food into usable energy. Acetyl-L-carnitine carries fatty acids into mitochondria and donates acetyl groups for making acetylcholine; its positive cognitive trials used 1.5-3g a day in older adults with mild cognitive impairment, mild dementia or pre-frailty (Montgomery 2003 meta-analysis; Passeri 1990; Malaguarnera 2022), at least three times the 500mg here, and we found no trial in healthy young adults. PQQ improved some memory and attention scores in three small 12-week trials at about 20mg a day (Itoh 2016, Shiojima 2021, Tamakoshi 2023), two of them with authors affiliated with the PQQ manufacturer; Energy has 10mg. The vendor describes CoQ10 and R-lipoic acid as mitochondrial cofactors and antioxidants, but we found no positive cognitive trial of either: 300mg CoQ10 a day did not improve attention or working memory over 6 months in a trial in schizophrenia (Maguire 2021), and 100mg alpha-lipoic acid a day did not improve cognition in the only dose-matched trial we found, also in schizophrenia (De Lima 2023). BioPerine is there to aid absorption; we have not verified whether 2.5mg of piperine changes how well these ingredients are absorbed. Energy itself has not been tested in a published trial. Supplements sold in the EU fall under Directive 2002/46/EC, and the label may carry only health claims authorised under Regulation (EC) No 1924/2006.",
-    "whatToExpect": "Performance Lab says Energy starts working in around 30 minutes and that you may notice 'increased vitality', more motivation, a brighter mood and better muscle strength and cardio performance during exercise. It contains no caffeine or other stimulant. The positive cognitive trials of acetyl-L-carnitine and PQQ ran for 12 weeks or longer at 2 to 6 times these doses, so any cognitive effect at Energy's doses is uncertain. The label suggests 2 capsules in the morning or early afternoon on an empty stomach; the product page also suggests 2 capsules 30-45 minutes before a workout. EU delivery is expected in 4-12 working days depending on destination (per performancelab.com's shipping page, checked 2026-10-05). We saw only US-dollar prices ($69 one-time for 30 servings) when we checked, so confirm the euro total at checkout.",
+    "whatToExpect": "Performance Lab says Energy starts working in around 30 minutes and that you may notice 'increased vitality', more motivation, a brighter mood and better muscle strength and cardio performance during exercise. It contains no caffeine or other stimulant. The positive cognitive trials of acetyl-L-carnitine and PQQ ran for 12 weeks or longer at 2 to 6 times these doses, so any cognitive effect at Energy's doses is uncertain. The label suggests 2 capsules in the morning or early afternoon on an empty stomach; the product page also suggests 2 capsules 30-45 minutes before a workout. EU delivery is expected in 4-12 working days depending on destination (per performancelab.com's shipping page, checked 2026-10-05). It is €59 one-time on eu.performancelab.com (30 servings; subscription priced separately; checked 2026-10-08), so confirm the total at checkout.",
     "pros": [
       "Caffeine-free and stimulant-free",
       "Every dose disclosed on the label, no proprietary blend",
@@ -1128,7 +1136,6 @@
       "PQQ (10mg) is half the 20mg a day used in the 12-week cognitive trials, two of which had authors affiliated with the PQQ manufacturer",
       "An energy supplement with a modest cognitive angle, not a nootropic stack: we found no positive cognitive trial of CoQ10 or R-lipoic acid",
       "No published trial of Energy itself; the evidence is for its ingredients",
-      "Euro price not confirmed (only US-dollar prices seen on 2026-10-05)",
       "Small Trustpilot sample: 14 reviews for performancelab.com (3.8/5, checked 2026-10-05)",
       "30-day money-back guarantee covers the first order only: one container, used up, with the claim filed within 60 days of delivery, refund minus shipping"
     ],
@@ -1188,10 +1195,11 @@
       "trust": 6
     },
     "priceMonthlyUSD": 49,
+    "priceMonthlyEUR": 45,
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
-    "euStorefront": false,
+    "euStorefront": true,
     "euCompliance": "verify",
     "trustpilotScore": 3.8,
     "trustpilotCount": 14,
@@ -1220,10 +1228,10 @@
     "servingsPerContainer": 30,
     "capsulesPerServing": 3,
     "form": "softgel",
-    "summary": "A vegan omega-3 from Performance Lab: 3 softgels give 1,800mg algal oil (life's OMEGA 60) with 990mg total omega-3, including 540mg DHA and 270mg EPA, every amount on the label. The DHA dose sits below the 900mg-1.2g a day used in the positive memory trials, so it is a general-health omega-3 with a brain-health angle rather than a nootropic. EU orders ship from the brand's European depot in 4-12 working days (per performancelab.com's shipping page, checked 2026-10-05); we could not confirm a euro price.",
+    "summary": "A vegan omega-3 from Performance Lab: 3 softgels give 1,800mg algal oil (life's OMEGA 60) with 990mg total omega-3, including 540mg DHA and 270mg EPA, every amount on the label. The DHA dose sits below the 900mg-1.2g a day used in the positive memory trials, so it is a general-health omega-3 with a brain-health angle rather than a nootropic. EU orders ship from the brand's European depot in 4-12 working days (per performancelab.com's shipping page, checked 2026-10-05); it is €45 one-time on eu.performancelab.com (30 servings; subscription priced separately; checked 2026-10-08).",
     "whatItIs": "Performance Lab Omega-3 is an algae-based omega-3 supplement sold through performancelab.com. The vendor positions it 'to support optimal health and performance of the brain, eyes, heart and (much) more'. One serving is 3 NutriGels, softgels the vendor describes as vegan and free of gelatin and carrageenan (other ingredients listed: gellan gum, pectin, starch and glycerin), holding 1,800mg algal oil from life's OMEGA 60 with 990mg total omega-3 fatty acids, of which 540mg is DHA and 270mg is EPA; a bottle holds 30 servings. The label suggests 3 softgels with your first meal of the day. The vendor states it is 'third-party tested for purity and potency' and Clean Label Project certified; the product page shows the certification logo but no certificate or batch number. Per performancelab.com's shipping page (checked 2026-10-05), EU orders are shipped from the brand's depot in Europe; the page does not list individual EU countries, so confirm delivery to your country at checkout.",
     "howItWorks": "DHA is the main structural omega-3 in brain cell membranes. In two 6-month trials it improved memory measures at 900mg a day in adults aged 55 and over with age-related cognitive decline (Yurko-Mauro 2010, sponsored by the algal-DHA maker Martek) and at 1.16g a day in healthy 18-45-year-olds with low DHA intake (Stonehouse 2013); this product supplies 540mg, below both. The wider evidence is mixed: a 2012 Cochrane review found no cognitive benefit from omega-3 supplements in cognitively healthy older adults. We found no trial of EPA alone for cognition; a 2024 dose-response meta-analysis of 24 trials of mixed EPA and DHA in adults aged 40 and over found an executive-function benefit trend above 500mg a day of total omega-3 (Suh 2024), which the 990mg here exceeds. The oil comes from algae rather than fish, so it suits vegans. Performance Lab Omega-3 itself has not been tested in a published trial. Supplements sold in the EU fall under Directive 2002/46/EC, and the label may carry only health claims authorised under Regulation (EC) No 1924/2006.",
-    "whatToExpect": "Performance Lab says Omega-3 starts working in around 30 minutes, that you may first notice improvements to hair, nails and skin, and that other benefits build over time; both positive DHA memory trials ran for 6 months, so do not expect a quick cognitive effect. Take 3 softgels with your first meal of the day. Our DHA ingredient page notes that in a 2021 meta-analysis of cardiovascular trials, omega-3 supplements were linked to a higher risk of atrial fibrillation, more so above 1g a day; one serving here gives 990mg of total omega-3, so ask your doctor first if you have a heart-rhythm condition or already take another omega-3. EU delivery is expected in 4-12 working days depending on destination (per performancelab.com's shipping page, checked 2026-10-05). We saw only US-dollar prices ($49 one-time for 30 servings) when we checked, so confirm the euro total at checkout.",
+    "whatToExpect": "Performance Lab says Omega-3 starts working in around 30 minutes, that you may first notice improvements to hair, nails and skin, and that other benefits build over time; both positive DHA memory trials ran for 6 months, so do not expect a quick cognitive effect. Take 3 softgels with your first meal of the day. Our DHA ingredient page notes that in a 2021 meta-analysis of cardiovascular trials, omega-3 supplements were linked to a higher risk of atrial fibrillation, more so above 1g a day; one serving here gives 990mg of total omega-3, so ask your doctor first if you have a heart-rhythm condition or already take another omega-3. EU delivery is expected in 4-12 working days depending on destination (per performancelab.com's shipping page, checked 2026-10-05). It is €45 one-time on eu.performancelab.com (30 servings; subscription priced separately; checked 2026-10-08), so confirm the total at checkout.",
     "pros": [
       "Vegan omega-3 from algal oil (life's OMEGA 60) rather than fish",
       "990mg total omega-3 per serving, every amount on the label",
@@ -1235,7 +1243,6 @@
       "Ratio wording is inconsistent: the product page mostly describes an 'optimal 2:1 EPA:DHA' ratio, but the label's 540mg DHA and 270mg EPA make it 2:1 DHA to EPA; the page also says one serving provides 900mg of EPA and DHA, while those two label rows add up to 810mg",
       "A general-health omega-3 rather than a nootropic; evidence for omega-3 and cognition in healthy adults is mixed",
       "No published trial of Performance Lab Omega-3 itself; the evidence is for DHA and EPA",
-      "Euro price not confirmed (only US-dollar prices seen on 2026-10-05)",
       "Small Trustpilot sample: 14 reviews for performancelab.com (3.8/5, checked 2026-10-05)",
       "30-day money-back guarantee covers the first order only: one container, used up, with the claim filed within 60 days of delivery, refund minus shipping"
     ],

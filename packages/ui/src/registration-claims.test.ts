@@ -1,6 +1,6 @@
 import { describe, test, expect } from 'vitest';
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
-import { resolve, dirname, extname } from 'node:path';
+import { resolve, dirname, extname, relative } from 'node:path';
 
 // No national product register (Health Canada NPN, SFDA/MOHAP, COFEPRIS,
 // ANVISA, NPRA, BPOM, VFA, ...) was ever checked for the products we review;
@@ -235,6 +235,68 @@ describe('AU legal statements follow the Permissible Ingredients Determination a
       const lines = readFileSync(file, 'utf8').split('\n');
       return lines.flatMap((line, i) =>
         AU_LEGAL_UNSOURCED.some(re => re.test(line)) ? [`${file.slice(REPO_ROOT.length + 1)}:${i + 1}`] : [],
+      );
+    });
+    expect(hits).toEqual([]);
+  });
+});
+
+// Round ten (2026-10-08, research p5/ca-monographs-and-leftovers.json).
+// - Health Canada's NHPID monographs: the Phosphatidylserine monograph's only
+//   use is "Helps support cognitive/brain health/function" (no memory or
+//   older-adult claim); the Ginkgo monograph sets "80 - 240 milligrams of
+//   extract, per day" (no 120 mg dose). Copy quotes the monograph instead of
+//   saying an "NPN monograph recognises" an ingredient.
+// - HSA does not subject health supplements to approvals or licensing for
+//   import; its 3-months' supply rule is on the personal-medications page,
+//   and no supplement quantity rule was found on HSA or SFA pages.
+// - mindlabpro.com's terms name Performance Lab Group Ltd; Opti-Nutra appears
+//   only in the brand's 2018 blog posts. The `brand` field ("Opti-Nutra") is
+//   a label, not a maker claim, so `"brand":` lines are not scanned.
+// - Performance Lab's EU prices are on eu.performancelab.com.
+const ROUND_TEN_SOURCES = [
+  ...walk(DATA_DIR),
+  ...walk(resolve(APPS_DIR, 'ca', 'src')),
+  ...walk(resolve(APPS_DIR, 'sea', 'src')),
+];
+
+const ROUND_TEN_UNSOURCED: RegExp[] = [
+  /made by Opti-Nutra/i,
+  /up to 3 months supply/i,
+  /HSA allows personal import/i,
+  /NPN monograph (also )?recognises/i,
+  // The other phrasings of the same monograph claim (plural, "approval",
+  // "has an NPN monograph for <dose>").
+  /NPN[- ]monographs recognise|NPN[- ]monograph approval|has an NPN monograph for/i,
+  /Euro price not confirmed/i,
+];
+
+const BRAND_FIELD_LINE = /^\s*"brand"\s*:/;
+
+describe('round ten: monograph, Singapore import, Mind Lab Pro maker and EU price wording follow the sources', () => {
+  test('scanned a non-empty file set', () => {
+    expect(ROUND_TEN_SOURCES.length).toBeGreaterThan(100);
+    expect(ROUND_TEN_SOURCES.some(f => /packages\/data\/src\/products-eu\.json$/.test(f))).toBe(true);
+    expect(ROUND_TEN_SOURCES.some(f => /packages\/data\/src\/products-us\.json$/.test(f))).toBe(true);
+    expect(ROUND_TEN_SOURCES.some(f => /packages\/data\/src\/sea-countries\.ts$/.test(f))).toBe(true);
+    expect(ROUND_TEN_SOURCES.some(f => /apps\/ca\/src\/app\/best-nootropics-for-aging\/page\.tsx$/.test(f))).toBe(true);
+    expect(ROUND_TEN_SOURCES.some(f => /apps\/ca\/src\/app\/best-nootropics-for-memory\/page\.tsx$/.test(f))).toBe(true);
+    expect(ROUND_TEN_SOURCES.some(f => /apps\/sea\/src\/app\/best-nootropics\/page\.tsx$/.test(f))).toBe(true);
+    expect(ROUND_TEN_SOURCES.every(f => existsSync(f))).toBe(true);
+  });
+
+  test('the brand-field exemption covers only `"brand":` lines', () => {
+    expect(BRAND_FIELD_LINE.test('    "brand": "Opti-Nutra",')).toBe(true);
+    expect(BRAND_FIELD_LINE.test('    "whatItIs": "Mind Lab Pro is made by Opti-Nutra."')).toBe(false);
+  });
+
+  test('no data, CA or SEA source uses the unsourced wording', () => {
+    const hits = ROUND_TEN_SOURCES.flatMap(file => {
+      const lines = readFileSync(file, 'utf8').split('\n');
+      return lines.flatMap((line, i) =>
+        !BRAND_FIELD_LINE.test(line) && ROUND_TEN_UNSOURCED.some(re => re.test(line))
+          ? [`${relative(REPO_ROOT, file)}:${i + 1}`]
+          : [],
       );
     });
     expect(hits).toEqual([]);

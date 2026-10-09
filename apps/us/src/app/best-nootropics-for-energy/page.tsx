@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsUS.find(p => p.slug === 'thesis-nootropics-review')!,
     rank: 2,
     whyItsHere:
-      'Their Energy formula is purpose-built around caffeine + L-theanine + Rhodiola at meaningful doses. Personalised approach lets you try Energy in isolation. Subscription pricing is the friction. The most direct "energy supplement" pick in our coverage.',
+      'Their Motivation formula combines caffeine (150mg), L-theanine (200mg), Dynamine (100mg) and Rhodiola rosea (fermented salidrosides, 60mg); the Energy formula\'s product page returned 404 when we checked on 8 October 2026. Personalised approach lets you try Motivation in isolation. Subscription pricing is the friction. The most direct "energy supplement" pick in our coverage.',
   },
   {
     product: productsUS.find(p => p.slug === 'qualia-mind-review')!,
