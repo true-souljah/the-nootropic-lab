@@ -29,7 +29,7 @@ import { test, expect } from '@playwright/test';
 //   rating filters) is custom per template and may have skipped
 //   the focus-visible utility class.
 //
-//   HeadToHead and ThreeWay tables have column-header buttons,
+//   HeadToHead tables have column-header buttons,
 //   sortable columns, and per-row toggle controls. Each is a
 //   custom interactive element that — like the SearchModal trap
 //   in PR-Q51 — may have been built without remembering the

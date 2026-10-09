@@ -1,5 +1,5 @@
 // Fires a GA4 `affiliate_click` event when a reader clicks an affiliate CTA.
-// Used by HeadToHeadPage, UseCaseListPage, ThreeWayComparisonPage, and any
+// Used by HeadToHeadPage, UseCaseListPage, and any
 // future commercial template. Silently no-ops on the server and whenever GA4
 // is not loaded-and-granted (before consent, after a withdraw), so it's safe
 // to call unconditionally from the onClick handler. The gate is the GA
