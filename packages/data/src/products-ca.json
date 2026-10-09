@@ -671,9 +671,9 @@
     "trustpilotScore": 4.2,
     "trustpilotCount": 15776,
     "affiliateUrl": "https://www.onnit.com/alphabrain/",
-    "affiliateNetwork": "Impact",
-    "commissionRate": "12%",
-    "cookieDays": 30,
+    "affiliateNetwork": "Onnit Direct",
+    "commissionRate": "0%",
+    "cookieDays": 0,
     "heroIngredients": [
       "L-Theanine",
       "Huperzine A",
