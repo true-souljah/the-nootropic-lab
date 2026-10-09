@@ -394,7 +394,7 @@
     "priceMonthlyEUR": 45,
     "pricingModel": "both",
     "moneyBackDays": 14,
-    "caffeineFree": false,
+    "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "compliant",
     "trustpilotScore": null,
@@ -404,61 +404,67 @@
     "commissionRate": "Contact brand",
     "cookieDays": 30,
     "heroIngredients": [
+      "Citicoline",
       "Bacopa Monnieri",
       "Panax Ginseng",
-      "Ginkgo Biloba",
-      "Vitamin B complex",
-      "Caffeine"
+      "Acetyl-L-Carnitine",
+      "Pantothenic Acid"
     ],
     "ingredientDosages": [
       {
-        "name": "Bacopa Monnieri",
-        "doseInProduct": "200mg",
-        "clinicalDose": "300mg",
+        "name": "Citicoline (CDP-Choline)",
+        "doseInProduct": "450mg",
+        "clinicalDose": "250-500mg/day",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Acetyl-L-Carnitine",
+        "doseInProduct": "212mg",
+        "clinicalDose": "1500-3000mg/day",
         "adequatelyDosed": false
       },
       {
-        "name": "Panax Ginseng",
-        "doseInProduct": "200mg",
-        "clinicalDose": "200-400mg",
-        "adequatelyDosed": true
+        "name": "Bacopa Monnieri (Brahmi extract)",
+        "doseInProduct": "460mg (92mg bacopasides)",
+        "clinicalDose": "300-450mg/day (55% bacosides)",
+        "adequatelyDosed": false
       },
       {
-        "name": "Ginkgo Biloba (24% flavonoids)",
-        "doseInProduct": "120mg",
-        "clinicalDose": "120mg",
-        "adequatelyDosed": true
+        "name": "Panax Ginseng (extract, stem and root)",
+        "doseInProduct": "50mg (40mg ginsenosides)",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
-        "name": "Caffeine",
-        "doseInProduct": "80mg",
-        "clinicalDose": "80-100mg",
-        "adequatelyDosed": true
+        "name": "Pantothenic Acid (Vitamin B5)",
+        "doseInProduct": "12mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
-        "name": "Vitamin B6",
-        "doseInProduct": "1.4mg",
-        "clinicalDose": "1.4mg (EU NRV)",
-        "adequatelyDosed": true
+        "name": "Zinc",
+        "doseInProduct": "2.5mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Vitamin B12",
-        "doseInProduct": "2.5mcg",
-        "clinicalDose": "2.5mcg (EU NRV)",
-        "adequatelyDosed": true
+        "doseInProduct": "4.0mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       }
     ],
     "servingsPerContainer": 30,
-    "capsulesPerServing": 3,
-    "summary": "BRAINEFFECT FOCUS is a discontinued caffeine-based focus supplement from the Berlin brand BRAINEFFECT. Its product page on brain-effect.com returns 404 and FOCUS no longer appears in the brand's catalogue (checked 2026-09-29). BRAINEFFECT still sells other products, which we have not reviewed. This review is kept for reference; it is not a current recommendation.",
-    "whatItIs": "BRAINEFFECT FOCUS was a nootropic supplement from BRAINEFFECT, a Berlin-based brand, aimed at the DACH market (Germany, Austria, Switzerland). Its ingredients were permitted under EU food supplement rules, and as an EU food supplement its label could carry only EU-authorised health claims (assessed by the European Food Safety Authority, EFSA), which rules out any caffeine cognition claim: none is authorised in the EU. The product has been discontinued: its brain-effect.com product page returns 404 and it is no longer in the brand's catalogue (checked 2026-09-29).",
-    "howItWorks": "Panax Ginseng and Ginkgo Biloba were included for circulatory and cognitive support, although neither carries an EU-authorised health claim. Bacopa Monnieri targets memory consolidation. Caffeine (80mg -- equivalent to a small coffee) provides acute focus and alertness. B-vitamins (B6, B12) support energy metabolism and normal psychological function per EU Regulation 1924/2006.",
-    "whatToExpect": "Acute (30-60 min): focus and alertness from caffeine. 2-4 weeks: improved mental energy and concentration. 8 weeks: modest memory support from Bacopa (note: underdosed at 200mg vs. 300mg clinical threshold).",
+    "capsulesPerServing": 2,
+    "summary": "BRAINEFFECT FOCUS is a discontinued caffeine-free focus supplement from the Berlin brand BRAINEFFECT. Its product page on brain-effect.com returns 404 and FOCUS no longer appears in the brand's catalogue (checked 2026-09-29). BRAINEFFECT still sells other products, which we have not reviewed. This review is kept for reference; it is not a current recommendation.",
+    "whatItIs": "BRAINEFFECT FOCUS was a nootropic supplement from BRAINEFFECT, a Berlin-based brand, aimed at the DACH market (Germany, Austria, Switzerland). Its ingredients were permitted under EU food supplement rules, and as an EU food supplement its label could carry only EU-authorised health claims (assessed by the European Food Safety Authority, EFSA). It contained no caffeine. The product has been discontinued: its brain-effect.com product page returns 404 and it is no longer in the brand's catalogue (checked 2026-09-29).",
+    "howItWorks": "Citicoline (450mg per two-capsule daily dose) formed the base of the formula, according to the brand, alongside acetyl-L-carnitine (212mg) and zinc (2.5mg). Panax Ginseng was included for cognitive support, although it carries no EU-authorised health claim. Bacopa Monnieri targets memory consolidation. The brand's page tied its claims to pantothenic acid (vitamin B5: mental performance) and vitamin B12 (normal psychological function). The capsules contained no caffeine.",
+    "whatToExpect": "The label directed 2 capsules in the morning or at least 60 minutes before a period of concentration. No caffeine: the brand said this lets you keep setting your own caffeine intake. 2-4 weeks: improved mental energy and concentration. 8 weeks: modest memory support from Bacopa (note: the 460mg Brahmi extract carries 92mg bacopasides, below the 165mg of bacosides in the 300mg, 55%-bacoside reference dose).",
     "pros": [
-      "Made in Germany"
+      "Made in Germany",
+      "Caffeine-free"
     ],
     "cons": [
-      "Contains caffeine",
       "Only 14-day money-back",
       "Lower dosing scores vs. MLP"
     ],
@@ -470,7 +476,8 @@
       "since": "2026-09",
       "note": "https://www.brain-effect.com/products/focus returned 404 and FOCUS is absent from the brain-effect.com catalogue (checked 2026-09-29)"
     },
-    "verifiedAt": "2026-09-29"
+    "verifiedAt": "2026-09-29",
+    "notes": "Ingredient amounts from BRAINEFFECT's label (archived 24 August 2025) at https://web.archive.org/web/20250824202832id_/https://www.brain-effect.com/focus-kapseln-pantothensaeure, checked 2026-10-08."
   },
   {
     "id": "brainzyme-focus-pro",
@@ -637,64 +644,152 @@
     "cookieDays": 0,
     "heroIngredients": [
       "Lion's Mane",
-      "Bacopa Monnieri",
-      "Ashwagandha",
+      "Citicoline",
+      "L-Theanine",
       "Phosphatidylserine",
-      "Acetyl-L-Carnitine"
+      "Ashwagandha",
+      "Caffeine"
     ],
     "ingredientDosages": [
       {
-        "name": "Lion's Mane (fruiting body)",
-        "doseInProduct": "500mg",
-        "clinicalDose": "500mg",
-        "adequatelyDosed": true
+        "name": "Vitamin B6 (Pyridoxal-5-phosphate)",
+        "doseInProduct": "2.5mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
-        "name": "Bacopa Monnieri (55% bacosides)",
+        "name": "Vitamin B9",
+        "doseInProduct": "100mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin B12 (Methylcobalamin)",
+        "doseInProduct": "7.5mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin C (Ascorbic Acid)",
         "doseInProduct": "200mg",
-        "clinicalDose": "300mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin D3 (Cholecalciferol)",
+        "doseInProduct": "75mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Vitamin K2 (MK7)",
+        "doseInProduct": "100mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Acetyl-L-Carnitine",
+        "doseInProduct": "800mg",
+        "clinicalDose": "1500-3000mg/day",
         "adequatelyDosed": false
       },
       {
-        "name": "Ashwagandha (KSM-66)",
+        "name": "L-Tyrosine",
+        "doseInProduct": "500mg",
+        "clinicalDose": "2000mg/day (lowest positive trial)",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Organic Lion's Mane Mushroom (Hericium erinaceus)",
+        "doseInProduct": "500mg",
+        "clinicalDose": "1000-1800mg/day",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Bacopa",
         "doseInProduct": "300mg",
-        "clinicalDose": "300-600mg",
+        "clinicalDose": "300-450mg/day (55% bacosides)",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Ashwagandha Root (Withania somnifera)",
+        "doseInProduct": "300mg",
+        "clinicalDose": "300-600mg/day (KSM-66)",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Citicoline",
+        "doseInProduct": "250mg",
+        "clinicalDose": "250-500mg/day",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "L-Theanine",
+        "doseInProduct": "200mg",
+        "clinicalDose": "100-200mg/day",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Ginkgo Biloba",
+        "doseInProduct": "120mg",
+        "clinicalDose": "240mg/day (24/6 extract)",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Caffeine Anhydrous",
+        "doseInProduct": "100mg",
+        "clinicalDose": "100-200mg",
         "adequatelyDosed": true
       },
       {
         "name": "Phosphatidylserine",
         "doseInProduct": "100mg",
-        "clinicalDose": "100mg",
+        "clinicalDose": "100-300mg/day",
         "adequatelyDosed": true
       },
       {
-        "name": "Acetyl-L-Carnitine (ALCAR)",
-        "doseInProduct": "500mg",
-        "clinicalDose": "1500-3000mg/day",
+        "name": "Maritime Pine Bark Extract",
+        "doseInProduct": "75mg",
+        "clinicalDose": "100-200mg/day",
         "adequatelyDosed": false
       },
       {
-        "name": "Caffeine anhydrous",
-        "doseInProduct": "100mg",
-        "clinicalDose": "80-150mg",
-        "adequatelyDosed": true
+        "name": "Rhodiola rosea Extract",
+        "doseInProduct": "50mg",
+        "clinicalDose": "200-600mg/day",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Panax Ginseng",
+        "doseInProduct": "40mg (10:1 extract)",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Spanish Sage",
+        "doseInProduct": "25mg (4:1 extract)",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       }
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 6,
-    "summary": "Premium 9-ingredient UK nootropic with a well-dosed formula. High pill burden at 6 capsules/day.",
-    "whatItIs": "Hunter Focus is a premium 9-ingredient nootropic stack from Roar Ambition, a UK supplement brand. It is positioned as a high-performance cognitive supplement for professionals aged 30-50 who want a comprehensive formula covering focus, memory, mood, and mental energy. Priced in EUR on roarambition.com's EU market pages; the shipping policy says orders to Europe ship from the brand's depot in England, and its terms state there are no customs charges for EU customers (roarambition.com, checked 2026-10-06).",
-    "howItWorks": "Hunter Focus covers multiple cognitive pathways: Lion's Mane (500mg) stimulates NGF for long-term neuroplasticity. Ashwagandha (300mg KSM-66) reduces cortisol and supports cognitive resilience under stress. Phosphatidylserine (100mg) enhances synaptic transmission. ALCAR (500mg) supports brain energy metabolism via mitochondrial function. Caffeine (100mg) + L-Theanine combination provides smooth acute focus. Bacopa Monnieri targets memory consolidation.",
+    "summary": "Premium 20-ingredient UK nootropic with every dose stated on the label. High pill burden at 6 capsules/day.",
+    "whatItIs": "Hunter Focus is a premium 20-ingredient nootropic stack from Roar Ambition, a UK supplement brand. It is positioned as a high-performance cognitive supplement for professionals aged 30-50 who want a comprehensive formula covering focus, memory, mood, and mental energy. Priced in EUR on roarambition.com's EU market pages; the shipping policy says orders to Europe ship from the brand's depot in England, and its terms state there are no customs charges for EU customers (roarambition.com, checked 2026-10-06).",
+    "howItWorks": "Hunter Focus covers multiple cognitive pathways: Lion's Mane (500mg) stimulates NGF for long-term neuroplasticity. Ashwagandha (300mg) reduces cortisol and supports cognitive resilience under stress. Phosphatidylserine (100mg) enhances synaptic transmission. ALCAR (800mg) supports brain energy metabolism via mitochondrial function. Caffeine (100mg) + L-Theanine combination provides smooth acute focus. Bacopa Monnieri targets memory consolidation.",
     "whatToExpect": "Acute (30-60 min): noticeable focus and motivation boost from caffeine + Ashwagandha combination. 2-4 weeks: better stress resilience and sustained afternoon energy. 8-12 weeks: memory improvements from Bacopa and Lion's Mane accumulate. High pill burden (6 capsules/day) is the most significant practical barrier -- split into two doses of 3 capsules if preferred. Premium price of €85/mo reflects the comprehensive formula.",
     "pros": [
       "EU storefront",
-      "Well-dosed 9-ingredient formula",
+      "Fully disclosed 20-ingredient formula",
       "Trustpilot 4.4/5 (roarambition.com)"
     ],
     "cons": [
       "6 capsules per serving",
       "Contains caffeine",
       "Premium price (€85/mo)"
+    ],
+    "notes": [
+      "Ingredient amounts from Roar Ambition's label at https://www.hunterevolve.com/en-us/hunter-focus (Supplement Facts image: https://cdn.shopify.com/s/files/1/0975/0262/6137/files/hunter-focus-evolve-supplement-facts_1_1.png?v=1760606452), checked 2026-10-08."
     ],
     "editorChoice": false,
     "market": "both",

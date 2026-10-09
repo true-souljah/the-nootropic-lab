@@ -34,12 +34,11 @@ function value(p: Product, field: Field): string {
 // (gcc/sea). Each entry must still be a real mismatch — delete it once fixed.
 //
 // Primary regions: the formula differs between records and the 2026-09-28
-// vendor verification could not read either supplement-facts panel (Hunter
-// Focus panel is an image; Performance Lab Mind is discontinued and the two
-// source descriptions conflict). Needs a verified panel before unifying.
+// vendor verification could not read the supplement-facts panel (Performance
+// Lab Mind is discontinued and the two source descriptions conflict). Needs a
+// verified panel before unifying. (Hunter Focus was unified from its label
+// image on 2026-10-09; hunter-focus-label.test.ts pins it.)
 const PRIMARY_BASELINE = new Set<string>([
-  'hunter-focus-review/heroIngredients',
-  'hunter-focus-review/ingredientDosages',
   'performance-lab-mind-review/heroIngredients',
   'performance-lab-mind-review/ingredientDosages',
 ]);

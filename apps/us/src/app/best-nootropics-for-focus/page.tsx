@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsUS.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes citicoline, Alpha-GPC, L-theanine, and L-tyrosine — covers nearly every evidence-backed focus mechanism. Loses ground to Mind Lab Pro on capsule count (7+/day) and price ($139/mo subscription) but wins on ingredient breadth.',
+      'Includes citicoline, Alpha-GPC, L-theanine, and L-tyrosine — covers nearly every evidence-backed focus mechanism. Loses ground to Mind Lab Pro on capsule count (6/day) and price ($139/mo subscription) but wins on ingredient breadth.',
   },
   {
     product: productsUS.find(p => p.slug === 'onnit-alpha-brain-review')!,
@@ -78,7 +78,7 @@ const picks: ListiclePick[] = [
     product: productsUS.find(p => p.slug === 'thesis-nootropics-review')!,
     rank: 5,
     whyItsHere:
-      'Personalized via questionnaire — includes a "Clarity" formula specifically targeted at focus with L-theanine, caffeine, and Alpha-GPC. Subscription model is the main friction; pricing is $59/month per formula.',
+      'Personalized via questionnaire — includes a "Clarity" formula targeted at focus with CDP choline (250mg), Lion\'s Mane (500mg) and, in its caffeinated version, caffeine (100mg). Subscription model is the main friction; pricing is $59/month per formula.',
   },
 ];
 

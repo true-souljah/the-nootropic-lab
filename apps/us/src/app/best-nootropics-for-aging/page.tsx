@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsUS.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes phosphatidylserine, citicoline, Bacopa, and Lion\'s Mane plus additional ingredients. Most complete coverage but the 6-capsule daily protocol can be hard to maintain for older adults — consider whether the breadth justifies that friction.',
+      'Includes phosphatidylserine, citicoline, and Lion\'s Mane plus additional ingredients. Most complete coverage but the 6-capsule daily protocol can be hard to maintain for older adults — consider whether the breadth justifies that friction.',
   },
   {
     product: productsUS.find(p => p.slug === 'nootropics-depot-lions-mane')!,

@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes Bacopa at the full 300mg clinical dose, phosphatidylserine 200mg, Alpha-GPC, and Uridine Monophosphate — the most complete memory-ingredient stack in one product in this review. Loses ground on capsule count (7+/day), $139/mo subscription, and contains caffeine. Availability caveat: Qualia does not ship to any SEA country (brand shipping page, checked 2026-09-28), so SEA buyers cannot order it direct.',
+      'Includes phosphatidylserine 100mg, Alpha-GPC, citicoline (as Cognizin), and Lion\'s Mane — the most complete memory-ingredient stack in one product in this review. Loses ground on capsule count (6/day), $139/mo subscription, and contains caffeine. Availability caveat: Qualia does not ship to any SEA country (brand shipping page, checked 2026-09-28), so SEA buyers cannot order it direct.',
   },
   {
     product: productsSEA.find(p => p.slug === 'nootropics-depot-lions-mane')!,
