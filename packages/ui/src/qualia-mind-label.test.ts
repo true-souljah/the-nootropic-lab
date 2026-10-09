@@ -163,7 +163,9 @@ test('head-to-head pages give the label count (31) and serving (6 capsules)', ()
     const text = readFileSync(resolve(APPS_DIR, 'us/src/app', page, 'page.tsx'), 'utf8');
     expect(text, page).not.toMatch(/\b28\b|7\+/);
     expect(text, page).toMatch(/31-ingredient/);
+    expect(text, page).toMatch(/\b6 capsules/);
   }
   const cancel = readFileSync(resolve(APPS_DIR, 'us/src/app/cancel-qualia-subscription/page.tsx'), 'utf8');
   expect(cancel).not.toMatch(/7\+/);
+  expect(cancel).toMatch(/Qualia\\'s 6\/day/);
 });
