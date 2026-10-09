@@ -31,7 +31,7 @@ function textsOf(section: GuideSection): string[] {
       case 'ol':
         return b.items;
       case 'table':
-        return [b.caption, ...b.head, ...b.rows.flat()];
+        return b.rows.flat();
       case 'callout':
         return [b.title ?? '', b.text];
     }
@@ -51,6 +51,9 @@ function blockProblems(section: GuideSection): string[] {
     if ((b.type === 'ul' || b.type === 'ol') && (b.items.length === 0 || b.items.some((x) => !x.trim()))) out.push(`${at}: empty list or item`);
     if (b.type === 'table') {
       if (!b.caption.trim()) out.push(`${at}: table needs a caption`);
+      // The caption doubles as the scroll region's aria-label and headers stay
+      // plain text, so neither may carry `[label](/path/)` link syntax.
+      if (/\]\(/.test(b.caption) || b.head.some((h) => /\]\(/.test(h))) out.push(`${at}: no links in a table caption or header`);
       if (b.head.length < 2) out.push(`${at}: table needs at least 2 columns`);
       if (b.rows.length === 0) out.push(`${at}: table has no rows`);
       b.rows.forEach((row, r) => {
