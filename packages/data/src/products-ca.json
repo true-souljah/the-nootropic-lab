@@ -1138,9 +1138,9 @@
     "heroIngredients": [
       "Bacopa monnieri",
       "Citicoline",
-      "Acetyl L-carnitine",
+      "Acetyl-L-carnitine",
       "Panax ginseng",
-      "R-a-lipoic acid"
+      "R(α)-Lipoic acid"
     ],
     "ingredientDosages": [
       {
@@ -1162,25 +1162,25 @@
         "adequatelyDosed": null
       },
       {
-        "name": "5-Oxo-L-proline, compound with L-arginine (1:1) (Arginine PCA)",
+        "name": "Arginine pyroglutamate",
         "doseInProduct": "1500mg (250 mg per capsule × 6)",
         "clinicalDose": "No reference dose on file",
         "adequatelyDosed": null
       },
       {
-        "name": "(2R)-2-(Acetyloxy)-3-carboxy-N,N,N-trimethyl-1-propanaminium inner salt (N-Acetyl L-carnitine hydrochloride)",
+        "name": "ALCAR (Acetyl-L-carnitine)",
         "doseInProduct": "1500mg (250 mg per capsule × 6)",
         "clinicalDose": "1500-3000mg/day",
         "adequatelyDosed": true
       },
       {
-        "name": "Choline cytidine 5'-pyrophosphate (ester) (Citicoline)",
+        "name": "Citicoline (Xerenoos®)",
         "doseInProduct": "499.98mg (83.33 mg per capsule × 6)",
         "clinicalDose": "250-500mg/day",
         "adequatelyDosed": true
       },
       {
-        "name": "1,2-Dithiolane-3-pentanoic acid, (R) (R-a-lipoic acid)",
+        "name": "R(α)-Lipoic acid (sodium salt)",
         "doseInProduct": "100.02mg (16.67 mg per capsule × 6)",
         "clinicalDose": "No reference dose on file",
         "adequatelyDosed": null
