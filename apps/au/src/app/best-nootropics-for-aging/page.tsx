@@ -73,7 +73,7 @@ const picks: ListiclePick[] = [
     product: productsAU.find(p => p.slug === 'naturebell-ginkgo-ginseng-review')!,
     rank: 3,
     whyItsHere:
-      'Cheapest pick at approximately AUD $8/month for a 5-month supply via Amazon.com.au with Prime shipping. Ginkgo Biloba at full clinical dose (500mg extract standardised to 120mg flavone glycosides). Sensible budget addition for older Australian adults. Ginseng is 50mg of Korean Red Ginseng extract with no ginsenoside amount stated. Not a substitute for the multi-ingredient stacks above; more useful as a stack addition or low-cost trial of Ginkgo before committing to a TGA-listed Australian Ginkgo product like Blackmores Bio Ginkgoforte 6000.',
+      'The cheapest product on this page at approximately AUD $8/month for a 5-month supply via Amazon.com.au with Prime shipping. Ginkgo Biloba at full clinical dose (500mg extract standardised to 120mg flavone glycosides). Its low price is the main appeal for older Australian adults. Ginseng is 50mg of Korean Red Ginseng extract with no ginsenoside amount stated. Not a substitute for the multi-ingredient stacks above; more useful as a stack addition or low-cost trial of Ginkgo before committing to a TGA-listed Australian Ginkgo product like Blackmores Bio Ginkgoforte 6000.',
   },
 ];
 

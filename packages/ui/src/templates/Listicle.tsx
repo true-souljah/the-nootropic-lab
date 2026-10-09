@@ -12,13 +12,22 @@ import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
 import { Bar } from '../primitives/Bar';
 import { FaqAccordion } from '../primitives/FaqAccordion';
+import { ProductThumb } from '../primitives/ProductThumb';
 import { buildPersonAuthorReference, servingAmount, pillarText, guaranteeDays } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import {
   useCaseListPageEnDefaults,
   tpl,
+  type RelatedGuideUseCase,
   type UseCaseListPageStrings,
 } from '../templateStrings';
+import {
+  LISTICLE_MIN_SCORE,
+  belowBarReason,
+  formatListicleScore,
+  howWeChooseText,
+  splitListiclePicks,
+} from './listicleRanking';
 import type { SearchItem } from '../SearchModal';
 
 export interface ListicleFAQ {
@@ -91,6 +100,9 @@ export interface ListicleProps {
 
 const TODAY = new Date();
 
+/** Sibling listicles linked under "Related guides" (the page's own use case is skipped). */
+const RELATED_GUIDE_USE_CASES: readonly RelatedGuideUseCase[] = ['focus', 'memory', 'studying', 'aging'];
+
 /**
  * Listicle — public/SEO template for "Best nootropics for {topic}" pages.
  * Drop-in replacement for the legacy UseCaseListPage with new Phase-2
@@ -129,7 +141,10 @@ export default function Listicle({
     day: 'numeric',
   });
 
-  const sortedPicks = [...picks].sort((a, b) => (a.rank ?? 999) - (b.rank ?? 999));
+  // Only picks at or above LISTICLE_MIN_SCORE are ranked (cards, "#N", CTAs,
+  // TOC, ItemList); the rest render unranked under "Also considered".
+  const { ranked, alsoConsidered } = splitListiclePicks(picks);
+  const minScoreText = formatListicleScore(LISTICLE_MIN_SCORE);
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -148,10 +163,10 @@ export default function Listicle({
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: `${pageTitle} ${currentYear}`,
-    numberOfItems: picks.length,
-    itemListElement: sortedPicks.map((p, i) => ({
+    numberOfItems: ranked.length,
+    itemListElement: ranked.map((p) => ({
       '@type': 'ListItem',
-      position: p.rank ?? i + 1,
+      position: p.rank,
       name: p.product.name,
       url: `${siteUrl}/${p.product.slug}/`,
     })),
@@ -203,7 +218,7 @@ export default function Listicle({
         */}
         <div className="grid gap-12 items-start grid-cols-1 md:grid-cols-[1fr_320px]">
           <article>
-            <Chip tone="accent">Audited · {updatedDisplay}</Chip>
+            <Chip tone="accent">{s.audited} · {updatedDisplay}</Chip>
             <h1 className="text-[40px] font-bold leading-[1.1] tracking-[-0.025em] mt-3 mb-3 text-ds-ink">
               {pageTitle} {currentYear}
             </h1>
@@ -214,7 +229,14 @@ export default function Listicle({
               {heroParagraph}
             </p>
 
-            <FPByline updated={updatedDisplay} read={readTime} />
+            <FPByline
+              updated={updatedDisplay}
+              read={readTime}
+              attribution={s.bylineAttribution}
+              factCheckedLabel={s.bylineFactChecked}
+              updatedLabel={s.bylineUpdated}
+              readSuffix={s.bylineReadSuffix}
+            />
 
             <aside
               role="note"
@@ -249,15 +271,15 @@ export default function Listicle({
 
             <section className="my-10">
               <h2 className="text-[26px] font-bold text-ds-ink mb-2">
-                {s.ourPicksFor} {useCase}
+                {s.ourPicksFor} {s.useCaseLabels[useCase] ?? useCase}
               </h2>
               <p className="text-[14px] text-ds-muted mb-4">{s.picksIntro}</p>
               <FPTrustNote strings={uiStrings.disclosure} className="mb-6" />
 
               <div className="flex flex-col gap-5">
-                {sortedPicks.map((pick, i) => {
-                  const rank = pick.rank ?? i + 1;
-                  const isTop = i === 0;
+                {ranked.map((pick) => {
+                  const rank = pick.rank;
+                  const isTop = rank === 1;
                   return (
                     <Card key={pick.product.slug} padding={0} as="article">
                       <div className="p-6">
@@ -267,9 +289,9 @@ export default function Listicle({
                             {isTop ? ` · ${s.topPick}` : ''}
                           </Chip>
                           {pick.product.caffeineFree ? (
-                            <Chip tone="good">Caffeine-free</Chip>
+                            <Chip tone="good">{s.caffeineFree}</Chip>
                           ) : (
-                            <Chip tone="warn">Caffeine</Chip>
+                            <Chip tone="warn">{s.hasCaffeine}</Chip>
                           )}
                           <span className="text-[12px] text-ds-muted ml-1">{pick.product.brand}</span>
                         </div>
@@ -283,7 +305,7 @@ export default function Listicle({
                         <div className="text-[12.5px] text-ds-muted mb-4 ds-tabular">
                           {pick.product.priceMonthlyUSD && (
                             <>
-                              {`$${pick.product.priceMonthlyUSD}/mo`} · {servingAmount(pick.product, uiStrings)} · {guaranteeDays(pick.product.moneyBackDays, (d) => `${d}d`)} MBG
+                              {`$${pick.product.priceMonthlyUSD}/${s.monthUnit}`} · {servingAmount(pick.product, uiStrings)} · {guaranteeDays(pick.product.moneyBackDays, (d) => tpl(s.moneyBackDays, { days: d }))} {s.moneyBackLabel}
                             </>
                           )}
                         </div>
@@ -315,9 +337,15 @@ export default function Listicle({
                           <Card variant="subdued" padding={16}>
                             <div className="flex items-center justify-between mb-3">
                               <span className="text-[11px] uppercase tracking-[0.12em] text-ds-muted font-semibold">
-                                Our score
+                                {s.ourScore}
                               </span>
-                              <ScorePill score={pick.product.score} />
+                              <ScorePill
+                                score={pick.product.score}
+                                label={tpl(s.scoreAriaLabel, {
+                                  score: pick.product.score.toFixed(1),
+                                  max: (10).toFixed(1),
+                                })}
+                              />
                             </div>
                             <div className="flex flex-col gap-[6px]">
                               {(['ingredients', 'dosing', 'transparency'] as const).map((key) => {
@@ -328,11 +356,11 @@ export default function Listicle({
                                     className="grid items-center gap-2"
                                     style={{ gridTemplateColumns: '92px 1fr 24px' }}
                                   >
-                                    <span className="text-[11px] text-ds-muted capitalize">{key}</span>
+                                    <span className="text-[11px] text-ds-muted capitalize">{s.pillarLabels[key]}</span>
                                     <Bar
                                       value={v ?? 0}
                                       decorative={v === null}
-                                      label={`${pick.product.name} ${key} score`}
+                                      label={tpl(s.pillarScoreLabel, { name: pick.product.name, pillar: s.pillarLabels[key] })}
                                     />
                                     <span className="text-[11px] text-ds-ink text-right ds-tabular">{pillarText(v)}</span>
                                   </div>
@@ -348,6 +376,47 @@ export default function Listicle({
               </div>
             </section>
 
+            {/* Picks below LISTICLE_MIN_SCORE: kept on the page with their score
+                and the reason, but unranked and with no affiliate link — this
+                section is not a recommendation (site-owner decision 2026-10-08). */}
+            {alsoConsidered.length > 0 && (
+              <section id="also-considered" aria-labelledby="also-considered-heading" className="my-10">
+                <h2 id="also-considered-heading" className="text-[22px] font-bold text-ds-ink mb-2">
+                  {tpl(s.alsoConsideredHeading, { minScore: minScoreText })}
+                </h2>
+                <p className="text-[14px] text-ds-muted mb-4 leading-[1.55]">
+                  {tpl(s.alsoConsideredIntro, { minScore: minScoreText })}
+                </p>
+                <ul className="list-none p-0 m-0 flex flex-col gap-3">
+                  {alsoConsidered.map((pick) => (
+                    <Card key={pick.product.slug} as="li" padding={16}>
+                      <div className="flex items-start gap-3">
+                        <ProductThumb product={pick.product} size={40} variant="sm" />
+                        <div className="min-w-0">
+                          <h3
+                            id={`also-considered-${pick.product.slug}`}
+                            className="text-[17px] font-semibold text-ds-ink m-0"
+                          >
+                            {pick.product.name}
+                          </h3>
+                          <p className="text-[12.5px] text-ds-muted m-0 mt-[2px] ds-tabular">
+                            {pick.product.brand} · {belowBarReason(s, pick.product.score)}
+                          </p>
+                          <p className="text-[13.5px] leading-[1.6] text-ds-ink-soft m-0 mt-2">{pick.whyItsHere}</p>
+                          <Link
+                            href={`/${pick.product.slug}/`}
+                            className="inline-block mt-2 text-[13px] font-semibold text-ds-accent underline focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded"
+                          >
+                            {s.readFullReview}
+                          </Link>
+                        </div>
+                      </div>
+                    </Card>
+                  ))}
+                </ul>
+              </section>
+            )}
+
             <section className="my-10">
               <h2 className="text-[26px] font-bold text-ds-ink mb-4">{s.faqHeading}</h2>
               <FaqAccordion items={faqItems} />
@@ -361,37 +430,16 @@ export default function Listicle({
                 id="related-guides-heading"
                 className="text-[26px] font-bold text-ds-ink mb-4"
               >
-                Related guides
+                {s.relatedGuides}
               </h2>
               <ul className="grid gap-2 list-disc pl-5 text-[15px] leading-[1.6] text-ds-ink-soft">
-                {useCase !== 'focus' && (
-                  <li>
-                    <Link href="/best-nootropics-for-focus/" className="text-ds-accent underline">
-                      Best nootropics for focus
+                {RELATED_GUIDE_USE_CASES.filter((u) => u !== useCase).map((u) => (
+                  <li key={u}>
+                    <Link href={`/best-nootropics-for-${u}/`} className="text-ds-accent underline">
+                      {s.relatedGuideLabels[u]}
                     </Link>
                   </li>
-                )}
-                {useCase !== 'memory' && (
-                  <li>
-                    <Link href="/best-nootropics-for-memory/" className="text-ds-accent underline">
-                      Best nootropics for memory
-                    </Link>
-                  </li>
-                )}
-                {useCase !== 'studying' && (
-                  <li>
-                    <Link href="/best-nootropics-for-studying/" className="text-ds-accent underline">
-                      Best nootropics for studying
-                    </Link>
-                  </li>
-                )}
-                {useCase !== 'aging' && (
-                  <li>
-                    <Link href="/best-nootropics-for-aging/" className="text-ds-accent underline">
-                      Best nootropics for aging
-                    </Link>
-                  </li>
-                )}
+                ))}
                 {regulatoryPillar && (
                   <li>
                     <Link href={regulatoryPillar.href} className="text-ds-accent underline">
@@ -419,7 +467,7 @@ export default function Listicle({
             >
               <h2 className="text-[18px] font-bold text-ds-ink mb-2">{s.howWeChoose}</h2>
               <p className="text-[14px] leading-[1.6] text-ds-ink-soft mb-3">
-                {s.howWeChooseBody}{' '}
+                {howWeChooseText(s)}{' '}
                 <Link href="/methodology/" className="text-ds-accent underline">
                   {s.fullMethodology}
                 </Link>
@@ -437,22 +485,35 @@ export default function Listicle({
           <aside className="sticky top-[90px] self-start">
             <Card padding={20}>
               <div className="text-[11px] uppercase tracking-[0.12em] text-ds-muted font-semibold mb-3">
-                In this guide
+                {s.inThisGuide}
               </div>
               <ul className="list-none p-0 m-0 flex flex-col gap-2">
-                {sortedPicks.map((pick, i) => (
+                {ranked.map((pick) => (
                   <li key={pick.product.slug} className="text-[13px]">
                     <a
                       href={`#pick-${pick.product.slug}`}
                       className="text-ds-ink-soft hover:text-ds-accent focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded"
                     >
                       <span className="text-ds-muted ds-tabular mr-2">
-                        #{pick.rank ?? i + 1}
+                        #{pick.rank}
                       </span>
                       {pick.product.name}
                     </a>
                   </li>
                 ))}
+                {/* One unnumbered link to the section, not the products: the
+                    numbered list stays the ranking, and below-bar products get
+                    no name-and-number entry that reads like a rank. */}
+                {alsoConsidered.length > 0 && (
+                  <li className="text-[13px] border-t border-ds-border pt-2 mt-1">
+                    <a
+                      href="#also-considered"
+                      className="text-ds-ink-soft hover:text-ds-accent focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded"
+                    >
+                      {s.alsoConsideredToc}
+                    </a>
+                  </li>
+                )}
               </ul>
             </Card>
           </aside>

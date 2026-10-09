@@ -72,13 +72,13 @@ const picks: ListiclePick[] = [
     product: productsCA.find(p => p.slug === 'naturebell-ginkgo-ginseng-review')!,
     rank: 3,
     whyItsHere:
-      'The budget pick — CAD ~$7/month, listed on amazon.ca. Delivers Ginkgo Biloba at the full clinical dose (500mg of a 12:1 extract, standardised to 120mg flavone glycosides). Single-mechanism (cerebral blood flow), not a complete memory stack. Best as a cheap addition alongside Mind Lab Pro, or as an entry-point trial. No NPN (Natural Product Number) found for NatureBell Ginkgo + Ginseng in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07); check the listing or label for an eight-digit NPN.',
+      'Budget-priced — CAD ~$7/month, listed on amazon.ca. Delivers Ginkgo Biloba at the full clinical dose (500mg of a 12:1 extract, standardised to 120mg flavone glycosides). Single-mechanism (cerebral blood flow), not a complete memory stack. At most a cheap addition alongside Mind Lab Pro, or an entry-point trial. No NPN (Natural Product Number) found for NatureBell Ginkgo + Ginseng in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07); check the listing or label for an eight-digit NPN.',
   },
   {
     product: productsCA.find(p => p.slug === 'onnit-alpha-brain-review')!,
     rank: 4,
     whyItsHere:
-      'Contains Bacopa, Lion\'s Mane, and Huperzine A (an acetylcholinesterase inhibitor with weak memory evidence). Proprietary blends mean you cannot verify Bacopa is at the 300mg clinical dose. Its former Health Canada licence, NPN 80041968, is listed as Discontinued in the LNHPD (checked 2026-10-07), and we found no Onnit listing on amazon.ca\'s first page of search results that day, so confirm Canadian delivery at checkout.',
+      'Contains Bacopa and Huperzine A (an acetylcholinesterase inhibitor with weak memory evidence). The label states 100mg Bacopa, a third of the 300mg clinical dose. Its former Health Canada licence, NPN 80041968, is listed as Discontinued in the LNHPD (checked 2026-10-07), and we found no Onnit listing on amazon.ca\'s first page of search results that day, so confirm Canadian delivery at checkout.',
   },
 ];
 

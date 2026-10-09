@@ -72,13 +72,13 @@ const picks: ListiclePick[] = [
     product: productsCA.find(p => p.slug === 'naturebell-ginkgo-ginseng-review')!,
     rank: 3,
     whyItsHere:
-      'Budget pick at CAD ~$7/month. Delivers Ginkgo Biloba at the full clinical dose (500mg of a 12:1 extract, standardised to 120mg flavone glycosides), though a 2026 network meta-analysis in healthy adults found high-dose Bacopa improved working memory more than either Ginkgo dose (see the Ginkgo entry above). Listed on amazon.ca. Single-mechanism (cerebral blood flow); pair with a PS supplement for fuller coverage. No NPN (Natural Product Number) found for NatureBell Ginkgo + Ginseng in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07).',
+      'Budget-priced at CAD ~$7/month. Delivers Ginkgo Biloba at the full clinical dose (500mg of a 12:1 extract, standardised to 120mg flavone glycosides), though a 2026 network meta-analysis in healthy adults found high-dose Bacopa improved working memory more than either Ginkgo dose (see the Ginkgo entry above). Listed on amazon.ca. Single-mechanism (cerebral blood flow); pair with a PS supplement for fuller coverage. No NPN (Natural Product Number) found for NatureBell Ginkgo + Ginseng in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07).',
   },
   {
     product: productsCA.find(p => p.slug === 'onnit-alpha-brain-review')!,
     rank: 4,
     whyItsHere:
-      'Contains Bacopa, Lion\'s Mane, and Huperzine A. CAUTION for older Canadian adults: Huperzine A is itself an acetylcholinesterase inhibitor — do NOT stack with prescription cholinesterase inhibitors (donepezil/Aricept, rivastigmine/Exelon, galantamine/Reminyl) commonly prescribed by Canadian neurologists for early Alzheimer\'s. Discuss with your prescribing doctor first.',
+      'Contains Bacopa and Huperzine A. CAUTION for older Canadian adults: Huperzine A is itself an acetylcholinesterase inhibitor — do NOT stack with prescription cholinesterase inhibitors (donepezil/Aricept, rivastigmine/Exelon, galantamine/Reminyl) commonly prescribed by Canadian neurologists for early Alzheimer\'s. Discuss with your prescribing doctor first.',
   },
 ];
 
@@ -109,7 +109,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Can I buy these in a Canadian store?',
-    a: 'The premium multi-ingredient stacks (Mind Lab Pro, Qualia Mind, Hunter Focus) are sold direct by their brands and ship internationally to Canadian addresses; we found no NPN (Natural Product Number) for any of them in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07). For single-ingredient PS, Bacopa, Ginkgo or Lion\'s Mane bought in a store, look for an eight-digit NPN on the label; the LNHPD lets you check it. NatureBell Ginkgo + Ginseng is listed on amazon.ca.',
+    a: 'The premium multi-ingredient stacks (Mind Lab Pro, Qualia Mind) are sold direct by their brands and ship internationally to Canadian addresses; we found no NPN (Natural Product Number) for any of them in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07). For single-ingredient PS, Bacopa, Ginkgo or Lion\'s Mane bought in a store, look for an eight-digit NPN on the label; the LNHPD lets you check it. NatureBell Ginkgo + Ginseng is listed on amazon.ca.',
   },
 ];
 
