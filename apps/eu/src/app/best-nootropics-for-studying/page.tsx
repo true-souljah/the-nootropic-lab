@@ -70,7 +70,7 @@ const picks: ListiclePick[] = [
     product: productsEU.find(p => p.slug === 'hunter-focus-review')!,
     rank: 3,
     whyItsHere:
-      'The most complete study stack in EU coverage: Lion\'s Mane, Bacopa, Phosphatidylserine, Ashwagandha (stress resilience for exam season), ALCAR, plus 100mg caffeine. €85/mo and 6 capsules/day are significant friction — pick this if you want maximum ingredient breadth and can absorb the cost and pill burden.',
+      '20 ingredients, tied with Brainzyme Focus Pro for the most in this review: Lion\'s Mane, Bacopa, Phosphatidylserine, Ashwagandha (stress resilience for exam season), ALCAR, plus 100mg caffeine. €85/mo and 6 capsules/day are significant friction — pick this if you want maximum ingredient breadth and can absorb the cost and pill burden.',
   },
 ];
 

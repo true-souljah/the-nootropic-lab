@@ -70,7 +70,7 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'suntory-dha-epa-sesamin-review')!,
     rank: 3,
     whyItsHere:
-      'Japan\'s best-selling omega-3 brain supplement (over 30 million bottles sold); no Foods with Function Claims (FFC, 機能性表示食品) notification found in the Consumer Affairs Agency (CAA) database (export scanned 2026-10-06). 300mg DHA + 100mg EPA + 10mg sesamin per 4 capsules from Suntory Wellness — backed by a household-name conglomerate familiar to every Japanese consumer. Foundational rather than acute: works by maintaining structural membrane integrity. Best paired with a dedicated nootropic stack like Mind Lab Pro for users wanting both. ¥4,800/month — the most affordable product on this page.',
+      'An omega-3 brain supplement whose maker\'s product page calls it 「DHAサプリメント市場18年連続売上No.1」 (No. 1 in DHA-supplement sales for 18 years running; suntory-kenko.com, checked 2026-10-09); no Foods with Function Claims (FFC, 機能性表示食品) notification found in the Consumer Affairs Agency (CAA) database (export scanned 2026-10-06). 300mg DHA + 100mg EPA + 10mg sesamin per 4 capsules from Suntory Wellness — backed by a household-name conglomerate familiar to every Japanese consumer. Foundational rather than acute: works by maintaining structural membrane integrity. Best paired with a dedicated nootropic stack like Mind Lab Pro for users wanting both. ¥4,800/month.',
   },
 ];
 
@@ -81,7 +81,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'What is the most evidence-backed nootropic for memory?',
-    a: 'Bacopa Monnieri at 300mg standardized to 50% bacosides has the most replicated RCT evidence for memory consolidation in healthy adults — but is only available via imports. For Japan-domestic options, DHA is the most-notified FFC ingredient with strong evidence in middle-aged and older adults; Phosphatidylserine has the FDA qualified health claim for cognitive function in elderly.',
+    a: 'Bacopa Monnieri at 300mg standardized to 50% bacosides has the most replicated RCT evidence for memory consolidation in healthy adults. On this page it comes in an imported stack (Mind Lab Pro, 150mg Bacopa) and in FANCL BRAINs, a domestic FFC product whose notified ingredient is bacopa saponins (15mg per daily intake, notification G425). For Japan-domestic options, DHA is the most-notified FFC ingredient with strong evidence in middle-aged and older adults; Phosphatidylserine has the FDA qualified health claim for cognitive function in elderly.',
   },
   {
     q: 'How long until memory nootropics work?',
