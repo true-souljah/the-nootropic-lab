@@ -1121,15 +1121,15 @@
     "bestFor": [
       "Australian-domiciled trust"
     ],
-    "score": 7.3,
+    "score": 8.2,
     "scoreBreakdown": {
       "ingredients": 6,
-      "dosing": null,
+      "dosing": 10,
       "transparency": 8,
       "value": null,
       "trust": 9
     },
-    "unscoredReason": "Dosing and value are not scored: the product's one active, Longvida curcumin, has no reference dose on our ingredient pages, and the product is discontinued, so there is no current price to measure value against. The overall score is the weighted average of the three scored pillars.",
+    "unscoredReason": "Value is not scored: the product is discontinued, so there is no current price to measure value against. The overall score is the weighted average of the four scored pillars.",
     "pricingModel": "one-time",
     "moneyBackDays": 30,
     "caffeineFree": true,
@@ -1148,8 +1148,8 @@
       {
         "name": "Curcumin (Longvida® turmeric extract)",
         "doseInProduct": "400mg (80mg curcumin)",
-        "clinicalDose": "No reference dose on file",
-        "adequatelyDosed": null
+        "clinicalDose": "400mg/day (Longvida)",
+        "adequatelyDosed": true
       }
     ],
     "servingsPerContainer": 30,
