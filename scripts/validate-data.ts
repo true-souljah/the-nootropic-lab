@@ -78,7 +78,7 @@ for (const [region, products] of Object.entries(regions)) {
     ids.add(id);
     // Slug uniqueness: [slug]/page.tsx generateStaticParams maps products
     // by slug; a duplicate slug generates a colliding route + duplicate
-    // sitemap/ItemList entry (audit OPT-4 — EU shipped braineffect twice).
+    // sitemap/ItemList entry (audit OPT-4 — EU once shipped one product twice).
     const slug = String(p.slug);
     if (slugs.has(slug)) {
       console.error(`FAIL ${region}: duplicate slug "${slug}"`);

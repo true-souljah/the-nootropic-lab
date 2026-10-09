@@ -4,8 +4,8 @@ import { resolve, dirname, join, relative } from 'node:path';
 
 // Serving-size claim guard (2026-10-09).
 //
-// Copy on four pages (US beginner-stack guide, CA AOR-vs-Mind-Lab-Pro, EU
-// BRAINEFFECT-vs-Mind-Lab-Pro, AU best-for-aging FAQ) said a multi-ingredient
+// Copy on four pages (US beginner-stack guide, CA AOR-vs-Mind-Lab-Pro, an EU
+// head-to-head since removed, AU best-for-aging FAQ) said a multi-ingredient
 // formula delivered its ingredients "in one capsule". Every product it described
 // takes 2+ capsules per serving according to its own record
 // (`capsulesPerServing`). Say "in one formula" or "per serving" instead.
