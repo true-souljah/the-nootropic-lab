@@ -60,8 +60,8 @@ export function DosingTab({ product: p }: DosingTabProps) {
                   <td className="py-3 px-3 text-right ds-tabular text-ds-ink">{d.doseInProduct}</td>
                   <td className="py-3 px-3 text-right ds-tabular text-ds-muted">{d.clinicalDose}</td>
                   <td className="py-3 pl-3 text-right">
-                    <Chip tone={d.adequatelyDosed ? 'good' : 'bad'}>
-                      {d.adequatelyDosed ? '✓ Pass' : '✕ Under'}
+                    <Chip tone={d.adequatelyDosed === null ? 'neutral' : d.adequatelyDosed ? 'good' : 'bad'}>
+                      {d.adequatelyDosed === null ? '? Unverified' : d.adequatelyDosed ? '✓ Pass' : '✕ Under'}
                     </Chip>
                   </td>
                 </tr>
