@@ -65,5 +65,6 @@ describe('head-to-head registry', () => {
     ]);
     expect(headToHeadFor('mind-lab-pro-review', 'ca').map((l) => l.href)).toEqual(['/aor-ortho-mind-vs-mind-lab-pro/']);
     expect(headToHeadFor('mind-lab-pro-review', 'jp')).toEqual([]);
+    expect(headToHeadFor('no-such-review', 'us')).toEqual([]);
   });
 });
