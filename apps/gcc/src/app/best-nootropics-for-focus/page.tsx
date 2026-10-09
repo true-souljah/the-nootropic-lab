@@ -25,24 +25,28 @@ export const metadata: Metadata = {
 const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Theanine + Caffeine (1:2 to 2:1 ratio)',
+    ingredientSlugs: ['l-theanine', 'caffeine'],
     evidence:
       'Among the best-replicated cognitive findings: L-theanine paired with caffeine improves attention switching and reduces mental fatigue, with smoother subjective focus than caffeine alone. Effective at 100–200mg L-theanine + 100mg caffeine. GCC note: many buyers prefer to skip the caffeine component (use L-theanine with Arabic coffee or matcha instead) for stimulant tolerance reasons.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
   },
   {
     name: 'Citicoline (CDP-Choline)',
+    ingredientSlugs: ['citicoline'],
     evidence:
       'Choline donor + uridine source that supports phospholipid synthesis and acetylcholine production. Multiple RCTs show attention and cognitive-effort benefits in healthy adults at 250–500mg/day. Cognizin is the standardised form most products use. Generally regarded as halal — animal-derived sourcing is uncommon for this ingredient.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
   {
     name: 'L-Tyrosine (or NALT)',
+    ingredientSlugs: ['l-tyrosine'],
     evidence:
       'Precursor to dopamine + norepinephrine. Effective specifically under cognitive load or stress — improves performance on attention tasks during sleep deprivation, multitasking, or cold exposure. The stress trials with positive results used plain L-tyrosine at 2g a day or 100–150mg/kg. Vegetarian (synthesised, not animal-derived).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/26424423/',
   },
   {
     name: 'Alpha-GPC',
+    ingredientSlugs: ['alpha-gpc'],
     evidence:
       'Cholinergic. In a 2024 placebo-controlled crossover RCT in 20 resistance-trained men, a single 315mg or 630mg dose improved Stroop test performance, with no effect on N-Back or Flanker tasks — one small, acute study. Often paired with L-theanine for "calm focus." GCC note: Alpha-GPC is sometimes derived from soy lecithin (vegetarian) but can be synthesised from animal phospholipids — check the product source for halal compliance.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/39683633/',

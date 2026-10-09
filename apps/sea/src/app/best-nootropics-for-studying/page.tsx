@@ -25,24 +25,28 @@ export const metadata: Metadata = {
 const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Theanine + Caffeine — sustained focus',
+    ingredientSlugs: ['l-theanine', 'caffeine'],
     evidence:
       'For sustained study sessions, the L-theanine + caffeine combo is the foundation. Reduces caffeine jitter and post-coffee crash, smooths attention switching. 100–200mg L-theanine + 100mg caffeine, repeated 4–6 hours later if needed. Caffeine is trivially available across SEA from kopi-O (Singapore/Malaysia), cà phê sữa đá (Vietnam), kopi tubruk (Indonesia), or kape (Philippines).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
   },
   {
     name: 'Bacopa Monnieri (Brahmi) — long-term memory consolidation',
+    ingredientSlugs: ['bacopa-monnieri'],
     evidence:
       'Critical for retention of studied material. Bacopa improves memory consolidation — what your brain does during sleep with material you studied that day. 300mg standardized to 50% bacosides daily for 8+ weeks. Start at the beginning of the semester — for NUS/NTU buyers in week 1, not week 12 before finals. Widely sold across SEA under "Brahmi" branding.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
   },
   {
     name: 'Citicoline — choline for cognitive demand',
+    ingredientSlugs: ['citicoline'],
     evidence:
       'Heavy cognitive demand depletes choline. Citicoline at 250–500mg/day supports phospholipid synthesis and acetylcholine availability — the neurotransmitter most associated with attention and learning. Cognizin is the standardized form most premium imports use.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
   {
     name: 'L-Tyrosine — under-stress performance',
+    ingredientSlugs: ['l-tyrosine'],
     evidence:
       'Acute exam stress, sleep deprivation (a SEA student staple during finals weeks), and tropical heat all deplete catecholamines. Tyrosine supplementation has documented benefit for cognitive performance specifically under stress, sleep loss, or heat exposure. The stress trials with positive results used plain L-tyrosine at 2g a day or 100–150mg/kg, for short bursts during exam periods; not for daily continuous use.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/26424423/',
@@ -77,7 +81,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Which are best for SEA students via Shopee/Lazada vs cross-border iHerb?',
-    a: 'NatureBell Ginkgo+Ginseng on Amazon.sg (~SGD $7/mo) avoids customs and credit-card cross-border fees, and it is one of the ranked picks above. For premium stacks: cross-border iHerb to Singapore is the most reliable route for Mind Lab Pro, NooCube, and Nootropics Depot products. Direct from the brand is also an option for Mind Lab Pro: its FAQ names Singapore, Thailand, the Philippines, Indonesia and Vietnam among its shipping territories (checked 2026-09-29; Malaysia not named on that partial list).',
+    a: 'NatureBell Ginkgo+Ginseng on Amazon.sg (~SGD $7/mo) avoids customs and credit-card cross-border fees, but it contains none of this guide\'s evidence ingredients, so it is listed under Also considered above rather than ranked. For premium stacks: cross-border iHerb to Singapore is the most reliable route for Mind Lab Pro, NooCube, and Nootropics Depot products. Direct from the brand is also an option for Mind Lab Pro: its FAQ names Singapore, Thailand, the Philippines, Indonesia and Vietnam among its shipping territories (checked 2026-09-29; Malaysia not named on that partial list).',
   },
   {
     q: 'When should I start taking nootropics for studying?',

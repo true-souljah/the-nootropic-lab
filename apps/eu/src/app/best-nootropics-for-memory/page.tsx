@@ -25,24 +25,28 @@ export const metadata: Metadata = {
 const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Bacopa Monnieri',
+    ingredientSlugs: ['bacopa-monnieri'],
     evidence:
       'The most-replicated memory ingredient in nootropics. Multiple double-blind RCTs in adults show improved memory consolidation and recall after 8–12 weeks at 300mg standardised to 50% bacosides. Onset is slow — daily for 8+ weeks. Not an acute-effect ingredient. EFSA has not approved a specific health claim for Bacopa, so EU labels describe it as a botanical food supplement rather than making cognitive claims.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
   },
   {
     name: 'Lion\'s Mane (Hericium erinaceus)',
+    ingredientSlugs: ['lions-mane'],
     evidence:
       'Modulates Nerve Growth Factor (NGF) and may support neurogenesis. Small RCTs (notably Mori et al. 2009 in older adults with mild cognitive impairment) showed memory improvements at 1g/day fruiting-body extract over 16 weeks. Look for fruiting-body extract, not mycelium-on-grain. Lion\'s Mane fruiting body has traditional EU food use; mycelium-grain blends are scrutinised under Novel Food rules.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18844328/',
   },
   {
     name: 'Phosphatidylserine (PS)',
+    ingredientSlugs: ['phosphatidylserine'],
     evidence:
       'Phospholipid component of brain cell membranes. Most RCT evidence is in 50–80-year-olds at 100–300mg/day. The EU does not authorise the US-style "may reduce risk of dementia" qualified claim — EFSA has rejected several PS health claims, so EU labels describe PS in mechanism rather than outcome terms. The trial linked below (Vakhapova et al. 2010) is separate from these regulatory decisions: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {
     name: 'Citicoline (CDP-Choline)',
+    ingredientSlugs: ['citicoline'],
     evidence:
       'Choline donor + uridine source. RCTs in older adults with age-related memory complaints show improvements in verbal memory and processing speed at 250–500mg/day for 12+ weeks. Authorised in the EU under Novel Food Regulation (EU) 2015/2283.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',

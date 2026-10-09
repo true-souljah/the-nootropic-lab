@@ -26,24 +26,28 @@ export const metadata: Metadata = {
 const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Teanina + Cafeína — concentración sostenida',
+    ingredientSlugs: ['l-theanine', 'caffeine'],
     evidence:
       'Para sesiones de estudio prolongadas, la combinación L-teanina + cafeína es la base. Reduce el nerviosismo de la cafeína y la caída posterior, y suaviza el cambio de atención. 100–200mg de L-teanina + 100mg de cafeína, repetidos 4–6 horas después si es necesario. La cafeína se obtiene fácilmente de un café o mate local en cualquier país de Latam.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
   },
   {
     name: 'Bacopa Monnieri — consolidación de memoria a largo plazo',
+    ingredientSlugs: ['bacopa-monnieri'],
     evidence:
       'Crítica para la retención de material estudiado. La Bacopa mejora la consolidación de memoria — lo que tu cerebro hace durante el sueño con el material que estudiaste ese día. 300mg estandarizado al 50% de bacósidos diariamente durante 8+ semanas. Empieza al inicio del cuatrimestre, no la noche antes del examen.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
   },
   {
     name: 'Citicolina — colina para alta demanda cognitiva',
+    ingredientSlugs: ['citicoline'],
     evidence:
       'La demanda cognitiva intensa agota la colina. La citicolina a 250–500mg/día apoya la síntesis de fosfolípidos y la disponibilidad de acetilcolina — el neurotransmisor más asociado con atención y aprendizaje. Cognizin es la forma estandarizada.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
   {
     name: 'L-Tirosina — rendimiento bajo estrés',
+    ingredientSlugs: ['l-tyrosine'],
     evidence:
       'El estrés agudo de exámenes y la falta de sueño agotan las catecolaminas. La suplementación con tirosina tiene beneficio documentado para el rendimiento cognitivo específicamente bajo estrés, pérdida de sueño o frío. Los ensayos de estrés con resultados positivos usaron L-tirosina simple a 2g al día o 100–150mg/kg, para uso puntual; no para uso continuo diario.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/26424423/',
