@@ -471,8 +471,11 @@ describe('round twelve: NPN review, SEA framework, Mind Lab Pro delivery, seller
 // quoted source stay: Suntory's own product page ("DHAサプリメント市場18年連続
 // 売上No.1"; it does not give the "30 million bottles" we had) and MIDA's
 // description of JAKIM as "widely regarded as the gold standard in halal
-// certification" (raw pages saved 2026-10-09). "Most affordable" stays only
-// where the region's own priceMonthlyUSD data proves it (checked below).
+// certification" (raw pages saved 2026-10-09). Eu Yan Sang's store count is
+// its about page's "over 187 Eu Yan Sang retail outlets in China, Hong Kong,
+// Macau, Malaysia, and Singapore" (not "200+", not Australia). "Most
+// affordable" and "the most of any single formula" stay only where the
+// region's own data proves them (checked below).
 const ROUND_THIRTEEN_SOURCES = [
   ...walk(DATA_DIR),
   ...readdirSync(APPS_DIR)
@@ -497,7 +500,83 @@ const ROUND_THIRTEEN_UNSOURCED: RegExp[] = [
   /30 million bottles/i,
   /stricter (supplement|route|ADAS)|processing is stricter/i,
   /reliable international delivery/i,
+  /200\+ (retail|stores)|over 200 retail/i,
+  /unmatched trust|carries deep trust/i,
 ];
+
+// Collapse every whitespace run (newlines included) to one space before
+// matching, so a phrase that JSX or a template literal wraps across lines is
+// still caught; each match is reported at the line where it starts.
+function normalisedMatchLines(text: string, patterns: RegExp[]): number[] {
+  const flat: string[] = [];
+  const lineOf: number[] = [];
+  let line = 1;
+  let inSpace = false;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (/\s/.test(ch)) {
+      if (!inSpace) {
+        flat.push(' ');
+        lineOf.push(line);
+        inSpace = true;
+      }
+      if (ch === '\n') line++;
+    } else {
+      flat.push(ch);
+      lineOf.push(line);
+      inSpace = false;
+    }
+  }
+  const joined = flat.join('');
+  const lines = new Set<number>();
+  for (const re of patterns) {
+    const global = new RegExp(re.source, re.flags.includes('g') ? re.flags : `${re.flags}g`);
+    for (const m of joined.matchAll(global)) lines.add(lineOf[m.index ?? 0]);
+  }
+  return [...lines].sort((a, b) => a - b);
+}
+
+// "The most of any single formula in this review" is proved per region from
+// the ingredientDosages rows. Thesis is four separate blends whose rows end
+// with the blend name, so it counts as its largest blend; any other record
+// counts all its rows. A Thesis row that names no known blend fails closed.
+const MULTI_FORMULA_BLENDS: Record<string, string[]> = {
+  'thesis-nootropics-review': ['Clarity', 'Motivation', 'Stress Reset', 'Neuroprotection'],
+};
+const SINGLE_FORMULA_CLAIM = /most of any single formula/i;
+type FormulaRec = { slug: string; discontinued?: unknown; ingredientDosages?: Array<{ name: string }> } & Record<string, unknown>;
+
+function largestFormulaRows(r: FormulaRec): number {
+  const rows = r.ingredientDosages ?? [];
+  const blends = MULTI_FORMULA_BLENDS[r.slug];
+  if (!blends) return rows.length;
+  const counts = new Map<string, number>();
+  for (const row of rows) {
+    const blend = blends.find(b => row.name.endsWith(`(${b})`));
+    if (!blend) throw new Error(`${r.slug}: ingredient row "${row.name}" names no known blend`);
+    counts.set(blend, (counts.get(blend) ?? 0) + 1);
+  }
+  return Math.max(...counts.values());
+}
+
+function recordTexts(r: Record<string, unknown>): string[] {
+  return Object.values(r).flatMap(v =>
+    typeof v === 'string' ? [v] : Array.isArray(v) ? v.filter((x): x is string => typeof x === 'string') : [],
+  );
+}
+
+// Ties are allowed; a claimant beaten by any live record in its region fails.
+function singleFormulaViolations(recs: FormulaRec[]): string[] {
+  const live = recs.filter(r => !r.discontinued);
+  return recs.flatMap(r => {
+    if (!recordTexts(r).some(t => SINGLE_FORMULA_CLAIM.test(t))) return [];
+    const mine = largestFormulaRows(r);
+    const bigger = live
+      .filter(x => x.slug !== r.slug && largestFormulaRows(x) > mine)
+      .map(x => `${x.slug} (${largestFormulaRows(x)})`);
+    return r.discontinued || bigger.length > 0 ? [`${r.slug} (${mine}) beaten by ${bigger.join(', ')}`] : [];
+  });
+}
 
 describe('round thirteen: no unsourced superlatives in data or app copy', () => {
   test('scanned a non-empty file set', () => {
@@ -538,18 +617,70 @@ describe('round thirteen: no unsourced superlatives in data or app copy', () => 
       'improved MMSE but not the stricter ADAS-Cog scale.',
       'where personal-import customs processing is stricter.',
       'Ships from the UK directly to Canada with reliable international delivery.',
+      'with 200+ retail stores across Singapore, Malaysia, Hong Kong, and Australia.',
+      'headquartered in Singapore with 200+ retail locations across Asia-Pacific.',
+      'with over 200 retail locations across Singapore, Malaysia, Hong Kong, Macau, and Australia.',
+      '200+ stores across SEA',
+      'For SEA buyers, Eu Yan Sang offers unmatched trust and accessibility:',
+      'but the Eu Yan Sang brand carries deep trust across Chinese-heritage communities',
     ];
     for (const s of removed) expect(ROUND_THIRTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(true);
   });
 
-  test('no data or app source uses the unsourced wording', () => {
-    const hits = ROUND_THIRTEEN_SOURCES.flatMap(file => {
-      const lines = readFileSync(file, 'utf8').split('\n');
-      return lines.flatMap((line, i) =>
-        ROUND_THIRTEEN_UNSOURCED.some(re => re.test(line)) ? [`${relative(REPO_ROOT, file)}:${i + 1}`] : [],
-      );
-    });
+  test('a phrase wrapped across lines is still caught, at the line where it starts', () => {
+    const jsx = [
+      '<li>',
+      '  <strong>Singapore — HSA (Health Sciences Authority).</strong> Most',
+      '  permissive personal-import',
+      '  regime in the region.',
+      '</li>',
+    ].join('\n');
+    expect(normalisedMatchLines(jsx, ROUND_THIRTEEN_UNSOURCED)).toEqual([2]);
+    expect(normalisedMatchLines('a\nThe most comprehensively\n\t researched stack', ROUND_THIRTEEN_UNSOURCED)).toEqual([2]);
+    // A line-by-line scan misses both.
+    for (const l of jsx.split('\n')) expect(ROUND_THIRTEEN_UNSOURCED.some(re => re.test(l))).toBe(false);
+    expect(normalisedMatchLines('An 11-ingredient nootropic stack.', ROUND_THIRTEEN_UNSOURCED)).toEqual([]);
+  });
+
+  test('no data or app source uses the unsourced wording (whitespace-normalised)', () => {
+    const hits = ROUND_THIRTEEN_SOURCES.flatMap(file =>
+      normalisedMatchLines(readFileSync(file, 'utf8'), ROUND_THIRTEEN_UNSOURCED).map(
+        line => `${relative(REPO_ROOT, file)}:${line}`,
+      ),
+    );
     expect(hits).toEqual([]);
+  });
+
+  test('"the most of any single formula in this review" holds in every region (ingredientDosages rows; Thesis per blend)', () => {
+    let claims = 0;
+    const wrong: string[] = [];
+    for (const file of PRODUCT_FILES) {
+      const recs = JSON.parse(readFileSync(file, 'utf8')) as FormulaRec[];
+      claims += recs.filter(r => recordTexts(r).some(t => SINGLE_FORMULA_CLAIM.test(t))).length;
+      for (const v of singleFormulaViolations(recs)) wrong.push(`${relative(REPO_ROOT, file)} ${v}`);
+    }
+    expect(claims).toBe(6);
+    expect(wrong).toEqual([]);
+  });
+
+  test('the single-formula check fails when another record outgrows the claimant, and allows a tie', () => {
+    const us = JSON.parse(readFileSync(resolve(DATA_DIR, 'products-us.json'), 'utf8')) as FormulaRec[];
+    const qualia = us.find(r => r.slug === 'qualia-mind-review')!;
+    const hunter = us.find(r => r.slug === 'hunter-focus-review')!;
+    expect(largestFormulaRows(qualia)).toBe(31);
+    expect(largestFormulaRows(us.find(r => r.slug === 'thesis-nootropics-review')!)).toBe(12);
+    const bump = (n: number): FormulaRec[] =>
+      us.map(r =>
+        r === hunter
+          ? { ...r, ingredientDosages: Array.from({ length: n }, (_, i) => ({ name: `Row ${i}` })) }
+          : r,
+      );
+    expect(singleFormulaViolations(bump(31))).toEqual([]);
+    expect(singleFormulaViolations(bump(32))).toEqual(['qualia-mind-review (31) beaten by hunter-focus-review (32)']);
+    // A Thesis row outside the four known blends fails closed.
+    const thesis = us.find(r => r.slug === 'thesis-nootropics-review')!;
+    const strayRow = { ...thesis, ingredientDosages: [...(thesis.ingredientDosages ?? []), { name: 'Caffeine (Energy)' }] };
+    expect(() => largestFormulaRows(strayRow)).toThrow(/names no known blend/);
   });
 
   test('a "cheapest in this review" claim in product data names the region\'s lowest priceMonthlyUSD', () => {
