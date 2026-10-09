@@ -138,6 +138,12 @@ describe('anchor matching — on the base name (text before the first " (")', ()
     expect(matchingAnchors(row, [plain])).toEqual([]);
   });
 
+  test('the Longvida anchor takes Longvida rows only, never plain curcumin or turmeric', () => {
+    expect(dosingAnchorFor({ name: 'Curcumin (Longvida® turmeric extract)' })?.ingredientSlug).toBe('longvida-curcumin');
+    expect(dosingAnchorFor({ name: 'Curcuma longa (Turmeric) (Neuroprotection)' })).toBeNull();
+    expect(dosingAnchorFor({ name: 'Curcumin' })).toBeNull();
+  });
+
   test('a row matching two anchors is an error (synthetic)', () => {
     expect(() => dosingAnchorFor({ name: 'Lutein + DHA complex' })).toThrow(/more than one dosing anchor \(dha-omega-3, lutemax-2020\)|more than one dosing anchor \(lutemax-2020, dha-omega-3\)/);
     const problems = problemsFor(row({ name: 'Lutein + DHA complex', doseInProduct: '20mg' }));
@@ -448,11 +454,12 @@ describe('each anchor restates its evidence page', () => {
     'oat-straw': { field: 'clinicalDose', text: '430–1600mg/day' },
     zynamite: { field: 'clinicalDose', text: '140–300mg/day' },
     dynamine: { field: 'clinicalDose', text: '100–150mg/day' },
+    'longvida-curcumin': { field: 'clinicalDose', text: '400mg/day of Longvida' },
   };
 
-  test('there are exactly the 19 approved anchors, one per evidence page', () => {
-    expect(DOSING_ANCHORS).toHaveLength(19);
-    expect(new Set(DOSING_ANCHORS.map((a) => a.ingredientSlug)).size).toBe(19);
+  test('there are exactly the 20 approved anchors, one per evidence page', () => {
+    expect(DOSING_ANCHORS).toHaveLength(20);
+    expect(new Set(DOSING_ANCHORS.map((a) => a.ingredientSlug)).size).toBe(20);
     expect(Object.keys(EVIDENCE).sort()).toEqual(DOSING_ANCHORS.map((a) => a.ingredientSlug).sort());
   });
 

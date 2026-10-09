@@ -93,6 +93,10 @@ export const DOSING_ANCHORS: readonly DosingAnchor[] = [
   { ingredientSlug: 'oat-straw', match: /oat\s*straw|green\s*oat|avena\s*sativa|neuravena/i, clinicalDose: '430-1600mg/day', minMg: 430, basis: 'compound' },
   { ingredientSlug: 'zynamite', match: /zynamite|mango\s*leaf|mangiferin/i, clinicalDose: '140-300mg/day', minMg: 140, basis: 'compound' },
   { ingredientSlug: 'dynamine', match: /dynamine|methylliberine/i, clinicalDose: '100-150mg/day', minMg: 100, basis: 'compound' },
+  // Longvida is one brand's curcumin formulation; its trials are not evidence for
+  // other curcumin products, so the anchor matches the brand name anywhere in the
+  // row name (a plain "Curcuma longa"/"Curcumin" row stays unanchored).
+  { ingredientSlug: 'longvida-curcumin', match: /longvida/i, matchFull: true, clinicalDose: '400mg/day (Longvida)', minMg: 400, basis: 'compound' },
 ];
 
 /** The row name before its first " (" — the ingredient without its form, brand or blend notes. */
