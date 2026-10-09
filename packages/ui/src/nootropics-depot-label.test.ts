@@ -7,7 +7,8 @@ import type { Product } from '@nootropic/data';
 // tied to one product. The site owner chose the 1:1 extract (2026-10-09): its
 // label (nootropicsdepot.com product page and Supplement Facts image, checked
 // 2026-10-08) gives Lion's Mane extract (fruiting body) 500mg per capsule, one
-// capsule a serving, in 60ct and 180ct bottles. 500mg is below the 1000mg
+// capsule a serving, in 60ct and 180ct bottles. The record is the 60ct bottle:
+// the size the product page prices by default ($19.99, "60 servings"). 500mg is below the 1000mg
 // minimum of the site's Lion's Mane evidence page (ingredients.ts, 1–1.8g/day),
 // and a 1:1 extract is the same basis as that dose, so the verdict is false.
 
