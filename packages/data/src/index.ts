@@ -16,6 +16,7 @@ export {
   NO_PURCHASE_LINK_REASON_REGION,
   NO_PURCHASE_LINK_STRINGS,
 } from './purchase-link';
+export { earnsCommission, NO_COMMISSION_RATE_VALUES } from './commission';
 export type { ProductImage, ProductImageFile, ProductImageVariant } from './product-images';
 export { PRODUCT_IMAGE_SIZES, productImages, productImage } from './product-images';
 export type { ProductForm } from './serving-unit';

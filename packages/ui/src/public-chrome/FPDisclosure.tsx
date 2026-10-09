@@ -10,6 +10,12 @@ export interface FPDisclosureProps {
    * never show the English defaults below.
    */
   strings?: UIStrings['disclosure'];
+  /**
+   * False on the review page of a product we earn no commission on
+   * (`earnsCommission(product)` from @nootropic/data): the strip says so
+   * instead of the commission sentence.
+   */
+  earnsCommission?: boolean;
   /** Override copy for translated surfaces. */
   body?: string;
   badgeLabel?: string;
@@ -24,9 +30,14 @@ export interface FPDisclosureProps {
 export function FPDisclosure({
   methodologyHref = '/methodology/',
   strings,
+  earnsCommission = true,
   body = strings
-    ? strings.inline
-    : "We earn a commission when you buy through our links. Our scores are computed before commissions are checked.",
+    ? earnsCommission
+      ? strings.inline
+      : strings.noCommission
+    : earnsCommission
+      ? "We earn a commission when you buy through our links. Our scores are computed before commissions are checked."
+      : "We don't earn a commission on this product; we have no affiliate deal for it.",
   badgeLabel = strings?.badge ?? 'Affiliate disclosure',
   methodologyLabel = strings ? `${strings.methodology} →` : 'Read our methodology →',
 }: FPDisclosureProps) {
