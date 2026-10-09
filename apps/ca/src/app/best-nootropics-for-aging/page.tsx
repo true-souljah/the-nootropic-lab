@@ -65,7 +65,7 @@ const picks: ListiclePick[] = [
     product: productsCA.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Includes phosphatidylserine (100mg Sharp-PS at clinical dose), citicoline (250mg Cognizin at clinical dose), Bacopa, and Lion\'s Mane (500mg fruiting body). Four of the most age-relevant ingredients in one open-formula product. Caffeine-free — no cardiovascular load for older Canadian adults sensitive to stimulants. Ships UK→Canada reliably.',
+      'Includes phosphatidylserine (100mg Sharp-PS at clinical dose), citicoline (250mg Cognizin at clinical dose), Bacopa, and Lion\'s Mane (500mg fruiting body). Four of the most age-relevant ingredients in one open-formula product. Caffeine-free — no cardiovascular load for older Canadian adults sensitive to stimulants. Ships UK→Canada.',
   },
   {
     product: productsCA.find(p => p.slug === 'qualia-mind-review')!,

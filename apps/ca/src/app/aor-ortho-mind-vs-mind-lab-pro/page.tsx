@@ -39,7 +39,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Price difference?',
     a:
-      'AOR Ortho•Mind: CAD $98.33 for a 180-capsule bottle direct from aor.ca (checked 2026-10-07), which lasts 30 days at the licensed 6 capsules a day. Mind Lab Pro: ~CAD $95/month including international shipping (USD $69 + currency + shipping). The monthly cost is similar; AOR avoids international shipping and currency conversion.',
+      'AOR Ortho•Mind: CAD $98.33 for a 180-capsule bottle direct from aor.ca (checked 2026-10-07), which lasts 30 days at the licensed 6 capsules a day. Mind Lab Pro: CA$89.00 for a one-time purchase of one 30-serving bottle on ca.mindlabpro.com (“One-time purchase Price: CA$89.00”, checked 2026-10-09), shipped from its UK depot. The monthly cost is similar; AOR avoids international shipping.',
   },
   {
     q: 'Capsule count and friction?',
@@ -54,7 +54,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Where to buy each?',
     a:
-      'AOR Ortho•Mind: sold direct at aor.ca (the site offers a store locator); in a store, check for NPN 80037243 on the label. Mind Lab Pro: only via mindlabpro.com (shipping to Canada, per Mind Lab Pro: “Airmail expected delivery time: 5 - 20 working days”, “DHL expected delivery time: 2 - 7 working days”; ca.mindlabpro.com, checked 2026-10-07).',
+      'AOR Ortho•Mind: sold direct at aor.ca (the site offers a store locator); in a store, check for NPN 80037243 on the label. Mind Lab Pro: sold direct at mindlabpro.com (ca.mindlabpro.com for Canada); shipping to Canada, per Mind Lab Pro: “Airmail expected delivery time: 5 - 20 working days”, “DHL expected delivery time: 2 - 7 working days” (ca.mindlabpro.com, checked 2026-10-07).',
   },
 ];
 
