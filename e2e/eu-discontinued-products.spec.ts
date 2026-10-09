@@ -2,12 +2,11 @@ import { test, expect } from '@playwright/test';
 
 // Discontinued products keep their review page, but the page must show the
 // discontinued notice, render no affiliate link and no price stat, and the
-// product must not be a best-of pick. BRAINEFFECT FOCUS was discontinued on
-// 2026-09-29 (brain-effect.com/products/focus returns 404).
+// product must not be a best-of pick. Performance Lab Mind was discontinued on
+// 2026-09-28 (Opti-Nutra merged it into Mind Lab Pro).
 // Twin specs: au-discontinued-products.spec.ts, us-discontinued-products.spec.ts.
 
-const REVIEW = '/braineffect-focus-review/';
-const COMPARISON = '/braineffect-vs-mind-lab-pro/';
+const REVIEW = '/performance-lab-mind-review/';
 
 test.beforeEach(async ({ context }) => {
   await context.addCookies([
@@ -20,14 +19,15 @@ test.beforeEach(async ({ context }) => {
   ]);
 });
 
-test.describe('EU discontinued product: /braineffect-focus-review/', () => {
+test.describe('EU discontinued product: /performance-lab-mind-review/', () => {
   test('review page shows the discontinued notice', async ({ page }) => {
     const res = await page.goto(REVIEW);
     expect(res?.status()).toBe(200);
     const notice = page.locator('aside[role="note"][aria-labelledby="product-discontinued-heading"]');
     await expect(notice).toBeVisible();
     await expect(notice).toContainText('Discontinued');
-    await expect(notice).toContainText('absent from the brain-effect.com catalogue');
+    await expect(notice).toContainText('merged Performance Lab Mind into Mind Lab Pro');
+    await expect(notice.getByRole('link', { name: /successor/i })).toHaveAttribute('href', /\/mind-lab-pro-review\/?$/);
   });
 
   test('review page renders no affiliate link and no price stat', async ({ page }) => {
@@ -38,13 +38,6 @@ test.describe('EU discontinued product: /braineffect-focus-review/', () => {
     await expect(page.locator('a[rel="nofollow sponsored noopener noreferrer"]')).toHaveCount(0);
     await expect(page.locator('main').getByText('Price', { exact: true })).toHaveCount(0);
     await expect(page.getByRole('tab', { name: /pricing/i })).toHaveCount(0);
-  });
-
-  test('comparison page shows the notice in place of the BRAINEFFECT buy link', async ({ page }) => {
-    const res = await page.goto(COMPARISON);
-    expect(res?.status()).toBe(200);
-    await expect(page.locator('[role="note"]').filter({ hasText: 'absent from the brain-effect.com catalogue' })).toBeVisible();
-    await expect(page.locator('a[href*="brain-effect.com"][rel~="sponsored"]')).toHaveCount(0);
   });
 
   for (const listicle of ['/best-nootropics-for-focus/', '/best-nootropics-for-studying/']) {

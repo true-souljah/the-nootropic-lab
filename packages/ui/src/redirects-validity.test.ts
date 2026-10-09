@@ -100,6 +100,17 @@ describe('_redirects validity (Cloudflare Pages format + destination liveness)',
       ).toEqual([]);
     });
 
+    test(`${region}: no rule follows the catch-all /* fallback (it would never match)`, () => {
+      // Cloudflare Pages applies the first matching rule, so anything listed
+      // after `/* ... 404` is dead: a removed page's 301 placed there would 404.
+      const fallback = rules.findIndex((r) => r.source === '/*');
+      const unreachable = fallback === -1 ? [] : rules.slice(fallback + 1);
+      expect(
+        unreachable.map((r) => `L${r.lineNum}: ${r.source} ${r.destination} ${r.status}`),
+        `${region} _redirects has rules after the catch-all fallback`,
+      ).toEqual([]);
+    });
+
     for (const rule of rules) {
       // Skip cross-domain (https://...) destinations and the catch-all 404 fallback
       if (rule.destination.startsWith('http')) continue;

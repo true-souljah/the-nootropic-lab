@@ -89,7 +89,6 @@ const DEFAULT_COLUMNS: FPFooterColumn[] = [
  * the host that has them. Labels are brand names (English allowlist).
  */
 const REGIONAL_HEAD_TO_HEAD: Partial<Record<RegionCode, FPFooterLink[]>> = {
-  eu: [{ label: 'BRAINEFFECT FOCUS vs Mind Lab Pro', href: '/braineffect-vs-mind-lab-pro/' }],
   ca: [{ label: 'AOR Ortho\u2022Mind vs Mind Lab Pro', href: '/aor-ortho-mind-vs-mind-lab-pro/' }],
   au: [{ label: 'Blackmores Brain Active vs Mind Lab Pro', href: '/blackmores-brain-active-vs-mind-lab-pro/' }],
 };
