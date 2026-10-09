@@ -107,7 +107,8 @@ describe('product prose claims all ingredients are dosed only when the rows prov
 
   it('scans every region and a non-empty set of records and prose strings (fail-closed)', () => {
     for (const [region, products] of Object.entries(REGIONS)) expect(products.length, region).toBeGreaterThan(0);
-    expect(records.length).toBeGreaterThanOrEqual(79);
+    // 78 records since #349 dropped BRAINEFFECT FOCUS (EU) on 2026-10-09; 79 before.
+    expect(records.length).toBeGreaterThanOrEqual(78);
     const strings = records.reduce((n, { p }) => n + proseStrings(p, '', []).length, 0);
     expect(strings).toBeGreaterThan(1000);
   });
