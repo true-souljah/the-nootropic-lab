@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'noocube-review')!,
     rank: 2,
     whyItsHere:
-      'Caffeine-free, includes choline (VitaCholine), Bacopa, L-theanine (100mg, clinical dose), and L-tyrosine. 60-day money-back guarantee — useful if you finish a term and decide it didn\'t help. One-time purchase model means no recurring billing — straightforward for Japanese student buyers unfamiliar with international subscription supplements.',
+      'Caffeine-free, includes choline (VitaCholine), Bacopa, L-theanine (100mg, clinical dose), and L-tyrosine. 60-day money-back guarantee — useful if you finish a term and decide it didn\'t help. Choosing the single purchase rather than the subscription means no recurring billing — straightforward for Japanese student buyers unfamiliar with international subscription supplements.',
   },
   {
     product: productsJP.find(p => p.slug === 'suntory-dha-epa-sesamin-review')!,

@@ -1,0 +1,852 @@
+{
+ "eu": [
+  {
+   "id": "mind-lab-pro",
+   "slug": "mind-lab-pro-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "Ships to EU from a depot in Europe; 4-12 working days depending on destination; shipping cost for EU not stated on the shipping page",
+    "quote": "If you live in the EU, your order will be shipped from our depot in Europe. | Expected delivery time: 4 - 12 working days (depending on destination)",
+    "url": "https://eu.mindlabpro.com/pages/shipping-returns",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": "Update or cancel anytime (monthly and 4-month subscriptions)",
+    "quote": "Update or cancel anytime",
+    "url": "https://eu.mindlabpro.com/products/mind-lab-pro",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": "EUR 64.95, 1 bottle (30 servings)",
+    "quote": "One-time purchase | Price:€64,95",
+    "url": "https://eu.mindlabpro.com/products/mind-lab-pro",
+    "verify": {
+     "status": "MISS",
+     "detail": [
+      "price:€64,95"
+     ],
+     "via": "browser"
+    }
+   },
+   "guaranteeDays": {
+    "value": 30,
+    "quote": "Put us to the test for a full 30 days. If you don't see results, we will gladly refund your money (minus any shipping costs).",
+    "url": "https://eu.mindlabpro.com/pages/shipping-returns",
+    "note": "First order, one bottle only; claim within 60 days of delivery per same page",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "noocube",
+   "slug": "noocube-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "Europe delivery within 10 business days; free shipping over $79.99; worldwide delivery to over 100 countries (no EU country list)",
+    "quote": "For customers in Europe, Canada or Australia you should expect delivery within 10 business days. | FREE SHIPPING OVER $79.99",
+    "url": "https://www.noocube.com/",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": "Cancel anytime, no commitment (subscription)",
+    "quote": "NO COMMITMENT | CANCEL ANYTIME",
+    "url": "https://www.noocube.com/",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": "USD 64.99, 1-month supply (60 capsules); mapping of 64.99 to Single Purchase derived from the page's SAVINGS figures ($79.99 retail less $15.00 = $64.99)",
+    "quote": "1-MONTH SUPPLY | Single Purchase | Subscribe 15% OFF | RETAIL: | $79.99 | $79.99 | $64.99 | $55.24 | SAVINGS: | $15.00 | $24.75 | 60 CAPSULES",
+    "url": "https://www.noocube.com/",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 60,
+    "quote": "We’re so confident in NooCube and our commitment to customer satisfaction that we offer a 60-day money-back guarantee.",
+    "url": "https://www.noocube.com/pages/guarantee",
+    "note": "Refund excludes shipping and a 5% handling fee per same page",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "brainzyme-focus-pro",
+   "slug": "brainzyme-focus-pro-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "Ships from EU warehouses via regional sites: Germany 2-3 working days; Austria/Switzerland 3-5; France 2-3; Belgium/Switzerland 3-5; free tracked shipping over EUR 40 (DE site, in German); under EUR 40 from EUR 4.90 in Germany",
+    "quote": "Germany: 2-3 working days | Austria & Switzerland: 3-5 working days | France: 2-3 working days | Belgium & Switzerland: 3-5 working days",
+    "url": "https://www.brainzyme.com/pages/international-shipping",
+    "costQuote": "Gratis Versand mit Sendungsverfolgung für Bestellungen über 40 € (briefkastengeeignet). | Für Bestellungen unter 40 €: ab 4,90 €.",
+    "costUrl": "https://www.brainzyme.de/products/brainzyme-professional",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": "Cancel or skip from customer portal under Manage Subscriptions",
+    "quote": "To cancel your subscription, simply select “Cancel my subscription” which can be located underneath your payment method information.",
+    "url": "https://www.brainzyme.com/products/brainzyme-professional-stronger-formula",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": "EUR 31.75, 1 month: 2 packs, 60 capsules (German-language EUR site)",
+    "quote": "1 MONAT: 2 Packs, 60 Kapseln | 31,75 €",
+    "url": "https://www.brainzyme.de/products/brainzyme-professional",
+    "note": "Stored priceMonthlyEUR is 40; vendor shows 31.75",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 365,
+    "quote": "If you are not satisfied, simply return all items within 365 days for a full refund or exchange.",
+    "url": "https://www.brainzyme.com/policies/refund-policy",
+    "note": "Vendor states 365 days; stored moneyBackDays is 30",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "hunter-focus",
+   "slug": "hunter-focus-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "Sent from England depot; FedEx International Connect 3-6 working days, FedEx International Express 1-2 working days; cost not stated on policy page",
+    "quote": "Any orders to Europe are sent from our depot in England. | FedEx International Connect | Delivery time: 3-6 working days | FedEx International Express | Delivery time: 1-2 working days",
+    "url": "https://www.roarambition.com/policies/shipping-policy",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": null,
+    "reason": "No subscription offered on the vendor product page (Shopify product has a single 'Default Title' variant and no selling plans); stored pricingModel 'both' not supported by vendor page"
+   },
+   "oneTimePrice": {
+    "value": "USD 90.00, 1 unit (pack size not stated on page; sold in USD)",
+    "quote": "Hunter Focus | $90.00 | Add to cart",
+    "url": "https://www.roarambition.com/products/hunter-focus",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 14,
+    "quote": "Have you received your order within the last 30 days for USA/Canada or within 14 days for UK & the rest of the world, are your products unused, unopened, still sealed and the product packaging undamaged?",
+    "url": "https://www.roarambition.com/policies/refund-policy",
+    "note": "Return window for unused sealed product; 14 days outside USA/Canada vs stored 30 (30 applies to USA/Canada only)",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "performance-lab-caffeine-2",
+   "slug": "performance-lab-caffeine-2-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "EU orders shipped from a depot in Europe; 4-12 working days depending on destination; EU shipping cost not stated on shipping page",
+    "quote": "If you live in the EU, your order will be shipped from our depot in Europe. | Expected delivery time: 4 - 12 working days (depending on destination)",
+    "url": "https://eu.performancelab.com/pages/shipping-returns",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": "Update or cancel anytime (1-month and 4-month subscriptions)",
+    "quote": "Update or cancel anytime",
+    "url": "https://eu.performancelab.com/products/caffeine-2",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": "EUR 45.00 , 1 month supply",
+    "quote": "One-time purchase | Price: €45,00",
+    "url": "https://eu.performancelab.com/products/caffeine-2",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 30,
+    "quote": "You're invited to put Performance Lab ® to the test for a full 30 days. If you don't see results, we will gladly refund your money (minus any shipping costs).",
+    "url": "https://eu.performancelab.com/pages/shipping-returns",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "pre-lab-pro",
+   "slug": "pre-lab-pro-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "EU orders shipped from a depot in Europe; 4-12 working days depending on destination; EU shipping cost not stated on shipping page",
+    "quote": "If you live in the EU, your order will be shipped from our depot in Europe. | Expected delivery time: 4 - 12 working days (depending on destination)",
+    "url": "https://eu.performancelab.com/pages/shipping-returns",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": "Update or cancel anytime (1-month and 4-month subscriptions)",
+    "quote": "Update or cancel anytime",
+    "url": "https://eu.performancelab.com/products/pre-lab-pro",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": "EUR 45.00 , 1 month supply",
+    "quote": "One-time purchase | Price: €45,00",
+    "url": "https://eu.performancelab.com/products/pre-lab-pro",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 30,
+    "quote": "You're invited to put Performance Lab ® to the test for a full 30 days. If you don't see results, we will gladly refund your money (minus any shipping costs).",
+    "url": "https://eu.performancelab.com/pages/shipping-returns",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "performance-lab-energy",
+   "slug": "performance-lab-energy-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "EU orders shipped from a depot in Europe; 4-12 working days depending on destination; EU shipping cost not stated on shipping page",
+    "quote": "If you live in the EU, your order will be shipped from our depot in Europe. | Expected delivery time: 4 - 12 working days (depending on destination)",
+    "url": "https://eu.performancelab.com/pages/shipping-returns",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": "Update or cancel anytime (1-month and 4-month subscriptions)",
+    "quote": "Update or cancel anytime",
+    "url": "https://eu.performancelab.com/products/energy",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": "EUR 59.00 , 1 month supply",
+    "quote": "One-time purchase | Price: €59,00",
+    "url": "https://eu.performancelab.com/products/energy",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 30,
+    "quote": "You're invited to put Performance Lab ® to the test for a full 30 days. If you don't see results, we will gladly refund your money (minus any shipping costs).",
+    "url": "https://eu.performancelab.com/pages/shipping-returns",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "performance-lab-omega-3",
+   "slug": "performance-lab-omega-3-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": "EU orders shipped from a depot in Europe; 4-12 working days depending on destination; EU shipping cost not stated on shipping page",
+    "quote": "If you live in the EU, your order will be shipped from our depot in Europe. | Expected delivery time: 4 - 12 working days (depending on destination)",
+    "url": "https://eu.performancelab.com/pages/shipping-returns",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": "Update or cancel anytime (1-month and 4-month subscriptions)",
+    "quote": "Update or cancel anytime",
+    "url": "https://eu.performancelab.com/products/omega-3",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": "EUR 45.00 , 1 month supply",
+    "quote": "One-time purchase | Price: €45,00",
+    "url": "https://eu.performancelab.com/products/omega-3",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 30,
+    "quote": "You're invited to put Performance Lab ® to the test for a full 30 days. If you don't see results, we will gladly refund your money (minus any shipping costs).",
+    "url": "https://eu.performancelab.com/pages/shipping-returns",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  }
+ ],
+ "gcc": [
+  {
+   "id": "mind-lab-pro",
+   "slug": "mind-lab-pro-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": null,
+    "reason": "Page lists USA, UK, Europe, Australia and a generic 'Canada and the rest of the world' tier; no GCC/UAE/Saudi or Mexico/Latin America country is named, so no country-specific statement",
+    "evidenceQuote": "Parcels going to Canada and the Rest of the World will be shipped from our depot in the UK by international tracked airmail or DHL Courier. | Airmail expected delivery time: 5 - 20 working days | DHL expected delivery time: 2 - 7 working days",
+    "evidenceUrl": "https://www.mindlabpro.com/pages/shipping-returns"
+   },
+   "cancellation": {
+    "value": "Update or cancel anytime (monthly and 4-month subscriptions)",
+    "quote": "Update or cancel anytime",
+    "url": "https://www.mindlabpro.com/products/mind-lab-pro",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": "USD 69.00, 1 bottle (US store; 30 servings)",
+    "quote": "One-time purchase | Price:$69.00",
+    "url": "https://www.mindlabpro.com/products/mind-lab-pro",
+    "note": "Stored priceMonthlyEUR 65 is the EU-store price; the www store shows USD",
+    "verify": {
+     "status": "MISS",
+     "detail": [
+      "price:$69.00"
+     ],
+     "via": "browser"
+    }
+   },
+   "guaranteeDays": {
+    "value": 30,
+    "quote": "Put us to the test for a full 30 days. If you don't see results, we will gladly refund your money (minus any shipping costs).",
+    "url": "https://www.mindlabpro.com/pages/shipping-returns",
+    "note": "First order, one bottle only",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "noocube",
+   "slug": "noocube-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": null,
+    "reason": "Site states worldwide delivery to over 100 countries and delivery times elsewhere may vary, but names no GCC/UAE/Saudi or Mexico/LatAm country",
+    "evidenceQuote": "We also offer worldwide delivery to over 100 countries | Delivery times elsewhere may vary all products are dispatched from our closest warehouse in the USA, UK or Europe.",
+    "evidenceUrl": "https://www.noocube.com/"
+   },
+   "cancellation": {
+    "value": "Cancel anytime, no commitment (subscription)",
+    "quote": "NO COMMITMENT | CANCEL ANYTIME",
+    "url": "https://www.noocube.com/",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": "USD 64.99, 1-month supply (60 capsules); mapping of 64.99 to Single Purchase derived from the page's SAVINGS figures ($79.99 retail less $15.00)",
+    "quote": "1-MONTH SUPPLY | Single Purchase | Subscribe 15% OFF | RETAIL: | $79.99 | $79.99 | $64.99 | $55.24 | SAVINGS: | $15.00 | $24.75 | 60 CAPSULES",
+    "url": "https://www.noocube.com/",
+    "note": "Page is USD only; stored priceMonthlyEUR 55 not a vendor-stated EUR price",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 60,
+    "quote": "We’re so confident in NooCube and our commitment to customer satisfaction that we offer a 60-day money-back guarantee.",
+    "url": "https://www.noocube.com/pages/guarantee",
+    "note": "Refund excludes shipping and a 5% handling fee per same page",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "qualia-mind",
+   "slug": "qualia-mind-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": null,
+    "reason": "Vendor says it ships internationally only to Canada, UK, Ireland, Australia and New Zealand; other countries are referred to iHerb (not the vendor store)",
+    "evidenceQuote": "International orders to the following countries can be placed on the Qualia Shop page: | Canada | United Kingdom | Ireland | Australia | New Zealand | If you reside somewhere outside these areas: | Orders for all countries, please go to iHerb",
+    "evidenceUrl": "https://www.qualialife.com/faqs/orders-shipping/category_index"
+   },
+   "cancellation": {
+    "value": "Renews automatically; cancel or adjust at any time, no mandatory length",
+    "quote": "Your Qualia subscription will renew automatically, but you can cancel or adjust it at any time, with no conditions or mandatory length of subscription.",
+    "url": "https://www.qualialife.com/shop/qualia-mind",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": "USD 159.00, Qualia Mind 2.0 120 count boxed (price tied to the 'Purchase this time only' option by page layout; subscription is $139.00 thereafter)",
+    "quote": "$159.00 $39.00 first shipment, $139.00 thereafter | Subscribe & Save 75% | Purchase this time only",
+    "url": "https://www.qualialife.com/shop/qualia-mind",
+    "note": "Stored GCC price 159 = one-time; stored LatAm price 139 = subscription price (page shows $139.00 thereafter)",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 100,
+    "quote": "Feel 100% Satisfied within 100 days or get a 100% refund.",
+    "url": "https://www.qualialife.com/faqs/orders-shipping/category_index",
+    "note": "One unit per product per household",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "alpha-brain",
+   "slug": "onnit-alpha-brain-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": null,
+    "reason": "Onnit site states it is directed only to U.S. consumers and not to consumers outside the U.S.; international UPS services are described generically with no country named",
+    "evidenceQuote": "This website is directed only to U.S. consumers for products and services of Onnit Labs, Inc. This website is not directed to consumers outside of the U.S.",
+    "evidenceUrl": "https://www.onnit.com/products/alpha-brain-90-ct"
+   },
+   "cancellation": {
+    "value": "Cancel subscription via Account Dashboard (Autoship & Save)",
+    "quote": "you can cancel the new order and the subscription by visiting your Account Dashboard",
+    "url": "https://www.onnit.com/pages/subscription-program",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": "USD 79.95, Alpha BRAIN 90 count capsules",
+    "quote": "Capsules–90 Count | $79.95",
+    "url": "https://www.onnit.com/products/alpha-brain-90-ct",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 30,
+    "quote": "The 30 Day Money Back Guarantee applies to your first-time purchase of any Onnit supplement.",
+    "url": "https://help.onnit.com/en-US/30-day-money-back-guarantee-6327406",
+    "note": "Vendor states 30 days; stored moneyBackDays is 90",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "thesis",
+   "slug": "thesis-nootropics-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": null,
+    "reason": "No shipping policy page found (policies/shipping-policy returns HTTP 500, no FAQ page); product page only says 'Free shipping' without naming any country",
+    "evidenceQuote": "Free shipping",
+    "evidenceUrl": "https://takethesis.com/products/clarity"
+   },
+   "cancellation": {
+    "value": "Cancel or change subscription at any time via email or phone; also in Thesis Account",
+    "quote": "If you want to cancel or change your subscription, you can do so at any time. Email us at hello@takethesis.com or call us at 646-647-3599.",
+    "url": "https://takethesis.com/policies/terms-of-service",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": "USD 129, Clarity formula (pack size not stated; subscription from $59)",
+    "quote": "One time purchase, $129",
+    "url": "https://takethesis.com/products/clarity",
+    "note": "Stored 'thesis' product is not tied to one formula; Clarity page used",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 30,
+    "quote": "If for any reason you are not 100% satisfied with your purchase, you may request a refund within 30 days of delivery of your first order.",
+    "url": "https://takethesis.com/policies/refund-policy",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "nootropics-depot-lions-mane",
+   "slug": "nootropics-depot-lions-mane",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": null,
+    "reason": "Vendor states international orders are shipped (free over $200) via Asendia but names no country; no GCC/LatAm-specific statement",
+    "evidenceQuote": "Free shipping: US $50+, International $200+ | International orders that receive our free shipping promotion will be shipped using Standard Worldwide Mail.",
+    "evidenceUrl": "https://support.nootropicsdepot.com/article/23-shipping-methods"
+   },
+   "cancellation": {
+    "value": null,
+    "reason": "Vendor states it offers no subscriptions (stored pricingModel 'both' is not supported by vendor page)",
+    "evidenceQuote": "Nootropics Depot does not currently offer subscriptions or monthly automatic shipments on NootropicsDepot.com.",
+    "evidenceUrl": "https://support.nootropicsdepot.com/article/65-does-nootropics-depot-offer-subscriptions-or-monthly-automatic-shipments"
+   },
+   "oneTimePrice": {
+    "value": "USD 29.99 shown for Lion's Mane Mushroom 8:1 Dual Extract Capsules; sizes 60ct. and 180ct. offered, page does not label which size the price belongs to",
+    "quote": "Now: | $29.99",
+    "url": "https://nootropicsdepot.com/lions-mane-mushroom-capsules-8-1-extract",
+    "note": "Stored 25",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 30,
+    "quote": "Nootropics Depot accepts returns of unopened product within 30 days of its delivery date.",
+    "url": "https://support.nootropicsdepot.com/article/28-product-returns-policy",
+    "note": "Return window for unopened product only; not a satisfaction guarantee (opened/used product not accepted)",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "eu-yan-sang-brainmax",
+   "slug": "eu-yan-sang-brainmax-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": null,
+    "reason": "Eu Yan Sang Singapore store describes delivery to Singapore addresses only; no international delivery to GCC stated (international enquiries redirected to an email)",
+    "evidenceQuote": "It might be worthwhile to note that we deliver to most addresses in Singapore except | For international enquiry, please contact comms@euyansang.com .",
+    "evidenceUrl": "https://www.euyansang.com.sg/en/order-processing-delivery/eys-order-processing-delivery.html"
+   },
+   "cancellation": {
+    "value": null,
+    "reason": "No subscription offered on the product page"
+   },
+   "oneTimePrice": {
+    "value": "SGD 69.90, BrainMAX+ 30s (3g x 30 sachets)",
+    "quote": "3g x 30 sachets | Price reduced from | S$89.90 | to | S$69.90",
+    "url": "https://www.euyansang.com.sg/en/brainmax-888842543107.html",
+    "note": "Page also shows EU Rewards members S$79.90 / S$69.90 layout; price is SGD, store is Singapore",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 14,
+    "quote": "b. Request must be made within 14 days from the date of invoice/receipt.",
+    "url": "https://www.euyansang.com.sg/en/returns-and-refunds/eys-returns-refunds.html",
+    "note": "Refund/cancel window for unopened items; not a satisfaction guarantee; stored moneyBackDays is 0",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  }
+ ],
+ "latam": [
+  {
+   "id": "mind-lab-pro",
+   "slug": "mind-lab-pro-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": null,
+    "reason": "Page lists USA, UK, Europe, Australia and a generic 'Canada and the rest of the world' tier; no GCC/UAE/Saudi or Mexico/Latin America country is named, so no country-specific statement",
+    "evidenceQuote": "Parcels going to Canada and the Rest of the World will be shipped from our depot in the UK by international tracked airmail or DHL Courier. | Airmail expected delivery time: 5 - 20 working days | DHL expected delivery time: 2 - 7 working days",
+    "evidenceUrl": "https://www.mindlabpro.com/pages/shipping-returns"
+   },
+   "cancellation": {
+    "value": "Update or cancel anytime (monthly and 4-month subscriptions)",
+    "quote": "Update or cancel anytime",
+    "url": "https://www.mindlabpro.com/products/mind-lab-pro",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": "USD 69.00, 1 bottle (US store; 30 servings)",
+    "quote": "One-time purchase | Price:$69.00",
+    "url": "https://www.mindlabpro.com/products/mind-lab-pro",
+    "note": "Stored priceMonthlyEUR 65 is the EU-store price; the www store shows USD",
+    "verify": {
+     "status": "MISS",
+     "detail": [
+      "price:$69.00"
+     ],
+     "via": "browser"
+    }
+   },
+   "guaranteeDays": {
+    "value": 30,
+    "quote": "Put us to the test for a full 30 days. If you don't see results, we will gladly refund your money (minus any shipping costs).",
+    "url": "https://www.mindlabpro.com/pages/shipping-returns",
+    "note": "First order, one bottle only",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "noocube",
+   "slug": "noocube-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": null,
+    "reason": "Site states worldwide delivery to over 100 countries and delivery times elsewhere may vary, but names no GCC/UAE/Saudi or Mexico/LatAm country",
+    "evidenceQuote": "We also offer worldwide delivery to over 100 countries | Delivery times elsewhere may vary all products are dispatched from our closest warehouse in the USA, UK or Europe.",
+    "evidenceUrl": "https://www.noocube.com/"
+   },
+   "cancellation": {
+    "value": "Cancel anytime, no commitment (subscription)",
+    "quote": "NO COMMITMENT | CANCEL ANYTIME",
+    "url": "https://www.noocube.com/",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": "USD 64.99, 1-month supply (60 capsules); mapping of 64.99 to Single Purchase derived from the page's SAVINGS figures ($79.99 retail less $15.00)",
+    "quote": "1-MONTH SUPPLY | Single Purchase | Subscribe 15% OFF | RETAIL: | $79.99 | $79.99 | $64.99 | $55.24 | SAVINGS: | $15.00 | $24.75 | 60 CAPSULES",
+    "url": "https://www.noocube.com/",
+    "note": "Page is USD only; stored priceMonthlyEUR 55 not a vendor-stated EUR price",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 60,
+    "quote": "We’re so confident in NooCube and our commitment to customer satisfaction that we offer a 60-day money-back guarantee.",
+    "url": "https://www.noocube.com/pages/guarantee",
+    "note": "Refund excludes shipping and a 5% handling fee per same page",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "qualia-mind",
+   "slug": "qualia-mind-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": null,
+    "reason": "Vendor says it ships internationally only to Canada, UK, Ireland, Australia and New Zealand; other countries are referred to iHerb (not the vendor store)",
+    "evidenceQuote": "International orders to the following countries can be placed on the Qualia Shop page: | Canada | United Kingdom | Ireland | Australia | New Zealand | If you reside somewhere outside these areas: | Orders for all countries, please go to iHerb",
+    "evidenceUrl": "https://www.qualialife.com/faqs/orders-shipping/category_index"
+   },
+   "cancellation": {
+    "value": "Renews automatically; cancel or adjust at any time, no mandatory length",
+    "quote": "Your Qualia subscription will renew automatically, but you can cancel or adjust it at any time, with no conditions or mandatory length of subscription.",
+    "url": "https://www.qualialife.com/shop/qualia-mind",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": "USD 159.00, Qualia Mind 2.0 120 count boxed (price tied to the 'Purchase this time only' option by page layout; subscription is $139.00 thereafter)",
+    "quote": "$159.00 $39.00 first shipment, $139.00 thereafter | Subscribe & Save 75% | Purchase this time only",
+    "url": "https://www.qualialife.com/shop/qualia-mind",
+    "note": "Stored GCC price 159 = one-time; stored LatAm price 139 = subscription price (page shows $139.00 thereafter)",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 100,
+    "quote": "Feel 100% Satisfied within 100 days or get a 100% refund.",
+    "url": "https://www.qualialife.com/faqs/orders-shipping/category_index",
+    "note": "One unit per product per household",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "alpha-brain",
+   "slug": "onnit-alpha-brain-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": null,
+    "reason": "Onnit site states it is directed only to U.S. consumers and not to consumers outside the U.S.; international UPS services are described generically with no country named",
+    "evidenceQuote": "This website is directed only to U.S. consumers for products and services of Onnit Labs, Inc. This website is not directed to consumers outside of the U.S.",
+    "evidenceUrl": "https://www.onnit.com/products/alpha-brain-90-ct"
+   },
+   "cancellation": {
+    "value": "Cancel subscription via Account Dashboard (Autoship & Save)",
+    "quote": "you can cancel the new order and the subscription by visiting your Account Dashboard",
+    "url": "https://www.onnit.com/pages/subscription-program",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": "USD 79.95, Alpha BRAIN 90 count capsules",
+    "quote": "Capsules–90 Count | $79.95",
+    "url": "https://www.onnit.com/products/alpha-brain-90-ct",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 30,
+    "quote": "The 30 Day Money Back Guarantee applies to your first-time purchase of any Onnit supplement.",
+    "url": "https://help.onnit.com/en-US/30-day-money-back-guarantee-6327406",
+    "note": "Vendor states 30 days; stored moneyBackDays is 90",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "thesis",
+   "slug": "thesis-nootropics-review",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": null,
+    "reason": "No shipping policy page found (policies/shipping-policy returns HTTP 500, no FAQ page); product page only says 'Free shipping' without naming any country",
+    "evidenceQuote": "Free shipping",
+    "evidenceUrl": "https://takethesis.com/products/clarity"
+   },
+   "cancellation": {
+    "value": "Cancel or change subscription at any time via email or phone; also in Thesis Account",
+    "quote": "If you want to cancel or change your subscription, you can do so at any time. Email us at hello@takethesis.com or call us at 646-647-3599.",
+    "url": "https://takethesis.com/policies/terms-of-service",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "oneTimePrice": {
+    "value": "USD 129, Clarity formula (pack size not stated; subscription from $59)",
+    "quote": "One time purchase, $129",
+    "url": "https://takethesis.com/products/clarity",
+    "note": "Stored 'thesis' product is not tied to one formula; Clarity page used",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 30,
+    "quote": "If for any reason you are not 100% satisfied with your purchase, you may request a refund within 30 days of delivery of your first order.",
+    "url": "https://takethesis.com/policies/refund-policy",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  },
+  {
+   "id": "nootropics-depot-lions-mane",
+   "slug": "nootropics-depot-lions-mane",
+   "checkedAt": "2026-10-07",
+   "shipping": {
+    "value": null,
+    "reason": "Vendor states international orders are shipped (free over $200) via Asendia but names no country; no GCC/LatAm-specific statement",
+    "evidenceQuote": "Free shipping: US $50+, International $200+ | International orders that receive our free shipping promotion will be shipped using Standard Worldwide Mail.",
+    "evidenceUrl": "https://support.nootropicsdepot.com/article/23-shipping-methods"
+   },
+   "cancellation": {
+    "value": null,
+    "reason": "Vendor states it offers no subscriptions (stored pricingModel 'both' is not supported by vendor page)",
+    "evidenceQuote": "Nootropics Depot does not currently offer subscriptions or monthly automatic shipments on NootropicsDepot.com.",
+    "evidenceUrl": "https://support.nootropicsdepot.com/article/65-does-nootropics-depot-offer-subscriptions-or-monthly-automatic-shipments"
+   },
+   "oneTimePrice": {
+    "value": "USD 29.99 shown for Lion's Mane Mushroom 8:1 Dual Extract Capsules; sizes 60ct. and 180ct. offered, page does not label which size the price belongs to",
+    "quote": "Now: | $29.99",
+    "url": "https://nootropicsdepot.com/lions-mane-mushroom-capsules-8-1-extract",
+    "note": "Stored 25",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "guaranteeDays": {
+    "value": 30,
+    "quote": "Nootropics Depot accepts returns of unopened product within 30 days of its delivery date.",
+    "url": "https://support.nootropicsdepot.com/article/28-product-returns-policy",
+    "note": "Return window for unopened product only; not a satisfaction guarantee (opened/used product not accepted)",
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
+  }
+ ]
+}

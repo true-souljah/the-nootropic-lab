@@ -17,6 +17,43 @@ export interface IngredientDosage {
   adequatelyDosed: boolean | null;
 }
 
+/** One term as the vendor states it on its own site. */
+export interface VendorTerm {
+  /**
+   * The vendor's words, verbatim and in the vendor's language. Rendered as a
+   * quote, never paraphrased. Written only by scripts/import-vendor-terms.ts
+   * from a PASS-verified quote in packages/data/evidence/vendor-terms-*.
+   */
+  text: string;
+  /**
+   * Present when `text` joins separate page fragments with " | " (an evidence
+   * file convention, per the manifest.json beside the vendor-terms evidence):
+   * the fragments in page order, rendered as separate lines of one quote.
+   * Absent when a " | " in `text` is the vendor's own page text.
+   */
+  fragments?: string[];
+  /** The vendor page the quote was read from (https). */
+  url: string;
+  /** BCP-47 primary language subtag of `text` ("en", "ja", "de"), for the quote's `lang` attribute. */
+  lang: string;
+}
+
+/**
+ * Terms quoted from the vendor's own site, each attributed to its page. A
+ * field is absent when no quote passed verification; the Pricing tab then
+ * shows nothing for it (never a default promise).
+ */
+export interface VendorTerms {
+  /** ISO date (YYYY-MM-DD) the vendor pages were read. */
+  checkedAt: string;
+  shipping?: VendorTerm;
+  /** Cancelling a subscription. */
+  cancellation?: VendorTerm;
+  oneTimePrice?: VendorTerm;
+  /** Money-back guarantee or return policy (the label follows `moneyBackDays`). */
+  guarantee?: VendorTerm;
+}
+
 export interface Product {
   id: string;
   name: string;
@@ -206,6 +243,8 @@ export interface Product {
   verifiedAt?: string;
   /** ISO date (YYYY-MM-DD) the `trustpilotScore` / `trustpilotCount` pair was last read from Trustpilot. */
   trustpilotCheckedAt?: string;
+  /** Shipping, cancellation, one-time price and guarantee terms quoted from the vendor's own site. */
+  vendorTerms?: VendorTerms;
   /**
    * Set when the vendor no longer sells this product. The review page stays
    * published (it still has search demand) but renders a discontinued notice
