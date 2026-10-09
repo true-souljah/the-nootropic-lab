@@ -71,7 +71,7 @@ const goalLinks = [
 // Beginner entry point into the guides hub — the home page had no link to
 // /guides/ at all (2026-10 content plan). Titles come from the guide data so
 // the cards cannot drift from the pages they link to.
-const START_HERE_SLUGS = ['what-are-nootropics', 'how-nootropics-work', 'what-to-expect', 'how-to-stack-nootropics'];
+const START_HERE_SLUGS = ['nootropics-for-beginners', 'what-are-nootropics', 'what-to-expect', 'how-to-stack-nootropics'];
 const usGuides = guidesForRegion('us');
 const startHereGuides = START_HERE_SLUGS.map((slug) => {
   const g = usGuides.find((x) => x.slug === slug);
