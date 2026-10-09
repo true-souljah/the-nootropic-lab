@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { SchemaOrg, EditorialStandardsSection, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
+import { SchemaOrg, EditorialStandardsSection, buildAlternates, buildOpenGraph, buildTwitter, LISTICLE_MIN_SCORE, formatListicleScore } from '@nootropic/ui';
 import { buildPersonAuthorReference, pillarWeightPercent } from '@nootropic/data';
 
 import { PublicShell } from "@nootropic/ui";
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 const pillars = [
   { num: '01', title: `Calidad de los ingredientes (${pillarWeightPercent('ingredients')}%)`, desc: 'Evaluamos si cada ingrediente cuenta con evidencia de ensayos clínicos humanos revisados por pares que demuestren beneficios cognitivos. Las mezclas patentadas con dosis ocultas son penalizadas.' },
-  { num: '02', title: `Dosis vs. evidencia clínica (${pillarWeightPercent('dosing')}%)`, desc: 'Para cada ingrediente activo, comparamos la dosis del producto con la dosis mínima efectiva de ensayos clínicos publicados (obtenidos de PubMed). Los ingredientes subdosificados son señalados.' },
+  { num: '02', title: `Dosis vs. evidencia clínica (${pillarWeightPercent('dosing')}%)`, desc: 'La dosificación es la proporción de los ingredientes con una dosis de referencia en nuestras páginas de ingredientes cuya cantidad diaria declarada en la etiqueta alcanza el mínimo de esa página. Una cantidad que la etiqueta oculta (una parte de una mezcla patentada) o declara sobre otra base (como un equivalente de planta seca en lugar del extracto) cuenta como no alcanzada. Los ingredientes sin página de referencia se muestran, pero no se puntúan.' },
   { num: '03', title: `Transparencia de la fórmula (${pillarWeightPercent('transparency')}%)`, desc: 'La divulgación completa de todas las dosis de ingredientes recibe la puntuación más alta. Las mezclas tipo "matriz" o los ingredientes sin datos de estandarización reducen la puntuación.' },
   { num: '04', title: `Relación calidad-precio (${pillarWeightPercent('value')}%)`, desc: 'Precio por porción dividido entre el número de ingredientes con dosis clínica.' },
   { num: '05', title: `Confianza en la marca (${pillarWeightPercent('trust')}%)`, desc: 'Compuesto por la puntuación en Trustpilot (50%), volumen de quejas, transparencia en la cancelación de suscripciones y documentación de pruebas por terceros.' },
@@ -55,6 +55,9 @@ export default function MethodologyPage() {
               </div>
             ))}
           </div>
+          <p className="text-sm text-gray-600 leading-relaxed mt-4">
+            {`Nuestras guías de mejores nootrópicos clasifican solo productos con una puntuación de ${formatListicleScore(LISTICLE_MIN_SCORE)}/10 o más; el umbral era 7.5 hasta el 9 de octubre de 2026 y se fijó en 7.0 cuando el pilar de dosificación pasó a calcularse a partir de las dosis de la etiqueta, lo que redujo las puntuaciones en aproximadamente un punto en general.`}
+          </p>
         </section>
 
         <section className="mb-10">

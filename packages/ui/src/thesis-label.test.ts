@@ -41,14 +41,18 @@ describe.each(REGIONS)('%s Thesis matches its four published formulas', (_region
 
   test('key label amounts', () => {
     expect(row(p, 'CDP Choline (Clarity)').doseInProduct).toBe('250mg');
-    expect(row(p, "Lion's Mane (Hericium erinaceus) (Clarity)").doseInProduct).toBe('500mg');
+    // FORMULA-SPEC §8 (§7F): the label does not say whether these amounts are per capsule
+    // or per serving (2 capsules), and whether the Rhodiola amount is extract or salidroside.
+    expect(row(p, "Lion's Mane (Hericium erinaceus) (Clarity)").doseInProduct).toBe('500mg per capsule or per serving (not stated)');
+    expect(row(p, 'Rhodiola Rosea (fermented salidrosides) (Motivation)').doseInProduct).toBe('60mg (basis not stated)');
+    expect(row(p, 'Rhodiola Rosea (fermented salidrosides) (Stress Reset)').doseInProduct).toBe('30mg (basis not stated)');
     expect(row(p, 'Dynamine (methylliberine) (Motivation)').doseInProduct).toBe('100mg');
     expect(row(p, 'N-Acetyl-L-Tyrosine (NALT) (Motivation)').doseInProduct).toBe('400mg');
     expect(row(p, 'Caffeine Anhydrous (Motivation)').doseInProduct).toBe('150mg');
     expect(row(p, 'Ashwagandha (Withania somnifera) (Stress Reset)').doseInProduct).toBe('120mg');
     expect(row(p, 'Saffron (Crocus sativus) (Stress Reset)').doseInProduct).toBe('28mg');
     expect(row(p, 'Bacopa Monnieri (Neuroprotection)').doseInProduct).toBe('300mg');
-    expect(row(p, 'Ginkgo Biloba (Neuroprotection)').doseInProduct).toBe('120mg');
+    expect(row(p, 'Ginkgo Biloba (Neuroprotection)').doseInProduct).toBe('120mg per capsule or per serving (not stated)');
     expect(row(p, 'Selenium (amino acid chelate) (Neuroprotection)').doseInProduct).toBe('200mcg');
     // Caffeinated-capsule rows keep the label's "capsules with caffeine" wording.
     for (const f of ['Clarity', 'Stress Reset', 'Neuroprotection']) {

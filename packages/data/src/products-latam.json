@@ -9,10 +9,10 @@
       "Memory",
       "Long-term brain health"
     ],
-    "score": 9.4,
+    "score": 7.5,
     "scoreBreakdown": {
       "ingredients": 9,
-      "dosing": 10,
+      "dosing": 3.8,
       "transparency": 10,
       "value": 8,
       "trust": 9
@@ -158,10 +158,10 @@
       "Screen workers",
       "Budget"
     ],
-    "score": 7.6,
+    "score": 7,
     "scoreBreakdown": {
       "ingredients": 8,
-      "dosing": 7,
+      "dosing": 5,
       "transparency": 7,
       "value": 9,
       "trust": 7
@@ -338,10 +338,10 @@
       "Neurohackers",
       "Complex stacks"
     ],
-    "score": 8.3,
+    "score": 7.3,
     "scoreBreakdown": {
       "ingredients": 10,
-      "dosing": 8,
+      "dosing": 4.5,
       "transparency": 9,
       "value": 6,
       "trust": 7
@@ -615,10 +615,10 @@
       "Brand recognition",
       "Athletes"
     ],
-    "score": 6.6,
+    "score": 5.2,
     "scoreBreakdown": {
       "ingredients": 7,
-      "dosing": 6,
+      "dosing": 1.4,
       "transparency": 6,
       "value": 7,
       "trust": 8
@@ -646,43 +646,43 @@
       {
         "name": "Bacopa Monnieri (Focus Blend)",
         "doseInProduct": "100mg",
-        "clinicalDose": "300–450mg/day",
+        "clinicalDose": "300-450mg/day (55% bacosides)",
         "adequatelyDosed": false
       },
       {
         "name": "Alpha-GPC (Focus Blend)",
         "doseInProduct": "Not stated; at most 140mg (240mg blend incl. 100mg Bacopa)",
-        "clinicalDose": "300–600mg/day",
+        "clinicalDose": "300-600mg/day",
         "adequatelyDosed": false
       },
       {
         "name": "Huperzine A (Toothed Clubmoss, Focus Blend)",
         "doseInProduct": "400mcg",
-        "clinicalDose": "100–200mcg/day in trials",
+        "clinicalDose": "100-200mcg/day",
         "adequatelyDosed": true
       },
       {
         "name": "L-Tyrosine (Flow Blend)",
         "doseInProduct": "Not stated; at most 650mg (blend total)",
-        "clinicalDose": "100–150mg/kg (about 7–10g) in stress trials",
+        "clinicalDose": "2000mg/day (lowest positive trial)",
         "adequatelyDosed": false
       },
       {
         "name": "L-Theanine (Flow Blend)",
         "doseInProduct": "Not stated (share of 650mg blend)",
-        "clinicalDose": "100–200mg/day",
+        "clinicalDose": "100-200mg/day",
         "adequatelyDosed": null
       },
       {
         "name": "Phosphatidylserine (Flow Blend)",
         "doseInProduct": "Not stated (share of 650mg blend)",
-        "clinicalDose": "100–300mg/day",
+        "clinicalDose": "100-300mg/day",
         "adequatelyDosed": null
       },
       {
         "name": "Oat Straw Extract (Flow Blend)",
         "doseInProduct": "Not stated (share of 650mg blend)",
-        "clinicalDose": "430–1600mg/day in trials",
+        "clinicalDose": "430-1600mg/day",
         "adequatelyDosed": null
       },
       {
@@ -766,10 +766,10 @@
       "Personalisation",
       "Custom stack optimisers"
     ],
-    "score": 7.5,
+    "score": 7,
     "scoreBreakdown": {
       "ingredients": 8,
-      "dosing": 7,
+      "dosing": 5.6,
       "transparency": 8,
       "value": 7,
       "trust": 7
@@ -780,7 +780,7 @@
     "caffeineFree": false,
     "euStorefront": false,
     "euCompliance": "verify",
-    "trustpilotScore": 4.0,
+    "trustpilotScore": 4,
     "trustpilotCount": 116,
     "affiliateUrl": "https://takethesis.com/",
     "affiliateNetwork": "Thesis Direct",
@@ -808,7 +808,7 @@
       },
       {
         "name": "Lion's Mane (Hericium erinaceus) (Clarity)",
-        "doseInProduct": "500mg",
+        "doseInProduct": "500mg per capsule or per serving (not stated)",
         "clinicalDose": "1000-1800mg/day",
         "adequatelyDosed": null
       },
@@ -850,7 +850,7 @@
       },
       {
         "name": "Rhodiola Rosea (fermented salidrosides) (Motivation)",
-        "doseInProduct": "60mg",
+        "doseInProduct": "60mg (basis not stated)",
         "clinicalDose": "200-600mg/day",
         "adequatelyDosed": null
       },
@@ -898,7 +898,7 @@
       },
       {
         "name": "Rhodiola Rosea (fermented salidrosides) (Stress Reset)",
-        "doseInProduct": "30mg",
+        "doseInProduct": "30mg (basis not stated)",
         "clinicalDose": "200-600mg/day",
         "adequatelyDosed": null
       },
@@ -934,7 +934,7 @@
       },
       {
         "name": "Ginkgo Biloba (Neuroprotection)",
-        "doseInProduct": "120mg",
+        "doseInProduct": "120mg per capsule or per serving (not stated)",
         "clinicalDose": "240mg/day (24/6 extract)",
         "adequatelyDosed": null
       },
@@ -1055,10 +1055,10 @@
       "Long-term brain health",
       "Nerve growth"
     ],
-    "score": 9.1,
+    "score": 6.4,
     "scoreBreakdown": {
       "ingredients": 9,
-      "dosing": 9,
+      "dosing": 0,
       "transparency": 10,
       "value": 9,
       "trust": 8

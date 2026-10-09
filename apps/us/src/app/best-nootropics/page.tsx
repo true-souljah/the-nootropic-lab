@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const faqItems = [
   {
     q: `What is the best nootropic supplement in ${CURRENT_YEAR}?`,
-    a: `Based on our clinical dosing audit, Mind Lab Pro is the best overall nootropic in ${CURRENT_YEAR}. It contains 11 clinically-backed ingredients at effective doses, is caffeine-free, and ships worldwide.`,
+    a: `Mind Lab Pro is our editor's choice for overall cognitive support in ${CURRENT_YEAR}. It contains 11 ingredients with every dose disclosed (citicoline, phosphatidylserine and L-theanine meet our reference doses), is caffeine-free, and ships worldwide. The ranked list on this page is ordered by score.`,
   },
   {
     q: 'Are nootropics safe?',
@@ -41,8 +41,8 @@ const goalLinks = [
 
 const comparisonLinks = [
   { href: '/mind-lab-pro-vs-alpha-brain/', title: 'Mind Lab Pro vs Alpha Brain', desc: 'Open formula vs proprietary blends' },
-  { href: '/mind-lab-pro-vs-qualia-mind/', title: 'Mind Lab Pro vs Qualia Mind', desc: '11 ingredients vs 31 megadose' },
-  { href: '/alpha-brain-vs-qualia-mind/', title: 'Alpha Brain vs Qualia Mind', desc: 'Mainstream brand vs premium megadose' },
+  { href: '/mind-lab-pro-vs-qualia-mind/', title: 'Mind Lab Pro vs Qualia Mind', desc: '11 ingredients vs 31' },
+  { href: '/alpha-brain-vs-qualia-mind/', title: 'Alpha Brain vs Qualia Mind', desc: 'Mainstream brand vs premium 31-ingredient stack' },
 ];
 
 const recommendedReading = [

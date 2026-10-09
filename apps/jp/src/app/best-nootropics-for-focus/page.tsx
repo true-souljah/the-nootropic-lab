@@ -25,24 +25,28 @@ export const metadata: Metadata = {
 const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Theanine + Caffeine (1:2 to 2:1 ratio)',
+    ingredientSlugs: ['l-theanine', 'caffeine'],
     evidence:
       'Among the best-replicated cognitive findings: L-theanine paired with caffeine improves attention switching and reduces mental fatigue, with smoother subjective focus than caffeine alone. Effective at 100–200mg L-theanine + 100mg caffeine — the same pairing naturally found in matcha (抹茶), familiar to Japanese consumers.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
   },
   {
     name: 'Citicoline (CDP-Choline)',
+    ingredientSlugs: ['citicoline'],
     evidence:
       'Choline donor + uridine source that supports phospholipid synthesis and acetylcholine production. Multiple RCTs show attention and cognitive-effort benefits in healthy adults at 250–500mg/day. Cognizin is the standardized form most international products use.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
   {
     name: 'L-Tyrosine (or NALT)',
+    ingredientSlugs: ['l-tyrosine'],
     evidence:
-      'Precursor to dopamine + norepinephrine. Effective specifically under cognitive load or stress — improves performance on attention tasks during sleep deprivation, multitasking, or cold exposure. Clinical doses 300–500mg as N-acetyl-L-tyrosine.',
+      'Precursor to dopamine + norepinephrine. Effective specifically under cognitive load or stress — improves performance on attention tasks during sleep deprivation, multitasking, or cold exposure. The stress trials with positive results used plain L-tyrosine at 2g a day or 100–150mg/kg.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/26424423/',
   },
   {
     name: 'Alpha-GPC',
+    ingredientSlugs: ['alpha-gpc'],
     evidence:
       'Cholinergic. In a 2024 placebo-controlled crossover RCT in 20 resistance-trained men, a single 315mg or 630mg dose improved Stroop test performance, with no effect on N-Back or Flanker tasks — one small, acute study. Often paired with L-theanine for "calm focus."',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/39683633/',
@@ -60,7 +64,7 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'hunter-focus-review')!,
     rank: 2,
     whyItsHere:
-      'High-dose stack with 100mg caffeine + 200mg L-theanine in the classic 1:2 ratio for clean stimulated focus, plus 250mg citicoline and 500mg Lion\'s Mane. Note: contains caffeine and the label is in English only — Japanese buyers sensitive to stimulants should pick a caffeine-free option above. 6 capsules/day is a heavy pill burden.',
+      'Stack with 100mg caffeine + 200mg L-theanine in the classic 1:2 ratio for clean stimulated focus, plus 250mg citicoline and 500mg Lion\'s Mane. Note: contains caffeine and the label is in English only — Japanese buyers sensitive to stimulants should pick a caffeine-free option above. 6 capsules/day is a heavy pill burden.',
   },
   {
     product: productsJP.find(p => p.slug === 'noocube-review')!,

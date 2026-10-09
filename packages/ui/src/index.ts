@@ -86,6 +86,8 @@ export type {
   ListicleIngredientMechanism,
   ListiclePick,
 } from './templates/Listicle';
+// The listicle ranking bar, for pages that state it in prose (methodology).
+export { LISTICLE_MIN_SCORE, formatListicleScore } from './templates/listicleRanking';
 
 // Public templates (Stack redesign — M2C)
 // HeadToHeadFAQ keeps its bare name for back-compat with apps; the

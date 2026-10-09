@@ -1,3 +1,5 @@
+import { scoreTier } from '../templates/listicleRanking';
+
 export interface ScorePillProps {
   /** Score in the range 0..10. */
   score: number;
@@ -9,12 +11,11 @@ export interface ScorePillProps {
 
 /**
  * ScorePill — visual badge containing a colored dot + numeric score.
- * The dot is decorative (color encodes the tone) and is hidden from
- * assistive tech; the entire pill carries a single aria-label.
+ * The dot is decorative (color encodes the tone, SCORE_TIERS) and is hidden
+ * from assistive tech; the entire pill carries a single aria-label.
  */
 export function ScorePill({ score, max = 10, label }: ScorePillProps) {
-  const tone =
-    score >= 8.5 ? 'good' : score >= 7.5 ? 'warn' : 'bad';
+  const tone = scoreTier(score);
   const classes = {
     good: { bg: 'bg-ds-good-soft', text: 'text-ds-good-ink', dot: 'bg-ds-good' },
     warn: { bg: 'bg-ds-warn-soft', text: 'text-ds-warn-ink', dot: 'bg-ds-warn' },

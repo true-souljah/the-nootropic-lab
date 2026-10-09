@@ -11,7 +11,8 @@ import { ProductThumb } from '../primitives/ProductThumb';
 import { outOfTen } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
-import { COLUMNS, MAX_SELECTED } from './comparator/constants';
+import { COLUMNS, GRADES, MAX_SELECTED } from './comparator/constants';
+import { scoreTier } from './listicleRanking';
 import type { SortKey, SortDir, Goal, Grade } from './comparator/constants';
 import { parseUrlState, buildViewQueryString, exportRowsToCsv } from './comparator/utils';
 import { ComparatorFilters } from './comparator/ComparatorFilters';
@@ -112,11 +113,9 @@ export default function Comparator({
     if (euCompliantOnly) r = r.filter((p) => p.euStorefront);
     if (bestFor !== 'Any') r = r.filter((p) => p.bestFor.includes(bestFor));
     if (grade !== 'All') {
-      r = r.filter((p) => {
-        if (grade === 'Recommended') return p.score >= 8.5;
-        if (grade === 'Worth a look') return p.score >= 7.5 && p.score < 8.5;
-        return p.score < 7.5;
-      });
+      // Each grade is one SCORE_TIERS tier (its dot colour in the filter).
+      const tone = GRADES.find((g) => g.id === grade)?.tone;
+      r = r.filter((p) => scoreTier(p.score) === tone);
     }
     return [...r].sort((a, b) => {
       const get = (x: Product) =>
