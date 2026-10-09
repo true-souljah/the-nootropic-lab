@@ -64,13 +64,13 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes phosphatidylserine 100mg, Alpha-GPC, citicoline (as Cognizin), and Lion\'s Mane — 31 ingredients in all, the most of any single formula in this review. Loses ground on capsule count (6/day), $139/mo subscription, and contains caffeine. Availability caveat: Qualia does not ship to any SEA country (brand shipping page, checked 2026-09-28), so SEA buyers cannot order it direct.',
+      'Includes phosphatidylserine 100mg, Alpha-GPC, citicoline (as Cognizin), and Lion\'s Mane — 31 ingredients in all, the most of any single formula in this review. Loses ground on capsule count (6/day), US$139 four-weekly subscription, and contains caffeine. Availability caveat: Qualia does not ship to any SEA country (brand shipping page, checked 2026-09-28), so SEA buyers cannot order it direct.',
   },
   {
     product: productsSEA.find(p => p.slug === 'nootropics-depot-lions-mane')!,
     rank: 3,
     whyItsHere:
-      'Single-ingredient Lion\'s Mane fruiting-body extract from a brand with an ISO-certified in-house lab and a published Certificate of Analysis per batch — the highest transparency in this list. The right pick if you want to test Lion\'s Mane in isolation. Lion\'s Mane has cultural acceptance across Chinese-heritage SEA (Singapore, Malaysia) which eases regulatory ambiguity. Lowest customs-exposure of any premium import at $25/mo. Pair with Brahmi or Mind Lab Pro for full memory coverage.',
+      'Single-ingredient Lion\'s Mane fruiting-body extract from a brand with an ISO-certified in-house lab and a published Certificate of Analysis per batch — the highest transparency in this list. The right pick if you want to test Lion\'s Mane in isolation. Lion\'s Mane has cultural acceptance across Chinese-heritage SEA (Singapore, Malaysia) which eases regulatory ambiguity. Lowest customs-exposure of any premium import. Pair with Brahmi or Mind Lab Pro for full memory coverage.',
   },
 ];
 

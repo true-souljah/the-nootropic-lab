@@ -77,7 +77,7 @@ const picks: ListiclePick[] = [
     product: productsCA.find(p => p.slug === 'naturebell-ginkgo-ginseng-review')!,
     rank: 3,
     whyItsHere:
-      'Budget-priced — CAD ~$7/month, listed on amazon.ca. Delivers Ginkgo Biloba at the full clinical dose (500mg of a 12:1 extract, standardised to 120mg flavone glycosides). Single-mechanism (cerebral blood flow), not a complete memory stack. At most a cheap addition alongside Mind Lab Pro, or an entry-point trial. No NPN (Natural Product Number) found for NatureBell Ginkgo + Ginseng in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07); check the listing or label for an eight-digit NPN.',
+      'Listed on amazon.ca. Delivers Ginkgo Biloba at the full clinical dose (500mg of a 12:1 extract, standardised to 120mg flavone glycosides). Single-mechanism (cerebral blood flow), not a complete memory stack. At most an addition alongside Mind Lab Pro, or an entry-point trial. No NPN (Natural Product Number) found for NatureBell Ginkgo + Ginseng in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07); check the listing or label for an eight-digit NPN.',
   },
   {
     product: productsCA.find(p => p.slug === 'onnit-alpha-brain-review')!,

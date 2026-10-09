@@ -58,7 +58,7 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Caffeine-free design pairs perfectly with whatever caffeine source Japanese students use during study sessions (coffee, matcha, energy drinks like Red Bull). Includes L-theanine, Bacopa, citicoline, and L-tyrosine — covers all four study-relevant mechanisms in one open formula. Take daily through the term for cumulative Bacopa effect. Ships from the UK in 5–20 working days by tracked airmail or 2–7 working days by DHL courier (per mindlabpro.com, checked 2026-09-29), at ¥10,350/month equivalent.',
+      'Caffeine-free design pairs perfectly with whatever caffeine source Japanese students use during study sessions (coffee, matcha, energy drinks like Red Bull). Includes L-theanine, Bacopa, citicoline, and L-tyrosine — covers all four study-relevant mechanisms in one open formula. Take daily through the term for cumulative Bacopa effect. Ships from the UK in 5–20 working days by tracked airmail or 2–7 working days by DHL courier (per mindlabpro.com, checked 2026-09-29), priced in US dollars.',
   },
   {
     product: productsJP.find(p => p.slug === 'noocube-review')!,
@@ -70,7 +70,7 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'suntory-dha-epa-sesamin-review')!,
     rank: 3,
     whyItsHere:
-      'A Japanese domestic option for students at ¥4,800/month. DHA + EPA from Suntory Wellness; no Foods with Function Claims (FFC, 機能性表示食品) notification found in the Consumer Affairs Agency (CAA) database (export scanned 2026-10-06). Foundational omega-3 support for the duration of a term — best paired with a focus-targeted stack like Mind Lab Pro for acute study sessions.',
+      'A Japanese domestic option for students. DHA + EPA from Suntory Wellness; no Foods with Function Claims (FFC, 機能性表示食品) notification found in the Consumer Affairs Agency (CAA) database (export scanned 2026-10-06). Foundational omega-3 support for the duration of a term — best paired with a focus-targeted stack like Mind Lab Pro for acute study sessions.',
   },
 ];
 
@@ -97,7 +97,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Is matcha alone enough for study sessions?',
-    a: 'Matcha provides the L-theanine + caffeine combo at a natural ratio — and is extremely cost-effective. A 30g tin of ceremonial-grade matcha runs ¥1,500–3,000 and lasts a month for daily students. The supplements on this page add memory-consolidation ingredients (Bacopa, citicoline, DHA) on top, which compounds for actual retention of studied material over the term. Many Japanese students start with matcha alone and add a memory-targeted supplement once they\'re committed to a multi-month study plan.',
+    a: 'Matcha provides the L-theanine + caffeine combo at a natural ratio — and is extremely cost-effective. A 30g tin of ceremonial-grade matcha lasts a month for daily students. The supplements on this page add memory-consolidation ingredients (Bacopa, citicoline, DHA) on top, which compounds for actual retention of studied material over the term. Many Japanese students start with matcha alone and add a memory-targeted supplement once they\'re committed to a multi-month study plan.',
   },
 ];
 

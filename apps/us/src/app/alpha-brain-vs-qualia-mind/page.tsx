@@ -69,7 +69,7 @@ const whoIsForB = [
   'Want every ingredient and dose disclosed',
   'Believe in 31-ingredient broad-spectrum cognitive support',
   'Are willing to take 6 capsules per day',
-  'Are comfortable with $139/mo subscription pricing for the breadth',
+  'Are comfortable paying $139 every 4 weeks on subscription for the breadth',
 ];
 
 export default function Page() {
