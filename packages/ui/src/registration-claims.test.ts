@@ -388,6 +388,12 @@ const ROUND_TWELVE_UNSOURCED: RegExp[] = [
   /approximately 7 business days/i,
   /NPN review confirms/i,
   /only via mindlabpro/i,
+  // U6 (same round): no sales, popularity or delivery-reliability data and no
+  // source ranking SEA regulators exist, so these claims are dropped.
+  /top-selling premium nootropic/i,
+  /Popular in Singapore/i,
+  /most restrictive/i,
+  /Ships UK→Canada reliably/i,
 ];
 
 const PRODUCT_FILES = readdirSync(DATA_DIR)
@@ -401,6 +407,8 @@ describe('round twelve: NPN review, SEA framework, Mind Lab Pro delivery, seller
     expect(ROUND_TWELVE_SOURCES.some(f => /apps\/ca\/src\/app\/aor-ortho-mind-vs-mind-lab-pro\/page\.tsx$/.test(f))).toBe(true);
     expect(ROUND_TWELVE_SOURCES.some(f => /apps\/sea\/src\/app\/best-nootropics\/page\.tsx$/.test(f))).toBe(true);
     expect(ROUND_TWELVE_SOURCES.some(f => /packages\/data\/src\/products-sea\.json$/.test(f))).toBe(true);
+    expect(ROUND_TWELVE_SOURCES.some(f => /apps\/sea\/src\/app\/about\/page\.tsx$/.test(f))).toBe(true);
+    expect(ROUND_TWELVE_SOURCES.some(f => /apps\/ca\/src\/app\/best-nootropics-for-aging\/page\.tsx$/.test(f))).toBe(true);
     expect(ROUND_TWELVE_SOURCES.every(f => existsSync(f))).toBe(true);
   });
 
@@ -412,6 +420,13 @@ describe('round twelve: NPN review, SEA framework, Mind Lab Pro delivery, seller
       'with delivery to Singapore addresses in approximately 7 business days.',
       'Health Canada&apos;s NPN review confirms three things:',
       'Mind Lab Pro: only via mindlabpro.com (shipping to Canada',
+      'The most comprehensively researched nootropic stack on the market and the top-selling premium nootropic among Singapore buyers.',
+      'Popular in Singapore',
+      'Popular in Singapore for lab transparency',
+      "{ q: 'Is Mind Lab Pro popular in Singapore?'",
+      'Indonesia (BPOM) is the most restrictive.',
+      'Most restrictive market for',
+      'Ships UK→Canada reliably.',
     ];
     for (const s of removed) expect(ROUND_TWELVE_UNSOURCED.some(re => re.test(s)), s).toBe(true);
   });
