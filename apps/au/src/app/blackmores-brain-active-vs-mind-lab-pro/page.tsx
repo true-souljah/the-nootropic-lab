@@ -61,7 +61,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'How do the two formulas differ?',
     a:
-      'They share no ingredients. Brain Active was curcumin alone. Mind Lab Pro combines Lion\'s Mane 500mg, citicoline (Cognizin) 250mg, Bacopa Monnieri 150mg (24% bacosides), L-tyrosine 175mg, L-theanine 100mg, phosphatidylserine 100mg and Rhodiola Rosea 50mg; it contains no curcumin and no Ginkgo.',
+      'They share no ingredients. Brain Active was curcumin alone. Mind Lab Pro\'s label lists Lion\'s Mane 500mg, citicoline (Cognizin) 250mg, N-acetyl L-tyrosine 175mg, Bacopa Monnieri 150mg (24% bacosides, half the 300mg clinical dose), L-theanine 100mg, phosphatidylserine 100mg, maritime pine bark extract 75mg, Rhodiola Rosea 50mg and vitamins B6, B9 and B12; it contains no curcumin and no Ginkgo.',
   },
 ];
 

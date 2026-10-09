@@ -54,13 +54,13 @@ const picks: ListiclePick[] = [
     product: productsEU.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Includes phosphatidylserine (100mg Sharp-PS at clinical dose), citicoline (250mg Cognizin at clinical dose), Lion\'s Mane (500mg fruiting body at clinical dose), and Bacopa. Four of the most age-relevant ingredients in one open-formula EU product. Caffeine-free — no cardiovascular load for older adults sensitive to stimulants. €65/mo on the brand\'s EU store; EU orders ship from a European depot per the brand.',
+      'Includes phosphatidylserine (100mg Sharp-PS at clinical dose), citicoline (250mg Cognizin at clinical dose), Lion\'s Mane (500mg fruiting body, below the 1,000mg reference dose), and Bacopa. Four of the most age-relevant ingredients in one open-formula EU product. Caffeine-free — no cardiovascular load for older adults sensitive to stimulants. €65/mo on the brand\'s EU store; EU orders ship from a European depot per the brand.',
   },
   {
     product: productsEU.find(p => p.slug === 'hunter-focus-review')!,
     rank: 2,
     whyItsHere:
-      'Includes phosphatidylserine, Lion\'s Mane (500mg fruiting body), and Bacopa, plus Ashwagandha (cortisol/stress) and ALCAR (mitochondrial energy). Contains 100mg caffeine — not ideal for stimulant-sensitive older adults. €85/mo and 6 capsules/day are friction; pick this only if you specifically want the broader stack.',
+      'Includes phosphatidylserine, Lion\'s Mane (500mg), and Bacopa, plus Ashwagandha (cortisol/stress) and ALCAR (mitochondrial energy). Contains 100mg caffeine — not ideal for stimulant-sensitive older adults. €85/mo and 6 capsules/day are friction; pick this only if you specifically want the broader stack.',
   },
   {
     product: productsEU.find(p => p.slug === 'noocube-review')!,

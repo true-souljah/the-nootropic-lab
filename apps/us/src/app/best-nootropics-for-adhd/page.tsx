@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsUS.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Broad-spectrum stack with citicoline, Alpha-GPC, L-tyrosine, and Bacopa. Higher capsule count (7+/day) and price ($139/mo subscription) are friction. Not advisable to combine with prescription stimulants without clinician input — too many neurotransmitter-active ingredients.',
+      'Broad-spectrum stack with citicoline, Alpha-GPC, and L-tyrosine. Higher capsule count (6/day) and price ($139/mo subscription) are friction. Not advisable to combine with prescription stimulants without clinician input — too many neurotransmitter-active ingredients.',
   },
   {
     product: productsUS.find(p => p.slug === 'onnit-alpha-brain-review')!,

@@ -54,13 +54,13 @@ const picks: ListiclePick[] = [
     product: productsEU.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Includes Bacopa, citicoline (250mg Cognizin at clinical dose), Lion\'s Mane (500mg fruiting body at clinical dose), AND phosphatidylserine (100mg Sharp-PS at clinical dose) — all four memory-evidence ingredients in one open-formula EU-storefront product. Bacopa dose is 150mg (under the 300mg clinical anchor); consider stacking with a separate Bacopa supplement for full effect. €65/mo with EUR pricing.',
+      'Includes Bacopa, citicoline (250mg Cognizin at clinical dose), Lion\'s Mane (500mg fruiting body, below the 1,000mg reference dose), AND phosphatidylserine (100mg Sharp-PS at clinical dose) — all four memory-evidence ingredients in one open-formula EU-storefront product. Bacopa dose is 150mg (under the 300mg clinical anchor); consider stacking with a separate Bacopa supplement for full effect. €65/mo with EUR pricing.',
   },
   {
     product: productsEU.find(p => p.slug === 'hunter-focus-review')!,
     rank: 2,
     whyItsHere:
-      'Lion\'s Mane (500mg fruiting body) and Phosphatidylserine (100mg) both at clinical dose, plus Bacopa (200mg, under the 300mg clinical anchor). Adds Ashwagandha for stress-related memory. Premium €85/mo and 6 capsules/day are real friction; pick this if you specifically want the broader stack.',
+      'Phosphatidylserine (100mg) at clinical dose, plus Lion\'s Mane (500mg, below the 1–1.8g/day used in healthy-adult trials) and Bacopa (300mg; the label does not state its bacoside content). Adds Ashwagandha for stress-related memory. Premium €85/mo and 6 capsules/day are real friction; pick this if you specifically want the broader stack.',
   },
   {
     product: productsEU.find(p => p.slug === 'noocube-review')!,

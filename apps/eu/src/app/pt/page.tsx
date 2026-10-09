@@ -8,7 +8,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 
 
 export const metadata: Metadata = {
-  title: 'The Nootropic Lab UE — Avaliações Independentes de Suplementos Cognitivos na Europa',
+  title: { absolute: 'The Nootropic Lab UE — Avaliações Independentes de Suplementos Cognitivos na Europa' },
   description:
     'A plataforma independente de comparação de nootrópicos para compradores europeus. Preços em EUR, produtos vendidos a partir de lojas UE e orientação regulamentar.',
   alternates: buildAlternates({ regionCode: 'eu', path: '/pt/', availableInRegions: ['eu'] }),

@@ -5,7 +5,7 @@ import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
 
 export const metadata: Metadata = {
-  title: 'Dose calculator — Nootropic Lab',
+  title: 'Dose calculator',
   description:
     'Build a custom nootropic stack and check each ingredient against the clinical-trial dose. Get a stack score and see the closest off-the-shelf product.',
   robots: { index: false },

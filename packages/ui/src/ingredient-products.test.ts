@@ -27,15 +27,13 @@ const CATALOGUES: Product[][] = [
 // Pairs that failed the rule when it was introduced (2026-10-09) and have not
 // been checked against the product label yet. The list can only shrink: an
 // entry that now matches, or whose pair is gone, fails until it is removed.
+// (Brainzyme/Bacopa, NooCube/Alpha-GPC and /Huperzine A and Qualia/ALCAR left
+// the list when the 2026-10-09 label rebuilds, #334 and #336, landed.)
 const KNOWN_MISMATCHES = new Set<string>([
   'lions-mane/onnit-alpha-brain-review',
-  'bacopa-monnieri/brainzyme-focus-pro-review',
   'phosphatidylserine/fancl-brains-review',
   'ginkgo-biloba/fancl-brains-review',
   'dha-omega-3/fancl-brains-review',
-  'alpha-gpc/noocube-review',
-  'huperzine-a/noocube-review',
-  'acetyl-l-carnitine/qualia-mind-review',
 ]);
 
 const norm = (s: string) => s.toLowerCase().normalize('NFKD').replace(/[^a-z0-9 ]/g, ' ');

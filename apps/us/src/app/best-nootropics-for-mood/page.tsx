@@ -60,13 +60,13 @@ const picks: ListiclePick[] = [
     product: productsUS.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes Rhodiola at higher dose, L-theanine, Bacopa plus broader spectrum. Caffeine-free version is recommended for mood support — caffeinated variant could amplify anxiety in sensitive users.',
+      'Includes Rhodiola at higher dose and L-theanine plus broader spectrum. Caffeine-free version is recommended for mood support — caffeinated variant could amplify anxiety in sensitive users.',
   },
   {
     product: productsUS.find(p => p.slug === 'thesis-nootropics-review')!,
     rank: 3,
     whyItsHere:
-      'Their Motivation formula targets mood specifically with L-tyrosine + saffron. Personalised approach lets users try this formula in isolation for 4 weeks before committing. Subscription pricing is the friction.',
+      'Their Stress Reset formula includes saffron (28mg) and ashwagandha (120mg), and Motivation includes N-acetyl-L-tyrosine (400mg). Personalised approach lets users try a formula in isolation for 4 weeks before committing. Subscription pricing is the friction.',
   },
   {
     product: productsUS.find(p => p.slug === 'noocube-review')!,

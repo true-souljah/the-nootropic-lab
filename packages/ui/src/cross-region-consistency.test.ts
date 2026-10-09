@@ -34,15 +34,11 @@ function value(p: Product, field: Field): string {
 // (gcc/sea). Each entry must still be a real mismatch — delete it once fixed.
 //
 // Primary regions: the formula differs between records and the 2026-09-28
-// vendor verification could not read either supplement-facts panel (Hunter
-// Focus panel is an image; Performance Lab Mind is discontinued and the two
-// source descriptions conflict). Needs a verified panel before unifying.
-const PRIMARY_BASELINE = new Set<string>([
-  'hunter-focus-review/heroIngredients',
-  'hunter-focus-review/ingredientDosages',
-  'performance-lab-mind-review/heroIngredients',
-  'performance-lab-mind-review/ingredientDosages',
-]);
+// vendor verification could not read the supplement-facts panel. Empty: Hunter
+// Focus was unified from its label image and Performance Lab Mind from its
+// archived 2024-10-09 label on 2026-10-09 (hunter-focus-label.test.ts and
+// performance-lab-mind-label.test.ts pin them).
+const PRIMARY_BASELINE = new Set<string>([]);
 // GCC/SEA: no known differences. (Blackmores Brain Active was listed here
 // until 2026-10-09, when archived Blackmores AU/SG product pages showed both
 // regional formulas were wrong; both records now carry the verified
