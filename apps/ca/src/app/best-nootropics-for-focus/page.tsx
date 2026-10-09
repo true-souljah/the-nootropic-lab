@@ -66,7 +66,7 @@ const picks: ListiclePick[] = [
     product: productsCA.find(p => p.slug === 'qualia-mind-review')!,
     rank: 3,
     whyItsHere:
-      'Includes citicoline, Alpha-GPC, L-theanine, and L-tyrosine — covers nearly every evidence-backed focus mechanism. Loses ground to Mind Lab Pro on capsule count (6/day), price (CAD ~$190/mo subscription), and on Canadian buyers paying in USD with potential customs scrutiny on larger orders. Wins on ingredient breadth.',
+      'Includes citicoline, Alpha-GPC, L-theanine, and L-tyrosine — covers nearly every evidence-backed focus mechanism. Loses ground to Mind Lab Pro on capsule count (6/day), price (US$139 per 4-week subscription shipment), and on Canadian buyers paying in USD with potential customs scrutiny on larger orders. Wins on ingredient breadth.',
   },
   {
     product: productsCA.find(p => p.slug === 'noocube-review')!,
