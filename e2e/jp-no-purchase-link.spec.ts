@@ -44,8 +44,10 @@ test.describe('JP no purchase link: Hunter Focus', () => {
     expect(res?.status()).toBe(200);
     await expect(page.locator(VENDOR_LINK)).toHaveCount(0);
     await expect(page.locator('a[rel~="sponsored"]')).toHaveCount(0);
-    // Full notice + hero CTA slot + the Pricing tab's one-time card.
-    await expect(page.locator('[data-no-purchase-link="jp-mhlw-medicine-only-ingredient"]')).toHaveCount(3);
+    // Full notice + hero CTA slot + the Pricing tab's "visit vendor" slot + the
+    // Pricing tab's vendor-terms card (since #326 the tab quotes the vendor's terms
+    // with links to its shop pages; a blocked product shows the notice instead).
+    await expect(page.locator('[data-no-purchase-link="jp-mhlw-medicine-only-ingredient"]')).toHaveCount(4);
     // Links-only decision: the review stays and the Trustpilot review link stays.
     await expect(page.getByRole('heading', { level: 1, name: 'Hunter Focus' })).toBeVisible();
   });
