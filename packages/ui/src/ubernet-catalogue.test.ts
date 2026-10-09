@@ -31,6 +31,16 @@ const CAFFEINE_FREE: Record<string, boolean> = {
 };
 const CAFFEINE_SLUGS = SLUGS.filter((slug) => !CAFFEINE_FREE[slug]);
 
+// One-time EUR price of one container on eu.performancelab.com (checked
+// 2026-10-08): Energy €59,00 (30 servings), Omega-3, Caffeine 2 and Pre Lab
+// Pro €45,00 each (Pre Lab Pro is a 20-serving tub).
+const EU_ONE_TIME_EUR: Record<string, number> = {
+  'performance-lab-caffeine-2-review': 45,
+  'pre-lab-pro-review': 45,
+  'performance-lab-energy-review': 59,
+  'performance-lab-omega-3-review': 45,
+};
+
 const IN_SCOPE: Record<string, Product[]> = {
   us: allProductsUS, eu: allProductsEU, ca: allProductsCA, au: allProductsAU,
 };
@@ -114,8 +124,26 @@ describe('UberNet / Performance Lab records in us, eu, ca, au', () => {
       // 2026-10-07 (no evidence that any product was tested); no record may
       // carry any hands-on key at all.
       expect(Object.keys(p).filter((k) => /hands/i.test(k)), `${region}/${slug}`).toEqual([]);
-      expect([p.priceMonthlyEUR, p.priceMonthlyCAD, p.priceMonthlyAUD, p.priceMonthlyJPY], `${region}/${slug}`)
-        .toEqual([undefined, undefined, undefined, undefined]);
+      // EUR prices were verified on eu.performancelab.com on 2026-10-08 (the
+      // one-time price of one container, the same per-container convention as
+      // priceMonthlyUSD), so only the EU records carry priceMonthlyEUR; CAD,
+      // AUD and JPY prices are still unverified and stay absent.
+      expect([p.priceMonthlyCAD, p.priceMonthlyAUD, p.priceMonthlyJPY], `${region}/${slug}`)
+        .toEqual([undefined, undefined, undefined]);
+      expect(p.priceMonthlyEUR, `${region}/${slug}`).toBe(region === 'eu' ? EU_ONE_TIME_EUR[slug] : undefined);
+    }
+  });
+
+  it('EU records: one-time EUR price per container from eu.performancelab.com, sold through that EU storefront', () => {
+    expect(Object.keys(EU_ONE_TIME_EUR).sort()).toEqual([...SLUGS].sort());
+    for (const slug of SLUGS) {
+      const p = record('eu', slug);
+      const eur = EU_ONE_TIME_EUR[slug];
+      expect(p.priceMonthlyEUR).toBe(eur);
+      expect(p.euStorefront).toBe(true);
+      const prose = [p.summary, p.whatToExpect, ...p.cons].join(' ');
+      expect(prose).toContain(`€${eur} one-time on eu.performancelab.com (${p.servingsPerContainer} servings; subscription priced separately; checked 2026-10-08)`);
+      expect(prose).not.toMatch(/euro price|US-dollar prices/i);
     }
   });
 
