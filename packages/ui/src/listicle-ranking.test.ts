@@ -34,9 +34,9 @@ describe('LISTICLE_MIN_SCORE', () => {
     expect(BAR).toBe('7.0');
   });
 
-  // The methodology pages state the bar and its history in prose (it cannot be
-  // templated: the history sentence names the old and new bar). When the bar
-  // changes, this fails until every methodology page is rewritten by hand.
+  // The methodology pages render the bar from the constant and state its
+  // history in prose ("was set to 7.0 when …"). When the bar changes, this
+  // fails until every page's history sentence is rewritten by hand.
   const methodologyPages = readdirSync(join(REPO, 'apps'))
     .map((app) => [app, join(REPO, 'apps', app, 'src', 'app', 'methodology', 'page.tsx')] as const)
     .filter(([, file]) => existsSync(file));
@@ -45,10 +45,10 @@ describe('LISTICLE_MIN_SCORE', () => {
     expect(methodologyPages.map(([app]) => app).sort()).toEqual(['au', 'ca', 'eu', 'gcc', 'jp', 'latam', 'sea', 'us']);
   });
 
-  it.each(methodologyPages)('%s methodology states the current bar', (app, file) => {
+  it.each(methodologyPages)('%s methodology renders the bar from the constant and its history ends at it', (app, file) => {
     const src = readFileSync(file, 'utf8');
-    const rule = app === 'latam' ? `con una puntuación de ${BAR}/10 o más` : `scoring ${BAR}/10 or more`;
-    expect(src).toContain(rule);
+    expect(src).toContain('{formatListicleScore(LISTICLE_MIN_SCORE)}/10');
+    expect(src).toContain(app === 'latam' ? `se fijó en ${BAR} cuando` : `was set to ${BAR} when`);
   });
 });
 
