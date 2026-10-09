@@ -44,7 +44,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Which has a better money-back guarantee?',
     a:
-      'Both offer 100-day money-back guarantees on first orders, though Onnit\'s implementation has documented friction (FTC actions historically focused on subscription cancellation). Qualia\'s 100-day guarantee is paired with subscription pricing that auto-converts after the introductory month — read the fine print.',
+      'Qualia\'s runs longer: Onnit\'s 30-day money-back guarantee applies only to a first-time purchase, and Onnit\'s implementation has documented friction (FTC actions historically focused on subscription cancellation). Qualia\'s 100-day guarantee is paired with subscription pricing that auto-converts after the introductory month — read the fine print.',
   },
   {
     q: 'Do either work for ADHD?',
