@@ -66,7 +66,7 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes phosphatidylserine 100mg, Alpha-GPC, and Lion\'s Mane plus 28 additional ingredients. Most complete coverage but the 6-capsule daily protocol can be hard to maintain for older adults — consider whether the breadth justifies that friction. Contains caffeine (100mg/serving) which may be unsuitable for older adults with cardiovascular conditions or hypertension. Availability caveat: Qualia does not ship to any SEA country (brand shipping page, checked 2026-09-28).',
+      'Includes phosphatidylserine 100mg, Alpha-GPC, and Lion\'s Mane plus 28 additional ingredients, the most of any single formula in this review, but the 6-capsule daily protocol can be hard to maintain for older adults — consider whether the breadth justifies that friction. Contains caffeine (100mg/serving) which may be unsuitable for older adults with cardiovascular conditions or hypertension. Availability caveat: Qualia does not ship to any SEA country (brand shipping page, checked 2026-09-28).',
   },
   {
     product: productsSEA.find(p => p.slug === 'nootropics-depot-lions-mane')!,

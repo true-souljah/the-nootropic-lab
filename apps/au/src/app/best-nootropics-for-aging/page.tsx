@@ -67,7 +67,7 @@ const picks: ListiclePick[] = [
     product: productsAU.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes phosphatidylserine (100mg), citicoline, and supporting cofactors. Most complete coverage but the 6-capsule daily protocol can be hard to maintain for older adults — consider whether the breadth justifies the friction. Contains caffeine.',
+      'Includes phosphatidylserine (100mg), citicoline, and supporting cofactors. Its 31 ingredients are the most of any single formula in this review, but the 6-capsule daily protocol can be hard to maintain for older adults — consider whether the breadth justifies the friction. Contains caffeine.',
   },
   {
     product: productsAU.find(p => p.slug === 'naturebell-ginkgo-ginseng-review')!,

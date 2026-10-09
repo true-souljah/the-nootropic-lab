@@ -66,7 +66,7 @@ const picks: ListiclePick[] = [
     product: productsCA.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes citicoline, phosphatidylserine 100mg, AND Lion\'s Mane — the most complete memory-ingredient stack of any product available to Canadian buyers. Loses ground on capsule count (6/day), price (CAD ~$190/mo subscription), and on US-domiciled order tracking. For memory specifically, the breadth justifies the trade-off if you can tolerate the daily friction.',
+      'Includes citicoline, phosphatidylserine 100mg, AND Lion\'s Mane — 31 ingredients in all, the most of any single formula in this review. Loses ground on capsule count (6/day), price (CAD ~$190/mo subscription), and on US-domiciled order tracking. For memory specifically, the breadth justifies the trade-off if you can tolerate the daily friction.',
   },
   {
     product: productsCA.find(p => p.slug === 'naturebell-ginkgo-ginseng-review')!,

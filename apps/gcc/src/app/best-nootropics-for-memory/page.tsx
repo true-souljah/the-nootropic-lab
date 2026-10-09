@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes phosphatidylserine (100mg, the low end of the clinical range), Alpha-GPC, and additional memory cofactors — the most complete memory-ingredient stack in this review. Vegetarian capsules (hypromellose), per the brand (checked 2026-10-07). Caveat: contains caffeine in default formula — choose the caffeine-free variant where offered. 6 capsules/day and the $159 USD list price are real friction points. We have not verified a product registration with the Saudi Food and Drug Authority (SFDA) or the Ministry of Health and Prevention (MOHAP), and Qualia does not ship to any GCC state (brand shipping page, checked 2026-09-28).',
+      'Includes phosphatidylserine (100mg, the low end of the clinical range), Alpha-GPC, and additional memory cofactors — 31 ingredients in all, the most of any single formula in this review. Vegetarian capsules (hypromellose), per the brand (checked 2026-10-07). Caveat: contains caffeine in default formula — choose the caffeine-free variant where offered. 6 capsules/day and the $159 USD list price are real friction points. We have not verified a product registration with the Saudi Food and Drug Authority (SFDA) or the Ministry of Health and Prevention (MOHAP), and Qualia does not ship to any GCC state (brand shipping page, checked 2026-09-28).',
   },
   {
     product: productsGCC.find(p => p.slug === 'nootropics-depot-lions-mane')!,

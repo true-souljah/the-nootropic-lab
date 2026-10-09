@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes phosphatidylserine (100mg, the low end of the clinical range), Alpha-GPC, and additional age-relevant cofactors. Vegetarian capsules (hypromellose), per the brand (checked 2026-10-07). Most complete coverage but the 6-capsule daily protocol can be hard to maintain for older adults — consider whether the breadth justifies that friction. Caveat: default formula contains caffeine — older adults sensitive to stimulants should choose the caffeine-free variant where offered. Qualia does not ship to any GCC state (brand shipping page, checked 2026-09-28).',
+      'Includes phosphatidylserine (100mg, the low end of the clinical range), Alpha-GPC, and additional age-relevant cofactors. Vegetarian capsules (hypromellose), per the brand (checked 2026-10-07). Its 31 ingredients are the most of any single formula in this review, but the 6-capsule daily protocol can be hard to maintain for older adults — consider whether the breadth justifies that friction. Caveat: default formula contains caffeine — older adults sensitive to stimulants should choose the caffeine-free variant where offered. Qualia does not ship to any GCC state (brand shipping page, checked 2026-09-28).',
   },
   {
     product: productsGCC.find(p => p.slug === 'nootropics-depot-lions-mane')!,
