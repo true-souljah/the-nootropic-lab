@@ -251,8 +251,9 @@ describe('AU legal statements follow the Permissible Ingredients Determination a
 //   import; its 3-months' supply rule is on the personal-medications page,
 //   and no supplement quantity rule was found on HSA or SFA pages.
 // - mindlabpro.com's terms name Performance Lab Group Ltd; Opti-Nutra appears
-//   only in the brand's 2018 blog posts. The `brand` field ("Opti-Nutra") is
-//   a label, not a maker claim, so `"brand":` lines are not scanned.
+//   only in the brand's 2018 blog posts. The `brand` field is a label, not a
+//   maker claim, so `"brand":` lines are not scanned. (Round twelve changed
+//   Mind Lab Pro's `brand` from "Opti-Nutra" to "Performance Lab"; see below.)
 // - Performance Lab's EU prices are on eu.performancelab.com.
 const ROUND_TEN_SOURCES = [
   ...walk(DATA_DIR),
@@ -286,7 +287,9 @@ describe('round ten: monograph, Singapore import, Mind Lab Pro maker and EU pric
   });
 
   test('the brand-field exemption covers only `"brand":` lines', () => {
-    expect(BRAND_FIELD_LINE.test('    "brand": "Opti-Nutra",')).toBe(true);
+    // Sample line updated in round twelve: no record carries "Opti-Nutra" as
+    // its brand any more (Mind Lab Pro's brand is "Performance Lab").
+    expect(BRAND_FIELD_LINE.test('    "brand": "Performance Lab",')).toBe(true);
     expect(BRAND_FIELD_LINE.test('    "whatItIs": "Mind Lab Pro is made by Opti-Nutra."')).toBe(false);
   });
 
@@ -351,6 +354,96 @@ describe('round eleven: Canada retailer, recognition, ingredient and duty wordin
         ROUND_ELEVEN_UNSOURCED.some(re => re.test(line)) ? [`${relative(REPO_ROOT, file)}:${i + 1}`] : [],
       );
     });
+    expect(hits).toEqual([]);
+  });
+});
+
+// Round twelve (2026-10-09, research p5/round12-evidence.json).
+// - canada.ca never says the NPN review "confirms three things". The
+//   product-licensing page says the licence number "assures consumers that the
+//   product has been reviewed and approved by Health Canada for safety and
+//   efficacy"; quality appears in the regulations' stated goal and on the
+//   site-licensing (good manufacturing practice) page. Copy quotes those pages.
+// - "Most structured ... frameworks" (HSA / NPRA) was a judgement with no source.
+// - Mind Lab Pro's shipping page gives rest-of-world times from its UK depot
+//   ("Airmail expected delivery time: 5 - 20 working days", "DHL expected
+//   delivery time: 2 - 7 working days") and no Singapore time, so the
+//   "Opti-Nutra website ... approximately 7 business days" line had no source.
+// - Nobody checked other sellers of Mind Lab Pro, so copy says where it is
+//   sold (mindlabpro.com), never "only via".
+// - Companies House: OPTI-NUTRA LTD (13 Feb 2015 - 09 Dec 2022) is a former
+//   name of PERFORMANCE LAB LTD (09439153), so no record keeps "Opti-Nutra" as
+//   its brand; Mind Lab Pro's brand is "Performance Lab" in every region.
+const ROUND_TWELVE_SOURCES = [
+  ...walk(DATA_DIR),
+  ...readdirSync(APPS_DIR)
+    .map(n => resolve(APPS_DIR, n, 'src'))
+    .filter(p => existsSync(p))
+    .flatMap(p => walk(p)),
+];
+
+const ROUND_TWELVE_UNSOURCED: RegExp[] = [
+  /most structured (supplement |personal-import )?(import )?frameworks/i,
+  /Opti-Nutra website/i,
+  /approximately 7 business days/i,
+  /NPN review confirms/i,
+  /only via mindlabpro/i,
+];
+
+const PRODUCT_FILES = readdirSync(DATA_DIR)
+  .filter(n => /^products-.*\.json$/.test(n))
+  .map(n => resolve(DATA_DIR, n));
+
+describe('round twelve: NPN review, SEA framework, Mind Lab Pro delivery, seller and brand follow the sources', () => {
+  test('scanned a non-empty file set', () => {
+    expect(ROUND_TWELVE_SOURCES.length).toBeGreaterThan(100);
+    expect(ROUND_TWELVE_SOURCES.some(f => /apps\/ca\/src\/app\/npn-licensed-nootropics-canada\/page\.tsx$/.test(f))).toBe(true);
+    expect(ROUND_TWELVE_SOURCES.some(f => /apps\/ca\/src\/app\/aor-ortho-mind-vs-mind-lab-pro\/page\.tsx$/.test(f))).toBe(true);
+    expect(ROUND_TWELVE_SOURCES.some(f => /apps\/sea\/src\/app\/best-nootropics\/page\.tsx$/.test(f))).toBe(true);
+    expect(ROUND_TWELVE_SOURCES.some(f => /packages\/data\/src\/products-sea\.json$/.test(f))).toBe(true);
+    expect(ROUND_TWELVE_SOURCES.every(f => existsSync(f))).toBe(true);
+  });
+
+  test('the patterns catch the removed wording', () => {
+    const removed = [
+      "Singapore's Health Sciences Authority (HSA) and Malaysia's NPRA have the most structured supplement import frameworks.",
+      'Singapore (HSA) and Malaysia (NPRA) have the most structured personal-import frameworks.',
+      'It is frequently ordered directly from the Opti-Nutra website',
+      'with delivery to Singapore addresses in approximately 7 business days.',
+      'Health Canada&apos;s NPN review confirms three things:',
+      'Mind Lab Pro: only via mindlabpro.com (shipping to Canada',
+    ];
+    for (const s of removed) expect(ROUND_TWELVE_UNSOURCED.some(re => re.test(s)), s).toBe(true);
+  });
+
+  test('no data or app source uses the unsourced wording', () => {
+    const hits = ROUND_TWELVE_SOURCES.flatMap(file => {
+      const lines = readFileSync(file, 'utf8').split('\n');
+      return lines.flatMap((line, i) =>
+        ROUND_TWELVE_UNSOURCED.some(re => re.test(line)) ? [`${relative(REPO_ROOT, file)}:${i + 1}`] : [],
+      );
+    });
+    expect(hits).toEqual([]);
+  });
+
+  test('no product record has "Opti-Nutra" as its brand', () => {
+    expect(PRODUCT_FILES).toHaveLength(8);
+    let records = 0;
+    let mindLabPro = 0;
+    const hits: string[] = [];
+    for (const file of PRODUCT_FILES) {
+      const recs = JSON.parse(readFileSync(file, 'utf8')) as Array<{ slug: string; brand: string }>;
+      for (const r of recs) {
+        records++;
+        if (/opti-?nutra/i.test(r.brand)) hits.push(`${relative(REPO_ROOT, file)} ${r.slug}: ${r.brand}`);
+        if (r.slug === 'mind-lab-pro-review') {
+          mindLabPro++;
+          expect(r.brand, `${relative(REPO_ROOT, file)} ${r.slug}`).toBe('Performance Lab');
+        }
+      }
+    }
+    expect(records).toBeGreaterThan(50);
+    expect(mindLabPro).toBe(8);
     expect(hits).toEqual([]);
   });
 });
