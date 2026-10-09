@@ -20,12 +20,25 @@ export type { ProductImage, ProductImageFile, ProductImageVariant } from './prod
 export { PRODUCT_IMAGE_SIZES, productImages, productImage } from './product-images';
 export type { ProductForm } from './serving-unit';
 export { PRODUCT_FORMS, productForm, servingUnit, servingAmount, servingsComparable } from './serving-unit';
-export { affiliateUrlProblem, formulaProblem, formProblem, productRuleProblems, scoreProblem, weightedScore, pillarWeightPercent, UNSCORABLE_PILLARS, PILLAR_WEIGHTS, halalEvidenceProblem, HALAL_CERTIFIERS, vendorTermsProblems, VENDOR_TERM_FIELDS } from './product-rules';
+export { affiliateUrlProblem, formulaProblem, formProblem, productRuleProblems, scoreProblem, weightedScore, roundToTenth, dosingScore, pillarWeightPercent, UNSCORABLE_PILLARS, PILLAR_WEIGHTS, halalEvidenceProblem, HALAL_CERTIFIERS, vendorTermsProblems, VENDOR_TERM_FIELDS } from './product-rules';
 export type { QuotedPrice, QuoteSupply, QuoteMonthly, PriceDerivation, SupplyFields } from './vendor-price';
 export { DAYS_PER_MONTH, SERVINGS_PER_DAY, parseAmount, parseQuotedPrices, quoteSupply, currencyDigits, monthlyPriceFromQuote, deriveRegionalMonthlyPrice, priceBasisProblems } from './vendor-price';
 export { NOT_AVAILABLE, outOfTen, pillarText, guaranteeDays, guaranteeDaysValue } from './display-values';
-export type { DosingAnchor } from './dosing-anchors';
-export { DOSING_ANCHORS, doseMg, dosingAnchorProblems } from './dosing-anchors';
+export type { DosingAnchor, DosingBasis } from './dosing-anchors';
+export {
+  DOSING_ANCHORS,
+  NO_REFERENCE_DOSE,
+  amountMg,
+  baseName,
+  doseInterval,
+  dosingAnchorFor,
+  dosingAnchorProblems,
+  dosingTally,
+  dosingUnits,
+  expectedDosingRows,
+  matchingAnchors,
+  rowVerdict,
+} from './dosing-anchors';
 export { SEO_TITLE_MAX, SEO_DESCRIPTION_MAX, seoOverrideProblems } from './seo-overrides';
 export { productsGCC, allProductsGCC } from './products-gcc';
 export { productsSEA, allProductsSEA } from './products-sea';

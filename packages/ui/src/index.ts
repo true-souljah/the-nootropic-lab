@@ -86,6 +86,8 @@ export type {
   ListicleIngredientMechanism,
   ListiclePick,
 } from './templates/Listicle';
+// The listicle ranking bar, for pages that state it in prose (methodology).
+export { LISTICLE_MIN_SCORE, formatListicleScore } from './templates/listicleRanking';
 
 // Public templates (Stack redesign — M2C)
 // HeadToHeadFAQ keeps its bare name for back-compat with apps; the
@@ -96,14 +98,6 @@ export type {
   HeadToHeadFAQ,
   HeadToHeadFAQ as HeadToHeadFAQItem,
 } from './templates/HeadToHead';
-
-// Public templates (Stack redesign — M2D)
-export { default as ThreeWay } from './templates/ThreeWay';
-export type {
-  ThreeWayProps,
-  ThreeWayFAQ,
-  ThreeWayFAQ as ThreeWayFAQItem,
-} from './templates/ThreeWay';
 
 // Public templates (Stack redesign — M2E)
 export { default as IngredientDetail } from './templates/IngredientDetail';

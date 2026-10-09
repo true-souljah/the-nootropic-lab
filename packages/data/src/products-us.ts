@@ -9,10 +9,13 @@ export interface IngredientDosage {
   doseInProduct: string;
   clinicalDose: string;
   /**
-   * true/false = the published dose meets / misses the clinical dose (a dose
-   * inside a blend counts as missing it when even the blend's remaining room
-   * is below the clinical minimum). null = not verifiable from the label: the
-   * dose is not stated inside a blend, or there is no reference dose on file.
+   * true/false = the label proves the daily amount meets / misses the
+   * reference minimum on the same basis (a dose inside a blend counts as
+   * missing it when even the blend's remaining room is below the minimum).
+   * null = not provable from the label (a blend share not stated, a ratio or
+   * equivalent-weight amount, an unprinted standardisation), or no reference
+   * dose on file. Derived by rowVerdict (dosing-anchors.ts), written by
+   * `npm run recompute-scores`.
    */
   adequatelyDosed: boolean | null;
 }
@@ -84,7 +87,11 @@ export interface Product {
   score: number;
   scoreBreakdown: {
     ingredients: number;
-    /** null = not scorable (no disclosed doses); requires `unscoredReason` (product-rules.ts scoreProblem). */
+    /**
+     * dosingScore (product-rules.ts): 10 × adequate ÷ anchored ingredients, one
+     * decimal, written by `npm run recompute-scores`. null = no ingredient has a
+     * reference dose on the ingredient library; requires `unscoredReason`.
+     */
     dosing: number | null;
     transparency: number;
     /** null = not scorable (value is measured per clinical-dose ingredient); requires `unscoredReason`. */

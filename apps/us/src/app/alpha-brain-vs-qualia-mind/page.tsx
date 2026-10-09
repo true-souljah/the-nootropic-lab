@@ -13,13 +13,13 @@ const productB = productsUS.find(p => p.slug === 'qualia-mind-review');
 
 
 export const metadata: Metadata = {
-  title: `Alpha Brain vs Qualia Mind ${CURRENT_YEAR}: Mainstream Brand vs Premium Megadose`,
+  title: `Alpha Brain vs Qualia Mind ${CURRENT_YEAR}: Mainstream Brand vs 31-Ingredient Stack`,
   description:
     'Independent comparison of Onnit Alpha Brain vs Qualia Mind. Mainstream retail-distributed nootropic vs premium 31-ingredient stack. Side-by-side dosing audit and verdict.',
   alternates: buildAlternates({ regionCode: 'us', path: '/alpha-brain-vs-qualia-mind/', availableInRegions: ['us'] }),
   openGraph: {
     title: 'Alpha Brain vs Qualia Mind — Independent Head-to-Head',
-    description: 'Mainstream Onnit nootropic vs premium Qualia megadose. Which makes more sense?',
+    description: 'Mainstream Onnit nootropic vs premium 31-ingredient Qualia stack. Which makes more sense?',
     type: 'article',
   },
   twitter: { card: 'summary' },

@@ -31,7 +31,7 @@ const steps: CancellationStep[] = [
   },
   {
     title: 'Identify which formula(s) to cancel',
-    body: 'On Thesis\'s Clarity page a subscription costs $59 for the first order, then $79 a month, shipped every 25 days (checked 7 October 2026). If you took the 4-week starter and continued with 2-3 formulas, you have 2-3 separate subscription lines — each must be cancelled individually OR you can cancel the entire account.',
+    body: 'On Thesis\'s US Clarity page a 1-month subscription is $59 a month and a one-time purchase is $89 plus $6.90 shipping (checked 9 October 2026). If you took the 4-week starter and continued with 2-3 formulas, you have 2-3 separate subscription lines — each must be cancelled individually OR you can cancel the entire account.',
   },
   {
     title: 'Click "Manage" on the formula you want to cancel',
@@ -99,7 +99,7 @@ export default function Page() {
       siteUrl={SITE_URL}
       pageTitle="How to Cancel Your Thesis Nootropics Subscription"
       pageDescription="Cancel your Thesis Nootropics subscription per-formula. Step-by-step, with the friction points and FTC complaint path."
-      heroParagraph="On Thesis's Clarity page a subscription costs $59 for the first order, then $79 a month, shipped every 25 days (checked 7 October 2026). If you signed up for the starter and continued with 2-3 formulas, each is its own subscription that must be cancelled separately. This guide walks through the per-formula cancellation flow and what to do if you want a refund on unopened packets."
+      heroParagraph="On Thesis's US Clarity page a 1-month subscription is $59 a month and a one-time purchase is $89 plus $6.90 shipping (checked 9 October 2026). If you signed up for the starter and continued with 2-3 formulas, each is its own subscription that must be cancelled separately. This guide walks through the per-formula cancellation flow and what to do if you want a refund on unopened packets."
       steps={steps}
       totalTimeMinutes={8}
       watchouts={watchouts}

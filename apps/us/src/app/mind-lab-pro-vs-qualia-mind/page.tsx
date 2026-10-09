@@ -15,11 +15,11 @@ const productB = productsUS.find(p => p.slug === 'qualia-mind-review');
 export const metadata: Metadata = {
   title: `Mind Lab Pro vs Qualia Mind ${CURRENT_YEAR}: 11 Ingredients vs 31 — Which Wins?`,
   description:
-    'Independent comparison of Mind Lab Pro vs Qualia Mind. Open 11-ingredient formula vs 31-ingredient megadose. Side-by-side dosing, price, and verdict.',
+    'Independent comparison of Mind Lab Pro vs Qualia Mind. Open 11-ingredient formula vs 31-ingredient stack. Side-by-side dosing, price, and verdict.',
   alternates: buildAlternates({ regionCode: 'us', path: '/mind-lab-pro-vs-qualia-mind/', availableInRegions: ['us'] }),
   openGraph: {
     title: 'Mind Lab Pro vs Qualia Mind — Independent Head-to-Head',
-    description: 'Lean open formula vs 31-ingredient megadose. Which approach actually delivers?',
+    description: 'Lean open formula vs 31-ingredient stack. Which approach actually delivers?',
     type: 'article',
   },
   twitter: { card: 'summary' },
@@ -29,7 +29,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Which is better, Mind Lab Pro or Qualia Mind?',
     a:
-      'Mind Lab Pro takes a lean, 11-ingredient open-formula approach with every dose disclosed. Qualia Mind takes a 31-ingredient megadose approach. Both are caffeine-free if you choose the right Qualia variant. Mind Lab Pro is easier to evaluate ingredient-by-ingredient. Qualia Mind throws more compounds at the brain but at a higher per-month cost.',
+      'Mind Lab Pro takes a lean, 11-ingredient open-formula approach with every dose disclosed. Qualia Mind takes a 31-ingredient broad-spectrum approach. Both are caffeine-free if you choose the right Qualia variant. Mind Lab Pro is easier to evaluate ingredient-by-ingredient. Qualia Mind throws more compounds at the brain but at a higher per-month cost.',
   },
   {
     q: 'Why does Qualia Mind have so many ingredients?',
@@ -62,7 +62,7 @@ const whoIsForA = [
   'Want a tight, evidence-graded formula with every dose disclosed',
   'Prefer 2-capsule daily simplicity',
   'Are budget-conscious at $69/month',
-  'Care about peer-reviewed efficacy data over megadose breadth',
+  'Care about peer-reviewed efficacy data over 31-ingredient breadth',
 ];
 
 const whoIsForB = [
@@ -75,7 +75,7 @@ const whoIsForB = [
 const verdictParagraph =
   `Mind Lab Pro scores ${productA?.score ?? 'higher'}/10; Qualia Mind scores ${productB?.score ?? 'lower'}/10. ` +
   'Mind Lab Pro\'s lean 11-ingredient open formula scores stronger on transparency and value. ' +
-  'Qualia Mind\'s 31-ingredient megadose scores stronger on ingredient breadth but loses points on value, ' +
+  'Qualia Mind\'s 31-ingredient formula scores stronger on ingredient breadth but loses points on value, ' +
   'capsule count, and the difficulty of evaluating individual contributions.';
 
 export default function Page() {

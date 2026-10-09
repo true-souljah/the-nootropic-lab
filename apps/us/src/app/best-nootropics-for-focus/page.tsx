@@ -25,24 +25,28 @@ export const metadata: Metadata = {
 const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Theanine + Caffeine (1:2 to 2:1 ratio)',
+    ingredientSlugs: ['l-theanine', 'caffeine'],
     evidence:
       'Among the best-replicated cognitive findings: L-theanine paired with caffeine improves attention switching and reduces mental fatigue, with smoother subjective focus than caffeine alone. Effective at 100–200mg L-theanine + 100mg caffeine.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
   },
   {
     name: 'Citicoline (CDP-Choline)',
+    ingredientSlugs: ['citicoline'],
     evidence:
       'Choline donor + uridine source that supports phospholipid synthesis and acetylcholine production. Multiple RCTs show attention and cognitive-effort benefits in healthy adults at 250–500mg/day. Cognizin is the standardized form most products use.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
   {
     name: 'L-Tyrosine (or NALT)',
+    ingredientSlugs: ['l-tyrosine'],
     evidence:
-      'Precursor to dopamine + norepinephrine. Effective specifically under cognitive load or stress — improves performance on attention tasks during sleep deprivation, multitasking, or cold exposure. Clinical doses 300–500mg as N-acetyl-L-tyrosine.',
+      'Precursor to dopamine + norepinephrine. Effective specifically under cognitive load or stress — improves performance on attention tasks during sleep deprivation, multitasking, or cold exposure. The stress trials with positive results used plain L-tyrosine at 2g a day or 100–150mg/kg.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/26424423/',
   },
   {
     name: 'Alpha-GPC',
+    ingredientSlugs: ['alpha-gpc'],
     evidence:
       'Cholinergic. In a 2024 placebo-controlled crossover RCT in 20 resistance-trained men, a single 315mg or 630mg dose improved Stroop test performance, with no effect on N-Back or Flanker tasks — one small, acute study. Often paired with L-theanine for "calm focus."',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/39683633/',
@@ -78,7 +82,7 @@ const picks: ListiclePick[] = [
     product: productsUS.find(p => p.slug === 'thesis-nootropics-review')!,
     rank: 5,
     whyItsHere:
-      'Personalized via questionnaire — includes a "Clarity" formula targeted at focus with CDP choline (250mg), Lion\'s Mane (500mg) and, in its caffeinated version, caffeine (100mg). Subscription model is the main friction: a Clarity subscription is $59 for the first order, then $79 a month (one-time purchase $129).',
+      'Personalized via questionnaire — includes a "Clarity" formula targeted at focus with CDP choline (250mg), Lion\'s Mane (500mg) and, in its caffeinated version, caffeine (100mg). Subscription model is the main friction: a 1-month Clarity subscription is $59 a month (one-time purchase $89 plus shipping, checked 9 October 2026).',
   },
 ];
 
