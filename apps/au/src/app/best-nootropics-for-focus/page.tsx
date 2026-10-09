@@ -88,7 +88,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Are these focus nootropics TGA-listed in Australia?',
-    a: 'None of the international focus stacks listed on this page (Mind Lab Pro, NooCube, Qualia Mind, Alpha Brain, Hunter Focus) returned an entry when we searched the Australian Register of Therapeutic Goods (ARTG) and the TGA cancellations database by product and sponsor name on 2026-10-06; they are sold direct to Australian buyers by their brands. The TGA Personal Importation Scheme permits Australian residents to import up to a 3-month supply for personal use. TGA-listed Australian brands (Blackmores, Caruso\'s, Swisse, Nature\'s Own, Cenovis) generally focus on broader memory and brain-health formulas (ginkgo, fish oil, B-vitamins) rather than the focus-specific stacks ranked here. We will add TGA-listed picks as their formulas evolve to include clinically-dosed focus ingredients.',
+    a: 'None of the international focus stacks listed on this page (Mind Lab Pro, NooCube, Qualia Mind, Alpha Brain) returned an entry when we searched the Australian Register of Therapeutic Goods (ARTG) and the TGA cancellations database by product and sponsor name on 2026-10-06; they are sold direct to Australian buyers by their brands. The TGA Personal Importation Scheme permits Australian residents to import up to a 3-month supply for personal use. TGA-listed Australian brands (Blackmores, Caruso\'s, Swisse, Nature\'s Own, Cenovis) generally focus on broader memory and brain-health formulas (ginkgo, fish oil, B-vitamins) rather than the focus-specific stacks ranked here. We will add TGA-listed picks as their formulas evolve to include clinically-dosed focus ingredients.',
   },
   {
     q: 'Where can I buy these in Australia?',

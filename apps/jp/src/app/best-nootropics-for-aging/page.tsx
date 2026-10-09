@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   alternates: buildAlternates({ regionCode: 'jp', path: '/best-nootropics-for-aging/' }),
   openGraph: {
     title: 'Best Nootropics for Aging Brain in Japan — Evidence-Graded',
-    description: 'Domestic picks (FFC-notified FANCL BRAINs, plus Suntory DHA) and international Phosphatidylserine and citicoline picks. Japan\'s aging-population context.',
+    description: 'Domestic options (FFC-notified FANCL BRAINs, plus Suntory DHA) and international Phosphatidylserine and citicoline picks. Japan\'s aging-population context.',
     type: 'article',
   },
   twitter: { card: 'summary' },
@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'suntory-dha-epa-sesamin-review')!,
     rank: 2,
     whyItsHere:
-      'Japan\'s best-selling omega-3 brain supplement (over 30 million bottles sold); no Foods with Function Claims (FFC, 機能性表示食品) notification found in the Consumer Affairs Agency (CAA) database (export scanned 2026-10-06) — Suntory Wellness, a household name backed by the ¥2.7 trillion Suntory Group. 400mg DHA + 100mg EPA + 20mg sesamin. Foundational structural support for aging brains; widely advertised on Japanese television and trusted across the 60+ demographic. ¥4,800/month — the most affordable pick in this Japan review.',
+      'Japan\'s best-selling omega-3 brain supplement (over 30 million bottles sold); no Foods with Function Claims (FFC, 機能性表示食品) notification found in the Consumer Affairs Agency (CAA) database (export scanned 2026-10-06) — Suntory Wellness, a household name backed by the ¥2.7 trillion Suntory Group. 400mg DHA + 100mg EPA + 20mg sesamin. Foundational structural support for aging brains; widely advertised on Japanese television and trusted across the 60+ demographic. ¥4,800/month — the most affordable product in this Japan review.',
   },
   {
     product: productsJP.find(p => p.slug === 'mind-lab-pro-review')!,
@@ -89,11 +89,11 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'I take a cholinesterase inhibitor (donepezil / アリセプト). Should I avoid certain ingredients?',
-    a: 'Yes — discuss with your neurologist. Huperzine A is itself an acetylcholinesterase inhibitor and stacking with donepezil (アリセプト) is not advised. None of the four picks above contain Huperzine A. Citicoline is a different mechanism (choline donor) and is sometimes used alongside cholinesterase inhibitors under clinician supervision, but combine only with medical input.',
+    a: 'Yes — discuss with your neurologist. Huperzine A is itself an acetylcholinesterase inhibitor and stacking with donepezil (アリセプト) is not advised. None of the products above contain Huperzine A. Citicoline is a different mechanism (choline donor) and is sometimes used alongside cholinesterase inhibitors under clinician supervision, but combine only with medical input.',
   },
   {
     q: 'Where can my elderly parents buy these in Japan?',
-    a: 'FANCL BRAINs is sold through FANCL\'s official Rakuten store, where it is labelled 機能性表示食品 (notification G425). Mind Lab Pro requires ordering from an international website with English checkout — typically a barrier for older buyers without English proficiency. Stick with domestic options for this demographic unless a younger family member can manage the international order.',
+    a: 'FANCL BRAINs is sold through FANCL\'s official Rakuten store, where it is labelled 機能性表示食品 (notification G425). Mind Lab Pro requires ordering from an international website with English checkout — typically a barrier for older buyers without English proficiency. The domestic options are easier for this demographic to buy, but both score below our bar for ranked picks (listed under Also considered above); Mind Lab Pro, the ranked pick, is the route if a younger family member can manage the international order.',
   },
 ];
 
