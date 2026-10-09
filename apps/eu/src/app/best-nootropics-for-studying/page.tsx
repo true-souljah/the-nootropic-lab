@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsEU.find(p => p.slug === 'brainzyme-focus-pro-review')!,
     rank: 2,
     whyItsHere:
-      'UK-made and explicitly positioned for university students. Natural caffeine from matcha + guarana paired with 100mg L-theanine — smooth study-session focus without the synthetic-caffeine crash. €40/mo is the lowest price on this list. Lacks long-term memory ingredients (no Bacopa or Lion\'s Mane), so best for acute study sessions rather than term-long retention.',
+      'UK-made and explicitly positioned for university students. A 350mg Camellia sinensis (matcha) EMT blend that includes L-theanine, plus guarana seed, choline, ginkgo and L-tyrosine; the label states no caffeine amount and does not split the blend. €40/mo is the lowest price on this list. Lacks long-term memory ingredients (no Bacopa or Lion\'s Mane), so best for acute study sessions rather than term-long retention.',
   },
   {
     product: productsEU.find(p => p.slug === 'hunter-focus-review')!,
