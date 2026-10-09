@@ -7,6 +7,7 @@ import {
   guidesEs,
   guidesForRegion,
   ingredients,
+  selectGuidesForRegion,
   type GuideBlock,
   type GuideSection,
 } from '@nootropic/data';
@@ -33,7 +34,7 @@ function textsOf(section: GuideSection): string[] {
       case 'table':
         return b.rows.flat();
       case 'callout':
-        return [b.title ?? '', b.text];
+        return [b.text];
     }
   });
 }
@@ -62,6 +63,8 @@ function blockProblems(section: GuideSection): string[] {
       });
     }
     if (b.type === 'callout' && !b.text.trim()) out.push(`${at}: empty callout`);
+    // Callout titles render as plain text (like table captions and headers).
+    if (b.type === 'callout' && b.title && /\]\(/.test(b.title)) out.push(`${at}: no links in a callout title`);
   }
   return out;
 }
@@ -79,6 +82,21 @@ describe('guide regions', () => {
     expect(g.regions.length).toBeGreaterThan(0);
     expect(new Set(g.regions).size).toBe(g.regions.length);
     for (const r of g.regions) expect(ALL_REGIONS).toContain(r);
+  });
+
+  test('section headings are unique within each guide (they are the React keys)', () => {
+    const dupes = [...guides, ...guidesEs].flatMap((g) => {
+      const hs = g.sections.map((s) => s.heading);
+      return hs.filter((h, i) => hs.indexOf(h) !== i).map((h) => `${g.slug}: "${h}"`);
+    });
+    expect(dupes).toEqual([]);
+  });
+
+  test('a guide served on LATAM without a Spanish translation fails the build', () => {
+    const g = { ...guides[0], slug: 'no-translation-yet', regions: ['us', 'latam'] as const };
+    expect(() => selectGuidesForRegion([g], guidesEs, 'latam')).toThrow(/no Spanish translation/);
+    expect(selectGuidesForRegion([g], guidesEs, 'us').map((x) => x.slug)).toEqual(['no-translation-yet']);
+    expect(selectGuidesForRegion([g], guidesEs, 'eu')).toEqual([]);
   });
 
   test('slugs are unique', () => {
