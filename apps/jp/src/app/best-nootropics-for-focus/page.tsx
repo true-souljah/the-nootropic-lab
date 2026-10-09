@@ -81,7 +81,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Where can I buy these in Japan?',
-    a: 'Mind Lab Pro\'s own FAQ names Japan among its shipping territories; for the other imported brands, confirm Japan shipping and the delivery estimate at checkout. For domestic options, see our memory and aging pages featuring FANCL and Suntory.',
+    a: 'Mind Lab Pro\'s own FAQ names Japan among its shipping territories; for the other imported brands, confirm Japan shipping and the delivery estimate at checkout. The domestic brands FANCL and Suntory are covered on our memory and aging pages, where both score below our bar for ranked picks.',
   },
   {
     q: 'How long does it take a focus nootropic to work?',

@@ -73,7 +73,7 @@ const picks: ListiclePick[] = [
     product: productsAU.find(p => p.slug === 'onnit-alpha-brain-review')!,
     rank: 4,
     whyItsHere:
-      'Contains Bacopa and Huperzine A (an acetylcholinesterase inhibitor with weak memory evidence). Proprietary blends mean you cannot verify Bacopa is at the 300mg clinical dose. Mainstream international availability is its strongest feature for Australian memory buyers. Check the delivery estimate for Australia at checkout.',
+      'Contains Bacopa and Huperzine A (an acetylcholinesterase inhibitor with weak memory evidence). The label states 100mg Bacopa, a third of the 300mg clinical dose. Mainstream international availability is its strongest feature for Australian memory buyers. Check the delivery estimate for Australia at checkout.',
   },
 ];
 

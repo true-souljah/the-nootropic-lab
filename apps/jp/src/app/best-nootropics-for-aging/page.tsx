@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'suntory-dha-epa-sesamin-review')!,
     rank: 2,
     whyItsHere:
-      'Japan\'s best-selling omega-3 brain supplement (over 30 million bottles sold); no Foods with Function Claims (FFC, 機能性表示食品) notification found in the Consumer Affairs Agency (CAA) database (export scanned 2026-10-06) — Suntory Wellness, a household name backed by the ¥2.7 trillion Suntory Group. 400mg DHA + 100mg EPA + 20mg sesamin. Foundational structural support for aging brains; widely advertised on Japanese television and trusted across the 60+ demographic. ¥4,800/month — the most affordable pick in this Japan review.',
+      'Japan\'s best-selling omega-3 brain supplement (over 30 million bottles sold); no Foods with Function Claims (FFC, 機能性表示食品) notification found in the Consumer Affairs Agency (CAA) database (export scanned 2026-10-06) — Suntory Wellness, a household name backed by the ¥2.7 trillion Suntory Group. 400mg DHA + 100mg EPA + 20mg sesamin. Foundational structural support for aging brains; widely advertised on Japanese television and trusted across the 60+ demographic. ¥4,800/month — the most affordable product in this Japan review.',
   },
   {
     product: productsJP.find(p => p.slug === 'mind-lab-pro-review')!,
@@ -93,7 +93,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Where can my elderly parents buy these in Japan?',
-    a: 'FANCL BRAINs is sold through FANCL\'s official Rakuten store, where it is labelled 機能性表示食品 (notification G425). Mind Lab Pro requires ordering from an international website with English checkout — typically a barrier for older buyers without English proficiency. Stick with domestic options for this demographic unless a younger family member can manage the international order.',
+    a: 'FANCL BRAINs is sold through FANCL\'s official Rakuten store, where it is labelled 機能性表示食品 (notification G425). Mind Lab Pro requires ordering from an international website with English checkout — typically a barrier for older buyers without English proficiency. The domestic options are easier for this demographic to buy, but both score below our bar for ranked picks (listed under Also considered above); Mind Lab Pro, the ranked pick, is the route if a younger family member can manage the international order.',
   },
 ];
 
