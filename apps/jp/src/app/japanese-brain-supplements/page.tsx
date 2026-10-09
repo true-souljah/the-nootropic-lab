@@ -180,7 +180,7 @@ export default function Page() {
           <h2 className="text-2xl font-bold text-gray-900 mb-4">FOSHU vs. FFC, in one paragraph</h2>
           <div className="space-y-4 text-gray-700 leading-relaxed">
             <p>
-              FOSHU (特定保健用食品, often shortened to トクホ) is the stricter route. To be sold as FOSHU, each individual
+              FOSHU (特定保健用食品, often shortened to トクホ) is the route that needs government approval. To be sold as FOSHU, each individual
               product must have its effectiveness and safety reviewed by the government and receive approval, under
               Article 43(1) of the Health Promotion Act. In the CAA&apos;s English terminology, FOSHU products are
               &ldquo;labelled with health functions under approval by the Commissioner of CAA&rdquo;, while FFC products
