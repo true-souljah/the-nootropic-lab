@@ -383,10 +383,10 @@
       "German market",
       "Clean-label"
     ],
-    "score": 5.3,
+    "score": 6.2,
     "scoreBreakdown": {
       "ingredients": 7,
-      "dosing": 0,
+      "dosing": 3.3,
       "transparency": 8,
       "value": 8,
       "trust": 7
@@ -520,14 +520,14 @@
       {
         "name": "Matcha (natural caffeine ~40mg)",
         "doseInProduct": "400mg matcha",
-        "clinicalDose": "No reference dose on file",
-        "adequatelyDosed": null
+        "clinicalDose": "100-200mg",
+        "adequatelyDosed": true
       },
       {
         "name": "Guarana (natural caffeine ~20mg)",
         "doseInProduct": "200mg guarana",
-        "clinicalDose": "No reference dose on file",
-        "adequatelyDosed": null
+        "clinicalDose": "100-200mg",
+        "adequatelyDosed": true
       },
       {
         "name": "L-Theanine",

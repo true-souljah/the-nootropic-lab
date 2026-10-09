@@ -873,10 +873,10 @@
       "Open formula",
       "Ordering direct from a Canadian company"
     ],
-    "score": 5.9,
+    "score": 7.9,
     "scoreBreakdown": {
       "ingredients": 8,
-      "dosing": 0,
+      "dosing": 6.7,
       "transparency": 9,
       "value": 8,
       "trust": 9
@@ -929,14 +929,14 @@
       {
         "name": "(2R)-2-(Acetyloxy)-3-carboxy-N,N,N-trimethyl-1-propanaminium inner salt (N-Acetyl L-carnitine hydrochloride)",
         "doseInProduct": "1500mg (250 mg per capsule × 6)",
-        "clinicalDose": "No reference dose on file",
-        "adequatelyDosed": null
+        "clinicalDose": "1500-3000mg/day",
+        "adequatelyDosed": true
       },
       {
         "name": "Choline cytidine 5'-pyrophosphate (ester) (Citicoline)",
         "doseInProduct": "499.98mg (83.33 mg per capsule × 6)",
-        "clinicalDose": "No reference dose on file",
-        "adequatelyDosed": null
+        "clinicalDose": "250-500mg/day",
+        "adequatelyDosed": true
       },
       {
         "name": "1,2-Dithiolane-3-pentanoic acid, (R) (R-a-lipoic acid)",

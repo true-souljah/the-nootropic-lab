@@ -568,10 +568,10 @@
       "Personalisation",
       "Custom stack optimisers"
     ],
-    "score": 7.8,
+    "score": 7,
     "scoreBreakdown": {
       "ingredients": 8,
-      "dosing": 8,
+      "dosing": 5.6,
       "transparency": 8,
       "value": 7,
       "trust": 7
@@ -612,7 +612,7 @@
         "name": "Lion's Mane (Hericium erinaceus) (Clarity)",
         "doseInProduct": "500mg",
         "clinicalDose": "1000-1800mg/day",
-        "adequatelyDosed": null
+        "adequatelyDosed": false
       },
       {
         "name": "7,8-Dihydroxyflavone (Clarity)",
@@ -654,7 +654,7 @@
         "name": "Rhodiola Rosea (fermented salidrosides) (Motivation)",
         "doseInProduct": "60mg",
         "clinicalDose": "200-600mg/day",
-        "adequatelyDosed": null
+        "adequatelyDosed": false
       },
       {
         "name": "Vitamin B6 (pyridoxal-5'-phosphate) (Motivation)",
@@ -702,7 +702,7 @@
         "name": "Rhodiola Rosea (fermented salidrosides) (Stress Reset)",
         "doseInProduct": "30mg",
         "clinicalDose": "200-600mg/day",
-        "adequatelyDosed": null
+        "adequatelyDosed": false
       },
       {
         "name": "Magnesium Bisglycinate (Stress Reset)",
@@ -738,7 +738,7 @@
         "name": "Ginkgo Biloba (Neuroprotection)",
         "doseInProduct": "120mg",
         "clinicalDose": "240mg/day (24/6 extract)",
-        "adequatelyDosed": null
+        "adequatelyDosed": false
       },
       {
         "name": "Mustard Seed (Sinapis alba) (Neuroprotection)",
