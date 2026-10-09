@@ -268,7 +268,7 @@ export default function Page() {
               <div className="text-xs text-gray-500 mt-1">Según la lista de ingredientes declarada.</div>
             </div>
             <div className={`bg-white border ${nonCompliantCount > 0 ? 'border-red-300' : 'border-gray-200'} rounded-lg p-4`}>
-              <div className={`text-3xl font-black ${nonCompliantCount > 0 ? 'text-red-700' : 'text-gray-400'}`}>
+              <div className={`text-3xl font-black ${nonCompliantCount > 0 ? 'text-red-700' : 'text-ds-muted'}`}>
                 {nonCompliantCount}
               </div>
               <div className="text-sm font-medium text-gray-900 mt-1">Con Noopept o F-Phenibut</div>

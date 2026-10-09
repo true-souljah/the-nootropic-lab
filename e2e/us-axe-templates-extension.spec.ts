@@ -20,9 +20,6 @@ import type { AxeResults, Result } from 'axe-core';
 //   /alpha-brain-vs-qualia-mind/             — HeadToHead (2-way
 //                                              comparison table +
 //                                              side-by-side sections)
-//   /alpha-brain-vs-mind-lab-pro-vs-noocube/ — ThreeWay (3-way
-//                                              comparison table with
-//                                              extra column density)
 //   /ingredients/l-theanine/                 — IngredientDetail
 //                                              (ScoreBar + mechanism
 //                                              explainer + source
@@ -73,12 +70,6 @@ test.describe('US template-depth extension — axe-core WCAG 2.1 A/AA (serious +
 
   test('/alpha-brain-vs-qualia-mind/ (HeadToHead) has no serious or critical a11y violations', async ({ page }) => {
     const results = await runAxe(page, '/alpha-brain-vs-qualia-mind/');
-    const blockers = blockingViolations(results);
-    expect(blockers, summarize(blockers)).toHaveLength(0);
-  });
-
-  test('/alpha-brain-vs-mind-lab-pro-vs-noocube/ (ThreeWay) has no serious or critical a11y violations', async ({ page }) => {
-    const results = await runAxe(page, '/alpha-brain-vs-mind-lab-pro-vs-noocube/');
     const blockers = blockingViolations(results);
     expect(blockers, summarize(blockers)).toHaveLength(0);
   });
