@@ -26,26 +26,30 @@ export const metadata: Metadata = {
 const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Theanine + Caffeine — sustained focus',
+    ingredientSlugs: ['l-theanine', 'caffeine'],
     evidence:
       'For sustained study sessions, the L-theanine + caffeine combo is the foundation. Reduces caffeine jitter and post-coffee crash, smooths attention switching. 100–200mg L-theanine + 100mg caffeine, repeated 4–6 hours later if needed. Both are TGA-permitted ingredients: theanine as an active ingredient, and caffeine as an active ingredient only for oral use in adults when the medicine consists principally of other designated active ingredients (Therapeutic Goods (Permissible Ingredients) Determination (No. 2) 2026, F2026L00707, as compiled 17 September 2026 — Compilation No. 1, F2026C00940 — Schedule 1 items 4911 and 1054; checked 2026-10-08).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
   },
   {
     name: 'Bacopa Monnieri — long-term memory consolidation',
+    ingredientSlugs: ['bacopa-monnieri'],
     evidence:
       'Critical for retention of studied material. Bacopa improves memory consolidation — what your brain does during sleep with material you studied that day. 300mg standardised to 50% bacosides daily for 8+ weeks. Start at the beginning of the semester, not the night before the exam. TGA-permitted (Permissible Ingredients Determination, Schedule 1 item 754; checked 2026-10-08); available as standalone TGA-listed products at any Australian pharmacy (Blackmores Brahmi, Caruso\'s Memory Forte, Nature\'s Own Brahmi).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
   },
   {
     name: 'Citicoline — choline for cognitive demand',
+    ingredientSlugs: ['citicoline'],
     evidence:
       'Heavy cognitive demand depletes choline. Citicoline at 250–500mg/day supports phospholipid synthesis and acetylcholine availability — the neurotransmitter most associated with attention and learning. Cognizin is the standardised form. Imported under the Personal Importation Scheme.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
   {
     name: 'L-Tyrosine — under-stress performance',
+    ingredientSlugs: ['l-tyrosine'],
     evidence:
-      'Acute exam stress and sleep deprivation deplete catecholamines. Tyrosine supplementation has documented benefit for cognitive performance specifically under stress, sleep loss, or cold. 300–500mg as NALT for short bursts; not for daily continuous use.',
+      'Acute exam stress and sleep deprivation deplete catecholamines. Tyrosine supplementation has documented benefit for cognitive performance specifically under stress, sleep loss, or cold. The stress trials with positive results used plain L-tyrosine at 2g a day or 100–150mg/kg, for short bursts; not for daily continuous use.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/26424423/',
   },
 ];

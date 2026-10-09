@@ -25,24 +25,28 @@ export const metadata: Metadata = {
 const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'L-Tyrosine (and NALT) — partial dopamine pathway overlap',
+    ingredientSlugs: ['l-tyrosine'],
     evidence:
-      'L-tyrosine is the precursor amino acid to dopamine and norepinephrine — the same neurotransmitters Adderall manipulates. Critical caveat: tyrosine supplementation provides building blocks, while Adderall actively releases stored dopamine and inhibits its reuptake. The mechanisms differ fundamentally. Tyrosine has documented benefit specifically under acute stress, sleep deprivation, or cold exposure (300–500mg as NALT, or 1500–2000mg free).',
+      'L-tyrosine is the precursor amino acid to dopamine and norepinephrine — the same neurotransmitters Adderall manipulates. Critical caveat: tyrosine supplementation provides building blocks, while Adderall actively releases stored dopamine and inhibits its reuptake. The mechanisms differ fundamentally. Tyrosine has documented benefit specifically under acute stress, sleep deprivation, or cold exposure (the stress trials with positive results used plain L-tyrosine at 2g a day or 100–150mg/kg).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/26424423/',
   },
   {
     name: 'Caffeine + L-Theanine — stimulant adjacency',
+    ingredientSlugs: ['caffeine', 'l-theanine'],
     evidence:
       'Caffeine is the most-studied legal cognitive enhancer and works via adenosine antagonism (a different pathway than Adderall). Pairing with L-theanine smooths the focus curve and reduces jitter. This is the closest "feels-stimulant-but-isn\'t-amphetamine" combination available without prescription. 100–200mg L-theanine + 100mg caffeine.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
   },
   {
     name: 'Rhodiola Rosea — stress + fatigue resistance',
+    ingredientSlugs: ['rhodiola-rosea'],
     evidence:
       'Adaptogen with documented benefit for fatigue, mental performance, and stress resistance. Doesn\'t share Adderall\'s mechanism but addresses one common reason people seek a focus boost: chronic fatigue. 200–600mg standardized to 3% rosavins.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22228617/',
   },
   {
     name: 'Citicoline — choline pathway',
+    ingredientSlugs: ['citicoline'],
     evidence:
       'Choline donor + uridine source. No mechanistic overlap with Adderall, but RCTs show attention benefits in healthy adults at 250–500mg/day, and good tolerability profile alongside other ingredients.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',

@@ -25,24 +25,28 @@ export const metadata: Metadata = {
 const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'DHA — Japan\'s most-notified FFC ingredient for older adults',
+    ingredientSlugs: ['dha-omega-3'],
     evidence:
       'DHA dominates the Japanese FFC supplement market for adults 50+, with claims around memory support and cognitive function maintenance. The positive memory trials we reviewed used 900mg–1.2g DHA/day for 24 weeks or longer; the trial in adults aged 55 and over used 900mg/day (see our DHA ingredient page). The cultural and regulatory anchor for aging-brain supplementation in Japan.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20434961/',
   },
   {
     name: 'Phosphatidylserine (PS) — FDA qualified health claim',
+    ingredientSlugs: ['phosphatidylserine'],
     evidence:
       'The FDA permits a qualified health claim that PS may reduce risk of dementia and cognitive dysfunction in elderly. Multiple RCTs in 50–80-year-olds at 100–300mg/day show improvements in memory, processing speed, and cognitive complaints. The trial linked below (Vakhapova et al. 2010) is not the basis of the FDA claim: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo. Used in international Mind Lab Pro (100mg Sharp-PS).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {
     name: 'Lion\'s Mane (ヤマブシタケ)',
+    ingredientSlugs: ['lions-mane'],
     evidence:
       'Mori et al. 2009 — a foundational small RCT in older Japanese adults with mild cognitive impairment. 1g/day fruiting-body extract over 16 weeks improved cognitive function scores. The Lion\'s Mane evidence base for aging brains was established in Japan; evidence is promising for early age-related changes but is not a dementia treatment.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18844328/',
   },
   {
     name: 'Citicoline (CDP-Choline) — older-adult memory',
+    ingredientSlugs: ['citicoline'],
     evidence:
       'RCTs in older adults with subjective cognitive complaints show improvements in verbal memory and processing speed at 250–500mg/day for 12+ weeks. Cognizin is the standardized form used in Mind Lab Pro.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',

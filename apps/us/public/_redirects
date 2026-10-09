@@ -15,5 +15,9 @@
 /alpha-brain-vs-mind-lab-pro-vs-noocube  /mind-lab-pro-vs-noocube/  301
 /alpha-brain-vs-mind-lab-pro-vs-noocube/  /mind-lab-pro-vs-noocube/  301
 
+# 2026-10: the uncited beginner-stack route page was replaced by the evidence-reviewed data guide.
+/guides/best-nootropic-stack-for-beginners  /guides/nootropics-for-beginners/  301
+/guides/best-nootropic-stack-for-beginners/  /guides/nootropics-for-beginners/  301
+
 # Existing fallback (kept from prior _redirects)
 /* /404.html 404

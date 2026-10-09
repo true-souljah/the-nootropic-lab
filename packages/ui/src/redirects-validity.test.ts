@@ -1,6 +1,7 @@
 import { describe, test, expect } from 'vitest';
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
+import { guidesForRegion } from '@nootropic/data';
 
 // Regression guard for `_redirects` files (Cloudflare Pages format).
 //
@@ -50,11 +51,16 @@ function escapeRegex(s: string): string {
   return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-function pathExists(path: string, inventory: Set<string>): boolean {
+function pathExists(path: string, inventory: Set<string>, region: Region): boolean {
   if (inventory.has(path)) return true;
-  // Dynamic [param] route matching
+  // Guide pages are generated from data: the slug must be a guide this host serves,
+  // not just any string the dynamic [guide] route could match.
+  const guide = /^\/guides\/([a-z0-9-]+)\/?$/.exec(path);
+  if (guide && inventory.has('/guides/[guide]/')) return guidesForRegion(region).some((g) => g.slug === guide[1]);
+  // Dynamic [param] route matching. (Until 2026-10 this character class read
+  // `[^\\]]+`, which never matched a segment, so every dynamic destination failed.)
   for (const route of inventory) {
-    const pattern = `^${escapeRegex(route).replace(/\\\[[^\\]]+\\\]/g, '[^/]+').replace(/\/$/, '/?')}$`;
+    const pattern = `^${escapeRegex(route).replace(/\\\[[^\]]+\\\]/g, '[^/]+').replace(/\/$/, '/?')}$`;
     if (new RegExp(pattern).test(path.replace(/\/$/, '') + '/')) return true;
   }
   return false;
@@ -118,7 +124,7 @@ describe('_redirects validity (Cloudflare Pages format + destination liveness)',
 
       test(`${region}: rule L${rule.lineNum} "${rule.source} → ${rule.destination}" destination resolves to a real page.tsx`, () => {
         expect(
-          pathExists(rule.destination, inventory),
+          pathExists(rule.destination, inventory, region),
           `${region} _redirects line ${rule.lineNum} sends "${rule.source}" to "${rule.destination}" ` +
             `but no page.tsx exists at that path. This creates a redirect→404 chain. ` +
             `Fix: either create the destination page or redirect to an existing path.`,

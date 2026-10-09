@@ -1,9 +1,10 @@
 import { test, expect } from '@playwright/test';
 
-// Listicles rank only picks scoring >= LISTICLE_MIN_SCORE (7.5; site-owner
-// decision 2026-10-08). A pick below the bar stays on the page in an unranked
-// "Also considered" section with its score and a review link — never a buy
-// link. /best-nootropics-for-focus/ has one such pick: Alpha Brain (6.6).
+// Listicles rank only picks scoring >= LISTICLE_MIN_SCORE (7.0 since the
+// site-owner decision of 2026-10-09; 7.5 before). A pick below the bar stays on
+// the page in an unranked "Also considered" section with its score and a review
+// link — never a buy link. /best-nootropics-for-focus/ has one such pick:
+// Alpha Brain (5.2).
 // Unit side: packages/ui/src/listicle-ranking.test.ts.
 
 const ROUTE = '/best-nootropics-for-focus/';
@@ -20,7 +21,7 @@ test.beforeEach(async ({ context }) => {
   ]);
 });
 
-test.describe(`US ${ROUTE} — "Also considered" below the 7.5 bar`, () => {
+test.describe(`US ${ROUTE} — "Also considered" below the 7.0 bar`, () => {
   test('the section lists Alpha Brain with its score and a review link, and nothing in it is rel="sponsored"', async ({ page }) => {
     // Status first: an error page would trivially satisfy the absence check.
     const res = await page.goto(ROUTE);
@@ -30,7 +31,7 @@ test.describe(`US ${ROUTE} — "Also considered" below the 7.5 bar`, () => {
     await expect(section).toBeVisible();
     await expect(section.getByRole('heading', { level: 2 })).toContainText('Also considered');
     await expect(section.getByRole('heading', { level: 3, name: 'Alpha Brain' })).toBeVisible();
-    await expect(section).toContainText('Scores 6.6/10');
+    await expect(section).toContainText('Scores 5.2/10');
     await expect(section.locator(`a[href^="${BELOW_BAR_REVIEW}"]`)).toHaveCount(1);
     await expect(section.locator('[rel*="sponsored"]')).toHaveCount(0);
 

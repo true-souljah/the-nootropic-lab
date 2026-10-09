@@ -1,11 +1,13 @@
 import { Card } from '../../primitives/Card';
 import type { Product } from '@nootropic/data';
+import { scoreTier } from '../listicleRanking';
 
 export interface OverviewTabProps {
   product: Product;
 }
 
 export function OverviewTab({ product: p }: OverviewTabProps) {
+  const tier = scoreTier(p.score);
   return (
     <div className="grid gap-4 items-start grid-cols-1 lg:grid-cols-[1.6fr_1fr]">
       <div className="flex flex-col gap-4">
@@ -14,11 +16,11 @@ export function OverviewTab({ product: p }: OverviewTabProps) {
             Verdict
           </div>
           <h2 className="text-[22px] font-bold tracking-[-0.02em] m-0 mb-3 text-ds-ink">
-            {p.score >= 8.5 ? (
+            {tier === 'good' ? (
               <>
                 <span className="text-ds-good">{p.name}</span> is recommended.
               </>
-            ) : p.score >= 7.5 ? (
+            ) : tier === 'warn' ? (
               <>
                 <span className="text-ds-warn-ink">{p.name}</span> is worth a look.
               </>

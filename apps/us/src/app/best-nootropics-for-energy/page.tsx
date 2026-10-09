@@ -25,24 +25,28 @@ export const metadata: Metadata = {
 const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Caffeine + L-Theanine — the foundation',
+    ingredientSlugs: ['caffeine', 'l-theanine'],
     evidence:
       'For sustained cognitive energy, caffeine + L-theanine in a 1:2 to 2:1 ratio is the most-evidence-backed combination. Theanine smooths the focus curve, reduces jitter, and prevents the post-coffee crash. 100–200mg L-theanine + 100mg caffeine.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
   },
   {
     name: 'Rhodiola Rosea — fatigue resistance',
+    ingredientSlugs: ['rhodiola-rosea'],
     evidence:
       'Adaptogen with documented benefit for mental fatigue and stress-induced exhaustion. Effective at 200–600mg/day standardized to 3% rosavins. Particularly useful for sustained-effort scenarios (long workdays, jet lag, exam season).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22228617/',
   },
   {
     name: 'Citicoline — cognitive demand support',
+    ingredientSlugs: ['citicoline'],
     evidence:
       'Heavy cognitive workload depletes choline. Citicoline (250–500mg/day) supports phospholipid synthesis and acetylcholine availability. Not a stimulant — but addresses the "running on empty" feeling that comes with extended cognitive work.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
   {
     name: 'B-vitamins (B6, B12, folate)',
+    ingredientSlugs: [],
     evidence:
       'B-vitamins are essential cofactors for energy metabolism and neurotransmitter synthesis. In a 28-day RCT in 198 working men aged 30–55 (Kennedy et al. 2011), a multivitamin/mineral product (B-complex, vitamin C and minerals) raised self-rated physical stamina, post-work concentration and mental stamina, and some alertness ratings versus placebo — a multi-nutrient result that cannot be credited to B-vitamins alone. Most quality nootropic stacks include the methylated forms (methyl-B12, methyl-folate).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/21751253/',

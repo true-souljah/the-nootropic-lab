@@ -25,30 +25,35 @@ export const metadata: Metadata = {
 const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Phosphatidylserine (PS) — FDA qualified health claim',
+    ingredientSlugs: ['phosphatidylserine'],
     evidence:
       'The US FDA permits a qualified health claim that PS may reduce risk of dementia and cognitive dysfunction in elderly. Multiple RCTs in 50–80-year-olds at 100–300mg/day show improvements in memory, processing speed, and cognitive complaints. The strongest age-related cognitive evidence in this category. The trial linked below (Vakhapova et al. 2010) is not the basis of the FDA claim: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo. Sunflower-derived PS is the preferred form for halal-conscious buyers and those with soy allergies.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {
     name: 'Citicoline (CDP-Choline) — older-adult memory',
+    ingredientSlugs: ['citicoline'],
     evidence:
       'RCTs in older adults with subjective cognitive complaints show improvements in verbal memory and processing speed at 250–500mg/day for 12+ weeks. Cognizin is the standardized form most premium SEA imports use.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
   {
     name: 'Lion\'s Mane (Hericium erinaceus)',
+    ingredientSlugs: ['lions-mane'],
     evidence:
       'Mori et al. 2009 — small RCT in older Japanese adults with mild cognitive impairment. 1g/day fruiting-body extract over 16 weeks improved cognitive function scores. Evidence is promising for early age-related changes; not evaluated for dementia treatment. Lion\'s Mane is culturally familiar across Chinese-heritage SEA (Singapore, Malaysia, Vietnam) as a TCM mushroom — older buyers in these markets often have prior cultural exposure.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18844328/',
   },
   {
     name: 'Bacopa Monnieri (Brahmi)',
+    ingredientSlugs: ['bacopa-monnieri'],
     evidence:
       'Multiple RCTs across age groups show memory consolidation benefits. Studies specifically in older adults (Stough et al., Calabrese et al.) show retention and recall improvements after 8–12 weeks at 300mg standardized to 50% bacosides. Brahmi has deep cultural standing in Ayurvedic traditions across Indonesia, Malaysia, and Thailand — older buyers often recognise it from family medicine cabinets.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22747190/',
   },
   {
     name: 'Cera-Q (Silk Fibroin Protein) — Asia-developed',
+    ingredientSlugs: [],
     evidence:
       'Korean-developed silk fibroin protein hydrolysate. In a 3-week placebo-controlled trial in healthy adults averaging about 55 years (Kang et al. 2018; two of the four authors were affiliated with BrainOn Inc.), doses of 280–600mg/day were tested and memory-quotient gains were reported at doses over 280mg, with a plateau at 400–600mg. Particularly common in Asia-developed memory supplements (Eu Yan Sang BrainMAX+ lists 600mg per sachet). Korea\'s food regulator revoked Cera-Q\'s functional-ingredient recognition in 2017 after its supporting mouse study was retracted for data fabrication; in Korea it is sold as a general food (details in our BrainMAX+ review).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/29462997/',

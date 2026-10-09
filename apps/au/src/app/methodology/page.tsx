@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { SchemaOrg, EditorialStandardsSection, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
+import { SchemaOrg, EditorialStandardsSection, buildAlternates, buildOpenGraph, buildTwitter, LISTICLE_MIN_SCORE, formatListicleScore } from '@nootropic/ui';
 import { buildPersonAuthorReference, pillarWeightPercent } from '@nootropic/data';
 
 import { PublicShell } from "@nootropic/ui";
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 const pillars = [
   { num: '01', title: `Ingredient quality (${pillarWeightPercent('ingredients')}%)`, desc: 'We assess whether each ingredient has peer-reviewed human clinical trial evidence for cognitive benefits. Proprietary blends with hidden doses are penalised.' },
-  { num: '02', title: `Dosing vs. clinical evidence (${pillarWeightPercent('dosing')}%)`, desc: 'For each active ingredient, we compare the product dose to the minimum effective dose from published clinical trials (sourced from PubMed). Underdosed ingredients are flagged.' },
+  { num: '02', title: `Dosing vs. clinical evidence (${pillarWeightPercent('dosing')}%)`, desc: "Dosing is the share of a product's ingredients with a reference dose on our ingredient pages whose label-stated daily amount meets that page's minimum. An amount the label hides (a share of a proprietary blend) or states on a different basis (such as a dried-herb equivalent instead of the extract) counts as not met. Ingredients with no reference page are listed but not scored." },
   { num: '03', title: `Formula transparency (${pillarWeightPercent('transparency')}%)`, desc: 'Full disclosure of all ingredient doses scores highest. "Matrix" blends or ingredients without standardisation data reduce scores.' },
   { num: '04', title: `Value for money (${pillarWeightPercent('value')}%)`, desc: 'Price per serving divided by the number of clinical-dose ingredients.' },
   { num: '05', title: `Brand trust (${pillarWeightPercent('trust')}%)`, desc: 'Composite of Trustpilot score (50%), complaint volume, subscription cancellation transparency, and third-party testing documentation.' },
@@ -55,6 +55,9 @@ export default function MethodologyPage() {
               </div>
             ))}
           </div>
+          <p className="text-sm text-gray-600 leading-relaxed mt-4">
+            {`Our best-nootropics guides rank only products scoring ${formatListicleScore(LISTICLE_MIN_SCORE)}/10 or more; the bar was 7.5 until 9 October 2026 and was set to 7.0 when the dosing pillar became computed from label doses, which lowered scores by about a point overall.`}
+          </p>
         </section>
 
         <section className="mb-10">

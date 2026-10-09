@@ -1,5 +1,6 @@
 import { Card } from '../../primitives/Card';
 import { Chip } from '../../primitives/Chip';
+import { dosingTally } from '@nootropic/data';
 import type { Product } from '@nootropic/data';
 
 export interface DosingTabProps {
@@ -7,9 +8,11 @@ export interface DosingTabProps {
 }
 
 export function DosingTab({ product: p }: DosingTabProps) {
-  const totalDoses = p.ingredientDosages.length;
-  const adequateCount = p.ingredientDosages.filter((d) => d.adequatelyDosed).length;
-  const allAdequate = totalDoses > 0 && adequateCount === totalDoses;
+  const totalRows = p.ingredientDosages.length;
+  // The chip counts dosing units — rows with a reference dose, a combined
+  // anchor once — the same units the dosing pillar scores (FORMULA-SPEC §7E).
+  const { adequate, total } = dosingTally(p);
+  const allAdequate = total > 0 && adequate === total;
 
   return (
     <Card padding={22}>
@@ -19,17 +22,18 @@ export function DosingTab({ product: p }: DosingTabProps) {
             Dosing audit
           </h2>
           <div className="text-[12px] text-ds-muted mt-1">
-            Label dose vs. dose used in the largest published RCT
+            Label-stated daily amount vs. the minimum on our ingredient pages; ingredients without a
+            reference dose are listed but not scored
           </div>
         </div>
-        {totalDoses > 0 && (
+        {total > 0 && (
           <Chip tone={allAdequate ? 'good' : 'warn'}>
-            {adequateCount} / {totalDoses} adequate
+            {adequate} / {total} adequate
           </Chip>
         )}
       </div>
 
-      {totalDoses === 0 ? (
+      {totalRows === 0 ? (
         <p className="text-[13px] text-ds-muted m-0">
           Dosing data unavailable for this product. Many ingredients are hidden inside
           proprietary blends.

@@ -11,6 +11,7 @@ import { ProductThumb } from '../primitives/ProductThumb';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
 import ShortlistButton from './ShortlistButton';
 import type { AffiliateClickContext } from '../trackAffiliateClick';
+import { SCORE_TIERS } from './listicleRanking';
 import { servingAmount, pillarText, guaranteeDays, formatMoney } from '@nootropic/data';
 import { priceText, priceLocaleOf } from '../price-text';
 import type { Product, UIStrings } from '@nootropic/data';
@@ -34,7 +35,7 @@ export interface BestOfProps {
   methodologyVersion?: string;
   /**
    * "Recommended" cutoff for the stat. Products with score ≥ this count.
-   * Default 8.5 (matches Phase 1 ScorePill `good` threshold).
+   * Default SCORE_TIERS.good (the ScorePill `good` tier).
    */
   recommendedCutoff?: number;
   searchItems?: SearchItem[];
@@ -93,7 +94,7 @@ export default function BestOf({
   stats,
   refreshDate,
   methodologyVersion = 'v3.2',
-  recommendedCutoff = 8.5,
+  recommendedCutoff = SCORE_TIERS.good,
   searchItems,
   uiStrings,
   preList,
