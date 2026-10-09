@@ -26,7 +26,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Phosphatidylserine (PS)',
     evidence:
-      'The US FDA permits a qualified health claim that PS may reduce risk of dementia and cognitive dysfunction in elderly. Health Canada NPN monograph also recognises PS for memory support in older adults. Multiple RCTs in 50–80-year-olds at 100–300mg/day show improvements in memory, processing speed, and cognitive complaints. The strongest age-related cognitive evidence in this category. The trial linked below (Vakhapova et al. 2010) is not the basis of the FDA or Health Canada claims: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo.',
+      'The US FDA permits a qualified health claim that PS may reduce risk of dementia and cognitive dysfunction in elderly. Health Canada\'s Phosphatidylserine monograph (27 February 2026) lists one use, "Helps support cognitive/brain health/function", at "300 milligrams of Phosphatidylserine, per day" for adults 18 years and older, with no memory claim and no older-adult claim (Natural Health Products Ingredients Database (NHPID), checked 2026-10-08). Multiple RCTs in 50–80-year-olds at 100–300mg/day show improvements in memory, processing speed, and cognitive complaints. The strongest age-related cognitive evidence in this category. The trial linked below (Vakhapova et al. 2010) is not the basis of the FDA or Health Canada claims: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {
@@ -44,13 +44,13 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
     name: 'Bacopa Monnieri',
     evidence:
-      'Multiple RCTs across age groups show memory consolidation benefits. Studies specifically in older adults (Stough et al., Calabrese et al.) show retention and recall improvements after 8–12 weeks at 300mg standardized to 50% bacosides. Health Canada NPN monograph recognises Bacopa for memory support.',
+      'Multiple RCTs across age groups show memory consolidation benefits. Studies specifically in older adults (Stough et al., Calabrese et al.) show retention and recall improvements after 8–12 weeks at 300mg standardized to 50% bacosides. Health Canada\'s "Cognitive function products" monograph (30 January 2026) allows "Helps (to) support memory" for Bacopa standardised extract at "300 milligrams dried whole plant/herb top extract, per day, standardized to 40-55% bacosides" for adults 18 years and older (NHPID, checked 2026-10-08).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22747190/',
   },
   {
     name: 'Ginkgo Biloba',
     evidence:
-      'Proposed to work via cerebral blood flow (vasodilation). Health Canada has an NPN monograph for Ginkgo Biloba 120mg standardized extracts for memory support, but a 2026 network meta-analysis of 29 RCTs in healthy adults (Tiemtad et al.) found that high-dose Bacopa (600mg/day or more) improved working memory more than both Ginkgo doses and placebo and gave greater short-term memory benefits, with no significant differences in attention or processing speed, so the trial evidence does not single out Ginkgo as a memory enhancer. Often combined with Panax Ginseng in TCM-inspired formulas.',
+      'Proposed to work via cerebral blood flow (vasodilation). Health Canada\'s Ginkgo monograph (25 July 2025) allows "Helps to enhance memory in adults" and "Helps to enhance cognitive function in adults" at "80 - 240 milligrams of extract, per day", "standardized to 22-27% flavonoid glycosides and 5-7% terpene lactones", for adults 18 years and older (NHPID, checked 2026-10-08), but a 2026 network meta-analysis of 29 RCTs in healthy adults (Tiemtad et al.) found that high-dose Bacopa (600mg/day or more) improved working memory more than both Ginkgo doses and placebo and gave greater short-term memory benefits, with no significant differences in attention or processing speed, so the trial evidence does not single out Ginkgo as a memory enhancer. Often combined with Panax Ginseng in TCM-inspired formulas.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/41678913/',
   },
 ];
@@ -89,7 +89,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'What does the FDA qualified health claim for PS mean for Canadian buyers?',
-    a: 'The US FDA allows phosphatidylserine to carry a qualified claim that "very limited and preliminary scientific research suggests that PS may reduce the risk of dementia or cognitive dysfunction in the elderly." This is a softer claim than full FDA-approved health claims. In Canada, what a PS product may claim is set by its Health Canada product licence. We have not reviewed Health Canada\'s phosphatidylserine monograph for this page, so read the recommended use printed on the label of a product that carries an eight-digit NPN (Natural Product Number).',
+    a: 'The US FDA allows phosphatidylserine to carry a qualified claim that "very limited and preliminary scientific research suggests that PS may reduce the risk of dementia or cognitive dysfunction in the elderly." This is a softer claim than full FDA-approved health claims. In Canada, what a PS product may claim is set by its Health Canada product licence. Health Canada\'s Phosphatidylserine monograph (27 February 2026) lists one use, "Helps support cognitive/brain health/function", at "300 milligrams of Phosphatidylserine, per day" for adults 18 years and older, and no dementia, memory or older-adult claim (NHPID, checked 2026-10-08), so read the recommended use printed on the label of a product that carries an eight-digit NPN (Natural Product Number).',
   },
   {
     q: 'When should I start taking these?',
