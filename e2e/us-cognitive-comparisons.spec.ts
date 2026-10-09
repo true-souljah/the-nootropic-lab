@@ -22,7 +22,6 @@ const ABBREVIATIONS = [
 ];
 
 const COMPARISON_ROUTES = [
-  '/alpha-brain-vs-mind-lab-pro-vs-noocube/',
   '/alpha-brain-vs-qualia-mind/',
   '/mind-lab-pro-vs-qualia-mind/',
   '/mind-lab-pro-vs-noocube/',

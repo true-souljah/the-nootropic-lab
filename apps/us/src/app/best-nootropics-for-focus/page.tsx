@@ -126,7 +126,6 @@ export default function Page() {
         { label: "Mind Lab Pro vs Alpha Brain", href: '/mind-lab-pro-vs-alpha-brain/' },
         { label: "Mind Lab Pro vs Qualia Mind", href: '/mind-lab-pro-vs-qualia-mind/' },
         { label: "Alpha Brain vs Qualia Mind", href: '/alpha-brain-vs-qualia-mind/' },
-        { label: "Alpha Brain vs Mind Lab Pro vs NooCube (3-way)", href: '/alpha-brain-vs-mind-lab-pro-vs-noocube/' },
         { label: "Mind Lab Pro vs NooCube", href: '/mind-lab-pro-vs-noocube/' },
       ]}
       healthDisclaimer={getRegionalHealthDisclaimer('us')}

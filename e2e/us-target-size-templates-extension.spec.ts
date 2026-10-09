@@ -7,9 +7,10 @@ import { test, expect } from '@playwright/test';
 // sweep that brought target-size to 8/8 regions (also chrome-shared
 // route only).
 //
-// Extends WCAG 2.5.8 Target Size (Minimum) coverage to the four
-// template surfaces no target-size spec currently touches. These
-// are the SAME 4 routes PR-Q60 introduced for axe template-depth:
+// Extends WCAG 2.5.8 Target Size (Minimum) coverage to template
+// surfaces no target-size spec currently touches: the routes PR-Q60
+// introduced for axe template-depth (the ThreeWay route was dropped
+// on 2026-10-09 when its only page was consolidated into a 2-way page):
 //
 //   /mind-lab-pro-review/                    — ProductDetail
 //                                              (tab strip — Reviews,
@@ -18,10 +19,6 @@ import { test, expect } from '@playwright/test';
 //   /alpha-brain-vs-qualia-mind/             — HeadToHead (2-way
 //                                              comparison table with
 //                                              column toggles)
-//   /alpha-brain-vs-mind-lab-pro-vs-noocube/ — ThreeWay (3-column
-//                                              comparison table —
-//                                              denser interactive
-//                                              area than HeadToHead)
 //   /ingredients/l-theanine/                 — IngredientDetail
 //                                              (ScoreBar interactive
 //                                              segments, source links)
@@ -147,14 +144,6 @@ test.describe('US template-depth target-size — WCAG 2.5.8 (Minimum) at 320px',
     expect(
       offenders,
       `Target-size offenders on HeadToHead (< ${TARGET_MIN}×${TARGET_MIN}px): ${JSON.stringify(offenders, null, 2)}`,
-    ).toHaveLength(0);
-  });
-
-  test('/alpha-brain-vs-mind-lab-pro-vs-noocube/ (ThreeWay 3-col table) passes 24×24', async ({ page }) => {
-    const offenders = await probeOffenders(page, '/alpha-brain-vs-mind-lab-pro-vs-noocube/');
-    expect(
-      offenders,
-      `Target-size offenders on ThreeWay (< ${TARGET_MIN}×${TARGET_MIN}px): ${JSON.stringify(offenders, null, 2)}`,
     ).toHaveLength(0);
   });
 
