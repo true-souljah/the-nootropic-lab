@@ -25,8 +25,8 @@ interface NhpEvidenceCategory {
 }
 
 const nhpEvidenceCategories: NhpEvidenceCategory[] = [
-  { category: 'Category I — Compendial monograph', description: 'Product matches an existing Health Canada Natural Health Products Ingredient Database (NHPID) monograph. Lowest evidentiary burden — pre-cleared ingredients at standard doses.', example: 'Ginkgo biloba 120 mg standardised extract for cognitive support' },
-  { category: 'Category II — Traditional use', description: 'Product supported by published evidence of traditional use within a recognised herbal tradition (e.g. Traditional Chinese Medicine, Ayurveda) for the proposed indication.', example: 'Bacopa monnieri standardised extract for memory support, citing Ayurvedic traditional use' },
+  { category: 'Category I — Compendial monograph', description: 'Product matches an existing Health Canada Natural Health Products Ingredients Database (NHPID) monograph. Lowest evidentiary burden — pre-cleared ingredients at standard doses.', example: 'Ginkgo biloba standardised extract at "80 - 240 milligrams of extract, per day" for "Helps to enhance memory in adults" or "Helps to enhance cognitive function in adults" (Ginkgo monograph, 25 July 2025; NHPID, checked 2026-10-08)' },
+  { category: 'Category II — Traditional use', description: 'Product supported by published evidence of traditional use within a recognised herbal tradition (e.g. Traditional Chinese Medicine, Ayurveda) for the proposed indication.', example: 'Bacopa monnieri non-standardised extract for memory support, citing Ayurvedic traditional use' },
   { category: 'Category III — Modern scientific evidence', description: 'Product supported by published peer-reviewed clinical trials (RCTs, meta-analyses) demonstrating efficacy at the proposed dose for the proposed indication.', example: 'Citicoline 250 mg/day for attention based on RCT evidence' },
 ];
 
