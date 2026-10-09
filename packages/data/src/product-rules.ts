@@ -3,6 +3,7 @@
 // (packages/ui/src/product-lifecycle.test.ts).
 import type { Product } from './products-us';
 import { PRODUCT_FORMS } from './serving-unit';
+import { dosingUnits, matchingAnchors } from './dosing-anchors';
 
 const SEARCH_PAGE_MARKERS = ['/s?', '?q=', '&q=', '?k=', '&k='];
 
@@ -122,6 +123,19 @@ export function pillarWeightPercent(pillar: keyof Product['scoreBreakdown']): nu
 }
 
 /**
+ * Half-up rounding to one decimal — the one rounding of every computed score
+ * (weightedScore, dosingScore). Binary floats put exact .x5 values just below
+ * the boundary: US Performance Lab Mind (9/10/10/8/6) sums to
+ * 9.049999999999999 for 9.05. Adding Number.EPSILON does not help above 1 (it
+ * is smaller than the spacing of doubles there), so the scaled value is
+ * snapped to 12 significant digits — far above that noise, far below the
+ * distance of any real value from a .x5 — before rounding half up.
+ */
+export function roundToTenth(value: number): number {
+  return Math.round(Number((value * 10).toPrecision(12))) / 10;
+}
+
+/**
  * The overall score a pillar breakdown yields: the PILLAR_WEIGHTS-weighted
  * mean of the scored (non-null) pillars, renormalised over their weights —
  * with all five pillars scored that is the plain weighted sum — rounded half
@@ -137,33 +151,54 @@ export function weightedScore(breakdown: Product['scoreBreakdown']): number {
     weight += w;
     sum += w * value;
   }
-  // Binary floats put exact .x5 means just below the boundary: US Performance
-  // Lab Mind (9/10/10/8/6) sums to 9.049999999999999 for 9.05. Adding
-  // Number.EPSILON does not help above 1 (it is smaller than the spacing of
-  // doubles there), so the scaled mean is snapped to 12 significant digits —
-  // far above that noise, far below the distance of any real mean from a .x5
-  // — before rounding half up.
-  return Math.round(Number(((sum / weight) * 10).toPrecision(12))) / 10;
+  return roundToTenth(sum / weight);
 }
 
-/** Pillars that cannot be measured without disclosed doses (dosing vs. clinical dose; value per clinical-dose ingredient). */
+/**
+ * The dosing pillar (operator decision b → b1, 2026-10-09):
+ * round1(10 × adequate units ÷ anchored units). A unit is a row whose
+ * ingredient has a reference dose on the ingredient library — all rows of a
+ * combined anchor (lutein + zeaxanthin) count once — and it is adequate only
+ * when its verdict is `true` (dosing-anchors.ts rowVerdict); a `null` verdict
+ * counts as not adequate. No anchored row → null (requires `unscoredReason`).
+ * Throws on a row that matches more than one anchor.
+ */
+export function dosingScore(product: Pick<Product, 'ingredientDosages'> & Partial<Pick<Product, 'capsulesPerServing'>>): number | null {
+  const units = dosingUnits(product);
+  if (units.length === 0) return null;
+  return roundToTenth((10 * units.filter((verdict) => verdict === true).length) / units.length);
+}
+
+/** Pillars that cannot be measured: dosing when no ingredient has a reference dose; value per clinical-dose ingredient. */
 export const UNSCORABLE_PILLARS = ['dosing', 'value'] as const;
 
 /**
- * Why the score data is inconsistent, or null. Every record's `score` must
- * equal weightedScore(scoreBreakdown): the PILLAR_WEIGHTS-weighted mean of
- * its pillars, rounded to one decimal (`npm run recompute-scores` writes it).
+ * Why the score data is inconsistent, or null. `scoreBreakdown.dosing` must
+ * equal dosingScore(product), and every record's `score` must equal
+ * weightedScore(scoreBreakdown): the PILLAR_WEIGHTS-weighted mean of its
+ * pillars, rounded to one decimal (`npm run recompute-scores` writes both).
  * A pillar may be null only when it cannot be measured (UNSCORABLE_PILLARS);
  * the record must then say why (`unscoredReason`), and the mean is taken
  * over the scored pillars, renormalised over their weights.
  */
-export function scoreProblem(product: Pick<Product, 'score' | 'scoreBreakdown' | 'unscoredReason'>): string | null {
+export function scoreProblem(
+  product: Pick<Product, 'score' | 'scoreBreakdown' | 'unscoredReason' | 'ingredientDosages'> & Partial<Pick<Product, 'capsulesPerServing'>>,
+): string | null {
   const entries = Object.entries(product.scoreBreakdown) as [string, number | null][];
   const unscored = entries.filter(([, v]) => v === null).map(([k]) => k);
   if (unscored.length > 0) {
     const notAllowed = unscored.filter((k) => !(UNSCORABLE_PILLARS as readonly string[]).includes(k));
     if (notAllowed.length > 0) return `scoreBreakdown: only ${UNSCORABLE_PILLARS.join('/')} may be null, got ${notAllowed.join(', ')}`;
     if (!product.unscoredReason?.trim()) return `scoreBreakdown: ${unscored.join(', ')} null without unscoredReason`;
+  }
+  const rows = Array.isArray(product.ingredientDosages) ? product.ingredientDosages : [];
+  const ambiguous = rows.filter((row) => matchingAnchors(row).length > 1);
+  if (ambiguous.length > 0) {
+    return `scoreBreakdown: dosing cannot be computed — ${ambiguous.map((row) => `"${row.name}"`).join(', ')} match more than one dosing anchor`;
+  }
+  const dosing = dosingScore({ ingredientDosages: rows, capsulesPerServing: product.capsulesPerServing });
+  if (product.scoreBreakdown.dosing !== dosing) {
+    return `scoreBreakdown: dosing ${product.scoreBreakdown.dosing} is not the dosing formula's ${dosing} (adequate ÷ anchored ingredients, dosing-anchors.ts)`;
   }
   const expected = weightedScore(product.scoreBreakdown);
   if (product.score !== expected) {
@@ -215,7 +250,8 @@ export function productRuleProblems(
   product: Pick<
     Product,
     'affiliateUrl' | 'ingredientDosages' | 'discontinued' | 'form' | 'score' | 'scoreBreakdown' | 'unscoredReason' | 'halalCertified' | 'halalCheckedAt' | 'halalBasis' | 'vendorTerms'
-  >,
+  > &
+    Partial<Pick<Product, 'capsulesPerServing'>>,
 ): string[] {
   const problems: string[] = [];
   const url = affiliateUrlProblem(product.affiliateUrl, product.discontinued != null);

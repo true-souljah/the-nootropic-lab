@@ -3,7 +3,7 @@
 import {
   allProductsUS, allProductsEU, allProductsCA, allProductsAU,
   allProductsJP, allProductsLatam, allProductsGCC, allProductsSEA,
-  validateRegionalNotes, productRuleProblems, DOSING_ANCHORS, dosingAnchorProblems, halalEvidenceProblem,
+  validateRegionalNotes, productRuleProblems, matchingAnchors, NO_REFERENCE_DOSE, dosingAnchorProblems, halalEvidenceProblem,
   VENDOR_TERM_FIELDS,
   seoOverrideProblems,
 } from '../packages/data/src/index';
@@ -168,30 +168,42 @@ for (const problem of validateRegionalNotes()) {
 }
 console.log(`ok regional-notes: ${failed === 0 ? 'all authored notes cite sources' : 'see failures above'}`);
 
-// Dosing anchors (packages/data/src/dosing-anchors.ts, 2026-10-06): every
-// ingredientDosages row matching a DOSING_ANCHORS entry (ALCAR, DHA) must carry
-// the anchor's clinicalDose and an adequatelyDosed verdict derived from its
-// minimum. No grandfather list. A scan that matches no row fails too, so a
-// broken matcher cannot pass silently.
+// Dosing formula (packages/data/src/dosing-anchors.ts, operator decision b1,
+// 2026-10-09): every ingredientDosages row whose ingredient has a reference
+// dose on the ingredient library (a DOSING_ANCHORS entry) carries the anchor's
+// clinicalDose and the verdict rowVerdict derives from the label; every other
+// row carries NO_REFERENCE_DOSE and null; a row matching two anchors fails.
+// The dosing pillar (scoreBreakdown.dosing = dosingScore) is checked by
+// scoreProblem in the record-rules loop above. No grandfather list. A scan that
+// finds no anchored or no unanchored row fails too, so a broken matcher cannot
+// pass silently.
 let anchoredRows = 0;
+let unanchoredRows = 0;
 let anchorProblems = 0;
 for (const [region, products] of Object.entries(regions)) {
   for (const item of products as Product[]) {
     const rows = Array.isArray(item.ingredientDosages) ? item.ingredientDosages : [];
-    anchoredRows += rows.filter((row) => DOSING_ANCHORS.some((anchor) => anchor.match.test(row.name))).length;
+    for (const row of rows) {
+      if (matchingAnchors(row).length > 0) anchoredRows++;
+      else unanchoredRows++;
+    }
     for (const problem of dosingAnchorProblems(item)) {
       console.error(`FAIL ${region}/${problem}`);
       anchorProblems++;
     }
   }
 }
-if (anchoredRows === 0) {
-  console.error('FAIL dosing-anchors: no ingredientDosages row matched a DOSING_ANCHORS entry');
+console.log(`dosing-anchors: ${anchoredRows} anchored rows, ${unanchoredRows} rows without a reference dose`);
+if (anchoredRows === 0 || unanchoredRows === 0) {
+  console.error(`FAIL dosing-anchors: the scan found ${anchoredRows} anchored and ${unanchoredRows} unanchored rows — a matcher is broken`);
   anchorProblems++;
 }
 failed += anchorProblems;
 if (anchorProblems === 0) {
-  console.log(`ok dosing-anchors: ${anchoredRows} rows match their DOSING_ANCHORS clinicalDose and adequacy verdict`);
+  console.log(
+    `ok dosing-anchors: ${anchoredRows} anchored rows carry their anchor's clinicalDose and formula verdict; ` +
+      `${unanchoredRows} rows carry "${NO_REFERENCE_DOSE}" and null`,
+  );
 }
 
 // Review-page SEO overrides (packages/data/src/seo-overrides.ts, 2026-10-08):
