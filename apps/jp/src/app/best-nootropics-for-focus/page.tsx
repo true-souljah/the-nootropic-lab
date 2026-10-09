@@ -81,7 +81,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Where can I buy these in Japan?',
-    a: 'Mind Lab Pro\'s own FAQ names Japan among its shipping territories; for the other imported brands, confirm Japan shipping and the delivery estimate at checkout. For domestic options, see our memory and aging pages featuring FANCL and Suntory.',
+    a: 'Mind Lab Pro\'s own FAQ names Japan among its shipping territories; for the other imported brands, confirm Japan shipping and the delivery estimate at checkout. The domestic brands FANCL and Suntory are covered on our memory and aging pages, where both score below our bar for ranked picks.',
   },
   {
     q: 'How long does it take a focus nootropic to work?',
@@ -93,7 +93,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Will I have customs issues importing these to Japan?',
-    a: 'Japan permits personal-use imports of supplements within MHLW (厚生労働省) guidelines — generally up to a 2-month supply per order, value under approximately ¥16,000. All four picks above are formulated within MHLW-permissible ingredient categories. Modafinil and prescription stimulants are not permitted via personal import.',
+    a: 'Japan permits personal-use imports of supplements within MHLW (厚生労働省) guidelines — generally up to a 2-month supply per order, value under approximately ¥16,000. All the picks above are formulated within MHLW-permissible ingredient categories. Modafinil and prescription stimulants are not permitted via personal import.',
   },
 ];
 

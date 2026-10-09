@@ -63,25 +63,19 @@ export default function AppShell({
   sidebarGroups,
   sidebarMeta,
 }: AppShellProps) {
-  // Open initial state must be FALSE on mobile and `mode === 'persistent'`
-  // on desktop (lg+). The pre-Q69 implementation initialized via
-  // `useState(mode === 'persistent')` for both, which opened the
-  // mobile overlay drawer on first load — covering the entire
-  // viewport behind a [role=dialog][aria-modal=true] with
-  // pointer-events:auto. This blocked all touch interactions on
-  // the underlying content. PR-Q69 fix: initialize FALSE, then
-  // promote to TRUE in useEffect IF viewport is lg+. SSR-safe
-  // because server can't know viewport — first paint is closed
-  // everywhere, then desktop re-opens after hydration.
+  // `sidebarOpen` is only the user's explicit ☰ toggle: it drives the
+  // mobile overlay drawer (both modes) and the inline rail in `collapsed`
+  // mode. It starts FALSE so the drawer is closed on first load (PR-Q69:
+  // an initially-open overlay drawer blocked all touch input).
+  //
+  // The `persistent` desktop rail does not depend on it: the rail and its
+  // 240px grid column are in the server-rendered HTML and shown by CSS at
+  // lg+ (`hidden lg:block`). Opening it from a post-hydration matchMedia
+  // effect added the column after first paint and pushed the whole main
+  // column right — live CLS 0.17–0.60 at 1440px (2026-10-08).
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    if (mode === 'persistent' && window.matchMedia('(min-width: 1024px)').matches) {
-      setSidebarOpen(true);
-    }
-  }, [mode]);
 
-  const showInline = sidebarOpen;
+  const showInline = mode === 'persistent' || sidebarOpen;
   const isOverlay = sidebarOpen;
 
   // Track viewport to know whether the mobile drawer is actually visible.
@@ -135,7 +129,8 @@ export default function AppShell({
             showInline ? 'lg:grid-cols-[240px_1fr]' : 'lg:grid-cols-[1fr]'
           } grid-cols-[1fr]`}
         >
-        {/* Inline sidebar — only mounted at lg+ AND when toggled open */}
+        {/* Inline sidebar — visible at lg+ only (CSS); always rendered in
+            persistent mode, rendered when toggled open in collapsed mode */}
         {showInline && (
           <div className="hidden lg:block">
             <Sidebar groups={sidebarGroups} meta={sidebarMeta} />

@@ -306,6 +306,9 @@ export default function BestOf({
                     position={rank}
                     surface={trackingSurface}
                     className="flex-1 lg:w-full text-center bg-ds-accent hover:bg-ds-accent-press text-white border-0 py-2 px-2 rounded-[8px] text-[12px] font-semibold focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
+                    noticeStrings={uiStrings.noPurchaseLink}
+                    noticeVariant="compact"
+                    noticeClassName="flex-1 lg:w-full text-center"
                   >
                     Visit →
                   </TrackedAffiliateLink>

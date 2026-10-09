@@ -31,6 +31,8 @@ export { default as EditorialStandardsSection } from './EditorialStandardsSectio
 export { trackAffiliateClick } from './trackAffiliateClick';
 export type { AffiliateClickContext } from './trackAffiliateClick';
 export { default as TrackedAffiliateLink } from './TrackedAffiliateLink';
+export { default as NoPurchaseLinkNotice } from './NoPurchaseLinkNotice';
+export type { NoPurchaseLinkNoticeProps } from './NoPurchaseLinkNotice';
 
 // Design system primitives (Stack redesign — M1 foundation)
 export { Card } from './primitives/Card';
