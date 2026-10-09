@@ -41,6 +41,16 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.variable}>
+      <head>
+        {/* Impact.com site verification (thenootropiclab.com media property).
+            Impact's snippet uses `value`, not `content`, so it can't go in
+            metadata.other. Not a tracker — deliberately not consent-gated. */}
+        <meta
+          name="impact-site-verification"
+          // @ts-expect-error -- `value` is not in React's MetaHTMLAttributes; Impact's verifier reads it.
+          value="d79c4b5e-1c89-4f95-ad58-8bbdf584264a"
+        />
+      </head>
       <body>
         {children}
         <CookieBanner />
