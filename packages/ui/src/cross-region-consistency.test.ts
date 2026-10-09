@@ -34,14 +34,13 @@ function value(p: Product, field: Field): string {
 // (gcc/sea). Each entry must still be a real mismatch — delete it once fixed.
 //
 // Primary regions: the formula differs between records and the 2026-09-28
-// vendor verification could not read either supplement-facts panel (Hunter
-// Focus panel is an image; Performance Lab Mind is discontinued and the two
-// source descriptions conflict). Needs a verified panel before unifying.
+// vendor verification could not read the supplement-facts panel (Hunter
+// Focus panel is an image). Needs a verified panel before unifying.
+// (Performance Lab Mind was unified on 2026-10-09 from its archived
+// 2024-10-09 label.)
 const PRIMARY_BASELINE = new Set<string>([
   'hunter-focus-review/heroIngredients',
   'hunter-focus-review/ingredientDosages',
-  'performance-lab-mind-review/heroIngredients',
-  'performance-lab-mind-review/ingredientDosages',
 ]);
 // GCC/SEA: SEA's Blackmores Brain Active record lists a different formula
 // (Keenmind Bacopa 160mg, Ginkgo, DHA, PS) from the AU record, and the
