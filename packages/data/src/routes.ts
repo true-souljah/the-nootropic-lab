@@ -36,7 +36,6 @@ export const REGION_ONLY_ROUTES: Readonly<Record<string, readonly RegionCode[]>>
   '/mind-lab-pro-vs-qualia-mind': ['us'],
   '/mind-lab-pro-vs-thesis': ['us'],
   '/alpha-brain-vs-qualia-mind': ['us'],
-  '/alpha-brain-vs-mind-lab-pro-vs-noocube': ['us'],
   '/shortlist': ['us'],
   '/dose-calculator': ['us'],
   '/aor-ortho-mind-vs-mind-lab-pro': ['ca'],

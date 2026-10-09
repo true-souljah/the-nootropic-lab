@@ -110,6 +110,8 @@ export {
 
 // Route availability per region (GSC 404 cleanup, 2026-09)
 export { ALL_REGIONS, REGION_ONLY_ROUTES, routeAvailableIn, regionsWithProduct } from './routes';
+export type { HeadToHeadPage } from './head-to-head';
+export { HEAD_TO_HEAD_PAGES, headToHeadFor } from './head-to-head';
 
 // Sitemap <lastmod> from content history (2026-09 GSC work)
 export { routeDates, contentFileDate, latestDate } from './sitemap-dates';

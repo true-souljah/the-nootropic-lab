@@ -12,11 +12,11 @@ import { test, expect } from '@playwright/test';
 //
 // Extends WCAG 2.4.13 Focus Appearance (Level AA in WCAG 2.2)
 // coverage from chrome-shared Listicle (PR-Q58 US + Q59 portfolio
-// sweep) to the same four template surfaces:
+// sweep) to the same template surfaces (ThreeWay's only page was
+// consolidated into a 2-way page on 2026-10-09):
 //
 //   /mind-lab-pro-review/                    — ProductDetail
 //   /alpha-brain-vs-qualia-mind/             — HeadToHead
-//   /alpha-brain-vs-mind-lab-pro-vs-noocube/ — ThreeWay
 //   /ingredients/l-theanine/                 — IngredientDetail
 //
 // Why focus-appearance on these surfaces is the highest-EV depth
@@ -139,15 +139,6 @@ test.describe('US template-depth focus-appearance — WCAG 2.4.13', () => {
     expect(
       offenders,
       `Focus Appearance offenders on HeadToHead (no visible ≥ ${MIN_OUTLINE_WIDTH_PX}px ring):\n${JSON.stringify(offenders, null, 2)}\n\nFull walk:\n${JSON.stringify(probes, null, 2)}`,
-    ).toHaveLength(0);
-  });
-
-  test('/alpha-brain-vs-mind-lab-pro-vs-noocube/ (ThreeWay) — every Tab stop has ≥ 2px focus indicator', async ({ page }) => {
-    const probes = await walkAndProbe(page, '/alpha-brain-vs-mind-lab-pro-vs-noocube/');
-    const offenders = offendersFrom(probes);
-    expect(
-      offenders,
-      `Focus Appearance offenders on ThreeWay (no visible ≥ ${MIN_OUTLINE_WIDTH_PX}px ring):\n${JSON.stringify(offenders, null, 2)}\n\nFull walk:\n${JSON.stringify(probes, null, 2)}`,
     ).toHaveLength(0);
   });
 

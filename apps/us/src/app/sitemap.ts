@@ -35,7 +35,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/best-nootropics-for-energy/`, lastModified: d.productListing('best-nootropics-for-energy'), changeFrequency: 'weekly', priority: 0.75 },
     { url: `${BASE}/natural-adderall-alternatives/`, lastModified: d.productListing('natural-adderall-alternatives'), changeFrequency: 'weekly', priority: 0.85 },
     { url: `${BASE}/are-nootropics-fda-approved/`, lastModified: d.productListing('are-nootropics-fda-approved'), changeFrequency: 'monthly', priority: 0.75 },
-    { url: `${BASE}/alpha-brain-vs-mind-lab-pro-vs-noocube/`, lastModified: d.productListing('alpha-brain-vs-mind-lab-pro-vs-noocube'), changeFrequency: 'weekly', priority: 0.75 },
     // /quiz/ and /dose-calculator/ deliberately excluded — both pages set
     // `robots: { index: false }` (user-input-dependent tools), so including
     // them was a "Submitted URL marked noindex" contradiction in GSC.

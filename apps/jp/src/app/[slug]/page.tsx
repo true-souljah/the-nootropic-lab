@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ProductDetail, SchemaOrg, buildAlternates} from '@nootropic/ui';
-import { allProductsJP, productsJP, regionsWithProduct, buildProductSchema, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { allProductsJP, productsJP, regionsWithProduct, headToHeadFor, buildProductSchema, getRegionalHealthDisclaimer } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
 import { regionalProductProps } from '@/lib/regional';
@@ -67,6 +67,7 @@ export default async function ProductReviewPage({
       <ProductDetail
         product={product}
         alternatives={alternatives}
+        headToHead={headToHeadFor(product.slug, 'jp')}
         siteUrl={SITE_URL}
         searchItems={searchItems}
         uiStrings={uiStrings}

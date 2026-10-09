@@ -49,6 +49,12 @@ export interface ProductDetailProps {
   healthDisclaimer?: string;
   /** "Buying in <region>" block: local price, licence status, channels, local guides. */
   regional?: Omit<RegionalBuyingProps, 'id'>;
+  /**
+   * Head-to-head pages on this host that compare this product. Pass
+   * `headToHeadFor(slug, region)` from @nootropic/data at the page (server
+   * side); the section is not rendered when the list is empty.
+   */
+  headToHead?: { label: string; href: string }[];
 }
 
 /**
@@ -66,6 +72,7 @@ export default function ProductDetail({
   uiStrings,
   healthDisclaimer,
   regional,
+  headToHead,
 }: ProductDetailProps) {
   const [tab, setTab] = useState<TabId>('overview');
 
@@ -308,6 +315,23 @@ export default function ProductDetail({
         )}
 
         {regional && !discontinued && <RegionalBuying {...regional} id="regional-buying" />}
+
+        {headToHead && headToHead.length > 0 && (
+          <section className="mt-10" aria-labelledby="product-head-to-head-heading">
+            <h2 id="product-head-to-head-heading" className="text-[18px] font-bold tracking-[-0.01em] m-0 mb-4 text-ds-ink">
+              {uiStrings.footer.headToHead.heading}
+            </h2>
+            <ul className="grid gap-2 list-disc pl-5 text-[15px] leading-[1.6] text-ds-ink-soft">
+              {headToHead.map((c) => (
+                <li key={c.href}>
+                  <Link href={c.href} className="text-ds-accent underline">
+                    {c.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         {/* Always-shown alternatives rail (never recommends a discontinued product) */}
         {recommendable.length > 0 && (
