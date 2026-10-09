@@ -60,7 +60,7 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes citicoline, Alpha-GPC, L-theanine, and L-tyrosine — covers nearly every evidence-backed focus mechanism. Vegetarian capsules (hypromellose), per the brand (checked 2026-10-07). Caveat for GCC buyers: the default formula contains 90mg caffeine per serving — request the caffeine-free variant where offered. We have not verified an SFDA or MOHAP product registration, and Qualia does not ship to any GCC state (brand shipping page, checked 2026-09-28). Premium price ($159 list) and 7+ capsules/day are real friction points.',
+      'Includes citicoline, Alpha-GPC, L-theanine, and L-tyrosine — covers nearly every evidence-backed focus mechanism. Vegetarian capsules (hypromellose), per the brand (checked 2026-10-07). Caveat for GCC buyers: the default formula contains 100mg caffeine per serving — request the caffeine-free variant where offered. We have not verified an SFDA or MOHAP product registration, and Qualia does not ship to any GCC state (brand shipping page, checked 2026-09-28). Premium price ($159 list) and 6 capsules/day are real friction points.',
   },
   {
     product: productsGCC.find(p => p.slug === 'noocube-review')!,

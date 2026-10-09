@@ -66,7 +66,7 @@ const picks: ListiclePick[] = [
     product: productsUS.find(p => p.slug === 'qualia-mind-review')!,
     rank: 3,
     whyItsHere:
-      'Available in caffeinated and caffeine-free variants. The caffeinated SKU includes 90mg caffeine + 200mg L-theanine — the closest match to the evidence-backed ratio. 28-ingredient breadth includes Rhodiola, citicoline, and B-vitamins. Highest-friction option (7+ caps/day, $139/mo subscription).',
+      'Available in caffeinated and caffeine-free variants. The caffeinated SKU includes 100mg caffeine + 200mg L-theanine — the closest match to the evidence-backed ratio. 31-ingredient breadth includes Rhodiola, citicoline, and B-vitamins. Highest-friction option (6 caps/day, $139/mo subscription).',
   },
   {
     product: productsUS.find(p => p.slug === 'onnit-alpha-brain-review')!,
