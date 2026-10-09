@@ -1318,6 +1318,12 @@
       "trust": 7
     },
     "priceMonthlyUSD": 90,
+    "priceBasis": {
+      "source": "vendor-one-time",
+      "quoteField": "vendorTerms.oneTimePrice",
+      "monthsOfSupply": 1,
+      "checkedAt": "2026-10-07"
+    },
     "pricingModel": "one-time",
     "moneyBackDays": null,
     "caffeineFree": false,
@@ -1527,6 +1533,12 @@
       "trust": 7
     },
     "priceMonthlyUSD": 64.95,
+    "priceBasis": {
+      "source": "vendor-one-time",
+      "quoteField": "vendorTerms.oneTimePrice",
+      "monthsOfSupply": 1,
+      "checkedAt": "2026-10-07"
+    },
     "pricingModel": "both",
     "moneyBackDays": null,
     "caffeineFree": true,

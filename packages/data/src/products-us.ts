@@ -54,6 +54,22 @@ export interface VendorTerms {
   guarantee?: VendorTerm;
 }
 
+/**
+ * Where the region's stored monthly price comes from. Written only by
+ * scripts/derive-prices-from-vendor-quotes.ts: the stored price is the one
+ * price in `vendorTerms.oneTimePrice` divided by the months of supply that
+ * quote's own pack statement gives (vendor-price.ts). validate-data fails when
+ * the price, months or date no longer match what the quote derives.
+ */
+export interface PriceBasis {
+  source: 'vendor-one-time';
+  quoteField: 'vendorTerms.oneTimePrice';
+  /** Months of supply in the quoted pack (one serving a day, 30-day months). */
+  monthsOfSupply: number;
+  /** ISO date (YYYY-MM-DD) the vendor page was read (= vendorTerms.checkedAt). */
+  checkedAt: string;
+}
+
 export interface Product {
   id: string;
   name: string;
@@ -86,6 +102,8 @@ export interface Product {
   priceMonthlyCAD?: number;
   priceMonthlyAUD?: number;
   priceMonthlyJPY?: number;
+  /** Set when the region's monthly price is derived from the vendor's one-time price quote (see PriceBasis). */
+  priceBasis?: PriceBasis;
   pricingModel: 'one-time' | 'subscription' | 'both';
   /** null = no single guarantee length is published (none, or conflicting terms); rendered as "—", never "null days". */
   moneyBackDays: number | null;
