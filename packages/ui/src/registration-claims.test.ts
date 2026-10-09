@@ -302,3 +302,55 @@ describe('round ten: monograph, Singapore import, Mind Lab Pro maker and EU pric
     expect(hits).toEqual([]);
   });
 });
+
+// Round eleven (2026-10-09, research p5/ca-lnhpd.json Task C and
+// p5/ca-monographs-and-leftovers.json; CBSA page fetched 2026-10-09).
+// - Only amazon.ca's first results page was checked for Alpha Brain;
+//   walmart.ca and gnc.ca never were.
+// - Health Canada publishes NHPID monographs for phosphatidylserine and
+//   Ginkgo; "recognised" is not its wording.
+// - No source supports "all products we recommend use Health Canada-
+//   permissible / Santé Canada-authorised ingredients".
+// - The CBSA courier thresholds are $40 (duty and tax) and $150 (duty) for
+//   US/Mexico shipments; "under CAD $150 … typically enter duty-free" left
+//   out taxes and the mail channel. Copy quotes the CBSA page instead.
+const ROUND_ELEVEN_SOURCES = walk(resolve(APPS_DIR, 'ca', 'src'));
+
+const ROUND_ELEVEN_UNSOURCED: RegExp[] = [
+  /Health Canada[- ]recogni[sz]ed/i,
+  /Health Canada-permissible ingredients/i,
+  /ingrédients autorisés par Santé Canada/i,
+  /typically enter duty-free/i,
+  /We searched .{0,60}walmart/i,
+];
+
+describe('round eleven: Canada retailer, recognition, ingredient and duty wording follow the sources', () => {
+  test('scanned a non-empty file set', () => {
+    expect(ROUND_ELEVEN_SOURCES.length).toBeGreaterThan(20);
+    expect(ROUND_ELEVEN_SOURCES.some(f => /apps\/ca\/src\/app\/alpha-brain-canada\/page\.tsx$/.test(f))).toBe(true);
+    expect(ROUND_ELEVEN_SOURCES.some(f => /apps\/ca\/src\/app\/fr\/meilleurs-nootropiques\/page\.tsx$/.test(f))).toBe(true);
+    expect(ROUND_ELEVEN_SOURCES.some(f => /apps\/ca\/src\/app\/provinces\/\[province\]\/page\.tsx$/.test(f))).toBe(true);
+    expect(ROUND_ELEVEN_SOURCES.every(f => existsSync(f))).toBe(true);
+  });
+
+  test('the patterns catch the removed wording', () => {
+    const removed = [
+      'PS + Ginkgo Health Canada-recognised',
+      'All products we recommend use Health Canada-permissible ingredients.',
+      'Tous les produits que nous recommandons utilisent des ingrédients autorisés par Santé Canada.',
+      'Orders under CAD $150 from the US typically enter duty-free under CUSMA/USMCA.',
+      'We searched amazon.ca, walmart.ca and gnc.ca and could not confirm any Canadian retailer stocking Alpha',
+    ];
+    for (const s of removed) expect(ROUND_ELEVEN_UNSOURCED.some(re => re.test(s))).toBe(true);
+  });
+
+  test('no CA source uses the unsourced wording', () => {
+    const hits = ROUND_ELEVEN_SOURCES.flatMap(file => {
+      const lines = readFileSync(file, 'utf8').split('\n');
+      return lines.flatMap((line, i) =>
+        ROUND_ELEVEN_UNSOURCED.some(re => re.test(line)) ? [`${relative(REPO_ROOT, file)}:${i + 1}`] : [],
+      );
+    });
+    expect(hits).toEqual([]);
+  });
+});

@@ -93,6 +93,9 @@ describe('ingredient pages list only products that contain the ingredient', () =
       expect(p.ingredientDosages.map((d) => d.name)).toEqual(['Curcumin (Longvida® turmeric extract)']);
       expect(p.ingredientDosages[0].doseInProduct).toBe('400mg (80mg curcumin)');
     }
-    expect(ingredients.filter((i) => i.productsContaining?.includes('blackmores-brain-active-review'))).toEqual([]);
+    // Its one active has its own evidence page; no other ingredient page may list it.
+    expect(
+      ingredients.filter((i) => i.productsContaining?.includes('blackmores-brain-active-review')).map((i) => i.slug),
+    ).toEqual(['longvida-curcumin']);
   });
 });

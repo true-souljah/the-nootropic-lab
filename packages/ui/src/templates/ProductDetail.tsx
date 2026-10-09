@@ -21,6 +21,7 @@ import { PillarsTab } from './product-detail/PillarsTab';
 import { ReviewsTab } from './product-detail/ReviewsTab';
 import { PricingTab } from './product-detail/PricingTab';
 import RegionalBuying from '../RegionalBuying';
+import { formatLocalPrice } from '../RegionalAvailability';
 import type { RegionalBuyingProps } from '../RegionalBuying';
 
 export interface ProductDetailProps {
@@ -115,7 +116,7 @@ export default function ProductDetail({
 
   const priceStat: [string, string, boolean] = [
     pd.stats.price,
-    regional?.data.price ? `${new Intl.NumberFormat(regional.data.price.locale, { style: 'currency', currency: regional.data.price.currency, maximumFractionDigits: 0 }).format(regional.data.price.amount)}/${pd.stats.monthUnit}` : p.priceMonthlyUSD ? `$${p.priceMonthlyUSD}/${pd.stats.monthUnit}` : '—',
+    regional?.data.price ? `${formatLocalPrice(regional.data.price.amount, regional.data.price.currency, regional.data.price.locale)}/${pd.stats.monthUnit}` : p.priceMonthlyUSD ? `$${p.priceMonthlyUSD}/${pd.stats.monthUnit}` : '—',
     false,
   ];
 

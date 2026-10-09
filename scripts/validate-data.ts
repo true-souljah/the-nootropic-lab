@@ -6,8 +6,9 @@ import {
   validateRegionalNotes, productRuleProblems, DOSING_ANCHORS, dosingAnchorProblems, halalEvidenceProblem,
   VENDOR_TERM_FIELDS,
   seoOverrideProblems, noPurchaseLinkProblem, purchaseUrl,
+  priceBasisProblems,
 } from '../packages/data/src/index';
-import type { Product } from '../packages/data/src/index';
+import type { Product, RegionalRegionCode } from '../packages/data/src/index';
 
 // Full lists: discontinued records still render a review page, so they are validated too.
 const regions: Record<string, unknown[]> = {
@@ -39,14 +40,6 @@ const KNOWN_RULE_VIOLATIONS: Readonly<Record<string, { rules: readonly RuleName[
   'latam/mind-lab-pro-review': { rules: ['affiliateUrl'], reason: 'UberNet-tracked homepage link; deep-link attribution not confirmed' },
   'gcc/mind-lab-pro-review': { rules: ['affiliateUrl'], reason: 'UberNet-tracked homepage link; deep-link attribution not confirmed' },
   'sea/mind-lab-pro-review': { rules: ['affiliateUrl'], reason: 'UberNet-tracked homepage link; deep-link attribution not confirmed' },
-  'us/noocube-review': { rules: ['affiliateUrl'], reason: 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)' },
-  'eu/noocube-review': { rules: ['affiliateUrl'], reason: 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)' },
-  'ca/noocube-review': { rules: ['affiliateUrl'], reason: 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)' },
-  'au/noocube-review': { rules: ['affiliateUrl'], reason: 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)' },
-  'jp/noocube-review': { rules: ['affiliateUrl'], reason: 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)' },
-  'latam/noocube-review': { rules: ['affiliateUrl'], reason: 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)' },
-  'gcc/noocube-review': { rules: ['affiliateUrl'], reason: 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)' },
-  'sea/noocube-review': { rules: ['affiliateUrl'], reason: 'no verified product URL (vendor verification 2026-09-28 only reached the homepage)' },
   'us/thesis-nootropics-review': { rules: ['affiliateUrl'], reason: 'personalised subscription; no single product URL verified' },
   'latam/thesis-nootropics-review': { rules: ['affiliateUrl'], reason: 'personalised subscription; no single product URL verified' },
   'gcc/thesis-nootropics-review': { rules: ['affiliateUrl'], reason: 'personalised subscription; no single product URL verified' },
@@ -140,6 +133,33 @@ if (vendorTermRecords === 0) {
   failed++;
 } else {
   console.log(`ok vendor-terms: ${vendorTermRecords} records carry ${vendorTermCount} quoted terms`);
+}
+
+// Prices from vendor quotes (site-owner decision 2026-10-08): a record with
+// `priceBasis` must store exactly the monthly price its vendorTerms.oneTimePrice
+// quote derives (packages/data/src/vendor-price.ts, the function
+// scripts/derive-prices-from-vendor-quotes.ts writes with), and a quote that
+// derives a price in the region's currency requires `priceBasis`. No
+// grandfather list. A scan that finds no priceBasis fails, so a dropped field
+// cannot pass silently.
+let pricedFromQuotes = 0;
+let priceProblems = 0;
+for (const [region, products] of Object.entries(regions)) {
+  for (const item of products as Product[]) {
+    if (item.priceBasis !== undefined) pricedFromQuotes++;
+    for (const problem of priceBasisProblems(item, region as RegionalRegionCode)) {
+      console.error(`FAIL ${region}/${item.slug}: ${problem}`);
+      priceProblems++;
+    }
+  }
+}
+if (pricedFromQuotes === 0) {
+  console.error('FAIL price-basis: no record carries priceBasis');
+  priceProblems++;
+}
+failed += priceProblems;
+if (priceProblems === 0) {
+  console.log(`ok price-basis: ${pricedFromQuotes} prices equal what their vendor one-time quote derives`);
 }
 
 // Halal evidence (2026-10-07): a record with `halalCertified` defined must

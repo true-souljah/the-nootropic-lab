@@ -248,9 +248,8 @@ export default function Page() {
             </TrackedAffiliateLink>
           </p>
           <p className="text-sm text-gray-700 leading-relaxed">
-            We searched amazon.ca, walmart.ca and gnc.ca and could not confirm any Canadian retailer stocking Alpha
-            Brain; on {LNHPD_CHECKED_ON} amazon.ca&apos;s first page of results for &ldquo;onnit alpha brain&rdquo;
-            showed no Onnit listing. That does not mean none exists; if you find one, check that the listing is sold by a
+            On {LNHPD_CHECKED_ON}, amazon.ca&apos;s first page of results for &ldquo;onnit alpha brain&rdquo;
+            showed no Onnit listing; we did not check other Canadian retailers. That does not mean none exists; if you find one, check that the listing is sold by a
             reputable seller and that the lot and expiry date are printed on the bottle.
           </p>
         </section>
