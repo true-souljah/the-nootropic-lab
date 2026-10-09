@@ -35,8 +35,8 @@ const AMOUNT = String.raw`(\d[\d,]*(?:\.\d+)?)`;
 const QUOTED = new RegExp(String.raw`(?:US\$|CA\$|C\$|AU\$|A\$|S\$|\$|€|¥|￥|₱)\s?${AMOUNT}|${AMOUNT}\s?(?:€|円)`, 'gu');
 /** A currency-marked amount stated per month: "$69/month", "AUD $215/mo", "$139 USD/mes", "31,75 €/Monat". */
 const PER_MONTH = new RegExp(
-  String.raw`(?:(?:US|CA|AU|A|C|S)?\$|AUD\s?\$?|CAD\s?~?\$?|USD\s?\$?|€|¥|￥)\s?~?${AMOUNT}(?:\s?(?:USD|AUD|CAD|EUR))?\s?(?:\/\s?(?:mo|month|mes|Monat|mois|月)\b|per month|a month|al mes|par mois|pro Monat)` +
-    String.raw`|${AMOUNT}\s?(?:€|円)\s?(?:\/\s?(?:mo|month|mes|Monat|mois|月)|al mes|par mois|pro Monat)`,
+  String.raw`(?:(?:US|CA|AU|A|C|S)?\$|AUD\s?\$?|CAD\s?~?\$?|USD\s?\$?|€|¥|￥)\s?~?${AMOUNT}(?:\s?(?:USD|AUD|CAD|EUR))?\s?(?:\/\s?(?:mo|month|mes|Monat|mois)\b|\/\s?月|per month|a month|al mes|par mois|pro Monat)` +
+    String.raw`|${AMOUNT}\s?(?:€|円)\s?(?:\/\s?(?:mo|month|mes|Monat|mois)\b|\/\s?月|al mes|par mois|pro Monat)`,
   'giu',
 );
 
@@ -151,6 +151,8 @@ describe('prose monthly prices come from the vendor', () => {
     expect(amountsIn('at €31.75/mo', PER_MONTH)).toEqual([31.75]);
     expect(amountsIn('A$89/month on its storefront', PER_MONTH)).toEqual([89]);
     expect(amountsIn('then $79 a month', PER_MONTH)).toEqual([79]);
+    expect(amountsIn('¥8,850/月', PER_MONTH)).toEqual([8850]);
+    expect(amountsIn('5,479円/月', PER_MONTH)).toEqual([5479]);
     expect(amountsIn('$79.95 for a 90-count bottle', PER_MONTH)).toEqual([]);
     expect(amountsIn('Ultimate Bundle drops effective price below $70/month', PER_MONTH)).toEqual([]);
   });
