@@ -58,7 +58,46 @@ export interface UseCaseListPageStrings {
   belowBarReason: string;
   /** "In this guide" sidebar link to that section */
   alsoConsideredToc: string;
+  /** "Audited · {date}" chip label above the H1 */
+  audited: string;
+  /** FPByline: team credit, fact-check badge, "Updated" label and read-time suffix */
+  bylineAttribution: string;
+  bylineFactChecked: string;
+  bylineUpdated: string;
+  bylineReadSuffix: string;
+  /** Label for the page's use case in "Our picks for {label}"; a missing key renders the useCase slug fragment */
+  useCaseLabels: Partial<Record<string, string>>;
+  /** Pick-card chips */
+  caffeineFree: string;
+  hasCaffeine: string;
+  /**
+   * Monthly-price unit WITHOUT the slash ("mo"), rendered `$59/{monthUnit}`:
+   * a string starting with "/" in the RSC payload gets crawled as a URL.
+   */
+  monthUnit: string;
+  /** Money-back length on the pick card — uses {days} */
+  moneyBackDays: string;
+  /** Label after the money-back length ("MBG") */
+  moneyBackLabel: string;
+  /** "Our score" panel label */
+  ourScore: string;
+  /** Pillar names in the score panel (rendered with CSS capitalize) */
+  pillarLabels: Record<ListiclePillar, string>;
+  /** Accessible name of each pillar bar — uses {name} and {pillar} */
+  pillarScoreLabel: string;
+  /** Accessible name of the score pill — uses {score} and {max} */
+  scoreAriaLabel: string;
+  /** "Related guides" heading and the sibling-listicle link labels */
+  relatedGuides: string;
+  relatedGuideLabels: Record<RelatedGuideUseCase, string>;
+  /** Sidebar table-of-contents heading */
+  inThisGuide: string;
 }
+
+/** Score-panel pillars on a Listicle pick card. */
+export type ListiclePillar = 'ingredients' | 'dosing' | 'transparency';
+/** Use cases with a "Related guides" link on every Listicle. */
+export type RelatedGuideUseCase = 'focus' | 'memory' | 'studying' | 'aging';
 
 export const useCaseListPageEnDefaults: UseCaseListPageStrings = {
   home: 'Home',
@@ -90,6 +129,29 @@ export const useCaseListPageEnDefaults: UseCaseListPageStrings = {
     'Products audited for this guide that score below the {minScore}/10 a ranked pick needs in our 5-pillar editorial audit. Listed for transparency, not ranked or recommended.',
   belowBarReason: 'Scores {score}/10 — below our {minScore} bar',
   alsoConsideredToc: 'Also considered',
+  audited: 'Audited',
+  bylineAttribution: 'By The Nootropic Lab editorial team',
+  bylineFactChecked: '✓ Fact-checked',
+  bylineUpdated: 'Updated',
+  bylineReadSuffix: 'read',
+  useCaseLabels: {},
+  caffeineFree: 'Caffeine-free',
+  hasCaffeine: 'Caffeine',
+  monthUnit: 'mo',
+  moneyBackDays: '{days}d',
+  moneyBackLabel: 'MBG',
+  ourScore: 'Our score',
+  pillarLabels: { ingredients: 'ingredients', dosing: 'dosing', transparency: 'transparency' },
+  pillarScoreLabel: '{name} {pillar} score',
+  scoreAriaLabel: 'Score {score} out of {max}',
+  relatedGuides: 'Related guides',
+  relatedGuideLabels: {
+    focus: 'Best nootropics for focus',
+    memory: 'Best nootropics for memory',
+    studying: 'Best nootropics for studying',
+    aging: 'Best nootropics for aging',
+  },
+  inThisGuide: 'In this guide',
 };
 
 export const useCaseListPageEsStrings: Partial<UseCaseListPageStrings> = {
@@ -123,6 +185,34 @@ export const useCaseListPageEsStrings: Partial<UseCaseListPageStrings> = {
     'Productos auditados para esta guía cuya puntuación queda por debajo del {minScore}/10 que necesita una selección clasificada en nuestra auditoría editorial de 5 pilares. Se incluyen por transparencia; no están clasificados ni recomendados.',
   belowBarReason: 'Puntuación de {score}/10 — por debajo de nuestro umbral de {minScore}',
   alsoConsideredToc: 'También evaluados',
+  audited: 'Auditado',
+  bylineAttribution: 'Por el equipo editorial de The Nootropic Lab',
+  bylineFactChecked: '✓ Datos verificados',
+  bylineUpdated: 'Actualizado',
+  bylineReadSuffix: 'de lectura',
+  useCaseLabels: {
+    focus: 'la concentración',
+    memory: 'la memoria',
+    studying: 'estudiar',
+    aging: 'el cerebro adulto mayor',
+  },
+  caffeineFree: 'Sin cafeína',
+  hasCaffeine: 'Con cafeína',
+  monthUnit: 'mes',
+  moneyBackDays: '{days} días',
+  moneyBackLabel: 'de garantía',
+  ourScore: 'Nuestra puntuación',
+  pillarLabels: { ingredients: 'ingredientes', dosing: 'dosis', transparency: 'transparencia' },
+  pillarScoreLabel: 'Puntuación de {pillar} de {name}',
+  scoreAriaLabel: 'Puntuación {score} de {max}',
+  relatedGuides: 'Guías relacionadas',
+  relatedGuideLabels: {
+    focus: 'Mejores nootrópicos para la concentración',
+    memory: 'Mejores nootrópicos para la memoria',
+    studying: 'Mejores nootrópicos para estudiar',
+    aging: 'Mejores nootrópicos para el cerebro adulto mayor',
+  },
+  inThisGuide: 'En esta guía',
 };
 
 export interface HeadToHeadPageStrings {

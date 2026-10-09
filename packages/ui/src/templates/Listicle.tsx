@@ -18,6 +18,7 @@ import type { Product, UIStrings } from '@nootropic/data';
 import {
   useCaseListPageEnDefaults,
   tpl,
+  type RelatedGuideUseCase,
   type UseCaseListPageStrings,
 } from '../templateStrings';
 import {
@@ -98,6 +99,9 @@ export interface ListicleProps {
 }
 
 const TODAY = new Date();
+
+/** Sibling listicles linked under "Related guides" (the page's own use case is skipped). */
+const RELATED_GUIDE_USE_CASES: readonly RelatedGuideUseCase[] = ['focus', 'memory', 'studying', 'aging'];
 
 /**
  * Listicle — public/SEO template for "Best nootropics for {topic}" pages.
@@ -214,7 +218,7 @@ export default function Listicle({
         */}
         <div className="grid gap-12 items-start grid-cols-1 md:grid-cols-[1fr_320px]">
           <article>
-            <Chip tone="accent">Audited · {updatedDisplay}</Chip>
+            <Chip tone="accent">{s.audited} · {updatedDisplay}</Chip>
             <h1 className="text-[40px] font-bold leading-[1.1] tracking-[-0.025em] mt-3 mb-3 text-ds-ink">
               {pageTitle} {currentYear}
             </h1>
@@ -225,7 +229,14 @@ export default function Listicle({
               {heroParagraph}
             </p>
 
-            <FPByline updated={updatedDisplay} read={readTime} />
+            <FPByline
+              updated={updatedDisplay}
+              read={readTime}
+              attribution={s.bylineAttribution}
+              factCheckedLabel={s.bylineFactChecked}
+              updatedLabel={s.bylineUpdated}
+              readSuffix={s.bylineReadSuffix}
+            />
 
             <aside
               role="note"
@@ -260,7 +271,7 @@ export default function Listicle({
 
             <section className="my-10">
               <h2 className="text-[26px] font-bold text-ds-ink mb-2">
-                {s.ourPicksFor} {useCase}
+                {s.ourPicksFor} {s.useCaseLabels[useCase] ?? useCase}
               </h2>
               <p className="text-[14px] text-ds-muted mb-4">{s.picksIntro}</p>
               <FPTrustNote strings={uiStrings.disclosure} className="mb-6" />
@@ -278,9 +289,9 @@ export default function Listicle({
                             {isTop ? ` · ${s.topPick}` : ''}
                           </Chip>
                           {pick.product.caffeineFree ? (
-                            <Chip tone="good">Caffeine-free</Chip>
+                            <Chip tone="good">{s.caffeineFree}</Chip>
                           ) : (
-                            <Chip tone="warn">Caffeine</Chip>
+                            <Chip tone="warn">{s.hasCaffeine}</Chip>
                           )}
                           <span className="text-[12px] text-ds-muted ml-1">{pick.product.brand}</span>
                         </div>
@@ -294,7 +305,7 @@ export default function Listicle({
                         <div className="text-[12.5px] text-ds-muted mb-4 ds-tabular">
                           {pick.product.priceMonthlyUSD && (
                             <>
-                              {`$${pick.product.priceMonthlyUSD}/mo`} · {servingAmount(pick.product, uiStrings)} · {guaranteeDays(pick.product.moneyBackDays, (d) => `${d}d`)} MBG
+                              {`$${pick.product.priceMonthlyUSD}/${s.monthUnit}`} · {servingAmount(pick.product, uiStrings)} · {guaranteeDays(pick.product.moneyBackDays, (d) => tpl(s.moneyBackDays, { days: d }))} {s.moneyBackLabel}
                             </>
                           )}
                         </div>
@@ -326,9 +337,15 @@ export default function Listicle({
                           <Card variant="subdued" padding={16}>
                             <div className="flex items-center justify-between mb-3">
                               <span className="text-[11px] uppercase tracking-[0.12em] text-ds-muted font-semibold">
-                                Our score
+                                {s.ourScore}
                               </span>
-                              <ScorePill score={pick.product.score} />
+                              <ScorePill
+                                score={pick.product.score}
+                                label={tpl(s.scoreAriaLabel, {
+                                  score: pick.product.score.toFixed(1),
+                                  max: (10).toFixed(1),
+                                })}
+                              />
                             </div>
                             <div className="flex flex-col gap-[6px]">
                               {(['ingredients', 'dosing', 'transparency'] as const).map((key) => {
@@ -339,11 +356,11 @@ export default function Listicle({
                                     className="grid items-center gap-2"
                                     style={{ gridTemplateColumns: '92px 1fr 24px' }}
                                   >
-                                    <span className="text-[11px] text-ds-muted capitalize">{key}</span>
+                                    <span className="text-[11px] text-ds-muted capitalize">{s.pillarLabels[key]}</span>
                                     <Bar
                                       value={v ?? 0}
                                       decorative={v === null}
-                                      label={`${pick.product.name} ${key} score`}
+                                      label={tpl(s.pillarScoreLabel, { name: pick.product.name, pillar: s.pillarLabels[key] })}
                                     />
                                     <span className="text-[11px] text-ds-ink text-right ds-tabular">{pillarText(v)}</span>
                                   </div>
@@ -413,37 +430,16 @@ export default function Listicle({
                 id="related-guides-heading"
                 className="text-[26px] font-bold text-ds-ink mb-4"
               >
-                Related guides
+                {s.relatedGuides}
               </h2>
               <ul className="grid gap-2 list-disc pl-5 text-[15px] leading-[1.6] text-ds-ink-soft">
-                {useCase !== 'focus' && (
-                  <li>
-                    <Link href="/best-nootropics-for-focus/" className="text-ds-accent underline">
-                      Best nootropics for focus
+                {RELATED_GUIDE_USE_CASES.filter((u) => u !== useCase).map((u) => (
+                  <li key={u}>
+                    <Link href={`/best-nootropics-for-${u}/`} className="text-ds-accent underline">
+                      {s.relatedGuideLabels[u]}
                     </Link>
                   </li>
-                )}
-                {useCase !== 'memory' && (
-                  <li>
-                    <Link href="/best-nootropics-for-memory/" className="text-ds-accent underline">
-                      Best nootropics for memory
-                    </Link>
-                  </li>
-                )}
-                {useCase !== 'studying' && (
-                  <li>
-                    <Link href="/best-nootropics-for-studying/" className="text-ds-accent underline">
-                      Best nootropics for studying
-                    </Link>
-                  </li>
-                )}
-                {useCase !== 'aging' && (
-                  <li>
-                    <Link href="/best-nootropics-for-aging/" className="text-ds-accent underline">
-                      Best nootropics for aging
-                    </Link>
-                  </li>
-                )}
+                ))}
                 {regulatoryPillar && (
                   <li>
                     <Link href={regulatoryPillar.href} className="text-ds-accent underline">
@@ -489,7 +485,7 @@ export default function Listicle({
           <aside className="sticky top-[90px] self-start">
             <Card padding={20}>
               <div className="text-[11px] uppercase tracking-[0.12em] text-ds-muted font-semibold mb-3">
-                In this guide
+                {s.inThisGuide}
               </div>
               <ul className="list-none p-0 m-0 flex flex-col gap-2">
                 {ranked.map((pick) => (
