@@ -8,5 +8,12 @@
 /best-nootropics-for-mood  /best-nootropics-for-focus/  301
 /best-nootropics-for-mood/  /best-nootropics-for-focus/  301
 
+# BRAINEFFECT dropped from the site (2026-10-09): its review and head-to-head
+# pages are gone; send both URLs to the focus listicle like the other orphans.
+/braineffect-focus-review  /best-nootropics-for-focus/  301
+/braineffect-focus-review/  /best-nootropics-for-focus/  301
+/braineffect-vs-mind-lab-pro  /best-nootropics-for-focus/  301
+/braineffect-vs-mind-lab-pro/  /best-nootropics-for-focus/  301
+
 # Existing fallback (kept from prior _redirects)
 /* /404.html 404

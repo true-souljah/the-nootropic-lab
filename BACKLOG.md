@@ -6,7 +6,7 @@ _Tick `- [x]` to mark an item done, then commit. Grouped by priority, then sourc
 ## P1
 
 ### GSC
-- [ ] **Cooperation: BRAINEFFECT — affiliate (EU-native, terms on inquiry)** — `brain-effect.com` · Verified at brain-effect.com/en/pages/business-partner… <!--id:gsc:af1a8572401c3450-->
+- [x] **Cooperation: BRAINEFFECT — affiliate (EU-native, terms on inquiry)** — `brain-effect.com` · Verified at brain-effect.com/en/pages/business-partner… · CLOSED 2026-10-09 (branch chore/drop-braineffect-2026-10): no affiliate programme — brain-effect.com offers only a refer-a-friend 20% discount code and VIB Club points redeemable on its own shop (loyalty page, checked 2026-10-09); its 59-product catalogue has no cognitive product and FOCUS is discontinued. Operator decision: BRAINEFFECT dropped from the site. <!--id:gsc:af1a8572401c3450-->
 - [ ] **Cooperation: Double Wood Supplements — affiliate via Impact (10% new / 2% existing, 30d)** — `doublewoodsupplements.com` · Verified at doublewoodsupplements.com/pages/affiliate… <!--id:gsc:96bef663d1f1019a-->
 - [ ] **Cooperation: Life Extension Europe — affiliate (10%, 30d, EU storefronts)** — `lifeextensioneurope.com` · Verified at lifeextensioneurope.com/membership/affilia… <!--id:gsc:dbaa0a5d38545e5e-->
 - [ ] **Cooperation: Neutonic — affiliate via Awin (8%, 30d)** — `neutonic.com` · Verified at Awin merchant profile 121846: 8% per… <!--id:gsc:9593ef0d8a9b6842-->

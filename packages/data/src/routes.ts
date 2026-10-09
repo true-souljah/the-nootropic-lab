@@ -39,7 +39,6 @@ export const REGION_ONLY_ROUTES: Readonly<Record<string, readonly RegionCode[]>>
   '/alpha-brain-vs-mind-lab-pro-vs-noocube': ['us'],
   '/shortlist': ['us'],
   '/dose-calculator': ['us'],
-  '/braineffect-vs-mind-lab-pro': ['eu'],
   '/aor-ortho-mind-vs-mind-lab-pro': ['ca'],
   '/alpha-brain-canada': ['ca'],
   '/which-nootropics-ship-to-the-gcc': ['gcc'],
