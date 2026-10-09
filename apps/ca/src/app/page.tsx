@@ -38,8 +38,8 @@ const features = [
   },
   {
     icon: '🍁',
-    title: 'Canadian shipping verified',
-    desc: 'All products listed ship directly to Canada. We note Health Canada import status and customs information for every brand.',
+    title: 'Health Canada licence status',
+    desc: 'Every product page shows its Health Canada licence status: the Natural Product Number (NPN) when one is listed, or the date we last checked and found none.',
   },
   {
     icon: '⚖️',
@@ -52,7 +52,7 @@ const quickLinks = [
   {
     href: '/best-nootropics/',
     title: `Best Nootropics ${new Date().getFullYear()} (Canada)`,
-    desc: 'Full comparison of top brands with Canadian shipping confirmed.',
+    desc: 'Full comparison of the top brands in our Canadian catalogue.',
   },
   {
     href: '/nootropic-comparison/',
@@ -89,7 +89,7 @@ export default function HomePage() {
           </h1>
           <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
             We check every ingredient dose against peer-reviewed clinical trials. No hidden
-            commissions. Canadian shipping verified.
+            commissions.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link

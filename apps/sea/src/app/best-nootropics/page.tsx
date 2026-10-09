@@ -9,10 +9,10 @@ const CURRENT_YEAR = new Date().getFullYear();
 
 export const metadata: Metadata = {
   title: `Best Nootropics in Southeast Asia ${CURRENT_YEAR} — SEA Buyer's Guide`,
-  description: 'Top nootropic supplements for SEA buyers. Singapore, Malaysia, Thailand, Philippines, Indonesia, Vietnam — regulatory notes and shipping confirmed.',
+  description: 'Top nootropic supplements for SEA buyers. Singapore, Malaysia, Thailand, Philippines, Indonesia, Vietnam — regulatory notes for each market.',
   alternates: buildAlternates({ regionCode: 'sea', path: '/best-nootropics/' }),
-  openGraph: buildOpenGraph({ regionCode: 'sea', path: '/best-nootropics/', title: `Best Nootropics in Southeast Asia ${CURRENT_YEAR} — SEA Buyer's Guide`, description: 'Top nootropic supplements for SEA buyers. Singapore, Malaysia, Thailand, Philippines, Indonesia, Vietnam — regulatory notes and shipping confirmed.' }),
-  twitter: buildTwitter({ title: `Best Nootropics in Southeast Asia ${CURRENT_YEAR} — SEA Buyer's Guide`, description: 'Top nootropic supplements for SEA buyers. Singapore, Malaysia, Thailand, Philippines, Indonesia, Vietnam — regulatory notes and shipping confirmed.' }),
+  openGraph: buildOpenGraph({ regionCode: 'sea', path: '/best-nootropics/', title: `Best Nootropics in Southeast Asia ${CURRENT_YEAR} — SEA Buyer's Guide`, description: 'Top nootropic supplements for SEA buyers. Singapore, Malaysia, Thailand, Philippines, Indonesia, Vietnam — regulatory notes for each market.' }),
+  twitter: buildTwitter({ title: `Best Nootropics in Southeast Asia ${CURRENT_YEAR} — SEA Buyer's Guide`, description: 'Top nootropic supplements for SEA buyers. Singapore, Malaysia, Thailand, Philippines, Indonesia, Vietnam — regulatory notes for each market.' }),
 };
 
 const faqItems = [
@@ -33,7 +33,7 @@ export default function BestNootropicsSEAPage() {
       <BestOf
         products={productsSEA}
         breadcrumbs={[{ label: 'Best of', href: '/best-nootropics/' }]}
-        hero={{ eyebrow: `Southeast Asia · Audited ${CURRENT_YEAR}`, h1: `Best Nootropics in Southeast Asia ${CURRENT_YEAR}`, dek: 'Shipping confirmed to Singapore, Malaysia, Thailand, Philippines, Indonesia and Vietnam. Regulatory framework notes: HSA, NPRA, FDA Thailand, FDA Philippines, BPOM, MOH Vietnam.' }}
+        hero={{ eyebrow: `Southeast Asia · Audited ${CURRENT_YEAR}`, h1: `Best Nootropics in Southeast Asia ${CURRENT_YEAR}`, dek: 'Regulatory framework notes for Singapore, Malaysia, Thailand, Philippines, Indonesia and Vietnam: HSA, NPRA, FDA Thailand, FDA Philippines, BPOM, MOH Vietnam. Confirm shipping with the brand before you buy.' }}
         searchItems={searchItems} uiStrings={uiStrings} trackingSurface="best_of_sea"
         preList={
           <div className="flex flex-col gap-5">
