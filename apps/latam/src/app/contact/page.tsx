@@ -6,7 +6,7 @@ import { searchItems, uiStrings } from "@/lib/search";
 import { SITE_URL } from '@/lib/region';
 
 export const metadata: Metadata = {
-  title: 'Contacta a The Nootropic Lab Latam',
+  title: { absolute: 'Contacta a The Nootropic Lab Latam' },
   description:
     'Correcciones editoriales, consultas de asociación, comentarios de lectores. Contacta al equipo editorial de The Nootropic Lab Latam.',
   alternates: buildAlternates({ regionCode: 'latam', path: '/contact/' }),
