@@ -11,7 +11,7 @@ import { LiveRegion } from '../primitives/LiveRegion';
 import { ProductThumb } from '../primitives/ProductThumb';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
 import { useShortlist, useShortlistNote } from './useShortlist';
-import { servingAmount, guaranteeDays } from '@nootropic/data';
+import { servingAmount, guaranteeDays, guaranteeDaysValue } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 
@@ -122,7 +122,7 @@ export default function Shortlist({
       p.score,
       p.priceMonthlyUSD ?? '',
       servingAmount(p, uiStrings),
-      p.moneyBackDays ?? '',
+      guaranteeDaysValue(p.moneyBackDays),
       p.trustpilotScore ?? '',
       p.caffeineFree ? 'Yes' : 'No',
       p.commissionRate,

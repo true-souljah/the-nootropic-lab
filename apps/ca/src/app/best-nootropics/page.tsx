@@ -9,10 +9,10 @@ const CURRENT_YEAR = new Date().getFullYear();
 
 export const metadata: Metadata = {
   title: `Best Nootropics in Canada ${CURRENT_YEAR} — Canadian Buyer's Guide`,
-  description: `Top-rated nootropic supplements for Canadian buyers in ${CURRENT_YEAR}. Canadian shipping confirmed, evidence-graded reviews, and full clinical dosing audit.`,
+  description: `Top-rated nootropic supplements for Canadian buyers in ${CURRENT_YEAR}. Evidence-graded reviews, Health Canada licence status and a full clinical dosing audit.`,
   alternates: buildAlternates({ regionCode: 'ca', path: '/best-nootropics/' }),
-  openGraph: buildOpenGraph({ regionCode: 'ca', path: '/best-nootropics/', title: `Best Nootropics in Canada ${CURRENT_YEAR} — Canadian Buyer's Guide`, description: `Top-rated nootropic supplements for Canadian buyers in ${CURRENT_YEAR}. Canadian shipping confirmed, evidence-graded reviews, and full clinical dosing audit.` }),
-  twitter: buildTwitter({ title: `Best Nootropics in Canada ${CURRENT_YEAR} — Canadian Buyer's Guide`, description: `Top-rated nootropic supplements for Canadian buyers in ${CURRENT_YEAR}. Canadian shipping confirmed, evidence-graded reviews, and full clinical dosing audit.` }),
+  openGraph: buildOpenGraph({ regionCode: 'ca', path: '/best-nootropics/', title: `Best Nootropics in Canada ${CURRENT_YEAR} — Canadian Buyer's Guide`, description: `Top-rated nootropic supplements for Canadian buyers in ${CURRENT_YEAR}. Evidence-graded reviews, Health Canada licence status and a full clinical dosing audit.` }),
+  twitter: buildTwitter({ title: `Best Nootropics in Canada ${CURRENT_YEAR} — Canadian Buyer's Guide`, description: `Top-rated nootropic supplements for Canadian buyers in ${CURRENT_YEAR}. Evidence-graded reviews, Health Canada licence status and a full clinical dosing audit.` }),
 };
 
 const faqItems = [
@@ -63,7 +63,7 @@ export default function BestNootropicsCAPage() {
         hero={{
           eyebrow: `Canada · Audited ${CURRENT_YEAR}`,
           h1: `Best Nootropics in Canada ${CURRENT_YEAR}`,
-          dek: 'All products listed below ship directly to Canada. We verify Canadian availability, Health Canada Natural Health Product (NHP) status where applicable, and note import duties for each brand.',
+          dek: 'For each product we show its Health Canada licence status (Natural Product Number). Confirm shipping and any import duties with the brand before you buy.',
         }}
         searchItems={searchItems}
         uiStrings={uiStrings}

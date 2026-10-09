@@ -1,0 +1,8 @@
+{
+  "note": "Read by scripts/import-vendor-terms.ts and packages/ui/src/vendor-terms.test.ts. The three *.verified.json files are verbatim copies of nootropics-research/2026-10-design/pricing/ (research run 2026-10-07). verify_quotes.py checks every ' | '-separated part of a quote against its page. 'joins-fragments': in this file ' | ' joins separate page fragments, so the Pricing tab renders each part on its own line. 'literal': the ' | ' is part of the page text and stays inside the quote. Checked 2026-10-08 against the research fetch cache: every ' | ' quote in eu-gcc-latam is absent from its page as one string; every ' | ' quote in us-ca (Mind Lab Pro and Performance Lab US shipping) and au-sea-jp (Nootropics Depot SEA shipping) is present as one string.",
+  "files": {
+    "us-ca.verified.json": { "pipe": "literal" },
+    "eu-gcc-latam.verified.json": { "pipe": "joins-fragments" },
+    "au-sea-jp.verified.json": { "pipe": "literal" }
+  }
+}
