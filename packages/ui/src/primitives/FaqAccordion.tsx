@@ -15,7 +15,7 @@ export interface FaqAccordionProps {
 
 /**
  * FaqAccordion — extracted from the 12 places it was duplicated
- * (Listicle, HeadToHead, ThreeWay, IngredientDetail, plus 8 per-region
+ * (Listicle, HeadToHead, the since-removed ThreeWay, IngredientDetail, plus 8 per-region
  * /best-nootropics pages). Native `<details>`/`<summary>` for keyboard
  * + assistive-tech accessibility; `<summary>` contains a real heading so
  * the FAQ outline survives heading-nav (per accessibility lead's

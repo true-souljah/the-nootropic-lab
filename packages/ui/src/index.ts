@@ -99,14 +99,6 @@ export type {
   HeadToHeadFAQ as HeadToHeadFAQItem,
 } from './templates/HeadToHead';
 
-// Public templates (Stack redesign — M2D)
-export { default as ThreeWay } from './templates/ThreeWay';
-export type {
-  ThreeWayProps,
-  ThreeWayFAQ,
-  ThreeWayFAQ as ThreeWayFAQItem,
-} from './templates/ThreeWay';
-
 // Public templates (Stack redesign — M2E)
 export { default as IngredientDetail } from './templates/IngredientDetail';
 export type { IngredientDetailProps } from './templates/IngredientDetail';

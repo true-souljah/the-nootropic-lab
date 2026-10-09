@@ -4,7 +4,6 @@ import ProductDetail from './templates/ProductDetail';
 import BestOf from './templates/BestOf';
 import Listicle from './templates/Listicle';
 import HeadToHead from './templates/HeadToHead';
-import ThreeWay from './templates/ThreeWay';
 
 // Regression guard for PR-Q12 (#76). Before this PR, ProductDetail and
 // BestOf each declared `uiStrings?: UIStrings` (optional) and fell back
@@ -58,16 +57,13 @@ describe('BestOf — uiStrings is REQUIRED (PR-Q12 regression guard)', () => {
 // an English (or missing) affiliate disclosure on a non-EN page.
 type ListicleProps = ComponentProps<typeof Listicle>;
 type HeadToHeadProps = ComponentProps<typeof HeadToHead>;
-type ThreeWayProps = ComponentProps<typeof ThreeWay>;
 
-describe('Listicle / HeadToHead / ThreeWay — uiStrings is REQUIRED (disclosure localisation guard)', () => {
-  test('uiStrings is NOT optional on any of the three templates', () => {
+describe('Listicle / HeadToHead — uiStrings is REQUIRED (disclosure localisation guard)', () => {
+  test('uiStrings is NOT optional on either template', () => {
     type ListicleOptional = undefined extends ListicleProps['uiStrings'] ? true : false;
     type HeadToHeadOptional = undefined extends HeadToHeadProps['uiStrings'] ? true : false;
-    type ThreeWayOptional = undefined extends ThreeWayProps['uiStrings'] ? true : false;
     const listicle: ListicleOptional = false;
     const headToHead: HeadToHeadOptional = false;
-    const threeWay: ThreeWayOptional = false;
-    expect([listicle, headToHead, threeWay]).toEqual([false, false, false]);
+    expect([listicle, headToHead]).toEqual([false, false]);
   });
 });

@@ -47,7 +47,6 @@ const TIER_COMPONENTS = [
   'templates/BestOf.tsx',
   'templates/Comparator.tsx',
   'templates/HeadToHead.tsx',
-  'templates/ThreeWay.tsx',
   'templates/ProductDetail.tsx',
   'templates/product-detail/OverviewTab.tsx',
 ];
