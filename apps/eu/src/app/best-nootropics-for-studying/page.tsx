@@ -70,7 +70,7 @@ const picks: ListiclePick[] = [
     product: productsEU.find(p => p.slug === 'hunter-focus-review')!,
     rank: 3,
     whyItsHere:
-      'Lion\'s Mane, Bacopa, Phosphatidylserine, Ashwagandha and ALCAR, plus 100mg caffeine. €85/mo and 6 capsules/day are significant friction.',
+      '20 ingredients, tied with Brainzyme Focus Pro for the most in this review: Lion\'s Mane, Bacopa, Phosphatidylserine, Ashwagandha and ALCAR, plus 100mg caffeine. €85/mo and 6 capsules/day are significant friction.',
   },
 ];
 

@@ -48,7 +48,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'DHA — foundational for retention (FFC-notified)',
     ingredientSlugs: ['dha-omega-3'],
     evidence:
-      'DHA is Japan\'s most-notified FFC ingredient for cognitive function. As the brain\'s primary structural omega-3, DHA supports synaptic transmission and signal propagation — relevant for sustained study over a multi-month term. Suntory DHA & EPA + Sesamin EX is the most affordable Japanese option.',
+      'DHA is Japan\'s most-notified FFC ingredient for cognitive function. As the brain\'s primary structural omega-3, DHA supports synaptic transmission and signal propagation — relevant for sustained study over a multi-month term. Suntory DHA & EPA + Sesamin EX provides 300mg DHA per 4 capsules.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20434961/',
   },
 ];
@@ -70,7 +70,7 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'suntory-dha-epa-sesamin-review')!,
     rank: 3,
     whyItsHere:
-      'A Japanese domestic DHA + EPA supplement from Suntory Wellness. ¥4,800/month — by far the most affordable in this Japan review. No Foods with Function Claims (FFC, 機能性表示食品) notification found in the Consumer Affairs Agency (CAA) database (export scanned 2026-10-06). Its 300mg DHA is below the 900mg low end of our DHA reference dose.',
+      'A Japanese domestic DHA + EPA supplement from Suntory Wellness at ¥4,800/month. No Foods with Function Claims (FFC, 機能性表示食品) notification found in the Consumer Affairs Agency (CAA) database (export scanned 2026-10-06). Its 300mg DHA is below the 900mg low end of our DHA reference dose.',
   },
 ];
 
