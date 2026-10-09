@@ -289,6 +289,39 @@ export interface UIStrings {
     };
     /** Heading for the bottom alternatives rail. */
     alternatives: string;
+    /**
+     * Pricing tab (product-detail/PricingTab.tsx). It quotes only terms the
+     * vendor states on its own site (Product.vendorTerms), verbatim and in the
+     * vendor's language; these strings are the labels around those quotes.
+     */
+    pricing: {
+      /** Heading above the quoted vendor terms. */
+      vendorTermsHeading: string;
+      /** One line under the heading: the terms are quoted word for word and can change. */
+      vendorTermsLede: string;
+      /** Label of the shipping quote. */
+      shipping: string;
+      /** Label of the subscription-cancellation quote. */
+      cancellation: string;
+      /** Label of the one-time-purchase price quote. */
+      oneTimePrice: string;
+      /** Label of the guarantee quote when the record has a money-back guarantee length. */
+      moneyBackGuarantee: string;
+      /** Label of the guarantee quote when the vendor's policy is a returns window, not a money-back guarantee. */
+      returns: string;
+      /** Source line under each quote; {domain} becomes the linked vendor domain, {date} the check date. */
+      attribution: string;
+      /** Screen-reader cue on the source link, which opens in a new tab. */
+      opensInNewTab: string;
+      /** Shown instead of the quotes when no vendor term could be verified. */
+      noVendorTerms: string;
+      /** Affiliate CTA; {brand} is the product's brand. */
+      visitVendor: string;
+      /** Heading of the affiliate-cookie block. */
+      affiliateCookie: string;
+      /** Cookie length and commission; {days} and {rate} are filled from the record. */
+      cookieTerms: string;
+    };
     /** Notice shown on the review page of a product the vendor no longer sells. */
     discontinued: {
       /** Notice heading, e.g. "Discontinued". */
@@ -535,6 +568,21 @@ const en: UIStrings = {
       ariaLabel: 'Product sections',
     },
     alternatives: 'Similar alternatives',
+    pricing: {
+      vendorTermsHeading: 'What the vendor’s site says',
+      vendorTermsLede: 'Quoted word for word from the vendor’s own pages. Terms change, so check them before you buy.',
+      shipping: 'Shipping',
+      cancellation: 'Cancelling a subscription',
+      oneTimePrice: 'One-time purchase price',
+      moneyBackGuarantee: 'Money-back guarantee',
+      returns: 'Returns',
+      attribution: 'Per {domain}, checked {date}',
+      opensInNewTab: '(opens in new tab)',
+      noVendorTerms: 'We couldn’t verify this vendor’s terms. Check the vendor’s site for current terms.',
+      visitVendor: 'Visit {brand} →',
+      affiliateCookie: 'Our affiliate cookie',
+      cookieTerms: '{days} days · {rate} commission',
+    },
     discontinued: { heading: 'Discontinued', successorLink: 'Read our review of the successor' },
     healthDisclaimerHeading: 'Health disclaimer',
     chipGroupLabel: 'Product attributes',
@@ -763,6 +811,21 @@ const es: UIStrings = {
       ariaLabel: 'Secciones del producto',
     },
     alternatives: 'Alternativas similares',
+    pricing: {
+      vendorTermsHeading: 'Lo que dice el sitio del vendedor',
+      vendorTermsLede: 'Citado palabra por palabra de las páginas del propio vendedor. Las condiciones cambian: revíselas antes de comprar.',
+      shipping: 'Envío',
+      cancellation: 'Cancelar una suscripción',
+      oneTimePrice: 'Precio de compra única',
+      moneyBackGuarantee: 'Garantía de devolución del dinero',
+      returns: 'Devoluciones',
+      attribution: 'Según {domain}, consultado el {date}',
+      opensInNewTab: '(se abre en una pestaña nueva)',
+      noVendorTerms: 'No pudimos verificar las condiciones de este vendedor. Consulte el sitio del vendedor para ver las condiciones vigentes.',
+      visitVendor: 'Visitar {brand} →',
+      affiliateCookie: 'Nuestra cookie de afiliado',
+      cookieTerms: '{days} días · {rate} de comisión',
+    },
     discontinued: { heading: 'Descontinuado', successorLink: 'Lee nuestra reseña del sucesor' },
     healthDisclaimerHeading: 'Aviso de salud',
     chipGroupLabel: 'Atributos del producto',
@@ -991,6 +1054,21 @@ const fr: UIStrings = {
       ariaLabel: 'Sections du produit',
     },
     alternatives: 'Alternatives similaires',
+    pricing: {
+      vendorTermsHeading: 'Ce qu’indique le site du vendeur',
+      vendorTermsLede: 'Cité mot pour mot depuis les pages du vendeur. Les conditions changent : vérifiez-les avant d’acheter.',
+      shipping: 'Livraison',
+      cancellation: 'Résilier un abonnement',
+      oneTimePrice: 'Prix en achat unique',
+      moneyBackGuarantee: 'Garantie satisfait ou remboursé',
+      returns: 'Retours',
+      attribution: 'Selon {domain}, vérifié le {date}',
+      opensInNewTab: '(s’ouvre dans un nouvel onglet)',
+      noVendorTerms: 'Nous n’avons pas pu vérifier les conditions de ce vendeur. Consultez le site du vendeur pour connaître les conditions en vigueur.',
+      visitVendor: 'Visiter {brand} →',
+      affiliateCookie: 'Notre cookie d’affiliation',
+      cookieTerms: '{days} jours · commission de {rate}',
+    },
     discontinued: { heading: 'Produit arrêté', successorLink: 'Lire notre avis sur le successeur' },
     healthDisclaimerHeading: 'Avis de santé',
     chipGroupLabel: 'Attributs du produit',
@@ -1219,6 +1297,21 @@ const ja: UIStrings = {
       ariaLabel: '製品セクション',
     },
     alternatives: '類似の代替品',
+    pricing: {
+      vendorTermsHeading: '販売元サイトの記載',
+      vendorTermsLede: '販売元の公式ページから原文のまま引用しています。条件は変わることがあるため、購入前にご確認ください。',
+      shipping: '配送',
+      cancellation: '定期購入の解約',
+      oneTimePrice: '単品購入の価格',
+      moneyBackGuarantee: '返金保証',
+      returns: '返品',
+      attribution: '出典：{domain}（{date}確認）',
+      opensInNewTab: '（新しいタブで開きます）',
+      noVendorTerms: 'この販売元の条件は確認できませんでした。最新の条件は販売元のサイトでご確認ください。',
+      visitVendor: '{brand}のサイトへ →',
+      affiliateCookie: '当サイトのアフィリエイトCookie',
+      cookieTerms: '有効期間{days}日 · 紹介料{rate}',
+    },
     discontinued: { heading: '販売終了', successorLink: '後継製品のレビューを読む' },
     healthDisclaimerHeading: '健康に関する免責事項',
     chipGroupLabel: '製品の属性',
@@ -1447,6 +1540,21 @@ const pt: UIStrings = {
       ariaLabel: 'Secções do produto',
     },
     alternatives: 'Alternativas semelhantes',
+    pricing: {
+      vendorTermsHeading: 'O que diz o site do vendedor',
+      vendorTermsLede: 'Citado palavra por palavra das páginas do próprio vendedor. As condições mudam: confirme-as antes de comprar.',
+      shipping: 'Envio',
+      cancellation: 'Cancelar uma subscrição',
+      oneTimePrice: 'Preço de compra única',
+      moneyBackGuarantee: 'Garantia de devolução do dinheiro',
+      returns: 'Devoluções',
+      attribution: 'Segundo {domain}, verificado a {date}',
+      opensInNewTab: '(abre num novo separador)',
+      noVendorTerms: 'Não conseguimos verificar as condições deste vendedor. Consulte o site do vendedor para ver as condições em vigor.',
+      visitVendor: 'Visitar {brand} →',
+      affiliateCookie: 'O nosso cookie de afiliado',
+      cookieTerms: '{days} dias · comissão de {rate}',
+    },
     discontinued: { heading: 'Descontinuado', successorLink: 'Leia a nossa análise do sucessor' },
     healthDisclaimerHeading: 'Aviso de saúde',
     chipGroupLabel: 'Atributos do produto',
@@ -1675,6 +1783,21 @@ const de: UIStrings = {
       ariaLabel: 'Produktbereiche',
     },
     alternatives: 'Ähnliche Alternativen',
+    pricing: {
+      vendorTermsHeading: 'Was die Website des Anbieters angibt',
+      vendorTermsLede: 'Wörtlich von den Seiten des Anbieters zitiert. Bedingungen ändern sich – prüfen Sie sie vor dem Kauf.',
+      shipping: 'Versand',
+      cancellation: 'Abo kündigen',
+      oneTimePrice: 'Preis beim Einmalkauf',
+      moneyBackGuarantee: 'Geld-zurück-Garantie',
+      returns: 'Rückgabe',
+      attribution: 'Laut {domain}, geprüft am {date}',
+      opensInNewTab: '(öffnet in neuem Tab)',
+      noVendorTerms: 'Wir konnten die Bedingungen dieses Anbieters nicht überprüfen. Die aktuellen Bedingungen finden Sie auf der Website des Anbieters.',
+      visitVendor: '{brand} besuchen →',
+      affiliateCookie: 'Unser Affiliate-Cookie',
+      cookieTerms: '{days} Tage · {rate} Provision',
+    },
     discontinued: { heading: 'Nicht mehr erhältlich', successorLink: 'Zu unserer Bewertung des Nachfolgers' },
     healthDisclaimerHeading: 'Gesundheitshinweis',
     chipGroupLabel: 'Produktmerkmale',
@@ -1905,6 +2028,21 @@ const frCa: UIStrings = {
       ariaLabel: 'Sections du produit',
     },
     alternatives: 'Alternatives similaires',
+    pricing: {
+      vendorTermsHeading: 'Ce qu’indique le site du vendeur',
+      vendorTermsLede: 'Cité mot pour mot à partir des pages du vendeur. Les conditions changent : vérifiez-les avant d’acheter.',
+      shipping: 'Livraison',
+      cancellation: 'Annuler un abonnement',
+      oneTimePrice: 'Prix à l’achat unique',
+      moneyBackGuarantee: 'Garantie de remboursement',
+      returns: 'Retours',
+      attribution: 'Selon {domain}, vérifié le {date}',
+      opensInNewTab: '(s’ouvre dans un nouvel onglet)',
+      noVendorTerms: 'Nous n’avons pas pu vérifier les conditions de ce vendeur. Consultez le site du vendeur pour connaître les conditions en vigueur.',
+      visitVendor: 'Visiter {brand} →',
+      affiliateCookie: 'Notre témoin d’affiliation',
+      cookieTerms: '{days} jours · commission de {rate}',
+    },
     discontinued: { heading: 'Produit arrêté', successorLink: 'Lire notre avis sur le successeur' },
     healthDisclaimerHeading: 'Avis de santé',
     chipGroupLabel: 'Caractéristiques du produit',

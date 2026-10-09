@@ -105,7 +105,30 @@
       "basis": "no row for マインドラボ, Mind Lab Pro, Opti-Nutra or オプティヌートラ in the CAA database; full export (11,520 notifications) scanned"
     },
     "trustpilotCheckedAt": "2026-09-28",
-    "verifiedAt": "2026-09-28"
+    "verifiedAt": "2026-09-28",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "Parcels going to Canada and the Rest of the World will be shipped from our depot in the UK by international tracked airmail or DHL Courier. Airmail expected delivery time: 5 - 20 working days DHL expected delivery time: 2 - 7 working days",
+        "url": "https://www.mindlabpro.com/pages/shipping-returns",
+        "lang": "en"
+      },
+      "cancellation": {
+        "text": "Update or cancel anytime",
+        "url": "https://www.mindlabpro.com/products/mind-lab-pro",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "One-time purchase Price: $69.00",
+        "url": "https://www.mindlabpro.com/products/mind-lab-pro",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "Try Mind Lab Pro® for 30 days - risk-free.",
+        "url": "https://www.mindlabpro.com/pages/shipping-returns",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "noocube",
@@ -200,10 +223,10 @@
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 4,
-    "summary": "A well-rounded caffeine-free nootropic stack; confirm Japan shipping at checkout. Backed by a 60-day money-back guarantee and straightforward one-time purchase model -- no subscription required.",
+    "summary": "A well-rounded caffeine-free nootropic stack; confirm Japan shipping at checkout. Backed by a 60-day money-back guarantee; sold as a single purchase or a subscription -- no subscription required.",
     "whatItIs": "NooCube is a multi-ingredient nootropic stack by Wolfson Brands designed for focus, mental clarity, and study performance. It offers a caffeine-free formula suitable for those sensitive to stimulants.",
     "howItWorks": "Choline from VitaCholine (250mg) supports the cholinergic system (the current formula no longer contains Alpha-GPC or Huperzine A). L-Theanine -- familiar in Japan as the calming compound in green tea -- promotes relaxed focus without sedation. Bacopa Monnieri supports memory consolidation over weeks of use. L-Tyrosine maintains dopamine and norepinephrine levels under cognitive stress.",
-    "whatToExpect": "Day one: mild calm focus from L-Theanine. Within 2-4 weeks: improved mental stamina and clarity under workload. At 8 weeks: modest memory improvements from Bacopa. We have not confirmed that NooCube ships to Japan; check Japan shipping and the delivery estimate at checkout. The one-time purchase model means no automatic billing -- a straightforward option for Japanese buyers unfamiliar with subscription supplements.",
+    "whatToExpect": "Day one: mild calm focus from L-Theanine. Within 2-4 weeks: improved mental stamina and clarity under workload. At 8 weeks: modest memory improvements from Bacopa. We have not confirmed that NooCube ships to Japan; check Japan shipping and the delivery estimate at checkout. Choosing the single purchase rather than the subscription means no automatic billing -- a straightforward option for Japanese buyers unfamiliar with subscription supplements.",
     "pros": [
       "60-day money back",
       "Caffeine-free"
@@ -224,7 +247,30 @@
       "Bulk-purchase pricing changed June 2026: 5-month supply $194.99 USD (was 6-month for $180). JP buyers purchasing direct at ~¥30,000 for 5 months vs prior ~¥27,700 for 6 months."
     ],
     "verifiedAt": "2026-09-28",
-    "trustpilotCheckedAt": "2026-09-28"
+    "trustpilotCheckedAt": "2026-09-28",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "Free shipping We also offer worldwide delivery to over 100 countries",
+        "url": "https://noocube.com/pages/guarantee",
+        "lang": "en"
+      },
+      "cancellation": {
+        "text": "NO COMMITMENT CANCEL ANYTIME",
+        "url": "https://noocube.com/",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "RETAIL: $79.99 $79.99 $64.99 $55.24",
+        "url": "https://noocube.com/",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "we offer a 60-day money-back guarantee.",
+        "url": "https://noocube.com/pages/guarantee",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "performance-lab-mind",
@@ -340,7 +386,7 @@
     "priceMonthlyUSD": 90,
     "priceMonthlyJPY": 13500,
     "pricingModel": "one-time",
-    "moneyBackDays": 30,
+    "moneyBackDays": null,
     "caffeineFree": false,
     "euStorefront": false,
     "euCompliance": "verify",
@@ -426,6 +472,24 @@
       "sourceUrl": "https://www.mhlw.go.jp/content/001734637.pdf",
       "listUpdated": "2026-08-05",
       "checkedAt": "2026-10-08"
+    },
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "We regularly send to all parts of the world. If you live in a country that has a local postal service then we can send to you.",
+        "url": "https://www.hunterevolve.com/en-us/shipping-returns",
+        "lang": "en"
+      },
+      "oneTimePrice": {
+        "text": "1 Month – Starter Bottle 180 capsules Improved formula $90.00",
+        "url": "https://www.hunterevolve.com/en-us/hunter-focus",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "within the last 30 days for USA/Canada or within 14 days for UK & the rest of the world",
+        "url": "https://www.hunterevolve.com/en-us/shipping-returns",
+        "lang": "en"
+      }
     }
   },
   {
@@ -449,7 +513,7 @@
     "priceMonthlyUSD": 50,
     "priceMonthlyJPY": 5479,
     "pricingModel": "one-time",
-    "moneyBackDays": 0,
+    "moneyBackDays": 90,
     "caffeineFree": true,
     "euStorefront": false,
     "euCompliance": "verify",
@@ -490,7 +554,7 @@
       "Affordable"
     ],
     "cons": [
-      "No money-back guarantee"
+      "FANCL's 90-day return for unsatisfied buyers (even after opening) excludes some products; check that BRAINs is covered"
     ],
     "editorChoice": false,
     "market": "both",
@@ -501,7 +565,30 @@
       "checkedAt": "2026-10-06",
       "basis": "G425 row confirmed in the CAA database: 商品名 ＢＲＡＩＮｓ（ブレインズ）, 届出者 株式会社ファンケル, notified 2021/08/18"
     },
-    "verifiedAt": "2026-09-28"
+    "verifiedAt": "2026-09-28",
+    "vendorTerms": {
+      "checkedAt": "2026-10-07",
+      "shipping": {
+        "text": "ご購入金額が5,000円（税込）以上の場合は送料当社負担、5,000円（税込）未満の場合は送料360円（税込）のご負担をお願いいたします。",
+        "url": "https://www.fancl.co.jp/help/guide_1_4.html",
+        "lang": "ja"
+      },
+      "cancellation": {
+        "text": "お届け予定日の6日前までは、ファンケルオンラインの会員ページから各種変更・お休み・解約ができます。",
+        "url": "https://www.fancl.co.jp/service/teiki/index.html",
+        "lang": "ja"
+      },
+      "oneTimePrice": {
+        "text": "5,479円 カートに入れる 商品番号：5248",
+        "url": "https://www.fancl.co.jp/healthy/item/5248a/",
+        "lang": "ja"
+      },
+      "guarantee": {
+        "text": "商品にご満足いただけない場合、商品到着後90日以内であれば開封後でも返送料当社負担で返品を承ります。（一部商品を除く）",
+        "url": "https://www.fancl.co.jp/help/guide_1_4.html",
+        "lang": "ja"
+      }
+    }
   },
   {
     "id": "suntory-dha-epa-sesamin",

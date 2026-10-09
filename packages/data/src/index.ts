@@ -1,4 +1,4 @@
-export type { Product, EUCompliance, Market, IngredientDosage, NoPurchaseLink, NoPurchaseLinkIngredient, NoPurchaseLinkReason } from './products-us';
+export type { Product, EUCompliance, Market, IngredientDosage, NoPurchaseLink, NoPurchaseLinkIngredient, NoPurchaseLinkReason, VendorTerm, VendorTerms } from './products-us';
 export { productsUS, allProductsUS } from './products-us';
 export { productsEU, allProductsEU } from './products-eu';
 export { productsCA, allProductsCA } from './products-ca';
@@ -20,8 +20,8 @@ export type { ProductImage, ProductImageFile, ProductImageVariant } from './prod
 export { PRODUCT_IMAGE_SIZES, productImages, productImage } from './product-images';
 export type { ProductForm } from './serving-unit';
 export { PRODUCT_FORMS, productForm, servingUnit, servingAmount, servingsComparable } from './serving-unit';
-export { affiliateUrlProblem, formulaProblem, formProblem, productRuleProblems, scoreProblem, weightedScore, pillarWeightPercent, UNSCORABLE_PILLARS, PILLAR_WEIGHTS, halalEvidenceProblem, HALAL_CERTIFIERS } from './product-rules';
-export { NOT_AVAILABLE, outOfTen, pillarText, guaranteeDays } from './display-values';
+export { affiliateUrlProblem, formulaProblem, formProblem, productRuleProblems, scoreProblem, weightedScore, pillarWeightPercent, UNSCORABLE_PILLARS, PILLAR_WEIGHTS, halalEvidenceProblem, HALAL_CERTIFIERS, vendorTermsProblems, VENDOR_TERM_FIELDS } from './product-rules';
+export { NOT_AVAILABLE, outOfTen, pillarText, guaranteeDays, guaranteeDaysValue } from './display-values';
 export type { DosingAnchor } from './dosing-anchors';
 export { DOSING_ANCHORS, doseMg, dosingAnchorProblems } from './dosing-anchors';
 export { SEO_TITLE_MAX, SEO_DESCRIPTION_MAX, seoOverrideProblems } from './seo-overrides';
