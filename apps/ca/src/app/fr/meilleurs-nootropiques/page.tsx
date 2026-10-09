@@ -64,7 +64,7 @@ export default function FrMeilleursNootropiquesPage() {
       <SchemaOrg schema={itemListSchema} />
       <StickyCtaBar
         productName={winner.name}
-        affiliateUrl={winner.affiliateUrl}
+        href={winner.affiliateUrl}
         pickLabel="Notre choix nº 1 :"
         ctaLabel={uiStrings.table.checkPrice}
         ariaLabel="Notre recommandation principale"
