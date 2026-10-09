@@ -490,7 +490,13 @@
       "value": 8,
       "trust": 8
     },
-    "priceMonthlyEUR": 40,
+    "priceMonthlyEUR": 31.75,
+    "priceBasis": {
+      "source": "vendor-one-time",
+      "quoteField": "vendorTerms.oneTimePrice",
+      "monthsOfSupply": 1,
+      "checkedAt": "2026-10-07"
+    },
     "pricingModel": "both",
     "moneyBackDays": 365,
     "caffeineFree": false,
