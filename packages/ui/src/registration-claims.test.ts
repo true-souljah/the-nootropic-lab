@@ -1,6 +1,7 @@
 import { describe, test, expect } from 'vitest';
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { resolve, dirname, extname, relative } from 'node:path';
+import { euCountries } from '@nootropic/data';
 
 // No national product register (Health Canada NPN, SFDA/MOHAP, COFEPRIS,
 // ANVISA, NPRA, BPOM, VFA, ...) was ever checked for the products we review;
@@ -854,5 +855,31 @@ describe('round fourteen: EU country regulatory notes follow the EC list and nat
       line => `${relative(REPO_ROOT, EU_COUNTRIES_FILE)}:${line}`,
     );
     expect(hits).toEqual([]);
+  });
+
+  // Citation shapes in use: "(domain, checked YYYY-MM-DD)", "(domain and
+  // domain, checked YYYY-MM-DD)", Bulgaria's "(per domain, checked
+  // YYYY-MM-DD)" and "(EC list of competent authorities, rev. October 2025)".
+  const SOURCE_CITATION =
+    /\((?:per )?(?:[a-z0-9-]+(?:\.[a-z0-9-]+)+(?: and [a-z0-9-]+(?:\.[a-z0-9-]+)+)?|EC list of competent authorities), (?:checked \d{4}-\d{2}-\d{2}|rev\. [A-Z][a-z]+ \d{4})\)/;
+
+  test('the citation pattern accepts each shape in use and rejects a bare note', () => {
+    for (const s of [
+      '(ages.at, checked 2026-10-12)',
+      '(agriculture.gouv.fr and entreprises.gouv.fr, checked 2026-10-12)',
+      '(per ecb.europa.eu, checked 2026-10-05)',
+      '(EC list of competent authorities, rev. October 2025)',
+    ]) expect(SOURCE_CITATION.test(s), s).toBe(true);
+    for (const s of ['(ages.at)', '(checked 2026-10-12)', 'Italy follows EU Directive 2002/46/EC.']) {
+      expect(SOURCE_CITATION.test(s), s).toBe(false);
+    }
+  });
+
+  test('every EU country regulatory note (all 27) is non-empty and cites its source', () => {
+    expect(euCountries).toHaveLength(27);
+    const uncited = euCountries
+      .filter(c => c.regulatoryNote.trim() === '' || !SOURCE_CITATION.test(c.regulatoryNote))
+      .map(c => c.slug);
+    expect(uncited).toEqual([]);
   });
 });
