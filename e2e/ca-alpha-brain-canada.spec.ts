@@ -3,8 +3,9 @@ import { test, expect } from '@playwright/test';
 // Smoke for the CA /alpha-brain-canada/ buying page (GSC: CA host at pos ~16
 // for "alpha brain canada" with no dedicated page). Proves the page renders,
 // carries the verdict box, links at least one NPN-licensed alternative review,
-// shows the affiliate disclosure, links out to Onnit, and is linked from the
-// home page and the NPN guide.
+// discloses that we earn no commission on Alpha Brain (no affiliate deal with
+// Onnit: commissionRate "0%", 2026-10-09), links out to Onnit, and is linked
+// from the home page and the NPN guide.
 
 test.beforeEach(async ({ context }) => {
   await context.addCookies([
@@ -32,7 +33,13 @@ test.describe('CA /alpha-brain-canada/', () => {
     // At least one NPN-licensed alternative review link (AOR Ortho•Mind today).
     await expect(page.locator('main a[href="/aor-ortho-mind-review/"]').first()).toBeVisible();
 
-    await expect(page.getByRole('note', { name: 'Affiliate disclosure' })).toContainText('affiliate links');
+    // The page's only buy link is the untracked onnit.com link, so the
+    // disclosure says we earn no commission, and no commission claim remains.
+    const disclosure = page.getByRole('note', { name: 'Affiliate disclosure' });
+    await expect(disclosure).toHaveCount(1);
+    await expect(disclosure).toContainText("We don't earn a commission on Alpha Brain");
+    await expect(page.locator('body')).not.toContainText(/we (may )?earn a commission/i);
+    await expect(page.locator('body')).not.toContainText('This page contains affiliate links');
     await expect(page.locator('main a[href^="https://www.onnit.com/"][rel*="sponsored"]')).toHaveCount(1);
     await expect(page.locator('main a[href="/onnit-alpha-brain-review/"]').first()).toBeVisible();
   });
