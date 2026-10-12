@@ -58,7 +58,7 @@ const picks: ListiclePick[] = [
     product: productsEU.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses, plus L-tyrosine. Caffeine-free design lets you pair it with your own coffee or matcha for the synergistic effect. Priced in euros on the brand\'s EU store, with EU orders shipped from a European depot per the brand — the strongest EU-storefront focus pick in our coverage.',
+      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses, plus L-tyrosine. Caffeine-free design lets you pair it with your own coffee or matcha if you want caffeine alongside its L-theanine. Priced in euros on the brand\'s EU store, with EU orders shipped from a European depot per the brand — the strongest EU-storefront focus pick in our coverage.',
   },
   {
     product: productsEU.find(p => p.slug === 'brainzyme-focus-pro-review')!,

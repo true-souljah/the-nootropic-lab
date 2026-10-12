@@ -87,7 +87,7 @@ export const guideSources: Record<string, GuideSource[]> = {
     { pmid: '42761483', url: 'https://pubmed.ncbi.nlm.nih.gov/42761483/', title: 'Acute caffeine supplementation as a nutrition-based strategy to mitigate sleep-loss-related cognitive and operational performance impairments in military personnel', year: 2026, supports: 'Nuance for the sleep-vs-supplements comparative claim' },
   ],
   'how-to-stack-nootropics': [
-    { pmid: '24946991', url: 'https://pubmed.ncbi.nlm.nih.gov/24946991/', title: 'Acute effects of tea constituents L-theanine, caffeine, and epigallocatechin gallate on cognitive function and mood: a systematic review and meta-analysis', year: 2014, supports: 'L-theanine+caffeine attention synergy, with an honest jitteriness/anxiety caveat' },
+    { pmid: '24946991', url: 'https://pubmed.ncbi.nlm.nih.gov/24946991/', title: 'Acute effects of tea constituents L-theanine, caffeine, and epigallocatechin gallate on cognitive function and mood: a systematic review and meta-analysis', year: 2014, supports: 'L-theanine+caffeine attention effects versus placebo, with an honest jitteriness/anxiety caveat' },
     { pmid: '38057413', url: 'https://pubmed.ncbi.nlm.nih.gov/38057413/', title: 'Concomitant use of monoamine oxidase inhibitor and tyrosine in parenteral nutrition', year: 2023, supports: 'Tyrosine + MAOI interaction caution, with realistic risk framing' },
     { pmid: '17891480', url: 'https://pubmed.ncbi.nlm.nih.gov/17891480/', title: 'Time for tea: mood, blood pressure and cognitive performance effects of caffeine and theanine administered alone and together', year: 2007, supports: 'Correction to the anxiogenic-effect-reduction claim' },
     // Stack 3 dose ranges — from evidence/lions-mane.json and evidence/phosphatidylserine.json (studies[], pubmedUrl status 200).
@@ -686,7 +686,7 @@ export const guides: Guide[] = [
   {
     slug: 'how-to-stack-nootropics',
     title: 'How to Stack Nootropics Safely: Principles and Example Stacks',
-    description: 'A practical guide to combining nootropic supplements for synergistic effects — including safe pairing rules, what to avoid, and three example stacks for different goals.',
+    description: 'A practical guide to combining nootropic supplements — including safe pairing rules, what to avoid, and three example stacks for different goals.',
     category: 'stacking',
     readingTimeMin: 8,
     sources: guideSources['how-to-stack-nootropics'],

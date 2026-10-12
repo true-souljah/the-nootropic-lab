@@ -58,7 +58,7 @@ const picks: ListiclePick[] = [
     product: productsCA.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design lets Canadian buyers pair it with their own coffee or matcha for the synergistic effect. Ships from the UK directly to Canadian addresses; the only nootropic in our CA coverage with multiple peer-reviewed RCTs (University of Leeds).',
+      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design lets Canadian buyers pair it with their own coffee or matcha if they want caffeine alongside its L-theanine. Ships from the UK directly to Canadian addresses; the only nootropic in our CA coverage with multiple peer-reviewed RCTs (University of Leeds).',
   },
   {
     product: productsCA.find(p => p.slug === 'hunter-focus-review')!,

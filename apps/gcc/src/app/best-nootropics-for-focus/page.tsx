@@ -103,7 +103,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'What\'s the best caffeine-free focus nootropic for GCC buyers?',
-    a: 'Mind Lab Pro is purpose-built as caffeine-free and is our top pick for GCC consumers who avoid stimulants for dietary, religious, or sensitivity reasons. It pairs well with Arabic coffee or matcha for the L-theanine + caffeine synergy without committing to a stimulant-loaded supplement.',
+    a: 'Mind Lab Pro is purpose-built as caffeine-free and is our top pick for GCC consumers who avoid stimulants for dietary, religious, or sensitivity reasons. It pairs well with Arabic coffee or matcha if you want L-theanine with caffeine, without a stimulant-containing supplement.',
   },
 ];
 

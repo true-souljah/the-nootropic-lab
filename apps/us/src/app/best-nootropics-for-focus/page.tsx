@@ -58,7 +58,7 @@ const picks: ListiclePick[] = [
     product: productsUS.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design lets you pair it with your own coffee or matcha for the synergistic effect. The only nootropic in our coverage with multiple peer-reviewed RCTs (University of Leeds).',
+      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design lets you pair it with your own coffee or matcha if you want caffeine alongside its L-theanine. The only nootropic in our coverage with multiple peer-reviewed RCTs (University of Leeds).',
   },
   {
     product: productsUS.find(p => p.slug === 'qualia-mind-review')!,

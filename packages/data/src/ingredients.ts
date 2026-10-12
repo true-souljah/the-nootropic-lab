@@ -200,7 +200,7 @@ export const ingredients: Ingredient[] = [
     slug: 'l-theanine',
     name: 'L-Theanine',
     category: 'amino',
-    mechanism: 'L-theanine is a non-protein amino acid found primarily in green tea. It crosses the blood-brain barrier and has been linked to increased alpha brain wave activity. It also modulates GABA, serotonin, and dopamine levels. Combined with caffeine, it improves attention measures more than either compound alone.',
+    mechanism: 'L-theanine is a non-protein amino acid found primarily in green tea. It crosses the blood-brain barrier and has been linked to increased alpha brain wave activity. It also modulates GABA, serotonin, and dopamine levels. Combined with caffeine, it improved attention measures versus placebo in several trials, though Foxe 2012 found no added benefit over either compound alone.',
     clinicalDose: '100–200mg/day (trials pairing it with caffeine used roughly 1:1 to 1.7:1 theanine:caffeine)',
     timeToEffect: '30–60 minutes (acute)',
     studySummary: 'A 2026 meta-analysis of 31 RCTs (n=1,168) found a single 200mg dose taken 30–60 minutes before testing improved choice reaction time; its acute stress effect was modest and driven by high-risk-of-bias studies, and anxiety effects were inconsistent. With caffeine, RCTs (Haskell et al., 2007; Kahathuduwa 2016) and an 11-RCT meta-analysis (Camfield 2014) show the combination beats either compound alone on attention and reaction time. The one alpha-wave (MEG) trial found higher alpha activity at 2 hours, and only in people with higher trait anxiety.',
@@ -211,7 +211,7 @@ export const ingredients: Ingredient[] = [
       { effect: 'Calm Focus (Alpha Waves)', evidenceStrength: 'preliminary', magnitude: 'small', studies: 1, notes: 'White 2016 (n=34) found higher resting alpha activity 2 hours after dosing — not at 45 minutes — and only in participants with higher trait anxiety; it did not track subjective calm or cortisol.' },
       { effect: 'Anxiety & Stress', evidenceStrength: 'mixed', magnitude: 'small', studies: 2, notes: 'The 2026 31-RCT meta-analysis found anxiety effects inconsistent and non-significant (except one 400mg/day clinical trial) and a modest acute stress effect driven by high-risk-of-bias studies; White 2016 found lower subjective stress 1 hour post-dose. Rogers 2008 found no acute anxiolytic effect at 200mg.' },
       { effect: 'Sleep Quality', evidenceStrength: 'moderate', magnitude: 'small', studies: 1, notes: 'A 2025 meta-analysis (18 studies, n=897) found small improvements in subjective sleep latency, daytime dysfunction and sleep quality. No trial has tested it combined with magnesium.' },
-      { effect: 'Caffeine Synergy', evidenceStrength: 'strong', magnitude: 'large', studies: 3, notes: 'Haskell 2007, Kahathuduwa 2016 and an 11-RCT meta-analysis show the combination outperforms either compound alone on attention and reaction time; caffeine dose drove the effect more than theanine dose.' },
+      { effect: 'With Caffeine', evidenceStrength: 'moderate', magnitude: 'moderate', studies: 4, notes: 'Camfield 2014 (11 placebo-controlled studies): moderate effect sizes for the combination versus placebo on alertness and attention-switching accuracy, with caffeine dose driving more of the change. Haskell 2008 found one caffeine × theanine interaction (delayed word recognition speed); Kahathuduwa 2016 found additive effects with no interaction; Foxe 2012 found no added benefit over either compound alone.' },
     ],
     howToTake: {
       dosage: '100–200mg per dose',
@@ -674,7 +674,7 @@ export const ingredients: Ingredient[] = [
       { question: 'What is Pycnogenol and is it worth the premium?', answer: 'Pycnogenol is a patented extract of French Maritime Pine Bark (Pinus pinaster) standardised to 65-75% proanthocyanidins with a specific manufacturing process. It is the extract used in the studies we cite (Belcaro 2014; Luzzi 2011); we found no trial comparing it with generic pine bark extract. Generic pine bark extracts may vary in composition. To match that evidence, choose Pycnogenol.' },
       { question: 'How does Maritime Pine Bark compare to Ginkgo Biloba?', answer: 'Both improve cerebral blood flow but via different mechanisms: Ginkgo inhibits platelet-activating factor; Pine Bark stimulates nitric oxide. Pine Bark has stronger antioxidant activity; Ginkgo has a larger evidence base for cognitive decline. No trial has tested the combination, and ginkgo raises bleeding risk with blood thinners.' },
       { question: 'Can I take Pine Bark Extract long-term?', answer: 'The pooled trials ran from 4 weeks to 6 months, and the Cochrane review notes adverse events were reported inconsistently, so the absence of reported harm is not proof of long-term safety. No cycling protocol has been tested. Check with your doctor if you take immunosuppressants.' },
-      { question: 'Why is the dose in Performance Lab Mind only 75mg?', answer: 'Performance Lab Mind uses 75mg Maritime Pine Bark — below the 100-200mg clinical dose on this page (the Belcaro 2014 study we cite used 150mg/day). However, in a multi-ingredient formula with Citicoline and Tyrosine, the synergistic effects may partially compensate. It is still technically underdosed relative to the standalone evidence.' },
+      { question: 'Why is the dose in Performance Lab Mind only 75mg?', answer: 'Performance Lab Mind uses 75mg Maritime Pine Bark — below the 100-200mg clinical dose on this page (the Belcaro 2014 study we cite used 150mg/day). It sits in a multi-ingredient formula with Citicoline and Tyrosine, but it is still underdosed relative to the standalone evidence.' },
     ],
     sources: [
       { pmid: '24675223', url: 'https://pubmed.ncbi.nlm.nih.gov/24675223/', title: 'Pycnogenol® improves cognitive function, attention, mental performance and specific professional skills in healthy professionals aged 35-55.', year: 2014, design: 'Product-evaluation registry study (non-randomised)' },
@@ -800,7 +800,7 @@ export const ingredients: Ingredient[] = [
     },
     stacksWith: [
       { ingredient: 'Alpha-GPC', slug: 'alpha-gpc', reason: 'Oat Straw supports dopaminergic signalling via MAO-B; Alpha-GPC supports cholinergic signalling. Complementary neurotransmitter coverage for focus.' },
-      { ingredient: 'L-Tyrosine', slug: 'l-tyrosine', reason: 'Both support dopamine availability — Oat Straw by slowing breakdown (MAO-B), Tyrosine by providing precursor. Synergistic under stress.' },
+      { ingredient: 'L-Tyrosine', slug: 'l-tyrosine', reason: 'Both support dopamine availability — Oat Straw by slowing breakdown (MAO-B), Tyrosine by providing precursor.' },
       { ingredient: 'Bacopa Monnieri', slug: 'bacopa-monnieri', reason: 'Oat Straw provides acute attention benefits; Bacopa provides long-term memory consolidation. Covers both short-term and long-term cognitive needs.' },
     ],
     faqs: [

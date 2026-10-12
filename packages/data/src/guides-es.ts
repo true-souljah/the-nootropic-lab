@@ -111,7 +111,7 @@ export const guidesEs: GuideTranslation[] = [
   {
     "slug": "how-to-stack-nootropics",
     "title": "Cómo combinar nootrópicos de forma segura: principios y ejemplos de stacks",
-    "description": "Una guía práctica para combinar suplementos nootrópicos con efectos sinérgicos — incluyendo reglas de combinación segura, qué evitar y tres ejemplos de stacks para diferentes objetivos.",
+    "description": "Una guía práctica para combinar suplementos nootrópicos — incluyendo reglas de combinación segura, qué evitar y tres ejemplos de stacks para diferentes objetivos.",
     "category": "stacking",
     "readingTimeMin": 8,
     "sources": guideSources["how-to-stack-nootropics"],
