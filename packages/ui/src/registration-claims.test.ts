@@ -1057,8 +1057,8 @@ describe('round fifteen: JP FFC ranking, SEA customs and "most studied" claims f
       'Suntory DHA & EPA + Sesamin EX is the DHA product; FANCL BRAINs is not',
       'EGb 761 is a pharmaceutical-grade extract; it is the extract used in the trials pooled by the meta-analysis we cite (Tan 2015).',
       'Pycnogenol is a branded extract; it is the extract used in the studies we cite (Belcaro 2014; Luzzi 2011).',
-      'In the trial linked below (Owen 2008), the pairing improved speed and accuracy on an attention-switching task; in a controlled trial (Rogers 2008), theanine did not significantly reduce caffeine-induced jitteriness.',
-      'en un ensayo controlado (Rogers 2008), la L-teanina no redujo significativamente el nerviosismo causado por la cafeína.',
+      'In the trial linked below (Owen 2008), the pairing improved speed and accuracy on an attention-switching task; in a controlled trial (Rogers 2008, PubMed 17891480), theanine did not significantly reduce caffeine-induced jitteriness.',
+      'en un ensayo controlado (Rogers 2008, PubMed 17891480), la L-teanina no redujo significativamente el nerviosismo causado por la cafeína.',
       'It is the extract used in the trials pooled by the meta-analysis we cite (Tan 2015).',
       'below the 100-200mg clinical dose on this page (the Belcaro 2014 study we cite used 150mg/day).',
     ]) expect(ROUND_FIFTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(false);
@@ -1073,7 +1073,7 @@ describe('round fifteen: JP FFC ranking, SEA customs and "most studied" claims f
       'prevents the jitters',
     ]) expect(THEANINE_JITTER_CLAIM.test(s), s).toBe(true);
     for (const s of [
-      'in a controlled trial (Rogers 2008), theanine did not significantly reduce caffeine-induced jitteriness.',
+      'in a controlled trial (Rogers 2008, PubMed 17891480), theanine did not significantly reduce caffeine-induced jitteriness.',
       'in a controlled trial (Rogers 2008) theanine did not significantly reduce caffeine jitteriness.',
       'in a controlled caffeine trial it did not significantly reduce jitteriness',
       'theanine did not reduce caffeine jitteriness',
@@ -1084,6 +1084,101 @@ describe('round fifteen: JP FFC ranking, SEA customs and "most studied" claims f
   test('no data or app source uses the removed wording (whitespace-normalised)', () => {
     const hits = ROUND_THIRTEEN_SOURCES.flatMap(file =>
       normalisedMatchLines(readFileSync(file, 'utf8'), ROUND_FIFTEEN_UNSOURCED).map(
+        line => `${relative(REPO_ROOT, file)}:${line}`,
+      ),
+    );
+    expect(hits).toEqual([]);
+  });
+});
+
+// Round fifteen, U7 (2026-10-12). Caffeine + L-theanine was called "the
+// most-evidence-backed" or "most-replicated" combination, "1:2 to 2:1" was
+// given as its evidence-backed ratio, an espresso plus 200mg theanine was said
+// to "replicate the studied dose", and the page supplements were said to
+// "compound" its benefit. None of that had a source. Owen 2008 (PMID
+// 18681988) is the trial the evidence cards link: 50mg caffeine with 100mg
+// L-theanine (1:2) improved speed and accuracy on an attention-switching task.
+// Rogers 2008 (PMID 17891480; 250mg caffeine, 200mg theanine) found theanine
+// "did not significantly affect jitteriness"; the cards link only Owen, so
+// copy now names Rogers' PubMed ID. ingredients.ts and guides.ts keep their
+// own study lists, so the bare-citation check covers app pages and product
+// records only.
+//
+// The superlative and ratio patterns are anchored to the removed caffeine +
+// L-theanine phrasings. The spaced "most evidence-backed" in the focus and
+// memory FAQ questions, the JP focus Mind Lab Pro blurb, and the "(1:2 to 2:1
+// ratio)" focus-page names and answers are a separate claim set, not reviewed
+// in this round.
+const ROUND_FIFTEEN_CAFFEINE_THEANINE: RegExp[] = [
+  /(caffeine|theanine)[^.]{0,80}\bmost[- ]evidence[- ]backed/i,
+  /\bmost[- ]evidence[- ]backed (legal|combination)/i,
+  /\bin a 1:2 to 2:1 ratio/i,
+  /replicates the studied dose/i,
+  /which compounds? (the benefit|for actual retention)/i,
+  /most-replicated cognitive-energy/i,
+];
+const BARE_ROGERS_CITATION = /\(Rogers 2008\)/;
+const ROGERS_CITATION_SOURCES = ROUND_THIRTEEN_SOURCES.filter(p => {
+  const rel = relative(REPO_ROOT, p);
+  return (rel.startsWith('apps/') && rel.endsWith('.tsx')) || /^packages\/data\/src\/products-[^/]+\.json$/.test(rel);
+});
+
+describe('round fifteen (U7): caffeine + L-theanine copy follows Owen 2008 and names the Rogers PubMed ID', () => {
+  test('scanned app pages and product records, and only those for the citation check', () => {
+    const rels = ROGERS_CITATION_SOURCES.map(p => relative(REPO_ROOT, p));
+    expect(rels.length).toBeGreaterThan(200);
+    for (const f of [
+      'apps/us/src/app/best-nootropics-for-energy/page.tsx',
+      'apps/latam/src/app/best-nootropics-for-studying/page.tsx',
+      'apps/us/src/app/guides/nootropics-vs-adderall/page.tsx',
+      'packages/data/src/products-au.json',
+      'packages/data/src/products-us.json',
+    ]) expect(rels, f).toContain(f);
+    expect(rels).not.toContain('packages/data/src/ingredients.ts');
+    expect(rels).not.toContain('packages/data/src/guides.ts');
+  });
+
+  test('the patterns catch the removed wording, and every pattern catches some of it', () => {
+    const removed = [
+      'For most students, caffeine + L-theanine (1:2 ratio) is the most cost-effective focus stack — and the most-evidence-backed.',
+      'For sustained cognitive energy, caffeine + L-theanine in a 1:2 to 2:1 ratio is the most-evidence-backed combination.',
+      'Caffeine + L-theanine in a 1:2 ratio (100mg caffeine + 200mg L-theanine) is the most-evidence-backed legal cognitive-enhancement combination, available cheaply at any pharmacy.',
+      'Start with caffeine + L-theanine. It is the most-evidence-backed legal cognitive enhancement combination,',
+      'Espresso (~75mg) plus a 200mg L-theanine capsule replicates the studied dose.',
+      'The supplements on this page add memory-consolidation ingredients (Bacopa, citicoline) on top, which compounds for actual retention of studied material over the term.',
+      'The supplements on this page add Rhodiola, citicoline, and B-vitamins on top, which compound the benefit.',
+      '100mg of caffeine (one cup of coffee) + 200mg of L-theanine (capsule) is the most-replicated cognitive-energy combination.',
+    ];
+    for (const s of removed) expect(ROUND_FIFTEEN_CAFFEINE_THEANINE.some(re => re.test(s)), s).toBe(true);
+    for (const re of ROUND_FIFTEEN_CAFFEINE_THEANINE) expect(removed.some(s => re.test(s)), String(re)).toBe(true);
+    // The replacement wording passes.
+    for (const s of [
+      'For most students, caffeine + L-theanine is a simple starting point: in Owen 2008 (PubMed 18681988), 50mg caffeine with 100mg L-theanine (a 1:2 ratio) improved speed and accuracy on an attention-switching task.',
+      'The supplements on this page add memory-consolidation ingredients (Bacopa, citicoline) on top; we cite no trial of them combined with caffeine + L-theanine.',
+      'In the trial linked below (Owen 2008), 50mg caffeine with 100mg L-theanine improved speed and accuracy on an attention-switching task; in a controlled trial (Rogers 2008, PubMed 17891480), theanine did not significantly reduce caffeine-induced jitteriness.',
+      'Yes. In Owen 2008 (PubMed 18681988), 50mg caffeine with 100mg L-theanine improved speed and accuracy on an attention-switching task; 100mg caffeine with 200mg L-theanine keeps the same 1:2 ratio.',
+      'Caffeine + L-theanine is a legal combination with trial evidence: in Owen 2008 (PubMed 18681988), 50mg caffeine with 100mg L-theanine improved speed and accuracy on an attention-switching task; 100mg caffeine + 200mg L-theanine keeps the same 1:2 ratio.',
+      'Start with caffeine + L-theanine. In a controlled trial (Owen 2008), the pairing improved speed and accuracy on an attention-switching task.',
+    ]) expect(ROUND_FIFTEEN_CAFFEINE_THEANINE.some(re => re.test(s)), s).toBe(false);
+  });
+
+  test('the citation pattern catches a bare Rogers 2008 citation but not one with its PubMed ID', () => {
+    expect(BARE_ROGERS_CITATION.test('in a controlled trial (Rogers 2008), theanine did not')).toBe(true);
+    expect(BARE_ROGERS_CITATION.test('in a controlled trial (Rogers 2008, PubMed 17891480), theanine did not')).toBe(false);
+  });
+
+  test('no data or app source uses the removed wording (whitespace-normalised)', () => {
+    const hits = ROUND_THIRTEEN_SOURCES.flatMap(file =>
+      normalisedMatchLines(readFileSync(file, 'utf8'), ROUND_FIFTEEN_CAFFEINE_THEANINE).map(
+        line => `${relative(REPO_ROOT, file)}:${line}`,
+      ),
+    );
+    expect(hits).toEqual([]);
+  });
+
+  test('no app page or product record cites Rogers 2008 without its PubMed ID (whitespace-normalised)', () => {
+    const hits = ROGERS_CITATION_SOURCES.flatMap(file =>
+      normalisedMatchLines(readFileSync(file, 'utf8'), [BARE_ROGERS_CITATION]).map(
         line => `${relative(REPO_ROOT, file)}:${line}`,
       ),
     );
