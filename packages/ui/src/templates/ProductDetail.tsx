@@ -47,8 +47,8 @@ export interface ProductDetailProps {
    * disclaimer section will simply not render.
    */
   healthDisclaimer?: string;
-  /** "Buying in <region>" block: local price, licence status, channels, local guides. */
-  regional?: Omit<RegionalBuyingProps, 'id'>;
+  /** "Buying in <region>" block: local price, licence status, channels, local guides (labels come from `uiStrings`). */
+  regional?: Omit<RegionalBuyingProps, 'id' | 'strings'>;
   /**
    * Head-to-head pages on this host that compare this product. Pass
    * `headToHeadFor(slug, region)` from @nootropic/data at the page (server
@@ -141,7 +141,7 @@ export default function ProductDetail({
     <AppShell
       mode="persistent"
       breadcrumbs={[
-        { label: 'Best of', href: '/best-nootropics/' },
+        { label: pd.breadcrumbBestOf, href: '/best-nootropics/' },
         { label: p.name },
       ]}
       searchItems={searchItems}
@@ -305,7 +305,7 @@ export default function ProductDetail({
         {/* All 5 tab panels rendered statically with `hidden`; each tab body
             lives in its own file under ./product-detail/ for readability. */}
         <TabPanel idPrefix="product" id="overview" hidden={tab !== 'overview'} className="mt-5">
-          <OverviewTab product={p} />
+          <OverviewTab product={p} strings={pd} />
         </TabPanel>
         <TabPanel idPrefix="product" id="dosing" hidden={tab !== 'dosing'} className="mt-5">
           <DosingTab product={p} strings={pd} />
@@ -314,7 +314,7 @@ export default function ProductDetail({
           <PillarsTab product={p} strings={pd} />
         </TabPanel>
         <TabPanel idPrefix="product" id="reviews" hidden={tab !== 'reviews'} className="mt-5">
-          <ReviewsTab product={p} />
+          <ReviewsTab product={p} strings={pd} />
         </TabPanel>
         {!discontinued && (
           <TabPanel idPrefix="product" id="pricing" hidden={tab !== 'pricing'} className="mt-5">
@@ -322,7 +322,7 @@ export default function ProductDetail({
           </TabPanel>
         )}
 
-        {regional && !discontinued && <RegionalBuying {...regional} id="regional-buying" />}
+        {regional && !discontinued && <RegionalBuying {...regional} strings={pd} id="regional-buying" />}
 
         {headToHead && headToHead.length > 0 && (
           <section className="mt-10" aria-labelledby="product-head-to-head-heading">

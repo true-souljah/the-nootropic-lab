@@ -1,10 +1,36 @@
 import { NO_PURCHASE_LINK_STRINGS, type NoPurchaseLinkStrings } from './purchase-link';
 import type { Product } from './products-us';
+import type { RegionCode } from './regional';
 
 export type Locale = 'en' | 'es' | 'fr' | 'ja' | 'pt' | 'de' | 'fr-CA';
 
 /** One string per score pillar (the keys of Product.scoreBreakdown). */
 export type PillarStrings = Record<keyof Product['scoreBreakdown'], string>;
+
+/** One string per regional host (RegionCode in ./regional). */
+export type RegionStrings = Record<RegionCode, string>;
+
+/**
+ * Licence / import status lines of the "Buying in <region>" block, one per
+ * `LicenceStatus.key` (./regional). Placeholders: {npn}, {austl}, {number}
+ * are the record's numbers; {date} is the record's check date (YYYY-MM-DD).
+ */
+export interface LicenceStatusStrings {
+  npnNumber: string;
+  npnLicensed: string;
+  noNpn: string;
+  noNpnChecked: string;
+  austl: string;
+  personalImportation: string;
+  ffcNumber: string;
+  ffcNotified: string;
+  noFfc: string;
+  noFfcChecked: string;
+  euStorefront: string;
+  halalCertified: string;
+  noHalal: string;
+  noHalalChecked: string;
+}
 
 export interface UIStrings {
   /**
@@ -32,6 +58,28 @@ export interface UIStrings {
     openComparator: string;
     /** Skip-link target text in PublicShell (first focusable element). WCAG 3.1.2 + 2.4.1. */
     skipToContent: string;
+    /** AppShell top-bar link to the comparator. */
+    buildMyStack: string;
+    /** Accessible name of the AppShell mobile navigation drawer (role="dialog"). */
+    drawerLabel: string;
+    /** AppShell sidebar rail (primitives/Sidebar.tsx): group headings and link labels. */
+    sidebar: {
+      browse: string;
+      discover: string;
+      allProducts: string;
+      /** Link to /best-nootropics/; the year is part of the label, as in English. */
+      bestOf2026: string;
+      ingredients: string;
+      tools: string;
+      comparator: string;
+      doseCalculator: string;
+      myShortlist: string;
+      about: string;
+      ourMethodology: string;
+      disclosures: string;
+      /** Footer mailto link of the rail. */
+      submitTip: string;
+    };
   };
   footer: {
     /** Left-column tagline paragraph. */
@@ -185,6 +233,35 @@ export interface UIStrings {
       /** Announced when query has zero matches. `{query}` is the (already-capped) user input. */
       noResults: string;
     };
+    /**
+     * CommandPalette dialog (templates/CommandPalette.tsx). The key caps
+     * (⌘K, Esc, ↑ ↓ ↵) stay as symbols; these are the words around them.
+     */
+    palette: {
+      /** Accessible name of the search dialog. */
+      dialogLabel: string;
+      placeholder: string;
+      /** Accessible name of the result list while a query is typed. */
+      resultsLabel: string;
+      /** Accessible name of the result list while the query is empty. */
+      recentLabel: string;
+      /** Shown when nothing matches; {query} is the user's text (rendered emphasized). */
+      noResults: string;
+      /** Empty state before any recent item exists. */
+      emptyPrompt: string;
+      /** Heading of the recent-items section. */
+      recent: string;
+      /** Result-section headings. */
+      categories: { ingredients: string; products: string; comparisons: string; guides: string; other: string };
+      /** Footer key hints, each after its key cap. */
+      hints: { navigate: string; open: string; close: string };
+      /** Footer count; {n} is the number of indexed items. */
+      indexed: string;
+      /** Appended to a product row's accessible name; {score} is the score with one decimal. */
+      scoreAria: string;
+      /** Appended to an ingredient row's accessible name; {grade} is A, B or C. */
+      gradeAria: string;
+    };
   };
   ingredientDetail: {
     chips: {
@@ -323,6 +400,64 @@ export interface UIStrings {
     };
     /** Heading for the bottom alternatives rail. */
     alternatives: string;
+    /** First breadcrumb in the review page's top bar (links to /best-nootropics/). */
+    breadcrumbBestOf: string;
+    /**
+     * Overview tab (product-detail/OverviewTab.tsx). The record's own text
+     * (summary, whatItIs, howItWorks, whatToExpect, hero ingredients, pros,
+     * cons) is data and stays as recorded; these are the labels around it.
+     */
+    overview: {
+      /** Eyebrow above the verdict headline. */
+      verdictEyebrow: string;
+      /** Verdict headline per score tier (scoreTier); {product} is the product name, rendered in the tier colour. */
+      verdict: { good: string; warn: string; bad: string };
+      whatItDoes: string;
+      howItWorks: string;
+      whatToExpect: string;
+      heroIngredients: string;
+      /** Heading above the first pros. */
+      whoItsFor: string;
+      /** Heading above the first cons. */
+      whoShouldSkip: string;
+    };
+    /** Reviews tab (product-detail/ReviewsTab.tsx). Trustpilot is a brand name and stays as is. */
+    reviews: {
+      /** Card heading when the record has no Trustpilot score. */
+      noProfileHeading: string;
+      /** {brand} is the product's brand. */
+      noProfileBody: string;
+      noProfileTrust: string;
+      /** Accessible name of the star row; {score} is the Trustpilot score. */
+      starsAria: string;
+      /** {count} is the review count, formatted for the locale. */
+      countOnTrustpilot: string;
+      /** {count} is the review count, formatted for the locale. */
+      verifiedCount: string;
+      noCherryPicking: string;
+      /** Link to the brand's Trustpilot page; {count} is the review count. */
+      readAll: string;
+    };
+    /**
+     * "Buying in <region>" block (RegionalBuying.tsx), derived from the
+     * region's own record. Region-specific labels (heading, regulator, geo-hub
+     * link) are keyed by RegionCode; en matches REGION_PROFILES in ./regional.
+     */
+    regionalBuying: {
+      heading: RegionStrings;
+      price: string;
+      /** Monthly-price unit without the slash; rendered as `${price}/${monthUnit}` in one string. */
+      monthUnit: string;
+      /** Label of the licence / import status line. */
+      status: string;
+      whereToBuy: string;
+      importPathway: string;
+      /** Short regulator label next to the status. */
+      regulator: RegionStrings;
+      /** Link to the region's geo hub. */
+      geoHub: RegionStrings;
+      licence: LicenceStatusStrings;
+    };
     /**
      * Pricing tab (product-detail/PricingTab.tsx). It quotes only terms the
      * vendor states on its own site (Product.vendorTerms), verbatim and in the
@@ -449,6 +584,23 @@ const en: UIStrings = {
     primaryLandmark: 'Primary',
     openComparator: 'Open comparator →',
     skipToContent: 'Skip to main content',
+    buildMyStack: 'Build my stack',
+    drawerLabel: 'Primary navigation',
+    sidebar: {
+      browse: 'Browse',
+      discover: 'Discover',
+      allProducts: 'All products',
+      bestOf2026: 'Best of 2026',
+      ingredients: 'Ingredients',
+      tools: 'Tools',
+      comparator: 'Comparator',
+      doseCalculator: 'Dose calculator',
+      myShortlist: 'My shortlist',
+      about: 'About',
+      ourMethodology: 'Our methodology',
+      disclosures: 'Disclosures',
+      submitTip: 'Submit a tip →',
+    },
   },
   footer: {
     tagline:
@@ -550,6 +702,20 @@ const en: UIStrings = {
       oneResult: '1 result',
       manyResults: '{n} results',
       noResults: 'No results for {query}',
+    },
+    palette: {
+      dialogLabel: 'Site search',
+      placeholder: 'Search products, ingredients, comparisons, guides…',
+      resultsLabel: 'Search results',
+      recentLabel: 'Recent and trending',
+      noResults: 'No results for “{query}”',
+      emptyPrompt: 'Type to search products, ingredients, comparisons, or guides.',
+      recent: 'Recent',
+      categories: { ingredients: 'Ingredients', products: 'Products', comparisons: 'Comparisons', guides: 'Guides', other: 'Other' },
+      hints: { navigate: 'navigate', open: 'open', close: 'close' },
+      indexed: '{n} indexed',
+      scoreAria: ', score {score} out of 10',
+      gradeAria: ', evidence grade {grade}',
     },
   },
   ingredientDetail: {
@@ -653,6 +819,80 @@ const en: UIStrings = {
       ariaLabel: 'Product sections',
     },
     alternatives: 'Similar alternatives',
+    breadcrumbBestOf: 'Best of',
+    overview: {
+      verdictEyebrow: 'Verdict',
+      verdict: { good: '{product} is recommended.', warn: '{product} is worth a look.', bad: '{product} falls short.' },
+      whatItDoes: 'What it does',
+      howItWorks: 'How it works',
+      whatToExpect: 'What to expect',
+      heroIngredients: 'Hero ingredients',
+      whoItsFor: "Who it's for",
+      whoShouldSkip: 'Who should skip',
+    },
+    reviews: {
+      noProfileHeading: 'No Trustpilot profile',
+      noProfileBody: "{brand} doesn't have an active Trustpilot listing — this is common for Amazon-only sellers, marketplace brands, and regional pharmacy chains.",
+      noProfileTrust: 'The Trust pillar in our editorial score still applies and reflects brand reputation, third-party testing, and refund track record.',
+      starsAria: '{score} out of 5 stars',
+      countOnTrustpilot: '{count} reviews on Trustpilot',
+      verifiedCount: '{count} verified reviews',
+      noCherryPicking: "We don't embed cherry-picked quotes here. Trustpilot is the canonical source — the score above feeds into our Trust pillar.",
+      readAll: 'Read all {count} reviews on Trustpilot →',
+    },
+    regionalBuying: {
+      heading: {
+        us: 'Buying in the United States',
+        eu: 'Buying in the EU',
+        ca: 'Buying in Canada',
+        au: 'Buying in Australia',
+        jp: 'Buying in Japan',
+        latam: 'Buying in Latin America',
+        gcc: 'Buying in the Gulf',
+        sea: 'Buying in Southeast Asia',
+      },
+      price: 'Local price',
+      monthUnit: 'month',
+      status: 'Status',
+      whereToBuy: 'Where to buy',
+      importPathway: 'Import pathway',
+      regulator: {
+        us: 'FDA (DSHEA dietary supplement)',
+        eu: 'EU food supplement (Reg. 1924/2006 claims)',
+        ca: 'Health Canada (NPN)',
+        au: 'TGA (AUST L)',
+        jp: 'Consumer Affairs Agency (FFC)',
+        latam: 'ANVISA / COFEPRIS / INVIMA',
+        gcc: 'SFDA / Dubai Municipality',
+        sea: 'HSA / NPRA / BPOM / FDA PH / Thai FDA',
+      },
+      geoHub: {
+        us: 'Best nootropics in the US',
+        eu: 'Country guides',
+        ca: 'Province guides',
+        au: 'State & territory guides',
+        jp: 'Prefecture guides',
+        latam: 'Country guides',
+        gcc: 'Country guides',
+        sea: 'Country guides',
+      },
+      licence: {
+        npnNumber: 'NPN {npn}',
+        npnLicensed: 'NPN licensed',
+        noNpn: 'No NPN found',
+        noNpnChecked: 'No NPN found (checked {date})',
+        austl: 'AUST L {austl}',
+        personalImportation: 'Personal Importation Scheme',
+        ffcNumber: 'FFC 届出 {number}',
+        ffcNotified: 'FFC notified',
+        noFfc: 'No FFC notification on file',
+        noFfcChecked: 'No FFC notification found (checked {date})',
+        euStorefront: 'EU storefront',
+        halalCertified: 'Halal certified',
+        noHalal: 'No halal certificate shown by the brand',
+        noHalalChecked: 'No halal certificate shown by the brand (checked {date})',
+      },
+    },
     pricing: {
       vendorTermsHeading: 'What the vendor’s site says',
       vendorTermsLede: 'Quoted word for word from the vendor’s own pages. Terms change, so check them before you buy.',
@@ -748,6 +988,23 @@ const es: UIStrings = {
     primaryLandmark: 'Navegación principal',
     openComparator: 'Abrir comparador →',
     skipToContent: 'Saltar al contenido principal',
+    buildMyStack: 'Crear mi stack',
+    drawerLabel: 'Navegación principal',
+    sidebar: {
+      browse: 'Explorar',
+      discover: 'Descubrir',
+      allProducts: 'Todos los productos',
+      bestOf2026: 'Lo mejor de 2026',
+      ingredients: 'Ingredientes',
+      tools: 'Herramientas',
+      comparator: 'Comparador',
+      doseCalculator: 'Calculadora de dosis',
+      myShortlist: 'Mi preselección',
+      about: 'Acerca de',
+      ourMethodology: 'Nuestra metodología',
+      disclosures: 'Divulgaciones',
+      submitTip: 'Enviar un dato →',
+    },
   },
   footer: {
     tagline:
@@ -849,6 +1106,20 @@ const es: UIStrings = {
       oneResult: '1 resultado',
       manyResults: '{n} resultados',
       noResults: 'Sin resultados para {query}',
+    },
+    palette: {
+      dialogLabel: 'Búsqueda en el sitio',
+      placeholder: 'Buscar productos, ingredientes, comparativas, guías…',
+      resultsLabel: 'Resultados de búsqueda',
+      recentLabel: 'Recientes y tendencias',
+      noResults: 'No hay resultados para “{query}”',
+      emptyPrompt: 'Escriba para buscar productos, ingredientes, comparativas o guías.',
+      recent: 'Recientes',
+      categories: { ingredients: 'Ingredientes', products: 'Productos', comparisons: 'Comparativas', guides: 'Guías', other: 'Otros' },
+      hints: { navigate: 'navegar', open: 'abrir', close: 'cerrar' },
+      indexed: '{n} indexados',
+      scoreAria: ', puntuación {score} sobre 10',
+      gradeAria: ', grado de evidencia {grade}',
     },
   },
   ingredientDetail: {
@@ -952,6 +1223,80 @@ const es: UIStrings = {
       ariaLabel: 'Secciones del producto',
     },
     alternatives: 'Alternativas similares',
+    breadcrumbBestOf: 'Lo mejor',
+    overview: {
+      verdictEyebrow: 'Veredicto',
+      verdict: { good: '{product} es recomendable.', warn: '{product} merece un vistazo.', bad: '{product} se queda corto.' },
+      whatItDoes: 'Qué hace',
+      howItWorks: 'Cómo funciona',
+      whatToExpect: 'Qué esperar',
+      heroIngredients: 'Ingredientes principales',
+      whoItsFor: 'Para quién es',
+      whoShouldSkip: 'Quién debería evitarlo',
+    },
+    reviews: {
+      noProfileHeading: 'Sin perfil en Trustpilot',
+      noProfileBody: '{brand} no tiene una ficha activa en Trustpilot; esto es habitual en vendedores que solo venden en Amazon, marcas de marketplace y cadenas de farmacias regionales.',
+      noProfileTrust: 'El pilar de confianza de nuestra puntuación editorial se sigue aplicando y refleja la reputación de la marca, las pruebas de terceros y el historial de reembolsos.',
+      starsAria: '{score} de 5 estrellas',
+      countOnTrustpilot: '{count} opiniones en Trustpilot',
+      verifiedCount: '{count} opiniones verificadas',
+      noCherryPicking: 'Aquí no incluimos citas elegidas a conveniencia. Trustpilot es la fuente de referencia: la puntuación de arriba alimenta nuestro pilar de confianza.',
+      readAll: 'Leer las {count} opiniones en Trustpilot →',
+    },
+    regionalBuying: {
+      heading: {
+        us: 'Comprar en Estados Unidos',
+        eu: 'Comprar en la UE',
+        ca: 'Comprar en Canadá',
+        au: 'Comprar en Australia',
+        jp: 'Comprar en Japón',
+        latam: 'Comprar en América Latina',
+        gcc: 'Comprar en el Golfo',
+        sea: 'Comprar en el Sudeste Asiático',
+      },
+      price: 'Precio local',
+      monthUnit: 'mes',
+      status: 'Estado',
+      whereToBuy: 'Dónde comprar',
+      importPathway: 'Vía de importación',
+      regulator: {
+        us: 'FDA (suplemento dietético según la DSHEA)',
+        eu: 'Complemento alimenticio en la UE (declaraciones según el Reg. 1924/2006)',
+        ca: 'Health Canada (NPN)',
+        au: 'TGA (AUST L)',
+        jp: 'Agencia de Asuntos del Consumidor (FFC)',
+        latam: 'ANVISA / COFEPRIS / INVIMA',
+        gcc: 'SFDA / Municipalidad de Dubái',
+        sea: 'HSA / NPRA / BPOM / FDA PH / FDA de Tailandia',
+      },
+      geoHub: {
+        us: 'Los mejores nootrópicos en EE. UU.',
+        eu: 'Guías por país',
+        ca: 'Guías por provincia',
+        au: 'Guías por estado y territorio',
+        jp: 'Guías por prefectura',
+        latam: 'Guías por país',
+        gcc: 'Guías por país',
+        sea: 'Guías por país',
+      },
+      licence: {
+        npnNumber: 'NPN {npn}',
+        npnLicensed: 'Con licencia NPN',
+        noNpn: 'No se encontró NPN',
+        noNpnChecked: 'No se encontró NPN (consultado el {date})',
+        austl: 'AUST L {austl}',
+        personalImportation: 'Régimen de importación personal',
+        ffcNumber: 'Notificación FFC {number}',
+        ffcNotified: 'Notificado como FFC',
+        noFfc: 'Sin notificación FFC registrada',
+        noFfcChecked: 'No se encontró notificación FFC (consultado el {date})',
+        euStorefront: 'Tienda en la UE',
+        halalCertified: 'Certificado halal',
+        noHalal: 'La marca no muestra ningún certificado halal',
+        noHalalChecked: 'La marca no muestra ningún certificado halal (consultado el {date})',
+      },
+    },
     pricing: {
       vendorTermsHeading: 'Lo que dice el sitio del vendedor',
       vendorTermsLede: 'Citado palabra por palabra de las páginas del propio vendedor. Las condiciones cambian: revíselas antes de comprar.',
@@ -1047,6 +1392,23 @@ const fr: UIStrings = {
     primaryLandmark: 'Navigation principale',
     openComparator: 'Ouvrir le comparateur →',
     skipToContent: 'Aller au contenu principal',
+    buildMyStack: 'Composer mon stack',
+    drawerLabel: 'Navigation principale',
+    sidebar: {
+      browse: 'Parcourir',
+      discover: 'Découvrir',
+      allProducts: 'Tous les produits',
+      bestOf2026: 'Le meilleur de 2026',
+      ingredients: 'Ingrédients',
+      tools: 'Outils',
+      comparator: 'Comparateur',
+      doseCalculator: 'Calculateur de dose',
+      myShortlist: 'Ma présélection',
+      about: 'À propos',
+      ourMethodology: 'Notre méthodologie',
+      disclosures: 'Divulgations',
+      submitTip: 'Nous signaler une info →',
+    },
   },
   footer: {
     tagline:
@@ -1134,6 +1496,20 @@ const fr: UIStrings = {
     ariaLabel: "Fil d'Ariane",
   },
   search: {
+    palette: {
+      dialogLabel: 'Recherche sur le site',
+      placeholder: 'Rechercher des produits, ingrédients, comparatifs, guides…',
+      resultsLabel: 'Résultats de recherche',
+      recentLabel: 'Récents et tendances',
+      noResults: 'Aucun résultat pour « {query} »',
+      emptyPrompt: 'Saisissez du texte pour rechercher des produits, ingrédients, comparatifs ou guides.',
+      recent: 'Récents',
+      categories: { ingredients: 'Ingrédients', products: 'Produits', comparisons: 'Comparatifs', guides: 'Guides', other: 'Autres' },
+      hints: { navigate: 'naviguer', open: 'ouvrir', close: 'fermer' },
+      indexed: '{n} indexés',
+      scoreAria: ', note de {score} sur 10',
+      gradeAria: ', niveau de preuve {grade}',
+    },
     pages: {
       bestNootropics: 'Meilleurs Nootropiques',
       compareAll: 'Comparer Tout',
@@ -1251,6 +1627,80 @@ const fr: UIStrings = {
       ariaLabel: 'Sections du produit',
     },
     alternatives: 'Alternatives similaires',
+    breadcrumbBestOf: 'Le meilleur',
+    overview: {
+      verdictEyebrow: 'Verdict',
+      verdict: { good: '{product} est recommandé.', warn: '{product} vaut le coup d’œil.', bad: '{product} n’est pas à la hauteur.' },
+      whatItDoes: 'Ce qu’il fait',
+      howItWorks: 'Comment il agit',
+      whatToExpect: 'À quoi s’attendre',
+      heroIngredients: 'Ingrédients phares',
+      whoItsFor: 'Pour qui',
+      whoShouldSkip: 'Qui devrait s’en passer',
+    },
+    reviews: {
+      noProfileHeading: 'Aucun profil Trustpilot',
+      noProfileBody: '{brand} n’a pas de fiche Trustpilot active — c’est courant pour les vendeurs présents uniquement sur Amazon, les marques de places de marché et les chaînes de pharmacies régionales.',
+      noProfileTrust: 'Le pilier Confiance de notre note éditoriale s’applique toujours et reflète la réputation de la marque, les tests par des tiers et l’historique des remboursements.',
+      starsAria: '{score} étoiles sur 5',
+      countOnTrustpilot: '{count} avis sur Trustpilot',
+      verifiedCount: '{count} avis vérifiés',
+      noCherryPicking: 'Nous n’intégrons pas ici de citations triées sur le volet. Trustpilot est la source de référence — la note ci-dessus alimente notre pilier Confiance.',
+      readAll: 'Lire les {count} avis sur Trustpilot →',
+    },
+    regionalBuying: {
+      heading: {
+        us: 'Acheter aux États-Unis',
+        eu: 'Acheter dans l’UE',
+        ca: 'Acheter au Canada',
+        au: 'Acheter en Australie',
+        jp: 'Acheter au Japon',
+        latam: 'Acheter en Amérique latine',
+        gcc: 'Acheter dans le Golfe',
+        sea: 'Acheter en Asie du Sud-Est',
+      },
+      price: 'Prix local',
+      monthUnit: 'mois',
+      status: 'Statut',
+      whereToBuy: 'Où acheter',
+      importPathway: 'Voie d’importation',
+      regulator: {
+        us: 'FDA (complément alimentaire au sens de la DSHEA)',
+        eu: 'Complément alimentaire dans l’UE (allégations selon le règl. 1924/2006)',
+        ca: 'Santé Canada (NPN)',
+        au: 'TGA (AUST L)',
+        jp: 'Agence de la consommation (FFC)',
+        latam: 'ANVISA / COFEPRIS / INVIMA',
+        gcc: 'SFDA / Municipalité de Dubaï',
+        sea: 'HSA / NPRA / BPOM / FDA PH / FDA thaïlandaise',
+      },
+      geoHub: {
+        us: 'Les meilleurs nootropiques aux États-Unis',
+        eu: 'Guides par pays',
+        ca: 'Guides par province',
+        au: 'Guides par État et territoire',
+        jp: 'Guides par préfecture',
+        latam: 'Guides par pays',
+        gcc: 'Guides par pays',
+        sea: 'Guides par pays',
+      },
+      licence: {
+        npnNumber: 'NPN {npn}',
+        npnLicensed: 'Titulaire d’une licence NPN',
+        noNpn: 'Aucun NPN trouvé',
+        noNpnChecked: 'Aucun NPN trouvé (vérifié le {date})',
+        austl: 'AUST L {austl}',
+        personalImportation: 'Régime d’importation personnelle',
+        ffcNumber: 'Notification FFC {number}',
+        ffcNotified: 'Notifié FFC',
+        noFfc: 'Aucune notification FFC enregistrée',
+        noFfcChecked: 'Aucune notification FFC trouvée (vérifié le {date})',
+        euStorefront: 'Boutique dans l’UE',
+        halalCertified: 'Certifié halal',
+        noHalal: 'Aucun certificat halal présenté par la marque',
+        noHalalChecked: 'Aucun certificat halal présenté par la marque (vérifié le {date})',
+      },
+    },
     pricing: {
       vendorTermsHeading: 'Ce qu’indique le site du vendeur',
       vendorTermsLede: 'Cité mot pour mot depuis les pages du vendeur. Les conditions changent : vérifiez-les avant d’acheter.',
@@ -1346,6 +1796,23 @@ const ja: UIStrings = {
     primaryLandmark: 'メインナビゲーション',
     openComparator: '比較ツールを開く →',
     skipToContent: 'メインコンテンツへスキップ',
+    buildMyStack: 'マイスタックを作る',
+    drawerLabel: 'メインナビゲーション',
+    sidebar: {
+      browse: '閲覧',
+      discover: '発見',
+      allProducts: 'すべての製品',
+      bestOf2026: '2026年のベスト',
+      ingredients: '成分',
+      tools: 'ツール',
+      comparator: '比較ツール',
+      doseCalculator: '用量計算ツール',
+      myShortlist: 'マイ候補リスト',
+      about: 'サイトについて',
+      ourMethodology: '当サイトの評価方法',
+      disclosures: '開示事項',
+      submitTip: '情報を提供する →',
+    },
   },
   footer: {
     tagline:
@@ -1447,6 +1914,20 @@ const ja: UIStrings = {
       oneResult: '1件の結果',
       manyResults: '{n}件の結果',
       noResults: '{query}に一致する結果はありません',
+    },
+    palette: {
+      dialogLabel: 'サイト内検索',
+      placeholder: '製品・成分・比較・ガイドを検索…',
+      resultsLabel: '検索結果',
+      recentLabel: '最近の項目とトレンド',
+      noResults: '「{query}」に一致する結果はありません',
+      emptyPrompt: '入力すると製品・成分・比較・ガイドを検索できます。',
+      recent: '最近の項目',
+      categories: { ingredients: '成分', products: '製品', comparisons: '比較', guides: 'ガイド', other: 'その他' },
+      hints: { navigate: '移動', open: '開く', close: '閉じる' },
+      indexed: '{n}件を収録',
+      scoreAria: '、スコア10点中{score}点',
+      gradeAria: '、エビデンス評価{grade}',
     },
   },
   ingredientDetail: {
@@ -1550,6 +2031,80 @@ const ja: UIStrings = {
       ariaLabel: '製品セクション',
     },
     alternatives: '類似の代替品',
+    breadcrumbBestOf: 'ベスト',
+    overview: {
+      verdictEyebrow: '総評',
+      verdict: { good: '{product}はおすすめです。', warn: '{product}は検討する価値があります。', bad: '{product}は基準に届きません。' },
+      whatItDoes: 'この製品の働き',
+      howItWorks: '作用の仕組み',
+      whatToExpect: '期待できること',
+      heroIngredients: '主要成分',
+      whoItsFor: '向いている人',
+      whoShouldSkip: '見送るべき人',
+    },
+    reviews: {
+      noProfileHeading: 'Trustpilotのプロフィールなし',
+      noProfileBody: '{brand}には有効なTrustpilotのページがありません。Amazonのみで販売する事業者、マーケットプレイスのブランド、地域の薬局チェーンではよくあることです。',
+      noProfileTrust: '当サイトの編集スコアにおける信頼性の柱は引き続き適用され、ブランドの評判、第三者機関による試験、返金対応の実績を反映します。',
+      starsAria: '星5つ中{score}',
+      countOnTrustpilot: 'Trustpilotのレビュー{count}件',
+      verifiedCount: '認証済みレビュー{count}件',
+      noCherryPicking: 'ここでは都合のよい口コミだけを選んで掲載することはしません。Trustpilotが正式な情報源であり、上のスコアは当サイトの信頼性の柱に反映されます。',
+      readAll: 'Trustpilotで{count}件のレビューをすべて読む →',
+    },
+    regionalBuying: {
+      heading: {
+        us: 'アメリカでの購入',
+        eu: 'EUでの購入',
+        ca: 'カナダでの購入',
+        au: 'オーストラリアでの購入',
+        jp: '日本での購入',
+        latam: 'ラテンアメリカでの購入',
+        gcc: '湾岸諸国での購入',
+        sea: '東南アジアでの購入',
+      },
+      price: '現地価格',
+      monthUnit: '月',
+      status: '状況',
+      whereToBuy: '購入できる場所',
+      importPathway: '輸入経路',
+      regulator: {
+        us: 'FDA（DSHEAに基づくダイエタリーサプリメント）',
+        eu: 'EUの食品サプリメント（規則1924/2006に基づく強調表示）',
+        ca: 'カナダ保健省（NPN）',
+        au: 'TGA (AUST L)',
+        jp: '消費者庁（機能性表示食品）',
+        latam: 'ANVISA / COFEPRIS / INVIMA',
+        gcc: 'SFDA／ドバイ市',
+        sea: 'HSA／NPRA／BPOM／FDA PH／タイFDA',
+      },
+      geoHub: {
+        us: 'アメリカのおすすめノートロピクス',
+        eu: '国別ガイド',
+        ca: '州別ガイド',
+        au: '州・準州別ガイド',
+        jp: '都道府県別ガイド',
+        latam: '国別ガイド',
+        gcc: '国別ガイド',
+        sea: '国別ガイド',
+      },
+      licence: {
+        npnNumber: 'NPN {npn}',
+        npnLicensed: 'NPN取得済み',
+        noNpn: 'NPNは見つかりませんでした',
+        noNpnChecked: 'NPNは見つかりませんでした（{date}確認）',
+        austl: 'AUST L {austl}',
+        personalImportation: '個人輸入制度',
+        ffcNumber: '機能性表示食品 届出番号 {number}',
+        ffcNotified: '機能性表示食品（届出済み）',
+        noFfc: '機能性表示食品の届出の記録はありません',
+        noFfcChecked: '機能性表示食品の届出は見つかりませんでした（{date}確認）',
+        euStorefront: 'EU向けストア',
+        halalCertified: 'ハラール認証',
+        noHalal: 'ブランドによるハラール認証書の提示なし',
+        noHalalChecked: 'ブランドによるハラール認証書の提示なし（{date}確認）',
+      },
+    },
     pricing: {
       vendorTermsHeading: '販売元サイトの記載',
       vendorTermsLede: '販売元の公式ページから原文のまま引用しています。条件は変わることがあるため、購入前にご確認ください。',
@@ -1645,6 +2200,23 @@ const pt: UIStrings = {
     primaryLandmark: 'Navegação principal',
     openComparator: 'Abrir comparador →',
     skipToContent: 'Ir para o conteúdo principal',
+    buildMyStack: 'Montar o meu stack',
+    drawerLabel: 'Navegação principal',
+    sidebar: {
+      browse: 'Explorar',
+      discover: 'Descobrir',
+      allProducts: 'Todos os produtos',
+      bestOf2026: 'O melhor de 2026',
+      ingredients: 'Ingredientes',
+      tools: 'Ferramentas',
+      comparator: 'Comparador',
+      doseCalculator: 'Calculadora de dose',
+      myShortlist: 'A minha pré-seleção',
+      about: 'Sobre',
+      ourMethodology: 'A nossa metodologia',
+      disclosures: 'Divulgações',
+      submitTip: 'Enviar uma dica →',
+    },
   },
   footer: {
     tagline:
@@ -1746,6 +2318,20 @@ const pt: UIStrings = {
       oneResult: '1 resultado',
       manyResults: '{n} resultados',
       noResults: 'Nenhum resultado para {query}',
+    },
+    palette: {
+      dialogLabel: 'Pesquisa no site',
+      placeholder: 'Pesquisar produtos, ingredientes, comparações, guias…',
+      resultsLabel: 'Resultados da pesquisa',
+      recentLabel: 'Recentes e tendências',
+      noResults: 'Nenhum resultado para “{query}”',
+      emptyPrompt: 'Escreva para pesquisar produtos, ingredientes, comparações ou guias.',
+      recent: 'Recentes',
+      categories: { ingredients: 'Ingredientes', products: 'Produtos', comparisons: 'Comparações', guides: 'Guias', other: 'Outros' },
+      hints: { navigate: 'navegar', open: 'abrir', close: 'fechar' },
+      indexed: '{n} indexados',
+      scoreAria: ', pontuação {score} em 10',
+      gradeAria: ', grau de evidência {grade}',
     },
   },
   ingredientDetail: {
@@ -1849,6 +2435,80 @@ const pt: UIStrings = {
       ariaLabel: 'Secções do produto',
     },
     alternatives: 'Alternativas semelhantes',
+    breadcrumbBestOf: 'O melhor',
+    overview: {
+      verdictEyebrow: 'Veredicto',
+      verdict: { good: '{product} é recomendado.', warn: '{product} merece uma vista de olhos.', bad: '{product} fica aquém.' },
+      whatItDoes: 'O que faz',
+      howItWorks: 'Como funciona',
+      whatToExpect: 'O que esperar',
+      heroIngredients: 'Ingredientes principais',
+      whoItsFor: 'Para quem é',
+      whoShouldSkip: 'Quem deve evitar',
+    },
+    reviews: {
+      noProfileHeading: 'Sem perfil no Trustpilot',
+      noProfileBody: '{brand} não tem uma página ativa no Trustpilot — algo comum em vendedores que só vendem na Amazon, marcas de marketplace e cadeias regionais de farmácias.',
+      noProfileTrust: 'O pilar de confiança da nossa pontuação editorial continua a aplicar-se e reflete a reputação da marca, os testes por terceiros e o historial de reembolsos.',
+      starsAria: '{score} de 5 estrelas',
+      countOnTrustpilot: '{count} avaliações no Trustpilot',
+      verifiedCount: '{count} avaliações verificadas',
+      noCherryPicking: 'Não incorporamos aqui citações escolhidas a dedo. O Trustpilot é a fonte de referência — a pontuação acima entra no nosso pilar de confiança.',
+      readAll: 'Ler as {count} avaliações no Trustpilot →',
+    },
+    regionalBuying: {
+      heading: {
+        us: 'Comprar nos Estados Unidos',
+        eu: 'Comprar na UE',
+        ca: 'Comprar no Canadá',
+        au: 'Comprar na Austrália',
+        jp: 'Comprar no Japão',
+        latam: 'Comprar na América Latina',
+        gcc: 'Comprar no Golfo',
+        sea: 'Comprar no Sudeste Asiático',
+      },
+      price: 'Preço local',
+      monthUnit: 'mês',
+      status: 'Estado',
+      whereToBuy: 'Onde comprar',
+      importPathway: 'Via de importação',
+      regulator: {
+        us: 'FDA (suplemento alimentar ao abrigo da DSHEA)',
+        eu: 'Suplemento alimentar na UE (alegações ao abrigo do Reg. 1924/2006)',
+        ca: 'Health Canada (NPN)',
+        au: 'TGA (AUST L)',
+        jp: 'Agência dos Assuntos do Consumidor (FFC)',
+        latam: 'ANVISA / COFEPRIS / INVIMA',
+        gcc: 'SFDA / Município do Dubai',
+        sea: 'HSA / NPRA / BPOM / FDA PH / FDA tailandesa',
+      },
+      geoHub: {
+        us: 'Os melhores nootrópicos nos EUA',
+        eu: 'Guias por país',
+        ca: 'Guias por província',
+        au: 'Guias por estado e território',
+        jp: 'Guias por prefeitura',
+        latam: 'Guias por país',
+        gcc: 'Guias por país',
+        sea: 'Guias por país',
+      },
+      licence: {
+        npnNumber: 'NPN {npn}',
+        npnLicensed: 'Com licença NPN',
+        noNpn: 'Nenhum NPN encontrado',
+        noNpnChecked: 'Nenhum NPN encontrado (verificado a {date})',
+        austl: 'AUST L {austl}',
+        personalImportation: 'Regime de importação pessoal',
+        ffcNumber: 'Notificação FFC {number}',
+        ffcNotified: 'Notificado FFC',
+        noFfc: 'Sem notificação FFC registada',
+        noFfcChecked: 'Nenhuma notificação FFC encontrada (verificado a {date})',
+        euStorefront: 'Loja na UE',
+        halalCertified: 'Certificado halal',
+        noHalal: 'A marca não apresenta certificado halal',
+        noHalalChecked: 'A marca não apresenta certificado halal (verificado a {date})',
+      },
+    },
     pricing: {
       vendorTermsHeading: 'O que diz o site do vendedor',
       vendorTermsLede: 'Citado palavra por palavra das páginas do próprio vendedor. As condições mudam: confirme-as antes de comprar.',
@@ -1944,6 +2604,23 @@ const de: UIStrings = {
     primaryLandmark: 'Hauptnavigation',
     openComparator: 'Vergleichstool öffnen →',
     skipToContent: 'Zum Hauptinhalt springen',
+    buildMyStack: 'Mein Stack zusammenstellen',
+    drawerLabel: 'Hauptnavigation',
+    sidebar: {
+      browse: 'Stöbern',
+      discover: 'Entdecken',
+      allProducts: 'Alle Produkte',
+      bestOf2026: 'Das Beste 2026',
+      ingredients: 'Inhaltsstoffe',
+      tools: 'Werkzeuge',
+      comparator: 'Vergleichstool',
+      doseCalculator: 'Dosisrechner',
+      myShortlist: 'Meine Auswahlliste',
+      about: 'Über uns',
+      ourMethodology: 'Unsere Methodik',
+      disclosures: 'Offenlegungen',
+      submitTip: 'Hinweis senden →',
+    },
   },
   footer: {
     tagline:
@@ -2045,6 +2722,20 @@ const de: UIStrings = {
       oneResult: '1 Ergebnis',
       manyResults: '{n} Ergebnisse',
       noResults: 'Keine Ergebnisse für {query}',
+    },
+    palette: {
+      dialogLabel: 'Website-Suche',
+      placeholder: 'Produkte, Inhaltsstoffe, Vergleiche, Ratgeber suchen…',
+      resultsLabel: 'Suchergebnisse',
+      recentLabel: 'Zuletzt geöffnet und im Trend',
+      noResults: 'Keine Ergebnisse für „{query}“',
+      emptyPrompt: 'Tippen Sie, um Produkte, Inhaltsstoffe, Vergleiche oder Ratgeber zu suchen.',
+      recent: 'Zuletzt geöffnet',
+      categories: { ingredients: 'Inhaltsstoffe', products: 'Produkte', comparisons: 'Vergleiche', guides: 'Ratgeber', other: 'Sonstiges' },
+      hints: { navigate: 'navigieren', open: 'öffnen', close: 'schließen' },
+      indexed: '{n} indexiert',
+      scoreAria: ', Bewertung {score} von 10',
+      gradeAria: ', Evidenzgrad {grade}',
     },
   },
   ingredientDetail: {
@@ -2148,6 +2839,80 @@ const de: UIStrings = {
       ariaLabel: 'Produktbereiche',
     },
     alternatives: 'Ähnliche Alternativen',
+    breadcrumbBestOf: 'Das Beste',
+    overview: {
+      verdictEyebrow: 'Fazit',
+      verdict: { good: '{product} ist empfehlenswert.', warn: '{product} ist einen Blick wert.', bad: '{product} bleibt hinter den Erwartungen zurück.' },
+      whatItDoes: 'Was es bewirkt',
+      howItWorks: 'Wie es wirkt',
+      whatToExpect: 'Was Sie erwarten können',
+      heroIngredients: 'Hauptinhaltsstoffe',
+      whoItsFor: 'Für wen es geeignet ist',
+      whoShouldSkip: 'Wer darauf verzichten sollte',
+    },
+    reviews: {
+      noProfileHeading: 'Kein Trustpilot-Profil',
+      noProfileBody: '{brand} hat kein aktives Trustpilot-Profil – das ist bei reinen Amazon-Händlern, Marktplatzmarken und regionalen Apothekenketten üblich.',
+      noProfileTrust: 'Die Vertrauenssäule unserer redaktionellen Bewertung gilt weiterhin und spiegelt den Ruf der Marke, Tests durch Dritte und die Erstattungshistorie wider.',
+      starsAria: '{score} von 5 Sternen',
+      countOnTrustpilot: '{count} Bewertungen auf Trustpilot',
+      verifiedCount: '{count} verifizierte Bewertungen',
+      noCherryPicking: 'Wir binden hier keine handverlesenen Zitate ein. Trustpilot ist die maßgebliche Quelle – die Bewertung oben fließt in unsere Vertrauenssäule ein.',
+      readAll: 'Alle {count} Bewertungen auf Trustpilot lesen →',
+    },
+    regionalBuying: {
+      heading: {
+        us: 'Kaufen in den Vereinigten Staaten',
+        eu: 'Kaufen in der EU',
+        ca: 'Kaufen in Kanada',
+        au: 'Kaufen in Australien',
+        jp: 'Kaufen in Japan',
+        latam: 'Kaufen in Lateinamerika',
+        gcc: 'Kaufen in den Golfstaaten',
+        sea: 'Kaufen in Südostasien',
+      },
+      price: 'Lokaler Preis',
+      monthUnit: 'Monat',
+      status: 'Status',
+      whereToBuy: 'Bezugsquellen',
+      importPathway: 'Einfuhrweg',
+      regulator: {
+        us: 'FDA (Nahrungsergänzungsmittel nach DSHEA)',
+        eu: 'EU-Nahrungsergänzungsmittel (Angaben nach VO 1924/2006)',
+        ca: 'Health Canada (NPN)',
+        au: 'TGA (AUST L)',
+        jp: 'Verbraucherbehörde (FFC)',
+        latam: 'ANVISA / COFEPRIS / INVIMA',
+        gcc: 'SFDA / Stadtverwaltung Dubai',
+        sea: 'HSA / NPRA / BPOM / FDA PH / thailändische FDA',
+      },
+      geoHub: {
+        us: 'Die besten Nootropika in den USA',
+        eu: 'Länderratgeber',
+        ca: 'Ratgeber nach Provinz',
+        au: 'Ratgeber nach Bundesstaat und Territorium',
+        jp: 'Ratgeber nach Präfektur',
+        latam: 'Länderratgeber',
+        gcc: 'Länderratgeber',
+        sea: 'Länderratgeber',
+      },
+      licence: {
+        npnNumber: 'NPN {npn}',
+        npnLicensed: 'NPN-lizenziert',
+        noNpn: 'Keine NPN gefunden',
+        noNpnChecked: 'Keine NPN gefunden (geprüft am {date})',
+        austl: 'AUST L {austl}',
+        personalImportation: 'Regelung für die persönliche Einfuhr',
+        ffcNumber: 'FFC-Meldung {number}',
+        ffcNotified: 'FFC-notifiziert',
+        noFfc: 'Keine FFC-Meldung erfasst',
+        noFfcChecked: 'Keine FFC-Meldung gefunden (geprüft am {date})',
+        euStorefront: 'EU-Shop',
+        halalCertified: 'Halal-zertifiziert',
+        noHalal: 'Kein Halal-Zertifikat von der Marke vorgelegt',
+        noHalalChecked: 'Kein Halal-Zertifikat von der Marke vorgelegt (geprüft am {date})',
+      },
+    },
     pricing: {
       vendorTermsHeading: 'Was die Website des Anbieters angibt',
       vendorTermsLede: 'Wörtlich von den Seiten des Anbieters zitiert. Bedingungen ändern sich – prüfen Sie sie vor dem Kauf.',
@@ -2248,6 +3013,23 @@ const frCa: UIStrings = {
     primaryLandmark: 'Navigation principale',
     openComparator: 'Ouvrir le comparateur →',
     skipToContent: 'Aller au contenu principal',
+    buildMyStack: 'Composer mon stack',
+    drawerLabel: 'Navigation principale',
+    sidebar: {
+      browse: 'Parcourir',
+      discover: 'Découvrir',
+      allProducts: 'Tous les produits',
+      bestOf2026: 'Le meilleur de 2026',
+      ingredients: 'Ingrédients',
+      tools: 'Outils',
+      comparator: 'Comparateur',
+      doseCalculator: 'Calculateur de dose',
+      myShortlist: 'Ma présélection',
+      about: 'À propos',
+      ourMethodology: 'Notre méthodologie',
+      disclosures: 'Divulgations',
+      submitTip: 'Nous signaler une info →',
+    },
   },
   footer: {
     tagline:
@@ -2335,6 +3117,20 @@ const frCa: UIStrings = {
     ariaLabel: "Fil d'Ariane",
   },
   search: {
+    palette: {
+      dialogLabel: 'Recherche sur le site',
+      placeholder: 'Rechercher des produits, ingrédients, comparatifs, guides…',
+      resultsLabel: 'Résultats de recherche',
+      recentLabel: 'Récents et tendances',
+      noResults: 'Aucun résultat pour « {query} »',
+      emptyPrompt: 'Tapez du texte pour rechercher des produits, ingrédients, comparatifs ou guides.',
+      recent: 'Récents',
+      categories: { ingredients: 'Ingrédients', products: 'Produits', comparisons: 'Comparatifs', guides: 'Guides', other: 'Autres' },
+      hints: { navigate: 'naviguer', open: 'ouvrir', close: 'fermer' },
+      indexed: '{n} indexés',
+      scoreAria: ', score de {score} sur 10',
+      gradeAria: ', niveau de preuve {grade}',
+    },
     pages: {
       bestNootropics: 'Meilleurs Nootropiques',
       compareAll: 'Comparer Tout',
@@ -2449,6 +3245,80 @@ const frCa: UIStrings = {
       ariaLabel: 'Sections du produit',
     },
     alternatives: 'Alternatives similaires',
+    breadcrumbBestOf: 'Le meilleur',
+    overview: {
+      verdictEyebrow: 'Verdict',
+      verdict: { good: '{product} est recommandé.', warn: '{product} vaut le coup d’œil.', bad: '{product} n’est pas à la hauteur.' },
+      whatItDoes: 'Ce qu’il fait',
+      howItWorks: 'Comment il agit',
+      whatToExpect: 'À quoi s’attendre',
+      heroIngredients: 'Ingrédients vedettes',
+      whoItsFor: 'Pour qui',
+      whoShouldSkip: 'Qui devrait s’en passer',
+    },
+    reviews: {
+      noProfileHeading: 'Aucun profil Trustpilot',
+      noProfileBody: '{brand} n’a pas de fiche Trustpilot active — c’est courant pour les vendeurs présents uniquement sur Amazon, les marques de places de marché et les chaînes de pharmacies régionales.',
+      noProfileTrust: 'Le pilier Confiance de notre score éditorial s’applique toujours et reflète la réputation de la marque, les analyses par des tiers et l’historique des remboursements.',
+      starsAria: '{score} étoiles sur 5',
+      countOnTrustpilot: '{count} évaluations sur Trustpilot',
+      verifiedCount: '{count} évaluations vérifiées',
+      noCherryPicking: 'Nous n’intégrons pas ici de citations triées sur le volet. Trustpilot est la source de référence — le score ci-dessus alimente notre pilier Confiance.',
+      readAll: 'Lire les {count} évaluations sur Trustpilot →',
+    },
+    regionalBuying: {
+      heading: {
+        us: 'Acheter aux États-Unis',
+        eu: 'Acheter dans l’UE',
+        ca: 'Acheter au Canada',
+        au: 'Acheter en Australie',
+        jp: 'Acheter au Japon',
+        latam: 'Acheter en Amérique latine',
+        gcc: 'Acheter dans le Golfe',
+        sea: 'Acheter en Asie du Sud-Est',
+      },
+      price: 'Prix local',
+      monthUnit: 'mois',
+      status: 'Statut',
+      whereToBuy: 'Où acheter',
+      importPathway: 'Voie d’importation',
+      regulator: {
+        us: 'FDA (supplément alimentaire au sens de la DSHEA)',
+        eu: 'Complément alimentaire dans l’UE (allégations selon le règl. 1924/2006)',
+        ca: 'Santé Canada (NPN)',
+        au: 'TGA (AUST L)',
+        jp: 'Agence de la consommation (FFC)',
+        latam: 'ANVISA / COFEPRIS / INVIMA',
+        gcc: 'SFDA / Municipalité de Dubaï',
+        sea: 'HSA / NPRA / BPOM / FDA PH / FDA thaïlandaise',
+      },
+      geoHub: {
+        us: 'Les meilleurs nootropiques aux États-Unis',
+        eu: 'Guides par pays',
+        ca: 'Guides par province',
+        au: 'Guides par État et territoire',
+        jp: 'Guides par préfecture',
+        latam: 'Guides par pays',
+        gcc: 'Guides par pays',
+        sea: 'Guides par pays',
+      },
+      licence: {
+        npnNumber: 'NPN {npn}',
+        npnLicensed: 'Titulaire d’une licence NPN',
+        noNpn: 'Aucun NPN trouvé',
+        noNpnChecked: 'Aucun NPN trouvé (vérifié le {date})',
+        austl: 'AUST L {austl}',
+        personalImportation: 'Régime d’importation personnelle',
+        ffcNumber: 'Notification FFC {number}',
+        ffcNotified: 'Notifié FFC',
+        noFfc: 'Aucune notification FFC enregistrée',
+        noFfcChecked: 'Aucune notification FFC trouvée (vérifié le {date})',
+        euStorefront: 'Boutique dans l’UE',
+        halalCertified: 'Certifié halal',
+        noHalal: 'Aucun certificat halal présenté par la marque',
+        noHalalChecked: 'Aucun certificat halal présenté par la marque (vérifié le {date})',
+      },
+    },
     pricing: {
       vendorTermsHeading: 'Ce qu’indique le site du vendeur',
       vendorTermsLede: 'Cité mot pour mot à partir des pages du vendeur. Les conditions changent : vérifiez-les avant d’acheter.',

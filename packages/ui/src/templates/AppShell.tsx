@@ -93,17 +93,26 @@ export default function AppShell({
 
   const drawerVisible = isOverlay && isMobile;
 
+  // Chrome labels from the page's locale bundle; the English fallbacks are
+  // the en bundle's values, for callers without a bundle.
+  const openMenu = uiStrings?.nav.openMenu ?? 'Open menu';
+  const closeMenu = uiStrings?.nav.closeMenu ?? 'Close menu';
+  const drawerLabel = uiStrings?.nav.drawerLabel ?? 'Primary navigation';
+  const buildMyStack = uiStrings?.nav.buildMyStack ?? 'Build my stack';
+  const searchLabel = uiStrings?.nav.search ?? 'Search';
+
   // Focus management on drawer open/close. Restore focus to the trigger
   // only after the drawer was open at some point — guard against firing
   // on initial mount where drawerVisible starts false.
   const triggerRef = useRef<HTMLButtonElement>(null);
-  const drawerRef = useRef<HTMLDivElement>(null);
+  // The drawer's first close control (the scrim button). A ref, not a
+  // query on the button's accessible name: the name is translated.
+  const drawerCloseRef = useRef<HTMLButtonElement>(null);
   const wasDrawerVisibleRef = useRef(false);
   useEffect(() => {
     if (drawerVisible) {
       wasDrawerVisibleRef.current = true;
-      const closeBtn = drawerRef.current?.querySelector<HTMLButtonElement>('button[aria-label="Close menu"]');
-      closeBtn?.focus();
+      drawerCloseRef.current?.focus();
     } else if (wasDrawerVisibleRef.current) {
       wasDrawerVisibleRef.current = false;
       triggerRef.current?.focus();
@@ -134,7 +143,7 @@ export default function AppShell({
             persistent mode, rendered when toggled open in collapsed mode */}
         {showInline && (
           <div className="hidden lg:block">
-            <Sidebar groups={sidebarGroups} meta={sidebarMeta} />
+            <Sidebar groups={sidebarGroups} labels={uiStrings?.nav.sidebar} landmarkLabel={uiStrings?.nav.primaryLandmark} meta={sidebarMeta} />
           </div>
         )}
 
@@ -149,7 +158,7 @@ export default function AppShell({
                 ref={triggerRef}
                 type="button"
                 onClick={() => setSidebarOpen((v) => !v)}
-                aria-label={sidebarOpen ? 'Close menu' : 'Open menu'}
+                aria-label={sidebarOpen ? closeMenu : openMenu}
                 aria-expanded={sidebarOpen}
                 aria-controls="appshell-mobile-drawer"
                 className={`w-9 h-9 grid place-items-center text-ds-ink-soft hover:bg-ds-bg rounded-md focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 ${
@@ -187,7 +196,7 @@ export default function AppShell({
             </div>
             <div className="flex items-center gap-[10px]">
               {searchItems && searchItems.length > 0 && (
-                <CommandPalette items={searchItems} />
+                <CommandPalette items={searchItems} triggerLabel={searchLabel} strings={uiStrings} />
               )}
               {!hideStackCta && (
                 <Link
@@ -195,7 +204,7 @@ export default function AppShell({
                   className="hidden sm:inline-flex items-center gap-2 bg-ds-accent text-white px-[14px] py-[8px] rounded-[8px] text-[13px] font-semibold no-underline hover:bg-ds-accent-press focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
                 >
                   <Search size={14} strokeWidth={2.4} aria-hidden={true} />
-                  Build my stack
+                  {buildMyStack}
                 </Link>
               )}
             </div>
@@ -217,10 +226,11 @@ export default function AppShell({
           doesn't unmount the desktop instance. Sits outside the `inert` wrapper above so it stays
           interactive while the rest of the page is inert. */}
       {isOverlay && (
-        <div ref={drawerRef} id="appshell-mobile-drawer" className="lg:hidden fixed inset-0 z-40 flex" role="dialog" aria-modal="true" aria-label="Primary navigation">
+        <div id="appshell-mobile-drawer" className="lg:hidden fixed inset-0 z-40 flex" role="dialog" aria-modal="true" aria-label={drawerLabel}>
           <button
+            ref={drawerCloseRef}
             type="button"
-            aria-label="Close menu"
+            aria-label={closeMenu}
             onClick={() => setSidebarOpen(false)}
             className="absolute inset-0 bg-[rgba(11,18,32,0.55)] cursor-default"
           />
@@ -228,12 +238,12 @@ export default function AppShell({
             <button
               type="button"
               onClick={() => setSidebarOpen(false)}
-              aria-label="Close menu"
+              aria-label={closeMenu}
               className="absolute top-3 right-3 z-10 w-9 h-9 grid place-items-center text-ds-side-ink hover:bg-white/10 rounded-md focus-visible:outline-2 focus-visible:outline-ds-focus-ring-on-dark focus-visible:outline-offset-2"
             >
               <X size={18} strokeWidth={2} aria-hidden={true} />
             </button>
-            <Sidebar groups={sidebarGroups} meta={sidebarMeta} />
+            <Sidebar groups={sidebarGroups} labels={uiStrings?.nav.sidebar} landmarkLabel={uiStrings?.nav.primaryLandmark} meta={sidebarMeta} />
           </div>
         </div>
       )}

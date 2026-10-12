@@ -1,4 +1,5 @@
 import type { Product } from './products-us';
+import { getStrings, type LicenceStatusStrings } from './i18n';
 import { monthlyStorePrice, type Money } from './store-price';
 import { regionalNotesCA } from './regional-notes/ca';
 import { regionalNotesEU } from './regional-notes/eu';
@@ -127,9 +128,25 @@ export const REGION_PROFILES: Record<RegionCode, RegionProfile> = {
   },
 };
 
+export type LicenceStatusKey = keyof LicenceStatusStrings;
+
 export interface LicenceStatus {
+  /** The status in English (en bundle); the guide/ingredient block (RegionalAvailability) shows it. */
   label: string;
   tone: 'good' | 'neutral' | 'warn';
+  /** Which UIStrings.productDetail.regionalBuying.licence line this is; the review page renders it in the page locale. */
+  key: LicenceStatusKey;
+  /** Placeholder values of that line, from the record ({npn}, {austl}, {number}, {date}). */
+  values: Record<string, string>;
+}
+
+/** Fills a licence line's `{placeholder}` tokens with the status's values. */
+export function licenceStatusText(status: Pick<LicenceStatus, 'key' | 'values'>, strings: LicenceStatusStrings): string {
+  return strings[status.key].replace(/\{(\w+)\}/g, (token, name: string) => status.values[name] ?? token);
+}
+
+function status(key: LicenceStatusKey, tone: LicenceStatus['tone'], values: Record<string, string> = {}): LicenceStatus {
+  return { label: licenceStatusText({ key, values }, getStrings('en').productDetail.regionalBuying.licence), tone, key, values };
 }
 
 /**
@@ -139,44 +156,34 @@ export interface LicenceStatus {
  */
 export function licenceStatus(product: Product, region: RegionCode): LicenceStatus | null {
   switch (region) {
-    case 'ca':
-      if (!product.npnStatus) return null;
-      return product.npnStatus.status === 'licensed'
-        ? { label: product.npnStatus.npn ? `NPN ${product.npnStatus.npn}` : 'NPN licensed', tone: 'good' }
-        : {
-            label: product.npnStatus.checkedAt
-              ? `No NPN found (checked ${product.npnStatus.checkedAt})`
-              : 'No NPN found',
-            tone: 'neutral',
-          };
+    case 'ca': {
+      const npn = product.npnStatus;
+      if (!npn) return null;
+      if (npn.status === 'licensed') return npn.npn ? status('npnNumber', 'good', { npn: npn.npn }) : status('npnLicensed', 'good');
+      return npn.checkedAt ? status('noNpnChecked', 'neutral', { date: npn.checkedAt }) : status('noNpn', 'neutral');
+    }
     case 'au':
-      return product.austl
-        ? { label: `AUST L ${product.austl}`, tone: 'good' }
-        : { label: 'Personal Importation Scheme', tone: 'neutral' };
-    case 'jp':
-      if (!product.ffcStatus) return null;
-      return product.ffcStatus.notified
-        ? { label: product.ffcStatus.notificationNumber ? `FFC 届出 ${product.ffcStatus.notificationNumber}` : 'FFC notified', tone: 'good' }
-        : {
-            label: product.ffcStatus.checkedAt
-              ? `No FFC notification found (checked ${product.ffcStatus.checkedAt})`
-              : 'No FFC notification on file',
-            tone: 'neutral',
-          };
+      return product.austl ? status('austl', 'good', { austl: product.austl }) : status('personalImportation', 'neutral');
+    case 'jp': {
+      const ffc = product.ffcStatus;
+      if (!ffc) return null;
+      if (ffc.notified) {
+        return ffc.notificationNumber ? status('ffcNumber', 'good', { number: ffc.notificationNumber }) : status('ffcNotified', 'good');
+      }
+      return ffc.checkedAt ? status('noFfcChecked', 'neutral', { date: ffc.checkedAt }) : status('noFfc', 'neutral');
+    }
     case 'eu':
       // Only the verifiable storefront fact; `euCompliance` is a legacy
       // self-asserted flag and is never rendered.
-      return product.euStorefront ? { label: 'EU storefront', tone: 'good' } : null;
+      return product.euStorefront ? status('euStorefront', 'good') : null;
     case 'sea': {
       const halal = product.halalCertified;
-      if (halal === true) return { label: 'Halal certified', tone: 'good' };
-      if (halal === false)
-        return {
-          label: product.halalCheckedAt
-            ? `No halal certificate shown by the brand (checked ${product.halalCheckedAt})`
-            : 'No halal certificate shown by the brand',
-          tone: 'neutral',
-        };
+      if (halal === true) return status('halalCertified', 'good');
+      if (halal === false) {
+        return product.halalCheckedAt
+          ? status('noHalalChecked', 'neutral', { date: product.halalCheckedAt })
+          : status('noHalal', 'neutral');
+      }
       return null;
     }
     default:

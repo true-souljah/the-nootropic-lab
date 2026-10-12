@@ -60,11 +60,19 @@ describe('localPrice', () => {
 describe('licenceStatus', () => {
   test('CA maps npnStatus; AU maps austl; JP maps ffcStatus', () => {
     const base = productsUS[0];
-    expect(licenceStatus({ ...base, npnStatus: { status: 'licensed', npn: '80012345' } }, 'ca')).toEqual({ label: 'NPN 80012345', tone: 'good' });
-    expect(licenceStatus({ ...base, npnStatus: { status: 'pip' } }, 'ca')).toEqual({ label: 'No NPN found', tone: 'neutral' });
+    // `key` + `values` (2026-10-12): the review page renders the same line in its locale.
+    expect(licenceStatus({ ...base, npnStatus: { status: 'licensed', npn: '80012345' } }, 'ca')).toEqual({
+      label: 'NPN 80012345',
+      tone: 'good',
+      key: 'npnNumber',
+      values: { npn: '80012345' },
+    });
+    expect(licenceStatus({ ...base, npnStatus: { status: 'pip' } }, 'ca')).toEqual({ label: 'No NPN found', tone: 'neutral', key: 'noNpn', values: {} });
     expect(licenceStatus({ ...base, npnStatus: { status: 'pip', checkedAt: '2026-10-07' } }, 'ca')).toEqual({
       label: 'No NPN found (checked 2026-10-07)',
       tone: 'neutral',
+      key: 'noNpnChecked',
+      values: { date: '2026-10-07' },
     });
     expect(licenceStatus({ ...base, npnStatus: undefined }, 'ca')).toBeNull();
     expect(licenceStatus({ ...base, austl: '123456' }, 'au')?.label).toBe('AUST L 123456');
@@ -76,14 +84,18 @@ describe('licenceStatus', () => {
   });
   test('SEA maps halalCertified: false reports only what the brand pages showed, dated when checked', () => {
     const base = productsUS[0];
-    expect(licenceStatus({ ...base, halalCertified: true }, 'sea')).toEqual({ label: 'Halal certified', tone: 'good' });
+    expect(licenceStatus({ ...base, halalCertified: true }, 'sea')).toEqual({ label: 'Halal certified', tone: 'good', key: 'halalCertified', values: {} });
     expect(licenceStatus({ ...base, halalCertified: false }, 'sea')).toEqual({
       label: 'No halal certificate shown by the brand',
       tone: 'neutral',
+      key: 'noHalal',
+      values: {},
     });
     expect(licenceStatus({ ...base, halalCertified: false, halalCheckedAt: '2026-10-07' }, 'sea')).toEqual({
       label: 'No halal certificate shown by the brand (checked 2026-10-07)',
       tone: 'neutral',
+      key: 'noHalalChecked',
+      values: { date: '2026-10-07' },
     });
     expect(licenceStatus({ ...base, halalCertified: undefined }, 'sea')).toBeNull();
   });
