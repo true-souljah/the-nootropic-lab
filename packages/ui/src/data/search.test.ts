@@ -11,7 +11,6 @@ function product(overrides: Partial<Product> = {}): Product {
     summary: 'A test product summary that is long enough to be truncated when needed for the description.',
     bestFor: [],
     caffeineFree: true,
-    priceMonthlyUSD: 50,
     moneyBackDays: 30,
     affiliateNetwork: '',
     affiliateUrl: '',

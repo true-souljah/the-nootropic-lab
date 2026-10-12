@@ -28,7 +28,7 @@ export const COLUMNS: Array<{
   { key: null, label: 'Product', width: 260 },
   { key: 'score', label: 'Score', width: 110 },
   { key: 'value', label: 'Value', width: 80, align: 'right' },
-  { key: 'price', label: '$/mo', width: 80, align: 'right' },
+  { key: 'price', label: 'Price', width: 80, align: 'right' },
   { key: 'trust', label: 'Trustpilot', width: 130, align: 'right' },
   { key: null, label: 'Best for', width: 180 },
 ];

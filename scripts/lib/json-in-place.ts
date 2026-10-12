@@ -2,7 +2,7 @@
 // spans with a minimal scanner so a change touches only its own key — no
 // re-serialisation, so existing formatting (such as "4.0" and the missing
 // final newlines) stays. Shared by scripts/import-vendor-terms.ts and
-// scripts/derive-prices-from-vendor-quotes.ts.
+// scripts/write-store-prices.ts.
 
 export function skipWs(s: string, i: number): number {
   while (i < s.length && /\s/.test(s[i])) i++;

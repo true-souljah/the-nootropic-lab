@@ -59,9 +59,9 @@ export const NO_REFERENCE_DOSE = 'No reference dose on file';
 export const DOSING_ANCHORS: readonly DosingAnchor[] = [
   { ingredientSlug: 'lions-mane', match: /lion'?s?\s*mane|hericium/i, clinicalDose: '1000-1800mg/day', minMg: 1000, basis: 'raw' },
   {
-    ingredientSlug: 'bacopa-monnieri', match: /bacopa|brahmi/i, clinicalDose: '300-450mg/day (55% bacosides)', minMg: 300, basis: 'extract',
+    ingredientSlug: 'bacopa-monnieri', match: /bacopa|brahmi/i, clinicalDose: '300-450mg/day (≥50% bacosides)', minMg: 300, basis: 'extract',
     standardisation: /\d+(\.\d+)?\s*%|bacosid|bacopasid|saponin/i,
-    marker: { pattern: /bacosides?|bacopasides?|saponins?/i, minMg: 165 },
+    marker: { pattern: /bacosides?|bacopasides?|saponins?/i, minMg: 150 },
   },
   { ingredientSlug: 'citicoline', match: /citicolin|cdp[-\s]?cholin|cognizin/i, clinicalDose: '250-500mg/day', minMg: 250, basis: 'compound' },
   { ingredientSlug: 'l-theanine', match: /theanine/i, clinicalDose: '100-200mg/day', minMg: 100, basis: 'compound' },

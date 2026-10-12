@@ -4,6 +4,7 @@ import { BestOf, SchemaOrg, Card, Chip, FaqAccordion, buildAlternates, buildOpen
 import { productsUS, buildPersonAuthorReference } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
+import { priceText } from '@nootropic/ui';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -111,9 +112,7 @@ export default function BestNootropicsUSPage() {
               rel="nofollow sponsored noopener noreferrer"
               className="inline-block bg-ds-accent hover:bg-ds-accent-press text-white font-semibold px-5 py-[10px] rounded-[8px] text-[13px] no-underline focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
             >
-              {winner.priceMonthlyUSD
-                ? `Check current price ($${winner.priceMonthlyUSD}/mo) →`
-                : 'Check current price →'}
+              {priceText(winner, uiStrings) ? `Check current price (${priceText(winner, uiStrings)!.short}) →` : 'Check current price →'}
             </a>
           </Card>
         }

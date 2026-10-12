@@ -5,6 +5,7 @@ import {
   budgetFit,
   mbgFit,
   scoreQuiz,
+  monthlyUSD,
 } from './quizScoring';
 import type { Product } from '@nootropic/data';
 
@@ -18,7 +19,8 @@ function p(overrides: Partial<Product> = {}): Product {
     summary: '',
     bestFor: [],
     caffeineFree: true,
-    priceMonthlyUSD: 60,
+    // A one-month US-dollar pack: monthlyUSD() reads US$60.
+    storePrice: { amount: 60, currency: 'USD', text: '$60.00', pack: 'One bottle', supply: '1 Month Supply', url: 'https://example.com/p', checkedAt: '2026-10-09' },
     moneyBackDays: 30,
     affiliateNetwork: '',
     affiliateUrl: '',
@@ -81,7 +83,7 @@ describe('caffeineFit', () => {
 });
 
 describe('budgetFit', () => {
-  test('priceMonthlyUSD undefined → 1.0 neutral', () => {
+  test('no per-month dollar price → 1.0 neutral', () => {
     expect(budgetFit(undefined, 60)).toBe(1.0);
   });
 
@@ -212,5 +214,16 @@ describe('scoreQuiz', () => {
       mbg: 'Not important',
     });
     expect(Number.isInteger(result?.confidence)).toBe(true);
+  });
+});
+
+describe('monthlyUSD — the quiz budget reads dollar prices only, never converted', () => {
+  test('a one-month dollar pack', () => {
+    expect(monthlyUSD(p())).toBe(60);
+  });
+  test('a non-dollar store or an unstated supply has no figure', () => {
+    expect(monthlyUSD(p({ storePrice: { amount: 59, currency: 'EUR', text: '€59,00', pack: '60 capsules', supply: '1 Month Supply', url: 'https://example.com/p', checkedAt: '2026-10-09' } }))).toBeUndefined();
+    expect(monthlyUSD(p({ storePrice: { amount: 60, currency: 'USD', text: '$60.00', pack: 'One bottle', url: 'https://example.com/p', checkedAt: '2026-10-09' } }))).toBeUndefined();
+    expect(monthlyUSD(p({ storePrice: undefined }))).toBeUndefined();
   });
 });

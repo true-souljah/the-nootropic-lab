@@ -61,7 +61,7 @@ describe.each(REGIONS)('%s NooCube matches its label', (_region, products) => {
   });
 
   test('reference-dose rows carry the library string and the label-proven verdict', () => {
-    expect(row(p, 'Bacopa Monnieri Extract (herb, 20% bacosides)')).toMatchObject({ clinicalDose: '300-450mg/day (55% bacosides)', adequatelyDosed: false });
+    expect(row(p, 'Bacopa Monnieri Extract (herb, 20% bacosides)')).toMatchObject({ clinicalDose: '300-450mg/day (≥50% bacosides)', adequatelyDosed: false });
     expect(row(p, 'L-Tyrosine')).toMatchObject({ clinicalDose: '2000mg/day (lowest positive trial)', adequatelyDosed: false });
     expect(row(p, 'L-Theanine')).toMatchObject({ clinicalDose: '100-200mg/day', adequatelyDosed: true });
     expect(row(p, 'Lutemax 2020 (Marigold Flower Extract, Tagetes erecta)')).toMatchObject({ clinicalDose: '12-27mg/day', adequatelyDosed: true });

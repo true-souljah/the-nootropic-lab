@@ -49,7 +49,7 @@
       "population": "healthy elderly, mean age 73.5, no clinical dementia",
       "n": 54,
       "dose": "300mg/day",
-      "extract": "standardized whole-plant dry extract (unbranded)",
+      "extract": "standardized dry extract made to MediHerb's specification: 50:1, minimum 50% bacosides A and B, about 150mg of bacosides per 300mg tablet (full text PMC3153866, Methods; read 2026-10-12)",
       "duration": "6-week placebo run-in + 12-week treatment",
       "outcome": "AVLT delayed recall (primary); Stroop; STAI anxiety; CESD-10 depression",
       "result": "Bacopa improved AVLT delayed recall and Stroop vs placebo; anxiety (STAI) and depression (CESD-10) decreased in Bacopa group but increased in placebo (significant between-group difference); no effect on divided attention or WAIS digit task",

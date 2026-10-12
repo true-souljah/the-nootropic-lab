@@ -79,7 +79,7 @@ describe.each(REGIONS)('%s Thesis matches its four published formulas', (_region
     // the Bacopa amount names no extract or bacoside content.
     expect(row(p, "Lion's Mane (Hericium erinaceus) (Clarity)")).toMatchObject({ clinicalDose: '1000-1800mg/day', adequatelyDosed: null });
     expect(row(p, 'Ginkgo Biloba (Neuroprotection)')).toMatchObject({ clinicalDose: '240mg/day (24/6 extract)', adequatelyDosed: null });
-    expect(row(p, 'Bacopa Monnieri (Neuroprotection)')).toMatchObject({ clinicalDose: '300-450mg/day (55% bacosides)', adequatelyDosed: null });
+    expect(row(p, 'Bacopa Monnieri (Neuroprotection)')).toMatchObject({ clinicalDose: '300-450mg/day (≥50% bacosides)', adequatelyDosed: null });
     for (const f of ['Motivation', 'Stress Reset']) {
       expect(row(p, `Rhodiola Rosea (fermented salidrosides) (${f})`)).toMatchObject({ clinicalDose: '200-600mg/day', adequatelyDosed: null });
     }

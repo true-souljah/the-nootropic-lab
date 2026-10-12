@@ -58,18 +58,29 @@ export interface VendorTerms {
 }
 
 /**
- * Where the region's stored monthly price comes from. Written only by
- * scripts/derive-prices-from-vendor-quotes.ts: the stored price is the one
- * price in `vendorTerms.oneTimePrice` divided by the months of supply that
- * quote's own pack statement gives (vendor-price.ts). validate-data fails when
- * the price, months or date no longer match what the quote derives.
+ * The price of one pack on the store this region links to, exactly as the
+ * vendor states it, in the store's own currency (site-owner policy
+ * 2026-10-09: vendor-stated prices only, never a currency conversion).
+ * Everything here is verbatim page text except `amount`/`currency`, which
+ * must equal the one price `text` states (store-price.ts storePriceProblems).
+ * The per-month figure is computed at render time from `supply`/`pack`
+ * (store-price.ts monthlyStorePrice); it is never stored.
  */
-export interface PriceBasis {
-  source: 'vendor-one-time';
-  quoteField: 'vendorTerms.oneTimePrice';
-  /** Months of supply in the quoted pack (one serving a day, 30-day months). */
-  monthsOfSupply: number;
-  /** ISO date (YYYY-MM-DD) the vendor page was read (= vendorTerms.checkedAt). */
+export interface StorePrice {
+  amount: number;
+  /** ISO 4217 code of the store's own currency (page metadata or an unambiguous symbol). */
+  currency: string;
+  /** The one-time price as printed, e.g. "CA$89.00", "€64,95", "¥5,479". */
+  text: string;
+  /** What the price buys, verbatim: "90 Count", "Servings per container: 30", "3g x 30 sachets". */
+  pack: string;
+  /** How long one pack lasts, verbatim, when the page states it: "45-day supply", "1 Month Supply", "30日分". */
+  supply?: string;
+  /** The vendor's use instruction, verbatim ("Take 2 capsules daily", "take 30 minutes before exercise"). */
+  directions?: string;
+  /** The product page the price was read from (as seen from the region's country). */
+  url: string;
+  /** ISO date (YYYY-MM-DD) the page was read. */
   checkedAt: string;
 }
 
@@ -104,13 +115,8 @@ export interface Product {
    * pillars (product-rules.ts weightedScore).
    */
   unscoredReason?: string;
-  priceMonthlyUSD?: number;
-  priceMonthlyEUR?: number;
-  priceMonthlyCAD?: number;
-  priceMonthlyAUD?: number;
-  priceMonthlyJPY?: number;
-  /** Set when the region's monthly price is derived from the vendor's one-time price quote (see PriceBasis). */
-  priceBasis?: PriceBasis;
+  /** One pack's price on the store this region links to, as the vendor states it (see StorePrice). */
+  storePrice?: StorePrice;
   pricingModel: 'one-time' | 'subscription' | 'both';
   /** null = no single guarantee length is published (none, or conflicting terms); rendered as "—", never "null days". */
   moneyBackDays: number | null;

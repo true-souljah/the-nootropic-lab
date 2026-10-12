@@ -10,6 +10,8 @@ import { ScorePill } from '../primitives/ScorePill';
 import { LiveRegion } from '../primitives/LiveRegion';
 import { ProductThumb } from '../primitives/ProductThumb';
 import type { Ingredient, Product, UIStrings } from '@nootropic/data';
+import { getStrings } from '@nootropic/data';
+import { priceText } from '../price-text';
 import type { SearchItem } from '../SearchModal';
 import { parseClinicalDose, statusFor, defaultDoseFor, type DoseStatus, type ParsedDose } from './doseRange';
 
@@ -184,6 +186,7 @@ export default function DoseCalculator({
     }
     return best;
   }, [enriched, products]);
+  const closestPrice = closest ? priceText(closest.product, uiStrings ?? getStrings('en')) : null;
 
   const toneFor = (s: DoseStatus): 'good' | 'warn' | 'bad' =>
     s === 'in-range' ? 'good' : s === 'over' ? 'warn' : 'bad';
@@ -318,10 +321,10 @@ export default function DoseCalculator({
                 <p className="text-[13px] text-ds-ink-soft m-0 leading-[1.55]">
                   Overlaps with {closest.overlap} of your {enriched.length} ingredient
                   {enriched.length === 1 ? '' : 's'}
-                  {closest.product.priceMonthlyUSD && (
+                  {closestPrice && (
                     <>
                       {' '}
-                      · <strong className="text-ds-ink">{`$${closest.product.priceMonthlyUSD}/mo`}</strong>
+                      · <strong className="text-ds-ink">{closestPrice.short}</strong>
                     </>
                   )}
                   .

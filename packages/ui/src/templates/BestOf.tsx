@@ -12,7 +12,8 @@ import TrackedAffiliateLink from '../TrackedAffiliateLink';
 import ShortlistButton from './ShortlistButton';
 import type { AffiliateClickContext } from '../trackAffiliateClick';
 import { SCORE_TIERS } from './listicleRanking';
-import { servingAmount, pillarText, guaranteeDays } from '@nootropic/data';
+import { servingAmount, pillarText, guaranteeDays, formatMoney } from '@nootropic/data';
+import { priceText, priceLocaleOf } from '../price-text';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 
@@ -114,18 +115,22 @@ export default function BestOf({
           100
       )
     : 0;
-  const pricedProducts = products.filter(
-    (p): p is Product & { priceMonthlyUSD: number } => typeof p.priceMonthlyUSD === 'number'
-  );
-  const avgCost = pricedProducts.length
-    ? Math.round(pricedProducts.reduce((s, p) => s + p.priceMonthlyUSD, 0) / pricedProducts.length)
-    : 0;
+  // An average needs one currency: prices stay in each store's own currency
+  // and are never converted, so a mixed list shows no average tile.
+  const monthly = products.flatMap((p) => {
+    const m = priceText(p, uiStrings)?.monthlyMoney;
+    return m ? [m] : [];
+  });
+  const avgCurrency = monthly.length > 0 && monthly.every((m) => m.currency === monthly[0].currency) ? monthly[0].currency : null;
+  const avgCost = avgCurrency
+    ? formatMoney({ amount: Math.round(monthly.reduce((sum, m) => sum + m.amount, 0) / monthly.length), currency: avgCurrency }, priceLocaleOf(uiStrings))
+    : null;
 
   const defaultStats = [
     { label: 'Audited', value: `${audited}`, tone: 'neutral' as const },
     { label: 'Recommended', value: `${recommended}`, tone: 'good' as const },
     { label: 'Underdosed flagship', value: `${underdosedPct}%`, tone: 'bad' as const },
-    { label: 'Avg / month', value: `$${avgCost}`, tone: 'neutral' as const },
+    ...(avgCost ? [{ label: 'Avg / month', value: `≈ ${avgCost}`, tone: 'neutral' as const }] : []),
   ];
   const tiles = stats ?? defaultStats;
 
@@ -163,7 +168,7 @@ export default function BestOf({
         </div>
 
         {/* Stat tiles */}
-        <div className="grid gap-4 mb-[18px] grid-cols-2 md:grid-cols-4">
+        <div className={`grid gap-4 mb-[18px] grid-cols-2 ${tiles.length === 3 ? 'md:grid-cols-3' : 'md:grid-cols-4'}`}>
           {tiles.map((tile) => {
             const color =
               tile.tone === 'good'
@@ -264,7 +269,7 @@ export default function BestOf({
                   <div className="flex justify-between">
                     <span>Price</span>
                     <span className="text-ds-ink font-semibold">
-                      {p.priceMonthlyUSD ? `$${p.priceMonthlyUSD}/mo` : '—'}
+                      {priceText(p, uiStrings)?.short ?? '—'}
                     </span>
                   </div>
                   <div className="flex justify-between">

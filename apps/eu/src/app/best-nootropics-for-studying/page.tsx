@@ -58,19 +58,19 @@ const picks: ListiclePick[] = [
     product: productsEU.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Caffeine-free design pairs perfectly with whatever caffeine source you use during study sessions (coffee, espresso, matcha). Includes L-theanine, Bacopa, citicoline, and L-tyrosine — covers all four study-relevant mechanisms in one open formula. EUR pricing (€65/mo), with EU orders shipped from a European depot per the brand. Take daily through the term for cumulative Bacopa effect.',
+      'Caffeine-free design pairs perfectly with whatever caffeine source you use during study sessions (coffee, espresso, matcha). Includes L-theanine, Bacopa, citicoline, and L-tyrosine — covers all four study-relevant mechanisms in one open formula. EUR pricing, with EU orders shipped from a European depot per the brand. Take daily through the term for cumulative Bacopa effect.',
   },
   {
     product: productsEU.find(p => p.slug === 'brainzyme-focus-pro-review')!,
     rank: 2,
     whyItsHere:
-      'UK-made and explicitly positioned for university students. A 350mg Camellia sinensis (matcha) EMT blend that includes L-theanine, plus guarana seed, choline, ginkgo and L-tyrosine; the label states no caffeine amount and does not split the blend. €31.75/mo is the lowest price on this list. Lacks long-term memory ingredients (no Bacopa or Lion\'s Mane).',
+      'UK-made and explicitly positioned for university students. A 350mg Camellia sinensis (matcha) EMT blend that includes L-theanine, plus guarana seed, choline, ginkgo and L-tyrosine; the label states no caffeine amount and does not split the blend. It costs €31.75 a month. Lacks long-term memory ingredients (no Bacopa or Lion\'s Mane).',
   },
   {
     product: productsEU.find(p => p.slug === 'hunter-focus-review')!,
     rank: 3,
     whyItsHere:
-      '20 ingredients, tied with Brainzyme Focus Pro for the most in this review: Lion\'s Mane, Bacopa, Phosphatidylserine, Ashwagandha and ALCAR, plus 100mg caffeine. €85/mo and 6 capsules/day are significant friction.',
+      '20 ingredients, tied with Brainzyme Focus Pro for the most in this review: Lion\'s Mane, Bacopa, Phosphatidylserine, Ashwagandha and ALCAR, plus 100mg caffeine. 6 capsules/day is significant friction.',
   },
 ];
 
@@ -97,7 +97,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Is caffeine alone enough for studying?',
-    a: 'For most students, caffeine + L-theanine (1:2 ratio) is the most cost-effective focus stack — and the most-evidence-backed. Espresso (~75mg) plus a 200mg L-theanine capsule replicates the studied dose for under €0.50. The supplements on this page add memory-consolidation ingredients (Bacopa, citicoline) on top, which compounds for actual retention of studied material over the term.',
+    a: 'For most students, caffeine + L-theanine (1:2 ratio) is the most cost-effective focus stack — and the most-evidence-backed. Espresso (~75mg) plus a 200mg L-theanine capsule replicates the studied dose. The supplements on this page add memory-consolidation ingredients (Bacopa, citicoline) on top, which compounds for actual retention of studied material over the term.',
   },
 ];
 
