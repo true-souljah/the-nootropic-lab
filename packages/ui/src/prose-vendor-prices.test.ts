@@ -36,7 +36,7 @@ const AMOUNT = String.raw`(\d[\d,]*(?:\.\d+)?)`;
 const QUOTED = new RegExp(String.raw`(?:US\$|CA\$|C\$|AU\$|A\$|S\$|\$|€|¥|￥|₱)\s?${AMOUNT}|${AMOUNT}\s?(?:€|円)`, 'gu');
 /** A currency-marked amount stated per month: "$69/month", "AUD $215/mo", "$139 USD/mes", "31,75 €/Monat". */
 const PER_MONTH = new RegExp(
-  String.raw`(?:(?:US|CA|AU|A|C|S)?\$|AUD\s?\$?|CAD\s?~?\$?|USD\s?\$?|€|¥|￥)\s?~?${AMOUNT}(?:\s?(?:USD|AUD|CAD|EUR))?\s?(?:\/\s?(?:mo|month|mes|Monat|mois)\b|\/\s?月|per month|a month|al mes|par mois|pro Monat)` +
+  String.raw`(?:(?:US|CA|AU|NZ|HK|MX|A|C|S)?\$|AUD\s?\$?|CAD\s?~?\$?|USD\s?\$?|€|¥|￥)\s?~?${AMOUNT}(?:\s?(?:USD|AUD|CAD|EUR))?\s?(?:\/\s?(?:mo|month|mes|Monat|mois)\b|\/\s?月|per month|a month|al mes|par mois|pro Monat)` +
     String.raw`|${AMOUNT}\s?(?:€|円)\s?(?:\/\s?(?:mo|month|mes|Monat|mois)\b|\/\s?月|al mes|par mois|pro Monat)`,
   'giu',
 );
@@ -76,7 +76,8 @@ type Money = { amount: number; currency: string };
 /** The currency a matched price names ("AUD $215" → AUD, "$139 USD" → USD, "$69" → "$"). */
 function currencyOf(matched: string): string {
   const named: [RegExp, string][] = [
-    [/US\$|USD/i, 'USD'], [/CA\$|C\$|CAD/i, 'CAD'], [/AU\$|A\$|AUD/i, 'AUD'], [/S\$|SGD/i, 'SGD'],
+    [/US\$|USD/i, 'USD'], [/CA\$|C\$|CAD/i, 'CAD'], [/AU\$|A\$|AUD/i, 'AUD'], [/NZ\$|NZD/i, 'NZD'],
+    [/HK\$|HKD/i, 'HKD'], [/MX\$|MXN/i, 'MXN'], [/S\$|SGD/i, 'SGD'],
     [/€|EUR/i, 'EUR'], [/[¥￥円]/u, 'JPY'], [/₱|PHP/i, 'PHP'],
   ];
   return named.find(([re]) => re.test(matched))?.[1] ?? '$';
@@ -207,6 +208,10 @@ describe('prose monthly prices come from the vendor', () => {
     expect(isAllowed({ amount: 89, currency: 'AUD' }, [{ amount: 89, currency: 'CAD' }])).toBe(false);
     // In Canadian copy a bare "$79/month" is Canadian dollars, so a US$79 store price does not back it.
     expect(moneyIn('then $79 a month', PER_MONTH, 'CAD')).toEqual([{ amount: 79, currency: 'CAD' }]);
+    // A named dollar stays named, whatever the region's own dollar is.
+    expect(moneyIn('NZ$79/month, HK$79/month, MX$79/month', PER_MONTH, 'AUD')).toEqual([
+      { amount: 79, currency: 'NZD' }, { amount: 79, currency: 'HKD' }, { amount: 79, currency: 'MXN' },
+    ]);
     expect(isAllowed(moneyIn('then $79 a month', PER_MONTH, 'CAD')[0], [{ amount: 79, currency: 'USD' }])).toBe(false);
   });
 

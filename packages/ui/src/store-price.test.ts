@@ -3,9 +3,10 @@ import {
   allProductsUS, allProductsEU, allProductsCA, allProductsAU,
   allProductsJP, allProductsLatam, allProductsGCC, allProductsSEA,
   formatMoney, storeSupply, monthlyStorePrice, sharedCurrency, storePriceProblems, getStrings, currencyDigits,
+  localPrice, REGION_PROFILES,
 } from '@nootropic/data';
 import type { Product, StorePrice } from '@nootropic/data';
-import { priceText } from './price-text';
+import { priceText, localPriceShort, priceLocaleOf } from './price-text';
 
 // Store prices (site-owner policy 2026-10-09): a price shown is the one the
 // vendor states on the store a region links to, in that store's own currency,
@@ -89,6 +90,22 @@ describe('priceText', () => {
   });
   test('null without a store price', () => {
     expect(priceText({ ...BASE, storePrice: undefined }, en)).toBeNull();
+  });
+  test('prices are written in the host locale, else the language date locale', () => {
+    expect(priceLocaleOf({ ...en, priceLocale: 'en-CA' })).toBe('en-CA');
+    expect(priceLocaleOf({ ...getStrings('de'), priceLocale: undefined })).toBe(getStrings('de').productDetail.dateLocale);
+  });
+  test('the "Buying in" block and the review header show the same store price', () => {
+    const unit = en.productDetail.stats.monthUnit;
+    let compared = 0;
+    for (const [region, products] of Object.entries(REGIONS) as [keyof typeof REGION_PROFILES, Product[]][]) {
+      const header = { ...en, priceLocale: REGION_PROFILES[region].priceLocale };
+      for (const p of products.filter((x) => x.storePrice)) {
+        expect(localPriceShort(localPrice(p, region)!, unit), `${region}/${p.slug}`).toBe(priceText(p, header)!.short);
+        compared++;
+      }
+    }
+    expect(compared).toBeGreaterThanOrEqual(40);
   });
 });
 
