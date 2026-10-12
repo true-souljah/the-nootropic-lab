@@ -246,7 +246,7 @@ export function FPFooter({
   const resolvedTagline =
     tagline ??
     strings?.footer.tagline ??
-    "We audit every nootropic against its clinical-trial doses. Affiliate commissions are disclosed inline and don't move scores.";
+    "We check each nootropic's label doses against the reference doses on our ingredient pages, where one exists. Affiliate commissions are disclosed inline and don't move scores.";
   const resolvedCopyrightTemplate =
     copyrightLine ??
     strings?.footer.copyrightLine ??

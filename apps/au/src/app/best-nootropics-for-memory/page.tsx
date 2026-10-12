@@ -71,7 +71,7 @@ const picks: ListiclePick[] = [
     product: productsAU.find(p => p.slug === 'hunter-focus-review')!,
     rank: 3,
     whyItsHere:
-      'Lion\'s Mane (500mg organic mushroom, below the 1–1.8g/day used in healthy-adult trials) plus citicoline (250mg), Bacopa (300mg) and phosphatidylserine (100mg). Premium pricing (AUD $140/mo). Contains caffeine. The right choice if you want Lion\'s Mane, citicoline, Bacopa and PS in one caffeinated stack rather than the Mind Lab Pro stack.',
+      'Lion\'s Mane (500mg organic mushroom, below the 1–1.8g/day used in healthy-adult trials) plus citicoline (250mg), Bacopa (300mg) and phosphatidylserine (100mg) in one caffeinated stack. Premium pricing (AUD $140/mo).',
   },
   {
     product: productsAU.find(p => p.slug === 'onnit-alpha-brain-review')!,

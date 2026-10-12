@@ -10,10 +10,10 @@ const CURRENT_YEAR = new Date().getFullYear();
 export const metadata: Metadata = {
   title: `Meilleurs Nootropiques ${CURRENT_YEAR} Europe: Comparatif Complet`,
   description:
-    'Comparatif indépendant des meilleurs nootropiques disponibles en Europe. Prix en EUR, boutiques UE signalées, audit clinique de chaque ingrédient.',
+    'Comparatif indépendant des meilleurs nootropiques disponibles en Europe. Prix en EUR, boutiques UE signalées, doses de l\'étiquette comparées à nos doses de référence.',
   alternates: buildAlternates({ regionCode: 'eu', path: '/fr/meilleurs-nootropiques/', availableInRegions: ['eu'] }),
-  openGraph: buildOpenGraph({ regionCode: 'eu', path: '/fr/meilleurs-nootropiques/', title: `Meilleurs Nootropiques ${CURRENT_YEAR} Europe: Comparatif Complet`, description: 'Comparatif indépendant des meilleurs nootropiques disponibles en Europe. Prix en EUR, boutiques UE signalées, audit clinique de chaque ingrédient.' }),
-  twitter: buildTwitter({ title: `Meilleurs Nootropiques ${CURRENT_YEAR} Europe: Comparatif Complet`, description: 'Comparatif indépendant des meilleurs nootropiques disponibles en Europe. Prix en EUR, boutiques UE signalées, audit clinique de chaque ingrédient.' }),
+  openGraph: buildOpenGraph({ regionCode: 'eu', path: '/fr/meilleurs-nootropiques/', title: `Meilleurs Nootropiques ${CURRENT_YEAR} Europe: Comparatif Complet`, description: 'Comparatif indépendant des meilleurs nootropiques disponibles en Europe. Prix en EUR, boutiques UE signalées, doses de l\'étiquette comparées à nos doses de référence.' }),
+  twitter: buildTwitter({ title: `Meilleurs Nootropiques ${CURRENT_YEAR} Europe: Comparatif Complet`, description: 'Comparatif indépendant des meilleurs nootropiques disponibles en Europe. Prix en EUR, boutiques UE signalées, doses de l\'étiquette comparées à nos doses de référence.' }),
 };
 
 export default function MeilleursNootropiquesFR() {

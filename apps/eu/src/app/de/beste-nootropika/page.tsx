@@ -36,8 +36,8 @@ export default function BestNootropikaDE() {
       <p className="text-lg text-gray-600 mb-6 leading-relaxed">
         Wir kennzeichnen, welche Produkte über einen EU-Shop mit EUR-Preisen erhältlich sind —
         ohne Importzölle. Die Einhaltung der Vorschriften prüfen wir nicht je Produkt; für die
-        Kennzeichnung ist der Verkäufer verantwortlich. Jede Zutat wurde gegen klinische Studien
-        geprüft.
+        Kennzeichnung ist der Verkäufer verantwortlich. Die Dosen auf dem Etikett vergleichen wir mit
+        den Referenzdosen aus klinischen Studien auf unseren Inhaltsstoffseiten, sofern vorhanden.
       </p>
 
       <div className="bg-blue-50 border border-blue-200 rounded-xl p-5 mb-6">

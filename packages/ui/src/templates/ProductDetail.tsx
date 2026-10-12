@@ -11,7 +11,7 @@ import { Tabs, TabPanel } from '../primitives/Tabs';
 import { ProductThumb } from '../primitives/ProductThumb';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
 import NoPurchaseLinkNotice from '../NoPurchaseLinkNotice';
-import { productForm, servingAmount, servingUnit, guaranteeDays, dosingTally } from '@nootropic/data';
+import { earnsCommission, productForm, servingAmount, servingUnit, guaranteeDays, dosingTally } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 import type { TabId } from './product-detail/constants';
@@ -23,7 +23,7 @@ import { PricingTab } from './product-detail/PricingTab';
 import RegionalBuying from '../RegionalBuying';
 import { formatLocalPrice } from '../RegionalAvailability';
 import type { RegionalBuyingProps } from '../RegionalBuying';
-import { scoreTier } from './listicleRanking';
+import { SCORE_TIER_TEXT_CLASS, scoreTier } from './listicleRanking';
 
 export interface ProductDetailProps {
   product: Product;
@@ -115,6 +115,10 @@ export default function ProductDetail({
   // no affiliate CTAs, no price stat, no Pricing tab, no "Buying in" block.
   const discontinued = p.discontinued;
 
+  // No affiliate deal (commissionRate "0%"): the disclosure strip and trust
+  // note say we earn no commission instead of the commission sentence.
+  const commission = earnsCommission(p);
+
   const tabItems: Array<{ id: TabId; label: string }> = [
     { id: 'overview', label: pd.tabs.overview },
     { id: 'dosing', label: pd.tabs.dosing },
@@ -129,7 +133,7 @@ export default function ProductDetail({
     false,
   ];
 
-  const scoreColor = { good: 'text-ds-good', warn: 'text-ds-warn-ink', bad: 'text-ds-bad' }[scoreTier(p.score)];
+  const scoreColor = SCORE_TIER_TEXT_CLASS[scoreTier(p.score)];
 
   return (
     <AppShell
@@ -141,7 +145,7 @@ export default function ProductDetail({
       searchItems={searchItems}
       uiStrings={uiStrings}
     >
-      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} />
+      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} earnsCommission={commission} />
       <div className="px-4 sm:px-7 pt-6 pb-10">
         {discontinued && (
           <aside
@@ -243,7 +247,9 @@ export default function ProductDetail({
             </div>
           </div>
 
-          {!discontinued && <FPTrustNote strings={uiStrings.disclosure} className="mt-[18px]" />}
+          {!discontinued && (
+            <FPTrustNote strings={uiStrings.disclosure} earnsCommission={commission} className="mt-[18px]" />
+          )}
 
           <div className="mt-[18px] pt-[18px] border-t border-ds-border grid gap-[18px] items-center grid-cols-2 sm:grid-cols-3 lg:grid-cols-[repeat(5,1fr)_auto]">
             {[
@@ -349,7 +355,7 @@ export default function ProductDetail({
                   <div className="font-semibold text-ds-ink text-[14px] mb-1">{alt.name}</div>
                   <div className="text-[12px] text-ds-muted mb-2">{alt.brand}</div>
                   <div className="flex items-center gap-2">
-                    <span className="text-ds-good-ink font-bold text-[13px] ds-tabular">{`${alt.score}/10`}</span>
+                    <span className={`${SCORE_TIER_TEXT_CLASS[scoreTier(alt.score)]} font-bold text-[13px] ds-tabular`}>{`${alt.score}/10`}</span>
                     {alt.priceMonthlyUSD && (
                       <span className="text-[12px] text-ds-muted ds-tabular">{`$${alt.priceMonthlyUSD}/${pd.stats.monthUnit}`}</span>
                     )}

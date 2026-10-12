@@ -35,7 +35,7 @@ const features = [
   {
     icon: '🔬',
     title: '臨床投与量監査',
-    desc: '各製品レビューには、各成分を査読済み試験の最低有効量と比較した投与量対エビデンス表が含まれています。',
+    desc: '各製品レビューには投与量対エビデンス表が含まれています。当サイトの成分ページに査読済み試験に基づく基準用量がある成分は、ラベル記載量をその最低量と比較し、基準用量のない成分は掲載のみで評価しません。',
   },
   {
     icon: '🗾',
@@ -87,7 +87,7 @@ export default function JaHomePage() {
           </h1>
           <p className="text-base text-ds-muted mb-2">日本向け独立系認知機能サプリメントレビュー</p>
           <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
-            海外および国内のノートロピクスを比較します。すべての成分の投与量を臨床エビデンスと照合。
+            海外および国内のノートロピクスを比較します。ラベル記載の投与量を、当サイトの成分ページの基準用量（ある場合）と照合。
             厚生労働省の輸入ガイドラインを明確に記載。
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">

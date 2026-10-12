@@ -9,10 +9,10 @@ const CURRENT_YEAR = new Date().getFullYear();
 
 export const metadata: Metadata = {
   title: `Best Nootropics ${CURRENT_YEAR}: Evidence-Graded & Ranked for Focus, Memory and Energy`,
-  description: `Independent comparison of the best nootropic supplements in ${CURRENT_YEAR}. Every ingredient audited against clinical trials. Transparent scoring and affiliate disclosure.`,
+  description: `Independent comparison of the best nootropic supplements in ${CURRENT_YEAR}. Label doses checked against our reference doses. Transparent scoring and affiliate disclosure.`,
   alternates: buildAlternates({ regionCode: 'us', path: '/best-nootropics/' }),
-  openGraph: buildOpenGraph({ regionCode: 'us', path: '/best-nootropics/', title: `Best Nootropics ${CURRENT_YEAR}: Evidence-Graded & Ranked for Focus, Memory and Energy`, description: `Independent comparison of the best nootropic supplements in ${CURRENT_YEAR}. Every ingredient audited against clinical trials. Transparent scoring and affiliate disclosure.` }),
-  twitter: buildTwitter({ title: `Best Nootropics ${CURRENT_YEAR}: Evidence-Graded & Ranked for Focus, Memory and Energy`, description: `Independent comparison of the best nootropic supplements in ${CURRENT_YEAR}. Every ingredient audited against clinical trials. Transparent scoring and affiliate disclosure.` }),
+  openGraph: buildOpenGraph({ regionCode: 'us', path: '/best-nootropics/', title: `Best Nootropics ${CURRENT_YEAR}: Evidence-Graded & Ranked for Focus, Memory and Energy`, description: `Independent comparison of the best nootropic supplements in ${CURRENT_YEAR}. Label doses checked against our reference doses. Transparent scoring and affiliate disclosure.` }),
+  twitter: buildTwitter({ title: `Best Nootropics ${CURRENT_YEAR}: Evidence-Graded & Ranked for Focus, Memory and Energy`, description: `Independent comparison of the best nootropic supplements in ${CURRENT_YEAR}. Label doses checked against our reference doses. Transparent scoring and affiliate disclosure.` }),
 };
 
 const faqItems = [
@@ -88,7 +88,7 @@ export default function BestNootropicsUSPage() {
         hero={{
           eyebrow: `Audited ${CURRENT_YEAR} · Methodology v3.2`,
           h1: `Best Nootropics ${CURRENT_YEAR} — US`,
-          dek: `We reviewed ${productsUS.length} nootropic supplements, auditing every ingredient dose against peer-reviewed clinical trials. Below is our ranked comparison with full scoring breakdown and subscription transparency ratings.`,
+          dek: `We reviewed ${productsUS.length} nootropic supplements, checking label doses against the reference doses from peer-reviewed trials on our ingredient pages, where one exists. Below is our ranked comparison with full scoring breakdown and subscription transparency ratings.`,
         }}
         searchItems={searchItems}
         uiStrings={uiStrings}
