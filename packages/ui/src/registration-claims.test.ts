@@ -1236,6 +1236,28 @@ describe('round fifteen (U7): caffeine + L-theanine copy follows Owen 2008 and n
 // any country or area with at least a million people). The patterns join
 // the round-sixteen list and use the same scan; the Spanish guide twin is
 // matched by its own phrase.
+//
+// Round sixteen, U3 (2026-10-12). The aging and memory pages said the FDA
+// "permits a qualified health claim" for phosphatidylserine and misquoted it
+// ("suggests that PS may reduce the risk of dementia or cognitive
+// dysfunction"); the FDA's 13 May 2003 letter allows only qualified claims
+// that phosphatidylserine "may reduce the risk of dementia" or "cognitive
+// dysfunction in the elderly", each followed by "FDA concludes that there is
+// little scientific evidence supporting this claim". "Multiple RCTs in
+// 50-80-year-olds ... show improvements in memory, processing speed, and
+// cognitive complaints", "Most RCT evidence is in 50-80-year-olds" and "The
+// strongest age-related cognitive evidence in this category" now follow our
+// phosphatidylserine page (memory benefits "often only in subgroups").
+// Citicoline's "Multiple RCTs show attention and cognitive-effort benefits"
+// now gives the page's mixed attention grade (Cochrane: no attention benefit),
+// and "verbal memory and processing speed at 250-500mg/day for 12+ weeks"
+// the one trial cited, Spiers 1996 (PMID 8624220: 1,000mg a day, delayed
+// recall only in those with relatively inefficient memories; 2,000mg in a
+// crossover). Memo Plus Gold's SEA record called Bacopa "the most extensively
+// studied botanical for memory". The LATAM focus, memory and aging pages
+// carried the Spanish versions of these and of the U2 claims ("proporción 1:2
+// a 2:1", "mejor replicados", "más replicada", "más de 30 años", "el
+// nootrópico ... con más evidencia"); each Spanish phrase has its own pattern.
 const ROUND_SIXTEEN_SOURCES = [
   ...ROUND_THIRTEEN_SOURCES,
   ...walk(resolve(REPO_ROOT, 'packages/ui/src/templates')),
@@ -1265,6 +1287,27 @@ const ROUND_SIXTEEN_UNSOURCED: RegExp[] = [
   /\bhas strong evidence in middle-aged/i,
   /Citicoline at 250[–-]500mg also has multiple RCTs/i,
   /ingrediente con mayor respaldo de evidencia/i,
+  // U3: FDA phosphatidylserine wording, PS and citicoline trial claims, the
+  // SEA Bacopa superlative, and the LATAM Spanish twins.
+  /FDA permits a qualified health claim/i,
+  /suggests that PS may reduce the risk/i,
+  /Multiple RCTs show attention and cognitive-effort/i,
+  /verbal memory and processing speed at 250/i,
+  /Multiple RCTs in 50[–-]80-year-olds/i,
+  /Most RCT evidence is in 50[–-]80/i,
+  /strongest age-related cognitive evidence/i,
+  /most extensively studied botanical/i,
+  /proporción 1:2 a 2:1/i,
+  /mejor replicad/i,
+  /más replicad/i,
+  /más de 30 años/i,
+  /nootrópico para (concentración|memoria) con más evidencia/i,
+  /beneficios en atención y esfuerzo cognitivo/i,
+  /memoria verbal y velocidad de procesamiento a 250/i,
+  /ensayos clínicos en personas de 50[–-]80 años/i,
+  /evidencia más fuerte sobre apoyo cognitivo/i,
+  /La FDA permite una declaración (de salud calificada|calificada de salud)/i,
+  /sugiere que la PS puede reducir/i,
 ];
 
 describe('round sixteen: energy, stack, focus- and memory-page claims follow the cited trials', () => {
@@ -1283,6 +1326,11 @@ describe('round sixteen: energy, stack, focus- and memory-page claims follow the
       'apps/jp/src/app/best-nootropics-for-aging/page.tsx',
       'packages/data/src/ingredients.ts',
       'packages/data/src/products-sea.json',
+      'apps/us/src/app/best-nootropics-for-aging/page.tsx',
+      'apps/au/src/app/best-nootropics-for-memory/page.tsx',
+      'apps/latam/src/app/best-nootropics-for-focus/page.tsx',
+      'apps/latam/src/app/best-nootropics-for-memory/page.tsx',
+      'apps/latam/src/app/best-nootropics-for-aging/page.tsx',
     ]) expect(ROUND_SIXTEEN_SOURCES.some(p => relative(REPO_ROOT, p) === f), f).toBe(true);
   });
 
@@ -1319,6 +1367,29 @@ describe('round sixteen: energy, stack, focus- and memory-page claims follow the
       'Always verify standardisation: 3% rosavins and 1% salidroside is the established ratio used in most clinical trials.',
       'The label dose of two 125mg capsules daily (250mg/day) sits just below the 300mg/day used in most clinical trials.',
       "Japan has the world's oldest population by median age, and age-related cognitive support is one of the largest functional supplement categories",
+      // U3
+      'The FDA permits a qualified health claim that PS may reduce risk of dementia and cognitive dysfunction in elderly.',
+      'The US FDA permits a qualified health claim for PS supporting cognitive function in elderly adults;',
+      'The FDA allows phosphatidylserine to carry a qualified claim that "very limited and preliminary scientific research suggests that PS may reduce the risk of dementia or cognitive dysfunction in the elderly."',
+      'Multiple RCTs show attention and cognitive-effort benefits in healthy adults at 250–500mg/day.',
+      'RCTs in older adults with subjective cognitive complaints show improvements in verbal memory and processing speed at 250–500mg/day for 12+ weeks.',
+      'Multiple RCTs in 50–80-year-olds at 100–300mg/day show improvements in memory, processing speed, and cognitive complaints.',
+      'Most RCT evidence is in 50–80-year-olds at 100–300mg/day.',
+      'The strongest age-related cognitive evidence in this category.',
+      'Bacopa Monnieri is the most extensively studied botanical for memory.',
+      'L-Teanina + Cafeína (proporción 1:2 a 2:1)',
+      'Uno de los hallazgos cognitivos mejor replicados: la L-teanina combinada con cafeína mejora la atención y reduce la fatiga mental',
+      'El ingrediente para memoria más replicado en nootrópicos.',
+      'La memoria es el caso de uso donde los nootrópicos tienen la evidencia más replicada — principalmente de ensayos clínicos con Bacopa Monnieri durante más de 30 años.',
+      '¿Cuál es el nootrópico para concentración con más evidencia?',
+      '¿Cuál es el nootrópico para memoria con más evidencia?',
+      'Múltiples ensayos clínicos muestran beneficios en atención y esfuerzo cognitivo en adultos sanos a 250–500mg/día.',
+      'Ensayos clínicos en adultos mayores con quejas cognitivas subjetivas muestran mejoras en memoria verbal y velocidad de procesamiento a 250–500mg/día durante 12+ semanas.',
+      'Múltiples ensayos clínicos en personas de 50–80 años a 100–300mg/día muestran mejoras en memoria, velocidad de procesamiento y quejas cognitivas.',
+      'La evidencia más fuerte sobre apoyo cognitivo asociado a la edad en esta categoría.',
+      'La FDA permite una declaración calificada de salud que indica que la PS puede reducir el riesgo de demencia y disfunción cognitiva en personas mayores.',
+      'La FDA permite una declaración de salud calificada para PS en función cognitiva en adultos mayores.',
+      'investigación científica muy limitada y preliminar sugiere que la PS puede reducir el riesgo de demencia o disfunción cognitiva en adultos mayores',
     ];
     for (const s of removed) expect(ROUND_SIXTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(true);
     for (const re of ROUND_SIXTEEN_UNSOURCED) expect(removed.some(s => re.test(s)), String(re)).toBe(true);
@@ -1355,6 +1426,22 @@ describe('round sixteen: energy, stack, focus- and memory-page claims follow the
       'Look for a stated rosavin and salidroside standardisation on the label. The trials in our record that name an extract used SHR-5, and their abstracts do not state its rosavin or salidroside percentages.',
       'The label dose of two 125mg capsules daily (250mg/day) is below the 300–450mg/day range of the trials in the systematic review we cite (Pase 2012).',
       "Japan's median age, 49.4 years in 2024, is the highest of any country or area with at least a million people (UN World Population Prospects 2024)",
+      // U3
+      "The FDA allows phosphatidylserine only qualified claims that it 'may reduce the risk of dementia' or 'cognitive dysfunction in the elderly', each followed by 'FDA concludes that there is little scientific evidence supporting this claim' (FDA letter, 13 May 2003).",
+      'The FDA allows phosphatidylserine to carry a qualified claim that "Very limited and preliminary scientific research suggests that phosphatidylserine may reduce the risk of dementia in the elderly", which must be followed by "FDA concludes that there is little scientific evidence supporting this claim."',
+      'Our citicoline page rates its attention evidence as mixed: the Cochrane review found no attention benefit, and the only acute attention trial in healthy adults gave it together with caffeine.',
+      'In one trial in adults aged 50–85 (Spiers 1996, PubMed 8624220), 1,000mg a day for 3 months improved delayed recall only in those with relatively inefficient memories, and 2,000mg a day improved verbal memory in a follow-up crossover.',
+      'RCTs in older adults at 100–300mg a day report memory benefits, though often only in subgroups (see our phosphatidylserine page).',
+      'Bacopa Monnieri is a botanical with trial evidence for memory free recall (Pase 2012).',
+      'L-Teanina + Cafeína',
+      'En ensayos controlados en adultos sanos, la combinación mejoró la precisión al alternar la atención entre tareas (Owen 2008: 100mg de L-teanina con 50mg de cafeína; Giesbrecht 2010, PubMed 21040626: 97mg con 40mg) y las puntuaciones de fatiga mental (Haskell 2008, PubMed 18006208: 250mg con 150mg).',
+      'En una revisión sistemática de seis ensayos aleatorizados (Pase 2012, PubMed 22747190), todos de 12 semanas con 300–450mg de extracto al día, la Bacopa mejoró 9 de 17 pruebas de recuerdo libre de memoria.',
+      'Para la memoria, la evidencia sobre Bacopa Monnieri que citamos es una revisión sistemática de seis ensayos aleatorizados de 12 semanas (Pase 2012).',
+      '¿Qué ingredientes nootrópicos tienen evidencia de ensayos para la concentración?',
+      'Nuestra página sobre la citicolina califica como mixta su evidencia sobre la atención: la revisión Cochrane no encontró beneficio en la atención, y el único ensayo agudo sobre atención en adultos sanos la administró junto con cafeína.',
+      'En un ensayo con adultos de 50 a 85 años (Spiers 1996, PubMed 8624220), 1000mg al día durante 3 meses mejoraron el recuerdo diferido solo en quienes tenían una memoria relativamente ineficiente, y 2000mg al día mejoraron la memoria verbal en un ensayo cruzado posterior.',
+      'Los ensayos clínicos en adultos mayores a 100–300mg al día reportan beneficios en la memoria, aunque a menudo solo en subgrupos (ver nuestra página sobre la fosfatidilserina).',
+      'La FDA solo permite para la fosfatidilserina declaraciones calificadas de que "may reduce the risk of dementia" o "cognitive dysfunction in the elderly", cada una seguida de "FDA concludes that there is little scientific evidence supporting this claim" (carta de la FDA, 13 de mayo de 2003)',
     ]) expect(ROUND_SIXTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(false);
   });
 
