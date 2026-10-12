@@ -3,6 +3,13 @@ import { NO_PURCHASE_LINK_STRINGS, type NoPurchaseLinkStrings } from './purchase
 export type Locale = 'en' | 'es' | 'fr' | 'ja' | 'pt' | 'de' | 'fr-CA';
 
 export interface UIStrings {
+  /**
+   * Intl locale for prices on this host: each price stays in its store's own
+   * currency, and the locale only decides how it is written (en-CA writes
+   * US$79.95 and $89.00 for CAD). Set by buildRegionSearchContext; absent on
+   * bundles from getStrings() alone, where productDetail.dateLocale is used.
+   */
+  priceLocale?: string;
   nav: {
     bestNootropics: string;
     compare: string;
@@ -106,7 +113,8 @@ export interface UIStrings {
     product: string;
     bestFor: string;
     score: string;
-    priceMo: string;
+    /** Column header for the store price (pack price, or ≈ per month where the supply is stated). */
+    price: string;
     caffeineFree: string;
     euStatus: string;
     moneyBack: string;
@@ -438,7 +446,7 @@ const en: UIStrings = {
     product: 'Product',
     bestFor: 'Best For',
     score: 'Score',
-    priceMo: 'Price/mo',
+    price: 'Price',
     caffeineFree: 'Caffeine-Free',
     euStatus: 'EU Status',
     moneyBack: 'Money-Back',
@@ -683,7 +691,7 @@ const es: UIStrings = {
     product: 'Producto',
     bestFor: 'Mejor para',
     score: 'Puntuación',
-    priceMo: 'Precio/mes',
+    price: 'Precio',
     caffeineFree: 'Sin Cafeína',
     euStatus: 'Estado UE',
     moneyBack: 'Devolución',
@@ -928,7 +936,7 @@ const fr: UIStrings = {
     product: 'Produit',
     bestFor: 'Idéal pour',
     score: 'Note',
-    priceMo: 'Prix/mois',
+    price: 'Prix',
     caffeineFree: 'Sans Caféine',
     euStatus: 'Statut UE',
     moneyBack: 'Remboursement',
@@ -1173,7 +1181,7 @@ const ja: UIStrings = {
     product: '製品',
     bestFor: '最適な用途',
     score: 'スコア',
-    priceMo: '価格/月',
+    price: '価格',
     caffeineFree: 'カフェインフリー',
     euStatus: 'EU状態',
     moneyBack: '返金保証',
@@ -1418,7 +1426,7 @@ const pt: UIStrings = {
     product: 'Produto',
     bestFor: 'Melhor para',
     score: 'Pontuação',
-    priceMo: 'Preço/mês',
+    price: 'Preço',
     caffeineFree: 'Sem Cafeína',
     euStatus: 'Estado UE',
     moneyBack: 'Devolução',
@@ -1663,7 +1671,7 @@ const de: UIStrings = {
     product: 'Produkt',
     bestFor: 'Geeignet für',
     score: 'Bewertung',
-    priceMo: 'Preis/Monat',
+    price: 'Preis',
     caffeineFree: 'Koffeinfrei',
     euStatus: 'EU-Status',
     moneyBack: 'Geld-zurück',
@@ -1913,7 +1921,7 @@ const frCa: UIStrings = {
     product: 'Produit',
     bestFor: 'Idéal pour',
     score: 'Score',
-    priceMo: 'Prix/mois',
+    price: 'Prix',
     caffeineFree: 'Sans caféine',
     euStatus: 'Statut UE',
     moneyBack: 'Remboursement',

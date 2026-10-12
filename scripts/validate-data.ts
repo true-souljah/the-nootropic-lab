@@ -6,7 +6,7 @@ import {
   validateRegionalNotes, productRuleProblems, matchingAnchors, NO_REFERENCE_DOSE, dosingAnchorProblems, halalEvidenceProblem,
   VENDOR_TERM_FIELDS,
   seoOverrideProblems, noPurchaseLinkProblem, purchaseUrl,
-  priceBasisProblems,
+  storePriceProblems,
 } from '../packages/data/src/index';
 import type { Product, RegionalRegionCode } from '../packages/data/src/index';
 
@@ -135,31 +135,38 @@ if (vendorTermRecords === 0) {
   console.log(`ok vendor-terms: ${vendorTermRecords} records carry ${vendorTermCount} quoted terms`);
 }
 
-// Prices from vendor quotes (site-owner decision 2026-10-08): a record with
-// `priceBasis` must store exactly the monthly price its vendorTerms.oneTimePrice
-// quote derives (packages/data/src/vendor-price.ts, the function
-// scripts/derive-prices-from-vendor-quotes.ts writes with), and a quote that
-// derives a price in the region's currency requires `priceBasis`. No
-// grandfather list. A scan that finds no priceBasis fails, so a dropped field
-// cannot pass silently.
-let pricedFromQuotes = 0;
+// Store prices (site-owner policy 2026-10-09): a price shown is one the vendor
+// states on the store the region links to, in that store's currency, never a
+// conversion. `storePrice` must be well formed and its amount/currency must be
+// the one price its verbatim text states (store-price.ts storePriceProblems).
+// The legacy per-currency fields (priceMonthlyUSD/EUR/CAD/AUD/JPY, priceBasis)
+// held conversions and must not come back. A scan that finds no storePrice
+// fails, so a dropped field cannot pass silently.
+const LEGACY_PRICE_KEYS = ['priceMonthlyUSD', 'priceMonthlyEUR', 'priceMonthlyCAD', 'priceMonthlyAUD', 'priceMonthlyJPY', 'priceBasis'];
+let storePriced = 0;
 let priceProblems = 0;
 for (const [region, products] of Object.entries(regions)) {
   for (const item of products as Product[]) {
-    if (item.priceBasis !== undefined) pricedFromQuotes++;
-    for (const problem of priceBasisProblems(item, region as RegionalRegionCode)) {
+    if (item.storePrice !== undefined) storePriced++;
+    for (const key of LEGACY_PRICE_KEYS) {
+      if (key in (item as object)) {
+        console.error(`FAIL ${region}/${item.slug}: legacy price field "${key}" (store prices only, see StorePrice)`);
+        priceProblems++;
+      }
+    }
+    for (const problem of storePriceProblems(item)) {
       console.error(`FAIL ${region}/${item.slug}: ${problem}`);
       priceProblems++;
     }
   }
 }
-if (pricedFromQuotes === 0) {
-  console.error('FAIL price-basis: no record carries priceBasis');
+if (storePriced === 0) {
+  console.error('FAIL store-price: no record carries storePrice');
   priceProblems++;
 }
 failed += priceProblems;
 if (priceProblems === 0) {
-  console.log(`ok price-basis: ${pricedFromQuotes} prices equal what their vendor one-time quote derives`);
+  console.log(`ok store-price: ${storePriced} records carry a vendor-stated store price; no legacy price fields`);
 }
 
 // Halal evidence (2026-10-07): a record with `halalCertified` defined must

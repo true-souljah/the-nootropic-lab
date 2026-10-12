@@ -76,11 +76,6 @@ export interface UseCaseListPageStrings {
   /** Pick-card chips */
   caffeineFree: string;
   hasCaffeine: string;
-  /**
-   * Monthly-price unit WITHOUT the slash ("mo"), rendered `$59/{monthUnit}`:
-   * a string starting with "/" in the RSC payload gets crawled as a URL.
-   */
-  monthUnit: string;
   /** Money-back length on the pick card — uses {days} */
   moneyBackDays: string;
   /** Label after the money-back length ("MBG") */
@@ -148,7 +143,6 @@ export const useCaseListPageEnDefaults: UseCaseListPageStrings = {
   useCaseLabels: {},
   caffeineFree: 'Caffeine-free',
   hasCaffeine: 'Caffeine',
-  monthUnit: 'mo',
   moneyBackDays: '{days}d',
   moneyBackLabel: 'MBG',
   ourScore: 'Our score',
@@ -214,7 +208,6 @@ export const useCaseListPageEsStrings: Partial<UseCaseListPageStrings> = {
   },
   caffeineFree: 'Sin cafeína',
   hasCaffeine: 'Con cafeína',
-  monthUnit: 'mes',
   moneyBackDays: '{days} días',
   moneyBackLabel: 'de garantía',
   ourScore: 'Nuestra puntuación',
@@ -251,7 +244,7 @@ export interface HeadToHeadPageStrings {
   /** Spec / Score / Price column headers */
   spec: string;
   scoreLabel: string;
-  pricePerMonth: string;
+  price: string;
   caffeineFreeLabel: string;
   yes: string;
   no: string;
@@ -307,12 +300,12 @@ export const headToHeadPageEnDefaults: HeadToHeadPageStrings = {
   lastUpdated: 'Last updated:',
   verdict: 'Verdict',
   winnerHeadline: '{name} wins on score',
-  checkProductWithPrice: 'Check {name} ({price}/mo) →',
+  checkProductWithPrice: 'Check {name} ({price}) →',
   checkProduct: 'Check {name} →',
   quickSpecsHeading: 'Quick specs side-by-side',
   spec: 'Spec',
   scoreLabel: 'Score',
-  pricePerMonth: 'Price / month',
+  price: 'Price',
   caffeineFreeLabel: 'Caffeine-free',
   yes: 'Yes',
   no: 'No',
@@ -353,12 +346,12 @@ export const headToHeadPageEsStrings: Partial<HeadToHeadPageStrings> = {
   lastUpdated: 'Actualizado:',
   verdict: 'Veredicto',
   winnerHeadline: '{name} gana en puntuación',
-  checkProductWithPrice: 'Ver {name} ({price}/mes) →',
+  checkProductWithPrice: 'Ver {name} ({price}) →',
   checkProduct: 'Ver {name} →',
   quickSpecsHeading: 'Especificaciones lado a lado',
   spec: 'Especificación',
   scoreLabel: 'Puntuación',
-  pricePerMonth: 'Precio / mes',
+  price: 'Precio',
   caffeineFreeLabel: 'Sin cafeína',
   yes: 'Sí',
   no: 'No',

@@ -1,6 +1,8 @@
 import { describe, test, expect } from 'vitest';
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { resolve, dirname, extname, relative } from 'node:path';
+import { monthlyStorePrice } from '@nootropic/data';
+import type { Product } from '@nootropic/data';
 
 // No national product register (Health Canada NPN, SFDA/MOHAP, COFEPRIS,
 // ANVISA, NPRA, BPOM, VFA, ...) was ever checked for the products we review;
@@ -701,27 +703,66 @@ describe('round thirteen: no unsourced superlatives in data or app copy', () => 
     expect(() => largestFormulaRows(strayRow)).toThrow(/names no known blend/);
   });
 
-  test('a "cheapest in this review" claim in product data names the region\'s lowest priceMonthlyUSD', () => {
-    const CHEAPEST_CLAIM = /most affordable|lowest monthly price in this review|lowest-priced product in this review/i;
-    type Rec = { slug: string; discontinued?: unknown; priceMonthlyUSD?: number | null } & Record<string, unknown>;
+  // Prices are the vendor's own, in the store's currency, never converted
+  // (site-owner policy 2026-10-09). A "cheapest" claim is therefore provable
+  // only when every live record in the region has a per-month store price and
+  // all of them share one currency. No region met that on 2026-10-09 (records
+  // without a store price, stores in several currencies), so the claims that
+  // were in the data then were removed; the fixtures below keep the check live.
+  const CHEAPEST_CLAIM = /most affordable|cheapest|lowest monthly price in this review|lowest-priced product in this review/i;
+  type Rec = Product & { discontinued?: unknown };
+
+  function cheapestClaimProblems(where: string, recs: Rec[]): { claims: number; wrong: string[] } {
+    const live = recs.filter(r => !r.discontinued);
+    const monthly = new Map(live.map(r => [r.slug, monthlyStorePrice(r)] as const));
+    const unpriced = live.filter(r => !monthly.get(r.slug)).map(r => r.slug);
+    const currencies = new Set([...monthly.values()].flatMap(m => (m ? [m.currency] : [])));
+    const min = Math.min(...[...monthly.values()].flatMap(m => (m ? [m.amount] : [])));
     let claims = 0;
+    const wrong: string[] = [];
+    for (const r of recs) {
+      const texts = Object.values(r).flatMap(v =>
+        typeof v === 'string' ? [v] : Array.isArray(v) ? v.filter((x): x is string => typeof x === 'string') : [],
+      );
+      if (!texts.some(t => CHEAPEST_CLAIM.test(t))) continue;
+      claims++;
+      const own = monthly.get(r.slug);
+      if (r.discontinued || unpriced.length > 0 || currencies.size !== 1 || own?.amount !== min) {
+        wrong.push(
+          `${where} ${r.slug}: ${own ? `${own.currency} ${own.amount}` : 'no monthly store price'} vs min ${min}; ` +
+            `currencies ${[...currencies].join(',')}; unpriced ${unpriced.join(',')}`,
+        );
+      }
+    }
+    return { claims, wrong };
+  }
+
+  test('a "cheapest in this review" claim in product data is provable from the region\'s store prices', () => {
+    let records = 0;
     const wrong: string[] = [];
     for (const file of PRODUCT_FILES) {
       const recs = JSON.parse(readFileSync(file, 'utf8')) as Rec[];
-      const live = recs.filter(r => !r.discontinued);
-      for (const r of recs) {
-        const texts = Object.values(r).filter((v): v is string => typeof v === 'string');
-        if (!texts.some(t => CHEAPEST_CLAIM.test(t))) continue;
-        claims++;
-        // Every live record needs a USD price, or the comparison cannot be proved.
-        const unpriced = live.filter(x => typeof x.priceMonthlyUSD !== 'number').map(x => x.slug);
-        const min = Math.min(...live.map(x => x.priceMonthlyUSD as number));
-        if (unpriced.length > 0 || r.discontinued || r.priceMonthlyUSD !== min) {
-          wrong.push(`${relative(REPO_ROOT, file)} ${r.slug}: ${r.priceMonthlyUSD} vs min ${min}; unpriced ${unpriced.join(',')}`);
-        }
-      }
+      records += recs.length;
+      wrong.push(...cheapestClaimProblems(relative(REPO_ROOT, file), recs).wrong);
     }
-    expect(claims).toBeGreaterThanOrEqual(5);
+    expect(records).toBeGreaterThanOrEqual(70);
     expect(wrong).toEqual([]);
+  });
+
+  test('the cheapest-claim check accepts only the lowest same-currency monthly store price, with every record priced', () => {
+    const rec = (slug: string, amount: number, currency: string, summary = '') =>
+      ({
+        slug, summary, servingsPerContainer: 30, capsulesPerServing: 1, form: 'capsule',
+        storePrice: { amount, currency, text: `${amount}`, pack: 'Servings per container: 30', url: 'https://example.com/p', checkedAt: '2026-10-09' },
+      }) as unknown as Rec;
+    const claim = 'The most affordable nootropic in this review.';
+    expect(cheapestClaimProblems('t', [rec('a', 20, 'USD', claim), rec('b', 40, 'USD')])).toEqual({ claims: 1, wrong: [] });
+    expect(cheapestClaimProblems('t', [rec('a', 50, 'USD', claim), rec('b', 40, 'USD')]).wrong).toHaveLength(1);
+    // Mixed currencies would need a conversion to compare.
+    expect(cheapestClaimProblems('t', [rec('a', 20, 'USD', claim), rec('b', 40, 'EUR')]).wrong).toHaveLength(1);
+    // A record without a store price leaves the comparison unproved.
+    expect(cheapestClaimProblems('t', [rec('a', 20, 'USD', claim), { ...rec('b', 40, 'USD'), storePrice: undefined }]).wrong).toHaveLength(1);
+    // Claims in pros/cons lists count too.
+    expect(cheapestClaimProblems('t', [{ ...rec('a', 50, 'USD'), pros: ['Cheapest nootropic in this review'] } as Rec, rec('b', 40, 'USD')]).wrong).toHaveLength(1);
   });
 });

@@ -11,7 +11,9 @@ import { LiveRegion } from '../primitives/LiveRegion';
 import { ProductThumb } from '../primitives/ProductThumb';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
 import { useShortlist, useShortlistNote } from './useShortlist';
-import { servingAmount, guaranteeDays, guaranteeDaysValue } from '@nootropic/data';
+import { servingAmount, guaranteeDays, guaranteeDaysValue, monthlyStorePrice } from '@nootropic/data';
+import { priceText, type PriceText } from '../price-text';
+import { monthlyUSD } from './quizScoring';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 
@@ -85,10 +87,13 @@ export default function Shortlist({
 
   const stats = useMemo(() => {
     if (items.length === 0) return null;
-    const priced = items.filter((p): p is Product & { priceMonthlyUSD: number } => typeof p.priceMonthlyUSD === 'number');
-    const cheapest = priced.length
-      ? priced.reduce((min, p) => (p.priceMonthlyUSD < min.priceMonthlyUSD ? p : min))
-      : null;
+    // Cheapest by per-month dollar figure only (the shortlist runs on the US
+    // site); a product without a stated supply has none and is not compared.
+    const priced = items.flatMap((p) => {
+      const m = monthlyUSD(p);
+      return m === undefined ? [] : [{ p, m }];
+    });
+    const cheapest = priced.length ? priced.reduce((min, x) => (x.m < min.m ? x : min)).p : null;
     const best = items.reduce((max, p) => (p.score > max.score ? p : max));
     const allCaffeineFree = items.every((p) => p.caffeineFree);
     const commissions = items.map((p) => parseCommissionPct(p.commissionRate)).filter((n): n is number => n !== null);
@@ -114,13 +119,16 @@ export default function Shortlist({
 
   function exportCsv() {
     if (typeof document === 'undefined' || items.length === 0) return;
-    const headers = ['Rank', 'Name', 'Brand', 'Score', 'Price USD/mo', 'Daily serving', 'MBG days', 'Trustpilot', 'Caffeine-free', 'Commission'];
+    const headers = ['Rank', 'Name', 'Brand', 'Score', 'Pack price', 'Currency', 'Pack', 'Approx. per month', 'Daily serving', 'MBG days', 'Trustpilot', 'Caffeine-free', 'Commission'];
     const rows = items.map((p, i) => [
       i + 1,
       p.name,
       p.brand,
       p.score,
-      p.priceMonthlyUSD ?? '',
+      p.storePrice?.amount ?? '',
+      p.storePrice?.currency ?? '',
+      p.storePrice?.pack ?? '',
+      monthlyStorePrice(p)?.amount ?? '',
       servingAmount(p, uiStrings),
       guaranteeDaysValue(p.moneyBackDays),
       p.trustpilotScore ?? '',
@@ -219,7 +227,7 @@ export default function Shortlist({
               <div className="grid gap-4 mb-5 grid-cols-2 md:grid-cols-4">
                 <SummaryTile
                   label="Cheapest"
-                  value={stats.cheapest ? `$${stats.cheapest.priceMonthlyUSD}/mo` : '—'}
+                  value={stats.cheapest ? priceText(stats.cheapest, uiStrings)?.short ?? '—' : '—'}
                   sub={stats.cheapest ? stats.cheapest.name : ''}
                 />
                 <SummaryTile
@@ -254,6 +262,7 @@ export default function Shortlist({
                   onMoveUp={() => move(p.slug, -1)}
                   onMoveDown={() => move(p.slug, 1)}
                   noticeStrings={uiStrings.noPurchaseLink}
+                  price={priceText(p, uiStrings)}
                 />
               ))}
             </div>
@@ -344,6 +353,7 @@ function ShortlistRow({
   onMoveUp,
   onMoveDown,
   noticeStrings,
+  price,
 }: {
   product: Product;
   index: number;
@@ -352,6 +362,7 @@ function ShortlistRow({
   onMoveUp: () => void;
   onMoveDown: () => void;
   noticeStrings: UIStrings['noPurchaseLink'];
+  price: PriceText | null;
 }) {
   const [note, setNote] = useShortlistNote(product.slug);
   return (
@@ -406,7 +417,7 @@ function ShortlistRow({
           <SpecRow label="Score" value={`${product.score}/10`} />
           <SpecRow
             label="Price"
-            value={product.priceMonthlyUSD ? `$${product.priceMonthlyUSD}/mo` : '—'}
+            value={price?.short ?? '—'}
           />
           <SpecRow label="MBG" value={guaranteeDays(product.moneyBackDays, (d) => `${d} days`)} />
         </div>

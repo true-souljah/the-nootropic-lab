@@ -17,8 +17,15 @@
       "value": 8,
       "trust": 9
     },
-    "priceMonthlyUSD": 69,
-    "priceMonthlyEUR": 65,
+    "storePrice": {
+      "amount": 69,
+      "currency": "USD",
+      "text": "$69.00",
+      "pack": "Servings per container: 30",
+      "directions": "For best results take 2 capsules in the morning before eating.",
+      "url": "https://global.mindlabpro.com/products/mind-lab-pro",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
@@ -167,8 +174,16 @@
       "value": 9,
       "trust": 7
     },
-    "priceMonthlyUSD": 64.99,
-    "priceMonthlyEUR": 55,
+    "storePrice": {
+      "amount": 64.99,
+      "currency": "USD",
+      "text": "$64.99",
+      "pack": "60 CAPSULES",
+      "supply": "1-MONTH SUPPLY",
+      "directions": "Simply take 2 easy-to-swallow capsules of Noocube with water.",
+      "url": "https://noocube.com/",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 60,
     "caffeineFree": true,
@@ -347,7 +362,16 @@
       "value": 6,
       "trust": 7
     },
-    "priceMonthlyUSD": 159,
+    "storePrice": {
+      "amount": 159,
+      "currency": "USD",
+      "text": "$159.00",
+      "pack": "1 x Qualia Mind 2.0 - 120 count Boxed",
+      "supply": "delivered every 4 weeks",
+      "directions": "You can get started with Qualia Mind simply by taking your daily serving early in the morning with a large glass of water, with or without food.",
+      "url": "https://www.qualialife.com/shop/qualia-mind",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 100,
     "caffeineFree": false,
@@ -624,7 +648,16 @@
       "value": 7,
       "trust": 8
     },
-    "priceMonthlyUSD": 79,
+    "storePrice": {
+      "amount": 79.95,
+      "currency": "USD",
+      "text": "$79.95",
+      "pack": "90 Count",
+      "supply": "45-day supply",
+      "directions": "Don't take more than one serving (2 capsules) within a 24-hour period.",
+      "url": "https://www.onnit.com/products/alpha-brain-90-ct",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": true,
@@ -707,7 +740,7 @@
     ],
     "servingsPerContainer": 45,
     "capsulesPerServing": 2,
-    "summary": "Onnit's nootropic stack, at $79 USD/month and backed by two published clinical studies. Caffeine-free formula is a good fit for GCC buyers who avoid stimulants. onnit.com's market list names Bahrain and Oman; shipping to the other GCC states could not be confirmed from the brand's site on 2026-09-29 -- check at checkout. NSF Certified for Sport -- relevant for GCC's large fitness and athletics community. Verify import status with the Saudi Food and Drug Authority (SFDA) in Saudi Arabia, the Ministry of Health and Prevention (MOHAP) in the UAE, or the relevant MOH before ordering.",
+    "summary": "Onnit's nootropic stack, priced in US dollars and backed by two published clinical studies. Caffeine-free formula is a good fit for GCC buyers who avoid stimulants. onnit.com's market list names Bahrain and Oman; shipping to the other GCC states could not be confirmed from the brand's site on 2026-09-29 -- check at checkout. NSF Certified for Sport -- relevant for GCC's large fitness and athletics community. Verify import status with the Saudi Food and Drug Authority (SFDA) in Saudi Arabia, the Ministry of Health and Prevention (MOHAP) in the UAE, or the relevant MOH before ordering.",
     "whatItIs": "Alpha Brain is Onnit's flagship nootropic, first released in 2011. It is one of only two nootropic supplements with published clinical trial data on its specific formula, and carries National Sanitation Foundation (NSF) Certified for Sport status -- making it suitable for drug-tested athletes, including competitive sports participants in the GCC. The formula is caffeine-free and is vegetarian but not vegan per the brand's FAQ; capsule shell material not stated (checked 2026-10-07). We have not verified a local product registration with the Saudi Food and Drug Authority (SFDA), the Ministry of Health and Prevention (MOHAP) or the health ministries of other GCC states; where delivery is available it arrives from the US as a personal-use dietary supplement -- check delivery to your country at checkout.",
     "howItWorks": "Alpha Brain uses three proprietary blends -- Onnit Flow Blend, Focus Blend, and Fuel Blend -- containing cholinergics (Alpha-GPC), adaptogens (Bacopa), and amino acids (Tyrosine, Theanine). The label states each blend's total and two individual amounts (Bacopa 100mg, Huperzine A 400mcg): Bacopa, Alpha-GPC (at most 140mg) and L-Tyrosine (at most 650mg) fall short of their clinical doses, and the other blend members cannot be checked individually. The two published studies (Onnit-funded, 2016 and 2021) tested the full formula and showed statistically significant improvements in verbal memory and executive function versus placebo.",
     "whatToExpect": "Day one: subtle focus improvement, particularly noticeable for users who haven't taken cholinergic supplements before. The lack of caffeine means no energy spike -- effects are gentle. At 4-6 weeks: most users report consistent mild improvements in word retrieval and task focus. Onnit's 30-day money-back guarantee covers the first purchase of each product made directly on Onnit.com.",
@@ -775,7 +808,6 @@
       "value": 7,
       "trust": 7
     },
-    "priceMonthlyUSD": 79,
     "pricingModel": "both",
     "moneyBackDays": 30,
     "caffeineFree": false,
@@ -1002,7 +1034,7 @@
     ],
     "servingsPerContainer": 30,
     "capsulesPerServing": 2,
-    "summary": "Four personalised formula blends per month at $79 USD/month on subscription; a one-time purchase of Clarity costs $129. Clarity, Stress Reset and Neuroprotection come with or without caffeine; Motivation contains 150mg caffeine per serving. We could not confirm Thesis's international shipping from its site (its shipping page was unavailable on 2026-09-29) -- check at checkout.",
+    "summary": "Four personalised formula blends, sold in US dollars on subscription or as a one-time purchase. Clarity, Stress Reset and Neuroprotection come with or without caffeine; Motivation contains 150mg caffeine per serving. We could not confirm Thesis's international shipping from its site (its shipping page was unavailable on 2026-09-29) -- check at checkout.",
     "whatItIs": "Thesis is a personalised nootropic subscription service that offers four formula blends -- Clarity, Motivation, Stress Reset and Neuroprotection -- along with access to a nootropics coaching service. Rather than a single fixed formula, Thesis lets you rotate blends on different days to match your cognitive demand. The ingredient rows on this page cover the four formulas whose labels Thesis publishes; the Energy, Logic, Creativity and Confidence product pages returned 404 when we checked on 8 October 2026. For GCC buyers: Clarity, Stress Reset and Neuroprotection are each available in a caffeine-free version, making them compatible with consumers who avoid stimulants for dietary or religious reasons; Motivation contains 150mg caffeine per serving. All ingredients are vegan per the brand's FAQ; capsule shell material not stated (checked 2026-10-07). We have not verified a local product registration with the Saudi Food and Drug Authority (SFDA), the Ministry of Health and Prevention (MOHAP) or the health ministries of other GCC states. We could not confirm Thesis's international shipping from its site (its shipping page was unavailable on 2026-09-29) -- check at checkout.",
     "howItWorks": "Each Thesis formula targets a different goal, and Thesis lists an amount for every ingredient. Clarity: CDP choline 250mg, Panax ginseng 200mg, Lion's Mane 500mg, 7,8-dihydroxyflavone 30mg and vitamin B6 5mg. Motivation: Dynamine (methylliberine) 100mg, theacrine 100mg, N-acetyl-L-tyrosine 400mg, Rhodiola (fermented salidrosides) 60mg, vitamin B6 5mg, vitamin B12 1000mcg, L-theanine 200mg and caffeine 150mg. Stress Reset: ashwagandha 120mg, saffron 28mg, Zembrin 25mg, Rhodiola (fermented salidrosides) 30mg, magnesium bisglycinate 84mg and dihydrohonokiol-B 10mg. Neuroprotection: Bacopa 300mg, Ginkgo 120mg, mustard seed 50mg, broccoli seed 125mg, turmeric 200mg, CoQ10 100mg, PQQ 20mg, NADH 20mg, spermidine 10mg and selenium 200mcg. Clarity, Stress Reset and Neuroprotection are sold with or without caffeine (the caffeinated capsules add caffeine 100mg, plus L-theanine 100mg in Stress Reset and Neuroprotection); Motivation contains 150mg caffeine per two-capsule serving. The personalisation model allows you to match your cognitive demand of the day with the appropriate formula.",
     "whatToExpect": "First month: expect an experimentation period. You'll rotate through 4 blends, 7 days each, to assess which has the most noticeable effect for you. Clarity blend effects build over 2-4 weeks. Coaching service adds value for users who want guidance on optimising their protocol. Select the caffeine-free versions of Clarity, Stress Reset or Neuroprotection for GCC conservative market preference.",
@@ -1013,7 +1045,7 @@
       "Caffeine-free blend variants available"
     ],
     "cons": [
-      "One-time purchase costs $129 (Clarity) vs $79/month on subscription",
+      "A one-time purchase costs more than the same formula on subscription",
       "Requires experimentation",
       "Contains caffeine in default blends -- not preferred for conservative GCC market",
       "GCC shipping could not be confirmed from the brand's site (checked 2026-09-29) -- check at checkout"
@@ -1065,7 +1097,15 @@
       "value": 9,
       "trust": 8
     },
-    "priceMonthlyUSD": 25,
+    "storePrice": {
+      "amount": 19.99,
+      "currency": "USD",
+      "text": "$19.99",
+      "pack": "60ct.",
+      "directions": "take 1-2 daily with or without food",
+      "url": "https://nootropicsdepot.com/lions-mane-hericium-erinaceus-whole-fruiting-body-medicinal-mushroom-extract-500mg-capsules/",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "both",
     "moneyBackDays": null,
     "caffeineFree": true,
@@ -1090,7 +1130,7 @@
     ],
     "servingsPerContainer": 60,
     "capsulesPerServing": 1,
-    "summary": "Single-ingredient Lion's Mane (500mg fruiting-body extract per capsule) at $25 USD/month -- the lowest monthly price in this review and the easiest to clear customs as a single-ingredient supplement. Ships from the US; the brand's shipping-methods page (checked 2026-09-28) describes worldwide international shipping with no GCC state excluded. ISO-certified in-house lab publishes a Certificate of Analysis per batch, which may assist with import documentation for SFDA (Saudi Arabia), MOHAP (UAE), or other GCC-state MOH queries. Caffeine-free; vegan per the brand's product page; capsule shell material not stated (checked 2026-10-07).",
+    "summary": "Single-ingredient Lion's Mane (500mg fruiting-body extract per capsule) -- the easiest to clear customs as a single-ingredient supplement. Ships from the US; the brand's shipping-methods page (checked 2026-09-28) describes worldwide international shipping with no GCC state excluded. ISO-certified in-house lab publishes a Certificate of Analysis per batch, which may assist with import documentation for SFDA (Saudi Arabia), MOHAP (UAE), or other GCC-state MOH queries. Caffeine-free; vegan per the brand's product page; capsule shell material not stated (checked 2026-10-07).",
     "whatItIs": "Nootropics Depot Lion's Mane Extract is a single-ingredient supplement providing standardised Hericium erinaceus fruiting body extract at 500mg per capsule. Nootropics Depot operates an ISO-certified in-house testing laboratory and publishes a Certificate of Analysis (CoA) for every batch. For GCC buyers: as a single-ingredient product, it presents a simpler customs profile than multi-ingredient stacks; the publicly available CoA can be provided to SFDA, MOHAP, or relevant MOH authorities if documentation is requested. The product is caffeine-free, is vegan per the brand's product page (capsule shell material not stated, checked 2026-10-07), and ships from the US.",
     "howItWorks": "Lion's Mane fruiting body contains hericenones, compounds that cross the blood-brain barrier and stimulate Nerve Growth Factor (NGF) synthesis. NGF promotes neuronal survival, axon growth, and maintenance of neurons in the hippocampus and cortex -- the regions responsible for learning and memory. Nootropics Depot uses a standardised fruiting body extract rather than mycelium (which has a lower hericenone content). The result is a more potent and consistent NGF stimulus per capsule.",
     "whatToExpect": "Lion's Mane is a long-game supplement. Expect no acute effects on day one. At 4 weeks: some users report slightly clearer thinking and improved mental endurance. At 8-12 weeks: measurable improvements in memory and neuroprotective markers in studies. For best results, take consistently every day with a fat-containing meal (hericenones are fat-soluble). This product is best combined with a multi-ingredient stack (e.g. Mind Lab Pro already contains Lion's Mane) rather than used as a standalone primary supplement.",
@@ -1149,7 +1189,15 @@
       "trust": 8
     },
     "unscoredReason": "None of BrainMAX+'s ingredients (Cera-Q silk fibroin protein, goji berry extract, Chinese wild ginseng extract) has a reference dose on our ingredient pages, and this pillar is measured against those reference doses. The overall score is the weighted average of the four scored pillars.",
-    "priceMonthlyUSD": 54.71,
+    "storePrice": {
+      "amount": 89.9,
+      "currency": "SGD",
+      "text": "S$89.90",
+      "pack": "3g x 30 sachets",
+      "directions": "Take 1 sachet once daily.",
+      "url": "https://www.euyansang.com.sg/en/brainmax-888842543107.html",
+      "checkedAt": "2026-10-09"
+    },
     "pricingModel": "one-time",
     "moneyBackDays": null,
     "caffeineFree": true,
@@ -1189,10 +1237,10 @@
     "servingsPerContainer": 30,
     "capsulesPerServing": 1,
     "form": "sachet",
-    "summary": "Eu Yan Sang BrainMAX+ is a premium brain health supplement from a Traditional Chinese Medicine (TCM) company founded in 1879. Uses Cera-Q, a silk fibroin protein with one citable 3-week memory trial by maker-affiliated authors, combined with Goji Berry and Chinese Wild Ginseng. Sold on Eu Yan Sang's Singapore storefront; delivery to GCC addresses was not confirmed in our 2026-09-28 check -- confirm at checkout. Priced at S$69.90 (about $54.71 USD) for a 30-sachet box on the Singapore storefront, reduced from the S$89.90 RSP (checked 2026-09-29). Caffeine-free; sold as powder sachets, so there is no capsule shell to check.",
+    "summary": "Eu Yan Sang BrainMAX+ is a premium brain health supplement from a Traditional Chinese Medicine (TCM) company founded in 1879. Uses Cera-Q, a silk fibroin protein with one citable 3-week memory trial by maker-affiliated authors, combined with Goji Berry and Chinese Wild Ginseng. Sold on Eu Yan Sang's Singapore storefront; delivery to GCC addresses was not confirmed in our 2026-09-28 check -- confirm at checkout. Priced in Singapore dollars on the Singapore storefront. Caffeine-free; sold as powder sachets, so there is no capsule shell to check.",
     "whatItIs": "Eu Yan Sang is a Traditional Chinese Medicine company founded in 1879, headquartered in Singapore; its about page lists 'over 187 Eu Yan Sang retail outlets in China, Hong Kong, Macau, Malaysia, and Singapore' (euyansang.com, checked 2026-10-09). BrainMAX+ is their modern cognitive health product featuring Cera-Q — a silk fibroin protein extract with one citable 3-week trial in healthy adults averaging about 55 (Kang 2018, maker-affiliated authors) showing higher memory-test scores at 400–600mg/day (the trial tested 280–600mg). The formula bridges TCM heritage (Goji Berry, Chinese Wild Ginseng) with modern peptide science. For GCC buyers: the product is sold on Eu Yan Sang's Singapore e-commerce storefront; we could not confirm delivery terms to GCC addresses in our 2026-09-28 check. It is sold as powder sachets (3g x 30 per box, one sachet daily per the product page), not capsules, and is caffeine-free.",
     "howItWorks": "Cera-Q (silk fibroin protein hydrolysate) has no established mechanism in human studies; the one 3-week trial we could cite reported dose-dependent gains on a memory quotient, learning gradient and recall measures at 400–600mg/day (the trial tested 280–600mg). Goji Berry extract provides antioxidant neuroprotection via zeaxanthin and betaine compounds — Goji is a staple in TCM with centuries of documented use. Chinese Wild Ginseng contains ginsenosides that modulate NMDA receptor activity and support cerebral blood flow.",
-    "whatToExpect": "BrainMAX+ comes as powder sachets dissolved in water. The one Cera-Q trial we could cite measured memory after 3 weeks; it did not measure mental clarity or onset. Weeks 4-8: cumulative memory and concentration benefits from the ginseng and goji combination. At about $54.71 USD per 30-sachet box (S$69.90) it is priced as a premium product.",
+    "whatToExpect": "BrainMAX+ comes as powder sachets dissolved in water. The one Cera-Q trial we could cite measured memory after 3 weeks; it did not measure mental clarity or onset. Weeks 4-8: cumulative memory and concentration benefits from the ginseng and goji combination. It is priced as a premium product.",
     "pros": [
       "TCM heritage brand; first shop set up in 1879 (euyansang.com, checked 2026-10-09)",
       "Cera-Q has a placebo-controlled memory trial (3 weeks, maker-affiliated)",
@@ -1201,7 +1249,7 @@
     "cons": [
       "Korea's food regulator (MFDS) revoked Cera-Q's functional-ingredient recognition in November 2017 after its supporting mouse study was retracted for data fabrication (retraction notice: J Microbiol Biotechnol, Dec 2016); in Korea it is sold as a general food (per Yang & Chung 2026, Food Supplements and Biomaterials for Health, and Sisa Journal, Feb 2020). This does not affect its legal status in Singapore or the GCC, where BrainMAX+ is sold as a supplement.",
       "Cera-Q's evidence is one citable 3-week trial with maker-affiliated authors; an earlier supporting paper was retracted",
-      "Premium price (S$69.90, ~$54.71 USD/month)",
+      "Premium price",
       "No money-back guarantee",
       "Chinese Wild Ginseng: 37mg extract, ginsenoside content not stated",
       "No affiliate commission",
@@ -1212,7 +1260,7 @@
     "updatedAt": "2026-09-29",
     "verifiedAt": "2026-09-29",
     "notes": [
-      "Singapore price: S$69.90 for a 30-sachet box (3g x 30 sachets, 1 sachet daily), reduced from the S$89.90 RSP, on the euyansang.com.sg product page (https://www.euyansang.com.sg/en/brainmax-888842543107.html, checked 2026-09-29). USD figure converted at SGD 1 = USD 0.78264 (Frankfurter reference rate dated 2026-09-28, https://api.frankfurter.app/latest?from=SGD&to=USD): 69.90 × 0.78264 = USD 54.71."
+      "Singapore price: S$89.90 regular price for a 30-sachet box (3g x 30 sachets, 1 sachet daily) on the euyansang.com.sg product page (https://www.euyansang.com.sg/en/brainmax-888842543107.html, checked 2026-10-09)."
     ],
     "importPathway": "BrainMAX+ is sold on Eu Yan Sang's Singapore storefront (https://www.euyansang.com.sg/en/brainmax-888842543107.html, checked 2026-09-28); the brand's US storefront does not carry it. Delivery terms to GCC addresses could not be confirmed.",
     "vendorTerms": {

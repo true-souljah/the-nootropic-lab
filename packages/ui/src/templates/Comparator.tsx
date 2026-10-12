@@ -14,9 +14,11 @@ import type { SearchItem } from '../SearchModal';
 import { COLUMNS, GRADES, MAX_SELECTED } from './comparator/constants';
 import { scoreTier } from './listicleRanking';
 import type { SortKey, SortDir, Goal, Grade } from './comparator/constants';
-import { parseUrlState, buildViewQueryString, exportRowsToCsv } from './comparator/utils';
+import { parseUrlState, buildViewQueryString, exportRowsToCsv, priceSortable, sortRows } from './comparator/utils';
 import { ComparatorFilters } from './comparator/ComparatorFilters';
 import { ComparatorCompareCard } from './comparator/ComparatorCompareCard';
+import { PRICE_SLIDER_MAX } from './comparator/ComparatorFilters';
+import { priceText, priceLocaleOf } from '../price-text';
 
 export interface ComparatorProps {
   products: Product[];
@@ -107,8 +109,24 @@ export default function Comparator({
     setGrade('All');
   }, []);
 
+  // Prices stay in each store's own currency (never converted). The price sort
+  // needs every per-month figure in one currency; the max-price filter shows
+  // only when that currency is not yen; the slider's top means "no limit".
+  const prices = useMemo(() => new Map(products.map((p) => [p.slug, priceText(p, uiStrings)])), [products, uiStrings]);
+  const monthlyOf = useCallback((p: Product) => prices.get(p.slug)?.monthlyMoney ?? null, [prices]);
+  const monthlyCurrency = useMemo(() => {
+    const currencies = new Set(products.flatMap((p) => (monthlyOf(p) ? [monthlyOf(p)!.currency] : [])));
+    const only = currencies.size === 1 ? [...currencies][0] : null;
+    return only === 'JPY' ? null : only;
+  }, [products, monthlyOf]);
+  const canSortPrice = useMemo(() => priceSortable(products), [products]);
+
   const rows = useMemo(() => {
-    let r = products.filter((p) => (p.priceMonthlyUSD ?? Infinity) <= maxPrice);
+    let r = products.filter((p) => {
+      if (!monthlyCurrency || maxPrice >= PRICE_SLIDER_MAX) return true;
+      const m = monthlyOf(p);
+      return !m || m.amount <= maxPrice;
+    });
     if (caffeineFreeOnly) r = r.filter((p) => p.caffeineFree);
     if (euCompliantOnly) r = r.filter((p) => p.euStorefront);
     if (bestFor !== 'Any') r = r.filter((p) => p.bestFor.includes(bestFor));
@@ -117,24 +135,15 @@ export default function Comparator({
       const tone = GRADES.find((g) => g.id === grade)?.tone;
       r = r.filter((p) => scoreTier(p.score) === tone);
     }
-    return [...r].sort((a, b) => {
-      const get = (x: Product) =>
-        sortKey === 'score'
-          ? x.score
-          : sortKey === 'price'
-            ? x.priceMonthlyUSD ?? Infinity
-            : sortKey === 'trust'
-              ? x.trustpilotScore ?? 0
-              : sortKey === 'value'
-                ? x.scoreBreakdown.value ?? 0
-                : 0;
-      return sortDir === 'desc' ? get(b) - get(a) : get(a) - get(b);
-    });
+    return sortRows(r, sortKey, sortDir, canSortPrice);
   }, [
     products,
     sortKey,
     sortDir,
     maxPrice,
+    monthlyCurrency,
+    monthlyOf,
+    canSortPrice,
     caffeineFreeOnly,
     euCompliantOnly,
     bestFor,
@@ -192,6 +201,9 @@ export default function Comparator({
     setBestFor,
     maxPrice,
     setMaxPrice,
+    priceFilter: monthlyCurrency
+      ? { currency: monthlyCurrency, locale: priceLocaleOf(uiStrings), monthUnit: uiStrings.productDetail.stats.monthUnit }
+      : null,
     grade,
     setGrade,
     caffeineFreeOnly,
@@ -291,19 +303,21 @@ export default function Comparator({
               className="flex border-b border-ds-border bg-ds-card-sub text-[11px] text-ds-muted uppercase tracking-[0.08em] font-bold"
             >
               {COLUMNS.map((c) => {
-                const headerProps = c.key
+                // No price sort across currencies (prices are never converted).
+                const key = c.key === 'price' && !canSortPrice ? null : c.key;
+                const headerProps = key
                   ? {
-                      onClick: () => toggleSort(c.key),
+                      onClick: () => toggleSort(key),
                       onKeyDown: (e: React.KeyboardEvent) => {
                         if (e.key === 'Enter' || e.key === ' ') {
                           e.preventDefault();
-                          toggleSort(c.key);
+                          toggleSort(key);
                         }
                       },
                       tabIndex: 0,
                       role: 'columnheader' as const,
                       'aria-sort':
-                        c.key === sortKey
+                        key === sortKey
                           ? sortDir === 'asc'
                             ? ('ascending' as const)
                             : ('descending' as const)
@@ -318,12 +332,12 @@ export default function Comparator({
                       flex: `0 0 ${c.width}px`,
                       textAlign: c.align ?? 'left',
                     }}
-                    className={`px-[14px] py-3 ${c.key ? 'cursor-pointer select-none focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2' : ''} ${
-                      c.key === sortKey ? 'text-ds-accent' : ''
+                    className={`px-[14px] py-3 ${key ? 'cursor-pointer select-none focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2' : ''} ${
+                      key === sortKey ? 'text-ds-accent' : ''
                     }`}
                   >
                     {c.label}
-                    {arrow(c.key)}
+                    {arrow(key)}
                   </div>
                 );
               })}
@@ -417,7 +431,17 @@ export default function Comparator({
                       className="px-[14px] py-3 text-right font-semibold ds-tabular"
                       style={{ flex: '0 0 80px' }}
                     >
-                      {p.priceMonthlyUSD ? `$${p.priceMonthlyUSD}` : '—'}
+                      {(() => {
+                        const price = prices.get(p.slug);
+                        if (!price) return '—';
+                        if (price.monthly) return price.monthly;
+                        return (
+                          <>
+                            {price.pack}
+                            <span className="block text-[10.5px] font-normal text-ds-muted">{price.packText}</span>
+                          </>
+                        );
+                      })()}
                     </div>
                     <div
                       role="gridcell"

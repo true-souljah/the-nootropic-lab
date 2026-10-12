@@ -4,9 +4,10 @@ import type { Product, UIStrings } from '@nootropic/data';
 import ScoreTooltip from './ScoreTooltip';
 import EUBadge from './EUBadge';
 import NoPurchaseLinkNotice from './NoPurchaseLinkNotice';
-import { guaranteeDays, purchaseUrl, NO_PURCHASE_LINK_STRINGS } from '@nootropic/data';
+import { guaranteeDays, purchaseUrl, NO_PURCHASE_LINK_STRINGS, REGION_PROFILES, getStrings, formatMoney } from '@nootropic/data';
+import { priceText } from './price-text';
 
-type SortKey = 'score' | 'priceMonthlyUSD' | 'priceMonthlyEUR' | 'priceMonthlyJPY' | 'priceMonthlyCAD' | 'moneyBackDays' | 'trustpilotScore';
+type SortKey = 'score' | 'price' | 'moneyBackDays' | 'trustpilotScore';
 type SortDir = 'asc' | 'desc';
 
 interface Props {
@@ -55,29 +56,26 @@ export default function ComparisonTable({ products, market, strings }: Props) {
   };
   const uid = useId();
   const [activeFilters, setActiveFilters] = useState<Set<string>>(new Set());
-  // Per-market price slider bounds. JPY products span ~¥4,000-10,000 — a
-  // 20-200 slider would filter every JP product out by default.
+  // Each price stays in its store's own currency (never converted). Sorting
+  // and the max-price slider compare per-month figures, so they appear only
+  // when every per-month figure in the table shares one currency.
+  const priceStrings = {
+    priceLocale: strings?.priceLocale ?? REGION_PROFILES[market].priceLocale,
+    productDetail: (strings ?? getStrings('en')).productDetail,
+  };
+  const prices = new Map(products.map((p) => [p.slug, priceText(p, priceStrings)]));
+  const monthlyOf = (p: Product) => prices.get(p.slug)?.monthlyMoney ?? null;
+  const monthlyCurrencies = new Set(products.flatMap((p) => (monthlyOf(p) ? [monthlyOf(p)!.currency] : [])));
+  const monthlyCurrency = monthlyCurrencies.size === 1 ? [...monthlyCurrencies][0] : null;
+  // Yen prices run to thousands; a 20-200 slider would filter every one out.
   const sliderBounds =
-    market === 'jp' ? { min: 1000, max: 20000, step: 500 } : { min: 20, max: 200, step: 5 };
+    monthlyCurrency === 'JPY' ? { min: 1000, max: 20000, step: 500 } : { min: 20, max: 200, step: 5 };
   const [priceMax, setPriceMax] = useState(sliderBounds.max);
   const [sortKey, setSortKey] = useState<SortKey>('score');
   const [sortDir, setSortDir] = useState<SortDir>('desc');
-
-  const currency =
-    market === 'eu' ? '€' : market === 'jp' ? '¥' : '$';
-  const priceField =
-    market === 'eu'
-      ? 'priceMonthlyEUR'
-      : market === 'jp'
-        ? 'priceMonthlyJPY'
-        : market === 'ca'
-          ? 'priceMonthlyCAD'
-          : 'priceMonthlyUSD';
-  // Locale-aware thousand-separator formatting. Currently only JPY needs
-  // it (¥4,750 vs ¥4750); USD/EUR/CAD prices stay sub-thousand so the
-  // call is a no-op for them.
-  const formatPrice = (val: number) =>
-    market === 'jp' ? val.toLocaleString('ja-JP') : String(val);
+  const maxLabel = monthlyCurrency
+    ? `≈ ${formatMoney({ amount: priceMax, currency: monthlyCurrency }, priceStrings.priceLocale)}/${priceStrings.productDetail.stats.monthUnit}`
+    : '';
 
   const FILTERS = [
     { key: 'caffeineFree', label: t?.caffeineFree || 'Caffeine-Free' },
@@ -105,17 +103,12 @@ export default function ComparisonTable({ products, market, strings }: Props) {
     let list = [...products];
     if (activeFilters.has('caffeineFree')) list = list.filter(p => p.caffeineFree);
     if (activeFilters.has('euStorefront')) list = list.filter(p => p.euStorefront);
-    list = list.filter(p => {
-      const price = p[priceField] as number | undefined;
-      return price === undefined || price <= priceMax;
-    });
-    list.sort((a, b) => {
-      const va = ((a[sortKey] as number | null | undefined) ?? 0);
-      const vb = ((b[sortKey] as number | null | undefined) ?? 0);
-      return sortDir === 'desc' ? vb - va : va - vb;
-    });
+    if (monthlyCurrency) list = list.filter(p => (monthlyOf(p)?.amount ?? 0) <= priceMax);
+    const value = (p: Product): number =>
+      sortKey === 'price' ? (monthlyOf(p)?.amount ?? 0) : ((p[sortKey] as number | null | undefined) ?? 0);
+    list.sort((a, b) => (sortDir === 'desc' ? value(b) - value(a) : value(a) - value(b)));
     return list;
-  }, [products, activeFilters, priceMax, sortKey, sortDir, priceField]);
+  }, [products, activeFilters, priceMax, sortKey, sortDir, monthlyCurrency]);
 
   const priceInputId = `${uid}-price-max`;
 
@@ -137,8 +130,9 @@ export default function ComparisonTable({ products, market, strings }: Props) {
             {f.label}
           </button>
         ))}
+        {monthlyCurrency && (
         <div className="flex items-center gap-2 ml-auto text-sm text-gray-600">
-          <label htmlFor={priceInputId}>Max {`${currency}${formatPrice(priceMax)}/mo`}</label>
+          <label htmlFor={priceInputId}>Max {maxLabel}</label>
           <input
             id={priceInputId}
             type="range"
@@ -146,11 +140,12 @@ export default function ComparisonTable({ products, market, strings }: Props) {
             max={sliderBounds.max}
             step={sliderBounds.step}
             value={priceMax}
-            aria-valuetext={`${currency}${formatPrice(priceMax)} per month`}
+            aria-valuetext={maxLabel}
             onChange={e => setPriceMax(Number(e.target.value))}
             className="w-28 accent-green-700"
           />
         </div>
+        )}
       </div>
 
       {/* Desktop table */}
@@ -165,7 +160,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                 {t?.score || 'Score'} <SortBtn col="score" sortKey={sortKey} sortDir={sortDir} onSort={handleSort} t={t} />
               </th>
               <th scope="col" className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">
-                {t?.priceMo || 'Price/mo'} <SortBtn col={priceField as SortKey} sortKey={sortKey} sortDir={sortDir} onSort={handleSort} t={t} />
+                {t?.price || 'Price'} {monthlyCurrency && <SortBtn col="price" sortKey={sortKey} sortDir={sortDir} onSort={handleSort} t={t} />}
               </th>
               <th scope="col" className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">{t?.caffeineFree || 'Caffeine-Free'}</th>
               {market === 'eu' && (
@@ -212,7 +207,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                   <ScoreTooltip score={p.score} breakdown={p.scoreBreakdown} />
                 </td>
                 <td className="p-3 font-semibold">
-                  {p[priceField] !== undefined ? `${currency}${formatPrice(p[priceField] as number)}` : '—'}
+                  {prices.get(p.slug)?.short ?? '—'}
                 </td>
                 <td className="p-3 text-center">
                   {p.caffeineFree ? (
@@ -294,10 +289,8 @@ export default function ComparisonTable({ products, market, strings }: Props) {
               </div>
               <div className="grid grid-cols-2 gap-2 text-sm mb-3">
                 <div>
-                  <span className="text-gray-500">{t?.priceMo ? `${t.priceMo}:` : 'Price:'} </span>
-                  <strong>
-                    {p[priceField] !== undefined ? `${currency}${formatPrice(p[priceField] as number)}/mo` : '—'}
-                  </strong>
+                  <span className="text-gray-500">{t?.price ? `${t.price}:` : 'Price:'} </span>
+                  <strong>{prices.get(p.slug)?.short ?? '—'}</strong>
                 </div>
                 <div>
                   <span className="text-gray-500">{t?.moneyBack ? `${t.moneyBack}:` : 'Money-back:'} </span>
