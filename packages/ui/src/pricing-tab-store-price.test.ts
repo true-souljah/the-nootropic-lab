@@ -53,9 +53,10 @@ describe('Pricing tab price = the linked store price', () => {
         if (!p.storePrice) continue;
         priced++;
         const host = new URL(p.storePrice.url).hostname.replace(/^www\./, '');
-        expect(html, `${region}/${p.slug}`).toContain('data-store-price-source');
-        expect(html, `${region}/${p.slug}`).toContain(host);
-        expect(html, `${region}/${p.slug}`).toContain(`dateTime="${p.storePrice.checkedAt}"`);
+        // The attribution element itself names the store and the check date.
+        const source = /<p[^>]*data-store-price-source[^>]*>([\s\S]*?)<\/p>/.exec(html)?.[1] ?? '';
+        expect(source, `${region}/${p.slug}`).toContain(host);
+        expect(source, `${region}/${p.slug}`).toContain(`dateTime="${p.storePrice.checkedAt}"`);
       }
     }
     expect(priced).toBeGreaterThanOrEqual(40);
