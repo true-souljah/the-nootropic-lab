@@ -945,6 +945,18 @@ describe('round fourteen: EU country regulatory notes follow the EC list and nat
 // "dominates the Japanese FFC" cover the other removed FFC phrasings. The
 // scan covers every file: the open-PR exclusions were dropped once #369 and
 // #370 landed (2026-10-12).
+//
+// Theanine and jitter: our L-theanine record cites Rogers et al. (PMID
+// 17891480), where theanine "did not significantly affect jitteriness,
+// alertness or other aspects of mood". Copy saying theanine reduces, softens
+// or prevents jitter, or gives "jitter-free" energy, was rewritten to that
+// finding plus the attention result of Owen 2008 (PMID 18681988); the
+// unsourced "post-coffee crash" claims went with it. The jitter pattern skips
+// "not reduce" / "not significantly reduce", so the Rogers sentence itself
+// passes. The narrower patterns after it cover the other removed phrasings,
+// Spanish included.
+const THEANINE_JITTER_CLAIM = /(?<!\bnot )(?<!\bnot significantly )\b(reduces?|softens?|prevents?)[^.]{0,40}jitter/i;
+
 const ROUND_FIFTEEN_UNSOURCED: RegExp[] = [
   /most-notified FFC/i,
   /\bmost[- ]notified\b/i,
@@ -958,6 +970,18 @@ const ROUND_FIFTEEN_UNSOURCED: RegExp[] = [
   /cultural and regulatory anchor/i,
   /gold[- ]standard[^.]{0,60}(most clinical|most research)/i,
   /virtually every quality/i,
+  THEANINE_JITTER_CLAIM,
+  /post-coffee crash/i,
+  /used in most (of the )?(dementia |standalone )?trials/i,
+  /most reliable choice/i,
+  /familiar to every Japanese consumer/i,
+  /jitter-free/i,
+  /focus-and-jitter/i,
+  /without the jitter/i,
+  /smooths out any overstimulation/i,
+  /sustained attention without the crash/i,
+  /jitteriness reduction specifically is mixed/i,
+  /re(duce|duzca) el nerviosismo|caída posterior|bajón posterior|el nerviosismo en concreto es mixta/i,
 ];
 
 describe('round fifteen: JP FFC ranking, SEA customs and "most studied" claims follow the sources', () => {
@@ -1002,6 +1026,24 @@ describe('round fifteen: JP FFC ranking, SEA customs and "most studied" claims f
       'EGb 761 is the gold-standard pharmaceutical-grade extract used in most clinical trials.',
       'Pycnogenol is the gold-standard branded extract used in most clinical research.',
       'This pairing is found in virtually every quality pre-work stack.',
+      'Reduces caffeine jitter and post-coffee crash, smooths attention switching.',
+      'Reduce el nerviosismo de la cafeína y la caída posterior, y suaviza el cambio de atención.',
+      'Theanine smooths the focus curve, reduces jitter, and prevents the post-coffee crash.',
+      'Smooths the focus-and-jitter profile of caffeine.',
+      'The L-theanine softens any caffeine jitter.',
+      'Caffeine (100mg) and L-Theanine (200mg) work synergistically for alert, jitter-free energy.',
+      'Together they produce alert, focused calm without the jitteriness some people experience from citicoline alone.',
+      "L-Theanine smooths out any overstimulation from Zynamite's catecholamine-preserving effects.",
+      'For L-Theanine + caffeine combinations: sustained attention without the crash, mild mood uplift.',
+      'Evidence that L-Theanine reduces caffeine jitteriness is mixed',
+      'though evidence for anxiety or jitteriness reduction specifically is mixed.',
+      'Con combinaciones de L-Theanine + cafeína: atención sostenida sin el bajón posterior',
+      'La evidencia de que L-Theanine reduzca el nerviosismo causado por la cafeína es mixta',
+      'aunque la evidencia sobre la reducción de la ansiedad o el nerviosismo en concreto es mixta.',
+      'It is the extract used in most of the dementia trials.',
+      'below the 100-200mg clinical dose used in most standalone trials.',
+      'If you want to match the clinical evidence, Pycnogenol is the most reliable choice.',
+      'backed by a household-name conglomerate familiar to every Japanese consumer.',
     ];
     for (const s of removed) expect(ROUND_FIFTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(true);
     for (const re of ROUND_FIFTEEN_UNSOURCED) expect(removed.some(s => re.test(s)), String(re)).toBe(true);
@@ -1015,7 +1057,28 @@ describe('round fifteen: JP FFC ranking, SEA customs and "most studied" claims f
       'Suntory DHA & EPA + Sesamin EX is the DHA product; FANCL BRAINs is not',
       'EGb 761 is a pharmaceutical-grade extract; it is the extract used in the trials pooled by the meta-analysis we cite (Tan 2015).',
       'Pycnogenol is a branded extract; it is the extract used in the studies we cite (Belcaro 2014; Luzzi 2011).',
+      'In the trial linked below (Owen 2008), the pairing improved speed and accuracy on an attention-switching task; in a controlled trial (Rogers 2008), theanine did not significantly reduce caffeine-induced jitteriness.',
+      'en un ensayo controlado (Rogers 2008), la L-teanina no redujo significativamente el nerviosismo causado por la cafeína.',
+      'It is the extract used in the trials pooled by the meta-analysis we cite (Tan 2015).',
+      'below the 100-200mg clinical dose on this page (the Belcaro 2014 study we cite used 150mg/day).',
     ]) expect(ROUND_FIFTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(false);
+  });
+
+  test('the jitter pattern catches the claim but not the Rogers null result', () => {
+    for (const s of [
+      'Reduces caffeine jitter and post-coffee crash',
+      'theanine reduces jitter',
+      'The L-theanine softens any caffeine jitter.',
+      'it may reduce caffeine jitteriness',
+      'prevents the jitters',
+    ]) expect(THEANINE_JITTER_CLAIM.test(s), s).toBe(true);
+    for (const s of [
+      'in a controlled trial (Rogers 2008), theanine did not significantly reduce caffeine-induced jitteriness.',
+      'in a controlled trial (Rogers 2008) theanine did not significantly reduce caffeine jitteriness.',
+      'in a controlled caffeine trial it did not significantly reduce jitteriness',
+      'theanine did not reduce caffeine jitteriness',
+      'theanine did not significantly affect caffeine-induced jitteriness',
+    ]) expect(THEANINE_JITTER_CLAIM.test(s), s).toBe(false);
   });
 
   test('no data or app source uses the removed wording (whitespace-normalised)', () => {
