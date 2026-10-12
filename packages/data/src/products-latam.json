@@ -60,7 +60,7 @@
       {
         "name": "Bacopa Monnieri (full-spectrum extract, 24% bacosides)",
         "doseInProduct": "150mg",
-        "clinicalDose": "300-450mg/day (55% bacosides)",
+        "clinicalDose": "300-450mg/day (≥50% bacosides)",
         "adequatelyDosed": false
       },
       {
@@ -232,7 +232,7 @@
       {
         "name": "Bacopa Monnieri Extract (herb, 20% bacosides)",
         "doseInProduct": "250mg",
-        "clinicalDose": "300-450mg/day (55% bacosides)",
+        "clinicalDose": "300-450mg/day (≥50% bacosides)",
         "adequatelyDosed": false
       },
       {
@@ -679,7 +679,7 @@
       {
         "name": "Bacopa Monnieri (Focus Blend)",
         "doseInProduct": "100mg",
-        "clinicalDose": "300-450mg/day (55% bacosides)",
+        "clinicalDose": "300-450mg/day (≥50% bacosides)",
         "adequatelyDosed": false
       },
       {
@@ -961,7 +961,7 @@
       {
         "name": "Bacopa Monnieri (Neuroprotection)",
         "doseInProduct": "300mg",
-        "clinicalDose": "300-450mg/day (55% bacosides)",
+        "clinicalDose": "300-450mg/day (≥50% bacosides)",
         "adequatelyDosed": null
       },
       {

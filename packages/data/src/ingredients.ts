@@ -113,7 +113,7 @@ export const ingredients: Ingredient[] = [
     name: 'Bacopa Monnieri',
     category: 'herb',
     mechanism: 'Bacopa enhances synaptic communication by increasing dendritic branching and synaptic density. Its active compounds (bacosides A and B) facilitate repair of damaged neurons and upregulate antioxidant activity, reducing oxidative stress in hippocampal tissue. It also modulates serotonin and acetylcholine systems.',
-    clinicalDose: '300–450mg/day (standardised to 55% bacosides)',
+    clinicalDose: '300–450mg/day (standardised to at least 50% bacosides)',
     timeToEffect: '8–12 weeks of consistent use (most positive trials ran 12 weeks)',
     studySummary: 'A meta-analysis of 9 RCTs (Kongkeaw et al., 2014, n=518) found Bacopa shortened Trail Making B and choice reaction times versus placebo, and two 12-week RCTs in healthy older adults (Calabrese 2008; Morgan & Stevens 2010) improved delayed word recall at 300mg/day. The newest 12-week RCT (Lopresti 2025, n=101, 300mg/day) found no effect on verbal learning, attention or working memory, though it did reduce self-reported stress. A 2026 network meta-analysis of 29 RCTs found ≥600mg/day beat 300–450mg/day for working memory. Best evidence is for delayed recall rather than acute effects.',
     benefits: ['Delayed recall in healthy older adults (12-week RCTs)', 'Anxiety and stress reduction', 'Antioxidant activity (laboratory studies)'],
@@ -126,10 +126,10 @@ export const ingredients: Ingredient[] = [
       { effect: 'Processing Speed', evidenceStrength: 'mixed', magnitude: 'small', studies: 2, notes: 'An acute 320mg dose improved sustained task performance (2012), but the 2026 network meta-analysis found no processing-speed difference. Some users report temporary initial slowing.' },
     ],
     howToTake: {
-      dosage: '300–450mg/day (standardised to 55% bacosides) — the classic trial dose; ≥600mg/day is an emerging, less-established option',
+      dosage: '300–450mg/day (standardised to at least 50% bacosides) — the classic trial dose; ≥600mg/day is an emerging, less-established option',
       timing: 'With your largest meal of the day — morning or evening both work',
       withFood: 'Bacosides are fat-soluble, so a meal with some fat is the standard advice. Taking it with food also helps with the GI side effects reported in trials. Do not take on an empty stomach.',
-      forms: 'Capsule is most practical. Powder has a bitter, unpleasant taste. Look for standardisation to at least 40–55% bacosides on the label — unstandardised herbal products may contain very little active compound.',
+      forms: 'Capsule is most practical. Powder has a bitter, unpleasant taste. Look for an extract standardised to at least 50% bacosides on the label (the positive trial we cite used 300mg of a 50% extract, about 150mg of bacosides) — unstandardised herbal products may contain very little active compound.',
     },
     stacksWith: [
       { ingredient: "Lion's Mane", slug: 'lions-mane', reason: 'The definitive long-term memory stack. Bacopa improves synaptic density and memory consolidation; Lion\'s Mane drives NGF synthesis and neuroprotection. Both are slow-acting and complement each other without overlap.' },
@@ -139,7 +139,7 @@ export const ingredients: Ingredient[] = [
     faqs: [
       { question: 'Why do some people feel "foggy" when starting Bacopa?', answer: 'A minority of users experience a temporary initial slowing of mental processing — sometimes called the "Bacopa fog." This is linked to the serotonin modulation and typically resolves after 3–4 weeks. It reflects the herb\'s mechanism working, not a problem. If it persists past 6 weeks, reduce your dose.' },
       { question: 'Do I really need to take it with fat?', answer: "It is the sensible default. Bacosides are fat-soluble compounds, and GI side effects (cramps, nausea, more frequent stools) were reported in trials, so taking Bacopa with a normal meal that contains some fat is the usual advice." },
-      { question: 'What percentage of bacosides should I look for?', answer: 'Aim for 40–55% bacosides standardisation. The two most-studied commercial extracts (Bacognize and Synapsa) are both standardised. Generic "Bacopa" with no standardisation stated is unreliable — the active compound content may be negligible.' },
+      { question: 'What percentage of bacosides should I look for?', answer: 'Aim for at least 50%: the positive trial we cite (Calabrese et al., 2008) used 300mg a day of an extract standardised to a minimum of 50% bacosides, about 150mg of bacosides. The two most-studied commercial extracts (Bacognize and Synapsa) are both standardised. Generic "Bacopa" with no standardisation stated is unreliable — the active compound content may be negligible.' },
       { question: 'How long does it take to work?', answer: 'The positive memory trials measured outcomes after 12 weeks. This is not a supplement you evaluate in the first month. Set a calendar reminder to assess at around 12 weeks — and note that the newest 12-week trial at 300mg/day found no cognitive benefit, so results vary.' },
       { question: 'Can Bacopa be taken long-term?', answer: 'Most trials ran 12 weeks or less, so controlled data beyond that is thin. Traditional Ayurvedic use is continuous without cycling, and no trial has shown cycling is necessary — but long-term safety has not been studied directly.' },
     ],
