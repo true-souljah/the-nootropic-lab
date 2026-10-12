@@ -11,7 +11,7 @@ import { Tabs, TabPanel } from '../primitives/Tabs';
 import { ProductThumb } from '../primitives/ProductThumb';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
 import NoPurchaseLinkNotice from '../NoPurchaseLinkNotice';
-import { productForm, servingAmount, servingUnit, guaranteeDays, dosingTally } from '@nootropic/data';
+import { earnsCommission, productForm, servingAmount, servingUnit, guaranteeDays, dosingTally } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 import type { TabId } from './product-detail/constants';
@@ -115,6 +115,10 @@ export default function ProductDetail({
   // no affiliate CTAs, no price stat, no Pricing tab, no "Buying in" block.
   const discontinued = p.discontinued;
 
+  // No affiliate deal (commissionRate "0%"): the disclosure strip and trust
+  // note say we earn no commission instead of the commission sentence.
+  const commission = earnsCommission(p);
+
   const tabItems: Array<{ id: TabId; label: string }> = [
     { id: 'overview', label: pd.tabs.overview },
     { id: 'dosing', label: pd.tabs.dosing },
@@ -141,7 +145,7 @@ export default function ProductDetail({
       searchItems={searchItems}
       uiStrings={uiStrings}
     >
-      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} />
+      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} earnsCommission={commission} />
       <div className="px-4 sm:px-7 pt-6 pb-10">
         {discontinued && (
           <aside
@@ -243,7 +247,9 @@ export default function ProductDetail({
             </div>
           </div>
 
-          {!discontinued && <FPTrustNote strings={uiStrings.disclosure} className="mt-[18px]" />}
+          {!discontinued && (
+            <FPTrustNote strings={uiStrings.disclosure} earnsCommission={commission} className="mt-[18px]" />
+          )}
 
           <div className="mt-[18px] pt-[18px] border-t border-ds-border grid gap-[18px] items-center grid-cols-2 sm:grid-cols-3 lg:grid-cols-[repeat(5,1fr)_auto]">
             {[
