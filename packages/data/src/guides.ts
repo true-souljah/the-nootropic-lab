@@ -547,7 +547,7 @@ export const guides: Guide[] = [
       },
       {
         heading: 'What acute effects actually feel like',
-        content: 'For L-Theanine + caffeine combinations: sustained attention without the crash, mild mood uplift. Evidence that L-Theanine reduces caffeine jitteriness is mixed — one controlled study found it offset caffeine\'s blood-pressure effect but did not significantly change jitteriness. For L-Tyrosine under stress: maintained sharpness and working memory during demanding tasks where you would normally feel your performance degrade. For Rhodiola: reduced mental fatigue, better stamina during long cognitive sessions. Importantly, acute nootropics work most noticeably when you have a deficit to correct — fatigue, stress, sleep deprivation. In a well-rested, low-stress state, effects are subtler.',
+        content: 'For L-Theanine + caffeine combinations: sustained attention, mild mood uplift. In a controlled trial (Rogers 2007), theanine offset caffeine\'s blood-pressure effect but did not significantly reduce caffeine-induced jitteriness. For L-Tyrosine under stress: maintained sharpness and working memory during demanding tasks where you would normally feel your performance degrade. For Rhodiola: reduced mental fatigue, better stamina during long cognitive sessions. Importantly, acute nootropics work most noticeably when you have a deficit to correct — fatigue, stress, sleep deprivation. In a well-rested, low-stress state, effects are subtler.',
       },
       {
         heading: 'What cumulative effects feel like',
@@ -575,7 +575,7 @@ export const guides: Guide[] = [
     sections: [
       {
         heading: 'What is a nootropic stack?',
-        content: 'A nootropic stack is a combination of two or more cognitive-enhancing compounds taken together to produce effects greater than either would alone. The concept comes from pharmacology — many drugs are more effective or better-tolerated in combination. The best-evidenced nootropic combination is L-Theanine + Caffeine: a meta-analysis of 11 RCTs found moderate improvements in alertness and attention-switching accuracy in the first 2 hours after dosing. L-theanine may reduce some of caffeine\'s stimulant side effects, though evidence for anxiety or jitteriness reduction specifically is mixed. Pre-formulated multi-ingredient stacks combine 8–11 ingredients designed to cover multiple cognitive pathways simultaneously.',
+        content: 'A nootropic stack is a combination of two or more cognitive-enhancing compounds taken together to produce effects greater than either would alone. The concept comes from pharmacology — many drugs are more effective or better-tolerated in combination. The best-evidenced nootropic combination is L-Theanine + Caffeine: a meta-analysis of 11 RCTs found moderate improvements in alertness and attention-switching accuracy in the first 2 hours after dosing. In a controlled trial (Rogers 2007), L-theanine offset caffeine\'s blood-pressure rise but did not significantly reduce caffeine-induced jitteriness. Pre-formulated multi-ingredient stacks combine 8–11 ingredients designed to cover multiple cognitive pathways simultaneously.',
       },
       {
         heading: 'The golden rule: one cholinergic source at a time',

@@ -27,7 +27,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Caffeine + L-Theanine — the foundation',
     ingredientSlugs: ['caffeine', 'l-theanine'],
     evidence:
-      'For sustained cognitive energy, caffeine + L-theanine in a 1:2 to 2:1 ratio is the most-evidence-backed combination. Theanine smooths the focus curve, reduces jitter, and prevents the post-coffee crash. 100–200mg L-theanine + 100mg caffeine.',
+      'For sustained cognitive energy, caffeine + L-theanine in a 1:2 to 2:1 ratio is the most-evidence-backed combination. In the trial linked below (Owen 2008), the pairing improved speed and accuracy on an attention-switching task; in a controlled trial (Rogers 2008), theanine did not significantly reduce caffeine-induced jitteriness. 100–200mg L-theanine + 100mg caffeine.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
   },
   {

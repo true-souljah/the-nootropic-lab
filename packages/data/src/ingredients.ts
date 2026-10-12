@@ -177,7 +177,7 @@ export const ingredients: Ingredient[] = [
     },
     stacksWith: [
       { ingredient: 'Bacopa Monnieri', slug: 'bacopa-monnieri', reason: 'Citicoline handles acute attention and acetylcholine; Bacopa covers long-term memory consolidation. The combination addresses both short-term focus and long-term memory in one stack.' },
-      { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'Citicoline provides cognitive activation; L-Theanine takes the edge off overstimulation. Together they produce alert, focused calm without the jitteriness some people experience from citicoline alone.' },
+      { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'Citicoline provides cognitive activation; L-Theanine is often added for calm, though in a controlled caffeine trial (Rogers 2008) it did not significantly reduce jitteriness, and we cite no trial of this pairing.' },
       { ingredient: "Lion's Mane", slug: 'lions-mane', reason: 'Complementary timeframes: citicoline works acutely on acetylcholine; Lion\'s Mane works long-term on NGF. No mechanism overlap — a clean combination.' },
     ],
     faqs: [
@@ -841,7 +841,7 @@ export const ingredients: Ingredient[] = [
     stacksWith: [
       { ingredient: 'Caffeine', slug: 'caffeine', reason: 'Caffeine increases catecholamine release; Zynamite is proposed to slow their breakdown via COMT inhibition. The combination has not been tested in a cognitive trial.' },
       { ingredient: 'L-Tyrosine', slug: 'l-tyrosine', reason: 'Tyrosine provides dopamine precursor; Zynamite slows dopamine metabolism. Supply + preservation for sustained catecholamine levels.' },
-      { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'L-Theanine smooths out any overstimulation from Zynamite\'s catecholamine-preserving effects. Balanced energy without agitation.' },
+      { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'L-Theanine is often paired with stimulants, though in a controlled caffeine trial (Rogers 2008) it did not significantly reduce jitteriness, and we cite no trial of L-Theanine with Zynamite.' },
     ],
     faqs: [
       { question: 'Is Zynamite just mango leaf extract?', answer: 'Zynamite is a specific patented extract of Mangifera indica standardised to >60% mangiferin. Generic mango leaf supplements may contain far less mangiferin and are not equivalent. The sprint trials name Zynamite; the cognitive trials used mango leaf extract standardised to at least 60% mangiferin.' },
