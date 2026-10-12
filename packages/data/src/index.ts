@@ -1,4 +1,4 @@
-export type { Product, EUCompliance, Market, IngredientDosage, NoPurchaseLink, NoPurchaseLinkIngredient, NoPurchaseLinkReason, VendorTerm, VendorTerms, StorePrice } from './products-us';
+export type { Product, EUCompliance, Market, IngredientDosage, NoPurchaseLink, NoPurchaseLinkMhlw, NoPurchaseLinkNotSold, NoPurchaseLinkIngredient, NoPurchaseLinkReason, VendorTerm, VendorTerms, StorePrice } from './products-us';
 export { productsUS, allProductsUS } from './products-us';
 export { productsEU, allProductsEU } from './products-eu';
 export { productsCA, allProductsCA } from './products-ca';

@@ -78,7 +78,7 @@ const picks: ListiclePick[] = [
     product: productsAU.find(p => p.slug === 'naturebell-ginkgo-ginseng-review')!,
     rank: 3,
     whyItsHere:
-      'Sold via Amazon.com.au with Prime shipping. Ginkgo Biloba at full clinical dose (500mg extract standardised to 120mg flavone glycosides). Ginseng is 50mg of Korean Red Ginseng extract with no ginsenoside amount stated. Not a substitute for the multi-ingredient stacks above; more useful as a stack addition or trial of Ginkgo before committing to a TGA-listed Australian Ginkgo product like Blackmores Bio Ginkgoforte 6000.',
+      'Ginkgo Biloba at full clinical dose (500mg extract standardised to 120mg flavone glycosides). Ginseng is 50mg of Korean Red Ginseng extract with no ginsenoside amount stated. Not a substitute for the multi-ingredient stacks above; more useful as a stack addition or trial of Ginkgo before committing to a TGA-listed Australian Ginkgo product like Blackmores Bio Ginkgoforte 6000.',
   },
 ];
 
