@@ -303,7 +303,9 @@ describe('separate consent purposes: Analytics vs Affiliate attribution (decisio
     expect(affiliate[0]!.body).toMatch(/'IR_MPI'/);
     expect(affiliate[0]!.body).not.toMatch(/_ga/);
     const necessary = tables.find((t) => t !== analytics[0] && t !== affiliate[0])!;
-    expect(necessary.body).toMatch(/'klaro'/);
+    // The cookie Klaro actually sets (decision 8 moved it off the pre-split `klaro`).
+    expect(necessary.body).toContain(`'${klaroConfig.storageName}'`);
+    expect(necessary.body).not.toMatch(/'klaro'/);
   });
 });
 

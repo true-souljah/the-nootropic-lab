@@ -20,7 +20,7 @@ export interface PolicyPageProps {
 
 const LAST_UPDATED = 'January 15, 2026';
 
-const POLICY_UPDATED = 'October 6, 2026';
+const POLICY_UPDATED = 'October 12, 2026';
 
 const GA_COOKIE_DOC = 'https://support.google.com/analytics/answer/11397207';
 const IMPACT_COOKIE_DOC =
@@ -121,7 +121,7 @@ function CookiePolicyBody() {
             heading="Strictly necessary (always active)"
             labels={COOKIE_TABLE_LABELS_EN}
             rows={[
-              ['klaro', 'This site (consent manager)', 'Stores your consent choice for each purpose: which services you allowed or declined.', '365 days'],
+              ['klaro-consent', 'This site (consent manager)', 'Stores your consent choice for each purpose: which services you allowed or declined.', '365 days'],
             ]}
           />
           <CookieTable
@@ -193,7 +193,7 @@ function CookiePolicyBody() {
             </li>
             <li>
               <strong>In your browser:</strong> you can delete or block cookies in your browser
-              settings. Deleting the <strong>klaro</strong> cookie makes the consent banner appear
+              settings. Deleting the <strong>klaro-consent</strong> cookie makes the consent banner appear
               again on your next visit.
             </li>
           </ul>
@@ -313,7 +313,7 @@ function PrivacyPolicyBody() {
           <ul className="list-disc list-inside text-gray-700 space-y-1">
             <li><strong>Analytics data</strong> (only if you allow the Analytics purpose on the consent banner): page views, referrer, device type, country. Collected via Google Analytics 4. No personally identifiable information is collected. Advertising features are disabled, and data is not used for personalized advertising or sold to third parties.</li>
             <li><strong>Affiliate attribution data</strong> (only if you allow the Affiliate attribution purpose, which is separate from Analytics): Impact.com&apos;s tracking tag stores a random ID so a purchase made on a partner site after clicking our link can be credited to us.</li>
-            <li><strong>Cookie consent preference:</strong> stored in the <code className="bg-gray-100 px-1 rounded text-xs">klaro</code> cookie for 365 days to remember your choice (acceptance and refusal are kept for the same time).</li>
+            <li><strong>Cookie consent preference:</strong> stored in the <code className="bg-gray-100 px-1 rounded text-xs">klaro-consent</code> cookie for 365 days to remember your choice (acceptance and refusal are kept for the same time).</li>
             <li><strong>Affiliate click data:</strong> when you click an affiliate link, the destination site may set its own tracking cookies. We do not control third-party cookies.</li>
           </ul>
         </section>
@@ -331,7 +331,7 @@ function PrivacyPolicyBody() {
         <section>
           <h2 className="text-xl font-bold text-gray-900 mb-3">4. Cookies</h2>
           <p className="text-gray-700 leading-relaxed">
-            We use one <strong>necessary cookie</strong> (<code className="bg-gray-100 px-1 rounded text-xs">klaro</code>,
+            We use one <strong>necessary cookie</strong> (<code className="bg-gray-100 px-1 rounded text-xs">klaro-consent</code>,
             your consent choice, 365 days) which is always active, and optional cookies for two
             separate purposes that you choose individually: <strong>Analytics</strong> (Google
             Analytics 4: <code className="bg-gray-100 px-1 rounded text-xs">_ga</code>,{' '}
