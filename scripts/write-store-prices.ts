@@ -40,6 +40,17 @@ type EvidenceItem = {
 const evidencePath = process.argv[2];
 if (!evidencePath) throw new Error('usage: write-store-prices.ts <evidence.json>');
 const evidence = JSON.parse(readFileSync(evidencePath, 'utf8')) as Record<string, EvidenceItem[]>;
+// The evidence file comes from the research pipeline: check its shape before reading it.
+if (!evidence || typeof evidence !== 'object' || Array.isArray(evidence)) throw new Error('evidence must be an object keyed by region');
+for (const [region, items] of Object.entries(evidence)) {
+  if (!(REGIONS as readonly string[]).includes(region)) throw new Error(`evidence has an unknown region "${region}"`);
+  if (!Array.isArray(items)) throw new Error(`evidence.${region} must be an array`);
+  for (const e of items) {
+    if (!e || typeof e.id !== 'string' || typeof e.slug !== 'string' || typeof e.status !== 'string' || typeof e.finalUrl !== 'string' || typeof e.checkedAt !== 'string') {
+      throw new Error(`evidence.${region}: item ${JSON.stringify(e?.id)} lacks id, slug, status, finalUrl or checkedAt`);
+    }
+  }
+}
 
 function storePriceFor(item: EvidenceItem | undefined): StorePrice | null {
   if (!item || item.status !== 'ok' || !item.price || !item.pack) return null;
@@ -93,7 +104,8 @@ for (const region of REGIONS) {
     const text = sp ? `"storePrice": ${serialise(sp, indent)}` : null;
     if (priceMembers.length === 0) {
       if (text) {
-        const anchor = get('pricingModel')!;
+        const anchor = get('pricingModel');
+        if (!anchor) throw new Error(`${region}/${id}: no pricingModel key to place storePrice before`);
         edits.push({ start: anchor.keyStart, end: anchor.keyStart, text: `${text},\n${indent}` });
       }
       return;

@@ -36,6 +36,11 @@ const PRICE = new RegExp(
 /** "from" / "starting at" prices are minimums, not the price of a pack. */
 const FROM_PRICE = /(?:^|[\s(|])(?:from|starting at|ab|desde|à partir de)\s+\S*\d|[～〜]/iu;
 
+/** True when the quote is a "from" / "starting at" minimum rather than a pack's price. */
+export function isFromPrice(text: string): boolean {
+  return FROM_PRICE.test(text);
+}
+
 function groupedOk(digits: string, sep: string): boolean {
   const groups = digits.split(sep);
   return /^\d{1,3}$/.test(groups[0]) && groups.slice(1).every((g) => /^\d{3}$/.test(g));

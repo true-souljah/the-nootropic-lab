@@ -10,7 +10,7 @@
 // The per-month figure is worked out at render time from the stored verbatim
 // text, in the same currency, so nothing derived is stored that could drift.
 import type { Product, StorePrice } from './products-us';
-import { parseQuotedPrices, quoteSupply, currencyDigits, DAYS_PER_MONTH } from './vendor-price';
+import { parseQuotedPrices, quoteSupply, currencyDigits, isFromPrice, DAYS_PER_MONTH } from './vendor-price';
 
 export type { StorePrice } from './products-us';
 
@@ -78,6 +78,8 @@ export function sharedCurrency(products: Pick<Product, 'storePrice'>[]): string 
 
 const ISO_CURRENCY = /^[A-Z]{3}$/;
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
+/** Currencies a store may print as a bare "$". */
+const DOLLAR_CURRENCIES = new Set(['USD', 'CAD', 'AUD', 'NZD', 'SGD', 'HKD', 'MXN']);
 const STORE_PRICE_KEYS: (keyof StorePrice)[] = ['amount', 'currency', 'text', 'pack', 'supply', 'directions', 'url', 'checkedAt'];
 
 /** A real calendar date in YYYY-MM-DD form (2026-02-31 is not). */
@@ -121,7 +123,10 @@ export function storePriceProblems(product: Product): string[] {
     else if (Math.abs(prices[0].amount - s.amount) > 1e-9) problems.push(`storePrice.amount ${s.amount} is not the price in its text "${s.text}" (${prices[0].amount})`);
     else if (typeof s.currency === 'string' && prices[0].currency !== '$' && prices[0].currency !== s.currency) {
       problems.push(`storePrice.currency ${s.currency} contradicts its text "${s.text}" (${prices[0].currency})`);
+    } else if (typeof s.currency === 'string' && prices[0].currency === '$' && !DOLLAR_CURRENCIES.has(s.currency)) {
+      problems.push(`storePrice.currency ${s.currency} is not a dollar currency, but its text "${s.text}" states a bare "$"`);
     }
+    if (isFromPrice(s.text)) problems.push(`storePrice.text is a "from" price, not the price of a pack: "${s.text}"`);
   }
   return problems;
 }

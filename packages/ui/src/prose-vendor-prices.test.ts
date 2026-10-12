@@ -70,26 +70,50 @@ const VENDOR_PAGE_AMOUNTS: Record<string, { amounts: number[]; source: string }>
 
 const num = (s: string): number => Number(s.replace(/,(?=\d{3}\b)/g, '').replace(',', '.'));
 
-function amountsIn(text: string, re: RegExp): number[] {
+/** An amount with its currency: an ISO code, or "$" when the text names no particular dollar. */
+type Money = { amount: number; currency: string };
+
+/** The currency a matched price names ("AUD $215" → AUD, "$139 USD" → USD, "$69" → "$"). */
+function currencyOf(matched: string): string {
+  const named: [RegExp, string][] = [
+    [/US\$|USD/i, 'USD'], [/CA\$|C\$|CAD/i, 'CAD'], [/AU\$|A\$|AUD/i, 'AUD'], [/S\$|SGD/i, 'SGD'],
+    [/€|EUR/i, 'EUR'], [/[¥￥円]/u, 'JPY'], [/₱|PHP/i, 'PHP'],
+  ];
+  return named.find(([re]) => re.test(matched))?.[1] ?? '$';
+}
+
+/** Currencies a store may print as a bare "$". */
+const DOLLARS = new Set(['USD', 'CAD', 'AUD', 'NZD', 'SGD', 'HKD', 'MXN']);
+const sameCurrency = (a: string, b: string): boolean =>
+  a === b || (a === '$' && DOLLARS.has(b)) || (b === '$' && DOLLARS.has(a));
+
+function moneyIn(text: string, re: RegExp): Money[] {
   return [...text.matchAll(re)]
     // "below $70/month" states a bound, not a price.
     .filter((m) => !/(?:below|under|less than)\s*$/i.test(text.slice(Math.max(0, (m.index ?? 0) - 12), m.index)))
-    .map((m) => num(m[1] ?? m[2]))
-    .filter((n) => Number.isFinite(n));
+    .map((m) => ({ amount: num(m[1] ?? m[2]), currency: currencyOf(m[0]) }))
+    .filter((m) => Number.isFinite(m.amount));
 }
 
-/** Amounts the product's vendor quotes state, plus its store price (and that price per month). */
-function allowedAmounts(p: Product, region: RegionalRegionCode): Set<number> {
-  const out = new Set<number>();
+const amountsIn = (text: string, re: RegExp): number[] => moneyIn(text, re).map((m) => m.amount);
+
+/** A stated price is allowed when one of the allowed prices has its amount and currency. */
+const isAllowed = (stated: Money, allowed: Money[]): boolean =>
+  allowed.some((a) => a.amount === stated.amount && sameCurrency(a.currency, stated.currency));
+
+/** Prices the product's vendor quotes state, plus its store price (and that price per month), each in its currency. */
+function allowedMoney(p: Product, region: RegionalRegionCode): Money[] {
+  const out: Money[] = [];
   for (const field of VENDOR_TERM_FIELDS) {
     const term = p.vendorTerms?.[field];
     if (!term) continue;
-    for (const t of [term.text, ...(term.fragments ?? [])]) for (const n of amountsIn(t, QUOTED)) out.add(n);
+    for (const t of [term.text, ...(term.fragments ?? [])]) out.push(...moneyIn(t, QUOTED));
   }
-  if (p.storePrice) out.add(p.storePrice.amount);
+  if (p.storePrice) out.push({ amount: p.storePrice.amount, currency: p.storePrice.currency });
   const monthly = monthlyStorePrice(p);
-  if (monthly) out.add(monthly.amount);
-  for (const n of VENDOR_PAGE_AMOUNTS[`${region}/${p.slug}`]?.amounts ?? []) out.add(n);
+  if (monthly) out.push({ amount: monthly.amount, currency: monthly.currency });
+  // The allow-listed vendor-page amounts are all from US-dollar stores.
+  for (const amount of VENDOR_PAGE_AMOUNTS[`${region}/${p.slug}`]?.amounts ?? []) out.push({ amount, currency: 'USD' });
   return out;
 }
 
@@ -101,19 +125,19 @@ function pagesOf(dir: string): string[] {
   );
 }
 
-type Statement = { where: string; amount: number; allowed: Set<number>; products: string };
+type Statement = { where: string; stated: Money; allowed: Money[]; products: string };
 
 function collect(): Statement[] {
   const out: Statement[] = [];
   for (const [region, products] of Object.entries(REGIONS) as [RegionalRegionCode, Product[]][]) {
     const live = products.filter((p) => !p.discontinued);
-    const allowed = new Map(live.map((p) => [p.slug, allowedAmounts(p, region)]));
+    const allowed = new Map(live.map((p) => [p.slug, allowedMoney(p, region)]));
 
     // 1. The product's own record copy.
     for (const p of live) {
       const texts = [...RECORD_FIELDS.map((f) => p[f]), ...p.pros, ...p.cons].filter((s): s is string => typeof s === 'string');
-      for (const t of texts) for (const amount of amountsIn(t, PER_MONTH)) {
-        out.push({ where: `${region} ${p.slug} record`, amount, allowed: allowed.get(p.slug)!, products: p.name });
+      for (const t of texts) for (const stated of moneyIn(t, PER_MONTH)) {
+        out.push({ where: `${region} ${p.slug} record`, stated, allowed: allowed.get(p.slug)!, products: p.name });
       }
     }
 
@@ -127,17 +151,17 @@ function collect(): Statement[] {
         const set = allowed.get(m[1]);
         inPicks.push(m[3]);
         if (!set) continue;
-        for (const amount of amountsIn(m[3], PER_MONTH)) out.push({ where: `${rel} pick ${m[1]}`, amount, allowed: set, products: m[1] });
+        for (const stated of moneyIn(m[3], PER_MONTH)) out.push({ where: `${rel} pick ${m[1]}`, stated, allowed: set, products: m[1] });
       }
       let rest = src;
       for (const t of inPicks) rest = rest.replace(t, '');
       for (const sentence of rest.split(/(?<=[.!?])\s+|\n/)) {
-        const amounts = amountsIn(sentence, PER_MONTH);
-        if (!amounts.length) continue;
+        const stated = moneyIn(sentence, PER_MONTH);
+        if (!stated.length) continue;
         const named = live.filter((p) => sentence.includes(p.name));
         if (!named.length) continue;
-        const union = new Set(named.flatMap((p) => [...allowed.get(p.slug)!]));
-        for (const amount of amounts) out.push({ where: `${rel}`, amount, allowed: union, products: named.map((p) => p.name).join(' + ') });
+        const union = named.flatMap((p) => allowed.get(p.slug)!);
+        for (const m of stated) out.push({ where: `${rel}`, stated: m, allowed: union, products: named.map((p) => p.name).join(' + ') });
       }
     }
   }
@@ -160,6 +184,17 @@ describe('prose monthly prices come from the vendor', () => {
     expect(amountsIn('Ultimate Bundle drops effective price below $70/month', PER_MONTH)).toEqual([]);
   });
 
+  test('a stated price keeps its currency, and must match an allowed price in that currency', () => {
+    expect(moneyIn('price (AUD $215/mo)', PER_MONTH)).toEqual([{ amount: 215, currency: 'AUD' }]);
+    expect(moneyIn('precio ($139 USD/mes)', PER_MONTH)).toEqual([{ amount: 139, currency: 'USD' }]);
+    expect(moneyIn('A$89/month and CA$89/month', PER_MONTH)).toEqual([{ amount: 89, currency: 'AUD' }, { amount: 89, currency: 'CAD' }]);
+    expect(moneyIn('¥8,850/月 or $69/month', PER_MONTH)).toEqual([{ amount: 8850, currency: 'JPY' }, { amount: 69, currency: '$' }]);
+    expect(isAllowed({ amount: 79, currency: 'EUR' }, [{ amount: 79, currency: 'USD' }])).toBe(false);
+    expect(isAllowed({ amount: 79, currency: '$' }, [{ amount: 79, currency: 'USD' }])).toBe(true);
+    expect(isAllowed({ amount: 79, currency: '$' }, [{ amount: 79, currency: 'EUR' }])).toBe(false);
+    expect(isAllowed({ amount: 89, currency: 'AUD' }, [{ amount: 89, currency: 'CAD' }])).toBe(false);
+  });
+
   test('statements were found across regions (fail closed)', () => {
     expect(statements.length).toBeGreaterThanOrEqual(15);
     expect(new Set(statements.map((s) => s.where.split(/[ /]/)[0])).size).toBeGreaterThanOrEqual(3);
@@ -172,10 +207,11 @@ describe('prose monthly prices come from the vendor', () => {
     }
   });
 
-  test('every stated monthly price is a vendor-quoted amount or the store price', () => {
+  test('every stated monthly price is a vendor-quoted price or the store price, in the same currency', () => {
+    const fmt = (m: Money) => `${m.currency} ${m.amount}`;
     const bad = statements
-      .filter((s) => !s.allowed.has(s.amount))
-      .map((s) => `${s.where}: ${s.amount}/month for ${s.products} (vendor/stored: ${[...s.allowed].sort((a, b) => a - b).join(', ')})`);
+      .filter((s) => !isAllowed(s.stated, s.allowed))
+      .map((s) => `${s.where}: ${fmt(s.stated)}/month for ${s.products} (vendor/store: ${s.allowed.map(fmt).join(', ')})`);
     expect(bad, bad.join('\n')).toEqual([]);
   });
 });
