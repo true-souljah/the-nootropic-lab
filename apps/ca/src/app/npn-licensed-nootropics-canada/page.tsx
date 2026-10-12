@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { AffiliateDisclosure, SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
+import { SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
 import { productsCA, getRegionalHealthDisclaimer } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
@@ -111,8 +111,6 @@ export default function Page() {
           status actually verifies, how to look up any NPN in the Health Canada database, and how to interpret
           the difference between NPN-licensed products and cross-border imports.
         </p>
-
-        <AffiliateDisclosure />
 
         <section className="my-10">
           <h2 className="text-2xl font-bold text-gray-900 mb-3">What an NPN actually verifies</h2>

@@ -29,7 +29,7 @@ export default function EsCompararPage() {
   };
 
   return (
-    <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
+    <PublicShell searchItems={searchItems} uiStrings={uiStrings} linkedProducts={productsUS}>
     
       <SchemaOrg schema={itemListSchema} />
       <div className="max-w-5xl mx-auto px-4 py-10">

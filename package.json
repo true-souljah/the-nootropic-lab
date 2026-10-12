@@ -28,6 +28,7 @@
     "check:links": "node scripts/check-built-links.mjs",
     "check:titles": "node scripts/check-built-titles.mjs",
     "check:consent": "node scripts/check-consent-built.mjs",
+    "check:disclosure": "npx --yes tsx scripts/check-built-disclosure.ts",
     "content-dates": "node scripts/content-dates.mjs",
     "check": "npm run validate-data",
     "test": "npm test --workspace=packages/ui",

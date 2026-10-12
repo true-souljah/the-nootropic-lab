@@ -3,7 +3,8 @@ import { FPDisclosure } from '../public-chrome/FPDisclosure';
 import { FPHeader } from '../public-chrome/FPHeader';
 import { FPFooter } from '../public-chrome/FPFooter';
 import type { SearchItem } from '../SearchModal';
-import type { UIStrings } from '@nootropic/data';
+import { pageDisclosureScope } from '@nootropic/data';
+import type { Product, UIStrings } from '@nootropic/data';
 
 export interface PublicShellProps {
   children: ReactNode;
@@ -14,8 +15,17 @@ export interface PublicShellProps {
   /** Override the methodology link target on the affiliate disclosure. */
   methodologyHref?: string;
   /**
-   * When true, suppress the affiliate disclosure banner. Use for pages
-   * that contain no affiliate links (privacy policy, imprint, contact).
+   * Products the page renders a buy link for (ComparisonTable, StickyCtaBar,
+   * TrackedAffiliateLink or a sponsored `<a>`): pass the same list the page
+   * links. The strip says "…links on this page" only when one of them earns
+   * us a commission (`pageDisclosureScope`); otherwise, and when omitted,
+   * it carries the site-level line. sitewide-disclosure.test.ts fails when a
+   * page with buy links omits it.
+   */
+  linkedProducts?: readonly Product[];
+  /**
+   * When true, suppress the disclosure strip altogether (privacy policy,
+   * imprint, cookie policy, 404).
    */
   hideDisclosure?: boolean;
   /**
@@ -37,6 +47,7 @@ export default function PublicShell({
   searchItems,
   uiStrings,
   methodologyHref = '/methodology/',
+  linkedProducts = [],
   hideDisclosure = false,
   mainBackground = 'card',
 }: PublicShellProps) {
@@ -50,7 +61,11 @@ export default function PublicShell({
         {uiStrings?.nav.skipToContent ?? 'Skip to main content'}
       </a>
       {!hideDisclosure && (
-        <FPDisclosure methodologyHref={methodologyHref} strings={uiStrings?.disclosure} />
+        <FPDisclosure
+          methodologyHref={methodologyHref}
+          strings={uiStrings?.disclosure}
+          scope={pageDisclosureScope(linkedProducts)}
+        />
       )}
       <FPHeader searchItems={searchItems} strings={uiStrings} />
       <main id="main-content" className="min-h-[60vh]">{children}</main>

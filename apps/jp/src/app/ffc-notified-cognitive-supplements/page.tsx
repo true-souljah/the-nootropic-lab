@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { AffiliateDisclosure, SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
+import { SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
 import { productsJP, getRegionalHealthDisclaimer } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
@@ -123,8 +123,6 @@ export default function Page() {
           New to the topic? Start with our plain-English explainer:{' '}
           <Link href="/japanese-brain-supplements/" className="text-green-700 underline">Japanese brain supplements — FFC-notified products vs. imported nootropics</Link>.
         </p>
-
-        <AffiliateDisclosure />
 
         <section className="my-10">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Japan&apos;s functional-food categories</h2>

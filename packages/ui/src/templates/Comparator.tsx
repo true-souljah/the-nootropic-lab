@@ -224,7 +224,9 @@ export default function Comparator({
       hideStackCta
       sidebarMeta={`${products.length} products`}
     >
-      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings?.disclosure} />
+      {/* The comparator renders no buy link (rows and the compare card link to
+          review pages), so the strip carries the site-level line. */}
+      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings?.disclosure} scope="site" />
       {/* When the mobile filter sheet is open, `inert` removes everything
           else from tab order + AT focus — keyboard users can't escape the
           dialog into obscured content. */}

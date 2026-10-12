@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { AffiliateDisclosure, SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
+import { SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
 import { productsGCC, getRegionalHealthDisclaimer } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
@@ -148,8 +148,6 @@ export default function Page() {
           taxonomy, and what each brand in our GCC catalogue says about its capsules. For our rankings, see{' '}
           <Link href="/best-nootropics/" className="text-green-700 underline">the best nootropics for the GCC</Link>.
         </p>
-
-        <AffiliateDisclosure />
 
         <section className="my-10">
           <h2 className="text-2xl font-bold text-gray-900 mb-3">Is it permissible to take a nootropic at all?</h2>

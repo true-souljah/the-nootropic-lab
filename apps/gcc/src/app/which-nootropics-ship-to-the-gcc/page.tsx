@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
-  AffiliateDisclosure,
   SchemaOrg,
   Sources,
   buildAlternates,
@@ -264,7 +263,6 @@ export default function Page() {
 
         <section className="my-10">
           <h2 className="text-2xl font-bold text-gray-900 mb-3">The fallback: iHerb&apos;s GCC storefronts</h2>
-          <AffiliateDisclosure />
           <p className="text-sm text-gray-700 leading-relaxed mb-4">
             iHerb&apos;s global-shipping page lists a localized storefront for each of the six GCC states. Qualia&apos;s
             own FAQ sends customers outside its five direct-shipping countries to iHerb. We did not check which of our

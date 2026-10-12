@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { AffiliateDisclosure, SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter, PublicShell } from '@nootropic/ui';
+import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter, PublicShell } from '@nootropic/ui';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
 
@@ -91,8 +91,6 @@ export default function YakkanShoumeiPage() {
         <p className="text-lg text-gray-600 mb-6 leading-relaxed">
           海外のノートロピクス（認知機能サプリメント）を日本に個人輸入する際、製品の種類や輸入量によっては薬監証明（やっかんしょうめい）の取得が必要となる場合があります。本ガイドでは、薬監証明制度の概要、税関の¥16,000関税免税ルール、申請手続き、そして機能性表示食品（FFC）制度との違いについて、{CURRENT_YEAR}年時点の情報に基づいて解説します。
         </p>
-
-        <AffiliateDisclosure />
 
         <section className="mt-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-3">薬監証明制度の概要</h2>

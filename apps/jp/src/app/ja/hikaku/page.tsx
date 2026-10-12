@@ -29,7 +29,7 @@ export default function JaHikakuPage() {
   };
 
   return (
-    <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
+    <PublicShell searchItems={searchItems} uiStrings={uiStrings} linkedProducts={productsJP}>
     
       <SchemaOrg schema={itemListSchema} />
       <div className="max-w-5xl mx-auto px-4 py-10">
