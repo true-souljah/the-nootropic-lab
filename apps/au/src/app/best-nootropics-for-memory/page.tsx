@@ -29,7 +29,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     ingredientSlugs: ['bacopa-monnieri'],
     evidence:
       'In a systematic review of six randomised trials (Pase 2012, PubMed 22747190), all lasting 12 weeks at 300–450mg extract a day, Bacopa improved 9 of 17 tests of memory free recall. Onset is slow — daily for 8+ weeks. Not an acute-effect ingredient. Bacopa is permitted in TGA Listed Medicines (Therapeutic Goods (Permissible Ingredients) Determination (No. 2) 2026, F2026L00707, as compiled 17 September 2026 — Compilation No. 1, F2026C00940 — Schedule 1 item 754; checked 2026-10-08), so several Australian brands (Blackmores, Caruso\'s, Nature\'s Own) sell standalone Bacopa products under AUST L numbers.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22747190/',
   },
   {
     name: 'Lion\'s Mane (Hericium erinaceus)',

@@ -28,7 +28,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     ingredientSlugs: ['bacopa-monnieri'],
     evidence:
       'In a systematic review of six randomized trials (Pase 2012, PubMed 22747190), all lasting 12 weeks at 300–450mg extract a day, Bacopa improved 9 of 17 tests of memory free recall. Onset is slow — daily for 8+ weeks. Widely recognised across SEA under the Ayurvedic name "Brahmi" (especially in Malaysia, Indonesia, Thailand) and culturally familiar.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22747190/',
   },
   {
     name: 'Lion\'s Mane (Hericium erinaceus)',
