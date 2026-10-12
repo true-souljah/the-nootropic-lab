@@ -125,8 +125,8 @@ export const euCountries: EUCountry[] = [
     name: 'Italy',
     nativeName: 'Italia',
     currency: 'EUR',
-    regulatoryNote: "Italy has one of Europe's most detailed supplement regulatory frameworks. The Ministry of Health maintains a supplementi alimentari register. Some ingredients require official registration before sale. Verify any Italy-specific restrictions for novel ingredients.",
-    shippingNote: 'Confirm delivery to Italy at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout. Italy is one of the largest European supplement markets.',
+    regulatoryNote: 'Italy follows EU Directive 2002/46/EC. The EC list of competent authorities under the Directive names "Ministero della Salute DSVET DGSAN" for Italy (EC list of competent authorities, rev. October 2025).',
+    shippingNote: 'Confirm delivery to Italy at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
     slug: 'latvia',
@@ -141,7 +141,7 @@ export const euCountries: EUCountry[] = [
     name: 'Lithuania',
     nativeName: 'Lietuva',
     currency: 'EUR',
-    regulatoryNote: "Lithuania follows EU Directive 2002/46/EC. The State Food and Veterinary Service oversees supplements. EU member since 2004 -- mainstream supplement market well-established.",
+    regulatoryNote: 'Lithuania follows EU Directive 2002/46/EC. The EC list of competent authorities under the Directive names "The Institute of Hygiene" for Lithuania (EC list of competent authorities, rev. October 2025).',
     shippingNote: 'Confirm delivery to Lithuania at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
@@ -173,7 +173,7 @@ export const euCountries: EUCountry[] = [
     name: 'Poland',
     nativeName: 'Polska',
     currency: 'PLN',
-    regulatoryNote: "Poland is the EU's largest Eastern European market and has a fast-growing supplement category. The Chief Sanitary Inspectorate (GIS) oversees food supplements. EU Directive 2002/46/EC applies. Currency is PLN (Polish zloty) -- check whether your preferred brand offers PLN pricing or EUR.",
+    regulatoryNote: 'Poland follows EU Directive 2002/46/EC. The EC list of competent authorities under the Directive names the "Department of Food and Nutrition Safety, Chief Sanitary Inspectorate" for Poland (EC list of competent authorities, rev. October 2025). Currency is PLN (Polish zloty) -- check whether your preferred brand offers PLN pricing or EUR.',
     shippingNote: 'Confirm delivery to Poland at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout. EUR pricing standard -- zloty conversion applies.',
   },
   {
