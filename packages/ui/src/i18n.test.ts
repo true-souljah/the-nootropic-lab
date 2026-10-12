@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest';
-import { getStrings, getLocaleForMarket } from '@nootropic/data';
+import { getStrings, getLocaleForMarket, DOSING_ANCHORS, NO_REFERENCE_DOSE, PILLAR_WEIGHTS } from '@nootropic/data';
 import type { Locale, UIStrings } from '@nootropic/data';
 
 // Tests for the i18n helpers in packages/data/src/i18n.ts. The audit
@@ -88,6 +88,94 @@ describe('getStrings', () => {
         }
       }
     }
+  });
+
+  describe('Pillars- and Dosing-tab strings (2026-10-12)', () => {
+    // PillarsTab.tsx and DosingTab.tsx render only these strings around the
+    // record's own data; an English copy in a locale block ships English on
+    // the ja (JP) and es (LATAM) review pages.
+    const en = getStrings('en').productDetail;
+    const PILLARS = Object.keys(PILLAR_WEIGHTS).sort();
+    const ANCHOR_SLUGS = DOSING_ANCHORS.map((a) => a.ingredientSlug).sort();
+    const PLACEHOLDERS: Record<string, string[]> = {
+      'dosing.adequateCount': ['{adequate}', '{total}'],
+      'pillars.pillarScoreAria': ['{product}', '{pillar}'],
+    };
+
+    /** Every leaf string under `value`, keyed by its dotted path. */
+    function leaves(value: unknown, path: string): Array<[string, string]> {
+      if (typeof value === 'string') return [[path, value]];
+      return Object.entries(value as Record<string, unknown>).flatMap(([k, v]) => leaves(v, `${path}.${k}`));
+    }
+    function tabLeaves(locale: Locale): Map<string, string> {
+      const pd = getStrings(locale).productDetail;
+      return new Map([...leaves(pd.pillars, 'pillars'), ...leaves(pd.dosing, 'dosing')]);
+    }
+    const enLeaves = tabLeaves('en');
+
+    /** A dose that is only amounts and units ("100-200mg", caffeine): nothing to translate. */
+    const wordless = (text: string) => !/\p{L}/u.test(text.replace(/\d+(?:[.,]\d+)?\s*(?:mcg|mg|g)\b/g, ''));
+    /** The amounts in a dose string ("900mg", "1.2g", "50%", "24"), decimal comma read as a point, sorted. */
+    const amounts = (text: string) =>
+      [...text.matchAll(/(\d+(?:[.,]\d+)?)\s*(mcg|mg|g|%)?/g)].map((m) => `${m[1].replace(',', '.')}${m[2] ?? ''}`).sort();
+
+    test('the scan is non-empty: 5 pillars, 20 dosing anchors, every tab key in en', () => {
+      expect(PILLARS).toHaveLength(5);
+      expect(ANCHOR_SLUGS).toHaveLength(20);
+      expect(enLeaves.size).toBeGreaterThanOrEqual(5 + 5 + 5 + 4 + 4 + 4 + 1 + 20);
+    });
+
+    test.each(ALL_LOCALES)('%s has every key, non-empty, with exactly the five pillars and the 20 anchor slugs', (locale) => {
+      const pd = getStrings(locale).productDetail;
+      const own = tabLeaves(locale);
+      expect([...own.keys()].sort()).toEqual([...enLeaves.keys()].sort());
+      for (const [path, text] of own) expect(text.trim(), `${locale} ${path} is empty`).not.toBe('');
+      expect(Object.keys(pd.pillars.labels).sort()).toEqual(PILLARS);
+      expect(Object.keys(pd.pillars.rationale).sort()).toEqual(PILLARS);
+      expect(Object.keys(pd.dosing.anchorDose).sort()).toEqual(ANCHOR_SLUGS);
+    });
+
+    test.each(ALL_LOCALES)('%s keeps the placeholders and adds none', (locale) => {
+      for (const [path, text] of tabLeaves(locale)) {
+        const allowed = PLACEHOLDERS[path] ?? [];
+        for (const token of allowed) expect(text, `${locale} ${path} keeps ${token}`).toContain(token);
+        for (const token of text.match(/\{\w+\}/g) ?? []) {
+          expect(allowed, `${locale} ${path}: unknown placeholder ${token}`).toContain(token);
+        }
+      }
+    });
+
+    test('en is the source: each anchor dose is the anchor string, and noReferenceDose is NO_REFERENCE_DOSE', () => {
+      for (const anchor of DOSING_ANCHORS) {
+        expect(en.dosing.anchorDose[anchor.ingredientSlug], anchor.ingredientSlug).toBe(anchor.clinicalDose);
+      }
+      expect(en.dosing.noReferenceDose).toBe(NO_REFERENCE_DOSE);
+    });
+
+    test.each(ALL_LOCALES)('%s anchor doses state the same amounts and units as the anchor, in the locale', (locale) => {
+      const anchorDose = getStrings(locale).productDetail.dosing.anchorDose;
+      for (const anchor of DOSING_ANCHORS) {
+        const dose = anchorDose[anchor.ingredientSlug];
+        expect(amounts(dose), `${locale} ${anchor.ingredientSlug}: "${dose}"`).toEqual(amounts(anchor.clinicalDose));
+        if (locale !== 'en') {
+          expect(dose, `${locale} ${anchor.ingredientSlug} keeps English words`).not.toMatch(/\b(day|extract|lowest|positive|trial)\b/);
+        }
+      }
+    });
+
+    test('ja strings are in Japanese script (doses without words excepted)', () => {
+      for (const [path, text] of tabLeaves('ja')) {
+        if (path.startsWith('dosing.anchorDose.') && wordless(enLeaves.get(path)!)) continue;
+        expect(text, `ja ${path}`).toMatch(/[぀-ヿ一-鿿]/);
+      }
+    });
+
+    test.each(['es', 'fr', 'pt', 'de', 'fr-CA'] as Locale[])('%s strings differ from en (doses without words excepted)', (locale) => {
+      for (const [path, text] of tabLeaves(locale)) {
+        if (path.startsWith('dosing.anchorDose.') && wordless(enLeaves.get(path)!)) continue;
+        expect(text, `${locale} ${path} is the English copy`).not.toBe(enLeaves.get(path));
+      }
+    });
   });
 
   test('every locale carries a BCP-47 dateLocale code', () => {
