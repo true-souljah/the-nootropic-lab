@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   alternates: buildAlternates({ regionCode: 'us', path: '/best-nootropics-for-energy/', availableInRegions: ['us'] }),
   openGraph: {
     title: 'Best Nootropics for Energy — Evidence-Graded',
-    description: 'Sustained cognitive energy without the caffeine crash. What evidence actually shows.',
+    description: 'Sustained cognitive energy: what the trials we cite found.',
     type: 'article',
   },
   twitter: { card: 'summary' },

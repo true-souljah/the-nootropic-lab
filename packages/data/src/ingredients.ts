@@ -489,7 +489,7 @@ export const ingredients: Ingredient[] = [
     stacksWith: [
       { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'L-Tyrosine supplies dopamine/norepinephrine substrate for focus and drive; L-Theanine keeps you calm and prevents the cortisol spike from stress or caffeine. Together they produce focused, calm high-performance state under demanding conditions.' },
       { ingredient: 'Rhodiola Rosea', slug: 'rhodiola-rosea', reason: 'Rhodiola modulates monoamine availability and HPA axis; Tyrosine replenishes the substrate for those monoamines. Both work best under stress conditions — they target the same problem (cognitive decline under stress) via complementary mechanisms.' },
-      { ingredient: 'Caffeine', slug: 'caffeine', reason: "Caffeine depletes dopamine precursors over time. Taking L-Tyrosine with caffeine may reduce the 'caffeine crash' by maintaining dopamine substrate levels. A practical stack for anyone using caffeine for performance." },
+      { ingredient: 'Caffeine', slug: 'caffeine', reason: "Often paired with caffeine; we cite no trial of L-Tyrosine with caffeine." },
     ],
     faqs: [
       { question: 'Does L-Tyrosine work if I am not stressed or sleep-deprived?', answer: "Probably not meaningfully. This is the key nuance of tyrosine. The evidence shows it prevents cognitive decline under stress — it restores depleted catecholamines. In a rested, non-stressed baseline state, catecholamine levels are already sufficient, so adding precursor does not produce a noticeable effect. Think of it as an insurance policy for demanding days, not a daily cognitive enhancer." },
@@ -514,7 +514,7 @@ export const ingredients: Ingredient[] = [
     mechanism: 'Caffeine is an adenosine receptor antagonist. By blocking adenosine (the neurotransmitter responsible for drowsiness), caffeine increases dopamine, norepinephrine, and acetylcholine signalling — producing wakefulness, elevated mood, and enhanced focus. It also increases cyclic AMP levels, which amplify downstream catecholamine effects.',
     clinicalDose: '100–200mg for cognitive enhancement',
     timeToEffect: '15–45 minutes (acute)',
-    studySummary: 'Caffeine is one of the most extensively studied psychoactive compounds. A 2016 review (McLellan, Caldwell & Lieberman — a narrative review, not a meta-analysis) found low-to-moderate doses (~40–300mg) consistently improve alertness, vigilance, attention and reaction time, with less consistent effects on memory and executive function. A 2010 Cochrane review of shift workers and a 2026 meta-analysis of 7 military sleep-loss RCTs confirmed gains in attention, vigilance and complex task performance. Side effects rise with dose, and the European Food Safety Authority (EFSA, 2015) sets 200mg per single dose and 400mg/day as safe for healthy adults — 200mg/day for pregnant women.',
+    studySummary: 'A 2016 review (McLellan, Caldwell & Lieberman — a narrative review, not a meta-analysis) found low-to-moderate doses (~40–300mg) consistently improve alertness, vigilance, attention and reaction time, with less consistent effects on memory and executive function. A 2010 Cochrane review of shift workers and a 2026 meta-analysis of 7 military sleep-loss RCTs confirmed gains in attention, vigilance and complex task performance. Side effects rise with dose, and the European Food Safety Authority (EFSA, 2015) sets 200mg per single dose and 400mg/day as safe for healthy adults — 200mg/day for pregnant women.',
     benefits: ['Increased alertness', 'Faster reaction time', 'Sustained attention during sleep loss', 'Improved physical performance above ~200mg'],
     sideEffects: ['Pregnancy: EFSA advises limiting habitual intake to 200mg/day from all sources', 'Panic disorder: in a meta-analysis, 53.9% of people with panic disorder had a panic attack after high-dose caffeine (~400–750mg) versus 1.7% of healthy controls — avoid or keep doses low', 'Headache, abdominal discomfort, rapid heart rate, insomnia and anxiety rise with dose, especially above ~6mg/kg (~420mg for a 70kg adult)', 'Insomnia: 400mg taken even 6 hours before bedtime reduced total sleep time', 'Tolerance development', 'Withdrawal headaches'],
     productsContaining: ['hunter-focus-review', 'performance-lab-caffeine-2-review', 'pre-lab-pro-review'],
@@ -533,7 +533,7 @@ export const ingredients: Ingredient[] = [
     },
     stacksWith: [
       { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'Trials used roughly 1:1 to 1.7:1 theanine:caffeine and found better attention than caffeine alone; in a controlled trial theanine did not significantly reduce jitteriness. Found naturally in matcha.' },
-      { ingredient: 'L-Tyrosine', slug: 'l-tyrosine', reason: 'Caffeine depletes dopamine precursors over time. L-Tyrosine replenishes substrate, reducing the crash and maintaining sustained focus.' },
+      { ingredient: 'L-Tyrosine', slug: 'l-tyrosine', reason: 'Sometimes paired with caffeine; we cite no trial of the pairing.' },
       { ingredient: 'Rhodiola Rosea', slug: 'rhodiola-rosea', reason: 'Rhodiola provides stress resilience while caffeine provides stimulation — complementary under high-demand conditions without overstimulation.' },
     ],
     faqs: [
