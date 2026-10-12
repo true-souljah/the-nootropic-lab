@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { SchemaOrg, AffiliateDisclosure, buildAlternates} from '@nootropic/ui';
+import { SchemaOrg, buildAlternates} from '@nootropic/ui';
 import { buildPersonAuthorReference } from '@nootropic/data';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -112,8 +112,6 @@ export default function Page() {
           Different drug classes. Different mechanisms. Different regulation. Different efficacy. The marketing comparison
           oversimplifies in dangerous ways. Here is what the actual science says.
         </p>
-
-        <AffiliateDisclosure />
 
         <aside className="bg-amber-50 border-l-4 border-amber-400 rounded-r-lg p-4 mb-8 text-sm text-amber-900">
           <strong className="block mb-1">Critical disclaimer</strong>

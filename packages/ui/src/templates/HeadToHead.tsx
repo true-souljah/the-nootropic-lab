@@ -13,7 +13,7 @@ import { ScorePill } from '../primitives/ScorePill';
 import { Bar } from '../primitives/Bar';
 import { FaqAccordion } from '../primitives/FaqAccordion';
 import { ProductThumb } from '../primitives/ProductThumb';
-import { buildPersonAuthorReference, servingAmount, servingsComparable, outOfTen, guaranteeDays } from '@nootropic/data';
+import { buildPersonAuthorReference, servingAmount, servingsComparable, outOfTen, guaranteeDays, pageDisclosureScope } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import {
   headToHeadPageEnDefaults,
@@ -160,6 +160,8 @@ export default function HeadToHead({
 
   const winner = productA.score >= productB.score ? productA : productB;
   const loser = winner === productA ? productB : productA;
+  // Each side card renders a buy link unless the product is discontinued.
+  const disclosureScope = pageDisclosureScope([productA, productB].filter((p) => !p.discontinued));
   const ingredientRows = buildIngredientRows(productA, productB);
 
   const articleSchema = {
@@ -279,7 +281,7 @@ export default function HeadToHead({
       <SchemaOrg schema={itemListSchema} />
       <SchemaOrg schema={breadcrumbSchema} />
 
-      <FPDisclosure methodologyHref={methodologyHref} strings={uiStrings.disclosure} />
+      <FPDisclosure methodologyHref={methodologyHref} strings={uiStrings.disclosure} scope={disclosureScope} />
       <a href="#main-content" tabIndex={0} className="ds-skip-link">
         {uiStrings?.nav.skipToContent ?? 'Skip to main content'}
       </a>
@@ -324,7 +326,7 @@ export default function HeadToHead({
         )}
 
         {/* Inline disclosure directly above the first affiliate CTAs. */}
-        <FPTrustNote strings={uiStrings.disclosure} methodologyHref={methodologyHref} className="mt-6" />
+        <FPTrustNote strings={uiStrings.disclosure} scope={disclosureScope} methodologyHref={methodologyHref} className="mt-6" />
 
         {/* Two side cards + VS — stacks vertically on mobile */}
         <div className="grid gap-3 mt-6 items-stretch grid-cols-1 lg:grid-cols-[1fr_80px_1fr]">

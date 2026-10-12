@@ -164,7 +164,9 @@ export default function IngredientDetail({
       <a href="#main-content" tabIndex={0} className="ds-skip-link">
         {uiStrings?.nav.skipToContent ?? 'Skip to main content'}
       </a>
-      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings?.disclosure} />
+      {/* Ingredient pages render no buy link (product cards link to review
+          pages), so the strip carries the site-level line. */}
+      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings?.disclosure} scope="site" />
       <FPHeader searchItems={searchItems} strings={uiStrings} />
 
       <main id="main-content" className="max-w-[1100px] mx-auto px-6 pt-7">

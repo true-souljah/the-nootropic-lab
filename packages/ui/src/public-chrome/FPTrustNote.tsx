@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import type { UIStrings } from '@nootropic/data';
+import { disclosureCopy } from '@nootropic/data';
+import type { DisclosureScope, UIStrings } from '@nootropic/data';
 
 export interface FPTrustNoteProps {
   /**
@@ -9,11 +10,13 @@ export interface FPTrustNoteProps {
    */
   strings: UIStrings['disclosure'];
   /**
-   * False on the review page of a product we earn no commission on
-   * (`earnsCommission(product)` from @nootropic/data): the note says so
-   * instead of the commission sentence; the ranking statement stays.
+   * Same scope as the page's FPDisclosure strip (`DisclosureScope` from
+   * @nootropic/data): the commission sentence ('page') only when the page
+   * renders a commission-earning buy link; the no-commission line
+   * ('product') or the site-level line ('site') otherwise, with the neutral
+   * badge. The ranking statement stays in every scope.
    */
-  earnsCommission?: boolean;
+  scope: DisclosureScope;
   /** Path to the methodology page. */
   methodologyHref?: string;
   className?: string;
@@ -31,19 +34,20 @@ export interface FPTrustNoteProps {
  */
 export function FPTrustNote({
   strings: d,
-  earnsCommission = true,
+  scope,
   methodologyHref = '/methodology/',
   className = '',
 }: FPTrustNoteProps) {
+  const { badge, sentence } = disclosureCopy(d, scope);
   return (
     <p
       role="note"
       data-trust-note=""
       className={`bg-ds-card-sub border border-ds-border rounded-[8px] px-4 py-3 m-0 text-[12.5px] leading-[1.55] text-ds-muted ${className}`}
     >
-      <span className="text-ds-warn-ink font-semibold">{d.badge}</span>
+      <span className="text-ds-warn-ink font-semibold">{badge}</span>
       <span aria-hidden="true"> · </span>
-      {earnsCommission ? d.inline : d.noCommission} {d.ranking}{' '}
+      {sentence} {d.ranking}{' '}
       <Link
         href={methodologyHref}
         className="text-ds-accent font-medium underline hover:text-ds-accent-press focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded-[2px]"

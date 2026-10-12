@@ -3,7 +3,7 @@ import { Card } from '../../primitives/Card';
 import TrackedAffiliateLink from '../../TrackedAffiliateLink';
 import NoPurchaseLinkNotice from '../../NoPurchaseLinkNotice';
 import type { Product, UIStrings, VendorTerms } from '@nootropic/data';
-import { NOT_AVAILABLE, VENDOR_TERM_FIELDS, earnsCommission, purchaseUrl } from '@nootropic/data';
+import { NOT_AVAILABLE, VENDOR_TERM_FIELDS, disclosureCopy, earnsCommission, purchaseUrl, reviewDisclosureScope } from '@nootropic/data';
 
 export interface PricingTabProps {
   product: Product;
@@ -34,8 +34,11 @@ type TermField = (typeof VENDOR_TERM_FIELDS)[number];
  */
 export function PricingTab({ product: p, disclosure, strings, noticeStrings }: PricingTabProps) {
   const t = strings.pricing;
-  // No affiliate deal (commissionRate "0%"): no cookie terms, no commission sentence.
+  // No affiliate deal (commissionRate "0%"): no cookie terms.
   const commission = earnsCommission(p);
+  // The page's disclosure sentence (same scope as the strip and trust note):
+  // the commission sentence only next to a commission-earning buy link.
+  const { sentence } = disclosureCopy(disclosure, reviewDisclosureScope(p));
   const terms: VendorTerms | undefined = p.vendorTerms;
   const pageLang = strings.dateLocale.split('-')[0];
   const labels: Record<TermField, string> = {
@@ -150,7 +153,7 @@ export function PricingTab({ product: p, disclosure, strings, noticeStrings }: P
               : NOT_AVAILABLE}
         </div>
         <p className="text-[13px] text-ds-ink-soft m-0 leading-[1.55]">
-          {commission ? disclosure.inline : disclosure.noCommission} {disclosure.ranking}
+          {sentence} {disclosure.ranking}
         </p>
       </Card>
     </div>

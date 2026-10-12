@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { AffiliateDisclosure, SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
+import { SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
 import { productsSEA, getRegionalHealthDisclaimer } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
@@ -160,8 +160,6 @@ export default function Page() {
           Muslim consumer segment. This page is the per-country regulator + Halal-certification reference,
           plus our SEA catalog audit.
         </p>
-
-        <AffiliateDisclosure />
 
         <section className="my-10 bg-red-50 border-l-4 border-red-400 rounded-r-lg p-4 text-sm text-red-900">
           <strong className="block mb-1">Notice for Indonesian and Malaysian readers</strong>
