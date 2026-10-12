@@ -923,3 +923,118 @@ describe('round fourteen: EU country regulatory notes follow the EC list and nat
     expect(uncited).toEqual([]);
   });
 });
+
+// Round fifteen (2026-10-12). The Consumer Affairs Agency (CAA) Foods with
+// Function Claims (FFC) full export of 2026-10-06 (research
+// p5/p5k_ffc_ingredient_counts.json) does not make DHA the "most-notified" FFC
+// ingredient: GABA leads overall (845 active notifications to DHA's 176), and
+// DHA's lead among memory/cognition claims depends on how the ginkgo-leaf
+// components are grouped. The JP pages now give the count instead: DHA is
+// listed in 105 of the 563 active notifications whose claim mentions 記憶 or
+// 認知機能. Suntory "trusted across the 60+ demographic", Nootropics Depot
+// Lion's Mane as "one of the lowest-risk imports" whose size "minimise[s]
+// customs exposure", and every "most studied" ranking (no source of ours
+// counts studies) had no source and were dropped. Beyond the five requested
+// patterns, "most-notified" without "FFC" and "dominates the Japanese FFC"
+// cover the other two removed phrasings.
+const ROUND_FIFTEEN_EXCLUDED = new Set([
+  // claimed by open PRs on 2026-10-12; include after they land
+  // #369 fix/sitewide-disclosure-accuracy-2026-10
+  'apps/au/src/app/tga-listed-cognitive-supplements/page.tsx',
+  'apps/ca/src/app/alpha-brain-canada/page.tsx',
+  'apps/ca/src/app/fr/comparer/page.tsx',
+  'apps/ca/src/app/fr/meilleurs-nootropiques/page.tsx',
+  'apps/ca/src/app/npn-licensed-nootropics-canada/page.tsx',
+  'apps/eu/src/app/de/beste-nootropika/page.tsx',
+  'apps/eu/src/app/efsa-approved-cognitive-supplements/page.tsx',
+  'apps/eu/src/app/fr/meilleurs-nootropiques/page.tsx',
+  'apps/eu/src/app/pt/melhores-nootropicos/page.tsx',
+  'apps/gcc/src/app/halal-certified-nootropics/page.tsx',
+  'apps/gcc/src/app/which-nootropics-ship-to-the-gcc/page.tsx',
+  'apps/jp/src/app/ffc-notified-cognitive-supplements/page.tsx',
+  'apps/jp/src/app/ja/hikaku/page.tsx',
+  'apps/jp/src/app/ja/yakkan-shoumei/page.tsx',
+  'apps/latam/src/app/anmat-disposicion-2105-2022-prohibidos/page.tsx',
+  'apps/sea/src/app/halal-nootropics-indonesia-bpjph/page.tsx',
+  'apps/us/src/app/are-nootropics-fda-approved/page.tsx',
+  'apps/us/src/app/es/comparar/page.tsx',
+  'apps/us/src/app/es/mejores-nootropicos/page.tsx',
+  'apps/us/src/app/guides/nootropics-vs-adderall/page.tsx',
+  'packages/data/src/commission.ts',
+  'packages/data/src/content-dates.json',
+  'packages/data/src/i18n.ts',
+  'packages/data/src/index.ts',
+  // #370 fix/ginkgo-mci-verdict-2026-10
+  'packages/data/src/guides.ts',
+]);
+
+const ROUND_FIFTEEN_SOURCES = ROUND_THIRTEEN_SOURCES.filter(f => !ROUND_FIFTEEN_EXCLUDED.has(relative(REPO_ROOT, f)));
+
+const ROUND_FIFTEEN_UNSOURCED: RegExp[] = [
+  /most-notified FFC/i,
+  /\bmost[- ]notified\b/i,
+  /dominates the Japanese FFC/i,
+  /trusted across the 60\+/i,
+  /lowest-risk imports?/i,
+  /minimi[sz]e customs exposure/i,
+  /\bmost[- ]studied\b/i,
+];
+
+describe('round fifteen: JP FFC ranking, SEA customs and "most studied" claims follow the sources', () => {
+  test('scanned apps/*/src and packages/data/src, minus only the files claimed by open PRs', () => {
+    expect(ROUND_FIFTEEN_SOURCES.length).toBeGreaterThan(100);
+    for (const f of [
+      'apps/jp/src/app/best-nootropics-for-aging/page.tsx',
+      'apps/jp/src/app/best-nootropics-for-memory/page.tsx',
+      'apps/jp/src/app/best-nootropics-for-studying/page.tsx',
+      'apps/us/src/app/natural-adderall-alternatives/page.tsx',
+      'packages/data/src/ingredients.ts',
+      'packages/data/src/products-sea.json',
+      'packages/data/src/products-us.json',
+    ]) expect(ROUND_FIFTEEN_SOURCES.some(p => relative(REPO_ROOT, p) === f), f).toBe(true);
+    // Every exclusion names a file inside the scanned set, so a typo or a
+    // rename cannot leave an entry that silently excludes nothing.
+    const scanned = new Set(ROUND_THIRTEEN_SOURCES.map(p => relative(REPO_ROOT, p)));
+    for (const f of ROUND_FIFTEEN_EXCLUDED) expect(scanned.has(f), f).toBe(true);
+    expect(ROUND_FIFTEEN_SOURCES.length).toBe(ROUND_THIRTEEN_SOURCES.length - ROUND_FIFTEEN_EXCLUDED.size);
+  });
+
+  test('the patterns catch the removed wording, and every pattern catches some of it', () => {
+    const removed = [
+      "DHA — Japan's most-notified FFC ingredient for older adults",
+      "DHA is the most-notified functional ingredient under Japan's FFC system, with claims around memory support",
+      "DHA is Japan's most-notified FFC ingredient for cognitive function.",
+      'For Japan-domestic options, DHA is the most-notified FFC ingredient with strong evidence in middle-aged and older adults;',
+      'DHA dominates the Japanese FFC supplement market for adults 50+',
+      'Foundational structural support for aging brains; widely advertised on Japanese television and trusted across the 60+ demographic.',
+      'For SEA buyers, this product represents one of the lowest-risk imports in the category',
+      'Low price and small package size minimise customs exposure across all SEA markets.',
+      'The two most-studied commercial extracts (Bacognize and Synapsa) are both standardised.',
+      'Cognizin (most studied, used in Mind Lab Pro)',
+      'Suntheanine is the most studied branded L-Theanine',
+      'The most studied nootropic stack.',
+      'KSM-66 is the most studied full-spectrum root extract.',
+      'Pycnogenol is the most studied branded form.',
+      'Caffeine is the most-studied legal cognitive enhancer',
+      'L-Theanine with caffeine is the most studied nootropic pairing',
+    ];
+    for (const s of removed) expect(ROUND_FIFTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(true);
+    for (const re of ROUND_FIFTEEN_UNSOURCED) expect(removed.some(s => re.test(s)), String(re)).toBe(true);
+    // The replacement wording passes.
+    for (const s of [
+      'DHA — an FFC-notified ingredient for memory and cognition',
+      'DHA is listed as a functional ingredient in 105 of the 563 active Foods with Function Claims (FFC) notifications',
+      'Two standardised commercial extracts are Bacognize and Synapsa.',
+      'Caffeine is a legal stimulant that works via adenosine antagonism',
+    ]) expect(ROUND_FIFTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(false);
+  });
+
+  test('no data or app source outside the claimed files uses the removed wording (whitespace-normalised)', () => {
+    const hits = ROUND_FIFTEEN_SOURCES.flatMap(file =>
+      normalisedMatchLines(readFileSync(file, 'utf8'), ROUND_FIFTEEN_UNSOURCED).map(
+        line => `${relative(REPO_ROOT, file)}:${line}`,
+      ),
+    );
+    expect(hits).toEqual([]);
+  });
+});
