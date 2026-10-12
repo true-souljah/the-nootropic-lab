@@ -2,7 +2,7 @@
 // download triggers a DOM operation, but the function itself is safe
 // to call from anywhere — guards `document` access).
 
-import { servingAmount, guaranteeDaysValue } from '@nootropic/data';
+import { servingAmount, guaranteeDaysValue, monthlyStorePrice } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SortKey, SortDir, Goal, Grade } from './constants';
 import { MAX_SELECTED } from './constants';
@@ -61,6 +61,34 @@ export function parseUrlState(params: URLSearchParams, products: Product[]): Url
 }
 
 /**
+ * Prices stay in each store's own currency (never converted), so the table
+ * can be sorted by price only when every per-month store price in it shares
+ * one currency.
+ */
+export function priceSortable(products: Product[]): boolean {
+  const currencies = new Set(products.flatMap((p) => {
+    const m = monthlyStorePrice(p);
+    return m ? [m.currency] : [];
+  }));
+  return currencies.size === 1;
+}
+
+/** Rows in sort order; a price sort the currencies do not allow keeps the given order. */
+export function sortRows(rows: Product[], sortKey: SortKey, sortDir: SortDir, canSortPrice: boolean): Product[] {
+  const get = (x: Product): number =>
+    sortKey === 'score'
+      ? x.score
+      : sortKey === 'price'
+        ? canSortPrice ? monthlyStorePrice(x)?.amount ?? Infinity : 0
+        : sortKey === 'trust'
+          ? x.trustpilotScore ?? 0
+          : sortKey === 'value'
+            ? x.scoreBreakdown.value ?? 0
+            : 0;
+  return [...rows].sort((a, b) => (sortDir === 'desc' ? get(b) - get(a) : get(a) - get(b)));
+}
+
+/**
  * Build a query-string from non-default state values. Used by "Save view"
  * to put a shareable URL on the clipboard. Returns the bare `?...` form
  * (or empty string when no overrides are set).
@@ -100,7 +128,10 @@ export function exportRowsToCsv(rows: Product[], strings: UIStrings): void {
     'Name',
     'Brand',
     'Score',
-    'Price USD/mo',
+    'Pack price',
+    'Currency',
+    'Pack',
+    'Approx. per month',
     'Daily serving',
     'MBG days',
     'Trustpilot',
@@ -111,7 +142,10 @@ export function exportRowsToCsv(rows: Product[], strings: UIStrings): void {
     p.name,
     p.brand,
     p.score,
-    p.priceMonthlyUSD ?? '',
+    p.storePrice?.amount ?? '',
+    p.storePrice?.currency ?? '',
+    p.storePrice?.pack ?? '',
+    monthlyStorePrice(p)?.amount ?? '',
     servingAmount(p, strings),
     guaranteeDaysValue(p.moneyBackDays),
     p.trustpilotScore ?? '',

@@ -41,6 +41,10 @@ const EU_ONE_TIME_EUR: Record<string, number> = {
   'performance-lab-omega-3-review': 45,
 };
 
+// The currency each region's linked Performance Lab store charges in (as seen
+// from that country, 2026-10-09 store-price evidence).
+const STORE_CURRENCY: Record<string, string> = { us: 'USD', eu: 'EUR', ca: 'CAD', au: 'AUD' };
+
 const IN_SCOPE: Record<string, Product[]> = {
   us: allProductsUS, eu: allProductsEU, ca: allProductsCA, au: allProductsAU,
 };
@@ -117,20 +121,18 @@ describe('UberNet / Performance Lab records in us, eu, ca, au', () => {
     for (const slug of SLUGS) expect(record('au', slug).austl).toBeUndefined();
   });
 
-  it('no record carries a hands-on key or a non-USD price we have not verified', () => {
+  it('no record carries a hands-on key, and each price is its own store\'s, never converted', () => {
     for (const [region, slug] of cases) {
       const p = record(region, slug);
       // The hands-on badge field was removed from the Product type on
       // 2026-10-07 (no evidence that any product was tested); no record may
       // carry any hands-on key at all.
       expect(Object.keys(p).filter((k) => /hands/i.test(k)), `${region}/${slug}`).toEqual([]);
-      // EUR prices were verified on eu.performancelab.com on 2026-10-08 (the
-      // one-time price of one container, the same per-container convention as
-      // priceMonthlyUSD), so only the EU records carry priceMonthlyEUR; CAD,
-      // AUD and JPY prices are still unverified and stay absent.
-      expect([p.priceMonthlyCAD, p.priceMonthlyAUD, p.priceMonthlyJPY], `${region}/${slug}`)
-        .toEqual([undefined, undefined, undefined]);
-      expect(p.priceMonthlyEUR, `${region}/${slug}`).toBe(region === 'eu' ? EU_ONE_TIME_EUR[slug] : undefined);
+      // Site-owner policy 2026-10-09: the price shown is the one the store this
+      // region links to states, in its own currency (StorePrice), never a
+      // conversion; the per-currency fields are gone.
+      expect(Object.keys(p).filter((k) => /^priceMonthly|^priceBasis$/.test(k)), `${region}/${slug}`).toEqual([]);
+      expect(p.storePrice?.currency, `${region}/${slug}`).toBe(STORE_CURRENCY[region]);
     }
   });
 
@@ -139,7 +141,7 @@ describe('UberNet / Performance Lab records in us, eu, ca, au', () => {
     for (const slug of SLUGS) {
       const p = record('eu', slug);
       const eur = EU_ONE_TIME_EUR[slug];
-      expect(p.priceMonthlyEUR).toBe(eur);
+      expect(p.storePrice).toMatchObject({ amount: eur, currency: 'EUR' });
       expect(p.euStorefront).toBe(true);
       const prose = [p.summary, p.whatToExpect, ...p.cons].join(' ');
       expect(prose).toContain(`€${eur} one-time on eu.performancelab.com (${p.servingsPerContainer} servings; subscription priced separately; checked 2026-10-08)`);

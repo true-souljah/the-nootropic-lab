@@ -10,6 +10,7 @@ import { Bar } from '../../primitives/Bar';
 import { ProductThumb } from '../../primitives/ProductThumb';
 import { servingAmount, pillarText, guaranteeDays } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
+import { priceText } from '../../price-text';
 
 export interface ComparatorCompareCardProps {
   selectedProducts: Product[];
@@ -67,7 +68,7 @@ export function ComparatorCompareCard({ selectedProducts, uiStrings, onClear }: 
             </div>
             <dl className="mt-3 text-[12px] text-ds-ink-soft m-0">
               {[
-                ['Price', p.priceMonthlyUSD ? `$${p.priceMonthlyUSD}/mo` : '—'],
+                ['Price', priceText(p, uiStrings)?.short ?? '—'],
                 ['Daily', servingAmount(p, uiStrings)],
                 ['MBG', guaranteeDays(p.moneyBackDays, (d) => `${d} days`)],
                 ['Caffeine', p.caffeineFree ? 'Free' : 'Yes'],

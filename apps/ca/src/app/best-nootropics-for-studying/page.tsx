@@ -64,7 +64,7 @@ const picks: ListiclePick[] = [
     product: productsCA.find(p => p.slug === 'hunter-focus-review')!,
     rank: 2,
     whyItsHere:
-      'Pre-built caffeine + L-theanine 1:2 stack (100mg caffeine + 200mg L-theanine), plus 250mg citicoline and 500mg Lion\'s Mane. Pricier (~CAD $123/mo) and a 6-capsule daily regimen.',
+      'Pre-built caffeine + L-theanine 1:2 stack (100mg caffeine + 200mg L-theanine), plus 250mg citicoline and 500mg Lion\'s Mane. A 6-capsule daily regimen.',
   },
   {
     product: productsCA.find(p => p.slug === 'qualia-mind-review')!,
@@ -103,7 +103,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Is caffeine alone enough for studying?',
-    a: 'For most Canadian students, caffeine + L-theanine (1:2 ratio) is the most cost-effective focus stack — and the most-evidence-backed. You can DIY this with a coffee + a $10 bottle of L-theanine from Amazon.ca. The supplements on this page add memory-consolidation ingredients (Bacopa, citicoline) on top, which compounds for actual retention of studied material over the term.',
+    a: 'For most Canadian students, caffeine + L-theanine (1:2 ratio) is the most cost-effective focus stack — and the most-evidence-backed. You can DIY this with a coffee + a bottle of L-theanine from Amazon.ca. The supplements on this page add memory-consolidation ingredients (Bacopa, citicoline) on top, which compounds for actual retention of studied material over the term.',
   },
   {
     q: 'Where can students buy these in Canada — in a store or online?',

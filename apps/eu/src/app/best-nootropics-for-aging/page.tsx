@@ -58,19 +58,19 @@ const picks: ListiclePick[] = [
     product: productsEU.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Includes phosphatidylserine (100mg Sharp-PS at clinical dose), citicoline (250mg Cognizin at clinical dose), Lion\'s Mane (500mg fruiting body, below the 1,000mg reference dose), and Bacopa. Four of the most age-relevant ingredients in one open-formula EU product. Caffeine-free — no cardiovascular load for older adults sensitive to stimulants. €65/mo on the brand\'s EU store; EU orders ship from a European depot per the brand.',
+      'Includes phosphatidylserine (100mg Sharp-PS at clinical dose), citicoline (250mg Cognizin at clinical dose), Lion\'s Mane (500mg fruiting body, below the 1,000mg reference dose), and Bacopa. Four of the most age-relevant ingredients in one open-formula EU product. Caffeine-free — no cardiovascular load for older adults sensitive to stimulants. Priced in euros on the brand\'s EU store; EU orders ship from a European depot per the brand.',
   },
   {
     product: productsEU.find(p => p.slug === 'hunter-focus-review')!,
     rank: 2,
     whyItsHere:
-      'Includes phosphatidylserine, Lion\'s Mane (500mg), and Bacopa, plus Ashwagandha (cortisol/stress) and ALCAR (mitochondrial energy). Contains 100mg caffeine — not ideal for stimulant-sensitive older adults. €85/mo and 6 capsules/day are friction.',
+      'Includes phosphatidylserine, Lion\'s Mane (500mg), and Bacopa, plus Ashwagandha (cortisol/stress) and ALCAR (mitochondrial energy). Contains 100mg caffeine — not ideal for stimulant-sensitive older adults. 6 capsules/day is friction.',
   },
   {
     product: productsEU.find(p => p.slug === 'noocube-review')!,
     rank: 3,
     whyItsHere:
-      'Bacopa (250mg, just under the 300mg clinical anchor) plus Lutemax 2020, which has mixed evidence for screen eye strain: a 6-month trial in 48 heavy screen users, funded by Lutemax\'s maker, reported less self-rated eye strain, eye fatigue and headache (Stringham 2017), but a 2025 trial of a different lutein/zeaxanthin product found better tear-film measures without any change in self-rated eye strain (Lopresti 2025). Caffeine-free. No EUR storefront: the UK store (noocube.co.uk) prices in GBP (£54.99/mo) and ships to the UK, Ireland, Spain, Portugal, Greece, Croatia, Poland, Sweden and Denmark, but not to Germany, France or the Netherlands. The noocube.com Trustpilot profile has no reviews yet — review terms carefully before subscribing, especially for older relatives less familiar with online subscription cancellation.',
+      'Bacopa (250mg, just under the 300mg clinical anchor) plus Lutemax 2020, which has mixed evidence for screen eye strain: a 6-month trial in 48 heavy screen users, funded by Lutemax\'s maker, reported less self-rated eye strain, eye fatigue and headache (Stringham 2017), but a 2025 trial of a different lutein/zeaxanthin product found better tear-film measures without any change in self-rated eye strain (Lopresti 2025). Caffeine-free. No EUR storefront: the UK store (noocube.co.uk) prices in GBP and ships to the UK, Ireland, Spain, Portugal, Greece, Croatia, Poland, Sweden and Denmark, but not to Germany, France or the Netherlands. The noocube.com Trustpilot profile has no reviews yet — review terms carefully before subscribing, especially for older relatives less familiar with online subscription cancellation.',
   },
 ];
 

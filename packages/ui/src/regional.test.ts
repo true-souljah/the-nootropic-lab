@@ -15,7 +15,6 @@ import {
   productsSEA,
 } from '@nootropic/data';
 import type { RegionalRegionCode } from '@nootropic/data';
-import { formatLocalPrice } from './RegionalAvailability';
 
 // Contract for the regional overlay (2026-09 audit). Every region must be
 // able to derive a non-empty block from its own product data, and nothing
@@ -40,37 +39,21 @@ describe('REGION_PROFILES', () => {
 });
 
 describe('localPrice', () => {
-  test("uses the region's own price field and never a foreign one", () => {
+  test("is the record's store price in the store's own currency, written in the region's locale", () => {
     for (const [code, products] of CATALOGS) {
-      const priced = products.map((p) => localPrice(p, code)).filter(Boolean);
-      expect(priced.length, `${code} has local prices`).toBeGreaterThan(0);
-      for (const lp of priced) expect(lp!.currency).toBe(REGION_PROFILES[code].currency);
-    }
-  });
-  test('returns null when the field is missing', () => {
-    const p = { ...productsUS[0], priceMonthlyCAD: undefined };
-    expect(localPrice(p, 'ca')).toBeNull();
-  });
-});
-
-describe('formatLocalPrice', () => {
-  test('keeps the cents of a non-whole price (vendor quote €31,75 is not €32)', () => {
-    expect(formatLocalPrice(31.75, 'EUR', 'de-DE')).toMatch(/^31,75\s€$/);
-    expect(formatLocalPrice(84.99, 'AUD', 'en-AU')).toBe('$84.99');
-  });
-  test('prints whole prices without decimals', () => {
-    expect(formatLocalPrice(40, 'EUR', 'en-IE')).toBe('€40');
-    expect(formatLocalPrice(5479, 'JPY', 'ja-JP')).toMatch(/^[￥¥]5,479$/);
-  });
-  test('every stored local price renders to the cent', () => {
-    for (const [code, products] of CATALOGS) {
-      for (const p of products) {
-        const lp = localPrice(p, code);
-        if (!lp || Number.isInteger(lp.amount)) continue;
-        const shown = formatLocalPrice(lp.amount, lp.currency, 'en-US');
-        expect(Number(shown.replace(/[^\d.]/g, '')), `${code}/${p.id} ${shown}`).toBe(lp.amount);
+      const priced = products.filter((p) => p.storePrice);
+      expect(priced.length, `${code} has store prices`).toBeGreaterThan(0);
+      for (const p of priced) {
+        const lp = localPrice(p, code)!;
+        expect(lp.pack, `${code}/${p.slug}`).toEqual({ amount: p.storePrice!.amount, currency: p.storePrice!.currency });
+        expect(lp.packText).toBe(p.storePrice!.pack);
+        expect(lp.locale).toBe(REGION_PROFILES[code].priceLocale);
+        if (lp.monthly) expect(lp.monthly.currency, 'a per-month figure is never converted').toBe(p.storePrice!.currency);
       }
     }
+  });
+  test('returns null when the record has no store price', () => {
+    expect(localPrice({ ...productsUS[0], storePrice: undefined }, 'ca')).toBeNull();
   });
 });
 
@@ -138,7 +121,8 @@ describe('buildRegionalBuying', () => {
       const b = buildRegionalBuying(products[0], code);
       expect(b.region.code).toBe(code);
       expect(hasRegionalBuyingContent(b), `${code} has content`).toBe(true);
-      expect(b.price?.currency).toBe(REGION_PROFILES[code].currency);
+      // The store's own currency, never the region's or a conversion.
+      expect(b.price?.pack, `${code}/${products[0].slug}`).toEqual({ amount: products[0].storePrice!.amount, currency: products[0].storePrice!.currency });
     }
   });
   test('SEA Eu Yan Sang carries its distribution channels; notes normalise to an array', () => {
@@ -148,7 +132,7 @@ describe('buildRegionalBuying', () => {
     const withNotes = buildRegionalBuying({ ...productsUS[0], notes: 'one note' }, 'us');
     expect(withNotes.notes).toEqual(['one note']);
     // No price and no notes = nothing to show (productsUS[0] now carries a label-source note).
-    const empty = buildRegionalBuying({ ...productsUS[0], priceMonthlyUSD: undefined, notes: undefined }, 'us');
+    const empty = buildRegionalBuying({ ...productsUS[0], storePrice: undefined, notes: undefined }, 'us');
     expect(hasRegionalBuyingContent(empty)).toBe(false);
   });
 });
