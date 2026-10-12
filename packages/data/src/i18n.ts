@@ -1,6 +1,10 @@
 import { NO_PURCHASE_LINK_STRINGS, type NoPurchaseLinkStrings } from './purchase-link';
+import type { Product } from './products-us';
 
 export type Locale = 'en' | 'es' | 'fr' | 'ja' | 'pt' | 'de' | 'fr-CA';
+
+/** One string per score pillar (the keys of Product.scoreBreakdown). */
+export type PillarStrings = Record<keyof Product['scoreBreakdown'], string>;
 
 export interface UIStrings {
   /**
@@ -338,6 +342,52 @@ export interface UIStrings {
       /** In place of `cookieTerms` when we earn no commission on the product (`earnsCommission` is false). */
       noAffiliateCookie: string;
     };
+    /** Pillars tab (product-detail/PillarsTab.tsx). */
+    pillars: {
+      /** Pillar names, keyed like Product.scoreBreakdown. */
+      labels: PillarStrings;
+      /** What each pillar measures, shown under its score. */
+      rationale: PillarStrings;
+      /** Prefix before the record's `unscoredReason` (data, not translated) when a pillar is null. */
+      notScored: string;
+      /** Heading of the pillar-weights card. */
+      howComputedHeading: string;
+      /** Weights are editorial and the same for every brand. */
+      howComputedBody: string;
+      /** Link to /methodology/. */
+      readMethodology: string;
+      /** Accessible name of a pillar's score bar; {product} is the product name, {pillar} the pillar label. */
+      pillarScoreAria: string;
+    };
+    /**
+     * Dosing tab (product-detail/DosingTab.tsx). Row data (ingredient names,
+     * label amounts) stays as recorded; the Clinical cell and the status chip
+     * come from these strings.
+     */
+    dosing: {
+      heading: string;
+      subtitle: string;
+      /** Chip with the dosing units proven adequate; {adequate} and {total} are counts. */
+      adequateCount: string;
+      /** Shown when the record has no dosing rows. */
+      unavailable: string;
+      columns: { ingredient: string; label: string; clinical: string; status: string };
+      /**
+       * Status chip per row: pass/under = the label proves the amount meets /
+       * falls below the reference minimum; unverified = the row has a
+       * reference dose but the label cannot prove the amount; notScored = the
+       * ingredient has no reference dose.
+       */
+      verdict: { pass: string; under: string; unverified: string; notScored: string };
+      /** Clinical cell of a row without a reference dose (data: NO_REFERENCE_DOSE). */
+      noReferenceDose: string;
+      /**
+       * Clinical cell of an anchored row: each DOSING_ANCHORS entry's
+       * `clinicalDose` in this locale, keyed by its ingredientSlug (same
+       * numbers and units; en is the anchor string itself).
+       */
+      anchorDose: Record<string, string>;
+    };
     /** Notice shown on the review page of a product the vendor no longer sells. */
     discontinued: {
       /** Notice heading, e.g. "Discontinued". */
@@ -601,6 +651,58 @@ const en: UIStrings = {
       cookieTerms: '{days} days · {rate} commission',
       noAffiliateCookie: 'None (no affiliate deal)',
     },
+    pillars: {
+      labels: {
+        ingredients: 'Ingredient quality',
+        dosing: 'Dosing vs. clinical evidence',
+        transparency: 'Formula transparency',
+        value: 'Value for money',
+        trust: 'Brand trust',
+      },
+      rationale: {
+        ingredients: 'Number and quality of evidence-graded ingredients. Trademarked extracts and standardized actives raise this score.',
+        dosing: "The share of ingredients with a reference dose on our ingredient pages whose label-stated daily amount meets that page's minimum. Amounts the label hides (blend shares) or states on a different basis count as not met; ingredients with no reference page are listed but not scored.",
+        transparency: 'Full disclosure of every ingredient at its exact dose. Proprietary blends are scored as opaque.',
+        value: 'Cost per month relative to per-serving clinical doses delivered. Cheaper products with underdoses score lower.',
+        trust: 'Brand reputation, third-party testing, refund track record, and Trustpilot signal across multiple years.',
+      },
+      notScored: 'Not scored.',
+      howComputedHeading: 'How the score is computed',
+      howComputedBody: "Each pillar is weighted by editorial importance. Weights are constant across every brand we audit — they're not adjusted to favour any particular product.",
+      readMethodology: 'Read methodology →',
+      pillarScoreAria: '{product}: {pillar} pillar score',
+    },
+    dosing: {
+      heading: 'Dosing audit',
+      subtitle: 'Label-stated daily amount vs. the minimum on our ingredient pages; ingredients without a reference dose are listed but not scored',
+      adequateCount: '{adequate} / {total} adequate',
+      unavailable: 'Dosing data unavailable for this product. Many ingredients are hidden inside proprietary blends.',
+      columns: { ingredient: 'Ingredient', label: 'Label', clinical: 'Clinical', status: 'Status' },
+      verdict: { pass: '✓ Pass', under: '✕ Under', unverified: '? Unverified', notScored: 'Not scored' },
+      noReferenceDose: 'No reference dose on file',
+      anchorDose: {
+        'lions-mane': '1000-1800mg/day',
+        'bacopa-monnieri': '300-450mg/day (≥50% bacosides)',
+        citicoline: '250-500mg/day',
+        'l-theanine': '100-200mg/day',
+        'rhodiola-rosea': '200-600mg/day',
+        phosphatidylserine: '100-300mg/day',
+        'alpha-gpc': '300-600mg/day',
+        ashwagandha: '300-600mg/day (KSM-66)',
+        'huperzine-a': '100-200mcg/day',
+        'l-tyrosine': '2000mg/day (lowest positive trial)',
+        caffeine: '100-200mg',
+        'ginkgo-biloba': '240mg/day (24/6 extract)',
+        'dha-omega-3': '900mg-1.2g DHA/day',
+        'maritime-pine-bark': '100-200mg/day',
+        'acetyl-l-carnitine': '1500-3000mg/day',
+        'lutemax-2020': '12-27mg/day',
+        'oat-straw': '430-1600mg/day',
+        zynamite: '140-300mg/day',
+        dynamine: '100-150mg/day',
+        'longvida-curcumin': '400mg/day (Longvida)',
+      },
+    },
     discontinued: { heading: 'Discontinued', successorLink: 'Read our review of the successor' },
     healthDisclaimerHeading: 'Health disclaimer',
     chipGroupLabel: 'Product attributes',
@@ -845,6 +947,58 @@ const es: UIStrings = {
       affiliateCookie: 'Nuestra cookie de afiliado',
       cookieTerms: '{days} días · {rate} de comisión',
       noAffiliateCookie: 'Ninguna (sin acuerdo de afiliados)',
+    },
+    pillars: {
+      labels: {
+        ingredients: 'Calidad de los ingredientes',
+        dosing: 'Dosis vs. evidencia clínica',
+        transparency: 'Transparencia de la fórmula',
+        value: 'Relación calidad-precio',
+        trust: 'Confianza en la marca',
+      },
+      rationale: {
+        ingredients: 'Cantidad y calidad de los ingredientes calificados según su evidencia. Los extractos de marca registrada y los activos estandarizados elevan esta puntuación.',
+        dosing: 'La proporción de ingredientes con una dosis de referencia en nuestras páginas de ingredientes cuya cantidad diaria declarada en la etiqueta alcanza el mínimo de esa página. Las cantidades que la etiqueta oculta (partes de una mezcla) o declara sobre otra base cuentan como no alcanzadas; los ingredientes sin página de referencia se muestran, pero no se puntúan.',
+        transparency: 'Divulgación completa de cada ingrediente con su dosis exacta. Las mezclas patentadas se puntúan como opacas.',
+        value: 'Costo mensual en relación con las dosis clínicas que aporta cada porción. Los productos más baratos con dosis insuficientes obtienen una puntuación más baja.',
+        trust: 'Reputación de la marca, pruebas de terceros, historial de reembolsos y señal de Trustpilot a lo largo de varios años.',
+      },
+      notScored: 'Sin puntuación.',
+      howComputedHeading: 'Cómo se calcula la puntuación',
+      howComputedBody: 'Cada pilar se pondera según su importancia editorial. Las ponderaciones son las mismas para todas las marcas que auditamos: no se ajustan para favorecer a ningún producto en particular.',
+      readMethodology: 'Leer la metodología →',
+      pillarScoreAria: '{product}: puntuación del pilar {pillar}',
+    },
+    dosing: {
+      heading: 'Auditoría de dosis',
+      subtitle: 'Cantidad diaria declarada en la etiqueta frente al mínimo de nuestras páginas de ingredientes; los ingredientes sin dosis de referencia se muestran, pero no se puntúan',
+      adequateCount: '{adequate} / {total} con dosis adecuada',
+      unavailable: 'No hay datos de dosificación disponibles para este producto. Muchos ingredientes están ocultos dentro de mezclas patentadas.',
+      columns: { ingredient: 'Ingrediente', label: 'Etiqueta', clinical: 'Dosis clínica', status: 'Estado' },
+      verdict: { pass: '✓ Cumple', under: '✕ Insuficiente', unverified: '? Sin verificar', notScored: 'Sin puntuación' },
+      noReferenceDose: 'Sin dosis de referencia registrada',
+      anchorDose: {
+        'lions-mane': '1000-1800mg/día',
+        'bacopa-monnieri': '300-450mg/día (≥50% de bacósidos)',
+        citicoline: '250-500mg/día',
+        'l-theanine': '100-200mg/día',
+        'rhodiola-rosea': '200-600mg/día',
+        phosphatidylserine: '100-300mg/día',
+        'alpha-gpc': '300-600mg/día',
+        ashwagandha: '300-600mg/día (KSM-66)',
+        'huperzine-a': '100-200mcg/día',
+        'l-tyrosine': '2000mg/día (el ensayo positivo con la dosis más baja)',
+        caffeine: '100-200mg',
+        'ginkgo-biloba': '240mg/día (extracto 24/6)',
+        'dha-omega-3': '900mg-1,2g de DHA/día',
+        'maritime-pine-bark': '100-200mg/día',
+        'acetyl-l-carnitine': '1500-3000mg/día',
+        'lutemax-2020': '12-27mg/día',
+        'oat-straw': '430-1600mg/día',
+        zynamite: '140-300mg/día',
+        dynamine: '100-150mg/día',
+        'longvida-curcumin': '400mg/día (Longvida)',
+      },
     },
     discontinued: { heading: 'Descontinuado', successorLink: 'Lee nuestra reseña del sucesor' },
     healthDisclaimerHeading: 'Aviso de salud',
@@ -1091,6 +1245,58 @@ const fr: UIStrings = {
       cookieTerms: '{days} jours · commission de {rate}',
       noAffiliateCookie: 'Aucun (pas d’accord d’affiliation)',
     },
+    pillars: {
+      labels: {
+        ingredients: 'Qualité des ingrédients',
+        dosing: 'Dosage face aux preuves cliniques',
+        transparency: 'Transparence de la formule',
+        value: 'Rapport qualité-prix',
+        trust: 'Confiance dans la marque',
+      },
+      rationale: {
+        ingredients: 'Nombre et qualité des ingrédients évalués selon leur niveau de preuve. Les extraits de marque déposée et les actifs standardisés font monter cette note.',
+        dosing: 'La part des ingrédients ayant une dose de référence sur nos pages d’ingrédients dont la quantité quotidienne indiquée sur l’étiquette atteint le minimum de cette page. Les quantités que l’étiquette masque (parts d’un mélange) ou indique sur une autre base comptent comme non atteintes ; les ingrédients sans page de référence sont listés mais pas notés.',
+        transparency: 'Divulgation complète de chaque ingrédient à sa dose exacte. Les mélanges exclusifs sont notés comme opaques.',
+        value: 'Coût mensuel rapporté aux doses cliniques apportées par portion. Les produits moins chers mais sous-dosés obtiennent une note plus basse.',
+        trust: 'Réputation de la marque, tests par des tiers, historique des remboursements et signal Trustpilot sur plusieurs années.',
+      },
+      notScored: 'Non noté.',
+      howComputedHeading: 'Comment la note est calculée',
+      howComputedBody: 'Chaque pilier est pondéré selon son importance éditoriale. Les pondérations sont identiques pour toutes les marques que nous auditons : elles ne sont pas ajustées pour favoriser un produit en particulier.',
+      readMethodology: 'Lire la méthodologie →',
+      pillarScoreAria: '{product} : note du pilier {pillar}',
+    },
+    dosing: {
+      heading: 'Audit du dosage',
+      subtitle: 'Quantité quotidienne indiquée sur l’étiquette comparée au minimum de nos pages d’ingrédients ; les ingrédients sans dose de référence sont listés mais pas notés',
+      adequateCount: '{adequate} / {total} correctement dosés',
+      unavailable: 'Données de dosage indisponibles pour ce produit. De nombreux ingrédients sont cachés dans des mélanges exclusifs.',
+      columns: { ingredient: 'Ingrédient', label: 'Étiquette', clinical: 'Dose clinique', status: 'Statut' },
+      verdict: { pass: '✓ Conforme', under: '✕ Sous-dosé', unverified: '? Non vérifié', notScored: 'Non noté' },
+      noReferenceDose: 'Aucune dose de référence enregistrée',
+      anchorDose: {
+        'lions-mane': '1000-1800mg/jour',
+        'bacopa-monnieri': '300-450mg/jour (≥50% de bacosides)',
+        citicoline: '250-500mg/jour',
+        'l-theanine': '100-200mg/jour',
+        'rhodiola-rosea': '200-600mg/jour',
+        phosphatidylserine: '100-300mg/jour',
+        'alpha-gpc': '300-600mg/jour',
+        ashwagandha: '300-600mg/jour (KSM-66)',
+        'huperzine-a': '100-200mcg/jour',
+        'l-tyrosine': '2000mg/jour (essai positif à la dose la plus faible)',
+        caffeine: '100-200mg',
+        'ginkgo-biloba': '240mg/jour (extrait 24/6)',
+        'dha-omega-3': '900mg-1,2g de DHA/jour',
+        'maritime-pine-bark': '100-200mg/jour',
+        'acetyl-l-carnitine': '1500-3000mg/jour',
+        'lutemax-2020': '12-27mg/jour',
+        'oat-straw': '430-1600mg/jour',
+        zynamite: '140-300mg/jour',
+        dynamine: '100-150mg/jour',
+        'longvida-curcumin': '400mg/jour (Longvida)',
+      },
+    },
     discontinued: { heading: 'Produit arrêté', successorLink: 'Lire notre avis sur le successeur' },
     healthDisclaimerHeading: 'Avis de santé',
     chipGroupLabel: 'Attributs du produit',
@@ -1335,6 +1541,58 @@ const ja: UIStrings = {
       affiliateCookie: '当サイトのアフィリエイトCookie',
       cookieTerms: '有効期間{days}日 · 紹介料{rate}',
       noAffiliateCookie: 'なし（アフィリエイト契約なし）',
+    },
+    pillars: {
+      labels: {
+        ingredients: '成分の品質',
+        dosing: '臨床エビデンスに対する用量',
+        transparency: '処方の透明性',
+        value: 'コストパフォーマンス',
+        trust: 'ブランドの信頼性',
+      },
+      rationale: {
+        ingredients: 'エビデンスの強さで評価した成分の数と質。商標登録された抽出物や規格化された有効成分があるとスコアが上がります。',
+        dosing: '当サイトの成分ページに基準用量がある成分のうち、ラベルに記載された1日量がそのページの最低量を満たす成分の割合です。ラベルが量を伏せている場合（ブレンド内の配合量）や別の基準で記載している場合は、満たしていないものとみなします。基準ページのない成分は一覧に表示しますが、採点の対象外です。',
+        transparency: 'すべての成分を正確な用量とともに開示しているか。独自ブレンドは不透明なものとして採点します。',
+        value: '1回分あたりに含まれる臨床用量に対する月額費用。安価でも用量が不足している製品はスコアが低くなります。',
+        trust: 'ブランドの評判、第三者機関による試験、返金対応の実績、そして複数年にわたるTrustpilotでの評価。',
+      },
+      notScored: '採点対象外。',
+      howComputedHeading: 'スコアの算出方法',
+      howComputedBody: '各柱は編集上の重要度に応じて重み付けしています。重みは当サイトが評価するすべてのブランドで共通で、特定の製品に有利になるよう調整することはありません。',
+      readMethodology: '評価方法を読む →',
+      pillarScoreAria: '{product}：{pillar}のスコア',
+    },
+    dosing: {
+      heading: '用量チェック',
+      subtitle: 'ラベルに記載された1日量と、当サイトの成分ページに示す最低量との比較。基準用量のない成分は一覧に表示しますが、採点の対象外です',
+      adequateCount: '十分な用量：{adequate} / {total}',
+      unavailable: 'この製品の用量データはありません。多くの成分が独自ブレンドの中に隠れています。',
+      columns: { ingredient: '成分', label: 'ラベル表示', clinical: '臨床用量', status: '判定' },
+      verdict: { pass: '✓ 適合', under: '✕ 不足', unverified: '? 未確認', notScored: '採点対象外' },
+      noReferenceDose: '基準用量の登録なし',
+      anchorDose: {
+        'lions-mane': '1000〜1800mg/日',
+        'bacopa-monnieri': '300〜450mg/日（バコシド50%以上）',
+        citicoline: '250〜500mg/日',
+        'l-theanine': '100〜200mg/日',
+        'rhodiola-rosea': '200〜600mg/日',
+        phosphatidylserine: '100〜300mg/日',
+        'alpha-gpc': '300〜600mg/日',
+        ashwagandha: '300〜600mg/日（KSM-66）',
+        'huperzine-a': '100〜200mcg/日',
+        'l-tyrosine': '2000mg/日（効果が示された試験のうち最低の用量）',
+        caffeine: '100〜200mg',
+        'ginkgo-biloba': '240mg/日（24/6エキス）',
+        'dha-omega-3': 'DHA 900mg〜1.2g/日',
+        'maritime-pine-bark': '100〜200mg/日',
+        'acetyl-l-carnitine': '1500〜3000mg/日',
+        'lutemax-2020': '12〜27mg/日',
+        'oat-straw': '430〜1600mg/日',
+        zynamite: '140〜300mg/日',
+        dynamine: '100〜150mg/日',
+        'longvida-curcumin': '400mg/日（Longvida）',
+      },
     },
     discontinued: { heading: '販売終了', successorLink: '後継製品のレビューを読む' },
     healthDisclaimerHeading: '健康に関する免責事項',
@@ -1581,6 +1839,58 @@ const pt: UIStrings = {
       cookieTerms: '{days} dias · comissão de {rate}',
       noAffiliateCookie: 'Nenhum (sem acordo de afiliação)',
     },
+    pillars: {
+      labels: {
+        ingredients: 'Qualidade dos ingredientes',
+        dosing: 'Dosagem vs. evidência clínica',
+        transparency: 'Transparência da fórmula',
+        value: 'Relação qualidade-preço',
+        trust: 'Confiança na marca',
+      },
+      rationale: {
+        ingredients: 'Número e qualidade dos ingredientes classificados pelo nível de evidência. Extratos de marca registada e ativos padronizados aumentam esta pontuação.',
+        dosing: 'A proporção dos ingredientes com uma dose de referência nas nossas páginas de ingredientes cuja quantidade diária declarada no rótulo atinge o mínimo dessa página. As quantidades que o rótulo oculta (partes de uma mistura) ou declara numa base diferente contam como não atingidas; os ingredientes sem página de referência são listados, mas não pontuados.',
+        transparency: 'Divulgação completa de cada ingrediente na sua dose exata. As misturas proprietárias são pontuadas como opacas.',
+        value: 'Custo mensal em relação às doses clínicas fornecidas por porção. Os produtos mais baratos com subdosagem pontuam menos.',
+        trust: 'Reputação da marca, testes por terceiros, historial de reembolsos e sinal do Trustpilot ao longo de vários anos.',
+      },
+      notScored: 'Sem pontuação.',
+      howComputedHeading: 'Como a pontuação é calculada',
+      howComputedBody: 'Cada pilar é ponderado pela sua importância editorial. As ponderações são as mesmas para todas as marcas que auditamos: não são ajustadas para favorecer nenhum produto em particular.',
+      readMethodology: 'Ler a metodologia →',
+      pillarScoreAria: '{product}: pontuação do pilar {pillar}',
+    },
+    dosing: {
+      heading: 'Auditoria de dosagem',
+      subtitle: 'Quantidade diária declarada no rótulo face ao mínimo das nossas páginas de ingredientes; os ingredientes sem dose de referência são listados, mas não pontuados',
+      adequateCount: '{adequate} / {total} com dose adequada',
+      unavailable: 'Dados de dosagem indisponíveis para este produto. Muitos ingredientes estão ocultos em misturas proprietárias.',
+      columns: { ingredient: 'Ingrediente', label: 'Rótulo', clinical: 'Dose clínica', status: 'Estado' },
+      verdict: { pass: '✓ Cumpre', under: '✕ Abaixo', unverified: '? Não verificado', notScored: 'Sem pontuação' },
+      noReferenceDose: 'Sem dose de referência registada',
+      anchorDose: {
+        'lions-mane': '1000-1800mg/dia',
+        'bacopa-monnieri': '300-450mg/dia (≥50% de bacosídeos)',
+        citicoline: '250-500mg/dia',
+        'l-theanine': '100-200mg/dia',
+        'rhodiola-rosea': '200-600mg/dia',
+        phosphatidylserine: '100-300mg/dia',
+        'alpha-gpc': '300-600mg/dia',
+        ashwagandha: '300-600mg/dia (KSM-66)',
+        'huperzine-a': '100-200mcg/dia',
+        'l-tyrosine': '2000mg/dia (o ensaio positivo com a dose mais baixa)',
+        caffeine: '100-200mg',
+        'ginkgo-biloba': '240mg/dia (extrato 24/6)',
+        'dha-omega-3': '900mg-1,2g de DHA/dia',
+        'maritime-pine-bark': '100-200mg/dia',
+        'acetyl-l-carnitine': '1500-3000mg/dia',
+        'lutemax-2020': '12-27mg/dia',
+        'oat-straw': '430-1600mg/dia',
+        zynamite: '140-300mg/dia',
+        dynamine: '100-150mg/dia',
+        'longvida-curcumin': '400mg/dia (Longvida)',
+      },
+    },
     discontinued: { heading: 'Descontinuado', successorLink: 'Leia a nossa análise do sucessor' },
     healthDisclaimerHeading: 'Aviso de saúde',
     chipGroupLabel: 'Atributos do produto',
@@ -1825,6 +2135,58 @@ const de: UIStrings = {
       affiliateCookie: 'Unser Affiliate-Cookie',
       cookieTerms: '{days} Tage · {rate} Provision',
       noAffiliateCookie: 'Keines (keine Affiliate-Vereinbarung)',
+    },
+    pillars: {
+      labels: {
+        ingredients: 'Qualität der Inhaltsstoffe',
+        dosing: 'Dosierung vs. klinische Evidenz',
+        transparency: 'Transparenz der Rezeptur',
+        value: 'Preis-Leistungs-Verhältnis',
+        trust: 'Vertrauen in die Marke',
+      },
+      rationale: {
+        ingredients: 'Anzahl und Qualität der nach Evidenz bewerteten Inhaltsstoffe. Markengeschützte Extrakte und standardisierte Wirkstoffe erhöhen diesen Wert.',
+        dosing: 'Der Anteil der Inhaltsstoffe mit einer Referenzdosis auf unseren Inhaltsstoffseiten, deren auf dem Etikett angegebene Tagesmenge das Minimum dieser Seite erreicht. Mengen, die das Etikett verbirgt (Anteile einer Mischung) oder auf einer anderen Grundlage angibt, gelten als nicht erreicht; Inhaltsstoffe ohne Referenzseite werden aufgeführt, aber nicht bewertet.',
+        transparency: 'Vollständige Offenlegung jedes Inhaltsstoffs mit seiner genauen Dosis. Proprietäre Mischungen werden als intransparent bewertet.',
+        value: 'Monatliche Kosten im Verhältnis zu den klinischen Dosen pro Portion. Günstigere Produkte mit Unterdosierung schneiden schlechter ab.',
+        trust: 'Ruf der Marke, Tests durch Dritte, Erstattungshistorie und Trustpilot-Signal über mehrere Jahre.',
+      },
+      notScored: 'Nicht bewertet.',
+      howComputedHeading: 'So wird die Bewertung berechnet',
+      howComputedBody: 'Jede Säule wird nach ihrer redaktionellen Bedeutung gewichtet. Die Gewichtungen sind für jede von uns geprüfte Marke gleich – sie werden nicht zugunsten eines bestimmten Produkts angepasst.',
+      readMethodology: 'Zur Methodik →',
+      pillarScoreAria: '{product}: Bewertung der Säule {pillar}',
+    },
+    dosing: {
+      heading: 'Dosierungsprüfung',
+      subtitle: 'Auf dem Etikett angegebene Tagesmenge im Vergleich zum Minimum auf unseren Inhaltsstoffseiten; Inhaltsstoffe ohne Referenzdosis werden aufgeführt, aber nicht bewertet',
+      adequateCount: '{adequate} / {total} ausreichend dosiert',
+      unavailable: 'Für dieses Produkt sind keine Dosierungsdaten verfügbar. Viele Inhaltsstoffe sind in proprietären Mischungen versteckt.',
+      columns: { ingredient: 'Inhaltsstoff', label: 'Etikett', clinical: 'Klinische Dosis', status: 'Ergebnis' },
+      verdict: { pass: '✓ Erfüllt', under: '✕ Zu niedrig', unverified: '? Nicht verifiziert', notScored: 'Nicht bewertet' },
+      noReferenceDose: 'Keine Referenzdosis hinterlegt',
+      anchorDose: {
+        'lions-mane': '1000-1800mg/Tag',
+        'bacopa-monnieri': '300-450mg/Tag (≥50% Bacoside)',
+        citicoline: '250-500mg/Tag',
+        'l-theanine': '100-200mg/Tag',
+        'rhodiola-rosea': '200-600mg/Tag',
+        phosphatidylserine: '100-300mg/Tag',
+        'alpha-gpc': '300-600mg/Tag',
+        ashwagandha: '300-600mg/Tag (KSM-66)',
+        'huperzine-a': '100-200mcg/Tag',
+        'l-tyrosine': '2000mg/Tag (niedrigste Dosis einer positiven Studie)',
+        caffeine: '100-200mg',
+        'ginkgo-biloba': '240mg/Tag (24/6-Extrakt)',
+        'dha-omega-3': '900mg-1,2g DHA/Tag',
+        'maritime-pine-bark': '100-200mg/Tag',
+        'acetyl-l-carnitine': '1500-3000mg/Tag',
+        'lutemax-2020': '12-27mg/Tag',
+        'oat-straw': '430-1600mg/Tag',
+        zynamite: '140-300mg/Tag',
+        dynamine: '100-150mg/Tag',
+        'longvida-curcumin': '400mg/Tag (Longvida)',
+      },
     },
     discontinued: { heading: 'Nicht mehr erhältlich', successorLink: 'Zu unserer Bewertung des Nachfolgers' },
     healthDisclaimerHeading: 'Gesundheitshinweis',
@@ -2072,6 +2434,58 @@ const frCa: UIStrings = {
       affiliateCookie: 'Notre témoin d’affiliation',
       cookieTerms: '{days} jours · commission de {rate}',
       noAffiliateCookie: 'Aucun (pas d’entente d’affiliation)',
+    },
+    pillars: {
+      labels: {
+        ingredients: 'Qualité des ingrédients',
+        dosing: 'Dosage par rapport aux données probantes cliniques',
+        transparency: 'Transparence de la formule',
+        value: 'Rapport qualité-prix',
+        trust: 'Confiance envers la marque',
+      },
+      rationale: {
+        ingredients: 'Nombre et qualité des ingrédients cotés selon les données probantes. Les extraits de marque déposée et les actifs normalisés font monter ce score.',
+        dosing: 'La proportion des ingrédients ayant une dose de référence dans nos pages d’ingrédients dont la quantité quotidienne indiquée sur l’étiquette atteint le minimum de cette page. Les quantités que l’étiquette cache (parts d’un mélange) ou indique sur une autre base comptent comme non atteintes; les ingrédients sans page de référence sont affichés, mais pas notés.',
+        transparency: 'Divulgation complète de chaque ingrédient à sa dose exacte. Les mélanges exclusifs sont notés comme opaques.',
+        value: 'Coût mensuel par rapport aux doses cliniques fournies par portion. Les produits moins chers et sous-dosés obtiennent un score plus bas.',
+        trust: 'Réputation de la marque, analyses par des tiers, historique des remboursements et signal Trustpilot sur plusieurs années.',
+      },
+      notScored: 'Non noté.',
+      howComputedHeading: 'Comment le score est calculé',
+      howComputedBody: 'Chaque pilier est pondéré selon son importance éditoriale. Les pondérations sont les mêmes pour toutes les marques que nous vérifions; elles ne sont pas ajustées pour favoriser un produit en particulier.',
+      readMethodology: 'Lire la méthodologie →',
+      pillarScoreAria: '{product} : score du pilier {pillar}',
+    },
+    dosing: {
+      heading: 'Vérification des doses',
+      subtitle: 'Quantité quotidienne indiquée sur l’étiquette par rapport au minimum de nos pages d’ingrédients; les ingrédients sans dose de référence sont affichés, mais pas notés',
+      adequateCount: '{adequate} / {total} doses adéquates',
+      unavailable: 'Données sur les doses non disponibles pour ce produit. De nombreux ingrédients sont cachés dans des mélanges exclusifs.',
+      columns: { ingredient: 'Ingrédient', label: 'Étiquette', clinical: 'Dose clinique', status: 'Statut' },
+      verdict: { pass: '✓ Conforme', under: '✕ Sous-dosé', unverified: '? Non vérifié', notScored: 'Non noté' },
+      noReferenceDose: 'Aucune dose de référence au dossier',
+      anchorDose: {
+        'lions-mane': '1000-1800mg/jour',
+        'bacopa-monnieri': '300-450mg/jour (≥50% de bacosides)',
+        citicoline: '250-500mg/jour',
+        'l-theanine': '100-200mg/jour',
+        'rhodiola-rosea': '200-600mg/jour',
+        phosphatidylserine: '100-300mg/jour',
+        'alpha-gpc': '300-600mg/jour',
+        ashwagandha: '300-600mg/jour (KSM-66)',
+        'huperzine-a': '100-200mcg/jour',
+        'l-tyrosine': '2000mg/jour (essai positif à la plus faible dose)',
+        caffeine: '100-200mg',
+        'ginkgo-biloba': '240mg/jour (extrait 24/6)',
+        'dha-omega-3': '900mg-1,2g de DHA/jour',
+        'maritime-pine-bark': '100-200mg/jour',
+        'acetyl-l-carnitine': '1500-3000mg/jour',
+        'lutemax-2020': '12-27mg/jour',
+        'oat-straw': '430-1600mg/jour',
+        zynamite: '140-300mg/jour',
+        dynamine: '100-150mg/jour',
+        'longvida-curcumin': '400mg/jour (Longvida)',
+      },
     },
     discontinued: { heading: 'Produit arrêté', successorLink: 'Lire notre avis sur le successeur' },
     healthDisclaimerHeading: 'Avis de santé',

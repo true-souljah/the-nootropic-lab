@@ -306,10 +306,10 @@ export default function ProductDetail({
           <OverviewTab product={p} />
         </TabPanel>
         <TabPanel idPrefix="product" id="dosing" hidden={tab !== 'dosing'} className="mt-5">
-          <DosingTab product={p} />
+          <DosingTab product={p} strings={pd} />
         </TabPanel>
         <TabPanel idPrefix="product" id="pillars" hidden={tab !== 'pillars'} className="mt-5">
-          <PillarsTab product={p} />
+          <PillarsTab product={p} strings={pd} />
         </TabPanel>
         <TabPanel idPrefix="product" id="reviews" hidden={tab !== 'reviews'} className="mt-5">
           <ReviewsTab product={p} />
