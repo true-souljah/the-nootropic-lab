@@ -88,6 +88,8 @@ export type {
 } from './templates/Listicle';
 // The listicle ranking bar, for pages that state it in prose (methodology).
 export { LISTICLE_MIN_SCORE, formatListicleScore } from './templates/listicleRanking';
+// Score tiers, for app pages that colour a product score (geo pages).
+export { scoreTier, SCORE_TIER_TEXT_CLASS } from './templates/listicleRanking';
 
 // Public templates (Stack redesign — M2C)
 // HeadToHeadFAQ keeps its bare name for back-compat with apps; the

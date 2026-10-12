@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, relative } from 'node:path';
-import { LISTICLE_MIN_SCORE, SCORE_TIERS, scoreTier } from './templates/listicleRanking';
+import { LISTICLE_MIN_SCORE, SCORE_TIERS, SCORE_TIER_TEXT_CLASS, scoreTier } from './templates/listicleRanking';
 
 // Site-owner decision 2026-10-09: the colour and label tiers of a product score
 // follow the listicle bar — green "good" / "Recommended" from 7.5, amber "warn" /
@@ -34,6 +34,51 @@ describe('SCORE_TIERS', () => {
     [Number.NaN, 'bad'],
   ] as const)('scoreTier(%s) is %s', (score, tier) => {
     expect(scoreTier(score)).toBe(tier);
+  });
+
+  it('colours each tier with the design-system text token the review header uses', () => {
+    expect(SCORE_TIER_TEXT_CLASS).toEqual({ good: 'text-ds-good', warn: 'text-ds-warn-ink', bad: 'text-ds-bad' });
+    expect(SCORE_TIER_TEXT_CLASS[scoreTier(5.2)]).toBe('text-ds-bad');
+    expect(SCORE_TIER_TEXT_CLASS[scoreTier(7.0)]).toBe('text-ds-warn-ink');
+    expect(SCORE_TIER_TEXT_CLASS[scoreTier(7.9)]).toBe('text-ds-good');
+  });
+});
+
+// ---------------------------------------------------------------------------
+// The geo pages (EU/GCC/SEA/LATAM countries, AU states, JP prefectures, CA
+// provinces) and ScoreTooltip printed every product score in green (Alpha Brain
+// 5.2 included) until 2026-10-09. They colour it by tier now.
+// ---------------------------------------------------------------------------
+
+const GEO_SCORE_PAGES = [
+  'apps/au/src/app/states/[state]/page.tsx',
+  'apps/ca/src/app/provinces/[province]/page.tsx',
+  'apps/eu/src/app/countries/[country]/page.tsx',
+  'apps/gcc/src/app/countries/[country]/page.tsx',
+  'apps/jp/src/app/prefectures/[prefecture]/page.tsx',
+  'apps/latam/src/app/countries/[country]/page.tsx',
+  'apps/sea/src/app/countries/[country]/page.tsx',
+];
+
+describe('geo pages and ScoreTooltip colour the score by SCORE_TIERS', () => {
+  it.each(GEO_SCORE_PAGES)('%s', (page) => {
+    const src = readFileSync(join(REPO, page), 'utf8');
+    const scoreLines = src.split('\n').filter((line) => /Score: <strong/.test(line));
+    expect(scoreLines).toHaveLength(1);
+    expect(scoreLines[0]).toMatch(/<strong className=\{SCORE_TIER_TEXT_CLASS\[scoreTier\(\w+\.score\)\]\}>/);
+    expect(src).toMatch(/import \{[^}]*\bscoreTier\b[^}]*\bSCORE_TIER_TEXT_CLASS\b[^}]*\} from '@nootropic\/ui'/);
+  });
+
+  it('ScoreTooltip reads the tier and types no colour of its own', () => {
+    const src = readFileSync(join(UI_SRC, 'ScoreTooltip.tsx'), 'utf8');
+    expect(src).toContain("from './templates/listicleRanking'");
+    expect(src).toContain('SCORE_TIER_TEXT_CLASS[scoreTier(score)]');
+    expect(src).not.toMatch(/\b(?:text|border|bg)-(?:green|emerald|red|amber|yellow)-\d/);
+  });
+
+  it('@nootropic/ui exports the tier helpers the app pages import', () => {
+    const index = readFileSync(join(UI_SRC, 'index.ts'), 'utf8');
+    expect(index).toMatch(/export \{ scoreTier, SCORE_TIER_TEXT_CLASS \} from '\.\/templates\/listicleRanking'/);
   });
 });
 
@@ -76,6 +121,11 @@ const scanned = [
 const SCORE_VS_NUMBER = /\bscore\s*(?:>=|<=|>|<)\s*\d|\d\s*(?:>=|<=|>|<)\s*[\w.]*\bscore\b/;
 // A tier label printed with its number: "Recommended (8.5+)", "Worth a look: 7.5–8.4".
 const TIER_LABEL_WITH_NUMBER = /(?:recommended|worth a look|recomendad\w*|vale la pena|recommandé\w*|おすすめ)\s*[(:：]?\s*[≥>]?\s*\d[.,]\d/i;
+// A product score rendered on a line that also types a colour class (the geo
+// pages' green "Score: x/10" before 2026-10-09): the colour must come from
+// SCORE_TIER_TEXT_CLASS[scoreTier(score)], never a literal.
+const SCORE_IN_FIXED_COLOUR =
+  /(?=.*\b\w+\.score\b)(?=.*\b(?:text|border|bg)-(?:green|emerald|lime|red|rose|amber|yellow|orange)-\d{2,3}\b|.*\btext-ds-(?:good|warn|bad)(?:-ink)?\b)/;
 
 describe('no product-score tier literal outside SCORE_TIERS', () => {
   it('scans packages/ui, packages/data and every app, including the tier components (guards against an empty scan)', () => {
@@ -111,8 +161,22 @@ describe('no product-score tier literal outside SCORE_TIERS', () => {
     expect(hits).toEqual([]);
   });
 
+  it('no source file prints a product score in a fixed colour', () => {
+    const hits = scanned.flatMap((file) =>
+      readFileSync(file, 'utf8')
+        .split('\n')
+        .map((line, i) => [relative(REPO, file), i + 1, line.trim()] as const)
+        .filter(([, , line]) => SCORE_IN_FIXED_COLOUR.test(line)),
+    );
+    expect(hits).toEqual([]);
+  });
+
   // The guard's own regexes, proven against the literals they exist to catch.
   it.each([
+    ['<span>Score: <strong className="text-green-700">{`${product.score}/10`}</strong></span>', SCORE_IN_FIXED_COLOUR, true],
+    ['<strong className="text-ds-good">{`${p.score}/10`}</strong>', SCORE_IN_FIXED_COLOUR, true],
+    ['<strong className={SCORE_TIER_TEXT_CLASS[scoreTier(p.score)]}>{`${p.score}/10`}</strong>', SCORE_IN_FIXED_COLOUR, false],
+    ['<span className="text-green-700">{product.trustpilotScore}/5</span>', SCORE_IN_FIXED_COLOUR, false],
     ['score >= 8.5', SCORE_VS_NUMBER, true],
     ['p.score < 7.5', SCORE_VS_NUMBER, true],
     ['7.5 <= product.score', SCORE_VS_NUMBER, true],

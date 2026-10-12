@@ -46,8 +46,9 @@ export default function AboutPage() {
             We review nootropic supplements for buyers in Japan. Our comparison covers domestic Japanese
             brands (FANCL, Suntory) alongside imported international stacks (Mind Lab Pro&apos;s own FAQ names Japan among its shipping
             territories; for the other imported brands, confirm at checkout). Every
-            review includes a clinical dosing audit comparing each ingredient against the minimum effective
-            dose from peer-reviewed trials. We score brands across ingredient quality, dosing-vs-evidence,
+            review includes a clinical dosing audit comparing each ingredient that has a reference dose on our
+            ingredient pages against that page&apos;s minimum from peer-reviewed trials; ingredients without one
+            are listed but not scored. We score brands across ingredient quality, dosing-vs-evidence,
             formula transparency, value for money, and brand trust.
           </p>
           <p className="text-gray-700 leading-relaxed">

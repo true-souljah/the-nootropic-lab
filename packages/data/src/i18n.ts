@@ -98,6 +98,12 @@ export interface UIStrings {
      */
     inline: string;
     /**
+     * Replaces `inline` on the review page of a product we earn no commission
+     * on (`earnsCommission(product)` is false, e.g. `commissionRate: "0%"`).
+     * True whether or not the page shows a buy link.
+     */
+    noCommission: string;
+    /**
      * Whether commission influences ranking (EU UCPD Annex I 11a). Must
      * mirror the published /methodology/ policy — do not change without it.
      */
@@ -329,6 +335,8 @@ export interface UIStrings {
       affiliateCookie: string;
       /** Cookie length and commission; {days} and {rate} are filled from the record. */
       cookieTerms: string;
+      /** In place of `cookieTerms` when we earn no commission on the product (`earnsCommission` is false). */
+      noAffiliateCookie: string;
     };
     /** Notice shown on the review page of a product the vendor no longer sells. */
     discontinued: {
@@ -378,7 +386,7 @@ const en: UIStrings = {
   },
   footer: {
     tagline:
-      "We audit every nootropic against its clinical-trial doses. Affiliate commissions are disclosed inline and don't move scores.",
+      "We check each nootropic's label doses against the reference doses on our ingredient pages, where one exists. Affiliate commissions are disclosed inline and don't move scores.",
     copyrightLine:
       '© {year} Nootropic Lab · Information is not medical advice. Consult a clinician before starting any supplement.',
     lastAuditLabel: 'Last full re-audit:',
@@ -431,6 +439,7 @@ const en: UIStrings = {
     methodology: 'Read our methodology',
     badge: 'Affiliate disclosure',
     inline: 'We earn a commission if you buy through links on this page, at no extra cost to you.',
+    noCommission: "We don't earn a commission on this product; we have no affiliate deal for it.",
     ranking: 'Our scores and rankings follow our published methodology; commissions do not influence them.',
   },
   table: {
@@ -590,6 +599,7 @@ const en: UIStrings = {
       visitVendor: 'Visit {brand} →',
       affiliateCookie: 'Our affiliate cookie',
       cookieTerms: '{days} days · {rate} commission',
+      noAffiliateCookie: 'None (no affiliate deal)',
     },
     discontinued: { heading: 'Discontinued', successorLink: 'Read our review of the successor' },
     healthDisclaimerHeading: 'Health disclaimer',
@@ -621,7 +631,7 @@ const es: UIStrings = {
   },
   footer: {
     tagline:
-      'Auditamos cada nootrópico contra sus dosis de ensayos clínicos. Las comisiones de afiliados se divulgan en línea y no afectan las puntuaciones.',
+      'Comparamos las dosis de la etiqueta de cada nootrópico con las dosis de referencia de nuestras páginas de ingredientes, cuando existen. Las comisiones de afiliados se divulgan en línea y no afectan las puntuaciones.',
     copyrightLine:
       '© {year} Nootropic Lab · La información no es asesoramiento médico. Consulte a un médico antes de comenzar cualquier suplemento.',
     lastAuditLabel: 'Última auditoría completa:',
@@ -674,6 +684,7 @@ const es: UIStrings = {
     methodology: 'Lea nuestra metodología',
     badge: 'Divulgación de afiliados',
     inline: 'Ganamos una comisión si compra a través de los enlaces de esta página, sin costo adicional para usted.',
+    noCommission: 'No ganamos ninguna comisión por este producto; no tenemos un acuerdo de afiliados para él.',
     ranking: 'Nuestras puntuaciones y clasificaciones siguen nuestra metodología publicada; las comisiones no influyen en ellas.',
   },
   table: {
@@ -833,6 +844,7 @@ const es: UIStrings = {
       visitVendor: 'Visitar {brand} →',
       affiliateCookie: 'Nuestra cookie de afiliado',
       cookieTerms: '{days} días · {rate} de comisión',
+      noAffiliateCookie: 'Ninguna (sin acuerdo de afiliados)',
     },
     discontinued: { heading: 'Descontinuado', successorLink: 'Lee nuestra reseña del sucesor' },
     healthDisclaimerHeading: 'Aviso de salud',
@@ -864,7 +876,7 @@ const fr: UIStrings = {
   },
   footer: {
     tagline:
-      "Nous auditons chaque nootropique selon les doses des essais cliniques. Les commissions d'affiliation sont divulguées en ligne et n'influencent pas les notes.",
+      "Nous comparons les doses indiquées sur l'étiquette de chaque nootropique aux doses de référence de nos pages d'ingrédients, lorsqu'elles existent. Les commissions d'affiliation sont divulguées en ligne et n'influencent pas les notes.",
     copyrightLine:
       "© {year} Nootropic Lab · Les informations ne constituent pas un avis médical. Consultez un clinicien avant de commencer tout supplément.",
     lastAuditLabel: 'Dernier audit complet :',
@@ -917,6 +929,7 @@ const fr: UIStrings = {
     methodology: 'Lire notre méthodologie',
     badge: "Divulgation d'affiliation",
     inline: 'Nous touchons une commission si vous achetez via les liens de cette page, sans frais supplémentaires pour vous.',
+    noCommission: 'Nous ne touchons aucune commission sur ce produit : nous n’avons aucun accord d’affiliation le concernant.',
     ranking: "Nos notes et classements suivent notre méthodologie publiée ; les commissions ne les influencent pas.",
   },
   table: {
@@ -1076,6 +1089,7 @@ const fr: UIStrings = {
       visitVendor: 'Visiter {brand} →',
       affiliateCookie: 'Notre cookie d’affiliation',
       cookieTerms: '{days} jours · commission de {rate}',
+      noAffiliateCookie: 'Aucun (pas d’accord d’affiliation)',
     },
     discontinued: { heading: 'Produit arrêté', successorLink: 'Lire notre avis sur le successeur' },
     healthDisclaimerHeading: 'Avis de santé',
@@ -1107,7 +1121,7 @@ const ja: UIStrings = {
   },
   footer: {
     tagline:
-      'すべてのノートロピクスを臨床試験の用量で監査しています。アフィリエイト報酬はインラインで開示され、評価には影響しません。',
+      '各ノートロピクスのラベル記載用量を、当サイトの成分ページの基準用量（ある場合）と照合しています。アフィリエイト報酬はインラインで開示され、評価には影響しません。',
     copyrightLine:
       '© {year} Nootropic Lab · 情報は医学的助言ではありません。サプリメントを開始する前に医師に相談してください。',
     lastAuditLabel: '最終全面監査:',
@@ -1160,6 +1174,7 @@ const ja: UIStrings = {
     methodology: '評価方法を読む',
     badge: '広告（アフィリエイト）',
     inline: '本ページのリンクから商品を購入されると、当サイトは紹介料を受け取ります（お客様の追加負担はありません）。',
+    noCommission: '当サイトはこの商品についてアフィリエイト契約を結んでおらず、紹介料を受け取っていません。',
     ranking: 'スコアと順位は公開している評価方法に基づいて決定しており、紹介料の影響は受けません。',
   },
   table: {
@@ -1319,6 +1334,7 @@ const ja: UIStrings = {
       visitVendor: '{brand}のサイトへ →',
       affiliateCookie: '当サイトのアフィリエイトCookie',
       cookieTerms: '有効期間{days}日 · 紹介料{rate}',
+      noAffiliateCookie: 'なし（アフィリエイト契約なし）',
     },
     discontinued: { heading: '販売終了', successorLink: '後継製品のレビューを読む' },
     healthDisclaimerHeading: '健康に関する免責事項',
@@ -1350,7 +1366,7 @@ const pt: UIStrings = {
   },
   footer: {
     tagline:
-      'Auditamos cada nootrópico contra as suas doses de ensaios clínicos. As comissões de afiliados são divulgadas em linha e não influenciam as pontuações.',
+      'Comparamos as doses do rótulo de cada nootrópico com as doses de referência das nossas páginas de ingredientes, quando existem. As comissões de afiliados são divulgadas em linha e não influenciam as pontuações.',
     copyrightLine:
       '© {year} Nootropic Lab · As informações não são aconselhamento médico. Consulte um clínico antes de iniciar qualquer suplemento.',
     lastAuditLabel: 'Última auditoria completa:',
@@ -1403,6 +1419,7 @@ const pt: UIStrings = {
     methodology: 'Ler a nossa metodologia',
     badge: 'Divulgação de afiliação',
     inline: 'Recebemos uma comissão se comprar através dos links desta página, sem custos adicionais para si.',
+    noCommission: 'Não recebemos qualquer comissão por este produto; não temos nenhum acordo de afiliação para ele.',
     ranking: 'As nossas pontuações e classificações seguem a nossa metodologia publicada; as comissões não as influenciam.',
   },
   table: {
@@ -1562,6 +1579,7 @@ const pt: UIStrings = {
       visitVendor: 'Visitar {brand} →',
       affiliateCookie: 'O nosso cookie de afiliado',
       cookieTerms: '{days} dias · comissão de {rate}',
+      noAffiliateCookie: 'Nenhum (sem acordo de afiliação)',
     },
     discontinued: { heading: 'Descontinuado', successorLink: 'Leia a nossa análise do sucessor' },
     healthDisclaimerHeading: 'Aviso de saúde',
@@ -1593,7 +1611,7 @@ const de: UIStrings = {
   },
   footer: {
     tagline:
-      'Wir prüfen jedes Nootropikum gegen die Dosen aus klinischen Studien. Affiliate-Provisionen werden inline offengelegt und beeinflussen die Bewertungen nicht.',
+      'Wir vergleichen die Etikettendosen jedes Nootropikums mit den Referenzdosen unserer Inhaltsstoffseiten, sofern vorhanden. Affiliate-Provisionen werden inline offengelegt und beeinflussen die Bewertungen nicht.',
     copyrightLine:
       '© {year} Nootropic Lab · Informationen sind keine medizinische Beratung. Konsultieren Sie einen Arzt, bevor Sie ein Nahrungsergänzungsmittel einnehmen.',
     lastAuditLabel: 'Letzte vollständige Prüfung:',
@@ -1646,6 +1664,7 @@ const de: UIStrings = {
     methodology: 'Methodik lesen',
     badge: 'Werbehinweis (Affiliate-Links)',
     inline: 'Wenn Sie über Links auf dieser Seite kaufen, erhalten wir eine Provision – ohne Mehrkosten für Sie.',
+    noCommission: 'Für dieses Produkt erhalten wir keine Provision; wir haben dafür keine Affiliate-Vereinbarung.',
     ranking: 'Unsere Bewertungen und Rankings folgen unserer veröffentlichten Methodik; Provisionen haben keinen Einfluss darauf.',
   },
   table: {
@@ -1805,6 +1824,7 @@ const de: UIStrings = {
       visitVendor: '{brand} besuchen →',
       affiliateCookie: 'Unser Affiliate-Cookie',
       cookieTerms: '{days} Tage · {rate} Provision',
+      noAffiliateCookie: 'Keines (keine Affiliate-Vereinbarung)',
     },
     discontinued: { heading: 'Nicht mehr erhältlich', successorLink: 'Zu unserer Bewertung des Nachfolgers' },
     healthDisclaimerHeading: 'Gesundheitshinweis',
@@ -1841,7 +1861,7 @@ const frCa: UIStrings = {
   },
   footer: {
     tagline:
-      "Nous vérifions chaque nootropique selon les doses des essais cliniques. Les commissions d'affiliation sont divulguées en ligne et n'influencent pas les notes.",
+      "Nous vérifions les doses indiquées sur l'étiquette de chaque nootropique par rapport aux doses de référence de nos pages d'ingrédients, lorsqu'elles existent. Les commissions d'affiliation sont divulguées en ligne et n'influencent pas les notes.",
     copyrightLine:
       "© {year} Nootropic Lab · L'information ne constitue pas un avis médical. Consultez un professionnel de la santé avant de prendre tout supplément.",
     lastAuditLabel: 'Dernière vérification complète :',
@@ -1894,6 +1914,7 @@ const frCa: UIStrings = {
     methodology: 'Lire notre méthodologie',
     badge: 'Divulgation de liens affiliés',
     inline: "Nous touchons une commission si vous effectuez un achat par l'entremise des liens de cette page, sans frais supplémentaires pour vous.",
+    noCommission: 'Nous ne touchons aucune commission sur ce produit : nous n’avons aucune entente d’affiliation le concernant.',
     ranking: 'Nos notes et nos classements suivent notre méthodologie publiée; les commissions ne les influencent pas.',
   },
   table: {
@@ -2050,6 +2071,7 @@ const frCa: UIStrings = {
       visitVendor: 'Visiter {brand} →',
       affiliateCookie: 'Notre témoin d’affiliation',
       cookieTerms: '{days} jours · commission de {rate}',
+      noAffiliateCookie: 'Aucun (pas d’entente d’affiliation)',
     },
     discontinued: { heading: 'Produit arrêté', successorLink: 'Lire notre avis sur le successeur' },
     healthDisclaimerHeading: 'Avis de santé',

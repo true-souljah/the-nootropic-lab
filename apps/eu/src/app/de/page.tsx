@@ -38,7 +38,7 @@ const features = [
     icon: '🔬',
     title: 'Audits klinischer Dosierungen',
     desc:
-      'Jede Bewertung enthält eine Vergleichstabelle zwischen der Wirkstoffdosis im Produkt und den minimal wirksamen Dosen aus peer-reviewten klinischen Studien.',
+      'Jede Bewertung enthält eine Vergleichstabelle: Wo unsere Inhaltsstoffseiten eine Referenzdosis aus peer-reviewten klinischen Studien angeben, vergleicht sie die Menge auf dem Etikett mit diesem Minimum; andere Inhaltsstoffe werden aufgeführt, aber nicht bewertet.',
   },
   {
     icon: '🇪🇺',

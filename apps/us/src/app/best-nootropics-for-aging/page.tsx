@@ -70,7 +70,7 @@ const picks: ListiclePick[] = [
     product: productsUS.find(p => p.slug === 'nootropics-depot-lions-mane')!,
     rank: 3,
     whyItsHere:
-      'Single-ingredient Lion\'s Mane fruiting-body extract from a brand with strong third-party CoA testing. The right pick if you want to test Lion\'s Mane in isolation, possibly stacked with a phosphatidylserine supplement.',
+      'Single-ingredient Lion\'s Mane fruiting-body extract from a brand with strong third-party CoA testing. One 500mg capsule is half the 1,000mg low end of our Lion\'s Mane reference dose.',
   },
   {
     product: productsUS.find(p => p.slug === 'onnit-alpha-brain-review')!,

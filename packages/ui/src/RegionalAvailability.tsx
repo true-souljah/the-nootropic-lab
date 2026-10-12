@@ -4,6 +4,7 @@ import { licenceStatus, localPrice } from '@nootropic/data';
 import { localPriceShort } from './price-text';
 import { Card } from './primitives/Card';
 import { FaqAccordion } from './primitives/FaqAccordion';
+import { SCORE_TIER_TEXT_CLASS, scoreTier } from './templates/listicleRanking';
 
 /**
  * RegionalAvailability — the "In <region>" block rendered on guide and
@@ -88,7 +89,7 @@ export default function RegionalAvailability({
               >
                 <div className="flex justify-between items-start gap-3 mb-1">
                   <span className="font-bold text-ds-ink text-[14px]">{p.name}</span>
-                  <span className="text-ds-good font-bold text-[14px] ds-tabular shrink-0">{`${p.score}/10`}</span>
+                  <span className={`${SCORE_TIER_TEXT_CLASS[scoreTier(p.score)]} font-bold text-[14px] ds-tabular shrink-0`}>{`${p.score}/10`}</span>
                 </div>
                 <div className="flex flex-wrap items-center gap-2 text-[12px]">
                   {status && (

@@ -70,7 +70,7 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'nootropics-depot-lions-mane')!,
     rank: 3,
     whyItsHere:
-      'Single-ingredient Lion\'s Mane fruiting-body extract at 500mg from a brand with the strongest third-party Certificate-of-Analysis culture in this review. Mushroom-derived; no halal certificate shown on the brand\'s page we fetched (checked 2026-10-07). Single-ingredient profile may also clear GCC customs more easily than multi-ingredient stacks. Caffeine-free; labelled vegan on the brand\'s product page, which does not state the capsule shell material. Pair with Mind Lab Pro or a separate Bacopa supplement for full memory-stack coverage. Ships from US.',
+      'Single-ingredient Lion\'s Mane fruiting-body extract at 500mg, half the 1,000mg low end of our Lion\'s Mane reference dose, from a brand with the strongest third-party Certificate-of-Analysis culture in this review. Mushroom-derived; no halal certificate shown on the brand\'s page we fetched (checked 2026-10-07). Single-ingredient profile may also clear GCC customs more easily than multi-ingredient stacks. Caffeine-free; labelled vegan on the brand\'s product page, which does not state the capsule shell material. Ships from US.',
   },
 ];
 

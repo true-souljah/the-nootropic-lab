@@ -70,7 +70,7 @@ const picks: ListiclePick[] = [
     product: productsUS.find(p => p.slug === 'onnit-alpha-brain-review')!,
     rank: 3,
     whyItsHere:
-      'Caffeine-free Classic version is widely available — useful when you need a study supplement on short notice. Bacopa + L-theanine + Alpha-GPC are present but proprietary blends prevent verifying clinical doses.',
+      'Caffeine-free Classic version, widely available at retail. Bacopa + L-theanine + Alpha-GPC are present but proprietary blends prevent verifying clinical doses.',
   },
   {
     product: productsUS.find(p => p.slug === 'thesis-nootropics-review')!,

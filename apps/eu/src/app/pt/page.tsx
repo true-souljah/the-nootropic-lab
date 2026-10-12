@@ -29,7 +29,7 @@ const features = [
   {
     icon: '🔬',
     title: 'Auditorias de dosagem clínica',
-    desc: 'Cada avaliação inclui uma tabela comparativa entre a dosagem utilizada e as doses mínimas eficazes encontradas em estudos clínicos revistos por pares.',
+    desc: 'Cada avaliação inclui uma tabela de dosagem: quando as nossas páginas de ingredientes indicam uma dose de referência de estudos clínicos revistos por pares, compara a quantidade do rótulo com esse mínimo; os restantes ingredientes são listados, mas não pontuados.',
   },
   {
     icon: '🇪🇺',

@@ -46,7 +46,8 @@ export default function AboutPage() {
             We review nootropic supplements for buyers across Australia &mdash; New South Wales,
             Victoria, Queensland, Western Australia, South Australia, Tasmania, the ACT, and the
             Northern Territory. Every review includes a clinical dosing audit comparing each
-            ingredient against the minimum effective dose from peer-reviewed trials. We score brands
+            ingredient that has a reference dose on our ingredient pages against that page&apos;s minimum
+            from peer-reviewed trials; ingredients without one are listed but not scored. We score brands
             across ingredient quality, dosing-vs-evidence, formula transparency, value for money, and
             brand trust.
           </p>
