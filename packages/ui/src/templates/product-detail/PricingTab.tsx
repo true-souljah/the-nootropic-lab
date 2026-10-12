@@ -1,10 +1,10 @@
-import { Fragment, type ReactNode } from 'react';
 import { Card } from '../../primitives/Card';
 import TrackedAffiliateLink from '../../TrackedAffiliateLink';
 import NoPurchaseLinkNotice from '../../NoPurchaseLinkNotice';
 import type { Product, UIStrings, VendorTerms } from '@nootropic/data';
 import { NOT_AVAILABLE, VENDOR_TERM_FIELDS, disclosureCopy, earnsCommission, purchaseUrl, reviewDisclosureScope } from '@nootropic/data';
 import type { PriceText } from '../../price-text';
+import { fillNodes as fill } from '../fillNodes';
 
 export interface PricingTabProps {
   product: Product;
@@ -16,14 +16,6 @@ export interface PricingTabProps {
   noticeStrings: UIStrings['noPurchaseLink'];
   /** The store price as display text (price-text.ts); null when the record has none. */
   price: PriceText | null;
-}
-
-/** Fills `{name}` placeholders of a locale template with text or elements. */
-function fill(template: string, values: Record<string, ReactNode>): ReactNode[] {
-  return template.split(/(\{\w+\})/).map((part, i) => {
-    const key = /^\{(\w+)\}$/.exec(part)?.[1];
-    return key !== undefined && key in values ? <Fragment key={i}>{values[key]}</Fragment> : part;
-  });
 }
 
 type TermField = (typeof VENDOR_TERM_FIELDS)[number];

@@ -75,7 +75,7 @@ export type { JPPrefecture } from './jp-prefectures';
 export { jpPrefectures } from './jp-prefectures';
 export type { SearchItem, SearchItemMeta } from './search';
 export { buildSearchIndex } from './search';
-export type { Locale, UIStrings } from './i18n';
+export type { Locale, UIStrings, RegionStrings, LicenceStatusStrings } from './i18n';
 export { getStrings, getLocaleForMarket } from './i18n';
 export { buildRegionSearchContext } from './region-search';
 export type { RegionSearchContext } from './region-search';
@@ -100,6 +100,7 @@ export type {
   RegionProfile,
   RegionLabels,
   LicenceStatus,
+  LicenceStatusKey,
   LocalPrice,
   RegionalNote,
   RegionalNotes,
@@ -110,6 +111,7 @@ export {
   REGION_PROFILES,
   REGIONAL_NOTES,
   licenceStatus,
+  licenceStatusText,
   localPrice,
   regionalGuideNote,
   regionalIngredientNote,
