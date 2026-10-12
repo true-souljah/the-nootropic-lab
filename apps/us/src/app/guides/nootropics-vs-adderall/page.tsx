@@ -188,7 +188,7 @@ export default function Page() {
                 <tr className="bg-white">
                   <td className="px-3 py-2 font-medium text-gray-900">Adenosine antagonism</td>
                   <td className="px-3 py-2 text-gray-700">No</td>
-                  <td className="px-3 py-2 text-gray-700">Caffeine — most studied legal mechanism</td>
+                  <td className="px-3 py-2 text-gray-700">Caffeine — legal stimulant</td>
                 </tr>
                 <tr className="bg-gray-50">
                   <td className="px-3 py-2 font-medium text-gray-900">Acetylcholine</td>

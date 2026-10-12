@@ -220,7 +220,7 @@ export const ingredients: Ingredient[] = [
       forms: 'Capsule or powder. Suntheanine is a branded L-Theanine (from enzymatic synthesis, identical to tea-derived theanine). Bulk L-Theanine powder dissolves in water but is subtly sweet and easy to mix.',
     },
     stacksWith: [
-      { ingredient: 'Caffeine', slug: 'caffeine', reason: 'Trials used 200–250mg theanine with 150–160mg caffeine (roughly 1:1 to 1.7:1). The combination improved attention and reaction time more than either alone; in a controlled trial (Rogers 2008) theanine did not significantly reduce caffeine jitteriness. This pairing is found in virtually every quality pre-work stack.' },
+      { ingredient: 'Caffeine', slug: 'caffeine', reason: 'Trials used 200–250mg theanine with 150–160mg caffeine (roughly 1:1 to 1.7:1). The combination improved attention and reaction time more than either alone; in a controlled trial (Rogers 2008) theanine did not significantly reduce caffeine jitteriness.' },
       { ingredient: 'Bacopa Monnieri', slug: 'bacopa-monnieri', reason: 'Both have anxiolytic properties working via different mechanisms. L-Theanine provides immediate calm; Bacopa builds sustained stress tolerance over weeks. A gentle, non-sedating anxiety-reduction combination.' },
       { ingredient: 'Ashwagandha', slug: 'ashwagandha', reason: 'Both target stress through distinct pathways (GABA modulation for theanine; HPA axis for ashwagandha). Good daytime anxiety stack without sedation.' },
     ],
@@ -575,7 +575,7 @@ export const ingredients: Ingredient[] = [
       dosage: '240mg/day of standardised extract (24/6) — the dose used in the positive trials; lower doses (120mg/day) appear under-dosed',
       timing: 'Split into 2 doses (morning and afternoon) for sustained blood flow effects.',
       withFood: 'Take with meals to reduce GI discomfort. Absorption is not significantly affected by food.',
-      forms: 'Always use standardised extract (24% flavone glycosides, 6% terpene lactones). EGb 761 is the gold-standard pharmaceutical-grade extract used in most clinical trials. Avoid raw leaf or unstandardised products.',
+      forms: 'Always use standardised extract (24% flavone glycosides, 6% terpene lactones). EGb 761 is a pharmaceutical-grade extract; it is the extract used in the trials pooled by the meta-analysis we cite (Tan 2015). Avoid raw leaf or unstandardised products.',
     },
     stacksWith: [
       { ingredient: 'Phosphatidylserine', slug: 'phosphatidylserine', reason: 'Ginkgo improves blood delivery while PS supports membrane function — complementary pathways for age-related cognitive support.' },
@@ -663,7 +663,7 @@ export const ingredients: Ingredient[] = [
       dosage: '100–200mg/day of standardised extract (65-75% proanthocyanidins)',
       timing: 'Morning with breakfast. Can be split into 2 doses for sustained antioxidant coverage.',
       withFood: 'Take with food for better absorption and reduced GI risk. Fat is not required but a meal is recommended.',
-      forms: 'Capsule is standard. Pycnogenol is the gold-standard branded extract used in most clinical research. Generic pine bark extracts vary widely in proanthocyanidin content — check standardisation percentage.',
+      forms: 'Capsule is standard. Pycnogenol is a branded extract; it is the extract used in the studies we cite (Belcaro 2014; Luzzi 2011). Generic pine bark extracts vary widely in proanthocyanidin content — check standardisation percentage.',
     },
     stacksWith: [
       { ingredient: 'Citicoline', slug: 'citicoline', reason: 'Citicoline provides cholinergic focus; Pine Bark provides blood flow and antioxidant support. Together they form the core of Performance Lab Mind — a minimal, evidence-based focus stack.' },
