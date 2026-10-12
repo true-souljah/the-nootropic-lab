@@ -67,14 +67,15 @@ function isIsoDate(value: unknown): value is string {
 /**
  * Why a record's `noPurchaseLink` is malformed, or null. Absent = fine.
  * Rules: known reason, allowed for `region`. not-sold-on-linked-store: a store
- * name, an https `storeUrl` on that store's host, the listing's verbatim
+ * name, an https `storeUrl` on that store's host that is the record's own
+ * affiliate listing, the listing's verbatim
  * `observed` text and a YYYY-MM-DD `checkedAt`. jp-mhlw: non-empty `ingredients`, each with
  * a name the record's formula lists (heroIngredients or an ingredientDosages
  * name, case-insensitive), a plant and the list entry; https `sourceUrl`;
  * YYYY-MM-DD `listUpdated` and `checkedAt`, checked no earlier than the update.
  */
 export function noPurchaseLinkProblem(
-  product: Pick<Product, 'noPurchaseLink' | 'heroIngredients' | 'ingredientDosages'>,
+  product: Pick<Product, 'noPurchaseLink' | 'heroIngredients' | 'ingredientDosages' | 'affiliateUrl'>,
   region: string,
 ): string | null {
   if (!('noPurchaseLink' in product) || product.noPurchaseLink === undefined) return null;
@@ -86,7 +87,7 @@ export function noPurchaseLinkProblem(
   }
   const allowedRegion = NO_PURCHASE_LINK_REASON_REGION[reason as NoPurchaseLinkReason];
   if (allowedRegion !== null && region !== allowedRegion) return `noPurchaseLink.reason "${reason}" applies to ${allowedRegion} records only, not ${region}`;
-  if (reason === 'not-sold-on-linked-store') return notSoldProblem(block as Record<string, unknown>);
+  if (reason === 'not-sold-on-linked-store') return notSoldProblem(block as Record<string, unknown>, product.affiliateUrl);
   if (!Array.isArray(ingredients) || ingredients.length === 0) return 'noPurchaseLink.ingredients is empty';
   const formula = [
     ...(product.heroIngredients ?? []),
@@ -115,7 +116,7 @@ export function noPurchaseLinkProblem(
   return null;
 }
 
-function notSoldProblem(block: Record<string, unknown>): string | null {
+function notSoldProblem(block: Record<string, unknown>, affiliateUrl: string | undefined): string | null {
   const { store, storeUrl, observed, checkedAt } = block;
   if (typeof store !== 'string' || !store.trim()) return 'noPurchaseLink.store is missing';
   if (typeof storeUrl !== 'string') return 'noPurchaseLink.storeUrl is missing';
@@ -129,6 +130,10 @@ function notSoldProblem(block: Record<string, unknown>): string | null {
   const host = parsed.hostname.toLowerCase();
   const name = store.trim().toLowerCase();
   if (host !== name && !host.endsWith(`.${name}`)) return `noPurchaseLink.storeUrl host ${host} is not on ${store}`;
+  // The evidence must be the listing this record links to (query and fragment aside),
+  // so another dead page on the same store cannot hide a working link.
+  const linked = (affiliateUrl ?? '').replace(/[?#].*$/, '');
+  if (storeUrl.replace(/[?#].*$/, '') !== linked) return `noPurchaseLink.storeUrl is not the record's own listing (${linked || 'no affiliateUrl'})`;
   if (typeof observed !== 'string' || !observed.trim()) return 'noPurchaseLink.observed must be the listing\'s verbatim text';
   if (!isIsoDate(checkedAt)) return `noPurchaseLink.checkedAt is not a YYYY-MM-DD date: ${JSON.stringify(checkedAt)}`;
   return null;

@@ -107,6 +107,7 @@ describe('noPurchaseLinkProblem: not-sold-on-linked-store', () => {
     ['http listing', { storeUrl: 'http://www.amazon.ca/dp/B09F4ML3FF' }, /not https/],
     ['relative listing', { storeUrl: '/dp/B09F4ML3FF' }, /not an absolute URL/],
     ['listing on another store', { storeUrl: 'https://www.amazon.com/dp/B09F4ML3FF' }, /is not on amazon\.ca/],
+    ['another listing on the same store', { storeUrl: 'https://www.amazon.ca/dp/B000000000' }, /not the record's own listing/],
     ['no observed text', { observed: '' }, /verbatim text/],
     ['impossible checkedAt', { checkedAt: '2026-02-30' }, /checkedAt is not a YYYY-MM-DD/],
   ] as const)('rejects %s', (_label, patch, message) => {
