@@ -62,6 +62,13 @@ describe('Pricing tab price = the linked store price', () => {
     expect(priced).toBeGreaterThanOrEqual(40);
   });
 
+  test('a non-English pack text keeps its language mark (EU Brainzyme, German)', () => {
+    const bz = allProductsEU.find((p) => p.slug === 'brainzyme-focus-pro-review')!;
+    expect(bz.storePrice?.lang).toBe('de');
+    const html = render(bz, 'eu');
+    expect(html).toContain('<span lang="de">1 MONAT: 2 Packs, 60 Kapseln</span>');
+  });
+
   test('an edition that blocks the product names the store without linking it (JP Hunter Focus)', () => {
     const hunter = allProductsJP.find((p) => p.slug === 'hunter-focus-review')!;
     expect(purchaseUrl(hunter)).toBeNull();

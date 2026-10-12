@@ -7,6 +7,9 @@ import AxeBuilder from '@axe-core/playwright';
 // product, plus a one-time price invented as monthly × 1.15. It now quotes
 // Product.vendorTerms verbatim, each attributed "Per <domain>, checked <date>"
 // with a link to the vendor page. Unit guards: packages/ui/src/vendor-terms.test.ts.
+// Since 2026-10-12 the one-time price quote is not shown: the price is the
+// store price (the linked store's own), attributed the same way
+// (packages/ui/src/pricing-tab-store-price.test.ts).
 
 test.beforeEach(async ({ context }) => {
   await context.addCookies([
@@ -31,7 +34,14 @@ test.describe('US Pricing tab — vendor-stated terms', () => {
   test('/mind-lab-pro-review/ quotes the vendor verbatim with a dated, linked source', async ({ page }) => {
     const panel = await openPricing(page, '/mind-lab-pro-review/');
     await expect(panel.getByRole('heading', { name: 'What the vendor’s site says' })).toBeVisible();
-    await expect(panel.locator('[data-vendor-term]')).toHaveCount(4);
+    await expect(panel.locator('[data-vendor-term]')).toHaveCount(3);
+    await expect(panel.locator('[data-vendor-term="oneTimePrice"]')).toHaveCount(0);
+    const storeSource = panel.locator('[data-store-price-source]');
+    await expect(storeSource).toContainText('Per mindlabpro.com (opens in new tab), checked Oct 9, 2026');
+    await expect(storeSource.getByRole('link', { name: 'mindlabpro.com (opens in new tab)' })).toHaveAttribute(
+      'href',
+      'https://www.mindlabpro.com/products/mind-lab-pro',
+    );
 
     const shipping = panel.locator('[data-vendor-term="shipping"]');
     await expect(shipping.getByRole('heading', { name: 'Shipping' })).toBeVisible();

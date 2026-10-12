@@ -80,7 +80,7 @@ const ISO_CURRENCY = /^[A-Z]{3}$/;
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 /** Currencies a store may print as a bare "$". */
 const DOLLAR_CURRENCIES = new Set(['USD', 'CAD', 'AUD', 'NZD', 'SGD', 'HKD', 'MXN']);
-const STORE_PRICE_KEYS: (keyof StorePrice)[] = ['amount', 'currency', 'text', 'pack', 'supply', 'directions', 'url', 'checkedAt'];
+const STORE_PRICE_KEYS: (keyof StorePrice)[] = ['amount', 'currency', 'text', 'pack', 'supply', 'directions', 'lang', 'url', 'checkedAt'];
 
 /** A real calendar date in YYYY-MM-DD form (2026-02-31 is not). */
 function isIsoDate(s: string): boolean {
@@ -110,6 +110,9 @@ export function storePriceProblems(product: Product): string[] {
   if (typeof s.amount !== 'number' || !(s.amount > 0)) problems.push('storePrice.amount must be a positive number');
   if (typeof s.currency !== 'string' || !ISO_CURRENCY.test(s.currency)) problems.push(`storePrice.currency must be an ISO 4217 code: ${JSON.stringify(s.currency)}`);
   for (const key of ['text', 'pack'] as const) if (typeof s[key] !== 'string' || !(s[key] as string).trim()) problems.push(`storePrice.${key} must be the vendor's verbatim text`);
+  if (s.lang !== undefined && (typeof s.lang !== 'string' || !/^[a-z]{2}(?:-[A-Z]{2})?$/.test(s.lang) || s.lang === 'en')) {
+    problems.push(`storePrice.lang, when set, must be a non-English BCP-47 language such as "de": ${JSON.stringify(s.lang)}`);
+  }
   for (const key of ['supply', 'directions'] as const) {
     if (s[key] !== undefined && (typeof s[key] !== 'string' || !(s[key] as string).trim())) problems.push(`storePrice.${key}, when set, must be verbatim text`);
   }
