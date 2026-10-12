@@ -1206,10 +1206,11 @@ describe('round fifteen (U7): caffeine + L-theanine copy follows Owen 2008 and n
 // with no user data behind it. None had a source.
 //
 // The scan is the round-thirteen file set plus packages/ui/src/templates,
-// where QuizFlow.tsx lives. "Most users report" is matched case-sensitively,
-// as the sentence opening that was removed: the lower-case "most users report
-// ..." lines in other product records' whatToExpect fields are a separate
-// claim set, not reviewed in this round.
+// where QuizFlow.tsx lives. "Most users report" was first matched
+// case-sensitively, as the sentence opening that was removed; U4 removed the
+// lower-case "most [Canadian] users report ..." lines from the Mind Lab Pro
+// and Alpha Brain whatToExpect fields, so the pattern is now
+// case-insensitive.
 //
 // Round sixteen, U2 (2026-10-12). Evidence rankings on the focus and memory
 // pages and three leftovers elsewhere. The FAQs asked for "the most
@@ -1258,6 +1259,42 @@ describe('round fifteen (U7): caffeine + L-theanine copy follows Owen 2008 and n
 // carried the Spanish versions of these and of the U2 claims ("proporción 1:2
 // a 2:1", "mejor replicados", "más replicada", "más de 30 años", "el
 // nootrópico ... con más evidencia"); each Spanish phrase has its own pattern.
+//
+// Round sixteen, U4 (2026-10-12). Synergy, user-report, crash and leftover
+// claims. Camfield 2014 (PMID 24946991, 11 placebo-controlled studies) found
+// moderate effect sizes for L-theanine + caffeine versus placebo, with
+// caffeine dose driving more of the change; Kahathuduwa 2016 (26869148)
+// found additive effects and no interaction; Haskell 2008 (18006208) one
+// interaction; Foxe 2012 (22326943) no added benefit over either compound
+// alone. So "for the synergistic effect" (Mind Lab Pro focus picks; "efecto
+// sinérgico" in LATAM, "efectos sinérgicos" in the Spanish stacking guide),
+// the GCC "L-theanine + caffeine synergy" and "many students prefer", the
+// L-theanine record's 'Caffeine Synergy' row (strong/large) and "more than
+// either compound alone", the pine-bark and Oat Straw synergy clauses and the
+// guide's "for synergistic effects" / "attention synergy" are gone; the row is
+// now 'With Caffeine' (moderate). The Mind Lab Pro and Alpha Brain
+// whatToExpect fields said "most users report" and "no energy spike --
+// effects are gentle", with no user data; L-Tyrosine's "caffeine crash" /
+// "depletes dopamine precursors" stack notes had no trial (our tyrosine
+// record mentions neither caffeine nor a crash). Phosphatidylserine "carries
+// an FDA-qualified health claim for cognitive decline" now gives the FDA's 13
+// May 2003 wording. The Bacopa aging cards' "Multiple RCTs across age groups
+// ... (Stough et al., Calabrese et al.)" now give Pase 2012 (22747190) and
+// Calabrese 2008 (18611150). Rhodiola's "standardised to 3% rosavins, 1%
+// salidroside)" dose and "Soviet-era research as the optimal therapeutic
+// ratio" now follow Ishaque 2012 (PMC3541197; natural ratio about 3:1) and
+// the SHR-5 trials; caffeine "one of the most extensively studied", the JP
+// FFC "one of the largest functional supplement categories" (now 563 of the
+// 6,451 active notifications, CAA export 2026-10-06), "la categoría más
+// estudiada", Huperzine A's "sharpest acute improvement" ("mejora aguda más
+// marcada"; its trials ran 4-16 weeks) and phosphatidylserine's "signal
+// transduction" / "transmission speed" claims, and the LATAM studying FAQ's
+// "combinación de concentración más rentable" had no source. The attributed
+// lines stay: Qualia's "The theory is synergistic optimisation", AOR's quoted
+// "work synergistically" and "The argument for: synergistic effects".
+// Separately, a JSX attribute in double quotes does not process escapes, so
+// a \' inside heroParagraph="..." rendered as a literal backslash (GCC memory
+// and aging heroes); no heroParagraph="..." may contain \'.
 const ROUND_SIXTEEN_SOURCES = [
   ...ROUND_THIRTEEN_SOURCES,
   ...walk(resolve(REPO_ROOT, 'packages/ui/src/templates')),
@@ -1267,7 +1304,7 @@ const ROUND_SIXTEEN_UNSOURCED: RegExp[] = [
   /without the (spike-and-)?crash/i,
   /best-evidenced nootropic combination/i,
   /combinación nootrópica con mayor respaldo/i,
-  /\bMost users report\b/,
+  /\bmost (\w+ )?users report\b/i,
   /1:1 L-theanine \+ caffeine effect/i,
   /closest match to the evidence-backed ratio/i,
   /to smooth the curve/i,
@@ -1308,7 +1345,43 @@ const ROUND_SIXTEEN_UNSOURCED: RegExp[] = [
   /evidencia más fuerte sobre apoyo cognitivo/i,
   /La FDA permite una declaración (de salud calificada|calificada de salud)/i,
   /sugiere que la PS puede reducir/i,
+  // U4: synergy, user reports, crash, PS FDA, Bacopa aging, Rhodiola and the
+  // guide, JP and LATAM leftovers listed above.
+  /for the synergistic effect/i,
+  /efectos? sinérgicos?/i,
+  /L-theanine \+ caffeine synergy/i,
+  /students prefer/i,
+  /'Caffeine Synergy'/,
+  /more than either compound alone/i,
+  /synergistic effects may partially compensate/i,
+  /Synergistic under stress/i,
+  /for synergistic effects/i,
+  /attention synergy/i,
+  /no energy spike/i,
+  /effects are gentle/i,
+  /caffeine crash/i,
+  /reducing the crash/i,
+  /depletes dopamine precursors/i,
+  /FDA-qualified health claim for cognitive decline/i,
+  /Multiple RCTs across age groups/i,
+  /Múltiples ensayos clínicos en distintos grupos de edad/i,
+  /standardised to 3% rosavins, 1% salidroside\)/i,
+  /Soviet-era research as the optimal/i,
+  /one of the most extensively studied/i,
+  /one of the largest functional supplement categories/i,
+  /la categoría más estudiada/i,
+  /mejora aguda más marcada/i,
+  /sharpest acute improvement/i,
+  /signal transduction speed/i,
+  /velocidad de transducción de señales/i,
+  /Phosphatidylserine supports transmission speed/i,
+  /favorece la velocidad de transmisión/i,
+  /combinación de concentración más rentable/i,
 ];
+
+// A double-quoted JSX attribute does not process escapes, so \' in one
+// renders as a backslash and an apostrophe.
+const HERO_ATTR_ESCAPED_QUOTE = /heroParagraph="[^"]*\\'/;
 
 describe('round sixteen: energy, stack, focus- and memory-page claims follow the cited trials', () => {
   test('scanned every file under apps/*/src, packages/data/src and packages/ui/src/templates', () => {
@@ -1331,6 +1404,13 @@ describe('round sixteen: energy, stack, focus- and memory-page claims follow the
       'apps/latam/src/app/best-nootropics-for-focus/page.tsx',
       'apps/latam/src/app/best-nootropics-for-memory/page.tsx',
       'apps/latam/src/app/best-nootropics-for-aging/page.tsx',
+      // U4
+      'apps/latam/src/app/best-nootropics-for-studying/page.tsx',
+      'apps/gcc/src/app/best-nootropics-for-aging/page.tsx',
+      'apps/au/src/app/best-nootropics-for-focus/page.tsx',
+      'packages/data/src/products-au.json',
+      'packages/data/src/products-ca.json',
+      'packages/data/src/products-eu.json',
     ]) expect(ROUND_SIXTEEN_SOURCES.some(p => relative(REPO_ROOT, p) === f), f).toBe(true);
   });
 
@@ -1390,6 +1470,36 @@ describe('round sixteen: energy, stack, focus- and memory-page claims follow the
       'La FDA permite una declaración calificada de salud que indica que la PS puede reducir el riesgo de demencia y disfunción cognitiva en personas mayores.',
       'La FDA permite una declaración de salud calificada para PS en función cognitiva en adultos mayores.',
       'investigación científica muy limitada y preliminar sugiere que la PS puede reducir el riesgo de demencia o disfunción cognitiva en adultos mayores',
+      // U4
+      'Caffeine-free design lets you pair it with your own coffee or matcha for the synergistic effect.',
+      'El diseño sin cafeína permite combinarlo con tu café o mate local para lograr el efecto sinérgico.',
+      'Una guía práctica para combinar suplementos nootrópicos con efectos sinérgicos — incluyendo reglas de combinación segura',
+      'It pairs well with Arabic coffee or matcha for the L-theanine + caffeine synergy without committing to a stimulant-loaded supplement.',
+      'GCC note: many students prefer L-theanine alone, paired with Arabic coffee or matcha',
+      "{ effect: 'Caffeine Synergy', evidenceStrength: 'strong', magnitude: 'large', studies: 3 }",
+      'Combined with caffeine, it improves attention measures more than either compound alone.',
+      'However, in a multi-ingredient formula with Citicoline and Tyrosine, the synergistic effects may partially compensate.',
+      'Both support dopamine availability — Oat Straw by slowing breakdown (MAO-B), Tyrosine by providing precursor. Synergistic under stress.',
+      'A practical guide to combining nootropic supplements for synergistic effects — including safe pairing rules',
+      'L-theanine+caffeine attention synergy, with an honest jitteriness/anxiety caveat',
+      'Mind Lab Pro is a long-game supplement -- most users report subtle but sustained improvement rather than dramatic day-one effects.',
+      'Caffeine-free means no energy spike -- effects are gentle. At 4-6 weeks: most Canadian users report consistent mild improvements in word retrieval and task focus.',
+      "Caffeine depletes dopamine precursors over time. Taking L-Tyrosine with caffeine may reduce the 'caffeine crash' by maintaining dopamine substrate levels.",
+      'Caffeine depletes dopamine precursors over time. L-Tyrosine replenishes substrate, reducing the crash and maintaining sustained focus.',
+      'Sustained cognitive energy without the caffeine crash. What evidence actually shows.',
+      'Phosphatidylserine supports neuronal membrane fluidity and carries an FDA-qualified health claim for cognitive decline.',
+      'Multiple RCTs across age groups show memory consolidation benefits. Studies specifically in older adults (Stough et al., Calabrese et al.) show retention and recall improvements after 8–12 weeks',
+      'Múltiples ensayos clínicos en distintos grupos de edad muestran beneficios en consolidación de memoria.',
+      '200–600mg/day (standardised to 3% rosavins, 1% salidroside)',
+      'The 3:1 ratio mirrors what is found in wild-harvested Rhodiola rosea and was established in Soviet-era research as the optimal therapeutic ratio.',
+      'Caffeine is one of the most extensively studied psychoactive compounds.',
+      'age-related cognitive support is one of the largest functional supplement categories under the FFC (機能性表示食品) framework',
+      '(5) Aminoácidos (L-Theanine, L-Tyrosine): precursores de neurotransmisores; la categoría más estudiada y más segura.',
+      'Huperzine A (100mcg, en ciclos) produce la mejora aguda más marcada en la recuperación al preservar la Acetylcholine. Phosphatidylserine favorece la velocidad de transmisión.',
+      'Huperzine A (100mcg, cycled) produces the sharpest acute improvement in recall by preserving acetylcholine. Phosphatidylserine supports transmission speed.',
+      'Phosphatidylserine improves signal transduction speed across synapses.',
+      'Phosphatidylserine mejora la velocidad de transducción de señales entre las sinapsis.',
+      'café (o mate) + L-teanina (proporción 1:2) es la combinación de concentración más rentable y respaldada por evidencia.',
     ];
     for (const s of removed) expect(ROUND_SIXTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(true);
     for (const re of ROUND_SIXTEEN_UNSOURCED) expect(removed.some(s => re.test(s)), String(re)).toBe(true);
@@ -1442,6 +1552,39 @@ describe('round sixteen: energy, stack, focus- and memory-page claims follow the
       'En un ensayo con adultos de 50 a 85 años (Spiers 1996, PubMed 8624220), 1000mg al día durante 3 meses mejoraron el recuerdo diferido solo en quienes tenían una memoria relativamente ineficiente, y 2000mg al día mejoraron la memoria verbal en un ensayo cruzado posterior.',
       'Los ensayos clínicos en adultos mayores a 100–300mg al día reportan beneficios en la memoria, aunque a menudo solo en subgrupos (ver nuestra página sobre la fosfatidilserina).',
       'La FDA solo permite para la fosfatidilserina declaraciones calificadas de que "may reduce the risk of dementia" o "cognitive dysfunction in the elderly", cada una seguida de "FDA concludes that there is little scientific evidence supporting this claim" (carta de la FDA, 13 de mayo de 2003)',
+      // U4
+      'Caffeine-free design lets you pair it with your own coffee or matcha if you want caffeine alongside its L-theanine.',
+      'El diseño sin cafeína permite combinarlo con tu café o mate local si quieres cafeína junto a su L-teanina.',
+      'Una guía práctica para combinar suplementos nootrópicos — incluyendo reglas de combinación segura',
+      'It pairs well with Arabic coffee or matcha if you want L-theanine with caffeine, without a stimulant-containing supplement.',
+      'GCC note: L-theanine alone can be paired with Arabic coffee or matcha',
+      "{ effect: 'With Caffeine', evidenceStrength: 'moderate', magnitude: 'moderate', studies: 4 }",
+      'Combined with caffeine, it improved attention measures versus placebo in several trials, though Foxe 2012 found no added benefit over either compound alone.',
+      'It sits in a multi-ingredient formula with Citicoline and Tyrosine, but it is still underdosed relative to the standalone evidence.',
+      'A practical guide to combining nootropic supplements — including safe pairing rules',
+      'L-theanine+caffeine attention effects versus placebo, with an honest jitteriness/anxiety caveat',
+      'Mind Lab Pro is a long-game supplement: the Bacopa trials we cite measured memory after 12 weeks.',
+      'Day one: subtle focus improvement, particularly for users new to cholinergic supplements. It contains no caffeine.',
+      'Often paired with caffeine; we cite no trial of L-Tyrosine with caffeine.',
+      'Sometimes paired with caffeine; we cite no trial of the pairing.',
+      'Sustained cognitive energy: what the trials we cite found.',
+      "Phosphatidylserine supports neuronal membrane fluidity; the FDA allows only a qualified claim that it may reduce the risk of dementia or cognitive dysfunction in the elderly, with the disclaimer that 'FDA concludes that there is little scientific evidence supporting this claim'.",
+      'In a systematic review of six 12-week trials (Pase 2012, PubMed 22747190), Bacopa improved 9 of 17 memory free-recall tests; in adults aged 65 and over (Calabrese 2008, PubMed 18611150), 300mg a day for 12 weeks improved delayed word recall.',
+      'En una revisión sistemática de seis ensayos de 12 semanas (Pase 2012, PubMed 22747190), la Bacopa mejoró 9 de 17 pruebas de recuerdo libre de memoria; en adultos de 65 años o más (Calabrese 2008, PubMed 18611150), 300mg al día durante 12 semanas mejoraron el recuerdo diferido de palabras.',
+      '200–600mg/day (a standardised extract; the trials we cite used SHR-5)',
+      'Rhodiola rosea naturally contains rosavins and salidrosides in about a 3:1 ratio, and preparations are made to reflect it (Ishaque 2012).',
+      'A 2016 review (McLellan, Caldwell & Lieberman — a narrative review, not a meta-analysis) found low-to-moderate doses (~40–300mg) consistently improve alertness',
+      '563 of the 6,451 active Foods with Function Claims (FFC, 機能性表示食品) notifications make a claim about memory or cognitive function (Consumer Affairs Agency database export, 2026-10-06)',
+      '(5) Aminoácidos (L-Theanine, L-Tyrosine): precursores de neurotransmisores.',
+      'Huperzine A (100mcg) bloquea la enzima que degrada la Acetylcholine; sus ensayos midieron efectos tras 4–16 semanas de dosis diaria, y no se encontró ningún ensayo de efecto agudo.',
+      'Huperzine A (100mcg) blocks the enzyme that breaks down acetylcholine; its trials measured effects after 4–16 weeks of daily dosing, and no acute-onset trial was found.',
+      'Phosphatidylserine is a phospholipid in neuronal cell membranes.',
+      'Phosphatidylserine es un fosfolípido de las membranas de las neuronas.',
+      'café (o mate) + L-teanina es un punto de partida sencillo: en Owen 2008 (PubMed 18681988), 50mg de cafeína con 100mg de L-teanina (una proporción 1:2) mejoraron la velocidad y la precisión',
+      // Attributed rationale that stays (not our claim).
+      'The theory is synergistic optimisation across all cognitive systems simultaneously.',
+      'work synergistically to support the function of mitochondria',
+      'The argument for: synergistic effects across multiple cognitive pathways.',
     ]) expect(ROUND_SIXTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(false);
   });
 
@@ -1452,5 +1595,17 @@ describe('round sixteen: energy, stack, focus- and memory-page claims follow the
       ),
     );
     expect(hits).toEqual([]);
+  });
+
+  test('no heroParagraph="..." attribute contains \\\' (it renders as a backslash)', () => {
+    expect(HERO_ATTR_ESCAPED_QUOTE.test(`heroParagraph="not just \\'does it work?\\'"`)).toBe(true);
+    expect(HERO_ATTR_ESCAPED_QUOTE.test(`heroParagraph="not just 'does it work?'"`)).toBe(false);
+    const pages = ROUND_SIXTEEN_SOURCES.filter(p => p.endsWith('.tsx'));
+    const heroPages = pages.filter(p => readFileSync(p, 'utf8').includes('heroParagraph="'));
+    expect(heroPages.length).toBeGreaterThan(0);
+    const offenders = heroPages
+      .filter(p => HERO_ATTR_ESCAPED_QUOTE.test(readFileSync(p, 'utf8')))
+      .map(p => relative(REPO_ROOT, p));
+    expect(offenders).toEqual([]);
   });
 });
