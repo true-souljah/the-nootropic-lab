@@ -737,7 +737,10 @@ describe('round thirteen: no unsourced superlatives in data or app copy', () => 
 // notification, made claims no source confirms (Denmark "may not be sold",
 // Sweden "conservative maximum dose", France "plant extracts at high doses",
 // a German herb-dose medicinal assessment), or was market colour with no
-// source at all.
+// source at all. Italy, Lithuania and Poland had no national page checked, so
+// their notes quote only the EC list entry; the Italian register/registration
+// claims, Lithuania's State Food and Veterinary Service and Poland's "GIS
+// oversees" went with the colour, as did Italy's market-size shipping line.
 const EU_COUNTRIES_FILE = resolve(DATA_DIR, 'eu-countries.ts');
 
 const ROUND_FOURTEEN_UNSOURCED: RegExp[] = [
@@ -762,7 +765,17 @@ const ROUND_FOURTEEN_UNSOURCED: RegExp[] = [
   /Administration of the Republic of Slovenia for Food Safety oversees/i,
   /oversees (food )?supplement registration/i,
   /Ministry of Health registers food supplements/i,
+  /maintains a supplementi alimentari register/i,
+  /Some ingredients require official registration before sale/i,
+  /Verify any Italy-specific restrictions/i,
+  /State Food and Veterinary Service oversees supplements/i,
+  /Chief Sanitary Inspectorate \(GIS\) oversees/i,
   // Unsourced market colour.
+  /Europe's most detailed supplement regulatory/i,
+  /mainstream supplement market well-established/i,
+  /largest Eastern European market/i,
+  /fast-growing supplement category/i,
+  /one of the largest European supplement markets/i,
   /particularly in Athens/i,
   /High purchasing power/i,
   /fourth-largest EU economy/i,
@@ -822,6 +835,15 @@ describe('round fourteen: EU country regulatory notes follow the EC list and nat
       'EU membership ensures product availability.',
       'Germany has robust supplement regulation under the NemV (Nahrungsergänzungsmittelverordnung), aligned with EU Directive 2002/46/EC.',
       'Sweden has strict supplement regulation through the Swedish Food Agency (Livsmedelsverket).',
+      "Italy has one of Europe's most detailed supplement regulatory frameworks.",
+      'The Ministry of Health maintains a supplementi alimentari register.',
+      'Some ingredients require official registration before sale.',
+      'Verify any Italy-specific restrictions for novel ingredients.',
+      'Italy is one of the largest European supplement markets.',
+      'The State Food and Veterinary Service oversees supplements.',
+      'EU member since 2004 -- mainstream supplement market well-established.',
+      "Poland is the EU's largest Eastern European market and has a fast-growing supplement category.",
+      'The Chief Sanitary Inspectorate (GIS) oversees food supplements.',
     ];
     for (const s of removed) expect(ROUND_FOURTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(true);
     for (const re of ROUND_FOURTEEN_UNSOURCED) expect(removed.some(s => re.test(s)), String(re)).toBe(true);
