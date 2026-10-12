@@ -264,7 +264,7 @@ export const ingredients: Ingredient[] = [
       timing: 'Morning, on an empty stomach — 30 minutes before breakfast. Rhodiola is mildly stimulating; evening doses commonly cause insomnia.',
       withFood: 'Take on an empty stomach for best absorption. The 30-minute pre-meal window is consistent across most clinical protocols. A small amount of food is fine but a full meal reduces absorption.',
       cycling: 'Optional. The trials lasted from a single dose to 4 weeks, so there is no data on months of continuous use; some people cycle 4–6 weeks on, 1–2 weeks off as a precaution.',
-      forms: 'Capsule. Always verify standardisation: 3% rosavins and 1% salidroside is the established ratio used in most clinical trials. Products without stated standardisation may be significantly under-dosed on active compounds.',
+      forms: 'Capsule. Look for a stated rosavin and salidroside standardisation on the label. The trials in our record that name an extract used SHR-5, and their abstracts do not state its rosavin or salidroside percentages.',
     },
     stacksWith: [
       { ingredient: 'Ashwagandha', slug: 'ashwagandha', reason: 'The classic adaptogen stack. Rhodiola is activating (raises norepinephrine, best morning); Ashwagandha is calming (lowers cortisol, best evening). Together they provide full-day HPA axis support without one cancelling the other out.' },
