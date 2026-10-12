@@ -3,7 +3,9 @@ import { test, expect } from '@playwright/test';
 // EU Pricing tab: in the eu/gcc/latam evidence file " | " joins separate page
 // fragments (packages/data/evidence/vendor-terms-2026-10/manifest.json), so a
 // quote renders one fragment per line inside one blockquote, with no literal
-// " | ". A German vendor quote on this English page carries lang="de".
+// " | ". German vendor text on this English page carries lang="de": since
+// 2026-10-12 that is the store price's pack text (the one-time price quote is
+// no longer shown; the store price carries the price).
 // Literal pipes from the vendor's own page stay (US spec, Mind Lab Pro shipping).
 
 test.beforeEach(async ({ context }) => {
@@ -31,10 +33,10 @@ test('/brainzyme-focus-pro-review/ renders joined fragments as separate lines', 
     'Belgium & Switzerland: 3-5 working days',
   ]);
 
-  const price = panel.locator('[data-vendor-term="oneTimePrice"] blockquote');
-  await expect(price).toHaveAttribute('lang', 'de');
-  await expect(price.locator('p')).toHaveText(['1 MONAT: 2 Packs, 60 Kapseln', '31,75 €']);
+  await expect(panel.locator('[data-vendor-term="oneTimePrice"]')).toHaveCount(0);
+  const pack = panel.locator('[data-store-price-pack] span[lang="de"]');
+  await expect(pack).toHaveText('1 MONAT: 2 Packs, 60 Kapseln');
   const quotes = await panel.locator('blockquote').allTextContents();
-  expect(quotes).toHaveLength(4);
+  expect(quotes).toHaveLength(3);
   for (const quote of quotes) expect(quote).not.toContain(' | ');
 });

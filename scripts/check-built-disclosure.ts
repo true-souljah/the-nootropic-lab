@@ -17,7 +17,14 @@
 //     a "page" strip, or the commission badge ("Affiliate disclosure",
 //     広告（アフィリエイト）…) on its strip or trust note;
 //   - fails a rel="sponsored" link that is not a catalogue purchase URL (it
-//     cannot be classified, so the page cannot be judged).
+//     cannot be classified, so the page cannot be judged);
+//   - on a route in CLIENT_RENDERED_BUY_LINK_ROUTES (buy links rendered in the
+//     browser, absent from the static HTML), requires the "page" strip and
+//     the page-level sentence regardless, and fails when the route is not built;
+//   - on a page in another language than English (the subtree's
+//     `<div lang="…">` wrapper, else `<html lang>`), fails any English
+//     disclosure sentence or label, and any strip / trust note / in-content
+//     notice that is not in the page's own language.
 // Runs in CI after all 8 builds are placed (build.yml e2e job) and locally
 // via `npm run check:disclosure [region...]`.
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
@@ -26,7 +33,7 @@ import { fileURLToPath } from 'node:url';
 import {
   allProductsUS, allProductsEU, allProductsCA, allProductsAU,
   allProductsJP, allProductsLatam, allProductsGCC, allProductsSEA,
-  earnsCommission, getStrings, purchaseUrl,
+  CLIENT_RENDERED_BUY_LINK_ROUTES, earnsCommission, getStrings, purchaseUrl,
 } from '../packages/data/src/index';
 import type { Locale, Product } from '../packages/data/src/index';
 
@@ -62,6 +69,33 @@ const PAGE_CLAIMS = [
 ];
 const COMMISSION_BADGES = [...new Set(BUNDLES.map((d) => d.badge))];
 
+// ── Language of the disclosure ─────────────────────────────────────────
+const EN = getStrings('en').disclosure;
+// English disclosure sentences: the bundle's, plus FPDisclosure's English
+// fallback for callers without a bundle. None may appear on a page in
+// another language.
+const EN_SENTENCES = [
+  EN.text, EN.inline, EN.noCommission, EN.siteWide, EN.ranking,
+  'We earn a commission when you buy through our links.',
+  'Our scores are computed before commissions are checked.',
+];
+// English labels: checked on the disclosure elements and their aria-labels
+// ("Disclosure" alone is too common a word to search the whole page for).
+const EN_LABELS = [EN.badge, EN.neutralBadge, EN.methodology];
+/** Locale bundle of a page language (`<html lang>` / subtree `<div lang>`). */
+function localeOfLang(lang: string): Locale | null {
+  if (lang === 'fr-CA') return 'fr-CA';
+  const base = lang.split('-')[0];
+  return (LOCALES as string[]).includes(base) ? (base as Locale) : null;
+}
+/** The locale whose disclosure sentence a strip / trust note / notice carries. */
+function localeOfDisclosure(text: string): Locale | undefined {
+  return LOCALES.find((l) => {
+    const d = getStrings(l).disclosure;
+    return [d.inline, d.siteWide, d.noCommission, d.text].some((s) => text.includes(s));
+  });
+}
+
 function walk(dir: string, acc: string[] = []): string[] {
   for (const e of readdirSync(dir, { withFileTypes: true })) {
     const p = join(dir, e.name);
@@ -88,7 +122,7 @@ const textOf = (html: string) => decode(html.replace(/<[^>]+>/g, ' ')).replace(/
 
 const failures: string[] = [];
 const rows: string[] = [];
-const totals = { pages: 0, withLink: 0, without: 0, strips: 0 };
+const totals = { pages: 0, withLink: 0, without: 0, strips: 0, clientRendered: 0 };
 for (const region of scanRegions) {
   const commissionUrls = new Set<string>();
   const catalogueUrls = new Set<string>();
@@ -106,11 +140,25 @@ for (const region of scanRegions) {
     }
   }
   const out = join(ROOT, 'apps', region, 'out');
+  // Routes whose buy links render in the browser: their static HTML holds no
+  // buy link to count, so they must carry the "page" strip regardless.
+  const clientRoutes = new Set(
+    CLIENT_RENDERED_BUY_LINK_ROUTES[region as keyof typeof CLIENT_RENDERED_BUY_LINK_ROUTES] ?? [],
+  );
+  for (const route of clientRoutes) {
+    if (!existsSync(join(out, route, 'index.html'))) {
+      failures.push(`${region}${route}: listed in CLIENT_RENDERED_BUY_LINK_ROUTES but not in the build`);
+    }
+  }
   const scope = { page: 0, site: 0, product: 0, none: 0 };
   let withLink = 0;
   let without = 0;
+  let clientRendered = 0;
+  // Per page language: pages, and disclosure elements checked on them.
+  const langs: Record<string, { pages: number; disclosures: number }> = {};
   const files = walk(out);
   for (const file of files) {
+    const route = file.slice(out.length).replace(/index\.html$/, '');
     const page = `${region}${file.slice(out.length)}`;
     const html = stripCode(readFileSync(file, 'utf8'));
     const text = textOf(html);
@@ -139,9 +187,21 @@ for (const region of scanRegions) {
       ...strips.map((m) => textOf(m[2])),
       ...[...html.matchAll(/<p role="note" data-trust-note=""[^>]*>([\s\S]*?)<\/p>/g)].map((m) => textOf(m[1])),
     ];
+    // In-content notices (AffiliateDisclosure and page-authored equivalents).
+    const notices = [...html.matchAll(/<div class="disclosure-banner[^"]*" role="note"[^>]*>([\s\S]*?)<\/div>/g)].map((m) =>
+      textOf(m[1]),
+    );
     const claims = PAGE_CLAIMS.filter((c) => text.includes(c));
 
-    if (commissionLinks > 0) {
+    if (clientRoutes.has(route)) {
+      clientRendered++;
+      if (stripScope !== 'page') {
+        failures.push(`${page}: renders buy links in the browser (CLIENT_RENDERED_BUY_LINK_ROUTES), yet the static strip scope is "${stripScope}"`);
+      }
+      if (claims.length === 0) {
+        failures.push(`${page}: renders buy links in the browser (CLIENT_RENDERED_BUY_LINK_ROUTES), yet no page-level commission sentence`);
+      }
+    } else if (commissionLinks > 0) {
       withLink++;
       if (claims.length === 0) failures.push(`${page}: ${commissionLinks} commission-earning link(s) but no page-level commission sentence`);
       if (strips.length > 0 && stripScope !== 'page') {
@@ -155,14 +215,63 @@ for (const region of scanRegions) {
         for (const b of COMMISSION_BADGES) if (t.includes(b)) failures.push(`${page}: no commission-earning link, yet the badge "${b}"`);
       }
     }
+
+    // Language: a translated subtree wraps its pages in <div lang="…">
+    // (us /es/, eu /de/ /fr/ /pt/, ca /fr/); otherwise the page is in its
+    // root layout's <html lang> (ja for jp, es for latam).
+    const lang = /<div lang="([^"]+)">/.exec(html)?.[1] ?? /<html\b[^>]*\slang="([^"]+)"/i.exec(html)?.[1] ?? '';
+    const locale = localeOfLang(lang);
+    if (locale === null) {
+      failures.push(`${page}: page language "${lang}" has no disclosure bundle`);
+      continue;
+    }
+    const disclosures = [...labelled, ...notices];
+    const stat = (langs[lang] ??= { pages: 0, disclosures: 0 });
+    stat.pages++;
+    stat.disclosures += disclosures.length;
+    for (const t of disclosures) {
+      const found = localeOfDisclosure(t);
+      if (found !== undefined && found !== locale) {
+        failures.push(`${page}: ${found} disclosure on a "${lang}" page: "${t.slice(0, 70)}…"`);
+      } else if (found === undefined && locale !== 'en') {
+        failures.push(`${page}: disclosure in no "${locale}" bundle on a "${lang}" page: "${t.slice(0, 70)}…"`);
+      }
+    }
+    if (locale !== 'en') {
+      for (const s of EN_SENTENCES) {
+        if (text.includes(s)) failures.push(`${page}: English disclosure on a "${lang}" page: "${s.slice(0, 70)}…"`);
+      }
+      for (const t of disclosures) {
+        for (const l of EN_LABELS) if (t.includes(l)) failures.push(`${page}: English disclosure label "${l}" on a "${lang}" page`);
+      }
+      for (const m of html.matchAll(/<[a-z]+\b[^>]*\srole="note"[^>]*>/gi)) {
+        const label = decode(/\saria-label="([^"]*)"/.exec(m[0])?.[1] ?? '');
+        if (EN_LABELS.includes(label)) failures.push(`${page}: English aria-label "${label}" on a disclosure of a "${lang}" page`);
+      }
+    }
   }
   totals.pages += files.length;
   totals.withLink += withLink;
   totals.without += without;
   totals.strips += scope.page + scope.site + scope.product;
+  totals.clientRendered += clientRendered;
+  if (clientRendered !== clientRoutes.size) {
+    failures.push(`${region}: checked ${clientRendered} of ${clientRoutes.size} CLIENT_RENDERED_BUY_LINK_ROUTES pages`);
+  }
+  // A language with pages but no disclosure element matched means the
+  // element patterns above went stale: refuse rather than pass.
+  for (const [lang, s] of Object.entries(langs)) {
+    if (lang !== 'en' && s.pages > 0 && s.disclosures === 0) {
+      failures.push(`${region}: ${s.pages} "${lang}" page(s) but no disclosure element matched on them`);
+    }
+  }
   rows.push(
     `  ${region.padEnd(5)} pages=${files.length} withCommissionLink=${withLink} without=${without} ` +
-      `strip page=${scope.page} site=${scope.site} product=${scope.product} none=${scope.none}`,
+      `clientRendered=${clientRendered} ` +
+      `strip page=${scope.page} site=${scope.site} product=${scope.product} none=${scope.none} ` +
+      `lang ${Object.entries(langs)
+        .map(([l, s]) => `${l}=${s.pages}p/${s.disclosures}d`)
+        .join(' ')}`,
   );
 }
 
@@ -181,5 +290,7 @@ if (totals.pages === 0 || totals.withLink === 0 || totals.without === 0 || total
 }
 console.log(
   `check-built-disclosure: OK — ${totals.withLink} page(s) with a commission-earning link all say so; ` +
-    `${totals.without} page(s) without one carry no "on this page" claim.`,
+    `${totals.without} page(s) without one carry no "on this page" claim; ` +
+    `${totals.clientRendered} page(s) with browser-rendered buy links carry the page-level strip; ` +
+    `every disclosure is in its page's language.`,
 );

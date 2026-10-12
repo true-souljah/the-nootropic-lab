@@ -18,6 +18,7 @@ export {
 } from './purchase-link';
 export type { DisclosureScope } from './commission';
 export {
+  CLIENT_RENDERED_BUY_LINK_ROUTES,
   earnsCommission,
   NO_COMMISSION_RATE_VALUES,
   pageDisclosureScope,

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { ComparisonTable, AffiliateDisclosure, SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
 import { productsUS } from '@nootropic/data';
-import { searchItems, uiStrings } from '@/lib/search';
+import { searchItems, uiStrings } from '@/lib/search-es';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -41,7 +41,7 @@ export default function EsCompararPage() {
           resultados por puntuación, precio o garantía de devolución del dinero. Filtra por
           productos sin cafeína.
         </p>
-        <AffiliateDisclosure />
+        <AffiliateDisclosure strings={uiStrings.disclosure} />
         <div className="mt-8">
           <ComparisonTable products={productsUS} market="us" />
         </div>

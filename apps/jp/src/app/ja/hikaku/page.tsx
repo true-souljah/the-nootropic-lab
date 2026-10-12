@@ -40,7 +40,7 @@ export default function JaHikakuPage() {
           日本で購入可能なすべての主要ブランドを横並びで比較します。スコア、価格、返金保証で並べ替え。
           カフェインフリーでフィルタリングできます。
         </p>
-        <AffiliateDisclosure />
+        <AffiliateDisclosure strings={uiStrings.disclosure} />
         <div className="mt-8">
           <ComparisonTable products={productsJP} market="jp" />
         </div>
