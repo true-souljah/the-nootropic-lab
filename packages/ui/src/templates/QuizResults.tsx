@@ -5,6 +5,7 @@ import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
 import { ProductThumb } from '../primitives/ProductThumb';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
+import { FPTrustNote } from '../public-chrome/FPTrustNote';
 import type { Product } from '@nootropic/data';
 import {
   scoreQuiz,
@@ -77,6 +78,12 @@ export default function QuizResults({
           {`${answers.budget}/month budget`} — {top.name} is the strongest match in our coverage.{' '}
           {top.summary}
         </p>
+
+        {/* Inline disclosure directly above the first buy link. The results
+            render in the browser from the query string, so the page-level
+            line is unconditional, as on the page's top strip
+            (CLIENT_RENDERED_BUY_LINK_ROUTES). */}
+        <FPTrustNote strings={getStrings('en').disclosure} scope="page" className="mb-6" />
 
         {/* Top recommendation card */}
         <Card padding={24} className="border-ds-accent relative mb-8" style={{ borderWidth: 1.5 }}>

@@ -38,7 +38,7 @@ export default function FrComparerPage() {
           Comparez toutes les grandes marques disponibles au Canada côte à côte. Triez par score,
           prix ou garantie de remboursement. Filtrez les produits sans caféine.
         </p>
-        <AffiliateDisclosure />
+        <AffiliateDisclosure strings={uiStrings.disclosure} />
         <div className="mt-8">
           <ComparisonTable products={productsCA} market="ca" />
         </div>

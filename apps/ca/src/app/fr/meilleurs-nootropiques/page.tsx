@@ -113,7 +113,7 @@ export default function FrMeilleursNootropiquesPage() {
           </p>
         </div>
 
-        <AffiliateDisclosure />
+        <AffiliateDisclosure strings={uiStrings.disclosure} />
 
         <div className="mb-8">
           <a href="#comparison-table" className="text-green-700 underline text-sm font-medium">
