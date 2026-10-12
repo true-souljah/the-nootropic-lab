@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
-  AffiliateDisclosure,
   SchemaOrg,
   Sources,
   buildAlternates,
@@ -164,8 +163,6 @@ export default function Page() {
           general: fuera de esos siete productos, la disposición no declara prohibido ningún otro
           producto ni ingrediente.
         </aside>
-
-        <AffiliateDisclosure />
 
         {/* What Artículo 1 prohibits */}
         <section className="my-10">

@@ -12,7 +12,7 @@ import TrackedAffiliateLink from '../TrackedAffiliateLink';
 import ShortlistButton from './ShortlistButton';
 import type { AffiliateClickContext } from '../trackAffiliateClick';
 import { SCORE_TIERS } from './listicleRanking';
-import { servingAmount, pillarText, guaranteeDays, formatMoney } from '@nootropic/data';
+import { servingAmount, pillarText, guaranteeDays, formatMoney, pageDisclosureScope } from '@nootropic/data';
 import { priceText, priceLocaleOf } from '../price-text';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
@@ -105,6 +105,9 @@ export default function BestOf({
 }: BestOfProps) {
   const pd = uiStrings.productDetail;
   const sorted = [...products].sort((a, b) => b.score - a.score);
+  // Every ranked row renders a buy link: "on this page" only when one of
+  // them earns us a commission.
+  const disclosureScope = pageDisclosureScope(sorted);
   const audited = products.length;
   const recommended = products.filter((p) => p.score >= recommendedCutoff).length;
   const withDoses = products.filter((p) => p.ingredientDosages.length > 0);
@@ -145,7 +148,7 @@ export default function BestOf({
       uiStrings={uiStrings}
       sidebarMeta={`${products.length} products`}
     >
-      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} />
+      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} scope={disclosureScope} />
       <div className="px-4 sm:px-7 pt-7 pb-10">
         {/* Header */}
         <div className="flex justify-between items-end mb-[18px] flex-wrap gap-4">
@@ -191,7 +194,7 @@ export default function BestOf({
 
         {/* Inline disclosure + ranking statement + methodology link, directly
             above the first affiliate CTA (preList spotlight or ranked rows). */}
-        <FPTrustNote strings={uiStrings.disclosure} className="mb-[18px]" />
+        <FPTrustNote strings={uiStrings.disclosure} scope={disclosureScope} className="mb-[18px]" />
 
         {preList && <div className="mb-8">{preList}</div>}
 

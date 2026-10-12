@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 // Smoke test for /ja/yakkan-shoumei/ — the educational page shipped in
 // PR-C3b covering Japan's MHLW pharmaceutical-import certification.
 // Verifies the page renders, has correct breadcrumb + heading,
-// AffiliateDisclosure shows, FAQ + disclaimer sections present, and
+// FAQ + disclaimer sections present, and
 // the cross-links to /ffc-notified-cognitive-supplements/ and
 // /ja/best-nootropics/ are wired correctly.
 //

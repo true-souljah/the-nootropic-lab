@@ -89,12 +89,22 @@ export interface UIStrings {
   disclosure: {
     text: string;
     methodology: string;
-    /** Short label on the top-of-page disclosure strip. */
+    /**
+     * Short label on the disclosure strip and trust note of a page with a
+     * commission-earning buy link (DisclosureScope 'page'). JP: carries 広告.
+     */
     badge: string;
+    /**
+     * Label in place of `badge` on a page without a commission-earning buy
+     * link (DisclosureScope 'site' and 'product'). Neutral: not "advertisement"
+     * (広告) and not "affiliate", because the page carries no affiliate link.
+     */
+    neutralBadge: string;
     /**
      * Plain-language commission sentence rendered next to the first
      * affiliate CTA (FTC "as close as possible"; UK ASA: never the word
-     * "affiliate" alone).
+     * "affiliate" alone). Only on a page that renders at least one buy link
+     * to a product we earn a commission on (DisclosureScope 'page').
      */
     inline: string;
     /**
@@ -103,6 +113,12 @@ export interface UIStrings {
      * True whether or not the page shows a buy link.
      */
     noCommission: string;
+    /**
+     * Replaces `inline` on a page without a commission-earning buy link
+     * (DisclosureScope 'site'): a site-level statement that never says the
+     * page itself carries affiliate links. Followed by `ranking` on the strip.
+     */
+    siteWide: string;
     /**
      * Whether commission influences ranking (EU UCPD Annex I 11a). Must
      * mirror the published /methodology/ policy — do not change without it.
@@ -438,8 +454,10 @@ const en: UIStrings = {
     text: 'Affiliate disclosure: This page contains affiliate links. If you purchase through our links, we may earn a commission at no extra cost to you. Our editorial opinions are independent — we only recommend products we have independently researched.',
     methodology: 'Read our methodology',
     badge: 'Affiliate disclosure',
+    neutralBadge: 'Disclosure',
     inline: 'We earn a commission if you buy through links on this page, at no extra cost to you.',
     noCommission: "We don't earn a commission on this product; we have no affiliate deal for it.",
+    siteWide: 'Some pages on this site contain affiliate links; we may earn a commission when you buy through them.',
     ranking: 'Our scores and rankings follow our published methodology; commissions do not influence them.',
   },
   table: {
@@ -683,8 +701,10 @@ const es: UIStrings = {
     text: 'Divulgación de afiliados: Esta página contiene enlaces de afiliados. Si compra a través de nuestros enlaces, podemos ganar una comisión sin costo adicional para usted. Nuestras opiniones editoriales son independientes — solo recomendamos productos que hemos investigado de forma independiente.',
     methodology: 'Lea nuestra metodología',
     badge: 'Divulgación de afiliados',
+    neutralBadge: 'Transparencia',
     inline: 'Ganamos una comisión si compra a través de los enlaces de esta página, sin costo adicional para usted.',
     noCommission: 'No ganamos ninguna comisión por este producto; no tenemos un acuerdo de afiliados para él.',
+    siteWide: 'Algunas páginas de este sitio contienen enlaces de afiliados; podemos ganar una comisión si compra a través de ellos.',
     ranking: 'Nuestras puntuaciones y clasificaciones siguen nuestra metodología publicada; las comisiones no influyen en ellas.',
   },
   table: {
@@ -928,8 +948,10 @@ const fr: UIStrings = {
     text: 'Divulgation d\'affiliation : Cette page contient des liens affiliés. Si vous achetez via nos liens, nous pouvons gagner une commission sans frais supplémentaires. Nos opinions éditoriales sont indépendantes.',
     methodology: 'Lire notre méthodologie',
     badge: "Divulgation d'affiliation",
+    neutralBadge: 'Transparence',
     inline: 'Nous touchons une commission si vous achetez via les liens de cette page, sans frais supplémentaires pour vous.',
     noCommission: 'Nous ne touchons aucune commission sur ce produit : nous n’avons aucun accord d’affiliation le concernant.',
+    siteWide: 'Certaines pages de ce site contiennent des liens affiliés ; nous pouvons toucher une commission si vous achetez via ces liens.',
     ranking: "Nos notes et classements suivent notre méthodologie publiée ; les commissions ne les influencent pas.",
   },
   table: {
@@ -1173,8 +1195,10 @@ const ja: UIStrings = {
     text: 'アフィリエイト広告を含みます：このページにはアフィリエイトリンクが含まれています。当社のリンクを通じて購入された場合、追加費用なしでコミッションを受け取る場合があります。編集意見は独立しており、独自に調査した製品のみを推奨しています。',
     methodology: '評価方法を読む',
     badge: '広告（アフィリエイト）',
+    neutralBadge: '情報開示',
     inline: '本ページのリンクから商品を購入されると、当サイトは紹介料を受け取ります（お客様の追加負担はありません）。',
     noCommission: '当サイトはこの商品についてアフィリエイト契約を結んでおらず、紹介料を受け取っていません。',
+    siteWide: '当サイトの一部のページにはアフィリエイトリンクが含まれており、そのリンクから商品を購入されると当サイトが紹介料を受け取る場合があります。',
     ranking: 'スコアと順位は公開している評価方法に基づいて決定しており、紹介料の影響は受けません。',
   },
   table: {
@@ -1418,8 +1442,10 @@ const pt: UIStrings = {
     text: 'Divulgação de afiliação: Esta página contém links de afiliados. Se comprar através dos nossos links, podemos ganhar uma comissão sem custos adicionais. As nossas opiniões editoriais são independentes.',
     methodology: 'Ler a nossa metodologia',
     badge: 'Divulgação de afiliação',
+    neutralBadge: 'Transparência',
     inline: 'Recebemos uma comissão se comprar através dos links desta página, sem custos adicionais para si.',
     noCommission: 'Não recebemos qualquer comissão por este produto; não temos nenhum acordo de afiliação para ele.',
+    siteWide: 'Algumas páginas deste site contêm links de afiliados; podemos receber uma comissão se comprar através deles.',
     ranking: 'As nossas pontuações e classificações seguem a nossa metodologia publicada; as comissões não as influenciam.',
   },
   table: {
@@ -1663,8 +1689,10 @@ const de: UIStrings = {
     text: 'Affiliate-Hinweis: Diese Seite enthält Affiliate-Links. Wenn Sie über unsere Links kaufen, erhalten wir eine Provision ohne zusätzliche Kosten für Sie. Unsere redaktionellen Meinungen sind unabhängig — wir empfehlen nur Produkte, die wir unabhängig recherchiert haben.',
     methodology: 'Methodik lesen',
     badge: 'Werbehinweis (Affiliate-Links)',
+    neutralBadge: 'Transparenzhinweis',
     inline: 'Wenn Sie über Links auf dieser Seite kaufen, erhalten wir eine Provision – ohne Mehrkosten für Sie.',
     noCommission: 'Für dieses Produkt erhalten wir keine Provision; wir haben dafür keine Affiliate-Vereinbarung.',
+    siteWide: 'Einige Seiten dieser Website enthalten Affiliate-Links; wenn Sie über diese Links kaufen, erhalten wir möglicherweise eine Provision.',
     ranking: 'Unsere Bewertungen und Rankings folgen unserer veröffentlichten Methodik; Provisionen haben keinen Einfluss darauf.',
   },
   table: {
@@ -1913,8 +1941,10 @@ const frCa: UIStrings = {
     text: 'Divulgation de liens affiliés : Cette page contient des liens affiliés. Si vous effectuez un achat par l\'entremise de nos liens, nous pouvons toucher une commission sans frais supplémentaires pour vous. Nos opinions éditoriales sont indépendantes — nous recommandons uniquement des produits que nous avons évalués de façon indépendante.',
     methodology: 'Lire notre méthodologie',
     badge: 'Divulgation de liens affiliés',
+    neutralBadge: 'Divulgation',
     inline: "Nous touchons une commission si vous effectuez un achat par l'entremise des liens de cette page, sans frais supplémentaires pour vous.",
     noCommission: 'Nous ne touchons aucune commission sur ce produit : nous n’avons aucune entente d’affiliation le concernant.',
+    siteWide: "Certaines pages de ce site contiennent des liens affiliés; nous pouvons toucher une commission si vous effectuez un achat par l'entremise de ces liens.",
     ranking: 'Nos notes et nos classements suivent notre méthodologie publiée; les commissions ne les influencent pas.',
   },
   table: {

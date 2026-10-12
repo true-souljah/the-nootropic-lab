@@ -112,10 +112,11 @@ export default function Page() {
   // The page's only buy link is Alpha Brain's. With no affiliate deal for it
   // (commissionRate "0%"), the page carries no affiliate link: no top
   // disclosure strip, and a no-commission note in place of the affiliate one.
+  // With a deal, linkedProducts gives the strip its "on this page" sentence.
   const commission = earnsCommission(alphaBrain);
 
   return (
-    <PublicShell searchItems={searchItems} uiStrings={uiStrings} hideDisclosure={!commission}>
+    <PublicShell searchItems={searchItems} uiStrings={uiStrings} linkedProducts={[alphaBrain]} hideDisclosure={!commission}>
       <SchemaOrg schema={articleSchema} />
       <SchemaOrg schema={breadcrumbSchema} />
 

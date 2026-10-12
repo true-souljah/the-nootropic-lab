@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function MeilleursNootropiquesFR() {
   return (
-    <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
+    <PublicShell searchItems={searchItems} uiStrings={uiStrings} linkedProducts={productsEU}>
     <article className="max-w-5xl mx-auto px-4 py-10" lang="fr">
       <div className="mb-2 text-xs text-gray-500">
         Dernière mise à jour :{' '}

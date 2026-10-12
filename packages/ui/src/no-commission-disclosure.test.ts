@@ -4,7 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import {
   allProductsUS, allProductsEU, allProductsCA, allProductsAU,
   allProductsJP, allProductsLatam, allProductsGCC, allProductsSEA,
-  earnsCommission, getLocaleForMarket, getStrings, NO_COMMISSION_RATE_VALUES,
+  earnsCommission, getLocaleForMarket, getStrings, NO_COMMISSION_RATE_VALUES, purchaseUrl,
 } from '@nootropic/data';
 import type { Locale, Product } from '@nootropic/data';
 import ProductDetail from './templates/ProductDetail';
@@ -156,18 +156,32 @@ describe('review pages — the commission sentence only where we earn one', () =
       // The ranking statement (trust note, cookie card) and the "Our cut" value stay.
       if (!product.discontinued) expect(count(html, s.disclosure.ranking)).toBe(2);
       expect(html).toContain(`>${product.commissionRate}<`);
+      // Neutral badge, never "Affiliate disclosure" / 広告（アフィリエイト）: no
+      // commission-earning link on the page (strip, and the trust note unless discontinued).
+      expect(html).not.toContain(s.disclosure.badge);
+      expect(count(html, `${s.disclosure.neutralBadge}</span>`)).toBe(product.discontinued ? 1 : 2);
     },
   );
 
   test.each(withCommission.map(({ region, product }) => [region, product.slug, product] as const))(
-    '%s %s (commission): keeps the commission sentence',
+    '%s %s (commission): the commission sentence wherever the page links the product',
     (region, _slug, product) => {
       const locale = getLocaleForMarket(region);
       const s = getStrings(locale);
       const html = renderReview(product, locale, region);
-      expect(count(html, s.disclosure.inline)).toBe(product.discontinued ? 1 : 3);
       expect(html).not.toContain(s.disclosure.noCommission);
       expect(html).not.toContain(s.productDetail.pricing.noAffiliateCookie);
+      if (!product.discontinued && purchaseUrl(product) !== null) {
+        // Top strip, trust note, cookie card; the commission badge (JP: 広告).
+        expect(count(html, s.disclosure.inline)).toBe(3);
+        expect(count(html, `${s.disclosure.badge}</span>`)).toBe(2);
+      } else {
+        // No buy link on the page (a discontinued product loses every buy
+        // surface): the site-level line, never "links on this page".
+        for (const sentence of COMMISSION_SENTENCES) expect(html).not.toContain(sentence);
+        expect(count(html, s.disclosure.siteWide)).toBe(product.discontinued ? 1 : 3);
+        expect(html).not.toContain(s.disclosure.badge);
+      }
     },
   );
 
