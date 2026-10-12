@@ -124,6 +124,7 @@ describe('storePriceProblems', () => {
     [{ checkedAt: '2026-02-31' }, /ISO date/],
     [{ lang: 'German' }, /non-English BCP-47/],
     [{ lang: 'en' }, /non-English BCP-47/],
+    [{ lang: 'en-US' }, /non-English BCP-47/],
     [{ text: 'From $79.95' }, /"from" price/],
     [{ currency: 'EUR' }, /not a dollar currency/],
     [{ url: 'https://example.com/p?affid=1' }, /no query or fragment/],

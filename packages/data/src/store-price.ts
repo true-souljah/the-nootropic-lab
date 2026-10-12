@@ -110,7 +110,7 @@ export function storePriceProblems(product: Product): string[] {
   if (typeof s.amount !== 'number' || !(s.amount > 0)) problems.push('storePrice.amount must be a positive number');
   if (typeof s.currency !== 'string' || !ISO_CURRENCY.test(s.currency)) problems.push(`storePrice.currency must be an ISO 4217 code: ${JSON.stringify(s.currency)}`);
   for (const key of ['text', 'pack'] as const) if (typeof s[key] !== 'string' || !(s[key] as string).trim()) problems.push(`storePrice.${key} must be the vendor's verbatim text`);
-  if (s.lang !== undefined && (typeof s.lang !== 'string' || !/^[a-z]{2}(?:-[A-Z]{2})?$/.test(s.lang) || s.lang === 'en')) {
+  if (s.lang !== undefined && (typeof s.lang !== 'string' || !/^[a-z]{2}(?:-[A-Z]{2})?$/.test(s.lang) || s.lang.split('-')[0] === 'en')) {
     problems.push(`storePrice.lang, when set, must be a non-English BCP-47 language such as "de": ${JSON.stringify(s.lang)}`);
   }
   for (const key of ['supply', 'directions'] as const) {
