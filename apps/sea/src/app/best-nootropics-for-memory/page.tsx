@@ -41,7 +41,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Phosphatidylserine (PS)',
     ingredientSlugs: ['phosphatidylserine'],
     evidence:
-      'Phospholipid component of brain cell membranes. The US FDA permits a qualified health claim for PS supporting cognitive function in elderly adults. Most RCT evidence is in 50–80-year-olds at 100–300mg/day. The trial linked below (Vakhapova et al. 2010) is not the basis of the FDA claim: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo. Sunflower-derived PS is preferred over soy-derived for halal-conscious buyers and those concerned about soy allergens.',
+      'Phospholipid component of brain cell membranes. The US FDA allows phosphatidylserine only qualified claims that it \'may reduce the risk of dementia\' or \'cognitive dysfunction in the elderly\', each followed by \'FDA concludes that there is little scientific evidence supporting this claim\' (FDA letter, 13 May 2003). RCTs in older adults at 100–300mg a day report memory benefits, though often only in subgroups (see our phosphatidylserine page). The trial linked below (Vakhapova et al. 2010) is not the basis of the FDA claim: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo. Sunflower-derived PS is preferred over soy-derived for halal-conscious buyers and those concerned about soy allergens.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {

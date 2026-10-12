@@ -34,7 +34,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Phosphatidylserine (PS) — FDA qualified health claim',
     ingredientSlugs: ['phosphatidylserine'],
     evidence:
-      'The FDA permits a qualified health claim that PS may reduce risk of dementia and cognitive dysfunction in elderly. Multiple RCTs in 50–80-year-olds at 100–300mg/day show improvements in memory, processing speed, and cognitive complaints. The trial linked below (Vakhapova et al. 2010) is not the basis of the FDA claim: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo. Used in international Mind Lab Pro (100mg Sharp-PS).',
+      'The FDA allows phosphatidylserine only qualified claims that it \'may reduce the risk of dementia\' or \'cognitive dysfunction in the elderly\', each followed by \'FDA concludes that there is little scientific evidence supporting this claim\' (FDA letter, 13 May 2003). RCTs in older adults at 100–300mg a day report memory benefits, though often only in subgroups (see our phosphatidylserine page). The trial linked below (Vakhapova et al. 2010) is not the basis of the FDA claim: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo. Used in international Mind Lab Pro (100mg Sharp-PS).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {

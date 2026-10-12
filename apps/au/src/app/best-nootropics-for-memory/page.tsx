@@ -42,7 +42,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Phosphatidylserine (PS)',
     ingredientSlugs: ['phosphatidylserine'],
     evidence:
-      'Phospholipid component of brain cell membranes. Most RCT evidence is in 50–80-year-olds at 100–300mg/day. Less-strong evidence for memory in healthy younger adults. PS is listed for TGA Listed Medicines as soy phosphatidylserine-enriched soy lecithin (liquid or powder), an active ingredient whose maximum recommended daily dose must not provide more than 300 mg of soy phosphatidylserine (Permissible Ingredients Determination, Schedule 1 items 4689 and 4690; checked 2026-10-08); the PS-containing products ranked here (Mind Lab Pro, Qualia Mind) are sold direct to Australian buyers by their brands.',
+      'Phospholipid component of brain cell membranes. RCTs in older adults at 100–300mg a day report memory benefits, though often only in subgroups (see our phosphatidylserine page). Less-strong evidence for memory in healthy younger adults. PS is listed for TGA Listed Medicines as soy phosphatidylserine-enriched soy lecithin (liquid or powder), an active ingredient whose maximum recommended daily dose must not provide more than 300 mg of soy phosphatidylserine (Permissible Ingredients Determination, Schedule 1 items 4689 and 4690; checked 2026-10-08); the PS-containing products ranked here (Mind Lab Pro, Qualia Mind) are sold direct to Australian buyers by their brands.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {

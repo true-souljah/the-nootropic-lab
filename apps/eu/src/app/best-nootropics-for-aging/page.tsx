@@ -27,7 +27,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Phosphatidylserine (PS)',
     ingredientSlugs: ['phosphatidylserine'],
     evidence:
-      'Phospholipid component of brain cell membranes. Multiple RCTs in 50–80-year-olds at 100–300mg/day show improvements in memory, processing speed, and cognitive complaints. Important: unlike the US (where the FDA permits a qualified "may reduce risk of dementia" claim), EFSA has rejected several PS health claims, so EU labels describe PS only in mechanism terms. The underlying clinical evidence is the same — only the on-label language differs. The trial linked below (Vakhapova et al. 2010) is separate from these regulatory decisions: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo.',
+      'Phospholipid component of brain cell membranes. RCTs in older adults at 100–300mg a day report memory benefits, though often only in subgroups (see our phosphatidylserine page). Important: unlike the US (where the FDA permits a qualified "may reduce risk of dementia" claim), EFSA has rejected several PS health claims, so EU labels describe PS only in mechanism terms. The underlying clinical evidence is the same — only the on-label language differs. The trial linked below (Vakhapova et al. 2010) is separate from these regulatory decisions: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {
@@ -81,7 +81,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Why don\'t EU labels mention the FDA "qualified health claim" for phosphatidylserine?',
-    a: 'The US FDA allows phosphatidylserine to carry a qualified claim that "very limited and preliminary scientific research suggests that PS may reduce the risk of dementia or cognitive dysfunction in the elderly." EFSA reviewed the same evidence and rejected the claim in the EU. The clinical evidence is the same in both jurisdictions; the regulatory threshold for what may be printed on a label differs. EU brands describe PS in mechanism terms (e.g., "supports cell membrane phospholipid composition") rather than outcomes.',
+    a: 'The US FDA allows phosphatidylserine to carry a qualified claim that "Very limited and preliminary scientific research suggests that phosphatidylserine may reduce the risk of dementia in the elderly", which must be followed by "FDA concludes that there is little scientific evidence supporting this claim." The same wording applies to cognitive dysfunction in the elderly (FDA letter, 13 May 2003). EFSA reviewed the same evidence and rejected the claim in the EU. The clinical evidence is the same in both jurisdictions; the regulatory threshold for what may be printed on a label differs. EU brands describe PS in mechanism terms (e.g., "supports cell membrane phospholipid composition") rather than outcomes.',
   },
   {
     q: 'When should I start taking these?',

@@ -27,7 +27,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Phosphatidylserine (PS) — FDA qualified health claim',
     ingredientSlugs: ['phosphatidylserine'],
     evidence:
-      'The FDA permits a qualified health claim that PS may reduce risk of dementia and cognitive dysfunction in elderly. Multiple RCTs in 50–80-year-olds at 100–300mg/day show improvements in memory, processing speed, and cognitive complaints. The strongest age-related cognitive evidence in this category. The trial linked below (Vakhapova et al. 2010) is not the basis of the FDA claim: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo. GCC note: PS source (soy, sunflower or bovine) is not stated by every brand — check the label.',
+      'The FDA allows phosphatidylserine only qualified claims that it \'may reduce the risk of dementia\' or \'cognitive dysfunction in the elderly\', each followed by \'FDA concludes that there is little scientific evidence supporting this claim\' (FDA letter, 13 May 2003). RCTs in older adults at 100–300mg a day report memory benefits, though often only in subgroups (see our phosphatidylserine page). The trial linked below (Vakhapova et al. 2010) is not the basis of the FDA claim: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo. GCC note: PS source (soy, sunflower or bovine) is not stated by every brand — check the label.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {
@@ -89,7 +89,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'What does the FDA qualified health claim for PS mean?',
-    a: 'The FDA allows phosphatidylserine to carry a qualified claim that "very limited and preliminary scientific research suggests that PS may reduce the risk of dementia or cognitive dysfunction in the elderly." This is a softer claim than full FDA-approved health claims and reflects evidence quality, not a disease-prevention promise. SFDA and MOHAP do not permit equivalent claims on GCC labels.',
+    a: 'The FDA allows phosphatidylserine to carry a qualified claim that "Very limited and preliminary scientific research suggests that phosphatidylserine may reduce the risk of dementia in the elderly", which must be followed by "FDA concludes that there is little scientific evidence supporting this claim." The same wording applies to cognitive dysfunction in the elderly (FDA letter, 13 May 2003). This is a softer claim than full FDA-approved health claims and reflects evidence quality, not a disease-prevention promise. SFDA and MOHAP do not permit equivalent claims on GCC labels.',
   },
   {
     q: 'Are these safe alongside blood-pressure or cholesterol medications?',
