@@ -27,7 +27,7 @@ export default function FrComparerPage() {
   };
 
   return (
-    <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
+    <PublicShell searchItems={searchItems} uiStrings={uiStrings} linkedProducts={productsCA}>
     
       <SchemaOrg schema={itemListSchema} />
       <div className="max-w-5xl mx-auto px-4 py-10">

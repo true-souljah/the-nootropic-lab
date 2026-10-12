@@ -14,7 +14,7 @@ import { priceText } from '../price-text';
 import { Bar } from '../primitives/Bar';
 import { FaqAccordion } from '../primitives/FaqAccordion';
 import { ProductThumb } from '../primitives/ProductThumb';
-import { buildPersonAuthorReference, servingAmount, pillarText, guaranteeDays } from '@nootropic/data';
+import { buildPersonAuthorReference, servingAmount, pillarText, guaranteeDays, pageDisclosureScope } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import {
   useCaseListPageEnDefaults,
@@ -155,6 +155,8 @@ export default function Listicle({
   // "Also considered" with the rule they fail.
   const { ranked, alsoConsidered } = splitListiclePicks(picks, ingredientMechanism);
   const alsoConsideredCopy = alsoConsideredText(s, alsoConsidered);
+  // Only ranked picks render a buy link ("Also considered" has none).
+  const disclosureScope = pageDisclosureScope(ranked.map((pick) => pick.product));
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -200,7 +202,7 @@ export default function Listicle({
       <a href="#main-content" tabIndex={0} className="ds-skip-link">
         {uiStrings?.nav.skipToContent ?? 'Skip to main content'}
       </a>
-      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} />
+      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} scope={disclosureScope} />
       <FPHeader searchItems={searchItems} strings={uiStrings} />
 
       <main id="main-content" className="max-w-[1200px] mx-auto px-6 pt-7">
@@ -284,7 +286,7 @@ export default function Listicle({
                 {s.ourPicksFor} {s.useCaseLabels[useCase] ?? useCase}
               </h2>
               <p className="text-[14px] text-ds-muted mb-4">{s.picksIntro}</p>
-              <FPTrustNote strings={uiStrings.disclosure} className="mb-6" />
+              <FPTrustNote strings={uiStrings.disclosure} scope={disclosureScope} className="mb-6" />
 
               <div className="flex flex-col gap-5">
                 {ranked.map((pick) => {

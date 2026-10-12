@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { AffiliateDisclosure, SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
+import { SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const PAGE_URL = `${SITE_URL}/are-nootropics-fda-approved/`;
@@ -108,8 +108,6 @@ export default function Page() {
           explains what that means in practice, what claims a supplement may legally make, and how to read the
           regulatory status of any nootropic product before purchasing.
         </p>
-
-        <AffiliateDisclosure />
 
         <section className="my-10">
           <h2 className="text-2xl font-bold text-gray-900 mb-3">How DSHEA actually works</h2>

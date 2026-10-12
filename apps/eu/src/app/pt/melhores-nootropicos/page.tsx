@@ -41,7 +41,7 @@ export default function MelhoresNootropicosPT() {
   };
 
   return (
-    <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
+    <PublicShell searchItems={searchItems} uiStrings={uiStrings} linkedProducts={productsEU}>
       <SchemaOrg schema={articleSchema} />
       <SchemaOrg schema={itemListSchema} />
       <article className="max-w-5xl mx-auto px-4 py-10" lang="pt-PT">

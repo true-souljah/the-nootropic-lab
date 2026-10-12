@@ -94,8 +94,18 @@ describe('disclosure strings — present and translated in every locale', () => 
     expect(en.disclosure.inline).toMatch(/commission/i);
   });
 
-  it('JP badge carries an explicit 広告 (ad) label (stealth-marketing rule)', () => {
+  // 広告 ("advertisement") is true only where we earn a commission: the badge of
+  // a page with a commission-earning buy link keeps it (stealth-marketing
+  // rule); pages without one (site-level line, no-commission review pages)
+  // carry the neutral badge. sitewide-disclosure.test.ts checks rendered pages.
+  it('JP badge of a commission page carries an explicit 広告 (ad) label (stealth-marketing rule)', () => {
     expect(getStrings('ja').disclosure.badge).toContain('広告');
+  });
+
+  it('JP neutral badge (pages without a commission-earning link) never says 広告 or アフィリエイト', () => {
+    const neutral = getStrings('ja').disclosure.neutralBadge;
+    expect(neutral.trim().length).toBeGreaterThan(1);
+    expect(neutral).not.toMatch(/広告|アフィリエイト|PR/);
   });
 });
 
@@ -133,7 +143,9 @@ describe('product review tabs — no hard-coded English commission copy', () => 
   it('PricingTab renders the locale disclosure bundle, not English literals', () => {
     const src = readFileSync(join(UI_SRC, 'templates', 'product-detail', 'PricingTab.tsx'), 'utf8');
     expect(src).not.toMatch(/We earn a commission/i);
-    expect(src).toContain('disclosure.inline');
+    // The sentence comes from the bundle through the page's disclosure scope
+    // (disclosure.inline only next to a commission-earning buy link).
+    expect(src).toMatch(/disclosureCopy\(disclosure,\s*reviewDisclosureScope\(p\)\)/);
     const pd = readFileSync(join(UI_SRC, 'templates', 'ProductDetail.tsx'), 'utf8');
     expect(pd).toMatch(/<PricingTab[^>]*disclosure=\{uiStrings\.disclosure\}/);
   });
