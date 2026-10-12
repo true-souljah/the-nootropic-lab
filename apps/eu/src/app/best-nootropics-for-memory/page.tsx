@@ -64,7 +64,7 @@ const picks: ListiclePick[] = [
     product: productsEU.find(p => p.slug === 'hunter-focus-review')!,
     rank: 2,
     whyItsHere:
-      'Phosphatidylserine (100mg) at clinical dose, plus Lion\'s Mane (500mg, below the 1–1.8g/day used in healthy-adult trials) and Bacopa (300mg; the label does not state its bacoside content). Adds Ashwagandha for stress-related memory. Premium €85/mo and 6 capsules/day are real friction; pick this if you specifically want the broader stack.',
+      'Phosphatidylserine (100mg) at clinical dose, plus Lion\'s Mane (500mg, below the 1–1.8g/day used in healthy-adult trials) and Bacopa (300mg; the label does not state its bacoside content). Adds Ashwagandha for stress-related memory. Premium €85/mo and 6 capsules/day are real friction.',
   },
   {
     product: productsEU.find(p => p.slug === 'noocube-review')!,

@@ -64,7 +64,7 @@ const picks: ListiclePick[] = [
     product: productsCA.find(p => p.slug === 'hunter-focus-review')!,
     rank: 2,
     whyItsHere:
-      'Only pick on this list with the full caffeine + L-theanine 1:2 stack pre-built (100mg caffeine + 200mg L-theanine), plus 250mg citicoline and 500mg Lion\'s Mane. The right choice for Canadian professionals who want energy + focus in one supplement and tolerate caffeine well. Ships to Canada; check the delivery estimate for Canada at checkout.',
+      'Pre-built caffeine + L-theanine 1:2 stack (100mg caffeine + 200mg L-theanine), plus 250mg citicoline and 500mg Lion\'s Mane. Ships to Canada; check the delivery estimate for Canada at checkout.',
   },
   {
     product: productsCA.find(p => p.slug === 'qualia-mind-review')!,
@@ -76,14 +76,14 @@ const picks: ListiclePick[] = [
     product: productsCA.find(p => p.slug === 'noocube-review')!,
     rank: 4,
     whyItsHere:
-      'Includes choline (100mg, from 250mg VitaCholine choline bitartrate), Bacopa, and L-theanine 100mg at clinical dose. Standout ingredient for Canadian remote workers is Lutemax 2020, though its evidence for screen eye strain is mixed: a 6-month trial in 48 heavy screen users, funded by Lutemax\'s maker, reported less self-rated eye strain, eye fatigue and headache (Stringham 2017), but a 2025 trial of a different lutein/zeaxanthin product found better tear-film measures without any change in self-rated eye strain (Lopresti 2025). Open formula. The noocube.com Trustpilot profile has no reviews yet — verify subscription cancellation terms before ordering.',
+      'Includes choline (100mg, from 250mg VitaCholine choline bitartrate), Bacopa, and L-theanine 100mg at clinical dose, but no caffeine. It also contains Lutemax 2020, whose evidence for screen eye strain is mixed: a 6-month trial in 48 heavy screen users, funded by Lutemax\'s maker, reported less self-rated eye strain, eye fatigue and headache (Stringham 2017), but a 2025 trial of a different lutein/zeaxanthin product found better tear-film measures without any change in self-rated eye strain (Lopresti 2025). Open formula. The noocube.com Trustpilot profile has no reviews yet — verify subscription cancellation terms before ordering.',
   },
 ];
 
 const faqItems: ListicleFAQ[] = [
   {
     q: 'What is the most evidence-backed nootropic for focus available in Canada?',
-    a: 'L-theanine paired with caffeine (1:2 to 2:1 ratio) has the strongest replication evidence in healthy adults — Owen et al. 2008 and multiple follow-ups. Citicoline at 250–500mg also has multiple RCTs. Among CA-shippable products, Mind Lab Pro delivers citicoline at clinical dose; Hunter Focus is the only pre-built caffeine + L-theanine pick.',
+    a: 'L-theanine paired with caffeine (1:2 to 2:1 ratio) has the strongest replication evidence in healthy adults — Owen et al. 2008 and multiple follow-ups. Citicoline at 250–500mg also has multiple RCTs. Among CA-shippable products, Mind Lab Pro delivers citicoline at clinical dose; Qualia Mind and Hunter Focus both pre-build caffeine + L-theanine (100mg + 200mg).',
   },
   {
     q: 'How long does it take a focus nootropic to work?',

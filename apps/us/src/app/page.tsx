@@ -45,7 +45,7 @@ const features = [
   {
     icon: '🔬',
     title: 'Clinical dosing audits',
-    desc: 'Every product review includes a dosing-vs-evidence table comparing each ingredient to the minimum effective dose from peer-reviewed trials.',
+    desc: 'Every product review includes a dosing-vs-evidence table: where our ingredient pages give a reference dose from peer-reviewed trials, it compares the label amount with that minimum; other ingredients are listed but not scored.',
   },
   {
     icon: '✅',
@@ -99,7 +99,7 @@ export default function HomePage() {
           eyebrow: `US Market · Evidence-Graded · Audited ${CURRENT_YEAR}`,
           h1: 'The Independent US Guide to Cognitive Supplements',
           dek:
-            'We check every ingredient dose against peer-reviewed clinical trials. No hidden commissions.',
+            'We check label doses against the reference doses from peer-reviewed trials on our ingredient pages, where one exists. No hidden commissions.',
           ctas: [
             { label: `Best Nootropics ${CURRENT_YEAR} →`, href: '/best-nootropics/', variant: 'primary' },
             { label: 'Compare All Brands', href: '/nootropic-comparison/', variant: 'secondary' },

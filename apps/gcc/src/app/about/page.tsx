@@ -44,8 +44,9 @@ export default function AboutPage() {
           <h2 className="text-xl font-bold text-gray-900 mb-3">What we do</h2>
           <p className="text-gray-700 leading-relaxed mb-3">
             We review nootropic supplements for buyers across the GCC — Saudi Arabia, the UAE, Qatar, Kuwait,
-            Bahrain, and Oman. Every review includes a clinical dosing audit comparing each ingredient against
-            the minimum effective dose from peer-reviewed trials. We score brands across ingredient quality,
+            Bahrain, and Oman. Every review includes a clinical dosing audit comparing each ingredient that has
+            a reference dose on our ingredient pages against that page&apos;s minimum from peer-reviewed trials;
+            ingredients without one are listed but not scored. We score brands across ingredient quality,
             dosing-vs-evidence, formula transparency, value for money, and brand trust.
           </p>
           <p className="text-gray-700 leading-relaxed">
