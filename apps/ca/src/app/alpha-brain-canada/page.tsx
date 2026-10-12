@@ -238,7 +238,7 @@ export default function Page() {
         <section className="my-10">
           <h2 className="text-2xl font-bold text-gray-900 mb-3">Where to buy Alpha Brain in Canada</h2>
           {commission ? (
-            <AffiliateDisclosure />
+            <AffiliateDisclosure strings={uiStrings.disclosure} />
           ) : (
             <div className="disclosure-banner mb-6" role="note" aria-label="Affiliate disclosure">
               We don&apos;t earn a commission on Alpha Brain: we have no affiliate deal with Onnit, so the

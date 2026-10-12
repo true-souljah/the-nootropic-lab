@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { ComparisonTable, AffiliateDisclosure, SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
 import { productsUS } from '@nootropic/data';
-import { searchItems, uiStrings } from '@/lib/search';
+import { searchItems, uiStrings } from '@/lib/search-es';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -53,7 +53,7 @@ export default function EsMejoresNootropicosPage() {
           completo de las puntuaciones.
         </p>
 
-        <AffiliateDisclosure />
+        <AffiliateDisclosure strings={uiStrings.disclosure} />
 
         <div className="mb-8">
           <a href="#comparison-table" className="text-green-700 underline text-sm font-medium">

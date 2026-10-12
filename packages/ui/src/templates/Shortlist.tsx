@@ -10,6 +10,8 @@ import { ScorePill } from '../primitives/ScorePill';
 import { LiveRegion } from '../primitives/LiveRegion';
 import { ProductThumb } from '../primitives/ProductThumb';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
+import { FPDisclosure } from '../public-chrome/FPDisclosure';
+import { FPTrustNote } from '../public-chrome/FPTrustNote';
 import { useShortlist, useShortlistNote } from './useShortlist';
 import { servingAmount, guaranteeDays, guaranteeDaysValue, monthlyStorePrice } from '@nootropic/data';
 import { priceText, type PriceText } from '../price-text';
@@ -25,6 +27,11 @@ export interface ShortlistProps {
   /** Required: the serving-unit label is localized (no English fallback). */
   uiStrings: UIStrings;
 }
+
+// The saved picks (and their buy links) come from localStorage after
+// hydration, so the static HTML cannot know which products this page links:
+// it always carries the page-level disclosure (CLIENT_RENDERED_BUY_LINK_ROUTES).
+const DISCLOSURE_SCOPE = 'page';
 
 function parseCommissionPct(raw: string): number | null {
   const m = raw.match(/(\d+(?:\.\d+)?)/);
@@ -163,6 +170,8 @@ export default function Shortlist({
       hideStackCta
       sidebarMeta={`${products.length} products`}
     >
+      {/* Outside the hydration gate below, so it is in the static HTML. */}
+      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} scope={DISCLOSURE_SCOPE} />
       <div className="px-7 pt-7 pb-10">
         {!hydrated ? (
           <Card padding={28}>
@@ -249,6 +258,9 @@ export default function Shortlist({
                 />
               </div>
             )}
+
+            {/* Inline disclosure directly above the first "Visit" buy link. */}
+            <FPTrustNote strings={uiStrings.disclosure} scope={DISCLOSURE_SCOPE} className="mb-3" />
 
             {/* Saved cards */}
             <div className="flex flex-col gap-3">

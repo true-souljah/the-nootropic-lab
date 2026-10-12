@@ -16,6 +16,7 @@
 
 import type { Product } from './products-us';
 import type { UIStrings } from './i18n';
+import type { RegionCode } from './regional';
 import { purchaseUrl } from './purchase-link';
 
 /**
@@ -72,6 +73,20 @@ export function reviewDisclosureScope(product: LinkedProduct & Pick<Product, 'di
   if (!earnsCommission(product)) return 'product';
   return pageDisclosureScope(product.discontinued ? [] : [product]);
 }
+
+/**
+ * Routes, per region, whose buy links render only in the browser (from
+ * localStorage or the query string): their static HTML cannot show which
+ * products they link, so pageDisclosureScope cannot be computed at build
+ * time. They carry the 'page' disclosure unconditionally — over-disclosure on
+ * a page that may link a commission product, never under-disclosure.
+ * scripts/check-built-disclosure.ts requires the 'page' strip in their static
+ * HTML; sitewide-disclosure.test.ts fails when a route that renders buy links
+ * client-side is missing here.
+ */
+export const CLIENT_RENDERED_BUY_LINK_ROUTES: Readonly<Partial<Record<RegionCode, readonly string[]>>> = {
+  us: ['/quiz/results/', '/shortlist/'],
+};
 
 /** Badge and commission sentence of the locale disclosure bundle for a scope. */
 export function disclosureCopy(
