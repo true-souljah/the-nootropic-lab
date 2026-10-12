@@ -70,8 +70,8 @@ export default function FrMeilleursNootropiquesPage() {
   };
 
   return (
-    <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
-    
+    <PublicShell searchItems={searchItems} uiStrings={uiStrings} linkedProducts={productsCA}>
+
       <SchemaOrg schema={articleSchema} />
       <SchemaOrg schema={itemListSchema} />
       <StickyCtaBar

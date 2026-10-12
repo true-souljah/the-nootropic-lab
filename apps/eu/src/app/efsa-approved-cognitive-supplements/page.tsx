@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { AffiliateDisclosure, SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
+import { SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { productsEU, getRegionalHealthDisclaimer } from '@nootropic/data';
 
 const PAGE_URL = `${SITE_URL}/efsa-approved-cognitive-supplements/`;
@@ -139,8 +139,6 @@ export default function Page() {
           (Bacopa, Ginkgo, Rhodiola, Phosphatidylserine, Lion&apos;s Mane) sit on the on-hold botanical list or
           have been rejected. This page is the full reference.
         </p>
-
-        <AffiliateDisclosure />
 
         <section className="my-10">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Cognitive claims: EU-authorised, not authorised, on hold and refused</h2>

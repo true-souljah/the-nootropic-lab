@@ -32,7 +32,13 @@ test.describe('GCC /which-nootropics-ship-to-the-gcc/', () => {
     await expect(page.locator('main a[href="/mind-lab-pro-review/"]').first()).toBeVisible();
     await expect(page.locator('main a[href="https://www.qualialife.com/faqs/do-we-ship-internationally"]').first()).toBeVisible();
 
-    await expect(page.getByRole('note', { name: 'Affiliate disclosure' })).toBeVisible();
+    // The page has no buy link (the iHerb links are plain), so it carries the
+    // site-level line in the top strip, never "This page contains affiliate links".
+    await expect(page.locator('[data-disclosure-scope="site"]')).toContainText(
+      'Some pages on this site contain affiliate links',
+    );
+    await expect(page.getByRole('note', { name: 'Affiliate disclosure' })).toHaveCount(0);
+    await expect(page.locator('body')).not.toContainText('This page contains affiliate links');
     await expect(page.locator('script[type="application/ld+json"]', { hasText: 'FAQPage' })).toHaveCount(0);
   });
 

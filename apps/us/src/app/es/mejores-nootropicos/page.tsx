@@ -28,7 +28,7 @@ export default function EsMejoresNootropicosPage() {
   };
 
   return (
-    <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
+    <PublicShell searchItems={searchItems} uiStrings={uiStrings} linkedProducts={productsUS}>
     
       <SchemaOrg schema={itemListSchema} />
       <article className="max-w-5xl mx-auto px-4 py-10">

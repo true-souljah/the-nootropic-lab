@@ -161,6 +161,10 @@ jobs:
       # (script src / preload), Klaro mount + "Cookie settings" control on
       # every page.
       - run: npm run check:consent
+      # Disclosure gate over all 8 builds: "we earn a commission if you buy
+      # through links on this page" only on pages with a commission-earning
+      # buy link, and on every such page; the site-level line elsewhere.
+      - run: npm run check:disclosure
       - run: npm run test:e2e -- --shard=${{ matrix.shard }}/3
       - uses: actions/upload-artifact@v7
         if: failure()

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { AffiliateDisclosure, SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
+import { SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
 import { allProductsAU, getRegionalHealthDisclaimer } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
@@ -196,8 +196,6 @@ export default function Page() {
           <a href="#personal-importation" className="text-blue-700 underline">Personal Importation Scheme limits</a>, and{' '}
           <a href="#scheduling" className="text-blue-700 underline">how the current Poisons Standard schedules common nootropic substances</a>.
         </p>
-
-        <AffiliateDisclosure />
 
         <section className="my-10">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">ARTG listing categories</h2>
