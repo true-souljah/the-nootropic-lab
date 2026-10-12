@@ -48,7 +48,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'DHA — foundational for retention (FFC-notified)',
     ingredientSlugs: ['dha-omega-3'],
     evidence:
-      'DHA is Japan\'s most-notified FFC ingredient for cognitive function. As the brain\'s primary structural omega-3, DHA supports synaptic transmission and signal propagation — relevant for sustained study over a multi-month term. Suntory DHA & EPA + Sesamin EX provides 300mg DHA per 4 capsules.',
+      'DHA is listed as a functional ingredient in 105 of the 563 active Foods with Function Claims (FFC) notifications whose claim mentions memory or cognitive function (Consumer Affairs Agency database export, 2026-10-06). As the brain\'s primary structural omega-3, DHA supports synaptic transmission and signal propagation — relevant for sustained study over a multi-month term. Suntory DHA & EPA + Sesamin EX provides 300mg DHA per 4 capsules.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20434961/',
   },
 ];

@@ -24,10 +24,10 @@ export const metadata: Metadata = {
 
 const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
-    name: 'DHA — Japan\'s most-notified FFC ingredient for older adults',
+    name: 'DHA — an FFC-notified ingredient for memory and cognition',
     ingredientSlugs: ['dha-omega-3'],
     evidence:
-      'DHA dominates the Japanese FFC supplement market for adults 50+, with claims around memory support and cognitive function maintenance. The positive memory trials we reviewed used 900mg–1.2g DHA/day for 24 weeks or longer; the trial in adults aged 55 and over used 900mg/day (see our DHA ingredient page). The cultural and regulatory anchor for aging-brain supplementation in Japan.',
+      'DHA is listed as a functional ingredient in 105 of the 563 active Foods with Function Claims (FFC) notifications whose claim mentions memory or cognitive function (Consumer Affairs Agency database export, 2026-10-06). The positive memory trials we reviewed used 900mg–1.2g DHA/day for 24 weeks or longer; the trial in adults aged 55 and over used 900mg/day (see our DHA ingredient page). The cultural and regulatory anchor for aging-brain supplementation in Japan.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20434961/',
   },
   {
@@ -64,7 +64,7 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'suntory-dha-epa-sesamin-review')!,
     rank: 2,
     whyItsHere:
-      'An omega-3 brain supplement whose maker\'s product page calls it 「DHAサプリメント市場18年連続売上No.1」 (No. 1 in DHA-supplement sales for 18 years running; suntory-kenko.com, checked 2026-10-09); no Foods with Function Claims (FFC, 機能性表示食品) notification found in the Consumer Affairs Agency (CAA) database (export scanned 2026-10-06) — Suntory Wellness, a household name backed by the ¥2.7 trillion Suntory Group. 300mg DHA + 100mg EPA + 10mg sesamin per 4 capsules. Foundational structural support for aging brains; widely advertised on Japanese television and trusted across the 60+ demographic.',
+      'An omega-3 brain supplement whose maker\'s product page calls it 「DHAサプリメント市場18年連続売上No.1」 (No. 1 in DHA-supplement sales for 18 years running; suntory-kenko.com, checked 2026-10-09); no Foods with Function Claims (FFC, 機能性表示食品) notification found in the Consumer Affairs Agency (CAA) database (export scanned 2026-10-06) — Suntory Wellness, a household name backed by the ¥2.7 trillion Suntory Group. 300mg DHA + 100mg EPA + 10mg sesamin per 4 capsules. Foundational structural support for aging brains.',
   },
   {
     product: productsJP.find(p => p.slug === 'mind-lab-pro-review')!,
