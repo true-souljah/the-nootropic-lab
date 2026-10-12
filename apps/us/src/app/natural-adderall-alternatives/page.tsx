@@ -34,7 +34,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Caffeine + L-Theanine — stimulant adjacency',
     ingredientSlugs: ['caffeine', 'l-theanine'],
     evidence:
-      'Caffeine is a legal stimulant that works via adenosine antagonism (a different pathway than Adderall). Pairing with L-theanine smooths the focus curve and reduces jitter. This is the closest "feels-stimulant-but-isn\'t-amphetamine" combination available without prescription. 100–200mg L-theanine + 100mg caffeine.',
+      'Caffeine is a legal stimulant that works via adenosine antagonism (a different pathway than Adderall). In the trial linked below (Owen 2008), 50mg caffeine with 100mg L-theanine improved speed and accuracy on an attention-switching task; in a separate controlled trial (Rogers 2008), theanine did not significantly reduce caffeine-induced jitteriness. This is the closest "feels-stimulant-but-isn\'t-amphetamine" combination available without prescription. 100–200mg L-theanine + 100mg caffeine.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
   },
   {
