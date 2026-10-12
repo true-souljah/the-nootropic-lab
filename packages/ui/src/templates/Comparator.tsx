@@ -14,7 +14,7 @@ import type { SearchItem } from '../SearchModal';
 import { COLUMNS, GRADES, MAX_SELECTED } from './comparator/constants';
 import { scoreTier } from './listicleRanking';
 import type { SortKey, SortDir, Goal, Grade } from './comparator/constants';
-import { parseUrlState, buildViewQueryString, exportRowsToCsv } from './comparator/utils';
+import { parseUrlState, buildViewQueryString, exportRowsToCsv, priceSortable, sortRows } from './comparator/utils';
 import { ComparatorFilters } from './comparator/ComparatorFilters';
 import { ComparatorCompareCard } from './comparator/ComparatorCompareCard';
 import { PRICE_SLIDER_MAX } from './comparator/ComparatorFilters';
@@ -109,9 +109,9 @@ export default function Comparator({
     setGrade('All');
   }, []);
 
-  // Prices stay in each store's own currency (never converted). The max-price
-  // filter and price sort compare per-month figures, so the filter shows only
-  // when they share one non-yen currency; the slider's top means "no limit".
+  // Prices stay in each store's own currency (never converted). The price sort
+  // needs every per-month figure in one currency; the max-price filter shows
+  // only when that currency is not yen; the slider's top means "no limit".
   const prices = useMemo(() => new Map(products.map((p) => [p.slug, priceText(p, uiStrings)])), [products, uiStrings]);
   const monthlyOf = useCallback((p: Product) => prices.get(p.slug)?.monthlyMoney ?? null, [prices]);
   const monthlyCurrency = useMemo(() => {
@@ -119,6 +119,7 @@ export default function Comparator({
     const only = currencies.size === 1 ? [...currencies][0] : null;
     return only === 'JPY' ? null : only;
   }, [products, monthlyOf]);
+  const canSortPrice = useMemo(() => priceSortable(products), [products]);
 
   const rows = useMemo(() => {
     let r = products.filter((p) => {
@@ -134,19 +135,7 @@ export default function Comparator({
       const tone = GRADES.find((g) => g.id === grade)?.tone;
       r = r.filter((p) => scoreTier(p.score) === tone);
     }
-    return [...r].sort((a, b) => {
-      const get = (x: Product) =>
-        sortKey === 'score'
-          ? x.score
-          : sortKey === 'price'
-            ? monthlyOf(x)?.amount ?? Infinity
-            : sortKey === 'trust'
-              ? x.trustpilotScore ?? 0
-              : sortKey === 'value'
-                ? x.scoreBreakdown.value ?? 0
-                : 0;
-      return sortDir === 'desc' ? get(b) - get(a) : get(a) - get(b);
-    });
+    return sortRows(r, sortKey, sortDir, canSortPrice);
   }, [
     products,
     sortKey,
@@ -154,6 +143,7 @@ export default function Comparator({
     maxPrice,
     monthlyCurrency,
     monthlyOf,
+    canSortPrice,
     caffeineFreeOnly,
     euCompliantOnly,
     bestFor,
@@ -313,19 +303,21 @@ export default function Comparator({
               className="flex border-b border-ds-border bg-ds-card-sub text-[11px] text-ds-muted uppercase tracking-[0.08em] font-bold"
             >
               {COLUMNS.map((c) => {
-                const headerProps = c.key
+                // No price sort across currencies (prices are never converted).
+                const key = c.key === 'price' && !canSortPrice ? null : c.key;
+                const headerProps = key
                   ? {
-                      onClick: () => toggleSort(c.key),
+                      onClick: () => toggleSort(key),
                       onKeyDown: (e: React.KeyboardEvent) => {
                         if (e.key === 'Enter' || e.key === ' ') {
                           e.preventDefault();
-                          toggleSort(c.key);
+                          toggleSort(key);
                         }
                       },
                       tabIndex: 0,
                       role: 'columnheader' as const,
                       'aria-sort':
-                        c.key === sortKey
+                        key === sortKey
                           ? sortDir === 'asc'
                             ? ('ascending' as const)
                             : ('descending' as const)
@@ -340,12 +332,12 @@ export default function Comparator({
                       flex: `0 0 ${c.width}px`,
                       textAlign: c.align ?? 'left',
                     }}
-                    className={`px-[14px] py-3 ${c.key ? 'cursor-pointer select-none focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2' : ''} ${
-                      c.key === sortKey ? 'text-ds-accent' : ''
+                    className={`px-[14px] py-3 ${key ? 'cursor-pointer select-none focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2' : ''} ${
+                      key === sortKey ? 'text-ds-accent' : ''
                     }`}
                   >
                     {c.label}
-                    {arrow(c.key)}
+                    {arrow(key)}
                   </div>
                 );
               })}

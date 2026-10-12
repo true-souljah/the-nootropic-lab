@@ -99,6 +99,8 @@ describe('storePriceProblems', () => {
     [{ text: '€79,95', currency: 'USD', amount: 79.95 }, /contradicts its text/],
     [{ pack: '' }, /verbatim text/],
     [{ url: 'http://example.com' }, /https URL/],
+    [{ url: 'https://' }, /https URL/],
+    [{ checkedAt: '2026-02-31' }, /ISO date/],
     [{ url: 'https://example.com/p?affid=1' }, /no query or fragment/],
     [{ checkedAt: '9 Oct' }, /ISO date/],
   ] as [Partial<StorePrice>, RegExp][])('rejects %o', (over, reason) => {

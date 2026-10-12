@@ -9,9 +9,12 @@
 // currency }, pack, supply, finalUrl, checkedAt }] }, one item per record,
 // each quote already checked against the saved page text. A record gets
 // `storePrice` only when its item is status "ok" with an ISO currency and a
-// pack wording; every other record ends with no price (shown as "—"). Edits
-// touch only the price keys (scripts/lib/json-in-place.ts), so a second run
-// changes nothing. Each written record must pass storePriceProblems().
+// pack wording; every other record ends with no price (shown as "—"). Every
+// live record needs exactly one item (a missing or duplicate item would
+// otherwise erase or pick a price silently); discontinued records may have
+// none. Nothing is written unless every region passes. Edits touch only the
+// price keys (scripts/lib/json-in-place.ts), so a second run changes nothing.
+// Each written record must pass storePriceProblems().
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { applyEdits, members, recordStarts, serialise, type Edit } from './lib/json-in-place';
@@ -55,12 +58,17 @@ function storePriceFor(item: EvidenceItem | undefined): StorePrice | null {
 }
 
 const report: string[] = [];
+const outputs: { path: string; src: string; out: string }[] = [];
 let written = 0;
 for (const region of REGIONS) {
   const path = join(DATA, `products-${region}.json`);
   const src = readFileSync(path, 'utf8');
   const parsed = JSON.parse(src) as Product[];
-  const byId = new Map((evidence[region] ?? []).map((e) => [e.id, e]));
+  const byId = new Map<string, EvidenceItem>();
+  for (const e of evidence[region] ?? []) {
+    if (byId.has(e.id)) throw new Error(`${region}/${e.id}: duplicate evidence item`);
+    byId.set(e.id, e);
+  }
   const edits: Edit[] = [];
   recordStarts(src).forEach((start, index) => {
     const list = members(src, start);
@@ -69,6 +77,7 @@ for (const region of REGIONS) {
     const id = JSON.parse(src.slice(idMember.valueStart, idMember.valueEnd)) as string;
     const indent = ' '.repeat(idMember.keyStart - src.lastIndexOf('\n', idMember.keyStart) - 1);
     const item = byId.get(id);
+    if (!item && !parsed[index].discontinued) throw new Error(`${region}/${id}: no evidence item for a live record`);
     if (item && item.slug !== parsed[index].slug) throw new Error(`${region}/${id}: evidence slug "${item.slug}" ≠ "${parsed[index].slug}"`);
     const sp = storePriceFor(item);
     if (sp) {
@@ -98,7 +107,8 @@ for (const region of REGIONS) {
   }
   const out = applyEdits(src, edits);
   JSON.parse(out); // still valid JSON
-  if (out !== src) writeFileSync(path, out);
+  outputs.push({ path, src, out });
 }
+for (const { path, src, out } of outputs) if (out !== src) writeFileSync(path, out);
 console.log(report.join('\n'));
 console.log(`\n${written} records carry a store price; the rest show none.`);

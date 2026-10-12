@@ -80,6 +80,23 @@ const ISO_CURRENCY = /^[A-Z]{3}$/;
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 const STORE_PRICE_KEYS: (keyof StorePrice)[] = ['amount', 'currency', 'text', 'pack', 'supply', 'directions', 'url', 'checkedAt'];
 
+/** A real calendar date in YYYY-MM-DD form (2026-02-31 is not). */
+function isIsoDate(s: string): boolean {
+  if (!ISO_DATE.test(s)) return false;
+  const d = new Date(`${s}T00:00:00Z`);
+  return !Number.isNaN(d.getTime()) && d.toISOString().slice(0, 10) === s;
+}
+
+/** An https URL with a host ("https://" alone is not). */
+function isHttpsUrl(s: string): boolean {
+  try {
+    const u = new URL(s);
+    return u.protocol === 'https:' && u.hostname.length > 0;
+  } catch {
+    return false;
+  }
+}
+
 /** Why a record's store price is malformed or disagrees with its own verbatim text ([] when it is sound). */
 export function storePriceProblems(product: Product): string[] {
   const sp: unknown = product.storePrice;
@@ -94,9 +111,9 @@ export function storePriceProblems(product: Product): string[] {
   for (const key of ['supply', 'directions'] as const) {
     if (s[key] !== undefined && (typeof s[key] !== 'string' || !(s[key] as string).trim())) problems.push(`storePrice.${key}, when set, must be verbatim text`);
   }
-  if (typeof s.url !== 'string' || !/^https:\/\//.test(s.url)) problems.push('storePrice.url must be an https URL');
+  if (typeof s.url !== 'string' || !isHttpsUrl(s.url)) problems.push('storePrice.url must be an https URL');
   else if (/[?#]/.test(s.url)) problems.push('storePrice.url must carry no query or fragment (an evidence link, not a tracking link)');
-  if (typeof s.checkedAt !== 'string' || !ISO_DATE.test(s.checkedAt)) problems.push('storePrice.checkedAt must be an ISO date');
+  if (typeof s.checkedAt !== 'string' || !isIsoDate(s.checkedAt)) problems.push('storePrice.checkedAt must be an ISO date');
   if (typeof s.text === 'string' && typeof s.amount === 'number') {
     // The stored amount must be the one price the verbatim text states (currency marks may be bare in the text).
     const { prices } = parseQuotedPrices(s.text);

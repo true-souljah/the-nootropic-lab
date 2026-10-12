@@ -93,6 +93,11 @@ describe('quoteSupply — months from the quote\'s own pack statement', () => {
     expect(quoteSupply('Servings Per Container: 20', CAPSULES)).toMatchObject({ ok: true, monthsOfSupply: 0.6667 });
   });
 
+  test('a capsule count and "Servings per container" must agree, or no supply is read', () => {
+    expect(quoteSupply('60 CAPSULES | Servings per container: 30', CAPSULES)).toMatchObject({ ok: true, monthsOfSupply: 1 });
+    expect(quoteSupply('60 CAPSULES | Servings per container: 20', CAPSULES)).toMatchObject({ ok: false, reason: expect.stringMatching(/several pack sizes/) });
+  });
+
   test('a stated supply alone, in days or Japanese', () => {
     expect(quoteSupply('45-day supply $79.95', CAPSULES)).toMatchObject({ ok: true, monthsOfSupply: 1.5 });
     expect(quoteSupply('30日分 5,479円', CAPSULES)).toMatchObject({ ok: true, monthsOfSupply: 1 });
