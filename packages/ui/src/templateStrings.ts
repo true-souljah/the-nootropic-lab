@@ -62,6 +62,10 @@ export interface UseCaseListPageStrings {
   alsoConsideredRulesIntro: string;
   /** Reason line of a pick that meets the bar but fails rule (b) — uses {score} */
   doseRuleReason: string;
+  /** Lead paragraph when a pick there meets both rules but the edition shows no purchase link for it (names all three rules) — uses {minScore} */
+  alsoConsideredLinkIntro: string;
+  /** Reason line of a pick that meets both rules but has no purchase link in this edition — uses {score} */
+  noPurchaseLinkReason: string;
   /** "In this guide" sidebar link to that section */
   alsoConsideredToc: string;
   /** "Audited · {date}" chip label above the H1 */
@@ -134,6 +138,9 @@ export const useCaseListPageEnDefaults: UseCaseListPageStrings = {
     'Products audited for this guide that we do not rank: each either scores below the {minScore}/10 a ranked pick needs in our 5-pillar editorial audit, or its label does not reach our reference dose for any evidence entry above (for a combination, every ingredient in it). Listed for transparency, not ranked or recommended.',
   doseRuleReason:
     'Scores {score}/10, but its label does not reach our reference dose for any evidence entry above (for a combination, every ingredient in it)',
+  alsoConsideredLinkIntro:
+    'Products audited for this guide that we do not rank: each either scores below the {minScore}/10 a ranked pick needs in our 5-pillar editorial audit, or its label does not reach our reference dose for any evidence entry above (for a combination, every ingredient in it), or this edition shows no purchase link for it. Listed for transparency, not ranked or recommended.',
+  noPurchaseLinkReason: 'Scores {score}/10, but this edition shows no purchase link for it; its review says why',
   alsoConsideredToc: 'Also considered',
   audited: 'Audited',
   bylineAttribution: 'By The Nootropic Lab editorial team',
@@ -194,6 +201,9 @@ export const useCaseListPageEsStrings: Partial<UseCaseListPageStrings> = {
     'Productos auditados para esta guía que no clasificamos: cada uno obtiene una puntuación por debajo del {minScore}/10 que necesita una selección clasificada en nuestra auditoría editorial de 5 pilares, o su etiqueta no alcanza nuestra dosis de referencia en ninguna de las entradas de evidencia anteriores (en una combinación, en cada uno de sus ingredientes). Se incluyen por transparencia; no están clasificados ni recomendados.',
   doseRuleReason:
     'Puntuación de {score}/10, pero su etiqueta no alcanza nuestra dosis de referencia en ninguna de las entradas de evidencia anteriores (en una combinación, en cada uno de sus ingredientes)',
+  alsoConsideredLinkIntro:
+    'Productos auditados para esta guía que no clasificamos: cada uno obtiene una puntuación por debajo del {minScore}/10 que necesita una selección clasificada en nuestra auditoría editorial de 5 pilares, o su etiqueta no alcanza nuestra dosis de referencia en ninguna de las entradas de evidencia anteriores (en una combinación, en cada uno de sus ingredientes), o esta edición no muestra enlace de compra para él. Se incluyen por transparencia; no están clasificados ni recomendados.',
+  noPurchaseLinkReason: 'Puntuación de {score}/10, pero esta edición no muestra enlace de compra para este producto; su reseña explica por qué',
   alsoConsideredToc: 'También evaluados',
   audited: 'Auditado',
   bylineAttribution: 'Por el equipo editorial de The Nootropic Lab',

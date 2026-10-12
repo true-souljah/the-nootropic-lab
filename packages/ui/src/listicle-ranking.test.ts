@@ -683,3 +683,55 @@ describe('an "Also considered" blurb does not recommend the pick', () => {
     expect(recommendationIn(text)).toEqual([]);
   });
 });
+
+// Site-owner decision 2026-10-12: a ranked pick must be buyable in its edition.
+// A pick that meets the bar and rule (b) but carries a purchase-link block
+// (Product.noPurchaseLink — JP Hunter Focus, MHLW medicine-only ingredient)
+// moves to "Also considered" with its own reason.
+describe('ranked picks are buyable in their edition', () => {
+  const blocked = (name: string, score: number, rank?: number) => {
+    const p = pick(name, score, rank);
+    return { ...p, product: { ...p.product, noPurchaseLink: data.allProductsJP.find((x) => x.slug === 'hunter-focus-review')!.noPurchaseLink } };
+  };
+
+  it('moves a qualifying pick with no purchase link to Also considered, after the bar and dose rules', () => {
+    const { ranked, alsoConsidered } = splitListiclePicks([pick('A', 8.5, 1), blocked('B', 8.3, 2), pick('C', 7.6, 3), blocked('D', 6.0, 4)], EVIDENCE);
+    expect(names(ranked)).toEqual(['A', 'C']);
+    expect(ranked.map((p) => p.rank)).toEqual([1, 2]);
+    expect(alsoConsidered.map((p) => [p.product.name, p.notRanked])).toEqual([['B', 'noPurchaseLink'], ['D', 'belowBar']]);
+  });
+
+  it.each(LOCALES)('%s: the reason line and the lead name the purchase-link rule only where it applies', (locale) => {
+    const s = getUseCaseListStrings(locale);
+    expect(s.noPurchaseLinkReason).toContain('{score}');
+    expect(s.alsoConsideredLinkIntro).toContain('{minScore}');
+    expect(notRankedReason(s, { product: { score: 8.3 }, notRanked: 'noPurchaseLink' })).toContain('8.3');
+    const withLink = alsoConsideredText(s, [{ notRanked: 'belowBar' }, { notRanked: 'noPurchaseLink' }]);
+    expect(withLink.heading).toBe(s.alsoConsideredRulesHeading);
+    expect(withLink.intro).toBe(s.alsoConsideredLinkIntro.replace('{minScore}', BAR));
+    expect(alsoConsideredText(s, [{ notRanked: 'doseRule' }]).intro).toBe(s.alsoConsideredRulesIntro.replace('{minScore}', BAR));
+    expect(alsoConsideredText(s, [{ notRanked: 'belowBar' }]).intro).toBe(s.alsoConsideredIntro.replace('{minScore}', BAR));
+  });
+
+  it('real data: JP Hunter Focus stays unranked on JP lists even if its score rises above the bar', () => {
+    const hunter = data.allProductsJP.find((p) => p.slug === 'hunter-focus-review')!;
+    expect(data.purchaseUrl(hunter)).toBeNull();
+    expect(evidenceAtReferenceDose(hunter, EVIDENCE).length).toBeGreaterThan(0);
+    // Today (2026-10-12) it scores 6.3, so the bar already keeps it unranked.
+    expect(splitListiclePicks([{ product: hunter, rank: 1 }], EVIDENCE).alsoConsidered[0].notRanked).toBe(
+      hunter.score >= LISTICLE_MIN_SCORE ? 'noPurchaseLink' : 'belowBar',
+    );
+    // With a score at the bar, the purchase-link rule keeps it out of the ranking.
+    const { ranked, alsoConsidered } = splitListiclePicks([{ product: { ...hunter, score: 8.0 }, rank: 1 }], EVIDENCE);
+    expect(ranked).toEqual([]);
+    expect(alsoConsidered[0].notRanked).toBe('noPurchaseLink');
+  });
+
+  it('a NatureBell-style block (store listing gone) keeps the pick ranked (site-owner decision 2026-10-12)', () => {
+    const notSold = data.allProductsCA.find((p) => p.slug === 'naturebell-ginkgo-ginseng-review')!.noPurchaseLink;
+    expect(notSold?.reason).toBe('not-sold-on-linked-store');
+    const p = pick('NB', 8.0, 1);
+    const { ranked } = splitListiclePicks([{ ...p, product: { ...p.product, noPurchaseLink: notSold } }], EVIDENCE);
+    expect(names(ranked)).toEqual(['NB']);
+  });
+});
