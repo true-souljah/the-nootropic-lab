@@ -1,24 +1,12 @@
-// Monthly price derived from the vendor's own one-time price quote
-// (`Product.vendorTerms.oneTimePrice`, a PASS-verified verbatim quote).
-//
-// Site-owner decision 2026-10-08: stored monthly prices follow the vendors'
-// own stated prices. scripts/derive-prices-from-vendor-quotes.ts writes
-// `priceMonthly<CUR>` + `priceBasis` with deriveRegionalMonthlyPrice(), and
-// scripts/validate-data.ts checks every record with priceBasisProblems(), so a
-// stored price and its quote cannot drift apart. Pure functions, unit-tested in
+// Parsers for vendor price and pack wording, shared by the store price
+// (store-price.ts) and its tests. Pure functions, unit-tested in
 // packages/ui/src/vendor-price.test.ts.
 //
-// The derivation never guesses. It refuses (status "unresolved") when the
-// quote holds several prices, a "from" price, no currency marker, an
-// ambiguous number, or no pack/supply statement, and when the quote's own
-// supply statements disagree with each other or with the record. It never
-// converts currencies: a price is written only into the region's own price
-// field (REGION_PROFILES[region].priceField) and only when the quote states
-// that currency.
+// They never guess: parseQuotedPrices reports every price a text states (and
+// refuses "from" prices and ambiguous numbers); quoteSupply reads how long a
+// pack lasts only from the text's own pack/supply wording plus the label's
+// serving size, and refuses when the wording is missing or contradicts itself.
 import type { Product } from './products-us';
-import { REGION_PROFILES, type LocalPriceField, type RegionCode } from './regional';
-
-export type { PriceBasis } from './products-us';
 
 /** Days in the month a monthly price covers ("1 Month" = 30 servings at one serving a day). */
 export const DAYS_PER_MONTH = 30;
@@ -47,6 +35,11 @@ const PRICE = new RegExp(
 );
 /** "from" / "starting at" prices are minimums, not the price of a pack. */
 const FROM_PRICE = /(?:^|[\s(|])(?:from|starting at|ab|desde|à partir de)\s+\S*\d|[～〜]/iu;
+
+/** True when the quote is a "from" / "starting at" minimum rather than a pack's price. */
+export function isFromPrice(text: string): boolean {
+  return FROM_PRICE.test(text);
+}
 
 function groupedOk(digits: string, sep: string): boolean {
   const groups = digits.split(sep);
@@ -116,6 +109,10 @@ const UNIT_COUNT =
   /(\d[\d,]*)\s*[-–]?\s*(capsules?|caps|kapseln?|cápsulas?|gélules?|vegicaps|nutricaps|softgels?|nutrigels?|tablets?|tabs|tabletten|sachets?|stick packs?|servings?|portionen|count|ct)\b|(\d[\d,]*)\s*(カプセル|錠|包|粒)/giu;
 const MONTHS = /(\d+)\s*[-–]?\s*(?:months?|monate?|mes(?:es)?|mois)\b|(\d+)\s*[ヶかカケ箇]月分/giu;
 const DAYS = /(\d+)\s*[-–]?\s*days?[\s-]+supply\b|(\d+)\s*日分/giu;
+/** Supplement-facts wording with the count after the label: "Servings per container: 30". */
+const SERVINGS_PER_CONTAINER = /servings?\s+per\s+container\s*:?\s*(\d+)/giu;
+/** A stated delivery cadence ("delivered every 4 weeks"): one pack per that many weeks. */
+const WEEKS = /every\s+(\d+)\s+weeks?\b/giu;
 const CONTAINERS = /(\d+)\s*(?:units?|bottles?|pouch(?:es)?|containers?|jars?|tubs?|boxes|box|bags?)\b|(\d+)\s*(?:袋|個|本)/giu;
 
 /** Record fields the supply derivation reads. */
@@ -154,6 +151,7 @@ export function quoteSupply(text: string, record: SupplyFields): QuoteSupply {
   const stated: { months: number; text: string }[] = [];
   for (const m of text.matchAll(MONTHS)) stated.push({ months: Number(m[1] ?? m[2]), text: m[0].trim() });
   for (const m of text.matchAll(DAYS)) stated.push({ months: Number(m[1] ?? m[2]) / DAYS_PER_MONTH, text: m[0].trim() });
+  for (const m of text.matchAll(WEEKS)) stated.push({ months: (Number(m[1]) * 7) / DAYS_PER_MONTH, text: m[0].trim() });
   const statedMonths = distinct(stated.map((s) => s.months));
   if (statedMonths.some((v) => !(v > 0))) return { ok: false, reason: 'a stated supply is zero' };
   if (statedMonths.length > 1) return { ok: false, reason: `several supply lengths (${stated.map((s) => `"${s.text}"`).join(', ')})` };
@@ -173,6 +171,11 @@ export function quoteSupply(text: string, record: SupplyFields): QuoteSupply {
       perServing = `${cps} per serving`;
     }
     counted.push({ months: servings / SERVINGS_PER_DAY / DAYS_PER_MONTH, text: m[0].trim(), perServing });
+  }
+  for (const m of text.matchAll(SERVINGS_PER_CONTAINER)) {
+    const servings = Number(m[1]);
+    if (!(servings > 0)) return { ok: false, reason: `unreadable serving count "${m[0].trim()}"` };
+    counted.push({ months: servings / SERVINGS_PER_DAY / DAYS_PER_MONTH, text: m[0].trim(), perServing: 'one serving each' });
   }
   const countedMonths = distinct(counted.map((c) => c.months));
   if (countedMonths.length > 1) return { ok: false, reason: `several pack sizes (${counted.map((c) => `"${c.text}"`).join(', ')})` };
@@ -207,134 +210,11 @@ export function quoteSupply(text: string, record: SupplyFields): QuoteSupply {
   return { ok: false, reason: 'no pack size or supply stated in the quote' };
 }
 
-/** Decimal places of a currency's monthly price (yen has none). */
+/** Decimal places of a currency's minor unit, per ISO 4217 as Intl knows it (JPY 0, USD 2, BHD 3). */
 export function currencyDigits(currency: string): number {
-  return currency === 'JPY' ? 0 : 2;
-}
-
-export type QuoteMonthly =
-  | { ok: true; price: QuotedPrice; monthsOfSupply: number; monthly: number; supplyBasis: string }
-  | { ok: false; price?: QuotedPrice; reason: string };
-
-/**
- * The one price in the quote and its per-month amount (in the quote's
- * currency, rounded to the currency's minor unit), or why none can be given.
- */
-export function monthlyPriceFromQuote(text: string, record: SupplyFields): QuoteMonthly {
-  const { prices, problems } = parseQuotedPrices(text);
-  if (problems.length > 0) return { ok: false, reason: problems.join('; ') };
-  const unique = prices.filter((p, i) => prices.findIndex((q) => q.currency === p.currency && q.amount === p.amount) === i);
-  if (unique.length === 0) return { ok: false, reason: 'no currency-marked price in the quote' };
-  if (unique.length > 1) return { ok: false, reason: `several prices (${unique.map((p) => p.text).join(', ')})` };
-  const price = unique[0];
-  if (FROM_PRICE.test(text)) return { ok: false, price, reason: `"${price.text}" is a "from"/"starting at" price, not the price of a pack` };
-  const supply = quoteSupply(text, record);
-  if (!supply.ok) return { ok: false, price, reason: supply.reason };
-  const monthly = roundTo(price.amount / supply.monthsOfSupply, currencyDigits(price.currency));
-  return { ok: true, price, monthsOfSupply: supply.monthsOfSupply, monthly, supplyBasis: supply.basis };
-}
-
-/** Hosts of non-US dollar storefronts: a bare "$" there is not USD. */
-const NON_US_DOLLAR_HOST = /\.(?:ca|au|nz|sg|hk|tw)$/i;
-const DOLLAR_CURRENCIES = new Set(['USD', 'CAD', 'AUD', 'SGD', 'NZD', 'HKD']);
-
-/** True when a bare "$" on this quote page can be read as USD: a US-region record on a page that is not a non-US dollar storefront. */
-function bareDollarIsUSD(region: RegionCode, url: string): boolean {
-  if (region !== 'us' || !URL.canParse(url)) return false;
-  return !NON_US_DOLLAR_HOST.test(new URL(url).hostname);
-}
-
-export type PriceDerivation =
-  | {
-      status: 'derived';
-      field: LocalPriceField;
-      currency: string;
-      amount: number;
-      monthsOfSupply: number;
-      monthly: number;
-      supplyBasis: string;
-      quote: string;
-      checkedAt: string;
-    }
-  | {
-      /** The quote yields a monthly price, but not in the currency of the region's price field. */
-      status: 'not-region-currency';
-      field: LocalPriceField;
-      currency: string;
-      amount: number;
-      monthsOfSupply: number;
-      monthly: number;
-      supplyBasis: string;
-      quote: string;
-      reason: string;
-    }
-  | { status: 'unresolved'; field: LocalPriceField; quote: string; reason: string };
-
-/**
- * The monthly price for the region's own price field derived from the
- * record's `vendorTerms.oneTimePrice` quote, or null when the record has no
- * such quote. A bare "$" is read as USD only on a US-region record whose quote
- * page is not a non-US dollar storefront; anywhere else it names no currency.
- */
-export function deriveRegionalMonthlyPrice(
-  product: Pick<Product, 'vendorTerms' | 'servingsPerContainer' | 'capsulesPerServing' | 'form'>,
-  region: RegionCode,
-): PriceDerivation | null {
-  const term = product.vendorTerms?.oneTimePrice;
-  if (!term) return null;
-  const profile = REGION_PROFILES[region];
-  const field = profile.priceField;
-  const quote = term.text;
-  const result = monthlyPriceFromQuote(quote, product);
-  let currency = result.price?.currency;
-  let currencyNote = '';
-  if (currency === '$') {
-    if (bareDollarIsUSD(region, term.url)) currency = 'USD';
-    else if (DOLLAR_CURRENCIES.has(profile.currency)) {
-      return { status: 'unresolved', field, quote, reason: `the quote's bare "$" does not say which dollar (region prices in ${profile.currency})${result.ok ? '' : `; ${result.reason}`}` };
-    } else currencyNote = 'bare "$" (dollar, country not stated)';
+  try {
+    return new Intl.NumberFormat('en', { style: 'currency', currency }).resolvedOptions().maximumFractionDigits ?? 2;
+  } catch {
+    return 2;
   }
-  if (!result.ok) {
-    const foreign = currency && currency !== profile.currency ? `; quote currency ${currencyNote || currency} is not ${profile.currency}` : '';
-    return { status: 'unresolved', field, quote, reason: `${result.reason}${foreign}` };
-  }
-  const derived = { field, currency: currency!, amount: result.price.amount, monthsOfSupply: result.monthsOfSupply, monthly: result.monthly, supplyBasis: result.supplyBasis, quote };
-  if (currency !== profile.currency) {
-    return { status: 'not-region-currency', ...derived, reason: `quote currency ${currencyNote || currency} is not the region's ${profile.currency}; no conversion` };
-  }
-  return { status: 'derived', ...derived, checkedAt: product.vendorTerms!.checkedAt };
-}
-
-const PRICE_BASIS_KEYS = ['source', 'quoteField', 'monthsOfSupply', 'checkedAt'];
-
-/**
- * Why the record's price disagrees with its vendor quote ([] when it agrees).
- * With `priceBasis`: its shape must be exact, the quote must still derive a
- * price for the region's field, and the stored price, months of supply and
- * checkedAt must equal the derivation. Without `priceBasis`: a quote that
- * derives a region price is a problem too (run the derive script), so a new
- * quote cannot sit beside a stale price.
- */
-export function priceBasisProblems(product: Product, region: RegionCode): string[] {
-  const derivation = deriveRegionalMonthlyPrice(product, region);
-  const basis: unknown = product.priceBasis;
-  if (basis === undefined) {
-    if (derivation?.status === 'derived') {
-      return [`vendorTerms.oneTimePrice derives ${derivation.field} ${derivation.monthly} but the record has no priceBasis (run scripts/derive-prices-from-vendor-quotes.ts)`];
-    }
-    return [];
-  }
-  if (basis === null || typeof basis !== 'object' || Array.isArray(basis)) return ['priceBasis is not an object'];
-  const b = basis as Record<string, unknown>;
-  const problems: string[] = [];
-  for (const key of Object.keys(b)) if (!PRICE_BASIS_KEYS.includes(key)) problems.push(`priceBasis has an unknown key "${key}"`);
-  if (b.source !== 'vendor-one-time') problems.push(`priceBasis.source is not "vendor-one-time": ${JSON.stringify(b.source)}`);
-  if (b.quoteField !== 'vendorTerms.oneTimePrice') problems.push(`priceBasis.quoteField is not "vendorTerms.oneTimePrice": ${JSON.stringify(b.quoteField)}`);
-  if (!derivation) return [...problems, 'priceBasis is set but the record has no vendorTerms.oneTimePrice quote'];
-  if (derivation.status !== 'derived') return [...problems, `priceBasis is set but the quote derives no ${derivation.field}: ${derivation.reason}`];
-  const stored = product[derivation.field];
-  if (stored !== derivation.monthly) problems.push(`${derivation.field} is ${JSON.stringify(stored)} but the quote "${derivation.quote}" derives ${derivation.monthly} (${derivation.supplyBasis})`);
-  if (b.monthsOfSupply !== derivation.monthsOfSupply) problems.push(`priceBasis.monthsOfSupply is ${JSON.stringify(b.monthsOfSupply)} but the quote derives ${derivation.monthsOfSupply}`);
-  if (b.checkedAt !== derivation.checkedAt) problems.push(`priceBasis.checkedAt is ${JSON.stringify(b.checkedAt)} but vendorTerms.checkedAt is ${derivation.checkedAt}`);
-  return problems;
 }

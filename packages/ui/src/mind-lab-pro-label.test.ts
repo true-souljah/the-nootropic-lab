@@ -35,7 +35,7 @@ const LABEL_ROWS: [string, string][] = [
 const ANCHORED: [string, string, boolean][] = [
   ["Lion's Mane Mushroom", '1000-1800mg/day', false],
   ['Citicoline (Cognizin)', '250-500mg/day', true],
-  ['Bacopa Monnieri (full-spectrum extract, 24% bacosides)', '300-450mg/day (55% bacosides)', false],
+  ['Bacopa Monnieri (full-spectrum extract, 24% bacosides)', '300-450mg/day (≥50% bacosides)', false],
   ['Rhodiola Rosea (3% rosavins, 1% salidrosides)', '200-600mg/day', false],
   ['L-Theanine', '100-200mg/day', true],
   ['Phosphatidylserine', '100-300mg/day', true],

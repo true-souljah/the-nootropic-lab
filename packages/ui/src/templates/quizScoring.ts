@@ -8,6 +8,7 @@
  * Each *Fit() returns a multiplier in [0.3, 1.2].
  */
 
+import { monthlyStorePrice } from '@nootropic/data';
 import type { Product } from '@nootropic/data';
 
 export type QuizGoal = 'Focus' | 'Memory' | 'Energy' | 'Mood' | 'Sleep recovery' | 'Aging support';
@@ -41,11 +42,21 @@ export function caffeineFit(productCaffeineFree: boolean, sensitivity: CaffeineS
   return productCaffeineFree ? 1.0 : 1.1;
 }
 
-export function budgetFit(priceMonthlyUSD: number | undefined, budget: number): number {
-  if (typeof priceMonthlyUSD !== 'number') return 1.0;
-  if (priceMonthlyUSD <= budget * 0.8) return 1.1;
-  if (priceMonthlyUSD <= budget) return 1.0;
-  if (priceMonthlyUSD <= budget * 1.2) return 0.7;
+/**
+ * The product's per-month price in US dollars, for the quiz's dollar budget
+ * (the quiz runs on the US site). Undefined without a stated supply or for a
+ * non-dollar store: never converted, and such a product gets a neutral budget fit.
+ */
+export function monthlyUSD(p: Pick<Product, 'storePrice' | 'servingsPerContainer' | 'capsulesPerServing' | 'form'>): number | undefined {
+  const m = monthlyStorePrice(p);
+  return m && m.currency === 'USD' ? m.amount : undefined;
+}
+
+export function budgetFit(monthlyPrice: number | undefined, budget: number): number {
+  if (typeof monthlyPrice !== 'number') return 1.0;
+  if (monthlyPrice <= budget * 0.8) return 1.1;
+  if (monthlyPrice <= budget) return 1.0;
+  if (monthlyPrice <= budget * 1.2) return 0.7;
   return 0.3;
 }
 
@@ -96,7 +107,7 @@ export function scoreQuiz(products: Product[], answers: QuizAnswers): QuizResult
         p.score *
         goalsFit(p.bestFor, answers.goals) *
         caffeineFit(p.caffeineFree, answers.caffeine) *
-        budgetFit(p.priceMonthlyUSD, answers.budget) *
+        budgetFit(monthlyUSD(p), answers.budget) *
         mbgFit(p.moneyBackDays ?? 0, answers.mbg),
     }))
     .sort((a, b) => b.score - a.score);

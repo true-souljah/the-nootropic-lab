@@ -22,6 +22,7 @@ import {
 } from '../templateStrings';
 import type { SearchItem } from '../SearchModal';
 import { DoseVerdictMark } from '../primitives/DoseVerdictMark';
+import { priceText } from '../price-text';
 import { scoreTier, type ScoreTier } from './listicleRanking';
 
 /** Colour of the big score numeral per SCORE_TIERS tier. */
@@ -50,7 +51,6 @@ export interface HeadToHeadProps {
   /** Bullet points for "Choose B if you …" */
   whoIsForB: string[];
   listicleHref?: string;
-  formatPrice?: (product: Product) => string;
   strings?: Partial<HeadToHeadPageStrings>;
   healthDisclaimer?: string;
   sources?: Source[];
@@ -64,15 +64,6 @@ export interface HeadToHeadProps {
    * page (2026-09 audit: "mind lab pro vs thesis" ranked the Alpha Brain page).
    */
   relatedLinks?: { href: string; title: string; meta: string }[];
-}
-
-function defaultPriceFormat(p: Product): string {
-  if (p.priceMonthlyUSD) return `$${p.priceMonthlyUSD}`;
-  if (p.priceMonthlyEUR) return `€${p.priceMonthlyEUR}`;
-  if (p.priceMonthlyCAD) return `C$${p.priceMonthlyCAD}`;
-  if (p.priceMonthlyAUD) return `A$${p.priceMonthlyAUD}`;
-  if (p.priceMonthlyJPY) return `¥${p.priceMonthlyJPY.toLocaleString()}`;
-  return 'Varies';
 }
 
 type SpecRow = {
@@ -140,7 +131,6 @@ export default function HeadToHead({
   whoIsForB,
   listicleHref = '/best-nootropics',
   methodologyHref = '/methodology/',
-  formatPrice = defaultPriceFormat,
   strings,
   healthDisclaimer,
   sources,
@@ -201,20 +191,22 @@ export default function HeadToHead({
 
   // A discontinued product has no current price and must never read as the
   // cheaper (winning) option.
-  const priceCell = (p: Product) => (p.discontinued ? '—' : formatPrice(p));
-  const comparablePrice = (p: Product) => (p.discontinued ? Infinity : p.priceMonthlyUSD ?? Infinity);
+  const priceCell = (p: Product) => (p.discontinued ? '—' : priceText(p, uiStrings)?.short ?? '—');
+  // Cheaper only between two per-month figures in one currency: prices are
+  // never converted, and pack prices of different sizes do not compare.
+  const monthlyA = productA.discontinued ? null : priceText(productA, uiStrings)?.monthlyMoney ?? null;
+  const monthlyB = productB.discontinued ? null : priceText(productB, uiStrings)?.monthlyMoney ?? null;
+  const priceWinner: SpecRow['winner'] =
+    monthlyA && monthlyB && monthlyA.currency === monthlyB.currency
+      ? monthlyA.amount < monthlyB.amount ? 'a' : monthlyB.amount < monthlyA.amount ? 'b' : 'tie'
+      : 'tie';
 
   const specRows: SpecRow[] = [
     {
-      label: s.pricePerMonth,
+      label: s.price,
       a: priceCell(productA),
       b: priceCell(productB),
-      winner:
-        comparablePrice(productA) < comparablePrice(productB)
-          ? 'a'
-          : comparablePrice(productB) < comparablePrice(productA)
-            ? 'b'
-            : 'tie',
+      winner: priceWinner,
     },
     {
       label: s.servingSize,
@@ -373,7 +365,7 @@ export default function HeadToHead({
                   noticeStrings={uiStrings.noPurchaseLink}
                   noticeClassName="mt-[14px]"
                 >
-                  {tpl(s.checkProductWithPrice, { name: p.name, price: formatPrice(p) })}
+                  {tpl(s.checkProductWithPrice, { name: p.name, price: priceText(p, uiStrings)?.short ?? '—' })}
                 </TrackedAffiliateLink>
               )}
             </Card>

@@ -77,7 +77,7 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'nootropics-depot-lions-mane')!,
     rank: 3,
     whyItsHere:
-      'Single-ingredient Lion\'s Mane fruiting-body extract from a brand with an ISO-certified in-house lab and a published Certificate of Analysis per batch. Lion\'s Mane has cultural acceptance in Chinese-heritage SEA which eases regulatory ambiguity. Lowest customs-exposure premium import at $25/mo. One 500mg capsule daily, half the 1,000mg low end of our Lion\'s Mane reference dose.',
+      'Single-ingredient Lion\'s Mane fruiting-body extract from a brand with an ISO-certified in-house lab and a published Certificate of Analysis per batch. Lion\'s Mane has cultural acceptance in Chinese-heritage SEA which eases regulatory ambiguity. Lowest customs-exposure premium import. One 500mg capsule daily, half the 1,000mg low end of our Lion\'s Mane reference dose.',
   },
 ];
 

@@ -21,7 +21,7 @@ import { PillarsTab } from './product-detail/PillarsTab';
 import { ReviewsTab } from './product-detail/ReviewsTab';
 import { PricingTab } from './product-detail/PricingTab';
 import RegionalBuying from '../RegionalBuying';
-import { formatLocalPrice } from '../RegionalAvailability';
+import { priceText } from '../price-text';
 import type { RegionalBuyingProps } from '../RegionalBuying';
 import { SCORE_TIER_TEXT_CLASS, scoreTier } from './listicleRanking';
 
@@ -131,7 +131,7 @@ export default function ProductDetail({
 
   const priceStat: [string, string, boolean] = [
     pd.stats.price,
-    regional?.data.price ? `${formatLocalPrice(regional.data.price.amount, regional.data.price.currency, regional.data.price.locale)}/${pd.stats.monthUnit}` : p.priceMonthlyUSD ? `$${p.priceMonthlyUSD}/${pd.stats.monthUnit}` : '—',
+    priceText(p, uiStrings)?.short ?? '—',
     false,
   ];
 
@@ -318,7 +318,7 @@ export default function ProductDetail({
         </TabPanel>
         {!discontinued && (
           <TabPanel idPrefix="product" id="pricing" hidden={tab !== 'pricing'} className="mt-5">
-            <PricingTab product={p} disclosure={uiStrings.disclosure} strings={pd} noticeStrings={uiStrings.noPurchaseLink} />
+            <PricingTab product={p} disclosure={uiStrings.disclosure} strings={pd} noticeStrings={uiStrings.noPurchaseLink} price={priceText(p, uiStrings)} />
           </TabPanel>
         )}
 
@@ -358,8 +358,8 @@ export default function ProductDetail({
                   <div className="text-[12px] text-ds-muted mb-2">{alt.brand}</div>
                   <div className="flex items-center gap-2">
                     <span className={`${SCORE_TIER_TEXT_CLASS[scoreTier(alt.score)]} font-bold text-[13px] ds-tabular`}>{`${alt.score}/10`}</span>
-                    {alt.priceMonthlyUSD && (
-                      <span className="text-[12px] text-ds-muted ds-tabular">{`$${alt.priceMonthlyUSD}/${pd.stats.monthUnit}`}</span>
+                    {priceText(alt, uiStrings) && (
+                      <span className="text-[12px] text-ds-muted ds-tabular">{priceText(alt, uiStrings)!.short}</span>
                     )}
                   </div>
                 </Link>

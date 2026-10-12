@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   alternates: buildAlternates({ regionCode: 'us', path: '/cancel-qualia-subscription/', availableInRegions: ['us'] }),
   openGraph: {
     title: 'How to Cancel Qualia Mind Subscription — Step-by-Step',
-    description: 'The intro $39 first month auto-converts to $139/month. Here is how to cancel before that happens.',
+    description: 'The $39 intro first shipment auto-renews at $139 every 4 weeks. Here is how to cancel before that happens.',
     type: 'article',
   },
   twitter: { card: 'summary' },
@@ -48,7 +48,7 @@ const steps: CancellationStep[] = [
 ];
 
 const watchouts = [
-  'CRITICAL: The "introductory subscription" rate of $39 first order auto-converts to $139/month at month two. If you signed up for the intro deal, the cancellation deadline is BEFORE the second charge, not after.',
+  'CRITICAL: The "introductory subscription" rate of $39 for the first shipment auto-renews at $139 per shipment, every 4 weeks. If you signed up for the intro deal, the cancellation deadline is BEFORE the second charge, not after.',
   'Some Qualia variants (Resilience, Night, Vision) have separate subscription lines — cancelling Qualia Mind does not cancel the others.',
   'Neurohacker offers a 100-day money-back guarantee on first orders — but the guarantee window is from order date, not from when you start taking the product. If you delayed starting, the window may close before you finish evaluating.',
   'The "Pause" option lets you delay the next ship date by up to 90 days — useful if you want to take a break, but the subscription remains active and will resume.',
@@ -94,8 +94,8 @@ export default function Page() {
       pageSlug="cancel-qualia-subscription"
       siteUrl={SITE_URL}
       pageTitle="How to Cancel Your Qualia Mind / Neurohacker Subscription"
-      pageDescription="Cancel your Qualia Mind subscription before the $39 intro auto-converts to $139/month. Step-by-step + friction points + refund path."
-      heroParagraph="Qualia Mind's introductory rate ($39 first month) auto-converts to $139/month at month two — this is the most common reason buyers want to cancel. The flow is straightforward but has retention friction at the final step. This guide walks through cancellation + the refund path if you missed the deadline."
+      pageDescription="Cancel your Qualia Mind subscription before the $39 intro shipment auto-renews at $139 every 4 weeks. Step-by-step + friction points + refund path."
+      heroParagraph="Qualia Mind's introductory rate ($39 for the first shipment) auto-renews at $139 per shipment every 4 weeks — this is the most common reason buyers want to cancel. The flow is straightforward but has retention friction at the final step. This guide walks through cancellation + the refund path if you missed the deadline."
       steps={steps}
       totalTimeMinutes={5}
       watchouts={watchouts}

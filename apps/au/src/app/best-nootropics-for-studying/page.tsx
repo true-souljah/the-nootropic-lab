@@ -86,7 +86,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'What is the cheapest evidence-backed study stack for Australian students?',
-    a: 'L-theanine + caffeine is the most cost-effective foundation: a TGA-listed L-theanine product (Blackmores L-Theanine, Swisse Calm L-Theanine) at AUD $20/month + your usual coffee. Add a TGA-listed Bacopa product (Caruso\'s Memory Forte, Nature\'s Own Brahmi 5000mg, Blackmores Brahmi) for ~AUD $25/month for memory consolidation. Total around AUD $45/month — under half the price of a single international stack and fully TGA-listed at any Australian pharmacy. Pair with normal sleep and exam prep.',
+    a: 'L-theanine + caffeine is the most cost-effective foundation: a TGA-listed L-theanine product (Blackmores L-Theanine, Swisse Calm L-Theanine) plus your usual coffee. Add a TGA-listed Bacopa product (Caruso\'s Memory Forte, Nature\'s Own Brahmi 5000mg, Blackmores Brahmi) for memory consolidation, fully TGA-listed at any Australian pharmacy. Pair with normal sleep and exam prep.',
   },
   {
     q: 'Are these safe for Australian university students?',

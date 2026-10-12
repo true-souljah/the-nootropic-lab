@@ -1,6 +1,8 @@
 import { describe, test, expect } from 'vitest';
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { resolve, dirname, extname, relative } from 'node:path';
+import { euCountries, monthlyStorePrice } from '@nootropic/data';
+import type { Product } from '@nootropic/data';
 
 // No national product register (Health Canada NPN, SFDA/MOHAP, COFEPRIS,
 // ANVISA, NPRA, BPOM, VFA, ...) was ever checked for the products we review;
@@ -701,27 +703,223 @@ describe('round thirteen: no unsourced superlatives in data or app copy', () => 
     expect(() => largestFormulaRows(strayRow)).toThrow(/names no known blend/);
   });
 
-  test('a "cheapest in this review" claim in product data names the region\'s lowest priceMonthlyUSD', () => {
-    const CHEAPEST_CLAIM = /most affordable|lowest monthly price in this review|lowest-priced product in this review/i;
-    type Rec = { slug: string; discontinued?: unknown; priceMonthlyUSD?: number | null } & Record<string, unknown>;
+  // Prices are the vendor's own, in the store's currency, never converted
+  // (site-owner policy 2026-10-09). A "cheapest" claim is therefore provable
+  // only when every live record in the region has a per-month store price and
+  // all of them share one currency. No region met that on 2026-10-09 (records
+  // without a store price, stores in several currencies), so the claims that
+  // were in the data then were removed; the fixtures below keep the check live.
+  const CHEAPEST_CLAIM = /most affordable|cheapest|lowest monthly price in this review|lowest-priced product in this review/i;
+  type Rec = Product & { discontinued?: unknown };
+
+  function cheapestClaimProblems(where: string, recs: Rec[]): { claims: number; wrong: string[] } {
+    const live = recs.filter(r => !r.discontinued);
+    const monthly = new Map(live.map(r => [r.slug, monthlyStorePrice(r)] as const));
+    const unpriced = live.filter(r => !monthly.get(r.slug)).map(r => r.slug);
+    const currencies = new Set([...monthly.values()].flatMap(m => (m ? [m.currency] : [])));
+    const min = Math.min(...[...monthly.values()].flatMap(m => (m ? [m.amount] : [])));
     let claims = 0;
+    const wrong: string[] = [];
+    for (const r of recs) {
+      const texts = Object.values(r).flatMap(v =>
+        typeof v === 'string' ? [v] : Array.isArray(v) ? v.filter((x): x is string => typeof x === 'string') : [],
+      );
+      if (!texts.some(t => CHEAPEST_CLAIM.test(t))) continue;
+      claims++;
+      const own = monthly.get(r.slug);
+      if (r.discontinued || unpriced.length > 0 || currencies.size !== 1 || own?.amount !== min) {
+        wrong.push(
+          `${where} ${r.slug}: ${own ? `${own.currency} ${own.amount}` : 'no monthly store price'} vs min ${min}; ` +
+            `currencies ${[...currencies].join(',')}; unpriced ${unpriced.join(',')}`,
+        );
+      }
+    }
+    return { claims, wrong };
+  }
+
+  test('a "cheapest in this review" claim in product data is provable from the region\'s store prices', () => {
+    let records = 0;
     const wrong: string[] = [];
     for (const file of PRODUCT_FILES) {
       const recs = JSON.parse(readFileSync(file, 'utf8')) as Rec[];
-      const live = recs.filter(r => !r.discontinued);
-      for (const r of recs) {
-        const texts = Object.values(r).filter((v): v is string => typeof v === 'string');
-        if (!texts.some(t => CHEAPEST_CLAIM.test(t))) continue;
-        claims++;
-        // Every live record needs a USD price, or the comparison cannot be proved.
-        const unpriced = live.filter(x => typeof x.priceMonthlyUSD !== 'number').map(x => x.slug);
-        const min = Math.min(...live.map(x => x.priceMonthlyUSD as number));
-        if (unpriced.length > 0 || r.discontinued || r.priceMonthlyUSD !== min) {
-          wrong.push(`${relative(REPO_ROOT, file)} ${r.slug}: ${r.priceMonthlyUSD} vs min ${min}; unpriced ${unpriced.join(',')}`);
-        }
-      }
+      records += recs.length;
+      wrong.push(...cheapestClaimProblems(relative(REPO_ROOT, file), recs).wrong);
     }
-    expect(claims).toBeGreaterThanOrEqual(5);
+    expect(records).toBeGreaterThanOrEqual(70);
     expect(wrong).toEqual([]);
+  });
+
+  test('the cheapest-claim check accepts only the lowest same-currency monthly store price, with every record priced', () => {
+    const rec = (slug: string, amount: number, currency: string, summary = '') =>
+      ({
+        slug, summary, servingsPerContainer: 30, capsulesPerServing: 1, form: 'capsule',
+        storePrice: { amount, currency, text: `${amount}`, pack: 'Servings per container: 30', url: 'https://example.com/p', checkedAt: '2026-10-09' },
+      }) as unknown as Rec;
+    const claim = 'The most affordable nootropic in this review.';
+    expect(cheapestClaimProblems('t', [rec('a', 20, 'USD', claim), rec('b', 40, 'USD')])).toEqual({ claims: 1, wrong: [] });
+    expect(cheapestClaimProblems('t', [rec('a', 50, 'USD', claim), rec('b', 40, 'USD')]).wrong).toHaveLength(1);
+    // Mixed currencies would need a conversion to compare.
+    expect(cheapestClaimProblems('t', [rec('a', 20, 'USD', claim), rec('b', 40, 'EUR')]).wrong).toHaveLength(1);
+    // A record without a store price leaves the comparison unproved.
+    expect(cheapestClaimProblems('t', [rec('a', 20, 'USD', claim), { ...rec('b', 40, 'USD'), storePrice: undefined }]).wrong).toHaveLength(1);
+    // Claims in pros/cons lists count too.
+    expect(cheapestClaimProblems('t', [{ ...rec('a', 50, 'USD'), pros: ['Cheapest nootropic in this review'] } as Rec, rec('b', 40, 'USD')]).wrong).toHaveLength(1);
+  });
+});
+
+// Round fourteen (2026-10-12, research p5/eu-authorities.json): each EU
+// country regulatory note names the body that receives food-supplement
+// notifications, from the national authority's own page or, where none could
+// be read (Malta), the EC "List of competent authorities of the Member States
+// within the meaning of Article 4(6) of Directive 2002/46 on food supplements"
+// (last revision October 2025). The removed wording named the wrong body
+// (FASFC positive list, NÉBIH, ANPC, EFET, MCCAA, ASAE, SZPI, the Ministry of
+// Health for Luxembourg), said "registration" where the page says
+// notification, made claims no source confirms (Denmark "may not be sold",
+// Sweden "conservative maximum dose", France "plant extracts at high doses",
+// a German herb-dose medicinal assessment), or was market colour with no
+// source at all. Italy, Lithuania and Poland had no national page checked, so
+// their notes quote only the EC list entry; the Italian register/registration
+// claims, Lithuania's State Food and Veterinary Service and Poland's "GIS
+// oversees" went with the colour, as did Italy's market-size shipping line.
+const EU_COUNTRIES_FILE = resolve(DATA_DIR, 'eu-countries.ts');
+
+const ROUND_FOURTEEN_UNSOURCED: RegExp[] = [
+  // Contradicted or unconfirmed rules.
+  /FASFC[^.]{0,80}positive list/i,
+  /Some herbal nootropic ingredients require pre-notification/i,
+  /maintains a positive list/i,
+  /higher-dose nootropic products may not be sold/i,
+  /conservative maximum dose/i,
+  /Verify dose compliance/i,
+  /plant extracts at high doses require/i,
+  /very high herb doses may be assessed as medicinal/i,
+  /Some high-dose products may require assessment/i,
+  // Wrong or unconfirmed bodies, and "registration" where the page says notification.
+  /National Food Chain Safety Office \(NÉBIH\) oversees/i,
+  /National Authority for Consumer Protection \(ANPC\) oversees/i,
+  /National Food Authority \(EFET\) oversees/i,
+  /Malta Competition and Consumer Affairs Authority oversees/i,
+  /ASAE \(Food and Economic Safety Authority\) oversight/i,
+  /\(SZPI\) oversees supplement compliance/i,
+  /with oversight by the Ministry of Health/i,
+  /Administration of the Republic of Slovenia for Food Safety oversees/i,
+  /oversees (food )?supplement registration/i,
+  /Ministry of Health registers food supplements/i,
+  /maintains a supplementi alimentari register/i,
+  /Some ingredients require official registration before sale/i,
+  /Verify any Italy-specific restrictions/i,
+  /State Food and Veterinary Service oversees supplements/i,
+  /Chief Sanitary Inspectorate \(GIS\) oversees/i,
+  // Unsourced market colour.
+  /Europe's most detailed supplement regulatory/i,
+  /mainstream supplement market well-established/i,
+  /largest Eastern European market/i,
+  /fast-growing supplement category/i,
+  /one of the largest European supplement markets/i,
+  /particularly in Athens/i,
+  /High purchasing power/i,
+  /fourth-largest EU economy/i,
+  /strong online purchasing culture/i,
+  /Small but growing market/i,
+  /Market closely aligned with Czech/i,
+  /Island geography means/i,
+  /English-language market well-served/i,
+  /Post-Brexit, UK-based brands ship/i,
+  /well-developed supplement market/i,
+  /Growing online supplement market/i,
+  /EU membership ensures product availability/i,
+  /robust supplement regulation/i,
+  /strict supplement regulation/i,
+];
+
+describe('round fourteen: EU country regulatory notes follow the EC list and national authorities', () => {
+  test('scanned the EU country data file (27 notes)', () => {
+    expect(existsSync(EU_COUNTRIES_FILE)).toBe(true);
+    const notes = readFileSync(EU_COUNTRIES_FILE, 'utf8').match(/^\s+regulatoryNote: ['"]/gm) ?? [];
+    expect(notes).toHaveLength(27);
+  });
+
+  test('the patterns catch the removed wording, and every pattern catches some of it', () => {
+    const removed = [
+      'The FASFC (Federal Agency for the Safety of the Food Chain) maintains a positive list of permitted substances.',
+      'Some herbal nootropic ingredients require pre-notification before marketing.',
+      'The Danish Veterinary and Food Administration (Fødevarestyrelsen) maintains a positive list.',
+      'Some higher-dose nootropic products may not be sold in Denmark -- verify compliance of specific products before ordering.',
+      'Sweden follows EU Directive 2002/46/EC but maintains conservative maximum dose recommendations for several ingredients.',
+      'Verify dose compliance for individual products.',
+      'Some plant extracts at high doses require regulatory assessment.',
+      'Products with very high herb doses may be assessed as medicinal products -- check compliance for any product above the recommended daily dose.',
+      'Some high-dose products may require assessment.',
+      'The National Food Chain Safety Office (NÉBIH) oversees supplement registration.',
+      'The National Authority for Consumer Protection (ANPC) oversees supplement compliance.',
+      'The National Food Authority (EFET) oversees compliance.',
+      'The Malta Competition and Consumer Affairs Authority oversees supplement compliance.',
+      'Portugal follows EU supplement regulations with ASAE (Food and Economic Safety Authority) oversight.',
+      'The State Agricultural and Food Inspection Authority (SZPI) oversees supplement compliance.',
+      'Luxembourg follows EU supplement regulations with oversight by the Ministry of Health.',
+      'The Administration of the Republic of Slovenia for Food Safety oversees compliance.',
+      'The Ministry of Health oversees supplement registration.',
+      'The Agriculture and Food Board oversees food supplement registration.',
+      'The Ministry of Health registers food supplements.',
+      'Growing nootropics market, particularly in Athens.',
+      'High purchasing power market.',
+      'Spain is the fourth-largest EU economy with a growing supplement market.',
+      'Estonia has a growing supplement market with strong online purchasing culture.',
+      'Small but growing market.',
+      'Market closely aligned with Czech Republic.',
+      'Island geography means slightly longer shipping from mainland EU distribution centres.',
+      'English-language market well-served by UK and EU supplement brands.',
+      'Post-Brexit, UK-based brands ship from EU distribution centres to avoid VAT complications.',
+      'The Netherlands has a well-developed supplement market.',
+      'Growing online supplement market.',
+      'EU membership ensures product availability.',
+      'Germany has robust supplement regulation under the NemV (Nahrungsergänzungsmittelverordnung), aligned with EU Directive 2002/46/EC.',
+      'Sweden has strict supplement regulation through the Swedish Food Agency (Livsmedelsverket).',
+      "Italy has one of Europe's most detailed supplement regulatory frameworks.",
+      'The Ministry of Health maintains a supplementi alimentari register.',
+      'Some ingredients require official registration before sale.',
+      'Verify any Italy-specific restrictions for novel ingredients.',
+      'Italy is one of the largest European supplement markets.',
+      'The State Food and Veterinary Service oversees supplements.',
+      'EU member since 2004 -- mainstream supplement market well-established.',
+      "Poland is the EU's largest Eastern European market and has a fast-growing supplement category.",
+      'The Chief Sanitary Inspectorate (GIS) oversees food supplements.',
+    ];
+    for (const s of removed) expect(ROUND_FOURTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(true);
+    for (const re of ROUND_FOURTEEN_UNSOURCED) expect(removed.some(s => re.test(s)), String(re)).toBe(true);
+  });
+
+  test('no EU country note uses the removed wording (whitespace-normalised)', () => {
+    const hits = normalisedMatchLines(readFileSync(EU_COUNTRIES_FILE, 'utf8'), ROUND_FOURTEEN_UNSOURCED).map(
+      line => `${relative(REPO_ROOT, EU_COUNTRIES_FILE)}:${line}`,
+    );
+    expect(hits).toEqual([]);
+  });
+
+  // Citation shapes in use: "(domain, checked YYYY-MM-DD)", "(domain and
+  // domain, checked YYYY-MM-DD)", Bulgaria's "(per domain, checked
+  // YYYY-MM-DD)" and "(EC list of competent authorities, rev. October 2025)".
+  const SOURCE_CITATION =
+    /\((?:per )?(?:[a-z0-9-]+(?:\.[a-z0-9-]+)+(?: and [a-z0-9-]+(?:\.[a-z0-9-]+)+)?|EC list of competent authorities), (?:checked \d{4}-\d{2}-\d{2}|rev\. [A-Z][a-z]+ \d{4})\)/;
+
+  test('the citation pattern accepts each shape in use and rejects a bare note', () => {
+    for (const s of [
+      '(ages.at, checked 2026-10-12)',
+      '(agriculture.gouv.fr and entreprises.gouv.fr, checked 2026-10-12)',
+      '(per ecb.europa.eu, checked 2026-10-05)',
+      '(EC list of competent authorities, rev. October 2025)',
+    ]) expect(SOURCE_CITATION.test(s), s).toBe(true);
+    for (const s of ['(ages.at)', '(checked 2026-10-12)', 'Italy follows EU Directive 2002/46/EC.']) {
+      expect(SOURCE_CITATION.test(s), s).toBe(false);
+    }
+  });
+
+  test('every EU country regulatory note (all 27) is non-empty and cites its source', () => {
+    expect(euCountries).toHaveLength(27);
+    const uncited = euCountries
+      .filter(c => c.regulatoryNote.trim() === '' || !SOURCE_CITATION.test(c.regulatoryNote))
+      .map(c => c.slug);
+    expect(uncited).toEqual([]);
   });
 });

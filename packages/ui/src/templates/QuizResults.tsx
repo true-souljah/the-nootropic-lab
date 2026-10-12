@@ -12,9 +12,15 @@ import {
   caffeineFit,
   budgetFit,
   mbgFit,
+  monthlyUSD,
   type QuizAnswers,
 } from './quizScoring';
-import { guaranteeDays, NO_PURCHASE_LINK_STRINGS } from '@nootropic/data';
+import { guaranteeDays, getStrings, NO_PURCHASE_LINK_STRINGS } from '@nootropic/data';
+import { priceText } from '../price-text';
+
+// The quiz runs on the US site only (its budget is in dollars), so prices are
+// written the US way; each stays in its store's own currency.
+const QUIZ_PRICE_STRINGS = { priceLocale: 'en-US', productDetail: getStrings('en').productDetail };
 
 export interface QuizResultsProps {
   products: Product[];
@@ -100,10 +106,8 @@ export default function QuizResults({
             </div>
             <div className="text-right">
               <ScorePill score={top.score} />
-              {top.priceMonthlyUSD && (
-                <div className="text-[13px] text-ds-muted mt-2 ds-tabular">
-                  {`$${top.priceMonthlyUSD}/mo`}
-                </div>
+              {priceText(top, QUIZ_PRICE_STRINGS) && (
+                <div className="text-[13px] text-ds-muted mt-2 ds-tabular">{priceText(top, QUIZ_PRICE_STRINGS)!.short}</div>
               )}
             </div>
           </div>
@@ -148,8 +152,8 @@ export default function QuizResults({
             <FitRow
               label="Budget"
               user={`$${answers.budget}/mo`}
-              productAttr={top.priceMonthlyUSD ? `$${top.priceMonthlyUSD}/mo` : '—'}
-              tone={budgetFit(top.priceMonthlyUSD, answers.budget) >= 1.0 ? 'good' : 'warn'}
+              productAttr={priceText(top, QUIZ_PRICE_STRINGS)?.short ?? '—'}
+              tone={budgetFit(monthlyUSD(top), answers.budget) >= 1.0 ? 'good' : 'warn'}
             />
             <FitRow
               label="Money-back"
@@ -183,8 +187,7 @@ export default function QuizResults({
                   </div>
                   <p className="text-[13px] text-ds-ink-soft m-0 leading-[1.55]">{r.product.summary}</p>
                   <div className="text-[12px] text-ds-muted mt-3 ds-tabular">
-                    {r.product.priceMonthlyUSD ? `$${r.product.priceMonthlyUSD}/mo` : ''}
-                    {r.product.priceMonthlyUSD && ' · '}
+                    {priceText(r.product, QUIZ_PRICE_STRINGS) ? `${priceText(r.product, QUIZ_PRICE_STRINGS)!.short} · ` : ''}
                     {guaranteeDays(r.product.moneyBackDays, (d) => `${d}-day`)} MBG
                     {r.product.caffeineFree ? ' · caffeine-free' : ''}
                   </div>

@@ -4,6 +4,7 @@ import TrackedAffiliateLink from '../../TrackedAffiliateLink';
 import NoPurchaseLinkNotice from '../../NoPurchaseLinkNotice';
 import type { Product, UIStrings, VendorTerms } from '@nootropic/data';
 import { NOT_AVAILABLE, VENDOR_TERM_FIELDS, disclosureCopy, earnsCommission, purchaseUrl, reviewDisclosureScope } from '@nootropic/data';
+import type { PriceText } from '../../price-text';
 
 export interface PricingTabProps {
   product: Product;
@@ -13,6 +14,8 @@ export interface PricingTabProps {
   strings: UIStrings['productDetail'];
   /** Short notice in place of the buy buttons when the edition shows no purchase link. */
   noticeStrings: UIStrings['noPurchaseLink'];
+  /** The store price as display text (price-text.ts); null when the record has none. */
+  price: PriceText | null;
 }
 
 /** Fills `{name}` placeholders of a locale template with text or elements. */
@@ -32,7 +35,7 @@ type TermField = (typeof VENDOR_TERM_FIELDS)[number];
  * evidence renders nothing — never a default promise. The price is the
  * stored record price, as in the header card.
  */
-export function PricingTab({ product: p, disclosure, strings, noticeStrings }: PricingTabProps) {
+export function PricingTab({ product: p, disclosure, strings, noticeStrings, price }: PricingTabProps) {
   const t = strings.pricing;
   // No affiliate deal (commissionRate "0%"): no cookie terms.
   const commission = earnsCommission(p);
@@ -116,17 +119,18 @@ export function PricingTab({ product: p, disclosure, strings, noticeStrings }: P
       </Card>
 
       <Card padding={22} className="border-l-[3px] border-l-ds-accent">
-        {p.priceMonthlyUSD && (
-          <div className="flex items-baseline justify-between gap-3 mb-4">
-            <span className="text-[11px] uppercase tracking-[0.12em] font-semibold text-ds-muted">
-              {strings.stats.price}
-            </span>
-            <span className="text-right">
-              <span className="text-[32px] font-bold tracking-[-0.02em] ds-tabular text-ds-accent">
-                ${p.priceMonthlyUSD}
+        {price && (
+          <div className="mb-4">
+            <div className="flex items-baseline justify-between gap-3">
+              <span className="text-[11px] uppercase tracking-[0.12em] font-semibold text-ds-muted">
+                {strings.stats.price}
               </span>
-              <span className="text-ds-muted text-[14px]">/{strings.stats.monthUnit}</span>
-            </span>
+              <span className="text-[32px] font-bold tracking-[-0.02em] ds-tabular text-ds-accent">{price.pack}</span>
+            </div>
+            <p className="text-[12.5px] text-ds-muted m-0 mt-1 text-right ds-tabular" data-store-price-pack>
+              {price.packText}
+              {price.monthly ? ` · ${price.monthly}` : ''}
+            </p>
           </div>
         )}
         <TrackedAffiliateLink

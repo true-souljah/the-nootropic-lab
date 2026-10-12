@@ -13,7 +13,7 @@ export const euCountries: EUCountry[] = [
     name: 'Austria',
     nativeName: 'Österreich',
     currency: 'EUR',
-    regulatoryNote: 'Nootropic supplements are regulated as Nahrungsergänzungsmittel (food supplements) under EU Directive 2002/46/EC as transposed into Austrian law. Health claims must comply with Regulation (EC) 1924/2006 using EU-authorised claims (assessed by EFSA) only.',
+    regulatoryNote: 'Nootropic supplements are regulated as Nahrungsergänzungsmittel (food supplements) under EU Directive 2002/46/EC as transposed into Austrian law. The Austrian Agency for Health and Food Safety (AGES) states that no notification, registration or sign-up of food supplements has been required in Austria since 2006 (ages.at, checked 2026-10-12). Health claims must comply with Regulation (EC) 1924/2006 using EU-authorised claims (assessed by EFSA) only.',
     shippingNote: 'Confirm delivery to Austria at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
@@ -21,7 +21,7 @@ export const euCountries: EUCountry[] = [
     name: 'Belgium',
     nativeName: 'België / Belgique',
     currency: 'EUR',
-    regulatoryNote: 'The FASFC (Federal Agency for the Safety of the Food Chain) maintains a positive list of permitted substances. Some herbal nootropic ingredients require pre-notification before marketing.',
+    regulatoryNote: 'Belgium follows EU Directive 2002/46/EC. Producers and distributors must notify their food supplements to the FPS Public Health (FOD Volksgezondheid / SPF Santé publique) before marketing, online through its FOODSUP application, while the Federal Agency for the Safety of the Food Chain (FASFC) carries out market controls (health.belgium.be, checked 2026-10-12). Under the Royal Decree of 31 August 2021, Belgian law divides plants into three lists, the third being plants permitted in food supplements under rules of use, such as valerian (health.belgium.be, checked 2026-10-12).',
     shippingNote: 'Confirm delivery to Belgium at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
@@ -37,7 +37,7 @@ export const euCountries: EUCountry[] = [
     name: 'Croatia',
     nativeName: 'Hrvatska',
     currency: 'EUR',
-    regulatoryNote: 'Croatia adopted the euro in January 2023. EU food supplement regulations apply in full. The Ministry of Health oversees supplement registration.',
+    regulatoryNote: 'Croatia adopted the euro in January 2023 and follows EU Directive 2002/46/EC. A notification of placing a food supplement on the Croatian market must be submitted to the Ministry of Health (zdravstvo.gov.hr, checked 2026-10-12).',
     shippingNote: 'Confirm delivery to Croatia at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
@@ -45,7 +45,7 @@ export const euCountries: EUCountry[] = [
     name: 'Cyprus',
     nativeName: 'Κύπρος',
     currency: 'EUR',
-    regulatoryNote: 'Cyprus is an EU member and follows EU supplement regulations. The Ministry of Health registers food supplements. Island geography means slightly longer shipping from mainland EU distribution centres.',
+    regulatoryNote: 'Cyprus follows EU Directive 2002/46/EC. A food supplement legally distributed in another EU member state can be distributed in Cyprus after a "Notification of the Distribution of Food Supplements" is submitted to the Director of Medical and Public Health Services of the Ministry of Health; products outside that route need a Food Supplements Distribution Licence from the same Director (businessincyprus.gov.cy, checked 2026-10-12).',
     shippingNote: 'Confirm delivery to Cyprus at checkout — each brand publishes its own EU delivery list. Verify shipping availability at checkout; delivery estimates vary by brand and carrier, so check the estimate there too.',
   },
   {
@@ -53,7 +53,7 @@ export const euCountries: EUCountry[] = [
     name: 'Czech Republic',
     nativeName: 'Česká republika',
     currency: 'CZK',
-    regulatoryNote: 'The Czech Republic follows EU Directive 2002/46/EC. The State Agricultural and Food Inspection Authority (SZPI) oversees supplement compliance. Currency is CZK (Czech koruna) -- EUR-priced products require conversion. EU membership ensures product availability.',
+    regulatoryNote: "The Czech Republic follows EU Directive 2002/46/EC. Food business operators meet the duty to notify a food supplement placed on the market through the Ministry of Agriculture's electronic Food Notification System (SOP) (bezpecnostpotravin.cz, checked 2026-10-12); the EC list of competent authorities still names the Ministry of Health (food.ec.europa.eu, checked 2026-10-12). Currency is CZK (Czech koruna) -- EUR-priced products require conversion.",
     shippingNote: 'Confirm delivery to Czechia at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout. Prices in EUR -- minor conversion cost applies.',
   },
   {
@@ -61,7 +61,7 @@ export const euCountries: EUCountry[] = [
     name: 'Denmark',
     nativeName: 'Danmark',
     currency: 'DKK',
-    regulatoryNote: 'The Danish Veterinary and Food Administration (Fødevarestyrelsen) maintains a positive list. Some higher-dose nootropic products may not be sold in Denmark -- verify compliance of specific products before ordering.',
+    regulatoryNote: 'Denmark follows EU Directive 2002/46/EC, and food supplements must be notified to the Danish Veterinary and Food Administration (Fødevarestyrelsen) at the latest when they are first marketed (foedevarestyrelsen.dk, checked 2026-10-12). Annex 1 of the executive order on adding certain other substances to foods gives general permissions, in set amounts, for substances such as amino acids, curcumin, creatine and caffeine; a higher amount must be notified before marketing and a substance not on Annex 1 needs approval before the product can be sold, with case handling of up to six months. Fødevarestyrelsen also publishes a list of plant risk assessments that "er alene vejledende" (is guidance only) (foedevarestyrelsen.dk, checked 2026-10-12).',
     shippingNote: 'Confirm delivery to Denmark at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout. Prices in EUR -- DKK conversion at checkout. Denmark is non-euro but EU single market applies.',
   },
   {
@@ -69,7 +69,7 @@ export const euCountries: EUCountry[] = [
     name: 'Estonia',
     nativeName: 'Eesti',
     currency: 'EUR',
-    regulatoryNote: 'Estonia uses EUR and follows EU supplement regulations. The Agriculture and Food Board oversees food supplement registration. Estonia has a growing supplement market with strong online purchasing culture.',
+    regulatoryNote: 'Estonia uses EUR and follows EU Directive 2002/46/EC. Food supplements brought to the Estonian market for sale for the first time must be notified to the Agriculture and Food Board (Põllumajandus- ja Toiduamet) (pta.agri.ee, checked 2026-10-12).',
     shippingNote: 'Confirm delivery to Estonia at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
@@ -77,7 +77,7 @@ export const euCountries: EUCountry[] = [
     name: 'Finland',
     nativeName: 'Suomi',
     currency: 'EUR',
-    regulatoryNote: 'Finland follows EU Directive 2002/46/EC. The Finnish Food Authority (Ruokavirasto) oversees supplement compliance. Some high-dose products may require assessment.',
+    regulatoryNote: 'Finland follows EU Directive 2002/46/EC. A food business operator that manufactures, imports or otherwise places a food supplement on the market must notify the Finnish Food Authority (Ruokavirasto), which considers that the notification should be made at the latest when the product is placed on the market (ruokavirasto.fi, checked 2026-10-12).',
     shippingNote: 'Confirm delivery to Finland at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
@@ -85,7 +85,7 @@ export const euCountries: EUCountry[] = [
     name: 'France',
     nativeName: 'France',
     currency: 'EUR',
-    regulatoryNote: 'France transposes EU supplement law through DGCCRF oversight. France has a specific positive list system via DGAL/DGCCRF. Some plant extracts at high doses require regulatory assessment.',
+    regulatoryNote: 'France transposes EU Directive 2002/46/EC through decree no. 2006-352. To be marketed in France, a food supplement must be declared, or in some cases authorised, with the DGAL (Ministry of Agriculture) through the Compl’alim online service, while the DGCCRF is in charge of labelling and fair information, including market surveillance (agriculture.gouv.fr and entreprises.gouv.fr, checked 2026-10-12). Three arrêtés on nutrients, plants and other substances set "listes positives de substances autorisées" (positive lists of authorised substances) and may fix thresholds, such as maximum daily doses, on the opinion of Anses (agriculture.gouv.fr, checked 2026-10-12).',
     shippingNote: 'Confirm delivery to France at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
@@ -93,7 +93,7 @@ export const euCountries: EUCountry[] = [
     name: 'Germany',
     nativeName: 'Deutschland',
     currency: 'EUR',
-    regulatoryNote: 'Germany has robust supplement regulation under the NemV (Nahrungsergänzungsmittelverordnung), aligned with EU Directive 2002/46/EC. The BfR (Federal Institute for Risk Assessment) provides guidance on maximum doses. Products with very high herb doses may be assessed as medicinal products -- check compliance for any product above the recommended daily dose.',
+    regulatoryNote: 'Germany transposes EU Directive 2002/46/EC through the NemV (Nahrungsergänzungsmittelverordnung). No authority checks or approves a food supplement before it is first marketed, but under §5 NemV it must be notified beforehand to the Federal Office of Consumer Protection and Food Safety (BVL) (bvl.bund.de, checked 2026-10-12). The BfR (Federal Institute for Risk Assessment) has drawn up maximum-amount recommendations for vitamins and minerals, which are not legally binding but are used by food-control authorities in their assessments (bvl.bund.de, checked 2026-10-12).',
     shippingNote: 'Confirm delivery to Germany at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
@@ -101,7 +101,7 @@ export const euCountries: EUCountry[] = [
     name: 'Greece',
     nativeName: 'Ελλάδα',
     currency: 'EUR',
-    regulatoryNote: 'Greece follows EU supplement regulations. The National Food Authority (EFET) oversees compliance. Growing nootropics market, particularly in Athens.',
+    regulatoryNote: 'Greece follows EU Directive 2002/46/EC. The National Organization of Medicines (EOF), which the EC list names as the competent authority, publishes food-supplement notification guidelines on eof.gr (food.ec.europa.eu and eof.gr, checked 2026-10-12).',
     shippingNote: 'Confirm delivery to Greece at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout. Island addresses may take longer.',
   },
   {
@@ -109,7 +109,7 @@ export const euCountries: EUCountry[] = [
     name: 'Hungary',
     nativeName: 'Magyarország',
     currency: 'HUF',
-    regulatoryNote: 'Hungary follows EU Directive 2002/46/EC. The National Food Chain Safety Office (NÉBIH) oversees supplement registration. Currency is HUF (Hungarian forint) -- EUR-priced products require conversion.',
+    regulatoryNote: 'Hungary follows EU Directive 2002/46/EC. Food supplements to be sold in Hungary must be notified to the National Centre for Public Health and Pharmacy (NNGYK) at the latest on the day they are placed on the market (nngyk.gov.hu, checked 2026-10-12). Currency is HUF (Hungarian forint) -- EUR-priced products require conversion.',
     shippingNote: 'Confirm delivery to Hungary at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout. EUR pricing standard -- forint conversion at checkout.',
   },
   {
@@ -117,7 +117,7 @@ export const euCountries: EUCountry[] = [
     name: 'Ireland',
     nativeName: 'Éire',
     currency: 'EUR',
-    regulatoryNote: 'Ireland follows EU Directive 2002/46/EC. The Food Safety Authority of Ireland (FSAI) oversees compliance. English-language market well-served by UK and EU supplement brands. Post-Brexit, UK-based brands ship from EU distribution centres to avoid VAT complications.',
+    regulatoryNote: 'Ireland follows EU Directive 2002/46/EC. Food supplements must be notified to the Food Safety Authority of Ireland (FSAI); the duty falls on the manufacturer for products made in Ireland and on the importer for products imported into Ireland (fsai.ie, checked 2026-10-12).',
     shippingNote: 'Confirm delivery to Ireland at checkout — each brand publishes its own EU delivery list. Brainzyme does not ship its Ginkgo biloba formulas (FOCUS PRO, FOCUS ELITE) to Ireland (brainzyme.com international-shipping page, checked 2026-10-06). Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
@@ -125,15 +125,15 @@ export const euCountries: EUCountry[] = [
     name: 'Italy',
     nativeName: 'Italia',
     currency: 'EUR',
-    regulatoryNote: "Italy has one of Europe's most detailed supplement regulatory frameworks. The Ministry of Health maintains a supplementi alimentari register. Some ingredients require official registration before sale. Verify any Italy-specific restrictions for novel ingredients.",
-    shippingNote: 'Confirm delivery to Italy at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout. Italy is one of the largest European supplement markets.',
+    regulatoryNote: 'Italy follows EU Directive 2002/46/EC. The EC list of competent authorities under the Directive names "Ministero della Salute DSVET DGSAN" for Italy (EC list of competent authorities, rev. October 2025).',
+    shippingNote: 'Confirm delivery to Italy at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
     slug: 'latvia',
     name: 'Latvia',
     nativeName: 'Latvija',
     currency: 'EUR',
-    regulatoryNote: 'Latvia follows EU supplement regulations. The Food and Veterinary Service oversees compliance. Small but growing market.',
+    regulatoryNote: 'Latvia follows EU Directive 2002/46/EC. Food supplements are registered with the Food and Veterinary Service (PVD) on the basis of a notification for food-supplement registration (pvd.gov.lv, checked 2026-10-12).',
     shippingNote: 'Confirm delivery to Latvia at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
@@ -141,7 +141,7 @@ export const euCountries: EUCountry[] = [
     name: 'Lithuania',
     nativeName: 'Lietuva',
     currency: 'EUR',
-    regulatoryNote: "Lithuania follows EU Directive 2002/46/EC. The State Food and Veterinary Service oversees supplements. EU member since 2004 -- mainstream supplement market well-established.",
+    regulatoryNote: 'Lithuania follows EU Directive 2002/46/EC. The EC list of competent authorities under the Directive names "The Institute of Hygiene" for Lithuania (EC list of competent authorities, rev. October 2025).',
     shippingNote: 'Confirm delivery to Lithuania at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
@@ -149,7 +149,7 @@ export const euCountries: EUCountry[] = [
     name: 'Luxembourg',
     nativeName: 'Lëtzebuerg',
     currency: 'EUR',
-    regulatoryNote: 'Luxembourg follows EU supplement regulations with oversight by the Ministry of Health. High purchasing power market.',
+    regulatoryNote: 'Luxembourg follows EU Directive 2002/46/EC. A food supplement placed on the Luxembourg market for the first time must be declared online via MyGuichet.lu to the Administration luxembourgeoise vétérinaire et alimentaire (ALVA); the declaration is not a marketing authorisation (guichet.public.lu, checked 2026-10-12).',
     shippingNote: 'Confirm delivery to Luxembourg at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
@@ -157,7 +157,7 @@ export const euCountries: EUCountry[] = [
     name: 'Malta',
     nativeName: 'Malta',
     currency: 'EUR',
-    regulatoryNote: 'Malta follows EU Directive 2002/46/EC. The Malta Competition and Consumer Affairs Authority oversees supplement compliance. Island geography means slightly longer shipping.',
+    regulatoryNote: 'Malta follows EU Directive 2002/46/EC. The EC list of competent authorities under the Directive names the Food Safety & Security Authority (FSSA) for Malta (food.ec.europa.eu, checked 2026-10-12).',
     shippingNote: 'Confirm delivery to Malta at checkout — each brand publishes its own EU delivery list. Verify shipping at checkout; delivery estimates vary by brand and carrier, so check the estimate there too.',
   },
   {
@@ -165,7 +165,7 @@ export const euCountries: EUCountry[] = [
     name: 'Netherlands',
     nativeName: 'Nederland',
     currency: 'EUR',
-    regulatoryNote: 'The Netherlands has a well-developed supplement market. The Dutch Food and Consumer Product Safety Authority (NVWA) oversees compliance.',
+    regulatoryNote: 'The Netherlands follows EU Directive 2002/46/EC. The Dutch Food and Consumer Product Safety Authority (NVWA) states that there is no notification duty for supplements in the Netherlands, so businesses do not have to notify it before placing supplements on the Dutch market (nvwa.nl, checked 2026-10-12).',
     shippingNote: 'Confirm delivery to the Netherlands at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
@@ -173,7 +173,7 @@ export const euCountries: EUCountry[] = [
     name: 'Poland',
     nativeName: 'Polska',
     currency: 'PLN',
-    regulatoryNote: "Poland is the EU's largest Eastern European market and has a fast-growing supplement category. The Chief Sanitary Inspectorate (GIS) oversees food supplements. EU Directive 2002/46/EC applies. Currency is PLN (Polish zloty) -- check whether your preferred brand offers PLN pricing or EUR.",
+    regulatoryNote: 'Poland follows EU Directive 2002/46/EC. The EC list of competent authorities under the Directive names the "Department of Food and Nutrition Safety, Chief Sanitary Inspectorate" for Poland (EC list of competent authorities, rev. October 2025). Currency is PLN (Polish zloty) -- check whether your preferred brand offers PLN pricing or EUR.',
     shippingNote: 'Confirm delivery to Poland at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout. EUR pricing standard -- zloty conversion applies.',
   },
   {
@@ -181,7 +181,7 @@ export const euCountries: EUCountry[] = [
     name: 'Portugal',
     nativeName: 'Portugal',
     currency: 'EUR',
-    regulatoryNote: 'Portugal follows EU supplement regulations with ASAE (Food and Economic Safety Authority) oversight. Growing online supplement market.',
+    regulatoryNote: 'Portugal follows EU Directive 2002/46/EC. Food supplements must be notified to the Directorate-General for Food and Veterinary (DGAV) before they are placed on the national market, even if already sold in another EU member state (dgav.pt, checked 2026-10-12).',
     shippingNote: 'Confirm delivery to mainland Portugal at checkout — each brand publishes its own EU delivery list. Madeira and Azores may have longer delivery times. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
@@ -189,7 +189,7 @@ export const euCountries: EUCountry[] = [
     name: 'Romania',
     nativeName: 'România',
     currency: 'RON',
-    regulatoryNote: 'Romania follows EU Directive 2002/46/EC. The National Authority for Consumer Protection (ANPC) oversees supplement compliance. Currency is RON (Romanian leu).',
+    regulatoryNote: 'Romania follows EU Directive 2002/46/EC. The Ministry of Health publishes the documents required to notify a food supplement and the supplement notification lists on its food-supplement page (ms.ro, checked 2026-10-12), and the EC list names the Ministry of Health and the National Institute of Public Health (food.ec.europa.eu, checked 2026-10-12). Currency is RON (Romanian leu).',
     shippingNote: 'Confirm delivery to Romania at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout. EUR pricing with RON conversion at checkout.',
   },
   {
@@ -197,7 +197,7 @@ export const euCountries: EUCountry[] = [
     name: 'Slovakia',
     nativeName: 'Slovensko',
     currency: 'EUR',
-    regulatoryNote: 'Slovakia uses EUR and follows EU supplement regulations. The Public Health Authority oversees food supplement compliance. Market closely aligned with Czech Republic.',
+    regulatoryNote: 'Slovakia uses EUR and follows EU Directive 2002/46/EC. The Public Health Authority of the Slovak Republic (ÚVZ SR) receives food-supplement notifications and keeps the register, and states that this is not an approval process (uvzsr.sk, checked 2026-10-12).',
     shippingNote: 'Confirm delivery to Slovakia at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
@@ -205,7 +205,7 @@ export const euCountries: EUCountry[] = [
     name: 'Slovenia',
     nativeName: 'Slovenija',
     currency: 'EUR',
-    regulatoryNote: 'Slovenia uses EUR and follows EU Directive 2002/46/EC. The Administration of the Republic of Slovenia for Food Safety oversees compliance.',
+    regulatoryNote: 'Slovenia uses EUR and follows EU Directive 2002/46/EC. The Ministry of Health states that the first-notification procedure for food supplements was abolished in 2013, so it accepts no first notifications and keeps no list of supplements on the market; a new first-notification duty applies only once an implementing regulation setting the procedure takes effect (gov.si, checked 2026-10-12).',
     shippingNote: 'Confirm delivery to Slovenia at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
@@ -213,7 +213,7 @@ export const euCountries: EUCountry[] = [
     name: 'Spain',
     nativeName: 'España',
     currency: 'EUR',
-    regulatoryNote: 'Spain is the fourth-largest EU economy with a growing supplement market. The Spanish Agency of Food Safety and Nutrition (AESAN) oversees compliance under EU Directive 2002/46/EC. Spain also has specific Royal Decree requirements for supplement notification.',
+    regulatoryNote: 'Spain follows EU Directive 2002/46/EC. The Spanish Agency of Food Safety and Nutrition (AESAN) states that Real Decreto 1487/2009 requires food supplements to be notified before or at the time they are first placed on the market (aesan.gob.es, checked 2026-10-12), and the EC list names AESAN as the competent authority (food.ec.europa.eu, checked 2026-10-12).',
     shippingNote: 'Confirm delivery to mainland Spain at checkout — each brand publishes its own EU delivery list. Canary Islands, Ceuta, and Melilla may have different shipping rules -- verify at checkout. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
@@ -221,7 +221,7 @@ export const euCountries: EUCountry[] = [
     name: 'Sweden',
     nativeName: 'Sverige',
     currency: 'SEK',
-    regulatoryNote: 'Sweden has strict supplement regulation through the Swedish Food Agency (Livsmedelsverket). Sweden follows EU Directive 2002/46/EC but maintains conservative maximum dose recommendations for several ingredients. Currency is SEK (Swedish krona). Verify dose compliance for individual products.',
+    regulatoryNote: 'Sweden follows EU Directive 2002/46/EC. The Swedish Food Agency (Livsmedelsverket) states that Sweden has no system for notifying food supplements before they are sold; businesses handling supplements usually register with the control authority in their municipality (livsmedelsverket.se, checked 2026-10-12). Currency is SEK (Swedish krona).',
     shippingNote: 'Confirm delivery to Sweden at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout. EUR pricing -- SEK conversion at checkout.',
   },
 ];
