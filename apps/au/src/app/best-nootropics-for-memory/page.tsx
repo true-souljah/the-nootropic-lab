@@ -65,7 +65,7 @@ const picks: ListiclePick[] = [
     product: productsAU.find(p => p.slug === 'qualia-mind-review')!,
     rank: 2,
     whyItsHere:
-      'Includes citicoline, phosphatidylserine (100mg), AND a comprehensive cholinergic stack — 31 ingredients in all, the most of any single formula in this review. Loses ground on capsule count (6/day) and price (AUD $215/mo). For memory specifically, the breadth justifies the trade-off if you can tolerate the daily friction. International delivery is estimated at 15–22 days (per qualialife.com, checked 2026-09-29). Note: contains caffeine.',
+      'Includes citicoline, phosphatidylserine (100mg), AND a comprehensive cholinergic stack — 31 ingredients in all, the most of any single formula in this review. Loses ground on capsule count (6/day) and price (US$139 per 4-week subscription shipment, charged in US dollars). For memory specifically, the breadth justifies the trade-off if you can tolerate the daily friction. International delivery is estimated at 15–22 days (per qualialife.com, checked 2026-09-29). Note: contains caffeine.',
   },
   {
     product: productsAU.find(p => p.slug === 'hunter-focus-review')!,

@@ -70,7 +70,7 @@ const picks: ListiclePick[] = [
     product: productsCA.find(p => p.slug === 'qualia-mind-review')!,
     rank: 3,
     whyItsHere:
-      '31 ingredients, the most of any single formula in this review: includes Alpha-GPC, Rhodiola, choline cofactors, and 100mg caffeine per serving. The 6 capsules/day is friction during finals week; the CAD $190/mo subscription is friction for student budgets.',
+      '31 ingredients, the most of any single formula in this review: includes Alpha-GPC, Rhodiola, choline cofactors, and 100mg caffeine per serving. The 6 capsules/day is friction during finals week; the US$139 four-weekly subscription is friction for student budgets.',
   },
   {
     product: productsCA.find(p => p.slug === 'onnit-alpha-brain-review')!,

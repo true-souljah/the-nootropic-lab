@@ -29,7 +29,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Which is better, Mind Lab Pro or Thesis?',
     a:
-      'Different philosophies. Mind Lab Pro takes a single universal formula approach — same 11 ingredients for everyone, every dose disclosed, $69/month. Thesis takes a personalisation approach — 4-week trial pack of different formulas, then you pick which works for you, $59/month per formula; its site sells four formulas (Clarity, Motivation, Stress Reset and Neuroprotection, checked 8 October 2026). Universal formulas have more replication evidence; personalisation has stronger user-experience data.',
+      'Different philosophies. Mind Lab Pro takes a single universal formula approach — same 11 ingredients for everyone, every dose disclosed, $69/month. Thesis takes a personalisation approach — 4-week trial pack of different formulas, then you pick which works for you; on its US Clarity page a 1-month subscription is $59 a month; its site sells four formulas (Clarity, Motivation, Stress Reset and Neuroprotection, checked 8 October 2026). Universal formulas have more replication evidence; personalisation has stronger user-experience data.',
   },
   {
     q: 'Is Thesis personalisation evidence-based?',
@@ -39,7 +39,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'How does Thesis pricing compare?',
     a:
-      'Thesis: 4-week starter kit $119, then $59/month per formula. If you take multiple formulas across the week (their suggested approach), monthly cost can exceed $100. Mind Lab Pro: $69/month flat. Thesis is more expensive long-term unless you stick with a single formula.',
+      'Thesis (US Clarity page, checked 9 October 2026): $59 a month on a 1-month subscription, $147 for the first 3 months on the 3-month plan (then $207 every 75 days), or $89 plus $6.90 shipping as a one-time purchase. Mind Lab Pro: $69/month flat. On subscription a single Thesis formula costs less than Mind Lab Pro; several formulas cost more.',
   },
   {
     q: 'Are both caffeine-free?',
@@ -61,14 +61,14 @@ const faqItems: HeadToHeadFAQ[] = [
 const whoIsForA = [
   'Want a single universal formula with peer-reviewed RCT evidence',
   'Prefer no autoship — manual reorder only',
-  'Are budget-conscious at $69/month flat',
+  'Want one flat price ($69/month) with no subscription',
   'Don\'t want to manage a quiz-based selection process',
 ];
 
 const whoIsForB = [
   'Want to try multiple formulas before committing (4-week starter)',
   'Like the Thesis ecosystem (quiz-driven recommendations, formula switching)',
-  'Are willing to pay $59-$119+/month for the personalisation flow',
+  'Are willing to pay $59 a month or more per formula for the personalisation flow',
   'Prefer caffeinated and caffeine-free formula options to mix and match',
 ];
 
