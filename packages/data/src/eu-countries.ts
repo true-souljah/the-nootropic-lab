@@ -21,7 +21,7 @@ export const euCountries: EUCountry[] = [
     name: 'Belgium',
     nativeName: 'België / Belgique',
     currency: 'EUR',
-    regulatoryNote: 'Belgium has one of the stricter supplement regulatory frameworks in the EU. The FASFC (Federal Agency for the Safety of the Food Chain) maintains a positive list of permitted substances. Some herbal nootropic ingredients require pre-notification before marketing.',
+    regulatoryNote: 'The FASFC (Federal Agency for the Safety of the Food Chain) maintains a positive list of permitted substances. Some herbal nootropic ingredients require pre-notification before marketing.',
     shippingNote: 'Confirm delivery to Belgium at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
   },
   {
@@ -61,7 +61,7 @@ export const euCountries: EUCountry[] = [
     name: 'Denmark',
     nativeName: 'Danmark',
     currency: 'DKK',
-    regulatoryNote: 'Denmark has historically had stricter supplement rules than most EU countries. The Danish Veterinary and Food Administration (Fødevarestyrelsen) maintains a positive list. Some higher-dose nootropic products may not be sold in Denmark -- verify compliance of specific products before ordering.',
+    regulatoryNote: 'The Danish Veterinary and Food Administration (Fødevarestyrelsen) maintains a positive list. Some higher-dose nootropic products may not be sold in Denmark -- verify compliance of specific products before ordering.',
     shippingNote: 'Confirm delivery to Denmark at checkout — each brand publishes its own EU delivery list. Delivery estimates vary by brand and carrier, so check the estimate at checkout. Prices in EUR -- DKK conversion at checkout. Denmark is non-euro but EU single market applies.',
   },
   {

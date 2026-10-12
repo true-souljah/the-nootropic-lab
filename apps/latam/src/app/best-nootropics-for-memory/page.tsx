@@ -71,7 +71,7 @@ const picks: ListiclePick[] = [
     product: productsLatam.find(p => p.slug === 'qualia-mind-review')!,
     rank: 3,
     whyItsHere:
-      'Incluye citicolina, fosfatidilserina Y Melena de León — el stack más completo para memoria en un solo producto. Pierde puntos por cantidad de cápsulas (6/día) y precio ($139 USD/mes). Para memoria específicamente, la amplitud justifica el compromiso si toleras la fricción diaria. Los aranceles de importación y el despacho aduanero corren por cuenta del comprador.',
+      'Incluye citicolina, fosfatidilserina Y Melena de León, con 31 ingredientes en total: la fórmula con más ingredientes de esta página. Pierde puntos por cantidad de cápsulas (6/día) y precio ($139 USD/mes). Para memoria específicamente, la amplitud justifica el compromiso si toleras la fricción diaria. Los aranceles de importación y el despacho aduanero corren por cuenta del comprador.',
   },
 ];
 

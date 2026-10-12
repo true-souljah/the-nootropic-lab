@@ -49,7 +49,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Which is better value for money?',
     a:
-      'Mind Lab Pro is $69/month at full price. Alpha Brain Classic is roughly ~$67/month with the 15% autoship discount, ~$80/month one-time. Mind Lab Pro costs more but offers a fully open formula. Alpha Brain is cheaper but several active ingredients sit inside undisclosed proprietary blends.',
+      'Mind Lab Pro is $69/month at full price. Alpha Brain is $79.95 for a 90-count bottle, which Onnit calls a 45-day supply (checked 7 October 2026). Mind Lab Pro costs more but offers a fully open formula. Alpha Brain is cheaper but several active ingredients sit inside undisclosed proprietary blends.',
   },
   {
     q: 'Are these alternatives to Adderall?',
