@@ -52,7 +52,7 @@ const ANCHORED: Record<string, [string, boolean | null]> = {
   'Acetyl-L-Carnitine': ['1500-3000mg/day', false],
   'L-Tyrosine': ['2000mg/day (lowest positive trial)', false],
   "Organic Lion's Mane Mushroom (Hericium erinaceus)": ['1000-1800mg/day', false],
-  Bacopa: ['300-450mg/day (55% bacosides)', null],
+  Bacopa: ['300-450mg/day (≥50% bacosides)', null],
   'Ashwagandha Root (Withania somnifera)': ['300-600mg/day (KSM-66)', null],
   Citicoline: ['250-500mg/day', true],
   'L-Theanine': ['100-200mg/day', true],
