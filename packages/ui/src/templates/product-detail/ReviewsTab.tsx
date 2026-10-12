@@ -1,12 +1,15 @@
 import { Card } from '../../primitives/Card';
-import type { Product } from '@nootropic/data';
+import type { Product, UIStrings } from '@nootropic/data';
 import { vendorHost } from '@nootropic/data';
 
 export interface ReviewsTabProps {
   product: Product;
+  /** Locale product-detail bundle: card copy, counts and the star row's accessible name. */
+  strings: UIStrings['productDetail'];
 }
 
-export function ReviewsTab({ product: p }: ReviewsTabProps) {
+export function ReviewsTab({ product: p, strings }: ReviewsTabProps) {
+  const t = strings.reviews;
   // When the vendor has no Trustpilot profile (Amazon-only listings, Lazada,
   // regional pharmacy chains, some major JP brands), render an "N/A" card
   // instead of showing a literal 0/5 with 0 reviews. The composite editorial
@@ -22,17 +25,11 @@ export function ReviewsTab({ product: p }: ReviewsTabProps) {
             >
               —
             </div>
-            <h3 className="text-[20px] font-bold tracking-[-0.01em] m-0 mb-2 text-ds-ink">
-              No Trustpilot profile
-            </h3>
+            <h3 className="text-[20px] font-bold tracking-[-0.01em] m-0 mb-2 text-ds-ink">{t.noProfileHeading}</h3>
             <p className="text-[13.5px] text-ds-ink-soft m-0 mb-2 leading-[1.6]">
-              {p.brand} doesn&apos;t have an active Trustpilot listing — this is common for
-              Amazon-only sellers, marketplace brands, and regional pharmacy chains.
+              {t.noProfileBody.replace('{brand}', p.brand)}
             </p>
-            <p className="text-[13.5px] text-ds-ink-soft m-0 leading-[1.6]">
-              The Trust pillar in our editorial score still applies and reflects brand reputation,
-              third-party testing, and refund track record.
-            </p>
+            <p className="text-[13.5px] text-ds-ink-soft m-0 leading-[1.6]">{t.noProfileTrust}</p>
           </div>
         </Card>
       </div>
@@ -43,13 +40,14 @@ export function ReviewsTab({ product: p }: ReviewsTabProps) {
   // a purchase link, so it stays when the edition shows no purchase link.
   // validate-data requires an absolute vendor URL, so the host always parses.
   const trustpilotHost = vendorHost(p) ?? '';
-  const reviewCount = p.trustpilotCount ?? 0;
+  // Same count format as the header's Trustpilot stat (ProductDetail).
+  const reviewCount = (p.trustpilotCount ?? 0).toLocaleString(strings.dateLocale);
 
   return (
     <div className="grid gap-4 items-start grid-cols-1 lg:grid-cols-[320px_1fr]">
       <Card padding={22}>
         <div className="text-[11px] uppercase tracking-[0.12em] font-semibold text-ds-muted mb-2">
-          Trustpilot
+          {strings.stats.trustpilot}
         </div>
         <div className="flex items-baseline gap-1">
           <span className="text-[44px] font-bold tracking-[-0.02em] ds-tabular text-ds-ink">
@@ -59,7 +57,7 @@ export function ReviewsTab({ product: p }: ReviewsTabProps) {
         </div>
         <div
           className="flex gap-[2px] mt-2"
-          aria-label={`${p.trustpilotScore} out of 5 stars`}
+          aria-label={t.starsAria.replace('{score}', String(p.trustpilotScore))}
         >
           {[1, 2, 3, 4, 5].map((star) => (
             <span
@@ -71,9 +69,7 @@ export function ReviewsTab({ product: p }: ReviewsTabProps) {
             </span>
           ))}
         </div>
-        <div className="text-[12px] text-ds-muted mt-2">
-          {reviewCount.toLocaleString()} reviews on Trustpilot
-        </div>
+        <div className="text-[12px] text-ds-muted mt-2">{t.countOnTrustpilot.replace('{count}', reviewCount)}</div>
       </Card>
 
       <Card padding={28}>
@@ -85,19 +81,16 @@ export function ReviewsTab({ product: p }: ReviewsTabProps) {
             ★
           </div>
           <h3 className="text-[20px] font-bold tracking-[-0.01em] m-0 mb-2 text-ds-ink">
-            {reviewCount.toLocaleString()} verified reviews
+            {t.verifiedCount.replace('{count}', reviewCount)}
           </h3>
-          <p className="text-[13.5px] text-ds-ink-soft m-0 mb-5 leading-[1.6]">
-            We don&apos;t embed cherry-picked quotes here. Trustpilot is the canonical source —
-            the score above feeds into our Trust pillar.
-          </p>
+          <p className="text-[13.5px] text-ds-ink-soft m-0 mb-5 leading-[1.6]">{t.noCherryPicking}</p>
           <a
             href={`https://www.trustpilot.com/review/${trustpilotHost}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-ds-accent hover:bg-ds-accent-press text-white px-5 py-[10px] rounded-[8px] text-[13px] font-semibold no-underline focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
           >
-            Read all {reviewCount.toLocaleString()} reviews on Trustpilot →
+            {t.readAll.replace('{count}', reviewCount)}
           </a>
         </div>
       </Card>
