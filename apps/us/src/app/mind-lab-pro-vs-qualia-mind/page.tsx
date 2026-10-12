@@ -39,7 +39,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Is Qualia Mind worth the price?',
     a:
-      'Qualia Mind one-time is $159/month, with subscription pricing of $39 first order then $139/month. Mind Lab Pro is $69/month flat. If you respond well to choline donors and adaptogens specifically, Qualia\'s breadth might justify the cost. If you prefer a tighter, evidence-graded formula, Mind Lab Pro\'s value is stronger.',
+      'Qualia Mind is $159 as a one-time purchase, or $39 for the first subscription shipment and then $139 per shipment every 4 weeks (qualialife.com, checked 9 October 2026). Mind Lab Pro is $69/month flat. If you respond well to choline donors and adaptogens specifically, Qualia\'s breadth might justify the cost. If you prefer a tighter, evidence-graded formula, Mind Lab Pro\'s value is stronger.',
   },
   {
     q: 'Are both caffeine-free?',

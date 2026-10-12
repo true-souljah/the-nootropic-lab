@@ -3,6 +3,7 @@ import { ComparisonTable, AffiliateDisclosure, StickyCtaBar, SchemaOrg, buildAlt
 import { productsCA, buildPersonAuthorReference } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search-fr-ca';
 import { SITE_URL } from '@/lib/region';
+import { priceText } from '@nootropic/ui';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -130,7 +131,7 @@ export default function FrMeilleursNootropiquesPage() {
             rel="nofollow sponsored noopener noreferrer"
             className="inline-block bg-green-700 hover:bg-green-600 text-white font-bold px-5 py-2 rounded-lg text-sm transition-colors"
           >
-            Voir le prix ({winner.priceMonthlyUSD} $/mois USD) →
+            {priceText(winner, uiStrings) ? `Voir le prix (${priceText(winner, uiStrings)!.short}) →` : 'Voir le prix →'}
           </a>
         </div>
 

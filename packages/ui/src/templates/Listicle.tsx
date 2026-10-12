@@ -10,6 +10,7 @@ import { FPByline } from '../public-chrome/FPByline';
 import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
+import { priceText } from '../price-text';
 import { Bar } from '../primitives/Bar';
 import { FaqAccordion } from '../primitives/FaqAccordion';
 import { ProductThumb } from '../primitives/ProductThumb';
@@ -289,6 +290,7 @@ export default function Listicle({
                 {ranked.map((pick) => {
                   const rank = pick.rank;
                   const isTop = rank === 1;
+                  const price = priceText(pick.product, uiStrings);
                   return (
                     <Card key={pick.product.slug} padding={0} as="article">
                       <div className="p-6">
@@ -312,9 +314,9 @@ export default function Listicle({
                           {pick.product.name}
                         </h3>
                         <div className="text-[12.5px] text-ds-muted mb-4 ds-tabular">
-                          {pick.product.priceMonthlyUSD && (
+                          {price && (
                             <>
-                              {`$${pick.product.priceMonthlyUSD}/${s.monthUnit}`} · {servingAmount(pick.product, uiStrings)} · {guaranteeDays(pick.product.moneyBackDays, (d) => tpl(s.moneyBackDays, { days: d }))} {s.moneyBackLabel}
+                              {price.short} · {servingAmount(pick.product, uiStrings)} · {guaranteeDays(pick.product.moneyBackDays, (d) => tpl(s.moneyBackDays, { days: d }))} {s.moneyBackLabel}
                             </>
                           )}
                         </div>

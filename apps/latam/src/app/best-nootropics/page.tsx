@@ -4,6 +4,7 @@ import { BestOf, SchemaOrg, Card, Chip, FaqAccordion, buildAlternates, buildOpen
 import { productsLatam, buildPersonAuthorReference } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
+import { priceText } from '@nootropic/ui';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -48,7 +49,7 @@ export default function BestNootropicsLatamPage() {
               <h2 className="text-[20px] font-bold text-ds-ink m-0 mt-2 mb-1">{winner.name}</h2>
               <p className="text-[13.5px] text-ds-ink-soft m-0 mb-3 leading-[1.6]">{winner.summary}</p>
               <a href={winner.affiliateUrl} target="_blank" rel="nofollow sponsored noopener noreferrer" className="inline-block bg-ds-accent hover:bg-ds-accent-press text-white font-semibold px-5 py-[10px] rounded-[8px] text-[13px] no-underline focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2">
-                {winner.priceMonthlyUSD ? `Ver precio ($${winner.priceMonthlyUSD}/mes USD) →` : 'Ver precio →'}
+                {priceText(winner, uiStrings) ? `Ver precio (${priceText(winner, uiStrings)!.short}) →` : 'Ver precio →'}
               </a>
             </Card>
           </div>

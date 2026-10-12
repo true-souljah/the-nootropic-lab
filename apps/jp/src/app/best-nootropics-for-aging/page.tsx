@@ -64,13 +64,13 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'suntory-dha-epa-sesamin-review')!,
     rank: 2,
     whyItsHere:
-      'An omega-3 brain supplement whose maker\'s product page calls it 「DHAサプリメント市場18年連続売上No.1」 (No. 1 in DHA-supplement sales for 18 years running; suntory-kenko.com, checked 2026-10-09); no Foods with Function Claims (FFC, 機能性表示食品) notification found in the Consumer Affairs Agency (CAA) database (export scanned 2026-10-06) — Suntory Wellness, a household name backed by the ¥2.7 trillion Suntory Group. 300mg DHA + 100mg EPA + 10mg sesamin per 4 capsules. Foundational structural support for aging brains; widely advertised on Japanese television and trusted across the 60+ demographic. ¥4,800/month.',
+      'An omega-3 brain supplement whose maker\'s product page calls it 「DHAサプリメント市場18年連続売上No.1」 (No. 1 in DHA-supplement sales for 18 years running; suntory-kenko.com, checked 2026-10-09); no Foods with Function Claims (FFC, 機能性表示食品) notification found in the Consumer Affairs Agency (CAA) database (export scanned 2026-10-06) — Suntory Wellness, a household name backed by the ¥2.7 trillion Suntory Group. 300mg DHA + 100mg EPA + 10mg sesamin per 4 capsules. Foundational structural support for aging brains; widely advertised on Japanese television and trusted across the 60+ demographic.',
   },
   {
     product: productsJP.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 3,
     whyItsHere:
-      'Includes phosphatidylserine, citicoline (250mg Cognizin at clinical dose), Bacopa, and Lion\'s Mane (the ingredient with Japanese RCT evidence) in one open-formula product. Caffeine-free — no cardiovascular load for older adults sensitive to stimulants. Best for Japanese adults already comfortable with international online ordering and willing to pay ¥10,350/month equivalent for broader ingredient coverage.',
+      'Includes phosphatidylserine, citicoline (250mg Cognizin at clinical dose), Bacopa, and Lion\'s Mane (the ingredient with Japanese RCT evidence) in one open-formula product. Caffeine-free — no cardiovascular load for older adults sensitive to stimulants. Best for Japanese adults already comfortable with international online ordering and willing to pay in US dollars for broader ingredient coverage.',
   },
 ];
 

@@ -9,7 +9,7 @@ import type { SearchItem } from './search';
 import { getStrings } from './i18n';
 import type { Locale, UIStrings } from './i18n';
 import type { Product } from './products-us';
-import type { RegionCode } from './regional';
+import { REGION_PROFILES, type RegionCode } from './regional';
 
 export interface RegionSearchContext {
   searchItems: SearchItem[];
@@ -17,7 +17,13 @@ export interface RegionSearchContext {
 }
 
 export function buildRegionSearchContext(products: Product[], locale: Locale, region: RegionCode): RegionSearchContext {
-  const uiStrings = getStrings(locale);
+  const strings = getStrings(locale);
+  // English pages write prices the region's way (en-CA, en-AU, en-SG…); other
+  // languages use their own locale (de-DE, fr-CA, ja-JP, es-419).
+  const uiStrings: UIStrings = {
+    ...strings,
+    priceLocale: locale === 'en' ? REGION_PROFILES[region].priceLocale : strings.productDetail.dateLocale,
+  };
   return {
     // Pass strings through so the 3 hardcoded "page" items in the search
     // index (Best Nootropics / Compare All / Methodology) render in the

@@ -266,7 +266,7 @@ export default function Page() {
           <h2 className="text-xl font-bold text-gray-900 mb-3">If you don&apos;t have ADHD but want focus help</h2>
           <p className="text-gray-700 leading-relaxed mb-3">
             Start with caffeine + L-theanine. It is the most-evidence-backed legal cognitive enhancement combination,
-            available at any pharmacy for ~$8/month. See our{' '}
+            available at any pharmacy. See our{' '}
             <Link href="/guides/nootropics-for-beginners/" className="text-green-700 underline">
               nootropics for beginners guide
             </Link>{' '}

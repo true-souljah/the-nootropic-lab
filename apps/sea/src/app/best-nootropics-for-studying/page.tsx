@@ -70,7 +70,7 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'naturebell-ginkgo-ginseng-review')!,
     rank: 3,
     whyItsHere:
-      'The lowest-priced product on this page at ~SGD $7/month (~$5 USD) for a 5-month supply via Amazon.sg. Ginkgo Biloba at full clinical dose (500mg extract standardised to 120mg flavone glycosides), but ginkgo is not one of this guide\'s evidence ingredients. Ginseng is 50mg of Korean Red Ginseng extract with no ginsenoside amount stated. 60-day money-back guarantee.',
+      'Sold via Amazon.sg. Ginkgo Biloba at full clinical dose (500mg extract standardised to 120mg flavone glycosides), but ginkgo is not one of this guide\'s evidence ingredients. Ginseng is 50mg of Korean Red Ginseng extract with no ginsenoside amount stated. 60-day money-back guarantee.',
   },
 ];
 
@@ -81,7 +81,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Which are best for SEA students via Shopee/Lazada vs cross-border iHerb?',
-    a: 'NatureBell Ginkgo+Ginseng on Amazon.sg (~SGD $7/mo) avoids customs and credit-card cross-border fees, but it contains none of this guide\'s evidence ingredients, so it is listed under Also considered above rather than ranked. For premium stacks: cross-border iHerb to Singapore is the most reliable route for Mind Lab Pro, NooCube, and Nootropics Depot products. Direct from the brand is also an option for Mind Lab Pro: its FAQ names Singapore, Thailand, the Philippines, Indonesia and Vietnam among its shipping territories (checked 2026-09-29; Malaysia not named on that partial list).',
+    a: 'NatureBell Ginkgo+Ginseng on Amazon.sg avoids customs and credit-card cross-border fees, but it contains none of this guide\'s evidence ingredients, so it is listed under Also considered above rather than ranked. For premium stacks: cross-border iHerb to Singapore is the most reliable route for Mind Lab Pro, NooCube, and Nootropics Depot products. Direct from the brand is also an option for Mind Lab Pro: its FAQ names Singapore, Thailand, the Philippines, Indonesia and Vietnam among its shipping territories (checked 2026-09-29; Malaysia not named on that partial list).',
   },
   {
     q: 'When should I start taking nootropics for studying?',

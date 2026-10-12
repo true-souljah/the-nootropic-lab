@@ -70,7 +70,7 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'qualia-mind-review')!,
     rank: 3,
     whyItsHere:
-      'Includes citicoline, Alpha-GPC, L-theanine, and L-tyrosine — covers nearly every evidence-backed focus mechanism. Loses ground on capsule count (6/day), $139/mo subscription, and a contains-caffeine formula (ID buyers in observance may prefer caffeine-free). Availability caveat: Qualia does not ship to any SEA country (brand shipping page, checked 2026-09-28), so SEA buyers cannot order it direct.',
+      'Includes citicoline, Alpha-GPC, L-theanine, and L-tyrosine — covers nearly every evidence-backed focus mechanism. Loses ground on capsule count (6/day), US$139 four-weekly subscription, and a contains-caffeine formula (ID buyers in observance may prefer caffeine-free). Availability caveat: Qualia does not ship to any SEA country (brand shipping page, checked 2026-09-28), so SEA buyers cannot order it direct.',
   },
   {
     product: productsSEA.find(p => p.slug === 'onnit-alpha-brain-review')!,
@@ -91,7 +91,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'What is the most evidence-backed focus nootropic available in SEA?',
-    a: 'L-theanine paired with caffeine (1:2 to 2:1 ratio) has the strongest replication evidence — Owen et al. 2008 and multiple follow-ups. The cheapest path: any single-ingredient L-theanine capsule (widely available on Lazada/Shopee/iHerb under $10) paired with your local kopi or Vietnamese drip coffee. Citicoline at 250–500mg also has multiple RCTs and is best accessed in SEA via Mind Lab Pro (Cognizin form, 250mg).',
+    a: 'L-theanine paired with caffeine (1:2 to 2:1 ratio) has the strongest replication evidence — Owen et al. 2008 and multiple follow-ups. The cheapest path: any single-ingredient L-theanine capsule (widely available on Lazada/Shopee/iHerb) paired with your local kopi or Vietnamese drip coffee. Citicoline at 250–500mg also has multiple RCTs and is best accessed in SEA via Mind Lab Pro (Cognizin form, 250mg).',
   },
   {
     q: 'How long does it take a focus nootropic to work?',

@@ -10,6 +10,8 @@ import { Bar } from '../primitives/Bar';
 import { ProductThumb } from '../primitives/ProductThumb';
 import ShortlistButton from './ShortlistButton';
 import { servingAmount, pillarText, guaranteeDays } from '@nootropic/data';
+import { priceText } from '../price-text';
+import { monthlyUSD } from './quizScoring';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 
@@ -84,7 +86,7 @@ export default function Discover({
     if (filter === 'All') return products;
     if (filter === 'Caffeine-free') return products.filter((p) => p.caffeineFree);
     if (filter === 'Under $50')
-      return products.filter((p) => (p.priceMonthlyUSD ?? Infinity) < 50);
+      return products.filter((p) => (monthlyUSD(p) ?? Infinity) < 50);
     return products.filter((p) => p.bestFor.includes(filter));
   }, [filter, products]);
 
@@ -102,12 +104,13 @@ export default function Discover({
     const underdosedPct = withDoses.length
       ? Math.round((underdosed / withDoses.length) * 100)
       : 0;
-    const priced = products.filter((p): p is Product & { priceMonthlyUSD: number } =>
-      typeof p.priceMonthlyUSD === 'number'
-    );
-    const avgCost = priced.length
-      ? Math.round(priced.reduce((s, p) => s + p.priceMonthlyUSD, 0) / priced.length)
-      : 0;
+    // Average of the per-month dollar figures only: never converted, and a
+    // product without a stated supply has no per-month figure to average.
+    const monthly = products.flatMap((p) => {
+      const m = monthlyUSD(p);
+      return m === undefined ? [] : [m];
+    });
+    const avgCost = monthly.length ? Math.round(monthly.reduce((s, m) => s + m, 0) / monthly.length) : null;
     return { audited, underdosedPct, avgCost };
   }, [products]);
 
@@ -216,7 +219,7 @@ export default function Discover({
                   </Link>
                   <div className="text-[12px] text-ds-muted">
                     {topPick.brand}
-                    {topPick.priceMonthlyUSD ? ` · $${topPick.priceMonthlyUSD}/mo` : ''}
+                    {priceText(topPick, uiStrings) ? ` · ${priceText(topPick, uiStrings)!.short}` : ''}
                   </div>
                 </div>
                 <ScorePill score={topPick.score} />
@@ -239,11 +242,11 @@ export default function Discover({
               <div className="text-[11px] uppercase tracking-[0.12em] text-ds-muted font-semibold">
                 Audit this cycle
               </div>
-              <div className="grid grid-cols-3 gap-3 mt-3">
+              <div className={`grid ${auditStats.avgCost === null ? 'grid-cols-2' : 'grid-cols-3'} gap-3 mt-3`}>
                 {[
                   [`${auditStats.audited}`, 'Audited'],
                   [`${auditStats.underdosedPct}%`, 'Underdosed'],
-                  [`$${auditStats.avgCost}`, 'Avg / mo'],
+                  ...(auditStats.avgCost === null ? [] : [[`≈ $${auditStats.avgCost}`, 'Avg / mo']]),
                 ].map(([n, l]) => (
                   <div key={l}>
                     <div className="text-[22px] font-bold tracking-[-0.02em] ds-tabular">{n}</div>
@@ -357,9 +360,9 @@ export default function Discover({
 
                   <div className="flex justify-between items-center pt-3 border-t border-ds-border">
                     <div className="text-[12px] text-ds-muted">
-                      {p.priceMonthlyUSD && (
+                      {priceText(p, uiStrings) && (
                         <>
-                          <span className="text-ds-ink font-semibold">${p.priceMonthlyUSD}</span>/mo
+                          <span className="text-ds-ink font-semibold">{priceText(p, uiStrings)!.short}</span>
                           {' · '}
                         </>
                       )}
