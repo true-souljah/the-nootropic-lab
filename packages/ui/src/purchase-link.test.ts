@@ -9,7 +9,7 @@ import {
   productsJP,
   purchaseUrl, vendorHost, noPurchaseLinkProblem, getStrings, NO_PURCHASE_LINK_STRINGS,
 } from '@nootropic/data';
-import type { Locale, Product } from '@nootropic/data';
+import type { Locale, Product, NoPurchaseLinkMhlw } from '@nootropic/data';
 import TrackedAffiliateLink from './TrackedAffiliateLink';
 import ComparisonTable from './ComparisonTable';
 import NoPurchaseLinkNotice from './NoPurchaseLinkNotice';
@@ -23,6 +23,11 @@ import { PricingTab } from './templates/product-detail/PricingTab';
 // (packages/data/src/purchase-link.ts) is the single gate: this file checks
 // the data, the rendered CTAs, and that no template, page or data module
 // reads the vendor-URL field around it.
+//
+// Site-owner decision 2026-10-12: the same gate covers a store that no longer
+// sells the product — NatureBell's amazon.ca and amazon.com.au listings return
+// 404 and amazon.sg shows "Currently unavailable" (checked 9 and 12 October,
+// two methods): CA, AU and SEA show a notice instead of the dead link.
 
 const MHLW_PDF = 'https://www.mhlw.go.jp/content/001734637.pdf';
 
@@ -87,6 +92,28 @@ describe('noPurchaseLinkProblem (validate-data rule)', () => {
   });
 });
 
+describe('noPurchaseLinkProblem: not-sold-on-linked-store', () => {
+  const ca = allProductsCA.find((p) => p.slug === 'naturebell-ginkgo-ginseng-review')!;
+  const good = ca.noPurchaseLink!;
+  const withBlock = (patch: Record<string, unknown>) => ({ ...ca, noPurchaseLink: { ...good, ...patch } }) as unknown as Product;
+
+  test('accepts the real CA record, and the reason in any region', () => {
+    expect(noPurchaseLinkProblem(ca, 'ca')).toBeNull();
+    expect(noPurchaseLinkProblem(ca, 'sea')).toBeNull();
+  });
+
+  test.each([
+    ['no store', { store: ' ' }, /store is missing/],
+    ['http listing', { storeUrl: 'http://www.amazon.ca/dp/B09F4ML3FF' }, /not https/],
+    ['relative listing', { storeUrl: '/dp/B09F4ML3FF' }, /not an absolute URL/],
+    ['listing on another store', { storeUrl: 'https://www.amazon.com/dp/B09F4ML3FF' }, /is not on amazon\.ca/],
+    ['no observed text', { observed: '' }, /verbatim text/],
+    ['impossible checkedAt', { checkedAt: '2026-02-30' }, /checkedAt is not a YYYY-MM-DD/],
+  ] as const)('rejects %s', (_label, patch, message) => {
+    expect(noPurchaseLinkProblem(withBlock(patch), 'ca')).toMatch(message);
+  });
+});
+
 describe('catalogue data', () => {
   test.each(Object.entries(ALL))('%s: every noPurchaseLink record passes the rule', (region, products) => {
     for (const p of products) expect(noPurchaseLinkProblem(p, region), `${region}/${p.slug}`).toBeNull();
@@ -105,8 +132,17 @@ describe('catalogue data', () => {
       sourceUrl: MHLW_PDF,
       listUpdated: '2026-08-05',
     });
-    expect(hunter.noPurchaseLink!.ingredients.map((i) => i.plant)).toEqual(['Withania somnifera']);
+    expect((hunter.noPurchaseLink as NoPurchaseLinkMhlw).ingredients.map((i) => i.plant)).toEqual(['Withania somnifera']);
     expect(purchaseUrl(hunter)).toBeNull();
+  });
+
+  test('NatureBell: no purchase link where its store listing is gone (CA, AU, SEA); the US link stays', () => {
+    const nb = (products: Product[]) => products.find((p) => p.slug === 'naturebell-ginkgo-ginseng-review')!;
+    for (const [region, products, store] of [['ca', allProductsCA, 'amazon.ca'], ['au', allProductsAU, 'amazon.com.au'], ['sea', allProductsSEA, 'amazon.sg']] as const) {
+      expect(nb(products).noPurchaseLink, region).toMatchObject({ reason: 'not-sold-on-linked-store', store });
+      expect(purchaseUrl(nb(products)), region).toBeNull();
+    }
+    expect(purchaseUrl(nb(allProductsUS))).toMatch(/^https:\/\/www\.amazon\.com\//);
   });
 
   test('jp: the block is links-only — the product stays in the recommendable list', () => {
@@ -126,15 +162,16 @@ describe('notice strings', () => {
   test.each(LOCALES)('%s bundle carries a complete noPurchaseLink notice', (locale) => {
     const s = getStrings(locale).noPurchaseLink;
     expect(s).toBe(NO_PURCHASE_LINK_STRINGS[locale]);
-    for (const key of ['lang', 'label', 'jpMhlwReason', 'jpMhlwReasonJa', 'sourceLink', 'sourceDates'] as const) {
+    for (const key of ['lang', 'label', 'jpMhlwReason', 'jpMhlwReasonJa', 'sourceLink', 'sourceDates', 'notSoldLabel', 'notSoldReason'] as const) {
       expect(s[key], `${locale}.${key}`).toBeTruthy();
     }
     expect(s.jpMhlwReason).toContain('{ingredients}');
     expect(s.sourceDates).toContain('{listUpdated}');
     expect(s.sourceDates).toContain('{checkedAt}');
+    for (const v of ['{store}', '{observed}', '{checkedAt}']) expect(s.notSoldReason, `${locale}.notSoldReason`).toContain(v);
     // Owner wording: "may" (可能性がある); never "is a drug" / "illegal".
     expect(s.jpMhlwReasonJa).toBe('日本では医薬品として扱われる原料を含む可能性があるため、本サイトでは購入リンクを掲載しません。');
-    expect(`${s.label} ${s.jpMhlwReason}`).not.toMatch(/illegal|banned|prohibited|ilegal|interdit|verboten|proibid|prohib/i);
+    expect(`${s.label} ${s.jpMhlwReason} ${s.notSoldLabel} ${s.notSoldReason}`).not.toMatch(/illegal|banned|prohibited|ilegal|interdit|verboten|proibid|prohib/i);
   });
 
   test('the JP edition (English body copy, translation paused) carries the English line', () => {
@@ -162,6 +199,25 @@ describe('rendered CTAs', () => {
     expect(html).toContain('<p class="m-0 mt-1" lang="ja">日本では医薬品として扱われる原料を含む可能性があるため');
     expect(html).toContain(`href="${MHLW_PDF}"`);
     expect(html).toContain('list updated 2026-08-05; checked 2026-10-08');
+  });
+
+  test('TrackedAffiliateLink renders the not-sold notice, with no link to the dead listing (CA NatureBell)', () => {
+    const nb = allProductsCA.find((p) => p.slug === 'naturebell-ginkgo-ginseng-review')!;
+    const en = getStrings('en').noPurchaseLink;
+    const html = renderToStaticMarkup(
+      createElement(TrackedAffiliateLink, { product: nb, surface: 'listicle', noticeStrings: en, children: 'Check NatureBell' }),
+    );
+    expect(html).not.toContain('<a');
+    expect(html).not.toContain('Check NatureBell');
+    expect(html).toContain('data-no-purchase-link="not-sold-on-linked-store"');
+    expect(html).toContain('No purchase link:');
+    expect(html).toContain('the amazon.ca listing we linked to showed “Sorry! We couldn&#x27;t find that page.” when we checked on 2026-10-12');
+    expect(html).not.toContain('lang="ja"');
+    const compact = renderToStaticMarkup(
+      createElement(TrackedAffiliateLink, { product: nb, surface: 'listicle', noticeStrings: en, noticeVariant: 'compact', children: 'Visit →' }),
+    );
+    expect(compact).toContain('No purchase link');
+    expect(compact).not.toContain('Japan');
   });
 
   test('TrackedAffiliateLink compact variant renders the short label only', () => {

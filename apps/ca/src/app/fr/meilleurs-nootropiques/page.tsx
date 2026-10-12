@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { ComparisonTable, AffiliateDisclosure, StickyCtaBar, SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
-import { productsCA, buildPersonAuthorReference } from '@nootropic/data';
+import { ComparisonTable, AffiliateDisclosure, StickyCtaBar, NoPurchaseLinkNotice, SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
+import { productsCA, buildPersonAuthorReference, purchaseUrl } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search-fr-ca';
 import { SITE_URL } from '@/lib/region';
 import { priceText } from '@nootropic/ui';
@@ -45,6 +45,7 @@ const faqItems = [
 
 export default function FrMeilleursNootropiquesPage() {
   const winner = productsCA.find(p => p.editorChoice)!;
+  const winnerUrl = purchaseUrl(winner);
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -74,13 +75,15 @@ export default function FrMeilleursNootropiquesPage() {
     
       <SchemaOrg schema={articleSchema} />
       <SchemaOrg schema={itemListSchema} />
-      <StickyCtaBar
-        productName={winner.name}
-        href={winner.affiliateUrl}
-        pickLabel="Le choix de la rédaction :"
-        ctaLabel={uiStrings.table.checkPrice}
-        ariaLabel="Notre recommandation principale"
-      />
+      {winnerUrl !== null && (
+        <StickyCtaBar
+          productName={winner.name}
+          href={winnerUrl}
+          pickLabel="Le choix de la rédaction :"
+          ctaLabel={uiStrings.table.checkPrice}
+          ariaLabel="Notre recommandation principale"
+        />
+      )}
 
       <article className="max-w-5xl mx-auto px-4 py-10">
         <div className="mb-2 text-xs text-gray-500">
@@ -125,14 +128,18 @@ export default function FrMeilleursNootropiquesPage() {
           <div className="editor-badge mb-2 inline-block">Choix de la rédaction — Canada {CURRENT_YEAR}</div>
           <h2 className="text-xl font-bold text-gray-900 mb-1">{winner.name}</h2>
           <p className="text-sm text-gray-600 mb-3">{winner.summary}</p>
-          <a
-            href={winner.affiliateUrl}
-            target="_blank"
-            rel="nofollow sponsored noopener noreferrer"
-            className="inline-block bg-green-700 hover:bg-green-600 text-white font-bold px-5 py-2 rounded-lg text-sm transition-colors"
-          >
-            {priceText(winner, uiStrings) ? `Voir le prix (${priceText(winner, uiStrings)!.short}) →` : 'Voir le prix →'}
-          </a>
+          {winnerUrl === null ? (
+            <NoPurchaseLinkNotice product={winner} strings={uiStrings.noPurchaseLink} />
+          ) : (
+            <a
+              href={winnerUrl}
+              target="_blank"
+              rel="nofollow sponsored noopener noreferrer"
+              className="inline-block bg-green-700 hover:bg-green-600 text-white font-bold px-5 py-2 rounded-lg text-sm transition-colors"
+            >
+              {priceText(winner, uiStrings) ? `Voir le prix (${priceText(winner, uiStrings)!.short}) →` : 'Voir le prix →'}
+            </a>
+          )}
         </div>
 
         <section id="comparison-table">

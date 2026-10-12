@@ -6,7 +6,7 @@ export interface NoPurchaseLinkNoticeProps {
   /** `uiStrings.noPurchaseLink` of the page's bundle. */
   strings: NoPurchaseLinkStrings;
   /**
-   * `full` (default): the reason, the Japanese line and the source link.
+   * `full` (default): the reason, plus for the JP reason the Japanese line and the source link.
    * `compact`: the short label only, for slots too narrow for the full notice
    * (table cells, a ranked row's action column, a sticky bar); the review page
    * carries the full notice.
@@ -20,14 +20,8 @@ function fill(template: string, vars: Record<string, string>): string {
   return template.replace(/\{(\w+)\}/g, (_, k: string) => vars[k] ?? '');
 }
 
-function reasonLines(block: NoPurchaseLink, s: NoPurchaseLinkStrings): { line: string; lineJa: string } {
-  switch (block.reason) {
-    case 'jp-mhlw-medicine-only-ingredient':
-      return {
-        line: fill(s.jpMhlwReason, { ingredients: noPurchaseLinkIngredientList(block) }),
-        lineJa: s.jpMhlwReasonJa,
-      };
-  }
+function labelOf(block: NoPurchaseLink, s: NoPurchaseLinkStrings): string {
+  return block.reason === 'not-sold-on-linked-store' ? s.notSoldLabel : s.label;
 }
 
 /**
@@ -48,12 +42,30 @@ export default function NoPurchaseLinkNotice({ product, strings, variant = 'full
         data-no-purchase-link={block.reason}
         className={`inline-block text-[12px] font-semibold leading-[1.35] text-ds-warn-ink ${className}`}
       >
-        {strings.label}
+        {labelOf(block, strings)}
       </span>
     );
   }
 
-  const { line, lineJa } = reasonLines(block, strings);
+  if (block.reason === 'not-sold-on-linked-store') {
+    // The listing is gone or unavailable, so it is not linked.
+    return (
+      <div
+        id={id}
+        role="note"
+        data-no-purchase-link={block.reason}
+        className={`bg-ds-warn-soft border-l-4 border-ds-warn rounded-r-[8px] p-3 text-[13px] leading-[1.55] text-ds-warn-ink ${className}`}
+      >
+        <p className="m-0" lang={strings.lang}>
+          <strong>{strings.notSoldLabel}:</strong>{' '}
+          {fill(strings.notSoldReason, { store: block.store, observed: block.observed, checkedAt: block.checkedAt })}
+        </p>
+      </div>
+    );
+  }
+
+  const line = fill(strings.jpMhlwReason, { ingredients: noPurchaseLinkIngredientList(block) });
+  const lineJa = strings.jpMhlwReasonJa;
   return (
     <div
       id={id}
