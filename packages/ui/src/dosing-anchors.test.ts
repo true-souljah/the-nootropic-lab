@@ -177,17 +177,20 @@ describe('rowVerdict — "score dosing from what the label proves"', () => {
   });
 
   test('3. a printed marker amount decides: below its minimum → false', () => {
-    expect(verdictOf([label('Bacopa Monnieri (Brahmi extract)', '460mg (92mg bacopasides)')])).toBe(false); // 92 < 165
-    expect(verdictOf([label('Bacopa Monnieri (50% bacosides)', '300mg')])).toBe(false); // 300 × 50% = 150 < 165
+    expect(verdictOf([label('Bacopa Monnieri (Brahmi extract)', '460mg (92mg bacopasides)')])).toBe(false); // 92 < 150
+    expect(verdictOf([label('Bacopa Monnieri (45% bacosides)', '300mg')])).toBe(false); // synthetic: 300 × 45% = 135 < 150
     expect(verdictOf([label('Bacopa saponins (バコパサポニン)', '15mg')])).toBe(false); // the base name is the marker
   });
 
   test('3. marker and amount both at their minimum → true; a marker range straddling it → null', () => {
-    expect(verdictOf([label('Bacopa Monnieri (55% bacosides)', '300mg')])).toBe(true); // synthetic: 165 ≥ 165, 300 ≥ 300
+    expect(verdictOf([label('Bacopa Monnieri (55% bacosides)', '300mg')])).toBe(true); // synthetic: 165 ≥ 150, 300 ≥ 300
+    expect(verdictOf([label('Bacopa Monnieri (50% bacosides)', '300mg')])).toBe(true); // synthetic: 150 ≥ 150 (Calabrese 2008's extract)
     expect(verdictOf([label('Ginkgo Biloba Extract (leaf)', '300mg (60mg flavone glycosides)')])).toBe(true); // synthetic
     expect(verdictOf([label('Ginkgo Biloba Extract (leaf)', '300mg (50mg flavone glycosides)')])).toBe(false); // synthetic: 50 < 57.6
-    // "50-55% Bacosides" proves 150–165mg: not proven to reach 165, not proven below it.
-    expect(verdictOf([label('Bacopa monnieri (50-55% Bacosides, leaf)', '300mg (50 mg per capsule × 6)')])).toBeNull();
+    // AOR's "50-55% Bacosides" proves 150–165mg, all at or above the 150mg minimum.
+    expect(verdictOf([label('Bacopa monnieri (50-55% Bacosides, leaf)', '300mg (50 mg per capsule × 6)')])).toBe(true);
+    // "45-55%" proves 135–165mg: not proven to reach 150, not proven below it.
+    expect(verdictOf([label('Bacopa monnieri (45-55% Bacosides)', '300mg')])).toBeNull(); // synthetic
   });
 
   test('4. an equivalent (dried-herb) weight: null on an extract basis, compared as is on a raw basis', () => {
@@ -436,7 +439,7 @@ describe('each anchor restates its evidence page', () => {
   // 1999, 2g/day — operator decision 2026-10-09).
   const EVIDENCE: Record<string, { field: 'clinicalDose' | 'dosage' | 'studySummary'; text: string }> = {
     'lions-mane': { field: 'clinicalDose', text: '1–1.8g/day' },
-    'bacopa-monnieri': { field: 'clinicalDose', text: '300–450mg/day (standardised to 55% bacosides)' },
+    'bacopa-monnieri': { field: 'clinicalDose', text: '300–450mg/day (standardised to at least 50% bacosides)' },
     citicoline: { field: 'clinicalDose', text: '250–500mg/day' },
     'l-theanine': { field: 'clinicalDose', text: '100–200mg/day' },
     'rhodiola-rosea': { field: 'clinicalDose', text: '200–600mg/day' },
@@ -479,8 +482,9 @@ describe('each anchor restates its evidence page', () => {
 
   test('marker minimums are the anchor minimum × the evidence page\'s standardisation', () => {
     const bacopa = DOSING_ANCHORS.find((a) => a.ingredientSlug === 'bacopa-monnieri')!;
-    expect(ingredients.find((i) => i.slug === 'bacopa-monnieri')!.clinicalDose).toContain('55% bacosides');
-    expect(bacopa.marker!.minMg).toBe((bacopa.minMg * 55) / 100); // 165
+    // The cited positive trial (Calabrese 2008) used an extract with at least 50% bacosides.
+    expect(ingredients.find((i) => i.slug === 'bacopa-monnieri')!.clinicalDose).toContain('at least 50% bacosides');
+    expect(bacopa.marker!.minMg).toBe((bacopa.minMg * 50) / 100); // 150
     const ginkgo = DOSING_ANCHORS.find((a) => a.ingredientSlug === 'ginkgo-biloba')!;
     expect(ingredients.find((i) => i.slug === 'ginkgo-biloba')!.howToTake.dosage).toContain('(24/6)');
     expect(ginkgo.marker!.minMg).toBe((ginkgo.minMg * 24) / 100); // 57.6
