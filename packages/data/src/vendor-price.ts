@@ -210,7 +210,11 @@ export function quoteSupply(text: string, record: SupplyFields): QuoteSupply {
   return { ok: false, reason: 'no pack size or supply stated in the quote' };
 }
 
-/** Decimal places of a currency's monthly price (yen has none). */
+/** Decimal places of a currency's minor unit, per ISO 4217 as Intl knows it (JPY 0, USD 2, BHD 3). */
 export function currencyDigits(currency: string): number {
-  return currency === 'JPY' ? 0 : 2;
+  try {
+    return new Intl.NumberFormat('en', { style: 'currency', currency }).resolvedOptions().maximumFractionDigits ?? 2;
+  } catch {
+    return 2;
+  }
 }

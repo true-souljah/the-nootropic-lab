@@ -2,7 +2,7 @@ import { describe, test, expect } from 'vitest';
 import {
   allProductsUS, allProductsEU, allProductsCA, allProductsAU,
   allProductsJP, allProductsLatam, allProductsGCC, allProductsSEA,
-  formatMoney, storeSupply, monthlyStorePrice, sharedCurrency, storePriceProblems, getStrings,
+  formatMoney, storeSupply, monthlyStorePrice, sharedCurrency, storePriceProblems, getStrings, currencyDigits,
 } from '@nootropic/data';
 import type { Product, StorePrice } from '@nootropic/data';
 import { priceText } from './price-text';
@@ -37,6 +37,10 @@ describe('formatMoney', () => {
     expect(formatMoney({ amount: 89, currency: 'CAD' }, 'en-CA')).toBe('$89');
     expect(formatMoney({ amount: 69.9, currency: 'SGD' }, 'en-SG')).toBe('$69.90');
     expect(formatMoney({ amount: 79.95, currency: 'USD' }, 'en-SG')).toBe('US$79.95');
+  });
+  test('minor units follow the currency (JPY 0, USD 2, BHD 3), not a two-decimal default', () => {
+    expect([currencyDigits('JPY'), currencyDigits('USD'), currencyDigits('BHD')]).toEqual([0, 2, 3]);
+    expect(formatMoney({ amount: 12.345, currency: 'BHD' }, 'en-US')).toMatch(/12\.345$/);
   });
 });
 
