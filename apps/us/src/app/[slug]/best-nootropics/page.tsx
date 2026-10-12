@@ -236,10 +236,10 @@ export async function generateMetadata({
   if (!state) return {};
   return {
     title: `Best Nootropics in ${state.name} ${CURRENT_YEAR} — Expert Ranked`,
-    description: `Independent comparison of the best nootropic supplements available in ${state.name} in ${CURRENT_YEAR}. Every ingredient audited against clinical trials. Transparent scoring and affiliate disclosure.`,
+    description: `Independent comparison of the best nootropic supplements available in ${state.name} in ${CURRENT_YEAR}. Label doses checked against our reference doses. Transparent scoring and affiliate disclosure.`,
     alternates: buildAlternates({ regionCode: 'us', path: `/${slug}/best-nootropics/`, availableInRegions: ['us'] }),
-    openGraph: buildOpenGraph({ regionCode: 'us', path: `/${slug}/best-nootropics/`, title: `Best Nootropics in ${state.name} ${CURRENT_YEAR} — Expert Ranked`, description: `Independent comparison of the best nootropic supplements available in ${state.name} in ${CURRENT_YEAR}. Every ingredient audited against clinical trials. Transparent scoring and affiliate disclosure.` }),
-    twitter: buildTwitter({ title: `Best Nootropics in ${state.name} ${CURRENT_YEAR} — Expert Ranked`, description: `Independent comparison of the best nootropic supplements available in ${state.name} in ${CURRENT_YEAR}. Every ingredient audited against clinical trials. Transparent scoring and affiliate disclosure.` }),
+    openGraph: buildOpenGraph({ regionCode: 'us', path: `/${slug}/best-nootropics/`, title: `Best Nootropics in ${state.name} ${CURRENT_YEAR} — Expert Ranked`, description: `Independent comparison of the best nootropic supplements available in ${state.name} in ${CURRENT_YEAR}. Label doses checked against our reference doses. Transparent scoring and affiliate disclosure.` }),
+    twitter: buildTwitter({ title: `Best Nootropics in ${state.name} ${CURRENT_YEAR} — Expert Ranked`, description: `Independent comparison of the best nootropic supplements available in ${state.name} in ${CURRENT_YEAR}. Label doses checked against our reference doses. Transparent scoring and affiliate disclosure.` }),
   };
 }
 
@@ -281,7 +281,7 @@ export default async function StateNootropicsPage({
         hero={{
           eyebrow: `${state.name} · Audited ${CURRENT_YEAR}`,
           h1: `Best Nootropics in ${state.name} ${CURRENT_YEAR}`,
-          dek: `We reviewed ${productsUS.length} nootropic supplements for ${state.name} buyers, auditing every ingredient dose against peer-reviewed clinical trials. Below is our ranked comparison with full scoring breakdown.`,
+          dek: `We reviewed ${productsUS.length} nootropic supplements for ${state.name} buyers, checking label doses against the reference doses from peer-reviewed trials on our ingredient pages, where one exists. Below is our ranked comparison with full scoring breakdown.`,
         }}
         searchItems={searchItems}
         uiStrings={uiStrings}

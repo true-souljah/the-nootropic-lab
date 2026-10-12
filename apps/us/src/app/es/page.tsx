@@ -39,8 +39,9 @@ export default function EsHomePage() {
             <span className="text-green-700">Suplementos Cognitivos</span>
           </h1>
           <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
-            Comparamos la dosis de cada ingrediente con los resultados de ensayos clínicos
-            revisados por expertos. Sin comisiones ocultas.
+            Comparamos las dosis de la etiqueta con las dosis de referencia de ensayos clínicos
+            revisados por expertos de nuestras páginas de ingredientes, cuando existen. Sin comisiones
+            ocultas.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link

@@ -53,8 +53,9 @@ export default function AboutPage() {
             <strong>Regulation (EU) 2015/2283</strong> on Novel Food authorisation; we keep our own copy
             within the authorised health claims, but we do not verify each product&apos;s regulatory
             compliance, which is the seller&apos;s responsibility. Every review
-            includes a clinical dosing audit comparing each ingredient against the minimum effective
-            dose from peer-reviewed trials.
+            includes a clinical dosing audit comparing each ingredient that has a reference dose on our
+            ingredient pages against that page&apos;s minimum from peer-reviewed trials; ingredients without
+            one are listed but not scored.
           </p>
           <p className="text-gray-700 leading-relaxed">
             <Link href="/methodology/" className="text-green-700 underline">Read the full methodology →</Link>
