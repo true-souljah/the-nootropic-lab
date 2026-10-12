@@ -1392,6 +1392,13 @@
     "trustpilotScore": null,
     "trustpilotCount": null,
     "affiliateUrl": "https://www.amazon.sg/Naturebell-Capsules-GinkoVida-Strength-Supplement/dp/B09F4ML3FF",
+    "noPurchaseLink": {
+      "reason": "not-sold-on-linked-store",
+      "store": "amazon.sg",
+      "storeUrl": "https://www.amazon.sg/Naturebell-Capsules-GinkoVida-Strength-Supplement/dp/B09F4ML3FF",
+      "observed": "Currently unavailable.",
+      "checkedAt": "2026-10-12"
+    },
     "affiliateNetwork": "Amazon Associates SG",
     "commissionRate": "4%",
     "cookieDays": 24,
@@ -1415,15 +1422,13 @@
     ],
     "servingsPerContainer": 150,
     "capsulesPerServing": 2,
-    "summary": "NatureBell Ginkgo + Ginseng comes in a 300-capsule bottle that the brand calls up to a 5-month supply. Chinese-manufactured with US branding, available on Amazon.sg. Ginkgo Biloba at clinical dose (500mg extract, 120mg flavone glycosides) paired with Panax Ginseng — a classic TCM cognitive pairing familiar across Southeast Asian markets. Best as an entry point or stack addition for SEA buyers.",
-    "whatItIs": "NatureBell is a US-registered brand sourcing ingredients from Chinese manufacturers. Their Ginkgo + Ginseng combines 500mg of a 12:1 Ginkgo Biloba extract, standardised to 120mg flavone glycosides (a full clinical dose), with 50mg Korean Red Ginseng (Panax ginseng) extract. Available on Amazon.sg with delivery across Singapore, and via Amazon US with international shipping to Malaysia, Thailand, Philippines, and Indonesia. The 300-capsule bottle provides a 5-month supply. Imported as a personal-use supplement via Amazon; we have not verified a local product registration with the National Pharmaceutical Regulatory Agency (NPRA) in Malaysia, the Thai FDA, FDA Philippines, the Badan Pengawas Obat dan Makanan (BPOM) in Indonesia or the Vietnam Food Administration (VFA).",
+    "summary": "NatureBell Ginkgo + Ginseng comes in a 300-capsule bottle that the brand calls up to a 5-month supply. Chinese-manufactured with US branding; its Amazon.sg listing showed “Currently unavailable.” when we checked on 12 October 2026. Ginkgo Biloba at clinical dose (500mg extract, 120mg flavone glycosides) paired with Panax Ginseng — a classic TCM cognitive pairing familiar across Southeast Asian markets.",
+    "whatItIs": "NatureBell is a US-registered brand sourcing ingredients from Chinese manufacturers. Their Ginkgo + Ginseng combines 500mg of a 12:1 Ginkgo Biloba extract, standardised to 120mg flavone glycosides (a full clinical dose), with 50mg Korean Red Ginseng (Panax ginseng) extract. Its Amazon.sg listing showed “Currently unavailable.” when we checked on 12 October 2026. The 300-capsule bottle provides a 5-month supply. Imported as a personal-use supplement; we have not verified a local product registration with the National Pharmaceutical Regulatory Agency (NPRA) in Malaysia, the Thai FDA, FDA Philippines, the Badan Pengawas Obat dan Makanan (BPOM) in Indonesia or the Vietnam Food Administration (VFA).",
     "howItWorks": "Ginkgo Biloba improves cerebral blood flow via vasodilation and PAF inhibition. Panax Ginseng contains ginsenosides that modulate NMDA receptor activity and support cognitive energy. Both ingredients have deep roots in Traditional Chinese Medicine and are widely recognised across SEA.",
     "whatToExpect": "Weeks 1-2: mild alertness improvement from Ginkgo blood flow effects. Weeks 4-8: cumulative memory benefits. The label gives 50mg of Korean Red Ginseng extract with no ginsenoside amount; we have no reference dose on file for ginseng. Best used as a low-cost stack addition alongside a premium nootropic like Mind Lab Pro or Eu Yan Sang BrainMAX+.",
     "pros": [
       "300-capsule bottle (up to a 5-month supply, per the brand)",
       "Ginkgo at clinical dose (500mg extract, 120mg flavone glycosides)",
-      "300 capsules — 5-month supply",
-      "Amazon.sg available",
       "60-day money-back guarantee"
     ],
     "cons": [

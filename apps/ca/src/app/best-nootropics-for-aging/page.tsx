@@ -77,7 +77,7 @@ const picks: ListiclePick[] = [
     product: productsCA.find(p => p.slug === 'naturebell-ginkgo-ginseng-review')!,
     rank: 3,
     whyItsHere:
-      'Delivers Ginkgo Biloba at the full clinical dose (500mg of a 12:1 extract, standardised to 120mg flavone glycosides), though a 2026 network meta-analysis in healthy adults found high-dose Bacopa improved working memory more than either Ginkgo dose (see the Ginkgo entry above). Listed on amazon.ca. Single-mechanism (cerebral blood flow); pair with a PS supplement for fuller coverage. No NPN (Natural Product Number) found for NatureBell Ginkgo + Ginseng in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07).',
+      'Delivers Ginkgo Biloba at the full clinical dose (500mg of a 12:1 extract, standardised to 120mg flavone glycosides), though a 2026 network meta-analysis in healthy adults found high-dose Bacopa improved working memory more than either Ginkgo dose (see the Ginkgo entry above). Single-mechanism (cerebral blood flow); pair with a PS supplement for fuller coverage. No NPN (Natural Product Number) found for NatureBell Ginkgo + Ginseng in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07).',
   },
   {
     product: productsCA.find(p => p.slug === 'onnit-alpha-brain-review')!,
@@ -114,7 +114,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Can I buy these in a Canadian store?',
-    a: 'The premium multi-ingredient stacks (Mind Lab Pro, Qualia Mind) are sold direct by their brands and ship internationally to Canadian addresses; we found no NPN (Natural Product Number) for any of them in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07). For single-ingredient PS, Bacopa, Ginkgo or Lion\'s Mane bought in a store, look for an eight-digit NPN on the label; the LNHPD lets you check it. NatureBell Ginkgo + Ginseng is listed on amazon.ca.',
+    a: 'The premium multi-ingredient stacks (Mind Lab Pro, Qualia Mind) are sold direct by their brands and ship internationally to Canadian addresses; we found no NPN (Natural Product Number) for any of them in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07). For single-ingredient PS, Bacopa, Ginkgo or Lion\'s Mane bought in a store, look for an eight-digit NPN on the label; the LNHPD lets you check it. NatureBell Ginkgo + Ginseng was no longer listed on amazon.ca when we checked on 12 October 2026.',
   },
 ];
 
