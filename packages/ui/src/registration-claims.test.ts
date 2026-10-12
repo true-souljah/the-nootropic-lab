@@ -1185,3 +1185,102 @@ describe('round fifteen (U7): caffeine + L-theanine copy follows Owen 2008 and n
     expect(hits).toEqual([]);
   });
 });
+
+// Round sixteen, U1 (2026-10-12). Leftover energy and caffeine + L-theanine
+// claims. The US energy page promised energy "without the crash" (title,
+// description) and "without the spike-and-crash pattern of energy drinks"
+// (hero, FAQ), said energy drinks are "often followed by a crash" and that
+// L-theanine is there "to smooth the curve"; the quiz's Energy goal read
+// "Sustained drive without the crash". We cite no trial that measured a crash
+// or compared nootropic stacks with energy drinks, so the FAQ now says so and
+// the rest was dropped. Owen 2008 (PMID 18681988) tested 50mg caffeine with
+// 100mg L-theanine (1:2), so Mind Lab Pro's "1:1 L-theanine + caffeine
+// effect" and Qualia Mind's "closest match to the evidence-backed ratio" (its
+// caffeinated label: 100mg caffeine, 200mg L-theanine) now name that trial
+// and ratio. guides.ts and guides-es.ts called the pairing "the best-evidenced
+// nootropic combination" / "la combinación nootrópica con mayor respaldo
+// científico"; the GCC studying page promised the "same synergy" from
+// L-theanine with coffee; the JP focus page called Mind Lab Pro "the most
+// evidence-backed focus stack available to Japanese buyers"; and Performance
+// Lab Mind's US record said "Most users report this stack feels cleaner",
+// with no user data behind it. None had a source.
+//
+// The scan is the round-thirteen file set plus packages/ui/src/templates,
+// where QuizFlow.tsx lives. "Most users report" is matched case-sensitively,
+// as the sentence opening that was removed: the lower-case "most users report
+// ..." lines in other product records' whatToExpect fields are a separate
+// claim set, not reviewed in this round.
+const ROUND_SIXTEEN_SOURCES = [
+  ...ROUND_THIRTEEN_SOURCES,
+  ...walk(resolve(REPO_ROOT, 'packages/ui/src/templates')),
+];
+
+const ROUND_SIXTEEN_UNSOURCED: RegExp[] = [
+  /without the (spike-and-)?crash/i,
+  /best-evidenced nootropic combination/i,
+  /combinación nootrópica con mayor respaldo/i,
+  /\bMost users report\b/,
+  /1:1 L-theanine \+ caffeine effect/i,
+  /closest match to the evidence-backed ratio/i,
+  /to smooth the curve/i,
+  /\bsame synergy\b/i,
+  /most evidence-backed focus stack/i,
+];
+
+describe('round sixteen: energy, stack and focus-page claims follow the cited trials', () => {
+  test('scanned every file under apps/*/src, packages/data/src and packages/ui/src/templates', () => {
+    expect(ROUND_SIXTEEN_SOURCES.length).toBeGreaterThan(ROUND_THIRTEEN_SOURCES.length);
+    for (const f of [
+      'apps/us/src/app/best-nootropics-for-energy/page.tsx',
+      'apps/gcc/src/app/best-nootropics-for-studying/page.tsx',
+      'apps/jp/src/app/best-nootropics-for-focus/page.tsx',
+      'packages/data/src/guides.ts',
+      'packages/data/src/guides-es.ts',
+      'packages/data/src/products-us.json',
+      'packages/ui/src/templates/QuizFlow.tsx',
+    ]) expect(ROUND_SIXTEEN_SOURCES.some(p => relative(REPO_ROOT, p) === f), f).toBe(true);
+  });
+
+  test('the patterns catch the removed wording, and every pattern catches some of it', () => {
+    const removed = [
+      'Best Nootropics for Energy 2026: Sustained Cognitive Energy Without the Crash',
+      'Caffeine + L-theanine, Rhodiola, B-vitamins, citicoline — what actually works without the crash.',
+      'Nootropic stacks layer caffeine (where present) with L-theanine to smooth the curve, plus longer-acting ingredients (Rhodiola, citicoline) that support sustained cognitive output without the spike-and-crash pattern.',
+      'If you want sustained cognitive energy without the spike-and-crash pattern of energy drinks, the answer is layered',
+      'Sustained drive without the crash',
+      'Caffeine-free design — pair with your own coffee or matcha for the 1:1 L-theanine + caffeine effect.',
+      'The caffeinated SKU includes 100mg caffeine + 200mg L-theanine — the closest match to the evidence-backed ratio.',
+      'The best-evidenced nootropic combination is L-Theanine + Caffeine: a meta-analysis of 11 RCTs found',
+      'La combinación nootrópica con mayor respaldo científico es L-Theanine + Caffeine: un metaanálisis de 11 ECA encontró',
+      'paired with Arabic coffee or matcha — same synergy without committing to a caffeine-loaded supplement.',
+      'The most evidence-backed focus stack available to Japanese buyers.',
+      'Most users report this stack feels cleaner than multi-ingredient formulas — fewer ingredients also means fewer GI or jitter complaints.',
+    ];
+    for (const s of removed) expect(ROUND_SIXTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(true);
+    for (const re of ROUND_SIXTEEN_UNSOURCED) expect(removed.some(s => re.test(s)), String(re)).toBe(true);
+    // The replacement wording passes.
+    for (const s of [
+      'Best Nootropics for Energy 2026: Sustained Cognitive Energy',
+      'Caffeine + L-theanine, Rhodiola, B-vitamins, citicoline — and what the trials we cite found.',
+      'Energy drinks rely on caffeine + sugar (and sometimes B-vitamins) for an acute lift. Nootropic stacks pair caffeine (where present) with L-theanine and add longer-acting ingredients such as Rhodiola and citicoline. We cite no trial comparing these stacks with energy drinks.',
+      'For sustained cognitive energy, this page looks at layered stacks: caffeine + L-theanine for the acute effect',
+      'Sustained drive through long days',
+      'Caffeine-free design — its 100mg L-theanine can be paired with your own coffee or matcha (Owen 2008 tested 100mg L-theanine with 50mg caffeine).',
+      'The caffeinated SKU includes 100mg caffeine + 200mg L-theanine — the same 1:2 ratio Owen 2008 tested (50mg caffeine with 100mg L-theanine).',
+      'For example, for L-Theanine + Caffeine, a meta-analysis of 11 RCTs found',
+      'Por ejemplo, para L-Theanine + Caffeine, un metaanálisis de 11 ECA encontró',
+      'paired with Arabic coffee or matcha — the same pairing without a caffeine-containing supplement.',
+      'priced in US dollars.',
+      'At 8-12 weeks: cumulative neuroprotective benefits from PS and pine bark. Best for users who already supplement separately',
+    ]) expect(ROUND_SIXTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(false);
+  });
+
+  test('no data, app or template source uses the removed wording (whitespace-normalised)', () => {
+    const hits = ROUND_SIXTEEN_SOURCES.flatMap(file =>
+      normalisedMatchLines(readFileSync(file, 'utf8'), ROUND_SIXTEEN_UNSOURCED).map(
+        line => `${relative(REPO_ROOT, file)}:${line}`,
+      ),
+    );
+    expect(hits).toEqual([]);
+  });
+});
