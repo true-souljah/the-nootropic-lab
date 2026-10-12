@@ -49,7 +49,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Bacopa Monnieri',
     ingredientSlugs: ['bacopa-monnieri'],
     evidence:
-      'Múltiples ensayos clínicos en distintos grupos de edad muestran beneficios en consolidación de memoria. Estudios específicamente en adultos mayores (Stough et al., Calabrese et al.) muestran mejoras en retención y recuerdo tras 8–12 semanas a 300mg estandarizado al 50% de bacósidos.',
+      'En una revisión sistemática de seis ensayos de 12 semanas (Pase 2012, PubMed 22747190), la Bacopa mejoró 9 de 17 pruebas de recuerdo libre de memoria; en adultos de 65 años o más (Calabrese 2008, PubMed 18611150), 300mg al día durante 12 semanas mejoraron el recuerdo diferido de palabras.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22747190/',
   },
 ];

@@ -36,7 +36,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     ingredientSlugs: ['citicoline'],
     evidence:
       'Donante de colina y fuente de uridina que apoya la síntesis de fosfolípidos y la producción de acetilcolina. Nuestra página sobre la citicolina califica como mixta su evidencia sobre la atención: la revisión Cochrane no encontró beneficio en la atención, y el único ensayo agudo sobre atención en adultos sanos la administró junto con cafeína. Cognizin es la forma estandarizada que usan la mayoría de los productos importados.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/15846601/',
   },
   {
     name: 'L-Tirosina (o NALT)',

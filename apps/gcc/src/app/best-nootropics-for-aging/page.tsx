@@ -48,7 +48,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Bacopa Monnieri',
     ingredientSlugs: ['bacopa-monnieri'],
     evidence:
-      'Multiple RCTs across age groups show memory consolidation benefits. Studies specifically in older adults (Stough et al., Calabrese et al.) show retention and recall improvements after 8–12 weeks at 300mg standardised to 50% bacosides. Plant-derived.',
+      'In a systematic review of six 12-week trials (Pase 2012, PubMed 22747190), Bacopa improved 9 of 17 memory free-recall tests; in adults aged 65 and over (Calabrese 2008, PubMed 18611150), 300mg a day for 12 weeks improved delayed word recall. Plant-derived.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22747190/',
   },
 ];
@@ -108,7 +108,7 @@ export default function Page() {
       useCase="aging"
       pageTitle="Best Nootropics for Aging Brain in the GCC"
       pageDescription="Independent ranking of nootropics for adults concerned about age-related cognitive changes, available in the GCC."
-      heroParagraph="Age-related cognitive change is normal — memory recall slows, processing speed reduces. Most of the supplements on this page have evidence in older adults with subjective cognitive complaints. They are NOT treatments for dementia, Alzheimer\'s, or any clinical cognitive disease. For those, see a neurologist. For GCC older buyers, the additional considerations are halal compliance, capsule source (plant-based HPMC/pullulan vs. animal-derived gelatin), SFDA/MOHAP registration, and ease of access without international shipping. This page ranks age-relevant products for GCC buyers — imported international stacks such as Mind Lab Pro and Qualia Mind, with each pick noting whether the brand ships to the GCC. Distribution: BinSina, Aster, Life Pharmacy (UAE); Al-Dawaa, Nahdi (KSA); iHerb Saudi-compliant DC for international imports."
+      heroParagraph="Age-related cognitive change is normal — memory recall slows, processing speed reduces. Most of the supplements on this page have evidence in older adults with subjective cognitive complaints. They are NOT treatments for dementia, Alzheimer's, or any clinical cognitive disease. For those, see a neurologist. For GCC older buyers, the additional considerations are halal compliance, capsule source (plant-based HPMC/pullulan vs. animal-derived gelatin), SFDA/MOHAP registration, and ease of access without international shipping. This page ranks age-relevant products for GCC buyers — imported international stacks such as Mind Lab Pro and Qualia Mind, with each pick noting whether the brand ships to the GCC. Distribution: BinSina, Aster, Life Pharmacy (UAE); Al-Dawaa, Nahdi (KSA); iHerb Saudi-compliant DC for international imports."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

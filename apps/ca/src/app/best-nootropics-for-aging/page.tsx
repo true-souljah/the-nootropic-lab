@@ -48,7 +48,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Bacopa Monnieri',
     ingredientSlugs: ['bacopa-monnieri'],
     evidence:
-      'Multiple RCTs across age groups show memory consolidation benefits. Studies specifically in older adults (Stough et al., Calabrese et al.) show retention and recall improvements after 8–12 weeks at 300mg standardized to 50% bacosides. Health Canada\'s "Cognitive function products" monograph (30 January 2026) allows "Helps (to) support memory" for Bacopa standardised extract at "300 milligrams dried whole plant/herb top extract, per day, standardized to 40-55% bacosides" for adults 18 years and older (NHPID, checked 2026-10-08).',
+      'In a systematic review of six 12-week trials (Pase 2012, PubMed 22747190), Bacopa improved 9 of 17 memory free-recall tests; in adults aged 65 and over (Calabrese 2008, PubMed 18611150), 300mg a day for 12 weeks improved delayed word recall. Health Canada\'s "Cognitive function products" monograph (30 January 2026) allows "Helps (to) support memory" for Bacopa standardised extract at "300 milligrams dried whole plant/herb top extract, per day, standardized to 40-55% bacosides" for adults 18 years and older (NHPID, checked 2026-10-08).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22747190/',
   },
   {

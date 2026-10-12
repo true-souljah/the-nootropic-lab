@@ -49,7 +49,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Bacopa Monnieri',
     ingredientSlugs: ['bacopa-monnieri'],
     evidence:
-      'Multiple RCTs across age groups show memory consolidation benefits, with studies specifically in older adults showing retention and recall improvements after 8–12 weeks at 300mg standardised to 50% bacosides. Bacopa is permitted in TGA Listed Medicines (Permissible Ingredients Determination, Schedule 1 item 754; checked 2026-10-08), so Australian seniors have AUST L-listed Bacopa options at any pharmacy (Nature\'s Own Brahmi, Swisse Memory & Focus).',
+      'In a systematic review of six 12-week trials (Pase 2012, PubMed 22747190), Bacopa improved 9 of 17 memory free-recall tests; in adults aged 65 and over (Calabrese 2008, PubMed 18611150), 300mg a day for 12 weeks improved delayed word recall. Bacopa is permitted in TGA Listed Medicines (Permissible Ingredients Determination, Schedule 1 item 754; checked 2026-10-08), so Australian seniors have AUST L-listed Bacopa options at any pharmacy (Nature\'s Own Brahmi, Swisse Memory & Focus).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22747190/',
   },
   {

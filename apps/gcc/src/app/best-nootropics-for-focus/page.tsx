@@ -35,7 +35,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     ingredientSlugs: ['citicoline'],
     evidence:
       'Choline donor + uridine source that supports phospholipid synthesis and acetylcholine production. Our citicoline page rates its attention evidence as mixed: the Cochrane review found no attention benefit, and the only acute attention trial in healthy adults gave it together with caffeine. Cognizin is the standardised form most products use. Generally regarded as halal — animal-derived sourcing is uncommon for this ingredient.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/15846601/',
   },
   {
     name: 'L-Tyrosine (or NALT)',
