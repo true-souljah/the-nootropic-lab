@@ -27,7 +27,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Caffeine + L-Theanine — the foundation',
     ingredientSlugs: ['caffeine', 'l-theanine'],
     evidence:
-      'For sustained cognitive energy, caffeine + L-theanine in a 1:2 to 2:1 ratio is the most-evidence-backed combination. In the trial linked below (Owen 2008), the pairing improved speed and accuracy on an attention-switching task; in a controlled trial (Rogers 2008), theanine did not significantly reduce caffeine-induced jitteriness. 100–200mg L-theanine + 100mg caffeine.',
+      'In the trial linked below (Owen 2008), 50mg caffeine with 100mg L-theanine improved speed and accuracy on an attention-switching task; in a controlled trial (Rogers 2008, PubMed 17891480), theanine did not significantly reduce caffeine-induced jitteriness. 100–200mg L-theanine + 100mg caffeine.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
   },
   {
@@ -87,7 +87,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Can I just drink coffee with L-theanine?',
-    a: 'Yes — and this is the simplest evidence-backed energy stack. 100mg of caffeine (one cup of coffee) + 200mg of L-theanine (capsule) is the most-replicated cognitive-energy combination. The supplements on this page add Rhodiola, citicoline, and B-vitamins on top, which compound the benefit.',
+    a: 'Yes. In Owen 2008 (PubMed 18681988), 50mg caffeine with 100mg L-theanine improved speed and accuracy on an attention-switching task; 100mg caffeine with 200mg L-theanine keeps the same 1:2 ratio. The supplements on this page add Rhodiola, citicoline and B-vitamins on top; we cite no trial of them combined with caffeine + L-theanine.',
   },
   {
     q: 'Will these help with chronic fatigue?',

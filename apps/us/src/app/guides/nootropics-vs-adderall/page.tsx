@@ -65,7 +65,7 @@ const faqItems = [
   },
   {
     q: 'I don\'t have ADHD but want focus help. What\'s the cleanest legal option?',
-    a: 'Caffeine + L-theanine in a 1:2 ratio (100mg caffeine + 200mg L-theanine) is the most-evidence-backed legal cognitive-enhancement combination, available cheaply at any pharmacy. For longer-term cognitive demand, add citicoline (250-500mg/day). For memory consolidation over study periods, add Bacopa Monnieri. Read our beginner stack guide for the full sequencing.',
+    a: 'Caffeine + L-theanine is a legal combination with trial evidence: in Owen 2008 (PubMed 18681988), 50mg caffeine with 100mg L-theanine improved speed and accuracy on an attention-switching task; 100mg caffeine + 200mg L-theanine keeps the same 1:2 ratio. For longer-term cognitive demand, add citicoline (250-500mg/day). For memory consolidation over study periods, add Bacopa Monnieri. Read our beginner stack guide for the full sequencing.',
   },
   {
     q: 'Is buying Adderall online without a prescription safe?',
@@ -263,8 +263,8 @@ export default function Page() {
         <section className="my-10 bg-gray-50 rounded-xl p-6">
           <h2 className="text-xl font-bold text-gray-900 mb-3">If you don&apos;t have ADHD but want focus help</h2>
           <p className="text-gray-700 leading-relaxed mb-3">
-            Start with caffeine + L-theanine. It is the most-evidence-backed legal cognitive enhancement combination,
-            available at any pharmacy. See our{' '}
+            Start with caffeine + L-theanine. In a controlled trial (Owen 2008), the pairing improved speed and
+            accuracy on an attention-switching task. See our{' '}
             <Link href="/guides/nootropics-for-beginners/" className="text-green-700 underline">
               nootropics for beginners guide
             </Link>{' '}

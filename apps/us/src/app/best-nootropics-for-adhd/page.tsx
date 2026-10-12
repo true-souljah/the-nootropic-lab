@@ -48,7 +48,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'L-Theanine + Caffeine',
     ingredientSlugs: ['l-theanine', 'caffeine'],
     evidence:
-      'In the trial linked below (Owen 2008), the pairing improved speed and accuracy on an attention-switching task; in a controlled trial (Rogers 2008), theanine did not significantly reduce caffeine-induced jitteriness. Not specific to ADHD but useful for the caffeine-using subset.',
+      'In the trial linked below (Owen 2008), the pairing improved speed and accuracy on an attention-switching task; in a controlled trial (Rogers 2008, PubMed 17891480), theanine did not significantly reduce caffeine-induced jitteriness. Not specific to ADHD but useful for the caffeine-using subset.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
   },
 ];
