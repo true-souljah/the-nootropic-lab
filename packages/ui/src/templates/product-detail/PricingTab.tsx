@@ -32,9 +32,16 @@ type TermField = (typeof VENDOR_TERM_FIELDS)[number];
  * Pricing tab. Shows only what the vendor states on its own site
  * (`product.vendorTerms`): each term is the vendor's verbatim quote, in its
  * own language, attributed to its page and check date. A term without
- * evidence renders nothing — never a default promise. The price is the
- * stored record price, as in the header card.
+ * evidence renders nothing — never a default promise.
+ *
+ * The price is the store price (`product.storePrice`), attributed the same
+ * way, as in the header card. The vendor-terms one-time price quote is not
+ * shown: it can come from another storefront or currency than the store the
+ * region links to (AU quoted mindlabpro.com's $69 beside AU$89), and a price
+ * shown must be the linked store's own (site-owner policy 2026-10-09).
  */
+const QUOTED_TERMS = VENDOR_TERM_FIELDS.filter((f) => f !== 'oneTimePrice');
+
 export function PricingTab({ product: p, disclosure, strings, noticeStrings, price }: PricingTabProps) {
   const t = strings.pricing;
   // No affiliate deal (commissionRate "0%"): no cookie terms.
@@ -51,14 +58,16 @@ export function PricingTab({ product: p, disclosure, strings, noticeStrings, pri
     // A returns window (unopened-only, or no refunds) is not a money-back guarantee.
     guarantee: p.moneyBackDays !== null && p.moneyBackDays > 0 ? t.moneyBackGuarantee : t.returns,
   };
-  const checkedDisplay = terms
-    ? new Date(`${terms.checkedAt}T00:00:00Z`).toLocaleDateString(strings.dateLocale, {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-        timeZone: 'UTC',
-      })
-    : '';
+  const dateDisplay = (iso: string) =>
+    new Date(`${iso}T00:00:00Z`).toLocaleDateString(strings.dateLocale, {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      timeZone: 'UTC',
+    });
+  const checkedDisplay = terms ? dateDisplay(terms.checkedAt) : '';
+  const quoted = terms ? QUOTED_TERMS.filter((field) => terms[field]) : [];
+  const sp = p.storePrice;
 
   return (
     <div className="grid gap-4 grid-cols-1 lg:grid-cols-2">
@@ -68,11 +77,11 @@ export function PricingTab({ product: p, disclosure, strings, noticeStrings, pri
             price/shipping quotes cite and link its shop pages, so show the notice instead. */}
         {purchaseUrl(p) === null ? (
           <NoPurchaseLinkNotice product={p} strings={noticeStrings} variant="full" />
-        ) : terms ? (
+        ) : terms && quoted.length > 0 ? (
           <>
             <p className="text-[13px] text-ds-muted m-0 mb-4 leading-[1.55]">{t.vendorTermsLede}</p>
             <div className="grid gap-5 md:grid-cols-2">
-              {VENDOR_TERM_FIELDS.map((field) => {
+              {quoted.map((field) => {
                 const term = terms[field];
                 if (!term) return null;
                 return (
@@ -128,9 +137,30 @@ export function PricingTab({ product: p, disclosure, strings, noticeStrings, pri
               <span className="text-[32px] font-bold tracking-[-0.02em] ds-tabular text-ds-accent">{price.pack}</span>
             </div>
             <p className="text-[12.5px] text-ds-muted m-0 mt-1 text-right ds-tabular" data-store-price-pack>
-              {price.packText}
+              <span lang={price.packLang && price.packLang !== pageLang ? price.packLang : undefined}>{price.packText}</span>
               {price.monthly ? ` · ${price.monthly}` : ''}
             </p>
+            {sp && (
+              <p className="text-[12px] text-ds-muted m-0 mt-1 text-right leading-[1.5]" data-store-price-source>
+                {fill(t.attribution, {
+                  // No shop links in an edition that blocks this product (Product.noPurchaseLink).
+                  domain: purchaseUrl(p) === null ? (
+                    new URL(sp.url).hostname.replace(/^www\./, '')
+                  ) : (
+                    <a
+                      href={sp.url}
+                      target="_blank"
+                      rel="nofollow noopener"
+                      className="text-ds-accent underline focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
+                    >
+                      {new URL(sp.url).hostname.replace(/^www\./, '')}
+                      <span className="ds-sr-only"> {t.opensInNewTab}</span>
+                    </a>
+                  ),
+                  date: <time dateTime={sp.checkedAt}>{dateDisplay(sp.checkedAt)}</time>,
+                })}
+              </p>
+            )}
           </div>
         )}
         <TrackedAffiliateLink

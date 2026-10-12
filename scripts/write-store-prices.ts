@@ -33,6 +33,8 @@ type EvidenceItem = {
   pack: string | null;
   supply: string | null;
   directions: string | null;
+  /** BCP-47 language of the quoted text when it is not English. */
+  lang?: string | null;
   finalUrl: string;
   checkedAt: string;
 };
@@ -62,6 +64,7 @@ function storePriceFor(item: EvidenceItem | undefined): StorePrice | null {
     pack: item.pack,
     ...(item.supply ? { supply: item.supply } : {}),
     ...(item.directions ? { directions: item.directions } : {}),
+    ...(item.lang ? { lang: item.lang } : {}),
     // The page the price was read from, without affiliate or tracking parameters.
     url: item.finalUrl.replace(/[?#].*$/, ''),
     checkedAt: item.checkedAt,
