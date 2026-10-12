@@ -87,11 +87,23 @@ const DOLLARS = new Set(['USD', 'CAD', 'AUD', 'NZD', 'SGD', 'HKD', 'MXN']);
 const sameCurrency = (a: string, b: string): boolean =>
   a === b || (a === '$' && DOLLARS.has(b)) || (b === '$' && DOLLARS.has(a));
 
-function moneyIn(text: string, re: RegExp): Money[] {
+/**
+ * A bare "$" in a region's copy reads as that region's own dollar: a Canadian
+ * reader takes "$79/month" as Canadian dollars. Vendor quotes keep a bare "$"
+ * open, since the quote's store may be in another country.
+ */
+const LOCAL_DOLLAR: Record<RegionalRegionCode, string> = {
+  us: 'USD', ca: 'CAD', au: 'AUD', eu: 'USD', jp: 'USD', latam: 'USD', gcc: 'USD', sea: 'USD',
+};
+
+function moneyIn(text: string, re: RegExp, localDollar?: string): Money[] {
   return [...text.matchAll(re)]
     // "below $70/month" states a bound, not a price.
     .filter((m) => !/(?:below|under|less than)\s*$/i.test(text.slice(Math.max(0, (m.index ?? 0) - 12), m.index)))
-    .map((m) => ({ amount: num(m[1] ?? m[2]), currency: currencyOf(m[0]) }))
+    .map((m) => {
+      const currency = currencyOf(m[0]);
+      return { amount: num(m[1] ?? m[2]), currency: currency === '$' && localDollar ? localDollar : currency };
+    })
     .filter((m) => Number.isFinite(m.amount));
 }
 
@@ -136,7 +148,7 @@ function collect(): Statement[] {
     // 1. The product's own record copy.
     for (const p of live) {
       const texts = [...RECORD_FIELDS.map((f) => p[f]), ...p.pros, ...p.cons].filter((s): s is string => typeof s === 'string');
-      for (const t of texts) for (const stated of moneyIn(t, PER_MONTH)) {
+      for (const t of texts) for (const stated of moneyIn(t, PER_MONTH, LOCAL_DOLLAR[region])) {
         out.push({ where: `${region} ${p.slug} record`, stated, allowed: allowed.get(p.slug)!, products: p.name });
       }
     }
@@ -151,12 +163,12 @@ function collect(): Statement[] {
         const set = allowed.get(m[1]);
         inPicks.push(m[3]);
         if (!set) continue;
-        for (const stated of moneyIn(m[3], PER_MONTH)) out.push({ where: `${rel} pick ${m[1]}`, stated, allowed: set, products: m[1] });
+        for (const stated of moneyIn(m[3], PER_MONTH, LOCAL_DOLLAR[region])) out.push({ where: `${rel} pick ${m[1]}`, stated, allowed: set, products: m[1] });
       }
       let rest = src;
       for (const t of inPicks) rest = rest.replace(t, '');
       for (const sentence of rest.split(/(?<=[.!?])\s+|\n/)) {
-        const stated = moneyIn(sentence, PER_MONTH);
+        const stated = moneyIn(sentence, PER_MONTH, LOCAL_DOLLAR[region]);
         if (!stated.length) continue;
         const named = live.filter((p) => sentence.includes(p.name));
         if (!named.length) continue;
@@ -193,6 +205,9 @@ describe('prose monthly prices come from the vendor', () => {
     expect(isAllowed({ amount: 79, currency: '$' }, [{ amount: 79, currency: 'USD' }])).toBe(true);
     expect(isAllowed({ amount: 79, currency: '$' }, [{ amount: 79, currency: 'EUR' }])).toBe(false);
     expect(isAllowed({ amount: 89, currency: 'AUD' }, [{ amount: 89, currency: 'CAD' }])).toBe(false);
+    // In Canadian copy a bare "$79/month" is Canadian dollars, so a US$79 store price does not back it.
+    expect(moneyIn('then $79 a month', PER_MONTH, 'CAD')).toEqual([{ amount: 79, currency: 'CAD' }]);
+    expect(isAllowed(moneyIn('then $79 a month', PER_MONTH, 'CAD')[0], [{ amount: 79, currency: 'USD' }])).toBe(false);
   });
 
   test('statements were found across regions (fail closed)', () => {
