@@ -41,7 +41,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'DHA (Docosahexaenoic Acid) — FFC-notified in Japan',
     ingredientSlugs: ['dha-omega-3'],
     evidence:
-      'DHA is the most-notified functional ingredient under Japan\'s FFC system, with claims around memory support in middle-aged and older adults. The brain is approximately 60% fat by dry weight and DHA is its primary structural omega-3. The positive memory trials we reviewed used 900mg–1.2g DHA/day for 24 weeks or longer (see our DHA ingredient page). Suntory and FANCL are the dominant Japanese DHA brands.',
+      'By our count of the Consumer Affairs Agency\'s FFC database (export of 2026-10-06), DHA is listed as a functional ingredient in 105 of the 563 active Foods with Function Claims (FFC) notifications whose claim mentions memory or cognitive function. The brain is approximately 60% fat by dry weight and DHA is its primary structural omega-3. The positive memory trials we reviewed used 900mg–1.2g DHA/day for 24 weeks or longer (see our DHA ingredient page). Of the domestic picks on this page, Suntory DHA & EPA + Sesamin EX is the DHA product; FANCL BRAINs is not — its notified functional ingredients are bacopa saponins and matured hop bitter acids (notification G425).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20434961/',
   },
   {
@@ -70,18 +70,18 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'suntory-dha-epa-sesamin-review')!,
     rank: 3,
     whyItsHere:
-      'An omega-3 brain supplement whose maker\'s product page calls it 「DHAサプリメント市場18年連続売上No.1」 (No. 1 in DHA-supplement sales for 18 years running; suntory-kenko.com, checked 2026-10-09); no Foods with Function Claims (FFC, 機能性表示食品) notification found in the Consumer Affairs Agency (CAA) database (export scanned 2026-10-06). 300mg DHA + 100mg EPA + 10mg sesamin per 4 capsules from Suntory Wellness — backed by a household-name conglomerate familiar to every Japanese consumer. Its 300mg DHA is below the 900mg low end of our DHA reference dose.',
+      'An omega-3 brain supplement whose maker\'s product page calls it 「DHAサプリメント市場18年連続売上No.1」 (No. 1 in DHA-supplement sales for 18 years running; suntory-kenko.com, checked 2026-10-09); no Foods with Function Claims (FFC, 機能性表示食品) notification found in the Consumer Affairs Agency (CAA) database (export scanned 2026-10-06). 300mg DHA + 100mg EPA + 10mg sesamin per 4 capsules from Suntory Wellness — backed by a household-name conglomerate. Its 300mg DHA is below the 900mg low end of our DHA reference dose.',
   },
 ];
 
 const faqItems: ListicleFAQ[] = [
   {
     q: 'What is the difference between FFC-notified domestic brands and imported stacks?',
-    a: 'Japan\'s Food with Function Claims system (機能性表示食品) requires manufacturers to notify the Consumer Affairs Agency (消費者庁) of the cognitive claim and supporting evidence — a regulatory framework that domestic brands like FANCL BRAINs and Suntory DHA & EPA + Sesamin EX operate under. Imported stacks such as Mind Lab Pro ship under Ministry of Health, Labour and Welfare (MHLW) personal-import rules and carry no Japanese cognitive claim. Both routes are legal; FFC products are easier to buy in pharmacy chains and have Japanese-language labels.',
+    a: 'Japan\'s Food with Function Claims system (機能性表示食品) requires manufacturers to notify the Consumer Affairs Agency (消費者庁) of the cognitive claim and supporting evidence. FANCL BRAINs is notified under it (G425). Suntory DHA & EPA + Sesamin EX is not: our check of the CAA database found no row for ＤＨＡ＆ＥＰＡ＋セサミンＥＸ, and no product name combining DHA/EPA with セサミン (full export of 11,520 notifications scanned 2026-10-06). Imported stacks such as Mind Lab Pro ship under Ministry of Health, Labour and Welfare (MHLW) personal-import rules and carry no Japanese cognitive claim. Both routes are legal; FFC products are easier to buy in pharmacy chains and have Japanese-language labels.',
   },
   {
     q: 'What is the most evidence-backed nootropic for memory?',
-    a: 'Bacopa Monnieri at 300mg standardized to 50% bacosides has the most replicated RCT evidence for memory consolidation in healthy adults. On this page it comes in an imported stack (Mind Lab Pro, 150mg Bacopa) and in FANCL BRAINs, a domestic FFC product whose notified ingredient is bacopa saponins (15mg per daily intake, notification G425). For Japan-domestic options, DHA is the most-notified FFC ingredient with strong evidence in middle-aged and older adults; Phosphatidylserine has the FDA qualified health claim for cognitive function in elderly.',
+    a: 'Bacopa Monnieri at 300mg standardized to 50% bacosides has the most replicated RCT evidence for memory consolidation in healthy adults. On this page it comes in an imported stack (Mind Lab Pro, 150mg Bacopa) and in FANCL BRAINs, a domestic FFC product whose notified ingredient is bacopa saponins (15mg per daily intake, notification G425). For Japan-domestic options, by our count of the Consumer Affairs Agency\'s FFC database (export of 2026-10-06), DHA is listed as a functional ingredient in 105 of the 563 active Foods with Function Claims (FFC) notifications whose claim mentions memory or cognitive function; it has strong evidence in middle-aged and older adults. Phosphatidylserine has the FDA qualified health claim for cognitive function in elderly.',
   },
   {
     q: 'How long until memory nootropics work?',
