@@ -27,7 +27,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Bacopa Monnieri (Brahmi)',
     ingredientSlugs: ['bacopa-monnieri'],
     evidence:
-      'The most-replicated memory ingredient in nootropics. Multiple double-blind RCTs in adults show improved memory consolidation and recall after 8–12 weeks at 300mg standardized to 50% bacosides. Onset is slow — daily for 8+ weeks. Widely recognised across SEA under the Ayurvedic name "Brahmi" (especially in Malaysia, Indonesia, Thailand) and culturally familiar.',
+      'In a systematic review of six randomized trials (Pase 2012, PubMed 22747190), all lasting 12 weeks at 300–450mg extract a day, Bacopa improved 9 of 17 tests of memory free recall. Onset is slow — daily for 8+ weeks. Widely recognised across SEA under the Ayurvedic name "Brahmi" (especially in Malaysia, Indonesia, Thailand) and culturally familiar.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
   },
   {
@@ -84,8 +84,8 @@ const faqItems: ListicleFAQ[] = [
     a: 'Shopee/Lazada/TikTok Shop: buy from the brand\'s official store where one exists. NatureBell Ginkgo+Ginseng\'s Amazon.sg listing showed “Currently unavailable.” when we checked on 12 October 2026; it is not one of this page\'s picks. Cross-border iHerb: best route for Nootropics Depot Lion\'s Mane and other premium single-ingredient products into Singapore and Malaysia (consolidated warehouses minimise customs friction). Direct from brand: Mind Lab Pro\'s FAQ names Singapore, Thailand, the Philippines, Indonesia and Vietnam among its shipping territories (checked 2026-09-29). Qualia Mind does not ship to any SEA country (brand shipping page, checked 2026-09-28).',
   },
   {
-    q: 'What is the most evidence-backed nootropic for memory?',
-    a: 'Bacopa Monnieri at 300mg standardized to 50% bacosides has the most replicated RCT evidence for memory consolidation in healthy adults. SEA buyers have an advantage: Bacopa is widely available locally as "Brahmi" in Ayurvedic and traditional supplement aisles across MY/ID/SG. Phosphatidylserine has the FDA qualified health claim for cognitive function in elderly. Citicoline has good evidence for older adults with age-related memory complaints.',
+    q: 'Which nootropic ingredients have trial evidence for memory?',
+    a: 'Bacopa Monnieri: in a systematic review of six 12-week randomized trials at 300–450mg extract a day (Pase 2012, PubMed 22747190), it improved 9 of 17 tests of memory free recall, and the authors call the research \'in its infancy\'. SEA buyers have an advantage: Bacopa is widely available locally as "Brahmi" in Ayurvedic and traditional supplement aisles across MY/ID/SG. For phosphatidylserine, the FDA allows only a qualified claim that it \'may reduce the risk of cognitive dysfunction in the elderly\', followed by \'FDA concludes that there is little scientific evidence supporting this claim\' (FDA letter, 13 May 2003). Citicoline improved verbal memory in older adults with inefficient memory in one trial (Spiers 1996, PubMed 8624220).',
   },
   {
     q: 'How long until memory nootropics work?',
@@ -97,7 +97,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Will Brahmi/Bacopa make me feel anything immediately?',
-    a: 'No. Bacopa is not an acute-effect ingredient. It is a classic case of "you only know it worked when you stop and notice the regression." The cumulative memory benefit at 8–12 weeks is the most replicated finding in nootropics. Bacopa can cause mild GI upset in some people; take with food (a common SEA practice anyway — most traditional preparations recommend with rice or after meals).',
+    a: 'No. Bacopa is not an acute-effect ingredient. It is a classic case of "you only know it worked when you stop and notice the regression." The trials in the systematic review we cite (Pase 2012) measured memory after 12 weeks. Bacopa can cause mild GI upset in some people; take with food (a common SEA practice anyway — most traditional preparations recommend with rice or after meals).',
   },
 ];
 
@@ -108,7 +108,7 @@ export default function Page() {
       useCase="memory"
       pageTitle="Best Nootropics for Memory in SEA"
       pageDescription="Independent ranking of memory nootropics available to buyers across Southeast Asia. Bacopa, Lion's Mane, PS, citicoline."
-      heroParagraph="Memory is the use case where nootropics have the most replicated evidence — primarily from Bacopa Monnieri (known across SEA as Brahmi) RCTs over 30+ years. This page ranks the products available to SEA buyers that contain Bacopa, Lion's Mane, phosphatidylserine, or citicoline at or near clinical dose. Regulatory status (Singapore’s Health Sciences Authority (HSA), Malaysia’s National Pharmaceutical Regulatory Agency (NPRA), Indonesia’s Badan Pengawas Obat dan Makanan (BPOM), and the Thai and Philippine Food and Drug Administrations (FDA)), distribution route (Shopee, Lazada, TikTok Shop, Watsons, Guardian, Unity, Boots, Mercury Drug, cross-border iHerb), and halal availability (Indonesia’s Badan Penyelenggara Jaminan Produk Halal (BPJPH) and the Department of Islamic Development Malaysia (JAKIM)) noted per pick where known."
+      heroParagraph="For memory, the Bacopa Monnieri (known across SEA as Brahmi) evidence we cite is a systematic review of six 12-week randomized trials (Pase 2012). This page ranks the products available to SEA buyers that contain Bacopa, Lion's Mane, phosphatidylserine, or citicoline at or near clinical dose. Regulatory status (Singapore’s Health Sciences Authority (HSA), Malaysia’s National Pharmaceutical Regulatory Agency (NPRA), Indonesia’s Badan Pengawas Obat dan Makanan (BPOM), and the Thai and Philippine Food and Drug Administrations (FDA)), distribution route (Shopee, Lazada, TikTok Shop, Watsons, Guardian, Unity, Boots, Mercury Drug, cross-border iHerb), and halal availability (Indonesia’s Badan Penyelenggara Jaminan Produk Halal (BPJPH) and the Department of Islamic Development Malaysia (JAKIM)) noted per pick where known."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

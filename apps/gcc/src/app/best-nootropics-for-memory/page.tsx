@@ -27,7 +27,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Bacopa Monnieri',
     ingredientSlugs: ['bacopa-monnieri'],
     evidence:
-      'The most-replicated memory ingredient in nootropics. Multiple double-blind RCTs in adults show improved memory consolidation and recall after 8–12 weeks at 300mg standardised to 50% bacosides. Onset is slow — daily for 8+ weeks. Plant-derived. Widely used in Ayurvedic medicine and increasingly available in GCC pharmacies.',
+      'In a systematic review of six randomised trials (Pase 2012, PubMed 22747190), all lasting 12 weeks at 300–450mg extract a day, Bacopa improved 9 of 17 tests of memory free recall. Onset is slow — daily for 8+ weeks. Plant-derived. Widely used in Ayurvedic medicine and increasingly available in GCC pharmacies.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
   },
   {
@@ -84,8 +84,8 @@ const faqItems: ListicleFAQ[] = [
     a: 'We have not verified an SFDA or MOHAP registration for any of the picks on this page. The international brands here (Mind Lab Pro, Qualia Mind, Nootropics Depot) enter the region as personal-use dietary supplements. Verify import status with your local authority before ordering. iHerb\'s Saudi-compliant DC handles import paperwork for many international supplements.',
   },
   {
-    q: 'What is the most evidence-backed nootropic for memory?',
-    a: 'Bacopa Monnieri at 300mg standardised to 50% bacosides has the most replicated RCT evidence for memory consolidation in healthy adults. Phosphatidylserine has the FDA qualified health claim for cognitive function in elderly. Citicoline has good evidence for older adults with age-related memory complaints. Cera-Q (the silk fibroin protein in Eu Yan Sang BrainMAX+) is a newer ingredient whose memory evidence is one citable 3-week trial by maker-affiliated authors, and Korea\'s regulator revoked its functional-ingredient recognition in 2017 after its supporting study was retracted, so BrainMAX+ is not among our picks.',
+    q: 'Which nootropic ingredients have trial evidence for memory?',
+    a: 'Bacopa Monnieri: in a systematic review of six 12-week randomised trials at 300–450mg extract a day (Pase 2012, PubMed 22747190), it improved 9 of 17 tests of memory free recall, and the authors call the research \'in its infancy\'. For phosphatidylserine, the FDA allows only a qualified claim that it \'may reduce the risk of cognitive dysfunction in the elderly\', followed by \'FDA concludes that there is little scientific evidence supporting this claim\' (FDA letter, 13 May 2003). Citicoline improved verbal memory in older adults with inefficient memory in one trial (Spiers 1996, PubMed 8624220). Cera-Q (the silk fibroin protein in Eu Yan Sang BrainMAX+) is a newer ingredient whose memory evidence is one citable 3-week trial by maker-affiliated authors, and Korea\'s regulator revoked its functional-ingredient recognition in 2017 after its supporting study was retracted, so BrainMAX+ is not among our picks.',
   },
   {
     q: 'How long until memory nootropics work?',
@@ -108,7 +108,7 @@ export default function Page() {
       useCase="memory"
       pageTitle="Best Nootropics for Memory in the GCC"
       pageDescription="Independent ranking of the best memory nootropics available in the GCC, with halal status and SFDA/MOHAP registration noted per pick."
-      heroParagraph="Memory is the use case where nootropics have the most replicated evidence — primarily from Bacopa Monnieri RCTs spanning 30+ years, plus phosphatidylserine\'s FDA qualified health claim. For GCC buyers, the question is not just \'does it work?\' but \'is it halal?\', \'is it SFDA or MOHAP registered?\', and \'is the capsule plant-based or animal-derived?\'. This page ranks memory products for buyers in Saudi Arabia, the UAE, Qatar, Kuwait, Bahrain, and Oman — imported international brands such as Mind Lab Pro and Qualia Mind, with each pick noting whether the brand ships to the GCC. Distribution: BinSina, Aster, Life Pharmacy (UAE); Al-Dawaa, Nahdi (KSA); iHerb Saudi-compliant DC for many international imports."
+      heroParagraph="For memory, the Bacopa Monnieri evidence we cite is a systematic review of six 12-week randomised trials (Pase 2012), and the FDA allows phosphatidylserine only a qualified claim, for which it concludes there is little scientific evidence. For GCC buyers, the question is not just \'does it work?\' but \'is it halal?\', \'is it SFDA or MOHAP registered?\', and \'is the capsule plant-based or animal-derived?\'. This page ranks memory products for buyers in Saudi Arabia, the UAE, Qatar, Kuwait, Bahrain, and Oman — imported international brands such as Mind Lab Pro and Qualia Mind, with each pick noting whether the brand ships to the GCC. Distribution: BinSina, Aster, Life Pharmacy (UAE); Al-Dawaa, Nahdi (KSA); iHerb Saudi-compliant DC for many international imports."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

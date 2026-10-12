@@ -28,7 +28,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Bacopa Monnieri',
     ingredientSlugs: ['bacopa-monnieri'],
     evidence:
-      'The most-replicated memory ingredient in nootropics. Multiple double-blind RCTs in adults show improved memory consolidation and recall after 8–12 weeks at 300mg standardised to 50% bacosides. Onset is slow — daily for 8+ weeks. Not an acute-effect ingredient. Bacopa is permitted in TGA Listed Medicines (Therapeutic Goods (Permissible Ingredients) Determination (No. 2) 2026, F2026L00707, as compiled 17 September 2026 — Compilation No. 1, F2026C00940 — Schedule 1 item 754; checked 2026-10-08), so several Australian brands (Blackmores, Caruso\'s, Nature\'s Own) sell standalone Bacopa products under AUST L numbers.',
+      'In a systematic review of six randomised trials (Pase 2012, PubMed 22747190), all lasting 12 weeks at 300–450mg extract a day, Bacopa improved 9 of 17 tests of memory free recall. Onset is slow — daily for 8+ weeks. Not an acute-effect ingredient. Bacopa is permitted in TGA Listed Medicines (Therapeutic Goods (Permissible Ingredients) Determination (No. 2) 2026, F2026L00707, as compiled 17 September 2026 — Compilation No. 1, F2026C00940 — Schedule 1 item 754; checked 2026-10-08), so several Australian brands (Blackmores, Caruso\'s, Nature\'s Own) sell standalone Bacopa products under AUST L numbers.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
   },
   {
@@ -83,8 +83,8 @@ const picks: ListiclePick[] = [
 
 const faqItems: ListicleFAQ[] = [
   {
-    q: 'What is the most evidence-backed nootropic for memory?',
-    a: 'Bacopa Monnieri at 300mg standardised to 50% bacosides has the most replicated RCT evidence for memory consolidation in healthy adults. Phosphatidylserine has good evidence for memory in older adults. Citicoline has good evidence for older adults with age-related memory complaints.',
+    q: 'Which nootropic ingredients have trial evidence for memory?',
+    a: 'Bacopa Monnieri: in a systematic review of six 12-week randomised trials at 300–450mg extract a day (Pase 2012, PubMed 22747190), it improved 9 of 17 tests of memory free recall, and the authors call the research \'in its infancy\'. Phosphatidylserine has good evidence for memory in older adults. Citicoline improved verbal memory in older adults with inefficient memory in one trial (Spiers 1996, PubMed 8624220).',
   },
   {
     q: 'How long until memory nootropics work?',
@@ -119,7 +119,7 @@ export default function Page() {
       useCase="memory"
       pageTitle="Best Nootropics for Memory in Australia"
       pageDescription="Independent ranking of nootropics for memory and recall available to Australian buyers, based on clinical evidence and TGA Personal Importation rules."
-      heroParagraph="Memory is the use case where nootropics have the most replicated evidence — primarily from Bacopa Monnieri RCTs over 30+ years. This page ranks the products available to Australian buyers that contain Bacopa, Lion's Mane, phosphatidylserine, or citicoline at or near clinical dose. None of the multi-ingredient stacks below returned an Australian Register of Therapeutic Goods (ARTG) entry when we searched the Therapeutic Goods Administration (TGA) databases on 2026-10-06; they import under the Personal Importation Scheme. TGA-listed Australian options for single-ingredient Bacopa or ginkgo are noted in the FAQ."
+      heroParagraph="For memory, the Bacopa Monnieri evidence we cite is a systematic review of six 12-week randomised trials (Pase 2012). This page ranks the products available to Australian buyers that contain Bacopa, Lion's Mane, phosphatidylserine, or citicoline at or near clinical dose. None of the multi-ingredient stacks below returned an Australian Register of Therapeutic Goods (ARTG) entry when we searched the Therapeutic Goods Administration (TGA) databases on 2026-10-06; they import under the Personal Importation Scheme. TGA-listed Australian options for single-ingredient Bacopa or ginkgo are noted in the FAQ."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

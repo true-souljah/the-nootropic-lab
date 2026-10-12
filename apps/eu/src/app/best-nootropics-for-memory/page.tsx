@@ -27,7 +27,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Bacopa Monnieri',
     ingredientSlugs: ['bacopa-monnieri'],
     evidence:
-      'The most-replicated memory ingredient in nootropics. Multiple double-blind RCTs in adults show improved memory consolidation and recall after 8–12 weeks at 300mg standardised to 50% bacosides. Onset is slow — daily for 8+ weeks. Not an acute-effect ingredient. EFSA has not approved a specific health claim for Bacopa, so EU labels describe it as a botanical food supplement rather than making cognitive claims.',
+      'In a systematic review of six randomised trials (Pase 2012, PubMed 22747190), all lasting 12 weeks at 300–450mg extract a day, Bacopa improved 9 of 17 tests of memory free recall. Onset is slow — daily for 8+ weeks. Not an acute-effect ingredient. EFSA has not approved a specific health claim for Bacopa, so EU labels describe it as a botanical food supplement rather than making cognitive claims.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
   },
   {
@@ -76,8 +76,8 @@ const picks: ListiclePick[] = [
 
 const faqItems: ListicleFAQ[] = [
   {
-    q: 'What is the most evidence-backed nootropic for memory available in the EU?',
-    a: 'Bacopa Monnieri at 300mg standardised to 50% bacosides has the most replicated RCT evidence for memory consolidation in healthy adults. Citicoline (Cognizin) has Novel Food authorisation in the EU and good evidence for older adults with age-related memory complaints. Lion\'s Mane fruiting-body extract has smaller but promising RCT evidence.',
+    q: 'Which nootropic ingredients have trial evidence for memory available in the EU?',
+    a: 'Bacopa Monnieri: in a systematic review of six 12-week randomised trials at 300–450mg extract a day (Pase 2012, PubMed 22747190), it improved 9 of 17 tests of memory free recall, and the authors call the research \'in its infancy\'. Citicoline (Cognizin) has Novel Food authorisation in the EU; it improved verbal memory in older adults with inefficient memory in one trial (Spiers 1996, PubMed 8624220). Lion\'s Mane fruiting-body extract has smaller but promising RCT evidence.',
   },
   {
     q: 'How long until memory nootropics work?',
@@ -101,7 +101,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Will Bacopa make me feel anything?',
-    a: 'No. Bacopa is not an acute-effect ingredient. It is a classic case of "you only know it worked when you stop and notice the regression." This makes it psychologically harder to stick with than acute-effect ingredients (caffeine, L-theanine) — but the cumulative memory benefit at 8–12 weeks is the most replicated finding in nootropics.',
+    a: 'No. Bacopa is not an acute-effect ingredient. It is a classic case of "you only know it worked when you stop and notice the regression." This makes it psychologically harder to stick with than acute-effect ingredients (caffeine, L-theanine) — and the trials in the systematic review we cite (Pase 2012) measured memory after 12 weeks.',
   },
 ];
 
@@ -112,7 +112,7 @@ export default function Page() {
       useCase="memory"
       pageTitle="Best Nootropics for Memory (EU)"
       pageDescription="Independent EU ranking of nootropics for memory and recall, based on clinical evidence. EU storefronts marked."
-      heroParagraph="Memory is the use case where nootropics have the most replicated evidence — primarily from Bacopa Monnieri RCTs over 30+ years. This page ranks the products in our EU coverage that contain Bacopa, Lion's Mane, phosphatidylserine, or citicoline at or near clinical dose. EU labels describe these ingredients in mechanism terms (under Regulation (EC) No 1924/2006, with claims assessed by the European Food Safety Authority, EFSA) — the underlying clinical evidence is the same as in the US."
+      heroParagraph="For memory, the Bacopa Monnieri evidence we cite is a systematic review of six 12-week randomised trials (Pase 2012). This page ranks the products in our EU coverage that contain Bacopa, Lion's Mane, phosphatidylserine, or citicoline at or near clinical dose. EU labels describe these ingredients in mechanism terms (under Regulation (EC) No 1924/2006, with claims assessed by the European Food Safety Authority, EFSA) — the underlying clinical evidence is the same as in the US."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

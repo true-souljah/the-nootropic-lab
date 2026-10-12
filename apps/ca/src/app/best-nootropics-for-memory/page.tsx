@@ -27,7 +27,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Bacopa Monnieri',
     ingredientSlugs: ['bacopa-monnieri'],
     evidence:
-      'The most-replicated memory ingredient in nootropics. Multiple double-blind RCTs in adults show improved memory consolidation and recall after 8–12 weeks at 300mg standardized to 50% bacosides. Onset is slow — daily for 8+ weeks. Not an acute-effect ingredient.',
+      'In a systematic review of six randomized trials (Pase 2012, PubMed 22747190), all lasting 12 weeks at 300–450mg extract a day, Bacopa improved 9 of 17 tests of memory free recall. Onset is slow — daily for 8+ weeks. Not an acute-effect ingredient.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
   },
   {
@@ -89,8 +89,8 @@ const picks: ListiclePick[] = [
 
 const faqItems: ListicleFAQ[] = [
   {
-    q: 'What is the most evidence-backed nootropic for memory available in Canada?',
-    a: 'Bacopa Monnieri at 300mg standardized to 50% bacosides has the most replicated RCT evidence for memory consolidation in healthy adults. Phosphatidylserine has the strongest age-related memory claim and Mind Lab Pro delivers 100mg at clinical dose. Citicoline at 250–500mg has good evidence for older adults.',
+    q: 'Which nootropic ingredients have trial evidence for memory available in Canada?',
+    a: 'Bacopa Monnieri: in a systematic review of six 12-week randomized trials at 300–450mg extract a day (Pase 2012, PubMed 22747190), it improved 9 of 17 tests of memory free recall, and the authors call the research \'in its infancy\'. Phosphatidylserine is in Mind Lab Pro at 100mg per serving; the phosphatidylserine trials on our ingredient page used 100–300mg a day. Citicoline improved verbal memory in older adults with inefficient memory in one trial (Spiers 1996, PubMed 8624220).',
   },
   {
     q: 'How long until memory nootropics work?',
@@ -114,7 +114,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Will Bacopa make me feel anything?',
-    a: 'No. Bacopa is not an acute-effect ingredient. It is a classic case of "you only know it worked when you stop and notice the regression." This makes it psychologically harder to stick with than acute-effect ingredients (caffeine, L-theanine) — but the cumulative memory benefit at 8–12 weeks is the most replicated finding in nootropics.',
+    a: 'No. Bacopa is not an acute-effect ingredient. It is a classic case of "you only know it worked when you stop and notice the regression." This makes it psychologically harder to stick with than acute-effect ingredients (caffeine, L-theanine) — and the trials in the systematic review we cite (Pase 2012) measured memory after 12 weeks.',
   },
 ];
 
@@ -125,7 +125,7 @@ export default function Page() {
       useCase="memory"
       pageTitle="Best Nootropics for Memory in Canada"
       pageDescription="Independent ranking of the best nootropics for memory and recall available to Canadian buyers, based on clinical evidence."
-      heroParagraph="Memory is the use case where nootropics have the most replicated evidence — primarily from Bacopa Monnieri RCTs over 30+ years. This page ranks the products available to Canadian buyers (licensed by Health Canada with a Natural Product Number (NPN), or imported for personal use) that contain Bacopa, Lion's Mane, phosphatidylserine, citicoline, or Ginkgo at or near clinical dose."
+      heroParagraph="For memory, the Bacopa Monnieri evidence we cite is a systematic review of six 12-week randomized trials (Pase 2012). This page ranks the products available to Canadian buyers (licensed by Health Canada with a Natural Product Number (NPN), or imported for personal use) that contain Bacopa, Lion's Mane, phosphatidylserine, citicoline, or Ginkgo at or near clinical dose."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}
