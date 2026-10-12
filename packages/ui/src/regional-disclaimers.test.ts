@@ -69,6 +69,15 @@ describe('getRegionalHealthDisclaimer — coverage + content', () => {
     expect(d).toContain('機能性表示食品');
   });
 
+  test('jp English half cites no FFC claim-wording consultation (CAA case 235080088 is not one)', () => {
+    // Case 235080088 (July 2026) amends seasoning-sauce names, nutrient reference values and
+    // nutrient-function claims for vitamins B1/K and zinc; the note that called it an FFC
+    // claim-wording review for DHA, phosphatidylserine and NMN was English-only and wrong.
+    const d = getRegionalHealthDisclaimer('jp');
+    expect(d).not.toContain('235080088');
+    expect(d).not.toMatch(/public comment|NMN|phosphatidylserine/i);
+  });
+
   test('latam disclaimer references multiple regulators incl. ANVISA + COFEPRIS', () => {
     const d = getRegionalHealthDisclaimer('latam');
     expect(d).toContain('ANVISA');
@@ -77,6 +86,17 @@ describe('getRegionalHealthDisclaimer — coverage + content', () => {
     expect(d).toContain('ANMAT');
     // LATAM disclaimer is bilingual (Spanish + English)
     expect(d).toContain('consejo médico');
+  });
+
+  test('latam Brazil peptide notice says what ANVISA said on 2 July 2026, in both halves', () => {
+    // ANVISA: not regularised in any category and illegal for any health use, including aesthetic —
+    // not "a formal alert" that they "cannot legally be sold".
+    const d = getRegionalHealthDisclaimer('latam');
+    expect(d).toContain('el 2 de julio de 2026, ANVISA informó');
+    expect(d).toContain('son ilegales para cualquier uso en salud, incluido el estético');
+    expect(d).toContain('on 2 July 2026, ANVISA stated');
+    expect(d).toContain('are illegal for any health use, including aesthetic use');
+    expect(d).not.toMatch(/alerta oficial|no pueden venderse legalmente|formal consumer alert|cannot legally be sold/);
   });
 
   test('gcc disclaimer references SFDA + MOHAP', () => {
