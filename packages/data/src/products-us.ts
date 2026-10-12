@@ -302,13 +302,7 @@ export interface Product {
 }
 
 /** Why an edition shows no purchase link for a product. */
-export type NoPurchaseLinkReason =
-  /**
-   * The formula contains an ingredient from a plant on Japan's MHLW list of
-   * ingredients used exclusively as medicines (専ら医薬品として使用される成分本質
-   * （原材料）リスト). JP records only.
-   */
-  'jp-mhlw-medicine-only-ingredient';
+export type NoPurchaseLinkReason = NoPurchaseLink['reason'];
 
 export interface NoPurchaseLinkIngredient {
   /** The ingredient as the record names it; must match a heroIngredients entry or an ingredientDosages name. */
@@ -319,8 +313,13 @@ export interface NoPurchaseLinkIngredient {
   listedAs: string;
 }
 
-export interface NoPurchaseLink {
-  reason: NoPurchaseLinkReason;
+/**
+ * The formula contains an ingredient from a plant on Japan's MHLW list of
+ * ingredients used exclusively as medicines (専ら医薬品として使用される成分本質
+ * （原材料）リスト). JP records only.
+ */
+export interface NoPurchaseLinkMhlw {
+  reason: 'jp-mhlw-medicine-only-ingredient';
   /** Non-empty: the ingredients that put the record under `reason`. */
   ingredients: NoPurchaseLinkIngredient[];
   /** The primary source (absolute https URL). */
@@ -330,6 +329,25 @@ export interface NoPurchaseLink {
   /** YYYY-MM-DD the source was last read against this record. */
   checkedAt: string;
 }
+
+/**
+ * The store the region links to no longer sells the product (the listing is
+ * gone or unavailable). Site-owner decision 2026-10-12: show a notice instead
+ * of the dead link; the review and list positions stay. Any region.
+ */
+export interface NoPurchaseLinkNotSold {
+  reason: 'not-sold-on-linked-store';
+  /** The store as readers know it, e.g. "amazon.ca". */
+  store: string;
+  /** The listing that was checked (absolute https URL; kept as evidence, not linked). */
+  storeUrl: string;
+  /** What the listing showed, verbatim, e.g. "Currently unavailable." */
+  observed: string;
+  /** YYYY-MM-DD the listing was checked. */
+  checkedAt: string;
+}
+
+export type NoPurchaseLink = NoPurchaseLinkMhlw | NoPurchaseLinkNotSold;
 
 /** Every US record, including discontinued ones — review pages, sitemap, hreflang. */
 export const allProductsUS: Product[] = productsUSData as Product[];

@@ -13,10 +13,14 @@
 // MHLW list of ingredients used exclusively as medicines. The products stay
 // on the site (review pages, lists); only the links go.
 //
+// Site-owner decision 2026-10-12: the same gate covers a store that no longer
+// sells the product (NatureBell's amazon.ca and amazon.com.au listings return
+// 404; amazon.sg shows "Currently unavailable"): a notice replaces the dead link.
+//
 // Type-only imports: client components import this module, so it must not
 // pull a catalogue JSON or the i18n bundles into the browser.
 
-import type { Product, NoPurchaseLink, NoPurchaseLinkReason } from './products-us';
+import type { Product, NoPurchaseLink, NoPurchaseLinkMhlw, NoPurchaseLinkReason } from './products-us';
 import type { Locale } from './i18n';
 
 /** The vendor URL to link to, or null when this edition must not link to a shop for the product. */
@@ -43,13 +47,14 @@ export function purchaseLinkBlock(product: Pick<Product, 'noPurchaseLink'>): NoP
   return product.noPurchaseLink ?? null;
 }
 
-/** Region whose records may carry each reason. */
-export const NO_PURCHASE_LINK_REASON_REGION: Readonly<Record<NoPurchaseLinkReason, string>> = {
+/** Region whose records may carry each reason (null: any region). */
+export const NO_PURCHASE_LINK_REASON_REGION: Readonly<Record<NoPurchaseLinkReason, string | null>> = {
   'jp-mhlw-medicine-only-ingredient': 'jp',
+  'not-sold-on-linked-store': null,
 };
 
 /** "Ashwagandha (Withania somnifera)" — the ingredient list interpolated into the notice. */
-export function noPurchaseLinkIngredientList(block: NoPurchaseLink): string {
+export function noPurchaseLinkIngredientList(block: NoPurchaseLinkMhlw): string {
   return block.ingredients.map((i) => `${i.name} (${i.plant})`).join(', ');
 }
 
@@ -61,13 +66,16 @@ function isIsoDate(value: unknown): value is string {
 
 /**
  * Why a record's `noPurchaseLink` is malformed, or null. Absent = fine.
- * Rules: known reason, allowed for `region`; non-empty `ingredients`, each with
+ * Rules: known reason, allowed for `region`. not-sold-on-linked-store: a store
+ * name, an https `storeUrl` on that store's host that is the record's own
+ * affiliate listing, the listing's verbatim
+ * `observed` text and a YYYY-MM-DD `checkedAt`. jp-mhlw: non-empty `ingredients`, each with
  * a name the record's formula lists (heroIngredients or an ingredientDosages
  * name, case-insensitive), a plant and the list entry; https `sourceUrl`;
  * YYYY-MM-DD `listUpdated` and `checkedAt`, checked no earlier than the update.
  */
 export function noPurchaseLinkProblem(
-  product: Pick<Product, 'noPurchaseLink' | 'heroIngredients' | 'ingredientDosages'>,
+  product: Pick<Product, 'noPurchaseLink' | 'heroIngredients' | 'ingredientDosages' | 'affiliateUrl'>,
   region: string,
 ): string | null {
   if (!('noPurchaseLink' in product) || product.noPurchaseLink === undefined) return null;
@@ -78,7 +86,8 @@ export function noPurchaseLinkProblem(
     return `noPurchaseLink.reason is not one of ${Object.keys(NO_PURCHASE_LINK_REASON_REGION).join(' | ')}: ${JSON.stringify(reason)}`;
   }
   const allowedRegion = NO_PURCHASE_LINK_REASON_REGION[reason as NoPurchaseLinkReason];
-  if (region !== allowedRegion) return `noPurchaseLink.reason "${reason}" applies to ${allowedRegion} records only, not ${region}`;
+  if (allowedRegion !== null && region !== allowedRegion) return `noPurchaseLink.reason "${reason}" applies to ${allowedRegion} records only, not ${region}`;
+  if (reason === 'not-sold-on-linked-store') return notSoldProblem(block as Record<string, unknown>, product.affiliateUrl);
   if (!Array.isArray(ingredients) || ingredients.length === 0) return 'noPurchaseLink.ingredients is empty';
   const formula = [
     ...(product.heroIngredients ?? []),
@@ -107,6 +116,29 @@ export function noPurchaseLinkProblem(
   return null;
 }
 
+function notSoldProblem(block: Record<string, unknown>, affiliateUrl: string | undefined): string | null {
+  const { store, storeUrl, observed, checkedAt } = block;
+  if (typeof store !== 'string' || !store.trim()) return 'noPurchaseLink.store is missing';
+  if (typeof storeUrl !== 'string') return 'noPurchaseLink.storeUrl is missing';
+  let parsed: URL;
+  try {
+    parsed = new URL(storeUrl);
+  } catch {
+    return `noPurchaseLink.storeUrl is not an absolute URL: "${storeUrl}"`;
+  }
+  if (parsed.protocol !== 'https:') return `noPurchaseLink.storeUrl is not https: "${storeUrl}"`;
+  const host = parsed.hostname.toLowerCase();
+  const name = store.trim().toLowerCase();
+  if (host !== name && !host.endsWith(`.${name}`)) return `noPurchaseLink.storeUrl host ${host} is not on ${store}`;
+  // The evidence must be the listing this record links to (query and fragment aside),
+  // so another dead page on the same store cannot hide a working link.
+  const linked = (affiliateUrl ?? '').replace(/[?#].*$/, '');
+  if (storeUrl.replace(/[?#].*$/, '') !== linked) return `noPurchaseLink.storeUrl is not the record's own listing (${linked || 'no affiliateUrl'})`;
+  if (typeof observed !== 'string' || !observed.trim()) return 'noPurchaseLink.observed must be the listing\'s verbatim text';
+  if (!isIsoDate(checkedAt)) return `noPurchaseLink.checkedAt is not a YYYY-MM-DD date: ${JSON.stringify(checkedAt)}`;
+  return null;
+}
+
 /** Notice strings (one bundle per locale; wired into UIStrings.noPurchaseLink by ./i18n). */
 export interface NoPurchaseLinkStrings {
   /** BCP-47 language of `label`, `jpMhlwReason`, `sourceLink` and `sourceDates`. */
@@ -121,6 +153,10 @@ export interface NoPurchaseLinkStrings {
   sourceLink: string;
   /** Dates after the source link; `{listUpdated}` and `{checkedAt}` are YYYY-MM-DD. */
   sourceDates: string;
+  /** Short text for `not-sold-on-linked-store` (replaces a buy CTA; the notice's lead-in). */
+  notSoldLabel: string;
+  /** Reason line for `not-sold-on-linked-store`; `{store}`, `{observed}` (verbatim, English) and `{checkedAt}` (YYYY-MM-DD). */
+  notSoldReason: string;
 }
 
 // Site-owner wording, 2026-10-08. "may" (可能性がある) on purpose: the notice
@@ -135,6 +171,8 @@ const EN: NoPurchaseLinkStrings = {
   jpMhlwReasonJa: JP_MHLW_REASON_JA,
   sourceLink: 'MHLW list (PDF, in Japanese)',
   sourceDates: 'list updated {listUpdated}; checked {checkedAt}',
+  notSoldLabel: 'No purchase link',
+  notSoldReason: 'the {store} listing we linked to showed “{observed}” when we checked on {checkedAt}, so we show no purchase link.',
 };
 
 export const NO_PURCHASE_LINK_STRINGS: Readonly<Record<Locale, NoPurchaseLinkStrings>> = {
@@ -147,6 +185,8 @@ export const NO_PURCHASE_LINK_STRINGS: Readonly<Record<Locale, NoPurchaseLinkStr
     jpMhlwReasonJa: JP_MHLW_REASON_JA,
     sourceLink: 'Lista del MHLW (PDF, en japonés)',
     sourceDates: 'lista actualizada el {listUpdated}; consultada el {checkedAt}',
+    notSoldLabel: 'Sin enlace de compra',
+    notSoldReason: 'el anuncio de {store} al que enlazábamos mostraba «{observed}» cuando lo comprobamos el {checkedAt}, así que no mostramos enlace de compra.',
   },
   fr: {
     lang: 'fr',
@@ -156,6 +196,8 @@ export const NO_PURCHASE_LINK_STRINGS: Readonly<Record<Locale, NoPurchaseLinkStr
     jpMhlwReasonJa: JP_MHLW_REASON_JA,
     sourceLink: 'Liste du MHLW (PDF, en japonais)',
     sourceDates: 'liste mise à jour le {listUpdated} ; consultée le {checkedAt}',
+    notSoldLabel: 'Aucun lien d’achat',
+    notSoldReason: 'la fiche {store} vers laquelle nous renvoyions affichait « {observed} » lors de notre vérification du {checkedAt} ; nous n’affichons donc pas de lien d’achat.',
   },
   // The Japanese edition's body copy is English while its translation is
   // paused (site-owner decision 2026-10-08), so its bundle carries the English
@@ -170,6 +212,8 @@ export const NO_PURCHASE_LINK_STRINGS: Readonly<Record<Locale, NoPurchaseLinkStr
     jpMhlwReasonJa: JP_MHLW_REASON_JA,
     sourceLink: 'Lista do MHLW (PDF, em japonês)',
     sourceDates: 'lista atualizada a {listUpdated}; consultada a {checkedAt}',
+    notSoldLabel: 'Sem link de compra',
+    notSoldReason: 'o anúncio da {store} para o qual apontávamos mostrava «{observed}» quando o verificámos a {checkedAt}, por isso não mostramos link de compra.',
   },
   de: {
     lang: 'de',
@@ -179,6 +223,8 @@ export const NO_PURCHASE_LINK_STRINGS: Readonly<Record<Locale, NoPurchaseLinkStr
     jpMhlwReasonJa: JP_MHLW_REASON_JA,
     sourceLink: 'MHLW-Liste (PDF, auf Japanisch)',
     sourceDates: 'Liste aktualisiert am {listUpdated}; geprüft am {checkedAt}',
+    notSoldLabel: 'Kein Kauflink',
+    notSoldReason: 'Das Angebot bei {store}, auf das wir verlinkt hatten, zeigte bei unserer Prüfung am {checkedAt} „{observed}“, daher zeigen wir keinen Kauflink.',
   },
   'fr-CA': {
     lang: 'fr-CA',
@@ -188,5 +234,7 @@ export const NO_PURCHASE_LINK_STRINGS: Readonly<Record<Locale, NoPurchaseLinkStr
     jpMhlwReasonJa: JP_MHLW_REASON_JA,
     sourceLink: 'Liste du MHLW (PDF, en japonais)',
     sourceDates: 'liste mise à jour le {listUpdated}; consultée le {checkedAt}',
+    notSoldLabel: 'Aucun lien d’achat',
+    notSoldReason: 'la fiche {store} vers laquelle nous renvoyions affichait « {observed} » lors de notre vérification du {checkedAt}; nous n’affichons donc pas de lien d’achat.',
   },
 };
