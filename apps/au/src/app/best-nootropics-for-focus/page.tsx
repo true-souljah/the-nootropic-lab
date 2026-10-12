@@ -25,10 +25,10 @@ export const metadata: Metadata = {
 
 const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
-    name: 'L-Theanine + Caffeine (1:2 to 2:1 ratio)',
+    name: 'L-Theanine + Caffeine',
     ingredientSlugs: ['l-theanine', 'caffeine'],
     evidence:
-      'Among the best-replicated cognitive findings: L-theanine paired with caffeine improves attention switching and reduces mental fatigue, with smoother subjective focus than caffeine alone. Effective at 100–200mg L-theanine + 100mg caffeine. Both are permitted ingredients in TGA-listed therapeutic goods: theanine as an active ingredient, and caffeine as an active ingredient only for oral use in adults when the medicine consists principally of other designated active ingredients (Therapeutic Goods (Permissible Ingredients) Determination (No. 2) 2026, F2026L00707, as compiled 17 September 2026 — Compilation No. 1, F2026C00940 — Schedule 1 items 4911 and 1054; checked 2026-10-08).',
+      'In controlled trials in healthy adults, the pair improved attention-switching accuracy (Owen 2008: 100mg L-theanine with 50mg caffeine; Giesbrecht 2010, PubMed 21040626: 97mg with 40mg) and ratings of mental fatigue (Haskell 2008, PubMed 18006208: 250mg with 150mg). Foxe 2012 (PubMed 22326943) found no added benefit over either compound alone. Both are permitted ingredients in TGA-listed therapeutic goods: theanine as an active ingredient, and caffeine as an active ingredient only for oral use in adults when the medicine consists principally of other designated active ingredients (Therapeutic Goods (Permissible Ingredients) Determination (No. 2) 2026, F2026L00707, as compiled 17 September 2026 — Compilation No. 1, F2026C00940 — Schedule 1 items 4911 and 1054; checked 2026-10-08).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
   },
   {
@@ -83,8 +83,8 @@ const picks: ListiclePick[] = [
 
 const faqItems: ListicleFAQ[] = [
   {
-    q: 'What is the most evidence-backed nootropic for focus?',
-    a: 'L-theanine paired with caffeine (1:2 to 2:1 ratio) has the strongest replication evidence in healthy adults — Owen et al. 2008 and multiple follow-ups. Citicoline at 250–500mg also has multiple RCTs. Single-ingredient supplements claiming "powerful focus" without these are typically over-marketed.',
+    q: 'Which nootropic ingredients have trial evidence for focus?',
+    a: 'L-theanine with caffeine: in trials in healthy adults the pair improved attention-switching accuracy (Owen 2008, 100mg L-theanine with 50mg caffeine; Giesbrecht 2010, PubMed 21040626, 97mg with 40mg), though Foxe 2012 (PubMed 22326943) found no added benefit over either compound alone. Our citicoline page rates its attention evidence as mixed: the only acute attention trial in healthy adults gave it together with caffeine. Single-ingredient supplements claiming "powerful focus" without these are typically over-marketed.',
   },
   {
     q: 'How long does it take a focus nootropic to work?',

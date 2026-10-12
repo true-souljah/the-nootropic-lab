@@ -24,10 +24,10 @@ export const metadata: Metadata = {
 
 const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
-    name: 'L-Theanine + Caffeine (1:2 to 2:1 ratio)',
+    name: 'L-Theanine + Caffeine',
     ingredientSlugs: ['l-theanine', 'caffeine'],
     evidence:
-      'Among the best-replicated cognitive findings: L-theanine paired with caffeine improves attention switching and reduces mental fatigue, with smoother subjective focus than caffeine alone. Effective at 100–200mg L-theanine + 100mg caffeine — the same pairing naturally found in matcha (抹茶), familiar to Japanese consumers.',
+      'In controlled trials in healthy adults, the pair improved attention-switching accuracy (Owen 2008: 100mg L-theanine with 50mg caffeine; Giesbrecht 2010, PubMed 21040626: 97mg with 40mg) and ratings of mental fatigue (Haskell 2008, PubMed 18006208: 250mg with 150mg). Foxe 2012 (PubMed 22326943) found no added benefit over either compound alone. The same pairing is naturally found in matcha (抹茶), familiar to Japanese consumers.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
   },
   {
@@ -80,8 +80,8 @@ const faqItems: ListicleFAQ[] = [
     a: 'For the international stacks above (Mind Lab Pro, Hunter Focus, NooCube), no Foods with Function Claims (FFC) notification was found under the product or company name in the Consumer Affairs Agency (CAA, 消費者庁) database (export scanned 2026-10-06). They are bought under the personal-import route. Domestic options like FANCL BRAINs (FFC-notified, G425) and Suntory DHA & EPA + Sesamin EX (no FFC notification found, CAA export scanned 2026-10-06) target memory and brain health rather than acute focus, and are covered on our memory and aging pages.',
   },
   {
-    q: 'What is the most evidence-backed nootropic for focus available in Japan?',
-    a: 'L-theanine paired with caffeine (1:2 to 2:1 ratio) has the strongest replication evidence in healthy adults — Owen et al. 2008 and multiple follow-ups. This is the same pairing naturally present in matcha. Citicoline at 250–500mg also has multiple RCTs and is the headline ingredient in our top pick (Mind Lab Pro).',
+    q: 'Which nootropic ingredients have trial evidence for focus available in Japan?',
+    a: 'L-theanine with caffeine: in trials in healthy adults the pair improved attention-switching accuracy (Owen 2008, 100mg L-theanine with 50mg caffeine; Giesbrecht 2010, PubMed 21040626, 97mg with 40mg), though Foxe 2012 (PubMed 22326943) found no added benefit over either compound alone. This is the same pairing naturally present in matcha. Our citicoline page rates its attention evidence as mixed: the only acute attention trial in healthy adults gave it together with caffeine. Citicoline is the headline ingredient in our top pick (Mind Lab Pro).',
   },
   {
     q: 'Where can I buy these in Japan?',

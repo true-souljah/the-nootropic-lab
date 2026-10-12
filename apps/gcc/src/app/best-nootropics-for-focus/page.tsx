@@ -24,10 +24,10 @@ export const metadata: Metadata = {
 
 const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
-    name: 'L-Theanine + Caffeine (1:2 to 2:1 ratio)',
+    name: 'L-Theanine + Caffeine',
     ingredientSlugs: ['l-theanine', 'caffeine'],
     evidence:
-      'Among the best-replicated cognitive findings: L-theanine paired with caffeine improves attention switching and reduces mental fatigue, with smoother subjective focus than caffeine alone. Effective at 100–200mg L-theanine + 100mg caffeine. GCC note: many buyers prefer to skip the caffeine component (use L-theanine with Arabic coffee or matcha instead) for stimulant tolerance reasons.',
+      'In controlled trials in healthy adults, the pair improved attention-switching accuracy (Owen 2008: 100mg L-theanine with 50mg caffeine; Giesbrecht 2010, PubMed 21040626: 97mg with 40mg) and ratings of mental fatigue (Haskell 2008, PubMed 18006208: 250mg with 150mg). Foxe 2012 (PubMed 22326943) found no added benefit over either compound alone. GCC note: many buyers prefer to skip the caffeine component (use L-theanine with Arabic coffee or matcha instead) for stimulant tolerance reasons.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
   },
   {

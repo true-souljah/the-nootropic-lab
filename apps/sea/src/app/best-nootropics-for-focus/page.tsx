@@ -24,10 +24,10 @@ export const metadata: Metadata = {
 
 const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
-    name: 'L-Theanine + Caffeine (1:2 to 2:1 ratio)',
+    name: 'L-Theanine + Caffeine',
     ingredientSlugs: ['l-theanine', 'caffeine'],
     evidence:
-      'Among the best-replicated cognitive findings: L-theanine paired with caffeine improves attention switching and reduces mental fatigue, with smoother subjective focus than caffeine alone. Effective at 100–200mg L-theanine + 100mg caffeine. Caffeine is easy to source across SEA from local coffee culture (kopi-O, Vietnamese drip, kape) — pair with a caffeine-free L-theanine product.',
+      'In controlled trials in healthy adults, the pair improved attention-switching accuracy (Owen 2008: 100mg L-theanine with 50mg caffeine; Giesbrecht 2010, PubMed 21040626: 97mg with 40mg) and ratings of mental fatigue (Haskell 2008, PubMed 18006208: 250mg with 150mg). Foxe 2012 (PubMed 22326943) found no added benefit over either compound alone. Caffeine is easy to source across SEA from local coffee culture (kopi-O, Vietnamese drip, kape) — pair with a caffeine-free L-theanine product.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
   },
   {
@@ -90,8 +90,8 @@ const faqItems: ListicleFAQ[] = [
     a: 'For Shopee/Lazada/TikTok Shop in SG/MY/TH/PH/ID: Alpha Brain has a live Lazada Singapore listing (checked 2026-09-28), but it scores below our bar for ranked picks (listed under Also considered above). For cross-border ordering of premium imports (Mind Lab Pro, Alpha Brain), iHerb is currently the most reliable route with consolidated shipping into SG and MY warehouses. Direct from Mind Lab Pro: the brand\'s FAQ names Singapore, Thailand, the Philippines, Indonesia and Vietnam among its shipping territories (checked 2026-09-29), with rest-of-world orders shipped from its UK depot. Qualia Mind does not ship to any SEA country (brand shipping page, checked 2026-09-28).',
   },
   {
-    q: 'What is the most evidence-backed focus nootropic available in SEA?',
-    a: 'L-theanine paired with caffeine (1:2 to 2:1 ratio) has the strongest replication evidence — Owen et al. 2008 and multiple follow-ups. The cheapest path: any single-ingredient L-theanine capsule (widely available on Lazada/Shopee/iHerb) paired with your local kopi or Vietnamese drip coffee. Citicoline at 250–500mg also has multiple RCTs and is best accessed in SEA via Mind Lab Pro (Cognizin form, 250mg).',
+    q: 'Which nootropic ingredients have trial evidence for focus in SEA?',
+    a: 'L-theanine with caffeine: in trials in healthy adults the pair improved attention-switching accuracy (Owen 2008, 100mg L-theanine with 50mg caffeine; Giesbrecht 2010, PubMed 21040626, 97mg with 40mg), though Foxe 2012 (PubMed 22326943) found no added benefit over either compound alone. The cheapest path: any single-ingredient L-theanine capsule (widely available on Lazada/Shopee/iHerb) paired with your local kopi or Vietnamese drip coffee. Our citicoline page rates its attention evidence as mixed: the only acute attention trial in healthy adults gave it together with caffeine. In SEA it is best accessed via Mind Lab Pro (Cognizin form, 250mg).',
   },
   {
     q: 'How long does it take a focus nootropic to work?',
