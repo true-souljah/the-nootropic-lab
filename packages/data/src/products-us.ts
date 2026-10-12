@@ -78,6 +78,8 @@ export interface StorePrice {
   supply?: string;
   /** The vendor's use instruction, verbatim ("Take 2 capsules daily", "take 30 minutes before exercise"). */
   directions?: string;
+  /** BCP-47 language of the verbatim text when it is not English ("de", "ja"), so it can be marked on the page. */
+  lang?: string;
   /** The product page the price was read from (as seen from the region's country). */
   url: string;
   /** ISO date (YYYY-MM-DD) the page was read. */

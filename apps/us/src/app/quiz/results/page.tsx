@@ -5,13 +5,14 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 import {
   CookieSettingsBar,
+  FPDisclosure,
   QuizResults,
   type CaffeineSensitivity,
   type MBGImportance,
   type QuizAnswers,
   type QuizGoal,
 } from '@nootropic/ui';
-import { productsUS } from '@nootropic/data';
+import { getStrings, productsUS } from '@nootropic/data';
 
 const VALID_GOALS: QuizGoal[] = ['Focus', 'Memory', 'Energy', 'Mood', 'Sleep recovery', 'Aging support'];
 
@@ -68,10 +69,13 @@ function ResultsBody() {
 
 export default function QuizResultsPage() {
   // The results body renders client-side from the query string; the
-  // withdraw control sits outside the Suspense boundary so it is in the
-  // static HTML of this page too.
+  // disclosure strip and the withdraw control sit outside the Suspense
+  // boundary so they are in the static HTML of this page too. The static HTML
+  // cannot know which products the results link, so the strip discloses at
+  // page level (CLIENT_RENDERED_BUY_LINK_ROUTES).
   return (
     <>
+      <FPDisclosure methodologyHref="/methodology/" strings={getStrings('en').disclosure} scope="page" />
       <Suspense fallback={null}>
         <ResultsBody />
       </Suspense>

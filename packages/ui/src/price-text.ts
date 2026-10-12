@@ -10,6 +10,8 @@ export interface PriceText {
   pack: string;
   /** What the pack price buys, verbatim from the vendor ("90 Count"). */
   packText: string;
+  /** Language of `packText` when it is not English ("de", "ja"); null for English. */
+  packLang: string | null;
   /** "≈ US$53.30/mo", or null when the supply is not stated. */
   monthly: string | null;
   /** The shortest honest form: the monthly figure when there is one, else "US$79.95 · 90 Count". */
@@ -44,6 +46,7 @@ export function priceText(
   return {
     pack,
     packText: sp.pack,
+    packLang: sp.lang ?? null,
     monthly,
     short: monthly ?? `${pack} · ${sp.pack}`,
     monthlyMoney: m && { amount: m.amount, currency: m.currency },

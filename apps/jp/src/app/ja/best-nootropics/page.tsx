@@ -78,7 +78,7 @@ export default function JaBestNootropicsPage() {
           </ul>
         </div>
 
-        <AffiliateDisclosure />
+        <AffiliateDisclosure strings={uiStrings.disclosure} />
 
         <div className="bg-yellow-50 border border-yellow-300 rounded-xl p-5 mb-10 mt-6">
           <div className="editor-badge mb-2 inline-block">編集者の選択 — Japan {CURRENT_YEAR}</div>

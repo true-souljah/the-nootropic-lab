@@ -30,9 +30,14 @@ test.describe('JP Pricing tab — localized labels around vendor quotes', () => 
   test('/fancl-brains-review/ renders Japanese labels and FANCL’s own Japanese terms', async ({ page }) => {
     const panel = await openPricing(page, '/fancl-brains-review/');
     await expect(panel.getByRole('heading', { name: '販売元サイトの記載' })).toBeVisible();
-    for (const label of ['配送', '定期購入の解約', '単品購入の価格', '返金保証']) {
+    for (const label of ['配送', '定期購入の解約', '返金保証']) {
       await expect(panel.getByRole('heading', { name: label, exact: true })).toBeVisible();
     }
+    // Since 2026-10-12 the price is the store price (attributed), not a one-time quote.
+    await expect(panel.getByRole('heading', { name: '単品購入の価格', exact: true })).toHaveCount(0);
+    const storeSource = panel.locator('[data-store-price-source]');
+    await expect(storeSource).toContainText('出典：fancl.co.jp');
+    await expect(storeSource).toContainText('（2026年10月9日確認）');
     const guarantee = panel.locator('[data-vendor-term="guarantee"]');
     await expect(guarantee.locator('blockquote')).toContainText('開封後でも返送料当社負担で返品を承ります');
     // Japanese quote on a Japanese page: no lang override.
@@ -49,7 +54,7 @@ test.describe('JP Pricing tab — localized labels around vendor quotes', () => 
   test('/mind-lab-pro-review/ marks the English vendor quotes lang="en"', async ({ page }) => {
     const panel = await openPricing(page, '/mind-lab-pro-review/');
     const quotes = panel.locator('blockquote');
-    await expect(quotes).toHaveCount(4);
+    await expect(quotes).toHaveCount(3);
     for (const quote of await quotes.all()) await expect(quote).toHaveAttribute('lang', 'en');
   });
 
