@@ -10,9 +10,9 @@ const CURRENT_YEAR = new Date().getFullYear();
 
 
 export const metadata: Metadata = {
-  title: `Best Nootropics for Energy ${CURRENT_YEAR}: Sustained Cognitive Energy Without the Crash`,
+  title: `Best Nootropics for Energy ${CURRENT_YEAR}: Sustained Cognitive Energy`,
   description:
-    'Independent ranking of nootropics for sustained cognitive energy. Caffeine + L-theanine, Rhodiola, B-vitamins, citicoline — what actually works without the crash.',
+    'Independent ranking of nootropics for sustained cognitive energy. Caffeine + L-theanine, Rhodiola, B-vitamins, citicoline — and what the trials we cite found.',
   alternates: buildAlternates({ regionCode: 'us', path: '/best-nootropics-for-energy/', availableInRegions: ['us'] }),
   openGraph: {
     title: 'Best Nootropics for Energy — Evidence-Graded',
@@ -58,7 +58,7 @@ const picks: ListiclePick[] = [
     product: productsUS.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Caffeine-free design — pair with your own coffee or matcha for the 1:1 L-theanine + caffeine effect. Includes 50mg Rhodiola and methylated B-vitamins (B6, B9, B12) plus citicoline. Best universal energy stack — you control the caffeine source and dose.',
+      'Caffeine-free design — its 100mg L-theanine can be paired with your own coffee or matcha (Owen 2008 tested 100mg L-theanine with 50mg caffeine). Includes 50mg Rhodiola and methylated B-vitamins (B6, B9, B12) plus citicoline. Best universal energy stack — you control the caffeine source and dose.',
   },
   {
     product: productsUS.find(p => p.slug === 'thesis-nootropics-review')!,
@@ -70,7 +70,7 @@ const picks: ListiclePick[] = [
     product: productsUS.find(p => p.slug === 'qualia-mind-review')!,
     rank: 3,
     whyItsHere:
-      'Available in caffeinated and caffeine-free variants. The caffeinated SKU includes 100mg caffeine + 200mg L-theanine — the closest match to the evidence-backed ratio. 31-ingredient breadth includes Rhodiola, citicoline, and B-vitamins. Highest-friction option (6 caps/day, $139 four-weekly subscription).',
+      'Available in caffeinated and caffeine-free variants. The caffeinated SKU includes 100mg caffeine + 200mg L-theanine — the same 1:2 ratio Owen 2008 tested (50mg caffeine with 100mg L-theanine). 31-ingredient breadth includes Rhodiola, citicoline, and B-vitamins. Highest-friction option (6 caps/day, $139 four-weekly subscription).',
   },
   {
     product: productsUS.find(p => p.slug === 'onnit-alpha-brain-review')!,
@@ -83,7 +83,7 @@ const picks: ListiclePick[] = [
 const faqItems: ListicleFAQ[] = [
   {
     q: 'How is "nootropic energy" different from energy drinks?',
-    a: 'Energy drinks deliver high-dose caffeine + sugar + sometimes B-vitamins for an acute lift, often followed by a crash. Nootropic stacks layer caffeine (where present) with L-theanine to smooth the curve, plus longer-acting ingredients (Rhodiola, citicoline) that support sustained cognitive output without the spike-and-crash pattern.',
+    a: 'Energy drinks rely on caffeine + sugar (and sometimes B-vitamins) for an acute lift. Nootropic stacks pair caffeine (where present) with L-theanine and add longer-acting ingredients such as Rhodiola and citicoline. We cite no trial comparing these stacks with energy drinks.',
   },
   {
     q: 'Can I just drink coffee with L-theanine?',
@@ -114,7 +114,7 @@ export default function Page() {
       useCase="energy"
       pageTitle="Best Nootropics for Energy"
       pageDescription="Independent ranking of nootropics for sustained cognitive energy. Caffeine + L-theanine, Rhodiola, citicoline."
-      heroParagraph="If you want sustained cognitive energy without the spike-and-crash pattern of energy drinks, the answer is layered: caffeine + L-theanine for the acute effect, Rhodiola for fatigue resistance, citicoline + B-vitamins for the underlying cognitive-demand support. This page ranks the products in our coverage that combine these ingredients at evidence-backed doses."
+      heroParagraph="For sustained cognitive energy, this page looks at layered stacks: caffeine + L-theanine for the acute effect, Rhodiola for fatigue resistance, citicoline + B-vitamins for the underlying cognitive-demand support. This page ranks the products in our coverage that combine these ingredients at evidence-backed doses."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

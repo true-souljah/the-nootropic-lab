@@ -695,7 +695,7 @@ export const guides: Guide[] = [
     sections: [
       {
         heading: 'What is a nootropic stack?',
-        content: 'A nootropic stack is a combination of two or more cognitive-enhancing compounds taken together to produce effects greater than either would alone. The concept comes from pharmacology — many drugs are more effective or better-tolerated in combination. The best-evidenced nootropic combination is L-Theanine + Caffeine: a meta-analysis of 11 RCTs found moderate improvements in alertness and attention-switching accuracy in the first 2 hours after dosing. In a controlled trial (Rogers 2007), L-theanine offset caffeine\'s blood-pressure rise but did not significantly reduce caffeine-induced jitteriness. Pre-formulated multi-ingredient stacks combine 8–11 ingredients designed to cover multiple cognitive pathways simultaneously.',
+        content: 'A nootropic stack is a combination of two or more cognitive-enhancing compounds taken together to produce effects greater than either would alone. The concept comes from pharmacology — many drugs are more effective or better-tolerated in combination. For example, for L-Theanine + Caffeine, a meta-analysis of 11 RCTs found moderate improvements in alertness and attention-switching accuracy in the first 2 hours after dosing. In a controlled trial (Rogers 2007), L-theanine offset caffeine\'s blood-pressure rise but did not significantly reduce caffeine-induced jitteriness. Pre-formulated multi-ingredient stacks combine 8–11 ingredients designed to cover multiple cognitive pathways simultaneously.',
       },
       {
         heading: 'The golden rule: one cholinergic source at a time',
