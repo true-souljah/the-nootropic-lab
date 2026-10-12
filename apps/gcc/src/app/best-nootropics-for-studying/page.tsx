@@ -27,7 +27,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'L-Theanine + Caffeine — sustained focus',
     ingredientSlugs: ['l-theanine', 'caffeine'],
     evidence:
-      'For sustained study sessions, the L-theanine + caffeine combo is the foundation. Reduces caffeine jitter and post-coffee crash, smooths attention switching. 100–200mg L-theanine + 100mg caffeine, repeated 4–6 hours later if needed. GCC note: many students prefer L-theanine alone, paired with Arabic coffee or matcha — same synergy without committing to a caffeine-loaded supplement. During Ramadan, take with suhoor for daytime study or with iftar for evening sessions.',
+      'For sustained study sessions, the L-theanine + caffeine combo is the foundation. In the trial linked below (Owen 2008), the pairing improved speed and accuracy on an attention-switching task; in a controlled trial (Rogers 2008, PubMed 17891480), theanine did not significantly reduce caffeine-induced jitteriness. 100–200mg L-theanine + 100mg caffeine, repeated 4–6 hours later if needed. GCC note: many students prefer L-theanine alone, paired with Arabic coffee or matcha — same synergy without committing to a caffeine-loaded supplement. During Ramadan, take with suhoor for daytime study or with iftar for evening sessions.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
   },
   {

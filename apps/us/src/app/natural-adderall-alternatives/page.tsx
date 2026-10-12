@@ -34,7 +34,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Caffeine + L-Theanine — stimulant adjacency',
     ingredientSlugs: ['caffeine', 'l-theanine'],
     evidence:
-      'Caffeine is the most-studied legal cognitive enhancer and works via adenosine antagonism (a different pathway than Adderall). Pairing with L-theanine smooths the focus curve and reduces jitter. This is the closest "feels-stimulant-but-isn\'t-amphetamine" combination available without prescription. 100–200mg L-theanine + 100mg caffeine.',
+      'Caffeine is a legal stimulant that works via adenosine antagonism (a different pathway than Adderall). In the trial linked below (Owen 2008), 50mg caffeine with 100mg L-theanine improved speed and accuracy on an attention-switching task; in a separate controlled trial (Rogers 2008, PubMed 17891480), theanine did not significantly reduce caffeine-induced jitteriness. This is the closest "feels-stimulant-but-isn\'t-amphetamine" combination available without prescription. 100–200mg L-theanine + 100mg caffeine.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
   },
   {
@@ -103,7 +103,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'What about caffeine pills, then?',
-    a: 'Caffeine alone is the most-studied legal cognitive enhancer. 100–200mg of caffeine + 100–200mg of L-theanine is the simplest evidence-backed focus stack, available cheaply at any pharmacy. The supplements on this page add other mechanisms on top, but caffeine + L-theanine is the foundation.',
+    a: 'Caffeine is a legal stimulant that works via adenosine antagonism. 100–200mg of caffeine + 100–200mg of L-theanine is the simplest evidence-backed focus stack, available cheaply at any pharmacy. The supplements on this page add other mechanisms on top, but caffeine + L-theanine is the foundation.',
   },
 ];
 

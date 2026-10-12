@@ -139,7 +139,7 @@ export const ingredients: Ingredient[] = [
     faqs: [
       { question: 'Why do some people feel "foggy" when starting Bacopa?', answer: 'A minority of users experience a temporary initial slowing of mental processing — sometimes called the "Bacopa fog." This is linked to the serotonin modulation and typically resolves after 3–4 weeks. It reflects the herb\'s mechanism working, not a problem. If it persists past 6 weeks, reduce your dose.' },
       { question: 'Do I really need to take it with fat?', answer: "It is the sensible default. Bacosides are fat-soluble compounds, and GI side effects (cramps, nausea, more frequent stools) were reported in trials, so taking Bacopa with a normal meal that contains some fat is the usual advice." },
-      { question: 'What percentage of bacosides should I look for?', answer: 'Aim for at least 50%: the positive trial we cite (Calabrese et al., 2008) used 300mg a day of an extract standardised to a minimum of 50% bacosides, about 150mg of bacosides. The two most-studied commercial extracts (Bacognize and Synapsa) are both standardised. Generic "Bacopa" with no standardisation stated is unreliable — the active compound content may be negligible.' },
+      { question: 'What percentage of bacosides should I look for?', answer: 'Aim for at least 50%: the positive trial we cite (Calabrese et al., 2008) used 300mg a day of an extract standardised to a minimum of 50% bacosides, about 150mg of bacosides. Two standardised commercial extracts are Bacognize and Synapsa. Generic "Bacopa" with no standardisation stated is unreliable — the active compound content may be negligible.' },
       { question: 'How long does it take to work?', answer: 'The positive memory trials measured outcomes after 12 weeks. This is not a supplement you evaluate in the first month. Set a calendar reminder to assess at around 12 weeks — and note that the newest 12-week trial at 300mg/day found no cognitive benefit, so results vary.' },
       { question: 'Can Bacopa be taken long-term?', answer: 'Most trials ran 12 weeks or less, so controlled data beyond that is thin. Traditional Ayurvedic use is continuous without cycling, and no trial has shown cycling is necessary — but long-term safety has not been studied directly.' },
     ],
@@ -173,11 +173,11 @@ export const ingredients: Ingredient[] = [
       dosage: '250–500mg/day; the memory trials in older adults used 1000–2000mg/day, and 500mg was the optimal dose in the stroke trial',
       timing: 'Morning — citicoline is mildly activating and can cause insomnia if taken after 2pm',
       withFood: 'Can be taken with or without food. No significant difference in absorption. If you experience mild nausea, take with a small meal.',
-      forms: 'Capsule. Two standardised branded forms exist: Cognizin (most studied, used in Mind Lab Pro) and Citicoline Sodium. Both are effective. Avoid generic unlabelled CDP-choline from unknown sources.',
+      forms: 'Capsule. Two standardised branded forms exist: Cognizin (used in Mind Lab Pro) and Citicoline Sodium. Both are effective. Avoid generic unlabelled CDP-choline from unknown sources.',
     },
     stacksWith: [
       { ingredient: 'Bacopa Monnieri', slug: 'bacopa-monnieri', reason: 'Citicoline handles acute attention and acetylcholine; Bacopa covers long-term memory consolidation. The combination addresses both short-term focus and long-term memory in one stack.' },
-      { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'Citicoline provides cognitive activation; L-Theanine takes the edge off overstimulation. Together they produce alert, focused calm without the jitteriness some people experience from citicoline alone.' },
+      { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'Citicoline provides cognitive activation; L-Theanine is often added for calm, though in a controlled caffeine trial (Rogers 2008) it did not significantly reduce jitteriness, and we cite no trial of this pairing.' },
       { ingredient: "Lion's Mane", slug: 'lions-mane', reason: 'Complementary timeframes: citicoline works acutely on acetylcholine; Lion\'s Mane works long-term on NGF. No mechanism overlap — a clean combination.' },
     ],
     faqs: [
@@ -217,10 +217,10 @@ export const ingredients: Ingredient[] = [
       dosage: '100–200mg per dose',
       timing: '30 minutes before your cognitive work session or 30 minutes before caffeine',
       withFood: 'No significant food interaction. Can be taken on an empty stomach. Absorption is reliable regardless of meal timing.',
-      forms: 'Capsule or powder. Suntheanine is the most studied branded L-Theanine (from enzymatic synthesis, identical to tea-derived theanine). Bulk L-Theanine powder dissolves in water but is subtly sweet and easy to mix.',
+      forms: 'Capsule or powder. Suntheanine is a branded L-Theanine (from enzymatic synthesis, identical to tea-derived theanine). Bulk L-Theanine powder dissolves in water but is subtly sweet and easy to mix.',
     },
     stacksWith: [
-      { ingredient: 'Caffeine', slug: 'caffeine', reason: 'The most studied nootropic stack. Trials used 200–250mg theanine with 150–160mg caffeine (roughly 1:1 to 1.7:1). The combination improved attention and reaction time more than either alone; in a controlled trial (Rogers 2008) theanine did not significantly reduce caffeine jitteriness. This pairing is found in virtually every quality pre-work stack.' },
+      { ingredient: 'Caffeine', slug: 'caffeine', reason: 'Trials used 200–250mg theanine with 150–160mg caffeine (roughly 1:1 to 1.7:1). The combination improved attention and reaction time more than either alone; in a controlled trial (Rogers 2008) theanine did not significantly reduce caffeine jitteriness.' },
       { ingredient: 'Bacopa Monnieri', slug: 'bacopa-monnieri', reason: 'Both have anxiolytic properties working via different mechanisms. L-Theanine provides immediate calm; Bacopa builds sustained stress tolerance over weeks. A gentle, non-sedating anxiety-reduction combination.' },
       { ingredient: 'Ashwagandha', slug: 'ashwagandha', reason: 'Both target stress through distinct pathways (GABA modulation for theanine; HPA axis for ashwagandha). Good daytime anxiety stack without sedation.' },
     ],
@@ -379,7 +379,7 @@ export const ingredients: Ingredient[] = [
     slug: 'ashwagandha',
     name: 'Ashwagandha (KSM-66)',
     category: 'adaptogen',
-    mechanism: 'Ashwagandha (Withania somnifera) is an Ayurvedic adaptogen. Its withanolides modulate the HPA axis to reduce cortisol, while also inhibiting acetylcholinesterase (preserving acetylcholine) and promoting GABA receptor activity for anxiolytic effects. KSM-66 is the most studied full-spectrum root extract.',
+    mechanism: 'Ashwagandha (Withania somnifera) is an Ayurvedic adaptogen. Its withanolides modulate the HPA axis to reduce cortisol, while also inhibiting acetylcholinesterase (preserving acetylcholine) and promoting GABA receptor activity for anxiolytic effects. KSM-66 is a full-spectrum root extract.',
     clinicalDose: '300–600mg/day (KSM-66 extract)',
     timeToEffect: 'Stress and cortisol effects measured at 60 days; memory effects at 8 weeks (MCI trial)',
     studySummary: "A 2012 RCT in chronically stressed adults (Chandrasekhar et al., KSM-66 600mg/day, 60 days; extract supplied by its maker Ixoreal Biomed) found serum cortisol fell 27.9% versus 7.9% on placebo and perceived stress fell 44%. A 2024 meta-analysis of 9 RCTs confirmed significant reductions in perceived stress, anxiety and cortisol, though a 2019 crossover trial of a low-dose extract in older overweight men found no cortisol effect. A 2017 RCT (Choudhary et al., 300mg twice daily, 8 weeks) improved memory and executive function — in adults with mild cognitive impairment, not healthy adults. Liver-injury case reports exist, and Denmark banned ashwagandha supplements in 2023.",
@@ -532,7 +532,7 @@ export const ingredients: Ingredient[] = [
       forms: 'Coffee, tea, matcha, capsules, or anhydrous powder. Capsules provide the most precise dosing. Matcha provides a gentler curve due to L-Theanine co-occurrence.',
     },
     stacksWith: [
-      { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'The most studied nootropic stack. Trials used roughly 1:1 to 1.7:1 theanine:caffeine and found better attention than caffeine alone; in a controlled trial theanine did not significantly reduce jitteriness. Found naturally in matcha.' },
+      { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'Trials used roughly 1:1 to 1.7:1 theanine:caffeine and found better attention than caffeine alone; in a controlled trial theanine did not significantly reduce jitteriness. Found naturally in matcha.' },
       { ingredient: 'L-Tyrosine', slug: 'l-tyrosine', reason: 'Caffeine depletes dopamine precursors over time. L-Tyrosine replenishes substrate, reducing the crash and maintaining sustained focus.' },
       { ingredient: 'Rhodiola Rosea', slug: 'rhodiola-rosea', reason: 'Rhodiola provides stress resilience while caffeine provides stimulation — complementary under high-demand conditions without overstimulation.' },
     ],
@@ -575,7 +575,7 @@ export const ingredients: Ingredient[] = [
       dosage: '240mg/day of standardised extract (24/6) — the dose used in the positive trials; lower doses (120mg/day) appear under-dosed',
       timing: 'Split into 2 doses (morning and afternoon) for sustained blood flow effects.',
       withFood: 'Take with meals to reduce GI discomfort. Absorption is not significantly affected by food.',
-      forms: 'Always use standardised extract (24% flavone glycosides, 6% terpene lactones). EGb 761 is the gold-standard pharmaceutical-grade extract used in most clinical trials. Avoid raw leaf or unstandardised products.',
+      forms: 'Always use standardised extract (24% flavone glycosides, 6% terpene lactones). EGb 761 is a pharmaceutical-grade extract; it is the extract used in the trials pooled by the meta-analysis we cite (Tan 2015). Avoid raw leaf or unstandardised products.',
     },
     stacksWith: [
       { ingredient: 'Phosphatidylserine', slug: 'phosphatidylserine', reason: 'Ginkgo improves blood delivery while PS supports membrane function — complementary pathways for age-related cognitive support.' },
@@ -584,7 +584,7 @@ export const ingredients: Ingredient[] = [
     ],
     faqs: [
       { question: 'Does Ginkgo Biloba actually work for healthy young adults?', answer: 'The evidence is mixed. The clearest benefits are in people with dementia, and the 2026 Cochrane review found little or no effect even in mild cognitive impairment. In healthy young adults, effects on memory and attention are inconsistent across trials. If you are under 40 and cognitively healthy, L-theanine + caffeine has stronger acute evidence.' },
-      { question: 'What is EGb 761 and why does it matter?', answer: 'EGb 761 is a specific pharmaceutical-grade Ginkgo biloba extract manufactured by Dr. Willmar Schwabe Pharmaceuticals. It is standardised to 24% ginkgo flavone glycosides and 6% terpene lactones, with toxic ginkgolic acid removed below 5ppm. It is the extract used in most of the dementia trials. Generic ginkgo products may not match the potency or purity.' },
+      { question: 'What is EGb 761 and why does it matter?', answer: 'EGb 761 is a specific pharmaceutical-grade Ginkgo biloba extract manufactured by Dr. Willmar Schwabe Pharmaceuticals. It is standardised to 24% ginkgo flavone glycosides and 6% terpene lactones, with toxic ginkgolic acid removed below 5ppm. It is the extract used in the trials pooled by the meta-analysis we cite (Tan 2015). Generic ginkgo products may not match the potency or purity.' },
       { question: 'Can I take Ginkgo with blood thinners?', answer: 'Avoid it unless your doctor agrees. In a large Veterans Administration cohort, taking ginkgo with warfarin raised bleeding risk by 38% (HR 1.38), and a systematic review of warfarin interactions links ginkgo to major bleeding events, including intracranial bleeding. The interaction is clinically documented and potentially serious.' },
       { question: 'How long before I see results?', answer: 'The positive dementia trials ran 22–26 weeks at 240mg/day, and the Cochrane review assessed outcomes at 6 months. Do not judge efficacy at 1–2 weeks.' },
     ],
@@ -646,7 +646,7 @@ export const ingredients: Ingredient[] = [
     slug: 'maritime-pine-bark',
     name: 'Maritime Pine Bark Extract',
     category: 'herb',
-    mechanism: 'Maritime Pine Bark Extract (Pinus pinaster) contains proanthocyanidins — potent polyphenol antioxidants that cross the blood-brain barrier. It works via three pathways: (1) stimulating endothelial nitric oxide synthase (eNOS) to increase cerebral blood flow via vasodilation; (2) scavenging reactive oxygen species to protect neuronal membranes; (3) modulating NF-κB inflammatory signalling to reduce neuroinflammation. Pycnogenol is the most studied branded form.',
+    mechanism: 'Maritime Pine Bark Extract (Pinus pinaster) contains proanthocyanidins — potent polyphenol antioxidants that cross the blood-brain barrier. It works via three pathways: (1) stimulating endothelial nitric oxide synthase (eNOS) to increase cerebral blood flow via vasodilation; (2) scavenging reactive oxygen species to protect neuronal membranes; (3) modulating NF-κB inflammatory signalling to reduce neuroinflammation. Pycnogenol is a branded form.',
     clinicalDose: '100–200mg/day (Pycnogenol or equivalent standardised extract)',
     timeToEffect: 'The cognitive studies ran 8–12 weeks',
     studySummary: 'A 2014 Pycnogenol study (Belcaro et al.) in healthy professionals aged 35–55 reported small but significant cognitive improvements and a 30.4% drop in plasma free radicals after 12 weeks at 150mg/day — but it was a non-randomized product-evaluation registry study, not an RCT. A 2011 controlled (non-randomized) study in students (Luzzi et al.) reported better attention, memory and exam scores over 8 weeks. Both come from the same Irvine3 Labs / Chieti-Pescara author group, which has published numerous Pycnogenol studies; Pycnogenol is a Horphag Research trademark, and these trials are widely reported as industry-supported, though no sponsor is disclosed in the abstracts. The independent 2020 Cochrane review rated the evidence for every pine bark outcome it assessed as very low certainty. A 2025 network meta-analysis ranked Pycnogenol highly for mild cognitive impairment but cautioned about heterogeneity.',
@@ -663,7 +663,7 @@ export const ingredients: Ingredient[] = [
       dosage: '100–200mg/day of standardised extract (65-75% proanthocyanidins)',
       timing: 'Morning with breakfast. Can be split into 2 doses for sustained antioxidant coverage.',
       withFood: 'Take with food for better absorption and reduced GI risk. Fat is not required but a meal is recommended.',
-      forms: 'Capsule is standard. Pycnogenol is the gold-standard branded extract used in most clinical research. Generic pine bark extracts vary widely in proanthocyanidin content — check standardisation percentage.',
+      forms: 'Capsule is standard. Pycnogenol is a branded extract; it is the extract used in the studies we cite (Belcaro 2014; Luzzi 2011). Generic pine bark extracts vary widely in proanthocyanidin content — check standardisation percentage.',
     },
     stacksWith: [
       { ingredient: 'Citicoline', slug: 'citicoline', reason: 'Citicoline provides cholinergic focus; Pine Bark provides blood flow and antioxidant support. Together they form the core of Performance Lab Mind — a minimal, evidence-based focus stack.' },
@@ -671,10 +671,10 @@ export const ingredients: Ingredient[] = [
       { ingredient: 'DHA (Omega-3)', slug: 'dha-omega-3', reason: 'Pine Bark protects neuronal membranes from oxidative damage; DHA provides the structural fatty acid for those membranes. Protective + structural combination.' },
     ],
     faqs: [
-      { question: 'What is Pycnogenol and is it worth the premium?', answer: 'Pycnogenol is a patented extract of French Maritime Pine Bark (Pinus pinaster) standardised to 65-75% proanthocyanidins with a specific manufacturing process. It is the extract used in the cognitive studies cited here; no trial has compared it with generic pine bark extract. Generic pine bark extracts may vary in composition. If you want to match the clinical evidence, Pycnogenol is the most reliable choice.' },
+      { question: 'What is Pycnogenol and is it worth the premium?', answer: 'Pycnogenol is a patented extract of French Maritime Pine Bark (Pinus pinaster) standardised to 65-75% proanthocyanidins with a specific manufacturing process. It is the extract used in the studies we cite (Belcaro 2014; Luzzi 2011); we found no trial comparing it with generic pine bark extract. Generic pine bark extracts may vary in composition. To match that evidence, choose Pycnogenol.' },
       { question: 'How does Maritime Pine Bark compare to Ginkgo Biloba?', answer: 'Both improve cerebral blood flow but via different mechanisms: Ginkgo inhibits platelet-activating factor; Pine Bark stimulates nitric oxide. Pine Bark has stronger antioxidant activity; Ginkgo has a larger evidence base for cognitive decline. No trial has tested the combination, and ginkgo raises bleeding risk with blood thinners.' },
       { question: 'Can I take Pine Bark Extract long-term?', answer: 'The pooled trials ran from 4 weeks to 6 months, and the Cochrane review notes adverse events were reported inconsistently, so the absence of reported harm is not proof of long-term safety. No cycling protocol has been tested. Check with your doctor if you take immunosuppressants.' },
-      { question: 'Why is the dose in Performance Lab Mind only 75mg?', answer: 'Performance Lab Mind uses 75mg Maritime Pine Bark — below the 100-200mg clinical dose used in most standalone trials. However, in a multi-ingredient formula with Citicoline and Tyrosine, the synergistic effects may partially compensate. It is still technically underdosed relative to the standalone evidence.' },
+      { question: 'Why is the dose in Performance Lab Mind only 75mg?', answer: 'Performance Lab Mind uses 75mg Maritime Pine Bark — below the 100-200mg clinical dose on this page (the Belcaro 2014 study we cite used 150mg/day). However, in a multi-ingredient formula with Citicoline and Tyrosine, the synergistic effects may partially compensate. It is still technically underdosed relative to the standalone evidence.' },
     ],
     sources: [
       { pmid: '24675223', url: 'https://pubmed.ncbi.nlm.nih.gov/24675223/', title: 'Pycnogenol® improves cognitive function, attention, mental performance and specific professional skills in healthy professionals aged 35-55.', year: 2014, design: 'Product-evaluation registry study (non-randomised)' },
@@ -841,7 +841,7 @@ export const ingredients: Ingredient[] = [
     stacksWith: [
       { ingredient: 'Caffeine', slug: 'caffeine', reason: 'Caffeine increases catecholamine release; Zynamite is proposed to slow their breakdown via COMT inhibition. The combination has not been tested in a cognitive trial.' },
       { ingredient: 'L-Tyrosine', slug: 'l-tyrosine', reason: 'Tyrosine provides dopamine precursor; Zynamite slows dopamine metabolism. Supply + preservation for sustained catecholamine levels.' },
-      { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'L-Theanine smooths out any overstimulation from Zynamite\'s catecholamine-preserving effects. Balanced energy without agitation.' },
+      { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'L-Theanine is often paired with stimulants, though in a controlled caffeine trial (Rogers 2008) it did not significantly reduce jitteriness, and we cite no trial of L-Theanine with Zynamite.' },
     ],
     faqs: [
       { question: 'Is Zynamite just mango leaf extract?', answer: 'Zynamite is a specific patented extract of Mangifera indica standardised to >60% mangiferin. Generic mango leaf supplements may contain far less mangiferin and are not equivalent. The sprint trials name Zynamite; the cognitive trials used mango leaf extract standardised to at least 60% mangiferin.' },
