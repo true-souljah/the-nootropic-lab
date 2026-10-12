@@ -934,42 +934,17 @@ describe('round fourteen: EU country regulatory notes follow the EC list and nat
 // 認知機能. Suntory "trusted across the 60+ demographic", Nootropics Depot
 // Lion's Mane as "one of the lowest-risk imports" whose size "minimise[s]
 // customs exposure", and every "most studied" ranking (no source of ours
-// counts studies) had no source and were dropped. Beyond the five requested
-// patterns, "most-notified" without "FFC" and "dominates the Japanese FFC"
-// cover the other two removed phrasings.
-const ROUND_FIFTEEN_EXCLUDED = new Set([
-  // claimed by open PRs on 2026-10-12; include after they land
-  // #369 fix/sitewide-disclosure-accuracy-2026-10
-  'apps/au/src/app/tga-listed-cognitive-supplements/page.tsx',
-  'apps/ca/src/app/alpha-brain-canada/page.tsx',
-  'apps/ca/src/app/fr/comparer/page.tsx',
-  'apps/ca/src/app/fr/meilleurs-nootropiques/page.tsx',
-  'apps/ca/src/app/npn-licensed-nootropics-canada/page.tsx',
-  'apps/eu/src/app/de/beste-nootropika/page.tsx',
-  'apps/eu/src/app/efsa-approved-cognitive-supplements/page.tsx',
-  'apps/eu/src/app/fr/meilleurs-nootropiques/page.tsx',
-  'apps/eu/src/app/pt/melhores-nootropicos/page.tsx',
-  'apps/gcc/src/app/halal-certified-nootropics/page.tsx',
-  'apps/gcc/src/app/which-nootropics-ship-to-the-gcc/page.tsx',
-  'apps/jp/src/app/ffc-notified-cognitive-supplements/page.tsx',
-  'apps/jp/src/app/ja/hikaku/page.tsx',
-  'apps/jp/src/app/ja/yakkan-shoumei/page.tsx',
-  'apps/latam/src/app/anmat-disposicion-2105-2022-prohibidos/page.tsx',
-  'apps/sea/src/app/halal-nootropics-indonesia-bpjph/page.tsx',
-  'apps/us/src/app/are-nootropics-fda-approved/page.tsx',
-  'apps/us/src/app/es/comparar/page.tsx',
-  'apps/us/src/app/es/mejores-nootropicos/page.tsx',
-  'apps/us/src/app/guides/nootropics-vs-adderall/page.tsx',
-  'packages/data/src/commission.ts',
-  'packages/data/src/content-dates.json',
-  'packages/data/src/i18n.ts',
-  'packages/data/src/index.ts',
-  // #370 fix/ginkgo-mci-verdict-2026-10
-  'packages/data/src/guides.ts',
-]);
-
-const ROUND_FIFTEEN_SOURCES = ROUND_THIRTEEN_SOURCES.filter(f => !ROUND_FIFTEEN_EXCLUDED.has(relative(REPO_ROOT, f)));
-
+// counts studies) had no source and were dropped, as were "best-studied",
+// EGb 761 / Pycnogenol as "the gold-standard ... used in most clinical
+// trials/research" (each now names only the extract in the record's own
+// citations) and "found in virtually every quality pre-work stack". The JP
+// memory page called Suntory and FANCL "the dominant Japanese DHA brands"
+// (FANCL BRAINs is a bacopa-saponin and hop product, G425) and the aging
+// page called DHA "the cultural and regulatory anchor" for aging-brain
+// supplements; neither had a source. "most-notified" without "FFC" and
+// "dominates the Japanese FFC" cover the other removed FFC phrasings. The
+// scan covers every file: the open-PR exclusions were dropped once #369 and
+// #370 landed (2026-10-12).
 const ROUND_FIFTEEN_UNSOURCED: RegExp[] = [
   /most-notified FFC/i,
   /\bmost[- ]notified\b/i,
@@ -978,25 +953,27 @@ const ROUND_FIFTEEN_UNSOURCED: RegExp[] = [
   /lowest-risk imports?/i,
   /minimi[sz]e customs exposure/i,
   /\bmost[- ]studied\b/i,
+  /best-studied/i,
+  /dominant Japanese DHA brands/i,
+  /cultural and regulatory anchor/i,
+  /gold[- ]standard[^.]{0,60}(most clinical|most research)/i,
+  /virtually every quality/i,
 ];
 
 describe('round fifteen: JP FFC ranking, SEA customs and "most studied" claims follow the sources', () => {
-  test('scanned apps/*/src and packages/data/src, minus only the files claimed by open PRs', () => {
-    expect(ROUND_FIFTEEN_SOURCES.length).toBeGreaterThan(100);
+  test('scanned every file under apps/*/src and packages/data/src, with no exclusions', () => {
+    expect(ROUND_THIRTEEN_SOURCES.length).toBeGreaterThan(300);
     for (const f of [
       'apps/jp/src/app/best-nootropics-for-aging/page.tsx',
       'apps/jp/src/app/best-nootropics-for-memory/page.tsx',
       'apps/jp/src/app/best-nootropics-for-studying/page.tsx',
       'apps/us/src/app/natural-adderall-alternatives/page.tsx',
+      'apps/us/src/app/guides/nootropics-vs-adderall/page.tsx',
+      'packages/data/src/guides.ts',
       'packages/data/src/ingredients.ts',
       'packages/data/src/products-sea.json',
       'packages/data/src/products-us.json',
-    ]) expect(ROUND_FIFTEEN_SOURCES.some(p => relative(REPO_ROOT, p) === f), f).toBe(true);
-    // Every exclusion names a file inside the scanned set, so a typo or a
-    // rename cannot leave an entry that silently excludes nothing.
-    const scanned = new Set(ROUND_THIRTEEN_SOURCES.map(p => relative(REPO_ROOT, p)));
-    for (const f of ROUND_FIFTEEN_EXCLUDED) expect(scanned.has(f), f).toBe(true);
-    expect(ROUND_FIFTEEN_SOURCES.length).toBe(ROUND_THIRTEEN_SOURCES.length - ROUND_FIFTEEN_EXCLUDED.size);
+    ]) expect(ROUND_THIRTEEN_SOURCES.some(p => relative(REPO_ROOT, p) === f), f).toBe(true);
   });
 
   test('the patterns catch the removed wording, and every pattern catches some of it', () => {
@@ -1017,6 +994,14 @@ describe('round fifteen: JP FFC ranking, SEA customs and "most studied" claims f
       'Pycnogenol is the most studied branded form.',
       'Caffeine is the most-studied legal cognitive enhancer',
       'L-Theanine with caffeine is the most studied nootropic pairing',
+      'precursors to neurotransmitters; the most studied and safest category.',
+      'Caffeine — most studied legal mechanism',
+      'The best-studied pairing is caffeine with [L-theanine](/ingredients/l-theanine/)',
+      'Suntory and FANCL are the dominant Japanese DHA brands.',
+      'The cultural and regulatory anchor for aging-brain supplementation in Japan.',
+      'EGb 761 is the gold-standard pharmaceutical-grade extract used in most clinical trials.',
+      'Pycnogenol is the gold-standard branded extract used in most clinical research.',
+      'This pairing is found in virtually every quality pre-work stack.',
     ];
     for (const s of removed) expect(ROUND_FIFTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(true);
     for (const re of ROUND_FIFTEEN_UNSOURCED) expect(removed.some(s => re.test(s)), String(re)).toBe(true);
@@ -1026,11 +1011,15 @@ describe('round fifteen: JP FFC ranking, SEA customs and "most studied" claims f
       'DHA is listed as a functional ingredient in 105 of the 563 active Foods with Function Claims (FFC) notifications',
       'Two standardised commercial extracts are Bacognize and Synapsa.',
       'Caffeine is a legal stimulant that works via adenosine antagonism',
+      'One such pairing is caffeine with [L-theanine](/ingredients/l-theanine/)',
+      'Suntory DHA & EPA + Sesamin EX is the DHA product; FANCL BRAINs is not',
+      'EGb 761 is a pharmaceutical-grade extract; it is the extract used in the trials pooled by the meta-analysis we cite (Tan 2015).',
+      'Pycnogenol is a branded extract; it is the extract used in the studies we cite (Belcaro 2014; Luzzi 2011).',
     ]) expect(ROUND_FIFTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(false);
   });
 
-  test('no data or app source outside the claimed files uses the removed wording (whitespace-normalised)', () => {
-    const hits = ROUND_FIFTEEN_SOURCES.flatMap(file =>
+  test('no data or app source uses the removed wording (whitespace-normalised)', () => {
+    const hits = ROUND_THIRTEEN_SOURCES.flatMap(file =>
       normalisedMatchLines(readFileSync(file, 'utf8'), ROUND_FIFTEEN_UNSOURCED).map(
         line => `${relative(REPO_ROOT, file)}:${line}`,
       ),
