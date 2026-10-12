@@ -1210,6 +1210,32 @@ describe('round fifteen (U7): caffeine + L-theanine copy follows Owen 2008 and n
 // as the sentence opening that was removed: the lower-case "most users report
 // ..." lines in other product records' whatToExpect fields are a separate
 // claim set, not reviewed in this round.
+//
+// Round sixteen, U2 (2026-10-12). Evidence rankings on the focus and memory
+// pages and three leftovers elsewhere. The FAQs asked for "the most
+// evidence-backed nootropic" for focus or memory; L-theanine + caffeine
+// "(1:2 to 2:1 ratio)" had "the strongest replication evidence" and was
+// "Among the best-replicated cognitive findings"; Bacopa was "The
+// most-replicated memory ingredient", "the best-evidenced ingredient" /
+// "botanical" for memory, and memory "the use case where nootropics have the
+// most replicated evidence"; phosphatidylserine had "the FDA qualified health
+// claim for cognitive function in elderly" (CA: "the strongest age-related
+// memory claim"); JP DHA "has strong evidence in middle-aged and older
+// adults"; "Citicoline at 250-500mg also has multiple RCTs"; Rhodiola's
+// 3%/1% standardisation and a 300mg Bacopa dose were "used in most clinical
+// trials"; and Japan had "the world's oldest population". No source ranked
+// any of these. The copy now gives the trials: Owen 2008 (PMID 18681988),
+// Giesbrecht 2010 (21040626), Haskell 2008 (18006208) and Foxe 2012
+// (22326943, no added benefit over either compound alone); Pase 2012
+// (22747190), a systematic review of six 12-week Bacopa trials at 300-450mg
+// extract a day, 9 of 17 free-recall tests improved, research "in its
+// infancy"; the FDA's 13 May 2003 qualified claim with "FDA concludes that
+// there is little scientific evidence supporting this claim"; the citicoline
+// and DHA grades of our ingredient pages; SHR-5 as the only extract the
+// Rhodiola trials name; and Japan's UN WPP 2024 median age (49.4, highest of
+// any country or area with at least a million people). The patterns join
+// the round-sixteen list and use the same scan; the Spanish guide twin is
+// matched by its own phrase.
 const ROUND_SIXTEEN_SOURCES = [
   ...ROUND_THIRTEEN_SOURCES,
   ...walk(resolve(REPO_ROOT, 'packages/ui/src/templates')),
@@ -1225,9 +1251,23 @@ const ROUND_SIXTEEN_UNSOURCED: RegExp[] = [
   /to smooth the curve/i,
   /\bsame synergy\b/i,
   /most evidence-backed focus stack/i,
+  // U2: focus and memory evidence rankings and the leftovers listed above.
+  /most[- ]evidence[- ]backed/i,
+  /\b1:2 to 2:1\b/,
+  /strongest replication evidence/i,
+  /best-replicated/i,
+  /most[- ]replicated/i,
+  /best-evidenced (ingredient|botanical)/i,
+  /used in most clinical trials/i,
+  /world's oldest population/i,
+  /FDA qualified health claim for cognitive function/i,
+  /strongest age-related memory claim/i,
+  /\bhas strong evidence in middle-aged/i,
+  /Citicoline at 250[–-]500mg also has multiple RCTs/i,
+  /ingrediente con mayor respaldo de evidencia/i,
 ];
 
-describe('round sixteen: energy, stack and focus-page claims follow the cited trials', () => {
+describe('round sixteen: energy, stack, focus- and memory-page claims follow the cited trials', () => {
   test('scanned every file under apps/*/src, packages/data/src and packages/ui/src/templates', () => {
     expect(ROUND_SIXTEEN_SOURCES.length).toBeGreaterThan(ROUND_THIRTEEN_SOURCES.length);
     for (const f of [
@@ -1238,6 +1278,11 @@ describe('round sixteen: energy, stack and focus-page claims follow the cited tr
       'packages/data/src/guides-es.ts',
       'packages/data/src/products-us.json',
       'packages/ui/src/templates/QuizFlow.tsx',
+      'apps/us/src/app/best-nootropics-for-focus/page.tsx',
+      'apps/gcc/src/app/best-nootropics-for-memory/page.tsx',
+      'apps/jp/src/app/best-nootropics-for-aging/page.tsx',
+      'packages/data/src/ingredients.ts',
+      'packages/data/src/products-sea.json',
     ]) expect(ROUND_SIXTEEN_SOURCES.some(p => relative(REPO_ROOT, p) === f), f).toBe(true);
   });
 
@@ -1255,6 +1300,25 @@ describe('round sixteen: energy, stack and focus-page claims follow the cited tr
       'paired with Arabic coffee or matcha — same synergy without committing to a caffeine-loaded supplement.',
       'The most evidence-backed focus stack available to Japanese buyers.',
       'Most users report this stack feels cleaner than multi-ingredient formulas — fewer ingredients also means fewer GI or jitter complaints.',
+      // U2
+      'What is the most evidence-backed nootropic for focus available in Canada?',
+      'What is the most evidence-backed focus nootropic available in SEA?',
+      'L-Theanine + Caffeine (1:2 to 2:1 ratio)',
+      'L-theanine paired with caffeine (1:2 to 2:1 ratio) has the strongest replication evidence in healthy adults — Owen et al. 2008 and multiple follow-ups.',
+      'Among the best-replicated cognitive findings: L-theanine paired with caffeine improves attention switching and reduces mental fatigue',
+      'Citicoline at 250–500mg also has multiple RCTs and Novel Food authorisation.',
+      'The most-replicated memory ingredient in nootropics. Multiple double-blind RCTs in adults show improved memory consolidation and recall after 8–12 weeks',
+      'Bacopa Monnieri at 300mg standardized to 50% bacosides has the most replicated RCT evidence for memory consolidation in healthy adults.',
+      'Memory is the use case where nootropics have the most replicated evidence — primarily from Bacopa Monnieri RCTs over 30+ years.',
+      'Phosphatidylserine has the FDA qualified health claim for cognitive function in elderly.',
+      'Phosphatidylserine has the strongest age-related memory claim and Mind Lab Pro delivers 100mg at clinical dose.',
+      'DHA is listed as a functional ingredient in 105 of the 563 active Foods with Function Claims (FFC) notifications whose claim mentions memory or cognitive function; it has strong evidence in middle-aged and older adults.',
+      'Bacopa Monnieri (300mg, standardised to at least 50% bacosides) is the best-evidenced ingredient for improving the speed and durability of memory encoding — but requires 8–12 weeks.',
+      'Bacopa Monnieri (300mg, estandarizada al menos al 50% de bacósidos) es el ingrediente con mayor respaldo de evidencia para mejorar la velocidad y durabilidad de la codificación de memoria',
+      'Built on Bacopa Monnieri — the best-evidenced botanical for memory',
+      'Always verify standardisation: 3% rosavins and 1% salidroside is the established ratio used in most clinical trials.',
+      'The label dose of two 125mg capsules daily (250mg/day) sits just below the 300mg/day used in most clinical trials.',
+      "Japan has the world's oldest population by median age, and age-related cognitive support is one of the largest functional supplement categories",
     ];
     for (const s of removed) expect(ROUND_SIXTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(true);
     for (const re of ROUND_SIXTEEN_UNSOURCED) expect(removed.some(s => re.test(s)), String(re)).toBe(true);
@@ -1272,6 +1336,25 @@ describe('round sixteen: energy, stack and focus-page claims follow the cited tr
       'paired with Arabic coffee or matcha — the same pairing without a caffeine-containing supplement.',
       'priced in US dollars.',
       'At 8-12 weeks: cumulative neuroprotective benefits from PS and pine bark. Best for users who already supplement separately',
+      // U2
+      'Which nootropic ingredients have trial evidence for focus available in Canada?',
+      'Which nootropic ingredients have trial evidence for focus in SEA?',
+      'L-Theanine + Caffeine',
+      'L-theanine with caffeine: in trials in healthy adults the pair improved attention-switching accuracy (Owen 2008, 100mg L-theanine with 50mg caffeine; Giesbrecht 2010, PubMed 21040626, 97mg with 40mg), though Foxe 2012 (PubMed 22326943) found no added benefit over either compound alone.',
+      'In controlled trials in healthy adults, the pair improved attention-switching accuracy (Owen 2008: 100mg L-theanine with 50mg caffeine; Giesbrecht 2010, PubMed 21040626: 97mg with 40mg) and ratings of mental fatigue (Haskell 2008, PubMed 18006208: 250mg with 150mg).',
+      'Our citicoline page rates its attention evidence as mixed: the only acute attention trial in healthy adults gave it together with caffeine.',
+      'In a systematic review of six randomised trials (Pase 2012, PubMed 22747190), all lasting 12 weeks at 300–450mg extract a day, Bacopa improved 9 of 17 tests of memory free recall.',
+      'Bacopa Monnieri: in a systematic review of six 12-week randomized trials at 300–450mg extract a day (Pase 2012, PubMed 22747190), it improved 9 of 17 tests of memory free recall, and the authors call the research \'in its infancy\'.',
+      'For memory, the Bacopa Monnieri evidence we cite is a systematic review of six 12-week randomized trials (Pase 2012).',
+      'For phosphatidylserine, the FDA allows only a qualified claim that it \'may reduce the risk of cognitive dysfunction in the elderly\', followed by \'FDA concludes that there is little scientific evidence supporting this claim\' (FDA letter, 13 May 2003).',
+      'Phosphatidylserine is in Mind Lab Pro at 100mg per serving; the phosphatidylserine trials on our ingredient page used 100–300mg a day.',
+      'our DHA page rates the evidence for age-related memory decline as moderate (Yurko-Mauro 2010: 900mg a day for 24 weeks in adults 55 and over).',
+      'Bacopa Monnieri (300mg, standardised to at least 50% bacosides) improved 9 of 17 memory free-recall tests in a systematic review of six 12-week trials (Pase 2012) — and needs about 12 weeks.',
+      'Bacopa Monnieri (300mg, estandarizada al menos al 50% de bacósidos) mejoró 9 de 17 pruebas de recuerdo libre de memoria en una revisión sistemática de seis ensayos de 12 semanas (Pase 2012), y necesita unas 12 semanas.',
+      'Built on Bacopa Monnieri, which improved memory free recall in a systematic review of six 12-week trials (Pase 2012)',
+      'Look for a stated rosavin and salidroside standardisation on the label. The trials in our record that name an extract used SHR-5, and their abstracts do not state its rosavin or salidroside percentages.',
+      'The label dose of two 125mg capsules daily (250mg/day) is below the 300–450mg/day range of the trials in the systematic review we cite (Pase 2012).',
+      "Japan's median age, 49.4 years in 2024, is the highest of any country or area with at least a million people (UN World Population Prospects 2024)",
     ]) expect(ROUND_SIXTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(false);
   });
 
