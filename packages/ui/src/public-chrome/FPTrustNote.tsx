@@ -20,6 +20,8 @@ export interface FPTrustNoteProps {
   /** Path to the methodology page. */
   methodologyHref?: string;
   className?: string;
+  /** The page locale's `uiStrings.typography.space` between sentences and before the link ('' in ja). */
+  space?: string;
 }
 
 /**
@@ -37,6 +39,7 @@ export function FPTrustNote({
   scope,
   methodologyHref = '/methodology/',
   className = '',
+  space = ' ',
 }: FPTrustNoteProps) {
   const { badge, sentence } = disclosureCopy(d, scope);
   return (
@@ -47,7 +50,7 @@ export function FPTrustNote({
     >
       <span className="text-ds-warn-ink font-semibold">{badge}</span>
       <span aria-hidden="true"> · </span>
-      {sentence} {d.ranking}{' '}
+      {sentence}{space}{d.ranking}{space}
       <Link
         href={methodologyHref}
         className="text-ds-accent font-medium underline hover:text-ds-accent-press focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded-[2px]"

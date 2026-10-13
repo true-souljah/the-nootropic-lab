@@ -65,6 +65,7 @@ export default function PublicShell({
           methodologyHref={methodologyHref}
           strings={uiStrings?.disclosure}
           scope={pageDisclosureScope(linkedProducts)}
+          space={uiStrings?.typography.space}
         />
       )}
       <FPHeader searchItems={searchItems} strings={uiStrings} />

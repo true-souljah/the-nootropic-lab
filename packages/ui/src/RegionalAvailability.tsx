@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Product, RegionProfile, RegionalNote } from '@nootropic/data';
-import { licenceStatus, localPrice } from '@nootropic/data';
+import { getLocaleForMarket, getStrings, licenceStatus, licenceStatusText, localPrice } from '@nootropic/data';
 import { localPriceShort } from './price-text';
 import { Card } from './primitives/Card';
 import { FaqAccordion } from './primitives/FaqAccordion';
@@ -54,6 +54,11 @@ export default function RegionalAvailability({
   id = 'regional',
 }: RegionalAvailabilityProps) {
   const L = region.labels;
+  // Licence line, regulator and geo-hub label in the host's language (each
+  // region renders one locale), from the same strings as the review page.
+  const hostStrings = getStrings(getLocaleForMarket(region.code));
+  const rb = hostStrings.productDetail.regionalBuying;
+  const colon = hostStrings.typography.colon;
   const heading = L.heading.replace('{name}', subjectName ?? L.genericSubject);
   const rows = products
     .slice()
@@ -93,11 +98,11 @@ export default function RegionalAvailability({
                 </div>
                 <div className="flex flex-wrap items-center gap-2 text-[12px]">
                   {status && (
-                    <span className={`px-2 py-[2px] rounded-full font-semibold ${TONE[status.tone]}`}>{status.label}</span>
+                    <span className={`px-2 py-[2px] rounded-full font-semibold ${TONE[status.tone]}`}>{licenceStatusText(status, rb.licence)}</span>
                   )}
                   {price && (
                     <span className="text-ds-muted ds-tabular">
-                      {L.price}: <strong className="text-ds-ink">{localPriceShort(price, L.monthUnit)}</strong>
+                      {L.price}{colon}<strong className="text-ds-ink">{localPriceShort(price, L.monthUnit)}</strong>
                     </span>
                   )}
                 </div>
@@ -106,7 +111,7 @@ export default function RegionalAvailability({
           ))}
         </ul>
       )}
-      <p className="text-[12px] text-ds-muted mt-2 mb-0">{region.regulator}</p>
+      <p className="text-[12px] text-ds-muted mt-2 mb-0">{rb.regulator[region.code]}</p>
 
       {note?.faqs && note.faqs.length > 0 && (
         <div className="mt-5">
@@ -130,7 +135,7 @@ export default function RegionalAvailability({
             ))}
             <li>
               <Link href={region.geoHub.path} className="inline-block text-[13px] px-3 py-1 rounded-full bg-ds-accent-soft text-ds-accent font-semibold">
-                {region.geoHub.label} →
+                {`${rb.geoHub[region.code]} →`}
               </Link>
             </li>
           </ul>
@@ -139,7 +144,7 @@ export default function RegionalAvailability({
 
       {note?.sources && note.sources.length > 0 && (
         <p className="text-[12px] text-ds-muted mt-4 mb-0">
-          {L.sources}:{' '}
+          {L.sources}{colon}
           {note.sources.map((s, i) => (
             <span key={s.url}>
               {i > 0 && ' · '}

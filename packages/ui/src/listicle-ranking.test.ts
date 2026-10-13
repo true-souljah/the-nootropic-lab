@@ -10,12 +10,16 @@ import {
   doseRuleReason,
   evidenceAtReferenceDose,
   formatListicleScore,
-  howWeChooseText,
+  howWeChooseParts,
   notRankedReason,
   splitListiclePicks,
   type ListicleEvidenceIngredients,
 } from './templates/listicleRanking';
-import { getUseCaseListStrings, type TemplateLocale } from './templateStrings';
+import { getStrings, type Locale } from '@nootropic/data';
+
+/** The Listicle's strings: UIStrings.listicle (moved there from templateStrings.ts on 2026-10-12). */
+const getUseCaseListStrings = (locale: Locale) => getStrings(locale).listicle;
+const ALL_LOCALES: Locale[] = ['en', 'es', 'fr', 'ja', 'pt', 'de', 'fr-CA'];
 
 // Site-owner decision 2026-10-08: every listicle says a pick must "score ≥ {bar}/10
 // in our 5-pillar editorial audit". Ranked picks must meet that bar; picks below
@@ -31,7 +35,7 @@ import { getUseCaseListStrings, type TemplateLocale } from './templateStrings';
 
 const REPO = join(__dirname, '..', '..', '..');
 const UI_SRC = __dirname;
-const LOCALES: TemplateLocale[] = ['en', 'es'];
+const LOCALES: Locale[] = ['en', 'es'];
 const BAR = formatListicleScore(LISTICLE_MIN_SCORE);
 
 // Mind Lab Pro's citicoline row (250mg Cognizin, proven at the 250mg reference
@@ -242,12 +246,26 @@ describe('the rule text and the also-considered copy render LISTICLE_MIN_SCORE',
     expect(src).not.toMatch(/\b7[.,]5\b/);
   });
 
+  it.each(ALL_LOCALES)('%s: the Listicle strings type no score either, and every rule string keeps {minScore}', (locale) => {
+    const s = getUseCaseListStrings(locale);
+    const src = JSON.stringify(s);
+    expect(src).not.toMatch(/\b\d[.,]\d\s?\/\s?10\b/);
+    expect(src).not.toMatch(/\b7[.,]5\b/);
+    for (const key of ['howWeChooseBody', 'alsoConsideredHeading', 'alsoConsideredIntro', 'belowBarReason', 'alsoConsideredRulesIntro', 'alsoConsideredLinkIntro'] as const) {
+      expect(s[key], `${locale} ${key}`).toContain('{minScore}');
+    }
+    for (const key of ['belowBarReason', 'doseRuleReason', 'noPurchaseLinkReason'] as const) {
+      expect(s[key], `${locale} ${key}`).toContain('{score}/10');
+    }
+    expect(howWeChooseParts(s).before).toContain(`${BAR}/10`);
+  });
+
   it.each(LOCALES)('%s: "How we choose" states the bar from the constant', (locale) => {
     const s = getUseCaseListStrings(locale);
     expect(s.howWeChooseBody).toContain('{minScore}/10');
-    const text = howWeChooseText(s);
-    expect(text).toContain(`≥ ${BAR}/10`);
-    expect(text).not.toContain('{');
+    const { before, after } = howWeChooseParts(s);
+    expect(before).toContain(`≥ ${BAR}/10`);
+    expect(`${before}${after}`).not.toContain('{');
   });
 
   it.each(LOCALES)('%s: section heading, intro and reason line carry the bar (and the score)', (locale) => {
@@ -329,10 +347,10 @@ describe('the rule text and the also-considered copy render LISTICLE_MIN_SCORE',
 describe('Listicle template wiring', () => {
   const src = readFileSync(join(UI_SRC, 'templates', 'Listicle.tsx'), 'utf8');
 
-  it('splits the picks once, against the page’s evidence cards, and renders the rule through howWeChooseText', () => {
+  it('splits the picks once, against the page’s evidence cards, and renders the rule through howWeChooseParts', () => {
     expect(src).toContain('splitListiclePicks(picks, ingredientMechanism)');
     expect(src.match(/splitListiclePicks\(/g)).toHaveLength(1);
-    expect(src).toContain('howWeChooseText(s)');
+    expect(src).toContain('howWeChooseParts(s)');
     expect(src).not.toContain('s.howWeChooseBody');
     // Nothing else enumerates the raw picks (cards, TOC, ItemList read `ranked`).
     expect(src).not.toMatch(/\bpicks\.(map|length|sort|filter|forEach|slice)\b|\.\.\.picks\b/);

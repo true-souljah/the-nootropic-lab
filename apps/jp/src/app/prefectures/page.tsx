@@ -2,10 +2,12 @@ import type { Metadata } from 'next';
 import { GeoIndexPage, buildAlternates, buildOpenGraph, buildTwitter } from '@nootropic/ui';
 import { jpPrefectures } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
-import { SITE_URL } from '@/lib/region';
+import { HUB_LABEL, SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
 const TITLE = `Best Nootropics by Prefecture ${CURRENT_YEAR}`;
+/** Visible H1 / breadcrumb (page chrome, Japanese); TITLE stays the <title> until the page body is translated. */
+const HEADING = `都道府県別 おすすめノートロピクス ${CURRENT_YEAR}`;
 const DESCRIPTION = 'Prefecture-by-prefecture buyer\'s guides for Japan: MHLW personal-import notes, delivery times to each prefecture, and the top-rated stacks available in Japan.';
 
 export const metadata: Metadata = {
@@ -22,13 +24,12 @@ export const metadata: Metadata = {
 export default function GeoHubPage() {
   return (
     <GeoIndexPage
-      title={TITLE}
+      title={HEADING}
       intro="Every guide below covers the same MHLW personal-import rules and the ¥16,000 duty-free threshold, then adds delivery times and the top-rated stacks."
       basePath="/prefectures"
       items={jpPrefectures.map(p => ({ slug: p.slug, name: p.name, note: p.nameJa }))}
       siteUrl={SITE_URL}
-      hubLabel="Best Nootropics Japan"
-      homeLabel="Home"
+      hubLabel={HUB_LABEL}
       searchItems={searchItems}
       uiStrings={uiStrings}
     />

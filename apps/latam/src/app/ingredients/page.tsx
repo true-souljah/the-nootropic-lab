@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { IngredientLibrary, SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
+import { IngredientLibrary, SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter, tpl } from '@nootropic/ui';
 import { ingredients } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 
@@ -36,7 +36,7 @@ export default function IngredientsPage() {
         searchItems={searchItems}
         uiStrings={uiStrings}
         hero={{
-          h1: `Nootropic Ingredients Guide ${CURRENT_YEAR}`,
+          h1: tpl(uiStrings.ingredientLibrary.guideHeading, { year: CURRENT_YEAR }),
           dek: `${ingredients.length} evidence-backed nootropic compounds. Clinical doses, mechanisms of action, and which top-rated stacks contain each ingredient — graded on RCT evidence.`,
         }}
       />

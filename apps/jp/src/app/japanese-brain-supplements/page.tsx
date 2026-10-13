@@ -18,7 +18,6 @@ const DESCRIPTION =
 
 // Date the facts below were last checked against their sources.
 const VERIFIED_ON = '2026-09-29';
-const VERIFIED_ON_LABEL = '29 September 2026';
 
 const CAA_FFC_DB_URL = 'https://www.fld.caa.go.jp/caaks/cssc01/';
 
@@ -100,16 +99,21 @@ export default function Page() {
       <SchemaOrg schema={breadcrumbSchema} />
 
       <article className="max-w-4xl mx-auto px-4 py-10">
-        <nav className="text-xs text-gray-500 mb-6">
-          <Link href="/" className="hover:text-green-700">Home</Link>
+        <nav className="text-xs text-gray-500 mb-6" aria-label={uiStrings.breadcrumb.ariaLabel}>
+          <Link href="/" className="hover:text-green-700">{uiStrings.breadcrumb.home}</Link>
           {' / '}
           <span>Japanese Brain Supplements</span>
         </nav>
 
         <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 mb-4">
-          <span>Reviewed by <strong className="text-gray-700">The Nootropic Lab Editorial Team</strong></span>
+          <span className="text-gray-700">{uiStrings.productDetail.meta.reviewedBy}</span>
           <span>·</span>
-          <span>Last verified: <time dateTime={VERIFIED_ON}>{VERIFIED_ON_LABEL}</time></span>
+          <span>
+            {uiStrings.productDetail.meta.lastVerified}{uiStrings.typography.space}
+            <time dateTime={VERIFIED_ON}>
+              {new Date(`${VERIFIED_ON}T00:00:00Z`).toLocaleDateString(uiStrings.productDetail.dateLocale, { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
+            </time>
+          </span>
         </div>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
@@ -125,7 +129,7 @@ export default function Page() {
         </p>
 
         <section className="my-10">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">What people mean by &ldquo;Japanese brain vitamins&rdquo;</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">「日本の脳のビタミン」とは何を指すのか</h2>
           <div className="space-y-4 text-gray-700 leading-relaxed">
             <p>
               The phrase covers two groups that are regulated very differently. The first is domestic products that carry
@@ -149,7 +153,7 @@ export default function Page() {
         </section>
 
         <section className="my-10">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Japan&apos;s Foods with Function Claims (機能性表示食品) system, in plain English</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">日本の機能性表示食品制度をわかりやすく</h2>
           <div className="space-y-4 text-gray-700 leading-relaxed">
             <p>
               FFC is administered by the Consumer Affairs Agency (CAA, 消費者庁). Under rules set by the government, a
@@ -177,7 +181,7 @@ export default function Page() {
         </section>
 
         <section className="my-10">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">FOSHU vs. FFC, in one paragraph</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">特定保健用食品（FOSHU）と機能性表示食品（FFC）の違いを1段落で</h2>
           <div className="space-y-4 text-gray-700 leading-relaxed">
             <p>
               FOSHU (特定保健用食品, often shortened to トクホ) is the route that needs government approval. To be sold as FOSHU, each individual
@@ -193,7 +197,7 @@ export default function Page() {
         </section>
 
         <section className="my-10">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Ingredients that appear in Japan&apos;s cognitive-function FFC notifications</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">日本の認知機能に関する機能性表示食品の届出に登場する成分</h2>
           <div className="space-y-4 text-gray-700 leading-relaxed">
             <p>
               An industry ingredient index that compiles CAA notification data lists the following among the active
@@ -214,7 +218,7 @@ export default function Page() {
         </section>
 
         <section className="my-10">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Case study: FANCL BRAINs (notification G425)</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">事例：FANCL BRAINs（届出番号 G425）</h2>
           <div className="space-y-4 text-gray-700 leading-relaxed">
             <p>
               FANCL BRAINs is a useful example because it can be checked end to end, from the label to the regulator&apos;s
@@ -251,7 +255,7 @@ export default function Page() {
         </section>
 
         <section className="my-10">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Domestic vs. imported: what changes when a brand ships in from abroad</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">国内品と輸入品：ブランドが海外から届くと何が変わるか</h2>
           <div className="space-y-4 text-gray-700 leading-relaxed">
             <p>
               Mind Lab Pro ships to Japan: its own FAQ lists Japan among the territories it ships to. For NooCube,
@@ -280,7 +284,7 @@ export default function Page() {
         </section>
 
         <section className="my-10">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Personal import rules, briefly</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">個人輸入のルール（概要）</h2>
           <div className="space-y-4 text-gray-700 leading-relaxed">
             <p>
               Our Japanese-language{' '}
@@ -316,7 +320,7 @@ export default function Page() {
         </section>
 
         <section className="my-10">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Where Japanese buyers shop: the channel we confirmed</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">日本の購入者が買う場所：当サイトが確認した販売経路</h2>
           <div className="space-y-4 text-gray-700 leading-relaxed">
             <p>
               The one retail channel we confirmed for this page is Rakuten, where both domestic examples on this page have
@@ -332,7 +336,7 @@ export default function Page() {
         </section>
 
         <section className="my-10">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Frequently asked questions</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">{uiStrings.listicle.faqHeading}</h2>
           <div className="space-y-4">
             {faqs.map(item => (
               <div key={item.q} className="border border-gray-200 rounded-lg p-5">
@@ -345,34 +349,37 @@ export default function Page() {
 
         <Sources
           defaultOpen
+          heading={uiStrings.guide.sources}
+          expandLabel={uiStrings.guide.expand}
+          space={uiStrings.typography.space}
           sources={[
-            { type: 'Regulator', label: 'Consumer Affairs Agency (消費者庁) — Foods with Function Claims (機能性表示食品)', url: 'https://www.caa.go.jp/policies/policy/food_labeling/foods_with_function_claims/' },
-            { type: 'Regulator', label: 'Consumer Affairs Agency — food labelling overview in English (FFC and FOSHU terminology, PDF)', url: 'https://www.caa.go.jp/en/policy/food_labeling/assets/food_labeling_cms206_241210_22.pdf' },
-            { type: 'Regulator', label: 'Consumer Affairs Agency — Foods for Specified Health Uses (特定保健用食品)', url: 'https://www.caa.go.jp/policies/policy/food_labeling/foods_for_specified_health_uses/' },
-            { type: 'Regulator', label: 'Consumer Affairs Agency — FFC notification database (届出情報検索)', url: CAA_FFC_DB_URL },
-            { type: 'Brand page', label: 'FANCL — BRAINs product page (notification G425)', url: 'https://www.fancl.co.jp/healthy/item/5248a/' },
-            { type: 'Brand page', label: 'FANCL official Rakuten store — BRAINs listing', url: 'https://review.rakuten.co.jp/item/1/335893_10009819/1.1/' },
-            { type: 'Brand page', label: 'Suntory Wellness official Rakuten store — DHA&EPA+Sesamin EX listing', url: 'https://review.rakuten.co.jp/item/1/405797_10000005/1.1/' },
-            { type: 'Brand page', label: 'Mind Lab Pro — FAQ (shipping territories)', url: 'https://www.mindlabpro.com/' },
-            { type: 'Industry index', label: 'bal-bal.com — FFC cognitive-function ingredient index', url: 'https://bal-bal.com/food?category=16' },
-            { type: 'Regulator', label: 'Ministry of Health, Labour and Welfare (厚生労働省) — personal-import quantity guidance', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iyakuhin/kojinyunyu/topics/tp010401-1.html' },
-            { type: 'Government notice', label: 'Shizuoka Prefecture — personal-import restriction on designated smart drugs (from 1 January 2019)', url: 'https://www.pref.shizuoka.jp/kenkofukushi/eiseiyakuji/yakuji/chuuikanki/1025331.html' },
-            { type: 'Study', label: 'National Institute of Health Sciences researchers — smart drugs in Japan (conference poster, PDF)', url: 'https://www.novelpsychoactivesubstances.org/wp-content/uploads/quform/20/2023/11/NPS2023_Tanaka.pdf' },
+            { type: '規制当局', label: 'Consumer Affairs Agency (消費者庁) — Foods with Function Claims (機能性表示食品)', url: 'https://www.caa.go.jp/policies/policy/food_labeling/foods_with_function_claims/' },
+            { type: '規制当局', label: 'Consumer Affairs Agency — food labelling overview in English (FFC and FOSHU terminology, PDF)', url: 'https://www.caa.go.jp/en/policy/food_labeling/assets/food_labeling_cms206_241210_22.pdf' },
+            { type: '規制当局', label: 'Consumer Affairs Agency — Foods for Specified Health Uses (特定保健用食品)', url: 'https://www.caa.go.jp/policies/policy/food_labeling/foods_for_specified_health_uses/' },
+            { type: '規制当局', label: 'Consumer Affairs Agency — FFC notification database (届出情報検索)', url: CAA_FFC_DB_URL },
+            { type: 'ブランドのページ', label: 'FANCL — BRAINs product page (notification G425)', url: 'https://www.fancl.co.jp/healthy/item/5248a/' },
+            { type: 'ブランドのページ', label: 'FANCL official Rakuten store — BRAINs listing', url: 'https://review.rakuten.co.jp/item/1/335893_10009819/1.1/' },
+            { type: 'ブランドのページ', label: 'Suntory Wellness official Rakuten store — DHA&EPA+Sesamin EX listing', url: 'https://review.rakuten.co.jp/item/1/405797_10000005/1.1/' },
+            { type: 'ブランドのページ', label: 'Mind Lab Pro — FAQ (shipping territories)', url: 'https://www.mindlabpro.com/' },
+            { type: '業界の索引', label: 'bal-bal.com — FFC cognitive-function ingredient index', url: 'https://bal-bal.com/food?category=16' },
+            { type: '規制当局', label: 'Ministry of Health, Labour and Welfare (厚生労働省) — personal-import quantity guidance', url: 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iyakuhin/kojinyunyu/topics/tp010401-1.html' },
+            { type: '行政の通知', label: 'Shizuoka Prefecture — personal-import restriction on designated smart drugs (from 1 January 2019)', url: 'https://www.pref.shizuoka.jp/kenkofukushi/eiseiyakuji/yakuji/chuuikanki/1025331.html' },
+            { type: '研究', label: 'National Institute of Health Sciences researchers — smart drugs in Japan (conference poster, PDF)', url: 'https://www.novelpsychoactivesubstances.org/wp-content/uploads/quform/20/2023/11/NPS2023_Tanaka.pdf' },
           ]}
         />
 
         <aside className="bg-amber-50 border-l-4 border-amber-400 rounded-r-lg p-4 mt-10 text-sm text-amber-900">
-          <strong className="block mb-1">Health note</strong>
+          <strong className="block mb-1">健康に関する注記</strong>
           This page is editorial and not medical advice. Consult a qualified healthcare professional before starting any
           supplement.
         </aside>
 
         <div className="text-sm text-gray-500 mt-10">
-          <Link href="/" className="text-green-700 underline">← Back to home</Link>
+          <Link href="/" className="text-green-700 underline">← ホームに戻る</Link>
           {' · '}
-          <Link href="/guides/" className="text-green-700 underline">All guides</Link>
+          <Link href="/guides/" className="text-green-700 underline">すべてのガイド</Link>
           {' · '}
-          <Link href="/methodology/" className="text-green-700 underline">Methodology</Link>
+          <Link href="/methodology/" className="text-green-700 underline">{uiStrings.nav.methodology}</Link>
         </div>
       </article>
     </PublicShell>

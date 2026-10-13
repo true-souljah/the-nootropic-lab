@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
+import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter, tpl } from '@nootropic/ui';
 import { guidesForRegion } from '@nootropic/data';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -15,13 +15,6 @@ export const metadata: Metadata = {
   alternates: buildAlternates({ regionCode: 'jp', path: '/guides/' }),
   openGraph: buildOpenGraph({ regionCode: 'jp', path: '/guides/', title: `Nootropics Guides ${CURRENT_YEAR} — Japan, Beginner to Advanced`, description: 'Learn everything about nootropics available in Japan: what they are, how they work, how to stack them safely, and what to realistically expect.' }),
   twitter: buildTwitter({ title: `Nootropics Guides ${CURRENT_YEAR} — Japan, Beginner to Advanced`, description: 'Learn everything about nootropics available in Japan: what they are, how they work, how to stack them safely, and what to realistically expect.' }),
-};
-
-const categoryLabels: Record<string, string> = {
-  beginner: 'Beginner',
-  stacking: 'Stacking',
-  usage: 'Usage',
-  science: 'Science',
 };
 
 const categoryColors: Record<string, string> = {
@@ -49,14 +42,14 @@ export default function GuidesPage() {
     <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
       <SchemaOrg schema={schema} />
       <div className="max-w-4xl mx-auto px-4 py-10">
-        <nav className="text-xs text-gray-500 mb-6">
-          <a href="/" className="hover:text-green-700">Home</a>
+        <nav className="text-xs text-gray-500 mb-6" aria-label={uiStrings.breadcrumb.ariaLabel}>
+          <a href="/" className="hover:text-green-700">{uiStrings.breadcrumb.home}</a>
           {' / '}
-          <span>Guides</span>
+          <span>{uiStrings.nav.guides}</span>
         </nav>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-          Nootropics Guides 2026
+          {tpl(uiStrings.guide.indexHeading, { year: CURRENT_YEAR })}
         </h1>
         <p className="text-lg text-gray-600 mb-10">
           Practical, evidence-based guides to understanding and using nootropics effectively.
@@ -72,14 +65,14 @@ export default function GuidesPage() {
             >
               <div className="flex items-start justify-between mb-3">
                 <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${categoryColors[guide.category]}`}>
-                  {categoryLabels[guide.category]}
+                  {uiStrings.guide.categories[guide.category]}
                 </span>
-                <span className="text-xs text-ds-muted">{guide.readingTimeMin} min read</span>
+                <span className="text-xs text-ds-muted">{tpl(uiStrings.guide.minRead, { minutes: guide.readingTimeMin })}</span>
               </div>
               <h2 className="text-lg font-bold text-gray-900 mb-2">{guide.title}</h2>
               <p className="text-sm text-gray-600 leading-relaxed">{guide.description}</p>
               <span className="mt-4 inline-block text-sm text-green-700 font-semibold">
-                Read guide →
+                {uiStrings.guide.readGuide}
               </span>
             </a>
           ))}

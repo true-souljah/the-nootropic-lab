@@ -4,7 +4,7 @@ import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsJP, getRegionalHealthDisclaimer } from '@nootropic/data';
-import { SITE_URL } from '@/lib/region';
+import { FFC_PILLAR_LABEL, SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -113,7 +113,7 @@ export default function Page() {
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}
-      regulatoryPillar={{ label: 'FFC-notified cognitive supplements in Japan', href: '/ffc-notified-cognitive-supplements/' }}
+      regulatoryPillar={{ label: FFC_PILLAR_LABEL, href: '/ffc-notified-cognitive-supplements/' }}
       healthDisclaimer={getRegionalHealthDisclaimer('jp')}
       searchItems={searchItems}
       uiStrings={uiStrings}

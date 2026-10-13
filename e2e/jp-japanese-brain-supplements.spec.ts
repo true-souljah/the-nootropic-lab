@@ -23,7 +23,8 @@ test.describe('JP /japanese-brain-supplements/', () => {
     expect(response?.status()).toBe(200);
     await expect(page.getByRole('heading', { level: 1 })).toContainText('Japanese vitamins for the brain');
 
-    const sources = page.locator('main details').filter({ hasText: 'Sources' });
+    // The Sources block's heading is the page language since 2026-10-12: 出典 ("Sources").
+    const sources = page.locator('main details').filter({ hasText: '出典' });
     await expect(sources).toBeVisible();
     await expect(sources.locator('a[href^="https://www.caa.go.jp/"]').first()).toBeVisible();
     await expect(sources.locator('a[href="https://www.fancl.co.jp/healthy/item/5248a/"]')).toHaveCount(1);

@@ -7,7 +7,8 @@ import { Chip } from '../../primitives/Chip';
 import { ToggleSwitch } from '../../primitives/ToggleSwitch';
 import { GOALS, GRADES } from './constants';
 import type { Goal, Grade } from './constants';
-import { formatMoney } from '@nootropic/data';
+import { formatMoney, type UIStrings } from '@nootropic/data';
+import { tpl } from '../../templateStrings';
 
 export const PRICE_SLIDER_MIN = 20;
 /** The slider's top position means "no limit" (products above it are not hidden). */
@@ -18,6 +19,8 @@ const money = (amount: number, f: { currency: string; locale: string }) => forma
 export interface ComparatorFiltersProps {
   /** Unique prefix for form element ids (e.g. 'd' for desktop, 'm' for mobile). */
   idPrefix: 'd' | 'm';
+  /** Page-locale labels of the filter panel. */
+  strings: UIStrings['comparator'];
   bestFor: Goal;
   setBestFor: Dispatch<SetStateAction<Goal>>;
   maxPrice: number;
@@ -37,6 +40,7 @@ export interface ComparatorFiltersProps {
 
 export function ComparatorFilters({
   idPrefix,
+  strings: s,
   bestFor,
   setBestFor,
   maxPrice,
@@ -55,14 +59,14 @@ export function ComparatorFilters({
   return (
     <>
       <div className="text-[11px] uppercase tracking-[0.14em] text-ds-muted font-semibold mb-3">
-        Filters
+        {s.filters}
       </div>
       <div className="mb-[22px]">
-        <div className="text-[12px] font-semibold mb-2 text-ds-ink">Goal</div>
-        <div role="group" aria-label="Filter by goal" className="flex flex-wrap gap-[6px]">
+        <div className="text-[12px] font-semibold mb-2 text-ds-ink">{s.goal}</div>
+        <div role="group" aria-label={s.goalAria} className="flex flex-wrap gap-[6px]">
           {GOALS.map((g) => (
-            <Chip key={g} active={bestFor === g} onClick={() => setBestFor(g)}>
-              {g}
+            <Chip key={g.id} active={bestFor === g.id} onClick={() => setBestFor(g.id)}>
+              {s.goals[g.label]}
             </Chip>
           ))}
         </div>
@@ -71,10 +75,10 @@ export function ComparatorFilters({
       <div className="mb-[22px]">
         <div className="flex justify-between mb-2">
           <label htmlFor={`${idPrefix}-max-price`} className="text-[12px] font-semibold text-ds-ink">
-            Max ≈ per {priceFilter.monthUnit}
+            {tpl(s.maxPerMonth, { unit: priceFilter.monthUnit })}
           </label>
           <span className="text-[12px] font-bold text-ds-accent ds-tabular">
-            {maxPrice >= PRICE_SLIDER_MAX ? 'Any' : money(maxPrice, priceFilter)}
+            {maxPrice >= PRICE_SLIDER_MAX ? s.goals.any : money(maxPrice, priceFilter)}
           </span>
         </div>
         <input
@@ -94,9 +98,9 @@ export function ComparatorFilters({
       </div>
       )}
       <fieldset className="mb-[22px] m-0 p-0 border-0">
-        <legend className="text-[12px] font-semibold mb-2 text-ds-ink">Our grade</legend>
+        <legend className="text-[12px] font-semibold mb-2 text-ds-ink">{s.grade}</legend>
         <div className="flex flex-col gap-1">
-          {GRADES.map(({ id, tone }) => {
+          {GRADES.map(({ id, label, tone }) => {
             const dotClass =
               tone === 'good'
                 ? 'bg-ds-good'
@@ -115,20 +119,20 @@ export function ComparatorFilters({
                   style={{ accentColor: 'var(--color-ds-accent)' }}
                 />
                 {dotClass && <span aria-hidden="true" className={`w-2 h-2 rounded-full ${dotClass}`} />}
-                <span className="text-[13px] text-ds-ink">{id}</span>
+                <span className="text-[13px] text-ds-ink">{s.grades[label]}</span>
               </label>
             );
           })}
         </div>
       </fieldset>
       <div className="mb-[22px] pt-[14px] border-t border-ds-border flex flex-col gap-[14px]">
-        <ToggleSwitch checked={caffeineFreeOnly} onChange={setCaffeineFreeOnly} label="Caffeine-free only" />
-        <ToggleSwitch checked={euCompliantOnly} onChange={setEuCompliantOnly} label="EU storefront only" />
+        <ToggleSwitch checked={caffeineFreeOnly} onChange={setCaffeineFreeOnly} label={s.caffeineFreeOnly} />
+        <ToggleSwitch checked={euCompliantOnly} onChange={setEuCompliantOnly} label={s.euStorefrontOnly} />
         <ToggleSwitch
           checked={showCommission}
           onChange={setShowCommission}
-          label="Show our commission"
-          description="Doesn't change scores"
+          label={s.showCommission}
+          description={s.commissionNote}
         />
       </div>
       <button
@@ -136,7 +140,7 @@ export function ComparatorFilters({
         onClick={onReset}
         className="w-full bg-transparent text-ds-muted border border-ds-border py-2 rounded-[8px] text-[12px] font-medium cursor-pointer hover:bg-ds-card-sub focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
       >
-        Reset all filters
+        {s.resetAll}
       </button>
     </>
   );
