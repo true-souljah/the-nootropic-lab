@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { BestOf, SchemaOrg, Card, Chip, FaqAccordion, NoPurchaseLinkNotice, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
 import { productsJP, buildPersonAuthorReference, purchaseUrl } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
-import { SITE_URL } from '@/lib/region';
+import { FFC_PILLAR_LABEL, HUB_LABEL, SITE_URL } from '@/lib/region';
 import { priceText } from '@nootropic/ui';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -34,26 +34,26 @@ export default function BestNootropicsJPPage() {
       <SchemaOrg schema={itemListSchema} />
       <BestOf
         products={productsJP}
-        breadcrumbs={[{ label: 'Best of', href: '/best-nootropics/' }]}
-        hero={{ eyebrow: `Japan · Audited ${CURRENT_YEAR}`, h1: `Best Nootropics in Japan ${CURRENT_YEAR}`, dek: 'Imported international stacks (Mind Lab Pro\'s own FAQ names Japan among its shipping territories; confirm the others at checkout), plus domestic options (FANCL, Suntory). Personal import limit is ¥16,000 — keep orders under 1 month\'s supply.' }}
+        breadcrumbs={[{ label: uiStrings.productDetail.breadcrumbBestOf, href: '/best-nootropics/' }]}
+        hero={{ eyebrow: `日本 · ${CURRENT_YEAR}年 監査済み`, h1: `${HUB_LABEL} ${CURRENT_YEAR}`, dek: 'Imported international stacks (Mind Lab Pro\'s own FAQ names Japan among its shipping territories; confirm the others at checkout), plus domestic options (FANCL, Suntory). Personal import limit is ¥16,000 — keep orders under 1 month\'s supply.' }}
         searchItems={searchItems} uiStrings={uiStrings} trackingSurface="best_of_jp"
         preList={
           <div className="flex flex-col gap-5">
             <Card variant="subdued" padding={20} className="border-l-[3px] border-l-ds-warn" as="aside" aria-labelledby="jp-note-heading">
-              <h2 id="jp-note-heading" className="text-[16px] font-bold text-ds-warn-ink m-0 mb-2">MHLW personal import note</h2>
+              <h2 id="jp-note-heading" className="text-[16px] font-bold text-ds-warn-ink m-0 mb-2">厚生労働省の個人輸入に関する注記</h2>
               <p className="text-[13.5px] text-ds-ink-soft m-0 leading-[1.65]">
                 Japan&apos;s personal import limit is ¥16,000 duty-free. Above this, customs duties (0–6.5%) plus 10% consumption tax apply. Modafinil is a prescription drug; we don&apos;t list it. Since 1 January 2019, racetams such as piracetam and aniracetam, plus vinpocetine and adrafinil, cannot be personally imported without a doctor&apos;s prescription or instruction, whatever the quantity — see our <Link href="/japanese-brain-supplements/" className="underline">Japanese brain supplements explainer</Link>.
               </p>
             </Card>
             <Card variant="subdued" padding={20} className="border-l-[3px] border-l-ds-accent">
-              <Chip tone="accent">★ Editor&apos;s Choice — Japan {CURRENT_YEAR}</Chip>
+              <Chip tone="accent">{`★ ${uiStrings.table.editorChoice} — 日本 ${CURRENT_YEAR}`}</Chip>
               <h2 className="text-[20px] font-bold text-ds-ink m-0 mt-2 mb-1">{winner.name}</h2>
               <p className="text-[13.5px] text-ds-ink-soft m-0 mb-3 leading-[1.6]">{winner.summary}</p>
               {winnerUrl === null ? (
                 <NoPurchaseLinkNotice product={winner} strings={uiStrings.noPurchaseLink} />
               ) : (
                 <a href={winnerUrl} target="_blank" rel="nofollow sponsored noopener noreferrer" className="inline-block bg-ds-accent hover:bg-ds-accent-press text-white font-semibold px-5 py-[10px] rounded-[8px] text-[13px] no-underline focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2">
-                  {priceText(winner, uiStrings) ? `Check price (${priceText(winner, uiStrings)!.short}) →` : 'Check price →'}
+                  {priceText(winner, uiStrings) ? `価格を確認（${priceText(winner, uiStrings)!.short}） →` : '価格を確認 →'}
                 </a>
               )}
             </Card>
@@ -61,7 +61,7 @@ export default function BestNootropicsJPPage() {
         }
         postList={
           <section>
-            <h2 className="text-[22px] font-bold text-ds-ink m-0 mb-4 tracking-[-0.01em]">Japan nootropics FAQ</h2>
+            <h2 className="text-[22px] font-bold text-ds-ink m-0 mb-4 tracking-[-0.01em]">日本のノートロピクスに関するよくある質問</h2>
             <FaqAccordion items={faqItems} />
             <p className="text-[13.5px] text-ds-ink-soft mt-4 mb-0 leading-[1.6]">
               Import restrictions and how Japan&apos;s FFC labels work:{' '}
@@ -69,7 +69,7 @@ export default function BestNootropicsJPPage() {
             </p>
           </section>
         }
-              regulatoryPillar={{ label: 'FFC-notified cognitive supplements in Japan', href: '/ffc-notified-cognitive-supplements/' }}
+              regulatoryPillar={{ label: FFC_PILLAR_LABEL, href: '/ffc-notified-cognitive-supplements/' }}
       />
     </>
   );

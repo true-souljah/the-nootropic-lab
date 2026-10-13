@@ -108,13 +108,13 @@ export default async function CountryPage({
                     <h3 className="font-bold text-gray-900">{product.name}</h3>
                     {product.editorChoice && (
                       <span className="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full">
-                        Editor&apos;s Choice
+                        {uiStrings.table.editorChoice}
                       </span>
                     )}
                   </div>
                   <p className="text-sm text-gray-600 mb-2 line-clamp-2">{product.summary}</p>
                   <div className="flex flex-wrap gap-3 text-xs text-gray-500">
-                    <span>Score: <strong className={SCORE_TIER_TEXT_CLASS[scoreTier(product.score)]}>{`${product.score}/10`}</strong></span>
+                    <span>{uiStrings.geo.score} <strong className={SCORE_TIER_TEXT_CLASS[scoreTier(product.score)]}>{`${product.score}/10`}</strong></span>
                     {priceText(product, uiStrings) && <span>{priceText(product, uiStrings)!.short}</span>}
                   </div>
                 </div>
