@@ -1,7 +1,7 @@
 import { describe, test, expect } from 'vitest';
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { resolve, dirname, extname, relative } from 'node:path';
-import { euCountries, monthlyStorePrice } from '@nootropic/data';
+import { euCountries, ingredients, monthlyStorePrice } from '@nootropic/data';
 import type { Product } from '@nootropic/data';
 
 // No national product register (Health Canada NPN, SFDA/MOHAP, COFEPRIS,
@@ -1764,5 +1764,167 @@ describe('round sixteen: energy, stack, focus- and memory-page claims follow the
       .filter(p => HERO_ATTR_ESCAPED_QUOTE.test(readFileSync(p, 'utf8')))
       .map(p => relative(REPO_ROOT, p));
     expect(offenders).toEqual([]);
+  });
+});
+
+// Round seventeen (2026-10-13). Mechanism, user-report and market claims with
+// no source. The studying pages (all eight regions; LATAM "agota la colina")
+// and the US energy page said "Heavy cognitive demand depletes choline" and
+// that citicoline is there for "the 'running on empty' feeling"; they now give
+// our citicoline page's grades (attention mixed, working memory moderate from
+// one trial in older adults with inefficient memory, Spiers 1996, PMID
+// 8624220). The natural-vs-synthetic guide's "Racetams deplete choline stores
+// (requiring supplemental choline ...)" ("agotan las reservas de colina")
+// cited nothing and was dropped. "Some users report ..." (the what-to-expect
+// guide and its Spanish twin, Bacopa's processing-speed note, four Lion's Mane
+// records) and Alpha Brain's "Day one: subtle focus improvement" opener (six
+// records) had no user data. Huperzine A was "one of the most powerful natural cholinergic
+// compounds"; phosphatidylserine "supports signal transduction across
+// synapses" / "improving synaptic signal transduction" ("transducción de
+// señales sinápticas"), and EU Mind Lab Pro's Sharp-PS "enhances synaptic
+// signal transduction and reduces cortisol" — our phosphatidylserine page
+// says only that it is "a phospholipid that forms a critical component of
+// neuronal cell membranes". Rhodiola "improves recall ... (when catecholamine
+// depletion would otherwise slow retrieval)" now gives the page's mixed
+// mental-fatigue grade. The Rhodiola/L-tyrosine and L-theanine/Bacopa stack
+// notes (both directions) called the pairs a "Strong combination", "A gentle,
+// non-sedating anxiety-reduction combination" and pairs that "target the same
+// problem"; we cite no trial of either pairing. The Canada province notes
+// called BC "one of Canada's strongest nootropic markets" with "a high
+// concentration of biohackers" and Alberta "a strong market"; no market data
+// exists. The US Adderall guide gave Bacopa "multiple RCTs" (now Pase 2012,
+// PMID 22747190: six trials, all 12 weeks), and the stacking guide defined a
+// stack as producing "effects greater than either would alone" ("efectos
+// mayores que los que cada uno lograría por separado"), which Foxe 2012 (PMID
+// 22326943: "did not confer any additional benefits over either compound
+// alone") contradicts for its own example. The patterns are narrow enough to
+// pass the out-of-scope lines checked below (the "8-12 weeks" Lion's Mane
+// line, the tyrosine source annotation "Stress-induced catecholamine depletion
+// ...", "signal transmission between neurons", product "biohackers" copy).
+// The scan is the round-sixteen file set.
+const ROUND_SEVENTEEN_UNSOURCED: RegExp[] = [
+  /depletes? choline/i,
+  /agota la colina/i,
+  /agotan las reservas de colina/i,
+  /running on empty/i,
+  /\bsome users report\b/i,
+  /algunos usuarios reportan/i,
+  /Day one: subtle focus/i,
+  /most powerful natural cholinergic/i,
+  /signal transduction/i,
+  /transducción de señales sinápticas/i,
+  /catecholamine depletion would/i,
+  /agotamiento de catecolaminas de otro modo/i,
+  /Strong combination for high-demand/i,
+  /gentle, non-sedating anxiety-reduction/i,
+  /Both have anxiolytic properties/i,
+  /they target the same problem/i,
+  /strongest nootropic markets/i,
+  /high concentration of biohackers/i,
+  /is a strong market for/i,
+  /Bacopa Monnieri — multiple RCTs/i,
+  /effects greater than either would alone/i,
+  /efectos mayores que los que cada uno lograría/i,
+];
+
+describe('round seventeen: mechanism, user-report and market claims follow our ingredient pages', () => {
+  test('scanned every file under apps/*/src, packages/data/src and packages/ui/src/templates', () => {
+    for (const f of [
+      'apps/us/src/app/best-nootropics-for-studying/page.tsx',
+      'apps/latam/src/app/best-nootropics-for-studying/page.tsx',
+      'apps/us/src/app/best-nootropics-for-energy/page.tsx',
+      'apps/us/src/app/guides/nootropics-vs-adderall/page.tsx',
+      'packages/data/src/guides.ts',
+      'packages/data/src/guides-es.ts',
+      'packages/data/src/ingredients.ts',
+      'packages/data/src/ca-provinces.ts',
+      'packages/data/src/products-us.json',
+      'packages/data/src/products-eu.json',
+      'packages/data/src/products-au.json',
+      'packages/data/src/products-ca.json',
+      'packages/data/src/products-gcc.json',
+      'packages/data/src/products-latam.json',
+      'packages/data/src/products-sea.json',
+    ]) expect(ROUND_SIXTEEN_SOURCES.some(p => relative(REPO_ROOT, p) === f), f).toBe(true);
+  });
+
+  test('the patterns catch the removed wording, and every pattern catches some of it', () => {
+    const removed = [
+      'Heavy cognitive demand depletes choline. Citicoline at 250–500mg/day supports phospholipid synthesis and acetylcholine availability',
+      'Heavy cognitive workload depletes choline. Citicoline (250–500mg/day) supports phospholipid synthesis and acetylcholine availability.',
+      'Not a stimulant — but addresses the "running on empty" feeling that comes with extended cognitive work.',
+      'La demanda cognitiva intensa agota la colina.',
+      'Racetams deplete choline stores (requiring supplemental choline to avoid headaches).',
+      'Los racetams agotan las reservas de colina (lo que requiere suplementación adicional de colina para evitar dolores de cabeza).',
+      "After 8 weeks of Lion's Mane, some users report clearer thinking and better mental endurance.",
+      "Tras 8 semanas de Lion's Mane, algunos usuarios reportan un pensamiento más claro y mayor resistencia mental.",
+      'Some users report temporary initial slowing.',
+      'At 4 weeks: some users report slightly clearer thinking and improved mental endurance.',
+      "Day one: subtle focus improvement, particularly noticeable for users who haven't taken cholinergic supplements before.",
+      'Day one: subtle focus improvement, particularly for users new to cholinergic supplements.',
+      'This makes it one of the most powerful natural cholinergic compounds.',
+      'It supports signal transduction across synapses, facilitates acetylcholine and dopamine release, and modulates cortisol secretion.',
+      'Supplementing with PS replenishes membrane composition, improving synaptic signal transduction and facilitating neurotransmitter release.',
+      'La suplementación con PS repone la composición de las membranas, mejorando la transducción de señales sinápticas y facilitando la liberación de neurotransmisores.',
+      'Phosphatidylserine (100mg Sharp-PS) enhances synaptic signal transduction and reduces cortisol.',
+      'Rhodiola improves recall under conditions of stress or fatigue (when catecholamine depletion would otherwise slow retrieval).',
+      'Rhodiola mejora la recuperación bajo condiciones de estrés o fatiga (cuando el agotamiento de catecolaminas de otro modo retrasaría la recuperación).',
+      'Rhodiola modulates cortisol/monoamine levels; Tyrosine replenishes catecholamine substrate. Strong combination for high-demand cognitive days or night shifts.',
+      'Both have anxiolytic properties working via different mechanisms. L-Theanine provides immediate calm; Bacopa builds sustained stress tolerance over weeks.',
+      'A gentle, non-sedating anxiety-reduction combination.',
+      'Both have anxiolytic properties. L-Theanine provides immediate calm focus; Bacopa builds long-term stress resilience. The combination is gentle and well-tolerated.',
+      'Both work best under stress conditions — they target the same problem (cognitive decline under stress) via complementary mechanisms.',
+      "BC's wellness culture makes it one of Canada's strongest nootropic markets.",
+      'Vancouver has a high concentration of biohackers.',
+      'Alberta is a strong market for performance-focused nootropics.',
+      'Bacopa Monnieri — multiple RCTs',
+      'A nootropic stack is a combination of two or more cognitive-enhancing compounds taken together to produce effects greater than either would alone.',
+      'Un stack nootrópico es una combinación de dos o más compuestos potenciadores de la cognición que se toman juntos para producir efectos mayores que los que cada uno lograría por separado.',
+    ];
+    for (const s of removed) expect(ROUND_SEVENTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(true);
+    for (const re of ROUND_SEVENTEEN_UNSOURCED) expect(removed.some(s => re.test(s)), String(re)).toBe(true);
+    // The replacement wording and the out-of-scope lines named above pass.
+    for (const s of [
+      'Citicoline is a choline donor. Our citicoline page rates its attention evidence as mixed and its working-memory evidence as moderate (one trial in older adults with inefficient memory, Spiers 1996). Cognizin is the standardized form.',
+      'La citicolina es un donante de colina. Nuestra página sobre la citicolina califica como mixta su evidencia sobre la atención y como moderada su evidencia sobre la memoria de trabajo (un ensayo en adultos mayores con memoria ineficiente, Spiers 1996).',
+      "It contains no caffeine. Onnit's 30-day money-back guarantee covers the first purchase of each product made directly on Onnit.com.",
+      "Lion's Mane is a long-game supplement. Expect no acute effects on day one. At 8-12 weeks: measurable improvements in memory and neuroprotective markers in studies.",
+      'An acute 320mg dose improved sustained task performance (2012), but the 2026 network meta-analysis found no processing-speed difference.',
+      'It is a potent, reversible acetylcholinesterase inhibitor — meaning it blocks the enzyme that breaks down acetylcholine, effectively increasing acetylcholine levels throughout the brain.',
+      'Phosphatidylserine (PS) is a phospholipid that forms a critical component of neuronal cell membranes. Supplementation replenishes PS levels that decline naturally with age.',
+      'Phosphatidylserine (100mg Sharp-PS) is a phospholipid in neuronal cell membranes.',
+      'Healthy membranes are essential for efficient signal transmission between neurons.',
+      'Our Rhodiola page rates its mental-fatigue evidence as mixed.',
+      'Nuestra página de Rhodiola califica como mixta su evidencia sobre la fatiga mental.',
+      'Stress-induced catecholamine depletion and tyrosine repletion mechanism',
+      'Both are studied for performance under stress; we cite no trial of the pairing.',
+      'Both are studied for stress and anxiety; we cite no trial of the pairing.',
+      'Delivery estimates vary by brand and carrier, so check the estimate at checkout.',
+      '31 active ingredients -- the most of any single formula in this review. Best for experienced biohackers.',
+      'Bacopa Monnieri — 12-week trials (Pase 2012 review)',
+      'A nootropic stack is a combination of two or more cognitive-enhancing compounds taken together.',
+      'Un stack nootrópico es una combinación de dos o más compuestos potenciadores de la cognición que se toman juntos.',
+      'Foxe 2012 found no added benefit over either compound alone.',
+    ]) expect(ROUND_SEVENTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(false);
+  });
+
+  test('no data, app or template source uses the removed wording (whitespace-normalised)', () => {
+    const hits = ROUND_SIXTEEN_SOURCES.flatMap(file =>
+      normalisedMatchLines(readFileSync(file, 'utf8'), ROUND_SEVENTEEN_UNSOURCED).map(
+        line => `${relative(REPO_ROOT, file)}:${line}`,
+      ),
+    );
+    expect(hits).toEqual([]);
+  });
+
+  test("Bacopa's memory row is graded moderate and cites Pase 2012", () => {
+    const bacopa = ingredients.find(i => i.slug === 'bacopa-monnieri');
+    expect(bacopa).toBeDefined();
+    const row = bacopa!.humanEffects.find(e => e.effect === 'Memory Consolidation');
+    expect(row?.evidenceStrength).toBe('moderate');
+    expect(row?.studies).toBe(5);
+    expect(row?.notes).toMatch(/Pase 2012/);
+    expect(row?.notes).toMatch(/Kongkeaw 2014 pooled speed-of-attention outcomes, not memory/);
+    expect(bacopa!.sources.map(s => s.pmid)).toContain('22747190');
   });
 });
