@@ -89,7 +89,7 @@ export const ingredients: Ingredient[] = [
       forms: 'Capsule or powder. Always choose fruiting body extract (hot-water or dual extracted), not mycelium-on-grain — mycelium products may be mostly starch with minimal active compounds.',
     },
     stacksWith: [
-      { ingredient: 'Bacopa Monnieri', slug: 'bacopa-monnieri', reason: 'Classic long-term memory stack. Bacopa consolidates memory via synaptic density; Lion\'s Mane supports NGF. Together they cover both neurogenesis and synaptic pathways.' },
+      { ingredient: 'Bacopa Monnieri', slug: 'bacopa-monnieri', reason: 'Both are studied for memory and cognitive function; we cite no trial of the pairing.' },
       { ingredient: 'Citicoline', slug: 'citicoline', reason: 'Citicoline provides an acute focus effect while Lion\'s Mane builds long-term neuroprotection — a complementary short- and long-term pairing.' },
       { ingredient: 'Ashwagandha', slug: 'ashwagandha', reason: 'Ashwagandha reduces cortisol (which suppresses NGF expression); combining with Lion\'s Mane may amplify neurogenic effects under stress.' },
     ],
@@ -132,12 +132,12 @@ export const ingredients: Ingredient[] = [
       forms: 'Capsule is most practical. Powder has a bitter, unpleasant taste. Look for an extract standardised to at least 50% bacosides on the label (the positive trial we cite used 300mg of a 50% extract, about 150mg of bacosides) — unstandardised herbal products may contain very little active compound.',
     },
     stacksWith: [
-      { ingredient: "Lion's Mane", slug: 'lions-mane', reason: 'The definitive long-term memory stack. Bacopa improves synaptic density and memory consolidation; Lion\'s Mane drives NGF synthesis and neuroprotection. Both are slow-acting and complement each other without overlap.' },
+      { ingredient: "Lion's Mane", slug: 'lions-mane', reason: 'Both are studied for memory and cognitive function; we cite no trial of the pairing.' },
       { ingredient: 'Citicoline', slug: 'citicoline', reason: 'Citicoline provides the acute focus and acetylcholine boost that Bacopa lacks in the short term, while Bacopa handles long-term memory consolidation. A well-rounded pairing found in Mind Lab Pro.' },
       { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'Both are studied for stress and anxiety; we cite no trial of the pairing.' },
     ],
     faqs: [
-      { question: 'Why do some people feel "foggy" when starting Bacopa?', answer: 'A minority of users experience a temporary initial slowing of mental processing — sometimes called the "Bacopa fog." This is linked to the serotonin modulation and typically resolves after 3–4 weeks. It reflects the herb\'s mechanism working, not a problem. If it persists past 6 weeks, reduce your dose.' },
+      { question: 'Why do some people feel "foggy" when starting Bacopa?', answer: 'Slowed information processing at the start is a listed side effect of Bacopa. If it persists past 6 weeks, reduce your dose.' },
       { question: 'Do I really need to take it with fat?', answer: "It is the sensible default. Bacosides are fat-soluble compounds, and GI side effects (cramps, nausea, more frequent stools) were reported in trials, so taking Bacopa with a normal meal that contains some fat is the usual advice." },
       { question: 'What percentage of bacosides should I look for?', answer: 'Aim for at least 50%: the positive trial we cite (Calabrese et al., 2008) used 300mg a day of an extract standardised to a minimum of 50% bacosides, about 150mg of bacosides. Two standardised commercial extracts are Bacognize and Synapsa. Generic "Bacopa" with no standardisation stated is unreliable — the active compound content may be negligible.' },
       { question: 'How long does it take to work?', answer: 'The positive memory trials measured outcomes after 12 weeks. This is not a supplement you evaluate in the first month. Set a calendar reminder to assess at around 12 weeks — and note that the newest 12-week trial at 300mg/day found no cognitive benefit, so results vary.' },
@@ -401,16 +401,16 @@ export const ingredients: Ingredient[] = [
       dosage: '300–600mg/day (KSM-66)',
       timing: 'Evening (1–2 hours before bed) for sleep benefits. Morning for cortisol and stress management. Split dosing (300mg AM + 300mg PM) is the regimen of the Chandrasekhar 2012 and Choudhary 2017 trials (300mg twice daily).',
       withFood: 'Take with food to minimise GI upset (particularly with 600mg doses). Absorption is not significantly affected by food.',
-      forms: 'Capsule. Insist on KSM-66 (full-spectrum root extract, 5% withanolides) or Sensoril (leaf + root, 8% withanolides, lower dose needed). Avoid unstandardised ashwagandha with no withanolide percentage stated — active content may be negligible.',
+      forms: 'Capsule. Insist on KSM-66 (full-spectrum root extract, 5% withanolides) or Sensoril (leaf + root extract). Avoid unstandardised ashwagandha with no withanolide percentage stated — active content may be negligible.',
     },
     stacksWith: [
-      { ingredient: 'Rhodiola Rosea', slug: 'rhodiola-rosea', reason: 'The canonical adaptogen duo. Rhodiola is activating (morning); Ashwagandha is calming (evening). Both target HPA axis dysregulation but through different mechanisms and at different times of day — a perfect day/night pair.' },
+      { ingredient: 'Rhodiola Rosea', slug: 'rhodiola-rosea', reason: 'Both are adaptogens; we cite no trial of the pairing.' },
       { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'Both reduce anxiety through distinct mechanisms (HPA axis modulation vs. GABA modulation). L-Theanine provides immediate calm; Ashwagandha provides systemic, longer-term stress reduction. Together they work at multiple timescales.' },
-      { ingredient: 'Phosphatidylserine', slug: 'phosphatidylserine', reason: 'Both independently reduce cortisol via different pathways (HPA modulation vs. cortisol receptor sensitivity). The combination may provide additive cortisol reduction under high-stress conditions.' },
+      { ingredient: 'Phosphatidylserine', slug: 'phosphatidylserine', reason: 'Both are studied for effects on cortisol; we cite no trial of the pairing.' },
     ],
     faqs: [
-      { question: 'KSM-66 vs Sensoril vs generic ashwagandha — which should I choose?', answer: 'KSM-66 (5% withanolides from root only) is the extract used in the key stress and cognition trials. Sensoril (8% withanolides from root + leaf, lower dose needed at 125–250mg) has good evidence specifically for stress and sleep. Generic ashwagandha without a stated withanolide percentage is unreliable — you may be paying for starchy root powder with minimal active content. Choose KSM-66 or Sensoril.' },
-      { question: 'Will ashwagandha make me tired during the day?', answer: "No — at morning doses, most people experience calm focus, not sedation. The tiredness effect is most pronounced when taken at night, where it reduces sleep latency. Ashwagandha doesn't deplete energy; it reduces the cortisol-driven hyperarousal that causes fatigue. Some people find 600mg in the morning slightly sedating — if so, reduce to 300mg or shift to evening only." },
+      { question: 'KSM-66 vs Sensoril vs generic ashwagandha — which should I choose?', answer: 'KSM-66 (5% withanolides from root only) is the extract used in the key stress and cognition trials. Sensoril is a leaf-and-root extract; our ashwagandha page cites no Sensoril trial. Generic ashwagandha without a stated withanolide percentage is unreliable — you may be paying for starchy root powder with minimal active content. Choose KSM-66 or Sensoril.' },
+      { question: 'Will ashwagandha make me tired during the day?', answer: "The tiredness effect is most pronounced when taken at night, where it reduces sleep latency. Ashwagandha doesn't deplete energy; it reduces the cortisol-driven hyperarousal that causes fatigue. Some people find 600mg in the morning slightly sedating — if so, reduce to 300mg or shift to evening only." },
       { question: 'Is ashwagandha safe for long-term use?', answer: 'Long-term data is missing: most trials run 8–12 weeks, and no controlled safety data beyond about 90 days was found. Published case reports link ashwagandha to liver injury (some scored "probable" on the RUCAM causality scale), and Denmark banned ashwagandha food supplements in 2023 because a safe dose could not be established. Stop and see a doctor if you develop jaundice or dark urine. Avoid if you have thyroid conditions (autoimmune thyroid disease) as withanolides can modulate thyroid hormone levels.' },
       { question: 'Can ashwagandha increase testosterone?', answer: 'Two RCTs found increases: 600mg/day for 8 weeks in young men starting resistance training raised testosterone alongside greater strength gains (2015), and a crossover trial in overweight men aged 40–70 found testosterone +14.7% and DHEA-S +18% versus placebo — but no change in cortisol, fatigue or vigour (Lopresti 2019). The magnitude varies by population and extract.' },
     ],
@@ -451,7 +451,7 @@ export const ingredients: Ingredient[] = [
       forms: 'Capsule only — doses are in micrograms, making accurate powder measurement practically impossible without a milligram-precision scale. Always confirm whether the label states mcg (micrograms) not mg (milligrams) — a 100x error in dosing is dangerous.',
     },
     stacksWith: [
-      { ingredient: 'Bacopa Monnieri', slug: 'bacopa-monnieri', reason: 'Bacopa works via synaptic density (non-cholinergic mechanism); Huperzine A works via acetylcholine preservation. No mechanism overlap. A powerful memory stack where both sides work independently.' },
+      { ingredient: 'Bacopa Monnieri', slug: 'bacopa-monnieri', reason: 'Both are studied for memory; we cite no trial of the pairing.' },
       { ingredient: "Lion's Mane", slug: 'lions-mane', reason: 'Lion\'s Mane supports long-term neurogenesis via NGF; Huperzine A supports acetylcholine by slowing its breakdown. Different mechanisms with no conflict.' },
     ],
     faqs: [
@@ -492,7 +492,7 @@ export const ingredients: Ingredient[] = [
       forms: 'Capsule or powder. L-Tyrosine (the free amino acid form) is best value and is the form used in the stress trials. NALT (N-Acetyl-L-Tyrosine) is common in formulated stacks, but no trial comparing NALT with plain L-Tyrosine for cognition was found.',
     },
     stacksWith: [
-      { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'L-Tyrosine supplies dopamine/norepinephrine substrate for focus and drive; L-Theanine keeps you calm and prevents the cortisol spike from stress or caffeine. Together they produce focused, calm high-performance state under demanding conditions.' },
+      { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'L-Tyrosine is an amino acid precursor to dopamine and norepinephrine; L-Theanine is an amino acid found in green tea. We cite no trial of the pairing.' },
       { ingredient: 'Rhodiola Rosea', slug: 'rhodiola-rosea', reason: 'Both are studied for performance under stress; we cite no trial of the pairing.' },
       { ingredient: 'Caffeine', slug: 'caffeine', reason: "Often paired with caffeine; we cite no trial of L-Tyrosine with caffeine." },
     ],
@@ -722,7 +722,7 @@ export const ingredients: Ingredient[] = [
       { question: 'ALCAR vs plain L-Carnitine — what is the difference?', answer: 'The acetyl group on ALCAR allows it to cross the blood-brain barrier and donate acetyl groups for acetylcholine synthesis. Plain L-Carnitine primarily acts in muscles and peripheral tissue for fat metabolism. For brain benefits, ALCAR is required — plain L-Carnitine will not produce cognitive effects.' },
       { question: 'Does ALCAR raise TMAO levels?', answer: 'Yes, carnitine (including ALCAR) is metabolised by gut bacteria into trimethylamine, which the liver converts to TMAO. Elevated TMAO is associated with cardiovascular risk in observational studies. The clinical significance at standard ALCAR supplement doses (1.5–3g/day) is debated. If you have existing cardiovascular concerns, discuss with your doctor.' },
       { question: 'Is ALCAR useful for young healthy adults?', answer: 'Unproven. The evidence is for older adults with cognitive decline or depressive symptoms; our 2026 review found no trial in healthy young adults. It is not a first-line nootropic for healthy young people — L-theanine + caffeine has stronger acute evidence. It is also not supported for ADHD.' },
-      { question: 'Can ALCAR help with brain fog?', answer: 'Possibly. ALCAR supports mitochondrial energy production in neurons, which may address brain fog caused by metabolic insufficiency. Anecdotal reports are common but controlled evidence specifically for "brain fog" in healthy adults is limited. If brain fog persists, investigate underlying causes (sleep, thyroid, iron levels) rather than relying solely on supplements.' },
+      { question: 'Can ALCAR help with brain fog?', answer: 'Possibly. ALCAR supports mitochondrial energy production in neurons, which may address brain fog caused by metabolic insufficiency. Controlled evidence specifically for "brain fog" in healthy adults is limited. If brain fog persists, investigate underlying causes (sleep, thyroid, iron levels) rather than relying solely on supplements.' },
     ],
     sources: [
       { pmid: '12598816', doi: '10.1097/00004850-200303000-00001', url: 'https://pubmed.ncbi.nlm.nih.gov/12598816/', title: 'Meta-analysis of double blind randomized controlled clinical trials of acetyl-L-carnitine versus placebo in the treatment of mild cognitive impairment and mild Alzheimer\'s disease', year: 2003, design: 'meta-analysis of double-blind RCTs' },

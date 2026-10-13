@@ -73,7 +73,7 @@ export const guidesEs: GuideTranslation[] = [
       },
       {
         "heading": "Integridad de la membrana celular y fosfolípidos",
-        "content": "Las membranas celulares neuronales están compuestas en gran parte por fosfolípidos, principalmente fosfatidilserina (PS) y fosfatidilcolina. Las membranas saludables son esenciales para una transmisión eficiente de señales entre neuronas. Los niveles de PS en el cerebro disminuyen con el envejecimiento. Citicoline actúa de manera similar: como precursor de la fosfatidilcolina, apoya la reparación de membranas mientras simultáneamente potencia la síntesis de Acetylcholine."
+        "content": "Las membranas celulares neuronales están compuestas en gran parte por fosfolípidos, principalmente fosfatidilserina (PS) y fosfatidilcolina. Las membranas saludables son esenciales para una transmisión eficiente de señales entre neuronas. Los niveles de PS en el cerebro disminuyen con el envejecimiento. Citicoline es un precursor de la fosfatidilcolina."
       }
     ]
   },
@@ -119,7 +119,7 @@ export const guidesEs: GuideTranslation[] = [
     "sections": [
       {
         "heading": "¿Qué es un stack nootrópico?",
-        "content": "Un stack nootrópico es una combinación de dos o más compuestos potenciadores de la cognición que se toman juntos. El concepto proviene de la farmacología — muchos medicamentos son más eficaces o mejor tolerados en combinación. Frente a placebo, para L-Theanine + Caffeine, un metaanálisis de 11 ECA encontró mejoras moderadas en el estado de alerta y en la precisión al alternar la atención durante las 2 primeras horas tras la dosis. Foxe 2012 no encontró ningún beneficio adicional frente a cada compuesto por separado. En un ensayo controlado (Rogers 2007), L-Theanine contrarrestó el aumento de la presión arterial causado por la cafeína, pero no redujo significativamente el nerviosismo causado por la cafeína. Los stacks preformulados con múltiples ingredientes combinan de 8 a 11 ingredientes diseñados para actuar sobre múltiples vías cognitivas de forma simultánea."
+        "content": "Un stack nootrópico es una combinación de dos o más compuestos potenciadores de la cognición que se toman juntos. Frente a placebo, para L-Theanine + Caffeine, un metaanálisis de 11 ECA encontró mejoras moderadas en el estado de alerta y en la precisión al alternar la atención durante las 2 primeras horas tras la dosis. Foxe 2012 no encontró ningún beneficio adicional frente a cada compuesto por separado. En un ensayo controlado (Rogers 2007), L-Theanine contrarrestó el aumento de la presión arterial causado por la cafeína, pero no redujo significativamente el nerviosismo causado por la cafeína. Los stacks preformulados con múltiples ingredientes combinan de 8 a 11 ingredientes diseñados para actuar sobre múltiples vías cognitivas de forma simultánea."
       },
       {
         "heading": "La regla de oro: una sola fuente colinérgica a la vez",
@@ -158,7 +158,7 @@ export const guidesEs: GuideTranslation[] = [
       },
       {
         "heading": "Los mejores para el enfoque y la atención sostenida",
-        "content": "L-Theanine (200mg) + Caffeine (100mg) actúa de forma aguda: efecto en 30–60 minutos; los ensayos controlados han medido sus beneficios aproximadamente durante las 2 primeras horas tras la dosis. L-Tyrosine es ideal para mantener el enfoque bajo estrés, privación de sueño o multitarea, pero los ensayos que lo demostraron usaron unos 100–150mg por kg de peso corporal por dosis (aproximadamente 7–12g para un adulto de 70–100kg), entre 10 y 20 veces más que una dosis de 500–1000mg, con la que no cabría esperar esos efectos. Citicoline (250mg) favorece la atención sostenida al mantener la disponibilidad de Acetylcholine durante sesiones cognitivas prolongadas. Rhodiola Rosea (200mg) reduce la fatiga mental en sesiones de enfoque extendido. Al comparar stacks con múltiples ingredientes basados en Citicoline y L-Tyrosine para el enfoque, compare la dosis de cada ingrediente con las cifras de los ensayos indicadas arriba."
+        "content": "L-Theanine (200mg) + Caffeine (100mg) actúa de forma aguda: efecto en 30–60 minutos; los ensayos controlados han medido sus beneficios aproximadamente durante las 2 primeras horas tras la dosis. L-Tyrosine es ideal para mantener el enfoque bajo estrés, privación de sueño o multitarea, pero los ensayos que lo demostraron usaron unos 100–150mg por kg de peso corporal por dosis (aproximadamente 7–12g para un adulto de 70–100kg), entre 10 y 20 veces más que una dosis de 500–1000mg, con la que no cabría esperar esos efectos. Nuestra página sobre la citicolina califica como mixta su evidencia sobre la atención. Rhodiola Rosea (200mg) reduce la fatiga mental en sesiones de enfoque extendido. Al comparar stacks con múltiples ingredientes basados en Citicoline y L-Tyrosine para el enfoque, compare la dosis de cada ingrediente con las cifras de los ensayos indicadas arriba."
       },
       {
         "heading": "Los mejores para la codificación de memoria (aprender cosas nuevas)",

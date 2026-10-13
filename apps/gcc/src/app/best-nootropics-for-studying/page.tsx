@@ -38,7 +38,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
   },
   {
-    name: 'Citicoline — choline for cognitive demand',
+    name: 'Citicoline — a choline donor',
     ingredientSlugs: ['citicoline'],
     evidence:
       'Citicoline is a choline donor. Our citicoline page rates its attention evidence as mixed and its working-memory evidence as moderate (one trial in older adults with inefficient memory, Spiers 1996). Cognizin is the standardised form. Synthesised, not animal-derived.',
@@ -101,7 +101,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'When should I start taking nootropics for studying?',
-    a: 'For acute-effect ingredients (L-theanine + caffeine), 30 minutes before a study session. For Bacopa and citicoline (memory consolidation), start at the beginning of the term — they need 4–8 weeks of daily use to show effect. The night before the exam is too late for Bacopa.',
+    a: 'For acute-effect ingredients (L-theanine + caffeine), 30 minutes before a study session. For Bacopa and citicoline, start at the beginning of the term — most positive Bacopa trials ran 12 weeks, and citicoline\'s memory effects were measured after 2–3 months. The night before the exam is too late for Bacopa.',
   },
   {
     q: 'Will nootropics make me smarter?',

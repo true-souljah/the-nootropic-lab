@@ -34,7 +34,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Citicoline (CDP-Choline)',
     ingredientSlugs: ['citicoline'],
     evidence:
-      'Choline donor + uridine source that supports phospholipid synthesis and acetylcholine production. Our citicoline page rates its attention evidence as mixed: the Cochrane review found no evidence of an attention benefit in older adults with chronic cerebral disorders, and the acute attention trial in healthy adults that we cite gave it together with caffeine. Cognizin is the standardized form most products use.',
+      'Choline donor + uridine source that supports phospholipid synthesis and acetylcholine production. Our citicoline page rates its attention evidence as mixed: the Cochrane review found no evidence of an attention benefit in older adults with chronic cerebral disorders, and the acute attention trial in healthy adults that we cite gave it together with caffeine. Cognizin is a standardized form.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/15846601/',
   },
   {
@@ -58,7 +58,7 @@ const picks: ListiclePick[] = [
     product: productsUS.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design lets you pair it with your own coffee or matcha if you want caffeine alongside its L-theanine. The only nootropic in our coverage with multiple peer-reviewed RCTs (University of Leeds).',
+      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design lets you pair it with your own coffee or matcha if you want caffeine alongside its L-theanine. It has been tested in two University of Leeds studies: a 30-day placebo-controlled study its authors call pseudo-randomised (Hum Psychopharmacol 2023, PubMed 37194920; immediate and delayed recall differed between groups, n=49) and a 60-day placebo-controlled study that found no improvement in choice accuracy or reaction time (Brain Sci 2025, PubMed 40149748).',
   },
   {
     product: productsUS.find(p => p.slug === 'qualia-mind-review')!,

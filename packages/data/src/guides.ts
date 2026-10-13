@@ -650,7 +650,7 @@ export const guides: Guide[] = [
       },
       {
         heading: 'Cell membrane integrity and phospholipids',
-        content: "Neuronal cell membranes are composed largely of phospholipids — primarily phosphatidylserine (PS) and phosphatidylcholine. Healthy membranes are essential for efficient signal transmission between neurons. PS levels in the brain decline with aging. Citicoline works similarly — as a precursor to phosphatidylcholine, it supports membrane repair while simultaneously boosting acetylcholine synthesis.",
+        content: "Neuronal cell membranes are composed largely of phospholipids — primarily phosphatidylserine (PS) and phosphatidylcholine. Healthy membranes are essential for efficient signal transmission between neurons. PS levels in the brain decline with aging. Citicoline is a precursor to phosphatidylcholine.",
       },
     ],
   },
@@ -698,7 +698,7 @@ export const guides: Guide[] = [
     sections: [
       {
         heading: 'What is a nootropic stack?',
-        content: 'A nootropic stack is a combination of two or more cognitive-enhancing compounds taken together. The concept comes from pharmacology — many drugs are more effective or better-tolerated in combination. Versus placebo, for L-Theanine + Caffeine, a meta-analysis of 11 RCTs found moderate improvements in alertness and attention-switching accuracy in the first 2 hours after dosing. Foxe 2012 found no added benefit over either compound alone. In a controlled trial (Rogers 2007), L-theanine offset caffeine\'s blood-pressure rise but did not significantly reduce caffeine-induced jitteriness. Pre-formulated multi-ingredient stacks combine 8–11 ingredients designed to cover multiple cognitive pathways simultaneously.',
+        content: 'A nootropic stack is a combination of two or more cognitive-enhancing compounds taken together. Versus placebo, for L-Theanine + Caffeine, a meta-analysis of 11 RCTs found moderate improvements in alertness and attention-switching accuracy in the first 2 hours after dosing. Foxe 2012 found no added benefit over either compound alone. In a controlled trial (Rogers 2007), L-theanine offset caffeine\'s blood-pressure rise but did not significantly reduce caffeine-induced jitteriness. Pre-formulated multi-ingredient stacks combine 8–11 ingredients designed to cover multiple cognitive pathways simultaneously.',
       },
       {
         heading: 'The golden rule: one cholinergic source at a time',
@@ -738,7 +738,7 @@ export const guides: Guide[] = [
       },
       {
         heading: 'Best for focus and sustained attention',
-        content: 'L-Theanine (200mg) + Caffeine (100mg) acts acutely — 30–60 minutes to effect; controlled trials have measured its benefits within roughly the first 2 hours after dosing. L-Tyrosine is best for focus under stress, sleep deprivation, or multitasking — but the trials showing this used about 100–150mg per kg of body weight per dose (roughly 7–12g for a 70–100kg adult), 10–20 times more than a 500–1000mg dose, at which those effects would not be expected. Citicoline (250mg) supports sustained attention by maintaining acetylcholine availability during long cognitive sessions. Rhodiola Rosea (200mg) reduces mental fatigue for extended focus sessions. When comparing multi-ingredient stacks built around citicoline and L-tyrosine for focus, check each ingredient\'s dose against the trial figures above.',
+        content: 'L-Theanine (200mg) + Caffeine (100mg) acts acutely — 30–60 minutes to effect; controlled trials have measured its benefits within roughly the first 2 hours after dosing. L-Tyrosine is best for focus under stress, sleep deprivation, or multitasking — but the trials showing this used about 100–150mg per kg of body weight per dose (roughly 7–12g for a 70–100kg adult), 10–20 times more than a 500–1000mg dose, at which those effects would not be expected. Our citicoline page rates its attention evidence as mixed. Rhodiola Rosea (200mg) reduces mental fatigue for extended focus sessions. When comparing multi-ingredient stacks built around citicoline and L-tyrosine for focus, check each ingredient\'s dose against the trial figures above.',
       },
       {
         heading: 'Best for memory encoding (learning new things)',

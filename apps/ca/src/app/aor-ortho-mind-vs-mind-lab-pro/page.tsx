@@ -29,7 +29,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Which is better for Canadian buyers, AOR Ortho•Mind or Mind Lab Pro?',
     a:
-      'Different trust frameworks. AOR Ortho•Mind holds an Active Health Canada licence, NPN (Natural Product Number) 80037243 (checked 2026-10-07) and is Calgary-domiciled. Mind Lab Pro is international, ships to Canada as a personal import, and has multiple peer-reviewed RCTs; we found no NPN for it in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07). If regulatory compliance + Canadian-domiciled trust matters most, AOR. If product-specific clinical evidence + broader formula matters most, Mind Lab Pro.',
+      'Different trust frameworks. AOR Ortho•Mind holds an Active Health Canada licence, NPN (Natural Product Number) 80037243 (checked 2026-10-07) and is Calgary-domiciled. Mind Lab Pro is international, ships to Canada as a personal import, and has been tested in two University of Leeds studies (a 30-day pseudo-randomised study in which immediate and delayed recall differed between groups, PubMed 37194920, and a 60-day study that found no improvement in choice accuracy or reaction time, PubMed 40149748); we found no NPN for it in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07). If regulatory compliance + Canadian-domiciled trust matters most, AOR. If product-specific clinical evidence + broader formula matters most, Mind Lab Pro.',
   },
   {
     q: 'Is the NPN important for buyers?',

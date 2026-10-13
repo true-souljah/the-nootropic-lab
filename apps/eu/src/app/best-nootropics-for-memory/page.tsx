@@ -41,7 +41,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Phosphatidylserine (PS)',
     ingredientSlugs: ['phosphatidylserine'],
     evidence:
-      'Phospholipid component of brain cell membranes. RCTs in older adults at 100–300mg a day report memory benefits, though often only in subgroups (see our phosphatidylserine page). The EU does not authorise US-style qualified claims (the FDA allows only qualified claims that phosphatidylserine \'may reduce the risk of dementia\' or \'cognitive dysfunction in the elderly\', with the disclaimer \'FDA concludes that there is little scientific evidence supporting this claim\') — EFSA has rejected several PS health claims, so EU labels describe PS in mechanism rather than outcome terms. The trial linked below (Vakhapova et al. 2010) is separate from these regulatory decisions: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo.',
+      'Phospholipid component of brain cell membranes. RCTs in older adults at 100–300mg a day report memory benefits, though often only in subgroups (see our phosphatidylserine page). The EU does not authorise US-style qualified claims (the FDA allows only qualified claims that phosphatidylserine \'may reduce the risk of dementia\' or \'cognitive dysfunction in the elderly\', with the disclaimer \'FDA concludes that there is little scientific evidence supporting this claim\'). EFSA\'s 2010 opinion on five phosphatidylserine claims found the substance \'not sufficiently characterised in relation to the claimed effects\' and concluded that \'a cause and effect relationship cannot be established\'; the FDA\'s 2003 review, by contrast, looked at trials in people already diagnosed with dementia or cognitive dysfunction. The trial linked below (Vakhapova et al. 2010) is separate from these regulatory decisions: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {
@@ -81,11 +81,11 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'How long until memory nootropics work?',
-    a: 'Bacopa: 8–12 weeks of daily use. Lion\'s Mane: 8–16 weeks. Phosphatidylserine and citicoline: 4–12 weeks. None of these are acute-effect ingredients. Plan for at least 8 weeks of consistent dosing before judging.',
+    a: 'Bacopa: 8–12 weeks of daily use; most positive trials ran 12 weeks. Lion\'s Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. Phosphatidylserine: its memory trials ran 15 weeks to 12 months. Citicoline: memory effects were measured after 2–3 months. None of these are acute-effect ingredients. Plan for at least 12 weeks of consistent dosing before judging.',
   },
   {
     q: 'Why don\'t EU labels mention "memory" benefits the way US labels do?',
-    a: 'EFSA has not approved most cognitive-outcome claims for these botanicals. Under EU Regulation (EC) 1924/2006, supplement labels can only make health claims that the European Commission has authorised after EFSA assessment. Reputable EU brands describe ingredient mechanism (e.g., "supports phospholipid synthesis") rather than outcome (e.g., "improves memory"). The underlying ingredient evidence is the same — only the on-label language differs.',
+    a: 'EFSA has not approved most cognitive-outcome claims for these botanicals. Under EU Regulation (EC) 1924/2006, supplement labels can only make health claims that the European Commission has authorised after EFSA assessment. Reputable EU brands describe ingredient mechanism (e.g., "supports phospholipid synthesis") rather than outcome (e.g., "improves memory").',
   },
   {
     q: 'Are memory nootropics safe long-term?',
@@ -112,7 +112,7 @@ export default function Page() {
       useCase="memory"
       pageTitle="Best Nootropics for Memory (EU)"
       pageDescription="Independent EU ranking of nootropics for memory and recall, based on clinical evidence. EU storefronts marked."
-      heroParagraph="For memory, the Bacopa Monnieri evidence we cite is a systematic review of six 12-week randomised trials (Pase 2012). This page ranks the products in our EU coverage that contain Bacopa, Lion's Mane, phosphatidylserine, or citicoline at or near clinical dose. EU labels describe these ingredients in mechanism terms (under Regulation (EC) No 1924/2006, with claims assessed by the European Food Safety Authority, EFSA) — the underlying clinical evidence is the same as in the US."
+      heroParagraph="For memory, the Bacopa Monnieri evidence we cite is a systematic review of six 12-week randomised trials (Pase 2012). This page ranks the products in our EU coverage that contain Bacopa, Lion's Mane, phosphatidylserine, or citicoline at or near clinical dose. EU labels describe these ingredients in mechanism terms (under Regulation (EC) No 1924/2006, with claims assessed by the European Food Safety Authority, EFSA); for phosphatidylserine, EFSA's 2010 opinion concluded that 'a cause and effect relationship cannot be established'."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

@@ -39,7 +39,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
   },
   {
-    name: 'Citicolina — colina para alta demanda cognitiva',
+    name: 'Citicolina — un donante de colina',
     ingredientSlugs: ['citicoline'],
     evidence:
       'La citicolina es un donante de colina. Nuestra página sobre la citicolina califica como mixta su evidencia sobre la atención y como moderada su evidencia sobre la memoria de trabajo (un ensayo en adultos mayores con memoria ineficiente, Spiers 1996). Cognizin es la forma estandarizada.',
@@ -84,7 +84,7 @@ const picks: ListiclePick[] = [
 const faqItems: ListicleFAQ[] = [
   {
     q: '¿Cuándo debería empezar a tomar nootrópicos para estudiar?',
-    a: 'Para ingredientes de efecto agudo (L-teanina + cafeína), 30 minutos antes de una sesión de estudio. Para Bacopa y citicolina (consolidación de memoria), empieza al inicio del cuatrimestre — necesitan 4–8 semanas de uso diario para mostrar efecto. La noche antes del examen es demasiado tarde para Bacopa. Considera además 10–18 días de envío internacional si pides desde EE.UU. o Reino Unido.',
+    a: 'Para ingredientes de efecto agudo (L-teanina + cafeína), 30 minutos antes de una sesión de estudio. Para Bacopa y citicolina, empieza al inicio del cuatrimestre — la mayoría de los ensayos positivos de Bacopa duraron 12 semanas, y los efectos de la citicolina sobre la memoria se midieron después de 2–3 meses. La noche antes del examen es demasiado tarde para Bacopa. Considera además 10–18 días de envío internacional si pides desde EE.UU. o Reino Unido.',
   },
   {
     q: '¿Los nootrópicos me harán más inteligente?',
