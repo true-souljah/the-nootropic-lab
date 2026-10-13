@@ -16,6 +16,8 @@ export interface PricingTabProps {
   noticeStrings: UIStrings['noPurchaseLink'];
   /** The store price as display text (price-text.ts); null when the record has none. */
   price: PriceText | null;
+  /** The page locale's `uiStrings.typography.space` between sentences ('' in ja). */
+  space?: string;
 }
 
 type TermField = (typeof VENDOR_TERM_FIELDS)[number];
@@ -34,7 +36,7 @@ type TermField = (typeof VENDOR_TERM_FIELDS)[number];
  */
 const QUOTED_TERMS = VENDOR_TERM_FIELDS.filter((f) => f !== 'oneTimePrice');
 
-export function PricingTab({ product: p, disclosure, strings, noticeStrings, price }: PricingTabProps) {
+export function PricingTab({ product: p, disclosure, strings, noticeStrings, price, space = ' ' }: PricingTabProps) {
   const t = strings.pricing;
   // No affiliate deal (commissionRate "0%"): no cookie terms.
   const commission = earnsCommission(p);
@@ -179,7 +181,7 @@ export function PricingTab({ product: p, disclosure, strings, noticeStrings, pri
               : NOT_AVAILABLE}
         </div>
         <p className="text-[13px] text-ds-ink-soft m-0 leading-[1.55]">
-          {sentence} {disclosure.ranking}
+          {sentence}{space}{disclosure.ranking}
         </p>
       </Card>
     </div>

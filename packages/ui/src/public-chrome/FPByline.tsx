@@ -8,6 +8,8 @@ export interface FPBylineProps {
   minutes: number;
   /** Page-locale byline strings (team credit, "Updated", read time, fact-check badge). */
   strings: UIStrings['byline'];
+  /** The page locale's `uiStrings.typography.space` between "Updated" and the date ('' in ja, whose label ends in ：). */
+  space?: string;
 }
 
 /**
@@ -15,13 +17,13 @@ export interface FPBylineProps {
  * Per Phase 5: team credit only, no named author, no medical reviewer.
  * The ✓ Fact-checked badge is the EEAT trust signal.
  */
-export function FPByline({ updated, minutes, strings }: FPBylineProps) {
+export function FPByline({ updated, minutes, strings, space = ' ' }: FPBylineProps) {
   return (
     <div className="flex items-center gap-[14px] text-[12.5px] text-ds-muted py-[14px] border-y border-ds-border flex-wrap">
       <span className="text-ds-ink font-semibold">{strings.attribution}</span>
       <span aria-hidden="true">·</span>
       <span>
-        {strings.updated} <time dateTime={updated}>{updated}</time>
+        {strings.updated}{space}<time dateTime={updated}>{updated}</time>
       </span>
       <span aria-hidden="true">·</span>
       <span>{tpl(strings.readTime, { minutes })}</span>

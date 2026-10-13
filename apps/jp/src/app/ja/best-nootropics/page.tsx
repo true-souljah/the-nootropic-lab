@@ -57,12 +57,13 @@ export default function JaBestNootropicsPage() {
           pickLabel="編集部のおすすめ第1位："
           ctaLabel="価格を確認 →"
           ariaLabel="おすすめ第1位"
+          space={uiStrings.typography.space}
         />
       )}
 
       <article className="max-w-5xl mx-auto px-4 py-10">
         <div className="mb-2 text-xs text-gray-500">
-          最終更新: {new Date().toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' })}
+          最終更新：{new Date().toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' })}
         </div>
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
           {CURRENT_YEAR}年 日本向け最高のノートロピクス
@@ -78,7 +79,7 @@ export default function JaBestNootropicsPage() {
           </ul>
         </div>
 
-        <AffiliateDisclosure strings={uiStrings.disclosure} />
+        <AffiliateDisclosure strings={uiStrings.disclosure} space={uiStrings.typography.space} />
 
         <div className="bg-yellow-50 border border-yellow-300 rounded-xl p-5 mb-10 mt-6">
           <div className="editor-badge mb-2 inline-block">編集者の選択 — Japan {CURRENT_YEAR}</div>
@@ -127,7 +128,7 @@ export default function JaBestNootropicsPage() {
             ))}
           </div>
           <p className="text-sm text-gray-600 mt-4">
-            個人輸入が制限されている成分の詳細（英語）：{' '}
+            個人輸入が制限されている成分の詳細（英語）：
             <a href="/japanese-brain-supplements/" className="text-green-700 underline">Japanese brain supplements — FFC-notified products vs. imported nootropics</a>
           </p>
         </section>

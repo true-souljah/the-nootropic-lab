@@ -42,7 +42,7 @@ export interface HeadToHeadPageStrings {
   clinicalDosingIntro: string;
   ingredient: string;
   clinicalDose: string;
-  /** Citation footer */
+  /** Citation footer; {link} is where the `methodologyLink` link goes. */
   citationFooter: string;
   methodologyLink: string;
   /** Score breakdown heading */
@@ -102,7 +102,7 @@ export const headToHeadPageEnDefaults: HeadToHeadPageStrings = {
     'Each disclosed ingredient dose vs. the minimum on our ingredient page for it, from peer-reviewed human clinical trials, where the page gives one; ingredients without a reference dose are listed but not scored. Underdosed ingredients flagged. Ingredients hidden inside proprietary blends cannot be evaluated.',
   ingredient: 'Ingredient',
   clinicalDose: 'Clinical dose',
-  citationFooter: 'Clinical-dose anchors sourced from PubMed-indexed human RCTs and Examine.com syntheses. See our',
+  citationFooter: 'Clinical-dose anchors sourced from PubMed-indexed human RCTs and Examine.com syntheses. See our {link}.',
   methodologyLink: 'methodology',
   scoreBreakdownHeading: 'Score breakdown across 5 pillars',
   prosConsHeading: 'Pros & cons each',
@@ -149,7 +149,7 @@ export const headToHeadPageEsStrings: Partial<HeadToHeadPageStrings> = {
   ingredient: 'Ingrediente',
   clinicalDose: 'Dosis clínica',
   citationFooter:
-    'Las anclas de dosis clínicas provienen de ECA humanos indexados en PubMed y síntesis de Examine.com. Vea nuestra',
+    'Las anclas de dosis clínicas provienen de ECA humanos indexados en PubMed y síntesis de Examine.com. Vea nuestra {link}.',
   methodologyLink: 'metodología',
   scoreBreakdownHeading: 'Desglose de puntuación en 5 pilares',
   prosConsHeading: 'Pros y contras de cada uno',
@@ -179,4 +179,16 @@ export function getHeadToHeadStrings(locale: TemplateLocale = 'en'): HeadToHeadP
 /** Substitutes {placeholder} tokens with named values. */
 export function tpl(template: string, vars: Record<string, string | number>): string {
   return template.replace(/\{(\w+)\}/g, (_, k) => String(vars[k] ?? ''));
+}
+
+/**
+ * Splits a translated sentence at its {link} placeholder (other placeholders
+ * filled from `vars`). The template renders `before`, the link, then `after`,
+ * so each language places the link and closes the sentence itself: no space
+ * or Latin full stop is typed around it (en "See our {link}.", ja
+ * "詳しくは当サイトの{link}をご覧ください。").
+ */
+export function tplLink(template: string, vars: Record<string, string | number> = {}): { before: string; after: string } {
+  const [before, after = ''] = template.split('{link}');
+  return { before: tpl(before, vars), after: tpl(after, vars) };
 }

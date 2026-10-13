@@ -61,6 +61,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
   const ui = strings ?? getStrings('en');
   const tt = ui.table;
   const pd = ui.productDetail;
+  const { colon, space } = ui.typography;
   // Same English fallback as the rest of this table when no bundle is passed.
   const noticeStrings = strings?.noPurchaseLink ?? NO_PURCHASE_LINK_STRINGS.en;
   // Buy link through the purchaseUrl() gate; the short notice when the
@@ -179,20 +180,20 @@ export default function ComparisonTable({ products, market, strings }: Props) {
               <th scope="col" className="text-left p-3 font-semibold text-gray-600">{t?.product || 'Product'}</th>
               <th scope="col" className="text-left p-3 font-semibold text-gray-600">{t?.bestFor || 'Best For'}</th>
               <th scope="col" className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">
-                {t?.score || 'Score'} <SortBtn col="score" sortKey={sortKey} sortDir={sortDir} onSort={handleSort} t={tt} />
+                {t?.score || 'Score'}{space}<SortBtn col="score" sortKey={sortKey} sortDir={sortDir} onSort={handleSort} t={tt} />
               </th>
               <th scope="col" className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">
-                {t?.price || 'Price'} {monthlyCurrency && <SortBtn col="price" sortKey={sortKey} sortDir={sortDir} onSort={handleSort} t={tt} />}
+                {t?.price || 'Price'}{space}{monthlyCurrency && <SortBtn col="price" sortKey={sortKey} sortDir={sortDir} onSort={handleSort} t={tt} />}
               </th>
               <th scope="col" className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">{t?.caffeineFree || 'Caffeine-Free'}</th>
               {market === 'eu' && (
                 <th scope="col" className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">{t?.euStatus || 'EU Status'}</th>
               )}
               <th scope="col" className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">
-                {t?.moneyBack || 'Money-Back'} <SortBtn col="moneyBackDays" sortKey={sortKey} sortDir={sortDir} onSort={handleSort} t={tt} />
+                {t?.moneyBack || 'Money-Back'}{space}<SortBtn col="moneyBackDays" sortKey={sortKey} sortDir={sortDir} onSort={handleSort} t={tt} />
               </th>
               <th scope="col" className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">
-                {t?.trustpilot || 'Trustpilot'} <SortBtn col="trustpilotScore" sortKey={sortKey} sortDir={sortDir} onSort={handleSort} t={tt} />
+                {t?.trustpilot || 'Trustpilot'}{space}<SortBtn col="trustpilotScore" sortKey={sortKey} sortDir={sortDir} onSort={handleSort} t={tt} />
               </th>
               <th scope="col" className="p-3"><span className="sr-only">{tt.actions}</span></th>
             </tr>
@@ -311,19 +312,19 @@ export default function ComparisonTable({ products, market, strings }: Props) {
               </div>
               <div className="grid grid-cols-2 gap-2 text-sm mb-3">
                 <div>
-                  <span className="text-gray-500">{t?.price ? `${t.price}:` : 'Price:'} </span>
+                  <span className="text-gray-500">{t?.price || 'Price'}{colon}</span>
                   <strong>{prices.get(p.slug)?.short ?? '—'}</strong>
                 </div>
                 <div>
-                  <span className="text-gray-500">{t?.moneyBack ? `${t.moneyBack}:` : 'Money-back:'} </span>
+                  <span className="text-gray-500">{t?.moneyBack || 'Money-back'}{colon}</span>
                   <strong>{guaranteeDays(p.moneyBackDays, (d) => tpl(pd.stats.daysCountShort, { days: d }))}</strong>
                 </div>
                 <div>
-                  <span className="text-gray-500">{t?.caffeineFree ? `${t.caffeineFree}:` : 'Caffeine-free:'} </span>
+                  <span className="text-gray-500">{t?.caffeineFree || 'Caffeine-free'}{colon}</span>
                   <strong>{p.caffeineFree ? (t?.yes || 'Yes') : (t?.no || 'No')}</strong>
                 </div>
                 <div>
-                  <span className="text-gray-500">{t?.trustpilot ? `${t.trustpilot}:` : 'Trustpilot:'} </span>
+                  <span className="text-gray-500">{t?.trustpilot || 'Trustpilot'}{colon}</span>
                   {p.trustpilotScore !== null && p.trustpilotScore > 0 ? (
                     <strong
                       className={

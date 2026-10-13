@@ -253,6 +253,7 @@ export function FPFooter({
     '© {year} Nootropic Lab · Information is not medical advice. Consult a clinician before starting any supplement.';
   const resolvedCopyright = resolvedCopyrightTemplate.replace('{year}', String(CURRENT_YEAR));
   const lastAuditLabel = strings?.footer.lastAuditLabel ?? 'Last full re-audit:';
+  const space = strings?.typography.space ?? ' ';
   const methodologyLabel = strings?.footer.methodologyLabel ?? 'Methodology';
   const cookieSettingsLabel = strings?.cookie.settings ?? 'Cookie settings';
   const dateLocale = strings?.productDetail?.dateLocale ?? 'en-US';
@@ -311,7 +312,7 @@ export function FPFooter({
             className="inline-flex items-center min-h-[24px] p-0 bg-transparent border-0 cursor-pointer text-[11.5px] text-ds-side-ink underline underline-offset-2 hover:text-white focus-visible:outline-2 focus-visible:outline-ds-focus-ring-on-dark focus-visible:outline-offset-2 rounded"
           />
           <span>
-            {lastAuditLabel} {formattedDate} · {methodologyLabel} {methodologyVersion}
+            {lastAuditLabel}{space}{formattedDate} · {methodologyLabel} {methodologyVersion}
           </span>
         </div>
       </div>

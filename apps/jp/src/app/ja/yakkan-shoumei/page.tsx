@@ -81,7 +81,7 @@ export default function YakkanShoumeiPage() {
         </nav>
 
         <div className="mb-2 text-xs text-gray-500">
-          公開日: {CURRENT_YEAR}年5月29日
+          公開日：{CURRENT_YEAR}年5月29日
         </div>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -151,13 +151,13 @@ export default function YakkanShoumeiPage() {
             薬監証明と機能性表示食品（FFC）は、しばしば混同される異なる制度です：
           </p>
           <ul className="list-disc list-inside text-gray-700 leading-relaxed space-y-2 mb-3">
-            <li><strong>薬監証明</strong>: 海外製品を個人輸入する際の輸入確認制度（厚生労働省管轄）</li>
-            <li><strong>機能性表示食品（FFC）</strong>: 日本国内で販売される食品の機能性表示について、製造者が消費者庁に届出を行う制度（消費者庁管轄）</li>
+            <li><strong>薬監証明</strong>：海外製品を個人輸入する際の輸入確認制度（厚生労働省管轄）</li>
+            <li><strong>機能性表示食品（FFC）</strong>：日本国内で販売される食品の機能性表示について、製造者が消費者庁に届出を行う制度（消費者庁管轄）</li>
           </ul>
           <p className="text-gray-700 leading-relaxed">
-            FANCL BRAINs（機能性表示食品・届出番号 G425）やSuntory製品などの国内ブランドは国内で販売されており、薬監証明は必要ありません。詳しくは{' '}
+            FANCL BRAINs（機能性表示食品・届出番号 G425）やSuntory製品などの国内ブランドは国内で販売されており、薬監証明は必要ありません。詳しくは
             <Link href="/ffc-notified-cognitive-supplements/" className="text-green-700 underline">機能性表示食品ガイド</Link>
-            {' '}をご覧ください。
+            をご覧ください。
           </p>
         </section>
 
@@ -173,9 +173,9 @@ export default function YakkanShoumeiPage() {
             <li>国内ブランド（FANCL BRAINs、Suntory）を選択すれば、輸入手続きや関税の問題を回避できる</li>
           </ul>
           <p className="text-gray-700 leading-relaxed">
-            当サイトの{' '}
+            当サイトの
             <Link href="/ja/best-nootropics/" className="text-green-700 underline">日本向けノートロピクスランキング</Link>
-            {' '}では、製品品質に加えて輸入の簡便さや国内入手可能性も評価軸としています。
+            では、製品品質に加えて輸入の簡便さや国内入手可能性も評価軸としています。
           </p>
         </section>
 

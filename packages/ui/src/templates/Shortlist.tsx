@@ -171,7 +171,7 @@ export default function Shortlist({
       sidebarMeta={`${products.length} products`}
     >
       {/* Outside the hydration gate below, so it is in the static HTML. */}
-      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} scope={DISCLOSURE_SCOPE} />
+      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} scope={DISCLOSURE_SCOPE} space={uiStrings.typography.space} />
       <div className="px-7 pt-7 pb-10">
         {!hydrated ? (
           <Card padding={28}>
@@ -260,7 +260,7 @@ export default function Shortlist({
             )}
 
             {/* Inline disclosure directly above the first "Visit" buy link. */}
-            <FPTrustNote strings={uiStrings.disclosure} scope={DISCLOSURE_SCOPE} className="mb-3" />
+            <FPTrustNote strings={uiStrings.disclosure} scope={DISCLOSURE_SCOPE} className="mb-3" space={uiStrings.typography.space} />
 
             {/* Saved cards */}
             <div className="flex flex-col gap-3">

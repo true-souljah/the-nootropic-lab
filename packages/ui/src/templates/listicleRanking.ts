@@ -1,5 +1,5 @@
 import { dosingAnchorFor, purchaseLinkBlock, type IngredientDosage, type NoPurchaseLinkReason, type Product, type UIStrings } from '@nootropic/data';
-import { tpl } from '../templateStrings';
+import { tpl, tplLink } from '../templateStrings';
 
 type ListicleStrings = UIStrings['listicle'];
 
@@ -154,9 +154,14 @@ export function splitListiclePicks<T extends SplittablePick>(
   return { ranked, alsoConsidered };
 }
 
-/** The "How we choose" rule with the bar interpolated from LISTICLE_MIN_SCORE. */
-export function howWeChooseText(s: Pick<ListicleStrings, 'howWeChooseBody'>): string {
-  return tpl(s.howWeChooseBody, { minScore: formatListicleScore(LISTICLE_MIN_SCORE) });
+/**
+ * The "How we choose" rule with the bar interpolated from LISTICLE_MIN_SCORE,
+ * split at {link}: the template renders `before`, the methodology link, then
+ * `after` (tplLink), so each language words the sentence around the link and
+ * closes it (en "… Read our {link}.", ja "…詳しくは当サイトの{link}をご覧ください。").
+ */
+export function howWeChooseParts(s: Pick<ListicleStrings, 'howWeChooseBody'>): { before: string; after: string } {
+  return tplLink(s.howWeChooseBody, { minScore: formatListicleScore(LISTICLE_MIN_SCORE) });
 }
 
 /** "Scores 6.6/10 — below our 7.0 bar" for one also-considered product. */

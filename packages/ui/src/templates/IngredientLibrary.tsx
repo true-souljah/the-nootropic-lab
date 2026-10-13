@@ -148,7 +148,7 @@ export default function IngredientLibrary({
         {visible.length === 0 ? (
           <Card padding={28}>
             <p className="text-[13px] text-ds-muted text-center m-0">
-              {tpl(s.empty, { grade })}{' '}
+              {tpl(s.empty, { grade })}{uiStrings.typography.space}
               <button
                 type="button"
                 onClick={() => setGrade('All')}

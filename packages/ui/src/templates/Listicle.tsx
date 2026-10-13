@@ -19,7 +19,7 @@ import type { Product, RelatedGuideUseCase, UIStrings } from '@nootropic/data';
 import { tpl } from '../templateStrings';
 import {
   alsoConsideredText,
-  howWeChooseText,
+  howWeChooseParts,
   notRankedReason,
   splitListiclePicks,
   type ListicleEvidenceIngredients,
@@ -133,6 +133,7 @@ export default function Listicle({
 }: ListicleProps) {
   const s = uiStrings.listicle;
   const pd = uiStrings.productDetail;
+  const space = uiStrings.typography.space;
   const home = uiStrings.breadcrumb.home;
   const currentYear = TODAY.getFullYear();
   const slugUrl = `${siteUrl}${pagePath}`;
@@ -150,6 +151,7 @@ export default function Listicle({
   // "Also considered" with the rule they fail.
   const { ranked, alsoConsidered } = splitListiclePicks(picks, ingredientMechanism);
   const alsoConsideredCopy = alsoConsideredText(s, alsoConsidered);
+  const howWeChoose = howWeChooseParts(s);
   // Only ranked picks render a buy link ("Also considered" has none).
   const disclosureScope = pageDisclosureScope(ranked.map((pick) => pick.product));
 
@@ -197,7 +199,7 @@ export default function Listicle({
       <a href="#main-content" tabIndex={0} className="ds-skip-link">
         {uiStrings.nav.skipToContent}
       </a>
-      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} scope={disclosureScope} />
+      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} scope={disclosureScope} space={space} />
       <FPHeader searchItems={searchItems} strings={uiStrings} />
 
       <main id="main-content" className="max-w-[1200px] mx-auto px-6 pt-7">
@@ -236,7 +238,7 @@ export default function Listicle({
               {heroParagraph}
             </p>
 
-            <FPByline updated={updatedDisplay} minutes={readMinutes} strings={uiStrings.byline} />
+            <FPByline updated={updatedDisplay} minutes={readMinutes} strings={uiStrings.byline} space={space} />
 
             <aside
               role="note"
@@ -274,7 +276,7 @@ export default function Listicle({
                 {tpl(s.ourPicksFor, { useCase: s.useCaseLabels[useCase] ?? useCase })}
               </h2>
               <p className="text-[14px] text-ds-muted mb-4">{s.picksIntro}</p>
-              <FPTrustNote strings={uiStrings.disclosure} scope={disclosureScope} className="mb-6" />
+              <FPTrustNote strings={uiStrings.disclosure} scope={disclosureScope} className="mb-6" space={space} />
 
               <div className="flex flex-col gap-5">
                 {ranked.map((pick) => {
@@ -306,7 +308,7 @@ export default function Listicle({
                         <div className="text-[12.5px] text-ds-muted mb-4 ds-tabular">
                           {price && (
                             <>
-                              {price.short} · {servingAmount(pick.product, uiStrings)} · {guaranteeDays(pick.product.moneyBackDays, (d) => tpl(s.moneyBackDays, { days: d }))} {s.moneyBackLabel}
+                              {price.short} · {servingAmount(pick.product, uiStrings)} · {guaranteeDays(pick.product.moneyBackDays, (d) => tpl(s.moneyBackDays, { days: d }))}{space}{s.moneyBackLabel}
                             </>
                           )}
                         </div>
@@ -315,7 +317,7 @@ export default function Listicle({
                         <div className="grid gap-6 items-start grid-cols-1 md:grid-cols-[1fr_220px]">
                           <div>
                             <p className="text-[14px] leading-[1.6] text-ds-ink-soft m-0">
-                              <strong className="text-ds-ink">{s.whyItsHere}</strong> {pick.whyItsHere}
+                              <strong className="text-ds-ink">{s.whyItsHere}</strong>{space}{pick.whyItsHere}
                             </p>
                             <div className="flex gap-3 flex-wrap mt-4">
                               <TrackedAffiliateLink
@@ -462,7 +464,7 @@ export default function Listicle({
             </section>
 
             {sources && sources.length > 0 && (
-              <Sources sources={sources} heading={uiStrings.guide.sources} expandLabel={uiStrings.guide.expand} />
+              <Sources sources={sources} heading={uiStrings.guide.sources} expandLabel={uiStrings.guide.expand} space={space} />
             )}
 
             <Card
@@ -473,11 +475,11 @@ export default function Listicle({
             >
               <h2 className="text-[18px] font-bold text-ds-ink mb-2">{s.howWeChoose}</h2>
               <p className="text-[14px] leading-[1.6] text-ds-ink-soft mb-3">
-                {howWeChooseText(s)}{' '}
+                {howWeChoose.before}
                 <Link href="/methodology/" className="text-ds-accent underline">
                   {s.fullMethodology}
                 </Link>
-                .
+                {howWeChoose.after}
               </p>
               <Link
                 href={`${listicleHref}/`}

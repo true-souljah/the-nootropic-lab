@@ -1,11 +1,11 @@
 import { describe, test, expect, vi, afterEach } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { createElement, type ReactElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { REGION_PROFILES, getStrings, ingredients, productsUS, type Locale } from '@nootropic/data';
 import ComparisonTable from './ComparisonTable';
-import { tpl } from './templateStrings';
+import { tpl, tplLink } from './templateStrings';
 
 // 2026-10-12, phase 1 of the JP/LATAM translation ("chrome now, bodies next"):
 // the shared templates (listicle, best-of, comparator, ingredient library and
@@ -103,7 +103,7 @@ const PLACEHOLDERS: Record<string, string[]> = {
   'byline.readTime': ['{minutes}'],
   'listicle.ourPicksFor': ['{useCase}'],
   'listicle.checkProduct': ['{name}'],
-  'listicle.howWeChooseBody': ['{minScore}'],
+  'listicle.howWeChooseBody': ['{minScore}', '{link}'],
   'listicle.backToBest': ['{year}'],
   'listicle.alsoConsideredHeading': ['{minScore}'],
   'listicle.alsoConsideredIntro': ['{minScore}'],
@@ -276,7 +276,7 @@ const APPS = join(UI_SRC, '..', '..', '..', 'apps');
  * is built at runtime so `tsc -p packages/ui` does not pull app files (with
  * their `@/…` paths) into its program; vitest.config.ts resolves `@/…` per app.
  */
-async function renderPage(region: 'jp' | 'latam', route: string, props: object = {}): Promise<string> {
+async function renderPage(region: 'jp' | 'latam' | 'us', route: string, props: object = {}): Promise<string> {
   vi.stubEnv('NEXT_PUBLIC_REGION', region);
   const mod = (await import(/* @vite-ignore */ join(APPS, region, 'src', 'app', route, 'page.tsx'))) as PageModule;
   const element = await mod.default(props);
@@ -495,6 +495,165 @@ describe('LATAM pages render their chrome in Spanish', () => {
     expect(html).toContain(es.table.product);
     expect(html).toContain(`aria-label="${tpl(es.table.sortAria, { column: es.table.sortColumns.moneyBack })}"`);
     expectNoEnglishChrome(html, 'es comparison table');
+  });
+});
+
+// ── Locale typography: what goes between translated pieces (2026-10-13) ──────
+//
+// Japanese punctuation (。、：) carries its own spacing, and Japanese puts no
+// space between words or around a link. The JP host showed
+// "…詳しくは当サイトの 評価方法の全文." (a space before the methodology link, a
+// Latin full stop after it), "更新日 <date>", "販売： FANCL", "最終全面監査:".
+// A sentence around a link now comes whole from the locale ({link}); every
+// other join reads uiStrings.typography (colon, space).
+
+describe('locale typography', () => {
+  test.each([
+    ['en', ': ', ' '],
+    ['es', ': ', ' '],
+    ['pt', ': ', ' '],
+    ['de', ': ', ' '],
+    ['fr', '\u00a0: ', ' '],
+    ['fr-CA', '\u00a0: ', ' '],
+    ['ja', '：', ''],
+  ] as const)('%s joins', (locale, colon, space) => {
+    expect(getStrings(locale).typography).toEqual({ colon, space });
+  });
+
+  test.each(ALL_LOCALES)('%s: "How we choose" places the link once and closes its own sentence', (locale) => {
+    const body = getStrings(locale).listicle.howWeChooseBody;
+    expect(body.split('{link}'), locale).toHaveLength(2);
+    const { before, after } = tplLink(body, { minScore: '7.0' });
+    expect(after, locale).toMatch(locale === 'ja' ? /^をご覧ください。$/ : /^\.$/);
+    expect(before, locale).toMatch(locale === 'ja' ? /当サイトの$/ : /\S $/);
+  });
+
+  test('no ja string ends in a Latin colon or full stop, or in a space', () => {
+    // noPurchaseLink is the English bundle on purpose (purchase-link.ts, site-owner decision 2026-10-08).
+    const { noPurchaseLink: _english, ...ja } = getStrings('ja');
+    const bad = leaves(ja, 'ja').filter(([, v]) => /[:.]$|\s$/.test(v));
+    expect(bad).toEqual([]);
+  });
+});
+
+/** Joins that are wrong in Japanese, as they show in rendered HTML. */
+const JA_CHAR = '[぀-ヿ一-鿿]';
+const JA_JOIN_ERRORS: Array<[string, RegExp]> = [
+  ['a space after 。、：', /[。、：](?:<\/(?:strong|span|b)>)? +/],
+  ['a space between Japanese text and a link, date, value or button', new RegExp(`${JA_CHAR} +<(?:a|time|strong|button)\\b`)],
+  ['a space between an element and Japanese text', new RegExp(`</(?:a|time|strong|span|button)> +${JA_CHAR}`)],
+  ['a Latin colon after Japanese text', new RegExp(`${JA_CHAR}(?:</(?:strong|span|b)>)?:`)],
+  ['a Latin full stop after a Japanese link', new RegExp(`${JA_CHAR}</a>\\.`)],
+];
+
+function jaJoinErrors(html: string): string[] {
+  const body = html.replace(/<script\b[\s\S]*?<\/script>|<style\b[\s\S]*?<\/style>/g, ' ');
+  return JA_JOIN_ERRORS.flatMap(([name, re]) => {
+    const m = body.match(re);
+    return m ? [`${name}: …${body.slice(Math.max(0, m.index! - 40), m.index! + m[0].length + 40)}…`] : [];
+  });
+}
+
+describe('JP pages: no space or Latin punctuation around translated pieces', () => {
+  const ja = getStrings('ja');
+  // Outside the Next runtime, Link drops the trailing slash (trailingSlash lives in next.config).
+  const methodologyLink = `<a class="text-ds-accent underline" href="/methodology/?">${ja.listicle.fullMethodology}</a>`;
+
+  test('"How we choose": the methodology link sits inside the Japanese sentence', async () => {
+    const html = await renderPage('jp', 'best-nootropics-for-memory');
+    expect(html).toMatch(new RegExp(`詳しくは当サイトの${methodologyLink}をご覧ください。</p>`));
+    expect(html).not.toMatch(new RegExp(`${methodologyLink}\\.`));
+    expect(html).not.toMatch(/当サイトの\s+<a[^>]*href="\/methodology\/?"/);
+  });
+
+  test.each([
+    ['', {}],
+    ['about', {}],
+    ['methodology', {}],
+    ['guides', {}],
+    ['ingredients', {}],
+    ['prefectures', {}],
+    ['best-nootropics-for-memory', {}],
+    ['best-nootropics', {}],
+    ['nootropic-comparison', {}],
+    ['ingredients/[ingredient]', { params: Promise.resolve({ ingredient: 'ashwagandha' }) }],
+    ['guides/[guide]', { params: Promise.resolve({ guide: 'how-nootropics-work' }) }],
+    ['prefectures/[prefecture]', { params: Promise.resolve({ prefecture: 'tokyo' }) }],
+    ['[slug]', { params: Promise.resolve({ slug: 'fancl-brains-review' }) }],
+    ['ja', {}],
+    ['ja/best-nootropics', {}],
+    ['ja/hikaku', {}],
+    ['ja/yakkan-shoumei', {}],
+    ['ffc-notified-cognitive-supplements', {}],
+    ['japanese-brain-supplements', {}],
+  ] as const)('%s', async (route, props) => {
+    const html = await renderPage('jp', route, props);
+    expect(html.length).toBeGreaterThan(5000);
+    expect(jaJoinErrors(html)).toEqual([]);
+  });
+
+  test('the joins render as Japanese sets them', async () => {
+    const listicle = await renderPage('jp', 'best-nootropics-for-memory');
+    expect(listicle).toContain(`${ja.byline.updated}<time`);
+    expect(listicle).toContain(`${ja.listicle.whyItsHere}</strong>`);
+    expect(listicle).toMatch(new RegExp(`${ja.footer.lastAuditLabel}\\d`));
+    const ingredient = await renderPage('jp', 'ingredients/[ingredient]', { params: Promise.resolve({ ingredient: 'ashwagandha' }) });
+    expect(ingredient).toContain(`${ja.ingredientEvidence.evidenceReviewed}<time`);
+    expect(ingredient).toContain(`${ja.ingredientDetail.evidenceKey.label}<span aria-hidden="true">●●●</span>${ja.ingredientDetail.evidenceKey.strong}`);
+    expect(ingredient).toContain(`${ja.ingredientEvidence.sources}<span`);
+    const review = await renderPage('jp', '[slug]', { params: Promise.resolve({ slug: 'fancl-brains-review' }) });
+    expect(review).toContain(`${ja.productDetail.meta.by}FANCL`);
+    expect(review).toContain(`${ja.productDetail.meta.lastVerified}<time`);
+    const prefecture = await renderPage('jp', 'prefectures/[prefecture]', { params: Promise.resolve({ prefecture: 'tokyo' }) });
+    expect(prefecture).toContain(`${ja.geo.score}<strong`);
+    const hikaku = await renderPage('jp', 'ja/hikaku');
+    expect(hikaku).toContain(`${ja.disclosure.text}<a`);
+    expect(hikaku).toContain(`${ja.table.price}${ja.typography.colon}</span>`);
+  });
+});
+
+describe('en output is unchanged by the typography joins', () => {
+  test('"How we choose" (US listicle): "… Read our <link>." as before', async () => {
+    const html = await renderPage('us', 'best-nootropics-for-memory');
+    expect(html).toMatch(
+      /in our 5-pillar editorial audit\. Read our <a class="text-ds-accent underline" href="\/methodology\/?">full methodology<\/a>\.<\/p>/,
+    );
+    expect(html).toContain('Updated <time');
+    expect(html).toContain("Why it's here:</strong> ");
+    expect(html).toMatch(/Last full re-audit: \w/);
+  });
+
+  test('ingredient and review pages keep "label: value" and "By Brand"', async () => {
+    const ingredient = await renderPage('us', 'ingredients/[ingredient]', { params: Promise.resolve({ ingredient: 'ashwagandha' }) });
+    expect(ingredient).toContain('Evidence reviewed: <time');
+    expect(ingredient).toContain('Evidence key: <span aria-hidden="true">●●●</span> Strong');
+    expect(ingredient).toContain('Sources <span');
+    const table = text(renderToStaticMarkup(createElement(ComparisonTable, { products: productsUS, market: 'us', strings: getStrings('en') })));
+    expect(table).toContain('Price: </span>');
+    expect(table).toContain('Score <button');
+  });
+});
+
+describe('every JP-reachable caller passes the locale join to the components that join translated pieces', () => {
+  const JOINERS = ['FPDisclosure', 'FPTrustNote', 'FPByline', 'Sources', 'AffiliateDisclosure', 'StickyCtaBar'];
+  const files = [
+    ...readdirSync(join(UI_SRC, 'templates')).filter((f) => f.endsWith('.tsx')).map((f) => join(UI_SRC, 'templates', f)),
+    ...(readdirSync(join(APPS, 'jp', 'src'), { recursive: true }) as string[])
+      .filter((f) => f.endsWith('.tsx'))
+      .map((f) => join(APPS, 'jp', 'src', f)),
+  ];
+  const calls = files.flatMap((file) =>
+    [...readFileSync(file, 'utf8').matchAll(new RegExp(`<(${JOINERS.join('|')})\\b[\\s\\S]*?/>`, 'g'))].map((m) => ({ file, tag: m[0] })),
+  );
+
+  test('the scan is non-empty', () => {
+    expect(files.length).toBeGreaterThan(30);
+    expect(calls.length).toBeGreaterThan(20);
+  });
+
+  test('each call passes space= (English-only callers excepted)', () => {
+    const missing = calls.filter(({ tag }) => !/\bspace=/.test(tag) && !tag.includes("getStrings('en')"));
+    expect(missing.map(({ file, tag }) => `${file}: ${tag.slice(0, 80)}`)).toEqual([]);
   });
 });
 

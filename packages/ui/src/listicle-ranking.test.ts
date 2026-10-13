@@ -10,7 +10,7 @@ import {
   doseRuleReason,
   evidenceAtReferenceDose,
   formatListicleScore,
-  howWeChooseText,
+  howWeChooseParts,
   notRankedReason,
   splitListiclePicks,
   type ListicleEvidenceIngredients,
@@ -257,15 +257,15 @@ describe('the rule text and the also-considered copy render LISTICLE_MIN_SCORE',
     for (const key of ['belowBarReason', 'doseRuleReason', 'noPurchaseLinkReason'] as const) {
       expect(s[key], `${locale} ${key}`).toContain('{score}/10');
     }
-    expect(howWeChooseText(s)).toContain(`${BAR}/10`);
+    expect(howWeChooseParts(s).before).toContain(`${BAR}/10`);
   });
 
   it.each(LOCALES)('%s: "How we choose" states the bar from the constant', (locale) => {
     const s = getUseCaseListStrings(locale);
     expect(s.howWeChooseBody).toContain('{minScore}/10');
-    const text = howWeChooseText(s);
-    expect(text).toContain(`≥ ${BAR}/10`);
-    expect(text).not.toContain('{');
+    const { before, after } = howWeChooseParts(s);
+    expect(before).toContain(`≥ ${BAR}/10`);
+    expect(`${before}${after}`).not.toContain('{');
   });
 
   it.each(LOCALES)('%s: section heading, intro and reason line carry the bar (and the score)', (locale) => {
@@ -347,10 +347,10 @@ describe('the rule text and the also-considered copy render LISTICLE_MIN_SCORE',
 describe('Listicle template wiring', () => {
   const src = readFileSync(join(UI_SRC, 'templates', 'Listicle.tsx'), 'utf8');
 
-  it('splits the picks once, against the page’s evidence cards, and renders the rule through howWeChooseText', () => {
+  it('splits the picks once, against the page’s evidence cards, and renders the rule through howWeChooseParts', () => {
     expect(src).toContain('splitListiclePicks(picks, ingredientMechanism)');
     expect(src.match(/splitListiclePicks\(/g)).toHaveLength(1);
-    expect(src).toContain('howWeChooseText(s)');
+    expect(src).toContain('howWeChooseParts(s)');
     expect(src).not.toContain('s.howWeChooseBody');
     // Nothing else enumerates the raw picks (cards, TOC, ItemList read `ranked`).
     expect(src).not.toMatch(/\bpicks\.(map|length|sort|filter|forEach|slice)\b|\.\.\.picks\b/);

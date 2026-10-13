@@ -152,7 +152,7 @@ export default function BestOf({
       uiStrings={uiStrings}
       sidebarMeta={tpl(uiStrings.nav.productCount, { n: products.length })}
     >
-      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} scope={disclosureScope} />
+      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} scope={disclosureScope} space={uiStrings.typography.space} />
       <div className="px-4 sm:px-7 pt-7 pb-10">
         {/* Header */}
         <div className="flex justify-between items-end mb-[18px] flex-wrap gap-4">
@@ -198,7 +198,7 @@ export default function BestOf({
 
         {/* Inline disclosure + ranking statement + methodology link, directly
             above the first affiliate CTA (preList spotlight or ranked rows). */}
-        <FPTrustNote strings={uiStrings.disclosure} scope={disclosureScope} className="mb-[18px]" />
+        <FPTrustNote strings={uiStrings.disclosure} scope={disclosureScope} className="mb-[18px]" space={uiStrings.typography.space} />
 
         {preList && <div className="mb-8">{preList}</div>}
 

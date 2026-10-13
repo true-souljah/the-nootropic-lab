@@ -109,7 +109,7 @@ export default function Page() {
           <span className="text-gray-700">{uiStrings.productDetail.meta.reviewedBy}</span>
           <span>·</span>
           <span>
-            {uiStrings.productDetail.meta.lastVerified}{' '}
+            {uiStrings.productDetail.meta.lastVerified}{uiStrings.typography.space}
             <time dateTime={VERIFIED_ON}>
               {new Date(`${VERIFIED_ON}T00:00:00Z`).toLocaleDateString(uiStrings.productDetail.dateLocale, { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
             </time>
@@ -351,6 +351,7 @@ export default function Page() {
           defaultOpen
           heading={uiStrings.guide.sources}
           expandLabel={uiStrings.guide.expand}
+          space={uiStrings.typography.space}
           sources={[
             { type: '規制当局', label: 'Consumer Affairs Agency (消費者庁) — Foods with Function Claims (機能性表示食品)', url: 'https://www.caa.go.jp/policies/policy/food_labeling/foods_with_function_claims/' },
             { type: '規制当局', label: 'Consumer Affairs Agency — food labelling overview in English (FFC and FOSHU terminology, PDF)', url: 'https://www.caa.go.jp/en/policy/food_labeling/assets/food_labeling_cms206_241210_22.pdf' },

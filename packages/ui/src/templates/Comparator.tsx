@@ -230,7 +230,7 @@ export default function Comparator({
     >
       {/* The comparator renders no buy link (rows and the compare card link to
           review pages), so the strip carries the site-level line. */}
-      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings?.disclosure} scope="site" />
+      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings?.disclosure} scope="site" space={uiStrings?.typography.space} />
       {/* When the mobile filter sheet is open, `inert` removes everything
           else from tab order + AT focus — keyboard users can't escape the
           dialog into obscured content. */}
@@ -362,7 +362,7 @@ export default function Comparator({
             {rows.length === 0 ? (
               <div role="row" aria-rowindex={2}>
                 <div role="gridcell" className="p-9 text-center text-ds-muted text-[13px]">
-                  {cs.noMatch}{' '}
+                  {cs.noMatch}{uiStrings.typography.space}
                   <button
                     type="button"
                     onClick={reset}

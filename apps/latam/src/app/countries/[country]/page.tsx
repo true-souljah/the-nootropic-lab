@@ -114,7 +114,7 @@ export default async function CountryPage({
                   </div>
                   <p className="text-sm text-gray-600 mb-2 line-clamp-2">{product.summary}</p>
                   <div className="flex flex-wrap gap-3 text-xs text-gray-500">
-                    <span>{uiStrings.geo.score} <strong className={SCORE_TIER_TEXT_CLASS[scoreTier(product.score)]}>{`${product.score}/10`}</strong></span>
+                    <span>{uiStrings.geo.score}{uiStrings.typography.space}<strong className={SCORE_TIER_TEXT_CLASS[scoreTier(product.score)]}>{`${product.score}/10`}</strong></span>
                     {priceText(product, uiStrings) && <span>{priceText(product, uiStrings)!.short}</span>}
                   </div>
                 </div>

@@ -99,7 +99,7 @@ export default function Page() {
         <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 mb-4">
           <span className="text-gray-700">{uiStrings.productDetail.meta.reviewedBy}</span>
           <span>·</span>
-          <span>{`${uiStrings.productDetail.meta.updated} ${new Date().toLocaleDateString(uiStrings.productDetail.dateLocale, { year: 'numeric', month: 'long', day: 'numeric' })}`}</span>
+          <span>{`${uiStrings.productDetail.meta.updated}${uiStrings.typography.space}${new Date().toLocaleDateString(uiStrings.productDetail.dateLocale, { year: 'numeric', month: 'long', day: 'numeric' })}`}</span>
         </div>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
@@ -131,9 +131,9 @@ export default function Page() {
               <div key={c.category} className="border border-gray-200 rounded-xl p-5">
                 <h3 className="font-bold text-gray-900 mb-1">{c.category}</h3>
                 <p className="text-sm text-gray-500 mb-2">{c.categoryJa}</p>
-                <p className="text-sm text-gray-700 leading-relaxed mb-2"><strong>根拠の水準：</strong> {c.burden}</p>
-                <p className="text-sm text-gray-700 leading-relaxed mb-2"><strong>表示できる範囲：</strong> {c.scope}</p>
-                <p className="text-xs text-gray-500"><strong>例：</strong> {c.examples}</p>
+                <p className="text-sm text-gray-700 leading-relaxed mb-2"><strong>根拠の水準：</strong>{c.burden}</p>
+                <p className="text-sm text-gray-700 leading-relaxed mb-2"><strong>表示できる範囲：</strong>{c.scope}</p>
+                <p className="text-xs text-gray-500"><strong>例：</strong>{c.examples}</p>
               </div>
             ))}
           </div>
@@ -195,6 +195,7 @@ export default function Page() {
           defaultOpen
           heading="規制に関する出典"
           expandLabel={uiStrings.guide.expand}
+          space={uiStrings.typography.space}
           sources={[
             { type: '規制', label: 'Consumer Affairs Agency (消費者庁) — Foods with Function Claims', url: 'https://www.caa.go.jp/policies/policy/food_labeling/foods_with_function_claims/' },
             { type: '規制', label: 'CAA — FFC notification database (届出情報検索)', url: 'https://www.caa.go.jp/policies/policy/food_labeling/foods_with_function_claims/search/' },

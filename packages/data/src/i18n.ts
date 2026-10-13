@@ -666,7 +666,11 @@ export interface UIStrings {
     readFullReview: string;
     faqHeading: string;
     howWeChoose: string;
-    /** "How we choose" body; {minScore} is LISTICLE_MIN_SCORE (never a typed number). */
+    /**
+     * "How we choose" body; {minScore} is LISTICLE_MIN_SCORE (never a typed
+     * number). {link} is where the `fullMethodology` link goes, so each
+     * language places it and closes the sentence itself.
+     */
     howWeChooseBody: string;
     /** Inline link text to /methodology/. */
     fullMethodology: string;
@@ -834,6 +838,17 @@ export interface UIStrings {
     saved: string;
     saveAria: string;
     removeAria: string;
+  };
+  /**
+   * How the templates join translated pieces in this language. Japanese
+   * punctuation (。、：) carries its own spacing, so ja adds no space; French
+   * puts a no-break space before a colon.
+   */
+  typography: {
+    /** Between a bare label and its value ("Price: $69"; ja "価格：$69"; fr "Prix : 69 $"). */
+    colon: string;
+    /** Between a sentence, or a label that ends in its own punctuation, and what follows it (a value, link, button or count). Empty in ja. */
+    space: string;
   };
 }
 
@@ -1302,7 +1317,7 @@ const en: UIStrings = {
     faqHeading: 'Frequently asked questions',
     howWeChoose: 'How we choose',
     howWeChooseBody:
-      'Every pick must (a) include at least one ingredient with peer-reviewed evidence for the use case, (b) dose that ingredient at or near the clinical-trial dose, and (c) score ≥ {minScore}/10 in our 5-pillar editorial audit. Read our',
+      'Every pick must (a) include at least one ingredient with peer-reviewed evidence for the use case, (b) dose that ingredient at or near the clinical-trial dose, and (c) score ≥ {minScore}/10 in our 5-pillar editorial audit. Read our {link}.',
     fullMethodology: 'full methodology',
     backToBest: '← Back to Best Nootropics {year}',
     alsoConsideredHeading: 'Also considered — below our {minScore} bar',
@@ -1416,6 +1431,7 @@ const en: UIStrings = {
     saveAria: 'Save to shortlist',
     removeAria: 'Remove from shortlist',
   },
+  typography: { colon: ': ', space: ' ' },
 };
 
 const es: UIStrings = {
@@ -1883,13 +1899,13 @@ const es: UIStrings = {
     picksIntro:
       'Clasificadas según qué tan bien cada producto coincide con la evidencia anterior + nuestra auditoría editorial de 5 pilares.',
     topPick: 'Mejor opción',
-    whyItsHere: '¿Por qué está aquí?:',
+    whyItsHere: '¿Por qué está aquí?',
     checkProduct: 'Ver {name} →',
     readFullReview: 'Leer reseña completa',
     faqHeading: 'Preguntas frecuentes',
     howWeChoose: 'Cómo elegimos',
     howWeChooseBody:
-      'Cada selección debe (a) incluir al menos un ingrediente con evidencia revisada por expertos para el caso de uso, (b) dosificar ese ingrediente en o cerca de la dosis del ensayo clínico, y (c) obtener una puntuación ≥ {minScore}/10 en nuestra auditoría editorial de 5 pilares. Lea nuestra',
+      'Cada selección debe (a) incluir al menos un ingrediente con evidencia revisada por expertos para el caso de uso, (b) dosificar ese ingrediente en o cerca de la dosis del ensayo clínico, y (c) obtener una puntuación ≥ {minScore}/10 en nuestra auditoría editorial de 5 pilares. Lea nuestra {link}.',
     fullMethodology: 'metodología completa',
     backToBest: '← Volver a Mejores Nootrópicos {year}',
     alsoConsideredHeading: 'También evaluados — por debajo de nuestro umbral de {minScore}',
@@ -2008,6 +2024,7 @@ const es: UIStrings = {
     saveAria: 'Añadir a mi preselección',
     removeAria: 'Quitar de mi preselección',
   },
+  typography: { colon: ': ', space: ' ' },
 };
 
 const fr: UIStrings = {
@@ -2480,7 +2497,7 @@ const fr: UIStrings = {
     faqHeading: 'Questions fréquentes',
     howWeChoose: 'Notre méthode de sélection',
     howWeChooseBody:
-      'Chaque choix doit (a) contenir au moins un ingrédient appuyé par des données évaluées par des pairs pour cet usage, (b) doser cet ingrédient à la dose des essais cliniques ou à une dose proche, et (c) obtenir une note ≥ {minScore}/10 dans notre audit éditorial en 5 piliers. Lisez notre',
+      'Chaque choix doit (a) contenir au moins un ingrédient appuyé par des données évaluées par des pairs pour cet usage, (b) doser cet ingrédient à la dose des essais cliniques ou à une dose proche, et (c) obtenir une note ≥ {minScore}/10 dans notre audit éditorial en 5 piliers. Lisez notre {link}.',
     fullMethodology: 'méthodologie complète',
     backToBest: '← Retour aux meilleurs nootropiques {year}',
     alsoConsideredHeading: 'Également examinés — sous notre seuil de {minScore}',
@@ -2599,6 +2616,8 @@ const fr: UIStrings = {
     saveAria: 'Ajouter à ma présélection',
     removeAria: 'Retirer de ma présélection',
   },
+  // No-break space before the colon (French typography).
+  typography: { colon: '\u00a0: ', space: ' ' },
 };
 
 const ja: UIStrings = {
@@ -2641,7 +2660,7 @@ const ja: UIStrings = {
       '各ノートロピクスのラベル記載用量を、当サイトの成分ページの基準用量（ある場合）と照合しています。アフィリエイト報酬はインラインで開示され、評価には影響しません。',
     copyrightLine:
       '© {year} Nootropic Lab · 情報は医学的助言ではありません。サプリメントを開始する前に医師に相談してください。',
-    lastAuditLabel: '最終全面監査:',
+    lastAuditLabel: '最終全面監査：',
     methodologyLabel: '評価方法',
     bestByGoal: {
       heading: '目的別ベスト',
@@ -2831,7 +2850,7 @@ const ja: UIStrings = {
   },
   ingredientEvidence: {
     sources: '出典',
-    evidenceReviewed: 'エビデンス確認日:',
+    evidenceReviewed: 'エビデンス確認日：',
   },
   productDetail: {
     chips: {
@@ -3045,7 +3064,7 @@ const ja: UIStrings = {
   byline: {
     attribution: '執筆：The Nootropic Lab 編集チーム',
     factChecked: '✓ ファクトチェック済み',
-    updated: '更新日',
+    updated: '更新日：',
     readTime: '{minutes}分で読めます',
   },
   listicle: {
@@ -3066,7 +3085,7 @@ const ja: UIStrings = {
     faqHeading: 'よくある質問',
     howWeChoose: '選定方法',
     howWeChooseBody:
-      '掲載する製品は、(a) その用途について査読済みのエビデンスがある成分を少なくとも1つ含み、(b) その成分を臨床試験の用量またはそれに近い用量で配合し、(c) 当サイトの5本柱の編集監査で{minScore}/10以上のスコアを得ている必要があります。詳しくは当サイトの',
+      '掲載する製品は、(a) その用途について査読済みのエビデンスがある成分を少なくとも1つ含み、(b) その成分を臨床試験の用量またはそれに近い用量で配合し、(c) 当サイトの5本柱の編集監査で{minScore}/10以上のスコアを得ている必要があります。詳しくは当サイトの{link}をご覧ください。',
     fullMethodology: '評価方法の全文',
     backToBest: '← {year}年のベストノートロピクスに戻る',
     alsoConsideredHeading: '比較検討した製品 — 基準の{minScore}未満',
@@ -3185,6 +3204,8 @@ const ja: UIStrings = {
     saveAria: '候補リストに追加',
     removeAria: '候補リストから削除',
   },
+  // Full-width punctuation carries its own spacing: no space after 。、：.
+  typography: { colon: '：', space: '' },
 };
 
 const pt: UIStrings = {
@@ -3657,7 +3678,7 @@ const pt: UIStrings = {
     faqHeading: 'Perguntas frequentes',
     howWeChoose: 'Como escolhemos',
     howWeChooseBody:
-      'Cada escolha tem de (a) incluir pelo menos um ingrediente com evidência revista por pares para o caso de uso, (b) dosear esse ingrediente na dose dos ensaios clínicos ou perto dela, e (c) obter uma pontuação ≥ {minScore}/10 na nossa auditoria editorial de 5 pilares. Leia a nossa',
+      'Cada escolha tem de (a) incluir pelo menos um ingrediente com evidência revista por pares para o caso de uso, (b) dosear esse ingrediente na dose dos ensaios clínicos ou perto dela, e (c) obter uma pontuação ≥ {minScore}/10 na nossa auditoria editorial de 5 pilares. Leia a nossa {link}.',
     fullMethodology: 'metodologia completa',
     backToBest: '← Voltar aos melhores nootrópicos {year}',
     alsoConsideredHeading: 'Também avaliados — abaixo do nosso limiar de {minScore}',
@@ -3776,6 +3797,7 @@ const pt: UIStrings = {
     saveAria: 'Adicionar à minha pré-seleção',
     removeAria: 'Remover da minha pré-seleção',
   },
+  typography: { colon: ': ', space: ' ' },
 };
 
 const de: UIStrings = {
@@ -4248,7 +4270,7 @@ const de: UIStrings = {
     faqHeading: 'Häufig gestellte Fragen',
     howWeChoose: 'So wählen wir aus',
     howWeChooseBody:
-      'Jede Empfehlung muss (a) mindestens einen Inhaltsstoff mit von Fachleuten begutachteter Evidenz für den Anwendungszweck enthalten, (b) diesen Inhaltsstoff in oder nahe der Dosis der klinischen Studien dosieren und (c) in unserem redaktionellen 5-Säulen-Audit ≥ {minScore}/10 erreichen. Lesen Sie unsere',
+      'Jede Empfehlung muss (a) mindestens einen Inhaltsstoff mit von Fachleuten begutachteter Evidenz für den Anwendungszweck enthalten, (b) diesen Inhaltsstoff in oder nahe der Dosis der klinischen Studien dosieren und (c) in unserem redaktionellen 5-Säulen-Audit ≥ {minScore}/10 erreichen. Lesen Sie unsere {link}.',
     fullMethodology: 'vollständige Methodik',
     backToBest: '← Zurück zu Beste Nootropika {year}',
     alsoConsideredHeading: 'Ebenfalls geprüft – unter unserer Schwelle von {minScore}',
@@ -4367,6 +4389,7 @@ const de: UIStrings = {
     saveAria: 'Zur Auswahlliste hinzufügen',
     removeAria: 'Von der Auswahlliste entfernen',
   },
+  typography: { colon: ': ', space: ' ' },
 };
 
 // Quebec French (fr-CA). Generated by /tmp/translate-frca-uistrings.mts (Claude
@@ -4840,7 +4863,7 @@ const frCa: UIStrings = {
     faqHeading: 'Questions fréquentes',
     howWeChoose: 'Comment nous choisissons',
     howWeChooseBody:
-      'Chaque choix doit (a) contenir au moins un ingrédient appuyé par des données probantes révisées par des pairs pour cet usage, (b) doser cet ingrédient à la dose des essais cliniques ou près de celle-ci, et (c) obtenir un score ≥ {minScore}/10 dans notre vérification éditoriale en 5 piliers. Consultez notre',
+      'Chaque choix doit (a) contenir au moins un ingrédient appuyé par des données probantes révisées par des pairs pour cet usage, (b) doser cet ingrédient à la dose des essais cliniques ou près de celle-ci, et (c) obtenir un score ≥ {minScore}/10 dans notre vérification éditoriale en 5 piliers. Consultez notre {link}.',
     fullMethodology: 'méthodologie complète',
     backToBest: '← Retour aux meilleurs nootropiques {year}',
     alsoConsideredHeading: 'Également examinés — sous notre seuil de {minScore}',
@@ -4959,6 +4982,8 @@ const frCa: UIStrings = {
     saveAria: 'Ajouter à ma présélection',
     removeAria: 'Retirer de ma présélection',
   },
+  // No-break space before the colon (French typography).
+  typography: { colon: '\u00a0: ', space: ' ' },
 };
 
 const translations: Record<Locale, UIStrings> = { en, es, fr, ja, pt, de, 'fr-CA': frCa };

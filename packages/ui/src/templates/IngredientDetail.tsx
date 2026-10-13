@@ -66,6 +66,7 @@ export default function IngredientDetail({
 }: IngredientDetailProps) {
   const t = uiStrings.ingredientDetail;
   const te = uiStrings.ingredientEvidence;
+  const space = uiStrings.typography.space;
   const tocSections = [
     { id: 'mechanism', label: t.toc.mechanism },
     { id: 'evidence', label: t.toc.evidence },
@@ -157,7 +158,7 @@ export default function IngredientDetail({
       </a>
       {/* Ingredient pages render no buy link (product cards link to review
           pages), so the strip carries the site-level line. */}
-      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} scope="site" />
+      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} scope="site" space={space} />
       <FPHeader searchItems={searchItems} strings={uiStrings} />
 
       <main id="main-content" className="max-w-[1100px] mx-auto px-6 pt-7">
@@ -190,9 +191,9 @@ export default function IngredientDetail({
               {ing.studySummary}
             </p>
 
-            <FPByline updated={updatedDisplay} minutes={readMinutes} strings={uiStrings.byline} />
+            <FPByline updated={updatedDisplay} minutes={readMinutes} strings={uiStrings.byline} space={space} />
             <p className="text-[12.5px] text-ds-muted mt-2 mb-0">
-              {te.evidenceReviewed}{' '}
+              {te.evidenceReviewed}{space}
               <time dateTime={ing.evidenceReviewedAt}>{evidenceReviewedDisplay}</time>
             </p>
 
@@ -233,7 +234,7 @@ export default function IngredientDetail({
                             <td className="px-4 py-3 font-semibold text-ds-ink">{effect.effect}</td>
                             <td className="px-4 py-3">
                               <Chip tone={ev.tone}>
-                                <span aria-hidden="true">{ev.dots}</span>{' '}
+                                <span aria-hidden="true">{ev.dots}</span>{space}
                                 {t.evidenceStrength[effect.evidenceStrength]}
                               </Chip>
                             </td>
@@ -258,11 +259,11 @@ export default function IngredientDetail({
                 </div>
               </Card>
               <p className="text-[11.5px] text-ds-muted mt-2">
-                {t.evidenceKey.label}{' '}
-                <span aria-hidden="true">●●●</span> {t.evidenceKey.strong} ·{' '}
-                <span aria-hidden="true">●●○</span> {t.evidenceKey.moderate} ·{' '}
-                <span aria-hidden="true">●○○</span> {t.evidenceKey.preliminary} ·{' '}
-                <span aria-hidden="true">◐◐○</span> {t.evidenceKey.mixed}
+                {t.evidenceKey.label}{space}
+                <span aria-hidden="true">●●●</span>{space}{t.evidenceKey.strong} ·{' '}
+                <span aria-hidden="true">●●○</span>{space}{t.evidenceKey.moderate} ·{' '}
+                <span aria-hidden="true">●○○</span>{space}{t.evidenceKey.preliminary} ·{' '}
+                <span aria-hidden="true">◐◐○</span>{space}{t.evidenceKey.mixed}
               </p>
             </section>
 
@@ -397,6 +398,7 @@ export default function IngredientDetail({
             <Sources
               heading={te.sources}
               expandLabel={uiStrings.guide.expand}
+              space={space}
               sources={ing.sources.map((s) => ({
                 label: `${s.title} (${s.year})`,
                 url: s.url,

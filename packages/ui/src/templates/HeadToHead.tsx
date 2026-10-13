@@ -18,6 +18,7 @@ import type { Product, UIStrings } from '@nootropic/data';
 import {
   headToHeadPageEnDefaults,
   tpl,
+  tplLink,
   type HeadToHeadPageStrings,
 } from '../templateStrings';
 import type { SearchItem } from '../SearchModal';
@@ -141,6 +142,8 @@ export default function HeadToHead({
   readMinutes = 9,
 }: HeadToHeadProps) {
   const s: HeadToHeadPageStrings = { ...headToHeadPageEnDefaults, ...strings };
+  const citationFooter = tplLink(s.citationFooter);
+  const space = uiStrings.typography.space;
   const currentYear = new Date().getFullYear();
   const today = new Date();
   const updatedDisplay = today.toLocaleDateString(uiStrings?.productDetail.dateLocale ?? 'en-US', {
@@ -274,7 +277,7 @@ export default function HeadToHead({
       <SchemaOrg schema={itemListSchema} />
       <SchemaOrg schema={breadcrumbSchema} />
 
-      <FPDisclosure methodologyHref={methodologyHref} strings={uiStrings.disclosure} scope={disclosureScope} />
+      <FPDisclosure methodologyHref={methodologyHref} strings={uiStrings.disclosure} scope={disclosureScope} space={space} />
       <a href="#main-content" tabIndex={0} className="ds-skip-link">
         {uiStrings?.nav.skipToContent ?? 'Skip to main content'}
       </a>
@@ -306,7 +309,7 @@ export default function HeadToHead({
           </p>
         </header>
 
-        <FPByline updated={updatedDisplay} minutes={readMinutes} strings={uiStrings.byline} />
+        <FPByline updated={updatedDisplay} minutes={readMinutes} strings={uiStrings.byline} space={space} />
 
         {healthDisclaimer && (
           <aside
@@ -319,7 +322,7 @@ export default function HeadToHead({
         )}
 
         {/* Inline disclosure directly above the first affiliate CTAs. */}
-        <FPTrustNote strings={uiStrings.disclosure} scope={disclosureScope} methodologyHref={methodologyHref} className="mt-6" />
+        <FPTrustNote strings={uiStrings.disclosure} scope={disclosureScope} methodologyHref={methodologyHref} className="mt-6" space={space} />
 
         {/* Two side cards + VS — stacks vertically on mobile */}
         <div className="grid gap-3 mt-6 items-stretch grid-cols-1 lg:grid-cols-[1fr_80px_1fr]">
@@ -483,8 +486,9 @@ export default function HeadToHead({
           </div>
         </Card>
         <p className="text-[12px] text-ds-muted mt-3 italic">
-          {s.citationFooter}{' '}
-          <Link href={methodologyHref} className="text-ds-accent underline">{s.methodologyLink}</Link>.
+          {citationFooter.before}
+          <Link href={methodologyHref} className="text-ds-accent underline">{s.methodologyLink}</Link>
+          {citationFooter.after}
         </p>
 
         {/* Score breakdown bars */}
@@ -568,7 +572,7 @@ export default function HeadToHead({
         <h2 className="text-[26px] font-bold tracking-[-0.02em] mt-11 mb-4">{s.faqHeading}</h2>
         <FaqAccordion items={faqItems} />
 
-        {sources && sources.length > 0 && <Sources sources={sources} />}
+        {sources && sources.length > 0 && <Sources sources={sources} space={space} />}
 
         {/* Read individual reviews */}
         <Card variant="subdued" padding={24} className="mt-11" style={{ borderLeftWidth: 3 }}>

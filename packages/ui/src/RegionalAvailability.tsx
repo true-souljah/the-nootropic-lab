@@ -56,7 +56,9 @@ export default function RegionalAvailability({
   const L = region.labels;
   // Licence line, regulator and geo-hub label in the host's language (each
   // region renders one locale), from the same strings as the review page.
-  const rb = getStrings(getLocaleForMarket(region.code)).productDetail.regionalBuying;
+  const hostStrings = getStrings(getLocaleForMarket(region.code));
+  const rb = hostStrings.productDetail.regionalBuying;
+  const colon = hostStrings.typography.colon;
   const heading = L.heading.replace('{name}', subjectName ?? L.genericSubject);
   const rows = products
     .slice()
@@ -100,7 +102,7 @@ export default function RegionalAvailability({
                   )}
                   {price && (
                     <span className="text-ds-muted ds-tabular">
-                      {L.price}: <strong className="text-ds-ink">{localPriceShort(price, L.monthUnit)}</strong>
+                      {L.price}{colon}<strong className="text-ds-ink">{localPriceShort(price, L.monthUnit)}</strong>
                     </span>
                   )}
                 </div>
@@ -142,7 +144,7 @@ export default function RegionalAvailability({
 
       {note?.sources && note.sources.length > 0 && (
         <p className="text-[12px] text-ds-muted mt-4 mb-0">
-          {L.sources}:{' '}
+          {L.sources}{colon}
           {note.sources.map((s, i) => (
             <span key={s.url}>
               {i > 0 && ' · '}
