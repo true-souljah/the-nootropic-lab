@@ -373,6 +373,14 @@ export interface UIStrings {
        * is crawled by Google as a URL (GSC 404 "/mo", 2026-10).
        */
       monthUnit: string;
+      /** Per-serving price unit, WITHOUT the slash (same rule as `monthUnit`): `${price}/${perServingUnit}`. */
+      perServingUnit: string;
+      /** Per-day price unit, WITHOUT the slash (same rule as `monthUnit`): `${price}/${perDayUnit}`. */
+      perDayUnit: string;
+      /** Column/row label for the per-serving price (comparator, head-to-head). */
+      perServingLabel: string;
+      /** Label for the per-day price. */
+      perDayLabel: string;
       capsules: string;
       /** Stat label for the per-day serving, whatever the product's form. */
       dailyServing: string;
@@ -799,6 +807,10 @@ const en: UIStrings = {
     stats: {
       price: 'Price',
       monthUnit: 'mo',
+      perServingUnit: 'serving',
+      perDayUnit: 'day',
+      perServingLabel: 'Per serving',
+      perDayLabel: 'Per day',
       capsules: 'Caps',
       dailyServing: 'Daily serving',
       units: { capsule: 'caps', tablet: 'tablets', sachet: 'sachets', shot: 'shots', powder: 'scoops', softgel: 'softgels' },
@@ -1203,6 +1215,10 @@ const es: UIStrings = {
     stats: {
       price: 'Precio',
       monthUnit: 'mes',
+      perServingUnit: 'dosis',
+      perDayUnit: 'día',
+      perServingLabel: 'Por dosis',
+      perDayLabel: 'Por día',
       capsules: 'Cáps.',
       dailyServing: 'Dosis diaria',
       units: { capsule: 'cáps.', tablet: 'comprimidos', sachet: 'sobres', shot: 'shots', powder: 'cacitos', softgel: 'cápsulas blandas' },
@@ -1607,6 +1623,10 @@ const fr: UIStrings = {
     stats: {
       price: 'Prix',
       monthUnit: 'mois',
+      perServingUnit: 'dose',
+      perDayUnit: 'jour',
+      perServingLabel: 'Par dose',
+      perDayLabel: 'Par jour',
       capsules: 'Caps.',
       dailyServing: 'Dose quotidienne',
       units: { capsule: 'gélules', tablet: 'comprimés', sachet: 'sachets', shot: 'shots', powder: 'doses', softgel: 'capsules molles' },
@@ -2011,6 +2031,10 @@ const ja: UIStrings = {
     stats: {
       price: '価格',
       monthUnit: '月',
+      perServingUnit: '回',
+      perDayUnit: '日',
+      perServingLabel: '1回あたり',
+      perDayLabel: '1日あたり',
       capsules: 'カプセル',
       dailyServing: '1日の目安量',
       units: { capsule: 'カプセル', tablet: '錠', sachet: '包', shot: '本', powder: 'スクープ', softgel: 'ソフトジェル' },
@@ -2415,6 +2439,10 @@ const pt: UIStrings = {
     stats: {
       price: 'Preço',
       monthUnit: 'mês',
+      perServingUnit: 'dose',
+      perDayUnit: 'dia',
+      perServingLabel: 'Por dose',
+      perDayLabel: 'Por dia',
       capsules: 'Cáps.',
       dailyServing: 'Dose diária',
       units: { capsule: 'cáps.', tablet: 'comprimidos', sachet: 'sachês', shot: 'shots', powder: 'doses', softgel: 'cápsulas gelatinosas' },
@@ -2819,6 +2847,10 @@ const de: UIStrings = {
     stats: {
       price: 'Preis',
       monthUnit: 'Monat',
+      perServingUnit: 'Dosis',
+      perDayUnit: 'Tag',
+      perServingLabel: 'Pro Dosis',
+      perDayLabel: 'Pro Tag',
       capsules: 'Kapseln',
       dailyServing: 'Tagesdosis',
       units: { capsule: 'Kapseln', tablet: 'Tabletten', sachet: 'Beutel', shot: 'Shots', powder: 'Messlöffel', softgel: 'Weichkapseln' },
@@ -3225,6 +3257,10 @@ const frCa: UIStrings = {
     stats: {
       price: 'Prix',
       monthUnit: 'mois',
+      perServingUnit: 'dose',
+      perDayUnit: 'jour',
+      perServingLabel: 'Par dose',
+      perDayLabel: 'Par jour',
       capsules: 'Gélules',
       dailyServing: 'Dose quotidienne',
       units: { capsule: 'gélules', tablet: 'comprimés', sachet: 'sachets', shot: 'shots', powder: 'doses', softgel: 'capsules molles' },

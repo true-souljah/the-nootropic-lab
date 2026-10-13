@@ -22,6 +22,12 @@ export const COLUMNS: Array<{
   label: string;
   width: number;
   align?: 'right' | 'center';
+  /**
+   * The per-serving price: labelled from uiStrings, shown only when a product
+   * has the figure, never sortable (a serving is not a unit that compares
+   * across products).
+   */
+  perServing?: true;
 }> = [
   { key: null, label: '', width: 44 },
   { key: 'rank', label: '#', width: 50 },
@@ -29,6 +35,7 @@ export const COLUMNS: Array<{
   { key: 'score', label: 'Score', width: 110 },
   { key: 'value', label: 'Value', width: 80, align: 'right' },
   { key: 'price', label: 'Price', width: 80, align: 'right' },
+  { key: null, label: '', width: 100, align: 'right', perServing: true },
   { key: 'trust', label: 'Trustpilot', width: 130, align: 'right' },
   { key: null, label: 'Best for', width: 180 },
 ];

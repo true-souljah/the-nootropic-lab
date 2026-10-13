@@ -7,13 +7,14 @@ import {
   allProductsUS, allProductsEU, allProductsCA, allProductsAU,
   allProductsJP, allProductsLatam, allProductsGCC, allProductsSEA,
   productsJP,
-  purchaseUrl, vendorHost, noPurchaseLinkProblem, getStrings, NO_PURCHASE_LINK_STRINGS,
+  purchaseUrl, vendorHost, noPurchaseLinkProblem, getStrings, NO_PURCHASE_LINK_STRINGS, buildRegionSearchContext,
 } from '@nootropic/data';
 import type { Locale, Product, NoPurchaseLinkMhlw } from '@nootropic/data';
 import TrackedAffiliateLink from './TrackedAffiliateLink';
 import ComparisonTable from './ComparisonTable';
 import NoPurchaseLinkNotice from './NoPurchaseLinkNotice';
 import { PricingTab } from './templates/product-detail/PricingTab';
+import { priceText } from './price-text';
 
 // Site-owner decision 2026-10-08: the Japanese edition shows no purchase link
 // for products whose formula contains an ingredient from a plant on Japan's
@@ -270,6 +271,32 @@ describe('rendered CTAs', () => {
     );
     expect(html).toContain('data-vendor-term');
     expect(html).not.toContain('No purchase link');
+  });
+
+  // The price card cites the store page its price was read from. That page is
+  // the vendor's shop, so a blocked product names the domain without a link.
+  test('PricingTab with the real store price names the store domain unlinked for a blocked product', () => {
+    const { uiStrings: s } = buildRegionSearchContext(allProductsJP, 'ja', 'jp');
+    const price = priceText(hunter, s);
+    expect(price, 'fixture must carry a store price for this test to mean anything').not.toBeNull();
+    const html = renderToStaticMarkup(
+      createElement(PricingTab, { product: hunter, disclosure: s.disclosure, strings: s.productDetail, noticeStrings: s.noPurchaseLink, price }),
+    );
+    expect(html).not.toMatch(/href="https?:\/\/(www\.)?(hunterevolve|roarambition)\.com/);
+    expect(html).toContain('出典：hunterevolve.com（<time dateTime="2026-10-09">2026年10月9日</time>確認）');
+    expect(html).toContain('data-store-price-per-unit="true">≈ $3/回 · ≈ $3/日</p>');
+  });
+
+  test('PricingTab links the store page of an unblocked product, with its check date', () => {
+    const { uiStrings: s } = buildRegionSearchContext(allProductsUS, 'en', 'us');
+    const us = allProductsUS.find((p) => p.slug === 'hunter-focus-review')!;
+    const html = renderToStaticMarkup(
+      createElement(PricingTab, { product: us, disclosure: s.disclosure, strings: s.productDetail, noticeStrings: s.noPurchaseLink, price: priceText(us, s) }),
+    );
+    const source = html.match(/<p[^>]*data-store-price-source[^>]*>(.*?)<\/p>/)?.[1];
+    expect(source).toBe(
+      'Per <a href="https://www.hunterevolve.com/en-us/hunter-focus" target="_blank" rel="nofollow noopener" class="text-ds-accent underline focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2">hunterevolve.com<span class="ds-sr-only"> (opens in new tab)</span></a>, checked <time dateTime="2026-10-09">Oct 9, 2026</time>',
+    );
   });
 
   test('NoPurchaseLinkNotice renders nothing for a product without a block', () => {

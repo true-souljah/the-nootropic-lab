@@ -4,7 +4,7 @@ import { join } from 'node:path';
 import {
   allProductsUS, allProductsEU, allProductsCA, allProductsAU,
   allProductsJP, allProductsLatam, allProductsGCC, allProductsSEA,
-  VENDOR_TERM_FIELDS, monthlyStorePrice,
+  VENDOR_TERM_FIELDS, monthlyStorePrice, perServingStorePrice, perDayStorePrice,
 } from '@nootropic/data';
 import type { Product, RegionalRegionCode } from '@nootropic/data';
 
@@ -38,6 +38,14 @@ const QUOTED = new RegExp(String.raw`(?:US\$|CA\$|C\$|AU\$|A\$|S\$|\$|€|¥|￥
 const PER_MONTH = new RegExp(
   String.raw`(?:(?:US|CA|AU|NZ|HK|MX|A|C|S)?\$|AUD\s?\$?|CAD\s?~?\$?|USD\s?\$?|€|¥|￥)\s?~?${AMOUNT}(?:\s?(?:USD|AUD|CAD|EUR))?\s?(?:\/\s?(?:mo|month|mes|Monat|mois)\b|\/\s?月|per month|a month|al mes|par mois|pro Monat)` +
     String.raw`|${AMOUNT}\s?(?:€|円)\s?(?:\/\s?(?:mo|month|mes|Monat|mois)\b|\/\s?月|al mes|par mois|pro Monat)`,
+  'giu',
+);
+/** The units a per-serving or per-day price is written in, after "/" or in words ("a serving", "por día"). */
+const PER_UNIT_TAIL = String.raw`(?:\/\s?(?:serving|dose|day|dosis|día|dia|jour|Tag)\b|\/\s?[回日]|(?:a|per) (?:serving|dose|day)\b|por (?:dosis|dose|día|dia)|par (?:dose|jour)|pro (?:Dosis|Tag))`;
+/** A currency-marked amount stated per serving or per day: "$2.95 a serving", "≈ €1.06/day", "≈ ￥191/回", "$0.33 / Serving". */
+const PER_UNIT = new RegExp(
+  String.raw`(?:(?:US|CA|AU|NZ|HK|MX|A|C|S)?\$|AUD\s?\$?|CAD\s?~?\$?|USD\s?\$?|€|¥|￥|₱)\s?~?${AMOUNT}(?:\s?(?:USD|AUD|CAD|EUR))?\s?${PER_UNIT_TAIL}` +
+    String.raw`|${AMOUNT}\s?(?:€|円)\s?${PER_UNIT_TAIL}`,
   'giu',
 );
 
@@ -130,6 +138,22 @@ function allowedMoney(p: Product, region: RegionalRegionCode): Money[] {
   return out;
 }
 
+/**
+ * Per-serving / per-day prices a statement may use: the store price per
+ * serving and per day as the site derives them (store-price.ts), and any
+ * per-serving or per-day price the vendor's own quotes state.
+ */
+function allowedPerUnitMoney(p: Product): Money[] {
+  const out: Money[] = [];
+  for (const field of VENDOR_TERM_FIELDS) {
+    const term = p.vendorTerms?.[field];
+    if (!term) continue;
+    for (const t of [term.text, ...(term.fragments ?? [])]) out.push(...moneyIn(t, PER_UNIT));
+  }
+  for (const r of [perServingStorePrice(p), perDayStorePrice(p)]) if (r.ok) out.push({ amount: r.amount, currency: r.currency });
+  return out;
+}
+
 const RECORD_FIELDS = ['summary', 'whatItIs', 'howItWorks', 'whatToExpect', 'seoTitle', 'seoDescription'] as const;
 
 function pagesOf(dir: string): string[] {
@@ -140,16 +164,17 @@ function pagesOf(dir: string): string[] {
 
 type Statement = { where: string; stated: Money; allowed: Money[]; products: string };
 
-function collect(): Statement[] {
+/** Every price `re` finds in a live product's copy, listicle pick or a page sentence naming it, with the prices `allowedOf` allows. */
+function collect(re: RegExp, allowedOf: (p: Product, region: RegionalRegionCode) => Money[]): Statement[] {
   const out: Statement[] = [];
   for (const [region, products] of Object.entries(REGIONS) as [RegionalRegionCode, Product[]][]) {
     const live = products.filter((p) => !p.discontinued);
-    const allowed = new Map(live.map((p) => [p.slug, allowedMoney(p, region)]));
+    const allowed = new Map(live.map((p) => [p.slug, allowedOf(p, region)]));
 
     // 1. The product's own record copy.
     for (const p of live) {
       const texts = [...RECORD_FIELDS.map((f) => p[f]), ...p.pros, ...p.cons].filter((s): s is string => typeof s === 'string');
-      for (const t of texts) for (const stated of moneyIn(t, PER_MONTH, LOCAL_DOLLAR[region])) {
+      for (const t of texts) for (const stated of moneyIn(t, re, LOCAL_DOLLAR[region])) {
         out.push({ where: `${region} ${p.slug} record`, stated, allowed: allowed.get(p.slug)!, products: p.name });
       }
     }
@@ -164,12 +189,12 @@ function collect(): Statement[] {
         const set = allowed.get(m[1]);
         inPicks.push(m[3]);
         if (!set) continue;
-        for (const stated of moneyIn(m[3], PER_MONTH, LOCAL_DOLLAR[region])) out.push({ where: `${rel} pick ${m[1]}`, stated, allowed: set, products: m[1] });
+        for (const stated of moneyIn(m[3], re, LOCAL_DOLLAR[region])) out.push({ where: `${rel} pick ${m[1]}`, stated, allowed: set, products: m[1] });
       }
       let rest = src;
       for (const t of inPicks) rest = rest.replace(t, '');
       for (const sentence of rest.split(/(?<=[.!?])\s+|\n/)) {
-        const stated = moneyIn(sentence, PER_MONTH, LOCAL_DOLLAR[region]);
+        const stated = moneyIn(sentence, re, LOCAL_DOLLAR[region]);
         if (!stated.length) continue;
         const named = live.filter((p) => sentence.includes(p.name));
         if (!named.length) continue;
@@ -182,7 +207,7 @@ function collect(): Statement[] {
 }
 
 describe('prose monthly prices come from the vendor', () => {
-  const statements = collect();
+  const statements = collect(PER_MONTH, allowedMoney);
 
   test('the per-month matcher reads the formats used in the copy', () => {
     expect(amountsIn('Mind Lab Pro: $69/month flat.', PER_MONTH)).toEqual([69]);
@@ -232,6 +257,43 @@ describe('prose monthly prices come from the vendor', () => {
     const bad = statements
       .filter((s) => !isAllowed(s.stated, s.allowed))
       .map((s) => `${s.where}: ${fmt(s.stated)}/month for ${s.products} (vendor/store: ${s.allowed.map(fmt).join(', ')})`);
+    expect(bad, bad.join('\n')).toEqual([]);
+  });
+});
+
+// Per-serving and per-day prices in prose (2026-10-12): the same rule. A
+// price stated per serving or per day about a product must be the store price
+// per serving / per day as the site derives it (store-price.ts), or one the
+// vendor's own quotes state per serving or per day.
+describe('prose per-serving and per-day prices come from the vendor', () => {
+  const statements = collect(PER_UNIT, allowedPerUnitMoney);
+
+  test('the per-unit matcher reads the formats used in the copy, and nothing else', () => {
+    expect(moneyIn('Only 20 scoops per tub ($2.95 a serving at the $59 one-time price)', PER_UNIT, 'USD')).toEqual([{ amount: 2.95, currency: 'USD' }]);
+    expect(moneyIn('(CA$3.95 a serving at the CA$79.00 one-time price)', PER_UNIT, 'CAD')).toEqual([{ amount: 3.95, currency: 'CAD' }]);
+    expect(moneyIn('(€2.25 a serving at the €45 one-time price)', PER_UNIT)).toEqual([{ amount: 2.25, currency: 'EUR' }]);
+    expect(moneyIn('$19.99 $0.33 / Serving Size (60 servings)', PER_UNIT)).toEqual([{ amount: 0.33, currency: '$' }]);
+    expect(amountsIn('≈ $2.30/serving · ≈ $3/day', PER_UNIT)).toEqual([2.3, 3]);
+    expect(amountsIn('≈ ￥191/回 · ≈ ￥183/日', PER_UNIT)).toEqual([191, 183]);
+    expect(amountsIn('1,06 €/Tag, 2,25 € pro Dosis', PER_UNIT)).toEqual([1.06, 2.25]);
+    // A count per day, a monthly price and a pack price are not per-unit prices.
+    expect(amountsIn('Premium price ($159 list) and 6 capsules/day are real friction points.', PER_UNIT)).toEqual([]);
+    expect(amountsIn('The 6 capsules/day is friction during finals week', PER_UNIT)).toEqual([]);
+    expect(amountsIn('$64.95/month list price on brainmd.com (30 servings at 4 capsules per day)', PER_UNIT)).toEqual([]);
+    expect(amountsIn('CAD $98.33 for a 180-capsule bottle, which lasts 30 days at the licensed 6 capsules a day', PER_UNIT)).toEqual([]);
+    expect(amountsIn('¥8,850/月 or $69/month', PER_UNIT)).toEqual([]);
+  });
+
+  test('statements were found across regions (fail closed)', () => {
+    expect(statements.length).toBeGreaterThanOrEqual(3);
+    expect(new Set(statements.map((s) => s.where.split(/[ /]/)[0])).size).toBeGreaterThanOrEqual(3);
+  });
+
+  test('every stated per-serving or per-day price is the derived store figure or a vendor-quoted one, in the same currency', () => {
+    const fmt = (m: Money) => `${m.currency} ${m.amount}`;
+    const bad = statements
+      .filter((s) => !isAllowed(s.stated, s.allowed))
+      .map((s) => `${s.where}: ${fmt(s.stated)} per serving/day for ${s.products} (derived/vendor: ${s.allowed.map(fmt).join(', ')})`);
     expect(bad, bad.join('\n')).toEqual([]);
   });
 });

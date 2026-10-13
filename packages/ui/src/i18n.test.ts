@@ -90,6 +90,22 @@ describe('getStrings', () => {
     }
   });
 
+  test('every locale translates the per-serving / per-day price strings (2026-10-12)', () => {
+    // price-text.ts renders `≈ ${price}/${unit}`; the labels head the comparator column and rows.
+    const keys = ['perServingUnit', 'perDayUnit', 'perServingLabel', 'perDayLabel'] as const;
+    const en = getStrings('en').productDetail.stats;
+    for (const locale of ALL_LOCALES) {
+      const stats = getStrings(locale).productDetail.stats;
+      for (const key of keys) {
+        expect(stats[key]?.trim(), `${locale} stats.${key} is empty`).toBeTruthy();
+        if (locale !== 'en') expect(stats[key], `${locale} stats.${key} is the English copy`).not.toBe(en[key]);
+        expect(stats[key], `${locale} stats.${key} carries a placeholder`).not.toMatch(/\{\w+\}/);
+      }
+      // A unit is printed after the slash: it must carry none of its own (a "/"-led string in the RSC payload is crawled as a URL).
+      for (const key of ['perServingUnit', 'perDayUnit'] as const) expect(stats[key], `${locale} stats.${key}`).not.toContain('/');
+    }
+  });
+
   describe('Pillars- and Dosing-tab strings (2026-10-12)', () => {
     // PillarsTab.tsx and DosingTab.tsx render only these strings around the
     // record's own data; an English copy in a locale block ships English on

@@ -69,6 +69,7 @@ export function ComparatorCompareCard({ selectedProducts, uiStrings, onClear }: 
             <dl className="mt-3 text-[12px] text-ds-ink-soft m-0">
               {[
                 ['Price', priceText(p, uiStrings)?.short ?? '—'],
+                [uiStrings.productDetail.stats.perServingLabel, priceText(p, uiStrings)?.perServing ?? '—'],
                 ['Daily', servingAmount(p, uiStrings)],
                 ['MBG', guaranteeDays(p.moneyBackDays, (d) => `${d} days`)],
                 ['Caffeine', p.caffeineFree ? 'Free' : 'Yes'],
