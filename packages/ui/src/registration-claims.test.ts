@@ -1327,6 +1327,33 @@ describe('round fifteen (U7): caffeine + L-theanine copy follows Owen 2008 and n
 // 2008 200mg/250mg) the range is 50-250mg theanine with 40-250mg caffeine, so
 // both now give mg doses. The With Caffeine note's "Haskell 2008" now reads
 // "Haskell 2007", as the record's source list and FAQ do.
+//
+// Round sixteen, U7 (2026-10-13). Review leftovers. Spiers 1996 (PMID
+// 8624220): the crossover was 32 of the 95 participants, 2,000mg a day for 2
+// months, and improved immediate and delayed recall, not "verbal memory"
+// ("memoria verbal"). The Cochrane review (15846601) covers older adults with
+// chronic cerebral disorders ("found no attention benefit"), and we did not
+// check whether other acute citicoline attention trials exist ("the only acute
+// attention trial" / "the only acute healthy-adult attention RCT"); the focus
+// pages dated Haskell (18006208) 2008, where citations.ts and the L-theanine
+// record say 2007. The guides said L-theanine can "blunt some of the
+// anxiogenic" effects of caffeine, "a pairing with reasonable support from
+// multiple RCTs" (Rogers 2007, 17891480: theanine "did not significantly
+// affect jitteriness"), that it is "the strongest nootropic intervention for
+// alpha wave induction" (our L-theanine page cites one MEG trial, positive at
+// 2 hours and only in higher trait anxiety) and that Bacopa "needs about 12
+// weeks" (Pase 2012's six trials all lasted 12 weeks; that is trial length,
+// not time to effect). The AU memory FAQ said phosphatidylserine "has good
+// evidence for memory"; the EU pages said the FDA "permits a qualified "may
+// reduce risk of dementia" claim" and LATAM that it "solo permite una
+// declaración calificada" (the 13 May 2003 letter allows two qualified claims,
+// each with "FDA concludes that there is little scientific evidence supporting
+// this claim"); the US Adderall guide called caffeine + L-theanine
+// "well-replicated"; Performance Lab Mind's whatToExpect promised "improved
+// working memory from citicoline and tyrosine" within 30-60 minutes; and the
+// Bacopa aging cards left out that Calabrese 2008 (18611150) found the
+// delayed-recall benefit after controlling for baseline cognitive deficit.
+// Each Spanish twin has its own pattern.
 const ROUND_SIXTEEN_SOURCES = [
   ...ROUND_THIRTEEN_SOURCES,
   ...walk(resolve(REPO_ROOT, 'packages/ui/src/templates')),
@@ -1419,6 +1446,30 @@ const ROUND_SIXTEEN_UNSOURCED: RegExp[] = [
   /What does 3% rosavins/i,
   // U6: the L-theanine clinicalDose and ideal-ratio FAQ ratio range.
   /roughly 1:1 to 1\.[67]:1/i,
+  // U7: the review leftovers listed above, with their Spanish twins.
+  /improved verbal memory in a follow-up crossover/i,
+  /mejoraron la memoria verbal en un ensayo cruzado posterior/i,
+  /found no attention benefit/i,
+  /no encontró beneficio en la atención/i,
+  /the only acute (attention trial|healthy-adult attention RCT)/i,
+  /el único ensayo agudo sobre atención/i,
+  /Haskell 2008, PubMed 18006208/,
+  /well[- ]replicated/i,
+  /blunt some of the anxiogenic/i,
+  /reasonable support from multiple RCTs/i,
+  /atenuar parte de los efectos ansiogénicos/i,
+  /respaldo razonable de varios ECA/i,
+  /strongest nootropic intervention/i,
+  /intervención nootrópica más potente/i,
+  /needs about 12 weeks/i,
+  /necesita unas 12 semanas/i,
+  /Phosphatidylserine has good evidence for memory/i,
+  /permits a qualified "may reduce risk of dementia"/i,
+  /US-style "may reduce risk of dementia"/i,
+  /solo permite una declaración calificada/i,
+  /improved working memory from citicoline and tyrosine/i,
+  /12 weeks improved delayed word recall\./i,
+  /12 semanas mejoraron el recuerdo diferido de palabras\./i,
 ];
 
 // A double-quoted JSX attribute does not process escapes, so \' in one
@@ -1455,6 +1506,11 @@ describe('round sixteen: energy, stack, focus- and memory-page claims follow the
       'packages/data/src/products-eu.json',
       // U5
       'apps/us/src/app/natural-adderall-alternatives/page.tsx',
+      // U7
+      'apps/us/src/app/guides/nootropics-vs-adderall/page.tsx',
+      'apps/eu/src/app/best-nootropics-for-aging/page.tsx',
+      'apps/eu/src/app/best-nootropics-for-memory/page.tsx',
+      'apps/ca/src/app/best-nootropics-for-memory/page.tsx',
     ]) expect(ROUND_SIXTEEN_SOURCES.some(p => relative(REPO_ROOT, p) === f), f).toBe(true);
   });
 
@@ -1556,6 +1612,27 @@ describe('round sixteen: energy, stack, focus- and memory-page claims follow the
       // U6
       '100–200mg/day (trials pairing it with caffeine used roughly 1:1 to 1.7:1 theanine:caffeine)',
       'No trial has established an ideal ratio. The positive combination trials used roughly 1:1 to 1.7:1 theanine to caffeine — for example 250mg theanine with 150mg caffeine (Haskell 2007) and 200mg with 160mg (Kahathuduwa 2016).',
+      // U7
+      'In one trial in adults aged 50–85 (Spiers 1996, PubMed 8624220), 1,000mg a day for 3 months improved delayed recall only in those with relatively inefficient memories, and 2,000mg a day improved verbal memory in a follow-up crossover.',
+      'En un ensayo con adultos de 50 a 85 años (Spiers 1996, PubMed 8624220), 1000mg al día durante 3 meses mejoraron el recuerdo diferido solo en quienes tenían una memoria relativamente ineficiente, y 2000mg al día mejoraron la memoria verbal en un ensayo cruzado posterior.',
+      'Our citicoline page rates its attention evidence as mixed: the Cochrane review found no attention benefit, and the only acute attention trial in healthy adults gave it together with caffeine.',
+      'Nuestra página sobre la citicolina califica como mixta su evidencia sobre la atención: la revisión Cochrane no encontró beneficio en la atención, y el único ensayo agudo sobre atención en adultos sanos la administró junto con cafeína.',
+      'The Cochrane review found no evidence of benefit on attention; the only acute healthy-adult attention RCT gave citicoline together with caffeine, so citicoline’s own effect cannot be isolated.',
+      'and ratings of mental fatigue (Haskell 2008, PubMed 18006208: 250mg with 150mg).',
+      'Caffeine + L-theanine — well-replicated',
+      'When combined with caffeine, L-theanine can blunt some of the anxiogenic (anxiety-inducing) effects of caffeine while preserving its attention-sharpening and reaction-time benefits, a pairing with reasonable support from multiple RCTs.',
+      'Cuando se combina con cafeína, L-Theanine puede atenuar parte de los efectos ansiogénicos (inductores de ansiedad) de la cafeína, al tiempo que preserva sus beneficios para agudizar la atención y el tiempo de reacción; una combinación con un respaldo razonable de varios ECA.',
+      'L-Theanine is the strongest nootropic intervention for alpha wave induction.',
+      'L-Theanine es la intervención nootrópica más potente para la inducción de ondas alfa.',
+      'Bacopa Monnieri improved 9 of 17 memory free-recall tests in a systematic review of six 12-week trials at 300–450mg extract a day (Pase 2012), and needs about 12 weeks;',
+      'Bacopa Monnieri mejoró 9 de 17 pruebas de recuerdo libre de memoria en una revisión sistemática de seis ensayos de 12 semanas con 300–450mg de extracto al día (Pase 2012), y necesita unas 12 semanas;',
+      'Phosphatidylserine has good evidence for memory in older adults.',
+      'Important: unlike the US (where the FDA permits a qualified "may reduce risk of dementia" claim), EFSA has rejected several PS health claims',
+      'The EU does not authorise the US-style "may reduce risk of dementia" qualified claim — EFSA has rejected several PS health claims',
+      'Para la fosfatidilserina, la FDA solo permite una declaración calificada de que "may reduce the risk of cognitive dysfunction in the elderly"',
+      'Within 30-60 minutes: subtle calm focus and improved working memory from citicoline and tyrosine.',
+      'in adults aged 65 and over (Calabrese 2008, PubMed 18611150), 300mg a day for 12 weeks improved delayed word recall.',
+      'en adultos de 65 años o más (Calabrese 2008, PubMed 18611150), 300mg al día durante 12 semanas mejoraron el recuerdo diferido de palabras.',
     ];
     for (const s of removed) expect(ROUND_SIXTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(true);
     for (const re of ROUND_SIXTEEN_UNSOURCED) expect(removed.some(s => re.test(s)), String(re)).toBe(true);
@@ -1568,8 +1645,8 @@ describe('round sixteen: energy, stack, focus- and memory-page claims follow the
       'Sustained drive through long days',
       'Caffeine-free design — its 100mg L-theanine can be paired with your own coffee or matcha (Owen 2008 tested 100mg L-theanine with 50mg caffeine).',
       'The caffeinated SKU includes 100mg caffeine + 200mg L-theanine — the same 1:2 ratio Owen 2008 tested (50mg caffeine with 100mg L-theanine).',
-      'For example, for L-Theanine + Caffeine, a meta-analysis of 11 RCTs found',
-      'Por ejemplo, para L-Theanine + Caffeine, un metaanálisis de 11 ECA encontró',
+      'Versus placebo, for L-Theanine + Caffeine, a meta-analysis of 11 RCTs found moderate improvements in alertness and attention-switching accuracy in the first 2 hours after dosing. Foxe 2012 found no added benefit over either compound alone.',
+      'Frente a placebo, para L-Theanine + Caffeine, un metaanálisis de 11 ECA encontró mejoras moderadas en el estado de alerta y en la precisión al alternar la atención durante las 2 primeras horas tras la dosis. Foxe 2012 no encontró ningún beneficio adicional frente a cada compuesto por separado.',
       'paired with Arabic coffee or matcha — the same pairing without a caffeine-containing supplement.',
       'priced in US dollars.',
       'At 8-12 weeks: cumulative neuroprotective benefits from PS and pine bark. Best for users who already supplement separately',
@@ -1578,16 +1655,16 @@ describe('round sixteen: energy, stack, focus- and memory-page claims follow the
       'Which nootropic ingredients have trial evidence for focus in SEA?',
       'L-Theanine + Caffeine',
       'L-theanine with caffeine: in trials in healthy adults the pair improved attention-switching accuracy (Owen 2008, 100mg L-theanine with 50mg caffeine; Giesbrecht 2010, PubMed 21040626, 97mg with 40mg), though Foxe 2012 (PubMed 22326943) found no added benefit over either compound alone.',
-      'In controlled trials in healthy adults, the pair improved attention-switching accuracy (Owen 2008: 100mg L-theanine with 50mg caffeine; Giesbrecht 2010, PubMed 21040626: 97mg with 40mg) and ratings of mental fatigue (Haskell 2008, PubMed 18006208: 250mg with 150mg).',
-      'Our citicoline page rates its attention evidence as mixed: the only acute attention trial in healthy adults gave it together with caffeine.',
+      'In controlled trials in healthy adults, the pair improved attention-switching accuracy (Owen 2008: 100mg L-theanine with 50mg caffeine; Giesbrecht 2010, PubMed 21040626: 97mg with 40mg) and ratings of mental fatigue (Haskell 2007, PubMed 18006208: 250mg with 150mg).',
+      'Our citicoline page rates its attention evidence as mixed: the acute attention trial in healthy adults that we cite gave it together with caffeine.',
       'In a systematic review of six randomised trials (Pase 2012, PubMed 22747190), all lasting 12 weeks at 300–450mg extract a day, Bacopa improved 9 of 17 tests of memory free recall.',
       'Bacopa Monnieri: in a systematic review of six 12-week randomized trials at 300–450mg extract a day (Pase 2012, PubMed 22747190), it improved 9 of 17 tests of memory free recall, and the authors call the research \'in its infancy\'.',
       'For memory, the Bacopa Monnieri evidence we cite is a systematic review of six 12-week randomized trials (Pase 2012).',
       'For phosphatidylserine, the FDA allows only a qualified claim that it \'may reduce the risk of cognitive dysfunction in the elderly\', followed by \'FDA concludes that there is little scientific evidence supporting this claim\' (FDA letter, 13 May 2003).',
-      'Phosphatidylserine is in Mind Lab Pro at 100mg per serving; the phosphatidylserine trials on our ingredient page used 100–300mg a day.',
+      'Phosphatidylserine is in Mind Lab Pro at 100mg per serving; the single-ingredient phosphatidylserine trials on our ingredient page used 100–300mg a day.',
       'our DHA page rates the evidence for age-related memory decline as moderate (Yurko-Mauro 2010: 900mg a day for 24 weeks in adults 55 and over).',
-      'Bacopa Monnieri (300mg, standardised to at least 50% bacosides) improved 9 of 17 memory free-recall tests in a systematic review of six 12-week trials (Pase 2012) — and needs about 12 weeks.',
-      'Bacopa Monnieri (300mg, estandarizada al menos al 50% de bacósidos) mejoró 9 de 17 pruebas de recuerdo libre de memoria en una revisión sistemática de seis ensayos de 12 semanas (Pase 2012), y necesita unas 12 semanas.',
+      'Bacopa Monnieri improved 9 of 17 memory free-recall tests in a systematic review of six 12-week trials at 300–450mg extract a day (Pase 2012), and its trials measured memory after 12 weeks; our reference dose is 300mg standardised to at least 50% bacosides.',
+      'Bacopa Monnieri mejoró 9 de 17 pruebas de recuerdo libre de memoria en una revisión sistemática de seis ensayos de 12 semanas con 300–450mg de extracto al día (Pase 2012), y sus ensayos midieron la memoria a las 12 semanas; nuestra dosis de referencia es de 300mg, estandarizada al menos al 50% de bacósidos.',
       'Built on Bacopa Monnieri, which improved memory free recall in a systematic review of six 12-week trials (Pase 2012)',
       'Look for a stated rosavin and salidroside standardisation on the label. The trials in our record that name an extract used SHR-5, and their abstracts do not state its rosavin or salidroside percentages.',
       'The label dose of two 125mg capsules daily (250mg/day) is below the 300–450mg/day range of the trials in the systematic review we cite (Pase 2012).',
@@ -1595,17 +1672,17 @@ describe('round sixteen: energy, stack, focus- and memory-page claims follow the
       // U3
       "The FDA allows phosphatidylserine only qualified claims that it 'may reduce the risk of dementia' or 'cognitive dysfunction in the elderly', each followed by 'FDA concludes that there is little scientific evidence supporting this claim' (FDA letter, 13 May 2003).",
       'The FDA allows phosphatidylserine to carry a qualified claim that "Very limited and preliminary scientific research suggests that phosphatidylserine may reduce the risk of dementia in the elderly", which must be followed by "FDA concludes that there is little scientific evidence supporting this claim."',
-      'Our citicoline page rates its attention evidence as mixed: the Cochrane review found no attention benefit, and the only acute attention trial in healthy adults gave it together with caffeine.',
-      'In one trial in adults aged 50–85 (Spiers 1996, PubMed 8624220), 1,000mg a day for 3 months improved delayed recall only in those with relatively inefficient memories, and 2,000mg a day improved verbal memory in a follow-up crossover.',
+      'Our citicoline page rates its attention evidence as mixed: the Cochrane review found no evidence of an attention benefit in older adults with chronic cerebral disorders, and the acute attention trial in healthy adults that we cite gave it together with caffeine.',
+      'In one trial in adults aged 50–85 (Spiers 1996, PubMed 8624220), 1,000mg a day for 3 months improved delayed recall only in those with relatively inefficient memories, and in a follow-up crossover of 32 of those participants, 2,000mg a day for 2 months improved immediate and delayed recall.',
       'RCTs in older adults at 100–300mg a day report memory benefits, though often only in subgroups (see our phosphatidylserine page).',
       'Bacopa Monnieri is a botanical with trial evidence for memory free recall (Pase 2012).',
       'L-Teanina + Cafeína',
-      'En ensayos controlados en adultos sanos, la combinación mejoró la precisión al alternar la atención entre tareas (Owen 2008: 100mg de L-teanina con 50mg de cafeína; Giesbrecht 2010, PubMed 21040626: 97mg con 40mg) y las puntuaciones de fatiga mental (Haskell 2008, PubMed 18006208: 250mg con 150mg).',
+      'En ensayos controlados en adultos sanos, la combinación mejoró la precisión al alternar la atención entre tareas (Owen 2008: 100mg de L-teanina con 50mg de cafeína; Giesbrecht 2010, PubMed 21040626: 97mg con 40mg) y las puntuaciones de fatiga mental (Haskell 2007, PubMed 18006208: 250mg con 150mg).',
       'En una revisión sistemática de seis ensayos aleatorizados (Pase 2012, PubMed 22747190), todos de 12 semanas con 300–450mg de extracto al día, la Bacopa mejoró 9 de 17 pruebas de recuerdo libre de memoria.',
       'Para la memoria, la evidencia sobre Bacopa Monnieri que citamos es una revisión sistemática de seis ensayos aleatorizados de 12 semanas (Pase 2012).',
       '¿Qué ingredientes nootrópicos tienen evidencia de ensayos para la concentración?',
-      'Nuestra página sobre la citicolina califica como mixta su evidencia sobre la atención: la revisión Cochrane no encontró beneficio en la atención, y el único ensayo agudo sobre atención en adultos sanos la administró junto con cafeína.',
-      'En un ensayo con adultos de 50 a 85 años (Spiers 1996, PubMed 8624220), 1000mg al día durante 3 meses mejoraron el recuerdo diferido solo en quienes tenían una memoria relativamente ineficiente, y 2000mg al día mejoraron la memoria verbal en un ensayo cruzado posterior.',
+      'Nuestra página sobre la citicolina califica como mixta su evidencia sobre la atención: la revisión Cochrane no encontró evidencia de un beneficio en la atención en adultos mayores con trastornos cerebrales crónicos, y el ensayo agudo sobre atención en adultos sanos que citamos la administró junto con cafeína.',
+      'En un ensayo con adultos de 50 a 85 años (Spiers 1996, PubMed 8624220), 1000mg al día durante 3 meses mejoraron el recuerdo diferido solo en quienes tenían una memoria relativamente ineficiente, y en un ensayo cruzado posterior con 32 de esos participantes, 2000mg al día durante 2 meses mejoraron el recuerdo inmediato y diferido.',
       'Los ensayos clínicos en adultos mayores a 100–300mg al día reportan beneficios en la memoria, aunque a menudo solo en subgrupos (ver nuestra página sobre la fosfatidilserina).',
       'La FDA solo permite para la fosfatidilserina declaraciones calificadas de que "may reduce the risk of dementia" o "cognitive dysfunction in the elderly", cada una seguida de "FDA concludes that there is little scientific evidence supporting this claim" (carta de la FDA, 13 de mayo de 2003)',
       // U4
@@ -1625,8 +1702,8 @@ describe('round sixteen: energy, stack, focus- and memory-page claims follow the
       'Sometimes paired with caffeine; we cite no trial of the pairing.',
       'Sustained cognitive energy: what the trials we cite found.',
       "Phosphatidylserine supports neuronal membrane fluidity; the FDA allows only a qualified claim that it may reduce the risk of dementia or cognitive dysfunction in the elderly, with the disclaimer that 'FDA concludes that there is little scientific evidence supporting this claim'.",
-      'In a systematic review of six 12-week trials (Pase 2012, PubMed 22747190), Bacopa improved 9 of 17 memory free-recall tests; in adults aged 65 and over (Calabrese 2008, PubMed 18611150), 300mg a day for 12 weeks improved delayed word recall.',
-      'En una revisión sistemática de seis ensayos de 12 semanas (Pase 2012, PubMed 22747190), la Bacopa mejoró 9 de 17 pruebas de recuerdo libre de memoria; en adultos de 65 años o más (Calabrese 2008, PubMed 18611150), 300mg al día durante 12 semanas mejoraron el recuerdo diferido de palabras.',
+      'In a systematic review of six 12-week trials (Pase 2012, PubMed 22747190), Bacopa improved 9 of 17 memory free-recall tests; in adults aged 65 and over (Calabrese 2008, PubMed 18611150), 300mg a day for 12 weeks improved delayed word recall after controlling for baseline cognitive deficit.',
+      'En una revisión sistemática de seis ensayos de 12 semanas (Pase 2012, PubMed 22747190), la Bacopa mejoró 9 de 17 pruebas de recuerdo libre de memoria; en adultos de 65 años o más (Calabrese 2008, PubMed 18611150), 300mg al día durante 12 semanas mejoraron el recuerdo diferido de palabras tras controlar el déficit cognitivo inicial.',
       '200–600mg/day (a standardised extract; the trials we cite used SHR-5)',
       'Rhodiola rosea naturally contains rosavins and salidrosides in about a 3:1 ratio, and preparations are made to reflect it (Ishaque 2012).',
       'A 2016 review (McLellan, Caldwell & Lieberman — a narrative review, not a meta-analysis) found low-to-moderate doses (~40–300mg) consistently improve alertness',
@@ -1642,12 +1719,25 @@ describe('round sixteen: energy, stack, focus- and memory-page claims follow the
       'Better attention with caffeine than with placebo in several trials',
       'The trials we cite used 50–250mg theanine with 40–250mg caffeine. Versus placebo, the combination improved attention measures in several trials, though Foxe 2012 found no added benefit over either compound alone;',
       'In several trials, L-Theanine combined with caffeine improved attention measures versus placebo, though Foxe 2012 found no added benefit over either compound alone,',
-      'No mechanistic overlap with Adderall. Our citicoline page rates its attention evidence as mixed: the Cochrane review found no attention benefit, and the only acute attention trial in healthy adults gave it together with caffeine.',
+      'No mechanistic overlap with Adderall. Our citicoline page rates its attention evidence as mixed: the Cochrane review found no evidence of an attention benefit in older adults with chronic cerebral disorders, and the acute attention trial in healthy adults that we cite gave it together with caffeine.',
       "Sharp-PS Green phosphatidylserine supports neuronal membrane fluidity; the FDA allows only a qualified claim that phosphatidylserine may reduce the risk of dementia or cognitive dysfunction in the elderly, with the disclaimer that 'FDA concludes that there is little scientific evidence supporting this claim'.",
       'What do rosavins and salidroside mean on a Rhodiola label?',
       // U6
       '100–200mg/day (trials pairing it with caffeine used 50–250mg theanine with 40–250mg caffeine)',
       'No trial has established an ideal ratio. The positive combination trials used 97–250mg theanine with 40–160mg caffeine — for example 100mg theanine with 50mg caffeine (Owen 2008), 250mg with 150mg (Haskell 2007) and 200mg with 160mg (Kahathuduwa 2016).',
+      // U7
+      'Our citicoline page rates its attention evidence as mixed: the acute attention trial in healthy adults that we cite gave it together with caffeine.',
+      'Nuestra página sobre la citicolina califica como mixta su evidencia sobre la atención: el ensayo agudo sobre atención en adultos sanos que citamos la administró junto con cafeína.',
+      'The Cochrane review found no evidence of an attention benefit in older adults with chronic cerebral disorders; the acute attention trial in healthy adults that we cite gave citicoline together with caffeine, so citicoline’s own effect cannot be isolated.',
+      'Caffeine + L-theanine — several placebo-controlled trials (Owen 2008)',
+      'When combined with caffeine, the pair improved attention measures versus placebo in several trials, but in a controlled trial (Rogers 2007) theanine did not significantly reduce caffeine-induced jitteriness.',
+      'Con cafeína, la combinación mejoró las medidas de atención frente a placebo en varios ensayos, pero en un ensayo controlado (Rogers 2007) L-Theanine no redujo significativamente el nerviosismo causado por la cafeína.',
+      'The alpha-wave (MEG) trial on our L-Theanine page found higher alpha activity at 2 hours, and only in people with higher trait anxiety.',
+      'El ensayo sobre ondas alfa (MEG) de nuestra página de L-Theanine encontró mayor actividad alfa a las 2 horas, y solo en personas con mayor ansiedad rasgo.',
+      "Important: unlike the US (where the FDA allows only qualified claims that phosphatidylserine 'may reduce the risk of dementia' or 'cognitive dysfunction in the elderly', with the disclaimer 'FDA concludes that there is little scientific evidence supporting this claim'), EFSA has rejected several PS health claims",
+      "The EU does not authorise US-style qualified claims (the FDA allows only qualified claims that phosphatidylserine 'may reduce the risk of dementia' or 'cognitive dysfunction in the elderly', with the disclaimer 'FDA concludes that there is little scientific evidence supporting this claim') — EFSA has rejected several PS health claims",
+      'Para la fosfatidilserina, la FDA solo permite declaraciones calificadas, como que "may reduce the risk of cognitive dysfunction in the elderly"',
+      'Within 30-60 minutes: subtle calm focus. Within 2-4 weeks: noticeable mental endurance under cognitive load and stress.',
       // Attributed rationale that stays (not our claim).
       'The theory is synergistic optimisation across all cognitive systems simultaneously.',
       'work synergistically to support the function of mitochondria',
