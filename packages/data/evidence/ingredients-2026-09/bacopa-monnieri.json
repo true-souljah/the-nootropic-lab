@@ -128,6 +128,23 @@
       "fundingConflict": "Thailand Research Fund grant disclosed; registered PROSPERO CRD420251034900",
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/41678913/",
       "status": 200
+    },
+    {
+      "pmid": "22747190",
+      "doi": "10.1089/acm.2011.0367",
+      "title": "The cognitive-enhancing effects of Bacopa monnieri: a systematic review of randomized, controlled human clinical trials.",
+      "journal": "Journal of Alternative and Complementary Medicine",
+      "year": 2012,
+      "design": "systematic review",
+      "population": "adults without dementia or significant cognitive impairment; six randomized controlled trials",
+      "n": null,
+      "dose": "300-450mg extract per day (three different Bacopa extracts)",
+      "duration": "all six trials 12 weeks",
+      "outcome": "validated cognitive tests; all six trials examined memory",
+      "result": "Across studies, Bacopa improved performance on 9 of 17 tests in the domain of memory free recall; little evidence of enhancement in any other cognitive domain. The authors write that research into the nootropic effects of Bacopa is in its infancy.",
+      "fundingConflict": "not stated in abstract",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/22747190/",
+      "status": 200
     }
   ],
   "verdicts": [

@@ -120,10 +120,10 @@ export const ingredients: Ingredient[] = [
     sideEffects: ['GI effects (increased stool frequency, abdominal cramps, nausea) reported at 300mg/day in a 12-week RCT in older adults — take with food', 'More self-reported adverse reactions than placebo (digestive complaints, headaches) in a 2025 12-week RCT', 'Slowed information processing initially', 'Not recommended during pregnancy (precautionary: no human safety data)'],
     productsContaining: ['mind-lab-pro-review', 'noocube-review', 'onnit-alpha-brain-review', 'hunter-focus-review'],
     humanEffects: [
-      { effect: 'Memory Consolidation', evidenceStrength: 'strong', magnitude: 'moderate', studies: 4, notes: 'Kongkeaw 2014 meta-analysis (9 RCTs), two 12-week RCTs on delayed recall, and a 2026 network meta-analysis (working memory, ≥600mg/day). The 2025 Lopresti RCT at 300mg/day did not replicate the memory benefit.' },
+      { effect: 'Memory Consolidation', evidenceStrength: 'moderate', magnitude: 'moderate', studies: 5, notes: 'Pase 2012 systematic review: Bacopa improved 9 of 17 memory free-recall tests across six 12-week trials; two 12-week RCTs on delayed recall; a 2026 network meta-analysis (working memory, ≥600mg/day). The 2025 Lopresti RCT at 300mg/day did not replicate the memory benefit, and Kongkeaw 2014 pooled speed-of-attention outcomes, not memory.' },
       { effect: 'Anxiety Reduction', evidenceStrength: 'moderate', magnitude: 'moderate', studies: 2, notes: 'Calabrese 2008: anxiety fell with Bacopa and rose with placebo over 12 weeks; Lopresti 2025: lower self-reported stress reactivity.' },
       { effect: 'Attention', evidenceStrength: 'mixed', magnitude: 'small', studies: 2, notes: 'Positive pooled speed-of-attention result (Kongkeaw 2014) but no effect on attention in the largest recent RCT (Lopresti 2025, p=0.713).' },
-      { effect: 'Processing Speed', evidenceStrength: 'mixed', magnitude: 'small', studies: 2, notes: 'An acute 320mg dose improved sustained task performance (2012), but the 2026 network meta-analysis found no processing-speed difference. Some users report temporary initial slowing.' },
+      { effect: 'Processing Speed', evidenceStrength: 'mixed', magnitude: 'small', studies: 2, notes: 'An acute 320mg dose improved sustained task performance (2012), but the 2026 network meta-analysis found no processing-speed difference.' },
     ],
     howToTake: {
       dosage: '300–450mg/day (standardised to at least 50% bacosides) — the classic trial dose; ≥600mg/day is an emerging, less-established option',
@@ -134,7 +134,7 @@ export const ingredients: Ingredient[] = [
     stacksWith: [
       { ingredient: "Lion's Mane", slug: 'lions-mane', reason: 'The definitive long-term memory stack. Bacopa improves synaptic density and memory consolidation; Lion\'s Mane drives NGF synthesis and neuroprotection. Both are slow-acting and complement each other without overlap.' },
       { ingredient: 'Citicoline', slug: 'citicoline', reason: 'Citicoline provides the acute focus and acetylcholine boost that Bacopa lacks in the short term, while Bacopa handles long-term memory consolidation. A well-rounded pairing found in Mind Lab Pro.' },
-      { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'Both have anxiolytic properties. L-Theanine provides immediate calm focus; Bacopa builds long-term stress resilience. The combination is gentle and well-tolerated.' },
+      { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'Both are studied for stress and anxiety; we cite no trial of the pairing.' },
     ],
     faqs: [
       { question: 'Why do some people feel "foggy" when starting Bacopa?', answer: 'A minority of users experience a temporary initial slowing of mental processing — sometimes called the "Bacopa fog." This is linked to the serotonin modulation and typically resolves after 3–4 weeks. It reflects the herb\'s mechanism working, not a problem. If it persists past 6 weeks, reduce your dose.' },
@@ -150,6 +150,7 @@ export const ingredients: Ingredient[] = [
       { pmid: '23281132', doi: '10.1002/ptr.4864', url: 'https://pubmed.ncbi.nlm.nih.gov/23281132/', title: 'An acute, double-blind, placebo-controlled crossover study of 320 mg and 640 mg doses of a special extract of Bacopa monnieri (CDRI 08) on sustained cognitive performance.', year: 2012, design: 'rct' },
       { pmid: '41091332', doi: '10.1007/s40261-025-01492-1', url: 'https://pubmed.ncbi.nlm.nih.gov/41091332/', title: 'The Effects of a Bacopa monnieri Extract (Bacumen) on Cognition, Stress, and Fatigue in Healthy Adults: A Randomized, Double-Blind, Placebo-Controlled Trial.', year: 2025, design: 'rct' },
       { pmid: '41678913', doi: '10.1016/j.phymed.2026.157915', url: 'https://pubmed.ncbi.nlm.nih.gov/41678913/', title: 'Comparative effects of Bacopa monnieri and Ginkgo biloba on cognitive functions: A systematic review and network meta-analysis.', year: 2026, design: 'meta-analysis' },
+      { pmid: '22747190', doi: '10.1089/acm.2011.0367', url: 'https://pubmed.ncbi.nlm.nih.gov/22747190/', title: 'The cognitive-enhancing effects of Bacopa monnieri: a systematic review of randomized, controlled human clinical trials.', year: 2012, design: 'systematic review' },
     ],
     evidenceReviewedAt: '2026-09-28',
   },
@@ -221,7 +222,7 @@ export const ingredients: Ingredient[] = [
     },
     stacksWith: [
       { ingredient: 'Caffeine', slug: 'caffeine', reason: 'The trials we cite used 50–250mg theanine with 40–250mg caffeine. Versus placebo, the combination improved attention measures in several trials, though Foxe 2012 found no added benefit over either compound alone; in a controlled trial (Rogers 2008) theanine did not significantly reduce caffeine jitteriness.' },
-      { ingredient: 'Bacopa Monnieri', slug: 'bacopa-monnieri', reason: 'Both have anxiolytic properties working via different mechanisms. L-Theanine provides immediate calm; Bacopa builds sustained stress tolerance over weeks. A gentle, non-sedating anxiety-reduction combination.' },
+      { ingredient: 'Bacopa Monnieri', slug: 'bacopa-monnieri', reason: 'Both are studied for stress and anxiety; we cite no trial of the pairing.' },
       { ingredient: 'Ashwagandha', slug: 'ashwagandha', reason: 'Both target stress through distinct pathways (GABA modulation for theanine; HPA axis for ashwagandha). Good daytime anxiety stack without sedation.' },
     ],
     faqs: [
@@ -273,7 +274,7 @@ export const ingredients: Ingredient[] = [
     stacksWith: [
       { ingredient: 'Ashwagandha', slug: 'ashwagandha', reason: 'The classic adaptogen stack. Rhodiola is activating (raises norepinephrine, best morning); Ashwagandha is calming (lowers cortisol, best evening). Together they provide full-day HPA axis support without one cancelling the other out.' },
       { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'Rhodiola\'s activating effect pairs well with L-Theanine\'s calming effect. Use Rhodiola for cognitive stamina; L-Theanine to soften any agitation or restlessness Rhodiola can cause initially.' },
-      { ingredient: 'L-Tyrosine', slug: 'l-tyrosine', reason: 'Both target performance under stress via different mechanisms. Rhodiola modulates cortisol/monoamine levels; Tyrosine replenishes catecholamine substrate. Strong combination for high-demand cognitive days or night shifts.' },
+      { ingredient: 'L-Tyrosine', slug: 'l-tyrosine', reason: 'Both are studied for performance under stress; we cite no trial of the pairing.' },
     ],
     faqs: [
       { question: 'Does Rhodiola need to be cycled?', answer: 'Not on current evidence. The clinical trials ran from a single dose up to 4 weeks, so they neither tested cycling nor months of continuous use. Some people take a 1–2 week break every 4–6 weeks as a precaution against a possible "ceiling effect".' },
@@ -294,7 +295,7 @@ export const ingredients: Ingredient[] = [
     slug: 'phosphatidylserine',
     name: 'Phosphatidylserine',
     category: 'cholinergic',
-    mechanism: 'Phosphatidylserine (PS) is a phospholipid that forms a critical component of neuronal cell membranes. It supports signal transduction across synapses, facilitates acetylcholine and dopamine release, and modulates cortisol secretion. Supplementation replenishes PS levels that decline naturally with age.',
+    mechanism: 'Phosphatidylserine (PS) is a phospholipid that forms a critical component of neuronal cell membranes. Supplementation replenishes PS levels that decline naturally with age.',
     clinicalDose: '100–300mg/day (benefit shown mainly in older adults with memory complaints or MCI)',
     timeToEffect: 'Memory trials ran 15 weeks to 12 months; no trial established an earlier onset',
     studySummary: "RCTs in older adults with memory complaints or mild cognitive impairment report memory benefits, though often only in subgroups: soy PS at 100–300mg/day for 6 months helped only participants with low baseline scores (Kato-Kataoka 2010), and marine PS-DHA at 300mg/day improved immediate verbal recall in an exploratory 15-week trial (Vakhapova 2010). A 2026 network meta-analysis in MCI/Alzheimer's found PS 100mg improved MMSE but not the Alzheimer's Disease Assessment Scale–Cognitive Subscale (ADAS-Cog). In healthy children, a 12-week RCT of 100mg sunflower PS found no effect on primary or secondary outcomes (Friling 2025; authors include staff of IFF, the product's manufacturer). A positive 2024 MCI trial (Duan 2024; BYHEALTH co-authors) gave only 31.5mg PS inside a multi-ingredient formula. The FDA allows only a qualified claim that it may reduce the risk of dementia or cognitive dysfunction in the elderly, with the disclaimer that 'FDA concludes that there is little scientific evidence supporting this claim' (FDA letter, 13 May 2003).",
@@ -429,7 +430,7 @@ export const ingredients: Ingredient[] = [
     slug: 'huperzine-a',
     name: 'Huperzine A',
     category: 'herb',
-    mechanism: 'Huperzine A is extracted from Huperzia serrata (Chinese club moss). It is a potent, reversible acetylcholinesterase inhibitor — meaning it blocks the enzyme that breaks down acetylcholine, effectively increasing acetylcholine levels throughout the brain. This makes it one of the most powerful natural cholinergic compounds.',
+    mechanism: 'Huperzine A is extracted from Huperzia serrata (Chinese club moss). It is a potent, reversible acetylcholinesterase inhibitor — meaning it blocks the enzyme that breaks down acetylcholine, effectively increasing acetylcholine levels throughout the brain.',
     clinicalDose: '100–200mcg/day in the trials (micrograms, not milligrams; 50mcg consumer doses were not tested separately)',
     timeToEffect: 'Trials measured effects after 4–16 weeks of daily dosing; no acute-onset trial was found',
     studySummary: 'Chinese RCTs show Huperzine A improved memory and learning in Alzheimer\'s patients (Xu et al., 1995: 58% vs 36% improved at 200mcg/day over 8 weeks) and in adolescent students (Sun et al., 1999: 100mcg/day for 4 weeks). A 2013 meta-analysis of 20 RCTs found significant benefits in Alzheimer\'s disease, but rated most trials at high risk of bias; the 2008 Cochrane review concluded the evidence is inadequate to recommend it, and a 2012 Cochrane review found no eligible trials in mild cognitive impairment. A 2019 RCT after traumatic brain injury found no memory benefit over placebo.',
@@ -492,7 +493,7 @@ export const ingredients: Ingredient[] = [
     },
     stacksWith: [
       { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'L-Tyrosine supplies dopamine/norepinephrine substrate for focus and drive; L-Theanine keeps you calm and prevents the cortisol spike from stress or caffeine. Together they produce focused, calm high-performance state under demanding conditions.' },
-      { ingredient: 'Rhodiola Rosea', slug: 'rhodiola-rosea', reason: 'Rhodiola modulates monoamine availability and HPA axis; Tyrosine replenishes the substrate for those monoamines. Both work best under stress conditions — they target the same problem (cognitive decline under stress) via complementary mechanisms.' },
+      { ingredient: 'Rhodiola Rosea', slug: 'rhodiola-rosea', reason: 'Both are studied for performance under stress; we cite no trial of the pairing.' },
       { ingredient: 'Caffeine', slug: 'caffeine', reason: "Often paired with caffeine; we cite no trial of L-Tyrosine with caffeine." },
     ],
     faqs: [

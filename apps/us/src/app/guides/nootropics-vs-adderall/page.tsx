@@ -234,7 +234,7 @@ export default function Page() {
                 <tr className="bg-white">
                   <td className="px-3 py-2 font-medium text-gray-900">Long-term memory</td>
                   <td className="px-3 py-2 text-gray-700">No specific benefit shown</td>
-                  <td className="px-3 py-2 text-gray-700">Bacopa Monnieri — multiple RCTs</td>
+                  <td className="px-3 py-2 text-gray-700">Bacopa Monnieri — 12-week trials (Pase 2012 review)</td>
                 </tr>
                 <tr className="bg-gray-50">
                   <td className="px-3 py-2 font-medium text-gray-900">Sleep deprivation</td>

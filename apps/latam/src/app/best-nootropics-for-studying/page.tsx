@@ -42,7 +42,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Citicolina — colina para alta demanda cognitiva',
     ingredientSlugs: ['citicoline'],
     evidence:
-      'La demanda cognitiva intensa agota la colina. La citicolina a 250–500mg/día apoya la síntesis de fosfolípidos y la disponibilidad de acetilcolina — el neurotransmisor más asociado con atención y aprendizaje. Cognizin es la forma estandarizada.',
+      'La citicolina es un donante de colina. Nuestra página sobre la citicolina califica como mixta su evidencia sobre la atención y como moderada su evidencia sobre la memoria de trabajo (un ensayo en adultos mayores con memoria ineficiente, Spiers 1996). Cognizin es la forma estandarizada.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
   {

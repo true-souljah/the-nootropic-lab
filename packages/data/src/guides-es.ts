@@ -73,7 +73,7 @@ export const guidesEs: GuideTranslation[] = [
       },
       {
         "heading": "Integridad de la membrana celular y fosfolípidos",
-        "content": "Las membranas celulares neuronales están compuestas en gran parte por fosfolípidos, principalmente fosfatidilserina (PS) y fosfatidilcolina. Las membranas saludables son esenciales para una transmisión eficiente de señales entre neuronas. Los niveles de PS en el cerebro disminuyen con el envejecimiento. La suplementación con PS repone la composición de las membranas, mejorando la transducción de señales sinápticas y facilitando la liberación de neurotransmisores. Citicoline actúa de manera similar: como precursor de la fosfatidilcolina, apoya la reparación de membranas mientras simultáneamente potencia la síntesis de Acetylcholine."
+        "content": "Las membranas celulares neuronales están compuestas en gran parte por fosfolípidos, principalmente fosfatidilserina (PS) y fosfatidilcolina. Las membranas saludables son esenciales para una transmisión eficiente de señales entre neuronas. Los niveles de PS en el cerebro disminuyen con el envejecimiento. Citicoline actúa de manera similar: como precursor de la fosfatidilcolina, apoya la reparación de membranas mientras simultáneamente potencia la síntesis de Acetylcholine."
       }
     ]
   },
@@ -96,7 +96,7 @@ export const guidesEs: GuideTranslation[] = [
       },
       {
         "heading": "Cómo se sienten los efectos acumulativos",
-        "content": "Los efectos acumulativos de los nootrópicos son sutiles por naturaleza — representan mejoras en la línea base cognitiva, no cambios agudos dramáticos. Después de 8–12 semanas con un stack que contenga Bacopa, es probable que usted note: recuperación más rápida de nombres, números y material aprendido; mejor retención de información nueva; y subjetivamente, que las cosas resultan un poco más fáciles de recordar. Tras 8 semanas de Lion's Mane, algunos usuarios reportan un pensamiento más claro y mayor resistencia mental. Estos efectos son difíciles de percibir día a día; la mejor manera de medirlos es mediante una evaluación cognitiva de referencia — mida su capacidad de memoria de trabajo, velocidad de lectura o tiempo de finalización de tareas antes de comenzar y nuevamente a las 8 semanas."
+        "content": "Los efectos acumulativos de los nootrópicos son sutiles por naturaleza — representan mejoras en la línea base cognitiva, no cambios agudos dramáticos. Después de 8–12 semanas con un stack que contenga Bacopa, es probable que usted note: recuperación más rápida de nombres, números y material aprendido; mejor retención de información nueva; y subjetivamente, que las cosas resultan un poco más fáciles de recordar. Estos efectos son difíciles de percibir día a día; la mejor manera de medirlos es mediante una evaluación cognitiva de referencia — mida su capacidad de memoria de trabajo, velocidad de lectura o tiempo de finalización de tareas antes de comenzar y nuevamente a las 8 semanas."
       },
       {
         "heading": "Lo que los nootrópicos no pueden hacer",
@@ -119,7 +119,7 @@ export const guidesEs: GuideTranslation[] = [
     "sections": [
       {
         "heading": "¿Qué es un stack nootrópico?",
-        "content": "Un stack nootrópico es una combinación de dos o más compuestos potenciadores de la cognición que se toman juntos para producir efectos mayores que los que cada uno lograría por separado. El concepto proviene de la farmacología — muchos medicamentos son más eficaces o mejor tolerados en combinación. Frente a placebo, para L-Theanine + Caffeine, un metaanálisis de 11 ECA encontró mejoras moderadas en el estado de alerta y en la precisión al alternar la atención durante las 2 primeras horas tras la dosis. Foxe 2012 no encontró ningún beneficio adicional frente a cada compuesto por separado. En un ensayo controlado (Rogers 2007), L-Theanine contrarrestó el aumento de la presión arterial causado por la cafeína, pero no redujo significativamente el nerviosismo causado por la cafeína. Los stacks preformulados con múltiples ingredientes combinan de 8 a 11 ingredientes diseñados para actuar sobre múltiples vías cognitivas de forma simultánea."
+        "content": "Un stack nootrópico es una combinación de dos o más compuestos potenciadores de la cognición que se toman juntos. El concepto proviene de la farmacología — muchos medicamentos son más eficaces o mejor tolerados en combinación. Frente a placebo, para L-Theanine + Caffeine, un metaanálisis de 11 ECA encontró mejoras moderadas en el estado de alerta y en la precisión al alternar la atención durante las 2 primeras horas tras la dosis. Foxe 2012 no encontró ningún beneficio adicional frente a cada compuesto por separado. En un ensayo controlado (Rogers 2007), L-Theanine contrarrestó el aumento de la presión arterial causado por la cafeína, pero no redujo significativamente el nerviosismo causado por la cafeína. Los stacks preformulados con múltiples ingredientes combinan de 8 a 11 ingredientes diseñados para actuar sobre múltiples vías cognitivas de forma simultánea."
       },
       {
         "heading": "La regla de oro: una sola fuente colinérgica a la vez",
@@ -166,7 +166,7 @@ export const guidesEs: GuideTranslation[] = [
       },
       {
         "heading": "Los mejores para la velocidad de recuperación",
-        "content": "La velocidad de recuperación —qué tan rápido puede usted recuperar información almacenada— está influenciada por la disponibilidad de Acetylcholine, la señalización de dopamina y la velocidad de transmisión sináptica. Huperzine A (100mcg) bloquea la enzima que degrada la Acetylcholine; sus ensayos midieron efectos tras 4–16 semanas de dosis diaria, y no se encontró ningún ensayo de efecto agudo. Rhodiola mejora la recuperación bajo condiciones de estrés o fatiga (cuando el agotamiento de catecolaminas de otro modo retrasaría la recuperación). Nota: ninguno de estos puede recuperar información que nunca fue bien codificada; mejorar la codificación es el primer paso."
+        "content": "La velocidad de recuperación —qué tan rápido puede usted recuperar información almacenada— está influenciada por la disponibilidad de Acetylcholine, la señalización de dopamina y la velocidad de transmisión sináptica. Huperzine A (100mcg) bloquea la enzima que degrada la Acetylcholine; sus ensayos midieron efectos tras 4–16 semanas de dosis diaria, y no se encontró ningún ensayo de efecto agudo. Nuestra página de Rhodiola califica como mixta su evidencia sobre la fatiga mental. Nota: ninguno de estos puede recuperar información que nunca fue bien codificada; mejorar la codificación es el primer paso."
       },
       {
         "heading": "Los mejores para el pensamiento creativo y la perspicacia",
@@ -193,7 +193,7 @@ export const guidesEs: GuideTranslation[] = [
       },
       {
         "heading": "Perfiles de seguridad y efectos secundarios",
-        "content": "Los nootrópicos naturales en las dosis recomendadas tienen un excelente historial de seguridad y se comercializan como suplementos alimenticios en la mayoría de las jurisdicciones. Bacopa, Ashwagandha y Rhodiola tienen una larga historia de uso tradicional, pero el uso tradicional no constituye datos de seguridad sistemáticos, y los ECA modernos con estos ingredientes han durado aproximadamente entre 4 y 16 semanas: no existe un registro de seguridad controlado de varios años. Los nootrópicos sintéticos presentan perfiles de seguridad a largo plazo más inciertos, particularmente para el uso diario durante años. Los racetams agotan las reservas de colina (lo que requiere suplementación adicional de colina para evitar dolores de cabeza). Modafinil y Armodafinil — disponibles solo con receta médica en la mayoría de los países — tienen una seguridad establecida a corto plazo, pero datos limitados a largo plazo."
+        "content": "Los nootrópicos naturales en las dosis recomendadas tienen un excelente historial de seguridad y se comercializan como suplementos alimenticios en la mayoría de las jurisdicciones. Bacopa, Ashwagandha y Rhodiola tienen una larga historia de uso tradicional, pero el uso tradicional no constituye datos de seguridad sistemáticos, y los ECA modernos con estos ingredientes han durado aproximadamente entre 4 y 16 semanas: no existe un registro de seguridad controlado de varios años. Los nootrópicos sintéticos presentan perfiles de seguridad a largo plazo más inciertos, particularmente para el uso diario durante años. Modafinil y Armodafinil — disponibles solo con receta médica en la mayoría de los países — tienen una seguridad establecida a corto plazo, pero datos limitados a largo plazo."
       },
       {
         "heading": "Estatus regulatorio por región",
