@@ -14,8 +14,8 @@ import { test, expect } from '@playwright/test';
 //
 //   skip-link text       — メインコンテンツへスキップ
 //   "Comparator" CTA     — 比較
-//   Search aria-label    — "Search (⌘K)" (still English — shared
-//                          @nootropic/ui component)
+//   Search aria-label    — "検索 (Command+K)" (page language since
+//                          2026-10-12)
 //
 // Tab-trap probe types "fancl" — substring match on FANCL Brains in
 // the JP catalog (FANCL is a Japanese supplement chain; the product
@@ -113,7 +113,7 @@ test.describe('JP /best-nootropics-for-focus/ — CommandPalette ⌘K modal (WCA
     await expect(page.locator('[role="dialog"]:not(#klaro-cookie-notice)')).toBeAttached();
     await page.keyboard.press('Escape');
     await expect(page.locator('[role="dialog"]:not(#klaro-cookie-notice)')).toHaveCount(0);
-    await expect(page.locator('button[aria-label*="Search"]').first()).toBeFocused();
+    await expect(page.locator('button[aria-label*="検索"]').first()).toBeFocused();
   });
 
   test('Tab inside the modal loops focus on the input (PR-Q51 portfolio-wide trap fix)', async ({ page }) => {
@@ -174,7 +174,7 @@ test.describe('JP /best-nootropics-for-focus/ — primary nav tab order (WCAG 2.
     // English or Japanese variant.
     expect(stops[0], `stops=${JSON.stringify(stops)}`).toMatch(/Skip|skip|スキップ/);
     expect(
-      stops.some((s) => /Search|⌘K|Ctrl/i.test(s)),
+      stops.some((s) => /Search|検索|⌘K|Ctrl/i.test(s)),
       `stops=${JSON.stringify(stops)}`,
     ).toBe(true);
     // Comparator: ja-JP variant 比較. Pattern accepts every locale's
