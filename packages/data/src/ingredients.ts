@@ -203,8 +203,8 @@ export const ingredients: Ingredient[] = [
     mechanism: 'L-theanine is a non-protein amino acid found primarily in green tea. It crosses the blood-brain barrier and has been linked to increased alpha brain wave activity. It also modulates GABA, serotonin, and dopamine levels. Combined with caffeine, it improved attention measures versus placebo in several trials, though Foxe 2012 found no added benefit over either compound alone.',
     clinicalDose: '100–200mg/day (trials pairing it with caffeine used roughly 1:1 to 1.7:1 theanine:caffeine)',
     timeToEffect: '30–60 minutes (acute)',
-    studySummary: 'A 2026 meta-analysis of 31 RCTs (n=1,168) found a single 200mg dose taken 30–60 minutes before testing improved choice reaction time; its acute stress effect was modest and driven by high-risk-of-bias studies, and anxiety effects were inconsistent. With caffeine, RCTs (Haskell et al., 2007; Kahathuduwa 2016) and an 11-RCT meta-analysis (Camfield 2014) show the combination beats either compound alone on attention and reaction time. The one alpha-wave (MEG) trial found higher alpha activity at 2 hours, and only in people with higher trait anxiety.',
-    benefits: ['Faster reaction time after a single 200mg dose', 'Better attention with caffeine than caffeine alone', 'Small improvements in subjective sleep quality'],
+    studySummary: 'A 2026 meta-analysis of 31 RCTs (n=1,168) found a single 200mg dose taken 30–60 minutes before testing improved choice reaction time; its acute stress effect was modest and driven by high-risk-of-bias studies, and anxiety effects were inconsistent. With caffeine, an 11-study meta-analysis (Camfield 2014) found moderate effects versus placebo on alertness and attention-switching accuracy; Kahathuduwa 2016 found additive effects with no interaction, and Foxe 2012 found no added benefit over either compound alone. The one alpha-wave (MEG) trial found higher alpha activity at 2 hours, and only in people with higher trait anxiety.',
+    benefits: ['Faster reaction time after a single 200mg dose', 'Better attention with caffeine than with placebo in several trials', 'Small improvements in subjective sleep quality'],
     sideEffects: ['Extremely well tolerated — no serious adverse events across a 31-RCT meta-analysis', 'Possible mild sedation at high doses', 'Generally considered very safe'],
     productsContaining: ['mind-lab-pro-review', 'noocube-review', 'thesis-nootropics-review', 'brainzyme-focus-pro-review', 'performance-lab-caffeine-2-review', 'pre-lab-pro-review'],
     humanEffects: [
@@ -220,7 +220,7 @@ export const ingredients: Ingredient[] = [
       forms: 'Capsule or powder. Suntheanine is a branded L-Theanine (from enzymatic synthesis, identical to tea-derived theanine). Bulk L-Theanine powder dissolves in water but is subtly sweet and easy to mix.',
     },
     stacksWith: [
-      { ingredient: 'Caffeine', slug: 'caffeine', reason: 'Trials used 200–250mg theanine with 150–160mg caffeine (roughly 1:1 to 1.7:1). The combination improved attention and reaction time more than either alone; in a controlled trial (Rogers 2008) theanine did not significantly reduce caffeine jitteriness.' },
+      { ingredient: 'Caffeine', slug: 'caffeine', reason: 'The trials we cite used 50–250mg theanine with 40–250mg caffeine. Versus placebo, the combination improved attention measures in several trials, though Foxe 2012 found no added benefit over either compound alone; in a controlled trial (Rogers 2008) theanine did not significantly reduce caffeine jitteriness.' },
       { ingredient: 'Bacopa Monnieri', slug: 'bacopa-monnieri', reason: 'Both have anxiolytic properties working via different mechanisms. L-Theanine provides immediate calm; Bacopa builds sustained stress tolerance over weeks. A gentle, non-sedating anxiety-reduction combination.' },
       { ingredient: 'Ashwagandha', slug: 'ashwagandha', reason: 'Both target stress through distinct pathways (GABA modulation for theanine; HPA axis for ashwagandha). Good daytime anxiety stack without sedation.' },
     ],
@@ -273,7 +273,7 @@ export const ingredients: Ingredient[] = [
     ],
     faqs: [
       { question: 'Does Rhodiola need to be cycled?', answer: 'Not on current evidence. The clinical trials ran from a single dose up to 4 weeks, so they neither tested cycling nor months of continuous use. Some people take a 1–2 week break every 4–6 weeks as a precaution against a possible "ceiling effect".' },
-      { question: 'What does 3% rosavins / 1% salidroside mean?', answer: "Rosavins and salidroside are Rhodiola's key bioactives. Rhodiola rosea naturally contains rosavins and salidrosides in about a 3:1 ratio, and preparations are made to reflect it (Ishaque 2012). The trials we cite used the SHR-5 extract, and their abstracts state no marker percentages." },
+      { question: 'What do rosavins and salidroside mean on a Rhodiola label?', answer: "Rosavins and salidroside are Rhodiola's key bioactives. Rhodiola rosea naturally contains rosavins and salidrosides in about a 3:1 ratio, and preparations are made to reflect it (Ishaque 2012). The trials we cite used the SHR-5 extract, and their abstracts state no marker percentages." },
       { question: 'Can Rhodiola cause anxiety or jitteriness?', answer: 'In a minority of people, especially at doses above 400mg, Rhodiola can cause a stimulant-like restlessness or mild anxiety — particularly in the first week. Start at 200mg and increase gradually. Some people pair it with L-Theanine to soften this, though that combination has not been tested in a trial.' },
       { question: 'Is Rhodiola safe to take with antidepressants?', answer: 'Not without medical supervision. Rhodiola compounds inhibit monoamine oxidase in laboratory studies, so an interaction with SSRIs, MAOIs and other antidepressants (including serotonin syndrome) is theoretically possible — no clinical reports were found in our 2026 PubMed review. Always consult your doctor if you are on any psychiatric medication.' },
     ],
@@ -532,7 +532,7 @@ export const ingredients: Ingredient[] = [
       forms: 'Coffee, tea, matcha, capsules, or anhydrous powder. Capsules provide the most precise dosing. Matcha provides a gentler curve due to L-Theanine co-occurrence.',
     },
     stacksWith: [
-      { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'Trials used roughly 1:1 to 1.7:1 theanine:caffeine and found better attention than caffeine alone; in a controlled trial theanine did not significantly reduce jitteriness. Found naturally in matcha.' },
+      { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'The trials we cite used 50–250mg theanine with 40–250mg caffeine. Versus placebo, the combination improved attention measures in several trials, though Foxe 2012 found no added benefit over either compound alone; in a controlled trial theanine did not significantly reduce jitteriness. Found naturally in matcha.' },
       { ingredient: 'L-Tyrosine', slug: 'l-tyrosine', reason: 'Sometimes paired with caffeine; we cite no trial of the pairing.' },
       { ingredient: 'Rhodiola Rosea', slug: 'rhodiola-rosea', reason: 'Rhodiola provides stress resilience while caffeine provides stimulation — complementary under high-demand conditions without overstimulation.' },
     ],
