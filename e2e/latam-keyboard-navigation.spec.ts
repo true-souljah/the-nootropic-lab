@@ -14,8 +14,8 @@ import { test, expect } from '@playwright/test';
 //   skip-link text       — Saltar al contenido principal
 //   "Comparator" CTA     — comparador (already covered by the
 //                          existing regex)
-//   Search aria-label    — "Search (⌘K)" (still EN — shared
-//                          @nootropic/ui component)
+//   Search aria-label    — "Buscar (Command+K)" (page language since
+//                          2026-10-12)
 //
 // Tab-trap probe types "depot" — substring match on Nootropics
 // Depot Lion's Mane in the LATAM catalog.
@@ -107,7 +107,7 @@ test.describe('LATAM /best-nootropics-for-focus/ — CommandPalette ⌘K modal (
     await expect(page.locator('[role="dialog"]:not(#klaro-cookie-notice)')).toBeAttached();
     await page.keyboard.press('Escape');
     await expect(page.locator('[role="dialog"]:not(#klaro-cookie-notice)')).toHaveCount(0);
-    await expect(page.locator('button[aria-label*="Search"]').first()).toBeFocused();
+    await expect(page.locator('button[aria-label*="Buscar"]').first()).toBeFocused();
   });
 
   test('Tab inside the modal loops focus on the input (PR-Q51 portfolio-wide trap fix)', async ({ page }) => {
@@ -166,7 +166,7 @@ test.describe('LATAM /best-nootropics-for-focus/ — primary nav tab order (WCAG
     // (Spanish). Pattern accepts EN + Spanish + Japanese variants.
     expect(stops[0], `stops=${JSON.stringify(stops)}`).toMatch(/Skip|skip|スキップ|Saltar/);
     expect(
-      stops.some((s) => /Search|⌘K|Ctrl/i.test(s)),
+      stops.some((s) => /Search|Buscar|⌘K|Ctrl/i.test(s)),
       `stops=${JSON.stringify(stops)}`,
     ).toBe(true);
     // Comparator: es-LATAM variant is `comparador` (already in the

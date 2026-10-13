@@ -43,7 +43,7 @@ export default function EsCompararPage() {
         </p>
         <AffiliateDisclosure strings={uiStrings.disclosure} />
         <div className="mt-8">
-          <ComparisonTable products={productsUS} market="us" />
+          <ComparisonTable products={productsUS} market="us" strings={uiStrings} />
         </div>
         <div className="mt-8 text-sm text-gray-500">
           <a href="/nootropic-comparison/" className="text-green-700 underline">

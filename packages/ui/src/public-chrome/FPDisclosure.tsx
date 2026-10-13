@@ -26,6 +26,8 @@ export interface FPDisclosureProps {
   body?: string;
   badgeLabel?: string;
   methodologyLabel?: string;
+  /** The page locale's `uiStrings.typography.space` between sentences and before the link ('' in ja). */
+  space?: string;
 }
 
 // English copy for callers without a locale bundle.
@@ -44,10 +46,10 @@ const EN_FALLBACK: Record<DisclosureScope, { badge: string; body: string }> = {
   },
 };
 
-function stripCopy(strings: UIStrings['disclosure'] | undefined, scope: DisclosureScope): { badge: string; body: string } {
+function stripCopy(strings: UIStrings['disclosure'] | undefined, scope: DisclosureScope, space: string): { badge: string; body: string } {
   if (!strings) return EN_FALLBACK[scope];
   const { badge, sentence } = disclosureCopy(strings, scope);
-  return { badge, body: scope === 'site' ? `${sentence} ${strings.ranking}` : sentence };
+  return { badge, body: scope === 'site' ? `${sentence}${space}${strings.ranking}` : sentence };
 }
 
 /**
@@ -63,8 +65,9 @@ export function FPDisclosure({
   body,
   badgeLabel,
   methodologyLabel = strings ? `${strings.methodology} →` : 'Read our methodology →',
+  space = ' ',
 }: FPDisclosureProps) {
-  const copy = stripCopy(strings, scope);
+  const copy = stripCopy(strings, scope, space);
   return (
     <div
       role="note"
@@ -77,7 +80,7 @@ export function FPDisclosure({
       </span>
       <span aria-hidden="true">·</span>
       <span>
-        {body ?? copy.body}{' '}
+        {body ?? copy.body}{space}
         <Link
           href={methodologyHref}
           className="text-ds-accent font-medium border-b border-ds-accent pb-[1px] hover:text-ds-accent-press focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded-[2px]"

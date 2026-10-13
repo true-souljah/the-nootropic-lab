@@ -331,7 +331,8 @@ describe('ingredient evidence UI strings', () => {
   test('the ingredient page passes the localized expand hint to <Sources>', () => {
     // Without expandLabel, Sources falls back to its English "expand" default on every locale.
     const src = readFileSync(join(__dirname, 'templates', 'IngredientDetail.tsx'), 'utf8');
-    expect(src).toContain('expandLabel={uiStrings?.guide.expand');
+    // uiStrings is required on IngredientDetail since 2026-10-12 (no `?.`).
+    expect(src).toContain('expandLabel={uiStrings.guide.expand}');
     for (const locale of ALL_LOCALES) {
       expect(getStrings(locale).guide.expand, `${locale} guide.expand`).toBeTruthy();
     }

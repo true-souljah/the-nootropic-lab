@@ -15,8 +15,9 @@ describe('locale-aware "last updated" dates', () => {
   it.each(DATE_TEMPLATES)('%s does not hardcode en-US in toLocaleDateString', (tpl) => {
     const src = readFileSync(join(TEMPLATES_DIR, tpl), 'utf8');
     expect(src, `${tpl}: hardcoded en-US date`).not.toMatch(/toLocaleDateString\(\s*['"]en-US['"]/);
+    // `uiStrings?.` or `uiStrings.` (Listicle and IngredientDetail require the bundle since 2026-10-12).
     expect(src, `${tpl}: should resolve dateLocale`).toMatch(
-      /toLocaleDateString\(\s*uiStrings\?\.productDetail\.dateLocale/,
+      /toLocaleDateString\(\s*uiStrings\??\.productDetail\.dateLocale/,
     );
   });
 });

@@ -68,7 +68,7 @@ export default function EsMejoresNootropicosPage() {
           <p className="text-sm text-gray-500 mb-4">
             Ordena por puntuación, precio, garantía de devolución del dinero o valoración de Trustpilot.
           </p>
-          <ComparisonTable products={productsUS} market="us" />
+          <ComparisonTable products={productsUS} market="us" strings={uiStrings} />
         </section>
 
         <div className="mt-10 text-sm text-gray-500">

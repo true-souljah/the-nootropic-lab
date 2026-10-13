@@ -1,15 +1,18 @@
 'use client';
 import { useState } from 'react';
 import { pillarText } from '@nootropic/data';
-import type { Product } from '@nootropic/data';
+import type { Product, UIStrings } from '@nootropic/data';
 import { SCORE_TIER_TEXT_CLASS, scoreTier } from './templates/listicleRanking';
+import { tpl } from './templateStrings';
 
 interface Props {
   score: number;
   breakdown: Product['scoreBreakdown'];
+  /** Page-locale bundle: the score's accessible name, the tooltip heading and the pillar names. */
+  strings: UIStrings;
 }
 
-export default function ScoreTooltip({ score, breakdown }: Props) {
+export default function ScoreTooltip({ score, breakdown, strings }: Props) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -21,17 +24,17 @@ export default function ScoreTooltip({ score, breakdown }: Props) {
         onFocus={() => setOpen(true)}
         onBlur={() => setOpen(false)}
         className={`font-bold ${SCORE_TIER_TEXT_CLASS[scoreTier(score)]} cursor-help border-b border-dashed border-current`}
-        aria-label={`Score ${score} out of 10 — tap or hover for breakdown`}
+        aria-label={tpl(strings.table.scoreAria, { score })}
         aria-expanded={open}
       >
         {`${score}/10`}
       </button>
       {open && (
         <div role="tooltip" className="absolute z-20 bottom-full left-0 mb-2 bg-white border border-gray-200 shadow-lg rounded p-3 w-52 text-xs">
-          <div className="font-bold text-gray-700 mb-2">Score breakdown</div>
-          {(Object.entries(breakdown) as [string, number | null][]).map(([key, val]) => (
+          <div className="font-bold text-gray-700 mb-2">{strings.table.scoreBreakdown}</div>
+          {(Object.entries(breakdown) as [keyof Product['scoreBreakdown'], number | null][]).map(([key, val]) => (
             <div key={key} className="flex items-center gap-2 mb-1">
-              <span className="w-24 capitalize text-gray-500">{key}</span>
+              <span className="w-24 capitalize text-gray-500">{strings.productDetail.pillars.short[key]}</span>
               <div className="score-bar flex-1">
                 <div className="score-bar-fill" style={{ width: `${(val ?? 0) * 10}%` }} />
               </div>

@@ -369,7 +369,7 @@ export default function Discover({
                       {servingAmount(p, uiStrings)} · {guaranteeDays(p.moneyBackDays, (d) => `${d}d`)} MBG
                     </div>
                     <div className="flex items-center gap-2">
-                      <ShortlistButton slug={p.slug} size="sm" />
+                      <ShortlistButton slug={p.slug} size="sm" strings={uiStrings.shortlist} />
                       <Link
                         href={`/${p.slug}/`}
                         className="text-ds-accent text-[12px] font-semibold no-underline hover:text-ds-accent-press focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded"

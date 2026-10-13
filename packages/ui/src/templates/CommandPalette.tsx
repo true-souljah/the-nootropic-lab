@@ -51,7 +51,7 @@ const DEFAULT_LIVE_REGION_EN = {
 
 export interface CommandPaletteProps {
   items: SearchItem[];
-  /** Visible label for the trigger button. Default: "Search" (icon + keycap shown). */
+  /** Visible label for the trigger button. Default: `strings.nav.search` ("Search" without a bundle). */
   triggerLabel?: string;
   /** Locale UIStrings bundle. When provided, sources the aria-live status
    *  messages from `strings.search.liveRegion.*` and the dialog's words from
@@ -117,13 +117,15 @@ function pushRecent(href: string): void {
  */
 export default function CommandPalette({
   items,
-  triggerLabel = 'Search',
   strings,
+  triggerLabel,
 }: CommandPaletteProps) {
   const liveStrings = strings?.search.liveRegion ?? DEFAULT_LIVE_REGION_EN;
   const t = strings?.search.palette ?? PALETTE_STRINGS_EN;
-  // The search field's accessible name. The trigger keeps `triggerLabel`.
+  // The search field's accessible name; also the trigger's label unless the
+  // caller passes one (FPHeader passes none).
   const inputLabel = strings?.nav.search ?? 'Search';
+  const trigger = triggerLabel ?? inputLabel;
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [activeIndex, setActiveIndex] = useState(0);
@@ -296,11 +298,11 @@ export default function CommandPalette({
         // PLACE OF INTEREST SIGN literally as "place of interest
         // sign", not as "command" — making the shortcut hint
         // unrecognisable.
-        aria-label={`${triggerLabel} (Command+K)`}
+        aria-label={`${trigger} (Command+K)`}
         className="hidden md:inline-flex items-center gap-2 bg-ds-card-sub border border-ds-border text-ds-muted text-[13px] px-3 py-[6px] rounded-[8px] hover:text-ds-ink hover:border-ds-border-strong focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
       >
         <Search size={14} strokeWidth={2} aria-hidden={true} />
-        <span>{triggerLabel}</span>
+        <span>{trigger}</span>
         <kbd
           aria-hidden="true"
           className="text-[11px] bg-ds-card border border-ds-border px-[6px] py-[1px] rounded-[4px] font-medium text-ds-muted"
@@ -313,7 +315,7 @@ export default function CommandPalette({
       <button
         type="button"
         onClick={handleOpen}
-        aria-label={triggerLabel}
+        aria-label={trigger}
         className="md:hidden inline-flex items-center justify-center w-9 h-9 text-ds-muted hover:text-ds-ink rounded focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
       >
         <Search size={18} strokeWidth={2} aria-hidden={true} />

@@ -77,7 +77,7 @@ export default function MethodologyPage() {
             suplemento.
           </p>
         </section>
-        <EditorialStandardsSection />
+        <EditorialStandardsSection strings={uiStrings.editorialStandards} />
       </article>
     </PublicShell>
   );

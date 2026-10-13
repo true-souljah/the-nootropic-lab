@@ -37,12 +37,11 @@ export default function JaHikakuPage() {
           ノートロピクス比較ツール — 日本
         </h1>
         <p className="text-gray-600 mb-6">
-          日本で購入可能なすべての主要ブランドを横並びで比較します。スコア、価格、返金保証で並べ替え。
-          カフェインフリーでフィルタリングできます。
+          日本で購入可能なすべての主要ブランドを横並びで比較します。スコア、価格、返金保証で並べ替え。カフェインフリーでフィルタリングできます。
         </p>
-        <AffiliateDisclosure strings={uiStrings.disclosure} />
+        <AffiliateDisclosure strings={uiStrings.disclosure} space={uiStrings.typography.space} />
         <div className="mt-8">
-          <ComparisonTable products={productsJP} market="jp" />
+          <ComparisonTable products={productsJP} market="jp" strings={uiStrings} />
         </div>
         <div className="mt-8 text-sm text-gray-500">
           <a href="/nootropic-comparison/" className="text-green-700 underline">
