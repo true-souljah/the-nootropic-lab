@@ -85,7 +85,8 @@ export default async function ProvincePage({
             checked 2026-10-09). For a courier shipment from any other country, including the UK, it lists
             &ldquo;Up to $20: duty and tax free&rdquo;; by mail, &ldquo;Above $20: duties and taxes apply when
             imported from any country, including the US and Mexico&rdquo;.
-            All prices are in USD — check current CAD/USD exchange rate before ordering.
+            Prices are each store&rsquo;s own, never converted: $ means Canadian dollars, and a store that
+            sells in US dollars is shown in US$.
           </p>
         </div>
 
