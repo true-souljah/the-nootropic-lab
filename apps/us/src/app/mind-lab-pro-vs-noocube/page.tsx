@@ -61,7 +61,6 @@ const faqItems: HeadToHeadFAQ[] = [
 const whoIsForA = [
   'Want peer-reviewed RCT evidence (Mind Lab Pro has multiple)',
   'Care about Clean Label + Consumer Lab third-party verification',
-  'Prefer no autoship pressure — manual reorder only',
   'Are willing to pay premium for trademarked extracts (Cognizin, Sharp-PS)',
 ];
 

@@ -47,9 +47,9 @@ const faqItems: HeadToHeadFAQ[] = [
       'Mind Lab Pro is fully caffeine-free. Thesis varies by formula — Motivation contains 150mg caffeine per two-capsule serving; Clarity, Stress Reset and Neuroprotection are sold with or without caffeine (100mg in the caffeinated versions). Check each formula\'s label.',
   },
   {
-    q: 'Which has better subscription transparency?',
+    q: 'How do their subscriptions work?',
     a:
-      'Mind Lab Pro: no autoship — every order is manual reorder. Thesis: subscription model is the default; cancellation requires logging into account. Mind Lab Pro wins on subscription friction; Thesis wins on convenience for committed users.',
+      'Both sell subscriptions you can cancel. Mind Lab Pro sells a one-time bottle at $69.00, or a monthly or four-month subscription its product page says you can "update or cancel anytime" (mindlabpro.com, checked 13 October 2026). Thesis\'s refund policy says you "can cancel your subscription at any time in your Thesis Account" or by contacting its team (takethesis.com, checked 7 October 2026). Check each brand\'s current terms before you subscribe.',
   },
   {
     q: 'Are these alternatives to Adderall?',
@@ -60,8 +60,6 @@ const faqItems: HeadToHeadFAQ[] = [
 
 const whoIsForA = [
   'Want a single universal formula with peer-reviewed RCT evidence',
-  'Prefer no autoship — manual reorder only',
-  'Want one flat price ($69/month) with no subscription',
   'Don\'t want to manage a quiz-based selection process',
 ];
 

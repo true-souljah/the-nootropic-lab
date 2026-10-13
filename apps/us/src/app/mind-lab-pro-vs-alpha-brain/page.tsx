@@ -61,7 +61,7 @@ const faqItems: HeadToHeadFAQ[] = [
 const whoIsForA = [
   "Want to know exactly what you're taking — every dose disclosed",
   'Care about peer-reviewed efficacy data (multiple Leeds RCTs)',
-  'Prefer caffeine-free with no autoship pressure',
+  'Prefer caffeine-free',
   'Are willing to pay $69/mo for formula transparency',
 ];
 

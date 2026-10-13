@@ -36,8 +36,12 @@ const matchDays = (m: RegExpMatchArray): number => Number(m[1] ?? m[2] ?? m[3] ?
 const NO_GUARANTEE = /\bno (?:money[- ]?back|refund|satisfaction) guarantee/i;
 /** Prose saying only a subscription is sold. */
 const SUBSCRIPTION_ONLY = /subscription[- ]only|cannot purchase a one-time/i;
-/** Prose saying no subscription is sold. */
-const ONE_TIME_ONLY = /one-time purchase model|\(no subscription\)/i;
+/**
+ * Prose saying no subscription is sold. "No autoship (manual reorder only)"
+ * and "one flat price with no subscription" stood on six US pages about Mind
+ * Lab Pro, which sells monthly and four-month subscriptions (2026-10-13).
+ */
+const ONE_TIME_ONLY = /one-time purchase model|\(no subscription\)|\bno autoship\b|\bmanual reorder\b|\bwith no subscription\b/i;
 
 function prose(p: Product): Array<[string, string]> {
   const out: Array<[string, string]> = [];
@@ -182,6 +186,24 @@ describe('app pages state each product’s guarantee length as stored', () => {
     }
     expect(checked).toBeGreaterThan(5);
     expect(stale).toEqual([]);
+  });
+
+  test('one-time-only wording on an app page names a product whose pricingModel is one-time', () => {
+    const wrong: string[] = [];
+    for (const file of appFiles) {
+      const region = relative(join(REPO, 'apps'), file).split(/[/\\]/)[0];
+      const products = REGIONS[region] ?? [];
+      const lines = readFileSync(file, 'utf8').split('\n');
+      lines.forEach((line, i) => {
+        const m = ONE_TIME_ONLY.exec(line);
+        if (!m) return;
+        const p = productFor(lines, i, m.index, products);
+        if (p?.pricingModel !== 'one-time') {
+          wrong.push(`${relative(REPO, file)}:${i + 1}: "${m[0]}" (${p ? `${p.id} pricingModel ${p.pricingModel}` : 'no product named'})`);
+        }
+      });
+    }
+    expect(wrong).toEqual([]);
   });
 
   test('every rendered moneyBackDays goes through guaranteeDays / guaranteeDaysValue (0 never shows as "0 days")', () => {
