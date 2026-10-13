@@ -1316,6 +1316,17 @@ describe('round fifteen (U7): caffeine + L-theanine copy follows Owen 2008 and n
 // FDA-qualified claim for cognitive decline"; it now gives the FDA's 13 May
 // 2003 wording. Rhodiola's FAQ asked "What does 3% rosavins / 1% salidroside
 // mean?" while its answer says the trials state no marker percentages.
+//
+// Round sixteen, U6 (2026-10-13). The L-theanine clinicalDose and its
+// ideal-ratio FAQ still said the caffeine trials used "roughly 1:1 to 1.7:1"
+// theanine to caffeine. The positive trials (PubMed, checked 2026-10-12) used
+// 97-250mg theanine with 40-160mg caffeine: Owen 2008 and Kelly 2008 100mg
+// with 50mg, Giesbrecht 2010 and Einöther 2010 97mg with 40mg, Haskell
+// (18006208) 250mg with 150mg, Kahathuduwa 2016 and 2017 200mg with 160mg.
+// With the null trials (Dodd 2015 50mg/75mg, Foxe 2012 100mg/50mg, Rogers
+// 2008 200mg/250mg) the range is 50-250mg theanine with 40-250mg caffeine, so
+// both now give mg doses. The With Caffeine note's "Haskell 2008" now reads
+// "Haskell 2007", as the record's source list and FAQ do.
 const ROUND_SIXTEEN_SOURCES = [
   ...ROUND_THIRTEEN_SOURCES,
   ...walk(resolve(REPO_ROOT, 'packages/ui/src/templates')),
@@ -1406,6 +1417,8 @@ const ROUND_SIXTEEN_UNSOURCED: RegExp[] = [
   /RCTs show attention benefits in healthy adults/i,
   /targets the FDA-qualified claim/i,
   /What does 3% rosavins/i,
+  // U6: the L-theanine clinicalDose and ideal-ratio FAQ ratio range.
+  /roughly 1:1 to 1\.[67]:1/i,
 ];
 
 // A double-quoted JSX attribute does not process escapes, so \' in one
@@ -1540,6 +1553,9 @@ describe('round sixteen: energy, stack, focus- and memory-page claims follow the
       'No mechanistic overlap with Adderall, but RCTs show attention benefits in healthy adults at 250–500mg/day, and good tolerability profile alongside other ingredients.',
       'Sharp-PS Green phosphatidylserine targets the FDA-qualified claim for cognitive decline and supports neuronal membrane fluidity.',
       'What does 3% rosavins / 1% salidroside mean?',
+      // U6
+      '100–200mg/day (trials pairing it with caffeine used roughly 1:1 to 1.7:1 theanine:caffeine)',
+      'No trial has established an ideal ratio. The positive combination trials used roughly 1:1 to 1.7:1 theanine to caffeine — for example 250mg theanine with 150mg caffeine (Haskell 2007) and 200mg with 160mg (Kahathuduwa 2016).',
     ];
     for (const s of removed) expect(ROUND_SIXTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(true);
     for (const re of ROUND_SIXTEEN_UNSOURCED) expect(removed.some(s => re.test(s)), String(re)).toBe(true);
@@ -1629,6 +1645,9 @@ describe('round sixteen: energy, stack, focus- and memory-page claims follow the
       'No mechanistic overlap with Adderall. Our citicoline page rates its attention evidence as mixed: the Cochrane review found no attention benefit, and the only acute attention trial in healthy adults gave it together with caffeine.',
       "Sharp-PS Green phosphatidylserine supports neuronal membrane fluidity; the FDA allows only a qualified claim that phosphatidylserine may reduce the risk of dementia or cognitive dysfunction in the elderly, with the disclaimer that 'FDA concludes that there is little scientific evidence supporting this claim'.",
       'What do rosavins and salidroside mean on a Rhodiola label?',
+      // U6
+      '100–200mg/day (trials pairing it with caffeine used 50–250mg theanine with 40–250mg caffeine)',
+      'No trial has established an ideal ratio. The positive combination trials used 97–250mg theanine with 40–160mg caffeine — for example 100mg theanine with 50mg caffeine (Owen 2008), 250mg with 150mg (Haskell 2007) and 200mg with 160mg (Kahathuduwa 2016).',
       // Attributed rationale that stays (not our claim).
       'The theory is synergistic optimisation across all cognitive systems simultaneously.',
       'work synergistically to support the function of mitochondria',
