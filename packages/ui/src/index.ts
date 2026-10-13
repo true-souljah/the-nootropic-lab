@@ -171,16 +171,12 @@ export type { ParsedDose, DoseStatus } from './templates/doseRange';
 export { default as CommandPalette } from './templates/CommandPalette';
 export type { CommandPaletteProps } from './templates/CommandPalette';
 export {
-  useCaseListPageEnDefaults,
-  useCaseListPageEsStrings,
-  getUseCaseListStrings,
   headToHeadPageEnDefaults,
   headToHeadPageEsStrings,
   getHeadToHeadStrings,
   tpl,
 } from './templateStrings';
 export type {
-  UseCaseListPageStrings,
   HeadToHeadPageStrings,
   TemplateLocale,
 } from './templateStrings';

@@ -9,11 +9,13 @@ import { SparkBars } from '../primitives/SparkBars';
 import { LiveRegion } from '../primitives/LiveRegion';
 import type { Ingredient, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
+import { tpl } from '../templateStrings';
 
 export interface IngredientLibraryProps {
   ingredients: Ingredient[];
   searchItems?: SearchItem[];
-  uiStrings?: UIStrings;
+  /** Page-locale chrome. Required: the template has no English fallback. */
+  uiStrings: UIStrings;
   /** Heading + sub-line shown at the top. */
   hero?: { h1: string; dek: string };
 }
@@ -37,25 +39,11 @@ function totalTrials(ing: Ingredient): number {
   return ing.humanEffects.reduce((sum, e) => sum + (e.studies ?? 0), 0);
 }
 
-const GRADE_META: Record<Grade, { tone: 'good' | 'warn' | 'bad'; bg: string; text: string; descriptor: string }> = {
-  A: {
-    tone: 'good',
-    bg: 'bg-ds-good-soft',
-    text: 'text-ds-good-ink',
-    descriptor: 'Multiple consistent RCTs',
-  },
-  B: {
-    tone: 'warn',
-    bg: 'bg-ds-warn-soft',
-    text: 'text-ds-warn-ink',
-    descriptor: 'Smaller / fewer RCTs',
-  },
-  C: {
-    tone: 'bad',
-    bg: 'bg-ds-bad-soft',
-    text: 'text-ds-bad-ink',
-    descriptor: 'Preliminary or mixed',
-  },
+/** Badge colours per grade; what each grade means is UIStrings.ingredientLibrary.descriptors. */
+const GRADE_META: Record<Grade, { tone: 'good' | 'warn' | 'bad'; bg: string; text: string }> = {
+  A: { tone: 'good', bg: 'bg-ds-good-soft', text: 'text-ds-good-ink' },
+  B: { tone: 'warn', bg: 'bg-ds-warn-soft', text: 'text-ds-warn-ink' },
+  C: { tone: 'bad', bg: 'bg-ds-bad-soft', text: 'text-ds-bad-ink' },
 };
 
 /**
@@ -71,6 +59,7 @@ export default function IngredientLibrary({
   hero,
 }: IngredientLibraryProps) {
   const [grade, setGrade] = useState<GradeFilter>('All');
+  const s = uiStrings.ingredientLibrary;
 
   const graded = useMemo(
     () =>
@@ -98,16 +87,16 @@ export default function IngredientLibrary({
 
   const filterAnnouncement =
     grade === 'All'
-      ? `Showing all ${visible.length} ingredients`
-      : `Showing ${visible.length} grade-${grade} ingredient${visible.length === 1 ? '' : 's'}`;
+      ? tpl(s.showingAll, { n: visible.length })
+      : tpl(visible.length === 1 ? s.showingGradeOne : s.showingGrade, { n: visible.length, grade });
 
   return (
     <AppShell
       mode="persistent"
-      breadcrumbs={[{ label: uiStrings?.breadcrumb.ingredients ?? 'Ingredients' }]}
+      breadcrumbs={[{ label: uiStrings.breadcrumb.ingredients }]}
       searchItems={searchItems}
       uiStrings={uiStrings}
-      sidebarMeta={`${ingredients.length} ingredients`}
+      sidebarMeta={tpl(uiStrings.nav.ingredientCount, { n: ingredients.length })}
     >
       <LiveRegion message={filterAnnouncement} />
       <div className="px-7 pt-7 pb-10">
@@ -115,17 +104,16 @@ export default function IngredientLibrary({
         <div className="flex justify-between items-end mb-[18px] flex-wrap gap-4">
           <div>
             <h1 className="text-[24px] font-bold tracking-[-0.02em] m-0 text-ds-ink">
-              {hero?.h1 ?? 'Ingredient library'}
+              {hero?.h1 ?? s.heading}
             </h1>
             <p className="text-[13px] text-ds-muted mt-1 max-w-[680px] m-0">
-              {hero?.dek ??
-                `${ingredients.length} ingredients · graded on RCT evidence and consistency · plain-English notes`}
+              {hero?.dek ?? tpl(s.dek, { n: ingredients.length })}
             </p>
           </div>
-          <div role="group" aria-label="Filter by evidence grade" className="flex gap-[6px] flex-wrap">
+          <div role="group" aria-label={s.filterAria} className="flex gap-[6px] flex-wrap">
             {(['All', 'A', 'B', 'C'] as GradeFilter[]).map((g) => (
               <Chip key={g} active={grade === g} onClick={() => setGrade(g)}>
-                {g === 'All' ? 'All grades' : `Grade ${g}`}
+                {g === 'All' ? s.allGrades : tpl(s.grade, { grade: g })}
               </Chip>
             ))}
           </div>
@@ -146,9 +134,9 @@ export default function IngredientLibrary({
                   </div>
                   <div>
                     <div className="text-[13px] font-semibold text-ds-ink">
-                      {counts[g]} ingredients · Grade {g}
+                      {tpl(s.legendCount, { n: counts[g], grade: g })}
                     </div>
-                    <div className="text-[12px] text-ds-muted">{m.descriptor}</div>
+                    <div className="text-[12px] text-ds-muted">{s.descriptors[g]}</div>
                   </div>
                 </div>
               </Card>
@@ -160,13 +148,13 @@ export default function IngredientLibrary({
         {visible.length === 0 ? (
           <Card padding={28}>
             <p className="text-[13px] text-ds-muted text-center m-0">
-              No Grade {grade} ingredients in this catalog yet.{' '}
+              {tpl(s.empty, { grade })}{' '}
               <button
                 type="button"
                 onClick={() => setGrade('All')}
                 className="bg-transparent text-ds-accent border-0 underline cursor-pointer text-[13px] font-semibold p-0"
               >
-                See all grades →
+                {s.seeAll}
               </button>
             </p>
           </Card>
@@ -176,11 +164,11 @@ export default function IngredientLibrary({
               className="grid px-[18px] py-3 border-b border-ds-border text-[11px] uppercase tracking-[0.1em] text-ds-muted font-semibold"
               style={{ gridTemplateColumns: '60px 1.4fr 1fr 80px 2fr' }}
             >
-              <div>Grade</div>
-              <div>Ingredient</div>
-              <div>Clinical dose</div>
-              <div className="text-right">Trials</div>
-              <div>Our take</div>
+              <div>{s.columns.grade}</div>
+              <div>{s.columns.ingredient}</div>
+              <div>{s.columns.clinicalDose}</div>
+              <div className="text-right">{s.columns.trials}</div>
+              <div>{s.columns.ourTake}</div>
             </div>
             {visible.map(({ ing, grade: g, trials }) => {
               const m = GRADE_META[g];
@@ -193,7 +181,7 @@ export default function IngredientLibrary({
                   <div>
                     <div
                       className={`w-[34px] h-[34px] rounded-[8px] grid place-items-center text-[16px] font-extrabold ${m.bg} ${m.text}`}
-                      aria-label={`Evidence grade ${g}`}
+                      aria-label={tpl(s.gradeAria, { grade: g })}
                     >
                       {g}
                     </div>
@@ -218,7 +206,10 @@ export default function IngredientLibrary({
                       colorClass={
                         g === 'A' ? 'bg-ds-good' : g === 'B' ? 'bg-ds-warn' : 'bg-ds-bad'
                       }
-                      summary={`Study counts for ${ing.name} effects: ${ing.humanEffects.map((e) => `${e.studies ?? 'not counted'}`).join(', ')}`}
+                      summary={tpl(s.studyCounts, {
+                        name: ing.name,
+                        counts: ing.humanEffects.map((e) => `${e.studies ?? s.notCounted}`).join(', '),
+                      })}
                       height={20}
                     />
                     <div className="text-[12px] text-ds-muted mt-[2px] ds-tabular">{trials}</div>

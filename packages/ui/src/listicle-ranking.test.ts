@@ -15,7 +15,11 @@ import {
   splitListiclePicks,
   type ListicleEvidenceIngredients,
 } from './templates/listicleRanking';
-import { getUseCaseListStrings, type TemplateLocale } from './templateStrings';
+import { getStrings, type Locale } from '@nootropic/data';
+
+/** The Listicle's strings: UIStrings.listicle (moved there from templateStrings.ts on 2026-10-12). */
+const getUseCaseListStrings = (locale: Locale) => getStrings(locale).listicle;
+const ALL_LOCALES: Locale[] = ['en', 'es', 'fr', 'ja', 'pt', 'de', 'fr-CA'];
 
 // Site-owner decision 2026-10-08: every listicle says a pick must "score ≥ {bar}/10
 // in our 5-pillar editorial audit". Ranked picks must meet that bar; picks below
@@ -31,7 +35,7 @@ import { getUseCaseListStrings, type TemplateLocale } from './templateStrings';
 
 const REPO = join(__dirname, '..', '..', '..');
 const UI_SRC = __dirname;
-const LOCALES: TemplateLocale[] = ['en', 'es'];
+const LOCALES: Locale[] = ['en', 'es'];
 const BAR = formatListicleScore(LISTICLE_MIN_SCORE);
 
 // Mind Lab Pro's citicoline row (250mg Cognizin, proven at the 250mg reference
@@ -240,6 +244,20 @@ describe('the rule text and the also-considered copy render LISTICLE_MIN_SCORE',
     const src = readFileSync(join(UI_SRC, 'templateStrings.ts'), 'utf8');
     expect(src).not.toMatch(/\b\d[.,]\d\s?\/\s?10\b/);
     expect(src).not.toMatch(/\b7[.,]5\b/);
+  });
+
+  it.each(ALL_LOCALES)('%s: the Listicle strings type no score either, and every rule string keeps {minScore}', (locale) => {
+    const s = getUseCaseListStrings(locale);
+    const src = JSON.stringify(s);
+    expect(src).not.toMatch(/\b\d[.,]\d\s?\/\s?10\b/);
+    expect(src).not.toMatch(/\b7[.,]5\b/);
+    for (const key of ['howWeChooseBody', 'alsoConsideredHeading', 'alsoConsideredIntro', 'belowBarReason', 'alsoConsideredRulesIntro', 'alsoConsideredLinkIntro'] as const) {
+      expect(s[key], `${locale} ${key}`).toContain('{minScore}');
+    }
+    for (const key of ['belowBarReason', 'doseRuleReason', 'noPurchaseLinkReason'] as const) {
+      expect(s[key], `${locale} ${key}`).toContain('{score}/10');
+    }
+    expect(howWeChooseText(s)).toContain(`${BAR}/10`);
   });
 
   it.each(LOCALES)('%s: "How we choose" states the bar from the constant', (locale) => {

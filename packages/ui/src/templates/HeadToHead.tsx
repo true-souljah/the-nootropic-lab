@@ -57,7 +57,8 @@ export interface HeadToHeadProps {
   searchItems?: SearchItem[];
   /** Required so the affiliate disclosure is always rendered in the page locale. */
   uiStrings: UIStrings;
-  readTime?: string;
+  /** Estimated read time in minutes (FPByline). */
+  readMinutes?: number;
   /**
    * Extra cards appended to the "Read individual reviews" grid — used to
    * cross-link a sibling comparison when a query keeps landing on the wrong
@@ -137,7 +138,7 @@ export default function HeadToHead({
   relatedLinks = [],
   searchItems,
   uiStrings,
-  readTime = '9 min',
+  readMinutes = 9,
 }: HeadToHeadProps) {
   const s: HeadToHeadPageStrings = { ...headToHeadPageEnDefaults, ...strings };
   const currentYear = new Date().getFullYear();
@@ -305,7 +306,7 @@ export default function HeadToHead({
           </p>
         </header>
 
-        <FPByline updated={updatedDisplay} read={readTime} />
+        <FPByline updated={updatedDisplay} minutes={readMinutes} strings={uiStrings.byline} />
 
         {healthDisclaimer && (
           <aside

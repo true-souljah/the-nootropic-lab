@@ -100,6 +100,8 @@ describe('getStrings', () => {
     const PLACEHOLDERS: Record<string, string[]> = {
       'dosing.adequateCount': ['{adequate}', '{total}'],
       'pillars.pillarScoreAria': ['{product}', '{pillar}'],
+      // Compact pillar bars (listicle, best-of, comparator), added 2026-10-12.
+      'pillars.shortScoreAria': ['{name}', '{pillar}'],
     };
 
     /** Every leaf string under `value`, keyed by its dotted path. */
@@ -289,14 +291,20 @@ describe('getStrings', () => {
     test('en is the text the pages showed before: REGION_PROFILES heading, regulator, geo-hub label and block labels', () => {
       const rb = getStrings('en').productDetail.regionalBuying;
       const es = getStrings('es').productDetail.regionalBuying;
+      const ja = getStrings('ja').productDetail.regionalBuying;
       for (const code of REGIONS as Array<keyof typeof REGION_PROFILES>) {
         const profile = REGION_PROFILES[code];
         expect(rb.regulator[code], code).toBe(profile.regulator);
         // LATAM's profile labels are Spanish: its block rendered "Comprar" and the
-        // Spanish hub label, which the es bundle now carries.
-        const own = code === 'latam' ? es : rb;
-        expect(own.heading[code], code).toBe(profile.labels.heading.replace('{name}', code === 'latam' ? 'Comprar' : 'Buying'));
-        expect(own.geoHub[code], code).toBe(profile.geoHub.label);
+        // Spanish hub label, which the es bundle now carries. JP's block labels
+        // are Japanese since 2026-10-12 (the JP host's chrome is ja); its
+        // "Buying in Japan" heading and hub label are the ja bundle's own, checked
+        // against Japanese script in the chrome test below.
+        const own = code === 'latam' ? es : code === 'jp' ? ja : rb;
+        if (code !== 'jp') {
+          expect(own.heading[code], code).toBe(profile.labels.heading.replace('{name}', code === 'latam' ? 'Comprar' : 'Buying'));
+          expect(own.geoHub[code], code).toBe(profile.geoHub.label);
+        }
         expect(own.price, code).toBe(profile.labels.price);
         expect(own.status, code).toBe(profile.labels.licence);
         expect(own.monthUnit, code).toBe(profile.labels.monthUnit);

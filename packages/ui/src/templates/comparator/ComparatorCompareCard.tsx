@@ -11,6 +11,7 @@ import { ProductThumb } from '../../primitives/ProductThumb';
 import { servingAmount, pillarText, guaranteeDays } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import { priceText } from '../../price-text';
+import { tpl } from '../../templateStrings';
 
 export interface ComparatorCompareCardProps {
   selectedProducts: Product[];
@@ -20,6 +21,8 @@ export interface ComparatorCompareCardProps {
 
 export function ComparatorCompareCard({ selectedProducts, uiStrings, onClear }: ComparatorCompareCardProps) {
   if (selectedProducts.length === 0) return null;
+  const cs = uiStrings.comparator;
+  const pd = uiStrings.productDetail;
   return (
     <Card
       padding={18}
@@ -32,10 +35,10 @@ export function ComparatorCompareCard({ selectedProducts, uiStrings, onClear }: 
       <div className="flex justify-between items-center mb-[14px] flex-wrap gap-2">
         <div>
           <div className="text-[11px] text-ds-accent tracking-[0.14em] uppercase font-bold">
-            Compare
+            {cs.compare}
           </div>
           <div className="font-semibold text-[15px] mt-[2px]">
-            {selectedProducts.length} selected · side by side
+            {tpl(cs.selectedSummary, { n: selectedProducts.length })}
           </div>
         </div>
         <button
@@ -44,7 +47,7 @@ export function ComparatorCompareCard({ selectedProducts, uiStrings, onClear }: 
           className="inline-flex items-center gap-1 bg-transparent text-ds-muted border border-ds-border px-3 py-[6px] rounded-[6px] text-[12px] cursor-pointer hover:bg-ds-card-sub focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
         >
           <X size={12} strokeWidth={2.4} aria-hidden={true} />
-          Clear
+          {cs.clear}
         </button>
       </div>
       <div
@@ -64,17 +67,17 @@ export function ComparatorCompareCard({ selectedProducts, uiStrings, onClear }: 
                 </Link>
                 <div className="text-[11px] text-ds-muted">{p.brand}</div>
               </div>
-              <ScorePill score={p.score} />
+              <ScorePill score={p.score} label={tpl(pd.score.aria, { score: p.score.toFixed(1), max: (10).toFixed(1) })} />
             </div>
             <dl className="mt-3 text-[12px] text-ds-ink-soft m-0">
               {[
-                ['Price', priceText(p, uiStrings)?.short ?? '—'],
-                ['Daily', servingAmount(p, uiStrings)],
-                ['MBG', guaranteeDays(p.moneyBackDays, (d) => `${d} days`)],
-                ['Caffeine', p.caffeineFree ? 'Free' : 'Yes'],
-                ['Trustpilot', p.trustpilotScore === null
-                  ? 'N/A'
-                  : `${p.trustpilotScore} (${p.trustpilotCount?.toLocaleString() ?? 'n/a'})`],
+                [pd.stats.price, priceText(p, uiStrings)?.short ?? '—'],
+                [cs.daily, servingAmount(p, uiStrings)],
+                [pd.stats.moneyBack, guaranteeDays(p.moneyBackDays, (d) => tpl(pd.stats.daysCount, { days: d }))],
+                [cs.caffeine, p.caffeineFree ? cs.caffeineFree : uiStrings.table.yes],
+                [pd.stats.trustpilot, p.trustpilotScore === null
+                  ? pd.stats.notAvailable
+                  : `${p.trustpilotScore} (${p.trustpilotCount?.toLocaleString(pd.dateLocale) ?? pd.stats.notAvailable})`],
               ].map(([k, v]) => (
                 <div
                   key={k}
@@ -94,8 +97,13 @@ export function ComparatorCompareCard({ selectedProducts, uiStrings, onClear }: 
                     className="grid items-center gap-[6px] py-[2px]"
                     style={{ gridTemplateColumns: '70px 1fr 22px' }}
                   >
-                    <span className="text-[11px] text-ds-muted capitalize">{k}</span>
-                    <Bar value={v ?? 0} decorative={v === null} label={`${p.name} ${k} score`} height={5} />
+                    <span className="text-[11px] text-ds-muted capitalize">{pd.pillars.short[k]}</span>
+                    <Bar
+                      value={v ?? 0}
+                      decorative={v === null}
+                      label={tpl(pd.pillars.shortScoreAria, { name: p.name, pillar: pd.pillars.short[k] })}
+                      height={5}
+                    />
                     <span className="text-[11px] text-ds-ink text-right ds-tabular">{pillarText(v)}</span>
                   </div>
                 );

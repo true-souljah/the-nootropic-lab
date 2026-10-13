@@ -1,5 +1,7 @@
-import { dosingAnchorFor, purchaseLinkBlock, type IngredientDosage, type NoPurchaseLinkReason, type Product } from '@nootropic/data';
-import { tpl, type UseCaseListPageStrings } from '../templateStrings';
+import { dosingAnchorFor, purchaseLinkBlock, type IngredientDosage, type NoPurchaseLinkReason, type Product, type UIStrings } from '@nootropic/data';
+import { tpl } from '../templateStrings';
+
+type ListicleStrings = UIStrings['listicle'];
 
 /**
  * The score a listicle pick must reach in the 5-pillar editorial audit to be
@@ -153,26 +155,26 @@ export function splitListiclePicks<T extends SplittablePick>(
 }
 
 /** The "How we choose" rule with the bar interpolated from LISTICLE_MIN_SCORE. */
-export function howWeChooseText(s: Pick<UseCaseListPageStrings, 'howWeChooseBody'>): string {
+export function howWeChooseText(s: Pick<ListicleStrings, 'howWeChooseBody'>): string {
   return tpl(s.howWeChooseBody, { minScore: formatListicleScore(LISTICLE_MIN_SCORE) });
 }
 
 /** "Scores 6.6/10 — below our 7.0 bar" for one also-considered product. */
-export function belowBarReason(s: Pick<UseCaseListPageStrings, 'belowBarReason'>, score: number): string {
+export function belowBarReason(s: Pick<ListicleStrings, 'belowBarReason'>, score: number): string {
   return tpl(s.belowBarReason, {
     score: formatListicleScore(score),
     minScore: formatListicleScore(LISTICLE_MIN_SCORE),
   });
 }
 
-/** The reason line of a pick that meets the bar but fails rule (b) (doseRuleReason in templateStrings.ts). */
-export function doseRuleReason(s: Pick<UseCaseListPageStrings, 'doseRuleReason'>, score: number): string {
+/** The reason line of a pick that meets the bar but fails rule (b) (UIStrings.listicle.doseRuleReason). */
+export function doseRuleReason(s: Pick<ListicleStrings, 'doseRuleReason'>, score: number): string {
   return tpl(s.doseRuleReason, { score: formatListicleScore(score) });
 }
 
 /** The reason line of one also-considered pick, for the rule it fails. */
 export function notRankedReason(
-  s: Pick<UseCaseListPageStrings, 'belowBarReason' | 'doseRuleReason' | 'noPurchaseLinkReason'>,
+  s: Pick<ListicleStrings, 'belowBarReason' | 'doseRuleReason' | 'noPurchaseLinkReason'>,
   pick: { product: { score: number }; notRanked: NotRankedReason },
 ): string {
   if (pick.notRanked === 'noPurchaseLink') return tpl(s.noPurchaseLinkReason, { score: formatListicleScore(pick.product.score) });
@@ -187,7 +189,7 @@ export function notRankedReason(
  */
 export function alsoConsideredText(
   s: Pick<
-    UseCaseListPageStrings,
+    ListicleStrings,
     | 'alsoConsideredHeading'
     | 'alsoConsideredIntro'
     | 'alsoConsideredRulesHeading'

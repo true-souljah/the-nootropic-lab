@@ -1,11 +1,14 @@
 'use client';
 
 import { Heart } from 'lucide-react';
+import type { UIStrings } from '@nootropic/data';
 import { useShortlist } from './useShortlist';
 
 export interface ShortlistButtonProps {
   /** Product slug — matches the value stored in localStorage. */
   slug: string;
+  /** Page-locale labels (visible and accessible names). */
+  strings: UIStrings['shortlist'];
   /** Visible label shown alongside the heart icon. Default: hidden (icon-only). */
   showLabel?: boolean;
   /** Visual size. `sm` = 32px tap target, `md` = 40px. */
@@ -20,6 +23,7 @@ export interface ShortlistButtonProps {
  */
 export default function ShortlistButton({
   slug,
+  strings,
   showLabel = false,
   size = 'sm',
 }: ShortlistButtonProps) {
@@ -33,7 +37,7 @@ export default function ShortlistButton({
       type="button"
       onClick={() => toggle(slug)}
       aria-pressed={saved}
-      aria-label={saved ? 'Remove from shortlist' : 'Save to shortlist'}
+      aria-label={saved ? strings.removeAria : strings.saveAria}
       // suppressHydrationWarning keeps the SSR-rendered initial state
       // (saved=false) from flashing red when hydration runs.
       suppressHydrationWarning
@@ -51,7 +55,7 @@ export default function ShortlistButton({
       />
       {showLabel && (
         <span className="text-[12.5px] font-semibold">
-          {saved ? 'Saved' : 'Save'}
+          {saved ? strings.saved : strings.save}
         </span>
       )}
     </button>

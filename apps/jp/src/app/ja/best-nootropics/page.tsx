@@ -113,7 +113,7 @@ export default function JaBestNootropicsPage() {
           <p className="text-sm text-gray-500 mb-4">
             価格は円表示。緑バッジ = カフェインフリー（厚生労働省輸入準拠）。
           </p>
-          <ComparisonTable products={productsJP} market="jp" />
+          <ComparisonTable products={productsJP} market="jp" strings={uiStrings} />
         </section>
 
         <section className="mt-12">
