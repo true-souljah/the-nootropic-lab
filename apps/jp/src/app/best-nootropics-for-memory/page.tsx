@@ -4,7 +4,7 @@ import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsJP, getRegionalHealthDisclaimer } from '@nootropic/data';
-import { SITE_URL } from '@/lib/region';
+import { FFC_PILLAR_LABEL, SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -27,8 +27,8 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Bacopa Monnieri',
     ingredientSlugs: ['bacopa-monnieri'],
     evidence:
-      'The most-replicated memory ingredient in nootropics. Multiple double-blind RCTs in adults show improved memory consolidation and recall after 8–12 weeks at 300mg standardized to 50% bacosides. Onset is slow — daily for 8+ weeks. In Japan, bacopa saponins (バコパサポニン) are one of the two notified functional ingredients in FANCL BRAINs (Foods with Function Claims notification G425, 15 mg per 4 tablets; Consumer Affairs Agency database, checked 2026-10-06).',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
+      'In a systematic review of six randomized trials (Pase 2012, PubMed 22747190), all lasting 12 weeks at 300–450mg extract a day, Bacopa improved 9 of 17 tests of memory free recall. Onset is slow — daily for 8+ weeks. In Japan, bacopa saponins (バコパサポニン) are one of the two notified functional ingredients in FANCL BRAINs (Foods with Function Claims notification G425, 15 mg per 4 tablets; Consumer Affairs Agency database, checked 2026-10-06).',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22747190/',
   },
   {
     name: 'Lion\'s Mane (Hericium erinaceus / ヤマブシタケ)',
@@ -48,7 +48,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Phosphatidylserine (PS)',
     ingredientSlugs: ['phosphatidylserine'],
     evidence:
-      'Phospholipid component of brain cell membranes. The FDA permits a qualified health claim for PS supporting cognitive function in elderly adults. Most RCT evidence is in 50–80-year-olds at 100–300mg/day. The trial linked below (Vakhapova et al. 2010) is not the basis of the FDA claim: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo. Used in Mind Lab Pro (100mg Sharp-PS).',
+      'Phospholipid component of brain cell membranes. The FDA allows phosphatidylserine only qualified claims that it \'may reduce the risk of dementia\' or \'cognitive dysfunction in the elderly\', each followed by \'FDA concludes that there is little scientific evidence supporting this claim\' (FDA letter, 13 May 2003). RCTs in older adults at 100–300mg a day report memory benefits, though often only in subgroups (see our phosphatidylserine page). The trial linked below (Vakhapova et al. 2010) is not the basis of the FDA claim: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo. Used in Mind Lab Pro (100mg Sharp-PS).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
 ];
@@ -80,8 +80,8 @@ const faqItems: ListicleFAQ[] = [
     a: 'Japan\'s Food with Function Claims system (機能性表示食品) requires manufacturers to notify the Consumer Affairs Agency (消費者庁) of the cognitive claim and supporting evidence. FANCL BRAINs is notified under it (G425). Suntory DHA & EPA + Sesamin EX is not: our check of the CAA database found no row for ＤＨＡ＆ＥＰＡ＋セサミンＥＸ, and no product name combining DHA/EPA with セサミン (full export of 11,520 notifications scanned 2026-10-06). Imported stacks such as Mind Lab Pro ship under Ministry of Health, Labour and Welfare (MHLW) personal-import rules and carry no Japanese cognitive claim. Both routes are legal; FFC products are easier to buy in pharmacy chains and have Japanese-language labels.',
   },
   {
-    q: 'What is the most evidence-backed nootropic for memory?',
-    a: 'Bacopa Monnieri at 300mg standardized to 50% bacosides has the most replicated RCT evidence for memory consolidation in healthy adults. On this page it comes in an imported stack (Mind Lab Pro, 150mg Bacopa) and in FANCL BRAINs, a domestic FFC product whose notified ingredient is bacopa saponins (15mg per daily intake, notification G425). For Japan-domestic options, by our count of the Consumer Affairs Agency\'s FFC database (export of 2026-10-06), DHA is listed as a functional ingredient in 105 of the 563 active Foods with Function Claims (FFC) notifications whose claim mentions memory or cognitive function; it has strong evidence in middle-aged and older adults. Phosphatidylserine has the FDA qualified health claim for cognitive function in elderly.',
+    q: 'Which nootropic ingredients have trial evidence for memory?',
+    a: 'Bacopa Monnieri: in a systematic review of six 12-week randomized trials at 300–450mg extract a day (Pase 2012, PubMed 22747190), it improved 9 of 17 tests of memory free recall, and the authors call the research \'in its infancy\'. On this page it comes in an imported stack (Mind Lab Pro, 150mg Bacopa) and in FANCL BRAINs, a domestic FFC product whose notified ingredient is bacopa saponins (15mg per daily intake, notification G425). For Japan-domestic options, by our count of the Consumer Affairs Agency\'s FFC database (export of 2026-10-06), DHA is listed as a functional ingredient in 105 of the 563 active Foods with Function Claims (FFC) notifications whose claim mentions memory or cognitive function; our DHA page rates the evidence for age-related memory decline as moderate (Yurko-Mauro 2010: 900mg a day for 24 weeks in adults 55 and over). For phosphatidylserine, the FDA allows only a qualified claim that it \'may reduce the risk of cognitive dysfunction in the elderly\', followed by \'FDA concludes that there is little scientific evidence supporting this claim\' (FDA letter, 13 May 2003).',
   },
   {
     q: 'How long until memory nootropics work?',
@@ -93,7 +93,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Will Bacopa make me feel anything?',
-    a: 'No. Bacopa is not an acute-effect ingredient. It is a classic case of "you only know it worked when you stop and notice the regression." This makes it psychologically harder to stick with than acute-effect ingredients (caffeine, L-theanine) — but the cumulative memory benefit at 8–12 weeks is the most replicated finding in nootropics.',
+    a: 'No. Bacopa is not an acute-effect ingredient. It is a classic case of "you only know it worked when you stop and notice the regression." This makes it psychologically harder to stick with than acute-effect ingredients (caffeine, L-theanine) — and the trials in the systematic review we cite (Pase 2012) measured memory after 12 weeks.',
   },
   {
     q: 'Lion\'s Mane: fruiting body or mycelium?',
@@ -113,7 +113,7 @@ export default function Page() {
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}
-      regulatoryPillar={{ label: 'FFC-notified cognitive supplements in Japan', href: '/ffc-notified-cognitive-supplements/' }}
+      regulatoryPillar={{ label: FFC_PILLAR_LABEL, href: '/ffc-notified-cognitive-supplements/' }}
       healthDisclaimer={getRegionalHealthDisclaimer('jp')}
       searchItems={searchItems}
       uiStrings={uiStrings}

@@ -87,8 +87,7 @@ export default function JaHomePage() {
           </h1>
           <p className="text-base text-ds-muted mb-2">日本向け独立系認知機能サプリメントレビュー</p>
           <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
-            海外および国内のノートロピクスを比較します。ラベル記載の投与量を、当サイトの成分ページの基準用量（ある場合）と照合。
-            厚生労働省の輸入ガイドラインを明確に記載。
+            海外および国内のノートロピクスを比較します。ラベル記載の投与量を、当サイトの成分ページの基準用量（ある場合）と照合。厚生労働省の輸入ガイドラインを明確に記載。
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link

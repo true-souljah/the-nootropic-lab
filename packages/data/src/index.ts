@@ -30,10 +30,30 @@ export { PRODUCT_IMAGE_SIZES, productImages, productImage } from './product-imag
 export type { ProductForm } from './serving-unit';
 export { PRODUCT_FORMS, productForm, servingUnit, servingAmount, servingsComparable } from './serving-unit';
 export { affiliateUrlProblem, formulaProblem, formProblem, productRuleProblems, scoreProblem, weightedScore, roundToTenth, dosingScore, pillarWeightPercent, UNSCORABLE_PILLARS, PILLAR_WEIGHTS, halalEvidenceProblem, HALAL_CERTIFIERS, vendorTermsProblems, VENDOR_TERM_FIELDS } from './product-rules';
-export type { QuotedPrice, QuoteSupply, SupplyFields } from './vendor-price';
-export { DAYS_PER_MONTH, SERVINGS_PER_DAY, parseAmount, parseQuotedPrices, quoteSupply, currencyDigits } from './vendor-price';
-export type { Money, StoreSupply } from './store-price';
-export { formatMoney, storeSupply, monthlyStorePrice, sharedCurrency, storePriceProblems } from './store-price';
+export type { QuotedPrice, QuoteSupply, SupplyFields, PackServings, StatedSupplyDays, DailyServings } from './vendor-price';
+export {
+  DAYS_PER_MONTH,
+  SERVINGS_PER_DAY,
+  parseAmount,
+  parseQuotedPrices,
+  quoteSupply,
+  packServings,
+  statedSupplyDays,
+  dailyServings,
+  currencyDigits,
+} from './vendor-price';
+export type { Money, StoreSupply, StoreUnitPrice } from './store-price';
+export {
+  formatMoney,
+  storeSupply,
+  servingsInPack,
+  roundMoney,
+  perServingStorePrice,
+  perDayStorePrice,
+  monthlyStorePrice,
+  sharedCurrency,
+  storePriceProblems,
+} from './store-price';
 export { NOT_AVAILABLE, outOfTen, pillarText, guaranteeDays, guaranteeDaysValue } from './display-values';
 export type { DosingAnchor, DosingBasis } from './dosing-anchors';
 export {
@@ -75,7 +95,7 @@ export type { JPPrefecture } from './jp-prefectures';
 export { jpPrefectures } from './jp-prefectures';
 export type { SearchItem, SearchItemMeta } from './search';
 export { buildSearchIndex } from './search';
-export type { Locale, UIStrings, RegionStrings, LicenceStatusStrings } from './i18n';
+export type { Locale, UIStrings, RegionStrings, LicenceStatusStrings, RelatedGuideUseCase, IngredientCategoryStrings } from './i18n';
 export { getStrings, getLocaleForMarket } from './i18n';
 export { buildRegionSearchContext } from './region-search';
 export type { RegionSearchContext } from './region-search';

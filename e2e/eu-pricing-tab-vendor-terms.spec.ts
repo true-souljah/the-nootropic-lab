@@ -40,3 +40,21 @@ test('/brainzyme-focus-pro-review/ renders joined fragments as separate lines', 
   expect(quotes).toHaveLength(3);
   for (const quote of quotes) expect(quote).not.toContain(' | ');
 });
+
+// Per serving / per day (2026-10-12), in the store's own currency. Expected
+// strings = the priceText table in packages/ui/src/store-price.test.ts.
+test('/brainzyme-focus-pro-review/ shows per serving and per day ("1 MONAT") with the dated store page', async ({ page }) => {
+  await page.goto('/brainzyme-focus-pro-review/');
+  await page.getByRole('tab', { name: 'Pricing' }).click();
+  const panel = page.locator('#product-panel-pricing');
+  await expect(panel.locator('[data-store-price-per-unit]')).toHaveText('≈ €1.06/serving · ≈ €1.06/day');
+  const source = panel.locator('[data-store-price-source]');
+  await expect(source).toHaveText('Per brainzyme.de (opens in new tab), checked Oct 9, 2026');
+  await expect(source.getByRole('link')).toHaveAttribute('href', 'https://www.brainzyme.de/products/brainzyme-professional');
+});
+
+test('/pre-lab-pro-review/ shows per serving only (taken before exercise)', async ({ page }) => {
+  await page.goto('/pre-lab-pro-review/');
+  await page.getByRole('tab', { name: 'Pricing' }).click();
+  await expect(page.locator('#product-panel-pricing [data-store-price-per-unit]')).toHaveText('≈ €2.25/serving');
+});

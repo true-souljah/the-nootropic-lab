@@ -1,9 +1,20 @@
-import { formatMoney, monthlyStorePrice, type LocalPrice, type Money, type Product, type UIStrings } from '@nootropic/data';
+import {
+  formatMoney,
+  monthlyStorePrice,
+  perServingStorePrice,
+  perDayStorePrice,
+  type LocalPrice,
+  type Money,
+  type Product,
+  type UIStrings,
+} from '@nootropic/data';
 
 // Every price on the site is written through here (site-owner policy
 // 2026-10-09): the vendor's pack price in the store's own currency with what
 // it covers, plus "≈ …/mo" only where the pack's supply is stated. Never a
 // conversion, never a bare per-month figure the vendor's words don't support.
+// Per-serving and per-day figures follow the same rule (store-price.ts); every
+// derived figure carries "≈", only the vendor's pack price is bare.
 
 export interface PriceText {
   /** The pack price, e.g. "US$79.95". */
@@ -18,6 +29,12 @@ export interface PriceText {
   short: string;
   /** The per-month amount for sorting and filtering within one currency; null without a stated supply. */
   monthlyMoney: Money | null;
+  /** "≈ US$2.30/serving", or null when the pack's serving count is not stated. */
+  perServing: string | null;
+  perServingMoney: Money | null;
+  /** "≈ US$2.17/day", or null when neither a supply length nor a plain daily dose is stated. */
+  perDay: string | null;
+  perDayMoney: Money | null;
 }
 
 type PriceStrings = Pick<UIStrings, 'priceLocale' | 'productDetail'>;
@@ -41,8 +58,11 @@ export function priceText(
   if (!sp) return null;
   const locale = priceLocaleOf(strings);
   const pack = formatMoney(sp, locale);
+  const { stats } = strings.productDetail;
   const m = monthlyStorePrice(product);
-  const monthly = m ? `≈ ${formatMoney(m, locale)}/${strings.productDetail.stats.monthUnit}` : null;
+  const monthly = m ? `≈ ${formatMoney(m, locale)}/${stats.monthUnit}` : null;
+  const s = perServingStorePrice(product);
+  const d = perDayStorePrice(product);
   return {
     pack,
     packText: sp.pack,
@@ -50,5 +70,9 @@ export function priceText(
     monthly,
     short: monthly ?? `${pack} · ${sp.pack}`,
     monthlyMoney: m && { amount: m.amount, currency: m.currency },
+    perServing: s.ok ? `≈ ${formatMoney(s, locale)}/${stats.perServingUnit}` : null,
+    perServingMoney: s.ok ? { amount: s.amount, currency: s.currency } : null,
+    perDay: d.ok ? `≈ ${formatMoney(d, locale)}/${stats.perDayUnit}` : null,
+    perDayMoney: d.ok ? { amount: d.amount, currency: d.currency } : null,
   };
 }

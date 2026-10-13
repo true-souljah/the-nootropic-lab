@@ -76,7 +76,7 @@ export default function MethodologyPage() {
             advice. Always consult a qualified healthcare professional before taking any supplement.
           </p>
         </section>
-        <EditorialStandardsSection />
+        <EditorialStandardsSection strings={uiStrings.editorialStandards} />
       </article>
     </PublicShell>
   );

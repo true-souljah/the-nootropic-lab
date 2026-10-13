@@ -75,15 +75,16 @@ test.describe('JP accessibility-tree behavioral correctness on /best-nootropics-
     ).toBeGreaterThanOrEqual(1);
   });
 
-  test('CommandPalette trigger is selectable by role=button with name containing "Search"', async ({ page }) => {
+  // The trigger is named in the page language since 2026-10-12: 検索 ("Search").
+  test('CommandPalette trigger is selectable by role=button with name containing 検索 ("Search")', async ({ page }) => {
     await page.goto('/best-nootropics-for-focus/');
     await page.waitForLoadState('networkidle');
 
-    const triggers = page.getByRole('button', { name: /search/i });
+    const triggers = page.getByRole('button', { name: /検索/ });
     const count = await triggers.count();
     expect(
       count,
-      'Expected at least one [role=button] with accessible name containing "Search" (mobile + desktop variants).',
+      'Expected at least one [role=button] with accessible name containing "検索" (mobile + desktop variants).',
     ).toBeGreaterThanOrEqual(1);
   });
 
@@ -99,18 +100,15 @@ test.describe('JP accessibility-tree behavioral correctness on /best-nootropics-
     // Standard practice: put ⌘K in a <kbd> child (visible only,
     // aria-hidden=true) and use "Search" or "Search (Command K)"
     // in aria-label so AT users hear a meaningful name.
-    const triggers = page.locator('button').filter({
-      has: page.locator('[aria-label*="Search"], [aria-label*="search"]'),
-    });
     const labels = await page.evaluate(() => {
       const btns = Array.from(document.querySelectorAll<HTMLButtonElement>('button'));
       return btns
         .map((b) => b.getAttribute('aria-label'))
-        .filter((l): l is string => l !== null && /search/i.test(l));
+        .filter((l): l is string => l !== null && /検索/.test(l));
     });
     expect(
       labels.length,
-      'Expected at least one button with aria-label containing "Search"',
+      'Expected at least one button with aria-label containing "検索"',
     ).toBeGreaterThanOrEqual(1);
 
     for (const label of labels) {

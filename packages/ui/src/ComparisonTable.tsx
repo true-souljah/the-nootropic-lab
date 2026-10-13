@@ -6,9 +6,21 @@ import EUBadge from './EUBadge';
 import NoPurchaseLinkNotice from './NoPurchaseLinkNotice';
 import { guaranteeDays, purchaseUrl, NO_PURCHASE_LINK_STRINGS, REGION_PROFILES, getStrings, formatMoney } from '@nootropic/data';
 import { priceText } from './price-text';
+import { tpl } from './templateStrings';
 
 type SortKey = 'score' | 'price' | 'moneyBackDays' | 'trustpilotScore';
 type SortDir = 'asc' | 'desc';
+
+/**
+ * The words each sort control is named by. Its accessible name used to carry
+ * the record field (`Sort by trustpilotScore`, `Sort by moneyBackDays`).
+ */
+const SORT_COLUMN: Record<SortKey, keyof UIStrings['table']['sortColumns']> = {
+  score: 'score',
+  price: 'price',
+  moneyBackDays: 'moneyBack',
+  trustpilotScore: 'trustpilot',
+};
 
 interface Props {
   products: Product[];
@@ -21,16 +33,21 @@ interface SortBtnProps {
   sortKey: SortKey;
   sortDir: SortDir;
   onSort: (key: SortKey) => void;
-  t?: UIStrings['table'];
+  t: UIStrings['table'];
 }
 
 function SortBtn({ col, sortKey, sortDir, onSort, t }: SortBtnProps) {
   const active = sortKey === col;
+  const column = t.sortColumns[SORT_COLUMN[col]];
   return (
     <button
       onClick={() => onSort(col)}
       className={`ml-1 text-xs ${active ? 'text-green-700 font-bold' : 'text-gray-500'}`}
-      aria-label={active ? `${t?.sortBy || 'Sort by'} ${col}, currently ${sortDir === 'desc' ? (t?.descending || 'descending') : (t?.ascending || 'ascending')}` : `${t?.sortBy || 'Sort by'} ${col}`}
+      aria-label={
+        active
+          ? tpl(t.sortAriaActive, { column, direction: sortDir === 'desc' ? t.descending : t.ascending })
+          : tpl(t.sortAria, { column })
+      }
     >
       {active ? (sortDir === 'desc' ? '▼' : '▲') : '⇅'}
     </button>
@@ -39,6 +56,12 @@ function SortBtn({ col, sortKey, sortDir, onSort, t }: SortBtnProps) {
 
 export default function ComparisonTable({ products, market, strings }: Props) {
   const t = strings?.table;
+  // The bundle, or the en bundle on the callers that pass none (whose English
+  // text below is unchanged).
+  const ui = strings ?? getStrings('en');
+  const tt = ui.table;
+  const pd = ui.productDetail;
+  const { colon, space } = ui.typography;
   // Same English fallback as the rest of this table when no bundle is passed.
   const noticeStrings = strings?.noPurchaseLink ?? NO_PURCHASE_LINK_STRINGS.en;
   // Buy link through the purchaseUrl() gate; the short notice when the
@@ -61,7 +84,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
   // when every per-month figure in the table shares one currency.
   const priceStrings = {
     priceLocale: strings?.priceLocale ?? REGION_PROFILES[market].priceLocale,
-    productDetail: (strings ?? getStrings('en')).productDetail,
+    productDetail: pd,
   };
   const prices = new Map(products.map((p) => [p.slug, priceText(p, priceStrings)]));
   const monthlyOf = (p: Product) => prices.get(p.slug)?.monthlyMoney ?? null;
@@ -79,7 +102,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
 
   const FILTERS = [
     { key: 'caffeineFree', label: t?.caffeineFree || 'Caffeine-Free' },
-    { key: 'euStorefront', label: 'EU Storefront' },
+    { key: 'euStorefront', label: tt.euStorefront },
   ];
 
   function toggleFilter(key: string) {
@@ -132,7 +155,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
         ))}
         {monthlyCurrency && (
         <div className="flex items-center gap-2 ml-auto text-sm text-gray-600">
-          <label htmlFor={priceInputId}>Max {maxLabel}</label>
+          <label htmlFor={priceInputId}>{tpl(tt.maxPrice, { price: maxLabel })}</label>
           <input
             id={priceInputId}
             type="range"
@@ -157,22 +180,22 @@ export default function ComparisonTable({ products, market, strings }: Props) {
               <th scope="col" className="text-left p-3 font-semibold text-gray-600">{t?.product || 'Product'}</th>
               <th scope="col" className="text-left p-3 font-semibold text-gray-600">{t?.bestFor || 'Best For'}</th>
               <th scope="col" className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">
-                {t?.score || 'Score'} <SortBtn col="score" sortKey={sortKey} sortDir={sortDir} onSort={handleSort} t={t} />
+                {t?.score || 'Score'}{space}<SortBtn col="score" sortKey={sortKey} sortDir={sortDir} onSort={handleSort} t={tt} />
               </th>
               <th scope="col" className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">
-                {t?.price || 'Price'} {monthlyCurrency && <SortBtn col="price" sortKey={sortKey} sortDir={sortDir} onSort={handleSort} t={t} />}
+                {t?.price || 'Price'}{space}{monthlyCurrency && <SortBtn col="price" sortKey={sortKey} sortDir={sortDir} onSort={handleSort} t={tt} />}
               </th>
               <th scope="col" className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">{t?.caffeineFree || 'Caffeine-Free'}</th>
               {market === 'eu' && (
                 <th scope="col" className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">{t?.euStatus || 'EU Status'}</th>
               )}
               <th scope="col" className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">
-                {t?.moneyBack || 'Money-Back'} <SortBtn col="moneyBackDays" sortKey={sortKey} sortDir={sortDir} onSort={handleSort} t={t} />
+                {t?.moneyBack || 'Money-Back'}{space}<SortBtn col="moneyBackDays" sortKey={sortKey} sortDir={sortDir} onSort={handleSort} t={tt} />
               </th>
               <th scope="col" className="text-left p-3 font-semibold text-gray-600 whitespace-nowrap">
-                {t?.trustpilot || 'Trustpilot'} <SortBtn col="trustpilotScore" sortKey={sortKey} sortDir={sortDir} onSort={handleSort} t={t} />
+                {t?.trustpilot || 'Trustpilot'}{space}<SortBtn col="trustpilotScore" sortKey={sortKey} sortDir={sortDir} onSort={handleSort} t={tt} />
               </th>
-              <th scope="col" className="p-3"><span className="sr-only">Actions</span></th>
+              <th scope="col" className="p-3"><span className="sr-only">{tt.actions}</span></th>
             </tr>
           </thead>
           <tbody>
@@ -187,7 +210,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                 <td className="p-3">
                   <div className="font-semibold text-gray-900 flex items-center gap-2 flex-wrap">
                     {p.name}
-                    {p.editorChoice && <span className="editor-badge">Editor&apos;s Choice</span>}
+                    {p.editorChoice && <span className="editor-badge">{tt.editorChoice}</span>}
                   </div>
                   <div className="text-xs text-gray-500">{p.brand}</div>
                 </td>
@@ -204,7 +227,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                   </div>
                 </td>
                 <td className="p-3">
-                  <ScoreTooltip score={p.score} breakdown={p.scoreBreakdown} />
+                  <ScoreTooltip score={p.score} breakdown={p.scoreBreakdown} strings={ui} />
                 </td>
                 <td className="p-3 font-semibold">
                   {prices.get(p.slug)?.short ?? '—'}
@@ -221,7 +244,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                     {p.euStorefront ? <EUBadge euStorefront /> : <span className="text-gray-500">—</span>}
                   </td>
                 )}
-                <td className="p-3">{guaranteeDays(p.moneyBackDays, (d) => `${d} days`)}</td>
+                <td className="p-3">{guaranteeDays(p.moneyBackDays, (d) => tpl(pd.stats.daysCount, { days: d }))}</td>
                 <td className="p-3">
                   {p.trustpilotScore !== null && p.trustpilotScore > 0 ? (
                     <>
@@ -238,7 +261,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                       </span>
                       {p.trustpilotCount !== null && (
                         <span className="text-xs text-gray-500 ml-1">
-                          ({p.trustpilotCount.toLocaleString()})
+                          ({p.trustpilotCount.toLocaleString(pd.dateLocale)})
                         </span>
                       )}
                     </>
@@ -281,27 +304,27 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                   <div className="flex items-center gap-2 flex-wrap">
                     <span className="text-gray-500 font-bold text-sm">#{i + 1}</span>
                     <span className="font-bold text-gray-900">{p.name}</span>
-                    {p.editorChoice && <span className="editor-badge">Editor&apos;s Choice</span>}
+                    {p.editorChoice && <span className="editor-badge">{tt.editorChoice}</span>}
                   </div>
                   <div className="text-xs text-gray-500 mt-0.5">{p.brand}</div>
                 </div>
-                <ScoreTooltip score={p.score} breakdown={p.scoreBreakdown} />
+                <ScoreTooltip score={p.score} breakdown={p.scoreBreakdown} strings={ui} />
               </div>
               <div className="grid grid-cols-2 gap-2 text-sm mb-3">
                 <div>
-                  <span className="text-gray-500">{t?.price ? `${t.price}:` : 'Price:'} </span>
+                  <span className="text-gray-500">{t?.price || 'Price'}{colon}</span>
                   <strong>{prices.get(p.slug)?.short ?? '—'}</strong>
                 </div>
                 <div>
-                  <span className="text-gray-500">{t?.moneyBack ? `${t.moneyBack}:` : 'Money-back:'} </span>
-                  <strong>{guaranteeDays(p.moneyBackDays, (d) => `${d}d`)}</strong>
+                  <span className="text-gray-500">{t?.moneyBack || 'Money-back'}{colon}</span>
+                  <strong>{guaranteeDays(p.moneyBackDays, (d) => tpl(pd.stats.daysCountShort, { days: d }))}</strong>
                 </div>
                 <div>
-                  <span className="text-gray-500">{t?.caffeineFree ? `${t.caffeineFree}:` : 'Caffeine-free:'} </span>
+                  <span className="text-gray-500">{t?.caffeineFree || 'Caffeine-free'}{colon}</span>
                   <strong>{p.caffeineFree ? (t?.yes || 'Yes') : (t?.no || 'No')}</strong>
                 </div>
                 <div>
-                  <span className="text-gray-500">{t?.trustpilot ? `${t.trustpilot}:` : 'Trustpilot:'} </span>
+                  <span className="text-gray-500">{t?.trustpilot || 'Trustpilot'}{colon}</span>
                   {p.trustpilotScore !== null && p.trustpilotScore > 0 ? (
                     <strong
                       className={

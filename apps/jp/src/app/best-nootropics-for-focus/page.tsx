@@ -4,7 +4,7 @@ import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsJP, getRegionalHealthDisclaimer } from '@nootropic/data';
-import { SITE_URL } from '@/lib/region';
+import { FFC_PILLAR_LABEL, SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -24,18 +24,18 @@ export const metadata: Metadata = {
 
 const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
-    name: 'L-Theanine + Caffeine (1:2 to 2:1 ratio)',
+    name: 'L-Theanine + Caffeine',
     ingredientSlugs: ['l-theanine', 'caffeine'],
     evidence:
-      'Among the best-replicated cognitive findings: L-theanine paired with caffeine improves attention switching and reduces mental fatigue, with smoother subjective focus than caffeine alone. Effective at 100–200mg L-theanine + 100mg caffeine — the same pairing naturally found in matcha (抹茶), familiar to Japanese consumers.',
+      'In controlled trials in healthy adults, the pair improved attention-switching accuracy (Owen 2008: 100mg L-theanine with 50mg caffeine; Giesbrecht 2010, PubMed 21040626: 97mg with 40mg) and ratings of mental fatigue (Haskell 2007, PubMed 18006208: 250mg with 150mg). Foxe 2012 (PubMed 22326943) found no added benefit over either compound alone. The same pairing is naturally found in matcha (抹茶), familiar to Japanese consumers.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
   },
   {
     name: 'Citicoline (CDP-Choline)',
     ingredientSlugs: ['citicoline'],
     evidence:
-      'Choline donor + uridine source that supports phospholipid synthesis and acetylcholine production. Multiple RCTs show attention and cognitive-effort benefits in healthy adults at 250–500mg/day. Cognizin is the standardized form most international products use.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
+      'Choline donor + uridine source that supports phospholipid synthesis and acetylcholine production. Our citicoline page rates its attention evidence as mixed: the Cochrane review found no evidence of an attention benefit in older adults with chronic cerebral disorders, and the acute attention trial in healthy adults that we cite gave it together with caffeine. Cognizin is the standardized form most international products use.',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/15846601/',
   },
   {
     name: 'L-Tyrosine (or NALT)',
@@ -58,7 +58,7 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design pairs naturally with your morning coffee or matcha for the synergistic effect. Ships from the UK to Japan in 5–20 working days by tracked airmail or 2–7 working days by DHL courier (per mindlabpro.com, checked 2026-09-29), priced in US dollars. The most evidence-backed focus stack available to Japanese buyers.',
+      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design pairs naturally with your morning coffee or matcha if you want caffeine alongside its L-theanine. Ships from the UK to Japan in 5–20 working days by tracked airmail or 2–7 working days by DHL courier (per mindlabpro.com, checked 2026-09-29), priced in US dollars.',
   },
   {
     product: productsJP.find(p => p.slug === 'hunter-focus-review')!,
@@ -80,8 +80,8 @@ const faqItems: ListicleFAQ[] = [
     a: 'For the international stacks above (Mind Lab Pro, Hunter Focus, NooCube), no Foods with Function Claims (FFC) notification was found under the product or company name in the Consumer Affairs Agency (CAA, 消費者庁) database (export scanned 2026-10-06). They are bought under the personal-import route. Domestic options like FANCL BRAINs (FFC-notified, G425) and Suntory DHA & EPA + Sesamin EX (no FFC notification found, CAA export scanned 2026-10-06) target memory and brain health rather than acute focus, and are covered on our memory and aging pages.',
   },
   {
-    q: 'What is the most evidence-backed nootropic for focus available in Japan?',
-    a: 'L-theanine paired with caffeine (1:2 to 2:1 ratio) has the strongest replication evidence in healthy adults — Owen et al. 2008 and multiple follow-ups. This is the same pairing naturally present in matcha. Citicoline at 250–500mg also has multiple RCTs and is the headline ingredient in our top pick (Mind Lab Pro).',
+    q: 'Which nootropic ingredients have trial evidence for focus available in Japan?',
+    a: 'L-theanine with caffeine: in trials in healthy adults the pair improved attention-switching accuracy (Owen 2008, 100mg L-theanine with 50mg caffeine; Giesbrecht 2010, PubMed 21040626, 97mg with 40mg), though Foxe 2012 (PubMed 22326943) found no added benefit over either compound alone. This is the same pairing naturally present in matcha. Our citicoline page rates its attention evidence as mixed: the acute attention trial in healthy adults that we cite gave it together with caffeine. Citicoline is the headline ingredient in our top pick (Mind Lab Pro).',
   },
   {
     q: 'Where can I buy these in Japan?',
@@ -113,7 +113,7 @@ export default function Page() {
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}
-      regulatoryPillar={{ label: 'FFC-notified cognitive supplements in Japan', href: '/ffc-notified-cognitive-supplements/' }}
+      regulatoryPillar={{ label: FFC_PILLAR_LABEL, href: '/ffc-notified-cognitive-supplements/' }}
       healthDisclaimer={getRegionalHealthDisclaimer('jp')}
       searchItems={searchItems}
       uiStrings={uiStrings}

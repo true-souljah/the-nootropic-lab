@@ -10,6 +10,19 @@ export type PillarStrings = Record<keyof Product['scoreBreakdown'], string>;
 /** One string per regional host (RegionCode in ./regional). */
 export type RegionStrings = Record<RegionCode, string>;
 
+/** Use cases with a "Related guides" link on every Listicle. */
+export type RelatedGuideUseCase = 'focus' | 'memory' | 'studying' | 'aging';
+
+/** One string per Ingredient.category. */
+export interface IngredientCategoryStrings {
+  adaptogen: string;
+  cholinergic: string;
+  mushroom: string;
+  amino: string;
+  herb: string;
+  vitamin: string;
+}
+
 /**
  * Licence / import status lines of the "Buying in <region>" block, one per
  * `LicenceStatus.key` (./regional). Placeholders: {npn}, {austl}, {number}
@@ -80,6 +93,10 @@ export interface UIStrings {
       /** Footer mailto link of the rail. */
       submitTip: string;
     };
+    /** AppShell meta line on product lists (best-of, comparator); {n} is the count. */
+    productCount: string;
+    /** AppShell meta line on the ingredient library; {n} is the count. */
+    ingredientCount: string;
   };
   footer: {
     /** Left-column tagline paragraph. */
@@ -192,9 +209,26 @@ export interface UIStrings {
     yes: string;
     no: string;
     na: string;
-    sortBy: string;
     ascending: string;
     descending: string;
+    /** Accessible name of a sort control; {column} is one of `sortColumns`. */
+    sortAria: string;
+    /** Same, on the column the table is sorted by; {direction} is `ascending` or `descending`. */
+    sortAriaActive: string;
+    /** Column names in the sort controls' accessible names: readable words, never a record field name. */
+    sortColumns: { score: string; price: string; moneyBack: string; trustpilot: string };
+    /** Badge on the editor's-choice product. */
+    editorChoice: string;
+    /** Filter chip: only products with an EU storefront. */
+    euStorefront: string;
+    /** Label of the per-month price cap slider; {price} is the formatted cap. */
+    maxPrice: string;
+    /** Screen-reader name of the buy-link column. */
+    actions: string;
+    /** Accessible name of a score cell; {score} is the score. */
+    scoreAria: string;
+    /** Heading of the score tooltip. */
+    scoreBreakdown: string;
   };
   breadcrumb: {
     home: string;
@@ -304,14 +338,19 @@ export interface UIStrings {
       small: string;
       negligible: string;
     };
-    category: {
-      adaptogen: string;
-      cholinergic: string;
-      mushroom: string;
-      amino: string;
-      herb: string;
-      vitamin: string;
-    };
+    category: IngredientCategoryStrings;
+    /** Category line on the related-ingredient cards (lowercase in en; the card capitalizes it). */
+    relatedCategory: IngredientCategoryStrings;
+    /** Lede under the effect-matrix heading. */
+    humanTrialsOnly: string;
+    /** Evidence-strength chip per HumanEffect.evidenceStrength (lowercase in en). */
+    evidenceStrength: { strong: string; moderate: string; preliminary: string; mixed: string };
+    /** Legend under the effect matrix: its label, then one "<level> = <meaning>" entry per level. */
+    evidenceKey: { label: string; strong: string; moderate: string; preliminary: string; mixed: string };
+    /** Row labels of the "How to take" card; the values are ingredient data. */
+    howToLabels: { dosage: string; timing: string; withFood: string; cycling: string; forms: string };
+    /** Heading of the products grid; {name} is the ingredient name. */
+    topStacks: string;
     sidebar: {
       quickFacts: string;
       onThisPage: string;
@@ -364,6 +403,8 @@ export interface UIStrings {
     score: {
       label: string;
       outOf10: string;
+      /** Accessible name of a score pill; {score} and {max} are formatted with one decimal. */
+      aria: string;
     };
     stats: {
       price: string;
@@ -373,6 +414,14 @@ export interface UIStrings {
        * is crawled by Google as a URL (GSC 404 "/mo", 2026-10).
        */
       monthUnit: string;
+      /** Per-serving price unit, WITHOUT the slash (same rule as `monthUnit`): `${price}/${perServingUnit}`. */
+      perServingUnit: string;
+      /** Per-day price unit, WITHOUT the slash (same rule as `monthUnit`): `${price}/${perDayUnit}`. */
+      perDayUnit: string;
+      /** Column/row label for the per-serving price (comparator, head-to-head). */
+      perServingLabel: string;
+      /** Label for the per-day price. */
+      perDayLabel: string;
       capsules: string;
       /** Stat label for the per-day serving, whatever the product's form. */
       dailyServing: string;
@@ -383,6 +432,10 @@ export interface UIStrings {
       moneyBack: string;
       /** "days" suffix for the money-back-guarantee value. */
       days: string;
+      /** A money-back length; {days} is the number of days. */
+      daysCount: string;
+      /** Short form of the same, for tight cells. */
+      daysCountShort: string;
       trustpilot: string;
       notAvailable: string;
       ourCut: string;
@@ -509,6 +562,10 @@ export interface UIStrings {
       readMethodology: string;
       /** Accessible name of a pillar's score bar; {product} is the product name, {pillar} the pillar label. */
       pillarScoreAria: string;
+      /** One-word pillar names in compact score panels (listicle cards, best-of rows, comparator, score tooltip). */
+      short: PillarStrings;
+      /** Accessible name of a compact pillar bar; {name} is the product name, {pillar} a `short` name. */
+      shortScoreAria: string;
     };
     /**
      * Dosing tab (product-detail/DosingTab.tsx). Row data (ingredient names,
@@ -566,6 +623,240 @@ export interface UIStrings {
     expand: string;
     /** Prefix before the evidence-review date, e.g. "Evidence reviewed:". */
     evidenceReviewed: string;
+    /** Read time on guide cards and guide pages; {minutes} is the estimate. */
+    minRead: string;
+    /** H1 of the guides index; {year} is the current year. */
+    indexHeading: string;
+    /** Link on each guides-index card. */
+    readGuide: string;
+    /** Back link at the end of a guide. */
+    backToGuides: string;
+    /** Category chip per Guide.category. */
+    categories: { beginner: string; stacking: string; usage: string; science: string };
+  };
+  /**
+   * Meta row under the H1 of editorial pages (FPByline: listicles, ingredient
+   * and comparison pages). Team credit only — never a named individual.
+   */
+  byline: {
+    attribution: string;
+    factChecked: string;
+    /** Label before the date. */
+    updated: string;
+    /** {minutes} is the estimated read time. */
+    readTime: string;
+  };
+  /**
+   * "Best nootropics for <use case>" pages (templates/Listicle.tsx). The page's
+   * own copy (title, hero, evidence cards, picks' reasons, FAQ) is passed in by
+   * the page and is not part of the bundle.
+   */
+  listicle: {
+    /** Second breadcrumb: the best-of hub. */
+    bestNootropics: string;
+    /** Heading of the health-disclaimer aside. */
+    healthDisclaimer: string;
+    /** Disclaimer body when the page passes none. */
+    defaultHealthDisclaimer: string;
+    whatEvidenceSays: string;
+    /** Lead paragraph of the evidence section. */
+    evidenceIntro: string;
+    /** Link to an evidence card's source. */
+    sourceLink: string;
+    /** Picks heading; {useCase} is `useCaseLabels[useCase]`, or the page's use-case slug fragment. */
+    ourPicksFor: string;
+    picksIntro: string;
+    /** Badge after "#1" on the first pick. */
+    topPick: string;
+    whyItsHere: string;
+    /** Buy CTA; {name} is the product name. */
+    checkProduct: string;
+    readFullReview: string;
+    faqHeading: string;
+    howWeChoose: string;
+    /**
+     * "How we choose" body; {minScore} is LISTICLE_MIN_SCORE (never a typed
+     * number). {link} is where the `fullMethodology` link goes, so each
+     * language places it and closes the sentence itself.
+     */
+    howWeChooseBody: string;
+    /** Inline link text to /methodology/. */
+    fullMethodology: string;
+    /** {year} is the current year. */
+    backToBest: string;
+    /** Heading of the unranked section for picks below the bar; {minScore}. */
+    alsoConsideredHeading: string;
+    /** Lead paragraph of that section; {minScore}. */
+    alsoConsideredIntro: string;
+    /** Reason line of a pick below the bar; {score} and {minScore}. */
+    belowBarReason: string;
+    /** Heading of that section when a pick in it meets the bar but fails rule (b), the dose rule. */
+    alsoConsideredRulesHeading: string;
+    /** Lead paragraph in that case (names both rules); {minScore}. */
+    alsoConsideredRulesIntro: string;
+    /** Reason line of a pick that meets the bar but fails rule (b); {score}. */
+    doseRuleReason: string;
+    /** Lead paragraph when a pick meets both rules but the edition shows no purchase link for it; {minScore}. */
+    alsoConsideredLinkIntro: string;
+    /** Reason line of a pick that meets both rules but has no purchase link in this edition; {score}. */
+    noPurchaseLinkReason: string;
+    /** "In this guide" sidebar link to the unranked section. */
+    alsoConsideredToc: string;
+    /** Chip above the H1, before the date. */
+    audited: string;
+    /** Label of the page's use case in `ourPicksFor`, keyed by use-case slug fragment. */
+    useCaseLabels: Partial<Record<string, string>>;
+    /** Money-back length on a pick card; {days}. */
+    moneyBackDays: string;
+    /** Word after the money-back length. */
+    moneyBackLabel: string;
+    /** Label of a pick card's score panel. */
+    ourScore: string;
+    relatedGuides: string;
+    /** Sibling-listicle link labels. */
+    relatedGuideLabels: Record<RelatedGuideUseCase, string>;
+    /** Sidebar table-of-contents heading. */
+    inThisGuide: string;
+  };
+  /** Ranked best-of leaderboard (templates/BestOf.tsx). */
+  bestOf: {
+    /** Stat tiles above the ranking. */
+    stats: { audited: string; recommended: string; underdosed: string; avgMonthly: string };
+    /** Line under the H1; {audited}, {listed}, {version} (methodology version) and {date}. */
+    subtitle: string;
+    /** Label under each row's rank number. */
+    rank: string;
+    /** Spec label of the commission rate. */
+    commission: string;
+    /** Buy CTA of each row. */
+    visit: string;
+  };
+  /** Interactive comparator (templates/Comparator.tsx and comparator/*). */
+  comparator: {
+    /** H1 and breadcrumb. */
+    heading: string;
+    /** Line under the H1; {shown}, {total} and {max} (products selectable for side-by-side). */
+    matchSummary: string;
+    /** Filter panel heading and its mobile trigger. */
+    filters: string;
+    saveView: string;
+    /** Status after "Save view" copies the link. */
+    linkCopied: string;
+    clipboardError: string;
+    /** Accessible name of the comparison grid. */
+    gridLabel: string;
+    columns: { product: string; score: string; value: string; price: string; trustpilot: string; bestFor: string };
+    /** Empty state, followed by `resetFilters`. */
+    noMatch: string;
+    resetFilters: string;
+    /** Row checkbox; {name} is the product name. */
+    compareAria: string;
+    /** Row link to the review. */
+    view: string;
+    /** Its accessible name; {name} is the product name. */
+    viewAria: string;
+    /** Marker after the brand of a product with caffeine. */
+    containsCaffeine: string;
+    /** Accessible name of the mobile filter sheet. */
+    filterDialog: string;
+    closeFilters: string;
+    /** Mobile sheet's apply button; {n} is the number of matching products. */
+    showResults: string;
+    /** Same, for exactly one product. */
+    showResultsOne: string;
+    /** Goal filter: label, group name and one label per goal (the values match the products' best-for tags). */
+    goal: string;
+    goalAria: string;
+    goals: { any: string; focus: string; memory: string; energy: string; beginners: string; budget: string };
+    /** Price-cap label; {unit} is the monthly unit. */
+    maxPerMonth: string;
+    /** Grade filter: legend and one label per grade. */
+    grade: string;
+    grades: { all: string; recommended: string; worthALook: string; skip: string };
+    caffeineFreeOnly: string;
+    euStorefrontOnly: string;
+    showCommission: string;
+    /** Note under the commission toggle. */
+    commissionNote: string;
+    resetAll: string;
+    /** Compare card: eyebrow, summary ({n} selected), clear button and row labels. */
+    compare: string;
+    selectedSummary: string;
+    clear: string;
+    daily: string;
+    caffeine: string;
+    /** Value of the caffeine row for a caffeine-free product. */
+    caffeineFree: string;
+  };
+  /** Ingredient index (templates/IngredientLibrary.tsx). */
+  ingredientLibrary: {
+    /** Default H1 when the page passes none. */
+    heading: string;
+    /** H1 the region pages pass (/ingredients/); {year} is the current year. */
+    guideHeading: string;
+    /** Default line under it; {n} is the ingredient count. */
+    dek: string;
+    /** Accessible name of the grade filter. */
+    filterAria: string;
+    allGrades: string;
+    /** {grade} is A, B or C. */
+    grade: string;
+    /** Legend card; {n} and {grade}. */
+    legendCount: string;
+    /** What each grade means. */
+    descriptors: { A: string; B: string; C: string };
+    /** Empty state; {grade}. */
+    empty: string;
+    seeAll: string;
+    columns: { grade: string; ingredient: string; clinicalDose: string; trials: string; ourTake: string };
+    /** Accessible name of a grade badge; {grade}. */
+    gradeAria: string;
+    /** Accessible name of the study-count sparkline; {name} and {counts} (comma-separated). */
+    studyCounts: string;
+    /** In `counts`, for an effect without a study count. */
+    notCounted: string;
+    /** Live-region announcements of the filter: {n}, {grade}. */
+    showingAll: string;
+    showingGrade: string;
+    showingGradeOne: string;
+  };
+  /** Local buyer's-guide pages (JP prefectures, LATAM countries). */
+  geo: {
+    /** H1; {place} and {year}. */
+    bestIn: string;
+    /** Picks heading; {place}. */
+    topPicksFor: string;
+    /** Label before a pick's score. */
+    score: string;
+  };
+  /** Headings of the editorial-standards section on /methodology/ (EditorialStandardsSection). */
+  editorialStandards: {
+    heading: string;
+    reviewProtocol: string;
+    conflictOfInterest: string;
+    sourceCitation: string;
+    correction: string;
+    teamIdentity: string;
+    regionalFraming: string;
+    contact: string;
+  };
+  /** Shortlist toggle (templates/ShortlistButton.tsx). */
+  shortlist: {
+    save: string;
+    saved: string;
+    saveAria: string;
+    removeAria: string;
+  };
+  /**
+   * How the templates join translated pieces in this language. Japanese
+   * punctuation (。、：) carries its own spacing, so ja adds no space; French
+   * puts a no-break space before a colon.
+   */
+  typography: {
+    /** Between a bare label and its value ("Price: $69"; ja "価格：$69"; fr "Prix : 69 $"). */
+    colon: string;
+    /** Between a sentence, or a label that ends in its own punctuation, and what follows it (a value, link, button or count). Empty in ja. */
+    space: string;
   };
 }
 
@@ -601,6 +892,8 @@ const en: UIStrings = {
       disclosures: 'Disclosures',
       submitTip: 'Submit a tip →',
     },
+    productCount: '{n} products',
+    ingredientCount: '{n} ingredients',
   },
   footer: {
     tagline:
@@ -676,9 +969,17 @@ const en: UIStrings = {
     yes: 'Yes',
     no: 'No',
     na: 'N/A',
-    sortBy: 'Sort by',
     ascending: 'ascending',
     descending: 'descending',
+    sortAria: 'Sort by {column}',
+    sortAriaActive: 'Sort by {column}, currently {direction}',
+    sortColumns: { score: 'score', price: 'price', moneyBack: 'money-back days', trustpilot: 'Trustpilot score' },
+    editorChoice: "Editor's Choice",
+    euStorefront: 'EU Storefront',
+    maxPrice: 'Max {price}',
+    actions: 'Actions',
+    scoreAria: 'Score {score} out of 10 — tap or hover for breakdown',
+    scoreBreakdown: 'Score breakdown',
   },
   breadcrumb: {
     home: 'Home',
@@ -758,6 +1059,25 @@ const en: UIStrings = {
       herb: 'Herb',
       vitamin: 'Vitamin',
     },
+    relatedCategory: {
+      adaptogen: 'adaptogen',
+      cholinergic: 'cholinergic',
+      mushroom: 'mushroom',
+      amino: 'amino',
+      herb: 'herb',
+      vitamin: 'vitamin',
+    },
+    humanTrialsOnly: 'Based on human clinical trials only. Animal and in-vitro data excluded.',
+    evidenceStrength: { strong: 'strong', moderate: 'moderate', preliminary: 'preliminary', mixed: 'mixed' },
+    evidenceKey: {
+      label: 'Evidence key:',
+      strong: 'Strong = multiple consistent RCTs',
+      moderate: 'Moderate = smaller/fewer RCTs',
+      preliminary: 'Preliminary = early trials or small n',
+      mixed: 'Mixed = conflicting results',
+    },
+    howToLabels: { dosage: 'Dosage', timing: 'Timing', withFood: 'With food', cycling: 'Cycling', forms: 'Forms' },
+    topStacks: 'Top stacks containing {name}',
     sidebar: {
       quickFacts: 'Quick facts',
       onThisPage: 'On this page',
@@ -795,16 +1115,23 @@ const en: UIStrings = {
     score: {
       label: 'Our score',
       outOf10: 'of 10.0',
+      aria: 'Score {score} out of {max}',
     },
     stats: {
       price: 'Price',
       monthUnit: 'mo',
+      perServingUnit: 'serving',
+      perDayUnit: 'day',
+      perServingLabel: 'Per serving',
+      perDayLabel: 'Per day',
       capsules: 'Caps',
       dailyServing: 'Daily serving',
       units: { capsule: 'caps', tablet: 'tablets', sachet: 'sachets', shot: 'shots', powder: 'scoops', softgel: 'softgels' },
       unitsSingular: { capsule: 'cap', tablet: 'tablet', sachet: 'sachet', shot: 'shot', powder: 'scoop', softgel: 'softgel' },
       moneyBack: 'MBG',
       days: 'days',
+      daysCount: '{days} days',
+      daysCountShort: '{days}d',
       trustpilot: 'Trustpilot',
       notAvailable: 'N/A',
       ourCut: 'Our cut',
@@ -929,6 +1256,8 @@ const en: UIStrings = {
       howComputedBody: "Each pillar is weighted by editorial importance. Weights are constant across every brand we audit — they're not adjusted to favour any particular product.",
       readMethodology: 'Read methodology →',
       pillarScoreAria: '{product}: {pillar} pillar score',
+      short: { ingredients: 'ingredients', dosing: 'dosing', transparency: 'transparency', value: 'value', trust: 'trust' },
+      shortScoreAria: '{name} {pillar} score',
     },
     dosing: {
       heading: 'Dosing audit',
@@ -970,7 +1299,151 @@ const en: UIStrings = {
     sources: 'Sources',
     expand: 'expand',
     evidenceReviewed: 'Evidence reviewed:',
+    minRead: '{minutes} min read',
+    indexHeading: 'Nootropics Guides {year}',
+    readGuide: 'Read guide →',
+    backToGuides: '← Back to Guides',
+    categories: { beginner: 'Beginner', stacking: 'Stacking', usage: 'Usage', science: 'Science' },
   },
+  byline: {
+    attribution: 'By The Nootropic Lab editorial team',
+    factChecked: '✓ Fact-checked',
+    updated: 'Updated',
+    readTime: '{minutes} min read',
+  },
+  listicle: {
+    bestNootropics: 'Best Nootropics',
+    healthDisclaimer: 'Health disclaimer',
+    defaultHealthDisclaimer:
+      'This page is for educational purposes only and is not medical advice. Nootropic supplements are not approved by the FDA to diagnose, treat, cure, or prevent any disease, including ADHD or other cognitive conditions. They are not equivalent to prescription stimulants. Always consult a qualified healthcare professional before starting any supplement regimen, especially if you take medication or have a medical condition.',
+    whatEvidenceSays: 'What the evidence actually says',
+    evidenceIntro:
+      'For each ingredient below, we link directly to the peer-reviewed source. Ingredient mechanism is not the same as product efficacy — a product can include the right ingredient at the wrong dose.',
+    sourceLink: 'Source →',
+    ourPicksFor: 'Our picks for {useCase}',
+    picksIntro: 'Ranked by how well each product matches the evidence above + our 5-pillar editorial audit.',
+    topPick: 'Top pick',
+    whyItsHere: "Why it's here:",
+    checkProduct: 'Check {name} →',
+    readFullReview: 'Read full review',
+    faqHeading: 'Frequently asked questions',
+    howWeChoose: 'How we choose',
+    howWeChooseBody:
+      'Every pick must (a) include at least one ingredient with peer-reviewed evidence for the use case, (b) dose that ingredient at or near the clinical-trial dose, and (c) score ≥ {minScore}/10 in our 5-pillar editorial audit. Read our {link}.',
+    fullMethodology: 'full methodology',
+    backToBest: '← Back to Best Nootropics {year}',
+    alsoConsideredHeading: 'Also considered — below our {minScore} bar',
+    alsoConsideredIntro:
+      'Products audited for this guide that score below the {minScore}/10 a ranked pick needs in our 5-pillar editorial audit. Listed for transparency, not ranked or recommended.',
+    belowBarReason: 'Scores {score}/10 — below our {minScore} bar',
+    alsoConsideredRulesHeading: 'Also considered — not ranked',
+    alsoConsideredRulesIntro:
+      'Products audited for this guide that we do not rank: each either scores below the {minScore}/10 a ranked pick needs in our 5-pillar editorial audit, or its label does not reach our reference dose for any evidence entry above (for a combination, every ingredient in it). Listed for transparency, not ranked or recommended.',
+    doseRuleReason:
+      'Scores {score}/10, but its label does not reach our reference dose for any evidence entry above (for a combination, every ingredient in it)',
+    alsoConsideredLinkIntro:
+      'Products audited for this guide that we do not rank: each either scores below the {minScore}/10 a ranked pick needs in our 5-pillar editorial audit, or its label does not reach our reference dose for any evidence entry above (for a combination, every ingredient in it), or this edition shows no purchase link for it. Listed for transparency, not ranked or recommended.',
+    noPurchaseLinkReason: 'Scores {score}/10, but this edition shows no purchase link for it; its review says why',
+    alsoConsideredToc: 'Also considered',
+    audited: 'Audited',
+    useCaseLabels: {},
+    moneyBackDays: '{days}d',
+    moneyBackLabel: 'MBG',
+    ourScore: 'Our score',
+    relatedGuides: 'Related guides',
+    relatedGuideLabels: {
+      focus: 'Best nootropics for focus',
+      memory: 'Best nootropics for memory',
+      studying: 'Best nootropics for studying',
+      aging: 'Best nootropics for aging',
+    },
+    inThisGuide: 'In this guide',
+  },
+  bestOf: {
+    stats: { audited: 'Audited', recommended: 'Recommended', underdosed: 'Underdosed flagship', avgMonthly: 'Avg / month' },
+    subtitle: '{audited} audited · {listed} listed · methodology {version} · refreshed {date}',
+    rank: 'Rank',
+    commission: 'Commission',
+    visit: 'Visit →',
+  },
+  comparator: {
+    heading: 'Comparator',
+    matchSummary: '{shown} of {total} match · select up to {max} to compare side-by-side',
+    filters: 'Filters',
+    saveView: 'Save view',
+    linkCopied: 'Link copied to clipboard',
+    clipboardError: 'Could not access clipboard',
+    gridLabel: 'Products comparison',
+    columns: { product: 'Product', score: 'Score', value: 'Value', price: 'Price', trustpilot: 'Trustpilot', bestFor: 'Best for' },
+    noMatch: 'No products match.',
+    resetFilters: 'Reset filters',
+    compareAria: 'Compare {name}',
+    view: 'View →',
+    viewAria: 'View {name}',
+    containsCaffeine: 'caffeine',
+    filterDialog: 'Filter products',
+    closeFilters: 'Close filters',
+    showResults: 'Show {n} products',
+    showResultsOne: 'Show {n} product',
+    goal: 'Goal',
+    goalAria: 'Filter by goal',
+    goals: { any: 'Any', focus: 'Focus', memory: 'Memory', energy: 'Energy', beginners: 'Beginners', budget: 'Budget' },
+    maxPerMonth: 'Max ≈ per {unit}',
+    grade: 'Our grade',
+    grades: { all: 'All', recommended: 'Recommended', worthALook: 'Worth a look', skip: 'Skip' },
+    caffeineFreeOnly: 'Caffeine-free only',
+    euStorefrontOnly: 'EU storefront only',
+    showCommission: 'Show our commission',
+    commissionNote: "Doesn't change scores",
+    resetAll: 'Reset all filters',
+    compare: 'Compare',
+    selectedSummary: '{n} selected · side by side',
+    clear: 'Clear',
+    daily: 'Daily',
+    caffeine: 'Caffeine',
+    caffeineFree: 'Free',
+  },
+  ingredientLibrary: {
+    heading: 'Ingredient library',
+    guideHeading: 'Nootropic Ingredients Guide {year}',
+    dek: '{n} ingredients · graded on RCT evidence and consistency · plain-English notes',
+    filterAria: 'Filter by evidence grade',
+    allGrades: 'All grades',
+    grade: 'Grade {grade}',
+    legendCount: '{n} ingredients · Grade {grade}',
+    descriptors: { A: 'Multiple consistent RCTs', B: 'Smaller / fewer RCTs', C: 'Preliminary or mixed' },
+    empty: 'No Grade {grade} ingredients in this catalog yet.',
+    seeAll: 'See all grades →',
+    columns: { grade: 'Grade', ingredient: 'Ingredient', clinicalDose: 'Clinical dose', trials: 'Trials', ourTake: 'Our take' },
+    gradeAria: 'Evidence grade {grade}',
+    studyCounts: 'Study counts for {name} effects: {counts}',
+    notCounted: 'not counted',
+    showingAll: 'Showing all {n} ingredients',
+    showingGrade: 'Showing {n} grade-{grade} ingredients',
+    showingGradeOne: 'Showing {n} grade-{grade} ingredient',
+  },
+  geo: {
+    bestIn: 'Best Nootropics in {place} {year}',
+    topPicksFor: 'Top Picks for {place} Buyers',
+    score: 'Score:',
+  },
+  editorialStandards: {
+    heading: 'Editorial Standards',
+    reviewProtocol: '1. Review protocol',
+    conflictOfInterest: '2. Conflict-of-interest policy',
+    sourceCitation: '3. Source-citation policy',
+    correction: '4. Correction policy',
+    teamIdentity: '5. Editorial-team identity',
+    regionalFraming: '6. Region-specific regulatory framing',
+    contact: 'Editorial contact',
+  },
+  shortlist: {
+    save: 'Save',
+    saved: 'Saved',
+    saveAria: 'Save to shortlist',
+    removeAria: 'Remove from shortlist',
+  },
+  typography: { colon: ': ', space: ' ' },
 };
 
 const es: UIStrings = {
@@ -1005,6 +1478,8 @@ const es: UIStrings = {
       disclosures: 'Divulgaciones',
       submitTip: 'Enviar un dato →',
     },
+    productCount: '{n} productos',
+    ingredientCount: '{n} ingredientes',
   },
   footer: {
     tagline:
@@ -1080,9 +1555,22 @@ const es: UIStrings = {
     yes: 'Sí',
     no: 'No',
     na: 'N/A',
-    sortBy: 'Ordenar por',
     ascending: 'ascendente',
     descending: 'descendente',
+    sortAria: 'Ordenar por {column}',
+    sortAriaActive: 'Ordenar por {column}, orden actual: {direction}',
+    sortColumns: {
+      score: 'puntuación',
+      price: 'precio',
+      moneyBack: 'días de garantía de devolución',
+      trustpilot: 'puntuación de Trustpilot',
+    },
+    editorChoice: 'Elección editorial',
+    euStorefront: 'Tienda en la UE',
+    maxPrice: 'Máx. {price}',
+    actions: 'Acciones',
+    scoreAria: 'Puntuación {score} de 10 — toca o pasa el cursor para ver el desglose',
+    scoreBreakdown: 'Desglose de la puntuación',
   },
   breadcrumb: {
     home: 'Inicio',
@@ -1162,6 +1650,25 @@ const es: UIStrings = {
       herb: 'Hierba',
       vitamin: 'Vitamina',
     },
+    relatedCategory: {
+      adaptogen: 'adaptógeno',
+      cholinergic: 'colinérgico',
+      mushroom: 'hongo',
+      amino: 'aminoácido',
+      herb: 'hierba',
+      vitamin: 'vitamina',
+    },
+    humanTrialsOnly: 'Basado solo en ensayos clínicos en humanos. Se excluyen los datos en animales e in vitro.',
+    evidenceStrength: { strong: 'sólida', moderate: 'moderada', preliminary: 'preliminar', mixed: 'mixta' },
+    evidenceKey: {
+      label: 'Clave de evidencia:',
+      strong: 'Sólida = varios ECA consistentes',
+      moderate: 'Moderada = ECA más pequeños o menos numerosos',
+      preliminary: 'Preliminar = ensayos iniciales o n pequeño',
+      mixed: 'Mixta = resultados contradictorios',
+    },
+    howToLabels: { dosage: 'Dosis', timing: 'Momento', withFood: 'Con comida', cycling: 'Ciclos', forms: 'Formas' },
+    topStacks: 'Principales stacks que contienen {name}',
     sidebar: {
       quickFacts: 'Datos rápidos',
       onThisPage: 'En esta página',
@@ -1199,16 +1706,23 @@ const es: UIStrings = {
     score: {
       label: 'Nuestra puntuación',
       outOf10: 'sobre 10,0',
+      aria: 'Puntuación {score} de {max}',
     },
     stats: {
       price: 'Precio',
       monthUnit: 'mes',
+      perServingUnit: 'dosis',
+      perDayUnit: 'día',
+      perServingLabel: 'Por dosis',
+      perDayLabel: 'Por día',
       capsules: 'Cáps.',
       dailyServing: 'Dosis diaria',
       units: { capsule: 'cáps.', tablet: 'comprimidos', sachet: 'sobres', shot: 'shots', powder: 'cacitos', softgel: 'cápsulas blandas' },
       unitsSingular: { capsule: 'cáp.', tablet: 'comprimido', sachet: 'sobre', shot: 'shot', powder: 'cacito', softgel: 'cápsula blanda' },
       moneyBack: 'Garantía',
       days: 'días',
+      daysCount: '{days} días',
+      daysCountShort: '{days} d',
       trustpilot: 'Trustpilot',
       notAvailable: 'N/D',
       ourCut: 'Nuestra comisión',
@@ -1333,6 +1847,8 @@ const es: UIStrings = {
       howComputedBody: 'Cada pilar se pondera según su importancia editorial. Las ponderaciones son las mismas para todas las marcas que auditamos: no se ajustan para favorecer a ningún producto en particular.',
       readMethodology: 'Leer la metodología →',
       pillarScoreAria: '{product}: puntuación del pilar {pillar}',
+      short: { ingredients: 'ingredientes', dosing: 'dosis', transparency: 'transparencia', value: 'valor', trust: 'confianza' },
+      shortScoreAria: 'Puntuación de {pillar} de {name}',
     },
     dosing: {
       heading: 'Auditoría de dosis',
@@ -1374,7 +1890,157 @@ const es: UIStrings = {
     sources: 'Fuentes',
     expand: 'ampliar',
     evidenceReviewed: 'Evidencia revisada el',
+    minRead: '{minutes} min de lectura',
+    indexHeading: 'Guías de Nootrópicos {year}',
+    readGuide: 'Leer guía →',
+    backToGuides: '← Volver a las Guías',
+    categories: { beginner: 'Principiante', stacking: 'Combinación', usage: 'Uso', science: 'Ciencia' },
   },
+  byline: {
+    attribution: 'Por el equipo editorial de The Nootropic Lab',
+    factChecked: '✓ Datos verificados',
+    updated: 'Actualizado',
+    readTime: '{minutes} min de lectura',
+  },
+  listicle: {
+    bestNootropics: 'Mejores Nootrópicos',
+    healthDisclaimer: 'Aviso de salud',
+    defaultHealthDisclaimer:
+      'Esta página es solo con fines educativos y no constituye consejo médico. Los suplementos nootrópicos no están aprobados por la FDA para diagnosticar, tratar, curar o prevenir ninguna enfermedad, incluido el TDAH u otras condiciones cognitivas. No son equivalentes a los estimulantes recetados. Consulte siempre a un profesional de la salud calificado antes de comenzar cualquier régimen de suplementos.',
+    whatEvidenceSays: 'Lo que dice realmente la evidencia',
+    evidenceIntro:
+      'Para cada ingrediente a continuación, enlazamos directamente a la fuente revisada por expertos. El mecanismo del ingrediente no es lo mismo que la eficacia del producto — un producto puede incluir el ingrediente correcto en la dosis incorrecta.',
+    sourceLink: 'Fuente →',
+    ourPicksFor: 'Nuestras selecciones para {useCase}',
+    picksIntro:
+      'Clasificadas según qué tan bien cada producto coincide con la evidencia anterior + nuestra auditoría editorial de 5 pilares.',
+    topPick: 'Mejor opción',
+    whyItsHere: '¿Por qué está aquí?',
+    checkProduct: 'Ver {name} →',
+    readFullReview: 'Leer reseña completa',
+    faqHeading: 'Preguntas frecuentes',
+    howWeChoose: 'Cómo elegimos',
+    howWeChooseBody:
+      'Cada selección debe (a) incluir al menos un ingrediente con evidencia revisada por expertos para el caso de uso, (b) dosificar ese ingrediente en o cerca de la dosis del ensayo clínico, y (c) obtener una puntuación ≥ {minScore}/10 en nuestra auditoría editorial de 5 pilares. Lea nuestra {link}.',
+    fullMethodology: 'metodología completa',
+    backToBest: '← Volver a Mejores Nootrópicos {year}',
+    alsoConsideredHeading: 'También evaluados — por debajo de nuestro umbral de {minScore}',
+    alsoConsideredIntro:
+      'Productos auditados para esta guía cuya puntuación queda por debajo del {minScore}/10 que necesita una selección clasificada en nuestra auditoría editorial de 5 pilares. Se incluyen por transparencia; no están clasificados ni recomendados.',
+    belowBarReason: 'Puntuación de {score}/10 — por debajo de nuestro umbral de {minScore}',
+    alsoConsideredRulesHeading: 'También evaluados — sin clasificar',
+    alsoConsideredRulesIntro:
+      'Productos auditados para esta guía que no clasificamos: cada uno obtiene una puntuación por debajo del {minScore}/10 que necesita una selección clasificada en nuestra auditoría editorial de 5 pilares, o su etiqueta no alcanza nuestra dosis de referencia en ninguna de las entradas de evidencia anteriores (en una combinación, en cada uno de sus ingredientes). Se incluyen por transparencia; no están clasificados ni recomendados.',
+    doseRuleReason:
+      'Puntuación de {score}/10, pero su etiqueta no alcanza nuestra dosis de referencia en ninguna de las entradas de evidencia anteriores (en una combinación, en cada uno de sus ingredientes)',
+    alsoConsideredLinkIntro:
+      'Productos auditados para esta guía que no clasificamos: cada uno obtiene una puntuación por debajo del {minScore}/10 que necesita una selección clasificada en nuestra auditoría editorial de 5 pilares, o su etiqueta no alcanza nuestra dosis de referencia en ninguna de las entradas de evidencia anteriores (en una combinación, en cada uno de sus ingredientes), o esta edición no muestra enlace de compra para él. Se incluyen por transparencia; no están clasificados ni recomendados.',
+    noPurchaseLinkReason: 'Puntuación de {score}/10, pero esta edición no muestra enlace de compra para este producto; su reseña explica por qué',
+    alsoConsideredToc: 'También evaluados',
+    audited: 'Auditado',
+    useCaseLabels: {
+      focus: 'la concentración',
+      memory: 'la memoria',
+      studying: 'estudiar',
+      aging: 'el cerebro adulto mayor',
+    },
+    moneyBackDays: '{days} días',
+    moneyBackLabel: 'de garantía',
+    ourScore: 'Nuestra puntuación',
+    relatedGuides: 'Guías relacionadas',
+    relatedGuideLabels: {
+      focus: 'Mejores nootrópicos para la concentración',
+      memory: 'Mejores nootrópicos para la memoria',
+      studying: 'Mejores nootrópicos para estudiar',
+      aging: 'Mejores nootrópicos para el cerebro adulto mayor',
+    },
+    inThisGuide: 'En esta guía',
+  },
+  bestOf: {
+    stats: { audited: 'Auditados', recommended: 'Recomendados', underdosed: 'Producto estrella subdosificado', avgMonthly: 'Prom. / mes' },
+    subtitle: '{audited} auditados · {listed} listados · metodología {version} · actualizado el {date}',
+    rank: 'Puesto',
+    commission: 'Comisión',
+    visit: 'Visitar →',
+  },
+  comparator: {
+    heading: 'Comparador',
+    matchSummary: '{shown} de {total} coinciden · selecciona hasta {max} para comparar lado a lado',
+    filters: 'Filtros',
+    saveView: 'Guardar vista',
+    linkCopied: 'Enlace copiado al portapapeles',
+    clipboardError: 'No se pudo acceder al portapapeles',
+    gridLabel: 'Comparación de productos',
+    columns: { product: 'Producto', score: 'Puntuación', value: 'Valor', price: 'Precio', trustpilot: 'Trustpilot', bestFor: 'Ideal para' },
+    noMatch: 'Ningún producto coincide.',
+    resetFilters: 'Restablecer filtros',
+    compareAria: 'Comparar {name}',
+    view: 'Ver →',
+    viewAria: 'Ver {name}',
+    containsCaffeine: 'con cafeína',
+    filterDialog: 'Filtrar productos',
+    closeFilters: 'Cerrar filtros',
+    showResults: 'Mostrar {n} productos',
+    showResultsOne: 'Mostrar {n} producto',
+    goal: 'Objetivo',
+    goalAria: 'Filtrar por objetivo',
+    goals: { any: 'Cualquiera', focus: 'Concentración', memory: 'Memoria', energy: 'Energía', beginners: 'Principiantes', budget: 'Económico' },
+    maxPerMonth: 'Máx. ≈ por {unit}',
+    grade: 'Nuestra calificación',
+    grades: { all: 'Todas', recommended: 'Recomendado', worthALook: 'Vale la pena mirarlo', skip: 'Descartar' },
+    caffeineFreeOnly: 'Solo sin cafeína',
+    euStorefrontOnly: 'Solo con tienda en la UE',
+    showCommission: 'Mostrar nuestra comisión',
+    commissionNote: 'No cambia las puntuaciones',
+    resetAll: 'Restablecer todos los filtros',
+    compare: 'Comparar',
+    selectedSummary: '{n} seleccionados · lado a lado',
+    clear: 'Borrar',
+    daily: 'Diario',
+    caffeine: 'Cafeína',
+    caffeineFree: 'Sin cafeína',
+  },
+  ingredientLibrary: {
+    heading: 'Biblioteca de ingredientes',
+    guideHeading: 'Guía de ingredientes nootrópicos {year}',
+    dek: '{n} ingredientes · calificados según la evidencia de ECA y su consistencia · notas en lenguaje sencillo',
+    filterAria: 'Filtrar por grado de evidencia',
+    allGrades: 'Todos los grados',
+    grade: 'Grado {grade}',
+    legendCount: '{n} ingredientes · Grado {grade}',
+    descriptors: { A: 'Varios ECA consistentes', B: 'ECA más pequeños o menos numerosos', C: 'Preliminar o mixta' },
+    empty: 'Todavía no hay ingredientes de grado {grade} en este catálogo.',
+    seeAll: 'Ver todos los grados →',
+    columns: { grade: 'Grado', ingredient: 'Ingrediente', clinicalDose: 'Dosis clínica', trials: 'Ensayos', ourTake: 'Nuestra opinión' },
+    gradeAria: 'Grado de evidencia {grade}',
+    studyCounts: 'Número de estudios por efecto de {name}: {counts}',
+    notCounted: 'sin contar',
+    showingAll: 'Mostrando los {n} ingredientes',
+    showingGrade: 'Mostrando {n} ingredientes de grado {grade}',
+    showingGradeOne: 'Mostrando {n} ingrediente de grado {grade}',
+  },
+  geo: {
+    bestIn: 'Los Mejores Nootrópicos en {place} {year}',
+    topPicksFor: 'Mejores opciones para compradores en {place}',
+    score: 'Puntuación:',
+  },
+  editorialStandards: {
+    heading: 'Estándares editoriales',
+    reviewProtocol: '1. Protocolo de revisión',
+    conflictOfInterest: '2. Política de conflictos de interés',
+    sourceCitation: '3. Política de citación de fuentes',
+    correction: '4. Política de correcciones',
+    teamIdentity: '5. Identidad del equipo editorial',
+    regionalFraming: '6. Marco regulatorio por región',
+    contact: 'Contacto editorial',
+  },
+  shortlist: {
+    save: 'Guardar',
+    saved: 'Guardado',
+    saveAria: 'Añadir a mi preselección',
+    removeAria: 'Quitar de mi preselección',
+  },
+  typography: { colon: ': ', space: ' ' },
 };
 
 const fr: UIStrings = {
@@ -1409,6 +2075,8 @@ const fr: UIStrings = {
       disclosures: 'Divulgations',
       submitTip: 'Nous signaler une info →',
     },
+    productCount: '{n} produits',
+    ingredientCount: '{n} ingrédients',
   },
   footer: {
     tagline:
@@ -1484,9 +2152,22 @@ const fr: UIStrings = {
     yes: 'Oui',
     no: 'Non',
     na: 'N/A',
-    sortBy: 'Trier par',
     ascending: 'croissant',
     descending: 'décroissant',
+    sortAria: 'Trier par {column}',
+    sortAriaActive: 'Trier par {column}, ordre actuel : {direction}',
+    sortColumns: {
+      score: 'note',
+      price: 'prix',
+      moneyBack: 'jours de garantie de remboursement',
+      trustpilot: 'note Trustpilot',
+    },
+    editorChoice: 'Choix de la rédaction',
+    euStorefront: 'Boutique UE',
+    maxPrice: 'Max. {price}',
+    actions: 'Actions',
+    scoreAria: 'Note de {score} sur 10 — touchez ou survolez pour voir le détail',
+    scoreBreakdown: 'Détail de la note',
   },
   breadcrumb: {
     home: 'Accueil',
@@ -1566,6 +2247,25 @@ const fr: UIStrings = {
       herb: 'Plante',
       vitamin: 'Vitamine',
     },
+    relatedCategory: {
+      adaptogen: 'adaptogène',
+      cholinergic: 'cholinergique',
+      mushroom: 'champignon',
+      amino: 'acide aminé',
+      herb: 'plante',
+      vitamin: 'vitamine',
+    },
+    humanTrialsOnly: 'Fondé uniquement sur des essais cliniques chez l’humain. Données animales et in vitro exclues.',
+    evidenceStrength: { strong: 'solides', moderate: 'modérées', preliminary: 'préliminaires', mixed: 'mitigées' },
+    evidenceKey: {
+      label: 'Légende des données :',
+      strong: 'Solides = plusieurs ECR concordants',
+      moderate: 'Modérées = ECR plus petits ou moins nombreux',
+      preliminary: 'Préliminaires = premiers essais ou petit effectif',
+      mixed: 'Mitigées = résultats contradictoires',
+    },
+    howToLabels: { dosage: 'Posologie', timing: 'Moment', withFood: 'Avec un repas', cycling: 'Cycles', forms: 'Formes' },
+    topStacks: 'Meilleurs stacks contenant {name}',
     sidebar: {
       quickFacts: 'Faits clés',
       onThisPage: 'Sur cette page',
@@ -1603,16 +2303,23 @@ const fr: UIStrings = {
     score: {
       label: 'Notre note',
       outOf10: 'sur 10,0',
+      aria: 'Note de {score} sur {max}',
     },
     stats: {
       price: 'Prix',
       monthUnit: 'mois',
+      perServingUnit: 'dose',
+      perDayUnit: 'jour',
+      perServingLabel: 'Par dose',
+      perDayLabel: 'Par jour',
       capsules: 'Caps.',
       dailyServing: 'Dose quotidienne',
       units: { capsule: 'gélules', tablet: 'comprimés', sachet: 'sachets', shot: 'shots', powder: 'doses', softgel: 'capsules molles' },
       unitsSingular: { capsule: 'gélule', tablet: 'comprimé', sachet: 'sachet', shot: 'shot', powder: 'dose', softgel: 'capsule molle' },
       moneyBack: 'Garantie',
       days: 'jours',
+      daysCount: '{days} jours',
+      daysCountShort: '{days} j',
       trustpilot: 'Trustpilot',
       notAvailable: 'N/D',
       ourCut: 'Notre commission',
@@ -1737,6 +2444,8 @@ const fr: UIStrings = {
       howComputedBody: 'Chaque pilier est pondéré selon son importance éditoriale. Les pondérations sont identiques pour toutes les marques que nous auditons : elles ne sont pas ajustées pour favoriser un produit en particulier.',
       readMethodology: 'Lire la méthodologie →',
       pillarScoreAria: '{product} : note du pilier {pillar}',
+      short: { ingredients: 'ingrédients', dosing: 'dosage', transparency: 'transparence', value: 'valeur', trust: 'confiance' },
+      shortScoreAria: 'Note {pillar} de {name}',
     },
     dosing: {
       heading: 'Audit du dosage',
@@ -1778,7 +2487,157 @@ const fr: UIStrings = {
     sources: 'Sources',
     expand: 'afficher',
     evidenceReviewed: 'Données probantes vérifiées le',
+    minRead: '{minutes} min de lecture',
+    indexHeading: 'Guides sur les nootropiques {year}',
+    readGuide: 'Lire le guide →',
+    backToGuides: '← Retour aux guides',
+    categories: { beginner: 'Débutant', stacking: 'Combinaisons', usage: 'Utilisation', science: 'Sciences' },
   },
+  byline: {
+    attribution: 'Par l’équipe éditoriale de The Nootropic Lab',
+    factChecked: '✓ Vérifié',
+    updated: 'Mis à jour le',
+    readTime: '{minutes} min de lecture',
+  },
+  listicle: {
+    bestNootropics: 'Meilleurs nootropiques',
+    healthDisclaimer: 'Avertissement santé',
+    defaultHealthDisclaimer:
+      'Cette page est fournie à titre informatif uniquement et ne constitue pas un avis médical. Les compléments nootropiques ne sont pas approuvés par la FDA pour diagnostiquer, traiter, guérir ou prévenir une maladie, y compris le TDAH ou d’autres troubles cognitifs. Ils ne sont pas équivalents aux stimulants sur ordonnance. Consultez toujours un professionnel de santé qualifié avant de commencer un complément, en particulier si vous prenez des médicaments ou avez un problème de santé.',
+    whatEvidenceSays: 'Ce que disent vraiment les données',
+    evidenceIntro:
+      'Pour chaque ingrédient ci-dessous, nous renvoyons directement à la source évaluée par des pairs. Le mécanisme d’un ingrédient n’est pas l’efficacité d’un produit — un produit peut contenir le bon ingrédient à la mauvaise dose.',
+    sourceLink: 'Voir la source →',
+    ourPicksFor: 'Notre sélection pour {useCase}',
+    picksIntro: 'Classés selon leur adéquation avec les données ci-dessus + notre audit éditorial en 5 piliers.',
+    topPick: 'Meilleur choix',
+    whyItsHere: 'Pourquoi il figure ici :',
+    checkProduct: 'Voir {name} →',
+    readFullReview: 'Lire l’avis complet',
+    faqHeading: 'Questions fréquentes',
+    howWeChoose: 'Notre méthode de sélection',
+    howWeChooseBody:
+      'Chaque choix doit (a) contenir au moins un ingrédient appuyé par des données évaluées par des pairs pour cet usage, (b) doser cet ingrédient à la dose des essais cliniques ou à une dose proche, et (c) obtenir une note ≥ {minScore}/10 dans notre audit éditorial en 5 piliers. Lisez notre {link}.',
+    fullMethodology: 'méthodologie complète',
+    backToBest: '← Retour aux meilleurs nootropiques {year}',
+    alsoConsideredHeading: 'Également examinés — sous notre seuil de {minScore}',
+    alsoConsideredIntro:
+      'Produits audités pour ce guide dont la note est inférieure au {minScore}/10 requis pour un choix classé dans notre audit éditorial en 5 piliers. Présentés par transparence ; ni classés ni recommandés.',
+    belowBarReason: 'Note de {score}/10 — sous notre seuil de {minScore}',
+    alsoConsideredRulesHeading: 'Également examinés — non classés',
+    alsoConsideredRulesIntro:
+      'Produits audités pour ce guide que nous ne classons pas : chacun obtient une note inférieure au {minScore}/10 requis pour un choix classé dans notre audit éditorial en 5 piliers, ou son étiquette n’atteint notre dose de référence pour aucune des entrées de données ci-dessus (pour une combinaison, pour chacun de ses ingrédients). Présentés par transparence ; ni classés ni recommandés.',
+    doseRuleReason:
+      'Note de {score}/10, mais son étiquette n’atteint notre dose de référence pour aucune des entrées de données ci-dessus (pour une combinaison, pour chacun de ses ingrédients)',
+    alsoConsideredLinkIntro:
+      'Produits audités pour ce guide que nous ne classons pas : chacun obtient une note inférieure au {minScore}/10 requis pour un choix classé dans notre audit éditorial en 5 piliers, ou son étiquette n’atteint notre dose de référence pour aucune des entrées de données ci-dessus (pour une combinaison, pour chacun de ses ingrédients), ou cette édition n’affiche aucun lien d’achat pour lui. Présentés par transparence ; ni classés ni recommandés.',
+    noPurchaseLinkReason: 'Note de {score}/10, mais cette édition n’affiche aucun lien d’achat pour ce produit ; son avis explique pourquoi',
+    alsoConsideredToc: 'Également examinés',
+    audited: 'Audité',
+    useCaseLabels: {
+      focus: 'la concentration',
+      memory: 'la mémoire',
+      studying: 'les études',
+      aging: 'le vieillissement',
+    },
+    moneyBackDays: '{days} j',
+    moneyBackLabel: 'de garantie',
+    ourScore: 'Notre note',
+    relatedGuides: 'Guides associés',
+    relatedGuideLabels: {
+      focus: 'Meilleurs nootropiques pour la concentration',
+      memory: 'Meilleurs nootropiques pour la mémoire',
+      studying: 'Meilleurs nootropiques pour les études',
+      aging: 'Meilleurs nootropiques pour le vieillissement',
+    },
+    inThisGuide: 'Dans ce guide',
+  },
+  bestOf: {
+    stats: { audited: 'Audités', recommended: 'Recommandés', underdosed: 'Produit phare sous-dosé', avgMonthly: 'Moy. / mois' },
+    subtitle: '{audited} audités · {listed} listés · méthodologie {version} · mis à jour le {date}',
+    rank: 'Rang',
+    commission: 'Commission',
+    visit: 'Visiter →',
+  },
+  comparator: {
+    heading: 'Comparateur',
+    matchSummary: '{shown} sur {total} correspondent · sélectionnez jusqu’à {max} produits pour les comparer côte à côte',
+    filters: 'Filtres',
+    saveView: 'Enregistrer la vue',
+    linkCopied: 'Lien copié dans le presse-papiers',
+    clipboardError: 'Impossible d’accéder au presse-papiers',
+    gridLabel: 'Comparaison des produits',
+    columns: { product: 'Produit', score: 'Note', value: 'Rapport qualité-prix', price: 'Prix', trustpilot: 'Trustpilot', bestFor: 'Idéal pour' },
+    noMatch: 'Aucun produit ne correspond.',
+    resetFilters: 'Réinitialiser les filtres',
+    compareAria: 'Comparer {name}',
+    view: 'Voir →',
+    viewAria: 'Voir {name}',
+    containsCaffeine: 'caféine',
+    filterDialog: 'Filtrer les produits',
+    closeFilters: 'Fermer les filtres',
+    showResults: 'Afficher {n} produits',
+    showResultsOne: 'Afficher {n} produit',
+    goal: 'Objectif',
+    goalAria: 'Filtrer par objectif',
+    goals: { any: 'Tous', focus: 'Concentration', memory: 'Mémoire', energy: 'Énergie', beginners: 'Débutants', budget: 'Petit budget' },
+    maxPerMonth: 'Max. ≈ par {unit}',
+    grade: 'Notre appréciation',
+    grades: { all: 'Toutes', recommended: 'Recommandé', worthALook: 'À considérer', skip: 'À éviter' },
+    caffeineFreeOnly: 'Sans caféine uniquement',
+    euStorefrontOnly: 'Boutique UE uniquement',
+    showCommission: 'Afficher notre commission',
+    commissionNote: 'Ne modifie pas les notes',
+    resetAll: 'Réinitialiser tous les filtres',
+    compare: 'Comparer',
+    selectedSummary: '{n} sélectionnés · côte à côte',
+    clear: 'Effacer',
+    daily: 'Par jour',
+    caffeine: 'Caféine',
+    caffeineFree: 'Sans',
+  },
+  ingredientLibrary: {
+    heading: 'Bibliothèque d’ingrédients',
+    guideHeading: 'Guide des ingrédients nootropiques {year}',
+    dek: '{n} ingrédients · évalués selon les données des ECR et leur cohérence · notes en langage simple',
+    filterAria: 'Filtrer par niveau de preuve',
+    allGrades: 'Tous les niveaux',
+    grade: 'Niveau {grade}',
+    legendCount: '{n} ingrédients · Niveau {grade}',
+    descriptors: { A: 'Plusieurs ECR concordants', B: 'ECR plus petits ou moins nombreux', C: 'Préliminaires ou mitigées' },
+    empty: 'Aucun ingrédient de niveau {grade} dans ce catalogue pour l’instant.',
+    seeAll: 'Voir tous les niveaux →',
+    columns: { grade: 'Niveau', ingredient: 'Ingrédient', clinicalDose: 'Dose clinique', trials: 'Essais', ourTake: 'Notre avis' },
+    gradeAria: 'Niveau de preuve {grade}',
+    studyCounts: 'Nombre d’études par effet pour {name} : {counts}',
+    notCounted: 'non compté',
+    showingAll: 'Affichage des {n} ingrédients',
+    showingGrade: 'Affichage de {n} ingrédients de niveau {grade}',
+    showingGradeOne: 'Affichage de {n} ingrédient de niveau {grade}',
+  },
+  geo: {
+    bestIn: 'Meilleurs nootropiques : {place} {year}',
+    topPicksFor: 'Meilleurs choix pour les acheteurs : {place}',
+    score: 'Note :',
+  },
+  editorialStandards: {
+    heading: 'Normes éditoriales',
+    reviewProtocol: '1. Protocole d’évaluation',
+    conflictOfInterest: '2. Politique en matière de conflits d’intérêts',
+    sourceCitation: '3. Politique de citation des sources',
+    correction: '4. Politique de correction',
+    teamIdentity: '5. Identité de l’équipe éditoriale',
+    regionalFraming: '6. Cadre réglementaire propre à chaque région',
+    contact: 'Contact éditorial',
+  },
+  shortlist: {
+    save: 'Enregistrer',
+    saved: 'Enregistré',
+    saveAria: 'Ajouter à ma présélection',
+    removeAria: 'Retirer de ma présélection',
+  },
+  // No-break space before the colon (French typography).
+  typography: { colon: '\u00a0: ', space: ' ' },
 };
 
 const ja: UIStrings = {
@@ -1813,13 +2672,15 @@ const ja: UIStrings = {
       disclosures: '開示事項',
       submitTip: '情報を提供する →',
     },
+    productCount: '{n}製品',
+    ingredientCount: '{n}成分',
   },
   footer: {
     tagline:
       '各ノートロピクスのラベル記載用量を、当サイトの成分ページの基準用量（ある場合）と照合しています。アフィリエイト報酬はインラインで開示され、評価には影響しません。',
     copyrightLine:
       '© {year} Nootropic Lab · 情報は医学的助言ではありません。サプリメントを開始する前に医師に相談してください。',
-    lastAuditLabel: '最終全面監査:',
+    lastAuditLabel: '最終全面監査：',
     methodologyLabel: '評価方法',
     bestByGoal: {
       heading: '目的別ベスト',
@@ -1888,9 +2749,17 @@ const ja: UIStrings = {
     yes: 'はい',
     no: 'いいえ',
     na: 'N/A',
-    sortBy: '並べ替え',
     ascending: '昇順',
     descending: '降順',
+    sortAria: '{column}で並べ替え',
+    sortAriaActive: '{column}で並べ替え（現在：{direction}）',
+    sortColumns: { score: 'スコア', price: '価格', moneyBack: '返金保証の日数', trustpilot: 'Trustpilotスコア' },
+    editorChoice: '編集部のおすすめ',
+    euStorefront: 'EU向けストア',
+    maxPrice: '上限 {price}',
+    actions: '操作',
+    scoreAria: 'スコア 10点中{score}点 — タップまたはカーソルを合わせると内訳を表示',
+    scoreBreakdown: 'スコアの内訳',
   },
   breadcrumb: {
     home: 'ホーム',
@@ -1970,6 +2839,25 @@ const ja: UIStrings = {
       herb: 'ハーブ',
       vitamin: 'ビタミン',
     },
+    relatedCategory: {
+      adaptogen: 'アダプトゲン',
+      cholinergic: 'コリン作動性',
+      mushroom: 'きのこ類',
+      amino: 'アミノ酸',
+      herb: 'ハーブ',
+      vitamin: 'ビタミン',
+    },
+    humanTrialsOnly: 'ヒトを対象とした臨床試験のみに基づいています。動物実験と試験管内（in vitro）のデータは除外しています。',
+    evidenceStrength: { strong: '強い', moderate: '中程度', preliminary: '予備的', mixed: '一貫しない' },
+    evidenceKey: {
+      label: 'エビデンスの見方：',
+      strong: '強い = 結果が一貫した複数のRCT',
+      moderate: '中程度 = より小規模または少数のRCT',
+      preliminary: '予備的 = 初期の試験または少人数の試験',
+      mixed: '一貫しない = 相反する結果',
+    },
+    howToLabels: { dosage: '用量', timing: 'タイミング', withFood: '食事との関係', cycling: 'サイクル', forms: '剤形' },
+    topStacks: '{name}を含む主なスタック',
     sidebar: {
       quickFacts: '基本情報',
       onThisPage: '目次',
@@ -1982,7 +2870,7 @@ const ja: UIStrings = {
   },
   ingredientEvidence: {
     sources: '出典',
-    evidenceReviewed: 'エビデンス確認日:',
+    evidenceReviewed: 'エビデンス確認日：',
   },
   productDetail: {
     chips: {
@@ -2007,16 +2895,23 @@ const ja: UIStrings = {
     score: {
       label: '当社の評価',
       outOf10: '10.0点満点',
+      aria: 'スコア {max}点中{score}点',
     },
     stats: {
       price: '価格',
       monthUnit: '月',
+      perServingUnit: '回',
+      perDayUnit: '日',
+      perServingLabel: '1回あたり',
+      perDayLabel: '1日あたり',
       capsules: 'カプセル',
       dailyServing: '1日の目安量',
       units: { capsule: 'カプセル', tablet: '錠', sachet: '包', shot: '本', powder: 'スクープ', softgel: 'ソフトジェル' },
       unitsSingular: { capsule: 'カプセル', tablet: '錠', sachet: '包', shot: '本', powder: 'スクープ', softgel: 'ソフトジェル' },
       moneyBack: '返金保証',
       days: '日間',
+      daysCount: '{days}日間',
+      daysCountShort: '{days}日',
       trustpilot: 'Trustpilot',
       notAvailable: 'N/A',
       ourCut: '当社の手数料',
@@ -2141,6 +3036,8 @@ const ja: UIStrings = {
       howComputedBody: '各柱は編集上の重要度に応じて重み付けしています。重みは当サイトが評価するすべてのブランドで共通で、特定の製品に有利になるよう調整することはありません。',
       readMethodology: '評価方法を読む →',
       pillarScoreAria: '{product}：{pillar}のスコア',
+      short: { ingredients: '成分', dosing: '用量', transparency: '透明性', value: 'コスパ', trust: '信頼性' },
+      shortScoreAria: '{name}の{pillar}スコア',
     },
     dosing: {
       heading: '用量チェック',
@@ -2182,7 +3079,157 @@ const ja: UIStrings = {
     sources: '出典',
     expand: '展開',
     evidenceReviewed: 'エビデンス確認日：',
+    minRead: '{minutes}分で読めます',
+    indexHeading: '{year}年版 ノートロピクスガイド',
+    readGuide: 'ガイドを読む →',
+    backToGuides: '← ガイド一覧に戻る',
+    categories: { beginner: '初心者向け', stacking: '組み合わせ', usage: '使い方', science: '科学' },
   },
+  byline: {
+    attribution: '執筆：The Nootropic Lab 編集チーム',
+    factChecked: '✓ ファクトチェック済み',
+    updated: '更新日：',
+    readTime: '{minutes}分で読めます',
+  },
+  listicle: {
+    bestNootropics: 'ベストノートロピクス',
+    healthDisclaimer: '健康に関する注意事項',
+    defaultHealthDisclaimer:
+      'このページは情報提供のみを目的としており、医学的助言ではありません。ノートロピクスのサプリメントは、ADHDその他の認知機能に関わる状態を含め、いかなる疾患の診断、治療、治癒、予防についてもFDAの承認を受けていません。処方薬の中枢神経刺激薬と同等のものではありません。サプリメントを始める前には、特に服薬中の方や持病のある方は、必ず資格のある医療専門家にご相談ください。',
+    whatEvidenceSays: 'エビデンスが実際に示していること',
+    evidenceIntro:
+      '以下の各成分について、査読済みの出典に直接リンクしています。成分の作用機序は製品の効果と同じではありません。正しい成分が含まれていても、用量が適切でない製品もあります。',
+    sourceLink: '出典 →',
+    ourPicksFor: '{useCase}向けの当サイトのおすすめ',
+    picksIntro: '上記のエビデンスとの適合度と、当サイトの5本柱の編集監査に基づいて順位付けしています。',
+    topPick: 'いちばんのおすすめ',
+    whyItsHere: '選んだ理由：',
+    checkProduct: '{name}をチェック →',
+    readFullReview: 'レビュー全文を読む',
+    faqHeading: 'よくある質問',
+    howWeChoose: '選定方法',
+    howWeChooseBody:
+      '掲載する製品は、(a) その用途について査読済みのエビデンスがある成分を少なくとも1つ含み、(b) その成分を臨床試験の用量またはそれに近い用量で配合し、(c) 当サイトの5本柱の編集監査で{minScore}/10以上のスコアを得ている必要があります。詳しくは当サイトの{link}をご覧ください。',
+    fullMethodology: '評価方法の全文',
+    backToBest: '← {year}年のベストノートロピクスに戻る',
+    alsoConsideredHeading: '比較検討した製品 — 基準の{minScore}未満',
+    alsoConsideredIntro:
+      'このガイドのために監査した製品のうち、当サイトの5本柱の編集監査で順位付けに必要な{minScore}/10に届かなかったものです。透明性のために掲載しており、順位付けや推奨はしていません。',
+    belowBarReason: 'スコア{score}/10 — 基準の{minScore}未満',
+    alsoConsideredRulesHeading: '比較検討した製品 — 順位付けなし',
+    alsoConsideredRulesIntro:
+      'このガイドのために監査した製品のうち、順位付けしていないものです。いずれも、当サイトの5本柱の編集監査で順位付けに必要な{minScore}/10に届かないか、ラベル記載量が上記のどのエビデンス項目についても当サイトの基準用量に達していません（組み合わせの場合は、そのすべての成分について）。透明性のために掲載しており、順位付けや推奨はしていません。',
+    doseRuleReason:
+      'スコア{score}/10。ただし、ラベル記載量が上記のどのエビデンス項目についても当サイトの基準用量に達していません（組み合わせの場合は、そのすべての成分について）',
+    alsoConsideredLinkIntro:
+      'このガイドのために監査した製品のうち、順位付けしていないものです。いずれも、当サイトの5本柱の編集監査で順位付けに必要な{minScore}/10に届かないか、ラベル記載量が上記のどのエビデンス項目についても当サイトの基準用量に達していないか（組み合わせの場合は、そのすべての成分について）、この版では購入リンクを表示していません。透明性のために掲載しており、順位付けや推奨はしていません。',
+    noPurchaseLinkReason: 'スコア{score}/10。ただし、この版ではこの製品の購入リンクを表示していません。理由はレビューに記載しています',
+    alsoConsideredToc: '比較検討した製品',
+    audited: '監査済み',
+    useCaseLabels: {
+      focus: '集中力',
+      memory: '記憶力',
+      studying: '学習',
+      aging: 'エイジングケア',
+    },
+    moneyBackDays: '{days}日間',
+    moneyBackLabel: '返金保証',
+    ourScore: '当サイトのスコア',
+    relatedGuides: '関連ガイド',
+    relatedGuideLabels: {
+      focus: '集中力におすすめのノートロピクス',
+      memory: '記憶力におすすめのノートロピクス',
+      studying: '学習におすすめのノートロピクス',
+      aging: 'エイジングケアにおすすめのノートロピクス',
+    },
+    inThisGuide: 'このガイドの内容',
+  },
+  bestOf: {
+    stats: { audited: '監査済み', recommended: 'おすすめ', underdosed: '用量不足の主力製品', avgMonthly: '月額平均' },
+    subtitle: '監査{audited}件 · 掲載{listed}件 · 評価方法 {version} · {date}更新',
+    rank: '順位',
+    commission: '紹介料',
+    visit: 'サイトへ →',
+  },
+  comparator: {
+    heading: '比較ツール',
+    matchSummary: '{total}件中{shown}件が該当 · 最大{max}件を選んで並べて比較できます',
+    filters: '絞り込み',
+    saveView: 'ビューを保存',
+    linkCopied: 'リンクをクリップボードにコピーしました',
+    clipboardError: 'クリップボードにアクセスできませんでした',
+    gridLabel: '製品比較',
+    columns: { product: '製品', score: 'スコア', value: 'コスパ', price: '価格', trustpilot: 'Trustpilot', bestFor: 'おすすめの用途' },
+    noMatch: '該当する製品がありません。',
+    resetFilters: '絞り込みをリセット',
+    compareAria: '{name}を比較',
+    view: '見る →',
+    viewAria: '{name}を見る',
+    containsCaffeine: 'カフェイン含有',
+    filterDialog: '製品を絞り込む',
+    closeFilters: '絞り込みを閉じる',
+    showResults: '{n}件の製品を表示',
+    showResultsOne: '{n}件の製品を表示',
+    goal: '目的',
+    goalAria: '目的で絞り込む',
+    goals: { any: 'すべて', focus: '集中力', memory: '記憶力', energy: 'エネルギー', beginners: '初心者', budget: '低予算' },
+    maxPerMonth: '上限（≈ {unit}あたり）',
+    grade: '当サイトの評価',
+    grades: { all: 'すべて', recommended: 'おすすめ', worthALook: '検討の価値あり', skip: '見送り' },
+    caffeineFreeOnly: 'カフェインフリーのみ',
+    euStorefrontOnly: 'EU向けストアのみ',
+    showCommission: '当サイトの紹介料を表示',
+    commissionNote: 'スコアには影響しません',
+    resetAll: 'すべての絞り込みをリセット',
+    compare: '比較',
+    selectedSummary: '{n}件を選択 · 並べて比較',
+    clear: 'クリア',
+    daily: '1日量',
+    caffeine: 'カフェイン',
+    caffeineFree: 'なし',
+  },
+  ingredientLibrary: {
+    heading: '成分ライブラリ',
+    guideHeading: '{year}年版 ノートロピクス成分ガイド',
+    dek: '{n}成分 · RCTのエビデンスと一貫性で評価 · わかりやすい解説',
+    filterAria: 'エビデンスのグレードで絞り込む',
+    allGrades: 'すべてのグレード',
+    grade: 'グレード{grade}',
+    legendCount: '{n}成分 · グレード{grade}',
+    descriptors: { A: '結果が一貫した複数のRCT', B: 'より小規模または少数のRCT', C: '予備的または一貫しない結果' },
+    empty: 'このカタログにはまだグレード{grade}の成分がありません。',
+    seeAll: 'すべてのグレードを見る →',
+    columns: { grade: 'グレード', ingredient: '成分', clinicalDose: '臨床用量', trials: '試験数', ourTake: '当サイトの見解' },
+    gradeAria: 'エビデンスのグレード{grade}',
+    studyCounts: '{name}の効果ごとの研究数：{counts}',
+    notCounted: '未集計',
+    showingAll: '全{n}成分を表示中',
+    showingGrade: 'グレード{grade}の成分を{n}件表示中',
+    showingGradeOne: 'グレード{grade}の成分を{n}件表示中',
+  },
+  geo: {
+    bestIn: '{place}のおすすめノートロピクス {year}',
+    topPicksFor: '{place}の購入者向けおすすめ',
+    score: 'スコア：',
+  },
+  editorialStandards: {
+    heading: '編集基準',
+    reviewProtocol: '1. レビューの手順',
+    conflictOfInterest: '2. 利益相反に関する方針',
+    sourceCitation: '3. 出典の明記に関する方針',
+    correction: '4. 訂正に関する方針',
+    teamIdentity: '5. 編集チームについて',
+    regionalFraming: '6. 地域ごとの規制に関する記載',
+    contact: '編集部への連絡先',
+  },
+  shortlist: {
+    save: '保存',
+    saved: '保存済み',
+    saveAria: '候補リストに追加',
+    removeAria: '候補リストから削除',
+  },
+  // Full-width punctuation carries its own spacing: no space after 。、：.
+  typography: { colon: '：', space: '' },
 };
 
 const pt: UIStrings = {
@@ -2217,6 +3264,8 @@ const pt: UIStrings = {
       disclosures: 'Divulgações',
       submitTip: 'Enviar uma dica →',
     },
+    productCount: '{n} produtos',
+    ingredientCount: '{n} ingredientes',
   },
   footer: {
     tagline:
@@ -2292,9 +3341,22 @@ const pt: UIStrings = {
     yes: 'Sim',
     no: 'Não',
     na: 'N/A',
-    sortBy: 'Ordenar por',
     ascending: 'ascendente',
     descending: 'descendente',
+    sortAria: 'Ordenar por {column}',
+    sortAriaActive: 'Ordenar por {column}, ordem atual: {direction}',
+    sortColumns: {
+      score: 'pontuação',
+      price: 'preço',
+      moneyBack: 'dias de garantia de reembolso',
+      trustpilot: 'pontuação no Trustpilot',
+    },
+    editorChoice: 'Escolha editorial',
+    euStorefront: 'Loja na UE',
+    maxPrice: 'Máx. {price}',
+    actions: 'Ações',
+    scoreAria: 'Pontuação {score} em 10 — toque ou passe o cursor para ver a decomposição',
+    scoreBreakdown: 'Decomposição da pontuação',
   },
   breadcrumb: {
     home: 'Início',
@@ -2374,6 +3436,25 @@ const pt: UIStrings = {
       herb: 'Erva',
       vitamin: 'Vitamina',
     },
+    relatedCategory: {
+      adaptogen: 'adaptógeno',
+      cholinergic: 'colinérgico',
+      mushroom: 'cogumelo',
+      amino: 'aminoácido',
+      herb: 'erva',
+      vitamin: 'vitamina',
+    },
+    humanTrialsOnly: 'Baseado apenas em ensaios clínicos em humanos. Dados em animais e in vitro excluídos.',
+    evidenceStrength: { strong: 'forte', moderate: 'moderada', preliminary: 'preliminar', mixed: 'mista' },
+    evidenceKey: {
+      label: 'Legenda da evidência:',
+      strong: 'Forte = vários ECA consistentes',
+      moderate: 'Moderada = ECA mais pequenos ou menos numerosos',
+      preliminary: 'Preliminar = ensaios iniciais ou n pequeno',
+      mixed: 'Mista = resultados contraditórios',
+    },
+    howToLabels: { dosage: 'Dose', timing: 'Momento', withFood: 'Com alimentos', cycling: 'Ciclos', forms: 'Formas' },
+    topStacks: 'Principais stacks que contêm {name}',
     sidebar: {
       quickFacts: 'Dados rápidos',
       onThisPage: 'Nesta página',
@@ -2411,16 +3492,23 @@ const pt: UIStrings = {
     score: {
       label: 'Nossa pontuação',
       outOf10: 'em 10,0',
+      aria: 'Pontuação {score} em {max}',
     },
     stats: {
       price: 'Preço',
       monthUnit: 'mês',
+      perServingUnit: 'dose',
+      perDayUnit: 'dia',
+      perServingLabel: 'Por dose',
+      perDayLabel: 'Por dia',
       capsules: 'Cáps.',
       dailyServing: 'Dose diária',
       units: { capsule: 'cáps.', tablet: 'comprimidos', sachet: 'sachês', shot: 'shots', powder: 'doses', softgel: 'cápsulas gelatinosas' },
       unitsSingular: { capsule: 'cáp.', tablet: 'comprimido', sachet: 'sachê', shot: 'shot', powder: 'dose', softgel: 'cápsula gelatinosa' },
       moneyBack: 'Garantia',
       days: 'dias',
+      daysCount: '{days} dias',
+      daysCountShort: '{days} d',
       trustpilot: 'Trustpilot',
       notAvailable: 'N/D',
       ourCut: 'Nossa comissão',
@@ -2545,6 +3633,8 @@ const pt: UIStrings = {
       howComputedBody: 'Cada pilar é ponderado pela sua importância editorial. As ponderações são as mesmas para todas as marcas que auditamos: não são ajustadas para favorecer nenhum produto em particular.',
       readMethodology: 'Ler a metodologia →',
       pillarScoreAria: '{product}: pontuação do pilar {pillar}',
+      short: { ingredients: 'ingredientes', dosing: 'dose', transparency: 'transparência', value: 'valor', trust: 'confiança' },
+      shortScoreAria: 'Pontuação de {pillar} de {name}',
     },
     dosing: {
       heading: 'Auditoria de dosagem',
@@ -2586,7 +3676,156 @@ const pt: UIStrings = {
     sources: 'Fontes',
     expand: 'expandir',
     evidenceReviewed: 'Evidência revista em',
+    minRead: '{minutes} min de leitura',
+    indexHeading: 'Guias de nootrópicos {year}',
+    readGuide: 'Ler o guia →',
+    backToGuides: '← Voltar aos guias',
+    categories: { beginner: 'Iniciante', stacking: 'Combinações', usage: 'Utilização', science: 'Ciência' },
   },
+  byline: {
+    attribution: 'Pela equipa editorial do The Nootropic Lab',
+    factChecked: '✓ Factos verificados',
+    updated: 'Atualizado',
+    readTime: '{minutes} min de leitura',
+  },
+  listicle: {
+    bestNootropics: 'Melhores nootrópicos',
+    healthDisclaimer: 'Aviso de saúde',
+    defaultHealthDisclaimer:
+      'Esta página tem fins exclusivamente informativos e não constitui aconselhamento médico. Os suplementos nootrópicos não são aprovados pela FDA para diagnosticar, tratar, curar ou prevenir qualquer doença, incluindo a PHDA ou outras condições cognitivas. Não são equivalentes a estimulantes sujeitos a receita médica. Consulte sempre um profissional de saúde qualificado antes de iniciar qualquer suplemento, sobretudo se toma medicação ou tem uma condição médica.',
+    whatEvidenceSays: 'O que a evidência realmente diz',
+    evidenceIntro:
+      'Para cada ingrediente abaixo, ligamos diretamente à fonte revista por pares. O mecanismo de um ingrediente não é o mesmo que a eficácia do produto — um produto pode incluir o ingrediente certo na dose errada.',
+    sourceLink: 'Fonte →',
+    ourPicksFor: 'As nossas escolhas para {useCase}',
+    picksIntro: 'Classificados pela correspondência de cada produto com a evidência acima + a nossa auditoria editorial de 5 pilares.',
+    topPick: 'Melhor escolha',
+    whyItsHere: 'Porque está aqui:',
+    checkProduct: 'Ver {name} →',
+    readFullReview: 'Ler a análise completa',
+    faqHeading: 'Perguntas frequentes',
+    howWeChoose: 'Como escolhemos',
+    howWeChooseBody:
+      'Cada escolha tem de (a) incluir pelo menos um ingrediente com evidência revista por pares para o caso de uso, (b) dosear esse ingrediente na dose dos ensaios clínicos ou perto dela, e (c) obter uma pontuação ≥ {minScore}/10 na nossa auditoria editorial de 5 pilares. Leia a nossa {link}.',
+    fullMethodology: 'metodologia completa',
+    backToBest: '← Voltar aos melhores nootrópicos {year}',
+    alsoConsideredHeading: 'Também avaliados — abaixo do nosso limiar de {minScore}',
+    alsoConsideredIntro:
+      'Produtos auditados para este guia cuja pontuação fica abaixo dos {minScore}/10 de que uma escolha classificada precisa na nossa auditoria editorial de 5 pilares. Listados por transparência; não são classificados nem recomendados.',
+    belowBarReason: 'Pontuação de {score}/10 — abaixo do nosso limiar de {minScore}',
+    alsoConsideredRulesHeading: 'Também avaliados — sem classificação',
+    alsoConsideredRulesIntro:
+      'Produtos auditados para este guia que não classificamos: cada um tem uma pontuação abaixo dos {minScore}/10 de que uma escolha classificada precisa na nossa auditoria editorial de 5 pilares, ou o seu rótulo não atinge a nossa dose de referência em nenhuma das entradas de evidência acima (numa combinação, em cada um dos seus ingredientes). Listados por transparência; não são classificados nem recomendados.',
+    doseRuleReason:
+      'Pontuação de {score}/10, mas o seu rótulo não atinge a nossa dose de referência em nenhuma das entradas de evidência acima (numa combinação, em cada um dos seus ingredientes)',
+    alsoConsideredLinkIntro:
+      'Produtos auditados para este guia que não classificamos: cada um tem uma pontuação abaixo dos {minScore}/10 de que uma escolha classificada precisa na nossa auditoria editorial de 5 pilares, ou o seu rótulo não atinge a nossa dose de referência em nenhuma das entradas de evidência acima (numa combinação, em cada um dos seus ingredientes), ou esta edição não mostra nenhuma ligação de compra para ele. Listados por transparência; não são classificados nem recomendados.',
+    noPurchaseLinkReason: 'Pontuação de {score}/10, mas esta edição não mostra nenhuma ligação de compra para este produto; a respetiva análise explica porquê',
+    alsoConsideredToc: 'Também avaliados',
+    audited: 'Auditado',
+    useCaseLabels: {
+      focus: 'a concentração',
+      memory: 'a memória',
+      studying: 'o estudo',
+      aging: 'o envelhecimento',
+    },
+    moneyBackDays: '{days} dias',
+    moneyBackLabel: 'de garantia',
+    ourScore: 'A nossa pontuação',
+    relatedGuides: 'Guias relacionados',
+    relatedGuideLabels: {
+      focus: 'Melhores nootrópicos para a concentração',
+      memory: 'Melhores nootrópicos para a memória',
+      studying: 'Melhores nootrópicos para o estudo',
+      aging: 'Melhores nootrópicos para o envelhecimento',
+    },
+    inThisGuide: 'Neste guia',
+  },
+  bestOf: {
+    stats: { audited: 'Auditados', recommended: 'Recomendados', underdosed: 'Produto principal subdoseado', avgMonthly: 'Média / mês' },
+    subtitle: '{audited} auditados · {listed} listados · metodologia {version} · atualizado a {date}',
+    rank: 'Posição',
+    commission: 'Comissão',
+    visit: 'Visitar →',
+  },
+  comparator: {
+    heading: 'Comparador',
+    matchSummary: '{shown} de {total} correspondem · selecione até {max} para comparar lado a lado',
+    filters: 'Filtros',
+    saveView: 'Guardar vista',
+    linkCopied: 'Ligação copiada para a área de transferência',
+    clipboardError: 'Não foi possível aceder à área de transferência',
+    gridLabel: 'Comparação de produtos',
+    columns: { product: 'Produto', score: 'Pontuação', value: 'Valor', price: 'Preço', trustpilot: 'Trustpilot', bestFor: 'Ideal para' },
+    noMatch: 'Nenhum produto corresponde.',
+    resetFilters: 'Repor filtros',
+    compareAria: 'Comparar {name}',
+    view: 'Ver →',
+    viewAria: 'Ver {name}',
+    containsCaffeine: 'com cafeína',
+    filterDialog: 'Filtrar produtos',
+    closeFilters: 'Fechar filtros',
+    showResults: 'Mostrar {n} produtos',
+    showResultsOne: 'Mostrar {n} produto',
+    goal: 'Objetivo',
+    goalAria: 'Filtrar por objetivo',
+    goals: { any: 'Qualquer', focus: 'Concentração', memory: 'Memória', energy: 'Energia', beginners: 'Iniciantes', budget: 'Económico' },
+    maxPerMonth: 'Máx. ≈ por {unit}',
+    grade: 'A nossa classificação',
+    grades: { all: 'Todas', recommended: 'Recomendado', worthALook: 'Vale a pena ver', skip: 'Evitar' },
+    caffeineFreeOnly: 'Apenas sem cafeína',
+    euStorefrontOnly: 'Apenas com loja na UE',
+    showCommission: 'Mostrar a nossa comissão',
+    commissionNote: 'Não altera as pontuações',
+    resetAll: 'Repor todos os filtros',
+    compare: 'Comparar',
+    selectedSummary: '{n} selecionados · lado a lado',
+    clear: 'Limpar',
+    daily: 'Diário',
+    caffeine: 'Cafeína',
+    caffeineFree: 'Sem',
+  },
+  ingredientLibrary: {
+    heading: 'Biblioteca de ingredientes',
+    guideHeading: 'Guia de ingredientes nootrópicos {year}',
+    dek: '{n} ingredientes · classificados pela evidência de ECA e pela sua consistência · notas em linguagem simples',
+    filterAria: 'Filtrar por grau de evidência',
+    allGrades: 'Todos os graus',
+    grade: 'Grau {grade}',
+    legendCount: '{n} ingredientes · Grau {grade}',
+    descriptors: { A: 'Vários ECA consistentes', B: 'ECA mais pequenos ou menos numerosos', C: 'Preliminar ou mista' },
+    empty: 'Ainda não há ingredientes de grau {grade} neste catálogo.',
+    seeAll: 'Ver todos os graus →',
+    columns: { grade: 'Grau', ingredient: 'Ingrediente', clinicalDose: 'Dose clínica', trials: 'Ensaios', ourTake: 'A nossa opinião' },
+    gradeAria: 'Grau de evidência {grade}',
+    studyCounts: 'Número de estudos por efeito de {name}: {counts}',
+    notCounted: 'não contabilizado',
+    showingAll: 'A mostrar os {n} ingredientes',
+    showingGrade: 'A mostrar {n} ingredientes de grau {grade}',
+    showingGradeOne: 'A mostrar {n} ingrediente de grau {grade}',
+  },
+  geo: {
+    bestIn: 'Melhores nootrópicos: {place} {year}',
+    topPicksFor: 'Melhores escolhas para compradores: {place}',
+    score: 'Pontuação:',
+  },
+  editorialStandards: {
+    heading: 'Normas editoriais',
+    reviewProtocol: '1. Protocolo de análise',
+    conflictOfInterest: '2. Política de conflitos de interesses',
+    sourceCitation: '3. Política de citação de fontes',
+    correction: '4. Política de correções',
+    teamIdentity: '5. Identidade da equipa editorial',
+    regionalFraming: '6. Enquadramento regulamentar por região',
+    contact: 'Contacto editorial',
+  },
+  shortlist: {
+    save: 'Guardar',
+    saved: 'Guardado',
+    saveAria: 'Adicionar à minha pré-seleção',
+    removeAria: 'Remover da minha pré-seleção',
+  },
+  typography: { colon: ': ', space: ' ' },
 };
 
 const de: UIStrings = {
@@ -2621,6 +3860,8 @@ const de: UIStrings = {
       disclosures: 'Offenlegungen',
       submitTip: 'Hinweis senden →',
     },
+    productCount: '{n} Produkte',
+    ingredientCount: '{n} Inhaltsstoffe',
   },
   footer: {
     tagline:
@@ -2696,9 +3937,22 @@ const de: UIStrings = {
     yes: 'Ja',
     no: 'Nein',
     na: 'k. A.',
-    sortBy: 'Sortieren nach',
     ascending: 'aufsteigend',
     descending: 'absteigend',
+    sortAria: 'Nach {column} sortieren',
+    sortAriaActive: 'Nach {column} sortieren, derzeit {direction}',
+    sortColumns: {
+      score: 'Bewertung',
+      price: 'Preis',
+      moneyBack: 'Tagen Geld-zurück-Garantie',
+      trustpilot: 'Trustpilot-Bewertung',
+    },
+    editorChoice: 'Empfehlung der Redaktion',
+    euStorefront: 'EU-Shop',
+    maxPrice: 'Max. {price}',
+    actions: 'Aktionen',
+    scoreAria: 'Bewertung {score} von 10 – tippen oder mit der Maus darauf zeigen für die Aufschlüsselung',
+    scoreBreakdown: 'Aufschlüsselung der Bewertung',
   },
   breadcrumb: {
     home: 'Start',
@@ -2778,6 +4032,25 @@ const de: UIStrings = {
       herb: 'Heilkraut',
       vitamin: 'Vitamin',
     },
+    relatedCategory: {
+      adaptogen: 'Adaptogen',
+      cholinergic: 'Cholinergikum',
+      mushroom: 'Pilz',
+      amino: 'Aminosäure',
+      herb: 'Heilkraut',
+      vitamin: 'Vitamin',
+    },
+    humanTrialsOnly: 'Nur auf Grundlage klinischer Studien am Menschen. Tier- und In-vitro-Daten ausgeschlossen.',
+    evidenceStrength: { strong: 'stark', moderate: 'mäßig', preliminary: 'vorläufig', mixed: 'uneinheitlich' },
+    evidenceKey: {
+      label: 'Legende zur Evidenz:',
+      strong: 'Stark = mehrere übereinstimmende RCTs',
+      moderate: 'Mäßig = kleinere/weniger RCTs',
+      preliminary: 'Vorläufig = frühe Studien oder kleines n',
+      mixed: 'Uneinheitlich = widersprüchliche Ergebnisse',
+    },
+    howToLabels: { dosage: 'Dosierung', timing: 'Zeitpunkt', withFood: 'Mit Mahlzeit', cycling: 'Zyklen', forms: 'Darreichungsformen' },
+    topStacks: 'Top-Stacks mit {name}',
     sidebar: {
       quickFacts: 'Kurzfakten',
       onThisPage: 'Auf dieser Seite',
@@ -2815,16 +4088,23 @@ const de: UIStrings = {
     score: {
       label: 'Unsere Bewertung',
       outOf10: 'von 10,0',
+      aria: 'Bewertung {score} von {max}',
     },
     stats: {
       price: 'Preis',
       monthUnit: 'Monat',
+      perServingUnit: 'Dosis',
+      perDayUnit: 'Tag',
+      perServingLabel: 'Pro Dosis',
+      perDayLabel: 'Pro Tag',
       capsules: 'Kapseln',
       dailyServing: 'Tagesdosis',
       units: { capsule: 'Kapseln', tablet: 'Tabletten', sachet: 'Beutel', shot: 'Shots', powder: 'Messlöffel', softgel: 'Weichkapseln' },
       unitsSingular: { capsule: 'Kapsel', tablet: 'Tablette', sachet: 'Beutel', shot: 'Shot', powder: 'Messlöffel', softgel: 'Weichkapsel' },
       moneyBack: 'Geld-zurück',
       days: 'Tage',
+      daysCount: '{days} Tage',
+      daysCountShort: '{days} T.',
       trustpilot: 'Trustpilot',
       notAvailable: 'k. A.',
       ourCut: 'Unsere Provision',
@@ -2949,6 +4229,8 @@ const de: UIStrings = {
       howComputedBody: 'Jede Säule wird nach ihrer redaktionellen Bedeutung gewichtet. Die Gewichtungen sind für jede von uns geprüfte Marke gleich – sie werden nicht zugunsten eines bestimmten Produkts angepasst.',
       readMethodology: 'Zur Methodik →',
       pillarScoreAria: '{product}: Bewertung der Säule {pillar}',
+      short: { ingredients: 'Inhaltsstoffe', dosing: 'Dosierung', transparency: 'Transparenz', value: 'Preis-Leistung', trust: 'Vertrauen' },
+      shortScoreAria: '{name}: Bewertung {pillar}',
     },
     dosing: {
       heading: 'Dosierungsprüfung',
@@ -2990,7 +4272,156 @@ const de: UIStrings = {
     sources: 'Quellen',
     expand: 'ausklappen',
     evidenceReviewed: 'Evidenz geprüft am',
+    minRead: '{minutes} Min. Lesezeit',
+    indexHeading: 'Nootropika-Ratgeber {year}',
+    readGuide: 'Ratgeber lesen →',
+    backToGuides: '← Zurück zu den Ratgebern',
+    categories: { beginner: 'Einsteiger', stacking: 'Kombinieren', usage: 'Anwendung', science: 'Wissenschaft' },
   },
+  byline: {
+    attribution: 'Von der Redaktion von The Nootropic Lab',
+    factChecked: '✓ Faktengeprüft',
+    updated: 'Aktualisiert',
+    readTime: '{minutes} Min. Lesezeit',
+  },
+  listicle: {
+    bestNootropics: 'Beste Nootropika',
+    healthDisclaimer: 'Gesundheitshinweis',
+    defaultHealthDisclaimer:
+      'Diese Seite dient ausschließlich der Information und ist keine medizinische Beratung. Nootropische Nahrungsergänzungsmittel sind von der FDA nicht zur Diagnose, Behandlung, Heilung oder Vorbeugung von Krankheiten zugelassen, auch nicht von ADHS oder anderen kognitiven Erkrankungen. Sie sind verschreibungspflichtigen Stimulanzien nicht gleichwertig. Sprechen Sie immer mit einer qualifizierten medizinischen Fachkraft, bevor Sie ein Nahrungsergänzungsmittel einnehmen, insbesondere wenn Sie Medikamente einnehmen oder eine Erkrankung haben.',
+    whatEvidenceSays: 'Was die Evidenz wirklich sagt',
+    evidenceIntro:
+      'Zu jedem Inhaltsstoff unten verlinken wir direkt die von Fachleuten begutachtete Quelle. Der Wirkmechanismus eines Inhaltsstoffs ist nicht dasselbe wie die Wirksamkeit eines Produkts – ein Produkt kann den richtigen Inhaltsstoff in der falschen Dosis enthalten.',
+    sourceLink: 'Quelle →',
+    ourPicksFor: 'Unsere Auswahl für {useCase}',
+    picksIntro: 'Gereiht danach, wie gut jedes Produkt zur obigen Evidenz passt + unserem redaktionellen 5-Säulen-Audit.',
+    topPick: 'Top-Empfehlung',
+    whyItsHere: 'Warum es dabei ist:',
+    checkProduct: '{name} ansehen →',
+    readFullReview: 'Vollständigen Test lesen',
+    faqHeading: 'Häufig gestellte Fragen',
+    howWeChoose: 'So wählen wir aus',
+    howWeChooseBody:
+      'Jede Empfehlung muss (a) mindestens einen Inhaltsstoff mit von Fachleuten begutachteter Evidenz für den Anwendungszweck enthalten, (b) diesen Inhaltsstoff in oder nahe der Dosis der klinischen Studien dosieren und (c) in unserem redaktionellen 5-Säulen-Audit ≥ {minScore}/10 erreichen. Lesen Sie unsere {link}.',
+    fullMethodology: 'vollständige Methodik',
+    backToBest: '← Zurück zu Beste Nootropika {year}',
+    alsoConsideredHeading: 'Ebenfalls geprüft – unter unserer Schwelle von {minScore}',
+    alsoConsideredIntro:
+      'Für diesen Ratgeber geprüfte Produkte, die unter den {minScore}/10 liegen, die eine gereihte Empfehlung in unserem redaktionellen 5-Säulen-Audit braucht. Aus Transparenzgründen aufgeführt, nicht gereiht oder empfohlen.',
+    belowBarReason: 'Bewertung {score}/10 – unter unserer Schwelle von {minScore}',
+    alsoConsideredRulesHeading: 'Ebenfalls geprüft – nicht gereiht',
+    alsoConsideredRulesIntro:
+      'Für diesen Ratgeber geprüfte Produkte, die wir nicht reihen: Jedes liegt entweder unter den {minScore}/10, die eine gereihte Empfehlung in unserem redaktionellen 5-Säulen-Audit braucht, oder sein Etikett erreicht für keinen der obigen Evidenzeinträge unsere Referenzdosis (bei einer Kombination für jeden ihrer Inhaltsstoffe). Aus Transparenzgründen aufgeführt, nicht gereiht oder empfohlen.',
+    doseRuleReason:
+      'Bewertung {score}/10, aber sein Etikett erreicht für keinen der obigen Evidenzeinträge unsere Referenzdosis (bei einer Kombination für jeden ihrer Inhaltsstoffe)',
+    alsoConsideredLinkIntro:
+      'Für diesen Ratgeber geprüfte Produkte, die wir nicht reihen: Jedes liegt entweder unter den {minScore}/10, die eine gereihte Empfehlung in unserem redaktionellen 5-Säulen-Audit braucht, oder sein Etikett erreicht für keinen der obigen Evidenzeinträge unsere Referenzdosis (bei einer Kombination für jeden ihrer Inhaltsstoffe), oder diese Ausgabe zeigt keinen Kauflink dafür. Aus Transparenzgründen aufgeführt, nicht gereiht oder empfohlen.',
+    noPurchaseLinkReason: 'Bewertung {score}/10, aber diese Ausgabe zeigt keinen Kauflink für dieses Produkt; der Test erklärt, warum',
+    alsoConsideredToc: 'Ebenfalls geprüft',
+    audited: 'Geprüft',
+    useCaseLabels: {
+      focus: 'Konzentration',
+      memory: 'Gedächtnis',
+      studying: 'das Lernen',
+      aging: 'das Altern',
+    },
+    moneyBackDays: '{days} Tage',
+    moneyBackLabel: 'Geld-zurück',
+    ourScore: 'Unsere Bewertung',
+    relatedGuides: 'Verwandte Ratgeber',
+    relatedGuideLabels: {
+      focus: 'Beste Nootropika für Konzentration',
+      memory: 'Beste Nootropika für das Gedächtnis',
+      studying: 'Beste Nootropika zum Lernen',
+      aging: 'Beste Nootropika für das Altern',
+    },
+    inThisGuide: 'In diesem Ratgeber',
+  },
+  bestOf: {
+    stats: { audited: 'Geprüft', recommended: 'Empfohlen', underdosed: 'Unterdosiertes Flaggschiff', avgMonthly: 'Ø / Monat' },
+    subtitle: '{audited} geprüft · {listed} gelistet · Methodik {version} · aktualisiert am {date}',
+    rank: 'Rang',
+    commission: 'Provision',
+    visit: 'Zum Shop →',
+  },
+  comparator: {
+    heading: 'Vergleichstool',
+    matchSummary: '{shown} von {total} passen · bis zu {max} für den direkten Vergleich auswählen',
+    filters: 'Filter',
+    saveView: 'Ansicht speichern',
+    linkCopied: 'Link in die Zwischenablage kopiert',
+    clipboardError: 'Kein Zugriff auf die Zwischenablage',
+    gridLabel: 'Produktvergleich',
+    columns: { product: 'Produkt', score: 'Bewertung', value: 'Preis-Leistung', price: 'Preis', trustpilot: 'Trustpilot', bestFor: 'Ideal für' },
+    noMatch: 'Keine passenden Produkte.',
+    resetFilters: 'Filter zurücksetzen',
+    compareAria: '{name} vergleichen',
+    view: 'Ansehen →',
+    viewAria: '{name} ansehen',
+    containsCaffeine: 'mit Koffein',
+    filterDialog: 'Produkte filtern',
+    closeFilters: 'Filter schließen',
+    showResults: '{n} Produkte anzeigen',
+    showResultsOne: '{n} Produkt anzeigen',
+    goal: 'Ziel',
+    goalAria: 'Nach Ziel filtern',
+    goals: { any: 'Alle', focus: 'Konzentration', memory: 'Gedächtnis', energy: 'Energie', beginners: 'Einsteiger', budget: 'Preiswert' },
+    maxPerMonth: 'Max. ≈ pro {unit}',
+    grade: 'Unsere Einstufung',
+    grades: { all: 'Alle', recommended: 'Empfohlen', worthALook: 'Einen Blick wert', skip: 'Auslassen' },
+    caffeineFreeOnly: 'Nur koffeinfrei',
+    euStorefrontOnly: 'Nur mit EU-Shop',
+    showCommission: 'Unsere Provision anzeigen',
+    commissionNote: 'Ändert keine Bewertungen',
+    resetAll: 'Alle Filter zurücksetzen',
+    compare: 'Vergleich',
+    selectedSummary: '{n} ausgewählt · nebeneinander',
+    clear: 'Leeren',
+    daily: 'Täglich',
+    caffeine: 'Koffein',
+    caffeineFree: 'Frei',
+  },
+  ingredientLibrary: {
+    heading: 'Inhaltsstoff-Bibliothek',
+    guideHeading: 'Nootropika-Inhaltsstoffe: Ratgeber {year}',
+    dek: '{n} Inhaltsstoffe · bewertet nach RCT-Evidenz und Konsistenz · verständliche Hinweise',
+    filterAria: 'Nach Evidenzgrad filtern',
+    allGrades: 'Alle Grade',
+    grade: 'Grad {grade}',
+    legendCount: '{n} Inhaltsstoffe · Grad {grade}',
+    descriptors: { A: 'Mehrere übereinstimmende RCTs', B: 'Kleinere / weniger RCTs', C: 'Vorläufig oder uneinheitlich' },
+    empty: 'In diesem Katalog gibt es noch keine Inhaltsstoffe mit Grad {grade}.',
+    seeAll: 'Alle Grade ansehen →',
+    columns: { grade: 'Grad', ingredient: 'Inhaltsstoff', clinicalDose: 'Klinische Dosis', trials: 'Studien', ourTake: 'Unsere Einschätzung' },
+    gradeAria: 'Evidenzgrad {grade}',
+    studyCounts: 'Anzahl der Studien je Wirkung von {name}: {counts}',
+    notCounted: 'nicht gezählt',
+    showingAll: 'Alle {n} Inhaltsstoffe werden angezeigt',
+    showingGrade: '{n} Inhaltsstoffe mit Grad {grade} werden angezeigt',
+    showingGradeOne: '{n} Inhaltsstoff mit Grad {grade} wird angezeigt',
+  },
+  geo: {
+    bestIn: 'Beste Nootropika: {place} {year}',
+    topPicksFor: 'Top-Empfehlungen für Käufer: {place}',
+    score: 'Bewertung:',
+  },
+  editorialStandards: {
+    heading: 'Redaktionelle Standards',
+    reviewProtocol: '1. Testverfahren',
+    conflictOfInterest: '2. Richtlinie zu Interessenkonflikten',
+    sourceCitation: '3. Richtlinie zur Quellenangabe',
+    correction: '4. Richtlinie zu Korrekturen',
+    teamIdentity: '5. Identität der Redaktion',
+    regionalFraming: '6. Regionsspezifische regulatorische Einordnung',
+    contact: 'Kontakt zur Redaktion',
+  },
+  shortlist: {
+    save: 'Merken',
+    saved: 'Gemerkt',
+    saveAria: 'Zur Auswahlliste hinzufügen',
+    removeAria: 'Von der Auswahlliste entfernen',
+  },
+  typography: { colon: ': ', space: ' ' },
 };
 
 // Quebec French (fr-CA). Generated by /tmp/translate-frca-uistrings.mts (Claude
@@ -3030,6 +4461,8 @@ const frCa: UIStrings = {
       disclosures: 'Divulgations',
       submitTip: 'Nous signaler une info →',
     },
+    productCount: '{n} produits',
+    ingredientCount: '{n} ingrédients',
   },
   footer: {
     tagline:
@@ -3105,9 +4538,22 @@ const frCa: UIStrings = {
     yes: 'Oui',
     no: 'Non',
     na: 'S.O.',
-    sortBy: 'Trier par',
     ascending: 'croissant',
     descending: 'décroissant',
+    sortAria: 'Trier par {column}',
+    sortAriaActive: 'Trier par {column}, ordre actuel : {direction}',
+    sortColumns: {
+      score: 'score',
+      price: 'prix',
+      moneyBack: 'jours de garantie de remboursement',
+      trustpilot: 'score Trustpilot',
+    },
+    editorChoice: 'Choix de la rédaction',
+    euStorefront: 'Boutique dans l’UE',
+    maxPrice: 'Max. {price}',
+    actions: 'Actions',
+    scoreAria: 'Score de {score} sur 10 — touchez ou survolez pour voir le détail',
+    scoreBreakdown: 'Détail du score',
   },
   breadcrumb: {
     home: 'Accueil',
@@ -3187,6 +4633,25 @@ const frCa: UIStrings = {
       herb: 'Plante médicinale',
       vitamin: 'Vitamine',
     },
+    relatedCategory: {
+      adaptogen: 'adaptogène',
+      cholinergic: 'cholinergique',
+      mushroom: 'champignon',
+      amino: 'acide aminé',
+      herb: 'plante médicinale',
+      vitamin: 'vitamine',
+    },
+    humanTrialsOnly: 'Fondé uniquement sur des essais cliniques chez l’humain. Les données animales et in vitro sont exclues.',
+    evidenceStrength: { strong: 'solides', moderate: 'modérées', preliminary: 'préliminaires', mixed: 'mitigées' },
+    evidenceKey: {
+      label: 'Légende des données probantes :',
+      strong: 'Solides = plusieurs ECR concordants',
+      moderate: 'Modérées = ECR plus petits ou moins nombreux',
+      preliminary: 'Préliminaires = premiers essais ou petit échantillon',
+      mixed: 'Mitigées = résultats contradictoires',
+    },
+    howToLabels: { dosage: 'Posologie', timing: 'Moment de la prise', withFood: 'Avec de la nourriture', cycling: 'Cycles', forms: 'Formes' },
+    topStacks: 'Meilleurs stacks contenant {name}',
     sidebar: {
       quickFacts: 'Faits rapides',
       onThisPage: 'Sur cette page',
@@ -3221,16 +4686,22 @@ const frCa: UIStrings = {
       reviewedBy: "Évalué par l'équipe éditoriale de The Nootropic Lab",
     },
     dateLocale: 'fr-CA',
-    score: { label: 'Notre score', outOf10: 'sur 10,0' },
+    score: { label: 'Notre score', outOf10: 'sur 10,0', aria: 'Score de {score} sur {max}' },
     stats: {
       price: 'Prix',
       monthUnit: 'mois',
+      perServingUnit: 'dose',
+      perDayUnit: 'jour',
+      perServingLabel: 'Par dose',
+      perDayLabel: 'Par jour',
       capsules: 'Gélules',
       dailyServing: 'Dose quotidienne',
       units: { capsule: 'gélules', tablet: 'comprimés', sachet: 'sachets', shot: 'shots', powder: 'doses', softgel: 'capsules molles' },
       unitsSingular: { capsule: 'gélule', tablet: 'comprimé', sachet: 'sachet', shot: 'shot', powder: 'dose', softgel: 'capsule molle' },
       moneyBack: 'Remboursement',
       days: 'jours',
+      daysCount: '{days} jours',
+      daysCountShort: '{days} j',
       trustpilot: 'Trustpilot',
       notAvailable: 'S.O.',
       ourCut: 'Notre commission',
@@ -3355,6 +4826,8 @@ const frCa: UIStrings = {
       howComputedBody: 'Chaque pilier est pondéré selon son importance éditoriale. Les pondérations sont les mêmes pour toutes les marques que nous vérifions; elles ne sont pas ajustées pour favoriser un produit en particulier.',
       readMethodology: 'Lire la méthodologie →',
       pillarScoreAria: '{product} : score du pilier {pillar}',
+      short: { ingredients: 'ingrédients', dosing: 'dosage', transparency: 'transparence', value: 'valeur', trust: 'confiance' },
+      shortScoreAria: 'Score {pillar} de {name}',
     },
     dosing: {
       heading: 'Vérification des doses',
@@ -3396,7 +4869,157 @@ const frCa: UIStrings = {
     sources: 'Sources',
     expand: 'afficher',
     evidenceReviewed: 'Données probantes vérifiées le',
+    minRead: '{minutes} min de lecture',
+    indexHeading: 'Guides sur les nootropiques {year}',
+    readGuide: 'Lire le guide →',
+    backToGuides: '← Retour aux guides',
+    categories: { beginner: 'Débutant', stacking: 'Combinaisons', usage: 'Utilisation', science: 'Sciences' },
   },
+  byline: {
+    attribution: 'Par l’équipe éditoriale de The Nootropic Lab',
+    factChecked: '✓ Faits vérifiés',
+    updated: 'Mis à jour le',
+    readTime: '{minutes} min de lecture',
+  },
+  listicle: {
+    bestNootropics: 'Meilleurs nootropiques',
+    healthDisclaimer: 'Mise en garde santé',
+    defaultHealthDisclaimer:
+      'Cette page est fournie à titre informatif seulement et ne constitue pas un avis médical. Les suppléments nootropiques ne sont pas approuvés par la FDA pour diagnostiquer, traiter, guérir ou prévenir une maladie, y compris le TDAH ou d’autres troubles cognitifs. Ils ne sont pas équivalents aux stimulants sur ordonnance. Consultez toujours un professionnel de la santé qualifié avant de commencer un supplément, surtout si vous prenez des médicaments ou avez un problème de santé.',
+    whatEvidenceSays: 'Ce que disent vraiment les données probantes',
+    evidenceIntro:
+      'Pour chaque ingrédient ci-dessous, nous renvoyons directement à la source révisée par des pairs. Le mécanisme d’un ingrédient n’est pas l’efficacité d’un produit — un produit peut contenir le bon ingrédient à la mauvaise dose.',
+    sourceLink: 'Voir la source →',
+    ourPicksFor: 'Nos choix pour {useCase}',
+    picksIntro: 'Classés selon leur correspondance avec les données probantes ci-dessus + notre vérification éditoriale en 5 piliers.',
+    topPick: 'Premier choix',
+    whyItsHere: 'Pourquoi il figure ici :',
+    checkProduct: 'Voir {name} →',
+    readFullReview: 'Lire l’évaluation complète',
+    faqHeading: 'Questions fréquentes',
+    howWeChoose: 'Comment nous choisissons',
+    howWeChooseBody:
+      'Chaque choix doit (a) contenir au moins un ingrédient appuyé par des données probantes révisées par des pairs pour cet usage, (b) doser cet ingrédient à la dose des essais cliniques ou près de celle-ci, et (c) obtenir un score ≥ {minScore}/10 dans notre vérification éditoriale en 5 piliers. Consultez notre {link}.',
+    fullMethodology: 'méthodologie complète',
+    backToBest: '← Retour aux meilleurs nootropiques {year}',
+    alsoConsideredHeading: 'Également examinés — sous notre seuil de {minScore}',
+    alsoConsideredIntro:
+      'Produits vérifiés pour ce guide dont le score est inférieur au {minScore}/10 exigé pour un choix classé dans notre vérification éditoriale en 5 piliers. Présentés par souci de transparence; ni classés ni recommandés.',
+    belowBarReason: 'Score de {score}/10 — sous notre seuil de {minScore}',
+    alsoConsideredRulesHeading: 'Également examinés — non classés',
+    alsoConsideredRulesIntro:
+      'Produits vérifiés pour ce guide que nous ne classons pas : chacun obtient un score inférieur au {minScore}/10 exigé pour un choix classé dans notre vérification éditoriale en 5 piliers, ou son étiquette n’atteint notre dose de référence pour aucune des entrées de données probantes ci-dessus (pour une combinaison, pour chacun de ses ingrédients). Présentés par souci de transparence; ni classés ni recommandés.',
+    doseRuleReason:
+      'Score de {score}/10, mais son étiquette n’atteint notre dose de référence pour aucune des entrées de données probantes ci-dessus (pour une combinaison, pour chacun de ses ingrédients)',
+    alsoConsideredLinkIntro:
+      'Produits vérifiés pour ce guide que nous ne classons pas : chacun obtient un score inférieur au {minScore}/10 exigé pour un choix classé dans notre vérification éditoriale en 5 piliers, ou son étiquette n’atteint notre dose de référence pour aucune des entrées de données probantes ci-dessus (pour une combinaison, pour chacun de ses ingrédients), ou cette édition n’affiche aucun lien d’achat pour lui. Présentés par souci de transparence; ni classés ni recommandés.',
+    noPurchaseLinkReason: 'Score de {score}/10, mais cette édition n’affiche aucun lien d’achat pour ce produit; son évaluation explique pourquoi',
+    alsoConsideredToc: 'Également examinés',
+    audited: 'Vérifié',
+    useCaseLabels: {
+      focus: 'la concentration',
+      memory: 'la mémoire',
+      studying: 'les études',
+      aging: 'le vieillissement',
+    },
+    moneyBackDays: '{days} j',
+    moneyBackLabel: 'de garantie',
+    ourScore: 'Notre score',
+    relatedGuides: 'Guides connexes',
+    relatedGuideLabels: {
+      focus: 'Meilleurs nootropiques pour la concentration',
+      memory: 'Meilleurs nootropiques pour la mémoire',
+      studying: 'Meilleurs nootropiques pour les études',
+      aging: 'Meilleurs nootropiques pour le vieillissement',
+    },
+    inThisGuide: 'Dans ce guide',
+  },
+  bestOf: {
+    stats: { audited: 'Vérifiés', recommended: 'Recommandés', underdosed: 'Produit phare sous-dosé', avgMonthly: 'Moy. / mois' },
+    subtitle: '{audited} vérifiés · {listed} affichés · méthodologie {version} · mis à jour le {date}',
+    rank: 'Rang',
+    commission: 'Commission',
+    visit: 'Visiter →',
+  },
+  comparator: {
+    heading: 'Comparateur',
+    matchSummary: '{shown} sur {total} correspondent · sélectionnez jusqu’à {max} produits pour les comparer côte à côte',
+    filters: 'Filtres',
+    saveView: 'Enregistrer la vue',
+    linkCopied: 'Lien copié dans le presse-papiers',
+    clipboardError: 'Impossible d’accéder au presse-papiers',
+    gridLabel: 'Comparaison des produits',
+    columns: { product: 'Produit', score: 'Score', value: 'Rapport qualité-prix', price: 'Prix', trustpilot: 'Trustpilot', bestFor: 'Idéal pour' },
+    noMatch: 'Aucun produit ne correspond.',
+    resetFilters: 'Réinitialiser les filtres',
+    compareAria: 'Comparer {name}',
+    view: 'Voir →',
+    viewAria: 'Voir {name}',
+    containsCaffeine: 'caféine',
+    filterDialog: 'Filtrer les produits',
+    closeFilters: 'Fermer les filtres',
+    showResults: 'Afficher {n} produits',
+    showResultsOne: 'Afficher {n} produit',
+    goal: 'Objectif',
+    goalAria: 'Filtrer par objectif',
+    goals: { any: 'Tous', focus: 'Concentration', memory: 'Mémoire', energy: 'Énergie', beginners: 'Débutants', budget: 'Petit budget' },
+    maxPerMonth: 'Max. ≈ par {unit}',
+    grade: 'Notre appréciation',
+    grades: { all: 'Toutes', recommended: 'Recommandé', worthALook: 'À considérer', skip: 'À éviter' },
+    caffeineFreeOnly: 'Sans caféine seulement',
+    euStorefrontOnly: 'Boutique dans l’UE seulement',
+    showCommission: 'Afficher notre commission',
+    commissionNote: 'Ne modifie pas les scores',
+    resetAll: 'Réinitialiser tous les filtres',
+    compare: 'Comparer',
+    selectedSummary: '{n} sélectionnés · côte à côte',
+    clear: 'Effacer',
+    daily: 'Par jour',
+    caffeine: 'Caféine',
+    caffeineFree: 'Sans',
+  },
+  ingredientLibrary: {
+    heading: 'Bibliothèque d’ingrédients',
+    guideHeading: 'Guide des ingrédients nootropiques {year}',
+    dek: '{n} ingrédients · évalués selon les données des ECR et leur cohérence · notes en langage simple',
+    filterAria: 'Filtrer par niveau de preuve',
+    allGrades: 'Tous les niveaux',
+    grade: 'Niveau {grade}',
+    legendCount: '{n} ingrédients · Niveau {grade}',
+    descriptors: { A: 'Plusieurs ECR concordants', B: 'ECR plus petits ou moins nombreux', C: 'Préliminaires ou mitigées' },
+    empty: 'Aucun ingrédient de niveau {grade} dans ce catalogue pour le moment.',
+    seeAll: 'Voir tous les niveaux →',
+    columns: { grade: 'Niveau', ingredient: 'Ingrédient', clinicalDose: 'Dose clinique', trials: 'Essais', ourTake: 'Notre avis' },
+    gradeAria: 'Niveau de preuve {grade}',
+    studyCounts: 'Nombre d’études par effet pour {name} : {counts}',
+    notCounted: 'non compté',
+    showingAll: 'Affichage des {n} ingrédients',
+    showingGrade: 'Affichage de {n} ingrédients de niveau {grade}',
+    showingGradeOne: 'Affichage de {n} ingrédient de niveau {grade}',
+  },
+  geo: {
+    bestIn: 'Meilleurs nootropiques : {place} {year}',
+    topPicksFor: 'Meilleurs choix pour les acheteurs : {place}',
+    score: 'Score :',
+  },
+  editorialStandards: {
+    heading: 'Normes éditoriales',
+    reviewProtocol: '1. Protocole d’évaluation',
+    conflictOfInterest: '2. Politique sur les conflits d’intérêts',
+    sourceCitation: '3. Politique de citation des sources',
+    correction: '4. Politique de correction',
+    teamIdentity: '5. Identité de l’équipe éditoriale',
+    regionalFraming: '6. Cadre réglementaire propre à chaque région',
+    contact: 'Joindre l’équipe éditoriale',
+  },
+  shortlist: {
+    save: 'Enregistrer',
+    saved: 'Enregistré',
+    saveAria: 'Ajouter à ma présélection',
+    removeAria: 'Retirer de ma présélection',
+  },
+  // No-break space before the colon (French typography).
+  typography: { colon: '\u00a0: ', space: ' ' },
 };
 
 const translations: Record<Locale, UIStrings> = { en, es, fr, ja, pt, de, 'fr-CA': frCa };

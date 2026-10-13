@@ -48,8 +48,8 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Citicoline — choline pathway',
     ingredientSlugs: ['citicoline'],
     evidence:
-      'Choline donor + uridine source. No mechanistic overlap with Adderall, but RCTs show attention benefits in healthy adults at 250–500mg/day, and good tolerability profile alongside other ingredients.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
+      'Choline donor + uridine source. No mechanistic overlap with Adderall. Our citicoline page rates its attention evidence as mixed: the Cochrane review found no evidence of an attention benefit in older adults with chronic cerebral disorders, and the acute attention trial in healthy adults that we cite gave it together with caffeine.',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/15846601/',
   },
 ];
 

@@ -16,6 +16,8 @@ export interface PricingTabProps {
   noticeStrings: UIStrings['noPurchaseLink'];
   /** The store price as display text (price-text.ts); null when the record has none. */
   price: PriceText | null;
+  /** The page locale's `uiStrings.typography.space` between sentences ('' in ja). */
+  space?: string;
 }
 
 type TermField = (typeof VENDOR_TERM_FIELDS)[number];
@@ -31,10 +33,12 @@ type TermField = (typeof VENDOR_TERM_FIELDS)[number];
  * shown: it can come from another storefront or currency than the store the
  * region links to (AU quoted mindlabpro.com's $69 beside AU$89), and a price
  * shown must be the linked store's own (site-owner policy 2026-10-09).
+ * Below the pack line: the per-serving and per-day figures, only where the
+ * store's own words support them (store-price.ts).
  */
 const QUOTED_TERMS = VENDOR_TERM_FIELDS.filter((f) => f !== 'oneTimePrice');
 
-export function PricingTab({ product: p, disclosure, strings, noticeStrings, price }: PricingTabProps) {
+export function PricingTab({ product: p, disclosure, strings, noticeStrings, price, space = ' ' }: PricingTabProps) {
   const t = strings.pricing;
   // No affiliate deal (commissionRate "0%"): no cookie terms.
   const commission = earnsCommission(p);
@@ -132,6 +136,11 @@ export function PricingTab({ product: p, disclosure, strings, noticeStrings, pri
               <span lang={price.packLang && price.packLang !== pageLang ? price.packLang : undefined}>{price.packText}</span>
               {price.monthly ? ` · ${price.monthly}` : ''}
             </p>
+            {(price.perServing || price.perDay) && (
+              <p className="text-[12.5px] text-ds-muted m-0 mt-1 text-right ds-tabular" data-store-price-per-unit>
+                {[price.perServing, price.perDay].filter(Boolean).join(' · ')}
+              </p>
+            )}
             {sp && (
               <p className="text-[12px] text-ds-muted m-0 mt-1 text-right leading-[1.5]" data-store-price-source>
                 {fill(t.attribution, {
@@ -179,7 +188,7 @@ export function PricingTab({ product: p, disclosure, strings, noticeStrings, pri
               : NOT_AVAILABLE}
         </div>
         <p className="text-[13px] text-ds-ink-soft m-0 leading-[1.55]">
-          {sentence} {disclosure.ranking}
+          {sentence}{space}{disclosure.ranking}
         </p>
       </Card>
     </div>

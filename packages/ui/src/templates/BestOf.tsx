@@ -14,6 +14,7 @@ import type { AffiliateClickContext } from '../trackAffiliateClick';
 import { SCORE_TIERS } from './listicleRanking';
 import { servingAmount, pillarText, guaranteeDays, formatMoney, pageDisclosureScope } from '@nootropic/data';
 import { priceText, priceLocaleOf } from '../price-text';
+import { tpl } from '../templateStrings';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 
@@ -76,8 +77,10 @@ const MONTHS_SHORT = [
   'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
 ];
 
-function formatDate(d: Date): string {
-  return `${d.getDate()} ${MONTHS_SHORT[d.getMonth()]} ${d.getFullYear()}`;
+/** "12 Oct 2026" on English pages; the locale's own short date elsewhere. */
+function formatDate(d: Date, dateLocale: string): string {
+  if (dateLocale.startsWith('en')) return `${d.getDate()} ${MONTHS_SHORT[d.getMonth()]} ${d.getFullYear()}`;
+  return d.toLocaleDateString(dateLocale, { year: 'numeric', month: 'short', day: 'numeric' });
 }
 
 /**
@@ -89,7 +92,7 @@ function formatDate(d: Date): string {
  */
 export default function BestOf({
   products,
-  breadcrumbs = [{ label: 'Best of' }],
+  breadcrumbs,
   hero,
   stats,
   refreshDate,
@@ -104,6 +107,7 @@ export default function BestOf({
   regulatoryPillar,
 }: BestOfProps) {
   const pd = uiStrings.productDetail;
+  const bo = uiStrings.bestOf;
   const sorted = [...products].sort((a, b) => b.score - a.score);
   // Every ranked row renders a buy link: "on this page" only when one of
   // them earns us a commission.
@@ -130,25 +134,25 @@ export default function BestOf({
     : null;
 
   const defaultStats = [
-    { label: 'Audited', value: `${audited}`, tone: 'neutral' as const },
-    { label: 'Recommended', value: `${recommended}`, tone: 'good' as const },
-    { label: 'Underdosed flagship', value: `${underdosedPct}%`, tone: 'bad' as const },
-    ...(avgCost ? [{ label: 'Avg / month', value: `≈ ${avgCost}`, tone: 'neutral' as const }] : []),
+    { label: bo.stats.audited, value: `${audited}`, tone: 'neutral' as const },
+    { label: bo.stats.recommended, value: `${recommended}`, tone: 'good' as const },
+    { label: bo.stats.underdosed, value: `${underdosedPct}%`, tone: 'bad' as const },
+    ...(avgCost ? [{ label: bo.stats.avgMonthly, value: `≈ ${avgCost}`, tone: 'neutral' as const }] : []),
   ];
   const tiles = stats ?? defaultStats;
 
-  const refresh = refreshDate ?? formatDate(new Date());
-  const subtitle = `${audited} audited · ${sorted.length} listed · methodology ${methodologyVersion} · refreshed ${refresh}`;
+  const refresh = refreshDate ?? formatDate(new Date(), pd.dateLocale);
+  const subtitle = tpl(bo.subtitle, { audited, listed: sorted.length, version: methodologyVersion, date: refresh });
 
   return (
     <AppShell
       mode="persistent"
-      breadcrumbs={breadcrumbs}
+      breadcrumbs={breadcrumbs ?? [{ label: pd.breadcrumbBestOf }]}
       searchItems={searchItems}
       uiStrings={uiStrings}
-      sidebarMeta={`${products.length} products`}
+      sidebarMeta={tpl(uiStrings.nav.productCount, { n: products.length })}
     >
-      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} scope={disclosureScope} />
+      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} scope={disclosureScope} space={uiStrings.typography.space} />
       <div className="px-4 sm:px-7 pt-7 pb-10">
         {/* Header */}
         <div className="flex justify-between items-end mb-[18px] flex-wrap gap-4">
@@ -159,7 +163,7 @@ export default function BestOf({
               </div>
             )}
             <h1 className="text-[24px] font-bold tracking-[-0.02em] m-0 text-ds-ink">
-              {hero?.h1 ?? 'Best of'}
+              {hero?.h1 ?? pd.breadcrumbBestOf}
             </h1>
             {hero?.dek && (
               <p className="text-[14px] text-ds-ink-soft mt-2 m-0 max-w-[680px] leading-[1.55]">
@@ -194,7 +198,7 @@ export default function BestOf({
 
         {/* Inline disclosure + ranking statement + methodology link, directly
             above the first affiliate CTA (preList spotlight or ranked rows). */}
-        <FPTrustNote strings={uiStrings.disclosure} scope={disclosureScope} className="mb-[18px]" />
+        <FPTrustNote strings={uiStrings.disclosure} scope={disclosureScope} className="mb-[18px]" space={uiStrings.typography.space} />
 
         {preList && <div className="mb-8">{preList}</div>}
 
@@ -218,7 +222,7 @@ export default function BestOf({
                     {String(rank).padStart(2, '0')}
                   </div>
                   <div className="text-[10px] uppercase tracking-[0.12em] text-ds-muted mt-[2px]">
-                    Rank
+                    {bo.rank}
                   </div>
                 </div>
 
@@ -240,11 +244,11 @@ export default function BestOf({
                     {p.summary}
                   </p>
                   <div className="flex gap-1 mt-2 flex-wrap">
-                    {p.editorChoice && <Chip tone="accent">★ Editor&apos;s pick</Chip>}
+                    {p.editorChoice && <Chip tone="accent">{`★ ${pd.chips.editorPick}`}</Chip>}
                     {p.caffeineFree ? (
-                      <Chip tone="good">Caffeine-free</Chip>
+                      <Chip tone="good">{pd.chips.caffeineFree}</Chip>
                     ) : (
-                      <Chip tone="warn">Caffeine</Chip>
+                      <Chip tone="warn">{pd.chips.hasCaffeine}</Chip>
                     )}
                     {p.bestFor.slice(0, 3).map((b) => (
                       <Chip key={b}>{b}</Chip>
@@ -254,14 +258,14 @@ export default function BestOf({
 
                 {/* Pillars */}
                 <div>
-                  {(Object.entries(p.scoreBreakdown) as [string, number | null][]).map(([k, v]) => (
+                  {(Object.entries(p.scoreBreakdown) as [keyof Product['scoreBreakdown'], number | null][]).map(([k, v]) => (
                     <div
                       key={k}
                       className="grid items-center gap-[6px] py-[2px]"
                       style={{ gridTemplateColumns: '90px 1fr 22px' }}
                     >
-                      <span className="text-[11px] text-ds-muted capitalize">{k}</span>
-                      <Bar value={v ?? 0} decorative={v === null} label={`${p.name} ${k} score`} />
+                      <span className="text-[11px] text-ds-muted capitalize">{pd.pillars.short[k]}</span>
+                      <Bar value={v ?? 0} decorative={v === null} label={tpl(pd.pillars.shortScoreAria, { name: p.name, pillar: pd.pillars.short[k] })} />
                       <span className="text-[11px] text-ds-ink text-right ds-tabular">{pillarText(v)}</span>
                     </div>
                   ))}
@@ -270,7 +274,7 @@ export default function BestOf({
                 {/* Specs */}
                 <div className="flex flex-col gap-1 text-[12px] text-ds-muted">
                   <div className="flex justify-between">
-                    <span>Price</span>
+                    <span>{pd.stats.price}</span>
                     <span className="text-ds-ink font-semibold">
                       {priceText(p, uiStrings)?.short ?? '—'}
                     </span>
@@ -280,11 +284,11 @@ export default function BestOf({
                     <span className="text-ds-ink">{servingAmount(p, uiStrings)}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>MBG</span>
-                    <span className="text-ds-ink">{guaranteeDays(p.moneyBackDays, (d) => `${d}d`)}</span>
+                    <span>{pd.stats.moneyBack}</span>
+                    <span className="text-ds-ink">{guaranteeDays(p.moneyBackDays, (d) => tpl(pd.stats.daysCountShort, { days: d }))}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Trustpilot</span>
+                    <span>{pd.stats.trustpilot}</span>
                     <span
                       className={
                         p.trustpilotScore === null
@@ -297,19 +301,19 @@ export default function BestOf({
                       }
                     >
                       {p.trustpilotScore === null
-                        ? 'N/A'
-                        : `${p.trustpilotScore} (${p.trustpilotCount?.toLocaleString() ?? 'n/a'})`}
+                        ? pd.stats.notAvailable
+                        : `${p.trustpilotScore} (${p.trustpilotCount?.toLocaleString(pd.dateLocale) ?? pd.stats.notAvailable})`}
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Commission</span>
+                    <span>{bo.commission}</span>
                     <span className="text-ds-accent font-semibold">{p.commissionRate}</span>
                   </div>
                 </div>
 
                 {/* Action */}
                 <div className="flex flex-row lg:flex-col items-center gap-[10px] w-full lg:w-auto">
-                  <ScorePill score={p.score} />
+                  <ScorePill score={p.score} label={tpl(pd.score.aria, { score: p.score.toFixed(1), max: (10).toFixed(1) })} />
                   <TrackedAffiliateLink
                     product={p}
                     position={rank}
@@ -319,9 +323,9 @@ export default function BestOf({
                     noticeVariant="compact"
                     noticeClassName="flex-1 lg:w-full text-center"
                   >
-                    Visit →
+                    {bo.visit}
                   </TrackedAffiliateLink>
-                  <ShortlistButton slug={p.slug} size="sm" />
+                  <ShortlistButton slug={p.slug} size="sm" strings={uiStrings.shortlist} />
                 </div>
               </article>
             );
@@ -343,7 +347,7 @@ export default function BestOf({
               id="bestof-related-guides-heading"
               className="text-[13px] uppercase tracking-[0.1em] text-ds-muted font-semibold m-0 mb-2"
             >
-              Related guides
+              {uiStrings.listicle.relatedGuides}
             </h2>
             <ul className="grid gap-2 list-disc pl-5 text-[14px] leading-[1.6] text-ds-ink-soft">
               <li>

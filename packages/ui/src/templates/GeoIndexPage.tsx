@@ -52,9 +52,11 @@ export interface GeoIndexPageProps {
   /** Breadcrumb: label + href of the region's best-of hub. */
   hubLabel: string;
   hubHref?: string;
+  /** First breadcrumb; defaults to the bundle's `breadcrumb.home`. */
   homeLabel?: string;
   searchItems?: SearchItem[];
-  uiStrings?: UIStrings;
+  /** Page-locale chrome (breadcrumb landmark name, home label, shell). */
+  uiStrings: UIStrings;
   /** Optional region-specific content rendered below the list (e.g. a related-guide link). */
   children?: React.ReactNode;
 }
@@ -67,7 +69,7 @@ export default function GeoIndexPage({
   siteUrl,
   hubLabel,
   hubHref = '/best-nootropics/',
-  homeLabel = 'Home',
+  homeLabel,
   searchItems,
   uiStrings,
   children,
@@ -97,8 +99,8 @@ export default function GeoIndexPage({
     <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
       <SchemaOrg schema={schema} />
       <article className="max-w-5xl mx-auto px-4 py-10">
-        <nav className="text-xs text-gray-500 mb-6" aria-label="Breadcrumb">
-          <Link href="/" className="hover:text-green-700">{homeLabel}</Link>
+        <nav className="text-xs text-gray-500 mb-6" aria-label={uiStrings.breadcrumb.ariaLabel}>
+          <Link href="/" className="hover:text-green-700">{homeLabel ?? uiStrings.breadcrumb.home}</Link>
           {' / '}
           <Link href={hubHref} className="hover:text-green-700">{hubLabel}</Link>
           {' / '}

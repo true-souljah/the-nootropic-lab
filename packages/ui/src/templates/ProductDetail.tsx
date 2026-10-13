@@ -77,6 +77,7 @@ export default function ProductDetail({
   const [tab, setTab] = useState<TabId>('overview');
 
   const pd = uiStrings.productDetail;
+  const space = uiStrings.typography.space;
   // Meta-line pack count in the product's own units (servings × units per
   // serving), e.g. "60 caps" / "120 錠" / "20 shots"; omitted when unknown.
   const packUnits =
@@ -147,7 +148,7 @@ export default function ProductDetail({
       searchItems={searchItems}
       uiStrings={uiStrings}
     >
-      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} scope={disclosureScope} />
+      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} scope={disclosureScope} space={space} />
       <div className="px-4 sm:px-7 pt-6 pb-10">
         {discontinued && (
           <aside
@@ -223,7 +224,7 @@ export default function ProductDetail({
                 {p.name}
               </h1>
               <div className="text-ds-muted text-[14px] mt-1">
-                {pd.meta.by} {p.brand} · {pd.meta.productDescriptorByForm[productForm(p)]}
+                {pd.meta.by}{space}{p.brand} · {pd.meta.productDescriptorByForm[productForm(p)]}
                 {packUnits > 0 && ` · ${packUnits} ${servingUnit(p, uiStrings, packUnits)}`}
               </div>
               <div className="text-ds-muted text-[13px] mt-1">
@@ -232,7 +233,7 @@ export default function ProductDetail({
                   <>
                     {' · '}
                     <span data-record-date={verifiedAt ? 'verified' : 'updated'}>
-                      {recordDateLabel} <time dateTime={recordDateISO}>{recordDateDisplay}</time>
+                      {recordDateLabel}{space}<time dateTime={recordDateISO}>{recordDateDisplay}</time>
                     </span>
                   </>
                 )}
@@ -250,7 +251,7 @@ export default function ProductDetail({
           </div>
 
           {!discontinued && (
-            <FPTrustNote strings={uiStrings.disclosure} scope={disclosureScope} className="mt-[18px]" />
+            <FPTrustNote strings={uiStrings.disclosure} scope={disclosureScope} className="mt-[18px]" space={space} />
           )}
 
           <div className="mt-[18px] pt-[18px] border-t border-ds-border grid gap-[18px] items-center grid-cols-2 sm:grid-cols-3 lg:grid-cols-[repeat(5,1fr)_auto]">
@@ -311,14 +312,14 @@ export default function ProductDetail({
           <DosingTab product={p} strings={pd} />
         </TabPanel>
         <TabPanel idPrefix="product" id="pillars" hidden={tab !== 'pillars'} className="mt-5">
-          <PillarsTab product={p} strings={pd} />
+          <PillarsTab product={p} strings={pd} space={space} />
         </TabPanel>
         <TabPanel idPrefix="product" id="reviews" hidden={tab !== 'reviews'} className="mt-5">
           <ReviewsTab product={p} strings={pd} />
         </TabPanel>
         {!discontinued && (
           <TabPanel idPrefix="product" id="pricing" hidden={tab !== 'pricing'} className="mt-5">
-            <PricingTab product={p} disclosure={uiStrings.disclosure} strings={pd} noticeStrings={uiStrings.noPurchaseLink} price={priceText(p, uiStrings)} />
+            <PricingTab product={p} disclosure={uiStrings.disclosure} strings={pd} noticeStrings={uiStrings.noPurchaseLink} price={priceText(p, uiStrings)} space={space} />
           </TabPanel>
         )}
 

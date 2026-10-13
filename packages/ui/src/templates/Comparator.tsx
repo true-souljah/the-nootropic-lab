@@ -11,7 +11,8 @@ import { ProductThumb } from '../primitives/ProductThumb';
 import { outOfTen } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
-import { COLUMNS, GRADES, MAX_SELECTED } from './comparator/constants';
+import { COLUMNS, GRADES, MAX_SELECTED, columnHeader } from './comparator/constants';
+import { tpl } from '../templateStrings';
 import { scoreTier } from './listicleRanking';
 import type { SortKey, SortDir, Goal, Grade } from './comparator/constants';
 import { parseUrlState, buildViewQueryString, exportRowsToCsv, priceSortable, sortRows } from './comparator/utils';
@@ -42,6 +43,8 @@ export default function Comparator({
   searchItems,
   uiStrings,
 }: ComparatorProps) {
+  const cs = uiStrings.comparator;
+  const pd = uiStrings.productDetail;
   const [sortKey, setSortKey] = useState<SortKey>('score');
   const [sortDir, setSortDir] = useState<SortDir>('desc');
   const [maxPrice, setMaxPrice] = useState(100);
@@ -55,6 +58,7 @@ export default function Comparator({
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const filtersTriggerRef = useRef<HTMLButtonElement>(null);
   const filterSheetRef = useRef<HTMLDivElement>(null);
+  const closeFiltersRef = useRef<HTMLButtonElement>(null);
 
   // The sheet is `lg:hidden`: if the viewport grows to desktop while it is open
   // (a tablet rotated to landscape), the page must not stay inert behind a sheet
@@ -76,8 +80,8 @@ export default function Comparator({
   useEffect(() => {
     if (mobileFiltersOpen) {
       wasFiltersOpenRef.current = true;
-      const close = filterSheetRef.current?.querySelector<HTMLButtonElement>('button[aria-label="Close filters"]');
-      close?.focus();
+      // By ref, not by its (localized) accessible name.
+      closeFiltersRef.current?.focus();
     } else if (wasFiltersOpenRef.current) {
       wasFiltersOpenRef.current = false;
       filtersTriggerRef.current?.focus();
@@ -120,6 +124,8 @@ export default function Comparator({
     return only === 'JPY' ? null : only;
   }, [products, monthlyOf]);
   const canSortPrice = useMemo(() => priceSortable(products), [products]);
+  // The per-serving column (display-only) shows when any product has the figure.
+  const hasPerServing = useMemo(() => products.some((p) => prices.get(p.slug)?.perServing), [products, prices]);
 
   const rows = useMemo(() => {
     let r = products.filter((p) => {
@@ -187,11 +193,11 @@ export default function Comparator({
     const url = `${siteUrl}/nootropic-comparison/${qs}`;
     if (typeof navigator !== 'undefined' && navigator.clipboard) {
       navigator.clipboard.writeText(url).then(() => {
-        setSavedNotice('Link copied to clipboard');
+        setSavedNotice(cs.linkCopied);
         setTimeout(() => setSavedNotice(null), 2500);
       });
     } else {
-      setSavedNotice('Could not access clipboard');
+      setSavedNotice(cs.clipboardError);
       setTimeout(() => setSavedNotice(null), 2500);
     }
   }
@@ -218,15 +224,15 @@ export default function Comparator({
   return (
     <AppShell
       mode="persistent"
-      breadcrumbs={[{ label: 'Comparator' }]}
+      breadcrumbs={[{ label: cs.heading }]}
       searchItems={searchItems}
       uiStrings={uiStrings}
       hideStackCta
-      sidebarMeta={`${products.length} products`}
+      sidebarMeta={tpl(uiStrings.nav.productCount, { n: products.length })}
     >
       {/* The comparator renders no buy link (rows and the compare card link to
           review pages), so the strip carries the site-level line. */}
-      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings?.disclosure} scope="site" />
+      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings?.disclosure} scope="site" space={uiStrings?.typography.space} />
       {/* When the mobile filter sheet is open, `inert` removes everything
           else from tab order + AT focus — keyboard users can't escape the
           dialog into obscured content. */}
@@ -236,7 +242,7 @@ export default function Comparator({
       >
         {/* Desktop filter sidebar — sticky column on lg+ */}
         <div className="hidden lg:block bg-ds-card border-r border-ds-border p-5 sticky top-[60px] self-start min-h-[calc(100vh-60px)]">
-          <ComparatorFilters idPrefix="d" {...filterProps} />
+          <ComparatorFilters idPrefix="d" strings={cs} {...filterProps} />
         </div>
 
         {/* Main content */}
@@ -244,10 +250,10 @@ export default function Comparator({
           <div className="flex justify-between items-end mb-[14px] flex-wrap gap-3">
             <div>
               <h1 className="text-[22px] font-bold tracking-[-0.02em] m-0 text-ds-ink">
-                Comparator
+                {cs.heading}
               </h1>
               <div className="text-[12px] text-ds-muted mt-[2px]">
-                {rows.length} of {products.length} match · select up to {MAX_SELECTED} to compare side-by-side
+                {tpl(cs.matchSummary, { shown: rows.length, total: products.length, max: MAX_SELECTED })}
               </div>
             </div>
             <div className="flex gap-[6px] items-center flex-wrap">
@@ -269,7 +275,7 @@ export default function Comparator({
                 className="lg:hidden bg-ds-accent text-white px-3 py-[7px] rounded-[8px] text-[12px] font-semibold cursor-pointer inline-flex items-center gap-[6px] focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
               >
                 <SlidersHorizontal size={12} strokeWidth={2.4} aria-hidden={true} />
-                Filters
+                {cs.filters}
               </button>
               <button
                 type="button"
@@ -285,7 +291,7 @@ export default function Comparator({
                 className="bg-ds-card border border-ds-border px-3 py-[7px] rounded-[8px] text-[12px] text-ds-ink-soft font-medium cursor-pointer flex items-center gap-[6px] hover:bg-ds-card-sub focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
               >
                 <Save size={12} strokeWidth={2.2} aria-hidden={true} />
-                Save view
+                {cs.saveView}
               </button>
             </div>
           </div>
@@ -294,9 +300,9 @@ export default function Comparator({
           <div className="bg-ds-card border border-ds-border rounded-[10px] overflow-x-auto overscroll-x-contain">
             <div
               role="grid"
-              aria-label="Products comparison"
+              aria-label={cs.gridLabel}
               aria-rowcount={rows.length + 1}
-              className="min-w-[1024px]"
+              className={hasPerServing ? 'min-w-[1124px]' : 'min-w-[1024px]'}
             >
             {/* Header */}
             <div
@@ -305,6 +311,8 @@ export default function Comparator({
               className="flex border-b border-ds-border bg-ds-card-sub text-[11px] text-ds-muted uppercase tracking-[0.08em] font-bold"
             >
               {COLUMNS.map((c) => {
+                if (c.perServing && !hasPerServing) return null;
+                const label = c.perServing ? uiStrings.productDetail.stats.perServingLabel : columnHeader(c.label, cs);
                 // No price sort across currencies (prices are never converted).
                 const key = c.key === 'price' && !canSortPrice ? null : c.key;
                 const headerProps = key
@@ -328,7 +336,7 @@ export default function Comparator({
                   : { role: 'columnheader' as const };
                 return (
                   <div
-                    key={c.label || `spacer-${c.width}`}
+                    key={c.perServing ? 'perServing' : c.label || `spacer-${c.width}`}
                     {...headerProps}
                     style={{
                       flex: `0 0 ${c.width}px`,
@@ -338,8 +346,7 @@ export default function Comparator({
                       key === sortKey ? 'text-ds-accent' : ''
                     }`}
                   >
-                    {c.label}
-                    {arrow(key)}
+                    {`${label}${arrow(key)}`}
                   </div>
                 );
               })}
@@ -349,7 +356,7 @@ export default function Comparator({
                   className="px-[14px] py-3 text-right"
                   style={{ flex: '0 0 90px' }}
                 >
-                  Our cut
+                  {pd.stats.ourCut}
                 </div>
               )}
               <div role="columnheader" className="px-[14px] py-3" style={{ flex: '0 0 80px' }} />
@@ -359,13 +366,13 @@ export default function Comparator({
             {rows.length === 0 ? (
               <div role="row" aria-rowindex={2}>
                 <div role="gridcell" className="p-9 text-center text-ds-muted text-[13px]">
-                  No products match.{' '}
+                  {cs.noMatch}{uiStrings.typography.space}
                   <button
                     type="button"
                     onClick={reset}
                     className="bg-transparent text-ds-accent border-0 cursor-pointer font-semibold underline focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded"
                   >
-                    Reset filters
+                    {cs.resetFilters}
                   </button>
                 </div>
               </div>
@@ -387,7 +394,7 @@ export default function Comparator({
                         type="checkbox"
                         checked={isSelected}
                         onChange={() => toggleSelect(p.slug)}
-                        aria-label={`Compare ${p.name}`}
+                        aria-label={tpl(cs.compareAria, { name: p.name })}
                         className="w-4 h-4 cursor-pointer"
                         style={{ accentColor: 'var(--color-ds-accent)' }}
                       />
@@ -414,12 +421,12 @@ export default function Comparator({
                         </Link>
                         <div className="text-[11.5px] text-ds-muted">
                           {p.brand}
-                          {!p.caffeineFree ? ' · caffeine' : ''}
+                          {!p.caffeineFree ? ` · ${cs.containsCaffeine}` : ''}
                         </div>
                       </div>
                     </div>
                     <div role="gridcell" className="px-[14px] py-3" style={{ flex: '0 0 110px' }}>
-                      <ScorePill score={p.score} />
+                      <ScorePill score={p.score} label={tpl(pd.score.aria, { score: p.score.toFixed(1), max: (10).toFixed(1) })} />
                     </div>
                     <div
                       role="gridcell"
@@ -450,6 +457,15 @@ export default function Comparator({
                         );
                       })()}
                     </div>
+                    {hasPerServing && (
+                      <div
+                        role="gridcell"
+                        className="px-[14px] py-3 text-right text-ds-ink-soft ds-tabular"
+                        style={{ flex: '0 0 100px' }}
+                      >
+                        {prices.get(p.slug)?.perServing ?? '—'}
+                      </div>
+                    )}
                     <div
                       role="gridcell"
                       className={`px-[14px] py-3 text-right ds-tabular ${
@@ -464,12 +480,12 @@ export default function Comparator({
                       style={{ flex: '0 0 130px' }}
                     >
                       {p.trustpilotScore === null ? (
-                        <span className="text-ds-muted">N/A</span>
+                        <span className="text-ds-muted">{pd.stats.notAvailable}</span>
                       ) : (
                         <>
                           {p.trustpilotScore}{' '}
                           <span className="text-ds-muted font-normal">
-                            · {p.trustpilotCount?.toLocaleString() ?? 'n/a'}
+                            · {p.trustpilotCount?.toLocaleString(pd.dateLocale) ?? pd.stats.notAvailable}
                           </span>
                         </>
                       )}
@@ -493,10 +509,10 @@ export default function Comparator({
                     <div role="gridcell" className="px-[14px] py-3 text-right" style={{ flex: '0 0 80px' }}>
                       <Link
                         href={`/${p.slug}/`}
-                        aria-label={`View ${p.name}`}
+                        aria-label={tpl(cs.viewAria, { name: p.name })}
                         className="bg-transparent text-ds-accent border-0 text-[12px] font-semibold no-underline hover:text-ds-accent-press focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded"
                       >
-                        View →
+                        {cs.view}
                       </Link>
                     </div>
                   </div>
@@ -523,33 +539,34 @@ export default function Comparator({
           className="lg:hidden fixed inset-0 z-40"
           role="dialog"
           aria-modal="true"
-          aria-label="Filter products"
+          aria-label={cs.filterDialog}
         >
           <button
+            ref={closeFiltersRef}
             type="button"
-            aria-label="Close filters"
+            aria-label={cs.closeFilters}
             onClick={() => setMobileFiltersOpen(false)}
             className="absolute inset-0 bg-[rgba(11,18,32,0.55)] cursor-default"
           />
           <div className="absolute bottom-0 left-0 right-0 max-h-[85vh] bg-ds-card rounded-t-[16px] overflow-y-auto p-5 shadow-[0_-12px_36px_rgba(15,22,35,0.18)]">
             <div className="flex justify-between items-center mb-4 -mt-1">
-              <span className="text-[14px] font-semibold text-ds-ink">Filters</span>
+              <span className="text-[14px] font-semibold text-ds-ink">{cs.filters}</span>
               <button
                 type="button"
                 onClick={() => setMobileFiltersOpen(false)}
-                aria-label="Close filters"
+                aria-label={cs.closeFilters}
                 className="w-9 h-9 grid place-items-center text-ds-muted hover:bg-ds-card-sub rounded focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
               >
                 <X size={18} strokeWidth={2} aria-hidden={true} />
               </button>
             </div>
-            <ComparatorFilters idPrefix="m" {...filterProps} />
+            <ComparatorFilters idPrefix="m" strings={cs} {...filterProps} />
             <button
               type="button"
               onClick={() => setMobileFiltersOpen(false)}
               className="w-full mt-4 bg-ds-accent hover:bg-ds-accent-press text-white py-[10px] rounded-[8px] text-[13px] font-semibold cursor-pointer focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
             >
-              Show {rows.length} product{rows.length === 1 ? '' : 's'}
+              {tpl(rows.length === 1 ? cs.showResultsOne : cs.showResults, { n: rows.length })}
             </button>
           </div>
         </div>

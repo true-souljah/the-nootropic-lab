@@ -63,7 +63,9 @@ const GEO_SCORE_PAGES = [
 describe('geo pages and ScoreTooltip colour the score by SCORE_TIERS', () => {
   it.each(GEO_SCORE_PAGES)('%s', (page) => {
     const src = readFileSync(join(REPO, page), 'utf8');
-    const scoreLines = src.split('\n').filter((line) => /Score: <strong/.test(line));
+    // JP and LATAM render the label from the bundle (uiStrings.geo.score) since
+    // 2026-10-12, joined by the locale's space (none in Japanese) since 2026-10-13.
+    const scoreLines = src.split('\n').filter((line) => /(?:Score: |\{uiStrings\.geo\.score\}\{uiStrings\.typography\.space\})<strong/.test(line));
     expect(scoreLines).toHaveLength(1);
     expect(scoreLines[0]).toMatch(/<strong className=\{SCORE_TIER_TEXT_CLASS\[scoreTier\(\w+\.score\)\]\}>/);
     expect(src).toMatch(/import \{[^}]*\bscoreTier\b[^}]*\bSCORE_TIER_TEXT_CLASS\b[^}]*\} from '@nootropic\/ui'/);

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import type { UIStrings } from '@nootropic/data';
 
 /**
  * Editorial Standards section appended to /methodology/ pages across the
@@ -15,12 +16,15 @@ import Link from 'next/link';
  * are consistent across the portfolio. Region-specific compliance content
  * (EU Reg 1924/2006, ANMAT, etc.) lives in each app's methodology page.tsx
  * around this shared section.
+ *
+ * The headings come from the page locale (`strings`); the policy text below
+ * them is English on every edition until the methodology body is translated.
  */
-export default function EditorialStandardsSection() {
+export default function EditorialStandardsSection({ strings }: { strings: UIStrings['editorialStandards'] }) {
   return (
     <>
       <section className="my-12">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Editorial Standards</h2>
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">{strings.heading}</h2>
         <p className="text-sm text-gray-600 mb-6 leading-relaxed">
           Beyond the 5-pillar scoring framework, every page on this site is produced under the following
           editorial standards. These standards apply to all 8 regional editions and govern how content is
@@ -29,7 +33,7 @@ export default function EditorialStandardsSection() {
 
         <div className="space-y-5">
           <div className="border border-gray-200 rounded-xl p-5">
-            <h3 className="font-bold text-gray-900 mb-2">1. Review protocol</h3>
+            <h3 className="font-bold text-gray-900 mb-2">{strings.reviewProtocol}</h3>
             <p className="text-sm text-gray-700 leading-relaxed">
               Products are evaluated from manufacturer-published ingredient lists, regulatory filings,
               and third-party Certificates of Analysis when available. Each label dose of an ingredient
@@ -39,7 +43,7 @@ export default function EditorialStandardsSection() {
           </div>
 
           <div className="border border-gray-200 rounded-xl p-5">
-            <h3 className="font-bold text-gray-900 mb-2">2. Conflict-of-interest policy</h3>
+            <h3 className="font-bold text-gray-900 mb-2">{strings.conflictOfInterest}</h3>
             <p className="text-sm text-gray-700 leading-relaxed mb-2">
               We earn affiliate commissions from links on commercial pages. Affiliate relationships
               <strong> do not</strong> influence:
@@ -59,7 +63,7 @@ export default function EditorialStandardsSection() {
           </div>
 
           <div className="border border-gray-200 rounded-xl p-5">
-            <h3 className="font-bold text-gray-900 mb-2">3. Source-citation policy</h3>
+            <h3 className="font-bold text-gray-900 mb-2">{strings.sourceCitation}</h3>
             <p className="text-sm text-gray-700 leading-relaxed">
               Clinical-dose claims are sourced from PubMed-indexed human randomized controlled trials,
               meta-analyses, and Examine.com syntheses. Regulatory claims are sourced from primary
@@ -72,7 +76,7 @@ export default function EditorialStandardsSection() {
           </div>
 
           <div className="border border-gray-200 rounded-xl p-5">
-            <h3 className="font-bold text-gray-900 mb-2">4. Correction policy</h3>
+            <h3 className="font-bold text-gray-900 mb-2">{strings.correction}</h3>
             <p className="text-sm text-gray-700 leading-relaxed mb-2">
               We aim to respond to substantive editorial corrections within 5 business days and to
               update or retract incorrect content within 10 business days of verification. When a
@@ -97,7 +101,7 @@ export default function EditorialStandardsSection() {
           </div>
 
           <div className="border border-gray-200 rounded-xl p-5">
-            <h3 className="font-bold text-gray-900 mb-2">5. Editorial-team identity</h3>
+            <h3 className="font-bold text-gray-900 mb-2">{strings.teamIdentity}</h3>
             <p className="text-sm text-gray-700 leading-relaxed">
               The Nootropic Lab operates as an independent editorial collective. We do not disclose
               individual contributors by name and do not
@@ -110,7 +114,7 @@ export default function EditorialStandardsSection() {
           </div>
 
           <div className="border border-gray-200 rounded-xl p-5">
-            <h3 className="font-bold text-gray-900 mb-2">6. Region-specific regulatory framing</h3>
+            <h3 className="font-bold text-gray-900 mb-2">{strings.regionalFraming}</h3>
             <p className="text-sm text-gray-700 leading-relaxed">
               Each regional edition of this site applies the YMYL disclaimer language mandated or
               expected by that region&apos;s primary regulator: DSHEA (US FDA), Reg (EC) 1924/2006 +
@@ -127,7 +131,7 @@ export default function EditorialStandardsSection() {
       </section>
 
       <section className="my-12 bg-blue-50 border border-blue-200 rounded-xl p-6">
-        <h2 className="text-xl font-bold text-blue-900 mb-3">Editorial contact</h2>
+        <h2 className="text-xl font-bold text-blue-900 mb-3">{strings.contact}</h2>
         <p className="text-sm text-gray-700 leading-relaxed mb-2">
           Editorial corrections, regulatory inquiries, partnership requests:
         </p>

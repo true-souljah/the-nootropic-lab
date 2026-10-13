@@ -87,7 +87,7 @@ export const guideSources: Record<string, GuideSource[]> = {
     { pmid: '42761483', url: 'https://pubmed.ncbi.nlm.nih.gov/42761483/', title: 'Acute caffeine supplementation as a nutrition-based strategy to mitigate sleep-loss-related cognitive and operational performance impairments in military personnel', year: 2026, supports: 'Nuance for the sleep-vs-supplements comparative claim' },
   ],
   'how-to-stack-nootropics': [
-    { pmid: '24946991', url: 'https://pubmed.ncbi.nlm.nih.gov/24946991/', title: 'Acute effects of tea constituents L-theanine, caffeine, and epigallocatechin gallate on cognitive function and mood: a systematic review and meta-analysis', year: 2014, supports: 'L-theanine+caffeine attention synergy, with an honest jitteriness/anxiety caveat' },
+    { pmid: '24946991', url: 'https://pubmed.ncbi.nlm.nih.gov/24946991/', title: 'Acute effects of tea constituents L-theanine, caffeine, and epigallocatechin gallate on cognitive function and mood: a systematic review and meta-analysis', year: 2014, supports: 'L-theanine+caffeine attention effects versus placebo, with an honest jitteriness/anxiety caveat' },
     { pmid: '38057413', url: 'https://pubmed.ncbi.nlm.nih.gov/38057413/', title: 'Concomitant use of monoamine oxidase inhibitor and tyrosine in parenteral nutrition', year: 2023, supports: 'Tyrosine + MAOI interaction caution, with realistic risk framing' },
     { pmid: '17891480', url: 'https://pubmed.ncbi.nlm.nih.gov/17891480/', title: 'Time for tea: mood, blood pressure and cognitive performance effects of caffeine and theanine administered alone and together', year: 2007, supports: 'Correction to the anxiogenic-effect-reduction claim' },
     // Stack 3 dose ranges — from evidence/lions-mane.json and evidence/phosphatidylserine.json (studies[], pubmedUrl status 200).
@@ -643,7 +643,7 @@ export const guides: Guide[] = [
       },
       {
         heading: 'Alpha brain waves and calm focus',
-        content: 'Alpha brain waves (8–12 Hz) are associated with relaxed alertness — the mental state experienced during flow states, meditation, or creative work. L-Theanine, an amino acid from green tea, increases alpha-wave activity: in EEG studies the increase appears from around 45 minutes after ingestion, and a 2021 RCT found the clearest effect about 3 hours after a 200mg dose. This produces a state of calm focus without sedation. When combined with caffeine, L-theanine can blunt some of the anxiogenic (anxiety-inducing) effects of caffeine while preserving its attention-sharpening and reaction-time benefits, a pairing with reasonable support from multiple RCTs.',
+        content: 'Alpha brain waves (8–12 Hz) are associated with relaxed alertness — the mental state experienced during flow states, meditation, or creative work. L-Theanine, an amino acid from green tea, increases alpha-wave activity: in EEG studies the increase appears from around 45 minutes after ingestion, and a 2021 RCT found the clearest effect about 3 hours after a 200mg dose. This produces a state of calm focus without sedation. When combined with caffeine, the pair improved attention measures versus placebo in several trials, but in a controlled trial (Rogers 2007) theanine did not significantly reduce caffeine-induced jitteriness.',
       },
       {
         heading: 'Cell membrane integrity and phospholipids',
@@ -686,7 +686,7 @@ export const guides: Guide[] = [
   {
     slug: 'how-to-stack-nootropics',
     title: 'How to Stack Nootropics Safely: Principles and Example Stacks',
-    description: 'A practical guide to combining nootropic supplements for synergistic effects — including safe pairing rules, what to avoid, and three example stacks for different goals.',
+    description: 'A practical guide to combining nootropic supplements — including safe pairing rules, what to avoid, and three example stacks for different goals.',
     category: 'stacking',
     readingTimeMin: 8,
     sources: guideSources['how-to-stack-nootropics'],
@@ -695,7 +695,7 @@ export const guides: Guide[] = [
     sections: [
       {
         heading: 'What is a nootropic stack?',
-        content: 'A nootropic stack is a combination of two or more cognitive-enhancing compounds taken together to produce effects greater than either would alone. The concept comes from pharmacology — many drugs are more effective or better-tolerated in combination. The best-evidenced nootropic combination is L-Theanine + Caffeine: a meta-analysis of 11 RCTs found moderate improvements in alertness and attention-switching accuracy in the first 2 hours after dosing. In a controlled trial (Rogers 2007), L-theanine offset caffeine\'s blood-pressure rise but did not significantly reduce caffeine-induced jitteriness. Pre-formulated multi-ingredient stacks combine 8–11 ingredients designed to cover multiple cognitive pathways simultaneously.',
+        content: 'A nootropic stack is a combination of two or more cognitive-enhancing compounds taken together to produce effects greater than either would alone. The concept comes from pharmacology — many drugs are more effective or better-tolerated in combination. Versus placebo, for L-Theanine + Caffeine, a meta-analysis of 11 RCTs found moderate improvements in alertness and attention-switching accuracy in the first 2 hours after dosing. Foxe 2012 found no added benefit over either compound alone. In a controlled trial (Rogers 2007), L-theanine offset caffeine\'s blood-pressure rise but did not significantly reduce caffeine-induced jitteriness. Pre-formulated multi-ingredient stacks combine 8–11 ingredients designed to cover multiple cognitive pathways simultaneously.',
       },
       {
         heading: 'The golden rule: one cholinergic source at a time',
@@ -739,15 +739,15 @@ export const guides: Guide[] = [
       },
       {
         heading: 'Best for memory encoding (learning new things)',
-        content: "Bacopa Monnieri (300mg, standardised to at least 50% bacosides) is the best-evidenced ingredient for improving the speed and durability of memory encoding — but requires 8–12 weeks. Alpha-GPC (300mg) provides an acute cholinergic boost that improves encoding during the dose window. Lion's Mane supports long-term neuroplasticity that underpins learning capacity; the main human trial showing a cognitive benefit (in mild cognitive impairment) used 3,000mg per day — six times a 500mg dose. Phosphatidylserine improves signal transduction speed across synapses. Positive single-ingredient trials mostly used 100–300mg per day (PMID 21103034, 20523044), while a review of the wider literature (PMID 25933483) cites 300–800mg per day; the benefit is most consistent in older adults. When comparing multi-ingredient stacks built around bacopa and lion's mane for memory, check each ingredient's dose against the trial figures above.",
+        content: "Bacopa Monnieri improved 9 of 17 memory free-recall tests in a systematic review of six 12-week trials at 300–450mg extract a day (Pase 2012), and its trials measured memory after 12 weeks; our reference dose is 300mg standardised to at least 50% bacosides. Alpha-GPC (300mg) provides an acute cholinergic boost that improves encoding during the dose window. Lion's Mane supports long-term neuroplasticity that underpins learning capacity; the main human trial showing a cognitive benefit (in mild cognitive impairment) used 3,000mg per day — six times a 500mg dose. Phosphatidylserine is a phospholipid in neuronal cell membranes. Positive single-ingredient trials mostly used 100–300mg per day (PMID 21103034, 20523044), while a review of the wider literature (PMID 25933483) cites 300–800mg per day; the benefit is most consistent in older adults. When comparing multi-ingredient stacks built around bacopa and lion's mane for memory, check each ingredient's dose against the trial figures above.",
       },
       {
         heading: 'Best for recall speed',
-        content: "Recall speed — how quickly you can retrieve stored information — is influenced by acetylcholine availability, dopamine signalling, and synaptic transmission speed. Huperzine A (100mcg, cycled) produces the sharpest acute improvement in recall by preserving acetylcholine. Phosphatidylserine supports transmission speed. Rhodiola improves recall under conditions of stress or fatigue (when catecholamine depletion would otherwise slow retrieval). Note: none of these can retrieve information that was never well-encoded — improving encoding comes first.",
+        content: "Recall speed — how quickly you can retrieve stored information — is influenced by acetylcholine availability, dopamine signalling, and synaptic transmission speed. Huperzine A (100mcg) blocks the enzyme that breaks down acetylcholine; its trials measured effects after 4–16 weeks of daily dosing, and no acute-onset trial was found. Rhodiola improves recall under conditions of stress or fatigue (when catecholamine depletion would otherwise slow retrieval). Note: none of these can retrieve information that was never well-encoded — improving encoding comes first.",
       },
       {
         heading: 'Best for creative thinking and insight',
-        content: "Creative thinking correlates with increased default mode network activity and alpha brain wave amplitude. L-Theanine is the strongest nootropic intervention for alpha wave induction. Lion's Mane supports the neuroplasticity that underlies cognitive flexibility. Microdosed psychedelics (not discussed here — legal status varies) are sometimes promoted for creativity, but rigorous blinded trials have not replicated the anecdotal reports: a 2022 double-blind, placebo-controlled psilocybin microdosing study found no evidence of enhanced creativity or cognitive function and concluded that expectation explains at least some of the reported benefits. Adaptogens (Ashwagandha, Rhodiola) support creative cognition indirectly by reducing the performance anxiety and stress that suppresses creative output.",
+        content: "Creative thinking correlates with increased default mode network activity and alpha brain wave amplitude. The alpha-wave (MEG) trial on our L-Theanine page found higher alpha activity at 2 hours, and only in people with higher trait anxiety. Lion's Mane supports the neuroplasticity that underlies cognitive flexibility. Microdosed psychedelics (not discussed here — legal status varies) are sometimes promoted for creativity, but rigorous blinded trials have not replicated the anecdotal reports: a 2022 double-blind, placebo-controlled psilocybin microdosing study found no evidence of enhanced creativity or cognitive function and concluded that expectation explains at least some of the reported benefits. Adaptogens (Ashwagandha, Rhodiola) support creative cognition indirectly by reducing the performance anxiety and stress that suppresses creative output.",
       },
     ],
   },

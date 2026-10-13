@@ -90,16 +90,16 @@ export default function Page() {
       <SchemaOrg schema={breadcrumbSchema} />
 
       <article className="max-w-4xl mx-auto px-4 py-10">
-        <nav className="text-xs text-gray-500 mb-6">
-          <Link href="/" className="hover:text-green-700">Home</Link>
+        <nav className="text-xs text-gray-500 mb-6" aria-label={uiStrings.breadcrumb.ariaLabel}>
+          <Link href="/" className="hover:text-green-700">{uiStrings.breadcrumb.home}</Link>
           {' / '}
           <span>FFC-Notified Cognitive Supplements</span>
         </nav>
 
         <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 mb-4">
-          <span>Reviewed by <strong className="text-gray-700">The Nootropic Lab Editorial Team</strong></span>
+          <span className="text-gray-700">{uiStrings.productDetail.meta.reviewedBy}</span>
           <span>·</span>
-          <span>Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+          <span>{`${uiStrings.productDetail.meta.updated}${uiStrings.typography.space}${new Date().toLocaleDateString(uiStrings.productDetail.dateLocale, { year: 'numeric', month: 'long', day: 'numeric' })}`}</span>
         </div>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
@@ -125,22 +125,22 @@ export default function Page() {
         </p>
 
         <section className="my-10">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Japan&apos;s functional-food categories</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">日本の機能性食品の分類</h2>
           <div className="space-y-4">
             {jpCategories.map(c => (
               <div key={c.category} className="border border-gray-200 rounded-xl p-5">
                 <h3 className="font-bold text-gray-900 mb-1">{c.category}</h3>
                 <p className="text-sm text-gray-500 mb-2">{c.categoryJa}</p>
-                <p className="text-sm text-gray-700 leading-relaxed mb-2"><strong>Evidentiary burden:</strong> {c.burden}</p>
-                <p className="text-sm text-gray-700 leading-relaxed mb-2"><strong>Permitted scope:</strong> {c.scope}</p>
-                <p className="text-xs text-gray-500"><strong>Examples:</strong> {c.examples}</p>
+                <p className="text-sm text-gray-700 leading-relaxed mb-2"><strong>根拠の水準：</strong>{c.burden}</p>
+                <p className="text-sm text-gray-700 leading-relaxed mb-2"><strong>表示できる範囲：</strong>{c.scope}</p>
+                <p className="text-xs text-gray-500"><strong>例：</strong>{c.examples}</p>
               </div>
             ))}
           </div>
         </section>
 
         <section className="my-10 bg-blue-50 border border-blue-200 rounded-xl p-6">
-          <h2 className="text-xl font-bold text-blue-900 mb-3">How to verify an FFC notification</h2>
+          <h2 className="text-xl font-bold text-blue-900 mb-3">機能性表示食品の届出を確認する方法</h2>
           <ol className="list-decimal list-inside text-sm text-gray-700 leading-relaxed space-y-2">
             <li>Locate the FFC notification number on the product packaging (typically marked 届出番号).</li>
             <li>Open the <a href="https://www.caa.go.jp/policies/policy/food_labeling/foods_with_function_claims/search/" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline">Consumer Affairs Agency FFC database</a>.</li>
@@ -150,7 +150,7 @@ export default function Page() {
         </section>
 
         <section className="my-10 bg-amber-50 border border-amber-200 rounded-xl p-6">
-          <h2 className="text-xl font-bold text-amber-900 mb-3">Personal-import threshold for non-domestic brands</h2>
+          <h2 className="text-xl font-bold text-amber-900 mb-3">海外ブランドの個人輸入の上限</h2>
           <p className="text-sm text-gray-700 leading-relaxed mb-2">
             For imported nootropic brands (Mind Lab Pro, Onnit, Qualia, Hunter Focus, etc.) shipped from
             overseas:
@@ -164,7 +164,7 @@ export default function Page() {
         </section>
 
         <section className="my-10">
-          <h2 className="text-2xl font-bold text-gray-900 mb-3">Audit of our Japanese catalog</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-3">日本向けカタログの監査</h2>
           <p className="text-sm text-gray-700 leading-relaxed mb-4">
             We track <strong>{productsJP.length} products</strong> in our Japanese catalog. The mix includes
             domestic brands (FANCL BRAINs, FFC-notified under G425, confirmed in the CAA database on 2026-10-06; Suntory
@@ -180,7 +180,7 @@ export default function Page() {
         </section>
 
         <section className="my-10">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Frequently asked questions</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">{uiStrings.listicle.faqHeading}</h2>
           <div className="space-y-4">
             {faqs.map(item => (
               <div key={item.q} className="border border-gray-200 rounded-lg p-5">
@@ -193,26 +193,28 @@ export default function Page() {
 
         <Sources
           defaultOpen
-          heading="Regulatory sources"
+          heading="規制に関する出典"
+          expandLabel={uiStrings.guide.expand}
+          space={uiStrings.typography.space}
           sources={[
-            { type: 'Regulatory', label: 'Consumer Affairs Agency (消費者庁) — Foods with Function Claims', url: 'https://www.caa.go.jp/policies/policy/food_labeling/foods_with_function_claims/' },
-            { type: 'Regulatory', label: 'CAA — FFC notification database (届出情報検索)', url: 'https://www.caa.go.jp/policies/policy/food_labeling/foods_with_function_claims/search/' },
-            { type: 'Regulatory', label: 'Consumer Affairs Agency — FOSHU (特定保健用食品)', url: 'https://www.caa.go.jp/policies/policy/food_labeling/foods_for_specified_health_uses/' },
-            { type: 'Regulatory', label: 'Pharmaceutical and Medical Device Act (PMD Act / 薬機法)', url: 'https://elaws.e-gov.go.jp/document?lawid=335AC0000000145' },
-            { type: 'Regulatory', label: 'Japan Customs — Personal import of pharmaceuticals and supplements', url: 'https://www.customs.go.jp/english/' },
-            { type: 'Editorial', label: 'The Nootropic Lab — Methodology', url: `${SITE_URL}/methodology/` },
+            { type: '規制', label: 'Consumer Affairs Agency (消費者庁) — Foods with Function Claims', url: 'https://www.caa.go.jp/policies/policy/food_labeling/foods_with_function_claims/' },
+            { type: '規制', label: 'CAA — FFC notification database (届出情報検索)', url: 'https://www.caa.go.jp/policies/policy/food_labeling/foods_with_function_claims/search/' },
+            { type: '規制', label: 'Consumer Affairs Agency — FOSHU (特定保健用食品)', url: 'https://www.caa.go.jp/policies/policy/food_labeling/foods_for_specified_health_uses/' },
+            { type: '規制', label: 'Pharmaceutical and Medical Device Act (PMD Act / 薬機法)', url: 'https://elaws.e-gov.go.jp/document?lawid=335AC0000000145' },
+            { type: '規制', label: 'Japan Customs — Personal import of pharmaceuticals and supplements', url: 'https://www.customs.go.jp/english/' },
+            { type: '編集', label: 'The Nootropic Lab — Methodology', url: `${SITE_URL}/methodology/` },
           ]}
         />
 
         <aside className="bg-amber-50 border-l-4 border-amber-400 rounded-r-lg p-4 mt-10 text-sm text-amber-900">
-          <strong className="block mb-1">Health & regulatory note</strong>
+          <strong className="block mb-1">健康・規制に関する注記</strong>
           {getRegionalHealthDisclaimer('jp')}
         </aside>
 
         <div className="text-sm text-gray-500 mt-10">
-          <Link href="/" className="text-green-700 underline">← Back to home</Link>
+          <Link href="/" className="text-green-700 underline">← ホームに戻る</Link>
           {' · '}
-          <Link href="/methodology/" className="text-green-700 underline">Methodology</Link>
+          <Link href="/methodology/" className="text-green-700 underline">{uiStrings.nav.methodology}</Link>
         </div>
       </article>
     </PublicShell>

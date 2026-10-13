@@ -74,3 +74,27 @@ test.describe('JP Pricing tab — localized labels around vendor quotes', () => 
     await expect(panel.locator('blockquote')).toHaveCount(0);
   });
 });
+
+// Per serving / per day (2026-10-12) with Japanese units, in the store's own
+// currency. Expected strings = the priceText table in
+// packages/ui/src/store-price.test.ts (the yen sign may print as ￥ or ¥).
+test.describe('JP Pricing tab — store price per serving / per day and its source', () => {
+  test('/hunter-focus-review/ (no purchase link in Japan) names the store domain without a link', async ({ page }) => {
+    const panel = await openPricing(page, '/hunter-focus-review/');
+    await expect(panel.locator('[data-store-price-per-unit]')).toHaveText('≈ $3/回 · ≈ $3/日');
+    const source = panel.locator('[data-store-price-source]');
+    await expect(source).toHaveText('出典：hunterevolve.com（2026年10月9日確認）');
+    await expect(source.locator('a')).toHaveCount(0);
+    await expect(source.locator('time')).toHaveAttribute('datetime', '2026-10-09');
+  });
+
+  test('/suntory-dha-epa-sesamin-review/ shows per serving (240粒 at 4 a serving) and per day (約60日分)', async ({ page }) => {
+    const panel = await openPricing(page, '/suntory-dha-epa-sesamin-review/');
+    await expect(panel.locator('[data-store-price-per-unit]')).toHaveText(/^≈ [￥¥]191\/回 · ≈ [￥¥]191\/日$/);
+  });
+
+  test('/fancl-brains-review/ shows per day from "30日分" and no per serving (the pack states no count)', async ({ page }) => {
+    const panel = await openPricing(page, '/fancl-brains-review/');
+    await expect(panel.locator('[data-store-price-per-unit]')).toHaveText(/^≈ [￥¥]183\/日$/);
+  });
+});

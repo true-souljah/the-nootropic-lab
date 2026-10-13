@@ -77,8 +77,8 @@ export default async function GuidePage({
         </nav>
 
         <div className="mb-2 flex items-center gap-3">
-          <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full capitalize">
-            {g.category}
+          <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">
+            {uiStrings.guide.categories[g.category]}
           </span>
           <span className="text-xs text-gray-500">{g.readingTimeMin} min de lectura</span>
           <GuideEvidenceReviewed date={g.evidenceReviewedAt} uiStrings={uiStrings} />

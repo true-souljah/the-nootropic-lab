@@ -15,6 +15,8 @@ interface Props {
   defaultOpen?: boolean;
   /** Visible "expand" hint on the summary row — pass a localized string on non-English pages. Defaults to "expand". */
   expandLabel?: string;
+  /** The page locale's `uiStrings.typography.space` between the heading and the count ('' in ja). */
+  space?: string;
 }
 
 /**
@@ -34,6 +36,7 @@ export default function Sources({
   heading = 'Sources',
   defaultOpen = false,
   expandLabel = 'expand',
+  space = ' ',
 }: Props) {
   if (sources.length === 0) return null;
   return (
@@ -44,7 +47,7 @@ export default function Sources({
       >
         <summary className="cursor-pointer font-semibold text-gray-900 text-base list-none flex items-center justify-between">
           <span>
-            {heading}{' '}
+            {heading}{space}
             <span className="text-xs font-normal text-gray-500 ml-1">({sources.length})</span>
           </span>
           <span className="text-xs text-gray-600">{expandLabel}</span>

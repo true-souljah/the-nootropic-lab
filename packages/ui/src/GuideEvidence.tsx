@@ -15,7 +15,7 @@ export function GuideEvidenceReviewed({ date, uiStrings }: { date: string; uiStr
   });
   return (
     <span className="text-xs text-gray-500">
-      {uiStrings.guide.evidenceReviewed} <time dateTime={date}>{formatted}</time>
+      {uiStrings.guide.evidenceReviewed}{uiStrings.typography.space}<time dateTime={date}>{formatted}</time>
     </span>
   );
 }
@@ -26,6 +26,7 @@ export function GuideSources({ sources, uiStrings }: { sources: GuideSource[]; u
     <Sources
       heading={uiStrings.guide.sources}
       expandLabel={uiStrings.guide.expand}
+      space={uiStrings.typography.space}
       sources={sources.map((s) => ({
         label: `${s.title} (${s.year})`,
         url: s.url,
