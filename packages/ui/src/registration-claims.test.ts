@@ -1295,6 +1295,27 @@ describe('round fifteen (U7): caffeine + L-theanine copy follows Owen 2008 and n
 // Separately, a JSX attribute in double quotes does not process escapes, so
 // a \' inside heroParagraph="..." rendered as a literal backslash (GCC memory
 // and aging heroes); no heroParagraph="..." may contain \'.
+//
+// Round sixteen, U5 (2026-10-12). Leftover L-theanine + caffeine superiority
+// claims: the L-theanine studySummary said RCTs and Camfield 2014 "show the
+// combination beats either compound alone", its benefits list "Better
+// attention with caffeine than caffeine alone", and the L-theanine/caffeine
+// stack notes and TruBrain's US record "more than either alone" / "than
+// caffeine alone". Camfield 2014 (PMID 24946991, 11 placebo-controlled
+// studies) compared the combination with placebo; Kahathuduwa 2016 (26869148)
+// found "No significant theanine × caffeine interaction" and "additive
+// effects"; Foxe 2012 (22326943) found "The combined treatment did not confer
+// any additional benefits over either compound alone". The trials we checked
+// used 50-250mg L-theanine with 40-250mg caffeine, so the stack notes no longer
+// give a 1:1 to 1.7:1 range. The US natural-Adderall-alternatives citicoline
+// card said "RCTs show attention benefits in healthy adults at
+// 250-500mg/day" and cited Spiers 1996 (8624220, "Citicoline improves verbal
+// memory in aging"); the Cochrane review (15846601) found "no evidence of a beneficial
+// effect of CDP-choline on attention", which is the card's citation now.
+// Performance Lab Mind's US record said Sharp-PS Green "targets the
+// FDA-qualified claim for cognitive decline"; it now gives the FDA's 13 May
+// 2003 wording. Rhodiola's FAQ asked "What does 3% rosavins / 1% salidroside
+// mean?" while its answer says the trials state no marker percentages.
 const ROUND_SIXTEEN_SOURCES = [
   ...ROUND_THIRTEEN_SOURCES,
   ...walk(resolve(REPO_ROOT, 'packages/ui/src/templates')),
@@ -1377,6 +1398,14 @@ const ROUND_SIXTEEN_UNSOURCED: RegExp[] = [
   /Phosphatidylserine supports transmission speed/i,
   /favorece la velocidad de transmisión/i,
   /combinación de concentración más rentable/i,
+  // U5: L-theanine + caffeine superiority, citicoline attention, PS FDA and
+  // the Rhodiola FAQ question listed below.
+  /beats either compound alone/i,
+  /more than either alone/i,
+  /than caffeine alone/i,
+  /RCTs show attention benefits in healthy adults/i,
+  /targets the FDA-qualified claim/i,
+  /What does 3% rosavins/i,
 ];
 
 // A double-quoted JSX attribute does not process escapes, so \' in one
@@ -1411,6 +1440,8 @@ describe('round sixteen: energy, stack, focus- and memory-page claims follow the
       'packages/data/src/products-au.json',
       'packages/data/src/products-ca.json',
       'packages/data/src/products-eu.json',
+      // U5
+      'apps/us/src/app/natural-adderall-alternatives/page.tsx',
     ]) expect(ROUND_SIXTEEN_SOURCES.some(p => relative(REPO_ROOT, p) === f), f).toBe(true);
   });
 
@@ -1500,6 +1531,15 @@ describe('round sixteen: energy, stack, focus- and memory-page claims follow the
       'Phosphatidylserine improves signal transduction speed across synapses.',
       'Phosphatidylserine mejora la velocidad de transducción de señales entre las sinapsis.',
       'café (o mate) + L-teanina (proporción 1:2) es la combinación de concentración más rentable y respaldada por evidencia.',
+      // U5
+      'With caffeine, RCTs (Haskell et al., 2007; Kahathuduwa 2016) and an 11-RCT meta-analysis (Camfield 2014) show the combination beats either compound alone on attention and reaction time.',
+      'Better attention with caffeine than caffeine alone',
+      'Trials used 200–250mg theanine with 150–160mg caffeine (roughly 1:1 to 1.7:1). The combination improved attention and reaction time more than either alone;',
+      'Trials used roughly 1:1 to 1.7:1 theanine:caffeine and found better attention than caffeine alone;',
+      'In trials, L-Theanine combined with caffeine improved attention and reaction time more than either alone,',
+      'No mechanistic overlap with Adderall, but RCTs show attention benefits in healthy adults at 250–500mg/day, and good tolerability profile alongside other ingredients.',
+      'Sharp-PS Green phosphatidylserine targets the FDA-qualified claim for cognitive decline and supports neuronal membrane fluidity.',
+      'What does 3% rosavins / 1% salidroside mean?',
     ];
     for (const s of removed) expect(ROUND_SIXTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(true);
     for (const re of ROUND_SIXTEEN_UNSOURCED) expect(removed.some(s => re.test(s)), String(re)).toBe(true);
@@ -1581,6 +1621,14 @@ describe('round sixteen: energy, stack, focus- and memory-page claims follow the
       'Phosphatidylserine is a phospholipid in neuronal cell membranes.',
       'Phosphatidylserine es un fosfolípido de las membranas de las neuronas.',
       'café (o mate) + L-teanina es un punto de partida sencillo: en Owen 2008 (PubMed 18681988), 50mg de cafeína con 100mg de L-teanina (una proporción 1:2) mejoraron la velocidad y la precisión',
+      // U5
+      'With caffeine, an 11-study meta-analysis (Camfield 2014) found moderate effects versus placebo on alertness and attention-switching accuracy; Kahathuduwa 2016 found additive effects with no interaction, and Foxe 2012 found no added benefit over either compound alone.',
+      'Better attention with caffeine than with placebo in several trials',
+      'The trials we cite used 50–250mg theanine with 40–250mg caffeine. Versus placebo, the combination improved attention measures in several trials, though Foxe 2012 found no added benefit over either compound alone;',
+      'In several trials, L-Theanine combined with caffeine improved attention measures versus placebo, though Foxe 2012 found no added benefit over either compound alone,',
+      'No mechanistic overlap with Adderall. Our citicoline page rates its attention evidence as mixed: the Cochrane review found no attention benefit, and the only acute attention trial in healthy adults gave it together with caffeine.',
+      "Sharp-PS Green phosphatidylserine supports neuronal membrane fluidity; the FDA allows only a qualified claim that phosphatidylserine may reduce the risk of dementia or cognitive dysfunction in the elderly, with the disclaimer that 'FDA concludes that there is little scientific evidence supporting this claim'.",
+      'What do rosavins and salidroside mean on a Rhodiola label?',
       // Attributed rationale that stays (not our claim).
       'The theory is synergistic optimisation across all cognitive systems simultaneously.',
       'work synergistically to support the function of mitochondria',
