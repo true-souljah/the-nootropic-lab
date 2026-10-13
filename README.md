@@ -37,8 +37,15 @@ CI runs the same matrix in parallel — see [`.github/workflows/build.yml`](.git
 
 ## Deploy
 
-Each region is wired to a dedicated Cloudflare Pages project. A push to `main`
-that touches `apps/{region}/**` triggers that region's Pages deploy.
+Each region has its own Cloudflare Pages project. Every push to `main` runs
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml), which builds
+all eight regions in parallel on GitHub runners and uploads each `out/` to its
+project with `wrangler pages deploy`, usually within a few minutes of the
+merge. Cloudflare's own git builds stay off ("automatic production branch
+deployments" and preview deployments disabled on every project): they share
+one build slot across the account, and production merges waited 30+ minutes
+there. Deploy a single region by hand with
+`gh workflow run deploy.yml -f region=<region>`.
 
 ## Affiliate links: UberNet (Performance Lab, Mind Lab Pro, Pre Lab Pro)
 
