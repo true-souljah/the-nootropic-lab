@@ -5,10 +5,10 @@ export interface CAProvince {
 }
 
 export const caProvinces: CAProvince[] = [
-  { slug: 'ontario', name: 'Ontario', note: 'Ontario is Canada\'s largest province by population. Health Canada-licensed retailers ship across the province.' },
-  { slug: 'british-columbia', name: 'British Columbia', note: 'Delivery estimates vary by brand and carrier, so check the estimate at checkout.' },
-  { slug: 'quebec', name: 'Quebec', note: 'Quebec buyers may prefer French-language customer support. Products ship in USD — verify exchange rates before ordering.' },
-  { slug: 'alberta', name: 'Alberta', note: 'Delivery estimates vary by brand and carrier, so check the estimate at checkout.' },
+  { slug: 'ontario', name: 'Ontario', note: 'Ontario is Canada\'s largest province by population. Delivery estimates vary by brand and carrier, so check the estimate at checkout.' },
+  { slug: 'british-columbia', name: 'British Columbia', note: 'Delivery estimates to British Columbia vary by brand and carrier, so check the estimate at checkout.' },
+  { slug: 'quebec', name: 'Quebec', note: 'Our Canada home page, best-of list and comparison tool are also available in French. Delivery estimates to Quebec vary by brand and carrier, so check the estimate at checkout.' },
+  { slug: 'alberta', name: 'Alberta', note: 'Delivery estimates to Alberta vary by brand and carrier, so check the estimate at checkout.' },
   { slug: 'manitoba', name: 'Manitoba', note: 'Delivery estimates to Manitoba vary by brand and carrier, so check the estimate at checkout.' },
   { slug: 'saskatchewan', name: 'Saskatchewan', note: 'Delivery estimates to Saskatchewan vary by brand and carrier, so check the estimate at checkout.' },
   { slug: 'nova-scotia', name: 'Nova Scotia', note: 'Delivery estimates to Nova Scotia vary by brand and carrier, so check the estimate at checkout.' },
