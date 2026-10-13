@@ -49,7 +49,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Citicolina (CDP-Colina)',
     ingredientSlugs: ['citicoline'],
     evidence:
-      'Donante de colina y fuente de uridina. En un ensayo con adultos de 50 a 85 años (Spiers 1996, PubMed 8624220), 1000mg al día durante 3 meses mejoraron el recuerdo diferido solo en quienes tenían una memoria relativamente ineficiente, y 2000mg al día mejoraron la memoria verbal en un ensayo cruzado posterior.',
+      'Donante de colina y fuente de uridina. En un ensayo con adultos de 50 a 85 años (Spiers 1996, PubMed 8624220), 1000mg al día durante 3 meses mejoraron el recuerdo diferido solo en quienes tenían una memoria relativamente ineficiente, y en un ensayo cruzado posterior con 32 de esos participantes, 2000mg al día durante 2 meses mejoraron el recuerdo inmediato y diferido.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
 ];
@@ -78,7 +78,7 @@ const picks: ListiclePick[] = [
 const faqItems: ListicleFAQ[] = [
   {
     q: '¿Qué ingredientes nootrópicos tienen evidencia de ensayos para la memoria?',
-    a: 'Bacopa Monnieri: en una revisión sistemática de seis ensayos aleatorizados de 12 semanas con 300–450mg de extracto al día (Pase 2012, PubMed 22747190), mejoró 9 de 17 pruebas de recuerdo libre de memoria, y los autores escriben que la investigación "is in its infancy", es decir, que está en sus inicios. Para la fosfatidilserina, la FDA solo permite una declaración calificada de que "may reduce the risk of cognitive dysfunction in the elderly", seguida de "FDA concludes that there is little scientific evidence supporting this claim" (carta de la FDA, 13 de mayo de 2003): es decir, que puede reducir el riesgo de disfunción cognitiva en personas mayores, aunque la FDA concluye que hay poca evidencia científica que la respalde. La citicolina mejoró la memoria verbal en adultos mayores con memoria ineficiente en un ensayo (Spiers 1996, PubMed 8624220).',
+    a: 'Bacopa Monnieri: en una revisión sistemática de seis ensayos aleatorizados de 12 semanas con 300–450mg de extracto al día (Pase 2012, PubMed 22747190), mejoró 9 de 17 pruebas de recuerdo libre de memoria, y los autores escriben que la investigación "is in its infancy", es decir, que está en sus inicios. Para la fosfatidilserina, la FDA solo permite declaraciones calificadas, como que "may reduce the risk of cognitive dysfunction in the elderly", seguida de "FDA concludes that there is little scientific evidence supporting this claim" (carta de la FDA, 13 de mayo de 2003): es decir, que puede reducir el riesgo de disfunción cognitiva en personas mayores, aunque la FDA concluye que hay poca evidencia científica que la respalde. La citicolina mejoró la memoria verbal en adultos mayores con memoria ineficiente en un ensayo (Spiers 1996, PubMed 8624220).',
   },
   {
     q: '¿Cuánto tardan en hacer efecto los nootrópicos para memoria?',
