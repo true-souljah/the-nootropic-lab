@@ -7,10 +7,27 @@
 // can be read from the vendor's own words (a stated supply such as
 // "45-day supply" or "1 Month", or a pack count with the label's serving size,
 // one serving a day — the rules #341 approved, in vendor-price.ts quoteSupply).
-// The per-month figure is worked out at render time from the stored verbatim
+// Cost per serving (pack price ÷ the servings its own count states) and per
+// day (÷ a stated supply length, or × the directions' daily dose) follow the
+// same rule: only from the vendor's words, refused when they are missing or
+// disagree.
+// Every derived figure is worked out at render time from the stored verbatim
 // text, in the same currency, so nothing derived is stored that could drift.
 import type { Product, StorePrice } from './products-us';
-import { parseQuotedPrices, quoteSupply, currencyDigits, isFromPrice, DAYS_PER_MONTH } from './vendor-price';
+import {
+  parseQuotedPrices,
+  quoteSupply,
+  packServings,
+  statedSupplyDays,
+  dailyServings,
+  currencyDigits,
+  isFromPrice,
+  roundTo,
+  DAYS_PER_MONTH,
+  SERVINGS_PER_DAY,
+  EXERCISE_TIMED,
+  type PackServings,
+} from './vendor-price';
 
 export type { StorePrice } from './products-us';
 
@@ -36,23 +53,88 @@ export function formatMoney(money: Money, locale: string): string {
 
 export type StoreSupply = { ok: true; monthsOfSupply: number; basis: string } | { ok: false; reason: string };
 
-/** Use timed to exercise, not to the day: such a product's servings are not days. */
-const EXERCISE_TIMED = /\bbefore\s+(?:exercise|(?:your\s+)?workouts?|training)\b/i;
+/** Record fields the store-price derivations read. */
+type SupplyProduct = Pick<Product, 'storePrice' | 'servingsPerContainer' | 'capsulesPerServing' | 'form'>;
+
+/** The vendor's supply and pack wording as one quote, read alike by storeSupply and servingsInPack. */
+const storeQuote = (sp: StorePrice): string => [sp.supply, sp.pack].filter(Boolean).join(' | ');
 
 /** How many months one pack lasts, read from the vendor's own supply/pack wording. */
-export function storeSupply(product: Pick<Product, 'storePrice' | 'servingsPerContainer' | 'capsulesPerServing' | 'form'>): StoreSupply {
+export function storeSupply(product: SupplyProduct): StoreSupply {
   const sp = product.storePrice;
   if (!sp) return { ok: false, reason: 'no store price' };
   if (!sp.supply && sp.directions && EXERCISE_TIMED.test(sp.directions)) {
     return { ok: false, reason: `the vendor says to take it ${sp.directions.match(EXERCISE_TIMED)![0]}, so a serving is not a day` };
   }
-  return quoteSupply([sp.supply, sp.pack].filter(Boolean).join(' | '), product);
+  // A daily dose the directions state plainly sets the servings a day; otherwise one a day.
+  const daily = dailyServings(sp.directions, product);
+  return quoteSupply(storeQuote(sp), product, daily.ok ? daily.perDay : SERVINGS_PER_DAY);
+}
+
+/** Servings in the store's pack, from the vendor's own count (never from a supply length). */
+export function servingsInPack(product: SupplyProduct): PackServings {
+  const sp = product.storePrice;
+  if (!sp) return { ok: false, reason: 'no store price' };
+  return packServings(storeQuote(sp), product);
+}
+
+/** An amount rounded half-up to the currency's minor unit (64.95 / 30 → 2.17; JPY to whole yen). */
+export function roundMoney(amount: number, currency: string): number {
+  return roundTo(amount, currencyDigits(currency));
+}
+
+/** A derived store price (same currency as the pack price) with its basis, or why there is none. */
+export type StoreUnitPrice = ({ ok: true; basis: string } & Money) | { ok: false; reason: string };
+
+function unitPrice(amount: number, currency: string, basis: string): StoreUnitPrice {
+  const rounded = roundMoney(amount, currency);
+  if (!(rounded > 0)) return { ok: false, reason: `rounds to zero in ${currency}` };
+  return { ok: true, amount: rounded, currency, basis };
+}
+
+/** The store price per serving: pack price ÷ the servings the vendor's pack count states. */
+export function perServingStorePrice(product: SupplyProduct): StoreUnitPrice {
+  const sp = product.storePrice;
+  if (!sp) return { ok: false, reason: 'no store price' };
+  const pack = servingsInPack(product);
+  if (!pack.ok) return pack;
+  return unitPrice(sp.amount / pack.servings, sp.currency, `${pack.basis} = ${roundTo(pack.servings, 4)} servings`);
+}
+
+/**
+ * The store price per day, from either vendor statement: (A) a stated supply
+ * length (`storePrice.supply`: "45-day supply", "1-MONTH SUPPLY" = 30 days,
+ * "30日分") → price ÷ days; (B) directions with one plain daily dose → price ×
+ * servings a day ÷ servings in the pack. Both present → they must agree within
+ * one minor unit (the figure is A's). Refused whenever storeSupply refuses: a
+ * pack whose own wording does not add up has no per-month figure, and no
+ * per-day one either.
+ */
+export function perDayStorePrice(product: SupplyProduct): StoreUnitPrice {
+  const sp = product.storePrice;
+  if (!sp) return { ok: false, reason: 'no store price' };
+  const supply = storeSupply(product);
+  if (!supply.ok) return supply;
+  const sources: { amount: number; basis: string }[] = [];
+  const refused: string[] = [];
+  const stated = sp.supply ? statedSupplyDays(sp.supply) : { ok: false as const, reason: 'no supply length stated' };
+  if (stated.ok) sources.push({ amount: sp.amount / stated.days, basis: `${stated.basis} = ${stated.days} days` });
+  else refused.push(`supply: ${stated.reason}`);
+  const daily = dailyServings(sp.directions, product);
+  const pack = servingsInPack(product);
+  if (!daily.ok) refused.push(`directions: ${daily.reason}`);
+  else if (!pack.ok) refused.push(`pack: ${pack.reason}`);
+  else sources.push({ amount: (sp.amount * daily.perDay) / pack.servings, basis: `${daily.basis} = ${daily.perDay} of ${roundTo(pack.servings, 4)} servings` });
+  if (sources.length === 0) return { ok: false, reason: refused.join('; ') };
+  const minorUnit = 10 ** -currencyDigits(sp.currency);
+  if (sources.length === 2 && Math.abs(sources[0].amount - sources[1].amount) > minorUnit + 1e-9) {
+    return { ok: false, reason: `supply and directions disagree (${sources.map((s) => s.basis).join(' vs ')})` };
+  }
+  return unitPrice(sources[0].amount, sp.currency, sources.map((s) => s.basis).join('; '));
 }
 
 /** The store price per month (same currency), or null when the pack's supply is not stated. */
-export function monthlyStorePrice(
-  product: Pick<Product, 'storePrice' | 'servingsPerContainer' | 'capsulesPerServing' | 'form'>,
-): (Money & { basis: string }) | null {
+export function monthlyStorePrice(product: SupplyProduct): (Money & { basis: string }) | null {
   const sp = product.storePrice;
   if (!sp) return null;
   const supply = storeSupply(product);

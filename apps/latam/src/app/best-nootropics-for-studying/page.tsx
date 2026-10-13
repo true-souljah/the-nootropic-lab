@@ -104,7 +104,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: '¿Es suficiente el café solo para estudiar?',
-    a: 'Para la mayoría de los estudiantes en Latam, café (o mate) + L-teanina (proporción 1:2) es la combinación de concentración más rentable y respaldada por evidencia. Los suplementos de esta página añaden ingredientes para consolidación de memoria (Bacopa, citicolina) por encima, lo que se traduce en mejor retención del material estudiado durante el cuatrimestre.',
+    a: 'Para la mayoría de los estudiantes en Latam, café (o mate) + L-teanina es un punto de partida sencillo: en Owen 2008 (PubMed 18681988), 50mg de cafeína con 100mg de L-teanina (una proporción 1:2) mejoraron la velocidad y la precisión en una tarea de alternancia de la atención. Los suplementos de esta página añaden ingredientes para la consolidación de la memoria (Bacopa, citicolina); no citamos ningún ensayo de ellos combinados con cafeína + L-teanina.',
   },
 ];
 

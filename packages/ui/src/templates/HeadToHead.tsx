@@ -196,6 +196,7 @@ export default function HeadToHead({
   // A discontinued product has no current price and must never read as the
   // cheaper (winning) option.
   const priceCell = (p: Product) => (p.discontinued ? '—' : priceText(p, uiStrings)?.short ?? '—');
+  const perServingCell = (p: Product) => (p.discontinued ? '—' : priceText(p, uiStrings)?.perServing ?? '—');
   // Cheaper only between two per-month figures in one currency: prices are
   // never converted, and pack prices of different sizes do not compare.
   const monthlyA = productA.discontinued ? null : priceText(productA, uiStrings)?.monthlyMoney ?? null;
@@ -211,6 +212,13 @@ export default function HeadToHead({
       a: priceCell(productA),
       b: priceCell(productB),
       winner: priceWinner,
+    },
+    {
+      label: uiStrings.productDetail.stats.perServingLabel,
+      a: perServingCell(productA),
+      b: perServingCell(productB),
+      // No winner: one product's serving is not another's.
+      winner: 'tie',
     },
     {
       label: s.servingSize,

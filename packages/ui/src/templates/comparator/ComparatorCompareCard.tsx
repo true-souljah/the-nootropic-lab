@@ -72,6 +72,7 @@ export function ComparatorCompareCard({ selectedProducts, uiStrings, onClear }: 
             <dl className="mt-3 text-[12px] text-ds-ink-soft m-0">
               {[
                 [pd.stats.price, priceText(p, uiStrings)?.short ?? '—'],
+                [pd.stats.perServingLabel, priceText(p, uiStrings)?.perServing ?? '—'],
                 [cs.daily, servingAmount(p, uiStrings)],
                 [pd.stats.moneyBack, guaranteeDays(p.moneyBackDays, (d) => tpl(pd.stats.daysCount, { days: d }))],
                 [cs.caffeine, p.caffeineFree ? cs.caffeineFree : uiStrings.table.yes],

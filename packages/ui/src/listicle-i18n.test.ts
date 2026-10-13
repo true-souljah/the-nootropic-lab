@@ -100,9 +100,12 @@ describe('Listicle strings are complete in every locale', () => {
     expect(s.useCaseLabels).toEqual({});
   });
 
-  it('the monthly unit the price line renders has no leading slash in any locale (a "/"-led string in the RSC payload is crawled as a URL)', () => {
+  it('the price units the price lines render have no leading slash in any locale (a "/"-led string in the RSC payload is crawled as a URL)', () => {
     for (const locale of ['en', 'es', 'fr', 'fr-CA', 'de', 'pt', 'ja'] as const) {
-      expect(getStrings(locale).productDetail.stats.monthUnit, locale).not.toMatch(/^\//);
+      const { monthUnit, perServingUnit, perDayUnit } = getStrings(locale).productDetail.stats;
+      expect(monthUnit, locale).not.toMatch(/^\//);
+      expect(perServingUnit, locale).not.toMatch(/^\//);
+      expect(perDayUnit, locale).not.toMatch(/^\//);
     }
   });
 });

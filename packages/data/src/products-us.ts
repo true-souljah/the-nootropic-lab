@@ -63,8 +63,9 @@ export interface VendorTerms {
  * 2026-10-09: vendor-stated prices only, never a currency conversion).
  * Everything here is verbatim page text except `amount`/`currency`, which
  * must equal the one price `text` states (store-price.ts storePriceProblems).
- * The per-month figure is computed at render time from `supply`/`pack`
- * (store-price.ts monthlyStorePrice); it is never stored.
+ * The per-month, per-serving and per-day figures are computed at render time
+ * from `supply`/`pack`/`directions` (store-price.ts monthlyStorePrice,
+ * perServingStorePrice, perDayStorePrice); they are never stored.
  */
 export interface StorePrice {
   amount: number;

@@ -427,6 +427,9 @@ describe('JP pages render their chrome in Japanese', () => {
       expect(comparator).toContain(s);
     }
     expectNoEnglishChrome(comparator, 'JP comparator');
+    // The per-serving column (main, 2026-10-13) is headed in the page language.
+    expect(comparator).toContain(`>${ja.productDetail.stats.perServingLabel}</div>`);
+    expect(visible(comparator)).not.toMatch(/Per serving|Per day/i);
   });
 });
 
@@ -485,6 +488,9 @@ describe('LATAM pages render their chrome in Spanish', () => {
       expect(comparator).toContain(s);
     }
     expectNoEnglishChrome(comparator, 'LATAM comparator');
+    // The per-serving column (main, 2026-10-13) is headed in the page language.
+    expect(comparator).toContain(`>${es.productDetail.stats.perServingLabel}</div>`);
+    expect(visible(comparator)).not.toMatch(/Per serving|Per day/i);
     const best = await renderPage('latam', 'best-nootropics');
     for (const s of [es.bestOf.stats.recommended, es.bestOf.rank, es.productDetail.breadcrumbBestOf]) expect(best).toContain(s);
     expectNoEnglishChrome(best, 'LATAM best-of');

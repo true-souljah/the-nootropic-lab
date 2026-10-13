@@ -229,7 +229,7 @@ export default function Page() {
                 <tr className="bg-gray-50">
                   <td className="px-3 py-2 font-medium text-gray-900">Healthy-adult focus</td>
                   <td className="px-3 py-2 text-gray-700">Off-label; ethical + legal concerns; cognitive enhancement studied but disputed</td>
-                  <td className="px-3 py-2 text-gray-700">Caffeine + L-theanine — well-replicated</td>
+                  <td className="px-3 py-2 text-gray-700">Caffeine + L-theanine — several placebo-controlled trials (Owen 2008)</td>
                 </tr>
                 <tr className="bg-white">
                   <td className="px-3 py-2 font-medium text-gray-900">Long-term memory</td>

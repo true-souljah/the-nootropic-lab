@@ -2,7 +2,7 @@
 // download triggers a DOM operation, but the function itself is safe
 // to call from anywhere — guards `document` access).
 
-import { servingAmount, guaranteeDaysValue, monthlyStorePrice } from '@nootropic/data';
+import { servingAmount, guaranteeDaysValue, monthlyStorePrice, perServingStorePrice } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SortKey, SortDir, Goal, Grade } from './constants';
 import { MAX_SELECTED } from './constants';
@@ -132,11 +132,16 @@ export function exportRowsToCsv(rows: Product[], strings: UIStrings): void {
     'Currency',
     'Pack',
     'Approx. per month',
+    'Approx. per serving',
     'Daily serving',
     'MBG days',
     'Trustpilot',
     'Best for',
   ];
+  const perServingAmount = (p: Product) => {
+    const s = perServingStorePrice(p);
+    return s.ok ? s.amount : '';
+  };
   const lines = rows.map((p, i) => [
     i + 1,
     p.name,
@@ -146,6 +151,7 @@ export function exportRowsToCsv(rows: Product[], strings: UIStrings): void {
     p.storePrice?.currency ?? '',
     p.storePrice?.pack ?? '',
     monthlyStorePrice(p)?.amount ?? '',
+    perServingAmount(p),
     servingAmount(p, strings),
     guaranteeDaysValue(p.moneyBackDays),
     p.trustpilotScore ?? '',

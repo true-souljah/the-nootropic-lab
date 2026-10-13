@@ -25,18 +25,18 @@ export const metadata: Metadata = {
 
 const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
-    name: 'L-Teanina + Cafeína (proporción 1:2 a 2:1)',
+    name: 'L-Teanina + Cafeína',
     ingredientSlugs: ['l-theanine', 'caffeine'],
     evidence:
-      'Uno de los hallazgos cognitivos mejor replicados: la L-teanina combinada con cafeína mejora la atención y reduce la fatiga mental, con una sensación subjetiva de concentración más estable que la cafeína sola. Eficaz a 100–200mg de L-teanina + 100mg de cafeína. En Latam la cafeína proviene fácilmente de un café local, por lo que basta con un suplemento sin cafeína que aporte L-teanina.',
+      'En ensayos controlados en adultos sanos, la combinación mejoró la precisión al alternar la atención entre tareas (Owen 2008: 100mg de L-teanina con 50mg de cafeína; Giesbrecht 2010, PubMed 21040626: 97mg con 40mg) y las puntuaciones de fatiga mental (Haskell 2007, PubMed 18006208: 250mg con 150mg). Foxe 2012 (PubMed 22326943) no encontró ningún beneficio adicional frente a cada compuesto por separado. En Latam la cafeína proviene fácilmente de un café local, por lo que basta con un suplemento sin cafeína que aporte L-teanina.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
   },
   {
     name: 'Citicolina (CDP-Colina)',
     ingredientSlugs: ['citicoline'],
     evidence:
-      'Donante de colina y fuente de uridina que apoya la síntesis de fosfolípidos y la producción de acetilcolina. Múltiples ensayos clínicos muestran beneficios en atención y esfuerzo cognitivo en adultos sanos a 250–500mg/día. Cognizin es la forma estandarizada que usan la mayoría de los productos importados.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
+      'Donante de colina y fuente de uridina que apoya la síntesis de fosfolípidos y la producción de acetilcolina. Nuestra página sobre la citicolina califica como mixta su evidencia sobre la atención: la revisión Cochrane no encontró evidencia de un beneficio en la atención en adultos mayores con trastornos cerebrales crónicos, y el ensayo agudo sobre atención en adultos sanos que citamos la administró junto con cafeína. Cognizin es la forma estandarizada que usan la mayoría de los productos importados.',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/15846601/',
   },
   {
     name: 'L-Tirosina (o NALT)',
@@ -59,7 +59,7 @@ const picks: ListiclePick[] = [
     product: productsLatam.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Fórmula abierta con 100mg de L-teanina + 250mg de citicolina Cognizin a dosis clínicamente validadas. El diseño sin cafeína permite combinarlo con tu café o mate local para lograr el efecto sinérgico. Confirma en el checkout si la marca envía a tu país. Los aranceles de importación y el despacho aduanero corren por cuenta del comprador; los argentinos deben verificar que su tarjeta procese cargos en USD pese al control cambiario.',
+      'Fórmula abierta con 100mg de L-teanina + 250mg de citicolina Cognizin a dosis clínicamente validadas. El diseño sin cafeína permite combinarlo con tu café o mate local si quieres cafeína junto a su L-teanina. Confirma en el checkout si la marca envía a tu país. Los aranceles de importación y el despacho aduanero corren por cuenta del comprador; los argentinos deben verificar que su tarjeta procese cargos en USD pese al control cambiario.',
   },
   {
     product: productsLatam.find(p => p.slug === 'qualia-mind-review')!,
@@ -77,8 +77,8 @@ const picks: ListiclePick[] = [
 
 const faqItems: ListicleFAQ[] = [
   {
-    q: '¿Cuál es el nootrópico para concentración con más evidencia?',
-    a: 'L-teanina combinada con cafeína (proporción 1:2 a 2:1) tiene la evidencia más replicada en adultos sanos — Owen et al. 2008 y múltiples seguimientos. Citicolina a 250–500mg también cuenta con varios ensayos clínicos. Los suplementos de un solo ingrediente que prometen "concentración potente" sin estos componentes suelen estar sobrevalorados por marketing.',
+    q: '¿Qué ingredientes nootrópicos tienen evidencia de ensayos para la concentración?',
+    a: 'L-teanina con cafeína: en ensayos en adultos sanos la combinación mejoró la precisión al alternar la atención entre tareas (Owen 2008, 100mg de L-teanina con 50mg de cafeína; Giesbrecht 2010, PubMed 21040626, 97mg con 40mg), aunque Foxe 2012 (PubMed 22326943) no encontró ningún beneficio adicional frente a cada compuesto por separado. Nuestra página sobre la citicolina califica como mixta su evidencia sobre la atención: el ensayo agudo sobre atención en adultos sanos que citamos la administró junto con cafeína. Los suplementos de un solo ingrediente que prometen "concentración potente" sin estos componentes suelen estar sobrevalorados por marketing.',
   },
   {
     q: '¿Cuánto tarda en hacer efecto un nootrópico de concentración?',

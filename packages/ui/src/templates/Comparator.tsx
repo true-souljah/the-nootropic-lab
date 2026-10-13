@@ -124,6 +124,8 @@ export default function Comparator({
     return only === 'JPY' ? null : only;
   }, [products, monthlyOf]);
   const canSortPrice = useMemo(() => priceSortable(products), [products]);
+  // The per-serving column (display-only) shows when any product has the figure.
+  const hasPerServing = useMemo(() => products.some((p) => prices.get(p.slug)?.perServing), [products, prices]);
 
   const rows = useMemo(() => {
     let r = products.filter((p) => {
@@ -300,7 +302,7 @@ export default function Comparator({
               role="grid"
               aria-label={cs.gridLabel}
               aria-rowcount={rows.length + 1}
-              className="min-w-[1024px]"
+              className={hasPerServing ? 'min-w-[1124px]' : 'min-w-[1024px]'}
             >
             {/* Header */}
             <div
@@ -309,6 +311,8 @@ export default function Comparator({
               className="flex border-b border-ds-border bg-ds-card-sub text-[11px] text-ds-muted uppercase tracking-[0.08em] font-bold"
             >
               {COLUMNS.map((c) => {
+                if (c.perServing && !hasPerServing) return null;
+                const label = c.perServing ? uiStrings.productDetail.stats.perServingLabel : columnHeader(c.label, cs);
                 // No price sort across currencies (prices are never converted).
                 const key = c.key === 'price' && !canSortPrice ? null : c.key;
                 const headerProps = key
@@ -332,7 +336,7 @@ export default function Comparator({
                   : { role: 'columnheader' as const };
                 return (
                   <div
-                    key={c.label || `spacer-${c.width}`}
+                    key={c.perServing ? 'perServing' : c.label || `spacer-${c.width}`}
                     {...headerProps}
                     style={{
                       flex: `0 0 ${c.width}px`,
@@ -342,7 +346,7 @@ export default function Comparator({
                       key === sortKey ? 'text-ds-accent' : ''
                     }`}
                   >
-                    {`${columnHeader(c.label, cs)}${arrow(key)}`}
+                    {`${label}${arrow(key)}`}
                   </div>
                 );
               })}
@@ -453,6 +457,15 @@ export default function Comparator({
                         );
                       })()}
                     </div>
+                    {hasPerServing && (
+                      <div
+                        role="gridcell"
+                        className="px-[14px] py-3 text-right text-ds-ink-soft ds-tabular"
+                        style={{ flex: '0 0 100px' }}
+                      >
+                        {prices.get(p.slug)?.perServing ?? '—'}
+                      </div>
+                    )}
                     <div
                       role="gridcell"
                       className={`px-[14px] py-3 text-right ds-tabular ${

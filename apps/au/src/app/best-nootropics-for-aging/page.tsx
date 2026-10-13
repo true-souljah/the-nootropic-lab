@@ -28,14 +28,14 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Phosphatidylserine (PS)',
     ingredientSlugs: ['phosphatidylserine'],
     evidence:
-      'Phospholipid component of brain cell membranes. Multiple RCTs in 50–80-year-olds at 100–300mg/day show improvements in memory, processing speed, and cognitive complaints. The strongest age-related cognitive evidence in this category. PS is listed for TGA Listed Medicines as soy phosphatidylserine-enriched soy lecithin (liquid or powder), an active ingredient whose maximum recommended daily dose must not provide more than 300 mg of soy phosphatidylserine (Therapeutic Goods (Permissible Ingredients) Determination (No. 2) 2026, F2026L00707, as compiled 17 September 2026 — Compilation No. 1, F2026C00940 — Schedule 1 items 4689 and 4690; checked 2026-10-08); the PS-containing products ranked here (Mind Lab Pro, Qualia Mind) are sold direct to Australian buyers by their brands.',
+      'Phospholipid component of brain cell membranes. RCTs in older adults at 100–300mg a day report memory benefits, though often only in subgroups (see our phosphatidylserine page). PS is listed for TGA Listed Medicines as soy phosphatidylserine-enriched soy lecithin (liquid or powder), an active ingredient whose maximum recommended daily dose must not provide more than 300 mg of soy phosphatidylserine (Therapeutic Goods (Permissible Ingredients) Determination (No. 2) 2026, F2026L00707, as compiled 17 September 2026 — Compilation No. 1, F2026C00940 — Schedule 1 items 4689 and 4690; checked 2026-10-08); the PS-containing products ranked here (Mind Lab Pro, Qualia Mind) are sold direct to Australian buyers by their brands.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {
     name: 'Citicoline (CDP-Choline) — older-adult memory',
     ingredientSlugs: ['citicoline'],
     evidence:
-      'RCTs in older adults with subjective cognitive complaints show improvements in verbal memory and processing speed at 250–500mg/day for 12+ weeks. Cognizin is the standardised form most products use. Imported under the Personal Importation Scheme.',
+      'In one trial in adults aged 50–85 (Spiers 1996, PubMed 8624220), 1,000mg a day for 3 months improved delayed recall only in those with relatively inefficient memories, and in a follow-up crossover of 32 of those participants, 2,000mg a day for 2 months improved immediate and delayed recall. Cognizin is the standardised form most products use. Imported under the Personal Importation Scheme.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
   {
@@ -49,7 +49,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Bacopa Monnieri',
     ingredientSlugs: ['bacopa-monnieri'],
     evidence:
-      'Multiple RCTs across age groups show memory consolidation benefits, with studies specifically in older adults showing retention and recall improvements after 8–12 weeks at 300mg standardised to 50% bacosides. Bacopa is permitted in TGA Listed Medicines (Permissible Ingredients Determination, Schedule 1 item 754; checked 2026-10-08), so Australian seniors have AUST L-listed Bacopa options at any pharmacy (Nature\'s Own Brahmi, Swisse Memory & Focus).',
+      'In a systematic review of six 12-week trials (Pase 2012, PubMed 22747190), Bacopa improved 9 of 17 memory free-recall tests; in adults aged 65 and over (Calabrese 2008, PubMed 18611150), 300mg a day for 12 weeks improved delayed word recall after controlling for baseline cognitive deficit. Bacopa is permitted in TGA Listed Medicines (Permissible Ingredients Determination, Schedule 1 item 754; checked 2026-10-08), so Australian seniors have AUST L-listed Bacopa options at any pharmacy (Nature\'s Own Brahmi, Swisse Memory & Focus).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22747190/',
   },
   {
