@@ -24,18 +24,18 @@ export const metadata: Metadata = {
 
 const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
-    name: 'L-Theanine + Caffeine (1:2 to 2:1 ratio)',
+    name: 'L-Theanine + Caffeine',
     ingredientSlugs: ['l-theanine', 'caffeine'],
     evidence:
-      'Among the best-replicated cognitive findings: L-theanine paired with caffeine improves attention switching and reduces mental fatigue, with smoother subjective focus than caffeine alone. Effective at 100–200mg L-theanine + 75–100mg caffeine. No caffeine alertness or attention claim is authorised in the EU: the European Food Safety Authority (EFSA) assessed a ≥75mg alertness claim favourably in 2011, but the European Commission never authorised it, and caffeine is not on the Regulation (EU) No 432/2012 list.',
+      'In controlled trials in healthy adults, the pair improved attention-switching accuracy (Owen 2008: 100mg L-theanine with 50mg caffeine; Giesbrecht 2010, PubMed 21040626: 97mg with 40mg) and ratings of mental fatigue (Haskell 2007, PubMed 18006208: 250mg with 150mg). Foxe 2012 (PubMed 22326943) found no added benefit over either compound alone. No caffeine alertness or attention claim is authorised in the EU: the European Food Safety Authority (EFSA) assessed a ≥75mg alertness claim favourably in 2011, but the European Commission never authorised it, and caffeine is not on the Regulation (EU) No 432/2012 list.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
   },
   {
     name: 'Citicoline (CDP-Choline)',
     ingredientSlugs: ['citicoline'],
     evidence:
-      'Choline donor + uridine source that supports phospholipid synthesis and acetylcholine production. Multiple RCTs show attention and cognitive-effort benefits in healthy adults at 250–500mg/day. Cognizin is the standardised form most EU products use. Citicoline has Novel Food authorisation in the EU.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
+      'Choline donor + uridine source that supports phospholipid synthesis and acetylcholine production. Our citicoline page rates its attention evidence as mixed: the Cochrane review found no evidence of an attention benefit in older adults with chronic cerebral disorders, and the acute attention trial in healthy adults that we cite gave it together with caffeine. Cognizin is the standardised form most EU products use. Citicoline has Novel Food authorisation in the EU.',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/15846601/',
   },
   {
     name: 'L-Tyrosine (or NALT)',
@@ -58,7 +58,7 @@ const picks: ListiclePick[] = [
     product: productsEU.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses, plus L-tyrosine. Caffeine-free design lets you pair it with your own coffee or matcha for the synergistic effect. Priced in euros on the brand\'s EU store, with EU orders shipped from a European depot per the brand — the strongest EU-storefront focus pick in our coverage.',
+      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses, plus L-tyrosine. Caffeine-free design lets you pair it with your own coffee or matcha if you want caffeine alongside its L-theanine. Priced in euros on the brand\'s EU store, with EU orders shipped from a European depot per the brand — the strongest EU-storefront focus pick in our coverage.',
   },
   {
     product: productsEU.find(p => p.slug === 'brainzyme-focus-pro-review')!,
@@ -76,8 +76,8 @@ const picks: ListiclePick[] = [
 
 const faqItems: ListicleFAQ[] = [
   {
-    q: 'What is the most evidence-backed nootropic for focus available in the EU?',
-    a: 'L-theanine paired with caffeine (1:2 to 2:1 ratio) has the strongest replication evidence in healthy adults — Owen et al. 2008 and multiple follow-ups. That is trial evidence, not a label claim: no caffeine alertness claim is authorised in the EU. Citicoline at 250–500mg also has multiple RCTs and Novel Food authorisation. Single-ingredient supplements claiming "powerful focus" without these are typically over-marketed.',
+    q: 'Which nootropic ingredients have trial evidence for focus available in the EU?',
+    a: 'L-theanine with caffeine: in trials in healthy adults the pair improved attention-switching accuracy (Owen 2008, 100mg L-theanine with 50mg caffeine; Giesbrecht 2010, PubMed 21040626, 97mg with 40mg), though Foxe 2012 (PubMed 22326943) found no added benefit over either compound alone. That is trial evidence, not a label claim: no caffeine alertness claim is authorised in the EU. Our citicoline page rates its attention evidence as mixed: the acute attention trial in healthy adults that we cite gave it together with caffeine. Citicoline has Novel Food authorisation in the EU. Single-ingredient supplements claiming "powerful focus" without these are typically over-marketed.',
   },
   {
     q: 'How long does it take a focus nootropic to work?',

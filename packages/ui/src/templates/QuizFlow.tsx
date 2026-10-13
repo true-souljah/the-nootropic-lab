@@ -27,7 +27,7 @@ export interface QuizFlowProps {
 const GOALS: Array<{ id: QuizGoal; desc: string }> = [
   { id: 'Focus', desc: 'Sharper attention during deep work' },
   { id: 'Memory', desc: 'Better recall + long-term retention' },
-  { id: 'Energy', desc: 'Sustained drive without the crash' },
+  { id: 'Energy', desc: 'Sustained drive through long days' },
   { id: 'Mood', desc: 'Stress + emotional regulation' },
   { id: 'Sleep recovery', desc: 'Restorative sleep + next-day clarity' },
   { id: 'Aging support', desc: 'Long-term brain health' },
