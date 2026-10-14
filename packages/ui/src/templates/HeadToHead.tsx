@@ -24,6 +24,7 @@ import {
 import type { SearchItem } from '../SearchModal';
 import { DoseVerdictMark } from '../primitives/DoseVerdictMark';
 import { priceText } from '../price-text';
+import DisclaimerText from '../DisclaimerText';
 import { scoreTier, type ScoreTier } from './listicleRanking';
 
 /** Colour of the big score numeral per SCORE_TIERS tier. */
@@ -325,7 +326,7 @@ export default function HeadToHead({
             className="bg-ds-warn-soft border-l-4 border-ds-warn rounded-r-[8px] p-4 mt-5 text-[13px] text-ds-warn-ink"
           >
             <strong className="block mb-1">Health &amp; regulatory note</strong>
-            {healthDisclaimer}
+            <DisclaimerText text={healthDisclaimer} />
           </aside>
         )}
 

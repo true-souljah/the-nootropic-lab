@@ -3,13 +3,14 @@ import {
   pickKlaroLang,
   detectActiveLang,
   applyActiveLangToKlaroConfig,
+  LOCALE_WRAPPER_SELECTOR,
 } from './klaro-lang';
 import { klaroConfig } from './klaro-config';
 
 // Tests for the Klaro locale helpers added in PR-Q13 (#77). Before this
 // PR, Klaro's consent banner used `<html lang>` to pick a translation
 // bundle. Every region's root layout sets a single hardcoded `<html
-// lang>` (CA = en, LATAM = es, JP = ja, etc.) so nested-locale paths
+// lang>` (CA = en, LATAM = es, JP = en, etc.) so nested-locale paths
 // like CA `/fr/*`, EU `/de/*`, US `/es/*` saw English Klaro UI on top
 // of the localized page content — a WCAG 3.1.2 violation on the first
 // interactive element a user encounters.
@@ -83,9 +84,25 @@ function makeDom(htmlLang: string | undefined, innerLang: string | null) {
   return {
     documentElement: { lang: htmlLang },
     querySelector: (selector: string) =>
-      selector === '[lang]:not(html)' && innerLang !== null
+      selector === LOCALE_WRAPPER_SELECTOR && innerLang !== null
         ? { getAttribute: (name: string) => (name === 'lang' ? innerLang : null) }
         : null,
+  };
+}
+
+// A body in document order: each element's tag and lang. querySelector answers
+// the two selectors that matter — the locale wrapper (`div[lang]`) and any
+// lang carrier (`[lang]:not(html)`) — the way a browser would.
+function makeBodyDom(htmlLang: string, body: { tag: string; lang?: string }[]) {
+  const hit = (el: { tag: string; lang?: string } | undefined) =>
+    el ? { getAttribute: (name: string) => (name === 'lang' ? el.lang ?? null : null) } : null;
+  return {
+    documentElement: { lang: htmlLang },
+    querySelector: (selector: string) => {
+      if (selector === 'div[lang]') return hit(body.find((el) => el.tag === 'div' && el.lang));
+      if (selector === '[lang]:not(html)') return hit(body.find((el) => el.lang));
+      throw new Error(`makeBodyDom: unsupported selector ${selector}`);
+    },
   };
 }
 
@@ -108,6 +125,33 @@ describe('detectActiveLang — DOM-based locale detection', () => {
     // the contract.
     expect(detectActiveLang(makeDom('en', 'de'))).toBe('de');
   });
+
+  test('the locale wrapper is a <div lang>, the element the disclosure gate reads too', () => {
+    expect(LOCALE_WRAPPER_SELECTOR).toBe('div[lang]');
+  });
+
+  // JP pages are English (<html lang="en">, owner decision 2026-10-13) but keep
+  // Japanese notices marked lang="ja" (the regional disclaimer's Japanese half,
+  // the no-purchase-link reason, Japanese pack text). They precede the banner
+  // in body order; with the old `[lang]:not(html)` query the banner went
+  // Japanese on every such page.
+  test('an inline lang="ja" notice on an English JP page does not switch the banner language', () => {
+    const jpPage = makeBodyDom('en', [
+      { tag: 'header' },
+      { tag: 'span', lang: 'ja' },
+      { tag: 'p', lang: 'ja' },
+      { tag: 'blockquote', lang: 'ja' },
+    ]);
+    expect(detectActiveLang(jpPage)).toBe('en');
+  });
+
+  test('a nested-locale wrapper still wins over inline parts inside it (US /es/*)', () => {
+    const usEs = makeBodyDom('en', [
+      { tag: 'div', lang: 'es' },
+      { tag: 'a', lang: 'en' },
+    ]);
+    expect(detectActiveLang(usEs)).toBe('es');
+  });
 });
 
 describe('applyActiveLangToKlaroConfig — integration', () => {
@@ -129,9 +173,11 @@ describe('applyActiveLangToKlaroConfig — integration', () => {
     expect((klaroConfig as { lang?: string }).lang).toBe('es');
   });
 
-  test('JP /ja/*: `<html lang="ja">` → klaroConfig.lang === "ja"', () => {
-    applyActiveLangToKlaroConfig(klaroConfig, makeDom('ja', null));
-    expect((klaroConfig as { lang?: string }).lang).toBe('ja');
+  // JP serves English since 2026-10-13 (Japanese copy paused pending legal
+  // advice): `<html lang="en">` and no locale wrapper.
+  test('JP: `<html lang="en">` → klaroConfig.lang === "en"', () => {
+    applyActiveLangToKlaroConfig(klaroConfig, makeDom('en', null));
+    expect((klaroConfig as { lang?: string }).lang).toBe('en');
   });
 
   test('EU /de/* nested-locale path → klaroConfig.lang === "de"', () => {

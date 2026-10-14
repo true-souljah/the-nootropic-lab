@@ -240,7 +240,9 @@ describe('rendered CTAs', () => {
     expect(html).not.toContain('No purchase link');
   });
 
-  test('ComparisonTable (/ja/hikaku/, /ja/best-nootropics/) shows the label instead of the Hunter Focus link', () => {
+  // No JP page renders ComparisonTable since the /ja/ pages were removed
+  // (2026-10-13); the component keeps the gate for any market:'jp' caller.
+  test('ComparisonTable (market jp) shows the label instead of the Hunter Focus link', () => {
     const html = renderToStaticMarkup(createElement(ComparisonTable, { products: productsJP, market: 'jp' }));
     expect(html).not.toContain('hunterevolve.com');
     // Desktop row + mobile card.
@@ -361,7 +363,6 @@ describe('source guard: no CTA reads the vendor URL around purchaseUrl()', () =>
       'packages/ui/src/StickyCtaBar.tsx',
       'packages/ui/src/templates/ProductDetail.tsx',
       'apps/jp/src/app/best-nootropics/page.tsx',
-      'apps/jp/src/app/ja/best-nootropics/page.tsx',
     ]) {
       expect(SCANNED, must).toContain(must);
     }

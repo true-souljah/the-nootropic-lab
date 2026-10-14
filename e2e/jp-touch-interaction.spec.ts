@@ -104,8 +104,9 @@ test.describe('JP — touch interaction contract', () => {
     // the mobile trigger is visible — it's a 36×36 icon-only button.
     // At 412px viewport both desktop (hidden md:inline-flex) and
     // mobile (md:hidden) triggers exist in DOM. The desktop one is
-    // display:none. Filter for the actually-visible trigger (named 検索, "Search").
-    const visibleTrigger = page.locator('button[aria-label*="検索"]:visible').first();
+    // display:none. Filter for the actually-visible trigger (named "Search";
+    // JP chrome is English since 2026-10-13).
+    const visibleTrigger = page.locator('button[aria-label*="Search"]:visible').first();
     await expect(visibleTrigger).toBeVisible();
 
     await visibleTrigger.tap();
@@ -141,7 +142,7 @@ test.describe('JP — touch interaction contract', () => {
     await page.waitForLoadState('networkidle');
 
     // Open modal via tap.
-    const visibleTrigger = page.locator('button[aria-label*="検索"]:visible').first();
+    const visibleTrigger = page.locator('button[aria-label*="Search"]:visible').first();
     await visibleTrigger.tap();
     await expect(
       page.locator('[role="dialog"]:not(#klaro-cookie-notice)'),

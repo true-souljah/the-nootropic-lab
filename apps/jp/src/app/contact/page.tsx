@@ -27,14 +27,14 @@ export default function ContactPage() {
       <SchemaOrg schema={contactSchema} />
 
       <article className="max-w-2xl mx-auto px-4 py-10">
-        <h1 className="text-3xl font-bold text-gray-900 mb-4">お問い合わせ</h1>
+        <h1 className="text-3xl font-bold text-gray-900 mb-4">Contact us</h1>
         <p className="text-gray-600 mb-8 leading-relaxed">
           We read every email. Choose the right address below so your message gets to the right person.
         </p>
 
         <div className="space-y-6">
           <section className="border border-gray-200 rounded-xl p-5">
-            <h2 className="text-lg font-bold text-gray-900 mb-2">編集内容の訂正</h2>
+            <h2 className="text-lg font-bold text-gray-900 mb-2">Editorial corrections</h2>
             <p className="text-sm text-gray-700 mb-2">
               Spotted a factual error in a review? Found an outdated price or a discontinued SKU? We
               update content based on documented corrections.
@@ -48,7 +48,7 @@ export default function ContactPage() {
           </section>
 
           <section className="border border-gray-200 rounded-xl p-5">
-            <h2 className="text-lg font-bold text-gray-900 mb-2">読者からのご意見・情報提供</h2>
+            <h2 className="text-lg font-bold text-gray-900 mb-2">Reader feedback &amp; story tips</h2>
             <p className="text-sm text-gray-700 mb-2">
               Had an experience with a brand we cover? Want to share a subscription cancellation horror
               story or a Japan-customs experience? We use reader-survey data in our brand-trust scoring.
@@ -62,7 +62,7 @@ export default function ContactPage() {
           </section>
 
           <section className="border border-gray-200 rounded-xl p-5">
-            <h2 className="text-lg font-bold text-gray-900 mb-2">提携・アフィリエイトに関するお問い合わせ</h2>
+            <h2 className="text-lg font-bold text-gray-900 mb-2">Partnership &amp; affiliate inquiries</h2>
             <p className="text-sm text-gray-700 mb-2">
               Brand or affiliate-network outreach (including Amazon Japan, Rakuten, and Japanese domestic
               brand programs). Note: we do not accept paid placements, and affiliate relationships do not
@@ -78,7 +78,7 @@ export default function ContactPage() {
         </div>
 
         <section className="mt-10 bg-gray-50 rounded-xl p-6">
-          <h2 className="text-lg font-bold text-gray-900 mb-2">編集部</h2>
+          <h2 className="text-lg font-bold text-gray-900 mb-2">Editorial</h2>
           <p className="text-sm text-gray-700">
             The Nootropic Lab is editorially independent. For legal correspondence, contact{' '}
             <a href="mailto:legal@thenootropiclab.com" className="text-green-700 underline">

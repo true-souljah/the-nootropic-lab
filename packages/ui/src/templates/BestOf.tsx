@@ -17,6 +17,7 @@ import { priceText, priceLocaleOf } from '../price-text';
 import { tpl } from '../templateStrings';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
+import DisclaimerText from '../DisclaimerText';
 
 export interface BestOfProps {
   products: Product[];
@@ -372,7 +373,7 @@ export default function BestOf({
             >
               {pd.healthDisclaimerHeading}
             </h2>
-            <p className="text-[12px] text-ds-ink leading-relaxed">{healthDisclaimer}</p>
+            <p className="text-[12px] text-ds-ink leading-relaxed"><DisclaimerText text={healthDisclaimer} /></p>
           </section>
         )}
       </div>

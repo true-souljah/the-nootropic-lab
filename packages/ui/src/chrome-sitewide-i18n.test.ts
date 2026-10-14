@@ -14,6 +14,12 @@ import { tpl, tplLink } from './templateStrings';
 // it in English on every page. The template strings now live in UIStrings in all
 // 7 locales; page bodies (guides, ingredient data, product records, legal pages)
 // stay English until phase 2.
+//
+// 2026-10-13, owner decision: Japanese copy on the JP host is paused until a
+// Japanese pharmaceutical-advertising lawyer has reviewed it. The JP host
+// renders the en bundle again (its ja strings stay in i18n.ts, unused on JP);
+// the JP tests below assert English chrome and no Japanese in header, nav and
+// footer.
 
 const ALL_LOCALES: Locale[] = ['en', 'es', 'fr', 'ja', 'pt', 'de', 'fr-CA'];
 const UI_SRC = __dirname;
@@ -207,26 +213,34 @@ describe('new chrome strings (2026-10-12): every locale, every key', () => {
     expect(s.editorialStandards.reviewProtocol).toBe('1. Review protocol');
     // The ingredient TOC entry was `inRegion` minus "in "/"en ".
     for (const profile of Object.values(REGION_PROFILES)) {
-      if (profile.code === 'jp') continue;
       expect(profile.labels.toc, profile.code).toBe(profile.labels.inRegion.replace(/^(in|en) /, ''));
     }
   });
 });
 
-describe('the JP block labels (regional.ts) are Japanese, except the <title> qualifier', () => {
+describe('the JP block labels (regional.ts) are English (Japanese copy paused 2026-10-13)', () => {
   const L = REGION_PROFILES.jp.labels;
-  test.each(['heading', 'availability', 'noProducts', 'licence', 'price', 'monthUnit', 'guides', 'regulatoryNote', 'sources', 'genericSubject', 'toc'] as const)(
-    '%s is Japanese',
-    (key) => expect(L[key]).toMatch(JA),
-  );
-  test('inRegion stays English: it is appended to the still-English <title>', () => {
-    expect(L.inRegion).toBe('in Japan');
+  test('the labels JP showed before 2026-10-12, word for word', () => {
+    expect(L).toEqual({
+      inRegion: 'in Japan',
+      heading: '{name} in Japan',
+      availability: 'Products in Japan',
+      noProducts: 'None of the stacks we have audited are listed in our catalogue in Japan yet.',
+      licence: 'Status',
+      price: 'Local price',
+      monthUnit: 'month',
+      guides: 'Prefecture guides',
+      regulatoryNote: 'Regulatory note',
+      sources: 'Sources',
+      genericSubject: 'Nootropics',
+      toc: 'Japan',
+    });
   });
-  test('the price, status and month labels are the ja bundle\'s own', () => {
-    const rb = getStrings('ja').productDetail.regionalBuying;
-    expect(L.price).toBe(rb.price);
-    expect(L.licence).toBe(rb.status);
-    expect(L.monthUnit).toBe(rb.monthUnit);
+  test('no label carries Japanese script', () => {
+    for (const [key, value] of Object.entries(L)) expect(value, key).not.toMatch(JA);
+  });
+  test('prices keep yen formatting (ja-JP number format)', () => {
+    expect(REGION_PROFILES.jp.priceLocale).toBe('ja-JP');
   });
 });
 
@@ -340,25 +354,74 @@ function expectNoEnglishChrome(html: string, page: string) {
   for (const phrase of ENGLISH_CHROME) expect(shown, `${page} still shows "${phrase}"`).not.toContain(phrase);
 }
 
-describe('JP pages render their chrome in Japanese', () => {
+/** Japanese script, CJK punctuation and full-width forms (not the ￥ currency sign, U+FFE5). */
+const JA_ANY = /[　-ヿㇰ-ㇿ㐀-䶿一-鿿！-～｡-ﾟ]/;
+
+/** The site chrome around a rendered page body: every header, nav and footer element. */
+function chromeParts(html: string): string[] {
+  return [...html.matchAll(/<(header|nav|footer)\b[\s\S]*?<\/\1>/g)].map((m) => m[0]);
+}
+
+/**
+ * ja wording the JP compliance guide flags (§6, owner decision 2026-10-13): the
+ * footer's best-by-goal line, the listicle use-case labels and the related-guide
+ * link labels. The strings stay in i18n.ts, unused; none may render on JP.
+ */
+const JA_FLAGGED = (() => {
   const ja = getStrings('ja');
+  const { heading: _heading, ...goals } = ja.footer.bestByGoal;
+  return [
+    ...Object.values(goals),
+    ...Object.values(ja.listicle.useCaseLabels).filter((v): v is string => !!v),
+    ...Object.values(ja.listicle.relatedGuideLabels),
+  ];
+})();
+
+/**
+ * JP chrome is English: the page's header / nav / footer (PublicShell) or
+ * sidebar nav (AppShell) render and carry no Japanese; no flagged ja label
+ * renders anywhere on the page.
+ */
+function expectEnglishJpChrome(html: string, page: string, jaChrome: string[] = []) {
+  const parts = chromeParts(html);
+  expect(parts.some((p) => /^<(header|nav)\b/.test(p)), `${page}: a header or nav rendered (the chrome scan is non-empty)`).toBe(true);
+  for (const part of parts) expect(visible(part), `${page}: Japanese in ${part.slice(0, 60)}`).not.toMatch(JA_ANY);
+  const shown = visible(html);
+  for (const s of [...JA_FLAGGED, ...jaChrome]) expect(shown, `${page} shows ja chrome "${s}"`).not.toContain(s);
+}
+
+describe('JP pages render their chrome in English (Japanese copy paused 2026-10-13)', () => {
+  const en = getStrings('en');
+  const ja = getStrings('ja');
+
+  test('the flagged ja labels exist (the guard checks real strings)', () => {
+    expect(JA_FLAGGED.length).toBeGreaterThanOrEqual(15);
+    for (const s of JA_FLAGGED) expect(s).toMatch(JA);
+  });
 
   test('listicle (/best-nootropics-for-memory/)', async () => {
     const html = await renderPage('jp', 'best-nootropics-for-memory');
     for (const s of [
+      en.listicle.whatEvidenceSays,
+      tpl(en.listicle.ourPicksFor, { useCase: en.listicle.useCaseLabels.memory ?? 'memory' }),
+      en.listicle.ourScore,
+      en.listicle.howWeChoose,
+      en.listicle.inThisGuide,
+      en.listicle.relatedGuides,
+      en.byline.attribution,
+      tpl(en.byline.readTime, { minutes: 10 }),
+      en.productDetail.pillars.short.dosing,
+    ]) {
+      expect(html).toContain(s);
+    }
+    expectEnglishJpChrome(html, 'JP listicle', [
       ja.listicle.whatEvidenceSays,
-      tpl(ja.listicle.ourPicksFor, { useCase: ja.listicle.useCaseLabels.memory! }),
       ja.listicle.ourScore,
       ja.listicle.howWeChoose,
       ja.listicle.inThisGuide,
       ja.listicle.relatedGuides,
       ja.byline.attribution,
-      tpl(ja.byline.readTime, { minutes: 10 }),
-      ja.productDetail.pillars.short.dosing,
-    ]) {
-      expect(html).toContain(s);
-    }
-    expectNoEnglishChrome(html, 'JP listicle');
+    ]);
   });
 
   test('ingredient page (/ingredients/ashwagandha/)', async () => {
@@ -367,28 +430,33 @@ describe('JP pages render their chrome in Japanese', () => {
       params: Promise.resolve({ ingredient: 'ashwagandha' }),
     });
     for (const s of [
-      ja.ingredientDetail.humanTrialsOnly,
-      ja.ingredientDetail.howToLabels.withFood,
-      ja.ingredientDetail.evidenceKey.label,
-      tpl(ja.ingredientDetail.topStacks, { name: ing.name }),
-      REGION_PROFILES.jp.labels.availability,
-      REGION_PROFILES.jp.labels.heading.replace('{name}', ing.name),
-      ja.productDetail.regionalBuying.regulator.jp,
-      ja.byline.attribution,
+      en.ingredientDetail.humanTrialsOnly,
+      en.ingredientDetail.howToLabels.withFood,
+      en.ingredientDetail.evidenceKey.label,
+      tpl(en.ingredientDetail.topStacks, { name: ing.name }),
+      'Products in Japan',
+      `${ing.name} in Japan`,
+      en.productDetail.regionalBuying.regulator.jp,
+      en.byline.attribution,
     ]) {
       expect(html).toContain(s);
     }
-    expectNoEnglishChrome(html, 'JP ingredient page');
+    expectEnglishJpChrome(html, 'JP ingredient page', [
+      ja.ingredientDetail.humanTrialsOnly,
+      ja.ingredientDetail.howToLabels.withFood,
+      ja.productDetail.regionalBuying.regulator.jp,
+    ]);
   });
 
   test('geo page (/prefectures/tokyo/)', async () => {
     const html = await renderPage('jp', 'prefectures/[prefecture]', {
       params: Promise.resolve({ prefecture: 'tokyo' }),
     });
-    expect(html).toContain(tpl(ja.geo.bestIn, { place: '東京都', year: new Date().getFullYear() }));
-    expect(html).toContain(tpl(ja.geo.topPicksFor, { place: '東京都' }));
-    expect(html).toContain(ja.geo.score);
-    expectNoEnglishChrome(html, 'JP prefecture page');
+    expect(html).toContain(tpl(en.geo.bestIn, { place: 'Tokyo', year: new Date().getFullYear() }));
+    expect(html).toContain(tpl(en.geo.topPicksFor, { place: 'Tokyo' }));
+    expect(html).toContain(en.geo.score);
+    expect(html).toContain('Best Nootropics Japan');
+    expectEnglishJpChrome(html, 'JP prefecture page', [tpl(ja.geo.topPicksFor, { place: '東京都' })]);
   });
 
   test('guide page (/guides/what-are-nootropics/)', async () => {
@@ -396,40 +464,30 @@ describe('JP pages render their chrome in Japanese', () => {
       params: Promise.resolve({ guide: 'what-are-nootropics' }),
     });
     for (const s of [
-      ja.guide.categories.beginner,
-      ja.guide.backToGuides,
-      REGION_PROFILES.jp.labels.heading.replace('{name}', REGION_PROFILES.jp.labels.genericSubject),
-      REGION_PROFILES.jp.labels.availability,
-      ja.productDetail.regionalBuying.geoHub.jp,
+      en.guide.categories.beginner,
+      en.guide.backToGuides,
+      'Nootropics in Japan',
+      'Products in Japan',
+      en.productDetail.regionalBuying.geoHub.jp,
     ]) {
       expect(html).toContain(s);
     }
-    expect(html).toMatch(/\d+分で読めます/);
-    expectNoEnglishChrome(html, 'JP guide page');
-  });
-
-  test('comparison table (/ja/hikaku/)', async () => {
-    const html = await renderPage('jp', 'ja/hikaku');
-    expect(html).toContain(`aria-label="${tpl(ja.table.sortAria, { column: ja.table.sortColumns.trustpilot })}"`);
-    expect(html).toContain(ja.table.editorChoice);
-    expect(html).toContain(ja.table.product);
-    expectNoEnglishChrome(html, 'JP comparison table');
+    expect(html).toMatch(/\d+ min read/);
+    expectEnglishJpChrome(html, 'JP guide page', [ja.guide.backToGuides]);
   });
 
   test('best-of hub and comparator (/best-nootropics/, /nootropic-comparison/)', async () => {
     const best = await renderPage('jp', 'best-nootropics');
-    for (const s of [ja.bestOf.stats.audited, ja.bestOf.rank, ja.bestOf.commission, ja.bestOf.visit, ja.productDetail.pillars.short.trust]) {
+    for (const s of [en.bestOf.stats.audited, en.bestOf.rank, en.bestOf.commission, en.bestOf.visit, en.productDetail.pillars.short.trust]) {
       expect(best).toContain(s);
     }
-    expectNoEnglishChrome(best, 'JP best-of');
+    expectEnglishJpChrome(best, 'JP best-of', [ja.bestOf.rank, ja.bestOf.visit]);
     const comparator = await renderPage('jp', 'nootropic-comparison');
-    for (const s of [ja.comparator.heading, ja.comparator.columns.bestFor, ja.comparator.goals.memory, ja.comparator.grades.worthALook]) {
+    for (const s of [en.comparator.heading, en.comparator.columns.bestFor, en.comparator.goals.memory, en.comparator.grades.worthALook]) {
       expect(comparator).toContain(s);
     }
-    expectNoEnglishChrome(comparator, 'JP comparator');
-    // The per-serving column (main, 2026-10-13) is headed in the page language.
-    expect(comparator).toContain(`>${ja.productDetail.stats.perServingLabel}</div>`);
-    expect(visible(comparator)).not.toMatch(/Per serving|Per day/i);
+    expectEnglishJpChrome(comparator, 'JP comparator', [ja.comparator.heading, ja.comparator.goals.memory]);
+    expect(comparator).toContain(`>${en.productDetail.stats.perServingLabel}</div>`);
   });
 });
 
@@ -560,16 +618,15 @@ function jaJoinErrors(html: string): string[] {
   });
 }
 
-describe('JP pages: no space or Latin punctuation around translated pieces', () => {
-  const ja = getStrings('ja');
-  // Outside the Next runtime, Link drops the trailing slash (trailingSlash lives in next.config).
-  const methodologyLink = `<a class="text-ds-accent underline" href="/methodology/?">${ja.listicle.fullMethodology}</a>`;
-
-  test('"How we choose": the methodology link sits inside the Japanese sentence', async () => {
+// The JP host renders the en bundle since 2026-10-13 (Japanese copy paused), so
+// its joins are the English ones; Japanese that stays in page bodies (FFC terms,
+// the regional disclaimer's Japanese half) must still join cleanly.
+describe('JP pages: English joins, and clean joins around the Japanese that stays in bodies', () => {
+  test('"How we choose": "… Read our <link>." as on the US listicle', async () => {
     const html = await renderPage('jp', 'best-nootropics-for-memory');
-    expect(html).toMatch(new RegExp(`詳しくは当サイトの${methodologyLink}をご覧ください。</p>`));
-    expect(html).not.toMatch(new RegExp(`${methodologyLink}\\.`));
-    expect(html).not.toMatch(/当サイトの\s+<a[^>]*href="\/methodology\/?"/);
+    expect(html).toMatch(
+      /in our 5-pillar editorial audit\. Read our <a class="text-ds-accent underline" href="\/methodology\/?">full methodology<\/a>\.<\/p>/,
+    );
   });
 
   test.each([
@@ -586,35 +643,29 @@ describe('JP pages: no space or Latin punctuation around translated pieces', () 
     ['guides/[guide]', { params: Promise.resolve({ guide: 'how-nootropics-work' }) }],
     ['prefectures/[prefecture]', { params: Promise.resolve({ prefecture: 'tokyo' }) }],
     ['[slug]', { params: Promise.resolve({ slug: 'fancl-brains-review' }) }],
-    ['ja', {}],
-    ['ja/best-nootropics', {}],
-    ['ja/hikaku', {}],
-    ['ja/yakkan-shoumei', {}],
     ['ffc-notified-cognitive-supplements', {}],
     ['japanese-brain-supplements', {}],
   ] as const)('%s', async (route, props) => {
     const html = await renderPage('jp', route, props);
     expect(html.length).toBeGreaterThan(5000);
     expect(jaJoinErrors(html)).toEqual([]);
+    expectEnglishJpChrome(html, `JP ${route || '/'}`);
   });
 
-  test('the joins render as Japanese sets them', async () => {
+  test('the joins render as English sets them', async () => {
+    const en = getStrings('en');
     const listicle = await renderPage('jp', 'best-nootropics-for-memory');
-    expect(listicle).toContain(`${ja.byline.updated}<time`);
-    expect(listicle).toContain(`${ja.listicle.whyItsHere}</strong>`);
-    expect(listicle).toMatch(new RegExp(`${ja.footer.lastAuditLabel}\\d`));
+    expect(listicle).toContain('Updated <time');
+    expect(listicle).toContain("Why it's here:</strong> ");
+    expect(listicle).toMatch(/Last full re-audit: \w/);
     const ingredient = await renderPage('jp', 'ingredients/[ingredient]', { params: Promise.resolve({ ingredient: 'ashwagandha' }) });
-    expect(ingredient).toContain(`${ja.ingredientEvidence.evidenceReviewed}<time`);
-    expect(ingredient).toContain(`${ja.ingredientDetail.evidenceKey.label}<span aria-hidden="true">●●●</span>${ja.ingredientDetail.evidenceKey.strong}`);
-    expect(ingredient).toContain(`${ja.ingredientEvidence.sources}<span`);
+    expect(ingredient).toContain('Evidence reviewed: <time');
+    expect(ingredient).toContain('Evidence key: <span aria-hidden="true">●●●</span> Strong');
+    expect(ingredient).toContain('Sources <span');
     const review = await renderPage('jp', '[slug]', { params: Promise.resolve({ slug: 'fancl-brains-review' }) });
-    expect(review).toContain(`${ja.productDetail.meta.by}FANCL`);
-    expect(review).toContain(`${ja.productDetail.meta.lastVerified}<time`);
+    expect(review).toContain(`${en.productDetail.meta.lastVerified} <time`);
     const prefecture = await renderPage('jp', 'prefectures/[prefecture]', { params: Promise.resolve({ prefecture: 'tokyo' }) });
-    expect(prefecture).toContain(`${ja.geo.score}<strong`);
-    const hikaku = await renderPage('jp', 'ja/hikaku');
-    expect(hikaku).toContain(`${ja.disclosure.text}<a`);
-    expect(hikaku).toContain(`${ja.table.price}${ja.typography.colon}</span>`);
+    expect(prefecture).toContain(`${en.geo.score} <strong`);
   });
 });
 

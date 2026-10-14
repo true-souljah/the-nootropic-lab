@@ -23,6 +23,7 @@ import { PricingTab } from './product-detail/PricingTab';
 import RegionalBuying from '../RegionalBuying';
 import { priceText } from '../price-text';
 import type { RegionalBuyingProps } from '../RegionalBuying';
+import DisclaimerText from '../DisclaimerText';
 import { SCORE_TIER_TEXT_CLASS, scoreTier } from './listicleRanking';
 
 export interface ProductDetailProps {
@@ -382,7 +383,7 @@ export default function ProductDetail({
             >
               {pd.healthDisclaimerHeading}
             </h2>
-            <p className="text-[12px] text-ds-ink leading-relaxed">{healthDisclaimer}</p>
+            <p className="text-[12px] text-ds-ink leading-relaxed"><DisclaimerText text={healthDisclaimer} /></p>
           </section>
         )}
       </div>

@@ -43,8 +43,10 @@ function summarize(violations: Result[]): string {
 }
 
 test.describe('JP routes — axe-core WCAG 2.1 A/AA (serious + critical only)', () => {
-  test('/ja/yakkan-shoumei/ has no serious or critical a11y violations', async ({ page }) => {
-    const results = await runAxe(page, '/ja/yakkan-shoumei/');
+  // /ja/yakkan-shoumei/ was removed 2026-10-13 (Japanese copy paused); the
+  // English explainer that covers personal import takes its place here.
+  test('/japanese-brain-supplements/ has no serious or critical a11y violations', async ({ page }) => {
+    const results = await runAxe(page, '/japanese-brain-supplements/');
     const blockers = blockingViolations(results);
     expect(blockers, summarize(blockers)).toHaveLength(0);
   });
@@ -66,11 +68,11 @@ test.describe('JP routes — axe-core informational (logged, not failed)', () =>
   // These tests INFORM about moderate+minor issues but never fail CI.
   // They serve as a hint to operators about a11y polish opportunities
   // without blocking PR merges.
-  test('/ja/yakkan-shoumei/ moderate+minor count (informational)', async ({ page }) => {
-    const results = await runAxe(page, '/ja/yakkan-shoumei/');
+  test('/japanese-brain-supplements/ moderate+minor count (informational)', async ({ page }) => {
+    const results = await runAxe(page, '/japanese-brain-supplements/');
     const advisory = results.violations.filter((v) => !SERIOUSNESS.includes((v.impact ?? 'minor') as (typeof SERIOUSNESS)[number]));
     // eslint-disable-next-line no-console
-    console.log(`/ja/yakkan-shoumei/ advisory violations: ${advisory.length}`);
+    console.log(`/japanese-brain-supplements/ advisory violations: ${advisory.length}`);
     for (const v of advisory.slice(0, 5)) {
       // eslint-disable-next-line no-console
       console.log(`  [${v.impact}] ${v.id}`);

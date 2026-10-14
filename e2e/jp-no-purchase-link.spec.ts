@@ -76,14 +76,7 @@ test.describe('JP no purchase link: Hunter Focus', () => {
     expect(await page.locator('a[rel~="sponsored"]').count()).toBeGreaterThan(0);
   });
 
-  for (const route of ['/ja/best-nootropics/', '/ja/hikaku/']) {
-    test(`${route} comparison table shows the label instead of the Hunter Focus link`, async ({ page }) => {
-      const res = await page.goto(route);
-      expect(res?.status()).toBe(200);
-      await expect(page.locator(VENDOR_LINK)).toHaveCount(0);
-      // Desktop row + mobile card (one of the two is hidden by breakpoint).
-      await expect(page.locator('[data-no-purchase-link]')).toHaveCount(2);
-      expect(await page.locator('a[rel~="sponsored"]').count()).toBeGreaterThan(0);
-    });
-  }
+  // The two ComparisonTable pages (/ja/best-nootropics/, /ja/hikaku/) were
+  // removed 2026-10-13 (Japanese copy paused); the table's gate stays covered
+  // by purchase-link.test.ts.
 });

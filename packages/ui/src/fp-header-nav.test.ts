@@ -6,7 +6,7 @@ import { navFromStrings } from './public-chrome/FPHeader';
 // Tests for navFromStrings + the FPHeader nav resolution contract added in
 // PR-Q8 (2026-06-02). Before this fix, FPHeader fell back to a hardcoded
 // English DEFAULT_NAV whenever `nav` was omitted, even if `strings` was
-// passed — every non-English page (LATAM /, CA /fr/, JP /ja/, etc.)
+// passed — every non-English page (LATAM /, CA /fr/, the then-Japanese JP pages, etc.)
 // rendered English chrome. This locks the WCAG 3.1.2 fix in place so a
 // future refactor doesn't silently regress it.
 //

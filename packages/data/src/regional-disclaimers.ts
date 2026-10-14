@@ -53,3 +53,30 @@ export function getRegionalHealthDisclaimer(market?: DisclaimerMarket | string):
   const normalized = market.toLowerCase() as DisclaimerMarket;
   return disclaimers[normalized] ?? generic;
 }
+
+/** One language run of a disclaimer as it renders; `lang` is set when the run is not in the page's English. */
+export interface DisclaimerPart {
+  text: string;
+  lang?: 'ja';
+}
+
+// The JP disclaimer is bilingual. Its Japanese half is a protective notice that
+// stays on the English JP host (owner decision 2026-10-13, "keep notices"), so
+// renderers mark it lang="ja". The split point is the start of the English half;
+// the text itself is unchanged and the halves join back to the full string.
+const JP_ENGLISH_HALF_START = 'This page is editorial and not medical advice.';
+const jpSplit = disclaimers.jp.indexOf(JP_ENGLISH_HALF_START);
+if (jpSplit <= 0) throw new Error('regional-disclaimers: the jp disclaimer no longer starts its English half with the expected sentence');
+const JP_PARTS: readonly DisclaimerPart[] = [
+  { text: disclaimers.jp.slice(0, jpSplit), lang: 'ja' },
+  { text: disclaimers.jp.slice(jpSplit) },
+];
+
+/**
+ * The language runs of a regional disclaimer string as a page renders it: the
+ * JP disclaimer comes back as its Japanese half (lang 'ja') and its English
+ * half; any other text is one run in the page language.
+ */
+export function disclaimerParts(text: string): readonly DisclaimerPart[] {
+  return text === disclaimers.jp ? JP_PARTS : [{ text }];
+}

@@ -38,7 +38,7 @@ const DEFAULT_NAV: FPNavLink[] = [
  *
  * Before the 2026-06-02 fix, FPHeader fell back to a hardcoded English
  * DEFAULT_NAV whenever `nav` was omitted, even if `strings` was passed.
- * Every non-English page (LATAM /, CA /fr/, JP /ja/, etc.) rendered
+ * Every non-English page (LATAM /, CA /fr/, the then-Japanese JP pages, etc.) rendered
  * English chrome — a WCAG 3.1.2 Language of Parts violation.
  */
 export function navFromStrings(strings: UIStrings): FPNavLink[] {
