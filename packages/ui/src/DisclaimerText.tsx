@@ -9,9 +9,13 @@ import { disclaimerParts } from '@nootropic/data';
  * as plain text, exactly as `{text}` did.
  */
 export default function DisclaimerText({ text }: { text: string }) {
+  const parts = disclaimerParts(text);
+  // One run in the page language: the bare string, so the page and its RSC
+  // payload stay exactly what `{text}` produced.
+  if (parts.length === 1 && !parts[0].lang) return parts[0].text;
   return (
     <>
-      {disclaimerParts(text).map((part, i) =>
+      {parts.map((part, i) =>
         part.lang ? (
           <span key={i} lang={part.lang}>
             {part.text}
