@@ -11,6 +11,7 @@ import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
 import { priceText } from '../price-text';
+import DisclaimerText from '../DisclaimerText';
 import { Bar } from '../primitives/Bar';
 import { FaqAccordion } from '../primitives/FaqAccordion';
 import { ProductThumb } from '../primitives/ProductThumb';
@@ -245,7 +246,7 @@ export default function Listicle({
               className="bg-ds-warn-soft border-l-4 border-ds-warn rounded-r-[8px] p-4 mt-5 mb-7 text-[13px] text-ds-warn-ink"
             >
               <strong className="block mb-1">{s.healthDisclaimer}</strong>
-              {healthDisclaimer || s.defaultHealthDisclaimer}
+              <DisclaimerText text={healthDisclaimer || s.defaultHealthDisclaimer} />
             </aside>
 
             <section className="my-10">

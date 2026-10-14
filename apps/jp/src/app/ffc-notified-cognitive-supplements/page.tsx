@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
+import { SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter, PublicShell, DisclaimerText } from '@nootropic/ui';
 import { productsJP, getRegionalHealthDisclaimer } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
@@ -208,7 +208,7 @@ export default function Page() {
 
         <aside className="bg-amber-50 border-l-4 border-amber-400 rounded-r-lg p-4 mt-10 text-sm text-amber-900">
           <strong className="block mb-1">Health & regulatory note</strong>
-          {getRegionalHealthDisclaimer('jp')}
+          <DisclaimerText text={getRegionalHealthDisclaimer('jp')} />
         </aside>
 
         <div className="text-sm text-gray-500 mt-10">

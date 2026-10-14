@@ -32,6 +32,7 @@ export { trackAffiliateClick } from './trackAffiliateClick';
 export type { AffiliateClickContext } from './trackAffiliateClick';
 export { default as TrackedAffiliateLink } from './TrackedAffiliateLink';
 export { default as NoPurchaseLinkNotice } from './NoPurchaseLinkNotice';
+export { default as DisclaimerText } from './DisclaimerText';
 export type { NoPurchaseLinkNoticeProps } from './NoPurchaseLinkNotice';
 
 // Design system primitives (Stack redesign — M1 foundation)
