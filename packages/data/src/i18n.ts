@@ -5028,10 +5028,12 @@ export function getStrings(locale: Locale): UIStrings {
   return translations[locale] || translations.en;
 }
 
+// JP is English: Japanese copy on the JP host is paused until a Japanese
+// pharmaceutical-advertising lawyer has reviewed it (owner decision
+// 2026-10-13). The ja bundle above stays, unused on JP.
 export function getLocaleForMarket(market: string): Locale {
   switch (market) {
     case 'latam': return 'es';
-    case 'jp': return 'ja';
     default: return 'en';
   }
 }

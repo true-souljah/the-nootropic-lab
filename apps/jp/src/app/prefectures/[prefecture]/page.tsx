@@ -7,7 +7,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 
 import { PublicShell } from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
-import { HUB_LABEL, SITE_URL } from '@/lib/region';
+import { SITE_URL } from '@/lib/region';
 import { priceText } from '@nootropic/ui';
 
 export const dynamicParams = false;
@@ -61,13 +61,13 @@ export default async function PrefecturePage({
         <nav className="text-xs text-gray-500 mb-6" aria-label={uiStrings.breadcrumb.ariaLabel}>
           <a href="/" className="hover:text-green-700">{uiStrings.breadcrumb.home}</a>
           {' / '}
-          <a href="/best-nootropics/" className="hover:text-green-700">{HUB_LABEL}</a>
+          <a href="/best-nootropics/" className="hover:text-green-700">Best Nootropics Japan</a>
           {' / '}
-          <span>{p.nameJa}</span>
+          <span>{p.name}</span>
         </nav>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-          {tpl(uiStrings.geo.bestIn, { place: p.nameJa, year: CURRENT_YEAR })}
+          {tpl(uiStrings.geo.bestIn, { place: p.name, year: CURRENT_YEAR })}
         </h1>
         <p className="text-sm text-ds-muted mb-6">{p.nameJa}</p>
 
@@ -76,7 +76,7 @@ export default async function PrefecturePage({
         </div>
 
         <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 mb-8">
-          <h2 className="font-bold text-amber-900 mb-2">日本への個人輸入に関する注意</h2>
+          <h2 className="font-bold text-amber-900 mb-2">Japan Import Reminder</h2>
           <p className="text-sm text-amber-800 leading-relaxed">
             Personal import limit: <strong>¥16,000 duty-free</strong> per shipment.
             Order 1 month&apos;s supply at a time from international brands to stay under this limit.
@@ -86,7 +86,7 @@ export default async function PrefecturePage({
 
         <section className="mb-8">
           <h2 className="text-xl font-bold text-gray-900 mb-4">
-            {tpl(uiStrings.geo.topPicksFor, { place: p.nameJa })}
+            {tpl(uiStrings.geo.topPicksFor, { place: p.name })}
           </h2>
           <div className="space-y-4">
             {topProducts.map((product, i) => (
@@ -118,7 +118,7 @@ export default async function PrefecturePage({
 
         <div className="text-sm text-gray-500">
           <a href="/best-nootropics/" className="text-green-700 underline">
-            {`← ${HUB_LABEL} ${CURRENT_YEAR}に戻る`}
+            ← Back to Best Nootropics Japan {CURRENT_YEAR}
           </a>
         </div>
       </article>

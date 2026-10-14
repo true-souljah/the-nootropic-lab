@@ -97,23 +97,9 @@ export const REGION_PROFILES: Record<RegionCode, RegionProfile> = {
     code: 'jp', name: 'Japan', priceLocale: 'ja-JP',
     regulator: 'Consumer Affairs Agency (FFC)',
     geoHub: { path: '/prefectures/', label: 'Prefecture guides' },
-    // The JP host's page chrome is Japanese (UIStrings ja). `inRegion` stays
-    // English: regionalTitleQualifier appends it to <title>, which follows the
-    // still-English page bodies until those are translated.
-    labels: {
-      inRegion: 'in Japan',
-      heading: '日本における{name}',
-      availability: '日本で入手できる製品',
-      noProducts: '当サイトで監査したスタックのうち、日本向けカタログに掲載されているものはまだありません。',
-      licence: '状況',
-      price: '現地価格',
-      monthUnit: '月',
-      guides: '都道府県別ガイド',
-      regulatoryNote: '規制に関する注記',
-      sources: '出典',
-      genericSubject: 'ノートロピクス',
-      toc: '日本',
-    },
+    // English labels: Japanese copy on the JP host is paused until a Japanese
+    // pharmaceutical-advertising lawyer has reviewed it (owner decision 2026-10-13).
+    labels: EN('in Japan', 'Prefecture guides'),
   },
   latam: {
     code: 'latam', name: 'América Latina', priceLocale: 'es-419',

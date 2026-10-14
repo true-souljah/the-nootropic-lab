@@ -16,11 +16,11 @@ export const metadata: Metadata = {
 };
 
 const pillars = [
-  { num: '01', title: `${uiStrings.productDetail.pillars.labels.ingredients}（${pillarWeightPercent('ingredients')}%）`, desc: 'We assess whether each ingredient has peer-reviewed human clinical trial evidence for cognitive benefits. Proprietary blends with hidden doses are penalised.' },
-  { num: '02', title: `${uiStrings.productDetail.pillars.labels.dosing}（${pillarWeightPercent('dosing')}%）`, desc: "Dosing is the share of a product's ingredients with a reference dose on our ingredient pages whose label-stated daily amount meets that page's minimum. An amount the label hides (a share of a proprietary blend) or states on a different basis (such as a dried-herb equivalent instead of the extract) counts as not met. Ingredients with no reference page are listed but not scored." },
-  { num: '03', title: `${uiStrings.productDetail.pillars.labels.transparency}（${pillarWeightPercent('transparency')}%）`, desc: 'Full disclosure of all ingredient doses scores highest. "Matrix" blends or ingredients without standardisation data reduce scores.' },
-  { num: '04', title: `${uiStrings.productDetail.pillars.labels.value}（${pillarWeightPercent('value')}%）`, desc: 'Price per serving divided by the number of clinical-dose ingredients.' },
-  { num: '05', title: `${uiStrings.productDetail.pillars.labels.trust}（${pillarWeightPercent('trust')}%）`, desc: 'Composite of Trustpilot score (50%), complaint volume, subscription cancellation transparency, and third-party testing documentation.' },
+  { num: '01', title: `Ingredient quality (${pillarWeightPercent('ingredients')}%)`, desc: 'We assess whether each ingredient has peer-reviewed human clinical trial evidence for cognitive benefits. Proprietary blends with hidden doses are penalised.' },
+  { num: '02', title: `Dosing vs. clinical evidence (${pillarWeightPercent('dosing')}%)`, desc: "Dosing is the share of a product's ingredients with a reference dose on our ingredient pages whose label-stated daily amount meets that page's minimum. An amount the label hides (a share of a proprietary blend) or states on a different basis (such as a dried-herb equivalent instead of the extract) counts as not met. Ingredients with no reference page are listed but not scored." },
+  { num: '03', title: `Formula transparency (${pillarWeightPercent('transparency')}%)`, desc: 'Full disclosure of all ingredient doses scores highest. "Matrix" blends or ingredients without standardisation data reduce scores.' },
+  { num: '04', title: `Value for money (${pillarWeightPercent('value')}%)`, desc: 'Price per serving divided by the number of clinical-dose ingredients.' },
+  { num: '05', title: `Brand trust (${pillarWeightPercent('trust')}%)`, desc: 'Composite of Trustpilot score (50%), complaint volume, subscription cancellation transparency, and third-party testing documentation.' },
 ];
 
 export default function MethodologyPage() {
@@ -43,7 +43,7 @@ export default function MethodologyPage() {
         </p>
 
         <section className="mb-10">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">5本柱のスコアリング</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">5-Pillar Scoring Framework</h2>
           <div className="space-y-4">
             {pillars.map(p => (
               <div key={p.num} className="flex gap-4 p-5 bg-gray-50 rounded-xl">
@@ -61,7 +61,7 @@ export default function MethodologyPage() {
         </section>
 
         <section className="mb-10">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">アフィリエイトに関する開示</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Affiliate Disclosure</h2>
           <p className="text-sm text-gray-600 leading-relaxed">
             The Nootropic Lab earns affiliate commissions when readers purchase products through our
             links. This does not influence our editorial scores or rankings. All affiliate
@@ -70,7 +70,7 @@ export default function MethodologyPage() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">医療に関する免責事項</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Medical Disclaimer</h2>
           <p className="text-sm text-gray-600 leading-relaxed">
             Content on The Nootropic Lab is for informational purposes only and does not constitute
             medical advice. Always consult a qualified healthcare professional before taking any

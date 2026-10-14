@@ -12,7 +12,7 @@ import { FPTrustNote } from './public-chrome/FPTrustNote';
 // Every user-visible disclosure string is in the page's language (operator
 // rule): a translated route — a subtree wrapped in <div lang="…"> (us /es/,
 // eu /de/ /fr/ /pt/, ca /fr/) or an app whose root layout is not English
-// (jp, latam) — never renders the English affiliate notice, strip, trust note
+// (latam; jp is English since 2026-10-13) — never renders the English affiliate notice, strip, trust note
 // or their labels. scripts/check-built-disclosure.ts checks the same on every
 // built page; this test fails at the source.
 
@@ -99,14 +99,13 @@ describe('translated routes', () => {
       'apps/ca/src/app/fr/comparer/page.tsx',
       'apps/ca/src/app/fr/meilleurs-nootropiques/page.tsx',
     ]));
-    expect(byLang('ja')).toEqual(expect.arrayContaining([
-      'apps/jp/src/app/ja/hikaku/page.tsx',
-      'apps/jp/src/app/ja/best-nootropics/page.tsx',
-      'apps/jp/src/app/best-nootropics/page.tsx',
-    ]));
+    // JP is English since 2026-10-13: Japanese copy is paused pending legal
+    // advice and the /ja/ subtree is gone. No route on any host is Japanese.
+    expect(byLang('ja')).toEqual([]);
     // English apps and the English root of a translated app stay English.
     expect(PAGES.find((p) => p.file === 'apps/us/src/app/best-nootropics/page.tsx')?.locale).toBe('en');
     expect(PAGES.find((p) => p.file === 'apps/eu/src/app/best-nootropics/page.tsx')?.locale).toBe('en');
+    expect(PAGES.find((p) => p.file === 'apps/jp/src/app/best-nootropics/page.tsx')?.locale).toBe('en');
   });
 
   test("take uiStrings from a module built with the page's own locale", () => {
