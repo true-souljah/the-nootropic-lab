@@ -95,7 +95,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'How long does it take a focus nootropic to work?',
-    a: 'Acute-effect ingredients (L-theanine, caffeine, Alpha-GPC, L-tyrosine) work within 30–60 minutes. Longer-onset ingredients (Bacopa, Lion\'s Mane) need 4–12 weeks. If you want a same-day effect, look for L-theanine + caffeine; for compounded benefit over a study term or work quarter, plan for 8 weeks of consistent use.',
+    a: 'Acute-effect ingredients (L-theanine, caffeine, Alpha-GPC, L-tyrosine) work within 30–60 minutes. Bacopa: 8–12 weeks; most positive trials ran 12 weeks. Lion\'s Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. If you want a same-day effect, look for L-theanine + caffeine; for compounded benefit over a study term or work quarter, plan for 8 weeks of consistent use.',
   },
   {
     q: 'Are focus nootropics safe to take daily in tropical SEA climates?',

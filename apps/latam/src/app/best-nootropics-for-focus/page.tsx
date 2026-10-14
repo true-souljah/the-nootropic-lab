@@ -82,7 +82,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: '¿Cuánto tarda en hacer efecto un nootrópico de concentración?',
-    a: 'Los ingredientes de efecto agudo (L-teanina, cafeína, Alfa-GPC, L-tirosina) actúan en 30–60 minutos. Los de inicio más lento (Bacopa, Melena de León) requieren de 4 a 12 semanas. Para un efecto inmediato busca L-teanina + cafeína; para beneficio acumulativo, planifica 8 semanas de uso constante.',
+    a: 'Los ingredientes de efecto agudo (L-teanina, cafeína, Alfa-GPC, L-tirosina) actúan en 30–60 minutos. Bacopa: 8–12 semanas; la mayoría de los ensayos positivos duraron 12 semanas. Melena de León: en adultos con deterioro cognitivo leve, el beneficio se fue acumulando a lo largo de 8–16 semanas. Para un efecto inmediato busca L-teanina + cafeína; para beneficio acumulativo, planifica 8 semanas de uso constante.',
   },
   {
     q: '¿Son seguros los nootrópicos de concentración para uso diario?',
