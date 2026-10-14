@@ -62,7 +62,9 @@ test.describe('JP /ingredients/[slug] (post-migration smoke)', () => {
     expect(html).toContain('hrefLang="en-GB"');
     expect(html).toContain('hrefLang="en-CA"');
     expect(html).toContain('hrefLang="en-AU"');
-    expect(html).toContain('hrefLang="ja-JP"');
+    // en-JP: JP is English-primary while its Japanese copy is paused (2026-10-13).
+    expect(html).toContain('hrefLang="en-JP"');
+    expect(html).not.toContain('hrefLang="ja-JP"');
     expect(html).toContain('hrefLang="es-419"');
     expect(html).toContain('hrefLang="en-AE"');
     expect(html).toContain('hrefLang="en-SG"');

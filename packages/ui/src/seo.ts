@@ -7,7 +7,7 @@ export const REGIONS = {
   eu: { siteUrl: 'https://eu.thenootropiclab.com', hreflang: 'en-GB' },
   ca: { siteUrl: 'https://ca.thenootropiclab.com', hreflang: 'en-CA' },
   au: { siteUrl: 'https://au.thenootropiclab.com', hreflang: 'en-AU' },
-  jp: { siteUrl: 'https://jp.thenootropiclab.com', hreflang: 'ja-JP' },
+  jp: { siteUrl: 'https://jp.thenootropiclab.com', hreflang: 'en-JP' },
   latam: { siteUrl: 'https://latam.thenootropiclab.com', hreflang: 'es-419' },
   gcc: { siteUrl: 'https://gcc.thenootropiclab.com', hreflang: 'en-AE' },
   sea: { siteUrl: 'https://sea.thenootropiclab.com', hreflang: 'en-SG' },
@@ -26,8 +26,9 @@ export type RegionCode = keyof typeof REGIONS;
  * siblings. Pages not in any cluster keep the plain cross-region behaviour.
  *
  * Only English-primary regions with localized subtrees are listed (EU de/fr/pt,
- * US es, CA fr). JP is intentionally Japanese-chrome-primary (ja-JP) and is not
- * modelled as a locale cluster. (audit OPT-3b)
+ * US es, CA fr). JP is English-primary (en-JP) while its Japanese copy is paused
+ * pending legal advice (owner decision 2026-10-13; the /ja/ subtree is gone), so
+ * it has no locale cluster. (audit OPT-3b)
  */
 export const LOCALE_CLUSTERS: Partial<Record<RegionCode, ReadonlyArray<Record<string, string>>>> = {
   eu: [
