@@ -269,16 +269,13 @@ export default function Page() {
             </p>
             <p>
               This page is the explainer; for the buying comparison, use our{' '}
-              <Link href="/best-nootropics/" className="text-green-700 underline">Best Nootropics in Japan roundup</Link>{' '}
-              (also in <Link href="/ja/best-nootropics/" className="text-green-700 underline">Japanese</Link>). For picks
+              <Link href="/best-nootropics/" className="text-green-700 underline">Best Nootropics in Japan roundup</Link>. For picks
               by goal, see the{' '}
               <Link href="/best-nootropics-for-memory/" className="text-green-700 underline">best nootropics for memory</Link>{' '}
               and{' '}
               <Link href="/best-nootropics-for-focus/" className="text-green-700 underline">best nootropics for focus</Link>{' '}
               in Japan. For side-by-side data, use the{' '}
-              <Link href="/nootropic-comparison/" className="text-green-700 underline">nootropic comparator</Link>{' '}
-              or the Japanese-language{' '}
-              <Link href="/ja/hikaku/" className="text-green-700 underline">brand comparison table (比較)</Link>.
+              <Link href="/nootropic-comparison/" className="text-green-700 underline">nootropic comparator</Link>.
             </p>
           </div>
         </section>
@@ -287,10 +284,7 @@ export default function Page() {
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Personal import rules, briefly</h2>
           <div className="space-y-4 text-gray-700 leading-relaxed">
             <p>
-              Our Japanese-language{' '}
-              <Link href="/ja/yakkan-shoumei/" className="text-green-700 underline">guide to yakkan shoumei (薬監証明)</Link>{' '}
-              covers personal-import paperwork in detail. This section adds two points an English-language searcher is
-              likely to miss.
+              This section covers two points about personal import that an English-language searcher is likely to miss.
             </p>
             <p>
               <strong>The quantity guidance is written for drugs.</strong> The Ministry of Health, Labour and

@@ -330,7 +330,6 @@ describe('app pages declare the products they link', () => {
       'apps/eu/src/app/de/beste-nootropika/page.tsx',
       'apps/eu/src/app/fr/meilleurs-nootropiques/page.tsx',
       'apps/eu/src/app/pt/melhores-nootropicos/page.tsx',
-      'apps/jp/src/app/ja/hikaku/page.tsx',
       'apps/us/src/app/es/comparar/page.tsx',
       'apps/us/src/app/es/mejores-nootropicos/page.tsx',
     ]);

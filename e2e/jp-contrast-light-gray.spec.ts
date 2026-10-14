@@ -22,7 +22,9 @@ async function contrastViolations(page: Page): Promise<string[]> {
   return r.violations.flatMap((v) => v.nodes.map((n) => `${n.target.join(' ')}: ${n.any[0]?.message ?? ''}`));
 }
 
-for (const route of ['/', '/ja/', '/ja/best-nootropics/', '/prefectures/aichi/', '/guides/']) {
+// /ja/ and /ja/best-nootropics/ were removed 2026-10-13 (Japanese copy paused);
+// /best-nootropics/ is the English page they redirect to.
+for (const route of ['/', '/best-nootropics/', '/prefectures/aichi/', '/guides/']) {
   test(`${route} has no color-contrast violations`, async ({ page }) => {
     const res = await page.goto(route);
     expect(res?.status()).toBe(200);

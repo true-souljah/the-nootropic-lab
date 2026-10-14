@@ -18,7 +18,10 @@ import { test, expect } from '@playwright/test';
 //     names like FANCL, NooCube). Different scripts wrap differently.
 //
 // Target: 3 JP routes that cover different templates:
-//   /ja/yakkan-shoumei/  — custom standalone page (full Japanese prose)
+//   /japanese-brain-supplements/ — custom standalone page (English prose with
+//                                  full-width Japanese terms; replaced the
+//                                  Japanese /ja/yakkan-shoumei/, removed
+//                                  2026-10-13 while Japanese copy is paused)
 //   /fancl-brains-review/ — [slug] ProductDetail (full chrome + chips)
 //   /ingredients/l-theanine/ — IngredientDetail (Chip primitive,
 //                              fixed-by-PR-Q26 on US)
@@ -37,8 +40,8 @@ interface Offender {
 }
 
 const ROUTES = [
-  { path: '/ja/yakkan-shoumei/', label: '/ja/yakkan-shoumei/ (custom Japanese prose page)' },
-  { path: '/fancl-brains-review/', label: '/fancl-brains-review/ (ProductDetail with Japanese chips)' },
+  { path: '/japanese-brain-supplements/', label: '/japanese-brain-supplements/ (custom prose page with full-width Japanese terms)' },
+  { path: '/fancl-brains-review/', label: '/fancl-brains-review/ (ProductDetail with chips)' },
   { path: '/ingredients/l-theanine/', label: '/ingredients/l-theanine/ (IngredientDetail with localized chips)' },
 ];
 

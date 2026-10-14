@@ -7,7 +7,7 @@ import { columnsFromStrings } from './public-chrome/FPFooter';
 // PR-Q9 (2026-06-02). Before this fix, FPFooter rendered a hardcoded
 // English DEFAULT_COLUMNS array on every public page across 8 region
 // apps — a WCAG 3.1.2 Language of Parts violation on LATAM / CA /fr/ /
-// JP /ja/ / etc. PR-Q8 closed the FPHeader half of this same root
+// the then-Japanese JP pages / etc. PR-Q8 closed the FPHeader half of this same root
 // cause; this PR closes the FPFooter half.
 //
 // We do NOT render <FPFooter/> here (vitest is not DOM-configured); the
