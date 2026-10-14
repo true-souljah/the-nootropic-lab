@@ -1,8 +1,10 @@
 import { test, expect } from '@playwright/test';
 
 // Klaro consent notice on narrow screens + its dialog name (live check
-// 2026-10-07, all 8 regions). JP counterpart of us-consent-banner-mobile
-// (Klaro `ja` locale from <html lang="ja">).
+// 2026-10-07, all 8 regions). JP counterpart of us-consent-banner-mobile.
+// Klaro's locale comes from <html lang="en"> since 2026-10-13 (Japanese copy
+// on JP paused pending legal advice), so the notice is English; a page whose
+// body keeps a Japanese notice marked lang="ja" must not switch it to Japanese.
 //
 // klaro-overrides.css centred the notice with `--notice-left: 50%` plus
 // `transform: translateX(-50%)` at every width, but Klaro's own stylesheet
@@ -18,8 +20,10 @@ import { test, expect } from '@playwright/test';
 // 1280px checks the desktop notice stays centred.
 
 const PATH = '/';
-/** `consentNotice.title` of this page's Klaro locale (packages/ui/src/klaro-config.ts). */
-const TITLE = '分析とアフィリエイト計測のためのCookie';
+/** `consentNotice.title` of this page's Klaro locale, en (packages/ui/src/klaro-config.ts). */
+const TITLE = 'Cookies for analytics and affiliate attribution';
+/** A page whose body renders the JP disclaimer's Japanese half in <span lang="ja"> before the banner. */
+const PAGE_WITH_JA_NOTICE = '/best-nootropics-for-memory/';
 
 const VIEWPORTS = [
   { width: 360, isMobile: true },
@@ -53,3 +57,10 @@ for (const { width, isMobile } of VIEWPORTS) {
     });
   });
 }
+
+test('the notice stays English on a page with a lang="ja" notice in its body', async ({ page }) => {
+  await page.goto(PAGE_WITH_JA_NOTICE);
+  await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+  expect(await page.locator('main span[lang="ja"]').count()).toBeGreaterThan(0);
+  await expect(page.getByRole('dialog', { name: TITLE, exact: true })).toBeVisible({ timeout: 10_000 });
+});

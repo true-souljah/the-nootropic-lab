@@ -23,24 +23,20 @@ test.describe('JP /ingredients/[slug] (post-migration smoke)', () => {
     await expect(page.locator('footer[role="contentinfo"]')).toBeVisible();
   });
 
-  test('breadcrumb renders Japanese strings (uiStrings.breadcrumb)', async ({ page }) => {
+  // JP renders the en bundle since 2026-10-13 (Japanese copy paused pending
+  // legal advice): breadcrumb, landmark name and section headings are English.
+  test('breadcrumb renders English strings (uiStrings.breadcrumb)', async ({ page }) => {
     await page.goto(`/ingredients/${INGREDIENT_SLUG}/`);
-    // PR #18 added breadcrumb translations; PR #21 migrated the route to
-    // IngredientDetail which consumes them. PR-Q10 (#74) also localized the
-    // landmark aria-label itself — the Japanese name is "パンくずリスト".
-    // If either regressed, the breadcrumb would render in English.
-    const breadcrumb = page.locator('nav[aria-label="パンくずリスト"]');
-    await expect(breadcrumb.getByText('ホーム')).toBeVisible();
-    await expect(breadcrumb.getByText('成分')).toBeVisible();
+    const breadcrumb = page.locator('nav[aria-label="Breadcrumb"]');
+    await expect(breadcrumb.getByText('Home')).toBeVisible();
+    await expect(breadcrumb.getByText('Ingredients')).toBeVisible();
   });
 
-  test('section headings render Japanese (uiStrings.ingredientDetail.sections)', async ({ page }) => {
+  test('section headings render English (uiStrings.ingredientDetail.sections)', async ({ page }) => {
     await page.goto(`/ingredients/${INGREDIENT_SLUG}/`);
-    // PR #26 added these translations; the template consumes them via
-    // uiStrings.ingredientDetail.sections.
-    await expect(page.getByRole('heading', { name: '作用機序', level: 2 })).toBeVisible();
-    await expect(page.getByRole('heading', { name: '臨床エビデンスの概要', level: 2 })).toBeVisible();
-    await expect(page.getByRole('heading', { name: '摂取方法', level: 2 })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Mechanism of action', level: 2 })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Clinical evidence summary', level: 2 })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'How to take', level: 2 })).toBeVisible();
   });
 
   test('skip link is the first interactive element (a11y PR #27)', async ({ page }) => {

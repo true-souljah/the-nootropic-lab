@@ -168,7 +168,8 @@ const money = (r: StoreUnitPrice) => (r.ok ? { amount: r.amount, currency: r.cur
 /** The strings each app builds (apps/<region>/src/lib/search.ts). */
 const EDITIONS: Record<string, [Product[], Locale, RegionalRegionCode]> = {
   us: [allProductsUS, 'en', 'us'], eu: [allProductsEU, 'en', 'eu'], ca: [allProductsCA, 'en', 'ca'], au: [allProductsAU, 'en', 'au'],
-  jp: [allProductsJP, 'ja', 'jp'], latam: [allProductsLatam, 'es', 'latam'], gcc: [allProductsGCC, 'en', 'gcc'], sea: [allProductsSEA, 'en', 'sea'],
+  // JP builds the en bundle since 2026-10-13 (Japanese copy paused); its prices keep ja-JP yen formatting.
+  jp: [allProductsJP, 'en', 'jp'], latam: [allProductsLatam, 'es', 'latam'], gcc: [allProductsGCC, 'en', 'gcc'], sea: [allProductsSEA, 'en', 'sea'],
 };
 const editionStrings = (region: string) => {
   const [products, locale, code] = EDITIONS[region];
@@ -405,9 +406,9 @@ describe('priceText — per-unit and source lines as each edition renders them',
     ['eu', 'brainzyme-focus-pro', '≈ €1.06/serving', '≈ €1.06/day'],
     ['eu', 'pre-lab-pro', '≈ €2.25/serving', null],
     ['ca', 'noocube', '≈ $3/serving', '≈ $3/day'],
-    ['jp', 'hunter-focus', '≈ $3/回', '≈ $3/日'],
-    ['jp', 'suntory-dha-epa-sesamin', '≈ ￥191/回', '≈ ￥191/日'],
-    ['jp', 'fancl-brains', null, '≈ ￥183/日'],
+    ['jp', 'hunter-focus', '≈ $3/serving', '≈ $3/day'],
+    ['jp', 'suntory-dha-epa-sesamin', '≈ ￥191/serving', '≈ ￥191/day'],
+    ['jp', 'fancl-brains', null, '≈ ￥183/day'],
   ] as [string, string, string | null, string | null][])('%s %s → %s · %s', (region, id, perServing, perDay) => {
     const p = EDITIONS[region][0].find((x) => x.id === id)!;
     const t = priceText(p, editionStrings(region))!;
