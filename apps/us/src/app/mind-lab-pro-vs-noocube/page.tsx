@@ -29,7 +29,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Which is better, Mind Lab Pro or NooCube?',
     a:
-      'Both disclose every ingredient dose openly — the differentiator is brand trust. Mind Lab Pro is backed by multiple peer-reviewed RCTs (University of Leeds) and a 30-day Performance Promise. NooCube is part of the Wolfson Brands portfolio with affiliate-marketing-heavy positioning. Mind Lab Pro is the safer pick for transparency-minded buyers; NooCube competes on price and bundle offers.',
+      'Both disclose every ingredient dose openly — the differentiator is brand trust. Mind Lab Pro has been tested in two University of Leeds studies — a 30-day placebo-controlled study its authors call pseudo-randomised (PubMed 37194920) and a 60-day placebo-controlled study that found no improvement in choice accuracy or reaction time (PubMed 40149748) — and carries a 30-day Performance Promise. NooCube is part of the Wolfson Brands portfolio with affiliate-marketing-heavy positioning. Mind Lab Pro is the safer pick for transparency-minded buyers; NooCube competes on price and bundle offers.',
   },
   {
     q: 'Are both caffeine-free?',
@@ -39,7 +39,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Why is Mind Lab Pro more expensive?',
     a:
-      'Mind Lab Pro: $69/month at full price. NooCube: $64.99 for a single one-month bottle, or $55.24 a month on its 15%-off subscription (noocube.com, checked 7 October 2026). The price gap reflects (a) Mind Lab Pro\'s peer-reviewed clinical research investment, (b) trademarked extracts (Cognizin citicoline, Sharp-PS phosphatidylserine), (c) the direct-to-consumer model of Performance Lab Group Ltd (UK), the company mindlabpro.com\'s terms name, vs Wolfson\'s aggregator portfolio.',
+      'Mind Lab Pro: $69/month at full price. NooCube: $64.99 for a single one-month bottle, or $55.24 a month on its 15%-off subscription (noocube.com, checked 7 October 2026). The price gap reflects (a) trademarked extracts (Cognizin citicoline, Sharp-PS phosphatidylserine), (b) the direct-to-consumer model of Performance Lab Group Ltd (UK), the company mindlabpro.com\'s terms name, vs Wolfson\'s aggregator portfolio.',
   },
   {
     q: 'Which has better third-party testing?',
@@ -59,7 +59,7 @@ const faqItems: HeadToHeadFAQ[] = [
 ];
 
 const whoIsForA = [
-  'Want peer-reviewed RCT evidence (Mind Lab Pro has multiple)',
+  'Want a formula tested in two placebo-controlled University of Leeds studies (the 60-day one found no improvement in choice accuracy or reaction time)',
   'Care about Clean Label + Consumer Lab third-party verification',
   'Are willing to pay premium for trademarked extracts (Cognizin, Sharp-PS)',
 ];
@@ -72,7 +72,7 @@ const whoIsForB = [
 ];
 
 const verdictParagraph =
-  'Both are open-formula products — neither hides doses behind proprietary blends. The differentiator is brand trust signals: Mind Lab Pro carries peer-reviewed RCT evidence and Clean Label / Consumer Lab third-party testing; NooCube carries a 60-day refund window and lower per-bottle pricing on bundles. For evidence-graded buyers, Mind Lab Pro wins. For price-conscious open-formula buyers, NooCube is a fair second.';
+  'Both are open-formula products — neither hides doses behind proprietary blends. The differentiator is brand trust signals: Mind Lab Pro has two University of Leeds studies behind it (the 60-day one found no improvement in choice accuracy or reaction time) and Clean Label / Consumer Lab third-party testing; NooCube carries a 60-day refund window and lower per-bottle pricing on bundles. For evidence-graded buyers, Mind Lab Pro wins. For price-conscious open-formula buyers, NooCube is a fair second.';
 
 export default function Page() {
   if (!productA || !productB) notFound();
