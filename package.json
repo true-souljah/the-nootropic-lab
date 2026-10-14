@@ -29,6 +29,7 @@
     "check:titles": "node scripts/check-built-titles.mjs",
     "check:consent": "node scripts/check-consent-built.mjs",
     "check:disclosure": "npx --yes tsx scripts/check-built-disclosure.ts",
+    "check:jp-language": "node scripts/check-built-jp-language.mjs",
     "content-dates": "node scripts/content-dates.mjs",
     "check": "npm run validate-data",
     "test": "npm test --workspace=packages/ui",

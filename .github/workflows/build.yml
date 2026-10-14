@@ -165,6 +165,11 @@ jobs:
       # through links on this page" only on pages with a commission-earning
       # buy link, and on every such page; the site-level line elsewhere.
       - run: npm run check:disclosure
+      # JP language gate: Japanese copy on the JP host is paused (owner
+      # decision 2026-10-13). <html lang="en">, no /ja/ page, no Japanese in
+      # header/nav/footer, every other Japanese run marked lang="ja" or on
+      # the script's reviewed allowlist.
+      - run: npm run check:jp-language
       - run: npm run test:e2e -- --shard=${{ matrix.shard }}/3
       - uses: actions/upload-artifact@v7
         if: failure()
