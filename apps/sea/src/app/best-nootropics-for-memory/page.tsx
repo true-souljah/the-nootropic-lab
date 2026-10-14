@@ -34,7 +34,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Lion\'s Mane (Hericium erinaceus)',
     ingredientSlugs: ['lions-mane'],
     evidence:
-      'Modulates Nerve Growth Factor (NGF) and may support neurogenesis. Small RCTs (notably Mori et al. 2009 in older adults with mild cognitive impairment) showed memory improvements at 1g/day fruiting-body extract over 16 weeks. Lion\'s Mane is a familiar functional mushroom in Chinese-heritage SEA food culture (Singapore, Malaysia, parts of Indonesia and Vietnam) — buyers in TCM-aware markets often face less regulatory ambiguity. Look for fruiting-body extract, not mycelium-on-grain.',
+      'Modulates Nerve Growth Factor (NGF) and may support neurogenesis. Small RCTs (notably Mori et al. 2009 in adults aged 50–80 with mild cognitive impairment) showed higher cognitive function scores than placebo at 3g/day over 16 weeks. Lion\'s Mane is a familiar functional mushroom in Chinese-heritage SEA food culture (Singapore, Malaysia, parts of Indonesia and Vietnam) — buyers in TCM-aware markets often face less regulatory ambiguity. Look for fruiting-body extract, not mycelium-on-grain.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18844328/',
   },
   {

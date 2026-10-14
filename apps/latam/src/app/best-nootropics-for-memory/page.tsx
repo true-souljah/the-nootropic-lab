@@ -35,7 +35,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Melena de León (Hericium erinaceus)',
     ingredientSlugs: ['lions-mane'],
     evidence:
-      'Modula el Factor de Crecimiento Nervioso (NGF) y puede apoyar la neurogénesis. Pequeños ensayos clínicos (Mori et al. 2009 en adultos mayores con deterioro cognitivo leve) mostraron mejoras en memoria con 1g/día de extracto del cuerpo fructífero durante 16 semanas. La evidencia es prometedora pero menor que para Bacopa. Busca extracto del cuerpo fructífero, no micelio sobre grano.',
+      'Modula el Factor de Crecimiento Nervioso (NGF) y puede apoyar la neurogénesis. Pequeños ensayos clínicos (Mori et al. 2009 en adultos de 50 a 80 años con deterioro cognitivo leve) mostraron puntuaciones de función cognitiva más altas que con placebo con 3g/día durante 16 semanas. La evidencia es prometedora pero menor que para Bacopa. Busca extracto del cuerpo fructífero, no micelio sobre grano.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18844328/',
   },
   {

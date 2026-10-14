@@ -42,7 +42,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Lion\'s Mane (Hericium erinaceus)',
     ingredientSlugs: ['lions-mane'],
     evidence:
-      'Mori et al. 2009 — small RCT in older Japanese adults with mild cognitive impairment. 1g/day fruiting-body extract over 16 weeks improved cognitive function scores. Evidence is promising for early age-related changes; not evaluated for dementia treatment. Available in Australia via Mind Lab Pro (fruiting body, per its label) and Hunter Focus (its label does not name the part used) under the Personal Importation Scheme.',
+      'Mori et al. 2009 — small RCT in Japanese adults aged 50–80 with mild cognitive impairment. 3g/day over 16 weeks improved cognitive function scores compared with placebo. Evidence is promising for early age-related changes; not evaluated for dementia treatment. Available in Australia via Mind Lab Pro (fruiting body, per its label) and Hunter Focus (its label does not name the part used) under the Personal Importation Scheme.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18844328/',
   },
   {

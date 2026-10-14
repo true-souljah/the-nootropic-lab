@@ -42,7 +42,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Melena de León (Hericium erinaceus)',
     ingredientSlugs: ['lions-mane'],
     evidence:
-      'Mori et al. 2009 — pequeño ensayo clínico en adultos mayores japoneses con deterioro cognitivo leve. 1g/día de extracto del cuerpo fructífero durante 16 semanas mejoró las puntuaciones de función cognitiva. Evidencia prometedora para cambios tempranos asociados a la edad; no evaluada para tratamiento de demencia.',
+      'Mori et al. 2009 — pequeño ensayo clínico en adultos japoneses de 50 a 80 años con deterioro cognitivo leve. 3g/día durante 16 semanas mejoraron las puntuaciones de función cognitiva frente a placebo. Evidencia prometedora para cambios tempranos asociados a la edad; no evaluada para tratamiento de demencia.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18844328/',
   },
   {

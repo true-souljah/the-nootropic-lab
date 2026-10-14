@@ -41,7 +41,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Lion\'s Mane (Hericium erinaceus)',
     ingredientSlugs: ['lions-mane'],
     evidence:
-      'Mori et al. 2009 — small RCT in older Japanese adults with mild cognitive impairment. 1g/day fruiting-body extract over 16 weeks improved cognitive function scores. Evidence is promising for early age-related changes; not evaluated for dementia treatment. Lion\'s Mane is culturally familiar across Chinese-heritage SEA (Singapore, Malaysia, Vietnam) as a TCM mushroom — older buyers in these markets often have prior cultural exposure.',
+      'Mori et al. 2009 — small RCT in Japanese adults aged 50–80 with mild cognitive impairment. 3g/day over 16 weeks improved cognitive function scores compared with placebo. Evidence is promising for early age-related changes; not evaluated for dementia treatment. Lion\'s Mane is culturally familiar across Chinese-heritage SEA (Singapore, Malaysia, Vietnam) as a TCM mushroom — older buyers in these markets often have prior cultural exposure.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18844328/',
   },
   {
