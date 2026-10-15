@@ -1934,9 +1934,10 @@ const ROUND_SEVENTEEN_UNSOURCED: RegExp[] = [
   /choline for cognitive demand/i,
   /colina para alta demanda cognitiva/i,
   // U3: Mori dose, onset leftovers, stack notes, Rhodiola, ashwagandha and
-  // the Mind Lab Pro comparison pages (see above).
-  /Mori et al\. 2009[^'"]{0,200}?\b1 ?g\/(day|día)|\b1 ?g\/(day|día)[^'"]{0,120}Mori/i,
-  /(Bacopa, Lion\\?'s Mane\) need|Lion\\?'s Mane require) 4[–-]12 weeks/i,
+  // the Mind Lab Pro comparison pages (see above). The Mori pattern is
+  // case-sensitive: with /i its dose-first alternative matched "memoria".
+  /\bMori et al\. 2009[^'"]{0,200}?\b1 ?g\/(day|día)|\b1 ?g\/(day|día)[^'"]{0,120}\bMori\b/,
+  /(Bacopa, Lion\\?'s Mane\)? need|require) 4[–-]12 weeks/i,
   /requieren de 4 a 12 semanas/i,
   /needs 4[–-]12 weeks/i,
   /Expect no acute effects on day one/i,
@@ -2184,6 +2185,7 @@ describe('round seventeen: mechanism, user-report and market claims follow our i
       'Mori et al. 2009 — pequeño ensayo clínico en adultos japoneses de 50 a 80 años con deterioro cognitivo leve. 3g/día durante 16 semanas mejoraron las puntuaciones de función cognitiva frente a placebo.',
       'A 2021 NIH-funded meta-analysis (n=81,210) found omega-3 supplements raise atrial fibrillation risk, more so above 1g/day.',
       'los ensayos en adultos sanos usaron 1–1,8g al día, y la cifra de 3g al día proviene de un ensayo en deterioro cognitivo leve.',
+      'Nuestra dosis de referencia es de 1g/día; los ensayos sobre la memoria duraron 16 semanas.',
       "Bacopa: 8–12 weeks; most positive trials ran 12 weeks. Lion's Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks.",
       'Bacopa: 8–12 semanas; la mayoría de los ensayos positivos duraron 12 semanas. Melena de León: en adultos con deterioro cognitivo leve, el beneficio se fue acumulando a lo largo de 8–16 semanas.',
       'Bacopa Monnieri (in both) needs 8–12 weeks of consistent use; most positive trials ran 12 weeks.',
