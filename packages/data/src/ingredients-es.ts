@@ -915,7 +915,7 @@ export const ingredientsEs: IngredientTranslation[] = [
     sideEffects: [
       'Datos de seguridad limitados: tres ECA en humanos, y ambos ensayos específicos de metilliberina financiados por el fabricante',
       'Cognición objetiva: ningún efecto medible en las pruebas Stroop o Trail Making en el único ensayo que la evaluó',
-      'Posibles molestias gastrointestinales leves',
+      'Es posible que aparezcan molestias gastrointestinales leves',
       'Posible interacción con la cafeína (estimulación aditiva)',
       'No se recomienda durante el embarazo (por precaución: no hay datos en el embarazo)',
     ],
