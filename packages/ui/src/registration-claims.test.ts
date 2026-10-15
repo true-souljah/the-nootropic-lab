@@ -1962,6 +1962,12 @@ const ROUND_SEVENTEEN_UNSOURCED: RegExp[] = [
   /peer-reviewed (product-specific )?RCT evidence/i,
   /peer-reviewed efficacy data/i,
   /peer-reviewed clinical research investment/i,
+  // Added 2026-10-15 (round nineteen): FANCL BRAINs' whatToExpect said "At
+  // 12+ weeks: sustained brain health maintenance." with no source. Its G425
+  // notification claims memory and attention maintenance (given in the
+  // record's howItWorks with FANCL's 12-week trials); the sentence was
+  // deleted, not reworded.
+  /sustained brain health maintenance/i,
 ];
 
 // U3: every stack note names the trial it relies on or says we cite none.
@@ -2130,6 +2136,8 @@ describe('round seventeen: mechanism, user-report and market claims follow our i
       'Want peer-reviewed RCT evidence (Mind Lab Pro has multiple)',
       'Mind Lab Pro is the stronger choice on broader formula coverage and peer-reviewed RCT evidence, with 2 capsules a day instead of 6.',
       "The price gap reflects (a) Mind Lab Pro's peer-reviewed clinical research investment, (b) trademarked extracts",
+      // 2026-10-15 (round nineteen)
+      'Weeks 1-2: no noticeable acute effects — this is a foundational supplement, not a stimulant. At 12+ weeks: sustained brain health maintenance. FANCL recommends 4 tablets daily.',
     ];
     for (const s of removed) expect(ROUND_SEVENTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(true);
     for (const re of ROUND_SEVENTEEN_UNSOURCED) expect(removed.some(s => re.test(s)), String(re)).toBe(true);
@@ -2201,6 +2209,9 @@ describe('round seventeen: mechanism, user-report and market claims follow our i
       'Want a formula tested in a randomised, double-blind, placebo-controlled trial (Solomon 2016: 63 adults aged 18–35, 6 weeks; improved delayed verbal recall and executive functioning; one author from Onnit Labs)',
       'Clinical doses come from peer-reviewed RCTs on healthy adults.',
       'Every pick must (a) include at least one ingredient with peer-reviewed evidence for the use case',
+      // 2026-10-15 (round nineteen): the FANCL BRAINs line after the deletion.
+      'Weeks 1-2: no noticeable acute effects — this is a foundational supplement, not a stimulant. FANCL recommends 4 tablets daily.',
+      'FANCL cites a 12-week trial of bacopa saponins at 12.5mg/day and 12-week trials of matured hop bitter acids at 35mg/day.',
     ]) expect(ROUND_SEVENTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(false);
   });
 
