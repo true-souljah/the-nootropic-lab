@@ -550,8 +550,8 @@ export const ingredientsEs: IngredientTranslation[] = [
       forms: 'Cápsula o polvo. La L-tirosina (la forma de aminoácido libre) ofrece la mejor relación calidad-precio y es la forma usada en los ensayos sobre estrés. La NALT (N-acetil-L-tirosina) es común en los stacks formulados, pero no se encontró ningún ensayo que comparara la NALT con la L-tirosina simple en cognición.',
     },
     stacksWith: [
-      { ingredient: 'L-Teanina', reason: 'La L-tirosina aporta el sustrato de dopamina y norepinefrina para la concentración y el impulso; la L-teanina te mantiene en calma y previene el pico de cortisol por el estrés o la cafeína. Juntas producen un estado de alto rendimiento, concentrado y tranquilo, en condiciones exigentes.' },
-      { ingredient: 'Rhodiola Rosea', reason: 'La Rhodiola modula la disponibilidad de monoaminas y el eje HPA; la tirosina repone el sustrato de esas monoaminas. Ambas funcionan mejor en condiciones de estrés: apuntan al mismo problema (el deterioro cognitivo bajo estrés) por mecanismos complementarios.' },
+      { ingredient: 'L-Teanina', reason: 'La L-tirosina es un aminoácido precursor de la dopamina y la norepinefrina; la L-teanina es un aminoácido presente en el té verde. No citamos ningún ensayo de esta combinación.' },
+      { ingredient: 'Rhodiola Rosea', reason: 'Ambos se estudian para el rendimiento bajo estrés; no citamos ningún ensayo de esta combinación.' },
       { ingredient: 'Cafeína', reason: 'A menudo se combina con cafeína; no citamos ningún ensayo de L-tirosina con cafeína.' },
     ],
     faqs: [
@@ -560,7 +560,7 @@ export const ingredientsEs: IngredientTranslation[] = [
       { question: '¿Interactúa con los medicamentos para la tiroides?', answer: 'Sí: la L-tirosina es precursora de las hormonas tiroideas (T3 y T4). En dosis estándar, esto no es clínicamente significativo para la mayoría de las personas. Sin embargo, si tienes hipertiroidismo o tomas levotiroxina u otros medicamentos para la tiroides, la tirosina suplementaria podría, en teoría, afectar los niveles hormonales. Consulta a tu médico antes de usarla si tienes cualquier afección de la tiroides.' },
       { question: '¿La L-tirosina puede ayudar con el TDAH?', answer: 'No está establecido. La tirosina es precursora de la dopamina, pero nuestra revisión de la evidencia de 2026 no evaluó ensayos en TDAH, y una revisión de 2015 consideró mínimo su potencial para tratar trastornos clínicos. La L-tirosina no sustituye el tratamiento del TDAH: habla con tu médico antes de combinarla con cualquier medicamento.' },
     ],
-    sourceHashes: { name: 'b6b49148c5ac', mechanism: '082853377a1d', clinicalDose: '6d0a3df772cd', timeToEffect: '405de68dd725', studySummary: '4297e1f0df7a', benefits: '97fe49942c76', sideEffects: '02adfee90f52', humanEffects: '0e7b00103360', howToTake: '1bbc33b31283', stacksWith: '721735f910c9', faqs: 'f6c0886b2e57' },
+    sourceHashes: { name: 'b6b49148c5ac', mechanism: '082853377a1d', clinicalDose: '6d0a3df772cd', timeToEffect: '405de68dd725', studySummary: '4297e1f0df7a', benefits: '97fe49942c76', sideEffects: '02adfee90f52', humanEffects: '0e7b00103360', howToTake: '1bbc33b31283', stacksWith: '690cada98a12', faqs: 'f6c0886b2e57' },
   },
   {
     slug: 'caffeine',
@@ -599,7 +599,7 @@ export const ingredientsEs: IngredientTranslation[] = [
     stacksWith: [
       { ingredient: 'L-Teanina', reason: 'Los ensayos que citamos usaron 50–250mg de teanina con 40–250mg de cafeína. Frente a placebo, la combinación mejoró las medidas de atención en varios ensayos, aunque Foxe 2012 no encontró ningún beneficio adicional frente a cada compuesto por separado; en un ensayo controlado, la teanina no redujo significativamente el nerviosismo. Se encuentra de forma natural en el matcha.' },
       { ingredient: 'L-Tirosina', reason: 'A veces se combina con cafeína; no citamos ningún ensayo de esta combinación.' },
-      { ingredient: 'Rhodiola Rosea', reason: 'La Rhodiola aporta resiliencia al estrés y la cafeína aporta estimulación: se complementan en condiciones de alta exigencia sin sobreestimulación.' },
+      { ingredient: 'Rhodiola Rosea', reason: 'La Rhodiola es un adaptógeno; la cafeína es un antagonista de los receptores de adenosina. No citamos ningún ensayo de esta combinación.' },
     ],
     faqs: [
       { question: '¿Cuánta cafeína es demasiada?', answer: 'La EFSA (2015) concluyó que las dosis únicas de hasta 200mg y la ingesta diaria de hasta 400mg no plantean problemas de seguridad para adultos sanos, y que las mujeres embarazadas deben mantenerse en 200mg/día o menos. Las personas con trastorno de pánico tienen muchas más probabilidades de sufrir un ataque de pánico tras dosis altas. Por encima de estos niveles, la ansiedad, las palpitaciones y las alteraciones del sueño se vuelven comunes. Para la mejora cognitiva, 100-200mg es el punto óptimo: las dosis más altas aportan beneficios decrecientes para la cognición y aumentan los efectos secundarios.' },
@@ -607,7 +607,7 @@ export const ingredientsEs: IngredientTranslation[] = [
       { question: '¿La cafeína del café es distinta de la cafeína de los suplementos?', answer: 'Químicamente, la cafeína es cafeína sin importar su fuente. Sin embargo, el café contiene ácidos clorogénicos y otros polifenoles que pueden modular la cinética de absorción y aportar efectos neuroprotectores independientes. La cafeína de los suplementos (anhidra) actúa más rápido y con más fuerza. Ninguna es objetivamente mejor: depende de si quieres una dosificación precisa (cápsula) o una curva más suave (café o té).' },
       { question: '¿Puedo tomar cafeína con stacks nootrópicos que contienen estimulantes?', answer: 'Ten cuidado. Muchos stacks nootrópicos (por ejemplo, Hunter Focus) ya contienen 100mg de cafeína. Añadir café o pastillas de cafeína encima puede llevarte a superar los 400mg/día. Revisa siempre el contenido de cafeína en la etiqueta antes de combinar. Si un producto contiene cafeína, reduce en consecuencia tu consumo de cafeína de otras fuentes.' },
     ],
-    sourceHashes: { name: '015b48a9827e', mechanism: '9a9a74e9e02e', clinicalDose: '6cf77863b183', timeToEffect: '3dadd12af507', studySummary: '31e1e284f0d9', benefits: '2f4684a5dc65', sideEffects: '5d285d9063e6', humanEffects: '5dc9f6dd6a6c', howToTake: '75e1cd3cd00d', stacksWith: 'b7cbd67f5112', faqs: '957edbe79871' },
+    sourceHashes: { name: '015b48a9827e', mechanism: '9a9a74e9e02e', clinicalDose: '6cf77863b183', timeToEffect: '3dadd12af507', studySummary: '31e1e284f0d9', benefits: '2f4684a5dc65', sideEffects: '5d285d9063e6', humanEffects: '5dc9f6dd6a6c', howToTake: '75e1cd3cd00d', stacksWith: '4c988911987c', faqs: '957edbe79871' },
   },
   {
     slug: 'ginkgo-biloba',
@@ -640,9 +640,9 @@ export const ingredientsEs: IngredientTranslation[] = [
       forms: 'Usa siempre extracto estandarizado (24% de glucósidos flavonoides, 6% de lactonas terpénicas). EGb 761 es un extracto de grado farmacéutico; es el extracto usado en los ensayos agrupados por el metaanálisis que citamos (Tan 2015). Evita la hoja cruda o los productos sin estandarizar.',
     },
     stacksWith: [
-      { ingredient: 'Fosfatidilserina', reason: 'El ginkgo mejora el aporte sanguíneo, mientras que la PS favorece la función de la membrana: vías complementarias para el apoyo cognitivo asociado a la edad.' },
-      { ingredient: 'Melena de León', reason: 'El ginkgo aporta un apoyo agudo al flujo sanguíneo; la Melena de León construye neuroprotección a largo plazo a través del NGF. Aborda la salud cerebral tanto inmediata como estructural.' },
-      { ingredient: 'Bacopa Monnieri', reason: 'Ambos tienen beneficios a largo plazo en la memoria por mecanismos distintos: el ginkgo a través del flujo sanguíneo y la Bacopa a través de la densidad sináptica. Se combinan para un apoyo integral de la memoria en adultos mayores.' },
+      { ingredient: 'Fosfatidilserina', reason: 'Ambos se estudian para el deterioro cognitivo asociado a la edad; no citamos ningún ensayo de esta combinación.' },
+      { ingredient: 'Melena de León', reason: 'Ambos se estudian para la memoria; no citamos ningún ensayo de esta combinación.' },
+      { ingredient: 'Bacopa Monnieri', reason: 'Ambos se estudian para la memoria; no citamos ningún ensayo de esta combinación.' },
     ],
     faqs: [
       { question: '¿El Ginkgo Biloba funciona realmente en adultos jóvenes y sanos?', answer: 'La evidencia es mixta. Los beneficios más claros se dan en personas con demencia, y la revisión Cochrane de 2026 encontró poco o ningún efecto incluso en el deterioro cognitivo leve. En adultos jóvenes y sanos, los efectos sobre la memoria y la atención son inconsistentes entre ensayos. Si tienes menos de 40 años y estás cognitivamente sano, la L-teanina + cafeína tiene evidencia aguda más sólida.' },
@@ -650,7 +650,7 @@ export const ingredientsEs: IngredientTranslation[] = [
       { question: '¿Puedo tomar Ginkgo con anticoagulantes?', answer: 'Evítalo salvo que tu médico esté de acuerdo. En una gran cohorte de la Administración de Veteranos, tomar ginkgo con warfarina aumentó el riesgo de sangrado en un 38% (HR 1.38), y una revisión sistemática de las interacciones de la warfarina relaciona el ginkgo con eventos hemorrágicos graves, incluida la hemorragia intracraneal. La interacción está documentada clínicamente y es potencialmente grave.' },
       { question: '¿Cuánto tiempo pasa hasta ver resultados?', answer: 'Los ensayos positivos en demencia duraron 22–26 semanas con 240mg/día, y la revisión Cochrane evaluó los resultados a los 6 meses. No juzgues la eficacia a las 1–2 semanas.' },
     ],
-    sourceHashes: { name: '7ca33b4078c1', mechanism: '52b072149d87', clinicalDose: 'd3f287672e4f', timeToEffect: 'b63c90143962', studySummary: '4094661772fc', benefits: '2f1a760d44e0', sideEffects: '397bb6bb347b', humanEffects: 'b2c75e5b2b8c', howToTake: 'c74be2fd321e', stacksWith: 'db6c568fef27', faqs: '767cb40c84cd' },
+    sourceHashes: { name: '7ca33b4078c1', mechanism: '52b072149d87', clinicalDose: 'd3f287672e4f', timeToEffect: 'b63c90143962', studySummary: '4094661772fc', benefits: '2f1a760d44e0', sideEffects: '397bb6bb347b', humanEffects: 'b2c75e5b2b8c', howToTake: 'c74be2fd321e', stacksWith: 'bc034dca1e6b', faqs: '767cb40c84cd' },
   },
   {
     slug: 'dha-omega-3',
@@ -683,9 +683,9 @@ export const ingredientsEs: IngredientTranslation[] = [
       forms: 'Aceite de pescado, aceite de krill o aceite de algas (vegano). El DHA de algas evita la preocupación por los metales pesados; ningún ensayo ha comparado directamente el DHA de algas y el de pescado en resultados cognitivos.',
     },
     stacksWith: [
-      { ingredient: 'Fosfatidilserina', reason: 'El DHA aporta la grasa estructural de las membranas; la PS es el fosfolípido que organiza su arquitectura. Juntos brindan un apoyo integral a la membrana neuronal.' },
-      { ingredient: 'Melena de León', reason: 'El DHA mantiene la integridad de la membrana, mientras que la Melena de León estimula el NGF para la neuroplasticidad. Apoyo cerebral de base + orientado al crecimiento.' },
-      { ingredient: 'Citicolina', reason: 'La citicolina aporta colina para la síntesis de fosfolípidos de membrana; el DHA aporta el sustrato de ácidos grasos. Juntos suministran la materia prima para reparar las membranas de las células cerebrales.' },
+      { ingredient: 'Fosfatidilserina', reason: 'El DHA es un componente estructural de las membranas neuronales. Algunos productos clínicos de PS están conjugados con DHA (PS-DHA): un ensayo de 15 semanas con PS-DHA de origen marino con 300mg/día mejoró el recuerdo verbal inmediato en adultos mayores con quejas de memoria.' },
+      { ingredient: 'Melena de León', reason: 'Ambos se estudian para la memoria; no citamos ningún ensayo de esta combinación.' },
+      { ingredient: 'Citicolina', reason: 'La citicolina es un precursor de la fosfatidilcolina; el DHA es el principal ácido graso omega-3 estructural del cerebro. No citamos ningún ensayo de esta combinación.' },
     ],
     faqs: [
       { question: 'DHA frente a EPA: ¿cuál importa más para la salud cerebral?', answer: 'El DHA es el omega-3 estructural de las membranas cerebrales (~40% de los AGPI del cerebro), lo que lo hace más directamente relevante para la función cognitiva. El EPA es más potente como antiinflamatorio y muestra efectos más fuertes sobre el estado de ánimo y la depresión. Para la salud cerebral, prioriza el DHA: los ensayos cognitivos positivos usaron 900mg–1.16g de DHA al día. Para el estado de ánimo, prioriza el EPA. La mayoría de los suplementos de calidad aportan ambos; ten en cuenta la señal de fibrilación auricular por encima de 1g/día de omega-3 total.' },
@@ -693,7 +693,7 @@ export const ingredientsEs: IngredientTranslation[] = [
       { question: '¿Es mejor el aceite de pescado o el de algas?', answer: 'El DHA es la misma molécula en ambas fuentes. El aceite de algas evita la preocupación por el mercurio y los metales pesados y es apto para vegetarianos. El aceite de pescado aporta una proporción natural de DHA+EPA. Ningún ensayo los ha comparado directamente en resultados cognitivos: elige según tu preferencia alimentaria y la calidad del producto concreto.' },
       { question: '¿Cuánto tiempo pasa hasta notar efectos cognitivos?', answer: 'El DHA actúa reconstruyendo la composición de las membranas, un proceso lento. Ambos ECA cognitivos positivos duraron 24 semanas (6 meses). No sentirás un efecto agudo como con la cafeína o la L-teanina. Piensa en el DHA como una inversión en infraestructura a largo plazo, no como un suplemento de rendimiento.' },
     ],
-    sourceHashes: { name: '158b9ff9ae1d', mechanism: 'f288c32308b5', clinicalDose: '7226276cc513', timeToEffect: '5f9853a9095b', studySummary: '3359b9d9aa80', benefits: '7d8e90ddd8b8', sideEffects: 'd75f8f4c0062', humanEffects: '150a902bcfdd', howToTake: 'be3d4fbbb20e', stacksWith: '04f27347ef5c', faqs: 'ae0eb1adda3c' },
+    sourceHashes: { name: '158b9ff9ae1d', mechanism: 'f288c32308b5', clinicalDose: '7226276cc513', timeToEffect: '5f9853a9095b', studySummary: '3359b9d9aa80', benefits: '7d8e90ddd8b8', sideEffects: 'd75f8f4c0062', humanEffects: '150a902bcfdd', howToTake: 'be3d4fbbb20e', stacksWith: 'c46a117f84f9', faqs: 'ae0eb1adda3c' },
   },
   {
     slug: 'maritime-pine-bark',
@@ -726,9 +726,9 @@ export const ingredientsEs: IngredientTranslation[] = [
       forms: 'La cápsula es lo habitual. Pycnogenol es un extracto de marca; es el extracto usado en los estudios que citamos (Belcaro 2014; Luzzi 2011). Los extractos genéricos de corteza de pino varían mucho en su contenido de proantocianidinas: revisa el porcentaje de estandarización.',
     },
     stacksWith: [
-      { ingredient: 'Citicolina', reason: 'La citicolina aporta concentración colinérgica; la corteza de pino aporta apoyo al flujo sanguíneo y antioxidante. Juntas forman el núcleo de Performance Lab Mind, un stack minimalista para la concentración basado en evidencia.' },
-      { ingredient: 'L-Tirosina', reason: 'La corteza de pino favorece el flujo sanguíneo cerebral (el aporte); la tirosina favorece la síntesis de catecolaminas (la producción). Una combinación complementaria de oferta + demanda.' },
-      { ingredient: 'DHA (Omega-3)', reason: 'La corteza de pino protege las membranas neuronales del daño oxidativo; el DHA aporta el ácido graso estructural de esas membranas. Una combinación protectora + estructural.' },
+      { ingredient: 'Citicolina', reason: 'Ambos se estudian para la atención y ambos están en Performance Lab Mind; no citamos ningún ensayo de esta combinación.' },
+      { ingredient: 'L-Tirosina', reason: 'La corteza de pino se estudia para el flujo sanguíneo cerebral; la L-tirosina es un aminoácido precursor de la dopamina y la norepinefrina. No citamos ningún ensayo de esta combinación.' },
+      { ingredient: 'DHA (Omega-3)', reason: 'La corteza de pino contiene proantocianidinas, antioxidantes polifenólicos; el DHA es el principal ácido graso omega-3 estructural del cerebro. No citamos ningún ensayo de esta combinación.' },
     ],
     faqs: [
       { question: '¿Qué es Pycnogenol y vale la pena pagar más por él?', answer: 'Pycnogenol es un extracto patentado de corteza de pino marítimo francés (Pinus pinaster) estandarizado al 65-75% de proantocianidinas con un proceso de fabricación específico. Es el extracto usado en los estudios que citamos (Belcaro 2014; Luzzi 2011); no encontramos ningún ensayo que lo comparara con un extracto genérico de corteza de pino. Los extractos genéricos de corteza de pino pueden variar en su composición. Para coincidir con esa evidencia, elige Pycnogenol.' },
@@ -736,7 +736,7 @@ export const ingredientsEs: IngredientTranslation[] = [
       { question: '¿Puedo tomar extracto de corteza de pino a largo plazo?', answer: 'Los ensayos agrupados duraron de 4 semanas a 6 meses, y la revisión Cochrane señala que los eventos adversos se reportaron de forma inconsistente, así que la ausencia de daños reportados no prueba la seguridad a largo plazo. No se ha probado ningún protocolo de ciclos. Consulta con tu médico si tomas inmunosupresores.' },
       { question: '¿Por qué la dosis de Performance Lab Mind es de solo 75mg?', answer: 'Performance Lab Mind usa 75mg de corteza de pino marítimo, por debajo de la dosis clínica de 100-200mg de esta página (el estudio Belcaro 2014 que citamos usó 150mg/día). Forma parte de una fórmula con varios ingredientes junto con citicolina y tirosina, pero sigue estando por debajo de la dosis respecto a la evidencia del ingrediente solo.' },
     ],
-    sourceHashes: { name: 'c2199b3d437b', mechanism: 'e06bc0dd7b50', clinicalDose: '66d28fbbd521', timeToEffect: 'e076d346cfd5', studySummary: 'b45f461aeb9b', benefits: 'c9c04b39f7a9', sideEffects: '1a14f894c162', humanEffects: '03646df40705', howToTake: '0624c7dbaff3', stacksWith: '88d8baf6a635', faqs: '15f318b56fd5' },
+    sourceHashes: { name: 'c2199b3d437b', mechanism: 'e06bc0dd7b50', clinicalDose: '66d28fbbd521', timeToEffect: 'e076d346cfd5', studySummary: 'b45f461aeb9b', benefits: 'c9c04b39f7a9', sideEffects: '1a14f894c162', humanEffects: '03646df40705', howToTake: '0624c7dbaff3', stacksWith: '1a1eaf7af5ac', faqs: '15f318b56fd5' },
   },
   {
     slug: 'acetyl-l-carnitine',
@@ -771,17 +771,17 @@ export const ingredientsEs: IngredientTranslation[] = [
       forms: 'Cápsula o polvo. Se necesita específicamente la ALCAR (forma acetilada): la L-carnitina simple no atraviesa con eficacia la barrera hematoencefálica. Busca en la etiqueta "Acetyl-L-Carnitine" (acetil-L-carnitina) o "ALCAR", no "L-Carnitine" (L-carnitina) ni "L-Carnitine L-Tartrate" (L-tartrato de L-carnitina).',
     },
     stacksWith: [
-      { ingredient: 'Alfa-GPC', reason: 'La ALCAR aporta grupos acetilo; la Alfa-GPC aporta colina. Juntas favorecen la síntesis de acetilcolina desde ambos sustratos: el acetilo y la colina.' },
-      { ingredient: 'Citicolina', reason: 'Ambas favorecen la función colinérgica por vías distintas. La citicolina aporta CDP-colina para reparar membranas; la ALCAR aporta energía mitocondrial y grupos acetilo.' },
-      { ingredient: 'Melena de León', reason: 'La ALCAR protege las neuronas existentes mediante el apoyo mitocondrial; la Melena de León promueve el crecimiento de nuevas neuronas a través del NGF. Una estrategia complementaria de mantenimiento + crecimiento.' },
+      { ingredient: 'Alfa-GPC', reason: 'La ALCAR dona grupos acetilo para la síntesis de acetilcolina; la Alfa-GPC es un precursor de colina. No citamos ningún ensayo de esta combinación.' },
+      { ingredient: 'Citicolina', reason: 'La citicolina es un precursor de la acetilcolina y la fosfatidilcolina; la ALCAR dona grupos acetilo para la síntesis de acetilcolina. No citamos ningún ensayo de esta combinación.' },
+      { ingredient: 'Melena de León', reason: 'Ambos se estudian en el deterioro cognitivo leve; no citamos ningún ensayo de esta combinación.' },
     ],
     faqs: [
       { question: 'ALCAR frente a L-carnitina simple: ¿cuál es la diferencia?', answer: 'El grupo acetilo de la ALCAR le permite atravesar la barrera hematoencefálica y donar grupos acetilo para la síntesis de acetilcolina. La L-carnitina simple actúa principalmente en los músculos y los tejidos periféricos para el metabolismo de las grasas. Para obtener beneficios cerebrales se necesita la ALCAR: la L-carnitina simple no producirá efectos cognitivos.' },
       { question: '¿La ALCAR eleva los niveles de TMAO?', answer: 'Sí: las bacterias intestinales metabolizan la carnitina (incluida la ALCAR) en trimetilamina, que el hígado convierte en TMAO. Un TMAO elevado se asocia con riesgo cardiovascular en estudios observacionales. La relevancia clínica con las dosis estándar de suplementos de ALCAR (1.5–3g/día) está en debate. Si ya tienes problemas cardiovasculares, coméntalo con tu médico.' },
       { question: '¿La ALCAR es útil para adultos jóvenes y sanos?', answer: 'No está demostrado. La evidencia es en adultos mayores con deterioro cognitivo o síntomas depresivos; nuestra revisión de 2026 no encontró ningún ensayo en adultos jóvenes y sanos. No es un nootrópico de primera línea para personas jóvenes y sanas: la L-teanina + cafeína tiene evidencia aguda más sólida. Tampoco está respaldada para el TDAH.' },
-      { question: '¿La ALCAR puede ayudar con la niebla mental?', answer: 'Posiblemente. La ALCAR favorece la producción de energía mitocondrial en las neuronas, lo que podría atender la niebla mental causada por una insuficiencia metabólica. Los relatos anecdóticos son comunes, pero la evidencia controlada específicamente sobre la "niebla mental" en adultos sanos es limitada. Si la niebla mental persiste, investiga las causas de fondo (sueño, tiroides, niveles de hierro) en lugar de depender solo de los suplementos.' },
+      { question: '¿La ALCAR puede ayudar con la niebla mental?', answer: 'Posiblemente. La ALCAR favorece la producción de energía mitocondrial en las neuronas, lo que podría atender la niebla mental causada por una insuficiencia metabólica. La evidencia controlada específicamente sobre la "niebla mental" en adultos sanos es limitada. Si la niebla mental persiste, investiga las causas de fondo (sueño, tiroides, niveles de hierro) en lugar de depender solo de los suplementos.' },
     ],
-    sourceHashes: { name: 'd99068d3b8f8', mechanism: 'e34b94922c67', clinicalDose: '313892b79a45', timeToEffect: 'e63692f4f848', studySummary: 'e35d97a8c14a', benefits: 'dd9e694494a2', sideEffects: 'dffeae0a3643', humanEffects: '05561ce27348', howToTake: '42313cd550a7', stacksWith: 'a66191598a26', faqs: 'ecf8b96849e5' },
+    sourceHashes: { name: 'd99068d3b8f8', mechanism: 'e34b94922c67', clinicalDose: '313892b79a45', timeToEffect: 'e63692f4f848', studySummary: 'e35d97a8c14a', benefits: 'dd9e694494a2', sideEffects: 'dffeae0a3643', humanEffects: '05561ce27348', howToTake: '42313cd550a7', stacksWith: '094b7486bad7', faqs: 'e413144edd77' },
   },
   {
     slug: 'lutemax-2020',
@@ -812,7 +812,7 @@ export const ingredientsEs: IngredientTranslation[] = [
     },
     stacksWith: [
       { ingredient: 'L-Teanina', reason: 'La luteína y la zeaxantina favorecen el pigmento macular; la L-teanina favorece una atención tranquila. Una combinación común para el trabajo prolongado frente a pantallas, aunque no se ha probado.' },
-      { ingredient: 'DHA (Omega-3)', reason: 'El DHA favorece la integridad de la membrana de las células de la retina, mientras que Lutemax aporta protección antioxidante. Un apoyo complementario para la salud ocular y cerebral.' },
+      { ingredient: 'DHA (Omega-3)', reason: 'La luteína y la zeaxantina favorecen el pigmento macular; el DHA es el principal ácido graso omega-3 estructural del cerebro. No citamos ningún ensayo de esta combinación.' },
       { ingredient: 'Citicolina', reason: 'La citicolina aporta colina para la acetilcolina y las membranas; la luteína y la zeaxantina favorecen el pigmento macular. Vías distintas, no probadas juntas.' },
     ],
     faqs: [
@@ -821,7 +821,7 @@ export const ingredientsEs: IngredientTranslation[] = [
       { question: '¿En qué se diferencia Lutemax 2020 de la luteína genérica?', answer: 'Lutemax 2020 aporta ambos isómeros de zeaxantina (RR- y RS-meso-zeaxantina) además de luteína, en una proporción de luteína a zeaxantina de aproximadamente 5:1. Los suplementos genéricos de luteína suelen aportar solo luteína o una sola forma de zeaxantina. Ningún ensayo ha comparado directamente Lutemax 2020 con la luteína genérica.' },
       { question: '¿Reduce la tensión ocular causada por las pantallas?', answer: 'La evidencia es mixta. En un ensayo de 6 meses en 48 estudiantes con 6 o más horas diarias frente a pantallas, 24mg/día de la formulación Lutemax 2020 redujeron la tensión ocular, la fatiga ocular y la frecuencia de dolores de cabeza autoevaluadas frente a placebo (Stringham 2017, financiado por OmniActive, que fabrica Lutemax, y cuyo primer autor es consultor de la empresa). En un ensayo más grande de 6 meses en 70 usuarios intensivos de pantallas, un producto distinto (Lute-gen, 10mg de luteína + 2mg de isómeros de zeaxantina; financiado por su proveedor, Bio-gen Extracts) mejoró las medidas objetivas de ojo seco (producción de lágrimas, estabilidad de la película lagrimal) y la recuperación tras el fotoestrés, pero la tensión ocular, la fatiga visual, el sueño y la atención autoevaluados no difirieron de placebo (Lopresti y Smith 2025). Los otros efectos medidos son un pigmento macular más alto y una recuperación más rápida tras el deslumbramiento, con cambios en la MPOD y en la cognición evaluados después de 6–12 meses.' },
     ],
-    sourceHashes: { name: 'c25724f67f30', mechanism: '1779dc7d7629', clinicalDose: '36b74abcac69', timeToEffect: 'a0a8bac5a8a5', studySummary: 'bae1f8026d2a', benefits: 'b5ce163742f4', sideEffects: 'ec02b56ec3df', humanEffects: '6fd99d578040', howToTake: '45ff1ff85055', stacksWith: '7711a511f5a6', faqs: '4446e125bde6' },
+    sourceHashes: { name: 'c25724f67f30', mechanism: '1779dc7d7629', clinicalDose: '36b74abcac69', timeToEffect: 'a0a8bac5a8a5', studySummary: 'bae1f8026d2a', benefits: 'b5ce163742f4', sideEffects: 'ec02b56ec3df', humanEffects: '6fd99d578040', howToTake: '45ff1ff85055', stacksWith: 'e4fda6ab9775', faqs: '4446e125bde6' },
   },
   {
     slug: 'oat-straw',
@@ -850,9 +850,9 @@ export const ingredientsEs: IngredientTranslation[] = [
       forms: 'Cápsula o polvo. Busca un extracto de "avena verde" ("green oat") o de "Avena sativa" estandarizado en avenantramidas. El té de paja de avena sin procesar no es equivalente: la concentración es demasiado baja.',
     },
     stacksWith: [
-      { ingredient: 'Alfa-GPC', reason: 'La paja de avena favorece la señalización dopaminérgica a través de la MAO-B; la Alfa-GPC favorece la señalización colinérgica. Una cobertura complementaria de neurotransmisores para la concentración.' },
-      { ingredient: 'L-Tirosina', reason: 'Ambas favorecen la disponibilidad de dopamina: la paja de avena al frenar su degradación (MAO-B) y la tirosina al aportar el precursor.' },
-      { ingredient: 'Bacopa Monnieri', reason: 'La paja de avena aporta beneficios agudos en la atención; la Bacopa, la consolidación de la memoria a largo plazo. Cubre necesidades cognitivas a corto y a largo plazo.' },
+      { ingredient: 'Alfa-GPC', reason: 'La paja de avena se estudia para la atención; la Alfa-GPC es un precursor de colina. No citamos ningún ensayo de esta combinación.' },
+      { ingredient: 'L-Tirosina', reason: 'La paja de avena inhibe la MAO-B, lo que frena la degradación de la dopamina; la L-tirosina es un precursor de la dopamina. No citamos ningún ensayo de esta combinación.' },
+      { ingredient: 'Bacopa Monnieri', reason: 'La paja de avena se estudia para la atención y la Bacopa para la memoria; no citamos ningún ensayo de esta combinación.' },
     ],
     faqs: [
       { question: '¿La paja de avena es lo mismo que la avena en hojuelas?', answer: 'No. El extracto de paja de avena proviene de las partes aéreas verdes e inmaduras de Avena sativa, cosechadas antes de que madure el grano. Los compuestos activos (avenantramidas, saponinas) se concentran en la paja verde, no en el grano. Comer avena en hojuelas no aporta efectos nootrópicos.' },
@@ -860,7 +860,7 @@ export const ingredientsEs: IngredientTranslation[] = [
       { question: '¿La paja de avena contiene gluten?', answer: 'La avena técnicamente no contiene gluten, pero es común que se contamine con trigo durante el procesamiento. Si tienes enfermedad celíaca o una sensibilidad grave al gluten, verifica que el suplemento esté certificado sin gluten o evítalo por completo.' },
       { question: '¿Cómo se compara con la cafeína para la concentración?', answer: 'No es un estimulante, y ningún ensayo ha comparado ambos. Los ensayos con extracto de avena encontraron pequeñas mejoras en la atención y la memoria de trabajo sin los efectos secundarios típicos de los estimulantes, pero la base de evidencia son cuatro ensayos pequeños vinculados al fabricante, mucho más escasa que la de la cafeína.' },
     ],
-    sourceHashes: { name: '6b1648c7567a', mechanism: 'fe7d99088dbf', clinicalDose: '562a815f6c9e', timeToEffect: '7665b28811dc', studySummary: 'ce4ccbcb5488', benefits: '1bf8d10e5ae6', sideEffects: 'e29abc5d1bcf', humanEffects: '7145720d1265', howToTake: '2c1fc1026907', stacksWith: 'e7bc6d78104c', faqs: '228b5c6beb9b' },
+    sourceHashes: { name: '6b1648c7567a', mechanism: 'fe7d99088dbf', clinicalDose: '562a815f6c9e', timeToEffect: '7665b28811dc', studySummary: 'ce4ccbcb5488', benefits: '1bf8d10e5ae6', sideEffects: 'e29abc5d1bcf', humanEffects: '7145720d1265', howToTake: '2c1fc1026907', stacksWith: 'f9bf3aaafc09', faqs: '228b5c6beb9b' },
   },
   {
     slug: 'zynamite',
@@ -891,7 +891,7 @@ export const ingredientsEs: IngredientTranslation[] = [
     },
     stacksWith: [
       { ingredient: 'Cafeína', reason: 'La cafeína aumenta la liberación de catecolaminas; se propone que Zynamite frene su degradación al inhibir la COMT. La combinación no se ha probado en un ensayo cognitivo.' },
-      { ingredient: 'L-Tirosina', reason: 'La tirosina aporta el precursor de la dopamina; Zynamite frena el metabolismo de la dopamina. Aporte + preservación para mantener los niveles de catecolaminas.' },
+      { ingredient: 'L-Tirosina', reason: 'La L-tirosina es un precursor de la dopamina; se propone que Zynamite frene la degradación de la dopamina al inhibir la COMT. No citamos ningún ensayo de esta combinación.' },
       { ingredient: 'L-Teanina', reason: 'La L-teanina se combina a menudo con estimulantes, aunque en un ensayo controlado con cafeína (Rogers 2008) no redujo significativamente el nerviosismo, y no citamos ningún ensayo de L-teanina con Zynamite.' },
     ],
     faqs: [
@@ -899,7 +899,7 @@ export const ingredientsEs: IngredientTranslation[] = [
       { question: '¿La evidencia es independiente o financiada por el fabricante?', answer: 'Tres de los cuatro ensayos en humanos fueron escritos por Nektium, el fabricante. El único ensayo dirigido por un grupo académico independiente (Dodd 2024, n=114) probó la dosis de 300mg y no encontró ningún beneficio cognitivo, con más errores de resta que con placebo.' },
       { question: '¿Puedo tomar Zynamite con cafeína?', answer: 'Ningún ensayo ha probado Zynamite con cafeína: los ensayos deportivos lo combinaron con quercetina o luteolina. Si los combinas, vigila tu carga total de estimulantes.' },
     ],
-    sourceHashes: { name: 'ef4f90c0bd65', mechanism: '5da192f070fa', clinicalDose: '978e605c0a78', timeToEffect: '62e647b3127b', studySummary: '6c1432f48570', benefits: 'a637a6eb2c24', sideEffects: '923d54ca519b', humanEffects: 'fb6ac77dc2a6', howToTake: '0e3ea4807b59', stacksWith: 'af77c3f3ef88', faqs: '1968113d3fc2' },
+    sourceHashes: { name: 'ef4f90c0bd65', mechanism: '5da192f070fa', clinicalDose: '978e605c0a78', timeToEffect: '62e647b3127b', studySummary: '6c1432f48570', benefits: 'a637a6eb2c24', sideEffects: '923d54ca519b', humanEffects: 'fb6ac77dc2a6', howToTake: '0e3ea4807b59', stacksWith: '0de0fc28f29a', faqs: '1968113d3fc2' },
   },
   {
     slug: 'dynamine',
@@ -933,7 +933,7 @@ export const ingredientsEs: IngredientTranslation[] = [
     stacksWith: [
       { ingredient: 'Cafeína', reason: 'Una combinación común en stacks preformulados. En personal táctico, 150mg de cafeína + 100mg de metilliberina + 50mg de teacrina igualaron a 300mg de cafeína en el tiempo de reacción de vigilancia, con un menor aumento de la presión arterial diastólica (Cintineo 2022), pero eso prueba la combinación, no Dynamine sola.' },
       { ingredient: 'L-Teanina', reason: 'La L-teanina se combina con frecuencia con estimulantes para lograr una concentración más tranquila, aunque en un ensayo controlado con cafeína no redujo significativamente el nerviosismo, y la combinación con Dynamine no se ha probado.' },
-      { ingredient: 'Zynamite', reason: 'Dynamine aporta un bloqueo agudo de la adenosina; Zynamite prolonga la dopamina al inhibir la COMT.' },
+      { ingredient: 'Zynamite', reason: 'Se describe que Dynamine bloquea los receptores de adenosina; se propone que Zynamite frene la degradación de la dopamina al inhibir la COMT. No citamos ningún ensayo de esta combinación.' },
     ],
     faqs: [
       { question: '¿En qué se diferencia Dynamine de la cafeína?', answer: 'Es un alcaloide purínico relacionado, pero su base de evidencia es mucho más escasa: tres pequeños ECA en humanos frente a décadas de investigación sobre la cafeína. En un ensayo de 4 semanas con 100–150mg/día no causó cambios clínicamente significativos en la frecuencia cardíaca ni en la presión arterial, y en el único ensayo cognitivo mejoró la energía y el estado de ánimo autoevaluados, pero no el desempeño en pruebas objetivas. Ningún ensayo ha comparado directamente con la cafeína su inicio, su duración ni sus efectos sobre el sueño.' },
@@ -941,7 +941,7 @@ export const ingredientsEs: IngredientTranslation[] = [
       { question: '¿Puedo comprar Dynamine por sí sola?', answer: 'No con facilidad. Dynamine (metilliberina) es un ingrediente de marca registrada de Compound Solutions y está disponible principalmente en stacks preformulados (por ejemplo, los nootrópicos Thesis). Las cápsulas de Dynamine sola son poco comunes en el mercado de consumo.' },
       { question: '¿Es seguro combinar Dynamine con cafeína?', answer: 'Sí: es una combinación común en los suplementos de rendimiento. Como ambas bloquean la adenosina, los efectos estimulantes son aditivos. Mantén moderada la ingesta total combinada de cafeína + Dynamine y vigila la sobreestimulación (ansiedad, inquietud). Empieza con dosis bajas de cada una.' },
     ],
-    sourceHashes: { name: 'e48fda00ef8d', mechanism: '5e6a311adc71', clinicalDose: '12e219d75b94', timeToEffect: '55b39d40e6d4', studySummary: 'b09e75929146', benefits: 'dbb956a703a4', sideEffects: '5614cf96fe67', humanEffects: '2a62efce0405', howToTake: '04164fd4c7bc', stacksWith: '85d4ca7feccd', faqs: 'b9da36dadcd2' },
+    sourceHashes: { name: 'e48fda00ef8d', mechanism: '5e6a311adc71', clinicalDose: '12e219d75b94', timeToEffect: '55b39d40e6d4', studySummary: 'b09e75929146', benefits: 'dbb956a703a4', sideEffects: '5614cf96fe67', humanEffects: '2a62efce0405', howToTake: '04164fd4c7bc', stacksWith: '28675a60ad39', faqs: 'b9da36dadcd2' },
   },
   {
     slug: 'longvida-curcumin',
