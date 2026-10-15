@@ -34,7 +34,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Lion\'s Mane (Hericium erinaceus / ヤマブシタケ)',
     ingredientSlugs: ['lions-mane'],
     evidence:
-      'Modulates Nerve Growth Factor (NGF) and may support neurogenesis. Mori et al. 2009 — a small RCT in older Japanese adults with mild cognitive impairment — showed memory improvements at 1g/day fruiting-body extract over 16 weeks. The Lion\'s Mane evidence base is uniquely Japanese in origin. Look for fruiting-body extract, not mycelium-on-grain.',
+      'Modulates Nerve Growth Factor (NGF) and may support neurogenesis. Mori et al. 2009 — a small RCT in Japanese adults aged 50–80 with mild cognitive impairment — showed higher cognitive function scores than placebo at 3g/day over 16 weeks. The Lion\'s Mane evidence base is uniquely Japanese in origin. Look for fruiting-body extract, not mycelium-on-grain.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18844328/',
   },
   {
@@ -85,7 +85,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'How long until memory nootropics work?',
-    a: 'Bacopa: 8–12 weeks of daily use. Lion\'s Mane: 8–16 weeks. DHA, Phosphatidylserine, citicoline: 4–12 weeks. None of these are acute-effect ingredients. Plan for at least 8 weeks of consistent dosing before judging.',
+    a: 'Bacopa: 8–12 weeks of daily use; most positive trials ran 12 weeks. Lion\'s Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. Phosphatidylserine: its memory trials ran 15 weeks to 12 months. Citicoline: memory effects were measured after 2–3 months. DHA: about 24 weeks; both positive cognitive trials ran 6 months. None of these are acute-effect ingredients. Plan for at least 12 weeks of consistent dosing before judging.',
   },
   {
     q: 'Where can I buy these in Japan?',

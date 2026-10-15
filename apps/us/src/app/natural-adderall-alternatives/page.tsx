@@ -58,7 +58,7 @@ const picks: ListiclePick[] = [
     product: productsUS.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Caffeine-free design — most useful when you want to add it to your own coffee for the L-theanine + caffeine + citicoline + tyrosine effect together. Includes 175mg L-tyrosine (below clinical dose for acute stress, but additive when paired with tyrosine-rich diet) and 250mg Cognizin citicoline. Open formula, peer-reviewed RCTs, 30-day money-back.',
+      'Caffeine-free design — most useful when you want to add it to your own coffee for the L-theanine + caffeine + citicoline + tyrosine effect together. Includes 175mg L-tyrosine (below clinical dose for acute stress, but additive when paired with tyrosine-rich diet) and 250mg Cognizin citicoline. Open formula, two University of Leeds studies (Hum Psychopharmacol 2023, PubMed 37194920; Brain Sci 2025, PubMed 40149748), 30-day money-back.',
   },
   {
     product: productsUS.find(p => p.slug === 'qualia-mind-review')!,

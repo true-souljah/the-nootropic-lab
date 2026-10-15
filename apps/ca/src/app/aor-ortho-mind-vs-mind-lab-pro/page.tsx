@@ -29,7 +29,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Which is better for Canadian buyers, AOR Ortho•Mind or Mind Lab Pro?',
     a:
-      'Different trust frameworks. AOR Ortho•Mind holds an Active Health Canada licence, NPN (Natural Product Number) 80037243 (checked 2026-10-07) and is Calgary-domiciled. Mind Lab Pro is international, ships to Canada as a personal import, and has multiple peer-reviewed RCTs; we found no NPN for it in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07). If regulatory compliance + Canadian-domiciled trust matters most, AOR. If product-specific clinical evidence + broader formula matters most, Mind Lab Pro.',
+      'Different trust frameworks. AOR Ortho•Mind holds an Active Health Canada licence, NPN (Natural Product Number) 80037243 (checked 2026-10-07) and is Calgary-domiciled. Mind Lab Pro is international, ships to Canada as a personal import, and has been tested in two University of Leeds studies (a 30-day pseudo-randomised study in which immediate and delayed recall differed between groups, PubMed 37194920, and a 60-day study that found no improvement in choice accuracy or reaction time, PubMed 40149748); we found no NPN for it in Health Canada\'s Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-07). If regulatory compliance + Canadian-domiciled trust matters most, AOR. If product-specific clinical evidence + broader formula matters most, Mind Lab Pro.',
   },
   {
     q: 'Is the NPN important for buyers?',
@@ -67,7 +67,7 @@ const whoIsForA = [
 ];
 
 const whoIsForB = [
-  'Care about peer-reviewed product-specific RCT evidence',
+  'Want a formula tested in two placebo-controlled University of Leeds studies (the 60-day one found no improvement in choice accuracy or reaction time)',
   'Want phosphatidylserine, Lion\'s Mane, citicoline, Rhodiola in one formula',
   'Are caffeine-free user (Mind Lab Pro is fully caffeine-free)',
   // Durations quoted verbatim from vendorTerms.shipping in products-ca.json.
@@ -76,7 +76,7 @@ const whoIsForB = [
 ];
 
 const verdictParagraph =
-  'For Canadian buyers, AOR Ortho•Mind is the stronger choice on regulatory compliance, Bacopa dose, and Canadian-domiciled trust. Mind Lab Pro is the stronger choice on broader formula coverage and peer-reviewed RCT evidence, with 2 capsules a day instead of 6. If an active NPN and a Canadian seller are top priorities, AOR wins. If formula breadth and clinical evidence are top priorities, Mind Lab Pro is worth the international-shipping friction. Both are open-formula and well-reviewed editorially.';
+  'For Canadian buyers, AOR Ortho•Mind is the stronger choice on regulatory compliance, Bacopa dose, and Canadian-domiciled trust. Mind Lab Pro is the stronger choice on broader formula coverage, with 2 capsules a day instead of 6, and has been tested in two University of Leeds studies (the 60-day one found no improvement in choice accuracy or reaction time). If an active NPN and a Canadian seller are top priorities, AOR wins. If formula breadth is the top priority, Mind Lab Pro is worth the international-shipping friction. Both are open-formula and well-reviewed editorially.';
 
 export default function Page() {
   if (!productA || !productB) notFound();

@@ -41,7 +41,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Citicoline — cognitive demand support',
     ingredientSlugs: ['citicoline'],
     evidence:
-      'Heavy cognitive workload depletes choline. Citicoline (250–500mg/day) supports phospholipid synthesis and acetylcholine availability. Not a stimulant — but addresses the "running on empty" feeling that comes with extended cognitive work.',
+      'Citicoline is a choline donor. Our citicoline page rates its attention evidence as mixed and its working-memory evidence as moderate (one trial in older adults with inefficient memory, Spiers 1996).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
   {

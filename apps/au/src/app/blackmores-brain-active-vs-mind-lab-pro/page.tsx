@@ -72,7 +72,7 @@ const whoIsForA = [
 
 const whoIsForB = [
   'Want broader formula (Lion\'s Mane, citicoline, PS, Rhodiola, L-theanine)',
-  'Care about peer-reviewed product-specific RCT evidence',
+  'Want a formula tested in two placebo-controlled University of Leeds studies (the 60-day one found no improvement in choice accuracy or reaction time)',
   'Want a product that is still sold (A$89/month on au.mindlabpro.com, checked 28 September 2026)',
   'Are caffeine-free user',
   'Don\'t mind 5-10 day international shipping under Personal Importation Scheme',

@@ -27,7 +27,7 @@ const faqItems = [
   },
   {
     q: 'How long does it take for nootropics to work?',
-    a: "Some ingredients like L-theanine have acute effects within 30–60 minutes. Others like Bacopa Monnieri and Lion's Mane require 4–12 weeks of consistent use for measurable cognitive effects.",
+    a: "Some ingredients like L-theanine have acute effects within 30–60 minutes. Bacopa Monnieri takes 8–12 weeks; most positive trials ran 12 weeks. For Lion's Mane, in adults with mild cognitive impairment the benefit built over 8–16 weeks.",
   },
 ];
 
