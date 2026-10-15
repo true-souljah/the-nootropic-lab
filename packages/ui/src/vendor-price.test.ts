@@ -173,6 +173,8 @@ describe('packServings — servings from the pack count only', () => {
     '1 MONAT: 2 Packs, 60 Kapseln': 30, // 2 per serving; "2 Packs" is not a container count
     '240粒入/約60日分': 60, // 4 per serving; "約60日分" is a duration, not read
     '3g x 30 sachets': 30, // 1 per serving
+    '90 Capsules': 30, // 3 per serving
+    'Tropical Ice x 12 cans': 12, // 1 can per serving (form "can")
     '30日分': 'no pack count stated in the quote (a supply length is not a count)',
     '1 Pouch': '"1 Pouch" needs servingsPerContainer, which the record lacks',
   };
@@ -196,6 +198,7 @@ describe('packServings — servings from the pack count only', () => {
     ['60 CAPSULES | Servings per container: 20', CAPSULES, /several pack sizes/],
     ['1 Unit 2 Bottles', CAPSULES, /several pack counts/],
     ['3g x 30 sachets', CAPSULES, /counts sachets but the record's form is capsule/],
+    ['Tropical Ice x 12 cans', CAPSULES, /counts cans but the record's form is capsule/],
     ['90 Count', { servingsPerContainer: 45, capsulesPerServing: 0 }, /needs capsulesPerServing/],
   ] as [string, Parameters<typeof packServings>[1], RegExp][])('refuses "%s"', (text, record, reason) => {
     const r = packServings(text, record);
@@ -245,6 +248,7 @@ describe('dailyServings — a daily dose only from plain directions', () => {
     'you should take 6 a day': 1,
     'Take 4 capsules daily with food for optimal cognitive support.': 1, // 4 per serving
     'Take 1 sachet once daily.': 1,
+    'Take 3 capsules on the daily as part of your routine.': 1, // 3 per serving
     '【１日の目安】4粒': 1, // full-width "１" (NFKC), 4 per serving
     'You can get started with Qualia Mind simply by taking your daily serving early in the morning with a large glass of water, with or without food.': 1,
     // No daily frequency stated (time of day, or no frequency at all; German is not read).
@@ -255,6 +259,8 @@ describe('dailyServings — a daily dose only from plain directions', () => {
     'Simply take 2 easy-to-swallow capsules of Noocube with water. It can be taken with or without food.': 'no daily frequency stated',
     'Take 1 capsule for stimulation.': 'no daily frequency stated',
     'Nehmen Sie 2 Kapseln, 60 Minuten nach dem Essen.': 'no daily frequency stated',
+    // A daily frequency without a "take N" dose the parser reads.
+    'One can per day is our recommended serving.': 'no dose stated',
     // A range is not one dose.
     'Take 2 to 4 capsules per day in the morning or early afternoon on an empty stomach.': 'states a dose range, not one dose',
     'take 1-2 daily with or without food': 'states a dose range, not one dose',

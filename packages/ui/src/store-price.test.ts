@@ -70,6 +70,21 @@ describe('storeSupply / monthlyStorePrice — only from the vendor\'s own pack w
     expect(monthlyStorePrice(withPrice({ pack: 'One bottle' }))).toBeNull();
     expect(monthlyStorePrice({ ...BASE, storePrice: undefined })).toBeNull();
   });
+  test('a pack of cans counts one serving per can (form "can"); a capsule record quoting cans is refused', () => {
+    const can = { servingsPerContainer: 12, capsulesPerServing: 1, form: 'can' as const };
+    const drink = withPrice({ amount: 35.99, currency: 'EUR', text: '€35,99', pack: 'Tropical Ice x 12 cans' }, can);
+    expect(perServingStorePrice(drink)).toMatchObject({ ok: true, amount: 3, currency: 'EUR', basis: '"12 cans" at 1 per serving = 12 servings' });
+    expect(monthlyStorePrice(drink)).toMatchObject({ amount: 89.98, currency: 'EUR' });
+    expect(perServingStorePrice(withPrice({ amount: 35.99, currency: 'EUR', text: '€35,99', pack: 'Tropical Ice x 12 cans' }))).toMatchObject({
+      ok: false, reason: /counts cans but the record's form is capsule/,
+    });
+  });
+  test('the Neutonic Productivity Drink EU record renders its per-can price (€35,99 for 12 cans)', () => {
+    const drink = allProductsEU.find((p) => p.id === 'neutonic-productivity-drink')!;
+    expect(drink.form).toBe('can');
+    expect(perServingStorePrice(drink)).toMatchObject({ ok: true, amount: 3, currency: 'EUR' });
+    expect(priceText(drink, editionStrings('eu'))).toMatchObject({ pack: '€35.99', packText: 'Tropical Ice x 12 cans', perServing: '≈ €3/serving' });
+  });
 });
 
 describe('sharedCurrency', () => {
@@ -195,6 +210,7 @@ describe('perServingStorePrice / perDayStorePrice — exact baseline of every pr
     'us/pre-lab-pro': ['USD 2.95', EXERCISE],
     'us/performance-lab-energy': ['USD 2.3', NO_FREQUENCY],
     'us/performance-lab-omega-3': ['USD 1.63', NO_FREQUENCY],
+    'us/neutonic-brain-capsules': ['USD 1.67', 'USD 1.67'],
     'eu/mind-lab-pro': ['EUR 2.17', RANGE],
     'eu/noocube': ['USD 2.17', 'USD 2.17'],
     'eu/brainzyme-focus-pro': ['EUR 1.06', 'EUR 1.06'],
@@ -202,6 +218,8 @@ describe('perServingStorePrice / perDayStorePrice — exact baseline of every pr
     'eu/pre-lab-pro': ['EUR 2.25', EXERCISE],
     'eu/performance-lab-energy': ['EUR 1.97', NO_FREQUENCY],
     'eu/performance-lab-omega-3': ['EUR 1.5', NO_FREQUENCY],
+    // "One can per day is our recommended serving." states no "take N" dose the parser reads.
+    'eu/neutonic-productivity-drink': ['EUR 3', 'refused: supply: no supply length stated; directions: no dose stated'],
     'ca/mind-lab-pro': ['CAD 2.97', RANGE],
     'ca/noocube': ['CAD 3', 'CAD 3'],
     'ca/alpha-brain': ['USD 1.78', 'USD 1.78'],
@@ -324,7 +342,10 @@ describe('perServingStorePrice / perDayStorePrice — exact baseline of every pr
 });
 
 describe('monthly figures are unchanged by the per-serving / per-day work', () => {
-  /** monthlyStorePrice for every priced record, captured on origin/main 80b53e71 before the change. */
+  /**
+   * monthlyStorePrice for every priced record, captured on origin/main 80b53e71 before the change;
+   * records added since then carry the figure they were added with (Neutonic, 2026-10-15).
+   */
   const MONTHLY_BEFORE: Record<string, string | null> = {
     'us/mind-lab-pro': 'USD 69',
     'us/noocube': 'USD 64.99',
@@ -338,6 +359,7 @@ describe('monthly figures are unchanged by the per-serving / per-day work', () =
     'us/pre-lab-pro': null,
     'us/performance-lab-energy': 'USD 69',
     'us/performance-lab-omega-3': 'USD 49',
+    'us/neutonic-brain-capsules': 'USD 49.99',
     'eu/mind-lab-pro': 'EUR 64.95',
     'eu/noocube': 'USD 64.99',
     'eu/brainzyme-focus-pro': 'EUR 31.75',
@@ -345,6 +367,7 @@ describe('monthly figures are unchanged by the per-serving / per-day work', () =
     'eu/pre-lab-pro': null,
     'eu/performance-lab-energy': 'EUR 59',
     'eu/performance-lab-omega-3': 'EUR 45',
+    'eu/neutonic-productivity-drink': 'EUR 89.98',
     'ca/mind-lab-pro': 'CAD 89',
     'ca/noocube': 'CAD 89.99',
     'ca/alpha-brain': 'USD 53.3',
@@ -403,8 +426,10 @@ describe('priceText — per-unit and source lines as each edition renders them',
     ['us', 'noocube', '≈ $2.17/serving', '≈ $2.17/day'],
     ['us', 'mind-lab-pro', '≈ $2.30/serving', null],
     ['us', 'pre-lab-pro', '≈ $2.95/serving', null],
+    ['us', 'neutonic-brain-capsules', '≈ $1.67/serving', '≈ $1.67/day'],
     ['eu', 'brainzyme-focus-pro', '≈ €1.06/serving', '≈ €1.06/day'],
     ['eu', 'pre-lab-pro', '≈ €2.25/serving', null],
+    ['eu', 'neutonic-productivity-drink', '≈ €3/serving', null],
     ['ca', 'noocube', '≈ $3/serving', '≈ $3/day'],
     ['jp', 'hunter-focus', '≈ $3/serving', '≈ $3/day'],
     ['jp', 'suntory-dha-epa-sesamin', '≈ ￥191/serving', '≈ ￥191/day'],
