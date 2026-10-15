@@ -379,9 +379,11 @@ function ShortlistRow({
   const [note, setNote] = useShortlistNote(product.slug);
   return (
     <Card padding={20}>
-      <div className="grid gap-5 items-start" style={{ gridTemplateColumns: '32px 1fr 200px 1fr auto' }}>
+      {/* One column until the five-column row fits (xl): at phone widths the
+          fixed columns pushed the page sideways and shrank the note to 36px. */}
+      <div className="grid gap-5 items-start grid-cols-1 xl:grid-cols-[32px_minmax(0,1fr)_200px_minmax(0,1fr)_auto]">
         {/* Reorder controls (replaces drag handle for keyboard a11y) */}
-        <div className="flex flex-col gap-1 pt-1">
+        <div className="flex xl:flex-col gap-1 xl:pt-1">
           <button
             type="button"
             onClick={onMoveUp}
@@ -425,7 +427,7 @@ function ShortlistRow({
         </div>
 
         {/* Specs */}
-        <div className="flex flex-col gap-[6px] text-[12px]">
+        <div className="flex flex-col gap-[6px] text-[12px] max-w-[320px] xl:max-w-none">
           <SpecRow label="Score" value={`${product.score}/10`} />
           <SpecRow
             label="Price"
@@ -451,7 +453,7 @@ function ShortlistRow({
         </div>
 
         {/* Actions */}
-        <div className="flex flex-col gap-2 items-stretch">
+        <div className="flex flex-wrap items-center gap-2 xl:flex-col xl:items-stretch">
           <ScorePill score={product.score} />
           <TrackedAffiliateLink
             product={product}
