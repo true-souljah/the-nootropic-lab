@@ -105,7 +105,7 @@ function numbers(text: string): string[] {
 }
 
 // Spanish markers: accents/ñ/¿¡ or a common Spanish function word or unit.
-const SPANISH = /[áéíóúñü¿¡]|\b(el|la|los|las|lo|de|del|que|para|por|con|sin|un|una|unos|unas|es|son|en|y|o|al|se|su|sus|no|pero|como|entre|tras|sobre|minutos|horas|semanas|meses|dosis)\b/i;
+const SPANISH = /[áéíóúñü¿¡]|\b(el|la|los|las|lo|de|del|que|para|por|con|sin|un|una|unos|unas|es|son|en|y|o|al|se|su|sus|no|ni|pero|como|entre|tras|sobre|poco|muy|cuando|este|esta|estos|estas|minutos|horas|semanas|meses|dosis)\b/i;
 // English function words that never belong in Spanish prose (quoted label text excepted).
 const ENGLISH = /\b(the|and|with|which|that|this|these|of|for|from|after|before|only|than|not)\b/i;
 const unquoted = (s: string) => s.replace(/"[^"]*"/g, ' ');
