@@ -283,7 +283,7 @@ export default function Listicle({
                     )}
                     {item.extraCitations?.map((citation, i) => (
                       <Fragment key={citation.url}>
-                        {(i > 0 || item.citationUrl) && (
+                        {(i !== 0 || Boolean(item.citationUrl)) && (
                           <span aria-hidden="true" className="text-[12.5px] text-ds-muted">
                             {' · '}
                           </span>
