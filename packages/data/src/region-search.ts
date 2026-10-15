@@ -3,6 +3,7 @@
 // duplicated the same 5-line buildSearchIndex + getStrings boilerplate.
 
 import { ingredients } from './ingredients';
+import { localizedIngredients } from './ingredients-es';
 import { guidesForRegion } from './guide-regions';
 import { buildSearchIndex } from './search';
 import type { SearchItem } from './search';
@@ -31,7 +32,14 @@ export function buildRegionSearchContext(products: Product[], locale: Locale, re
     // SearchModal. Closed in PR-Q10.
     // Only the guides this host serves (guidesForRegion) — a guide limited to
     // other hosts would otherwise put a dead /guides/<slug>/ link in the index.
-    searchItems: buildSearchIndex(products, ingredients, guidesForRegion(region), uiStrings),
+    // LATAM serves its ingredient pages in Spanish (ingredients-es.ts), so its
+    // index lists the Spanish names and doses; every other host keeps English.
+    searchItems: buildSearchIndex(
+      products,
+      region === 'latam' ? localizedIngredients('es') : ingredients,
+      guidesForRegion(region),
+      uiStrings,
+    ),
     uiStrings,
   };
 }

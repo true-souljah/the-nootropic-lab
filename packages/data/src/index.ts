@@ -75,6 +75,14 @@ export { productsGCC, allProductsGCC } from './products-gcc';
 export { productsSEA, allProductsSEA } from './products-sea';
 export type { Ingredient, HumanEffect, HowToTake, StackPair, FAQ, IngredientSource } from './ingredients';
 export { ingredients } from './ingredients';
+export type { IngredientTranslation, IngredientLocale, TranslatedIngredientField } from './ingredients-es';
+export {
+  ingredientsEs,
+  localizeIngredient,
+  localizedIngredients,
+  ingredientSourceFields,
+  TRANSLATED_INGREDIENT_FIELDS,
+} from './ingredients-es';
 export type { Guide, GuideSection, GuideSource, GuideBlock, GuideTranslation } from './guides';
 export { guides, guideSources } from './guides';
 export { guidesEs } from './guides-es';
