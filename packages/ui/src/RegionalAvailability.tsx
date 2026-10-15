@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { Product, RegionProfile, RegionalNote } from '@nootropic/data';
 import { getLocaleForMarket, getStrings, licenceStatus, licenceStatusText, localPrice } from '@nootropic/data';
 import { localPriceShort } from './price-text';
+import DisclaimerText from './DisclaimerText';
 import { Card } from './primitives/Card';
 import { FaqAccordion } from './primitives/FaqAccordion';
 import { SCORE_TIER_TEXT_CLASS, scoreTier } from './templates/listicleRanking';
@@ -156,7 +157,7 @@ export default function RegionalAvailability({
 
       <Card variant="subdued" padding={16} className="mt-5">
         <h3 className="text-[13px] font-bold text-ds-ink mb-1">{L.regulatoryNote}</h3>
-        <p className="text-[12px] leading-relaxed text-ds-muted m-0">{regulatoryNote}</p>
+        <p className="text-[12px] leading-relaxed text-ds-muted m-0"><DisclaimerText text={regulatoryNote} /></p>
       </Card>
     </section>
   );

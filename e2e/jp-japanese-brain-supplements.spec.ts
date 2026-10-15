@@ -23,8 +23,9 @@ test.describe('JP /japanese-brain-supplements/', () => {
     expect(response?.status()).toBe(200);
     await expect(page.getByRole('heading', { level: 1 })).toContainText('Japanese vitamins for the brain');
 
-    // The Sources block's heading is the page language since 2026-10-12: 出典 ("Sources").
-    const sources = page.locator('main details').filter({ hasText: '出典' });
+    // The Sources block's heading follows the page language: English on JP since
+    // 2026-10-13 (Japanese copy paused pending legal advice).
+    const sources = page.locator('main details').filter({ hasText: 'Sources' });
     await expect(sources).toBeVisible();
     await expect(sources.locator('a[href^="https://www.caa.go.jp/"]').first()).toBeVisible();
     await expect(sources.locator('a[href="https://www.fancl.co.jp/healthy/item/5248a/"]')).toHaveCount(1);
@@ -43,7 +44,9 @@ test.describe('JP /japanese-brain-supplements/', () => {
     const hrefs = await page
       .locator('main article a[href^="/"]')
       .evaluateAll(els => [...new Set(els.map(el => (el as HTMLAnchorElement).getAttribute('href')!.split('#')[0]))]);
-    expect(hrefs).toEqual(expect.arrayContaining(['/ffc-notified-cognitive-supplements/', '/ja/yakkan-shoumei/', '/best-nootropics/']));
+    expect(hrefs).toEqual(expect.arrayContaining(['/ffc-notified-cognitive-supplements/', '/best-nootropics/', '/nootropic-comparison/']));
+    // The /ja/ pages were removed 2026-10-13; nothing links to them.
+    expect(hrefs.filter((h) => h.startsWith('/ja'))).toEqual([]);
     for (const href of hrefs) {
       const res = await request.get(href);
       expect(res.status(), href).toBe(200);

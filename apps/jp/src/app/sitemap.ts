@@ -23,11 +23,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/contact/`, lastModified: d.page('contact'), changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE}/privacy-policy/`, lastModified: d.page('privacy-policy'), changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE}/cookie-policy/`, lastModified: d.page('cookie-policy'), changeFrequency: 'yearly', priority: 0.3 },
-    // Japanese locale pages
-    { url: `${BASE}/ja/`, lastModified: d.productListing('ja'), changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${BASE}/ja/best-nootropics/`, lastModified: d.productListing('ja/best-nootropics'), changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${BASE}/ja/hikaku/`, lastModified: d.productListing('ja/hikaku'), changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${BASE}/ja/yakkan-shoumei/`, lastModified: d.productListing('ja/yakkan-shoumei'), changeFrequency: 'monthly', priority: 0.75 },
   ];
   const productPages: MetadataRoute.Sitemap = allProductsJP.map(p => ({
     url: `${BASE}/${p.slug}/`,

@@ -33,7 +33,7 @@ export default function AboutPage() {
       <SchemaOrg schema={aboutSchema} />
 
       <article className="max-w-3xl mx-auto px-4 py-10">
-        <h1 className="text-3xl font-bold text-gray-900 mb-4">The Nootropic Lab Japan について</h1>
+        <h1 className="text-3xl font-bold text-gray-900 mb-4">About The Nootropic Lab Japan</h1>
         <p className="text-lg text-gray-600 mb-8 leading-relaxed">
           We are an independent cognitive-supplement comparison site for Japan buyers. We score every
           product against the same 5-pillar methodology. We disclose every commercial relationship.
@@ -41,7 +41,7 @@ export default function AboutPage() {
         </p>
 
         <section className="mb-10">
-          <h2 className="text-xl font-bold text-gray-900 mb-3">私たちの活動</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-3">What we do</h2>
           <p className="text-gray-700 leading-relaxed mb-3">
             We review nootropic supplements for buyers in Japan. Our comparison covers domestic Japanese
             brands (FANCL, Suntory) alongside imported international stacks (Mind Lab Pro&apos;s own FAQ names Japan among its shipping
@@ -52,12 +52,12 @@ export default function AboutPage() {
             formula transparency, value for money, and brand trust.
           </p>
           <p className="text-gray-700 leading-relaxed">
-            <Link href="/methodology/" className="text-green-700 underline">評価方法の全文を読む →</Link>
+            <Link href="/methodology/" className="text-green-700 underline">Read the full methodology →</Link>
           </p>
         </section>
 
         <section className="mb-10">
-          <h2 className="text-xl font-bold text-gray-900 mb-3">日本の規制の枠組み</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-3">Japan regulatory framework</h2>
           <p className="text-gray-700 leading-relaxed mb-3">
             Functional food and supplement claims in Japan operate under the{' '}
             <strong>Foods with Function Claims (機能性表示食品 / FFC)</strong> system, supervised by the
@@ -78,7 +78,7 @@ export default function AboutPage() {
         </section>
 
         <section className="mb-10">
-          <h2 className="text-xl font-bold text-gray-900 mb-3">国内ブランドを優先する理由</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-3">Why we prioritize domestic brands</h2>
           <p className="text-gray-700 leading-relaxed">
             For most Japanese buyers, domestic brands like <strong>FANCL</strong> and
             {' '}<strong>Suntory</strong> are lower-friction: no customs, no
@@ -90,7 +90,7 @@ export default function AboutPage() {
         </section>
 
         <section className="mb-10">
-          <h2 className="text-xl font-bold text-gray-900 mb-3">私たちについて</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-3">Who we are</h2>
           <p className="text-gray-700 leading-relaxed">
             The Nootropic Lab is an independent editorial team focused on evidence-graded comparison
             content in regulated verticals (financial services, supplements, prediction markets). Every
@@ -100,7 +100,7 @@ export default function AboutPage() {
         </section>
 
         <section className="mb-10">
-          <h2 className="text-xl font-bold text-gray-900 mb-3">編集の独立性</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-3">Editorial independence</h2>
           <ul className="space-y-3 text-gray-700">
             <li>
               <strong>No paid placements.</strong> We do not accept payment in exchange for reviews,
@@ -131,7 +131,7 @@ export default function AboutPage() {
         </section>
 
         <section className="bg-gray-50 rounded-xl p-6">
-          <h2 className="text-lg font-bold text-gray-900 mb-3">お問い合わせ</h2>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Want to reach us?</h2>
           <p className="text-sm text-gray-700 mb-3">
             Editorial corrections, partnership inquiries, and reader feedback all go through{' '}
             <Link href="/contact/" className="text-green-700 underline">our contact page</Link>.

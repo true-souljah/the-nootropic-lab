@@ -7,8 +7,8 @@ describe('getLocaleForMarket', () => {
     expect(getLocaleForMarket('latam')).toBe('es');
   });
 
-  test('jp → ja', () => {
-    expect(getLocaleForMarket('jp')).toBe('ja');
+  test('jp → en (Japanese copy paused 2026-10-13)', () => {
+    expect(getLocaleForMarket('jp')).toBe('en');
   });
 
   test('us/eu/ca/au/gcc/sea all → en (English fallback)', () => {

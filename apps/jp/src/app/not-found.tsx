@@ -2,7 +2,7 @@ import { NotFound } from '@nootropic/ui';
 import { getStrings } from '@nootropic/data';
 
 export const metadata = {
-  title: 'ページが見つかりません',
+  title: 'Page not found',
   robots: { index: false },
 };
 
@@ -12,12 +12,12 @@ export const metadata = {
 export default function NotFoundPage() {
   return (
     <NotFound
-      title={'ページが見つかりません'}
-      body={'お探しのページは存在しないか、移動した可能性があります。'}
-      homeLabel={'トップページへ戻る'}
-      cookieSettingsLabel={getStrings('ja').cookie.settings}
-      privacyLabel={getStrings('ja').footer.about.privacy}
-      cookiePolicyLabel={getStrings('ja').footer.about.cookies}
+      title={'Page not found'}
+      body={"The page you were looking for doesn't exist or has been moved."}
+      homeLabel={'Back to the homepage'}
+      cookieSettingsLabel={getStrings('en').cookie.settings}
+      privacyLabel={getStrings('en').footer.about.privacy}
+      cookiePolicyLabel={getStrings('en').footer.about.cookies}
     />
   );
 }

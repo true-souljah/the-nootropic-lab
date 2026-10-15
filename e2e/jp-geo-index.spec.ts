@@ -20,8 +20,8 @@ test.describe('JP /prefectures/ geo hub', () => {
   test('hub returns 200 and lists every geo guide with a trailing-slash href', async ({ page }) => {
     const response = await page.goto('/prefectures/');
     expect(response?.status()).toBe(200);
-    // The H1 is page chrome in Japanese since 2026-10-12 (the <title> stays English with the body).
-    await expect(page.getByRole('heading', { level: 1 })).toContainText('都道府県別 おすすめノートロピクス');
+    // English since 2026-10-13 (Japanese copy on JP paused pending legal advice).
+    await expect(page.getByRole('heading', { level: 1 })).toContainText('Best Nootropics by Prefecture');
     const hrefs = await page.locator('main a[href^="/prefectures/"]').evaluateAll((els) =>
       els.map((el) => el.getAttribute('href') ?? ''),
     );

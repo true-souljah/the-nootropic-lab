@@ -36,17 +36,17 @@ const orgSchema = {
 const features = [
   {
     icon: '🔬',
-    title: '臨床用量の監査',
+    title: 'Clinical dosing audits',
     desc: 'Every product review includes a dosing-vs-evidence table: where our ingredient pages give a reference dose from peer-reviewed trials, it compares the label amount with that minimum; other ingredients are listed but not scored.',
   },
   {
     icon: '🗾',
-    title: '日本での購入に関する注記',
+    title: 'Japan buying notes',
     desc: 'Mind Lab Pro\'s own FAQ names Japan among its shipping territories; for the other imported brands, confirm at checkout. FANCL BRAINs is sold through FANCL\'s official Rakuten store, labelled 機能性表示食品 (notification G425).',
   },
   {
     icon: '⚖️',
-    title: '厚生労働省の規制に関する注記',
+    title: 'MHLW compliance notes',
     desc: 'We flag products that comply with MHLW personal import guidelines and note the ¥16,000 duty-free threshold for every order.',
   },
 ];
@@ -54,17 +54,17 @@ const features = [
 const quickLinks = [
   {
     href: '/best-nootropics/',
-    title: `日本のおすすめノートロピクス ${CURRENT_YEAR}`,
+    title: `Best Nootropics in Japan ${CURRENT_YEAR}`,
     desc: 'Top picks with MHLW personal-import notes.',
   },
   {
     href: '/nootropic-comparison/',
-    title: 'インタラクティブ比較ツール',
+    title: 'Interactive Comparison Tool',
     desc: 'Sort and filter every brand including Japanese domestic options.',
   },
   {
     href: '/methodology/',
-    title: '当サイトの評価方法',
+    title: 'Our Methodology',
     desc: 'How we score and review cognitive supplements.',
   },
 ];
@@ -78,12 +78,12 @@ export default function HomePage() {
       <section className="bg-gradient-to-b from-green-50 to-white py-16 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full mb-4">
-            日本市場 · 厚生労働省の輸入に関する注記 · アフィリエイト開示
+            JP Market · MHLW Import Notes · Affiliate-Disclosed
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
-            日本向けの独立系
+            {"Japan's Independent Guide to"}
             <br />
-            <span className="text-green-700">認知サプリメントガイド</span>
+            <span className="text-green-700">Cognitive Supplements</span>
           </h1>
           <p className="text-base text-ds-muted mb-2">ノートロピクスの独立比較レビュー</p>
           <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
@@ -96,13 +96,13 @@ export default function HomePage() {
               href="/best-nootropics/"
               className="bg-green-700 hover:bg-green-600 text-white font-bold px-8 py-3 rounded-lg transition-colors"
             >
-              {`ベストノートロピクス ${CURRENT_YEAR} →`}
+              Best Nootropics {CURRENT_YEAR} →
             </Link>
             <Link
               href="/nootropic-comparison/"
               className="bg-white hover:bg-gray-50 text-gray-800 font-bold px-8 py-3 rounded-lg border border-gray-300 transition-colors"
             >
-              すべてのブランドを比較
+              Compare All Brands
             </Link>
           </div>
         </div>
@@ -110,7 +110,7 @@ export default function HomePage() {
 
       <section className="max-w-5xl mx-auto px-4 py-16">
         <h2 className="text-2xl font-bold text-center text-gray-900 mb-10">
-          The Nootropic Lab の特徴
+          Why The Nootropic Lab is different
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           {features.map(f => (
@@ -124,32 +124,32 @@ export default function HomePage() {
       </section>
 
       <section className="max-w-5xl mx-auto px-4 pb-4">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">目的別に探す</h2>
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">Browse by goal</h2>
         <p className="text-sm text-gray-500 mb-6">
           Different ingredients suit different cognitive goals. Each list ranks the products available in Japan — imported stacks plus FFC-notified (機能性表示食品) domestic brands.
         </p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
           <Link href="/best-nootropics-for-focus/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
-            <div className="font-semibold text-gray-900 text-sm mb-1">集中力</div>
+            <div className="font-semibold text-gray-900 text-sm mb-1">Focus</div>
             <div className="text-xs text-gray-500">L-theanine + caffeine, citicoline, L-tyrosine</div>
           </Link>
           <Link href="/best-nootropics-for-memory/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
-            <div className="font-semibold text-gray-900 text-sm mb-1">記憶力</div>
+            <div className="font-semibold text-gray-900 text-sm mb-1">Memory</div>
             <div className="text-xs text-gray-500">Bacopa, Lion&apos;s Mane (ヤマブシタケ), DHA, PS</div>
           </Link>
           <Link href="/best-nootropics-for-studying/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
-            <div className="font-semibold text-gray-900 text-sm mb-1">学習</div>
+            <div className="font-semibold text-gray-900 text-sm mb-1">Studying</div>
             <div className="text-xs text-gray-500">Sustained focus + memory consolidation for students</div>
           </Link>
           <Link href="/best-nootropics-for-aging/" className="block border border-gray-200 rounded-lg p-4 hover:border-green-700 transition-colors">
-            <div className="font-semibold text-gray-900 text-sm mb-1">脳のエイジングケア</div>
+            <div className="font-semibold text-gray-900 text-sm mb-1">Aging Brain</div>
             <div className="text-xs text-gray-500">FFC-notified FANCL BRAINs, Suntory DHA, plus PS and citicoline</div>
           </Link>
         </div>
       </section>
 
       <section className="max-w-5xl mx-auto px-4 pb-16 pt-12">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">リサーチを始める</h2>
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">Start your research</h2>
         <div className="grid md:grid-cols-3 gap-4">
           {quickLinks.map(l => (
             <Link
@@ -168,7 +168,7 @@ export default function HomePage() {
           pages were reachable only from the sitemap and Google reported the
           newer ones as unknown. */}
       <section className="max-w-5xl mx-auto px-4 pb-16">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">都道府県別に探す</h2>
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">Browse by prefecture</h2>
         <p className="text-sm text-gray-500 mb-6">Delivery times and MHLW personal-import notes for each prefecture, with the top-rated stacks.</p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {jpPrefectures.map(p => (
@@ -178,7 +178,7 @@ export default function HomePage() {
             </Link>
           ))}
           <Link href="/prefectures/" className="block border border-green-700 rounded-lg p-4 bg-green-50 hover:bg-green-100 transition-colors">
-            <div className="font-semibold text-green-800 text-sm">すべての都道府県 →</div>
+            <div className="font-semibold text-green-800 text-sm">All prefectures →</div>
           </Link>
         </div>
       </section>

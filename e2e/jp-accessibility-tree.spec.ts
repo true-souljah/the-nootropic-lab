@@ -51,7 +51,7 @@ test.describe('JP accessibility-tree behavioral correctness on /best-nootropics-
     // skip-link's accessible name doesn't match exactly OR its
     // computed role isn't "link", this fails — catching aria-label
     // / aria-labelledby regressions axe might miss.
-    const skipLink = page.getByRole('link', { name: 'メインコンテンツへスキップ', exact: true });
+    const skipLink = page.getByRole('link', { name: 'Skip to main content', exact: true });
     await expect(skipLink).toHaveCount(1);
   });
 
@@ -75,16 +75,17 @@ test.describe('JP accessibility-tree behavioral correctness on /best-nootropics-
     ).toBeGreaterThanOrEqual(1);
   });
 
-  // The trigger is named in the page language since 2026-10-12: 検索 ("Search").
-  test('CommandPalette trigger is selectable by role=button with name containing 検索 ("Search")', async ({ page }) => {
+  // The trigger is named in the page language: English on JP since 2026-10-13
+  // (Japanese copy paused pending legal advice).
+  test('CommandPalette trigger is selectable by role=button with name containing "Search"', async ({ page }) => {
     await page.goto('/best-nootropics-for-focus/');
     await page.waitForLoadState('networkidle');
 
-    const triggers = page.getByRole('button', { name: /検索/ });
+    const triggers = page.getByRole('button', { name: /Search/ });
     const count = await triggers.count();
     expect(
       count,
-      'Expected at least one [role=button] with accessible name containing "検索" (mobile + desktop variants).',
+      'Expected at least one [role=button] with accessible name containing "Search" (mobile + desktop variants).',
     ).toBeGreaterThanOrEqual(1);
   });
 
@@ -104,11 +105,11 @@ test.describe('JP accessibility-tree behavioral correctness on /best-nootropics-
       const btns = Array.from(document.querySelectorAll<HTMLButtonElement>('button'));
       return btns
         .map((b) => b.getAttribute('aria-label'))
-        .filter((l): l is string => l !== null && /検索/.test(l));
+        .filter((l): l is string => l !== null && /Search/.test(l));
     });
     expect(
       labels.length,
-      'Expected at least one button with aria-label containing "検索"',
+      'Expected at least one button with aria-label containing "Search"',
     ).toBeGreaterThanOrEqual(1);
 
     for (const label of labels) {

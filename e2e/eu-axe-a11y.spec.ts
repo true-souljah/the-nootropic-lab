@@ -12,7 +12,7 @@ import type { AxeResults, Result } from 'axe-core';
 // actually mounted in production, so a latent contrast bug in
 // klaro-overrides.css went undetected for the lifetime of the
 // override file. PR-Q14 made Klaro mount and the JP axe spec caught
-// the failure on /ja/*. PR-Q16 fixed the contrast. Extending axe
+// the failure on the JP Japanese pages. PR-Q16 fixed the contrast. Extending axe
 // coverage to /de/, /fr/, /pt/ here means any future contrast or
 // landmark regression on these routes — Klaro-related or otherwise —
 // gets caught before it ships.
