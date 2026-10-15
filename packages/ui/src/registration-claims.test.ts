@@ -1840,8 +1840,37 @@ describe('round sixteen: energy, stack, focus- and memory-page claims follow the
 // in adults (and a smaller body ..." (now Pase 2012), the citicoline card
 // title "choline for cognitive demand" and Cognizin as the form "most
 // products / premium imports use" had no source. "multiple peer-reviewed
-// RCTs" is checked separately below because another open PR owns
-// apps/us/src/app/mind-lab-pro-vs-* (mind-lab-pro-vs-noocube still says it).
+// RCTs" is checked separately below; U3 removed its last uses
+// (apps/us/src/app/mind-lab-pro-vs-*), so that check now scans every file.
+//
+// U3 (same round): the Mori 2009 Lion's Mane trial (PMID 18844328) gave
+// adults aged 50–80 with mild cognitive impairment 3g a day (four 250mg
+// tablets three times a day) for 16 weeks, not "1g/day fruiting-body extract"
+// (memory and aging pages in all eight regions; LATAM "1g/día"). The focus
+// FAQ's "(Bacopa, Lion's Mane) need 4–12 weeks" (LATAM "requieren de 4 a 12
+// semanas"), the US best-nootropics FAQ's "require 4–12 weeks" and the Alpha
+// Brain comparison's Bacopa "needs 4–12 weeks" now give our ingredient
+// records (Bacopa 8–12 weeks, most positive trials ran 12 weeks; the Lion's
+// Mane MCI benefit built over 8–16 weeks). Lion's Mane's "Expect no acute
+// effects on day one" contradicts the small acute effects its pilot trials
+// found within 1–2 hours; the ginkgo product's "Weeks 4-8: cumulative memory
+// ..." now gives the 22–26-week dementia trials; BrainMAX+'s ginseng-and-goji
+// "Weeks 4-8", the centrophenoxine shot's "cumulative centrophenoxine
+// benefits" and FANCL BRAINs' "Weeks 4-6: subtle improvements in recall"
+// cited nothing. Stack notes ("the classic adaptogen stack", "a clean
+// combination", "comprehensive neuronal membrane support", "may amplify
+// neurogenic effects", ...) claimed benefits for pairings we cite no trial
+// of; every stack note must now name its trial or say there is none (checked
+// below). The focus guide's Rhodiola "reduces mental fatigue for extended
+// focus sessions" ("reduce la fatiga mental en sesiones de enfoque") now
+// gives the Rhodiola page's mixed grade; the ashwagandha FAQ's "Choose KSM-66
+// or Sensoril" (our page cites no Sensoril trial) and "cortisol-driven
+// hyperarousal" are gone. The Mind Lab Pro comparison pages ("multiple RCTs
+// published", "multiple Leeds RCTs", "stronger"/"more replication evidence",
+// "peer-reviewed (product-specific) RCT evidence", "peer-reviewed efficacy
+// data", "peer-reviewed clinical research investment") now give the two Leeds
+// studies (PMID 37194920, 40149748), and the Alpha Brain comparison also
+// gives Solomon 2016 (PMID 26876224).
 const ROUND_SEVENTEEN_UNSOURCED: RegExp[] = [
   /depletes? choline/i,
   /agota la colina/i,
@@ -1904,13 +1933,46 @@ const ROUND_SEVENTEEN_UNSOURCED: RegExp[] = [
   /forma estandarizada que usan la mayoría/i,
   /choline for cognitive demand/i,
   /colina para alta demanda cognitiva/i,
+  // U3: Mori dose, onset leftovers, stack notes, Rhodiola, ashwagandha and
+  // the Mind Lab Pro comparison pages (see above).
+  /Mori et al\. 2009[^'"]{0,200}?\b1 ?g\/(day|día)|\b1 ?g\/(day|día)[^'"]{0,120}Mori/i,
+  /(Bacopa, Lion\\?'s Mane\) need|Lion\\?'s Mane require) 4[–-]12 weeks/i,
+  /requieren de 4 a 12 semanas/i,
+  /needs 4[–-]12 weeks/i,
+  /Expect no acute effects on day one/i,
+  /Weeks 4-8: cumulative memory/i,
+  /Weeks 4-6: subtle improvements in recall/i,
+  /cumulative centrophenoxine benefits/i,
+  /classic adaptogen stack/i,
+  /complementary short- and long-term pairing/i,
+  /amplify neurogenic effects/i,
+  /A well-rounded pairing/i,
+  /a clean (acute \+ long-term pairing|combination)/i,
+  /Good daytime anxiety stack/i,
+  /comprehensive (neuronal membrane|memory) support/i,
+  /work at multiple timescales/i,
+  /Different mechanisms with no conflict/i,
+  /minimal, evidence-based focus stack/i,
+  /reduces mental fatigue for extended focus/i,
+  /reduce la fatiga mental en sesiones de enfoque/i,
+  /Choose KSM-66 or Sensoril/i,
+  /cortisol-driven hyperarousal/i,
+  /multiple RCTs published/i,
+  /multiple Leeds RCTs/i,
+  /(stronger|more) replication evidence/i,
+  /peer-reviewed (product-specific )?RCT evidence/i,
+  /peer-reviewed efficacy data/i,
+  /peer-reviewed clinical research investment/i,
 ];
 
-// "multiple peer-reviewed RCTs" (U2): scanned everywhere except
-// apps/us/src/app/mind-lab-pro-vs-*, which another open PR owns. Drop the
-// exclusion once mind-lab-pro-vs-noocube no longer says it.
+// U3: every stack note names the trial it relies on or says we cite none.
+// Case-sensitive so that the author-year form needs a capitalised name.
+const STACK_NOTE_SOURCED =
+  /[Ww]e cite no trial|has not been tested|not tested together|\b[A-Z][a-z]+ (19|20)\d\d\b|\d+-week trial/;
+
+// "multiple peer-reviewed RCTs" (U2). U3 rewrote apps/us/src/app/mind-lab-pro-vs-*,
+// so the check scans every file with no exclusion.
 const ROUND_SEVENTEEN_LEEDS_RCTS = /multiple peer-reviewed RCTs/i;
-const ROUND_SEVENTEEN_LEEDS_EXCLUDED = /^apps\/us\/src\/app\/mind-lab-pro-vs-[^/]+\//;
 
 describe('round seventeen: mechanism, user-report and market claims follow our ingredient pages', () => {
   test('scanned every file under apps/*/src, packages/data/src and packages/ui/src/templates', () => {
@@ -1939,6 +2001,15 @@ describe('round seventeen: mechanism, user-report and market claims follow our i
       'apps/sea/src/app/best-nootropics-for-focus/page.tsx',
       'apps/us/src/app/best-nootropics-for-adhd/page.tsx',
       'apps/us/src/app/natural-adderall-alternatives/page.tsx',
+      // U3
+      'apps/us/src/app/mind-lab-pro-vs-noocube/page.tsx',
+      'apps/us/src/app/mind-lab-pro-vs-alpha-brain/page.tsx',
+      'apps/au/src/app/blackmores-brain-active-vs-mind-lab-pro/page.tsx',
+      'apps/us/src/app/best-nootropics/page.tsx',
+      'apps/latam/src/app/best-nootropics-for-focus/page.tsx',
+      'apps/jp/src/app/best-nootropics-for-aging/page.tsx',
+      'apps/latam/src/app/best-nootropics-for-aging/page.tsx',
+      'packages/data/src/products-jp.json',
     ]) expect(ROUND_SIXTEEN_SOURCES.some(p => relative(REPO_ROOT, p) === f), f).toBe(true);
   });
 
@@ -2019,6 +2090,47 @@ describe('round seventeen: mechanism, user-report and market claims follow our i
       'Cognizin es la forma estandarizada que usan la mayoría de los productos importados.',
       'Citicoline — choline for cognitive demand',
       'Citicolina — colina para alta demanda cognitiva',
+      // U3
+      'Small RCTs (notably Mori et al. 2009 in older adults with mild cognitive impairment) showed memory improvements at 1g/day fruiting-body extract over 16 weeks.',
+      'Mori et al. 2009 — small RCT in older Japanese adults with mild cognitive impairment. 1g/day fruiting-body extract over 16 weeks improved cognitive function scores.',
+      'Mori et al. 2009 — a small RCT in older Japanese adults with mild cognitive impairment — showed memory improvements at 1g/day fruiting-body extract over 16 weeks.',
+      'Pequeños ensayos clínicos (Mori et al. 2009 en adultos mayores con deterioro cognitivo leve) mostraron mejoras en memoria con 1g/día de extracto del cuerpo fructífero durante 16 semanas.',
+      'Mori et al. 2009 — pequeño ensayo clínico en adultos mayores japoneses con deterioro cognitivo leve. 1g/día de extracto del cuerpo fructífero durante 16 semanas mejoró las puntuaciones de función cognitiva.',
+      "Longer-onset ingredients (Bacopa, Lion's Mane) need 4–12 weeks.",
+      "Longer-onset ingredients (Bacopa, Lion\\'s Mane) need 4–12 weeks.",
+      "Others like Bacopa Monnieri and Lion's Mane require 4–12 weeks of consistent use for measurable cognitive effects.",
+      'Los de inicio más lento (Bacopa, Melena de León) requieren de 4 a 12 semanas.',
+      'Bacopa Monnieri (in both) needs 4–12 weeks of consistent use for measurable cognitive effects.',
+      "Lion's Mane is a long-game supplement. Expect no acute effects on day one.",
+      'Weeks 1-2: mild improvement in mental alertness from Ginkgo blood flow effects. Weeks 4-8: cumulative memory and concentration benefits.',
+      'Weeks 4-8: cumulative memory benefits.',
+      'Weeks 4-8: cumulative memory and concentration benefits from the ginseng and goji combination.',
+      'Weeks 4-6: subtle improvements in recall speed and mental clarity, particularly in adults over 40.',
+      'Within 2-4 weeks: cumulative centrophenoxine benefits for memory and learning.',
+      'The classic adaptogen stack. Rhodiola is activating (raises norepinephrine, best morning); Ashwagandha is calming (lowers cortisol, best evening).',
+      "Citicoline provides an acute focus effect while Lion's Mane builds long-term neuroprotection — a complementary short- and long-term pairing.",
+      "Ashwagandha reduces cortisol (which suppresses NGF expression); combining with Lion's Mane may amplify neurogenic effects under stress.",
+      'Bacopa handles long-term memory consolidation. A well-rounded pairing found in Mind Lab Pro.',
+      "Complementary timeframes: citicoline works acutely on acetylcholine; Lion's Mane works long-term on NGF. No mechanism overlap — a clean combination.",
+      'Neither overlaps mechanistically — a clean acute + long-term pairing.',
+      'Both target stress through distinct pathways (GABA modulation for theanine; HPA axis for ashwagandha). Good daytime anxiety stack without sedation.',
+      'Together they provide comprehensive neuronal membrane support.',
+      'Combined for comprehensive memory support in older adults.',
+      'L-Theanine provides immediate calm; Ashwagandha provides systemic, longer-term stress reduction. Together they work at multiple timescales.',
+      'Huperzine A supports acetylcholine by slowing its breakdown. Different mechanisms with no conflict.',
+      'Together they form the core of Performance Lab Mind — a minimal, evidence-based focus stack.',
+      'Rhodiola Rosea (200mg) reduces mental fatigue for extended focus sessions.',
+      'Rhodiola Rosea (200mg) reduce la fatiga mental en sesiones de enfoque extendido.',
+      'Generic ashwagandha without a stated withanolide percentage is unreliable. Choose KSM-66 or Sensoril.',
+      "Ashwagandha doesn't deplete energy; it reduces the cortisol-driven hyperarousal that causes fatigue.",
+      "Mind Lab Pro's single-universal-formula approach has stronger replication evidence (multiple RCTs published).",
+      'Universal formulas have more replication evidence; personalisation has stronger user-experience data.',
+      'Care about peer-reviewed efficacy data (multiple Leeds RCTs)',
+      'Care about peer-reviewed efficacy data over 31-ingredient breadth',
+      'Care about peer-reviewed product-specific RCT evidence',
+      'Want peer-reviewed RCT evidence (Mind Lab Pro has multiple)',
+      'Mind Lab Pro is the stronger choice on broader formula coverage and peer-reviewed RCT evidence, with 2 capsules a day instead of 6.',
+      "The price gap reflects (a) Mind Lab Pro's peer-reviewed clinical research investment, (b) trademarked extracts",
     ];
     for (const s of removed) expect(ROUND_SEVENTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(true);
     for (const re of ROUND_SEVENTEEN_UNSOURCED) expect(removed.some(s => re.test(s)), String(re)).toBe(true);
@@ -2047,7 +2159,7 @@ describe('round seventeen: mechanism, user-report and market claims follow our i
       "Bacopa: 8–12 weeks of daily use; most positive trials ran 12 weeks. Lion's Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. Phosphatidylserine: its memory trials ran 15 weeks to 12 months. Citicoline: memory effects were measured after 2–3 months. Ginkgo: positive dementia trials ran 22–26 weeks. DHA: about 24 weeks; both positive cognitive trials ran 6 months.",
       'Fosfatidilserina: sus ensayos sobre la memoria duraron de 15 semanas a 12 meses. Citicolina: sus efectos sobre la memoria se midieron después de 2–3 meses.',
       "For Bacopa and citicoline, start at the beginning of the term — most positive Bacopa trials ran 12 weeks, and citicoline's memory effects were measured after 2–3 months.",
-      "Lion's Mane is a long-game supplement. Expect no acute effects on day one. In a trial in adults with mild cognitive impairment, scores improved after 16 weeks of 3g a day and fell again within 4 weeks of stopping (Mori 2009).",
+      "Lion's Mane is a long-game supplement. Pilot trials reported small acute effects within 1–2 hours. In a trial in adults with mild cognitive impairment, scores improved after 16 weeks of 3g a day and fell again within 4 weeks of stopping (Mori 2009).",
       "EFSA's 2010 opinion on five phosphatidylserine claims found the substance 'not sufficiently characterised in relation to the claimed effects' and concluded that 'a cause and effect relationship cannot be established'; the FDA's 2003 review, by contrast, looked at trials in people already diagnosed with dementia or cognitive dysfunction.",
       'Open formula, two University of Leeds studies (Hum Psychopharmacol 2023, PubMed 37194920; Brain Sci 2025, PubMed 40149748), 30-day money-back.',
       'Sensoril (leaf + root extract)',
@@ -2066,22 +2178,63 @@ describe('round seventeen: mechanism, user-report and market claims follow our i
       'Cognizin es una forma estandarizada.',
       'Citicoline — a choline donor',
       'Citicolina — un donante de colina',
+      // U3 replacement wording, and correct lines next to the removed ones.
+      'Small RCTs (notably Mori et al. 2009 in adults aged 50–80 with mild cognitive impairment) showed higher cognitive function scores than placebo at 3g/day over 16 weeks.',
+      'Mori et al. 2009 — small RCT in Japanese adults aged 50–80 with mild cognitive impairment. 3g/day over 16 weeks improved cognitive function scores compared with placebo.',
+      'Mori et al. 2009 — pequeño ensayo clínico en adultos japoneses de 50 a 80 años con deterioro cognitivo leve. 3g/día durante 16 semanas mejoraron las puntuaciones de función cognitiva frente a placebo.',
+      'A 2021 NIH-funded meta-analysis (n=81,210) found omega-3 supplements raise atrial fibrillation risk, more so above 1g/day.',
+      'los ensayos en adultos sanos usaron 1–1,8g al día, y la cifra de 3g al día proviene de un ensayo en deterioro cognitivo leve.',
+      "Bacopa: 8–12 weeks; most positive trials ran 12 weeks. Lion's Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks.",
+      'Bacopa: 8–12 semanas; la mayoría de los ensayos positivos duraron 12 semanas. Melena de León: en adultos con deterioro cognitivo leve, el beneficio se fue acumulando a lo largo de 8–16 semanas.',
+      'Bacopa Monnieri (in both) needs 8–12 weeks of consistent use; most positive trials ran 12 weeks.',
+      'Once daily. The trials measured effects 1–3 hours after a dose and over 4–12 weeks of daily use.',
+      'Positive dementia trials of ginkgo ran 22–26 weeks.',
+      'The one Cera-Q trial we could cite measured memory after 3 weeks; it did not measure mental clarity or onset. It is priced as a premium product.',
+      'Ashwagandha is studied for stress and cortisol, Lion\'s Mane for memory and learning; we cite no trial of the pairing.',
+      'Citicoline is a precursor to phosphatidylcholine; phosphatidylserine is a phospholipid in neuronal cell membranes. We cite no trial of the pairing.',
+      'Huperzine A slows acetylcholine breakdown; Alpha-GPC is a choline precursor. We cite no trial of the pairing.',
+      'Both are studied for attention, and both are in Performance Lab Mind; we cite no trial of the pairing.',
+      'Choose KSM-66, the extract used in the trials on our ashwagandha page.',
+      "Ashwagandha doesn't deplete energy. Some people find 600mg in the morning slightly sedating.",
+      'Mind Lab Pro has been tested in two University of Leeds studies — a 30-day placebo-controlled study its authors call pseudo-randomised (PubMed 37194920) and a 60-day placebo-controlled study that found no improvement in choice accuracy or reaction time (PubMed 40149748).',
+      'Want a formula tested in two placebo-controlled University of Leeds studies (the 60-day one found no improvement in choice accuracy or reaction time)',
+      'Want a formula tested in a randomised, double-blind, placebo-controlled trial (Solomon 2016: 63 adults aged 18–35, 6 weeks; improved delayed verbal recall and executive functioning; one author from Onnit Labs)',
+      'Clinical doses come from peer-reviewed RCTs on healthy adults.',
+      'Every pick must (a) include at least one ingredient with peer-reviewed evidence for the use case',
     ]) expect(ROUND_SEVENTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(false);
   });
 
-  test('"multiple peer-reviewed RCTs" is gone outside the mind-lab-pro-vs-* pages another PR owns', () => {
+  test('every stack note names the trial it relies on or says we cite none (U3)', () => {
+    expect(STACK_NOTE_SOURCED.test('Both are adaptogens; we cite no trial of the pairing.')).toBe(true);
+    expect(STACK_NOTE_SOURCED.test('Different pathways, not tested together.')).toBe(true);
+    expect(STACK_NOTE_SOURCED.test('Versus placebo, the combination improved attention measures in several trials, though Foxe 2012 found no added benefit over either compound alone.')).toBe(true);
+    expect(STACK_NOTE_SOURCED.test('a 15-week trial of marine PS-DHA at 300mg/day improved immediate verbal recall')).toBe(true);
+    for (const s of [
+      'The classic adaptogen stack. Rhodiola is activating; Ashwagandha is calming. Together they provide full-day HPA axis support.',
+      'Citicoline handles acute attention and acetylcholine; Bacopa covers long-term memory consolidation.',
+      'Both support dopamine availability — Oat Straw by slowing breakdown (MAO-B), Tyrosine by providing precursor.',
+      'Dynamine provides acute adenosine blockade; Zynamite extends dopamine via COMT inhibition.',
+      'A pairing that became popular in 2020.',
+    ]) expect(STACK_NOTE_SOURCED.test(s), s).toBe(false);
+    const pairs = ingredients.flatMap(i => i.stacksWith.map(p => ({ from: i.slug, to: p.slug, reason: p.reason })));
+    expect(pairs.length).toBeGreaterThan(40);
+    const unsourced = pairs.filter(p => !STACK_NOTE_SOURCED.test(p.reason)).map(p => `${p.from} -> ${p.to}: ${p.reason}`);
+    expect(unsourced).toEqual([]);
+  });
+
+  test('"multiple peer-reviewed RCTs" is gone from every scanned file, the mind-lab-pro-vs-* pages included', () => {
     expect(ROUND_SEVENTEEN_LEEDS_RCTS.test('The only nootropic in our coverage with multiple peer-reviewed RCTs (University of Leeds).')).toBe(true);
+    expect(ROUND_SEVENTEEN_LEEDS_RCTS.test('Mind Lab Pro is backed by multiple peer-reviewed RCTs (University of Leeds)')).toBe(true);
     expect(ROUND_SEVENTEEN_LEEDS_RCTS.test('It has been tested in two University of Leeds studies')).toBe(false);
-    expect(ROUND_SEVENTEEN_LEEDS_EXCLUDED.test('apps/us/src/app/mind-lab-pro-vs-noocube/page.tsx')).toBe(true);
-    expect(ROUND_SEVENTEEN_LEEDS_EXCLUDED.test('apps/us/src/app/best-nootropics-for-focus/page.tsx')).toBe(false);
-    expect(ROUND_SEVENTEEN_LEEDS_EXCLUDED.test('apps/ca/src/app/aor-ortho-mind-vs-mind-lab-pro/page.tsx')).toBe(false);
-    const scanned = ROUND_SIXTEEN_SOURCES.map(file => relative(REPO_ROOT, file)).filter(
-      rel => !ROUND_SEVENTEEN_LEEDS_EXCLUDED.test(rel),
-    );
+    const scanned = ROUND_SIXTEEN_SOURCES.map(file => relative(REPO_ROOT, file));
     for (const f of [
       'apps/us/src/app/best-nootropics-for-focus/page.tsx',
       'apps/ca/src/app/best-nootropics-for-focus/page.tsx',
       'apps/ca/src/app/aor-ortho-mind-vs-mind-lab-pro/page.tsx',
+      'apps/us/src/app/mind-lab-pro-vs-noocube/page.tsx',
+      'apps/us/src/app/mind-lab-pro-vs-thesis/page.tsx',
+      'apps/us/src/app/mind-lab-pro-vs-alpha-brain/page.tsx',
+      'apps/us/src/app/mind-lab-pro-vs-qualia-mind/page.tsx',
       'packages/data/src/products-us.json',
     ]) expect(scanned, f).toContain(f);
     const hits = scanned.flatMap(rel =>
