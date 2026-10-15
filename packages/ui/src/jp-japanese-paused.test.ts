@@ -157,3 +157,59 @@ describe('(c) apps/jp/public/_redirects 301s every /ja URL to its English page',
     expect(rules.at(-1)).toEqual({ source: '/*', destination: '/404.html', status: '404' });
   });
 });
+
+describe('(d) no Japanese function-claim wording in the JP data the pages render', () => {
+  // Source-level twin of CLAIM_FORMULAS in scripts/check-built-jp-language.mjs (owner decision
+  // 2026-10-14: the quoted D295/D235 claim text and Suntory's sales claim came out).
+  const CLAIM_FORMULAS = [
+    /報告されています/,
+    /機能があ/,
+    /をサポート/,
+    /高める/,
+    /改善/,
+    /集中力向上|記憶力向上|エネルギー向上/,
+    /対策/,
+    /予防/,
+    /連続売上/,
+  ];
+
+  /** Every string under `value`, skipping `sources` (citation evidence: label and quote are not page copy). */
+  function strings(value: unknown, path: string, out: { path: string; text: string }[] = []) {
+    if (typeof value === 'string') out.push({ path, text: value });
+    else if (Array.isArray(value)) value.forEach((v, i) => strings(v, `${path}[${i}]`, out));
+    else if (value && typeof value === 'object')
+      for (const [k, v] of Object.entries(value)) if (k !== 'sources') strings(v, `${path}.${k}`, out);
+    return out;
+  }
+
+  test('JP regional notes, the JP product records and the imprint note quote no claim formula', async () => {
+    // Paths built at runtime so tsc -p packages/ui keeps data files out of its program.
+    const { regionalNotesJP } = (await import(/* @vite-ignore */ join(REPO, 'packages/data/src/regional-notes/jp.ts'))) as {
+      regionalNotesJP: unknown;
+    };
+    const { jpImprintNoteParts } = (await import(/* @vite-ignore */ join(REPO, 'packages/data/src/regional-disclaimers.ts'))) as {
+      jpImprintNoteParts: unknown;
+    };
+    const products = JSON.parse(readFileSync(join(REPO, 'packages/data/src/products-jp.json'), 'utf8'));
+    const texts = [
+      ...strings(regionalNotesJP, 'regionalNotesJP'),
+      ...strings(products, 'products-jp.json'),
+      ...strings(jpImprintNoteParts, 'jpImprintNoteParts'),
+    ];
+    expect(texts.length).toBeGreaterThan(500);
+    expect(texts.filter((t) => JA.test(t.text)).length).toBeGreaterThan(20);
+    const hits = texts.flatMap((t) =>
+      CLAIM_FORMULAS.filter((re) => re.test(t.text)).map((re) => `${t.path}: ${re} in "${t.text.slice(0, 80)}"`),
+    );
+    expect(hits).toEqual([]);
+  });
+
+  test('the imprint note renders its Japanese half in lang="ja" and the English half after it', async () => {
+    const { jpImprintNoteParts } = (await import(/* @vite-ignore */ join(REPO, 'packages/data/src/regional-disclaimers.ts'))) as {
+      jpImprintNoteParts: { text: string; lang?: string }[];
+    };
+    expect(jpImprintNoteParts.map((p) => p.lang ?? 'en')).toEqual(['ja', 'en']);
+    expect(JA.test(jpImprintNoteParts[0].text)).toBe(true);
+    expect(JA.test(jpImprintNoteParts[1].text)).toBe(false);
+  });
+});

@@ -470,9 +470,7 @@ describe('round twelve: NPN review, SEA framework, Mind Lab Pro delivery, seller
 // ranks one market's rules as "stricter" or "most permissive", so those claims
 // are dropped or rewritten to the fact underneath ("an 11-ingredient stack",
 // "the most of any single formula in this review"). Claims attributed to a
-// quoted source stay: Suntory's own product page ("DHAサプリメント市場18年連続
-// 売上No.1"; it does not give the "30 million bottles" we had) and MIDA's
-// description of JAKIM as "widely regarded as the gold standard in halal
+// quoted source stay: MIDA's description of JAKIM as "widely regarded as the gold standard in halal
 // certification" (raw pages saved 2026-10-09). Eu Yan Sang's store count is
 // its about page's "over 187 Eu Yan Sang retail outlets in China, Hong Kong,
 // Macau, Malaysia, and Singapore" (not "200+", not Australia). "Most

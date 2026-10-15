@@ -75,6 +75,14 @@ export { productsGCC, allProductsGCC } from './products-gcc';
 export { productsSEA, allProductsSEA } from './products-sea';
 export type { Ingredient, HumanEffect, HowToTake, StackPair, FAQ, IngredientSource } from './ingredients';
 export { ingredients } from './ingredients';
+export type { IngredientTranslation, IngredientLocale, TranslatedIngredientField } from './ingredients-es';
+export {
+  ingredientsEs,
+  localizeIngredient,
+  localizedIngredients,
+  ingredientSourceFields,
+  TRANSLATED_INGREDIENT_FIELDS,
+} from './ingredients-es';
 export type { Guide, GuideSection, GuideSource, GuideBlock, GuideTranslation } from './guides';
 export { guides, guideSources } from './guides';
 export { guidesEs } from './guides-es';
@@ -103,7 +111,7 @@ export type { Author } from './authors';
 export { authors, getAuthorBySlug, buildPersonSchema, buildPersonAuthorReference } from './authors';
 export { buildProductSchema } from './product-schema';
 export type { DisclaimerMarket, DisclaimerPart } from './regional-disclaimers';
-export { getRegionalHealthDisclaimer, disclaimerParts } from './regional-disclaimers';
+export { getRegionalHealthDisclaimer, disclaimerParts, jpImprintNoteParts } from './regional-disclaimers';
 export type { AnmatProhibitedCompound, AnmatProhibitedProduct, AnmatBasis } from './anmat-prohibited';
 export {
   ANMAT_DISPOSICION_2105_2022,

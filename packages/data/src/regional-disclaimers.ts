@@ -41,7 +41,7 @@ const disclaimers: Record<DisclaimerMarket, string> = {
   // Federal Decree-Law No. 38 of 2024, Art. 1: "Marketing Approval: The approval granted by the EDE to a
   // legal entity licensed in the State to market a specific Medical Product" (checked 2026-10-12):
   //   https://uaelegislation.gov.ae/en/legislations/2751/download
-  gcc: 'Dietary supplements sold in Saudi Arabia are regulated by the Saudi Food and Drug Authority (SFDA); in the UAE, general food supplements are regulated by Dubai Municipality while products making medicinal or therapeutic claims require marketing authorisation from the Emirates Drug Establishment (EDE, ede.gov.ae), which now handles drug registrations previously processed through the Ministry of Health and Prevention (MOHAP). GCC consumers preference Halal-certified supplements; capsule shells (gelatin vs HPMC vegetable cellulose) are a meaningful differentiator. We surface Halal-certifying authority where verifiable and never fabricate certifications. This page is editorial, not medical advice. Always consult a qualified healthcare professional before starting any supplement.',
+  gcc: 'Dietary supplements sold in Saudi Arabia are regulated by the Saudi Food and Drug Authority (SFDA); in the UAE, general food supplements are regulated by Dubai Municipality while products making medicinal or therapeutic claims require marketing authorisation from the Emirates Drug Establishment (EDE, ede.gov.ae), which now handles drug registrations previously processed through the Ministry of Health and Prevention (MOHAP). Many GCC consumers prefer Halal-certified supplements; capsule shells (gelatin vs HPMC vegetable cellulose) are a meaningful differentiator. We surface Halal-certifying authority where verifiable and never fabricate certifications. This page is editorial, not medical advice. Always consult a qualified healthcare professional before starting any supplement.',
   sea: 'Health supplements in Singapore are regulated by the Health Sciences Authority (HSA); in Malaysia by the National Pharmaceutical Regulatory Agency (NPRA); in Indonesia by the Badan Pengawas Obat dan Makanan (BPOM); in the Philippines by FDA Philippines; in Thailand by FDA Thailand. Halal certification is required by law for supplements marketed to Indonesian consumers from 18 October 2026, regulated by the Badan Penyelenggara Jaminan Produk Halal (BPJPH); in Malaysia, products described as halal must be certified, with the Jabatan Kemajuan Islam Malaysia (JAKIM) as the certifying body. We surface certification status per product where verifiable. This page is editorial, not medical advice. Consult a qualified healthcare professional before starting any supplement.',
 };
 
@@ -80,3 +80,19 @@ const JP_PARTS: readonly DisclaimerPart[] = [
 export function disclaimerParts(text: string): readonly DisclaimerPart[] {
   return text === disclaimers.jp ? JP_PARTS : [{ text }];
 }
+
+/**
+ * The JP imprint's bilingual region note, a protective notice kept under the same
+ * decision: its Japanese half renders lang="ja", the English half after it. It
+ * lives here, not in the JP page file, so JP app sources never mark Japanese
+ * themselves (jp-japanese-paused.test.ts).
+ */
+export const jpImprintNoteParts: readonly DisclaimerPart[] = [
+  {
+    text: '日本国内で販売される機能性表示食品（FFC）および特定保健用食品（FOSHU）は、消費者庁への届出または許可を必要とします。届出のない輸入品については、本サイトは消費者体験および成分研究のレビューとして編集しており、薬機法（旧薬事法）の下で疾病治療を示唆する表現は行いません。',
+    lang: 'ja',
+  },
+  {
+    text: ' / Foods with Function Claims (FFC) and Foods for Specified Health Uses (FOSHU) sold in Japan require notification or approval from the Consumer Affairs Agency. For imported products without notification, our editorial framing covers consumer experience and ingredient research only — disease-treatment claims under PMD Act are not asserted.',
+  },
+];
