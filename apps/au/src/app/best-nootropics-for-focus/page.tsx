@@ -35,7 +35,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Citicoline (CDP-Choline)',
     ingredientSlugs: ['citicoline'],
     evidence:
-      'Choline donor + uridine source that supports phospholipid synthesis and acetylcholine production. Our citicoline page rates its attention evidence as mixed: the Cochrane review found no evidence of an attention benefit in older adults with chronic cerebral disorders, and the acute attention trial in healthy adults that we cite gave it together with caffeine. Cognizin is the standardised form most products use. In Australia, citicoline-containing products are typically imported under the Personal Importation Scheme rather than TGA-listed.',
+      'Choline donor + uridine source that supports phospholipid synthesis and acetylcholine production. Our citicoline page rates its attention evidence as mixed: the Cochrane review found no evidence of an attention benefit in older adults with chronic cerebral disorders, and the acute attention trial in healthy adults that we cite gave it together with caffeine. Cognizin is a standardised form. In Australia, citicoline-containing products are typically imported under the Personal Importation Scheme rather than TGA-listed.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/15846601/',
   },
   {
@@ -88,7 +88,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'How long does it take a focus nootropic to work?',
-    a: 'Acute-effect ingredients (L-theanine, caffeine, Alpha-GPC, L-tyrosine) work within 30–60 minutes. Longer-onset ingredients (Bacopa, Lion\'s Mane) need 4–12 weeks. If you want a tonight-effect, look for L-theanine + caffeine; for compounded benefit, plan for 8 weeks of consistent use.',
+    a: 'Acute-effect ingredients (L-theanine, caffeine, Alpha-GPC, L-tyrosine) work within 30–60 minutes. Bacopa: 8–12 weeks; most positive trials ran 12 weeks. Lion\'s Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. If you want a tonight-effect, look for L-theanine + caffeine; for compounded benefit, plan for 8 weeks of consistent use.',
   },
   {
     q: 'Are these focus nootropics TGA-listed in Australia?',

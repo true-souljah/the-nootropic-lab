@@ -78,6 +78,7 @@ export const guideSources: Record<string, GuideSource[]> = {
     { pmid: '23439798', url: 'https://pubmed.ncbi.nlm.nih.gov/23439798/', title: 'A prospective, randomized double-blind, placebo-controlled study of safety and efficacy of a high-concentration full-spectrum extract of Ashwagandha root in reducing stress and anxiety in adults', year: 2012, supports: 'Ashwagandha HPA-axis/cortisol reduction RCT' },
     { pmid: '17585971', url: 'https://pubmed.ncbi.nlm.nih.gov/17585971/', title: 'Tyrosine supplementation mitigates working memory decrements during cold exposure', year: 2007, supports: 'Stress-induced catecholamine depletion and tyrosine repletion mechanism' },
     { pmid: '25933483', url: 'https://pubmed.ncbi.nlm.nih.gov/25933483/', title: 'Phosphatidylserine and the human brain', year: 2015, supports: 'PS membrane/cognitive-aging mechanism (without the specific age-30 figure)' },
+    { pmid: '17891480', url: 'https://pubmed.ncbi.nlm.nih.gov/17891480/', title: 'Time for tea: mood, blood pressure and cognitive performance effects of caffeine and theanine administered alone and together', year: 2007, supports: 'Alpha-wave section: theanine did not significantly reduce caffeine-induced jitteriness (Rogers 2007)' },
   ],
   'what-to-expect': [
     { pmid: '18844328', url: 'https://pubmed.ncbi.nlm.nih.gov/18844328/', title: 'Improving effects of the mushroom Yamabushitake (Hericium erinaceus) on mild cognitive impairment', year: 2009, supports: "Lion's Mane 8-week onset timeline" },
@@ -90,6 +91,7 @@ export const guideSources: Record<string, GuideSource[]> = {
     { pmid: '24946991', url: 'https://pubmed.ncbi.nlm.nih.gov/24946991/', title: 'Acute effects of tea constituents L-theanine, caffeine, and epigallocatechin gallate on cognitive function and mood: a systematic review and meta-analysis', year: 2014, supports: 'L-theanine+caffeine attention effects versus placebo, with an honest jitteriness/anxiety caveat' },
     { pmid: '38057413', url: 'https://pubmed.ncbi.nlm.nih.gov/38057413/', title: 'Concomitant use of monoamine oxidase inhibitor and tyrosine in parenteral nutrition', year: 2023, supports: 'Tyrosine + MAOI interaction caution, with realistic risk framing' },
     { pmid: '17891480', url: 'https://pubmed.ncbi.nlm.nih.gov/17891480/', title: 'Time for tea: mood, blood pressure and cognitive performance effects of caffeine and theanine administered alone and together', year: 2007, supports: 'Correction to the anxiogenic-effect-reduction claim' },
+    { pmid: '22326943', url: 'https://pubmed.ncbi.nlm.nih.gov/22326943/', title: 'Assessing the effects of caffeine and theanine on the maintenance of vigilance during a sustained attention task.', year: 2012, supports: 'Caffeine + theanine combined conferred no added benefit over either compound alone (Foxe 2012)' },
     // Stack 3 dose ranges — from evidence/lions-mane.json and evidence/phosphatidylserine.json (studies[], pubmedUrl status 200).
     { pmid: '38004235', url: 'https://pubmed.ncbi.nlm.nih.gov/38004235/', title: "The Acute and Chronic Effects of Lion's Mane Mushroom Supplementation on Cognitive Function, Stress and Mood in Young Adults: A Double-Blind, Parallel Groups, Pilot Study.", year: 2023, supports: "Stack 3: healthy-adult Lion's Mane dose (1.8g/day)" },
     { pmid: '38140277', url: 'https://pubmed.ncbi.nlm.nih.gov/38140277/', title: "Acute Effects of Naturally Occurring Guayusa Tea and Nordic Lion's Mane Extracts on Cognitive Performance.", year: 2023, supports: "Stack 3: healthy-adult Lion's Mane dose (1g)" },
@@ -107,6 +109,7 @@ export const guideSources: Record<string, GuideSource[]> = {
     { pmid: '20523044', url: 'https://pubmed.ncbi.nlm.nih.gov/20523044/', title: 'Phosphatidylserine containing omega-3 fatty acids may improve memory abilities in non-demented elderly with memory complaints: a double-blind placebo-controlled trial.', year: 2010, supports: 'PS 300mg/day in older adults' },
     { pmid: '18844328', url: 'https://pubmed.ncbi.nlm.nih.gov/18844328/', title: 'Improving effects of the mushroom Yamabushitake (Hericium erinaceus) on mild cognitive impairment', year: 2009, supports: "Correct Lion's Mane dosing reference (3,000mg/day tested)" },
     { pmid: '41678913', url: 'https://pubmed.ncbi.nlm.nih.gov/41678913/', title: 'Comparative effects of Bacopa monnieri and Ginkgo biloba on cognitive functions: A systematic review and network meta-analysis', year: 2026, supports: 'Bacopa 300mg dose/duration confirmation' },
+    { pmid: '22747190', url: 'https://pubmed.ncbi.nlm.nih.gov/22747190/', title: 'The cognitive-enhancing effects of Bacopa monnieri: a systematic review of randomized, controlled human clinical trials.', year: 2012, supports: 'Bacopa: six 12-week trials at 300-450mg extract a day improved 9 of 17 memory free-recall tests (Pase 2012)' },
   ],
   'natural-vs-synthetic-nootropics': [
     { url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32002L0046', title: 'Directive 2002/46/EC on the approximation of laws relating to food supplements', year: 2002, supports: 'Correct scope of EU supplement regulation (vitamins/minerals only)' },
@@ -647,7 +650,7 @@ export const guides: Guide[] = [
       },
       {
         heading: 'Cell membrane integrity and phospholipids',
-        content: "Neuronal cell membranes are composed largely of phospholipids — primarily phosphatidylserine (PS) and phosphatidylcholine. Healthy membranes are essential for efficient signal transmission between neurons. PS levels in the brain decline with aging. Supplementing with PS replenishes membrane composition, improving synaptic signal transduction and facilitating neurotransmitter release. Citicoline works similarly — as a precursor to phosphatidylcholine, it supports membrane repair while simultaneously boosting acetylcholine synthesis.",
+        content: "Neuronal cell membranes are composed largely of phospholipids — primarily phosphatidylserine (PS) and phosphatidylcholine. Healthy membranes are essential for efficient signal transmission between neurons. PS levels in the brain decline with aging. Citicoline is a precursor to phosphatidylcholine.",
       },
     ],
   },
@@ -671,7 +674,7 @@ export const guides: Guide[] = [
       },
       {
         heading: 'What cumulative effects feel like',
-        content: "Cumulative nootropic effects are subtle by nature — they represent improvements in cognitive baseline, not dramatic acute shifts. After 8–12 weeks on a Bacopa-containing stack, you are likely to notice: faster recall of names, numbers, and learned material; improved retention of new information; and subjectively, things feeling slightly easier to remember. After 8 weeks of Lion's Mane, some users report clearer thinking and better mental endurance. These effects are difficult to notice day-to-day; the best way to measure them is cognitive benchmarking — test your working memory span, reading speed, or task completion time at baseline and again at 8 weeks.",
+        content: "Cumulative nootropic effects are subtle by nature — they represent improvements in cognitive baseline, not dramatic acute shifts. After 8–12 weeks on a Bacopa-containing stack, you are likely to notice: faster recall of names, numbers, and learned material; improved retention of new information; and subjectively, things feeling slightly easier to remember. These effects are difficult to notice day-to-day; the best way to measure them is cognitive benchmarking — test your working memory span, reading speed, or task completion time at baseline and again at 8 weeks.",
       },
       {
         heading: 'What nootropics cannot do',
@@ -695,7 +698,7 @@ export const guides: Guide[] = [
     sections: [
       {
         heading: 'What is a nootropic stack?',
-        content: 'A nootropic stack is a combination of two or more cognitive-enhancing compounds taken together to produce effects greater than either would alone. The concept comes from pharmacology — many drugs are more effective or better-tolerated in combination. Versus placebo, for L-Theanine + Caffeine, a meta-analysis of 11 RCTs found moderate improvements in alertness and attention-switching accuracy in the first 2 hours after dosing. Foxe 2012 found no added benefit over either compound alone. In a controlled trial (Rogers 2007), L-theanine offset caffeine\'s blood-pressure rise but did not significantly reduce caffeine-induced jitteriness. Pre-formulated multi-ingredient stacks combine 8–11 ingredients designed to cover multiple cognitive pathways simultaneously.',
+        content: 'A nootropic stack is a combination of two or more cognitive-enhancing compounds taken together. Versus placebo, for L-Theanine + Caffeine, a meta-analysis of 11 RCTs found moderate improvements in alertness and attention-switching accuracy in the first 2 hours after dosing. Foxe 2012 found no added benefit over either compound alone. In a controlled trial (Rogers 2007), L-theanine offset caffeine\'s blood-pressure rise but did not significantly reduce caffeine-induced jitteriness. Pre-formulated multi-ingredient stacks combine 8–11 ingredients designed to cover multiple cognitive pathways simultaneously.',
       },
       {
         heading: 'The golden rule: one cholinergic source at a time',
@@ -735,7 +738,7 @@ export const guides: Guide[] = [
       },
       {
         heading: 'Best for focus and sustained attention',
-        content: 'L-Theanine (200mg) + Caffeine (100mg) acts acutely — 30–60 minutes to effect; controlled trials have measured its benefits within roughly the first 2 hours after dosing. L-Tyrosine is best for focus under stress, sleep deprivation, or multitasking — but the trials showing this used about 100–150mg per kg of body weight per dose (roughly 7–12g for a 70–100kg adult), 10–20 times more than a 500–1000mg dose, at which those effects would not be expected. Citicoline (250mg) supports sustained attention by maintaining acetylcholine availability during long cognitive sessions. Rhodiola Rosea (200mg) reduces mental fatigue for extended focus sessions. When comparing multi-ingredient stacks built around citicoline and L-tyrosine for focus, check each ingredient\'s dose against the trial figures above.',
+        content: 'L-Theanine (200mg) + Caffeine (100mg) acts acutely — 30–60 minutes to effect; controlled trials have measured its benefits within roughly the first 2 hours after dosing. L-Tyrosine is best for focus under stress, sleep deprivation, or multitasking — but the trials showing this used about 100–150mg per kg of body weight per dose (roughly 7–12g for a 70–100kg adult), 10–20 times more than a 500–1000mg dose, at which those effects would not be expected. Our citicoline page rates its attention evidence as mixed. Our Rhodiola page rates its mental-fatigue evidence as mixed. When comparing multi-ingredient stacks built around citicoline and L-tyrosine for focus, check each ingredient\'s dose against the trial figures above.',
       },
       {
         heading: 'Best for memory encoding (learning new things)',
@@ -743,7 +746,7 @@ export const guides: Guide[] = [
       },
       {
         heading: 'Best for recall speed',
-        content: "Recall speed — how quickly you can retrieve stored information — is influenced by acetylcholine availability, dopamine signalling, and synaptic transmission speed. Huperzine A (100mcg) blocks the enzyme that breaks down acetylcholine; its trials measured effects after 4–16 weeks of daily dosing, and no acute-onset trial was found. Rhodiola improves recall under conditions of stress or fatigue (when catecholamine depletion would otherwise slow retrieval). Note: none of these can retrieve information that was never well-encoded — improving encoding comes first.",
+        content: "Recall speed — how quickly you can retrieve stored information — is influenced by acetylcholine availability, dopamine signalling, and synaptic transmission speed. Huperzine A (100mcg) blocks the enzyme that breaks down acetylcholine; its trials measured effects after 4–16 weeks of daily dosing, and no acute-onset trial was found. Our Rhodiola page rates its mental-fatigue evidence as mixed. Note: none of these can retrieve information that was never well-encoded — improving encoding comes first.",
       },
       {
         heading: 'Best for creative thinking and insight',
@@ -771,7 +774,7 @@ export const guides: Guide[] = [
       },
       {
         heading: 'Safety and side effect profiles',
-        content: 'Natural nootropics at recommended doses have excellent safety records and are sold as food supplements in most jurisdictions. Bacopa, Ashwagandha, and Rhodiola have a long history of traditional use, but traditional use is not systematic safety data, and modern RCTs of these ingredients have run for roughly 4 to 16 weeks — there is no multi-year controlled safety record. Synthetic nootropics carry more uncertain long-term safety profiles, particularly for daily use over years. Racetams deplete choline stores (requiring supplemental choline to avoid headaches). Modafinil and Armodafinil — prescription-only in most countries — have established short-term safety but limited long-term data.',
+        content: 'Natural nootropics at recommended doses have excellent safety records and are sold as food supplements in most jurisdictions. Bacopa, Ashwagandha, and Rhodiola have a long history of traditional use, but traditional use is not systematic safety data, and modern RCTs of these ingredients have run for roughly 4 to 16 weeks — there is no multi-year controlled safety record. Synthetic nootropics carry more uncertain long-term safety profiles, particularly for daily use over years. Modafinil and Armodafinil — prescription-only in most countries — have established short-term safety but limited long-term data.',
       },
       {
         heading: 'Regulatory status by region',
