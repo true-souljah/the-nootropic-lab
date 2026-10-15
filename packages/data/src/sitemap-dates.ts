@@ -61,6 +61,9 @@ const REGIONAL_NOTES: Partial<Record<RegionCode, string>> = {
 
 const OVERLAY = 'packages/data/src/regional.ts';
 const INGREDIENTS = 'packages/data/src/ingredients.ts';
+/** LATAM ingredient pages render ingredients.ts with the Spanish prose of ingredients-es.ts. */
+const ingredientFiles = (region: RegionCode) =>
+  region === 'latam' ? [INGREDIENTS, 'packages/data/src/ingredients-es.ts'] : [INGREDIENTS];
 /** LATAM renders the Spanish guide set; every other region the English one. */
 const guidesFile = (region: RegionCode) =>
   region === 'latam' ? 'packages/data/src/guides-es.ts' : 'packages/data/src/guides.ts';
@@ -73,6 +76,7 @@ export function routeDates(region: RegionCode) {
   const app = `apps/${region}/src/app`;
   const products = `packages/data/src/products-${region}.json`;
   const GUIDES = guidesFile(region);
+  const ingredientInputs = ingredientFiles(region).map(contentFileDate);
   const overlayInputs = [OVERLAY, REGIONAL_NOTES[region]].filter((p): p is string => Boolean(p)).map(contentFileDate);
   const pageFile = (route: string) => contentFileDate(route ? `${app}/${route}/page.tsx` : `${app}/page.tsx`);
   return {
@@ -83,10 +87,10 @@ export function routeDates(region: RegionCode) {
     /** Product review page: shared template + region catalogue + the record's own updatedAt + overlay. */
     product: (p: { updatedAt?: string }) =>
       latestDate(pageFile('[slug]'), contentFileDate(products), p.updatedAt, ...overlayInputs),
-    ingredientsHub: () => latestDate(pageFile('ingredients'), contentFileDate(INGREDIENTS)),
+    ingredientsHub: () => latestDate(pageFile('ingredients'), ...ingredientInputs),
     /** Ingredient page: shared data + overlay block listing the region's products. */
     ingredient: () =>
-      latestDate(pageFile('ingredients/[ingredient]'), contentFileDate(INGREDIENTS), contentFileDate(products), ...overlayInputs),
+      latestDate(pageFile('ingredients/[ingredient]'), ...ingredientInputs, contentFileDate(products), ...overlayInputs),
     guidesHub: () => latestDate(pageFile('guides'), contentFileDate(GUIDES)),
     /** Guide page: guide set + overlay block listing the region's products. */
     guide: () => latestDate(pageFile('guides/[guide]'), contentFileDate(GUIDES), contentFileDate(products), ...overlayInputs),
