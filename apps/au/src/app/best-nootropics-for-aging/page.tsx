@@ -51,6 +51,9 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     evidence:
       'In a systematic review of six 12-week trials (Pase 2012, PubMed 22747190), Bacopa improved 9 of 17 memory free-recall tests; in adults aged 65 and over (Calabrese 2008, PubMed 18611150), 300mg a day for 12 weeks improved delayed word recall after controlling for baseline cognitive deficit. Bacopa is permitted in TGA Listed Medicines (Permissible Ingredients Determination, Schedule 1 item 754; checked 2026-10-08), so Australian seniors have AUST L-listed Bacopa options at any pharmacy (Nature\'s Own Brahmi, Swisse Memory & Focus).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22747190/',
+    extraCitations: [
+      { label: 'Calabrese 2008', url: 'https://pubmed.ncbi.nlm.nih.gov/18611150/' },
+    ],
   },
   {
     name: 'Ginkgo Biloba',
