@@ -111,7 +111,7 @@ export type { Author } from './authors';
 export { authors, getAuthorBySlug, buildPersonSchema, buildPersonAuthorReference } from './authors';
 export { buildProductSchema } from './product-schema';
 export type { DisclaimerMarket, DisclaimerPart } from './regional-disclaimers';
-export { getRegionalHealthDisclaimer, disclaimerParts } from './regional-disclaimers';
+export { getRegionalHealthDisclaimer, disclaimerParts, jpImprintNoteParts } from './regional-disclaimers';
 export type { AnmatProhibitedCompound, AnmatProhibitedProduct, AnmatBasis } from './anmat-prohibited';
 export {
   ANMAT_DISPOSICION_2105_2022,

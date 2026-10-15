@@ -80,3 +80,19 @@ const JP_PARTS: readonly DisclaimerPart[] = [
 export function disclaimerParts(text: string): readonly DisclaimerPart[] {
   return text === disclaimers.jp ? JP_PARTS : [{ text }];
 }
+
+/**
+ * The JP imprint's bilingual region note, a protective notice kept under the same
+ * decision: its Japanese half renders lang="ja", the English half after it. It
+ * lives here, not in the JP page file, so JP app sources never mark Japanese
+ * themselves (jp-japanese-paused.test.ts).
+ */
+export const jpImprintNoteParts: readonly DisclaimerPart[] = [
+  {
+    text: '日本国内で販売される機能性表示食品（FFC）および特定保健用食品（FOSHU）は、消費者庁への届出または許可を必要とします。届出のない輸入品については、本サイトは消費者体験および成分研究のレビューとして編集しており、薬機法（旧薬事法）の下で疾病治療を示唆する表現は行いません。',
+    lang: 'ja',
+  },
+  {
+    text: ' / Foods with Function Claims (FFC) and Foods for Specified Health Uses (FOSHU) sold in Japan require notification or approval from the Consumer Affairs Agency. For imported products without notification, our editorial framing covers consumer experience and ingredient research only — disease-treatment claims under PMD Act are not asserted.',
+  },
+];
