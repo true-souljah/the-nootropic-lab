@@ -30,6 +30,9 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     evidence:
       'For sustained study sessions, the L-theanine + caffeine combo is the foundation. In the trial linked below (Owen 2008), the pairing improved speed and accuracy on an attention-switching task; in a controlled trial (Rogers 2008, PubMed 17891480), theanine did not significantly reduce caffeine-induced jitteriness. 100–200mg L-theanine + 100mg caffeine, repeated 4–6 hours later if needed. Both are TGA-permitted ingredients: theanine as an active ingredient, and caffeine as an active ingredient only for oral use in adults when the medicine consists principally of other designated active ingredients (Therapeutic Goods (Permissible Ingredients) Determination (No. 2) 2026, F2026L00707, as compiled 17 September 2026 — Compilation No. 1, F2026C00940 — Schedule 1 items 4911 and 1054; checked 2026-10-08).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
+    extraCitations: [
+      { label: 'Rogers 2008', url: 'https://pubmed.ncbi.nlm.nih.gov/17891480/' },
+    ],
   },
   {
     name: 'Bacopa Monnieri — long-term memory consolidation',

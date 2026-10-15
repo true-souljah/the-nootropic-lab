@@ -29,6 +29,9 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     evidence:
       'In the trial linked below (Owen 2008), 50mg caffeine with 100mg L-theanine improved speed and accuracy on an attention-switching task; in a controlled trial (Rogers 2008, PubMed 17891480), theanine did not significantly reduce caffeine-induced jitteriness. 100–200mg L-theanine + 100mg caffeine.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
+    extraCitations: [
+      { label: 'Rogers 2008', url: 'https://pubmed.ncbi.nlm.nih.gov/17891480/' },
+    ],
   },
   {
     name: 'Rhodiola Rosea — fatigue resistance',
