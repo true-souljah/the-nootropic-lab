@@ -35,7 +35,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Melena de León (Hericium erinaceus)',
     ingredientSlugs: ['lions-mane'],
     evidence:
-      'Modula el Factor de Crecimiento Nervioso (NGF) y puede apoyar la neurogénesis. Pequeños ensayos clínicos (Mori et al. 2009 en adultos mayores con deterioro cognitivo leve) mostraron mejoras en memoria con 1g/día de extracto del cuerpo fructífero durante 16 semanas. La evidencia es prometedora pero menor que para Bacopa. Busca extracto del cuerpo fructífero, no micelio sobre grano.',
+      'Modula el Factor de Crecimiento Nervioso (NGF) y puede apoyar la neurogénesis. Pequeños ensayos clínicos (Mori et al. 2009 en adultos de 50 a 80 años con deterioro cognitivo leve) mostraron puntuaciones de función cognitiva más altas que con placebo con 3g/día durante 16 semanas. La evidencia es prometedora pero menor que para Bacopa. Busca extracto del cuerpo fructífero, no micelio sobre grano.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18844328/',
   },
   {
@@ -82,7 +82,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: '¿Cuánto tardan en hacer efecto los nootrópicos para memoria?',
-    a: 'Bacopa: 8–12 semanas de uso diario. Melena de León: 8–16 semanas. Fosfatidilserina y citicolina: 4–12 semanas. Ninguno es un ingrediente de efecto agudo. Planifica al menos 8 semanas de dosificación constante antes de juzgar — y considera el tiempo de envío internacional (10–18 días a Latam) en tu cronograma.',
+    a: 'Bacopa: 8–12 semanas de uso diario; la mayoría de los ensayos positivos duraron 12 semanas. Melena de León: en adultos con deterioro cognitivo leve, el beneficio se fue acumulando a lo largo de 8–16 semanas. Fosfatidilserina: sus ensayos sobre la memoria duraron de 15 semanas a 12 meses. Citicolina: sus efectos sobre la memoria se midieron después de 2–3 meses. Ninguno es un ingrediente de efecto agudo. Planifica al menos 12 semanas de dosificación constante antes de juzgar — y considera el tiempo de envío internacional (10–18 días a Latam) en tu cronograma.',
   },
   {
     q: '¿Son seguros estos nootrópicos a largo plazo?',

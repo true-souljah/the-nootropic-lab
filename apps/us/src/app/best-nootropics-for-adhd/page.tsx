@@ -34,8 +34,8 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Bacopa Monnieri',
     ingredientSlugs: ['bacopa-monnieri'],
     evidence:
-      'Multiple RCTs in adults (and a smaller body of evidence in children with ADHD) show modest improvements in attention, memory consolidation, and impulse control after 12+ weeks at 300mg standardized to 50% bacosides. Onset is slow — this is not an acute-effect ingredient.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
+      'In a systematic review of six 12-week trials (Pase 2012), Bacopa improved 9 of 17 memory free-recall tests. Onset is slow — this is not an acute-effect ingredient.',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22747190/',
   },
   {
     name: 'Citicoline (CDP-Choline)',

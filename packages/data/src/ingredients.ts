@@ -89,9 +89,9 @@ export const ingredients: Ingredient[] = [
       forms: 'Capsule or powder. Always choose fruiting body extract (hot-water or dual extracted), not mycelium-on-grain — mycelium products may be mostly starch with minimal active compounds.',
     },
     stacksWith: [
-      { ingredient: 'Bacopa Monnieri', slug: 'bacopa-monnieri', reason: 'Classic long-term memory stack. Bacopa consolidates memory via synaptic density; Lion\'s Mane supports NGF. Together they cover both neurogenesis and synaptic pathways.' },
-      { ingredient: 'Citicoline', slug: 'citicoline', reason: 'Citicoline provides an acute focus effect while Lion\'s Mane builds long-term neuroprotection — a complementary short- and long-term pairing.' },
-      { ingredient: 'Ashwagandha', slug: 'ashwagandha', reason: 'Ashwagandha reduces cortisol (which suppresses NGF expression); combining with Lion\'s Mane may amplify neurogenic effects under stress.' },
+      { ingredient: 'Bacopa Monnieri', slug: 'bacopa-monnieri', reason: 'Both are studied for memory and cognitive function; we cite no trial of the pairing.' },
+      { ingredient: 'Citicoline', slug: 'citicoline', reason: 'Both are studied for memory; we cite no trial of the pairing.' },
+      { ingredient: 'Ashwagandha', slug: 'ashwagandha', reason: 'Ashwagandha is studied for stress and cortisol, Lion\'s Mane for memory and learning; we cite no trial of the pairing.' },
     ],
     faqs: [
       { question: 'Fruiting body vs mycelium — which should I buy?', answer: 'Always choose fruiting body extract. Mycelium is grown on grain substrate and most commercial mycelium products contain primarily starch, not active hericenones. Look for "fruiting body" or "dual extract" on the label. Labels can differ by market: Mind Lab Pro\'s US label lists 500mg organic Lion\'s Mane "mycelium and fruit", while its EU, UK, Canadian and Australian labels list 500mg "fruiting body" (checked 2026-10-08).' },
@@ -120,10 +120,10 @@ export const ingredients: Ingredient[] = [
     sideEffects: ['GI effects (increased stool frequency, abdominal cramps, nausea) reported at 300mg/day in a 12-week RCT in older adults — take with food', 'More self-reported adverse reactions than placebo (digestive complaints, headaches) in a 2025 12-week RCT', 'Slowed information processing initially', 'Not recommended during pregnancy (precautionary: no human safety data)'],
     productsContaining: ['mind-lab-pro-review', 'noocube-review', 'onnit-alpha-brain-review', 'hunter-focus-review'],
     humanEffects: [
-      { effect: 'Memory Consolidation', evidenceStrength: 'strong', magnitude: 'moderate', studies: 4, notes: 'Kongkeaw 2014 meta-analysis (9 RCTs), two 12-week RCTs on delayed recall, and a 2026 network meta-analysis (working memory, ≥600mg/day). The 2025 Lopresti RCT at 300mg/day did not replicate the memory benefit.' },
+      { effect: 'Memory Consolidation', evidenceStrength: 'moderate', magnitude: 'moderate', studies: 5, notes: 'Pase 2012 systematic review: Bacopa improved 9 of 17 memory free-recall tests across six 12-week trials; two 12-week RCTs on delayed recall; a 2026 network meta-analysis (working memory, ≥600mg/day). The 2025 Lopresti RCT at 300mg/day did not replicate the memory benefit, and Kongkeaw 2014 pooled speed-of-attention outcomes, not memory.' },
       { effect: 'Anxiety Reduction', evidenceStrength: 'moderate', magnitude: 'moderate', studies: 2, notes: 'Calabrese 2008: anxiety fell with Bacopa and rose with placebo over 12 weeks; Lopresti 2025: lower self-reported stress reactivity.' },
       { effect: 'Attention', evidenceStrength: 'mixed', magnitude: 'small', studies: 2, notes: 'Positive pooled speed-of-attention result (Kongkeaw 2014) but no effect on attention in the largest recent RCT (Lopresti 2025, p=0.713).' },
-      { effect: 'Processing Speed', evidenceStrength: 'mixed', magnitude: 'small', studies: 2, notes: 'An acute 320mg dose improved sustained task performance (2012), but the 2026 network meta-analysis found no processing-speed difference. Some users report temporary initial slowing.' },
+      { effect: 'Processing Speed', evidenceStrength: 'mixed', magnitude: 'small', studies: 2, notes: 'An acute 320mg dose improved sustained task performance (2012), but the 2026 network meta-analysis found no processing-speed difference.' },
     ],
     howToTake: {
       dosage: '300–450mg/day (standardised to at least 50% bacosides) — the classic trial dose; ≥600mg/day is an emerging, less-established option',
@@ -132,12 +132,12 @@ export const ingredients: Ingredient[] = [
       forms: 'Capsule is most practical. Powder has a bitter, unpleasant taste. Look for an extract standardised to at least 50% bacosides on the label (the positive trial we cite used 300mg of a 50% extract, about 150mg of bacosides) — unstandardised herbal products may contain very little active compound.',
     },
     stacksWith: [
-      { ingredient: "Lion's Mane", slug: 'lions-mane', reason: 'The definitive long-term memory stack. Bacopa improves synaptic density and memory consolidation; Lion\'s Mane drives NGF synthesis and neuroprotection. Both are slow-acting and complement each other without overlap.' },
-      { ingredient: 'Citicoline', slug: 'citicoline', reason: 'Citicoline provides the acute focus and acetylcholine boost that Bacopa lacks in the short term, while Bacopa handles long-term memory consolidation. A well-rounded pairing found in Mind Lab Pro.' },
-      { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'Both have anxiolytic properties. L-Theanine provides immediate calm focus; Bacopa builds long-term stress resilience. The combination is gentle and well-tolerated.' },
+      { ingredient: "Lion's Mane", slug: 'lions-mane', reason: 'Both are studied for memory and cognitive function; we cite no trial of the pairing.' },
+      { ingredient: 'Citicoline', slug: 'citicoline', reason: 'Both are studied for memory, and both are in Mind Lab Pro; we cite no trial of the pairing.' },
+      { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'Both are studied for stress and anxiety; we cite no trial of the pairing.' },
     ],
     faqs: [
-      { question: 'Why do some people feel "foggy" when starting Bacopa?', answer: 'A minority of users experience a temporary initial slowing of mental processing — sometimes called the "Bacopa fog." This is linked to the serotonin modulation and typically resolves after 3–4 weeks. It reflects the herb\'s mechanism working, not a problem. If it persists past 6 weeks, reduce your dose.' },
+      { question: 'Why do some people feel "foggy" when starting Bacopa?', answer: 'Slowed information processing at the start is a listed side effect of Bacopa. If it persists past 6 weeks, reduce your dose.' },
       { question: 'Do I really need to take it with fat?', answer: "It is the sensible default. Bacosides are fat-soluble compounds, and GI side effects (cramps, nausea, more frequent stools) were reported in trials, so taking Bacopa with a normal meal that contains some fat is the usual advice." },
       { question: 'What percentage of bacosides should I look for?', answer: 'Aim for at least 50%: the positive trial we cite (Calabrese et al., 2008) used 300mg a day of an extract standardised to a minimum of 50% bacosides, about 150mg of bacosides. Two standardised commercial extracts are Bacognize and Synapsa. Generic "Bacopa" with no standardisation stated is unreliable — the active compound content may be negligible.' },
       { question: 'How long does it take to work?', answer: 'The positive memory trials measured outcomes after 12 weeks. This is not a supplement you evaluate in the first month. Set a calendar reminder to assess at around 12 weeks — and note that the newest 12-week trial at 300mg/day found no cognitive benefit, so results vary.' },
@@ -150,6 +150,7 @@ export const ingredients: Ingredient[] = [
       { pmid: '23281132', doi: '10.1002/ptr.4864', url: 'https://pubmed.ncbi.nlm.nih.gov/23281132/', title: 'An acute, double-blind, placebo-controlled crossover study of 320 mg and 640 mg doses of a special extract of Bacopa monnieri (CDRI 08) on sustained cognitive performance.', year: 2012, design: 'rct' },
       { pmid: '41091332', doi: '10.1007/s40261-025-01492-1', url: 'https://pubmed.ncbi.nlm.nih.gov/41091332/', title: 'The Effects of a Bacopa monnieri Extract (Bacumen) on Cognition, Stress, and Fatigue in Healthy Adults: A Randomized, Double-Blind, Placebo-Controlled Trial.', year: 2025, design: 'rct' },
       { pmid: '41678913', doi: '10.1016/j.phymed.2026.157915', url: 'https://pubmed.ncbi.nlm.nih.gov/41678913/', title: 'Comparative effects of Bacopa monnieri and Ginkgo biloba on cognitive functions: A systematic review and network meta-analysis.', year: 2026, design: 'meta-analysis' },
+      { pmid: '22747190', doi: '10.1089/acm.2011.0367', url: 'https://pubmed.ncbi.nlm.nih.gov/22747190/', title: 'The cognitive-enhancing effects of Bacopa monnieri: a systematic review of randomized, controlled human clinical trials.', year: 2012, design: 'systematic review' },
     ],
     evidenceReviewedAt: '2026-09-28',
   },
@@ -176,9 +177,9 @@ export const ingredients: Ingredient[] = [
       forms: 'Capsule. Two standardised branded forms exist: Cognizin (used in Mind Lab Pro) and Citicoline Sodium. Both are effective. Avoid generic unlabelled CDP-choline from unknown sources.',
     },
     stacksWith: [
-      { ingredient: 'Bacopa Monnieri', slug: 'bacopa-monnieri', reason: 'Citicoline handles acute attention and acetylcholine; Bacopa covers long-term memory consolidation. The combination addresses both short-term focus and long-term memory in one stack.' },
+      { ingredient: 'Bacopa Monnieri', slug: 'bacopa-monnieri', reason: 'Both are studied for memory, and both are in Mind Lab Pro; we cite no trial of the pairing.' },
       { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'Citicoline provides cognitive activation; L-Theanine is often added for calm, though in a controlled caffeine trial (Rogers 2008) it did not significantly reduce jitteriness, and we cite no trial of this pairing.' },
-      { ingredient: "Lion's Mane", slug: 'lions-mane', reason: 'Complementary timeframes: citicoline works acutely on acetylcholine; Lion\'s Mane works long-term on NGF. No mechanism overlap — a clean combination.' },
+      { ingredient: "Lion's Mane", slug: 'lions-mane', reason: 'Both are studied for memory; we cite no trial of the pairing.' },
     ],
     faqs: [
       { question: 'Citicoline vs choline bitartrate — what is the difference?', answer: "Citicoline is significantly superior. It crosses the blood-brain barrier more efficiently and provides two active components: choline (for acetylcholine) and cytidine (which converts to uridine, a brain membrane building block). Choline bitartrate provides choline only and crosses the BBB poorly." },
@@ -221,8 +222,8 @@ export const ingredients: Ingredient[] = [
     },
     stacksWith: [
       { ingredient: 'Caffeine', slug: 'caffeine', reason: 'The trials we cite used 50–250mg theanine with 40–250mg caffeine. Versus placebo, the combination improved attention measures in several trials, though Foxe 2012 found no added benefit over either compound alone; in a controlled trial (Rogers 2008) theanine did not significantly reduce caffeine jitteriness.' },
-      { ingredient: 'Bacopa Monnieri', slug: 'bacopa-monnieri', reason: 'Both have anxiolytic properties working via different mechanisms. L-Theanine provides immediate calm; Bacopa builds sustained stress tolerance over weeks. A gentle, non-sedating anxiety-reduction combination.' },
-      { ingredient: 'Ashwagandha', slug: 'ashwagandha', reason: 'Both target stress through distinct pathways (GABA modulation for theanine; HPA axis for ashwagandha). Good daytime anxiety stack without sedation.' },
+      { ingredient: 'Bacopa Monnieri', slug: 'bacopa-monnieri', reason: 'Both are studied for stress and anxiety; we cite no trial of the pairing.' },
+      { ingredient: 'Ashwagandha', slug: 'ashwagandha', reason: 'Both are studied for anxiety and stress; we cite no trial of the pairing.' },
     ],
     faqs: [
       { question: 'What is the ideal ratio of L-Theanine to caffeine?', answer: 'No trial has established an ideal ratio. The positive combination trials used 97–250mg theanine with 40–160mg caffeine — for example 100mg theanine with 50mg caffeine (Owen 2008), 250mg with 150mg (Haskell 2007) and 200mg with 160mg (Kahathuduwa 2016). A meta-analysis found the caffeine dose drove the effect more than the theanine dose.' },
@@ -271,9 +272,9 @@ export const ingredients: Ingredient[] = [
       forms: 'Capsule. Look for a stated rosavin and salidroside standardisation on the label. The trials in our record that name an extract used SHR-5, and their abstracts do not state its rosavin or salidroside percentages.',
     },
     stacksWith: [
-      { ingredient: 'Ashwagandha', slug: 'ashwagandha', reason: 'The classic adaptogen stack. Rhodiola is activating (raises norepinephrine, best morning); Ashwagandha is calming (lowers cortisol, best evening). Together they provide full-day HPA axis support without one cancelling the other out.' },
-      { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'Rhodiola\'s activating effect pairs well with L-Theanine\'s calming effect. Use Rhodiola for cognitive stamina; L-Theanine to soften any agitation or restlessness Rhodiola can cause initially.' },
-      { ingredient: 'L-Tyrosine', slug: 'l-tyrosine', reason: 'Both target performance under stress via different mechanisms. Rhodiola modulates cortisol/monoamine levels; Tyrosine replenishes catecholamine substrate. Strong combination for high-demand cognitive days or night shifts.' },
+      { ingredient: 'Ashwagandha', slug: 'ashwagandha', reason: 'Both are adaptogens; we cite no trial of the pairing.' },
+      { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'Rhodiola is an adaptogen; L-Theanine is an amino acid found in green tea. We cite no trial of the pairing.' },
+      { ingredient: 'L-Tyrosine', slug: 'l-tyrosine', reason: 'Both are studied for performance under stress; we cite no trial of the pairing.' },
     ],
     faqs: [
       { question: 'Does Rhodiola need to be cycled?', answer: 'Not on current evidence. The clinical trials ran from a single dose up to 4 weeks, so they neither tested cycling nor months of continuous use. Some people take a 1–2 week break every 4–6 weeks as a precaution against a possible "ceiling effect".' },
@@ -294,7 +295,7 @@ export const ingredients: Ingredient[] = [
     slug: 'phosphatidylserine',
     name: 'Phosphatidylserine',
     category: 'cholinergic',
-    mechanism: 'Phosphatidylserine (PS) is a phospholipid that forms a critical component of neuronal cell membranes. It supports signal transduction across synapses, facilitates acetylcholine and dopamine release, and modulates cortisol secretion. Supplementation replenishes PS levels that decline naturally with age.',
+    mechanism: 'Phosphatidylserine (PS) is a phospholipid that forms a critical component of neuronal cell membranes. Supplementation replenishes PS levels that decline naturally with age.',
     clinicalDose: '100–300mg/day (benefit shown mainly in older adults with memory complaints or MCI)',
     timeToEffect: 'Memory trials ran 15 weeks to 12 months; no trial established an earlier onset',
     studySummary: "RCTs in older adults with memory complaints or mild cognitive impairment report memory benefits, though often only in subgroups: soy PS at 100–300mg/day for 6 months helped only participants with low baseline scores (Kato-Kataoka 2010), and marine PS-DHA at 300mg/day improved immediate verbal recall in an exploratory 15-week trial (Vakhapova 2010). A 2026 network meta-analysis in MCI/Alzheimer's found PS 100mg improved MMSE but not the Alzheimer's Disease Assessment Scale–Cognitive Subscale (ADAS-Cog). In healthy children, a 12-week RCT of 100mg sunflower PS found no effect on primary or secondary outcomes (Friling 2025; authors include staff of IFF, the product's manufacturer). A positive 2024 MCI trial (Duan 2024; BYHEALTH co-authors) gave only 31.5mg PS inside a multi-ingredient formula. The FDA allows only a qualified claim that it may reduce the risk of dementia or cognitive dysfunction in the elderly, with the disclaimer that 'FDA concludes that there is little scientific evidence supporting this claim' (FDA letter, 13 May 2003).",
@@ -314,8 +315,8 @@ export const ingredients: Ingredient[] = [
       forms: 'Capsule (softgel preferred). There are three source types: (1) Soy-derived — most common, cheapest, effective but contains soy; (2) Sunflower-derived — soy-free, preferred option; (3) Bovine-brain-derived — used in original 1990s trials, no longer commercially available due to BSE concerns. Sharp-PS from sunflower is the benchmark form.',
     },
     stacksWith: [
-      { ingredient: "Lion's Mane", slug: 'lions-mane', reason: 'PS maintains cell membrane integrity while Lion\'s Mane drives NGF synthesis. Both support long-term brain health via complementary structural and growth-factor pathways.' },
-      { ingredient: 'Citicoline', slug: 'citicoline', reason: 'Both are membrane phospholipid precursors, but they work on different pathways. Citicoline primarily builds phosphatidylcholine; PS addresses phosphatidylserine. Together they provide comprehensive neuronal membrane support.' },
+      { ingredient: "Lion's Mane", slug: 'lions-mane', reason: 'Both are studied for memory; we cite no trial of the pairing.' },
+      { ingredient: 'Citicoline', slug: 'citicoline', reason: 'Citicoline is a precursor to phosphatidylcholine; phosphatidylserine is a phospholipid in neuronal cell membranes. We cite no trial of the pairing.' },
       { ingredient: 'Omega-3 (DHA)', slug: 'dha-omega-3', reason: 'DHA is a structural component of neuronal membranes. Some clinical PS products are DHA-conjugated (PS-DHA): a 15-week trial of marine PS-DHA at 300mg/day improved immediate verbal recall in older adults with memory complaints.' },
     ],
     faqs: [
@@ -358,9 +359,9 @@ export const ingredients: Ingredient[] = [
       forms: 'Capsule (common), powder. Alpha-GPC is hygroscopic (absorbs moisture from air) — powder can become sticky; capsule form is more practical. 50% and 85% concentration forms exist; the 50% form (more common) doubles the serving size but is equivalent in active dose.',
     },
     stacksWith: [
-      { ingredient: "Lion's Mane", slug: 'lions-mane', reason: 'Alpha-GPC provides immediate acetylcholine support; Lion\'s Mane drives long-term NGF synthesis. Neither overlaps mechanistically — a clean acute + long-term pairing.' },
-      { ingredient: 'Bacopa Monnieri', slug: 'bacopa-monnieri', reason: 'Alpha-GPC handles acute memory encoding via acetylcholine; Bacopa handles memory consolidation and storage. Together they cover both encoding and consolidation stages of memory formation.' },
-      { ingredient: 'Huperzine A', slug: 'huperzine-a', reason: 'Huperzine A prevents acetylcholine breakdown while Alpha-GPC increases acetylcholine synthesis. Powerful combination in theory — but use with caution and low doses, as cholinergic overload (nausea, headache, muscle cramps) is a real risk. Not recommended without experience.' },
+      { ingredient: "Lion's Mane", slug: 'lions-mane', reason: 'Both are studied for memory; we cite no trial of the pairing.' },
+      { ingredient: 'Bacopa Monnieri', slug: 'bacopa-monnieri', reason: 'Both are studied for memory; we cite no trial of the pairing.' },
+      { ingredient: 'Huperzine A', slug: 'huperzine-a', reason: 'Huperzine A slows acetylcholine breakdown; Alpha-GPC is a choline precursor. We cite no trial of the pairing. Use caution and low doses, as cholinergic overload (nausea, headache, muscle cramps) is a real risk. Not recommended without experience.' },
     ],
     faqs: [
       { question: 'Alpha-GPC vs Citicoline — which is better for focus?', answer: "Both are excellent. Alpha-GPC has a slight edge for acute cholinergic effects and is preferred for workout performance. Citicoline also provides cytidine (uridine precursor), giving it a broader neuroprotective profile. For pure focus and acetylcholine, Alpha-GPC wins slightly; for comprehensive brain health support, Citicoline is more complete. Don't stack them together — you'll get too much choline activity." },
@@ -400,16 +401,16 @@ export const ingredients: Ingredient[] = [
       dosage: '300–600mg/day (KSM-66)',
       timing: 'Evening (1–2 hours before bed) for sleep benefits. Morning for cortisol and stress management. Split dosing (300mg AM + 300mg PM) is the regimen of the Chandrasekhar 2012 and Choudhary 2017 trials (300mg twice daily).',
       withFood: 'Take with food to minimise GI upset (particularly with 600mg doses). Absorption is not significantly affected by food.',
-      forms: 'Capsule. Insist on KSM-66 (full-spectrum root extract, 5% withanolides) or Sensoril (leaf + root, 8% withanolides, lower dose needed). Avoid unstandardised ashwagandha with no withanolide percentage stated — active content may be negligible.',
+      forms: 'Capsule. Insist on KSM-66 (full-spectrum root extract, 5% withanolides) or Sensoril (leaf + root extract). Avoid unstandardised ashwagandha with no withanolide percentage stated — active content may be negligible.',
     },
     stacksWith: [
-      { ingredient: 'Rhodiola Rosea', slug: 'rhodiola-rosea', reason: 'The canonical adaptogen duo. Rhodiola is activating (morning); Ashwagandha is calming (evening). Both target HPA axis dysregulation but through different mechanisms and at different times of day — a perfect day/night pair.' },
-      { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'Both reduce anxiety through distinct mechanisms (HPA axis modulation vs. GABA modulation). L-Theanine provides immediate calm; Ashwagandha provides systemic, longer-term stress reduction. Together they work at multiple timescales.' },
-      { ingredient: 'Phosphatidylserine', slug: 'phosphatidylserine', reason: 'Both independently reduce cortisol via different pathways (HPA modulation vs. cortisol receptor sensitivity). The combination may provide additive cortisol reduction under high-stress conditions.' },
+      { ingredient: 'Rhodiola Rosea', slug: 'rhodiola-rosea', reason: 'Both are adaptogens; we cite no trial of the pairing.' },
+      { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'Both are studied for anxiety and stress; we cite no trial of the pairing.' },
+      { ingredient: 'Phosphatidylserine', slug: 'phosphatidylserine', reason: 'Both are studied for effects on cortisol; we cite no trial of the pairing.' },
     ],
     faqs: [
-      { question: 'KSM-66 vs Sensoril vs generic ashwagandha — which should I choose?', answer: 'KSM-66 (5% withanolides from root only) is the extract used in the key stress and cognition trials. Sensoril (8% withanolides from root + leaf, lower dose needed at 125–250mg) has good evidence specifically for stress and sleep. Generic ashwagandha without a stated withanolide percentage is unreliable — you may be paying for starchy root powder with minimal active content. Choose KSM-66 or Sensoril.' },
-      { question: 'Will ashwagandha make me tired during the day?', answer: "No — at morning doses, most people experience calm focus, not sedation. The tiredness effect is most pronounced when taken at night, where it reduces sleep latency. Ashwagandha doesn't deplete energy; it reduces the cortisol-driven hyperarousal that causes fatigue. Some people find 600mg in the morning slightly sedating — if so, reduce to 300mg or shift to evening only." },
+      { question: 'KSM-66 vs Sensoril vs generic ashwagandha — which should I choose?', answer: 'KSM-66 (5% withanolides from root only) is the extract used in the key stress and cognition trials. Sensoril is a leaf-and-root extract; our ashwagandha page cites no Sensoril trial. Generic ashwagandha without a stated withanolide percentage is unreliable — you may be paying for starchy root powder with minimal active content. Choose KSM-66, the extract used in the trials on our ashwagandha page.' },
+      { question: 'Will ashwagandha make me tired during the day?', answer: "The tiredness effect is most pronounced when taken at night, where it reduces sleep latency. Ashwagandha doesn't deplete energy. Some people find 600mg in the morning slightly sedating — if so, reduce to 300mg or shift to evening only." },
       { question: 'Is ashwagandha safe for long-term use?', answer: 'Long-term data is missing: most trials run 8–12 weeks, and no controlled safety data beyond about 90 days was found. Published case reports link ashwagandha to liver injury (some scored "probable" on the RUCAM causality scale), and Denmark banned ashwagandha food supplements in 2023 because a safe dose could not be established. Stop and see a doctor if you develop jaundice or dark urine. Avoid if you have thyroid conditions (autoimmune thyroid disease) as withanolides can modulate thyroid hormone levels.' },
       { question: 'Can ashwagandha increase testosterone?', answer: 'Two RCTs found increases: 600mg/day for 8 weeks in young men starting resistance training raised testosterone alongside greater strength gains (2015), and a crossover trial in overweight men aged 40–70 found testosterone +14.7% and DHEA-S +18% versus placebo — but no change in cortisol, fatigue or vigour (Lopresti 2019). The magnitude varies by population and extract.' },
     ],
@@ -429,7 +430,7 @@ export const ingredients: Ingredient[] = [
     slug: 'huperzine-a',
     name: 'Huperzine A',
     category: 'herb',
-    mechanism: 'Huperzine A is extracted from Huperzia serrata (Chinese club moss). It is a potent, reversible acetylcholinesterase inhibitor — meaning it blocks the enzyme that breaks down acetylcholine, effectively increasing acetylcholine levels throughout the brain. This makes it one of the most powerful natural cholinergic compounds.',
+    mechanism: 'Huperzine A is extracted from Huperzia serrata (Chinese club moss). It is a potent, reversible acetylcholinesterase inhibitor — meaning it blocks the enzyme that breaks down acetylcholine, effectively increasing acetylcholine levels throughout the brain.',
     clinicalDose: '100–200mcg/day in the trials (micrograms, not milligrams; 50mcg consumer doses were not tested separately)',
     timeToEffect: 'Trials measured effects after 4–16 weeks of daily dosing; no acute-onset trial was found',
     studySummary: 'Chinese RCTs show Huperzine A improved memory and learning in Alzheimer\'s patients (Xu et al., 1995: 58% vs 36% improved at 200mcg/day over 8 weeks) and in adolescent students (Sun et al., 1999: 100mcg/day for 4 weeks). A 2013 meta-analysis of 20 RCTs found significant benefits in Alzheimer\'s disease, but rated most trials at high risk of bias; the 2008 Cochrane review concluded the evidence is inadequate to recommend it, and a 2012 Cochrane review found no eligible trials in mild cognitive impairment. A 2019 RCT after traumatic brain injury found no memory benefit over placebo.',
@@ -450,8 +451,8 @@ export const ingredients: Ingredient[] = [
       forms: 'Capsule only — doses are in micrograms, making accurate powder measurement practically impossible without a milligram-precision scale. Always confirm whether the label states mcg (micrograms) not mg (milligrams) — a 100x error in dosing is dangerous.',
     },
     stacksWith: [
-      { ingredient: 'Bacopa Monnieri', slug: 'bacopa-monnieri', reason: 'Bacopa works via synaptic density (non-cholinergic mechanism); Huperzine A works via acetylcholine preservation. No mechanism overlap. A powerful memory stack where both sides work independently.' },
-      { ingredient: "Lion's Mane", slug: 'lions-mane', reason: 'Lion\'s Mane supports long-term neurogenesis via NGF; Huperzine A supports acetylcholine by slowing its breakdown. Different mechanisms with no conflict.' },
+      { ingredient: 'Bacopa Monnieri', slug: 'bacopa-monnieri', reason: 'Both are studied for memory; we cite no trial of the pairing.' },
+      { ingredient: "Lion's Mane", slug: 'lions-mane', reason: 'Both are studied for memory; we cite no trial of the pairing.' },
     ],
     faqs: [
       { question: 'Does Huperzine A need to be cycled?', answer: "There is no trial evidence either way. The clinical trials gave it daily for 4–16 weeks, and the 2008 Cochrane review found adverse events were mild and no more common than on placebo. No human trial has tested a cycling schedule. Cholinergic side effects — nausea, sweating, excessive salivation, muscle twitching — are the thing to watch for; stop or reduce the dose if they appear." },
@@ -491,8 +492,8 @@ export const ingredients: Ingredient[] = [
       forms: 'Capsule or powder. L-Tyrosine (the free amino acid form) is best value and is the form used in the stress trials. NALT (N-Acetyl-L-Tyrosine) is common in formulated stacks, but no trial comparing NALT with plain L-Tyrosine for cognition was found.',
     },
     stacksWith: [
-      { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'L-Tyrosine supplies dopamine/norepinephrine substrate for focus and drive; L-Theanine keeps you calm and prevents the cortisol spike from stress or caffeine. Together they produce focused, calm high-performance state under demanding conditions.' },
-      { ingredient: 'Rhodiola Rosea', slug: 'rhodiola-rosea', reason: 'Rhodiola modulates monoamine availability and HPA axis; Tyrosine replenishes the substrate for those monoamines. Both work best under stress conditions — they target the same problem (cognitive decline under stress) via complementary mechanisms.' },
+      { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'L-Tyrosine is an amino acid precursor to dopamine and norepinephrine; L-Theanine is an amino acid found in green tea. We cite no trial of the pairing.' },
+      { ingredient: 'Rhodiola Rosea', slug: 'rhodiola-rosea', reason: 'Both are studied for performance under stress; we cite no trial of the pairing.' },
       { ingredient: 'Caffeine', slug: 'caffeine', reason: "Often paired with caffeine; we cite no trial of L-Tyrosine with caffeine." },
     ],
     faqs: [
@@ -538,7 +539,7 @@ export const ingredients: Ingredient[] = [
     stacksWith: [
       { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'The trials we cite used 50–250mg theanine with 40–250mg caffeine. Versus placebo, the combination improved attention measures in several trials, though Foxe 2012 found no added benefit over either compound alone; in a controlled trial theanine did not significantly reduce jitteriness. Found naturally in matcha.' },
       { ingredient: 'L-Tyrosine', slug: 'l-tyrosine', reason: 'Sometimes paired with caffeine; we cite no trial of the pairing.' },
-      { ingredient: 'Rhodiola Rosea', slug: 'rhodiola-rosea', reason: 'Rhodiola provides stress resilience while caffeine provides stimulation — complementary under high-demand conditions without overstimulation.' },
+      { ingredient: 'Rhodiola Rosea', slug: 'rhodiola-rosea', reason: 'Rhodiola is an adaptogen; caffeine is an adenosine receptor antagonist. We cite no trial of the pairing.' },
     ],
     faqs: [
       { question: 'How much caffeine is too much?', answer: 'EFSA (2015) concluded that single doses up to 200mg and daily intake up to 400mg do not raise safety concerns for healthy adults, and that pregnant women should stay at or below 200mg/day. People with panic disorder are far more likely to have a panic attack after high doses. Above these levels, anxiety, heart palpitations, and sleep disruption become common. For cognitive enhancement, 100-200mg is the sweet spot — higher doses provide diminishing returns for cognition while increasing side effects.' },
@@ -582,9 +583,9 @@ export const ingredients: Ingredient[] = [
       forms: 'Always use standardised extract (24% flavone glycosides, 6% terpene lactones). EGb 761 is a pharmaceutical-grade extract; it is the extract used in the trials pooled by the meta-analysis we cite (Tan 2015). Avoid raw leaf or unstandardised products.',
     },
     stacksWith: [
-      { ingredient: 'Phosphatidylserine', slug: 'phosphatidylserine', reason: 'Ginkgo improves blood delivery while PS supports membrane function — complementary pathways for age-related cognitive support.' },
-      { ingredient: "Lion's Mane", slug: 'lions-mane', reason: "Ginkgo provides acute blood flow support; Lion's Mane builds long-term neuroprotection via NGF. Addresses both immediate and structural brain health." },
-      { ingredient: 'Bacopa Monnieri', slug: 'bacopa-monnieri', reason: 'Both have long-term memory benefits via different mechanisms. Ginkgo via blood flow; Bacopa via synaptic density. Combined for comprehensive memory support in older adults.' },
+      { ingredient: 'Phosphatidylserine', slug: 'phosphatidylserine', reason: 'Both are studied for age-related cognitive decline; we cite no trial of the pairing.' },
+      { ingredient: "Lion's Mane", slug: 'lions-mane', reason: 'Both are studied for memory; we cite no trial of the pairing.' },
+      { ingredient: 'Bacopa Monnieri', slug: 'bacopa-monnieri', reason: 'Both are studied for memory; we cite no trial of the pairing.' },
     ],
     faqs: [
       { question: 'Does Ginkgo Biloba actually work for healthy young adults?', answer: 'The evidence is mixed. The clearest benefits are in people with dementia, and the 2026 Cochrane review found little or no effect even in mild cognitive impairment. In healthy young adults, effects on memory and attention are inconsistent across trials. If you are under 40 and cognitively healthy, L-theanine + caffeine has stronger acute evidence.' },
@@ -626,9 +627,9 @@ export const ingredients: Ingredient[] = [
       forms: 'Fish oil, krill oil, or algal oil (vegan). Algal DHA avoids heavy metal concerns; no head-to-head trial has compared algal and fish DHA on cognitive outcomes.',
     },
     stacksWith: [
-      { ingredient: 'Phosphatidylserine', slug: 'phosphatidylserine', reason: 'DHA provides the structural fat for membranes; PS is the phospholipid that organises membrane architecture. Together they provide comprehensive neuronal membrane support.' },
-      { ingredient: "Lion's Mane", slug: 'lions-mane', reason: "DHA maintains membrane integrity while Lion's Mane stimulates NGF for neuroplasticity. Foundational + growth-oriented brain support." },
-      { ingredient: 'Citicoline', slug: 'citicoline', reason: 'Citicoline provides choline for membrane phospholipid synthesis; DHA provides the fatty acid substrate. Together they supply the raw materials for brain cell membrane repair.' },
+      { ingredient: 'Phosphatidylserine', slug: 'phosphatidylserine', reason: 'DHA is a structural component of neuronal membranes. Some clinical PS products are DHA-conjugated (PS-DHA): a 15-week trial of marine PS-DHA at 300mg/day improved immediate verbal recall in older adults with memory complaints.' },
+      { ingredient: "Lion's Mane", slug: 'lions-mane', reason: 'Both are studied for memory; we cite no trial of the pairing.' },
+      { ingredient: 'Citicoline', slug: 'citicoline', reason: 'Citicoline is a precursor to phosphatidylcholine; DHA is the primary structural omega-3 fatty acid in the brain. We cite no trial of the pairing.' },
     ],
     faqs: [
       { question: 'DHA vs EPA — which matters more for brain health?', answer: 'DHA is the structural omega-3 in brain membranes (~40% of brain PUFA), making it more directly relevant to cognitive function. EPA is more potent as an anti-inflammatory and shows stronger effects for mood/depression. For brain health, prioritise DHA — the positive cognitive trials used 900mg–1.16g DHA per day. For mood support, prioritise EPA. Most quality supplements provide both; keep the atrial fibrillation signal above 1g/day of total omega-3 in mind.' },
@@ -670,9 +671,9 @@ export const ingredients: Ingredient[] = [
       forms: 'Capsule is standard. Pycnogenol is a branded extract; it is the extract used in the studies we cite (Belcaro 2014; Luzzi 2011). Generic pine bark extracts vary widely in proanthocyanidin content — check standardisation percentage.',
     },
     stacksWith: [
-      { ingredient: 'Citicoline', slug: 'citicoline', reason: 'Citicoline provides cholinergic focus; Pine Bark provides blood flow and antioxidant support. Together they form the core of Performance Lab Mind — a minimal, evidence-based focus stack.' },
-      { ingredient: 'L-Tyrosine', slug: 'l-tyrosine', reason: 'Pine Bark supports cerebral blood flow (delivery); Tyrosine supports catecholamine synthesis (production). Complementary supply-side + demand-side pairing.' },
-      { ingredient: 'DHA (Omega-3)', slug: 'dha-omega-3', reason: 'Pine Bark protects neuronal membranes from oxidative damage; DHA provides the structural fatty acid for those membranes. Protective + structural combination.' },
+      { ingredient: 'Citicoline', slug: 'citicoline', reason: 'Both are studied for attention, and both are in Performance Lab Mind; we cite no trial of the pairing.' },
+      { ingredient: 'L-Tyrosine', slug: 'l-tyrosine', reason: 'Pine Bark is studied for cerebral blood flow; L-Tyrosine is an amino acid precursor to dopamine and norepinephrine. We cite no trial of the pairing.' },
+      { ingredient: 'DHA (Omega-3)', slug: 'dha-omega-3', reason: 'Pine Bark contains proanthocyanidins, polyphenol antioxidants; DHA is the primary structural omega-3 fatty acid in the brain. We cite no trial of the pairing.' },
     ],
     faqs: [
       { question: 'What is Pycnogenol and is it worth the premium?', answer: 'Pycnogenol is a patented extract of French Maritime Pine Bark (Pinus pinaster) standardised to 65-75% proanthocyanidins with a specific manufacturing process. It is the extract used in the studies we cite (Belcaro 2014; Luzzi 2011); we found no trial comparing it with generic pine bark extract. Generic pine bark extracts may vary in composition. To match that evidence, choose Pycnogenol.' },
@@ -713,15 +714,15 @@ export const ingredients: Ingredient[] = [
       forms: 'Capsule or powder. ALCAR (acetyl form) is specifically required — plain L-Carnitine does not cross the BBB effectively. Look for "Acetyl-L-Carnitine" or "ALCAR" on the label, not "L-Carnitine" or "L-Carnitine L-Tartrate".',
     },
     stacksWith: [
-      { ingredient: 'Alpha-GPC', slug: 'alpha-gpc', reason: 'ALCAR provides acetyl groups; Alpha-GPC provides choline. Together they support acetylcholine synthesis from both the acetyl and choline substrate sides.' },
-      { ingredient: 'Citicoline', slug: 'citicoline', reason: 'Both support cholinergic function via different pathways. Citicoline provides CDP-choline for membrane repair; ALCAR provides mitochondrial energy and acetyl groups.' },
-      { ingredient: "Lion's Mane", slug: 'lions-mane', reason: "ALCAR protects existing neurons via mitochondrial support; Lion's Mane promotes new neuronal growth via NGF. Complementary maintenance + growth strategy." },
+      { ingredient: 'Alpha-GPC', slug: 'alpha-gpc', reason: 'ALCAR donates acetyl groups for acetylcholine synthesis; Alpha-GPC is a choline precursor. We cite no trial of the pairing.' },
+      { ingredient: 'Citicoline', slug: 'citicoline', reason: 'Citicoline is a precursor to acetylcholine and phosphatidylcholine; ALCAR donates acetyl groups for acetylcholine synthesis. We cite no trial of the pairing.' },
+      { ingredient: "Lion's Mane", slug: 'lions-mane', reason: 'Both are studied in mild cognitive impairment; we cite no trial of the pairing.' },
     ],
     faqs: [
       { question: 'ALCAR vs plain L-Carnitine — what is the difference?', answer: 'The acetyl group on ALCAR allows it to cross the blood-brain barrier and donate acetyl groups for acetylcholine synthesis. Plain L-Carnitine primarily acts in muscles and peripheral tissue for fat metabolism. For brain benefits, ALCAR is required — plain L-Carnitine will not produce cognitive effects.' },
       { question: 'Does ALCAR raise TMAO levels?', answer: 'Yes, carnitine (including ALCAR) is metabolised by gut bacteria into trimethylamine, which the liver converts to TMAO. Elevated TMAO is associated with cardiovascular risk in observational studies. The clinical significance at standard ALCAR supplement doses (1.5–3g/day) is debated. If you have existing cardiovascular concerns, discuss with your doctor.' },
       { question: 'Is ALCAR useful for young healthy adults?', answer: 'Unproven. The evidence is for older adults with cognitive decline or depressive symptoms; our 2026 review found no trial in healthy young adults. It is not a first-line nootropic for healthy young people — L-theanine + caffeine has stronger acute evidence. It is also not supported for ADHD.' },
-      { question: 'Can ALCAR help with brain fog?', answer: 'Possibly. ALCAR supports mitochondrial energy production in neurons, which may address brain fog caused by metabolic insufficiency. Anecdotal reports are common but controlled evidence specifically for "brain fog" in healthy adults is limited. If brain fog persists, investigate underlying causes (sleep, thyroid, iron levels) rather than relying solely on supplements.' },
+      { question: 'Can ALCAR help with brain fog?', answer: 'Possibly. ALCAR supports mitochondrial energy production in neurons, which may address brain fog caused by metabolic insufficiency. Controlled evidence specifically for "brain fog" in healthy adults is limited. If brain fog persists, investigate underlying causes (sleep, thyroid, iron levels) rather than relying solely on supplements.' },
     ],
     sources: [
       { pmid: '12598816', doi: '10.1097/00004850-200303000-00001', url: 'https://pubmed.ncbi.nlm.nih.gov/12598816/', title: 'Meta-analysis of double blind randomized controlled clinical trials of acetyl-L-carnitine versus placebo in the treatment of mild cognitive impairment and mild Alzheimer\'s disease', year: 2003, design: 'meta-analysis of double-blind RCTs' },
@@ -759,7 +760,7 @@ export const ingredients: Ingredient[] = [
     },
     stacksWith: [
       { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'Lutein and zeaxanthin support macular pigment; L-Theanine supports calm attention. A common pairing for extended screen work, though the combination has not been tested.' },
-      { ingredient: 'DHA (Omega-3)', slug: 'dha-omega-3', reason: 'DHA supports retinal cell membrane integrity while Lutemax provides antioxidant protection. Complementary eye and brain health support.' },
+      { ingredient: 'DHA (Omega-3)', slug: 'dha-omega-3', reason: 'Lutein and zeaxanthin support macular pigment; DHA is the primary structural omega-3 fatty acid in the brain. We cite no trial of the pairing.' },
       { ingredient: 'Citicoline', slug: 'citicoline', reason: 'Citicoline supplies choline for acetylcholine and membranes; lutein and zeaxanthin support macular pigment. Different pathways, not tested together.' },
     ],
     faqs: [
@@ -803,9 +804,9 @@ export const ingredients: Ingredient[] = [
       forms: 'Capsule or powder. Look for "green oat" or "Avena sativa" extract standardised to avenanthramides. Raw oat straw tea is not equivalent — the concentration is too low.',
     },
     stacksWith: [
-      { ingredient: 'Alpha-GPC', slug: 'alpha-gpc', reason: 'Oat Straw supports dopaminergic signalling via MAO-B; Alpha-GPC supports cholinergic signalling. Complementary neurotransmitter coverage for focus.' },
-      { ingredient: 'L-Tyrosine', slug: 'l-tyrosine', reason: 'Both support dopamine availability — Oat Straw by slowing breakdown (MAO-B), Tyrosine by providing precursor.' },
-      { ingredient: 'Bacopa Monnieri', slug: 'bacopa-monnieri', reason: 'Oat Straw provides acute attention benefits; Bacopa provides long-term memory consolidation. Covers both short-term and long-term cognitive needs.' },
+      { ingredient: 'Alpha-GPC', slug: 'alpha-gpc', reason: 'Oat Straw is studied for attention; Alpha-GPC is a choline precursor. We cite no trial of the pairing.' },
+      { ingredient: 'L-Tyrosine', slug: 'l-tyrosine', reason: 'Oat Straw inhibits MAO-B, which slows dopamine breakdown; L-Tyrosine is a dopamine precursor. We cite no trial of the pairing.' },
+      { ingredient: 'Bacopa Monnieri', slug: 'bacopa-monnieri', reason: 'Oat Straw is studied for attention, Bacopa for memory; we cite no trial of the pairing.' },
     ],
     faqs: [
       { question: 'Is Oat Straw the same as oatmeal?', answer: 'No. Oat Straw extract comes from the green, unripe aerial parts of Avena sativa — harvested before the oat grain matures. The active compounds (avenanthramides, saponins) are concentrated in the green straw, not the grain. Eating oatmeal does not provide nootropic effects.' },
@@ -844,7 +845,7 @@ export const ingredients: Ingredient[] = [
     },
     stacksWith: [
       { ingredient: 'Caffeine', slug: 'caffeine', reason: 'Caffeine increases catecholamine release; Zynamite is proposed to slow their breakdown via COMT inhibition. The combination has not been tested in a cognitive trial.' },
-      { ingredient: 'L-Tyrosine', slug: 'l-tyrosine', reason: 'Tyrosine provides dopamine precursor; Zynamite slows dopamine metabolism. Supply + preservation for sustained catecholamine levels.' },
+      { ingredient: 'L-Tyrosine', slug: 'l-tyrosine', reason: 'L-Tyrosine is a dopamine precursor; Zynamite is proposed to slow dopamine breakdown via COMT inhibition. We cite no trial of the pairing.' },
       { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'L-Theanine is often paired with stimulants, though in a controlled caffeine trial (Rogers 2008) it did not significantly reduce jitteriness, and we cite no trial of L-Theanine with Zynamite.' },
     ],
     faqs: [
@@ -885,7 +886,7 @@ export const ingredients: Ingredient[] = [
     stacksWith: [
       { ingredient: 'Caffeine', slug: 'caffeine', reason: 'A common pairing in pre-formulated stacks. In tactical personnel, 150mg caffeine + 100mg methylliberine + 50mg theacrine matched 300mg caffeine on vigilance reaction time with a smaller diastolic blood pressure rise (Cintineo 2022) — but that tests the combination, not Dynamine alone.' },
       { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'L-Theanine is commonly paired with stimulants for calmer focus, though in a controlled caffeine trial it did not significantly reduce jitteriness, and the combination with Dynamine has not been tested.' },
-      { ingredient: 'Zynamite', slug: 'zynamite', reason: 'Dynamine provides acute adenosine blockade; Zynamite extends dopamine via COMT inhibition.' },
+      { ingredient: 'Zynamite', slug: 'zynamite', reason: 'Dynamine is described as blocking adenosine receptors; Zynamite is proposed to slow dopamine breakdown via COMT inhibition. We cite no trial of the pairing.' },
     ],
     faqs: [
       { question: 'How is Dynamine different from caffeine?', answer: 'It is a related purine alkaloid, but its evidence base is far thinner: three small human RCTs versus decades of caffeine research. In a 4-week trial at 100–150mg/day it caused no clinically significant heart rate or blood pressure change, and in the one cognition trial it improved self-rated energy and mood but not objective test performance. No trial has compared its onset, duration or sleep effects head-to-head with caffeine.' },

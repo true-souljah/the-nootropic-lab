@@ -34,14 +34,14 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Citicoline (CDP-Choline) — older-adult memory',
     ingredientSlugs: ['citicoline'],
     evidence:
-      'In one trial in adults aged 50–85 (Spiers 1996, PubMed 8624220), 1,000mg a day for 3 months improved delayed recall only in those with relatively inefficient memories, and in a follow-up crossover of 32 of those participants, 2,000mg a day for 2 months improved immediate and delayed recall. Cognizin is the standardised form most products use. Synthesised, not animal-derived.',
+      'In one trial in adults aged 50–85 (Spiers 1996, PubMed 8624220), 1,000mg a day for 3 months improved delayed recall only in those with relatively inefficient memories, and in a follow-up crossover of 32 of those participants, 2,000mg a day for 2 months improved immediate and delayed recall. Cognizin is a standardised form. Synthesised, not animal-derived.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
   {
     name: 'Lion\'s Mane (Hericium erinaceus)',
     ingredientSlugs: ['lions-mane'],
     evidence:
-      'Mori et al. 2009 — small RCT in older Japanese adults with mild cognitive impairment. 1g/day fruiting-body extract over 16 weeks improved cognitive function scores. Mushroom-derived. Evidence is promising for early age-related changes; not evaluated for dementia treatment.',
+      'Mori et al. 2009 — small RCT in Japanese adults aged 50–80 with mild cognitive impairment. 3g/day over 16 weeks improved cognitive function scores compared with placebo. Mushroom-derived. Evidence is promising for early age-related changes; not evaluated for dementia treatment.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18844328/',
   },
   {
@@ -97,7 +97,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'How long until I notice anything?',
-    a: 'Phosphatidylserine: 4–12 weeks. Citicoline: 4–12 weeks. Bacopa: 8–12 weeks. Lion\'s Mane: 8–16 weeks. None are acute-effect ingredients. Track changes over 12 weeks of consistent dosing — ideally with a baseline cognitive measure (online tests are crude but better than subjective recall).',
+    a: 'Phosphatidylserine: its memory trials ran 15 weeks to 12 months. Citicoline: memory effects were measured after 2–3 months. Bacopa: 8–12 weeks; most positive trials ran 12 weeks. Lion\'s Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. None are acute-effect ingredients. Track changes over 12 weeks of consistent dosing — ideally with a baseline cognitive measure (online tests are crude but better than subjective recall).',
   },
 ];
 

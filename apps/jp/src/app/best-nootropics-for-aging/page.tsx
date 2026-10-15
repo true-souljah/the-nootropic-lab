@@ -41,7 +41,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Lion\'s Mane (ヤマブシタケ)',
     ingredientSlugs: ['lions-mane'],
     evidence:
-      'Mori et al. 2009 — a foundational small RCT in older Japanese adults with mild cognitive impairment. 1g/day fruiting-body extract over 16 weeks improved cognitive function scores. The Lion\'s Mane evidence base for aging brains was established in Japan; evidence is promising for early age-related changes but is not a dementia treatment.',
+      'Mori et al. 2009 — a foundational small RCT in Japanese adults aged 50–80 with mild cognitive impairment. 3g/day over 16 weeks improved cognitive function scores compared with placebo. The Lion\'s Mane evidence base for aging brains was established in Japan; evidence is promising for early age-related changes but is not a dementia treatment.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18844328/',
   },
   {

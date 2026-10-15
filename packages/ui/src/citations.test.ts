@@ -80,6 +80,51 @@ describe('PubMed citations — allow-list', () => {
   });
 });
 
+// In-text citations (2026-10-13). Copy also cites papers in prose as
+// "PubMed 22747190" or "PMID 21103034, 20523044" (FAQ answers, guide and
+// ingredient text, product records) with no URL, so the URL scan above never
+// saw them. Every such PMID in app source or packages/data/src must be in the
+// allow-list as well.
+const IN_TEXT_PMID = /\b(?:PubMed|PMIDs?):? (\d{5,9}(?:(?:, | and )\d{5,9})*)/g;
+const appSourceFiles = apps.flatMap((app) => walk(join(REPO, 'apps', app, 'src'), (n) => /\.(tsx?|json)$/.test(n)));
+const dataSourceFiles = walk(join(REPO, 'packages', 'data', 'src'), (n) => /\.(tsx?|json)$/.test(n) && n !== 'citations.ts');
+
+function inTextPmids(text: string): string[] {
+  return [...text.matchAll(IN_TEXT_PMID)].flatMap((m) => m[1].split(/, | and /));
+}
+
+const inTextOccurrences: Occurrence[] = [...appSourceFiles, ...dataSourceFiles].flatMap((f) =>
+  inTextPmids(readFileSync(f, 'utf8')).map((pmid) => ({ file: relative(REPO, f), pmid })),
+);
+
+describe('PubMed citations — in-text "PubMed <id>" / "PMID <id>" citations', () => {
+  it('the pattern reads single and listed PMIDs and ignores other uses of the word', () => {
+    expect(inTextPmids('(Pase 2012, PubMed 22747190)')).toEqual(['22747190']);
+    expect(inTextPmids('100–300mg per day (PMID 21103034, 20523044)')).toEqual(['21103034', '20523044']);
+    expect(inTextPmids('PMIDs 18681988 and 21040626')).toEqual(['18681988', '21040626']);
+    expect(inTextPmids('PubMed: 8624220')).toEqual(['8624220']);
+    expect(inTextPmids('open its PubMed record; the PubMed audit of 2026')).toEqual([]);
+  });
+
+  it('scans a non-empty app and data source set and finds the known in-text citations', () => {
+    expect(appSourceFiles.length).toBeGreaterThan(pageFiles.length);
+    expect(dataSourceFiles.some((f) => f.endsWith(join('packages', 'data', 'src', 'guides.ts')))).toBe(true);
+    expect(inTextOccurrences.length).toBeGreaterThanOrEqual(100);
+    expect(
+      inTextOccurrences.some((o) => o.file === 'apps/latam/src/app/best-nootropics-for-memory/page.tsx' && o.pmid === '22747190'),
+    ).toBe(true);
+    expect(inTextOccurrences.some((o) => o.file === 'packages/data/src/guides.ts' && o.pmid === '21103034')).toBe(true);
+  });
+
+  it('every in-text PMID is in the allow-list', () => {
+    const unknown = inTextOccurrences.filter((o) => !allowed.has(o.pmid)).map((o) => `${o.file}: ${o.pmid}`);
+    expect(
+      unknown,
+      'Unknown PMID: open its PubMed record, confirm the paper supports the sentence that cites it, then add it to packages/data/src/citations.ts with its real title',
+    ).toEqual([]);
+  });
+});
+
 describe('PubMed citations — known-wrong PMIDs stay out', () => {
   it('no known-wrong PMID is in the allow-list', () => {
     expect(KNOWN_WRONG.filter((p) => allowed.has(p))).toEqual([]);
