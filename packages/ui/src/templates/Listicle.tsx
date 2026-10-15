@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import Link from 'next/link';
 import SchemaOrg from '../SchemaOrg';
 import Sources, { type Source } from '../Sources';
@@ -42,6 +43,15 @@ export interface ListicleIngredientMechanism extends ListicleEvidenceIngredients
   name: string;
   evidence: string;
   citationUrl?: string;
+  /**
+   * Further studies the `evidence` text names by PubMed ID besides the one at
+   * `citationUrl`, each rendered as its own link after the "Source" link.
+   * `label` is the study's author-year name exactly as the card text gives it
+   * (e.g. "Rogers 2008"); `url` is its PubMed record
+   * (https://pubmed.ncbi.nlm.nih.gov/<PMID>/). listicle-evidence-citations.test.ts
+   * fails when a card names a "PubMed <id>" that neither link points at.
+   */
+  extraCitations?: { label: string; url: string }[];
 }
 
 export interface ListiclePick {
@@ -101,6 +111,10 @@ export interface ListicleProps {
 }
 
 const TODAY = new Date();
+
+/** An evidence card's "Source" link and its `extraCitations` links share this style. */
+const EVIDENCE_CITATION_LINK_CLASS =
+  'inline-block mt-2 text-[12.5px] text-ds-accent underline focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded';
 
 /** Sibling listicles linked under "Related guides" (the page's own use case is skipped). */
 const RELATED_GUIDE_USE_CASES: readonly RelatedGuideUseCase[] = ['focus', 'memory', 'studying', 'aging'];
@@ -262,11 +276,28 @@ export default function Listicle({
                         href={item.citationUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block mt-2 text-[12.5px] text-ds-accent underline focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded"
+                        className={EVIDENCE_CITATION_LINK_CLASS}
                       >
                         {s.sourceLink}
                       </a>
                     )}
+                    {item.extraCitations?.map((citation, i) => (
+                      <Fragment key={citation.url}>
+                        {(i > 0 || item.citationUrl) && (
+                          <span aria-hidden="true" className="text-[12.5px] text-ds-muted">
+                            {' · '}
+                          </span>
+                        )}
+                        <a
+                          href={citation.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={EVIDENCE_CITATION_LINK_CLASS}
+                        >
+                          {citation.label}
+                        </a>
+                      </Fragment>
+                    ))}
                   </Card>
                 ))}
               </div>
