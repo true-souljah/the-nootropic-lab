@@ -163,9 +163,9 @@ export const ingredientsEs: IngredientTranslation[] = [
       forms: 'Cápsula o polvo. Elige siempre extracto de cuerpo fructífero (extracción con agua caliente o doble extracción), no micelio cultivado sobre grano: los productos de micelio pueden ser mayormente almidón con un mínimo de compuestos activos.',
     },
     stacksWith: [
-      { ingredient: 'Bacopa Monnieri', reason: 'Stack clásico para la memoria a largo plazo. La Bacopa consolida la memoria a través de la densidad sináptica; la Melena de León favorece el NGF. Juntas cubren tanto la neurogénesis como las vías sinápticas.' },
-      { ingredient: 'Citicolina', reason: 'La citicolina aporta un efecto agudo sobre la concentración, mientras que la Melena de León construye neuroprotección a largo plazo: una combinación complementaria a corto y largo plazo.' },
-      { ingredient: 'Ashwagandha', reason: 'La Ashwagandha reduce el cortisol (que suprime la expresión del NGF); combinarla con Melena de León puede amplificar los efectos neurogénicos bajo estrés.' },
+      { ingredient: 'Bacopa Monnieri', reason: 'Ambos se estudian para la memoria y la función cognitiva; no citamos ningún ensayo de esta combinación.' },
+      { ingredient: 'Citicolina', reason: 'Ambos se estudian para la memoria; no citamos ningún ensayo de esta combinación.' },
+      { ingredient: 'Ashwagandha', reason: 'La Ashwagandha se estudia para el estrés y el cortisol, y la Melena de León para la memoria y el aprendizaje; no citamos ningún ensayo de esta combinación.' },
     ],
     faqs: [
       { question: '¿Cuerpo fructífero o micelio? ¿Cuál debería comprar?', answer: 'Elige siempre extracto de cuerpo fructífero. El micelio se cultiva sobre un sustrato de grano, y la mayoría de los productos comerciales de micelio contienen principalmente almidón, no hericenonas activas. Busca en la etiqueta "cuerpo fructífero" ("fruiting body") o "extracto doble" ("dual extract"). Las etiquetas pueden variar según el mercado: la etiqueta de Mind Lab Pro en Estados Unidos indica 500mg de Melena de León orgánica "mycelium and fruit" (micelio y fruto), mientras que sus etiquetas de la UE, el Reino Unido, Canadá y Australia indican 500mg de "fruiting body" (cuerpo fructífero) (verificado el 2026-10-08).' },
@@ -174,7 +174,7 @@ export const ingredientsEs: IngredientTranslation[] = [
       { question: '¿La Melena de León interactúa con algún medicamento?', answer: 'Ninguno de los ensayos en humanos revisados reportó interacciones con medicamentos, pero fueron pequeños y breves. Consulta siempre con tu médico si tomas medicamentos con receta.' },
       { question: '¿Qué muestra realmente la investigación en adultos sanos?', answer: 'Los estudios en adultos sanos son pequeños pilotos. Docherty 2023 (n=41, 1.8g/día) encontró un desempeño más rápido en la prueba Stroop 60 minutos después de una dosis y solo una tendencia no significativa hacia menos estrés tras 28 días; La Monica 2023 encontró tiempos de reacción más rápidos en N-Back y Go 2 horas después de 1g. Los efectos son más sutiles en personas sanas que en el deterioro cognitivo leve.' },
     ],
-    sourceHashes: { name: '33244fcfb9f8', mechanism: '09e0e2e7e8b7', clinicalDose: 'cca78dfc61bc', timeToEffect: '694621c13b6f', studySummary: 'e6b377125be1', benefits: 'b951ab7efd39', sideEffects: '81bd8bbd94c9', humanEffects: '3d5b091f0869', howToTake: '0ebcd747cd27', stacksWith: 'a50c1c2b10eb', faqs: 'a66fb3f316d7' },
+    sourceHashes: { name: '33244fcfb9f8', mechanism: '09e0e2e7e8b7', clinicalDose: 'cca78dfc61bc', timeToEffect: '694621c13b6f', studySummary: 'e6b377125be1', benefits: 'b951ab7efd39', sideEffects: '81bd8bbd94c9', humanEffects: '3d5b091f0869', howToTake: '0ebcd747cd27', stacksWith: '2f2e45b40ec6', faqs: 'a66fb3f316d7' },
   },
   {
     slug: 'bacopa-monnieri',
@@ -195,10 +195,10 @@ export const ingredientsEs: IngredientTranslation[] = [
       'No se recomienda durante el embarazo (por precaución: no hay datos de seguridad en humanos)',
     ],
     humanEffects: [
-      { effect: 'Consolidación de la memoria', notes: 'Metaanálisis de Kongkeaw 2014 (9 ECA), dos ECA de 12 semanas sobre el recuerdo diferido y un metaanálisis en red de 2026 (memoria de trabajo, ≥600mg/día). El ECA de Lopresti de 2025 con 300mg/día no replicó el beneficio en la memoria.' },
+      { effect: 'Consolidación de la memoria', notes: 'Revisión sistemática de Pase 2012: la Bacopa mejoró 9 de 17 pruebas de recuerdo libre de memoria en seis ensayos de 12 semanas; dos ECA de 12 semanas sobre el recuerdo diferido; un metaanálisis en red de 2026 (memoria de trabajo, ≥600mg/día). El ECA de Lopresti de 2025 con 300mg/día no replicó el beneficio en la memoria, y Kongkeaw 2014 agrupó resultados de velocidad de atención, no de memoria.' },
       { effect: 'Reducción de la ansiedad', notes: 'Calabrese 2008: la ansiedad bajó con Bacopa y subió con placebo a lo largo de 12 semanas; Lopresti 2025: menor reactividad al estrés autoinformada.' },
       { effect: 'Atención', notes: 'Resultado combinado positivo en la velocidad de atención (Kongkeaw 2014), pero ningún efecto sobre la atención en el ECA reciente más grande (Lopresti 2025, p=0.713).' },
-      { effect: 'Velocidad de procesamiento', notes: 'Una dosis aguda de 320mg mejoró el desempeño en una tarea sostenida (2012), pero el metaanálisis en red de 2026 no encontró diferencias en la velocidad de procesamiento. Algunos usuarios reportan una lentitud inicial temporal.' },
+      { effect: 'Velocidad de procesamiento', notes: 'Una dosis aguda de 320mg mejoró el desempeño en una tarea sostenida (2012), pero el metaanálisis en red de 2026 no encontró diferencias en la velocidad de procesamiento.' },
     ],
     howToTake: {
       dosage: '300–450mg/día (estandarizado al menos al 50% de bacósidos): la dosis clásica de los ensayos; ≥600mg/día es una opción emergente y menos establecida',
@@ -207,18 +207,18 @@ export const ingredientsEs: IngredientTranslation[] = [
       forms: 'La cápsula es lo más práctico. El polvo tiene un sabor amargo y desagradable. Busca en la etiqueta un extracto estandarizado al menos al 50% de bacósidos (el ensayo positivo que citamos usó 300mg de un extracto al 50%, unos 150mg de bacósidos): los productos herbales sin estandarizar pueden contener muy poco compuesto activo.',
     },
     stacksWith: [
-      { ingredient: 'Melena de León', reason: 'El stack definitivo para la memoria a largo plazo. La Bacopa mejora la densidad sináptica y la consolidación de la memoria; la Melena de León impulsa la síntesis de NGF y la neuroprotección. Ambas actúan lentamente y se complementan sin superponerse.' },
-      { ingredient: 'Citicolina', reason: 'La citicolina aporta la concentración aguda y el impulso de acetilcolina que a la Bacopa le faltan a corto plazo, mientras que la Bacopa se encarga de la consolidación de la memoria a largo plazo. Una combinación equilibrada presente en Mind Lab Pro.' },
-      { ingredient: 'L-Teanina', reason: 'Ambas tienen propiedades ansiolíticas. La L-teanina aporta una concentración tranquila inmediata; la Bacopa construye resiliencia al estrés a largo plazo. La combinación es suave y bien tolerada.' },
+      { ingredient: 'Melena de León', reason: 'Ambos se estudian para la memoria y la función cognitiva; no citamos ningún ensayo de esta combinación.' },
+      { ingredient: 'Citicolina', reason: 'Ambos se estudian para la memoria y ambos están en Mind Lab Pro; no citamos ningún ensayo de esta combinación.' },
+      { ingredient: 'L-Teanina', reason: 'Ambos se estudian para el estrés y la ansiedad; no citamos ningún ensayo de esta combinación.' },
     ],
     faqs: [
-      { question: '¿Por qué algunas personas se sienten "nubladas" al empezar con Bacopa?', answer: 'Una minoría de usuarios experimenta una lentitud inicial temporal del procesamiento mental, a veces llamada la "niebla de la Bacopa". Esto se relaciona con la modulación de la serotonina y suele resolverse después de 3–4 semanas. Refleja que el mecanismo de la hierba está actuando, no un problema. Si persiste más allá de 6 semanas, reduce la dosis.' },
+      { question: '¿Por qué algunas personas se sienten "nubladas" al empezar con Bacopa?', answer: 'Un procesamiento de la información más lento al principio figura entre los efectos secundarios de la Bacopa. Si persiste más allá de 6 semanas, reduce la dosis.' },
       { question: '¿Realmente necesito tomarla con grasa?', answer: 'Es la opción sensata por defecto. Los bacósidos son compuestos liposolubles, y en los ensayos se reportaron efectos secundarios gastrointestinales (cólicos, náuseas, deposiciones más frecuentes), así que el consejo habitual es tomar la Bacopa con una comida normal que contenga algo de grasa.' },
       { question: '¿Qué porcentaje de bacósidos debo buscar?', answer: 'Apunta al menos al 50%: el ensayo positivo que citamos (Calabrese et al., 2008) usó 300mg al día de un extracto estandarizado a un mínimo del 50% de bacósidos, unos 150mg de bacósidos. Dos extractos comerciales estandarizados son Bacognize y Synapsa. La "Bacopa" genérica sin estandarización declarada no es confiable: el contenido de compuesto activo puede ser insignificante.' },
       { question: '¿Cuánto tarda en hacer efecto?', answer: 'Los ensayos positivos sobre memoria midieron los resultados después de 12 semanas. No es un suplemento para evaluar en el primer mes. Pon un recordatorio en el calendario para evaluarlo alrededor de las 12 semanas, y ten en cuenta que el ensayo de 12 semanas más reciente con 300mg/día no encontró ningún beneficio cognitivo, así que los resultados varían.' },
       { question: '¿Se puede tomar Bacopa a largo plazo?', answer: 'La mayoría de los ensayos duraron 12 semanas o menos, así que los datos controlados más allá de ese plazo son escasos. El uso ayurvédico tradicional es continuo y sin ciclos, y ningún ensayo ha demostrado que los ciclos sean necesarios, pero la seguridad a largo plazo no se ha estudiado directamente.' },
     ],
-    sourceHashes: { name: 'e700f14754c2', mechanism: '1a865649ae14', clinicalDose: '1cd8db3d2cfd', timeToEffect: 'b0c9c4baf5ed', studySummary: 'f0ed741861e3', benefits: '455d30c40f53', sideEffects: 'd04e9586c3dc', humanEffects: '2d0efb4a05ec', howToTake: '2902a24dcc02', stacksWith: 'b1fcc97d6741', faqs: '9af37ca2bc90' },
+    sourceHashes: { name: 'e700f14754c2', mechanism: '1a865649ae14', clinicalDose: '1cd8db3d2cfd', timeToEffect: 'b0c9c4baf5ed', studySummary: 'f0ed741861e3', benefits: '455d30c40f53', sideEffects: 'd04e9586c3dc', humanEffects: '9cf249cef5ef', howToTake: '2902a24dcc02', stacksWith: '0b6ea378d3f5', faqs: '3f40c959c8a2' },
   },
   {
     slug: 'citicoline',
@@ -249,9 +249,9 @@ export const ingredientsEs: IngredientTranslation[] = [
       forms: 'Cápsula. Existen dos formas de marca estandarizadas: Cognizin (usada en Mind Lab Pro) y la citicolina sódica. Ambas son eficaces. Evita la CDP-colina genérica sin etiquetar de fuentes desconocidas.',
     },
     stacksWith: [
-      { ingredient: 'Bacopa Monnieri', reason: 'La citicolina se encarga de la atención aguda y la acetilcolina; la Bacopa cubre la consolidación de la memoria a largo plazo. La combinación aborda tanto la concentración a corto plazo como la memoria a largo plazo en un solo stack.' },
+      { ingredient: 'Bacopa Monnieri', reason: 'Ambos se estudian para la memoria y ambos están en Mind Lab Pro; no citamos ningún ensayo de esta combinación.' },
       { ingredient: 'L-Teanina', reason: 'La citicolina aporta activación cognitiva; a menudo se añade L-teanina para la calma, aunque en un ensayo controlado con cafeína (Rogers 2008) no redujo significativamente el nerviosismo, y no citamos ningún ensayo de esta combinación.' },
-      { ingredient: 'Melena de León', reason: 'Plazos complementarios: la citicolina actúa de forma aguda sobre la acetilcolina; la Melena de León actúa a largo plazo sobre el NGF. Sin superposición de mecanismos: una combinación limpia.' },
+      { ingredient: 'Melena de León', reason: 'Ambos se estudian para la memoria; no citamos ningún ensayo de esta combinación.' },
     ],
     faqs: [
       { question: 'Citicolina frente a bitartrato de colina: ¿cuál es la diferencia?', answer: 'La citicolina es significativamente superior. Atraviesa la barrera hematoencefálica con más eficiencia y aporta dos componentes activos: colina (para la acetilcolina) y citidina (que se convierte en uridina, un componente básico de las membranas cerebrales). El bitartrato de colina solo aporta colina y atraviesa mal la barrera hematoencefálica.' },
@@ -259,7 +259,7 @@ export const ingredientsEs: IngredientTranslation[] = [
       { question: 'Me dio dolor de cabeza después de tomar citicolina, ¿es normal?', answer: 'Un dolor de cabeza por citicolina en dosis estándar (250–500mg) es inusual y puede indicar que eres sensible a los compuestos colinérgicos o que ya obtienes una cantidad importante de colina de la dieta u otros suplementos. Prueba a reducir a 250mg y no la combines con Alfa-GPC ni con otras fuentes de colina el mismo día.' },
       { question: 'Cognizin frente a CDP-colina genérica: ¿importa la marca?', answer: 'Cognizin es la forma con más validación clínica y se analiza su pureza. La CDP-colina genérica puede estar bien si proviene de proveedores confiables, pero la calidad varía más. Para trabajo cognitivo crítico, la forma de marca premium vale el pequeño aumento de costo.' },
     ],
-    sourceHashes: { name: '3d4676af009b', mechanism: '09b80159eeb1', clinicalDose: '2135c280d962', timeToEffect: '95f800c9deab', studySummary: 'c4035e5ded21', benefits: '25b268bae409', sideEffects: 'a1033e3ca8ef', humanEffects: '49bd9ee9891e', howToTake: 'e5eb97cb183f', stacksWith: 'd56517fe5cb8', faqs: '8ea162bc748e' },
+    sourceHashes: { name: '3d4676af009b', mechanism: '09b80159eeb1', clinicalDose: '2135c280d962', timeToEffect: '95f800c9deab', studySummary: 'c4035e5ded21', benefits: '25b268bae409', sideEffects: 'a1033e3ca8ef', humanEffects: '49bd9ee9891e', howToTake: 'e5eb97cb183f', stacksWith: '25e39057f26c', faqs: '8ea162bc748e' },
   },
   {
     slug: 'l-theanine',
