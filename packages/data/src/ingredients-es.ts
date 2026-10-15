@@ -292,8 +292,8 @@ export const ingredientsEs: IngredientTranslation[] = [
     },
     stacksWith: [
       { ingredient: 'Cafeína', reason: 'Los ensayos que citamos usaron 50–250mg de teanina con 40–250mg de cafeína. Frente a placebo, la combinación mejoró las medidas de atención en varios ensayos, aunque Foxe 2012 no encontró ningún beneficio adicional frente a cada compuesto por separado; en un ensayo controlado (Rogers 2008) la teanina no redujo significativamente el nerviosismo causado por la cafeína.' },
-      { ingredient: 'Bacopa Monnieri', reason: 'Ambas tienen propiedades ansiolíticas que actúan por mecanismos distintos. La L-teanina aporta calma inmediata; la Bacopa construye una tolerancia sostenida al estrés a lo largo de semanas. Una combinación suave y no sedante para reducir la ansiedad.' },
-      { ingredient: 'Ashwagandha', reason: 'Ambas actúan sobre el estrés por vías distintas (modulación del GABA en la teanina; eje HPA en la ashwagandha). Un buen stack diurno para la ansiedad sin sedación.' },
+      { ingredient: 'Bacopa Monnieri', reason: 'Ambos se estudian para el estrés y la ansiedad; no citamos ningún ensayo de esta combinación.' },
+      { ingredient: 'Ashwagandha', reason: 'Ambos se estudian para la ansiedad y el estrés; no citamos ningún ensayo de esta combinación.' },
     ],
     faqs: [
       { question: '¿Cuál es la proporción ideal de L-teanina y cafeína?', answer: 'Ningún ensayo ha establecido una proporción ideal. Los ensayos positivos de la combinación usaron 97–250mg de teanina con 40–160mg de cafeína: por ejemplo, 100mg de teanina con 50mg de cafeína (Owen 2008), 250mg con 150mg (Haskell 2007) y 200mg con 160mg (Kahathuduwa 2016). Un metaanálisis encontró que la dosis de cafeína influyó más en el efecto que la dosis de teanina.' },
@@ -302,7 +302,7 @@ export const ingredientsEs: IngredientTranslation[] = [
       { question: '¿Por qué tomar un suplemento si puedo simplemente beber té verde?', answer: 'Una taza estándar de té verde contiene ~25–50mg de L-teanina, muy por debajo de la dosis terapéutica de 100–200mg. Necesitarías 4–8 tazas de té verde para igualar una sola dosis del suplemento, junto con una carga considerable de cafeína. Los suplementos permiten una dosificación precisa sin cafeína no deseada.' },
       { question: '¿La L-teanina puede ayudar a dormir si se toma de noche?', answer: 'De forma modesta. Un metaanálisis de 2025 (18 estudios, n=897) encontró pequeñas mejoras en la latencia subjetiva de inicio del sueño, la disfunción diurna y la calidad general del sueño. No causa sedación. Las combinaciones con magnesio son populares, pero no se han probado en un ensayo.' },
     ],
-    sourceHashes: { name: '8667600691ae', mechanism: 'ee0740531bc6', clinicalDose: 'c51d39b0a020', timeToEffect: '32098c8af1b0', studySummary: '43531aff65ab', benefits: '5bfcb95e81e3', sideEffects: 'f90524834c14', humanEffects: 'ac70b456615b', howToTake: 'd28b5d7ed155', stacksWith: 'd197465a4193', faqs: '37c9546e7ac8' },
+    sourceHashes: { name: '8667600691ae', mechanism: 'ee0740531bc6', clinicalDose: 'c51d39b0a020', timeToEffect: '32098c8af1b0', studySummary: '43531aff65ab', benefits: '5bfcb95e81e3', sideEffects: 'f90524834c14', humanEffects: 'ac70b456615b', howToTake: 'd28b5d7ed155', stacksWith: '0dd9a189f0c7', faqs: '37c9546e7ac8' },
   },
   {
     slug: 'rhodiola-rosea',
@@ -335,9 +335,9 @@ export const ingredientsEs: IngredientTranslation[] = [
       forms: 'Cápsula. Busca en la etiqueta una estandarización declarada de rosavinas y salidrosida. Los ensayos de nuestro registro que nombran un extracto usaron SHR-5, y sus resúmenes no indican sus porcentajes de rosavinas ni de salidrosida.',
     },
     stacksWith: [
-      { ingredient: 'Ashwagandha', reason: 'El stack clásico de adaptógenos. La Rhodiola es activadora (eleva la norepinefrina, mejor por la mañana); la Ashwagandha es calmante (reduce el cortisol, mejor por la noche). Juntas brindan apoyo al eje HPA durante todo el día sin que una anule a la otra.' },
-      { ingredient: 'L-Teanina', reason: 'El efecto activador de la Rhodiola combina bien con el efecto calmante de la L-teanina. Usa la Rhodiola para la resistencia cognitiva y la L-teanina para suavizar la agitación o inquietud que la Rhodiola puede causar al principio.' },
-      { ingredient: 'L-Tirosina', reason: 'Ambas apuntan al rendimiento bajo estrés por mecanismos distintos. La Rhodiola modula los niveles de cortisol y monoaminas; la tirosina repone el sustrato de las catecolaminas. Una combinación sólida para días de alta exigencia cognitiva o turnos nocturnos.' },
+      { ingredient: 'Ashwagandha', reason: 'Ambos son adaptógenos; no citamos ningún ensayo de esta combinación.' },
+      { ingredient: 'L-Teanina', reason: 'La Rhodiola es un adaptógeno; la L-teanina es un aminoácido presente en el té verde. No citamos ningún ensayo de esta combinación.' },
+      { ingredient: 'L-Tirosina', reason: 'Ambos se estudian para el rendimiento bajo estrés; no citamos ningún ensayo de esta combinación.' },
     ],
     faqs: [
       { question: '¿Hay que tomar la Rhodiola en ciclos?', answer: 'No según la evidencia actual. Los ensayos clínicos duraron desde una sola dosis hasta 4 semanas, así que no probaron ni los ciclos ni meses de uso continuo. Algunas personas hacen una pausa de 1–2 semanas cada 4–6 semanas como precaución ante un posible "efecto techo".' },
@@ -345,12 +345,12 @@ export const ingredientsEs: IngredientTranslation[] = [
       { question: '¿La Rhodiola puede causar ansiedad o nerviosismo?', answer: 'En una minoría de personas, sobre todo con dosis superiores a 400mg, la Rhodiola puede causar una inquietud parecida a la de un estimulante o ansiedad leve, en particular durante la primera semana. Empieza con 200mg y aumenta de forma gradual. Algunas personas la combinan con L-teanina para suavizarlo, aunque esa combinación no se ha probado en un ensayo.' },
       { question: '¿Es seguro tomar Rhodiola con antidepresivos?', answer: 'No sin supervisión médica. Los compuestos de la Rhodiola inhiben la monoaminooxidasa en estudios de laboratorio, así que una interacción con ISRS, IMAO y otros antidepresivos (incluido el síndrome serotoninérgico) es teóricamente posible; no se encontraron reportes clínicos en nuestra revisión de PubMed de 2026. Consulta siempre a tu médico si tomas algún medicamento psiquiátrico.' },
     ],
-    sourceHashes: { name: '8ef9c8a44212', mechanism: '7897a2f64ab2', clinicalDose: 'fb8dea0030b2', timeToEffect: '5ab4648e058c', studySummary: '286609ca7e58', benefits: '37918f8c0b1b', sideEffects: 'f1409ae470d6', humanEffects: '72e1fc4286c4', howToTake: '7a02ee1487ac', stacksWith: '9b0b3d94ca13', faqs: '205144fcbd1f' },
+    sourceHashes: { name: '8ef9c8a44212', mechanism: '7897a2f64ab2', clinicalDose: 'fb8dea0030b2', timeToEffect: '5ab4648e058c', studySummary: '286609ca7e58', benefits: '37918f8c0b1b', sideEffects: 'f1409ae470d6', humanEffects: '72e1fc4286c4', howToTake: '7a02ee1487ac', stacksWith: 'afe1ef661ff8', faqs: '205144fcbd1f' },
   },
   {
     slug: 'phosphatidylserine',
     name: 'Fosfatidilserina',
-    mechanism: 'La fosfatidilserina (PS) es un fosfolípido que constituye un componente fundamental de las membranas de las neuronas. Favorece la transducción de señales a través de las sinapsis, facilita la liberación de acetilcolina y dopamina y modula la secreción de cortisol. La suplementación repone los niveles de PS, que disminuyen de forma natural con la edad.',
+    mechanism: 'La fosfatidilserina (PS) es un fosfolípido que constituye un componente fundamental de las membranas de las neuronas. La suplementación repone los niveles de PS, que disminuyen de forma natural con la edad.',
     clinicalDose: '100–300mg/día (beneficio demostrado principalmente en adultos mayores con quejas de memoria o DCL)',
     timeToEffect: 'Los ensayos sobre memoria duraron de 15 semanas a 12 meses; ningún ensayo estableció un inicio más temprano',
     studySummary: 'Los ECA en adultos mayores con quejas de memoria o deterioro cognitivo leve reportan beneficios en la memoria, aunque a menudo solo en subgrupos: la PS de soya con 100–300mg/día durante 6 meses ayudó solo a los participantes con puntuaciones iniciales bajas (Kato-Kataoka 2010), y la PS-DHA de origen marino con 300mg/día mejoró el recuerdo verbal inmediato en un ensayo exploratorio de 15 semanas (Vakhapova 2010). Un metaanálisis en red de 2026 en DCL/Alzheimer encontró que 100mg de PS mejoraron el MMSE, pero no la subescala cognitiva de la Escala de Evaluación de la Enfermedad de Alzheimer (ADAS-Cog). En niños sanos, un ECA de 12 semanas con 100mg de PS de girasol no encontró efecto en los resultados primarios ni secundarios (Friling 2025; entre los autores hay personal de IFF, el fabricante del producto). Un ensayo positivo de 2024 en DCL (Duan 2024; con coautores de BYHEALTH) administró solo 31.5mg de PS dentro de una fórmula con varios ingredientes. La FDA solo permite declaraciones calificadas de que puede reducir el riesgo de demencia o de disfunción cognitiva en personas mayores, con la advertencia "FDA concludes that there is little scientific evidence supporting this claim", es decir, que la FDA concluye que hay poca evidencia científica que respalde esta declaración (carta de la FDA, 13 de mayo de 2003).',
@@ -377,8 +377,8 @@ export const ingredientsEs: IngredientTranslation[] = [
       forms: 'Cápsula (preferiblemente blanda). Hay tres tipos de fuente: (1) derivada de soya: la más común y barata, eficaz pero contiene soya; (2) derivada de girasol: sin soya, la opción preferida; (3) derivada de cerebro bovino: usada en los ensayos originales de la década de 1990, ya no se comercializa por la preocupación por la EEB. Sharp-PS de girasol es la forma de referencia.',
     },
     stacksWith: [
-      { ingredient: 'Melena de León', reason: 'La PS mantiene la integridad de la membrana celular, mientras que la Melena de León impulsa la síntesis de NGF. Ambas favorecen la salud cerebral a largo plazo a través de vías complementarias: estructurales y de factores de crecimiento.' },
-      { ingredient: 'Citicolina', reason: 'Ambas son precursoras de fosfolípidos de membrana, pero actúan por vías distintas. La citicolina forma principalmente fosfatidilcolina; la PS se ocupa de la fosfatidilserina. Juntas brindan un apoyo integral a la membrana neuronal.' },
+      { ingredient: 'Melena de León', reason: 'Ambos se estudian para la memoria; no citamos ningún ensayo de esta combinación.' },
+      { ingredient: 'Citicolina', reason: 'La citicolina es un precursor de la fosfatidilcolina; la fosfatidilserina es un fosfolípido de las membranas de las neuronas. No citamos ningún ensayo de esta combinación.' },
       { ingredient: 'Omega-3 (DHA)', reason: 'El DHA es un componente estructural de las membranas neuronales. Algunos productos clínicos de PS están conjugados con DHA (PS-DHA): un ensayo de 15 semanas con PS-DHA de origen marino con 300mg/día mejoró el recuerdo verbal inmediato en adultos mayores con quejas de memoria.' },
     ],
     faqs: [
@@ -387,7 +387,7 @@ export const ingredientsEs: IngredientTranslation[] = [
       { question: '¿Y la fuente de cerebro bovino que aparece en estudios más antiguos?', answer: 'Los ensayos originales con PS de la década de 1990 usaron PS derivada de corteza cerebral bovina. Esta fuente se abandonó en todo el mundo tras la preocupación por la EEB (enfermedad de las vacas locas). Toda la PS comercial actual es de origen vegetal o marino. Los ensayos posteriores con PS vegetal y marina muestran beneficios en la memoria principalmente en subgrupos de adultos mayores, así que no debe suponerse que los resultados bovinos más antiguos sean trasladables.' },
       { question: '¿La PS interactúa con los anticoagulantes?', answer: 'Nuestra revisión de PubMed de 2026 no encontró ninguna interacción clínica entre la PS y los anticoagulantes, y el principal ensayo de seguridad de la PS no recopiló datos sobre sangrado. Si tomas warfarina, aspirina u otros anticoagulantes, consulta a tu médico antes de añadir cualquier suplemento.' },
     ],
-    sourceHashes: { name: '84b783e1a205', mechanism: 'f50169765ad5', clinicalDose: 'b3586df4aeec', timeToEffect: 'fd2897116995', studySummary: 'd96d809304b8', benefits: 'be8718ee4d5a', sideEffects: '74e3d86af15b', humanEffects: 'faaad79b9c26', howToTake: 'ef36cb389a09', stacksWith: 'f533b7871ea2', faqs: '2b7e89608457' },
+    sourceHashes: { name: '84b783e1a205', mechanism: '05ded450ebb0', clinicalDose: 'b3586df4aeec', timeToEffect: 'fd2897116995', studySummary: 'd96d809304b8', benefits: 'be8718ee4d5a', sideEffects: '74e3d86af15b', humanEffects: 'faaad79b9c26', howToTake: 'ef36cb389a09', stacksWith: '392507342b88', faqs: '2b7e89608457' },
   },
   {
     slug: 'alpha-gpc',
@@ -419,9 +419,9 @@ export const ingredientsEs: IngredientTranslation[] = [
       forms: 'Cápsula (lo común) o polvo. La Alfa-GPC es higroscópica (absorbe la humedad del aire): el polvo puede volverse pegajoso; la cápsula es más práctica. Existen formas con concentración del 50% y del 85%; la forma al 50% (más común) duplica el tamaño de la porción, pero es equivalente en dosis activa.',
     },
     stacksWith: [
-      { ingredient: 'Melena de León', reason: 'La Alfa-GPC aporta apoyo inmediato a la acetilcolina; la Melena de León impulsa la síntesis de NGF a largo plazo. Sus mecanismos no se superponen: una combinación limpia de efecto agudo + largo plazo.' },
-      { ingredient: 'Bacopa Monnieri', reason: 'La Alfa-GPC se encarga de la codificación aguda de la memoria a través de la acetilcolina; la Bacopa, de la consolidación y el almacenamiento de la memoria. Juntas cubren tanto la etapa de codificación como la de consolidación en la formación de la memoria.' },
-      { ingredient: 'Huperzina A', reason: 'La Huperzina A evita la degradación de la acetilcolina, mientras que la Alfa-GPC aumenta su síntesis. Una combinación potente en teoría, pero úsala con precaución y en dosis bajas, ya que la sobrecarga colinérgica (náuseas, dolor de cabeza, calambres musculares) es un riesgo real. No se recomienda sin experiencia.' },
+      { ingredient: 'Melena de León', reason: 'Ambos se estudian para la memoria; no citamos ningún ensayo de esta combinación.' },
+      { ingredient: 'Bacopa Monnieri', reason: 'Ambos se estudian para la memoria; no citamos ningún ensayo de esta combinación.' },
+      { ingredient: 'Huperzina A', reason: 'La Huperzina A frena la degradación de la acetilcolina; la Alfa-GPC es un precursor de colina. No citamos ningún ensayo de esta combinación. Úsalas con precaución y en dosis bajas, ya que la sobrecarga colinérgica (náuseas, dolor de cabeza, calambres musculares) es un riesgo real. No se recomienda sin experiencia.' },
     ],
     faqs: [
       { question: 'Alfa-GPC frente a citicolina: ¿cuál es mejor para la concentración?', answer: 'Ambas son excelentes. La Alfa-GPC tiene una ligera ventaja en los efectos colinérgicos agudos y se prefiere para el rendimiento en el entrenamiento. La citicolina también aporta citidina (precursora de la uridina), lo que le da un perfil neuroprotector más amplio. Para la concentración pura y la acetilcolina, la Alfa-GPC gana ligeramente; para un apoyo integral a la salud cerebral, la citicolina es más completa. No las combines: tendrías demasiada actividad de colina.' },
@@ -429,7 +429,7 @@ export const ingredientsEs: IngredientTranslation[] = [
       { question: '¿Por qué el polvo de Alfa-GPC se vuelve pegajoso?', answer: 'La Alfa-GPC es muy higroscópica: absorbe rápidamente el agua del aire. Es normal y no afecta su potencia. Guárdala en un recipiente hermético en un lugar fresco y seco. La forma en cápsula evita este problema por completo.' },
       { question: '¿Existe un riesgo cardiovascular con la Alfa-GPC?', answer: 'No está resuelto. El estudio de cohorte CARDIA (publicado en 2024) relacionó una colina plasmática más alta (no los suplementos de alfa-GPC) con la aparición de enfermedad cardiovascular, mientras que un metaanálisis sobre la ingesta de colina en la dieta no encontró ninguna asociación. Ningún estudio ha probado directamente la suplementación con alfa-GPC en resultados cardiovasculares. Si tienes una enfermedad cardiovascular, coméntalo con tu médico.' },
     ],
-    sourceHashes: { name: 'eb14648f61e2', mechanism: '9ce0e233dea3', clinicalDose: 'a66a252fe340', timeToEffect: '0caa7d003f51', studySummary: '8081ab7f5d34', benefits: '5e3227a7cadd', sideEffects: '3a095bf3481e', humanEffects: '4d9d08735d9e', howToTake: '91b6527617b8', stacksWith: '897dac3bcbf3', faqs: '80578914290e' },
+    sourceHashes: { name: 'eb14648f61e2', mechanism: '9ce0e233dea3', clinicalDose: 'a66a252fe340', timeToEffect: '0caa7d003f51', studySummary: '8081ab7f5d34', benefits: '5e3227a7cadd', sideEffects: '3a095bf3481e', humanEffects: '4d9d08735d9e', howToTake: '91b6527617b8', stacksWith: '2634b652b2ed', faqs: '80578914290e' },
   },
   {
     slug: 'ashwagandha',
@@ -463,25 +463,25 @@ export const ingredientsEs: IngredientTranslation[] = [
       dosage: '300–600mg/día (KSM-66)',
       timing: 'Por la noche (1–2 horas antes de dormir) para los beneficios en el sueño. Por la mañana para el manejo del cortisol y el estrés. La dosis dividida (300mg por la mañana + 300mg por la noche) es el régimen de los ensayos Chandrasekhar 2012 y Choudhary 2017 (300mg dos veces al día).',
       withFood: 'Tómala con comida para minimizar el malestar gastrointestinal (sobre todo con dosis de 600mg). La comida no afecta significativamente la absorción.',
-      forms: 'Cápsula. Exige KSM-66 (extracto de raíz de espectro completo, 5% de witanólidos) o Sensoril (hoja + raíz, 8% de witanólidos, se necesita una dosis menor). Evita la ashwagandha sin estandarizar que no declare un porcentaje de witanólidos: el contenido activo puede ser insignificante.',
+      forms: 'Cápsula. Exige KSM-66 (extracto de raíz de espectro completo, 5% de witanólidos) o Sensoril (extracto de hoja + raíz). Evita la ashwagandha sin estandarizar que no declare un porcentaje de witanólidos: el contenido activo puede ser insignificante.',
     },
     stacksWith: [
-      { ingredient: 'Rhodiola Rosea', reason: 'El dúo canónico de adaptógenos. La Rhodiola es activadora (por la mañana); la Ashwagandha es calmante (por la noche). Ambas apuntan a la desregulación del eje HPA, pero por mecanismos distintos y en momentos distintos del día: una pareja perfecta de día y de noche.' },
-      { ingredient: 'L-Teanina', reason: 'Ambas reducen la ansiedad por mecanismos distintos (modulación del eje HPA frente a modulación del GABA). La L-teanina aporta calma inmediata; la Ashwagandha, una reducción sistémica del estrés a más largo plazo. Juntas actúan en varias escalas de tiempo.' },
-      { ingredient: 'Fosfatidilserina', reason: 'Ambas reducen el cortisol de forma independiente por vías distintas (modulación del eje HPA frente a sensibilidad de los receptores de cortisol). La combinación puede aportar una reducción aditiva del cortisol en condiciones de mucho estrés.' },
+      { ingredient: 'Rhodiola Rosea', reason: 'Ambos son adaptógenos; no citamos ningún ensayo de esta combinación.' },
+      { ingredient: 'L-Teanina', reason: 'Ambos se estudian para la ansiedad y el estrés; no citamos ningún ensayo de esta combinación.' },
+      { ingredient: 'Fosfatidilserina', reason: 'Ambos se estudian por sus efectos sobre el cortisol; no citamos ningún ensayo de esta combinación.' },
     ],
     faqs: [
-      { question: 'KSM-66, Sensoril o ashwagandha genérica: ¿cuál debería elegir?', answer: 'KSM-66 (5% de witanólidos, solo de raíz) es el extracto usado en los principales ensayos sobre estrés y cognición. Sensoril (8% de witanólidos, de raíz + hoja, se necesita una dosis menor de 125–250mg) tiene buena evidencia específicamente para el estrés y el sueño. La ashwagandha genérica sin un porcentaje de witanólidos declarado no es confiable: podrías estar pagando por polvo de raíz rico en almidón con un contenido activo mínimo. Elige KSM-66 o Sensoril.' },
-      { question: '¿La ashwagandha me dará sueño durante el día?', answer: 'No: con dosis matutinas, la mayoría de las personas experimenta una concentración tranquila, no sedación. El efecto de cansancio es más pronunciado cuando se toma por la noche, cuando reduce la latencia del sueño. La ashwagandha no agota la energía; reduce la hiperactivación impulsada por el cortisol que causa fatiga. A algunas personas 600mg por la mañana les resultan ligeramente sedantes; en ese caso, reduce a 300mg o pásala solo a la noche.' },
+      { question: 'KSM-66, Sensoril o ashwagandha genérica: ¿cuál debería elegir?', answer: 'KSM-66 (5% de witanólidos, solo de raíz) es el extracto usado en los principales ensayos sobre estrés y cognición. Sensoril es un extracto de hoja y raíz; nuestra página sobre la ashwagandha no cita ningún ensayo con Sensoril. La ashwagandha genérica sin un porcentaje de witanólidos declarado no es confiable: podrías estar pagando por polvo de raíz rico en almidón con un contenido activo mínimo. Elige KSM-66, el extracto usado en los ensayos de nuestra página sobre la ashwagandha.' },
+      { question: '¿La ashwagandha me dará sueño durante el día?', answer: 'El efecto de cansancio es más pronunciado cuando se toma por la noche, cuando reduce la latencia del sueño. La ashwagandha no agota la energía. A algunas personas 600mg por la mañana les resultan ligeramente sedantes; en ese caso, reduce a 300mg o pásala solo a la noche.' },
       { question: '¿Es segura la ashwagandha para el uso a largo plazo?', answer: 'Faltan datos a largo plazo: la mayoría de los ensayos duran 8–12 semanas, y no se encontraron datos controlados de seguridad más allá de unos 90 días. Reportes de casos publicados relacionan la ashwagandha con lesiones hepáticas (algunos calificados como "probables" en la escala de causalidad RUCAM), y Dinamarca prohibió los complementos alimenticios de ashwagandha en 2023 porque no se pudo establecer una dosis segura. Suspéndela y consulta a un médico si presentas ictericia u orina oscura. Evítala si tienes afecciones de la tiroides (enfermedad tiroidea autoinmune), ya que los witanólidos pueden modular los niveles de hormonas tiroideas.' },
       { question: '¿La ashwagandha puede aumentar la testosterona?', answer: 'Dos ECA encontraron aumentos: 600mg/día durante 8 semanas en hombres jóvenes que empezaban un entrenamiento de fuerza elevaron la testosterona junto con mayores ganancias de fuerza (2015), y un ensayo cruzado en hombres con sobrepeso de 40–70 años encontró testosterona +14.7% y DHEA-S +18% frente a placebo, pero ningún cambio en el cortisol, la fatiga ni el vigor (Lopresti 2019). La magnitud varía según la población y el extracto.' },
     ],
-    sourceHashes: { name: 'f48263c2c9f9', mechanism: 'cc1bdea1cc19', clinicalDose: '77d574d99676', timeToEffect: '34f7d36bdeeb', studySummary: 'e23483b812a2', benefits: 'd468ea7029e0', sideEffects: '6815c74cfa8a', humanEffects: 'ec057d3d5767', howToTake: '287f02107136', stacksWith: 'f4827923f898', faqs: 'cb52adb8e0c6' },
+    sourceHashes: { name: 'f48263c2c9f9', mechanism: 'cc1bdea1cc19', clinicalDose: '77d574d99676', timeToEffect: '34f7d36bdeeb', studySummary: 'e23483b812a2', benefits: 'd468ea7029e0', sideEffects: '6815c74cfa8a', humanEffects: 'ec057d3d5767', howToTake: '957c85f5e358', stacksWith: 'ee4eff30a88b', faqs: 'a59548675268' },
   },
   {
     slug: 'huperzine-a',
     name: 'Huperzina A',
-    mechanism: 'La Huperzina A se extrae de Huperzia serrata (licopodio chino). Es un inhibidor potente y reversible de la acetilcolinesterasa: bloquea la enzima que degrada la acetilcolina, lo que en la práctica aumenta los niveles de acetilcolina en todo el cerebro. Esto la convierte en uno de los compuestos colinérgicos naturales más potentes.',
+    mechanism: 'La Huperzina A se extrae de Huperzia serrata (licopodio chino). Es un inhibidor potente y reversible de la acetilcolinesterasa: bloquea la enzima que degrada la acetilcolina, lo que en la práctica aumenta los niveles de acetilcolina en todo el cerebro.',
     clinicalDose: '100–200mcg/día en los ensayos (microgramos, no miligramos; las dosis de consumo de 50mcg no se probaron por separado)',
     timeToEffect: 'Los ensayos midieron los efectos tras 4–16 semanas de dosis diarias; no se encontró ningún ensayo de inicio agudo',
     studySummary: 'ECA chinos muestran que la Huperzina A mejoró la memoria y el aprendizaje en pacientes con Alzheimer (Xu et al., 1995: mejoró el 58% frente al 36% con 200mcg/día durante 8 semanas) y en estudiantes adolescentes (Sun et al., 1999: 100mcg/día durante 4 semanas). Un metaanálisis de 2013 con 20 ECA encontró beneficios significativos en la enfermedad de Alzheimer, pero calificó la mayoría de los ensayos con alto riesgo de sesgo; la revisión Cochrane de 2008 concluyó que la evidencia es insuficiente para recomendarla, y una revisión Cochrane de 2012 no encontró ensayos elegibles en el deterioro cognitivo leve. Un ECA de 2019 tras una lesión cerebral traumática no encontró ningún beneficio en la memoria frente a placebo.',
@@ -510,8 +510,8 @@ export const ingredientsEs: IngredientTranslation[] = [
       forms: 'Solo en cápsula: las dosis son de microgramos, lo que hace prácticamente imposible medir el polvo con precisión sin una balanza con precisión de miligramos. Confirma siempre que la etiqueta indique mcg (microgramos) y no mg (miligramos): un error de 100 veces en la dosis es peligroso.',
     },
     stacksWith: [
-      { ingredient: 'Bacopa Monnieri', reason: 'La Bacopa actúa a través de la densidad sináptica (mecanismo no colinérgico); la Huperzina A, preservando la acetilcolina. Sin superposición de mecanismos. Un stack potente para la memoria en el que ambas partes actúan de forma independiente.' },
-      { ingredient: 'Melena de León', reason: 'La Melena de León favorece la neurogénesis a largo plazo a través del NGF; la Huperzina A favorece la acetilcolina al frenar su degradación. Mecanismos distintos sin conflicto.' },
+      { ingredient: 'Bacopa Monnieri', reason: 'Ambos se estudian para la memoria; no citamos ningún ensayo de esta combinación.' },
+      { ingredient: 'Melena de León', reason: 'Ambos se estudian para la memoria; no citamos ningún ensayo de esta combinación.' },
     ],
     faqs: [
       { question: '¿Hay que tomar la Huperzina A en ciclos?', answer: 'No hay evidencia de ensayos en ningún sentido. Los ensayos clínicos la administraron a diario durante 4–16 semanas, y la revisión Cochrane de 2008 encontró que los eventos adversos fueron leves y no más frecuentes que con placebo. Ningún ensayo en humanos ha probado un esquema de ciclos. Lo que hay que vigilar son los efectos secundarios colinérgicos (náuseas, sudoración, salivación excesiva, espasmos musculares); suspéndela o reduce la dosis si aparecen.' },
@@ -519,7 +519,7 @@ export const ingredientsEs: IngredientTranslation[] = [
       { question: '¿Puedo tomar Huperzina A con Alfa-GPC?', answer: 'Técnicamente sí, pero con mucha precaución. La Alfa-GPC aumenta la síntesis de acetilcolina; la Huperzina A evita su degradación. La combinación puede causar con facilidad una sobrecarga colinérgica, y ningún ensayo la ha probado. Si las combinas, usa dosis bajas de cada una y empieza con una sola antes de combinarlas. Vigila con atención los primeros síntomas de sobrecarga: náuseas, dolor de cabeza, salivación excesiva.' },
       { question: '¿Es segura la Huperzina A para adultos jóvenes y sanos?', answer: 'La investigación sobre la Huperzina A se basa sobre todo en pacientes con Alzheimer; el único ECA en población sana que se encontró fue un estudio de 4 semanas en 68 estudiantes adolescentes con 100mcg/día. Los principales riesgos en usuarios sanos son los errores de dosificación (confundir mcg y mg) y combinarla con otros colinérgicos. La seguridad a largo plazo en adultos sanos no se ha estudiado.' },
     ],
-    sourceHashes: { name: '4fee00338022', mechanism: 'b529b95c62de', clinicalDose: '8550009654e6', timeToEffect: 'fb827af64156', studySummary: '45bc30928f8b', benefits: 'de06381675b0', sideEffects: '8f474fed142a', humanEffects: '5d49be382fee', howToTake: '11831e7ef48d', stacksWith: '7418e9c2a945', faqs: 'a81b0052f14e' },
+    sourceHashes: { name: '4fee00338022', mechanism: 'a29c694db740', clinicalDose: '8550009654e6', timeToEffect: 'fb827af64156', studySummary: '45bc30928f8b', benefits: 'de06381675b0', sideEffects: '8f474fed142a', humanEffects: '5d49be382fee', howToTake: '11831e7ef48d', stacksWith: '321082a3ab8f', faqs: 'a81b0052f14e' },
   },
   {
     slug: 'l-tyrosine',
