@@ -15,7 +15,9 @@
 //   - a run of Japanese characters in visible text, the <title>, or an
 //     aria-label / alt / title / placeholder value is neither inside an
 //     element marked lang="ja" nor on the ALLOWLIST below;
-//   - an ALLOWLIST entry matches nothing (the list stays honest).
+//   - an ALLOWLIST entry matches nothing (the list stays honest);
+//   - any Japanese run, inside lang="ja" or not, contains a function-claim
+//     formula from CLAIM_FORMULAS (the guide's flagged wording).
 // Every allowlisted run is pre-existing English-page text that names a
 // Japanese term, product, label or source; the owner decides on each
 // separately. Refuses to pass when it scanned no page.
@@ -40,36 +42,29 @@ const NAME_ATTRS = ['aria-label', 'alt', 'title', 'placeholder'];
 // 2026-10-13 inventory of the English JP build; every entry is text that was
 // on the page before the 2026-10-12/13 chrome translation (#385) or comes from
 // product, vendor or source data. Nothing here is chrome.
+// Function-claim formulas the JP compliance guide (§1.3, §2.2, §2.6, §6 phrasebook) names as the riskiest
+// Japanese wording for this site. They fail anywhere on a JP page, inside lang="ja" too: the pause keeps
+// protective notices, never claim text (owner decision 2026-10-14 removed the quoted D295/D235 claim text,
+// Suntory's sales claim and the home tagline).
+const CLAIM_FORMULAS = [
+  /報告されています/,
+  /機能があ/,
+  /をサポート/,
+  /高める/,
+  /改善/,
+  /集中力向上|記憶力向上|エネルギー向上/,
+  /対策/,
+  /予防/,
+  /連続売上/,
+];
+
 const ALLOWLIST = [
-  {
-    reason: "Quoted claim wording inside English sentences, highest risk under the JP compliance guide (sections 3.3 and 6): the CAA-recorded function-claim text of notifications D295 (L-theanine) and D235 (Bacopa) on /ingredients/l-theanine/ and /ingredients/bacopa-monnieri/ (packages/data/src/regional-notes/jp.ts), and Suntory's sales claim quoted on the memory/aging listicles, /best-nootropics/ and its review (products-jp.json, listicle page files). Owner decision pending.",
-    runs: [
-      "本品にはバコパサポニンが含まれます。バコパサポニンには、認知機能の一部である記憶力（加齢により低下する日常生活で見聞きした情報を覚え、思い出す力）を維持する機能があることが報告されています。",
-      "本品は",
-      "テアニンを含みます。",
-      "テアニンは起床時の疲労感や眠気の軽減をサポートすることが報告されています。また、",
-      "テアニンは一過性の作業などによるストレス（精神的負担）を和らげる機能が報告されています。",
-      "起床時の疲労感や眠気の軽減をサポートする",
-      "「",
-      "」",
-      "サプリメント市場",
-      "年連続売上",
-    ],
-  },
   {
     reason: "Page <title> text set before 2026-10-12: '(日本)' on /best-nootropics/, '(ノートロピクス)' on the home page, 'Imprint / 運営者情報' (page metadata in apps/jp/src/app).",
     runs: [
       "日本",
       "運営者情報",
       "ノートロピクス",
-    ],
-  },
-  {
-    reason: "The imprint's bilingual region note (apps/jp/src/app/imprint/page.tsx regionNote): its Japanese half is not marked lang=\"ja\" yet.",
-    runs: [
-      "日本国内で販売される機能性表示食品（",
-      "）および特定保健用食品（",
-      "）は、消費者庁への届出または許可を必要とします。届出のない輸入品については、本サイトは消費者体験および成分研究のレビューとして編集しており、薬機法（旧薬事法）の下で疾病治療を示唆する表現は行いません。",
     ],
   },
   {
@@ -89,12 +84,6 @@ const ALLOWLIST = [
     reason: "The en licence label 'FFC 届出 {number}' (packages/data/src/i18n.ts en.productDetail.regionalBuying.licence.ffcNumber, since 2026-09-04) on FANCL BRAINs' review and the guide pages' 'Products in Japan' block.",
     runs: [
       "届出",
-    ],
-  },
-  {
-    reason: "The home page tagline under the H1 (apps/jp/src/app/page.tsx), there before 2026-10-12.",
-    runs: [
-      "ノートロピクスの独立比較レビュー",
     ],
   },
   {
@@ -299,6 +288,8 @@ for (const file of pages) {
   if (/^\/ja(\/|$)/.test(page)) failures.push(`${page}: a page under /ja/ was built`);
   for (const r of runs) {
     if (INVENTORY) console.log(`${page}\t${r.lang === 'ja' ? 'lang=ja' : `lang=${r.lang || '?'}`}\t${r.where}\t${r.run}`);
+    const formula = CLAIM_FORMULAS.find((re) => re.test(r.run));
+    if (formula) failures.push(`${page}: Japanese claim wording ${formula} (${r.where}, lang=${r.lang || '?'}): "${r.run}"`);
     if (r.chrome) failures.push(`${page}: Japanese in the chrome (${r.where}): "${r.run}"`);
     else if (r.lang === 'ja') continue;
     else if (allowed.has(r.run)) used.add(r.run);

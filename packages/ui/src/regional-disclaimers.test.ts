@@ -105,6 +105,9 @@ describe('getRegionalHealthDisclaimer — coverage + content', () => {
     expect(d).toContain('MOHAP');
     // Halal is a meaningful GCC trust signal per audit
     expect(d).toContain('Halal');
+    // "many": no source backs a claim about every GCC consumer (2026-10-13).
+    expect(d).toContain('Many GCC consumers prefer Halal-certified supplements');
+    expect(d).not.toMatch(/consumers preference/);
   });
 
   test('sea disclaimer references regional regulators', () => {

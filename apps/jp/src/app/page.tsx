@@ -85,7 +85,6 @@ export default function HomePage() {
             <br />
             <span className="text-green-700">Cognitive Supplements</span>
           </h1>
-          <p className="text-base text-ds-muted mb-2">ノートロピクスの独立比較レビュー</p>
           <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
             We compare international and Japanese domestic nootropics. Label doses checked against
             the reference doses on our ingredient pages, where one exists. MHLW import guidelines

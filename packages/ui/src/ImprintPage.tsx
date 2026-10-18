@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import Link from 'next/link';
 import SchemaOrg from './SchemaOrg';
 
@@ -8,8 +9,11 @@ interface Props {
   marketLabel: string;
   /** Contact email displayed and used for inquiries */
   contactEmail: string;
-  /** Optional region-specific notes — e.g. EU pages can reference TMG §5; CA pages can reference CASL */
-  regionNote?: string;
+  /**
+   * Optional region-specific notes — e.g. EU pages can reference TMG §5; CA pages can reference CASL.
+   * A node, so a bilingual note can mark its other-language half (JP: `<span lang="ja">`).
+   */
+  regionNote?: ReactNode;
 }
 
 /**

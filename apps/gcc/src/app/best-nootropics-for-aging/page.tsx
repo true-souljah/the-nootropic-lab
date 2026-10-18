@@ -50,6 +50,9 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     evidence:
       'In a systematic review of six 12-week trials (Pase 2012, PubMed 22747190), Bacopa improved 9 of 17 memory free-recall tests; in adults aged 65 and over (Calabrese 2008, PubMed 18611150), 300mg a day for 12 weeks improved delayed word recall after controlling for baseline cognitive deficit. Plant-derived.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22747190/',
+    extraCitations: [
+      { label: 'Calabrese 2008', url: 'https://pubmed.ncbi.nlm.nih.gov/18611150/' },
+    ],
   },
 ];
 
