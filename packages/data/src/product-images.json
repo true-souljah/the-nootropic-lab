@@ -44,6 +44,16 @@
     "imageUrl": "https://www.naturebellusa.com/cdn/shop/files/For-Website_9cfdf2bf-a180-4364-bb38-785a7bd2cfa0.jpg",
     "fetchedAt": "2026-10-07"
   },
+  "neutonic-brain-capsules": {
+    "sourcePageUrl": "https://www.neutonic.com/en-us/products/neutonic-capsules-us",
+    "imageUrl": "https://www.neutonic.com/cdn/shop/files/BrainCapsulesUS.png?v=1786453193",
+    "fetchedAt": "2026-10-15"
+  },
+  "neutonic-productivity-drink": {
+    "sourcePageUrl": "https://www.neutonic.com/en-us/products/tropical-ice-12pk-us",
+    "imageUrl": "https://www.neutonic.com/cdn/shop/files/ProductivityDrinkUS-TI.png?v=1786453548",
+    "fetchedAt": "2026-10-15"
+  },
   "noocube": {
     "sourcePageUrl": "https://www.noocube.com/products/bottle",
     "imageUrl": "https://cdn.shopify.com/s/files/1/0580/7643/0544/products/1-Bottle.png?v=1632324815",

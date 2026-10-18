@@ -53,12 +53,12 @@ describe('templates — no hard-coded capsule wording for capsulesPerServing', (
 });
 
 const EXPECTED_UNITS: Record<'en' | 'ja', Record<ProductForm, string>> = {
-  en: { capsule: 'caps', tablet: 'tablets', sachet: 'sachets', shot: 'shots', powder: 'scoops', softgel: 'softgels' },
-  ja: { capsule: 'カプセル', tablet: '錠', sachet: '包', shot: '本', powder: 'スクープ', softgel: 'ソフトジェル' },
+  en: { capsule: 'caps', tablet: 'tablets', sachet: 'sachets', shot: 'shots', powder: 'scoops', softgel: 'softgels', can: 'cans' },
+  ja: { capsule: 'カプセル', tablet: '錠', sachet: '包', shot: '本', powder: 'スクープ', softgel: 'ソフトジェル', can: '缶' },
 };
 const EXPECTED_SINGULAR: Record<'en' | 'ja', Record<ProductForm, string>> = {
-  en: { capsule: 'cap', tablet: 'tablet', sachet: 'sachet', shot: 'shot', powder: 'scoop', softgel: 'softgel' },
-  ja: { capsule: 'カプセル', tablet: '錠', sachet: '包', shot: '本', powder: 'スクープ', softgel: 'ソフトジェル' },
+  en: { capsule: 'cap', tablet: 'tablet', sachet: 'sachet', shot: 'shot', powder: 'scoop', softgel: 'softgel', can: 'can' },
+  ja: { capsule: 'カプセル', tablet: '錠', sachet: '包', shot: '本', powder: 'スクープ', softgel: 'ソフトジェル', can: '缶' },
 };
 
 describe('servingUnit / servingAmount', () => {
@@ -92,6 +92,13 @@ describe('servingUnit / servingAmount', () => {
     expect(servingAmount({ form: 'softgel', capsulesPerServing: 1 }, en)).toBe('1 softgel');
     expect(servingAmount({ form: 'softgel', capsulesPerServing: 3 }, en)).toBe('3 softgels');
     expect(en.productDetail.meta.productDescriptorByForm.softgel).toBe('daily nootropic softgel');
+  });
+
+  it('can renders "1 can" / "2 cans", never capsule wording', () => {
+    const en = getStrings('en');
+    expect(servingAmount({ form: 'can', capsulesPerServing: 1 }, en)).toBe('1 can');
+    expect(servingAmount({ form: 'can', capsulesPerServing: 2 }, en)).toBe('2 cans');
+    expect(en.productDetail.meta.productDescriptorByForm.can).toBe('daily nootropic drink');
   });
 
   it('a zero count renders "—", never "0 …"', () => {
@@ -145,9 +152,11 @@ describe('product data — form', () => {
     expect(formProblem(undefined)).toBeNull();
     for (const form of PRODUCT_FORMS) expect(formProblem(form)).toBeNull();
     // 'powder' became an allowed form in 2026-10 (Pre Lab Pro is a scoop powder),
-    // then 'softgel' (Performance Lab Omega-3 NutriGels).
+    // then 'softgel' (Performance Lab Omega-3 NutriGels), then 'can'
+    // (Neutonic Productivity Drink, a ready-to-drink can).
     expect(formProblem('powder')).toBeNull();
     expect(formProblem('softgel')).toBeNull();
+    expect(formProblem('can')).toBeNull();
     expect(formProblem('gummy')).toMatch(/^form is not one of/);
     expect(formProblem('')).toMatch(/^form is not one of/);
     expect(formProblem(null)).toMatch(/^form is not one of/);
@@ -163,6 +172,8 @@ describe('product data — form', () => {
     ['us', 'trubrain-review', 'shot', 1],
     ['us', 'pre-lab-pro-review', 'powder', 1],
     ['us', 'performance-lab-omega-3-review', 'softgel', 3],
+    ['us', 'neutonic-productivity-drink-review', 'can', 1],
+    ['eu', 'neutonic-productivity-drink-review', 'can', 1],
   ] as const)('%s/%s is a %s product (%i per serving)', (region, slug, form, count) => {
     const record = CATALOGUES[region].find((p) => p.slug === slug);
     expect(record, `${region}/${slug} missing`).toBeDefined();

@@ -102,17 +102,18 @@ export function parseQuotedPrices(text: string): { prices: QuotedPrice[]; proble
   return { prices, problems };
 }
 
-type UnitKind = 'capsule' | 'softgel' | 'tablet' | 'sachet' | 'serving' | 'any';
+type UnitKind = 'capsule' | 'softgel' | 'tablet' | 'sachet' | 'can' | 'serving' | 'any';
 const UNIT_WORDS: ReadonlyArray<[RegExp, UnitKind]> = [
   [/^(?:capsules?|caps|kapseln?|cápsulas?|gélules?|vegicaps|nutricaps|カプセル)$/iu, 'capsule'],
   [/^(?:softgels?|nutrigels?)$/iu, 'softgel'],
   [/^(?:tablets?|tabs|tabletten|錠)$/iu, 'tablet'],
   [/^(?:sachets?|stick packs?|包)$/iu, 'sachet'],
+  [/^(?:cans?)$/iu, 'can'],
   [/^(?:servings?|portionen)$/iu, 'serving'],
   [/^(?:count|ct|粒)$/iu, 'any'],
 ];
 const UNIT_COUNT =
-  /(\d[\d,]*)\s*[-–]?\s*(capsules?|caps|kapseln?|cápsulas?|gélules?|vegicaps|nutricaps|softgels?|nutrigels?|tablets?|tabs|tabletten|sachets?|stick packs?|servings?|portionen|count|ct)\b|(\d[\d,]*)\s*(カプセル|錠|包|粒)/giu;
+  /(\d[\d,]*)\s*[-–]?\s*(capsules?|caps|kapseln?|cápsulas?|gélules?|vegicaps|nutricaps|softgels?|nutrigels?|tablets?|tabs|tabletten|sachets?|stick packs?|cans?|servings?|portionen|count|ct)\b|(\d[\d,]*)\s*(カプセル|錠|包|粒)/giu;
 const MONTHS = /(\d+)\s*[-–]?\s*(?:months?|monate?|mes(?:es)?|mois)\b|(\d+)\s*[ヶかカケ箇]月分/giu;
 const DAYS = /(\d+)\s*[-–]?\s*days?[\s-]+supply\b|(\d+)\s*日分/giu;
 /** Supplement-facts wording with the count after the label: "Servings per container: 30". */
