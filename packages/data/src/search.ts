@@ -63,11 +63,13 @@ export function buildSearchIndex(
       description: p.summary.slice(0, 100),
       meta: { score: p.score },
     })),
+    // The category word in the page's language (en keeps the lowercase record
+    // value: relatedCategory's en strings are those values).
     ...ingredients.map(i => ({
       title: i.name,
       href: `/ingredients/${i.slug}/`,
       type: 'ingredient' as const,
-      description: `${i.category} — ${i.clinicalDose}`,
+      description: `${strings?.ingredientDetail.relatedCategory[i.category] ?? i.category} — ${i.clinicalDose}`,
       meta: { grade: deriveIngredientGrade(i) },
     })),
     ...guides.map(g => ({

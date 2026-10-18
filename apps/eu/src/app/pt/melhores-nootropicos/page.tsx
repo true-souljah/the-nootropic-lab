@@ -83,7 +83,7 @@ export default function MelhoresNootropicosPT() {
         <h2 className="text-2xl font-bold text-gray-900 mb-4">
           Comparação de Nootrópicos — Europa {CURRENT_YEAR}
         </h2>
-        <ComparisonTable products={productsEU} market="eu" />
+        <ComparisonTable products={productsEU} market="eu" strings={uiStrings} />
       </div>
 
       <div className="mt-8 text-sm text-gray-500">

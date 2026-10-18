@@ -170,6 +170,11 @@ jobs:
       # header/nav/footer, every other Japanese run marked lang="ja" or on
       # the script's reviewed allowlist.
       - run: npm run check:jp-language
+      # Comparison-table language gate: on every localized page that renders
+      # ComparisonTable (CA /fr/, EU /de/ /fr/ /pt/, US /es/), its headers,
+      # sort controls, units, buttons and mobile labels are in the page's
+      # language — no English fallback from a call site without `strings`.
+      - run: npm run check:table-locale
       - run: npm run test:e2e -- --shard=${{ matrix.shard }}/3
       - uses: actions/upload-artifact@v7
         if: failure()
