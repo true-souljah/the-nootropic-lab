@@ -63,6 +63,12 @@ describe('QuizResults — a top match listed for none of the goals is not recomm
     expect(pageText(answers)).toContain(`${top.name} is the closest match, but it isn't listed for mood or sleep recovery.`);
   });
 
+  test('three goals (possible through the results URL): listed as "a, b or c"', () => {
+    const answers: QuizAnswers = { goals: ['Mood', 'Sleep recovery', 'Aging support'], caffeine: 'Moderate', budget: 60, mbg: 'Not important' };
+    const top = topOf(answers);
+    expect(pageText(answers)).toContain(`${top.name} is the closest match, but it isn't listed for mood, sleep recovery or aging support.`);
+  });
+
   test('a top match listed for the goal keeps the recommendation', () => {
     const answers: QuizAnswers = { goals: ['Focus'], caffeine: 'Very sensitive', budget: 70, mbg: 'Somewhat important' };
     const top = topOf(answers);

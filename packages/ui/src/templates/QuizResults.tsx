@@ -58,7 +58,7 @@ export default function QuizResults({
   // A top match listed for none of the goals is only the closest fit for the
   // other answers: say so instead of recommending it for the goal.
   const { topListed, listed } = goalListing(products, top, answers.goals);
-  const goalTextOr = answers.goals.map((g) => g.toLowerCase()).join(' or ');
+  const goalTextOr = joinWords(answers.goals.map((g) => g.toLowerCase()), 'or');
   const otherAnswers = `${answers.caffeine.toLowerCase()} to caffeine, $${answers.budget}/month budget`;
 
   return (
@@ -95,7 +95,7 @@ export default function QuizResults({
             <p className="text-[16px] text-ds-ink-soft m-0 mb-8 leading-[1.6]">
               {listed.length === 0
                 ? `None of the ${products.length} products we review is listed for ${goalTextOr} yet. ${top.name} is the closest fit for your other answers — ${otherAnswers}.`
-                : `${joinNames(listed.map((p) => p.name))} ${listed.length === 1 ? 'is' : 'are'} listed for ${goalTextOr} but rank${listed.length === 1 ? 's' : ''} below ${top.name} on your answers as a whole — ${otherAnswers}.`}{' '}
+                : `${joinWords(listed.map((p) => p.name), 'and')} ${listed.length === 1 ? 'is' : 'are'} listed for ${goalTextOr} but rank${listed.length === 1 ? 's' : ''} below ${top.name} on your answers as a whole — ${otherAnswers}.`}{' '}
               {top.summary}
             </p>
           </>
@@ -240,9 +240,9 @@ export default function QuizResults({
   );
 }
 
-/** "A", "A and B", "A, B and C". */
-function joinNames(names: string[]): string {
-  return names.length <= 1 ? names.join('') : `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}`;
+/** "A", "A and B", "A, B and C" (or "or"). The results URL can carry more than two goals. */
+function joinWords(words: string[], conj: 'and' | 'or'): string {
+  return words.length <= 1 ? words.join('') : `${words.slice(0, -1).join(', ')} ${conj} ${words[words.length - 1]}`;
 }
 
 function FitRow({
