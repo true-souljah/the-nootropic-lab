@@ -10,9 +10,11 @@ export interface PillarsTabProps {
   product: Product;
   /** Locale product-detail bundle: pillar names, rationales and card labels. */
   strings: UIStrings['productDetail'];
+  /** The page locale's `uiStrings.typography.space` between sentences ('' in ja). */
+  space?: string;
 }
 
-export function PillarsTab({ product: p, strings }: PillarsTabProps) {
+export function PillarsTab({ product: p, strings, space = ' ' }: PillarsTabProps) {
   const t = strings.pillars;
   return (
     <div className="grid gap-4 items-start grid-cols-1 lg:grid-cols-[1.4fr_1fr]">
@@ -35,7 +37,7 @@ export function PillarsTab({ product: p, strings }: PillarsTabProps) {
               />
               <p className="text-[13.5px] text-ds-ink-soft mt-3 m-0 leading-[1.6]">{t.rationale[k]}</p>
               {v === null && p.unscoredReason && (
-                <p className="text-[13px] text-ds-muted mt-2 m-0 leading-[1.6]">{`${t.notScored} ${p.unscoredReason}`}</p>
+                <p className="text-[13px] text-ds-muted mt-2 m-0 leading-[1.6]">{`${t.notScored}${space}${p.unscoredReason}`}</p>
               )}
             </Card>
           );

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
+import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter, tpl } from '@nootropic/ui';
 import { guidesForRegion, guideHosts, buildPersonAuthorReference, productsJP, regionalGuideNote, regionalTitleQualifier } from '@nootropic/data';
 
 import { PublicShell, RegionalAvailability, GuideEvidenceReviewed, GuideSources, GuideBody } from "@nootropic/ui";
@@ -68,19 +68,19 @@ export default async function GuidePage({
       <SchemaOrg schema={schema} />
       <SchemaOrg schema={breadcrumbSchema} />
       <article className="max-w-3xl mx-auto px-4 py-10">
-        <nav className="text-xs text-gray-500 mb-6">
-          <a href="/" className="hover:text-green-700">Home</a>
+        <nav className="text-xs text-gray-500 mb-6" aria-label={uiStrings.breadcrumb.ariaLabel}>
+          <a href="/" className="hover:text-green-700">{uiStrings.breadcrumb.home}</a>
           {' / '}
-          <a href="/guides/" className="hover:text-green-700">Guides</a>
+          <a href="/guides/" className="hover:text-green-700">{uiStrings.nav.guides}</a>
           {' / '}
           <span>{g.title}</span>
         </nav>
 
         <div className="mb-2 flex items-center gap-3">
-          <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full capitalize">
-            {g.category}
+          <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">
+            {uiStrings.guide.categories[g.category]}
           </span>
-          <span className="text-xs text-ds-muted">{g.readingTimeMin} min read</span>
+          <span className="text-xs text-ds-muted">{tpl(uiStrings.guide.minRead, { minutes: g.readingTimeMin })}</span>
           <GuideEvidenceReviewed date={g.evidenceReviewedAt} uiStrings={uiStrings} />
         </div>
 
@@ -95,7 +95,7 @@ export default async function GuidePage({
 
         <div className="mt-10 text-sm text-gray-500">
           <a href="/guides/" className="text-green-700 underline">
-            ← Back to Guides
+            {uiStrings.guide.backToGuides}
           </a>
         </div>
       </article>

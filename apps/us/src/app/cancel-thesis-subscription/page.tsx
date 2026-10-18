@@ -82,7 +82,7 @@ const faqItems: CancellationFAQ[] = [
   },
   {
     q: 'Are there alternatives to Thesis?',
-    a: 'Mind Lab Pro is a single universal formula at $69/month with no autoship — manual reorder only, no per-formula proliferation. Read our Mind Lab Pro vs Thesis head-to-head for the universal-vs-personalised comparison.',
+    a: 'Mind Lab Pro is a single universal formula with no per-formula proliferation: $69.00 a bottle as a one-time purchase, or on a subscription its site says you can "update or cancel anytime" (mindlabpro.com, checked 13 October 2026). Read our Mind Lab Pro vs Thesis head-to-head for the universal-vs-personalised comparison.',
   },
 ];
 

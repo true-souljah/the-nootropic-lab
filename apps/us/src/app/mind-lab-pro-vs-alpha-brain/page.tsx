@@ -39,7 +39,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'How long until each takes effect?',
     a:
-      'Both contain ingredients with mixed onset profiles. L-theanine (in both) acts within 30–60 minutes. Bacopa Monnieri (in both) needs 4–12 weeks of consistent use for measurable cognitive effects. Plan for at least 8 weeks before judging long-term efficacy.',
+      'Both contain ingredients with mixed onset profiles. L-theanine (in both) acts within 30–60 minutes. Bacopa Monnieri (in both) needs 8–12 weeks of consistent use; most positive trials ran 12 weeks. Plan for at least 8 weeks before judging long-term efficacy.',
   },
   {
     q: 'Do they offer money-back guarantees?',
@@ -60,14 +60,15 @@ const faqItems: HeadToHeadFAQ[] = [
 
 const whoIsForA = [
   "Want to know exactly what you're taking — every dose disclosed",
-  'Care about peer-reviewed efficacy data (multiple Leeds RCTs)',
-  'Prefer caffeine-free with no autoship pressure',
+  'Want a formula tested in two placebo-controlled University of Leeds studies (the 60-day one found no improvement in choice accuracy or reaction time)',
+  'Prefer caffeine-free',
   'Are willing to pay $69/mo for formula transparency',
 ];
 
 const whoIsForB = [
   'Want a brand you can buy at Whole Foods, Amazon, CVS, Vitamin Shoppe',
   'Prefer the lower price point with autoship discount',
+  'Want a formula tested in a randomised, double-blind, placebo-controlled trial (Solomon 2016: 63 adults aged 18–35, 6 weeks; improved delayed verbal recall and executive functioning; one author from Onnit Labs)',
   "Don't mind proprietary blends",
   "Are comfortable navigating Onnit's documented cancellation friction",
 ];

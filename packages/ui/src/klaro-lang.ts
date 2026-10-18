@@ -55,13 +55,23 @@ export interface LangDetectionDOM {
 }
 
 /**
+ * The nested-locale wrapper a subtree layout renders (`<div lang="fr-CA">`).
+ * scripts/check-built-disclosure.ts reads the page language from the same
+ * element (`<div lang="…">`, else `<html lang>`).
+ */
+export const LOCALE_WRAPPER_SELECTOR = 'div[lang]';
+
+/**
  * Detect the active page locale from the supplied DOM. Strategy:
  *
- *   1. If there's a non-`<html>` element with a `lang` attribute, use
- *      that. Nested-locale paths (CA `/fr/*`, EU `/de/*`, etc.) wrap
- *      their content in `<div lang="X">` via a nested Next.js layout;
- *      that's a stronger signal than the static `<html lang>` set by
- *      the root layout.
+ *   1. If there's a `<div lang>` locale wrapper, use that. Nested-locale
+ *      paths (CA `/fr/*`, EU `/de/*`, etc.) wrap their content in
+ *      `<div lang="X">` via a nested Next.js layout; that's a stronger
+ *      signal than the static `<html lang>` set by the root layout.
+ *      Inline language-of-parts markup (`<span lang="ja">` / `<p lang="ja">`
+ *      on a Japanese notice inside an English JP page, vendor pack text)
+ *      is not a page locale and is ignored — it would otherwise switch the
+ *      consent banner to that language when it precedes the banner.
  *   2. Otherwise fall back to `documentElement.lang`.
  *   3. Otherwise `'en'`.
  *
@@ -71,8 +81,8 @@ export interface LangDetectionDOM {
 export function detectActiveLang(dom: LangDetectionDOM): string {
   // querySelector returns the FIRST matching element in document order.
   // Nested layouts render BEFORE CookieBanner in body order, so the
-  // first `[lang]:not(html)` is the page-content wrapper if one exists.
-  const inner = dom.querySelector('[lang]:not(html)');
+  // first `div[lang]` is the page-content wrapper if one exists.
+  const inner = dom.querySelector(LOCALE_WRAPPER_SELECTOR);
   const innerLang = inner?.getAttribute('lang');
   if (innerLang) return innerLang;
   return dom.documentElement.lang || 'en';

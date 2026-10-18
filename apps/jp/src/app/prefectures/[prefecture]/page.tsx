@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter, scoreTier, SCORE_TIER_TEXT_CLASS } from '@nootropic/ui';
+import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter, scoreTier, SCORE_TIER_TEXT_CLASS, tpl } from '@nootropic/ui';
 import { productsJP, jpPrefectures, buildPersonAuthorReference } from '@nootropic/data';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -58,8 +58,8 @@ export default async function PrefecturePage({
     <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
       <SchemaOrg schema={schema} />
       <article className="max-w-3xl mx-auto px-4 py-10">
-        <nav className="text-xs text-gray-500 mb-6">
-          <a href="/" className="hover:text-green-700">Home</a>
+        <nav className="text-xs text-gray-500 mb-6" aria-label={uiStrings.breadcrumb.ariaLabel}>
+          <a href="/" className="hover:text-green-700">{uiStrings.breadcrumb.home}</a>
           {' / '}
           <a href="/best-nootropics/" className="hover:text-green-700">Best Nootropics Japan</a>
           {' / '}
@@ -67,7 +67,7 @@ export default async function PrefecturePage({
         </nav>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-          Best Nootropics in {p.name} {CURRENT_YEAR}
+          {tpl(uiStrings.geo.bestIn, { place: p.name, year: CURRENT_YEAR })}
         </h1>
         <p className="text-sm text-ds-muted mb-6">{p.nameJa}</p>
 
@@ -86,7 +86,7 @@ export default async function PrefecturePage({
 
         <section className="mb-8">
           <h2 className="text-xl font-bold text-gray-900 mb-4">
-            Top Picks for {p.name} Buyers
+            {tpl(uiStrings.geo.topPicksFor, { place: p.name })}
           </h2>
           <div className="space-y-4">
             {topProducts.map((product, i) => (
@@ -101,13 +101,13 @@ export default async function PrefecturePage({
                     <h3 className="font-bold text-gray-900">{product.name}</h3>
                     {product.caffeineFree && (
                       <span className="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full">
-                        Caffeine-free
+                        {uiStrings.productDetail.chips.caffeineFree}
                       </span>
                     )}
                   </div>
                   <p className="text-sm text-gray-600 mb-2 line-clamp-2">{product.summary}</p>
                   <div className="flex flex-wrap gap-3 text-xs text-gray-500">
-                    <span>Score: <strong className={SCORE_TIER_TEXT_CLASS[scoreTier(product.score)]}>{`${product.score}/10`}</strong></span>
+                    <span>{uiStrings.geo.score}{uiStrings.typography.space}<strong className={SCORE_TIER_TEXT_CLASS[scoreTier(product.score)]}>{`${product.score}/10`}</strong></span>
                     {priceText(product, uiStrings) && <span>{priceText(product, uiStrings)!.short}</span>}
                   </div>
                 </div>

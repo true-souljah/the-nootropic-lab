@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest';
-import { getStrings, getLocaleForMarket, DOSING_ANCHORS, NO_REFERENCE_DOSE, PILLAR_WEIGHTS } from '@nootropic/data';
+import { getStrings, getLocaleForMarket, DOSING_ANCHORS, NO_REFERENCE_DOSE, PILLAR_WEIGHTS, REGION_PROFILES } from '@nootropic/data';
 import type { Locale, UIStrings } from '@nootropic/data';
 
 // Tests for the i18n helpers in packages/data/src/i18n.ts. The audit
@@ -90,6 +90,22 @@ describe('getStrings', () => {
     }
   });
 
+  test('every locale translates the per-serving / per-day price strings (2026-10-12)', () => {
+    // price-text.ts renders `≈ ${price}/${unit}`; the labels head the comparator column and rows.
+    const keys = ['perServingUnit', 'perDayUnit', 'perServingLabel', 'perDayLabel'] as const;
+    const en = getStrings('en').productDetail.stats;
+    for (const locale of ALL_LOCALES) {
+      const stats = getStrings(locale).productDetail.stats;
+      for (const key of keys) {
+        expect(stats[key]?.trim(), `${locale} stats.${key} is empty`).toBeTruthy();
+        if (locale !== 'en') expect(stats[key], `${locale} stats.${key} is the English copy`).not.toBe(en[key]);
+        expect(stats[key], `${locale} stats.${key} carries a placeholder`).not.toMatch(/\{\w+\}/);
+      }
+      // A unit is printed after the slash: it must carry none of its own (a "/"-led string in the RSC payload is crawled as a URL).
+      for (const key of ['perServingUnit', 'perDayUnit'] as const) expect(stats[key], `${locale} stats.${key}`).not.toContain('/');
+    }
+  });
+
   describe('Pillars- and Dosing-tab strings (2026-10-12)', () => {
     // PillarsTab.tsx and DosingTab.tsx render only these strings around the
     // record's own data; an English copy in a locale block ships English on
@@ -100,6 +116,8 @@ describe('getStrings', () => {
     const PLACEHOLDERS: Record<string, string[]> = {
       'dosing.adequateCount': ['{adequate}', '{total}'],
       'pillars.pillarScoreAria': ['{product}', '{pillar}'],
+      // Compact pillar bars (listicle, best-of, comparator), added 2026-10-12.
+      'pillars.shortScoreAria': ['{name}', '{pillar}'],
     };
 
     /** Every leaf string under `value`, keyed by its dotted path. */
@@ -178,6 +196,138 @@ describe('getStrings', () => {
     });
   });
 
+  describe('Rest of the review-page chrome (2026-10-12): Overview, Reviews, "Buying in", app shell', () => {
+    // OverviewTab, ReviewsTab, RegionalBuying, the review breadcrumb and the
+    // AppShell chrome (top bar, sidebar rail, search palette) render only
+    // these strings around the record's own data; an English copy in a
+    // locale block ships English on the ja (JP) and es (LATAM) review pages.
+    const PLACEHOLDERS: Record<string, string[]> = {
+      'search.palette.noResults': ['{query}'],
+      'search.palette.indexed': ['{n}'],
+      'search.palette.scoreAria': ['{score}'],
+      'search.palette.gradeAria': ['{grade}'],
+      'productDetail.overview.verdict.good': ['{product}'],
+      'productDetail.overview.verdict.warn': ['{product}'],
+      'productDetail.overview.verdict.bad': ['{product}'],
+      'productDetail.reviews.noProfileBody': ['{brand}'],
+      'productDetail.reviews.starsAria': ['{score}'],
+      'productDetail.reviews.countOnTrustpilot': ['{count}'],
+      'productDetail.reviews.verifiedCount': ['{count}'],
+      'productDetail.reviews.readAll': ['{count}'],
+      'productDetail.regionalBuying.licence.npnNumber': ['{npn}'],
+      'productDetail.regionalBuying.licence.noNpnChecked': ['{date}'],
+      'productDetail.regionalBuying.licence.austl': ['{austl}'],
+      'productDetail.regionalBuying.licence.ffcNumber': ['{number}'],
+      'productDetail.regionalBuying.licence.noFfcChecked': ['{date}'],
+      'productDetail.regionalBuying.licence.noHalalChecked': ['{date}'],
+    };
+    /**
+     * Do-not-translate: identical in a locale because they are regulator
+     * acronyms, licence numbers or brand names (TGA, AUST L, NPN, ANVISA /
+     * COFEPRIS / INVIMA, Health Canada) or the same word in that language
+     * (fr "Guides", fr "Verdict", de "Status"). Every other string must differ
+     * from en, and every ja string must contain Japanese script.
+     */
+    const DO_NOT_TRANSLATE: Record<string, Locale[]> = {
+      'productDetail.regionalBuying.regulator.au': ['es', 'fr', 'ja', 'pt', 'de', 'fr-CA'],
+      'productDetail.regionalBuying.regulator.latam': ['es', 'fr', 'ja', 'pt', 'de', 'fr-CA'],
+      'productDetail.regionalBuying.regulator.ca': ['es', 'pt', 'de'],
+      'productDetail.regionalBuying.licence.npnNumber': ['es', 'fr', 'ja', 'pt', 'de', 'fr-CA'],
+      'productDetail.regionalBuying.licence.austl': ['es', 'fr', 'ja', 'pt', 'de', 'fr-CA'],
+      'search.palette.categories.guides': ['fr', 'fr-CA'],
+      'productDetail.overview.verdictEyebrow': ['fr', 'fr-CA'],
+      'productDetail.regionalBuying.status': ['de'],
+    };
+    const REGIONS = Object.keys(REGION_PROFILES).sort();
+
+    function leaves(value: unknown, path: string): Array<[string, string]> {
+      if (typeof value === 'string') return [[path, value]];
+      return Object.entries(value as Record<string, unknown>).flatMap(([k, v]) => leaves(v, `${path}.${k}`));
+    }
+    function restLeaves(locale: Locale): Map<string, string> {
+      const s = getStrings(locale);
+      return new Map([
+        ['nav.buildMyStack', s.nav.buildMyStack],
+        ['nav.drawerLabel', s.nav.drawerLabel],
+        ...leaves(s.nav.sidebar, 'nav.sidebar'),
+        ...leaves(s.search.palette, 'search.palette'),
+        ['productDetail.breadcrumbBestOf', s.productDetail.breadcrumbBestOf],
+        ...leaves(s.productDetail.overview, 'productDetail.overview'),
+        ...leaves(s.productDetail.reviews, 'productDetail.reviews'),
+        ...leaves(s.productDetail.regionalBuying, 'productDetail.regionalBuying'),
+      ]);
+    }
+    const enLeaves = restLeaves('en');
+    const exempt = (path: string, locale: Locale) => DO_NOT_TRANSLATE[path]?.includes(locale) ?? false;
+
+    test('the scan is non-empty: 8 regions, every new key in en', () => {
+      expect(REGIONS).toHaveLength(8);
+      // 2 nav + 13 sidebar + 18 palette + 1 breadcrumb + 10 overview + 8 reviews + 3×8 regional maps + 5 labels + 14 licence lines
+      expect(enLeaves.size).toBe(2 + 13 + 18 + 1 + 10 + 8 + 24 + 5 + 14);
+    });
+
+    test.each(ALL_LOCALES)('%s has every key, non-empty, and one heading/regulator/geo-hub string per region', (locale) => {
+      const own = restLeaves(locale);
+      expect([...own.keys()].sort()).toEqual([...enLeaves.keys()].sort());
+      for (const [path, text] of own) expect(text.trim(), `${locale} ${path} is empty`).not.toBe('');
+      const rb = getStrings(locale).productDetail.regionalBuying;
+      for (const map of [rb.heading, rb.regulator, rb.geoHub]) expect(Object.keys(map).sort()).toEqual(REGIONS);
+    });
+
+    test.each(ALL_LOCALES)('%s keeps the placeholders and adds none', (locale) => {
+      for (const [path, text] of restLeaves(locale)) {
+        const allowed = PLACEHOLDERS[path] ?? [];
+        for (const token of allowed) expect(text, `${locale} ${path} keeps ${token}`).toContain(token);
+        for (const token of text.match(/\{\w+\}/g) ?? []) {
+          expect(allowed, `${locale} ${path}: unknown placeholder ${token}`).toContain(token);
+        }
+      }
+    });
+
+    test('ja strings are in Japanese script (do-not-translate acronyms excepted)', () => {
+      for (const [path, text] of restLeaves('ja')) {
+        if (exempt(path, 'ja')) continue;
+        expect(text, `ja ${path}`).toMatch(/[぀-ヿ一-鿿]/);
+      }
+    });
+
+    test.each(['es', 'fr', 'pt', 'de', 'fr-CA'] as Locale[])('%s strings differ from en (do-not-translate list excepted)', (locale) => {
+      for (const [path, text] of restLeaves(locale)) {
+        if (exempt(path, locale)) continue;
+        expect(text, `${locale} ${path} is the English copy`).not.toBe(enLeaves.get(path));
+      }
+    });
+
+    test('every do-not-translate entry is really identical to en (the list stays honest)', () => {
+      for (const [path, locales] of Object.entries(DO_NOT_TRANSLATE)) {
+        for (const locale of locales) expect(restLeaves(locale).get(path), `${locale} ${path}`).toBe(enLeaves.get(path));
+      }
+    });
+
+    test('en is the text the pages showed before: REGION_PROFILES heading, regulator, geo-hub label and block labels', () => {
+      const rb = getStrings('en').productDetail.regionalBuying;
+      const es = getStrings('es').productDetail.regionalBuying;
+      for (const code of REGIONS as Array<keyof typeof REGION_PROFILES>) {
+        const profile = REGION_PROFILES[code];
+        expect(rb.regulator[code], code).toBe(profile.regulator);
+        // LATAM's profile labels are Spanish: its block rendered "Comprar" and the
+        // Spanish hub label, which the es bundle now carries. JP's labels are
+        // English again since 2026-10-13 (Japanese copy paused pending legal
+        // advice), like every other English host.
+        const own = code === 'latam' ? es : rb;
+        expect(own.heading[code], code).toBe(profile.labels.heading.replace('{name}', code === 'latam' ? 'Comprar' : 'Buying'));
+        expect(own.geoHub[code], code).toBe(profile.geoHub.label);
+        expect(own.price, code).toBe(profile.labels.price);
+        expect(own.status, code).toBe(profile.labels.licence);
+        expect(own.monthUnit, code).toBe(profile.labels.monthUnit);
+      }
+      expect(rb.whereToBuy).toBe('Where to buy');
+      expect(rb.importPathway).toBe('Import pathway');
+      expect(es.whereToBuy).toBe('Dónde comprar');
+      expect(es.importPathway).toBe('Vía de importación');
+    });
+  });
+
   test('every locale carries a BCP-47 dateLocale code', () => {
     const expected: Record<Locale, string> = {
       en: 'en-US',
@@ -228,8 +378,8 @@ describe('getLocaleForMarket', () => {
     expect(getLocaleForMarket('latam')).toBe('es');
   });
 
-  test('jp → ja (Japanese)', () => {
-    expect(getLocaleForMarket('jp')).toBe('ja');
+  test('jp → en (Japanese copy paused pending legal advice, owner decision 2026-10-13)', () => {
+    expect(getLocaleForMarket('jp')).toBe('en');
   });
 
   test('us / eu / ca / au / gcc / sea → en (English default)', () => {

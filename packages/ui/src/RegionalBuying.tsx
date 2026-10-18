@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import type { RegionalBuying as RegionalBuyingData } from '@nootropic/data';
+import type { RegionalBuying as RegionalBuyingData, UIStrings } from '@nootropic/data';
+import { licenceStatusText } from '@nootropic/data';
 import { Card } from './primitives/Card';
 import { localPriceShort } from './price-text';
 import type { RegionalGeoLink } from './RegionalAvailability';
@@ -9,10 +10,15 @@ import type { RegionalGeoLink } from './RegionalAvailability';
  * Derived from the region's own product record (local price, licence status,
  * distribution channels, import pathway, regulatory note, per-region notes)
  * plus the region's local buyer's guides. Nothing here is authored per page.
+ * The labels come from the page locale (`strings.regionalBuying`); the
+ * record's own text (channels, import pathway, notes) is data and stays as
+ * recorded.
  */
 export interface RegionalBuyingProps {
   data: RegionalBuyingData;
   geoLinks: RegionalGeoLink[];
+  /** Locale product-detail bundle: block heading, labels, regulator, status lines. */
+  strings: UIStrings['productDetail'];
   id?: string;
 }
 
@@ -22,42 +28,42 @@ const TONE: Record<'good' | 'neutral' | 'warn', string> = {
   warn: 'bg-ds-warn-soft text-ds-warn',
 };
 
-export default function RegionalBuying({ data, geoLinks, id = 'regional-buying' }: RegionalBuyingProps) {
-  const L = data.region.labels;
-  const es = L.genericSubject === 'Nootrópicos';
-  const heading = es ? 'Dónde comprar' : 'Where to buy';
-  const title = L.heading.replace('{name}', es ? 'Comprar' : 'Buying');
+export default function RegionalBuying({ data, geoLinks, strings, id = 'regional-buying' }: RegionalBuyingProps) {
+  const t = strings.regionalBuying;
+  const region = data.region.code;
   return (
     <section id={id} className="mt-10" aria-labelledby={`${id}-heading`}>
-      <h2 id={`${id}-heading`} className="text-[18px] font-bold text-ds-ink mb-3">{title}</h2>
+      <h2 id={`${id}-heading`} className="text-[18px] font-bold text-ds-ink mb-3">{t.heading[region]}</h2>
       <Card variant="subdued" padding={20}>
         <dl className="grid sm:grid-cols-2 gap-x-6 gap-y-3 m-0">
           {data.price && (
             <div>
-              <dt className="text-[11px] uppercase tracking-[0.12em] font-semibold text-ds-muted">{L.price}</dt>
+              <dt className="text-[11px] uppercase tracking-[0.12em] font-semibold text-ds-muted">{t.price}</dt>
               <dd className="m-0 text-[15px] font-bold text-ds-ink ds-tabular">
-                {localPriceShort(data.price, L.monthUnit)}
+                {localPriceShort(data.price, t.monthUnit)}
               </dd>
             </div>
           )}
           {data.status && (
             <div>
-              <dt className="text-[11px] uppercase tracking-[0.12em] font-semibold text-ds-muted">{L.licence}</dt>
+              <dt className="text-[11px] uppercase tracking-[0.12em] font-semibold text-ds-muted">{t.status}</dt>
               <dd className="m-0 mt-1">
-                <span className={`inline-block text-[12px] px-2 py-[2px] rounded-full font-semibold ${TONE[data.status.tone]}`}>{data.status.label}</span>
-                <span className="text-[12px] text-ds-muted ml-2">{data.region.regulator}</span>
+                <span className={`inline-block text-[12px] px-2 py-[2px] rounded-full font-semibold ${TONE[data.status.tone]}`}>
+                  {licenceStatusText(data.status, t.licence)}
+                </span>
+                <span className="text-[12px] text-ds-muted ml-2">{t.regulator[region]}</span>
               </dd>
             </div>
           )}
           {data.channels.length > 0 && (
             <div className="sm:col-span-2">
-              <dt className="text-[11px] uppercase tracking-[0.12em] font-semibold text-ds-muted">{heading}</dt>
+              <dt className="text-[11px] uppercase tracking-[0.12em] font-semibold text-ds-muted">{t.whereToBuy}</dt>
               <dd className="m-0 text-[14px] text-ds-ink">{data.channels.join(' · ')}</dd>
             </div>
           )}
           {data.importPathway && (
             <div className="sm:col-span-2">
-              <dt className="text-[11px] uppercase tracking-[0.12em] font-semibold text-ds-muted">{es ? 'Vía de importación' : 'Import pathway'}</dt>
+              <dt className="text-[11px] uppercase tracking-[0.12em] font-semibold text-ds-muted">{t.importPathway}</dt>
               <dd className="m-0 text-[14px] text-ds-ink">{data.importPathway}</dd>
             </div>
           )}
@@ -76,7 +82,7 @@ export default function RegionalBuying({ data, geoLinks, id = 'regional-buying' 
               </li>
             ))}
             <li>
-              <Link href={data.region.geoHub.path} className="inline-block text-[13px] px-3 py-1 rounded-full bg-ds-accent-soft text-ds-accent font-semibold">{data.region.geoHub.label} →</Link>
+              <Link href={data.region.geoHub.path} className="inline-block text-[13px] px-3 py-1 rounded-full bg-ds-accent-soft text-ds-accent font-semibold">{`${t.geoHub[region]} →`}</Link>
             </li>
           </ul>
         )}

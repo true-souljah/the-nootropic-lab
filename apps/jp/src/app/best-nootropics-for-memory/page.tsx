@@ -27,28 +27,28 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Bacopa Monnieri',
     ingredientSlugs: ['bacopa-monnieri'],
     evidence:
-      'The most-replicated memory ingredient in nootropics. Multiple double-blind RCTs in adults show improved memory consolidation and recall after 8–12 weeks at 300mg standardized to 50% bacosides. Onset is slow — daily for 8+ weeks. In Japan, bacopa saponins (バコパサポニン) are one of the two notified functional ingredients in FANCL BRAINs (Foods with Function Claims notification G425, 15 mg per 4 tablets; Consumer Affairs Agency database, checked 2026-10-06).',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
+      'In a systematic review of six randomized trials (Pase 2012, PubMed 22747190), all lasting 12 weeks at 300–450mg extract a day, Bacopa improved 9 of 17 tests of memory free recall. Onset is slow — daily for 8+ weeks. In Japan, bacopa saponins (バコパサポニン) are one of the two notified functional ingredients in FANCL BRAINs (Foods with Function Claims notification G425, 15 mg per 4 tablets; Consumer Affairs Agency database, checked 2026-10-06).',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22747190/',
   },
   {
     name: 'Lion\'s Mane (Hericium erinaceus / ヤマブシタケ)',
     ingredientSlugs: ['lions-mane'],
     evidence:
-      'Modulates Nerve Growth Factor (NGF) and may support neurogenesis. Mori et al. 2009 — a small RCT in older Japanese adults with mild cognitive impairment — showed memory improvements at 1g/day fruiting-body extract over 16 weeks. The Lion\'s Mane evidence base is uniquely Japanese in origin. Look for fruiting-body extract, not mycelium-on-grain.',
+      'Modulates Nerve Growth Factor (NGF) and may support neurogenesis. Mori et al. 2009 — a small RCT in Japanese adults aged 50–80 with mild cognitive impairment — showed higher cognitive function scores than placebo at 3g/day over 16 weeks. The Lion\'s Mane evidence base is uniquely Japanese in origin. Look for fruiting-body extract, not mycelium-on-grain.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18844328/',
   },
   {
     name: 'DHA (Docosahexaenoic Acid) — FFC-notified in Japan',
     ingredientSlugs: ['dha-omega-3'],
     evidence:
-      'DHA is the most-notified functional ingredient under Japan\'s FFC system, with claims around memory support in middle-aged and older adults. The brain is approximately 60% fat by dry weight and DHA is its primary structural omega-3. The positive memory trials we reviewed used 900mg–1.2g DHA/day for 24 weeks or longer (see our DHA ingredient page). Suntory and FANCL are the dominant Japanese DHA brands.',
+      'By our count of the Consumer Affairs Agency\'s FFC database (export of 2026-10-06), DHA is listed as a functional ingredient in 105 of the 563 active Foods with Function Claims (FFC) notifications whose claim mentions memory or cognitive function. The brain is approximately 60% fat by dry weight and DHA is its primary structural omega-3. The positive memory trials we reviewed used 900mg–1.2g DHA/day for 24 weeks or longer (see our DHA ingredient page). Of the domestic picks on this page, Suntory DHA & EPA + Sesamin EX is the DHA product; FANCL BRAINs is not — its notified functional ingredients are bacopa saponins and matured hop bitter acids (notification G425).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20434961/',
   },
   {
     name: 'Phosphatidylserine (PS)',
     ingredientSlugs: ['phosphatidylserine'],
     evidence:
-      'Phospholipid component of brain cell membranes. The FDA permits a qualified health claim for PS supporting cognitive function in elderly adults. Most RCT evidence is in 50–80-year-olds at 100–300mg/day. The trial linked below (Vakhapova et al. 2010) is not the basis of the FDA claim: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo. Used in Mind Lab Pro (100mg Sharp-PS).',
+      'Phospholipid component of brain cell membranes. The FDA allows phosphatidylserine only qualified claims that it \'may reduce the risk of dementia\' or \'cognitive dysfunction in the elderly\', each followed by \'FDA concludes that there is little scientific evidence supporting this claim\' (FDA letter, 13 May 2003). RCTs in older adults at 100–300mg a day report memory benefits, though often only in subgroups (see our phosphatidylserine page). The trial linked below (Vakhapova et al. 2010) is not the basis of the FDA claim: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo. Used in Mind Lab Pro (100mg Sharp-PS).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
 ];
@@ -70,22 +70,22 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'suntory-dha-epa-sesamin-review')!,
     rank: 3,
     whyItsHere:
-      'An omega-3 brain supplement whose maker\'s product page calls it 「DHAサプリメント市場18年連続売上No.1」 (No. 1 in DHA-supplement sales for 18 years running; suntory-kenko.com, checked 2026-10-09); no Foods with Function Claims (FFC, 機能性表示食品) notification found in the Consumer Affairs Agency (CAA) database (export scanned 2026-10-06). 300mg DHA + 100mg EPA + 10mg sesamin per 4 capsules from Suntory Wellness — backed by a household-name conglomerate familiar to every Japanese consumer. Its 300mg DHA is below the 900mg low end of our DHA reference dose.',
+      'An omega-3 brain supplement with no Foods with Function Claims (FFC, 機能性表示食品) notification found in the Consumer Affairs Agency (CAA) database (export scanned 2026-10-06). 300mg DHA + 100mg EPA + 10mg sesamin per 4 capsules from Suntory Wellness — backed by a household-name conglomerate. Its 300mg DHA is below the 900mg low end of our DHA reference dose.',
   },
 ];
 
 const faqItems: ListicleFAQ[] = [
   {
     q: 'What is the difference between FFC-notified domestic brands and imported stacks?',
-    a: 'Japan\'s Food with Function Claims system (機能性表示食品) requires manufacturers to notify the Consumer Affairs Agency (消費者庁) of the cognitive claim and supporting evidence — a regulatory framework that domestic brands like FANCL BRAINs and Suntory DHA & EPA + Sesamin EX operate under. Imported stacks such as Mind Lab Pro ship under Ministry of Health, Labour and Welfare (MHLW) personal-import rules and carry no Japanese cognitive claim. Both routes are legal; FFC products are easier to buy in pharmacy chains and have Japanese-language labels.',
+    a: 'Japan\'s Food with Function Claims system (機能性表示食品) requires manufacturers to notify the Consumer Affairs Agency (消費者庁) of the cognitive claim and supporting evidence. FANCL BRAINs is notified under it (G425). Suntory DHA & EPA + Sesamin EX is not: our check of the CAA database found no row for ＤＨＡ＆ＥＰＡ＋セサミンＥＸ, and no product name combining DHA/EPA with セサミン (full export of 11,520 notifications scanned 2026-10-06). Imported stacks such as Mind Lab Pro ship under Ministry of Health, Labour and Welfare (MHLW) personal-import rules and carry no Japanese cognitive claim. Both routes are legal; FFC products are easier to buy in pharmacy chains and have Japanese-language labels.',
   },
   {
-    q: 'What is the most evidence-backed nootropic for memory?',
-    a: 'Bacopa Monnieri at 300mg standardized to 50% bacosides has the most replicated RCT evidence for memory consolidation in healthy adults. On this page it comes in an imported stack (Mind Lab Pro, 150mg Bacopa) and in FANCL BRAINs, a domestic FFC product whose notified ingredient is bacopa saponins (15mg per daily intake, notification G425). For Japan-domestic options, DHA is the most-notified FFC ingredient with strong evidence in middle-aged and older adults; Phosphatidylserine has the FDA qualified health claim for cognitive function in elderly.',
+    q: 'Which nootropic ingredients have trial evidence for memory?',
+    a: 'Bacopa Monnieri: in a systematic review of six 12-week randomized trials at 300–450mg extract a day (Pase 2012, PubMed 22747190), it improved 9 of 17 tests of memory free recall, and the authors call the research \'in its infancy\'. On this page it comes in an imported stack (Mind Lab Pro, 150mg Bacopa) and in FANCL BRAINs, a domestic FFC product whose notified ingredient is bacopa saponins (15mg per daily intake, notification G425). For Japan-domestic options, by our count of the Consumer Affairs Agency\'s FFC database (export of 2026-10-06), DHA is listed as a functional ingredient in 105 of the 563 active Foods with Function Claims (FFC) notifications whose claim mentions memory or cognitive function; our DHA page rates the evidence for age-related memory decline as moderate (Yurko-Mauro 2010: 900mg a day for 24 weeks in adults 55 and over). For phosphatidylserine, the FDA allows only a qualified claim that it \'may reduce the risk of cognitive dysfunction in the elderly\', followed by \'FDA concludes that there is little scientific evidence supporting this claim\' (FDA letter, 13 May 2003).',
   },
   {
     q: 'How long until memory nootropics work?',
-    a: 'Bacopa: 8–12 weeks of daily use. Lion\'s Mane: 8–16 weeks. DHA, Phosphatidylserine, citicoline: 4–12 weeks. None of these are acute-effect ingredients. Plan for at least 8 weeks of consistent dosing before judging.',
+    a: 'Bacopa: 8–12 weeks of daily use; most positive trials ran 12 weeks. Lion\'s Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. Phosphatidylserine: its memory trials ran 15 weeks to 12 months. Citicoline: memory effects were measured after 2–3 months. DHA: about 24 weeks; both positive cognitive trials ran 6 months. None of these are acute-effect ingredients. Plan for at least 12 weeks of consistent dosing before judging.',
   },
   {
     q: 'Where can I buy these in Japan?',
@@ -93,7 +93,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Will Bacopa make me feel anything?',
-    a: 'No. Bacopa is not an acute-effect ingredient. It is a classic case of "you only know it worked when you stop and notice the regression." This makes it psychologically harder to stick with than acute-effect ingredients (caffeine, L-theanine) — but the cumulative memory benefit at 8–12 weeks is the most replicated finding in nootropics.',
+    a: 'No. Bacopa is not an acute-effect ingredient. It is a classic case of "you only know it worked when you stop and notice the regression." This makes it psychologically harder to stick with than acute-effect ingredients (caffeine, L-theanine) — and the trials in the systematic review we cite (Pase 2012) measured memory after 12 weeks.',
   },
   {
     q: 'Lion\'s Mane: fruiting body or mycelium?',

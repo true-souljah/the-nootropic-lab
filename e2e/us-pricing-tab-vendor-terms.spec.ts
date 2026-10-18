@@ -7,6 +7,9 @@ import AxeBuilder from '@axe-core/playwright';
 // product, plus a one-time price invented as monthly × 1.15. It now quotes
 // Product.vendorTerms verbatim, each attributed "Per <domain>, checked <date>"
 // with a link to the vendor page. Unit guards: packages/ui/src/vendor-terms.test.ts.
+// Since 2026-10-12 the one-time price quote is not shown: the price is the
+// store price (the linked store's own), attributed the same way
+// (packages/ui/src/pricing-tab-store-price.test.ts).
 
 test.beforeEach(async ({ context }) => {
   await context.addCookies([
@@ -31,7 +34,14 @@ test.describe('US Pricing tab — vendor-stated terms', () => {
   test('/mind-lab-pro-review/ quotes the vendor verbatim with a dated, linked source', async ({ page }) => {
     const panel = await openPricing(page, '/mind-lab-pro-review/');
     await expect(panel.getByRole('heading', { name: 'What the vendor’s site says' })).toBeVisible();
-    await expect(panel.locator('[data-vendor-term]')).toHaveCount(4);
+    await expect(panel.locator('[data-vendor-term]')).toHaveCount(3);
+    await expect(panel.locator('[data-vendor-term="oneTimePrice"]')).toHaveCount(0);
+    const storeSource = panel.locator('[data-store-price-source]');
+    await expect(storeSource).toContainText('Per mindlabpro.com (opens in new tab), checked Oct 9, 2026');
+    await expect(storeSource.getByRole('link', { name: 'mindlabpro.com (opens in new tab)' })).toHaveAttribute(
+      'href',
+      'https://www.mindlabpro.com/products/mind-lab-pro',
+    );
 
     const shipping = panel.locator('[data-vendor-term="shipping"]');
     await expect(shipping.getByRole('heading', { name: 'Shipping' })).toBeVisible();
@@ -73,5 +83,40 @@ test.describe('US Pricing tab — vendor-stated terms', () => {
     await expect(panel.locator('[data-vendor-term="guarantee"]').getByRole('heading')).toHaveText('Returns');
     await expect(panel.locator('[data-vendor-term="guarantee"] blockquote')).toContainText('unused, unopened, still sealed');
     await expect(panel.locator('[data-vendor-term="cancellation"]')).toHaveCount(0);
+  });
+});
+
+// Per serving / per day (2026-10-12): derived from the vendor's own pack,
+// supply and directions wording only; per day needs a stated supply length or
+// a plain daily dose. Expected strings = the priceText table in
+// packages/ui/src/store-price.test.ts (exact baseline of every record).
+test.describe('US Pricing tab — store price per serving / per day and its source', () => {
+  test('/hunter-focus-review/ shows both figures (per day from "take 6 a day") and the dated, linked store page', async ({ page }) => {
+    const panel = await openPricing(page, '/hunter-focus-review/');
+    await expect(panel.locator('[data-store-price-per-unit]')).toHaveText('≈ $3/serving · ≈ $3/day');
+    const source = panel.locator('[data-store-price-source]');
+    await expect(source).toHaveText('Per hunterevolve.com (opens in new tab), checked Oct 9, 2026');
+    const link = source.getByRole('link', { name: 'hunterevolve.com (opens in new tab)' });
+    await expect(link).toHaveAttribute('href', 'https://www.hunterevolve.com/en-us/hunter-focus');
+    await expect(link).toHaveAttribute('target', '_blank');
+    await expect(link).toHaveAttribute('rel', 'nofollow noopener');
+    await expect(source.locator('time')).toHaveAttribute('datetime', '2026-10-09');
+  });
+
+  for (const [path, perUnit] of [
+    ['/brainmd-brain-memory-power-boost-review/', '≈ $2.17/serving · ≈ $2.17/day'], // "Take 4 capsules daily", 1 Unit × 30 servings
+    ['/noocube-review/', '≈ $2.17/serving · ≈ $2.17/day'], // per day from "1-MONTH SUPPLY"
+    ['/mind-lab-pro-review/', '≈ $2.30/serving'], // "Take 2 to 4 capsules": a range, no per day
+  ] as const) {
+    test(`${path} per-unit line reads "${perUnit}"`, async ({ page }) => {
+      const panel = await openPricing(page, path);
+      await expect(panel.locator('[data-store-price-per-unit]')).toHaveText(perUnit);
+    });
+  }
+
+  test('/pre-lab-pro-review/ (taken before exercise) shows per serving only, and no per-month figure', async ({ page }) => {
+    const panel = await openPricing(page, '/pre-lab-pro-review/');
+    await expect(panel.locator('[data-store-price-per-unit]')).toHaveText('≈ $2.95/serving');
+    await expect(panel.locator('[data-store-price-pack]')).toHaveText('Servings per container: 20');
   });
 });

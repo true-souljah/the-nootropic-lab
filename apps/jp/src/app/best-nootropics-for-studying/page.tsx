@@ -27,8 +27,11 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'L-Theanine + Caffeine — sustained focus',
     ingredientSlugs: ['l-theanine', 'caffeine'],
     evidence:
-      'For sustained study sessions, the L-theanine + caffeine combo is the foundation. Reduces caffeine jitter and post-coffee crash, smooths attention switching. 100–200mg L-theanine + 100mg caffeine — the same pairing naturally found in matcha (抹茶), already familiar to Japanese students.',
+      'For sustained study sessions, the L-theanine + caffeine combo is the foundation. In the trial linked below (Owen 2008), the pairing improved speed and accuracy on an attention-switching task; in a controlled trial (Rogers 2008, PubMed 17891480), theanine did not significantly reduce caffeine-induced jitteriness. 100–200mg L-theanine + 100mg caffeine — the same pairing naturally found in matcha (抹茶), already familiar to Japanese students.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
+    extraCitations: [
+      { label: 'Rogers 2008', url: 'https://pubmed.ncbi.nlm.nih.gov/17891480/' },
+    ],
   },
   {
     name: 'Bacopa Monnieri — long-term memory consolidation',
@@ -38,17 +41,17 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
   },
   {
-    name: 'Citicoline — choline for cognitive demand',
+    name: 'Citicoline — a choline donor',
     ingredientSlugs: ['citicoline'],
     evidence:
-      'Heavy cognitive demand depletes choline. Citicoline at 250–500mg/day supports phospholipid synthesis and acetylcholine availability — the neurotransmitter most associated with attention and learning. Cognizin is the standardized form.',
+      'Citicoline is a choline donor. Our citicoline page rates its attention evidence as mixed and its working-memory evidence as moderate (one trial in older adults with inefficient memory, Spiers 1996). Cognizin is the standardized form.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
   {
     name: 'DHA — foundational for retention (FFC-notified)',
     ingredientSlugs: ['dha-omega-3'],
     evidence:
-      'DHA is Japan\'s most-notified FFC ingredient for cognitive function. As the brain\'s primary structural omega-3, DHA supports synaptic transmission and signal propagation — relevant for sustained study over a multi-month term. Suntory DHA & EPA + Sesamin EX provides 300mg DHA per 4 capsules.',
+      'By our count of the Consumer Affairs Agency\'s FFC database (export of 2026-10-06), DHA is listed as a functional ingredient in 105 of the 563 active Foods with Function Claims (FFC) notifications whose claim mentions memory or cognitive function. As the brain\'s primary structural omega-3, DHA supports synaptic transmission and signal propagation — relevant for sustained study over a multi-month term. Suntory DHA & EPA + Sesamin EX provides 300mg DHA per 4 capsules.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20434961/',
   },
 ];
@@ -70,14 +73,14 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'suntory-dha-epa-sesamin-review')!,
     rank: 3,
     whyItsHere:
-      'A Japanese domestic DHA + EPA supplement from Suntory Wellness No Foods with Function Claims (FFC, 機能性表示食品) notification found in the Consumer Affairs Agency (CAA) database (export scanned 2026-10-06). Its 300mg DHA is below the 900mg low end of our DHA reference dose.',
+      'A Japanese domestic DHA + EPA supplement from Suntory Wellness. No Foods with Function Claims (FFC, 機能性表示食品) notification found in the Consumer Affairs Agency (CAA) database (export scanned 2026-10-06). Its 300mg DHA is below the 900mg low end of our DHA reference dose.',
   },
 ];
 
 const faqItems: ListicleFAQ[] = [
   {
     q: 'When should I start taking nootropics for studying?',
-    a: 'For acute-effect ingredients (L-theanine + caffeine), 30 minutes before a study session. For Bacopa, citicoline, and DHA (memory consolidation and structural support), start at the beginning of the term — they need 4–8 weeks of daily use to show effect. The night before an entrance exam (受験) or final is too late for these ingredients.',
+    a: 'For acute-effect ingredients (L-theanine + caffeine), 30 minutes before a study session. For Bacopa, citicoline, and DHA, start at the beginning of the term — most positive Bacopa trials ran 12 weeks, citicoline\'s memory effects were measured after 2–3 months, and both positive DHA cognitive trials ran 6 months. The night before an entrance exam (受験) or final is too late for these ingredients.',
   },
   {
     q: 'Will nootropics make me smarter?',
@@ -97,7 +100,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Is matcha alone enough for study sessions?',
-    a: 'Matcha provides the L-theanine + caffeine combo at a natural ratio — and is extremely cost-effective. A 30g tin of ceremonial-grade matcha lasts a month for daily students. The supplements on this page add memory-consolidation ingredients (Bacopa, citicoline, DHA) on top, which compounds for actual retention of studied material over the term. Many Japanese students start with matcha alone and add a memory-targeted supplement once they\'re committed to a multi-month study plan.',
+    a: 'Matcha provides the L-theanine + caffeine combo at a natural ratio — and is extremely cost-effective. A 30g tin of ceremonial-grade matcha lasts a month for daily students. The supplements on this page add memory-consolidation ingredients (Bacopa, citicoline, DHA) on top; we cite no trial of them combined with caffeine + L-theanine. Many Japanese students start with matcha alone and add a memory-targeted supplement once they\'re committed to a multi-month study plan.',
   },
 ];
 

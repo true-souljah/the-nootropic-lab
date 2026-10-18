@@ -29,6 +29,7 @@
     "check:titles": "node scripts/check-built-titles.mjs",
     "check:consent": "node scripts/check-consent-built.mjs",
     "check:disclosure": "npx --yes tsx scripts/check-built-disclosure.ts",
+    "check:jp-language": "node scripts/check-built-jp-language.mjs",
     "content-dates": "node scripts/content-dates.mjs",
     "check": "npm run validate-data",
     "test": "npm test --workspace=packages/ui",
@@ -40,13 +41,13 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^10",
-    "eslint-config-next": "16.3.8",
+    "eslint-config-next": "16.4.0",
     "tailwindcss": "^4",
     "typescript": "^7"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
-    "@playwright/test": "^1.63.0",
+    "@playwright/test": "^1.64.0",
     "serve": "^14.2.6",
     "vitest": "^5.0.3"
   },

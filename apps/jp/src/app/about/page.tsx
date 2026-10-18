@@ -120,7 +120,7 @@ export default function AboutPage() {
         </section>
 
         <section className="mb-10">
-          <h2 className="text-xl font-bold text-gray-900 mb-3">Health disclaimer</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-3">{uiStrings.listicle.healthDisclaimer}</h2>
           <p className="text-sm text-gray-600 leading-relaxed">
             The information on this website is for educational purposes only and is not medical advice.
             Nootropic supplements are not approved by MHLW or FDA to diagnose, treat, cure, or prevent any

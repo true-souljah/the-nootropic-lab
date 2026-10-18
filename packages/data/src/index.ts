@@ -18,6 +18,7 @@ export {
 } from './purchase-link';
 export type { DisclosureScope } from './commission';
 export {
+  CLIENT_RENDERED_BUY_LINK_ROUTES,
   earnsCommission,
   NO_COMMISSION_RATE_VALUES,
   pageDisclosureScope,
@@ -29,10 +30,30 @@ export { PRODUCT_IMAGE_SIZES, productImages, productImage } from './product-imag
 export type { ProductForm } from './serving-unit';
 export { PRODUCT_FORMS, productForm, servingUnit, servingAmount, servingsComparable } from './serving-unit';
 export { affiliateUrlProblem, formulaProblem, formProblem, productRuleProblems, scoreProblem, weightedScore, roundToTenth, dosingScore, pillarWeightPercent, UNSCORABLE_PILLARS, PILLAR_WEIGHTS, halalEvidenceProblem, HALAL_CERTIFIERS, vendorTermsProblems, VENDOR_TERM_FIELDS } from './product-rules';
-export type { QuotedPrice, QuoteSupply, SupplyFields } from './vendor-price';
-export { DAYS_PER_MONTH, SERVINGS_PER_DAY, parseAmount, parseQuotedPrices, quoteSupply, currencyDigits } from './vendor-price';
-export type { Money, StoreSupply } from './store-price';
-export { formatMoney, storeSupply, monthlyStorePrice, sharedCurrency, storePriceProblems } from './store-price';
+export type { QuotedPrice, QuoteSupply, SupplyFields, PackServings, StatedSupplyDays, DailyServings } from './vendor-price';
+export {
+  DAYS_PER_MONTH,
+  SERVINGS_PER_DAY,
+  parseAmount,
+  parseQuotedPrices,
+  quoteSupply,
+  packServings,
+  statedSupplyDays,
+  dailyServings,
+  currencyDigits,
+} from './vendor-price';
+export type { Money, StoreSupply, StoreUnitPrice } from './store-price';
+export {
+  formatMoney,
+  storeSupply,
+  servingsInPack,
+  roundMoney,
+  perServingStorePrice,
+  perDayStorePrice,
+  monthlyStorePrice,
+  sharedCurrency,
+  storePriceProblems,
+} from './store-price';
 export { NOT_AVAILABLE, outOfTen, pillarText, guaranteeDays, guaranteeDaysValue } from './display-values';
 export type { DosingAnchor, DosingBasis } from './dosing-anchors';
 export {
@@ -54,6 +75,14 @@ export { productsGCC, allProductsGCC } from './products-gcc';
 export { productsSEA, allProductsSEA } from './products-sea';
 export type { Ingredient, HumanEffect, HowToTake, StackPair, FAQ, IngredientSource } from './ingredients';
 export { ingredients } from './ingredients';
+export type { IngredientTranslation, IngredientLocale, TranslatedIngredientField } from './ingredients-es';
+export {
+  ingredientsEs,
+  localizeIngredient,
+  localizedIngredients,
+  ingredientSourceFields,
+  TRANSLATED_INGREDIENT_FIELDS,
+} from './ingredients-es';
 export type { Guide, GuideSection, GuideSource, GuideBlock, GuideTranslation } from './guides';
 export { guides, guideSources } from './guides';
 export { guidesEs } from './guides-es';
@@ -74,15 +103,15 @@ export type { JPPrefecture } from './jp-prefectures';
 export { jpPrefectures } from './jp-prefectures';
 export type { SearchItem, SearchItemMeta } from './search';
 export { buildSearchIndex } from './search';
-export type { Locale, UIStrings } from './i18n';
+export type { Locale, UIStrings, RegionStrings, LicenceStatusStrings, RelatedGuideUseCase, IngredientCategoryStrings } from './i18n';
 export { getStrings, getLocaleForMarket } from './i18n';
 export { buildRegionSearchContext } from './region-search';
 export type { RegionSearchContext } from './region-search';
 export type { Author } from './authors';
 export { authors, getAuthorBySlug, buildPersonSchema, buildPersonAuthorReference } from './authors';
 export { buildProductSchema } from './product-schema';
-export type { DisclaimerMarket } from './regional-disclaimers';
-export { getRegionalHealthDisclaimer } from './regional-disclaimers';
+export type { DisclaimerMarket, DisclaimerPart } from './regional-disclaimers';
+export { getRegionalHealthDisclaimer, disclaimerParts, jpImprintNoteParts } from './regional-disclaimers';
 export type { AnmatProhibitedCompound, AnmatProhibitedProduct, AnmatBasis } from './anmat-prohibited';
 export {
   ANMAT_DISPOSICION_2105_2022,
@@ -99,6 +128,7 @@ export type {
   RegionProfile,
   RegionLabels,
   LicenceStatus,
+  LicenceStatusKey,
   LocalPrice,
   RegionalNote,
   RegionalNotes,
@@ -109,6 +139,7 @@ export {
   REGION_PROFILES,
   REGIONAL_NOTES,
   licenceStatus,
+  licenceStatusText,
   localPrice,
   regionalGuideNote,
   regionalIngredientNote,

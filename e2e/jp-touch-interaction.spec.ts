@@ -104,7 +104,8 @@ test.describe('JP — touch interaction contract', () => {
     // the mobile trigger is visible — it's a 36×36 icon-only button.
     // At 412px viewport both desktop (hidden md:inline-flex) and
     // mobile (md:hidden) triggers exist in DOM. The desktop one is
-    // display:none. Filter for the actually-visible trigger.
+    // display:none. Filter for the actually-visible trigger (named "Search";
+    // JP chrome is English since 2026-10-13).
     const visibleTrigger = page.locator('button[aria-label*="Search"]:visible').first();
     await expect(visibleTrigger).toBeVisible();
 

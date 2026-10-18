@@ -27,28 +27,28 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Bacopa Monnieri',
     ingredientSlugs: ['bacopa-monnieri'],
     evidence:
-      'The most-replicated memory ingredient in nootropics. Multiple double-blind RCTs in adults show improved memory consolidation and recall after 8–12 weeks at 300mg standardised to 50% bacosides. Onset is slow — daily for 8+ weeks. Not an acute-effect ingredient. EFSA has not approved a specific health claim for Bacopa, so EU labels describe it as a botanical food supplement rather than making cognitive claims.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
+      'In a systematic review of six randomised trials (Pase 2012, PubMed 22747190), all lasting 12 weeks at 300–450mg extract a day, Bacopa improved 9 of 17 tests of memory free recall. Onset is slow — daily for 8+ weeks. Not an acute-effect ingredient. EFSA has not approved a specific health claim for Bacopa, so EU labels describe it as a botanical food supplement rather than making cognitive claims.',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22747190/',
   },
   {
     name: 'Lion\'s Mane (Hericium erinaceus)',
     ingredientSlugs: ['lions-mane'],
     evidence:
-      'Modulates Nerve Growth Factor (NGF) and may support neurogenesis. Small RCTs (notably Mori et al. 2009 in older adults with mild cognitive impairment) showed memory improvements at 1g/day fruiting-body extract over 16 weeks. Look for fruiting-body extract, not mycelium-on-grain. Lion\'s Mane fruiting body has traditional EU food use; mycelium-grain blends are scrutinised under Novel Food rules.',
+      'Modulates Nerve Growth Factor (NGF) and may support neurogenesis. Small RCTs (notably Mori et al. 2009 in adults aged 50–80 with mild cognitive impairment) showed higher cognitive function scores than placebo at 3g/day over 16 weeks. Look for fruiting-body extract, not mycelium-on-grain. Lion\'s Mane fruiting body has traditional EU food use; mycelium-grain blends are scrutinised under Novel Food rules.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18844328/',
   },
   {
     name: 'Phosphatidylserine (PS)',
     ingredientSlugs: ['phosphatidylserine'],
     evidence:
-      'Phospholipid component of brain cell membranes. Most RCT evidence is in 50–80-year-olds at 100–300mg/day. The EU does not authorise the US-style "may reduce risk of dementia" qualified claim — EFSA has rejected several PS health claims, so EU labels describe PS in mechanism rather than outcome terms. The trial linked below (Vakhapova et al. 2010) is separate from these regulatory decisions: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo.',
+      'Phospholipid component of brain cell membranes. RCTs in older adults at 100–300mg a day report memory benefits, though often only in subgroups (see our phosphatidylserine page). The EU does not authorise US-style qualified claims (the FDA allows only qualified claims that phosphatidylserine \'may reduce the risk of dementia\' or \'cognitive dysfunction in the elderly\', with the disclaimer \'FDA concludes that there is little scientific evidence supporting this claim\'). EFSA\'s 2010 opinion on five phosphatidylserine claims found the substance \'not sufficiently characterised in relation to the claimed effects\' and concluded that \'a cause and effect relationship cannot be established\'; the FDA\'s 2003 review, by contrast, looked at trials in people already diagnosed with dementia or cognitive dysfunction. The trial linked below (Vakhapova et al. 2010) is separate from these regulatory decisions: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {
     name: 'Citicoline (CDP-Choline)',
     ingredientSlugs: ['citicoline'],
     evidence:
-      'Choline donor + uridine source. RCTs in older adults with age-related memory complaints show improvements in verbal memory and processing speed at 250–500mg/day for 12+ weeks. Authorised in the EU under Novel Food Regulation (EU) 2015/2283.',
+      'Choline donor + uridine source. In one trial in adults aged 50–85 (Spiers 1996, PubMed 8624220), 1,000mg a day for 3 months improved delayed recall only in those with relatively inefficient memories, and in a follow-up crossover of 32 of those participants, 2,000mg a day for 2 months improved immediate and delayed recall. Authorised in the EU under Novel Food Regulation (EU) 2015/2283.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
 ];
@@ -76,16 +76,16 @@ const picks: ListiclePick[] = [
 
 const faqItems: ListicleFAQ[] = [
   {
-    q: 'What is the most evidence-backed nootropic for memory available in the EU?',
-    a: 'Bacopa Monnieri at 300mg standardised to 50% bacosides has the most replicated RCT evidence for memory consolidation in healthy adults. Citicoline (Cognizin) has Novel Food authorisation in the EU and good evidence for older adults with age-related memory complaints. Lion\'s Mane fruiting-body extract has smaller but promising RCT evidence.',
+    q: 'Which nootropic ingredients have trial evidence for memory available in the EU?',
+    a: 'Bacopa Monnieri: in a systematic review of six 12-week randomised trials at 300–450mg extract a day (Pase 2012, PubMed 22747190), it improved 9 of 17 tests of memory free recall, and the authors call the research \'in its infancy\'. Citicoline (Cognizin) has Novel Food authorisation in the EU; it improved verbal memory in older adults with inefficient memory in one trial (Spiers 1996, PubMed 8624220). Lion\'s Mane fruiting-body extract has smaller but promising RCT evidence.',
   },
   {
     q: 'How long until memory nootropics work?',
-    a: 'Bacopa: 8–12 weeks of daily use. Lion\'s Mane: 8–16 weeks. Phosphatidylserine and citicoline: 4–12 weeks. None of these are acute-effect ingredients. Plan for at least 8 weeks of consistent dosing before judging.',
+    a: 'Bacopa: 8–12 weeks of daily use; most positive trials ran 12 weeks. Lion\'s Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. Phosphatidylserine: its memory trials ran 15 weeks to 12 months. Citicoline: memory effects were measured after 2–3 months. None of these are acute-effect ingredients. Plan for at least 12 weeks of consistent dosing before judging.',
   },
   {
     q: 'Why don\'t EU labels mention "memory" benefits the way US labels do?',
-    a: 'EFSA has not approved most cognitive-outcome claims for these botanicals. Under EU Regulation (EC) 1924/2006, supplement labels can only make health claims that the European Commission has authorised after EFSA assessment. Reputable EU brands describe ingredient mechanism (e.g., "supports phospholipid synthesis") rather than outcome (e.g., "improves memory"). The underlying ingredient evidence is the same — only the on-label language differs.',
+    a: 'EFSA has not approved most cognitive-outcome claims for these botanicals. Under EU Regulation (EC) 1924/2006, supplement labels can only make health claims that the European Commission has authorised after EFSA assessment. Reputable EU brands describe ingredient mechanism (e.g., "supports phospholipid synthesis") rather than outcome (e.g., "improves memory").',
   },
   {
     q: 'Are memory nootropics safe long-term?',
@@ -101,7 +101,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Will Bacopa make me feel anything?',
-    a: 'No. Bacopa is not an acute-effect ingredient. It is a classic case of "you only know it worked when you stop and notice the regression." This makes it psychologically harder to stick with than acute-effect ingredients (caffeine, L-theanine) — but the cumulative memory benefit at 8–12 weeks is the most replicated finding in nootropics.',
+    a: 'No. Bacopa is not an acute-effect ingredient. It is a classic case of "you only know it worked when you stop and notice the regression." This makes it psychologically harder to stick with than acute-effect ingredients (caffeine, L-theanine) — and the trials in the systematic review we cite (Pase 2012) measured memory after 12 weeks.',
   },
 ];
 
@@ -112,7 +112,7 @@ export default function Page() {
       useCase="memory"
       pageTitle="Best Nootropics for Memory (EU)"
       pageDescription="Independent EU ranking of nootropics for memory and recall, based on clinical evidence. EU storefronts marked."
-      heroParagraph="Memory is the use case where nootropics have the most replicated evidence — primarily from Bacopa Monnieri RCTs over 30+ years. This page ranks the products in our EU coverage that contain Bacopa, Lion's Mane, phosphatidylserine, or citicoline at or near clinical dose. EU labels describe these ingredients in mechanism terms (under Regulation (EC) No 1924/2006, with claims assessed by the European Food Safety Authority, EFSA) — the underlying clinical evidence is the same as in the US."
+      heroParagraph="For memory, the Bacopa Monnieri evidence we cite is a systematic review of six 12-week randomised trials (Pase 2012). This page ranks the products in our EU coverage that contain Bacopa, Lion's Mane, phosphatidylserine, or citicoline at or near clinical dose. EU labels describe these ingredients in mechanism terms (under Regulation (EC) No 1924/2006, with claims assessed by the European Food Safety Authority, EFSA); for phosphatidylserine, EFSA's 2010 opinion concluded that 'a cause and effect relationship cannot be established'."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

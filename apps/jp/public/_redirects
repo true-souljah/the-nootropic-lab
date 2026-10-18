@@ -11,5 +11,19 @@
 /trubrain-review  /best-nootropics-for-focus/  301
 /trubrain-review/  /best-nootropics-for-focus/  301
 
+# /ja/ section removed 2026-10-13 (owner decision: Japanese copy paused pending
+# advice from a Japanese pharmaceutical-advertising lawyer). Each Japanese page
+# goes to its English equivalent; the splat catches anything else under /ja/.
+# First match wins, so the specific rules come before the splat.
+/ja  /  301
+/ja/  /  301
+/ja/best-nootropics  /best-nootropics/  301
+/ja/best-nootropics/  /best-nootropics/  301
+/ja/hikaku  /nootropic-comparison/  301
+/ja/hikaku/  /nootropic-comparison/  301
+/ja/yakkan-shoumei  /  301
+/ja/yakkan-shoumei/  /  301
+/ja/*  /  301
+
 # Existing fallback (kept from prior _redirects)
 /* /404.html 404

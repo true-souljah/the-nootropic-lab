@@ -28,7 +28,6 @@ export default function GeoHubPage() {
       items={jpPrefectures.map(p => ({ slug: p.slug, name: p.name, note: p.nameJa }))}
       siteUrl={SITE_URL}
       hubLabel="Best Nootropics Japan"
-      homeLabel="Home"
       searchItems={searchItems}
       uiStrings={uiStrings}
     />

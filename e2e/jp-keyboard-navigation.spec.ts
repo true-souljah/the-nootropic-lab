@@ -9,13 +9,13 @@ import { test, expect } from '@playwright/test';
 // Targets WCAG 2.1.1 (Keyboard), 2.4.1 (Bypass Blocks), 2.4.3
 // (Focus Order).
 //
-// PR-Q52 — first non-English-chrome region for keyboard. JP renders
-// <html lang="ja-JP"> with translated chrome labels:
+// PR-Q52 — first non-English-chrome region for keyboard. Since
+// 2026-10-13 JP is English again (<html lang="en">; Japanese copy paused
+// pending legal advice), so the chrome labels are the en ones:
 //
-//   skip-link text       — メインコンテンツへスキップ
-//   "Comparator" CTA     — 比較
-//   Search aria-label    — "Search (⌘K)" (still English — shared
-//                          @nootropic/ui component)
+//   skip-link text       — Skip to main content
+//   "Comparator" CTA     — Open comparator →
+//   Search aria-label    — "Search (Command+K)"
 //
 // Tab-trap probe types "fancl" — substring match on FANCL Brains in
 // the JP catalog (FANCL is a Japanese supplement chain; the product
@@ -169,18 +169,14 @@ test.describe('JP /best-nootropics-for-focus/ — primary nav tab order (WCAG 2.
       });
       stops.push(label);
     }
-    // JP renders the skip-link as メインコンテンツへスキップ
-    // ("Skip to main content" in Japanese). Match either the
-    // English or Japanese variant.
-    expect(stops[0], `stops=${JSON.stringify(stops)}`).toMatch(/Skip|skip|スキップ/);
+    // JP chrome is English since 2026-10-13.
+    expect(stops[0], `stops=${JSON.stringify(stops)}`).toMatch(/^Skip to main content$/);
     expect(
       stops.some((s) => /Search|⌘K|Ctrl/i.test(s)),
       `stops=${JSON.stringify(stops)}`,
     ).toBe(true);
-    // Comparator: ja-JP variant 比較. Pattern accepts every locale's
-    // word for "comparator" (kept for portfolio sweep).
     expect(
-      stops.some((s) => /comparator|comparador|comparateur|comparer|Vergleich|比較/i.test(s)),
+      stops.some((s) => /comparator/i.test(s)),
       `stops=${JSON.stringify(stops)}`,
     ).toBe(true);
   });

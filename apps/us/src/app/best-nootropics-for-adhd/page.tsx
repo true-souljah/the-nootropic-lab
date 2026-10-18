@@ -34,8 +34,8 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Bacopa Monnieri',
     ingredientSlugs: ['bacopa-monnieri'],
     evidence:
-      'Multiple RCTs in adults (and a smaller body of evidence in children with ADHD) show modest improvements in attention, memory consolidation, and impulse control after 12+ weeks at 300mg standardized to 50% bacosides. Onset is slow — this is not an acute-effect ingredient.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
+      'In a systematic review of six 12-week trials (Pase 2012), Bacopa improved 9 of 17 memory free-recall tests. Onset is slow — this is not an acute-effect ingredient.',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22747190/',
   },
   {
     name: 'Citicoline (CDP-Choline)',
@@ -48,8 +48,11 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'L-Theanine + Caffeine',
     ingredientSlugs: ['l-theanine', 'caffeine'],
     evidence:
-      'Smooths the focus-and-jitter profile of caffeine. People who need caffeine for focus but find it makes them anxious or shaky often respond better to a 1:2 to 2:1 L-theanine/caffeine ratio. Not specific to ADHD but useful for the caffeine-using subset.',
+      'In the trial linked below (Owen 2008), the pairing improved speed and accuracy on an attention-switching task; in a controlled trial (Rogers 2008, PubMed 17891480), theanine did not significantly reduce caffeine-induced jitteriness. Not specific to ADHD but useful for the caffeine-using subset.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
+    extraCitations: [
+      { label: 'Rogers 2008', url: 'https://pubmed.ncbi.nlm.nih.gov/17891480/' },
+    ],
   },
 ];
 

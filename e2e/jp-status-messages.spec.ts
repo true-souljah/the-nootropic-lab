@@ -5,10 +5,9 @@ import { test, expect } from '@playwright/test';
 // live-region blocks (PR-Q30 #94).
 //
 // Verifies that PR-Q29's localized strings.search.liveRegion bundle
-// actually renders in the browser on JP routes. Japanese is the most
-// distinct of the 7 locales (different script, no spaces between
-// words, full-width characters); if the i18n plumbing has a script-
-// specific bug, JP is the most likely to surface it.
+// actually renders in the browser on JP routes. Since 2026-10-13 the JP
+// host renders the en bundle (Japanese copy paused pending legal advice),
+// so the announcements are English and never the ja phrasing.
 //
 // PR-Q31 #95.
 
@@ -23,8 +22,8 @@ test.beforeEach(async ({ context }) => {
   ]);
 });
 
-test.describe('JP CommandPalette aria-live announcements in Japanese (PR-Q29 #93 + PR-Q31 #95)', () => {
-  test('typing a non-matching query announces "{query}に一致する結果はありません"', async ({ page }) => {
+test.describe('JP CommandPalette aria-live announcements in English (PR-Q29 #93 + PR-Q31 #95)', () => {
+  test('typing a non-matching query announces "No results for {query}"', async ({ page }) => {
     await page.goto('/');
     await page.waitForLoadState('networkidle');
     await page.keyboard.press('Control+K');
@@ -33,13 +32,11 @@ test.describe('JP CommandPalette aria-live announcements in Japanese (PR-Q29 #93
     );
     await expect(region).toHaveCount(1);
     await page.keyboard.type('xyzqq');
-    // Japanese phrasing from packages/data/src/i18n.ts ja.search.liveRegion.noResults.
-    await expect(region).toHaveText('xyzqqに一致する結果はありません');
-    // Negative: never the English fallback.
-    await expect(region).not.toHaveText(/No results for/);
+    // en phrasing from packages/data/src/i18n.ts en.search.liveRegion.noResults.
+    await expect(region).toHaveText('No results for xyzqq');
   });
 
-  test('typing a matching query announces "{n}件の結果" (Japanese count suffix)', async ({ page }) => {
+  test('typing a matching query announces "{n} results"', async ({ page }) => {
     await page.goto('/');
     await page.waitForLoadState('networkidle');
     await page.keyboard.press('Control+K');
@@ -47,10 +44,7 @@ test.describe('JP CommandPalette aria-live announcements in Japanese (PR-Q29 #93
       '[role="dialog"]:not(#klaro-cookie-notice) [role="status"][aria-live="polite"][aria-atomic="true"]',
     );
     await page.keyboard.type('mind');
-    // ja matches "N件の結果" for both singular and plural (Japanese has
-    // no grammatical plural; oneResult AND manyResults both use this
-    // pattern with the count substituted in).
-    await expect(region).toHaveText(/^\d+件の結果$/);
-    await expect(region).not.toHaveText(/results?$/);
+    // en: "1 result" (oneResult) or "{n} results" (manyResults).
+    await expect(region).toHaveText(/^\d+ results?$/);
   });
 });

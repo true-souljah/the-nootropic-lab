@@ -78,7 +78,7 @@ const faqItems: CancellationFAQ[] = [
   },
   {
     q: 'Are there alternatives to Onnit Alpha Brain?',
-    a: 'Yes. Mind Lab Pro is the most direct comparison — open-formula, fully disclosed doses, no autoship pressure (manual reorder only). NooCube is a lower-priced open-formula option. Read our Mind Lab Pro vs Alpha Brain head-to-head for the full comparison.',
+    a: 'Yes. Mind Lab Pro is the most direct comparison — open-formula with fully disclosed doses, sold as a one-time purchase or on a subscription its site says you can "update or cancel anytime" (mindlabpro.com, checked 13 October 2026). NooCube is a lower-priced open-formula option. Read our Mind Lab Pro vs Alpha Brain head-to-head for the full comparison.',
   },
 ];
 

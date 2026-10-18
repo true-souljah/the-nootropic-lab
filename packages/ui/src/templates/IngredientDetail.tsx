@@ -14,6 +14,7 @@ import { buildPersonAuthorReference } from '@nootropic/data';
 import type { Ingredient, Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 import { SCORE_TIER_TEXT_CLASS, scoreTier } from './listicleRanking';
+import { tpl } from '../templateStrings';
 
 export interface IngredientDetailProps {
   ingredient: Ingredient;
@@ -23,22 +24,13 @@ export interface IngredientDetailProps {
   relatedIngredients: Ingredient[];
   siteUrl: string;
   searchItems?: SearchItem[];
-  uiStrings?: UIStrings;
-  readTime?: string;
+  /** Page-locale chrome. Required: the template has no English fallback. */
+  uiStrings: UIStrings;
+  /** Estimated read time in minutes, displayed in FPByline. */
+  readMinutes?: number;
   /** Region-specific block (availability, licence, local price, local guides). */
   regional?: Omit<RegionalAvailabilityProps, 'subjectName' | 'id'>;
 }
-
-// English defaults — used when `uiStrings` prop is omitted. When present, the
-// per-locale UIStrings.ingredientDetail.* values override these in-component.
-const DEFAULT_CATEGORY_LABELS: Record<Ingredient['category'], string> = {
-  adaptogen: 'Adaptogen',
-  cholinergic: 'Cholinergic',
-  mushroom: 'Mushroom',
-  amino: 'Amino Acid',
-  herb: 'Herb',
-  vitamin: 'Vitamin',
-};
 
 const EVIDENCE_TONE: Record<string, { dots: string; tone: 'good' | 'warn' | 'neutral' | 'bad' }> = {
   strong: { dots: '●●●', tone: 'good' },
@@ -52,13 +44,6 @@ const MAGNITUDE_WIDTH: Record<string, number> = {
   moderate: 75,
   small: 50,
   negligible: 25,
-};
-
-const DEFAULT_MAGNITUDE_LABEL: Record<string, string> = {
-  large: 'Large',
-  moderate: 'Moderate',
-  small: 'Small',
-  negligible: 'Negligible',
 };
 
 /**
@@ -76,29 +61,35 @@ export default function IngredientDetail({
   siteUrl,
   searchItems,
   uiStrings,
-  readTime = '8 min',
+  readMinutes = 8,
   regional,
 }: IngredientDetailProps) {
-  const t = uiStrings?.ingredientDetail;
-  const te = uiStrings?.ingredientEvidence;
-  const categoryLabels = t?.category ?? DEFAULT_CATEGORY_LABELS;
-  const magnitudeLabel = t?.magnitude ?? DEFAULT_MAGNITUDE_LABEL;
+  const t = uiStrings.ingredientDetail;
+  const te = uiStrings.ingredientEvidence;
+  const space = uiStrings.typography.space;
   const tocSections = [
-    { id: 'mechanism', label: t?.toc.mechanism ?? 'Mechanism' },
-    { id: 'evidence', label: t?.toc.evidence ?? 'Clinical evidence' },
-    { id: 'effects', label: t?.toc.effects ?? 'Effect matrix' },
-    { id: 'benefits', label: t?.toc.benefits ?? 'Benefits & side effects' },
-    { id: 'how-to', label: t?.toc.howTo ?? 'How to take' },
-    { id: 'stacking', label: t?.toc.stacking ?? 'Stacking' },
-    { id: 'faq', label: t?.toc.faq ?? 'FAQ' },
-    { id: 'products', label: t?.toc.products ?? 'Products with it' },
-    ...(regional ? [{ id: 'regional', label: regional.region.labels.inRegion.replace(/^(in|en) /, '') }] : []),
-    { id: 'related', label: t?.toc.related ?? 'Related ingredients' },
+    { id: 'mechanism', label: t.toc.mechanism },
+    { id: 'evidence', label: t.toc.evidence },
+    { id: 'effects', label: t.toc.effects },
+    { id: 'benefits', label: t.toc.benefits },
+    { id: 'how-to', label: t.toc.howTo },
+    { id: 'stacking', label: t.toc.stacking },
+    { id: 'faq', label: t.toc.faq },
+    { id: 'products', label: t.toc.products },
+    ...(regional ? [{ id: 'regional', label: regional.region.labels.toc }] : []),
+    { id: 'related', label: t.toc.related },
+  ];
+  const howTo: Array<[label: string, value: string, emphasize: boolean]> = [
+    [t.howToLabels.dosage, ing.howToTake.dosage, false],
+    [t.howToLabels.timing, ing.howToTake.timing, false],
+    [t.howToLabels.withFood, ing.howToTake.withFood, false],
+    ...(ing.howToTake.cycling ? [[t.howToLabels.cycling, ing.howToTake.cycling, true] as [string, string, boolean]] : []),
+    [t.howToLabels.forms, ing.howToTake.forms, false],
   ];
 
   const currentYear = new Date().getFullYear();
   const today = new Date();
-  const updatedDisplay = today.toLocaleDateString(uiStrings?.productDetail.dateLocale ?? 'en-US', {
+  const updatedDisplay = today.toLocaleDateString(uiStrings.productDetail.dateLocale, {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
@@ -106,7 +97,7 @@ export default function IngredientDetail({
   // ISO YYYY-MM-DD formatted in UTC so the rendered day never shifts with the
   // build machine's timezone.
   const evidenceReviewedDisplay = new Date(`${ing.evidenceReviewedAt}T00:00:00Z`).toLocaleDateString(
-    uiStrings?.productDetail.dateLocale ?? 'en-US',
+    uiStrings.productDetail.dateLocale,
     { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' },
   );
 
@@ -163,19 +154,19 @@ export default function IngredientDetail({
       <SchemaOrg schema={breadcrumbSchema} />
 
       <a href="#main-content" tabIndex={0} className="ds-skip-link">
-        {uiStrings?.nav.skipToContent ?? 'Skip to main content'}
+        {uiStrings.nav.skipToContent}
       </a>
       {/* Ingredient pages render no buy link (product cards link to review
           pages), so the strip carries the site-level line. */}
-      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings?.disclosure} scope="site" />
+      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} scope="site" space={space} />
       <FPHeader searchItems={searchItems} strings={uiStrings} />
 
       <main id="main-content" className="max-w-[1100px] mx-auto px-6 pt-7">
-        <nav aria-label={uiStrings?.breadcrumb.ariaLabel ?? 'Breadcrumb'} className="text-[12.5px] text-ds-muted mb-[18px]">
+        <nav aria-label={uiStrings.breadcrumb.ariaLabel} className="text-[12.5px] text-ds-muted mb-[18px]">
           <ol className="flex items-center gap-2 list-none p-0 m-0">
-            <li><Link href="/" className="hover:text-ds-ink">{uiStrings?.breadcrumb.home ?? 'Home'}</Link></li>
+            <li><Link href="/" className="hover:text-ds-ink">{uiStrings.breadcrumb.home}</Link></li>
             <li aria-hidden="true" className="text-ds-faint">/</li>
-            <li><Link href="/ingredients/" className="hover:text-ds-ink">{uiStrings?.breadcrumb.ingredients ?? 'Ingredients'}</Link></li>
+            <li><Link href="/ingredients/" className="hover:text-ds-ink">{uiStrings.breadcrumb.ingredients}</Link></li>
             <li aria-hidden="true" className="text-ds-faint">/</li>
             <li aria-current="page" className="text-ds-ink font-medium">{ing.name}</li>
           </ol>
@@ -185,9 +176,9 @@ export default function IngredientDetail({
         <div className="grid gap-12 items-start grid-cols-1 md:grid-cols-[1fr_280px]">
           <article>
             <div className="flex items-center gap-2 mb-3 flex-wrap">
-              <Chip tone="neutral">{categoryLabels[ing.category]}</Chip>
-              <Chip tone="accent">{t?.chips.clinicalDose ?? 'Clinical dose'} · {ing.clinicalDose}</Chip>
-              <Chip tone="warn">{t?.chips.onset ?? 'Onset'} · {ing.timeToEffect}</Chip>
+              <Chip tone="neutral">{t.category[ing.category]}</Chip>
+              <Chip tone="accent">{t.chips.clinicalDose} · {ing.clinicalDose}</Chip>
+              <Chip tone="warn">{t.chips.onset} · {ing.timeToEffect}</Chip>
             </div>
 
             <h1 className="text-[44px] font-bold leading-[1.05] tracking-[-0.025em] mt-2 mb-[10px] text-ds-ink">
@@ -200,53 +191,51 @@ export default function IngredientDetail({
               {ing.studySummary}
             </p>
 
-            <FPByline updated={updatedDisplay} read={readTime} />
+            <FPByline updated={updatedDisplay} minutes={readMinutes} strings={uiStrings.byline} space={space} />
             <p className="text-[12.5px] text-ds-muted mt-2 mb-0">
-              {te?.evidenceReviewed ?? 'Evidence reviewed:'}{' '}
+              {te.evidenceReviewed}{space}
               <time dateTime={ing.evidenceReviewedAt}>{evidenceReviewedDisplay}</time>
             </p>
 
             <section id="mechanism" className="mt-9">
-              <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-3 text-ds-ink">{t?.sections.mechanism ?? 'Mechanism of action'}</h2>
+              <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-3 text-ds-ink">{t.sections.mechanism}</h2>
               <p className="text-[15.5px] text-ds-ink-soft m-0 leading-[1.65]">{ing.mechanism}</p>
             </section>
 
             <section id="evidence" className="mt-8">
-              <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-3 text-ds-ink">{t?.sections.evidence ?? 'Clinical evidence summary'}</h2>
+              <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-3 text-ds-ink">{t.sections.evidence}</h2>
               <Card variant="subdued" padding={18}>
                 <p className="text-[15px] text-ds-ink-soft m-0 leading-[1.65]">{ing.studySummary}</p>
               </Card>
             </section>
 
             <section id="effects" className="mt-8">
-              <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-1 text-ds-ink">{t?.sections.effects ?? 'Human effect matrix'}</h2>
-              <p className="text-[13px] text-ds-muted mb-4">
-                Based on human clinical trials only. Animal and in-vitro data excluded.
-              </p>
+              <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-1 text-ds-ink">{t.sections.effects}</h2>
+              <p className="text-[13px] text-ds-muted mb-4">{t.humanTrialsOnly}</p>
               <Card padding={0}>
                 <div className="overflow-x-auto overscroll-x-contain">
                   <table className="w-full text-[13.5px] border-collapse">
                     <thead>
                       <tr className="bg-ds-card-sub text-left">
-                        <th className="px-4 py-3 font-semibold text-ds-muted text-[11px] uppercase tracking-[0.1em]">{t?.table.effect ?? 'Effect'}</th>
-                        <th className="px-4 py-3 font-semibold text-ds-muted text-[11px] uppercase tracking-[0.1em]">{t?.table.evidence ?? 'Evidence'}</th>
-                        <th className="px-4 py-3 font-semibold text-ds-muted text-[11px] uppercase tracking-[0.1em]">{t?.table.magnitude ?? 'Magnitude'}</th>
-                        <th className="px-4 py-3 font-semibold text-ds-muted text-[11px] uppercase tracking-[0.1em] text-center">{t?.table.studies ?? 'Studies'}</th>
-                        <th className="px-4 py-3 font-semibold text-ds-muted text-[11px] uppercase tracking-[0.1em] hidden md:table-cell">{t?.table.notes ?? 'Notes'}</th>
+                        <th className="px-4 py-3 font-semibold text-ds-muted text-[11px] uppercase tracking-[0.1em]">{t.table.effect}</th>
+                        <th className="px-4 py-3 font-semibold text-ds-muted text-[11px] uppercase tracking-[0.1em]">{t.table.evidence}</th>
+                        <th className="px-4 py-3 font-semibold text-ds-muted text-[11px] uppercase tracking-[0.1em]">{t.table.magnitude}</th>
+                        <th className="px-4 py-3 font-semibold text-ds-muted text-[11px] uppercase tracking-[0.1em] text-center">{t.table.studies}</th>
+                        <th className="px-4 py-3 font-semibold text-ds-muted text-[11px] uppercase tracking-[0.1em] hidden md:table-cell">{t.table.notes}</th>
                       </tr>
                     </thead>
                     <tbody>
                       {ing.humanEffects.map((effect) => {
                         const ev = EVIDENCE_TONE[effect.evidenceStrength];
                         const magWidth = MAGNITUDE_WIDTH[effect.magnitude] ?? 50;
-                        const magLabel = magnitudeLabel[effect.magnitude] ?? '—';
+                        const magLabel = t.magnitude[effect.magnitude] ?? '—';
                         return (
                           <tr key={effect.effect} className="border-t border-ds-border">
                             <td className="px-4 py-3 font-semibold text-ds-ink">{effect.effect}</td>
                             <td className="px-4 py-3">
                               <Chip tone={ev.tone}>
-                                <span aria-hidden="true">{ev.dots}</span>{' '}
-                                {effect.evidenceStrength}
+                                <span aria-hidden="true">{ev.dots}</span>{space}
+                                {t.evidenceStrength[effect.evidenceStrength]}
                               </Chip>
                             </td>
                             <td className="px-4 py-3">
@@ -270,18 +259,18 @@ export default function IngredientDetail({
                 </div>
               </Card>
               <p className="text-[11.5px] text-ds-muted mt-2">
-                Evidence key:{' '}
-                <span aria-hidden="true">●●●</span> Strong = multiple consistent RCTs ·{' '}
-                <span aria-hidden="true">●●○</span> Moderate = smaller/fewer RCTs ·{' '}
-                <span aria-hidden="true">●○○</span> Preliminary = early trials or small n ·{' '}
-                <span aria-hidden="true">◐◐○</span> Mixed = conflicting results
+                {t.evidenceKey.label}{space}
+                <span aria-hidden="true">●●●</span>{space}{t.evidenceKey.strong} ·{' '}
+                <span aria-hidden="true">●●○</span>{space}{t.evidenceKey.moderate} ·{' '}
+                <span aria-hidden="true">●○○</span>{space}{t.evidenceKey.preliminary} ·{' '}
+                <span aria-hidden="true">◐◐○</span>{space}{t.evidenceKey.mixed}
               </p>
             </section>
 
             <section id="benefits" className="mt-9">
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
-                  <h2 className="text-[20px] font-bold text-ds-ink mb-3">{t?.sections.benefits ?? 'Documented benefits'}</h2>
+                  <h2 className="text-[20px] font-bold text-ds-ink mb-3">{t.sections.benefits}</h2>
                   <ul className="list-none p-0 m-0 flex flex-col gap-2">
                     {ing.benefits.map((b) => (
                       <li key={b} className="flex gap-2 text-[13.5px] text-ds-ink-soft">
@@ -292,7 +281,7 @@ export default function IngredientDetail({
                   </ul>
                 </div>
                 <div>
-                  <h2 className="text-[20px] font-bold text-ds-ink mb-3">{t?.sections.sideEffects ?? 'Side effects & cautions'}</h2>
+                  <h2 className="text-[20px] font-bold text-ds-ink mb-3">{t.sections.sideEffects}</h2>
                   <ul className="list-none p-0 m-0 flex flex-col gap-2">
                     {ing.sideEffects.map((s) => (
                       <li key={s} className="flex gap-2 text-[13.5px] text-ds-ink-soft">
@@ -306,19 +295,9 @@ export default function IngredientDetail({
             </section>
 
             <section id="how-to" className="mt-9">
-              <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-4 text-ds-ink">{t?.sections.howTo ?? 'How to take'}</h2>
+              <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-4 text-ds-ink">{t.sections.howTo}</h2>
               <Card variant="subdued" padding={0}>
-                {(
-                  [
-                    ['Dosage', ing.howToTake.dosage, false],
-                    ['Timing', ing.howToTake.timing, false],
-                    ['With food', ing.howToTake.withFood, false],
-                    ...(ing.howToTake.cycling
-                      ? [['Cycling', ing.howToTake.cycling, true] as [string, string, boolean]]
-                      : []),
-                    ['Forms', ing.howToTake.forms, false],
-                  ] as Array<[string, string, boolean]>
-                ).map(([label, value, emphasize]) => (
+                {howTo.map(([label, value, emphasize]) => (
                   <div
                     key={label}
                     className="grid gap-3 px-5 py-4 border-b border-ds-border last:border-b-0"
@@ -340,8 +319,8 @@ export default function IngredientDetail({
             </section>
 
             <section id="stacking" className="mt-9">
-              <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-1 text-ds-ink">{t?.sections.stacking ?? 'Stacking recommendations'}</h2>
-              <p className="text-[13px] text-ds-muted mb-4">{(t?.stackingLede ?? 'Ingredients that pair well with {name} and why.').replace('{name}', ing.name)}</p>
+              <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-1 text-ds-ink">{t.sections.stacking}</h2>
+              <p className="text-[13px] text-ds-muted mb-4">{tpl(t.stackingLede, { name: ing.name })}</p>
               <div className="flex flex-col gap-3">
                 {ing.stacksWith.map((pair) => (
                   <Card key={pair.ingredient} padding={16}>
@@ -362,7 +341,7 @@ export default function IngredientDetail({
             </section>
 
             <section id="faq" className="mt-9">
-              <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-4 text-ds-ink">{t?.sections.faq ?? 'Frequently asked questions'}</h2>
+              <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-4 text-ds-ink">{t.sections.faq}</h2>
               <FaqAccordion
                 items={ing.faqs.map((faq) => ({ q: faq.question, a: faq.answer }))}
               />
@@ -371,7 +350,7 @@ export default function IngredientDetail({
             {containingProducts.length > 0 && (
               <section id="products" className="mt-9">
                 <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-4 text-ds-ink">
-                  Top stacks containing {ing.name}
+                  {tpl(t.topStacks, { name: ing.name })}
                 </h2>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {containingProducts.map((p) => (
@@ -387,7 +366,7 @@ export default function IngredientDetail({
                       <p className="text-[12px] text-ds-muted m-0">{p.brand}</p>
                       {p.editorChoice && (
                         <span className="inline-block mt-2 text-[11px] bg-ds-accent-soft text-ds-accent px-2 py-[2px] rounded-full font-semibold">
-                          Editor&apos;s Choice
+                          {uiStrings.table.editorChoice}
                         </span>
                       )}
                     </Link>
@@ -401,7 +380,7 @@ export default function IngredientDetail({
             )}
 
             <section id="related" className="mt-9">
-              <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-4 text-ds-ink">{t?.sections.related ?? 'Related ingredients'}</h2>
+              <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-4 text-ds-ink">{t.sections.related}</h2>
               <div className="grid sm:grid-cols-3 gap-3">
                 {relatedIngredients.slice(0, 6).map((other) => (
                   <Link
@@ -410,15 +389,16 @@ export default function IngredientDetail({
                     className="block border border-ds-border rounded-[8px] p-3 hover:border-ds-accent-border focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
                   >
                     <div className="font-semibold text-ds-ink text-[13.5px]">{other.name}</div>
-                    <div className="text-[11.5px] text-ds-muted capitalize">{other.category}</div>
+                    <div className="text-[11.5px] text-ds-muted capitalize">{t.relatedCategory[other.category]}</div>
                   </Link>
                 ))}
               </div>
             </section>
 
             <Sources
-              heading={te?.sources ?? 'Sources'}
-              expandLabel={uiStrings?.guide.expand ?? 'expand'}
+              heading={te.sources}
+              expandLabel={uiStrings.guide.expand}
+              space={space}
               sources={ing.sources.map((s) => ({
                 label: `${s.title} (${s.year})`,
                 url: s.url,
@@ -428,7 +408,7 @@ export default function IngredientDetail({
 
             <div className="text-[13px] text-ds-muted mt-10 pb-10">
               <Link href="/ingredients/" className="text-ds-accent underline font-semibold">
-                {uiStrings?.breadcrumb.backToIngredientsGuide ?? '← Back to Ingredients Guide'}
+                {uiStrings.breadcrumb.backToIngredientsGuide}
               </Link>
             </div>
           </article>
@@ -436,14 +416,14 @@ export default function IngredientDetail({
           <aside className="sticky top-[90px] self-start flex flex-col gap-[14px]">
             <Card padding={16}>
               <div className="text-[11px] tracking-[0.12em] uppercase font-bold text-ds-muted mb-[10px]">
-                {t?.sidebar.quickFacts ?? 'Quick facts'}
+                {t.sidebar.quickFacts}
               </div>
               <dl className="text-[13px] m-0">
                 {[
-                  [t?.sidebar.category ?? 'Category', categoryLabels[ing.category]],
-                  [t?.sidebar.dose ?? 'Dose', ing.clinicalDose],
-                  [t?.sidebar.onset ?? 'Onset', ing.timeToEffect],
-                  [t?.sidebar.trials ?? 'Trials', `${ing.humanEffects.reduce((sum, e) => sum + (e.studies ?? 0), 0)}`],
+                  [t.sidebar.category, t.category[ing.category]],
+                  [t.sidebar.dose, ing.clinicalDose],
+                  [t.sidebar.onset, ing.timeToEffect],
+                  [t.sidebar.trials, `${ing.humanEffects.reduce((sum, e) => sum + (e.studies ?? 0), 0)}`],
                 ].map(([k, v], i, arr) => (
                   <div
                     key={k}
@@ -457,7 +437,7 @@ export default function IngredientDetail({
             </Card>
             <Card padding={16}>
               <div className="text-[11px] tracking-[0.12em] uppercase font-bold text-ds-muted mb-[10px]">
-                {t?.sidebar.onThisPage ?? 'On this page'}
+                {t.sidebar.onThisPage}
               </div>
               <ul className="list-none p-0 m-0 flex flex-col">
                 {tocSections.map((sec) => (

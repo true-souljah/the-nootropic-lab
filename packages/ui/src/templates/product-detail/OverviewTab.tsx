@@ -1,57 +1,49 @@
 import { Card } from '../../primitives/Card';
-import type { Product } from '@nootropic/data';
-import { scoreTier } from '../listicleRanking';
+import type { Product, UIStrings } from '@nootropic/data';
+import { SCORE_TIER_TEXT_CLASS, scoreTier } from '../listicleRanking';
+import { fillNodes } from '../fillNodes';
 
 export interface OverviewTabProps {
   product: Product;
+  /** Locale product-detail bundle: verdict headline and section headings around the record's own text. */
+  strings: UIStrings['productDetail'];
 }
 
-export function OverviewTab({ product: p }: OverviewTabProps) {
+export function OverviewTab({ product: p, strings }: OverviewTabProps) {
+  const t = strings.overview;
   const tier = scoreTier(p.score);
   return (
     <div className="grid gap-4 items-start grid-cols-1 lg:grid-cols-[1.6fr_1fr]">
       <div className="flex flex-col gap-4">
         <Card variant="subdued" padding={22}>
           <div className="text-[11px] uppercase tracking-[0.12em] font-semibold text-ds-muted mb-2">
-            Verdict
+            {t.verdictEyebrow}
           </div>
           <h2 className="text-[22px] font-bold tracking-[-0.02em] m-0 mb-3 text-ds-ink">
-            {tier === 'good' ? (
-              <>
-                <span className="text-ds-good">{p.name}</span> is recommended.
-              </>
-            ) : tier === 'warn' ? (
-              <>
-                <span className="text-ds-warn-ink">{p.name}</span> is worth a look.
-              </>
-            ) : (
-              <>
-                <span className="text-ds-bad">{p.name}</span> falls short.
-              </>
-            )}
+            {fillNodes(t.verdict[tier], { product: <span className={SCORE_TIER_TEXT_CLASS[tier]}>{p.name}</span> })}
           </h2>
           <p className="text-[14.5px] text-ds-ink-soft m-0 leading-[1.65]">{p.summary}</p>
         </Card>
 
         <Card padding={22}>
-          <h3 className="text-[16px] font-semibold m-0 mb-2 text-ds-ink">What it does</h3>
+          <h3 className="text-[16px] font-semibold m-0 mb-2 text-ds-ink">{t.whatItDoes}</h3>
           <p className="text-[14px] text-ds-ink-soft m-0 leading-[1.65]">{p.whatItIs}</p>
         </Card>
 
         <Card padding={22}>
-          <h3 className="text-[16px] font-semibold m-0 mb-2 text-ds-ink">How it works</h3>
+          <h3 className="text-[16px] font-semibold m-0 mb-2 text-ds-ink">{t.howItWorks}</h3>
           <p className="text-[14px] text-ds-ink-soft m-0 leading-[1.65]">{p.howItWorks}</p>
         </Card>
 
         <Card padding={22}>
-          <h3 className="text-[16px] font-semibold m-0 mb-3 text-ds-ink">What to expect</h3>
+          <h3 className="text-[16px] font-semibold m-0 mb-3 text-ds-ink">{t.whatToExpect}</h3>
           <p className="text-[14px] text-ds-ink-soft m-0 leading-[1.65]">{p.whatToExpect}</p>
         </Card>
       </div>
 
       <div className="flex flex-col gap-4">
         <Card padding={20}>
-          <h3 className="text-[14px] font-semibold m-0 mb-3 text-ds-ink">Hero ingredients</h3>
+          <h3 className="text-[14px] font-semibold m-0 mb-3 text-ds-ink">{t.heroIngredients}</h3>
           <ul className="list-none p-0 m-0 flex flex-col gap-2">
             {p.heroIngredients.slice(0, 6).map((name) => {
               const dose = p.ingredientDosages.find(
@@ -75,7 +67,7 @@ export function OverviewTab({ product: p }: OverviewTabProps) {
         </Card>
 
         <Card variant="subdued" padding={20}>
-          <h3 className="text-[14px] font-semibold m-0 mb-3 text-ds-ink">Who it&apos;s for</h3>
+          <h3 className="text-[14px] font-semibold m-0 mb-3 text-ds-ink">{t.whoItsFor}</h3>
           <ul className="list-none p-0 m-0 flex flex-col gap-2 mb-4">
             {p.pros.slice(0, 3).map((pro) => (
               <li key={pro} className="flex gap-2 text-[13px] text-ds-ink-soft">
@@ -85,7 +77,7 @@ export function OverviewTab({ product: p }: OverviewTabProps) {
             ))}
           </ul>
 
-          <h3 className="text-[14px] font-semibold m-0 mb-3 text-ds-ink">Who should skip</h3>
+          <h3 className="text-[14px] font-semibold m-0 mb-3 text-ds-ink">{t.whoShouldSkip}</h3>
           <ul className="list-none p-0 m-0 flex flex-col gap-2">
             {p.cons.slice(0, 3).map((con) => (
               <li key={con} className="flex gap-2 text-[13px] text-ds-ink-soft">

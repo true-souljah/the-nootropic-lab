@@ -36,7 +36,7 @@ export default function MethodologyPage() {
     <PublicShell searchItems={searchItems} uiStrings={uiStrings}>
       <SchemaOrg schema={schema} />
       <article className="max-w-3xl mx-auto px-4 py-10">
-        <h1 className="text-3xl font-bold text-gray-900 mb-6">Our Methodology</h1>
+        <h1 className="text-3xl font-bold text-gray-900 mb-6">{uiStrings.nav.sidebar.ourMethodology}</h1>
         <p className="text-gray-600 mb-8 text-lg leading-relaxed">
           The Nootropic Lab uses a 5-pillar scoring framework applied consistently to every product.
           No brand pays for a review or influences our scores.
@@ -77,7 +77,7 @@ export default function MethodologyPage() {
             supplement.
           </p>
         </section>
-        <EditorialStandardsSection />
+        <EditorialStandardsSection strings={uiStrings.editorialStandards} />
       </article>
     </PublicShell>
   );

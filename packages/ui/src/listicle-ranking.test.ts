@@ -10,12 +10,16 @@ import {
   doseRuleReason,
   evidenceAtReferenceDose,
   formatListicleScore,
-  howWeChooseText,
+  howWeChooseParts,
   notRankedReason,
   splitListiclePicks,
   type ListicleEvidenceIngredients,
 } from './templates/listicleRanking';
-import { getUseCaseListStrings, type TemplateLocale } from './templateStrings';
+import { getStrings, type Locale } from '@nootropic/data';
+
+/** The Listicle's strings: UIStrings.listicle (moved there from templateStrings.ts on 2026-10-12). */
+const getUseCaseListStrings = (locale: Locale) => getStrings(locale).listicle;
+const ALL_LOCALES: Locale[] = ['en', 'es', 'fr', 'ja', 'pt', 'de', 'fr-CA'];
 
 // Site-owner decision 2026-10-08: every listicle says a pick must "score ≥ {bar}/10
 // in our 5-pillar editorial audit". Ranked picks must meet that bar; picks below
@@ -31,7 +35,7 @@ import { getUseCaseListStrings, type TemplateLocale } from './templateStrings';
 
 const REPO = join(__dirname, '..', '..', '..');
 const UI_SRC = __dirname;
-const LOCALES: TemplateLocale[] = ['en', 'es'];
+const LOCALES: Locale[] = ['en', 'es'];
 const BAR = formatListicleScore(LISTICLE_MIN_SCORE);
 
 // Mind Lab Pro's citicoline row (250mg Cognizin, proven at the 250mg reference
@@ -242,12 +246,26 @@ describe('the rule text and the also-considered copy render LISTICLE_MIN_SCORE',
     expect(src).not.toMatch(/\b7[.,]5\b/);
   });
 
+  it.each(ALL_LOCALES)('%s: the Listicle strings type no score either, and every rule string keeps {minScore}', (locale) => {
+    const s = getUseCaseListStrings(locale);
+    const src = JSON.stringify(s);
+    expect(src).not.toMatch(/\b\d[.,]\d\s?\/\s?10\b/);
+    expect(src).not.toMatch(/\b7[.,]5\b/);
+    for (const key of ['howWeChooseBody', 'alsoConsideredHeading', 'alsoConsideredIntro', 'belowBarReason', 'alsoConsideredRulesIntro', 'alsoConsideredLinkIntro'] as const) {
+      expect(s[key], `${locale} ${key}`).toContain('{minScore}');
+    }
+    for (const key of ['belowBarReason', 'doseRuleReason', 'noPurchaseLinkReason'] as const) {
+      expect(s[key], `${locale} ${key}`).toContain('{score}/10');
+    }
+    expect(howWeChooseParts(s).before).toContain(`${BAR}/10`);
+  });
+
   it.each(LOCALES)('%s: "How we choose" states the bar from the constant', (locale) => {
     const s = getUseCaseListStrings(locale);
     expect(s.howWeChooseBody).toContain('{minScore}/10');
-    const text = howWeChooseText(s);
-    expect(text).toContain(`≥ ${BAR}/10`);
-    expect(text).not.toContain('{');
+    const { before, after } = howWeChooseParts(s);
+    expect(before).toContain(`≥ ${BAR}/10`);
+    expect(`${before}${after}`).not.toContain('{');
   });
 
   it.each(LOCALES)('%s: section heading, intro and reason line carry the bar (and the score)', (locale) => {
@@ -329,10 +347,10 @@ describe('the rule text and the also-considered copy render LISTICLE_MIN_SCORE',
 describe('Listicle template wiring', () => {
   const src = readFileSync(join(UI_SRC, 'templates', 'Listicle.tsx'), 'utf8');
 
-  it('splits the picks once, against the page’s evidence cards, and renders the rule through howWeChooseText', () => {
+  it('splits the picks once, against the page’s evidence cards, and renders the rule through howWeChooseParts', () => {
     expect(src).toContain('splitListiclePicks(picks, ingredientMechanism)');
     expect(src.match(/splitListiclePicks\(/g)).toHaveLength(1);
-    expect(src).toContain('howWeChooseText(s)');
+    expect(src).toContain('howWeChooseParts(s)');
     expect(src).not.toContain('s.howWeChooseBody');
     // Nothing else enumerates the raw picks (cards, TOC, ItemList read `ranked`).
     expect(src).not.toMatch(/\bpicks\.(map|length|sort|filter|forEach|slice)\b|\.\.\.picks\b/);
@@ -681,5 +699,57 @@ describe('an "Also considered" blurb does not recommend the pick', () => {
     'Aporta 500mg de Melena de León, la mitad del mínimo de 1g al día de nuestra dosis de referencia.',
   ])('passes: %s', (text) => {
     expect(recommendationIn(text)).toEqual([]);
+  });
+});
+
+// Site-owner decision 2026-10-12: a ranked pick must be buyable in its edition.
+// A pick that meets the bar and rule (b) but carries a purchase-link block
+// (Product.noPurchaseLink — JP Hunter Focus, MHLW medicine-only ingredient)
+// moves to "Also considered" with its own reason.
+describe('ranked picks are buyable in their edition', () => {
+  const blocked = (name: string, score: number, rank?: number) => {
+    const p = pick(name, score, rank);
+    return { ...p, product: { ...p.product, noPurchaseLink: data.allProductsJP.find((x) => x.slug === 'hunter-focus-review')!.noPurchaseLink } };
+  };
+
+  it('moves a qualifying pick with no purchase link to Also considered, after the bar and dose rules', () => {
+    const { ranked, alsoConsidered } = splitListiclePicks([pick('A', 8.5, 1), blocked('B', 8.3, 2), pick('C', 7.6, 3), blocked('D', 6.0, 4)], EVIDENCE);
+    expect(names(ranked)).toEqual(['A', 'C']);
+    expect(ranked.map((p) => p.rank)).toEqual([1, 2]);
+    expect(alsoConsidered.map((p) => [p.product.name, p.notRanked])).toEqual([['B', 'noPurchaseLink'], ['D', 'belowBar']]);
+  });
+
+  it.each(LOCALES)('%s: the reason line and the lead name the purchase-link rule only where it applies', (locale) => {
+    const s = getUseCaseListStrings(locale);
+    expect(s.noPurchaseLinkReason).toContain('{score}');
+    expect(s.alsoConsideredLinkIntro).toContain('{minScore}');
+    expect(notRankedReason(s, { product: { score: 8.3 }, notRanked: 'noPurchaseLink' })).toContain('8.3');
+    const withLink = alsoConsideredText(s, [{ notRanked: 'belowBar' }, { notRanked: 'noPurchaseLink' }]);
+    expect(withLink.heading).toBe(s.alsoConsideredRulesHeading);
+    expect(withLink.intro).toBe(s.alsoConsideredLinkIntro.replace('{minScore}', BAR));
+    expect(alsoConsideredText(s, [{ notRanked: 'doseRule' }]).intro).toBe(s.alsoConsideredRulesIntro.replace('{minScore}', BAR));
+    expect(alsoConsideredText(s, [{ notRanked: 'belowBar' }]).intro).toBe(s.alsoConsideredIntro.replace('{minScore}', BAR));
+  });
+
+  it('real data: JP Hunter Focus stays unranked on JP lists even if its score rises above the bar', () => {
+    const hunter = data.allProductsJP.find((p) => p.slug === 'hunter-focus-review')!;
+    expect(data.purchaseUrl(hunter)).toBeNull();
+    expect(evidenceAtReferenceDose(hunter, EVIDENCE).length).toBeGreaterThan(0);
+    // Today (2026-10-12) it scores 6.3, so the bar already keeps it unranked.
+    expect(splitListiclePicks([{ product: hunter, rank: 1 }], EVIDENCE).alsoConsidered[0].notRanked).toBe(
+      hunter.score >= LISTICLE_MIN_SCORE ? 'noPurchaseLink' : 'belowBar',
+    );
+    // With a score at the bar, the purchase-link rule keeps it out of the ranking.
+    const { ranked, alsoConsidered } = splitListiclePicks([{ product: { ...hunter, score: 8.0 }, rank: 1 }], EVIDENCE);
+    expect(ranked).toEqual([]);
+    expect(alsoConsidered[0].notRanked).toBe('noPurchaseLink');
+  });
+
+  it('a NatureBell-style block (store listing gone) keeps the pick ranked (site-owner decision 2026-10-12)', () => {
+    const notSold = data.allProductsCA.find((p) => p.slug === 'naturebell-ginkgo-ginseng-review')!.noPurchaseLink;
+    expect(notSold?.reason).toBe('not-sold-on-linked-store');
+    const p = pick('NB', 8.0, 1);
+    const { ranked } = splitListiclePicks([{ ...p, product: { ...p.product, noPurchaseLink: notSold } }], EVIDENCE);
+    expect(names(ranked)).toEqual(['NB']);
   });
 });

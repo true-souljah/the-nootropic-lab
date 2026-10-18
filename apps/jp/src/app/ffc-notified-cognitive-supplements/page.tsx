@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
+import { SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter, PublicShell, DisclaimerText } from '@nootropic/ui';
 import { productsJP, getRegionalHealthDisclaimer } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
@@ -90,16 +90,16 @@ export default function Page() {
       <SchemaOrg schema={breadcrumbSchema} />
 
       <article className="max-w-4xl mx-auto px-4 py-10">
-        <nav className="text-xs text-gray-500 mb-6">
-          <Link href="/" className="hover:text-green-700">Home</Link>
+        <nav className="text-xs text-gray-500 mb-6" aria-label={uiStrings.breadcrumb.ariaLabel}>
+          <Link href="/" className="hover:text-green-700">{uiStrings.breadcrumb.home}</Link>
           {' / '}
           <span>FFC-Notified Cognitive Supplements</span>
         </nav>
 
         <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 mb-4">
-          <span>Reviewed by <strong className="text-gray-700">The Nootropic Lab Editorial Team</strong></span>
+          <span className="text-gray-700">{uiStrings.productDetail.meta.reviewedBy}</span>
           <span>·</span>
-          <span>Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+          <span>{`${uiStrings.productDetail.meta.updated}${uiStrings.typography.space}${new Date().toLocaleDateString(uiStrings.productDetail.dateLocale, { year: 'numeric', month: 'long', day: 'numeric' })}`}</span>
         </div>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
@@ -180,7 +180,7 @@ export default function Page() {
         </section>
 
         <section className="my-10">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Frequently asked questions</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">{uiStrings.listicle.faqHeading}</h2>
           <div className="space-y-4">
             {faqs.map(item => (
               <div key={item.q} className="border border-gray-200 rounded-lg p-5">
@@ -194,6 +194,8 @@ export default function Page() {
         <Sources
           defaultOpen
           heading="Regulatory sources"
+          expandLabel={uiStrings.guide.expand}
+          space={uiStrings.typography.space}
           sources={[
             { type: 'Regulatory', label: 'Consumer Affairs Agency (消費者庁) — Foods with Function Claims', url: 'https://www.caa.go.jp/policies/policy/food_labeling/foods_with_function_claims/' },
             { type: 'Regulatory', label: 'CAA — FFC notification database (届出情報検索)', url: 'https://www.caa.go.jp/policies/policy/food_labeling/foods_with_function_claims/search/' },
@@ -206,13 +208,13 @@ export default function Page() {
 
         <aside className="bg-amber-50 border-l-4 border-amber-400 rounded-r-lg p-4 mt-10 text-sm text-amber-900">
           <strong className="block mb-1">Health & regulatory note</strong>
-          {getRegionalHealthDisclaimer('jp')}
+          <DisclaimerText text={getRegionalHealthDisclaimer('jp')} />
         </aside>
 
         <div className="text-sm text-gray-500 mt-10">
           <Link href="/" className="text-green-700 underline">← Back to home</Link>
           {' · '}
-          <Link href="/methodology/" className="text-green-700 underline">Methodology</Link>
+          <Link href="/methodology/" className="text-green-700 underline">{uiStrings.nav.methodology}</Link>
         </div>
       </article>
     </PublicShell>

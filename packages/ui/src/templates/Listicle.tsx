@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import Link from 'next/link';
 import SchemaOrg from '../SchemaOrg';
 import Sources, { type Source } from '../Sources';
@@ -11,20 +12,16 @@ import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
 import { priceText } from '../price-text';
+import DisclaimerText from '../DisclaimerText';
 import { Bar } from '../primitives/Bar';
 import { FaqAccordion } from '../primitives/FaqAccordion';
 import { ProductThumb } from '../primitives/ProductThumb';
 import { buildPersonAuthorReference, servingAmount, pillarText, guaranteeDays, pageDisclosureScope } from '@nootropic/data';
-import type { Product, UIStrings } from '@nootropic/data';
-import {
-  useCaseListPageEnDefaults,
-  tpl,
-  type RelatedGuideUseCase,
-  type UseCaseListPageStrings,
-} from '../templateStrings';
+import type { Product, RelatedGuideUseCase, UIStrings } from '@nootropic/data';
+import { tpl } from '../templateStrings';
 import {
   alsoConsideredText,
-  howWeChooseText,
+  howWeChooseParts,
   notRankedReason,
   splitListiclePicks,
   type ListicleEvidenceIngredients,
@@ -46,6 +43,15 @@ export interface ListicleIngredientMechanism extends ListicleEvidenceIngredients
   name: string;
   evidence: string;
   citationUrl?: string;
+  /**
+   * Further studies the `evidence` text names by PubMed ID besides the one at
+   * `citationUrl`, each rendered as its own link after the "Source" link.
+   * `label` is the study's author-year name exactly as the card text gives it
+   * (e.g. "Rogers 2008"); `url` is its PubMed record
+   * (https://pubmed.ncbi.nlm.nih.gov/<PMID>/). listicle-evidence-citations.test.ts
+   * fails when a card names a "PubMed <id>" that neither link points at.
+   */
+  extraCitations?: { label: string; url: string }[];
 }
 
 export interface ListiclePick {
@@ -77,19 +83,18 @@ export interface ListicleProps {
   healthDisclaimer?: string;
   /** Where the listicle parent lives. Defaults to /best-nootropics. */
   listicleHref?: string;
-  /** Locale string overrides. */
-  strings?: Partial<UseCaseListPageStrings>;
   /** Optional Sources block rendered before the methodology section. */
   sources?: Source[];
   /** Search index for the ⌘K modal in FPHeader. */
   searchItems?: SearchItem[];
   /**
-   * Site UI strings (SearchModal, disclosure, breadcrumb). Required so the
-   * affiliate disclosure is always rendered in the page locale.
+   * Site UI strings: the page chrome (UIStrings.listicle, byline, breadcrumb,
+   * disclosure, search) in the page locale. Required so no English chrome can
+   * render under a non-English `<html lang>`.
    */
   uiStrings: UIStrings;
-  /** Estimated read time displayed in FPByline. */
-  readTime?: string;
+  /** Estimated read time in minutes, displayed in FPByline. */
+  readMinutes?: number;
   /**
    * Optional regional regulatory pillar (e.g. /are-nootropics-fda-approved/ on US,
    * /efsa-approved-cognitive-supplements/ on EU). Rendered as a "Read the regulatory
@@ -106,6 +111,10 @@ export interface ListicleProps {
 }
 
 const TODAY = new Date();
+
+/** An evidence card's "Source" link and its `extraCitations` links share this style. */
+const EVIDENCE_CITATION_LINK_CLASS =
+  'inline-block mt-2 text-[12.5px] text-ds-accent underline focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded';
 
 /** Sibling listicles linked under "Related guides" (the page's own use case is skipped). */
 const RELATED_GUIDE_USE_CASES: readonly RelatedGuideUseCase[] = ['focus', 'memory', 'studying', 'aging'];
@@ -132,17 +141,19 @@ export default function Listicle({
   siteUrl,
   healthDisclaimer,
   listicleHref = '/best-nootropics',
-  strings,
   sources,
   searchItems,
   uiStrings,
-  readTime = '10 min',
+  readMinutes = 10,
 }: ListicleProps) {
-  const s: UseCaseListPageStrings = { ...useCaseListPageEnDefaults, ...strings };
+  const s = uiStrings.listicle;
+  const pd = uiStrings.productDetail;
+  const space = uiStrings.typography.space;
+  const home = uiStrings.breadcrumb.home;
   const currentYear = TODAY.getFullYear();
   const slugUrl = `${siteUrl}${pagePath}`;
   const updatedISO = TODAY.toISOString().split('T')[0];
-  const updatedDisplay = TODAY.toLocaleDateString(uiStrings?.productDetail.dateLocale ?? 'en-US', {
+  const updatedDisplay = TODAY.toLocaleDateString(uiStrings.productDetail.dateLocale, {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
@@ -155,6 +166,7 @@ export default function Listicle({
   // "Also considered" with the rule they fail.
   const { ranked, alsoConsidered } = splitListiclePicks(picks, ingredientMechanism);
   const alsoConsideredCopy = alsoConsideredText(s, alsoConsidered);
+  const howWeChoose = howWeChooseParts(s);
   // Only ranked picks render a buy link ("Also considered" has none).
   const disclosureScope = pageDisclosureScope(ranked.map((pick) => pick.product));
 
@@ -187,7 +199,7 @@ export default function Listicle({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: s.home, item: `${siteUrl}/` },
+      { '@type': 'ListItem', position: 1, name: home, item: `${siteUrl}/` },
       { '@type': 'ListItem', position: 2, name: s.bestNootropics, item: `${siteUrl}${listicleHref}/` },
       { '@type': 'ListItem', position: 3, name: pageTitle, item: slugUrl },
     ],
@@ -200,16 +212,16 @@ export default function Listicle({
       <SchemaOrg schema={breadcrumbSchema} />
 
       <a href="#main-content" tabIndex={0} className="ds-skip-link">
-        {uiStrings?.nav.skipToContent ?? 'Skip to main content'}
+        {uiStrings.nav.skipToContent}
       </a>
-      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} scope={disclosureScope} />
+      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} scope={disclosureScope} space={space} />
       <FPHeader searchItems={searchItems} strings={uiStrings} />
 
       <main id="main-content" className="max-w-[1200px] mx-auto px-6 pt-7">
-        <nav aria-label={uiStrings?.breadcrumb.ariaLabel ?? 'Breadcrumb'} className="text-[12.5px] text-ds-muted mb-[18px]">
+        <nav aria-label={uiStrings.breadcrumb.ariaLabel} className="text-[12.5px] text-ds-muted mb-[18px]">
           <ol className="flex items-center gap-2 list-none p-0 m-0">
             <li>
-              <Link href="/" className="hover:text-ds-ink">{s.home}</Link>
+              <Link href="/" className="hover:text-ds-ink">{home}</Link>
             </li>
             <li aria-hidden="true" className="text-ds-faint">/</li>
             <li>
@@ -241,21 +253,14 @@ export default function Listicle({
               {heroParagraph}
             </p>
 
-            <FPByline
-              updated={updatedDisplay}
-              read={readTime}
-              attribution={s.bylineAttribution}
-              factCheckedLabel={s.bylineFactChecked}
-              updatedLabel={s.bylineUpdated}
-              readSuffix={s.bylineReadSuffix}
-            />
+            <FPByline updated={updatedDisplay} minutes={readMinutes} strings={uiStrings.byline} space={space} />
 
             <aside
               role="note"
               className="bg-ds-warn-soft border-l-4 border-ds-warn rounded-r-[8px] p-4 mt-5 mb-7 text-[13px] text-ds-warn-ink"
             >
               <strong className="block mb-1">{s.healthDisclaimer}</strong>
-              {healthDisclaimer || s.defaultHealthDisclaimer}
+              <DisclaimerText text={healthDisclaimer || s.defaultHealthDisclaimer} />
             </aside>
 
             <section className="my-10">
@@ -271,11 +276,28 @@ export default function Listicle({
                         href={item.citationUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block mt-2 text-[12.5px] text-ds-accent underline focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded"
+                        className={EVIDENCE_CITATION_LINK_CLASS}
                       >
                         {s.sourceLink}
                       </a>
                     )}
+                    {item.extraCitations?.map((citation, i) => (
+                      <Fragment key={citation.url}>
+                        {(i !== 0 || Boolean(item.citationUrl)) && (
+                          <span aria-hidden="true" className="text-[12.5px] text-ds-muted">
+                            {' · '}
+                          </span>
+                        )}
+                        <a
+                          href={citation.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={EVIDENCE_CITATION_LINK_CLASS}
+                        >
+                          {citation.label}
+                        </a>
+                      </Fragment>
+                    ))}
                   </Card>
                 ))}
               </div>
@@ -283,10 +305,10 @@ export default function Listicle({
 
             <section className="my-10">
               <h2 className="text-[26px] font-bold text-ds-ink mb-2">
-                {s.ourPicksFor} {s.useCaseLabels[useCase] ?? useCase}
+                {tpl(s.ourPicksFor, { useCase: s.useCaseLabels[useCase] ?? useCase })}
               </h2>
               <p className="text-[14px] text-ds-muted mb-4">{s.picksIntro}</p>
-              <FPTrustNote strings={uiStrings.disclosure} scope={disclosureScope} className="mb-6" />
+              <FPTrustNote strings={uiStrings.disclosure} scope={disclosureScope} className="mb-6" space={space} />
 
               <div className="flex flex-col gap-5">
                 {ranked.map((pick) => {
@@ -302,9 +324,9 @@ export default function Listicle({
                             {isTop ? ` · ${s.topPick}` : ''}
                           </Chip>
                           {pick.product.caffeineFree ? (
-                            <Chip tone="good">{s.caffeineFree}</Chip>
+                            <Chip tone="good">{pd.chips.caffeineFree}</Chip>
                           ) : (
-                            <Chip tone="warn">{s.hasCaffeine}</Chip>
+                            <Chip tone="warn">{pd.chips.hasCaffeine}</Chip>
                           )}
                           <span className="text-[12px] text-ds-muted ml-1">{pick.product.brand}</span>
                         </div>
@@ -318,7 +340,7 @@ export default function Listicle({
                         <div className="text-[12.5px] text-ds-muted mb-4 ds-tabular">
                           {price && (
                             <>
-                              {price.short} · {servingAmount(pick.product, uiStrings)} · {guaranteeDays(pick.product.moneyBackDays, (d) => tpl(s.moneyBackDays, { days: d }))} {s.moneyBackLabel}
+                              {price.short} · {servingAmount(pick.product, uiStrings)} · {guaranteeDays(pick.product.moneyBackDays, (d) => tpl(s.moneyBackDays, { days: d }))}{space}{s.moneyBackLabel}
                             </>
                           )}
                         </div>
@@ -327,7 +349,7 @@ export default function Listicle({
                         <div className="grid gap-6 items-start grid-cols-1 md:grid-cols-[1fr_220px]">
                           <div>
                             <p className="text-[14px] leading-[1.6] text-ds-ink-soft m-0">
-                              <strong className="text-ds-ink">{s.whyItsHere}</strong> {pick.whyItsHere}
+                              <strong className="text-ds-ink">{s.whyItsHere}</strong>{space}{pick.whyItsHere}
                             </p>
                             <div className="flex gap-3 flex-wrap mt-4">
                               <TrackedAffiliateLink
@@ -356,7 +378,7 @@ export default function Listicle({
                               </span>
                               <ScorePill
                                 score={pick.product.score}
-                                label={tpl(s.scoreAriaLabel, {
+                                label={tpl(pd.score.aria, {
                                   score: pick.product.score.toFixed(1),
                                   max: (10).toFixed(1),
                                 })}
@@ -371,11 +393,11 @@ export default function Listicle({
                                     className="grid items-center gap-2"
                                     style={{ gridTemplateColumns: '92px 1fr 24px' }}
                                   >
-                                    <span className="text-[11px] text-ds-muted capitalize">{s.pillarLabels[key]}</span>
+                                    <span className="text-[11px] text-ds-muted capitalize">{pd.pillars.short[key]}</span>
                                     <Bar
                                       value={v ?? 0}
                                       decorative={v === null}
-                                      label={tpl(s.pillarScoreLabel, { name: pick.product.name, pillar: s.pillarLabels[key] })}
+                                      label={tpl(pd.pillars.shortScoreAria, { name: pick.product.name, pillar: pd.pillars.short[key] })}
                                     />
                                     <span className="text-[11px] text-ds-ink text-right ds-tabular">{pillarText(v)}</span>
                                   </div>
@@ -473,7 +495,9 @@ export default function Listicle({
               </ul>
             </section>
 
-            {sources && sources.length > 0 && <Sources sources={sources} />}
+            {sources && sources.length > 0 && (
+              <Sources sources={sources} heading={uiStrings.guide.sources} expandLabel={uiStrings.guide.expand} space={space} />
+            )}
 
             <Card
               variant="subdued"
@@ -483,11 +507,11 @@ export default function Listicle({
             >
               <h2 className="text-[18px] font-bold text-ds-ink mb-2">{s.howWeChoose}</h2>
               <p className="text-[14px] leading-[1.6] text-ds-ink-soft mb-3">
-                {howWeChooseText(s)}{' '}
+                {howWeChoose.before}
                 <Link href="/methodology/" className="text-ds-accent underline">
                   {s.fullMethodology}
                 </Link>
-                .
+                {howWeChoose.after}
               </p>
               <Link
                 href={`${listicleHref}/`}

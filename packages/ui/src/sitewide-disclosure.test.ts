@@ -2,9 +2,10 @@ import { describe, test, expect, vi, afterEach, beforeEach } from 'vitest';
 import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
-import { join, relative } from 'node:path';
+import { basename, join, relative } from 'node:path';
 import {
   allProductsUS, allProductsJP, productsUS, productsEU,
+  CLIENT_RENDERED_BUY_LINK_ROUTES,
   disclosureCopy, earnsCommission, getStrings, pageDisclosureScope, purchaseUrl, reviewDisclosureScope,
 } from '@nootropic/data';
 import type { DisclosureScope, Locale, Product } from '@nootropic/data';
@@ -15,6 +16,7 @@ import BestOf from './templates/BestOf';
 import HeadToHead from './templates/HeadToHead';
 import Listicle from './templates/Listicle';
 import ProductDetail from './templates/ProductDetail';
+import Shortlist from './templates/Shortlist';
 
 // Operator decision 2026-10-12: a page says "we earn a commission if you buy
 // through links on this page" only when it renders a buy link to a product we
@@ -328,7 +330,6 @@ describe('app pages declare the products they link', () => {
       'apps/eu/src/app/de/beste-nootropika/page.tsx',
       'apps/eu/src/app/fr/meilleurs-nootropiques/page.tsx',
       'apps/eu/src/app/pt/melhores-nootropicos/page.tsx',
-      'apps/jp/src/app/ja/hikaku/page.tsx',
       'apps/us/src/app/es/comparar/page.tsx',
       'apps/us/src/app/es/mejores-nootropicos/page.tsx',
     ]);
@@ -351,5 +352,107 @@ describe('app pages declare the products they link', () => {
       .filter((p) => !(/\blinkedProducts=/.test(p.src) || /<AffiliateDisclosure\b/.test(p.src) || TEMPLATE_WITH_STRIP.test(p.src)))
       .map((p) => p.file);
     expect(offenders).toEqual([]);
+  });
+});
+
+// ── Buy links rendered in the browser ────────────────────────────────────
+// The static export renders every page at build time, but content that reads
+// browser-only state (localStorage, the query string, window.location) only
+// renders after hydration. Buy links under such a module are absent from the
+// static HTML: the page cannot compute pageDisclosureScope at build time and
+// check-built-disclosure.ts has no link to count. These routes are listed in
+// CLIENT_RENDERED_BUY_LINK_ROUTES and carry the 'page' strip unconditionally
+// in their static HTML (the built gate checks it on every listed route).
+const BROWSER_ONLY = /\buseSearchParams\(|\blocalStorage\b|\bsessionStorage\b|\bwindow\.location\b|\buseShortlist\(|\bssr:\s*false/;
+const SPONSORED_ANCHOR = /\brel="[^"]*\bsponsored\b/;
+
+function tsxFiles(dir: string, out: string[] = []): string[] {
+  for (const name of readdirSync(dir)) {
+    if (name === 'node_modules' || name === 'out' || name === '.next') continue;
+    const full = join(dir, name);
+    if (statSync(full).isDirectory()) tsxFiles(full, out);
+    else if (name.endsWith('.tsx') && !name.endsWith('.test.tsx')) out.push(full);
+  }
+  return out;
+}
+
+/** Source without comments: prose about localStorage is not code reading it. */
+function code(src: string): string {
+  return src.replace(/\/\*[\s\S]*?\*\//g, '').replace(/(^|[^:'"\\])\/\/.*$/gm, '$1');
+}
+
+// Every UI and app module, named by file (the component name a page renders).
+const MODULES = [__dirname, ...readdirSync(join(REPO, 'apps')).map((app) => join(REPO, 'apps', app, 'src'))]
+  .flatMap((dir) => tsxFiles(dir))
+  .map((f) => {
+    const src = code(readFileSync(f, 'utf8'));
+    return { file: relative(REPO, f), name: basename(f, '.tsx'), src, tags: new Set([...src.matchAll(/<([A-Z]\w*)\b/g)].map((m) => m[1])) };
+  });
+type Module = (typeof MODULES)[number];
+
+/** Modules matching `seed`, plus every module (of `among`) that renders one of them. */
+function closure(seed: (m: Module) => boolean, among: readonly Module[] = MODULES): Set<string> {
+  const files = new Set<string>();
+  const names = new Set<string>();
+  for (let grew = true; grew; ) {
+    grew = false;
+    for (const m of among) {
+      if (files.has(m.file) || !(seed(m) || [...m.tags].some((t) => names.has(t)))) continue;
+      files.add(m.file);
+      names.add(m.name);
+      grew = true;
+    }
+  }
+  return files;
+}
+
+// Modules that render a buy link (a sponsored anchor, directly or through a
+// component), and those of them that do so under browser-only state.
+const BUY_LINK_MODULES = closure((m) => SPONSORED_ANCHOR.test(m.src));
+const CLIENT_BUY_LINK_MODULES = closure(
+  (m) => BROWSER_ONLY.test(m.src),
+  MODULES.filter((m) => BUY_LINK_MODULES.has(m.file)),
+);
+/** `<region>:<route>` of an app page file. */
+function pageRoute(file: string): string | null {
+  const m = /^apps\/(\w+)\/src\/app\/(.*?)\/?page\.tsx$/.exec(file);
+  if (!m) return null;
+  const route = m[2].split('/').filter((seg) => seg && !/^\(.*\)$/.test(seg)).join('/');
+  return `${m[1]}:/${route ? `${route}/` : ''}`;
+}
+
+describe('browser-rendered buy links (shortlist, quiz results)', () => {
+  test('scans the UI and every app, and finds the buy-link components (non-empty input)', () => {
+    expect(MODULES.length).toBeGreaterThan(300);
+    for (const f of ['TrackedAffiliateLink', 'ComparisonTable', 'StickyCtaBar', 'templates/BestOf', 'templates/ProductDetail']) {
+      expect(BUY_LINK_MODULES.has(`packages/ui/src/${f}.tsx`), f).toBe(true);
+    }
+    expect([...BUY_LINK_MODULES].filter((f) => pageRoute(f) !== null).length).toBeGreaterThan(50);
+  });
+
+  test('the routes that render buy links in the browser are exactly CLIENT_RENDERED_BUY_LINK_ROUTES', () => {
+    const found = [...CLIENT_BUY_LINK_MODULES].map(pageRoute).filter((r): r is string => r !== null).sort();
+    const listed = Object.entries(CLIENT_RENDERED_BUY_LINK_ROUTES)
+      .flatMap(([region, routes]) => (routes ?? []).map((r) => `${region}:${r}`))
+      .sort();
+    expect(found.length).toBeGreaterThan(0);
+    expect(found).toEqual(listed);
+  });
+
+  test('Shortlist: the static (pre-hydration) markup carries the "page" strip', () => {
+    const s = getStrings('en');
+    const html = text(
+      renderToStaticMarkup(createElement(Shortlist, { products: productsUS, siteUrl: 'https://example.com', uiStrings: s })),
+    );
+    // No saved picks before hydration: the strip is the page's only disclosure.
+    expect(html).toContain('Loading your shortlist');
+    assertScope(html, s, 'page', false);
+  });
+
+  test('quiz results: the "page" strip is outside the Suspense boundary that renders the results', () => {
+    const src = readFileSync(join(REPO, 'apps/us/src/app/quiz/results/page.tsx'), 'utf8');
+    const strip = src.search(/<FPDisclosure\b[^>]*\bscope="page"/);
+    expect(strip, 'FPDisclosure scope="page" rendered').toBeGreaterThan(-1);
+    expect(strip, 'strip before <Suspense>').toBeLessThan(src.indexOf('<Suspense'));
   });
 });

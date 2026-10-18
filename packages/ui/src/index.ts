@@ -32,6 +32,7 @@ export { trackAffiliateClick } from './trackAffiliateClick';
 export type { AffiliateClickContext } from './trackAffiliateClick';
 export { default as TrackedAffiliateLink } from './TrackedAffiliateLink';
 export { default as NoPurchaseLinkNotice } from './NoPurchaseLinkNotice';
+export { default as DisclaimerText, LanguageRuns } from './DisclaimerText';
 export type { NoPurchaseLinkNoticeProps } from './NoPurchaseLinkNotice';
 
 // Design system primitives (Stack redesign — M1 foundation)
@@ -171,16 +172,12 @@ export type { ParsedDose, DoseStatus } from './templates/doseRange';
 export { default as CommandPalette } from './templates/CommandPalette';
 export type { CommandPaletteProps } from './templates/CommandPalette';
 export {
-  useCaseListPageEnDefaults,
-  useCaseListPageEsStrings,
-  getUseCaseListStrings,
   headToHeadPageEnDefaults,
   headToHeadPageEsStrings,
   getHeadToHeadStrings,
   tpl,
 } from './templateStrings';
 export type {
-  UseCaseListPageStrings,
   HeadToHeadPageStrings,
   TemplateLocale,
 } from './templateStrings';

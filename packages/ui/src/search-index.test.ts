@@ -144,7 +144,7 @@ describe('buildSearchIndex — output shape', () => {
 describe('buildSearchIndex — localization (PR-Q10 WCAG 3.1.2)', () => {
   // Before PR-Q10, buildSearchIndex appended 3 hardcoded English page
   // items into every region's search index. They were visible in the
-  // ⌘K SearchModal on LATAM /, CA /fr/*, JP /ja/, etc., violating
+  // ⌘K SearchModal on LATAM /, CA /fr/*, the then-Japanese JP pages, etc., violating
   // WCAG 3.1.2 Language of Parts. PR-Q10 adds an optional strings
   // parameter; buildRegionSearchContext always passes the locale bundle.
 

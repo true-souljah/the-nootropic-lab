@@ -27,8 +27,11 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'L-Theanine + Caffeine — sustained focus',
     ingredientSlugs: ['l-theanine', 'caffeine'],
     evidence:
-      'For sustained study sessions, the L-theanine + caffeine combo is the foundation. Reduces caffeine jitter and post-coffee crash, smooths attention switching. 100–200mg L-theanine + 100mg caffeine, repeated 4–6 hours later if needed. GCC note: many students prefer L-theanine alone, paired with Arabic coffee or matcha — same synergy without committing to a caffeine-loaded supplement. During Ramadan, take with suhoor for daytime study or with iftar for evening sessions.',
+      'For sustained study sessions, the L-theanine + caffeine combo is the foundation. In the trial linked below (Owen 2008), the pairing improved speed and accuracy on an attention-switching task; in a controlled trial (Rogers 2008, PubMed 17891480), theanine did not significantly reduce caffeine-induced jitteriness. 100–200mg L-theanine + 100mg caffeine, repeated 4–6 hours later if needed. GCC note: L-theanine alone can be paired with Arabic coffee or matcha — the same pairing without a caffeine-containing supplement. During Ramadan, take with suhoor for daytime study or with iftar for evening sessions.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
+    extraCitations: [
+      { label: 'Rogers 2008', url: 'https://pubmed.ncbi.nlm.nih.gov/17891480/' },
+    ],
   },
   {
     name: 'Bacopa Monnieri — long-term memory consolidation',
@@ -38,10 +41,10 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
   },
   {
-    name: 'Citicoline — choline for cognitive demand',
+    name: 'Citicoline — a choline donor',
     ingredientSlugs: ['citicoline'],
     evidence:
-      'Heavy cognitive demand depletes choline. Citicoline at 250–500mg/day supports phospholipid synthesis and acetylcholine availability — the neurotransmitter most associated with attention and learning. Cognizin is the standardised form. Synthesised, not animal-derived.',
+      'Citicoline is a choline donor. Our citicoline page rates its attention evidence as mixed and its working-memory evidence as moderate (one trial in older adults with inefficient memory, Spiers 1996). Cognizin is the standardised form. Synthesised, not animal-derived.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
   {
@@ -101,7 +104,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'When should I start taking nootropics for studying?',
-    a: 'For acute-effect ingredients (L-theanine + caffeine), 30 minutes before a study session. For Bacopa and citicoline (memory consolidation), start at the beginning of the term — they need 4–8 weeks of daily use to show effect. The night before the exam is too late for Bacopa.',
+    a: 'For acute-effect ingredients (L-theanine + caffeine), 30 minutes before a study session. For Bacopa and citicoline, start at the beginning of the term — most positive Bacopa trials ran 12 weeks, and citicoline\'s memory effects were measured after 2–3 months. The night before the exam is too late for Bacopa.',
   },
   {
     q: 'Will nootropics make me smarter?',

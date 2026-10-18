@@ -62,7 +62,7 @@ const whoIsForA = [
   'Want a tight, evidence-graded formula with every dose disclosed',
   'Prefer 2-capsule daily simplicity',
   'Are budget-conscious at $69/month',
-  'Care about peer-reviewed efficacy data over 31-ingredient breadth',
+  'Want a formula tested in two placebo-controlled University of Leeds studies (the 60-day one found no improvement in choice accuracy or reaction time)',
 ];
 
 const whoIsForB = [

@@ -2,6 +2,7 @@ import { describe, test, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { contentFileDate, routeDates } from '@nootropic/data';
+import contentDates from '../../data/src/content-dates.json';
 
 // <lastmod> regression guard (2026-09 GSC work). Before this, every sitemap
 // entry carried `new Date()` at build time, so each deploy claimed all URLs
@@ -41,6 +42,23 @@ describe('sitemap lastmod comes from content history, not the build clock', () =
     const notes = contentFileDate('packages/data/src/regional-notes/sea.ts');
     expect(sea.getTime()).toBeGreaterThanOrEqual(notes.getTime());
     expect(notes.toISOString().slice(0, 10)).toBe('2026-09-07');
+  });
+
+  test('LATAM ingredient pages also follow ingredients-es.ts, the Spanish prose they render (2026-10-13)', () => {
+    // contentFileDate reads this same JSON object, so moving one entry into the
+    // future shows which pages take their lastmod from that file.
+    const dates = contentDates as Record<string, string>;
+    const key = 'packages/data/src/ingredients-es.ts';
+    const real = dates[key];
+    expect(real, `${key} has a content-dates entry`).toBeTruthy();
+    dates[key] = '2099-01-01T00:00:00Z';
+    try {
+      expect(routeDates('latam').ingredient().toISOString()).toBe('2099-01-01T00:00:00.000Z');
+      expect(routeDates('latam').ingredientsHub().toISOString()).toBe('2099-01-01T00:00:00.000Z');
+      expect(routeDates('us').ingredient().getUTCFullYear()).toBeLessThan(2099);
+    } finally {
+      dates[key] = real;
+    }
   });
 
   test('sitemap generators no longer reference the build clock', () => {

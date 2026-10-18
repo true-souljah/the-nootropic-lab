@@ -32,7 +32,7 @@ describe('buildAlternates', () => {
     // "locale clusters" describe below. audit OPT-3b.)
     const result = buildAlternates({ regionCode: 'us', path: '/methodology/' });
     expect(Object.keys(result.languages).sort()).toEqual([
-      'en-AE', 'en-AU', 'en-CA', 'en-GB', 'en-SG', 'en-US', 'es-419', 'ja-JP', 'x-default',
+      'en-AE', 'en-AU', 'en-CA', 'en-GB', 'en-JP', 'en-SG', 'en-US', 'es-419', 'x-default',
     ]);
   });
 
@@ -60,9 +60,10 @@ describe('buildAlternates', () => {
       path: '/foo/',
       availableInRegions: ['us', 'jp'],
     });
-    expect(Object.keys(result.languages).sort()).toEqual(['en-US', 'ja-JP', 'x-default']);
+    // JP is en-JP while its Japanese copy is paused (owner decision 2026-10-13).
+    expect(Object.keys(result.languages).sort()).toEqual(['en-JP', 'en-US', 'x-default']);
     expect(result.languages['en-US']).toBe('https://thenootropiclab.com/foo/');
-    expect(result.languages['ja-JP']).toBe('https://jp.thenootropiclab.com/foo/');
+    expect(result.languages['en-JP']).toBe('https://jp.thenootropiclab.com/foo/');
   });
 
   test('paths are appended verbatim to siteUrl (no trailing slash normalization)', () => {
@@ -134,7 +135,7 @@ describe('buildAlternates — locale clusters (OPT-3b)', () => {
   test('non-clustered pages keep the plain cross-region behaviour (no regression)', () => {
     const g = buildAlternates({ regionCode: 'eu', path: '/guides/' });
     expect(Object.keys(g.languages).sort()).toEqual([
-      'en-AE', 'en-AU', 'en-CA', 'en-GB', 'en-SG', 'en-US', 'es-419', 'ja-JP', 'x-default',
+      'en-AE', 'en-AU', 'en-CA', 'en-GB', 'en-JP', 'en-SG', 'en-US', 'es-419', 'x-default',
     ]);
   });
 });

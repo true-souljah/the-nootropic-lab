@@ -14,6 +14,26 @@ import { ScorePill } from '../primitives/ScorePill';
 import { LiveRegion } from '../primitives/LiveRegion';
 import type { SearchItem } from '../SearchModal';
 import type { UIStrings } from '@nootropic/data';
+import { fillNodes } from './fillNodes';
+
+type PaletteStrings = UIStrings['search']['palette'];
+
+/** EN fallback for the dialog's words when no `strings` prop is passed: the
+ *  en bundle's `search.palette` (pinned by review-page-i18n-rest.test.ts). */
+export const PALETTE_STRINGS_EN: PaletteStrings = {
+  dialogLabel: 'Site search',
+  placeholder: 'Search products, ingredients, comparisons, guides…',
+  resultsLabel: 'Search results',
+  recentLabel: 'Recent and trending',
+  noResults: 'No results for “{query}”',
+  emptyPrompt: 'Type to search products, ingredients, comparisons, or guides.',
+  recent: 'Recent',
+  categories: { ingredients: 'Ingredients', products: 'Products', comparisons: 'Comparisons', guides: 'Guides', other: 'Other' },
+  hints: { navigate: 'navigate', open: 'open', close: 'close' },
+  indexed: '{n} indexed',
+  scoreAria: ', score {score} out of 10',
+  gradeAria: ', evidence grade {grade}',
+};
 
 /** Cap user-supplied strings echoed into the live region. 40 chars is the
  *  conventional ceiling; longer queries get truncated with `…` (U+2026) so a
@@ -31,32 +51,33 @@ const DEFAULT_LIVE_REGION_EN = {
 
 export interface CommandPaletteProps {
   items: SearchItem[];
-  /** Visible label for the trigger button. Default: "Search" (icon + keycap shown). */
+  /** Visible label for the trigger button. Default: `strings.nav.search` ("Search" without a bundle). */
   triggerLabel?: string;
   /** Locale UIStrings bundle. When provided, sources the aria-live status
-   *  messages from `strings.search.liveRegion.*`. Falls back to English
-   *  defaults otherwise. PR-Q29 (#93). */
+   *  messages from `strings.search.liveRegion.*` and the dialog's words from
+   *  `strings.search.palette`. Falls back to English defaults otherwise.
+   *  PR-Q29 (#93). */
   strings?: UIStrings;
 }
 
-type Category = 'Ingredients' | 'Products' | 'Comparisons' | 'Guides' | 'Other';
+type Category = keyof PaletteStrings['categories'];
 
 interface CategorizedItem extends SearchItem {
   category: Category;
 }
 
-const CATEGORY_ORDER: Category[] = ['Ingredients', 'Products', 'Comparisons', 'Guides', 'Other'];
+const CATEGORY_ORDER: Category[] = ['ingredients', 'products', 'comparisons', 'guides', 'other'];
 const RECENT_KEY = 'nootropic-command-recent';
 const MAX_RECENT = 5;
 const MAX_RESULTS_PER_CATEGORY = 6;
 
 function categorize(item: SearchItem): Category {
-  if (item.type === 'ingredient') return 'Ingredients';
-  if (item.type === 'product') return 'Products';
-  if (item.type === 'guide') return 'Guides';
+  if (item.type === 'ingredient') return 'ingredients';
+  if (item.type === 'product') return 'products';
+  if (item.type === 'guide') return 'guides';
   // 'page' bucket: detect head-to-head / 3-way URLs as Comparisons
-  if (item.href.includes('-vs-')) return 'Comparisons';
-  return 'Other';
+  if (item.href.includes('-vs-')) return 'comparisons';
+  return 'other';
 }
 
 function readRecent(items: SearchItem[]): SearchItem[] {
@@ -96,10 +117,15 @@ function pushRecent(href: string): void {
  */
 export default function CommandPalette({
   items,
-  triggerLabel = 'Search',
   strings,
+  triggerLabel,
 }: CommandPaletteProps) {
   const liveStrings = strings?.search.liveRegion ?? DEFAULT_LIVE_REGION_EN;
+  const t = strings?.search.palette ?? PALETTE_STRINGS_EN;
+  // The search field's accessible name; also the trigger's label unless the
+  // caller passes one (FPHeader passes none).
+  const inputLabel = strings?.nav.search ?? 'Search';
+  const trigger = triggerLabel ?? inputLabel;
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [activeIndex, setActiveIndex] = useState(0);
@@ -272,11 +298,11 @@ export default function CommandPalette({
         // PLACE OF INTEREST SIGN literally as "place of interest
         // sign", not as "command" — making the shortcut hint
         // unrecognisable.
-        aria-label={`${triggerLabel} (Command+K)`}
+        aria-label={`${trigger} (Command+K)`}
         className="hidden md:inline-flex items-center gap-2 bg-ds-card-sub border border-ds-border text-ds-muted text-[13px] px-3 py-[6px] rounded-[8px] hover:text-ds-ink hover:border-ds-border-strong focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
       >
         <Search size={14} strokeWidth={2} aria-hidden={true} />
-        <span>{triggerLabel}</span>
+        <span>{trigger}</span>
         <kbd
           aria-hidden="true"
           className="text-[11px] bg-ds-card border border-ds-border px-[6px] py-[1px] rounded-[4px] font-medium text-ds-muted"
@@ -289,7 +315,7 @@ export default function CommandPalette({
       <button
         type="button"
         onClick={handleOpen}
-        aria-label="Search"
+        aria-label={trigger}
         className="md:hidden inline-flex items-center justify-center w-9 h-9 text-ds-muted hover:text-ds-ink rounded focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
       >
         <Search size={18} strokeWidth={2} aria-hidden={true} />
@@ -310,7 +336,7 @@ export default function CommandPalette({
           <div
             role="dialog"
             aria-modal="true"
-            aria-label="Site search"
+            aria-label={t.dialogLabel}
             onClick={(e) => e.stopPropagation()}
             className="relative w-full bg-ds-card border border-ds-border rounded-[14px] overflow-hidden flex flex-col"
             style={{
@@ -336,9 +362,9 @@ export default function CommandPalette({
                   setQuery(e.target.value);
                   setActiveIndex(0);
                 }}
-                placeholder="Search products, ingredients, comparisons, guides…"
+                placeholder={t.placeholder}
                 className="flex-1 bg-transparent border-0 text-ds-ink text-[16px] outline-none placeholder:text-ds-muted"
-                aria-label="Search"
+                aria-label={inputLabel}
                 aria-controls="palette-results"
                 aria-activedescendant={
                   flat[activeIndex] ? `palette-row-${activeIndex}` : undefined
@@ -359,16 +385,15 @@ export default function CommandPalette({
               id="palette-results"
               ref={listRef}
               role="listbox"
-              aria-label={query.trim() ? 'Search results' : 'Recent and trending'}
+              aria-label={query.trim() ? t.resultsLabel : t.recentLabel}
               className="overflow-y-auto flex-1"
             >
               {query.trim().length === 0 ? (
-                <EmptyState recent={recent} activeIndex={activeIndex} setActiveIndex={setActiveIndex} onPick={(href) => { pushRecent(href); }} />
+                <EmptyState strings={t} recent={recent} activeIndex={activeIndex} setActiveIndex={setActiveIndex} onPick={(href) => { pushRecent(href); }} />
               ) : !filtered || flat.length === 0 ? (
                 <div className="p-8 text-center">
                   <p className="text-[13px] text-ds-muted m-0">
-                    No results for{' '}
-                    <span className="text-ds-ink font-semibold">&ldquo;{query}&rdquo;</span>
+                    {fillNodes(t.noResults, { query: <span className="text-ds-ink font-semibold">{query}</span> })}
                   </p>
                 </div>
               ) : (
@@ -379,7 +404,8 @@ export default function CommandPalette({
                   return (
                     <Section
                       key={cat}
-                      label={cat}
+                      strings={t}
+                      label={t.categories[cat]}
                       count={bucket.length}
                       items={bucket}
                       flatStartIndex={startIndex}
@@ -405,12 +431,12 @@ export default function CommandPalette({
             {/* Footer keycap bar */}
             <div className="flex items-center justify-between gap-3 px-4 py-[10px] bg-ds-card-sub border-t border-ds-border text-[11px] text-ds-muted">
               <div className="flex items-center gap-3 flex-wrap">
-                <KeycapHint keys={['↑', '↓']} label="navigate" />
-                <KeycapHint keys={['↵']} label="open" />
-                <KeycapHint keys={['esc']} label="close" />
+                <KeycapHint keys={['↑', '↓']} label={t.hints.navigate} />
+                <KeycapHint keys={['↵']} label={t.hints.open} />
+                <KeycapHint keys={['esc']} label={t.hints.close} />
               </div>
               <div className="text-[11px] text-ds-muted ds-tabular">
-                {items.length.toLocaleString()} indexed
+                {t.indexed.replace('{n}', items.length.toLocaleString(strings?.productDetail.dateLocale))}
               </div>
             </div>
           </div>
@@ -421,11 +447,13 @@ export default function CommandPalette({
 }
 
 function EmptyState({
+  strings,
   recent,
   activeIndex,
   setActiveIndex,
   onPick,
 }: {
+  strings: PaletteStrings;
   recent: SearchItem[];
   activeIndex: number;
   setActiveIndex: (i: number) => void;
@@ -434,15 +462,14 @@ function EmptyState({
   if (recent.length === 0) {
     return (
       <div className="p-8 text-center">
-        <p className="text-[13px] text-ds-muted m-0">
-          Type to search products, ingredients, comparisons, or guides.
-        </p>
+        <p className="text-[13px] text-ds-muted m-0">{strings.emptyPrompt}</p>
       </div>
     );
   }
   return (
     <Section
-      label="Recent"
+      strings={strings}
+      label={strings.recent}
       count={recent.length}
       items={recent.map((r) => ({ ...r, category: categorize(r) }))}
       flatStartIndex={0}
@@ -455,6 +482,7 @@ function EmptyState({
 }
 
 function Section({
+  strings,
   label,
   count,
   items,
@@ -464,6 +492,7 @@ function Section({
   onPick,
   eyebrowIcon,
 }: {
+  strings: PaletteStrings;
   label: string;
   count: number;
   items: CategorizedItem[];
@@ -490,6 +519,7 @@ function Section({
         return (
           <ResultRow
             key={item.href}
+            strings={strings}
             item={item}
             active={active}
             id={`palette-row-${flatIndex}`}
@@ -504,6 +534,7 @@ function Section({
 }
 
 function ResultRow({
+  strings,
   item,
   active,
   id,
@@ -511,6 +542,7 @@ function ResultRow({
   onMouseEnter,
   onClick,
 }: {
+  strings: PaletteStrings;
   item: CategorizedItem;
   active: boolean;
   id: string;
@@ -523,9 +555,9 @@ function ResultRow({
   // M6 a11y review — listbox options speak their accessible name, not
   // arbitrary visual children).
   const metaSpoken = item.meta?.score !== undefined
-    ? `, score ${item.meta.score.toFixed(1)} out of 10`
+    ? strings.scoreAria.replace('{score}', item.meta.score.toFixed(1))
     : item.meta?.grade
-      ? `, evidence grade ${item.meta.grade}`
+      ? strings.gradeAria.replace('{grade}', item.meta.grade)
       : '';
   const ariaLabel = `${item.title}${metaSpoken}${item.description ? ` — ${item.description}` : ''}`;
 
@@ -584,7 +616,7 @@ function CategoryTile({
   title: string;
   grade?: 'A' | 'B' | 'C';
 }) {
-  if (category === 'Ingredients') {
+  if (category === 'ingredients') {
     // Use the derived evidence grade when available (A green / B amber / C red);
     // fall back to the flask icon otherwise.
     if (grade) {
@@ -612,7 +644,7 @@ function CategoryTile({
       </div>
     );
   }
-  if (category === 'Products') {
+  if (category === 'products') {
     return (
       <div
         className="w-9 h-9 rounded-[8px] bg-ds-ink text-white grid place-items-center font-extrabold text-[14px] flex-shrink-0"
@@ -622,7 +654,7 @@ function CategoryTile({
       </div>
     );
   }
-  if (category === 'Comparisons') {
+  if (category === 'comparisons') {
     return (
       <div
         className="w-9 h-9 rounded-[8px] bg-ds-card-sub border border-ds-border text-ds-ink-soft grid place-items-center flex-shrink-0"
@@ -632,7 +664,7 @@ function CategoryTile({
       </div>
     );
   }
-  if (category === 'Guides') {
+  if (category === 'guides') {
     return (
       <div
         className="w-9 h-9 rounded-[8px] bg-ds-card-sub border border-ds-border text-ds-ink-soft grid place-items-center flex-shrink-0"

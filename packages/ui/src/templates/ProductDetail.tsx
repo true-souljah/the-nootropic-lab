@@ -23,6 +23,7 @@ import { PricingTab } from './product-detail/PricingTab';
 import RegionalBuying from '../RegionalBuying';
 import { priceText } from '../price-text';
 import type { RegionalBuyingProps } from '../RegionalBuying';
+import DisclaimerText from '../DisclaimerText';
 import { SCORE_TIER_TEXT_CLASS, scoreTier } from './listicleRanking';
 
 export interface ProductDetailProps {
@@ -47,8 +48,8 @@ export interface ProductDetailProps {
    * disclaimer section will simply not render.
    */
   healthDisclaimer?: string;
-  /** "Buying in <region>" block: local price, licence status, channels, local guides. */
-  regional?: Omit<RegionalBuyingProps, 'id'>;
+  /** "Buying in <region>" block: local price, licence status, channels, local guides (labels come from `uiStrings`). */
+  regional?: Omit<RegionalBuyingProps, 'id' | 'strings'>;
   /**
    * Head-to-head pages on this host that compare this product. Pass
    * `headToHeadFor(slug, region)` from @nootropic/data at the page (server
@@ -77,6 +78,7 @@ export default function ProductDetail({
   const [tab, setTab] = useState<TabId>('overview');
 
   const pd = uiStrings.productDetail;
+  const space = uiStrings.typography.space;
   // Meta-line pack count in the product's own units (servings × units per
   // serving), e.g. "60 caps" / "120 錠" / "20 shots"; omitted when unknown.
   const packUnits =
@@ -141,13 +143,13 @@ export default function ProductDetail({
     <AppShell
       mode="persistent"
       breadcrumbs={[
-        { label: 'Best of', href: '/best-nootropics/' },
+        { label: pd.breadcrumbBestOf, href: '/best-nootropics/' },
         { label: p.name },
       ]}
       searchItems={searchItems}
       uiStrings={uiStrings}
     >
-      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} scope={disclosureScope} />
+      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} scope={disclosureScope} space={space} />
       <div className="px-4 sm:px-7 pt-6 pb-10">
         {discontinued && (
           <aside
@@ -223,7 +225,7 @@ export default function ProductDetail({
                 {p.name}
               </h1>
               <div className="text-ds-muted text-[14px] mt-1">
-                {pd.meta.by} {p.brand} · {pd.meta.productDescriptorByForm[productForm(p)]}
+                {pd.meta.by}{space}{p.brand} · {pd.meta.productDescriptorByForm[productForm(p)]}
                 {packUnits > 0 && ` · ${packUnits} ${servingUnit(p, uiStrings, packUnits)}`}
               </div>
               <div className="text-ds-muted text-[13px] mt-1">
@@ -232,7 +234,7 @@ export default function ProductDetail({
                   <>
                     {' · '}
                     <span data-record-date={verifiedAt ? 'verified' : 'updated'}>
-                      {recordDateLabel} <time dateTime={recordDateISO}>{recordDateDisplay}</time>
+                      {recordDateLabel}{space}<time dateTime={recordDateISO}>{recordDateDisplay}</time>
                     </span>
                   </>
                 )}
@@ -250,7 +252,7 @@ export default function ProductDetail({
           </div>
 
           {!discontinued && (
-            <FPTrustNote strings={uiStrings.disclosure} scope={disclosureScope} className="mt-[18px]" />
+            <FPTrustNote strings={uiStrings.disclosure} scope={disclosureScope} className="mt-[18px]" space={space} />
           )}
 
           <div className="mt-[18px] pt-[18px] border-t border-ds-border grid gap-[18px] items-center grid-cols-2 sm:grid-cols-3 lg:grid-cols-[repeat(5,1fr)_auto]">
@@ -305,24 +307,24 @@ export default function ProductDetail({
         {/* All 5 tab panels rendered statically with `hidden`; each tab body
             lives in its own file under ./product-detail/ for readability. */}
         <TabPanel idPrefix="product" id="overview" hidden={tab !== 'overview'} className="mt-5">
-          <OverviewTab product={p} />
+          <OverviewTab product={p} strings={pd} />
         </TabPanel>
         <TabPanel idPrefix="product" id="dosing" hidden={tab !== 'dosing'} className="mt-5">
           <DosingTab product={p} strings={pd} />
         </TabPanel>
         <TabPanel idPrefix="product" id="pillars" hidden={tab !== 'pillars'} className="mt-5">
-          <PillarsTab product={p} strings={pd} />
+          <PillarsTab product={p} strings={pd} space={space} />
         </TabPanel>
         <TabPanel idPrefix="product" id="reviews" hidden={tab !== 'reviews'} className="mt-5">
-          <ReviewsTab product={p} />
+          <ReviewsTab product={p} strings={pd} />
         </TabPanel>
         {!discontinued && (
           <TabPanel idPrefix="product" id="pricing" hidden={tab !== 'pricing'} className="mt-5">
-            <PricingTab product={p} disclosure={uiStrings.disclosure} strings={pd} noticeStrings={uiStrings.noPurchaseLink} price={priceText(p, uiStrings)} />
+            <PricingTab product={p} disclosure={uiStrings.disclosure} strings={pd} noticeStrings={uiStrings.noPurchaseLink} price={priceText(p, uiStrings)} space={space} />
           </TabPanel>
         )}
 
-        {regional && !discontinued && <RegionalBuying {...regional} id="regional-buying" />}
+        {regional && !discontinued && <RegionalBuying {...regional} strings={pd} id="regional-buying" />}
 
         {headToHead && headToHead.length > 0 && (
           <section className="mt-10" aria-labelledby="product-head-to-head-heading">
@@ -381,7 +383,7 @@ export default function ProductDetail({
             >
               {pd.healthDisclaimerHeading}
             </h2>
-            <p className="text-[12px] text-ds-ink leading-relaxed">{healthDisclaimer}</p>
+            <p className="text-[12px] text-ds-ink leading-relaxed"><DisclaimerText text={healthDisclaimer} /></p>
           </section>
         )}
       </div>

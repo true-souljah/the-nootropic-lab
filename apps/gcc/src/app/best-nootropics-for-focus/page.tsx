@@ -24,18 +24,23 @@ export const metadata: Metadata = {
 
 const ingredientMechanism: ListicleIngredientMechanism[] = [
   {
-    name: 'L-Theanine + Caffeine (1:2 to 2:1 ratio)',
+    name: 'L-Theanine + Caffeine',
     ingredientSlugs: ['l-theanine', 'caffeine'],
     evidence:
-      'Among the best-replicated cognitive findings: L-theanine paired with caffeine improves attention switching and reduces mental fatigue, with smoother subjective focus than caffeine alone. Effective at 100–200mg L-theanine + 100mg caffeine. GCC note: many buyers prefer to skip the caffeine component (use L-theanine with Arabic coffee or matcha instead) for stimulant tolerance reasons.',
+      'In controlled trials in healthy adults, the pair improved attention-switching accuracy (Owen 2008: 100mg L-theanine with 50mg caffeine; Giesbrecht 2010, PubMed 21040626: 97mg with 40mg) and ratings of mental fatigue (Haskell 2007, PubMed 18006208: 250mg with 150mg). Foxe 2012 (PubMed 22326943) found no added benefit over either compound alone. GCC note: many buyers prefer to skip the caffeine component (use L-theanine with Arabic coffee or matcha instead) for stimulant tolerance reasons.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
+    extraCitations: [
+      { label: 'Giesbrecht 2010', url: 'https://pubmed.ncbi.nlm.nih.gov/21040626/' },
+      { label: 'Haskell 2007', url: 'https://pubmed.ncbi.nlm.nih.gov/18006208/' },
+      { label: 'Foxe 2012', url: 'https://pubmed.ncbi.nlm.nih.gov/22326943/' },
+    ],
   },
   {
     name: 'Citicoline (CDP-Choline)',
     ingredientSlugs: ['citicoline'],
     evidence:
-      'Choline donor + uridine source that supports phospholipid synthesis and acetylcholine production. Multiple RCTs show attention and cognitive-effort benefits in healthy adults at 250–500mg/day. Cognizin is the standardised form most products use. Generally regarded as halal — animal-derived sourcing is uncommon for this ingredient.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
+      'Choline donor + uridine source that supports phospholipid synthesis and acetylcholine production. Our citicoline page rates its attention evidence as mixed: the Cochrane review found no evidence of an attention benefit in older adults with chronic cerebral disorders, and the acute attention trial in healthy adults that we cite gave it together with caffeine. Cognizin is a standardised form. Generally regarded as halal — animal-derived sourcing is uncommon for this ingredient.',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/15846601/',
   },
   {
     name: 'L-Tyrosine (or NALT)',
@@ -95,7 +100,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'How long does it take a focus nootropic to work?',
-    a: 'Acute-effect ingredients (L-theanine, caffeine, Alpha-GPC, L-tyrosine) work within 30–60 minutes. Longer-onset ingredients (Bacopa, Lion\'s Mane) need 4–12 weeks. If you want a tonight-effect, look for L-theanine + caffeine; for compounded benefit, plan for 8 weeks of consistent use.',
+    a: 'Acute-effect ingredients (L-theanine, caffeine, Alpha-GPC, L-tyrosine) work within 30–60 minutes. Bacopa: 8–12 weeks; most positive trials ran 12 weeks. Lion\'s Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. If you want a tonight-effect, look for L-theanine + caffeine; for compounded benefit, plan for 8 weeks of consistent use.',
   },
   {
     q: 'Are focus nootropics safe to take daily?',
@@ -103,7 +108,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'What\'s the best caffeine-free focus nootropic for GCC buyers?',
-    a: 'Mind Lab Pro is purpose-built as caffeine-free and is our top pick for GCC consumers who avoid stimulants for dietary, religious, or sensitivity reasons. It pairs well with Arabic coffee or matcha for the L-theanine + caffeine synergy without committing to a stimulant-loaded supplement.',
+    a: 'Mind Lab Pro is purpose-built as caffeine-free and is our top pick for GCC consumers who avoid stimulants for dietary, religious, or sensitivity reasons. It pairs well with Arabic coffee or matcha if you want L-theanine with caffeine, without a stimulant-containing supplement.',
   },
 ];
 

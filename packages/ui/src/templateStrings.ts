@@ -1,228 +1,11 @@
 /**
- * Chrome / boilerplate strings used by the shared content templates
- * (HeadToHeadPage, UseCaseListPage, SubscriptionCancellationPage).
+ * Chrome / boilerplate strings used by the HeadToHead template. (The Listicle's
+ * strings live in UIStrings.listicle, in every locale.)
  *
- * Templates accept an optional Partial<X> via the `strings` prop and merge
- * with the English defaults below. Locales only need to translate the
- * strings that should differ from English.
+ * HeadToHead accepts an optional Partial<HeadToHeadPageStrings> via the
+ * `strings` prop and merges it with the English defaults below. Locales only
+ * need to translate the strings that should differ from English.
  */
-
-export interface UseCaseListPageStrings {
-  /** "Home" in breadcrumb */
-  home: string;
-  /** "Best Nootropics" in breadcrumb */
-  bestNootropics: string;
-  /** "Reviewed by" label */
-  reviewedBy: string;
-  /** "Medically reviewed by" label */
-  medicallyReviewedBy: string;
-  /** "Last updated:" label */
-  lastUpdated: string;
-  /** "Health disclaimer" heading on the disclaimer aside */
-  healthDisclaimer: string;
-  /** Default supplement health disclaimer body (fallback when no custom disclaimer is supplied) */
-  defaultHealthDisclaimer: string;
-  /** Heading: "What the evidence actually says" */
-  whatEvidenceSays: string;
-  /** Lead paragraph for the evidence section */
-  evidenceIntro: string;
-  /** "Source →" link label */
-  sourceLink: string;
-  /** Heading prefix: "Our picks for {useCase}" */
-  ourPicksFor: string;
-  /** Subhead under picks heading */
-  picksIntro: string;
-  /** "Top pick" badge text on the #1 pick card */
-  topPick: string;
-  /** "Why it's here:" inline label on each pick */
-  whyItsHere: string;
-  /** "Check {name} →" CTA label (uses {name} placeholder) */
-  checkProduct: string;
-  /** "Read full review" secondary CTA */
-  readFullReview: string;
-  /** FAQ heading */
-  faqHeading: string;
-  /** "How we choose" callout heading */
-  howWeChoose: string;
-  /** "How we choose" body — uses {minScore} (LISTICLE_MIN_SCORE, never a typed number) */
-  howWeChooseBody: string;
-  /** "full methodology" inline link text */
-  fullMethodology: string;
-  /** "← Back to Best Nootropics {year}" — uses {year} placeholder */
-  backToBest: string;
-  /** Heading of the unranked section for picks below the bar — uses {minScore} */
-  alsoConsideredHeading: string;
-  /** Lead paragraph of that section — uses {minScore} */
-  alsoConsideredIntro: string;
-  /** Per-product reason line — uses {score} and {minScore} */
-  belowBarReason: string;
-  /** Heading of that section when a pick in it meets the bar but fails rule (b), the dose rule */
-  alsoConsideredRulesHeading: string;
-  /** Lead paragraph of that section in that case (names both rules) — uses {minScore} */
-  alsoConsideredRulesIntro: string;
-  /** Reason line of a pick that meets the bar but fails rule (b) — uses {score} */
-  doseRuleReason: string;
-  /** "In this guide" sidebar link to that section */
-  alsoConsideredToc: string;
-  /** "Audited · {date}" chip label above the H1 */
-  audited: string;
-  /** FPByline: team credit, fact-check badge, "Updated" label and read-time suffix */
-  bylineAttribution: string;
-  bylineFactChecked: string;
-  bylineUpdated: string;
-  bylineReadSuffix: string;
-  /** Label for the page's use case in "Our picks for {label}"; a missing key renders the useCase slug fragment */
-  useCaseLabels: Partial<Record<string, string>>;
-  /** Pick-card chips */
-  caffeineFree: string;
-  hasCaffeine: string;
-  /** Money-back length on the pick card — uses {days} */
-  moneyBackDays: string;
-  /** Label after the money-back length ("MBG") */
-  moneyBackLabel: string;
-  /** "Our score" panel label */
-  ourScore: string;
-  /** Pillar names in the score panel (rendered with CSS capitalize) */
-  pillarLabels: Record<ListiclePillar, string>;
-  /** Accessible name of each pillar bar — uses {name} and {pillar} */
-  pillarScoreLabel: string;
-  /** Accessible name of the score pill — uses {score} and {max} */
-  scoreAriaLabel: string;
-  /** "Related guides" heading and the sibling-listicle link labels */
-  relatedGuides: string;
-  relatedGuideLabels: Record<RelatedGuideUseCase, string>;
-  /** Sidebar table-of-contents heading */
-  inThisGuide: string;
-}
-
-/** Score-panel pillars on a Listicle pick card. */
-export type ListiclePillar = 'ingredients' | 'dosing' | 'transparency';
-/** Use cases with a "Related guides" link on every Listicle. */
-export type RelatedGuideUseCase = 'focus' | 'memory' | 'studying' | 'aging';
-
-export const useCaseListPageEnDefaults: UseCaseListPageStrings = {
-  home: 'Home',
-  bestNootropics: 'Best Nootropics',
-  reviewedBy: 'Reviewed by',
-  medicallyReviewedBy: 'Medically reviewed by',
-  lastUpdated: 'Last updated:',
-  healthDisclaimer: 'Health disclaimer',
-  defaultHealthDisclaimer:
-    'This page is for educational purposes only and is not medical advice. Nootropic supplements are not approved by the FDA to diagnose, treat, cure, or prevent any disease, including ADHD or other cognitive conditions. They are not equivalent to prescription stimulants. Always consult a qualified healthcare professional before starting any supplement regimen, especially if you take medication or have a medical condition.',
-  whatEvidenceSays: 'What the evidence actually says',
-  evidenceIntro:
-    'For each ingredient below, we link directly to the peer-reviewed source. Ingredient mechanism is not the same as product efficacy — a product can include the right ingredient at the wrong dose.',
-  sourceLink: 'Source →',
-  ourPicksFor: 'Our picks for',
-  picksIntro: 'Ranked by how well each product matches the evidence above + our 5-pillar editorial audit.',
-  topPick: 'Top pick',
-  whyItsHere: "Why it's here:",
-  checkProduct: 'Check {name} →',
-  readFullReview: 'Read full review',
-  faqHeading: 'Frequently asked questions',
-  howWeChoose: 'How we choose',
-  howWeChooseBody:
-    'Every pick must (a) include at least one ingredient with peer-reviewed evidence for the use case, (b) dose that ingredient at or near the clinical-trial dose, and (c) score ≥ {minScore}/10 in our 5-pillar editorial audit. Read our',
-  fullMethodology: 'full methodology',
-  backToBest: '← Back to Best Nootropics {year}',
-  alsoConsideredHeading: 'Also considered — below our {minScore} bar',
-  alsoConsideredIntro:
-    'Products audited for this guide that score below the {minScore}/10 a ranked pick needs in our 5-pillar editorial audit. Listed for transparency, not ranked or recommended.',
-  belowBarReason: 'Scores {score}/10 — below our {minScore} bar',
-  alsoConsideredRulesHeading: 'Also considered — not ranked',
-  alsoConsideredRulesIntro:
-    'Products audited for this guide that we do not rank: each either scores below the {minScore}/10 a ranked pick needs in our 5-pillar editorial audit, or its label does not reach our reference dose for any evidence entry above (for a combination, every ingredient in it). Listed for transparency, not ranked or recommended.',
-  doseRuleReason:
-    'Scores {score}/10, but its label does not reach our reference dose for any evidence entry above (for a combination, every ingredient in it)',
-  alsoConsideredToc: 'Also considered',
-  audited: 'Audited',
-  bylineAttribution: 'By The Nootropic Lab editorial team',
-  bylineFactChecked: '✓ Fact-checked',
-  bylineUpdated: 'Updated',
-  bylineReadSuffix: 'read',
-  useCaseLabels: {},
-  caffeineFree: 'Caffeine-free',
-  hasCaffeine: 'Caffeine',
-  moneyBackDays: '{days}d',
-  moneyBackLabel: 'MBG',
-  ourScore: 'Our score',
-  pillarLabels: { ingredients: 'ingredients', dosing: 'dosing', transparency: 'transparency' },
-  pillarScoreLabel: '{name} {pillar} score',
-  scoreAriaLabel: 'Score {score} out of {max}',
-  relatedGuides: 'Related guides',
-  relatedGuideLabels: {
-    focus: 'Best nootropics for focus',
-    memory: 'Best nootropics for memory',
-    studying: 'Best nootropics for studying',
-    aging: 'Best nootropics for aging',
-  },
-  inThisGuide: 'In this guide',
-};
-
-export const useCaseListPageEsStrings: Partial<UseCaseListPageStrings> = {
-  home: 'Inicio',
-  bestNootropics: 'Mejores Nootrópicos',
-  reviewedBy: 'Revisado por',
-  medicallyReviewedBy: 'Revisado médicamente por',
-  lastUpdated: 'Actualizado:',
-  healthDisclaimer: 'Aviso de salud',
-  defaultHealthDisclaimer:
-    'Esta página es solo con fines educativos y no constituye consejo médico. Los suplementos nootrópicos no están aprobados por la FDA para diagnosticar, tratar, curar o prevenir ninguna enfermedad, incluido el TDAH u otras condiciones cognitivas. No son equivalentes a los estimulantes recetados. Consulte siempre a un profesional de la salud calificado antes de comenzar cualquier régimen de suplementos.',
-  whatEvidenceSays: 'Lo que dice realmente la evidencia',
-  evidenceIntro:
-    'Para cada ingrediente a continuación, enlazamos directamente a la fuente revisada por expertos. El mecanismo del ingrediente no es lo mismo que la eficacia del producto — un producto puede incluir el ingrediente correcto en la dosis incorrecta.',
-  sourceLink: 'Fuente →',
-  ourPicksFor: 'Nuestras selecciones para',
-  picksIntro:
-    'Clasificadas según qué tan bien cada producto coincide con la evidencia anterior + nuestra auditoría editorial de 5 pilares.',
-  topPick: 'Mejor opción',
-  whyItsHere: '¿Por qué está aquí?:',
-  checkProduct: 'Ver {name} →',
-  readFullReview: 'Leer reseña completa',
-  faqHeading: 'Preguntas frecuentes',
-  howWeChoose: 'Cómo elegimos',
-  howWeChooseBody:
-    'Cada selección debe (a) incluir al menos un ingrediente con evidencia revisada por expertos para el caso de uso, (b) dosificar ese ingrediente en o cerca de la dosis del ensayo clínico, y (c) obtener una puntuación ≥ {minScore}/10 en nuestra auditoría editorial de 5 pilares. Lea nuestra',
-  fullMethodology: 'metodología completa',
-  backToBest: '← Volver a Mejores Nootrópicos {year}',
-  alsoConsideredHeading: 'También evaluados — por debajo de nuestro umbral de {minScore}',
-  alsoConsideredIntro:
-    'Productos auditados para esta guía cuya puntuación queda por debajo del {minScore}/10 que necesita una selección clasificada en nuestra auditoría editorial de 5 pilares. Se incluyen por transparencia; no están clasificados ni recomendados.',
-  belowBarReason: 'Puntuación de {score}/10 — por debajo de nuestro umbral de {minScore}',
-  alsoConsideredRulesHeading: 'También evaluados — sin clasificar',
-  alsoConsideredRulesIntro:
-    'Productos auditados para esta guía que no clasificamos: cada uno obtiene una puntuación por debajo del {minScore}/10 que necesita una selección clasificada en nuestra auditoría editorial de 5 pilares, o su etiqueta no alcanza nuestra dosis de referencia en ninguna de las entradas de evidencia anteriores (en una combinación, en cada uno de sus ingredientes). Se incluyen por transparencia; no están clasificados ni recomendados.',
-  doseRuleReason:
-    'Puntuación de {score}/10, pero su etiqueta no alcanza nuestra dosis de referencia en ninguna de las entradas de evidencia anteriores (en una combinación, en cada uno de sus ingredientes)',
-  alsoConsideredToc: 'También evaluados',
-  audited: 'Auditado',
-  bylineAttribution: 'Por el equipo editorial de The Nootropic Lab',
-  bylineFactChecked: '✓ Datos verificados',
-  bylineUpdated: 'Actualizado',
-  bylineReadSuffix: 'de lectura',
-  useCaseLabels: {
-    focus: 'la concentración',
-    memory: 'la memoria',
-    studying: 'estudiar',
-    aging: 'el cerebro adulto mayor',
-  },
-  caffeineFree: 'Sin cafeína',
-  hasCaffeine: 'Con cafeína',
-  moneyBackDays: '{days} días',
-  moneyBackLabel: 'de garantía',
-  ourScore: 'Nuestra puntuación',
-  pillarLabels: { ingredients: 'ingredientes', dosing: 'dosis', transparency: 'transparencia' },
-  pillarScoreLabel: 'Puntuación de {pillar} de {name}',
-  scoreAriaLabel: 'Puntuación {score} de {max}',
-  relatedGuides: 'Guías relacionadas',
-  relatedGuideLabels: {
-    focus: 'Mejores nootrópicos para la concentración',
-    memory: 'Mejores nootrópicos para la memoria',
-    studying: 'Mejores nootrópicos para estudiar',
-    aging: 'Mejores nootrópicos para el cerebro adulto mayor',
-  },
-  inThisGuide: 'En esta guía',
-};
 
 export interface HeadToHeadPageStrings {
   home: string;
@@ -259,7 +42,7 @@ export interface HeadToHeadPageStrings {
   clinicalDosingIntro: string;
   ingredient: string;
   clinicalDose: string;
-  /** Citation footer */
+  /** Citation footer; {link} is where the `methodologyLink` link goes. */
   citationFooter: string;
   methodologyLink: string;
   /** Score breakdown heading */
@@ -319,7 +102,7 @@ export const headToHeadPageEnDefaults: HeadToHeadPageStrings = {
     'Each disclosed ingredient dose vs. the minimum on our ingredient page for it, from peer-reviewed human clinical trials, where the page gives one; ingredients without a reference dose are listed but not scored. Underdosed ingredients flagged. Ingredients hidden inside proprietary blends cannot be evaluated.',
   ingredient: 'Ingredient',
   clinicalDose: 'Clinical dose',
-  citationFooter: 'Clinical-dose anchors sourced from PubMed-indexed human RCTs and Examine.com syntheses. See our',
+  citationFooter: 'Clinical-dose anchors sourced from PubMed-indexed human RCTs and Examine.com syntheses. See our {link}.',
   methodologyLink: 'methodology',
   scoreBreakdownHeading: 'Score breakdown across 5 pillars',
   prosConsHeading: 'Pros & cons each',
@@ -366,7 +149,7 @@ export const headToHeadPageEsStrings: Partial<HeadToHeadPageStrings> = {
   ingredient: 'Ingrediente',
   clinicalDose: 'Dosis clínica',
   citationFooter:
-    'Las anclas de dosis clínicas provienen de ECA humanos indexados en PubMed y síntesis de Examine.com. Vea nuestra',
+    'Las anclas de dosis clínicas provienen de ECA humanos indexados en PubMed y síntesis de Examine.com. Vea nuestra {link}.',
   methodologyLink: 'metodología',
   scoreBreakdownHeading: 'Desglose de puntuación en 5 pilares',
   prosConsHeading: 'Pros y contras de cada uno',
@@ -388,12 +171,6 @@ export const headToHeadPageEsStrings: Partial<HeadToHeadPageStrings> = {
 /** Locale codes that have template-string overrides defined */
 export type TemplateLocale = 'en' | 'es';
 
-/** Returns merged strings for a UseCaseListPage given a locale (falls back to English for missing keys) */
-export function getUseCaseListStrings(locale: TemplateLocale = 'en'): UseCaseListPageStrings {
-  if (locale === 'es') return { ...useCaseListPageEnDefaults, ...useCaseListPageEsStrings };
-  return useCaseListPageEnDefaults;
-}
-
 export function getHeadToHeadStrings(locale: TemplateLocale = 'en'): HeadToHeadPageStrings {
   if (locale === 'es') return { ...headToHeadPageEnDefaults, ...headToHeadPageEsStrings };
   return headToHeadPageEnDefaults;
@@ -402,4 +179,16 @@ export function getHeadToHeadStrings(locale: TemplateLocale = 'en'): HeadToHeadP
 /** Substitutes {placeholder} tokens with named values. */
 export function tpl(template: string, vars: Record<string, string | number>): string {
   return template.replace(/\{(\w+)\}/g, (_, k) => String(vars[k] ?? ''));
+}
+
+/**
+ * Splits a translated sentence at its {link} placeholder (other placeholders
+ * filled from `vars`). The template renders `before`, the link, then `after`,
+ * so each language places the link and closes the sentence itself: no space
+ * or Latin full stop is typed around it (en "See our {link}.", ja
+ * "詳しくは当サイトの{link}をご覧ください。").
+ */
+export function tplLink(template: string, vars: Record<string, string | number> = {}): { before: string; after: string } {
+  const [before, after = ''] = template.split('{link}');
+  return { before: tpl(before, vars), after: tpl(after, vars) };
 }

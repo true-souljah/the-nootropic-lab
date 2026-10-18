@@ -137,7 +137,7 @@ export default function Page() {
         <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 mb-4">
           <span>
             Revisado por{' '}
-            <strong className="text-gray-700">The Nootropic Lab Editorial Team</strong>
+            <strong className="text-gray-700">el equipo editorial de The Nootropic Lab</strong>
           </span>
           <span>·</span>
           <span>Última auditoría: {auditDate}</span>
@@ -375,6 +375,7 @@ export default function Page() {
         <Sources
           defaultOpen
           heading="Fuentes regulatorias"
+          expandLabel={uiStrings.guide.expand}
           sources={[
             {
               type: 'Regulatorio',
@@ -410,7 +411,7 @@ export default function Page() {
           {' · '}
           <Link href="/methodology/" className="text-green-700 underline">Ver metodología</Link>
           {' · '}
-          <Link href="/imprint/" className="text-green-700 underline">Imprint</Link>
+          <Link href="/imprint/" className="text-green-700 underline">{uiStrings.footer.about.imprint}</Link>
         </div>
       </article>
     </PublicShell>

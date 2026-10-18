@@ -1,12 +1,15 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { IngredientDetail, buildAlternates, buildOpenGraph, buildTwitter } from '@nootropic/ui';
-import { ingredients, productsLatam, regionalIngredientNote, regionalTitleQualifier } from '@nootropic/data';
+import { localizedIngredients, productsLatam, regionalIngredientNote, regionalTitleQualifier } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
 import { regionalProps } from '@/lib/regional';
 
 export const dynamicParams = false;
+
+// Spanish prose (ingredients-es.ts) over the English-sourced structure.
+const ingredients = localizedIngredients('es');
 
 export function generateStaticParams() {
   return ingredients.map(ing => ({ ingredient: ing.slug }));

@@ -29,7 +29,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Which is better, Mind Lab Pro or Thesis?',
     a:
-      'Different philosophies. Mind Lab Pro takes a single universal formula approach — same 11 ingredients for everyone, every dose disclosed, $69/month. Thesis takes a personalisation approach — 4-week trial pack of different formulas, then you pick which works for you; on its US Clarity page a 1-month subscription is $59 a month; its site sells four formulas (Clarity, Motivation, Stress Reset and Neuroprotection, checked 8 October 2026). Universal formulas have more replication evidence; personalisation has stronger user-experience data.',
+      'Different philosophies. Mind Lab Pro takes a single universal formula approach — same 11 ingredients for everyone, every dose disclosed, $69/month. Thesis takes a personalisation approach — 4-week trial pack of different formulas, then you pick which works for you; on its US Clarity page a 1-month subscription is $59 a month; its site sells four formulas (Clarity, Motivation, Stress Reset and Neuroprotection, checked 8 October 2026). Mind Lab Pro\'s formula has been tested in two University of Leeds studies (the 60-day one found no improvement in choice accuracy or reaction time); personalisation has stronger user-experience data.',
   },
   {
     q: 'Is Thesis personalisation evidence-based?',
@@ -47,9 +47,9 @@ const faqItems: HeadToHeadFAQ[] = [
       'Mind Lab Pro is fully caffeine-free. Thesis varies by formula — Motivation contains 150mg caffeine per two-capsule serving; Clarity, Stress Reset and Neuroprotection are sold with or without caffeine (100mg in the caffeinated versions). Check each formula\'s label.',
   },
   {
-    q: 'Which has better subscription transparency?',
+    q: 'How do their subscriptions work?',
     a:
-      'Mind Lab Pro: no autoship — every order is manual reorder. Thesis: subscription model is the default; cancellation requires logging into account. Mind Lab Pro wins on subscription friction; Thesis wins on convenience for committed users.',
+      'Both sell subscriptions you can cancel. Mind Lab Pro sells a one-time bottle at $69.00, or a monthly or four-month subscription its product page says you can "update or cancel anytime" (mindlabpro.com, checked 13 October 2026). Thesis\'s refund policy says you "can cancel your subscription at any time in your Thesis Account" or by contacting its team (takethesis.com, checked 7 October 2026). Check each brand\'s current terms before you subscribe.',
   },
   {
     q: 'Are these alternatives to Adderall?',
@@ -59,9 +59,7 @@ const faqItems: HeadToHeadFAQ[] = [
 ];
 
 const whoIsForA = [
-  'Want a single universal formula with peer-reviewed RCT evidence',
-  'Prefer no autoship — manual reorder only',
-  'Want one flat price ($69/month) with no subscription',
+  'Want a single universal formula tested in two placebo-controlled University of Leeds studies (the 60-day one found no improvement in choice accuracy or reaction time)',
   'Don\'t want to manage a quiz-based selection process',
 ];
 
@@ -73,7 +71,7 @@ const whoIsForB = [
 ];
 
 const verdictParagraph =
-  'Mind Lab Pro\'s single-universal-formula approach has stronger replication evidence (multiple RCTs published). Thesis\'s personalised-quiz approach has stronger user-experience data and lower friction for newcomers. For evidence-graded buyers prioritizing peer-reviewed data, Mind Lab Pro wins. For buyers who value try-multiple-formulas convenience, Thesis is fair.';
+  'Mind Lab Pro\'s single universal formula has been tested in two University of Leeds studies: a 30-day placebo-controlled study its authors call pseudo-randomised (PubMed 37194920) and a 60-day placebo-controlled study that found no improvement in choice accuracy or reaction time (PubMed 40149748). Thesis\'s personalised-quiz approach has stronger user-experience data and lower friction for newcomers. For evidence-graded buyers prioritizing peer-reviewed data, Mind Lab Pro wins. For buyers who value try-multiple-formulas convenience, Thesis is fair.';
 
 export default function Page() {
   if (!productA || !productB) notFound();

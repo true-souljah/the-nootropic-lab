@@ -65,7 +65,7 @@ const faqItems = [
   },
   {
     q: 'I don\'t have ADHD but want focus help. What\'s the cleanest legal option?',
-    a: 'Caffeine + L-theanine in a 1:2 ratio (100mg caffeine + 200mg L-theanine) is the most-evidence-backed legal cognitive-enhancement combination, available cheaply at any pharmacy. For longer-term cognitive demand, add citicoline (250-500mg/day). For memory consolidation over study periods, add Bacopa Monnieri. Read our beginner stack guide for the full sequencing.',
+    a: 'Caffeine + L-theanine is a legal combination with trial evidence: in Owen 2008 (PubMed 18681988), 50mg caffeine with 100mg L-theanine improved speed and accuracy on an attention-switching task; 100mg caffeine + 200mg L-theanine keeps the same 1:2 ratio. For longer-term cognitive demand, add citicoline (250-500mg/day). For memory consolidation over study periods, add Bacopa Monnieri. Read our beginner stack guide for the full sequencing.',
   },
   {
     q: 'Is buying Adderall online without a prescription safe?',
@@ -188,7 +188,7 @@ export default function Page() {
                 <tr className="bg-white">
                   <td className="px-3 py-2 font-medium text-gray-900">Adenosine antagonism</td>
                   <td className="px-3 py-2 text-gray-700">No</td>
-                  <td className="px-3 py-2 text-gray-700">Caffeine — most studied legal mechanism</td>
+                  <td className="px-3 py-2 text-gray-700">Caffeine — legal stimulant</td>
                 </tr>
                 <tr className="bg-gray-50">
                   <td className="px-3 py-2 font-medium text-gray-900">Acetylcholine</td>
@@ -229,12 +229,12 @@ export default function Page() {
                 <tr className="bg-gray-50">
                   <td className="px-3 py-2 font-medium text-gray-900">Healthy-adult focus</td>
                   <td className="px-3 py-2 text-gray-700">Off-label; ethical + legal concerns; cognitive enhancement studied but disputed</td>
-                  <td className="px-3 py-2 text-gray-700">Caffeine + L-theanine — well-replicated</td>
+                  <td className="px-3 py-2 text-gray-700">Caffeine + L-theanine — several placebo-controlled trials (Owen 2008)</td>
                 </tr>
                 <tr className="bg-white">
                   <td className="px-3 py-2 font-medium text-gray-900">Long-term memory</td>
                   <td className="px-3 py-2 text-gray-700">No specific benefit shown</td>
-                  <td className="px-3 py-2 text-gray-700">Bacopa Monnieri — multiple RCTs</td>
+                  <td className="px-3 py-2 text-gray-700">Bacopa Monnieri — 12-week trials (Pase 2012 review)</td>
                 </tr>
                 <tr className="bg-gray-50">
                   <td className="px-3 py-2 font-medium text-gray-900">Sleep deprivation</td>
@@ -263,8 +263,8 @@ export default function Page() {
         <section className="my-10 bg-gray-50 rounded-xl p-6">
           <h2 className="text-xl font-bold text-gray-900 mb-3">If you don&apos;t have ADHD but want focus help</h2>
           <p className="text-gray-700 leading-relaxed mb-3">
-            Start with caffeine + L-theanine. It is the most-evidence-backed legal cognitive enhancement combination,
-            available at any pharmacy. See our{' '}
+            Start with caffeine + L-theanine. In a controlled trial (Owen 2008), the pairing improved speed and
+            accuracy on an attention-switching task. See our{' '}
             <Link href="/guides/nootropics-for-beginners/" className="text-green-700 underline">
               nootropics for beginners guide
             </Link>{' '}

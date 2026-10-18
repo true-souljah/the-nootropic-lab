@@ -34,8 +34,11 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Caffeine + L-Theanine — stimulant adjacency',
     ingredientSlugs: ['caffeine', 'l-theanine'],
     evidence:
-      'Caffeine is the most-studied legal cognitive enhancer and works via adenosine antagonism (a different pathway than Adderall). Pairing with L-theanine smooths the focus curve and reduces jitter. This is the closest "feels-stimulant-but-isn\'t-amphetamine" combination available without prescription. 100–200mg L-theanine + 100mg caffeine.',
+      'Caffeine is a legal stimulant that works via adenosine antagonism (a different pathway than Adderall). In the trial linked below (Owen 2008), 50mg caffeine with 100mg L-theanine improved speed and accuracy on an attention-switching task; in a separate controlled trial (Rogers 2008, PubMed 17891480), theanine did not significantly reduce caffeine-induced jitteriness. This is the closest "feels-stimulant-but-isn\'t-amphetamine" combination available without prescription. 100–200mg L-theanine + 100mg caffeine.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
+    extraCitations: [
+      { label: 'Rogers 2008', url: 'https://pubmed.ncbi.nlm.nih.gov/17891480/' },
+    ],
   },
   {
     name: 'Rhodiola Rosea — stress + fatigue resistance',
@@ -48,8 +51,8 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Citicoline — choline pathway',
     ingredientSlugs: ['citicoline'],
     evidence:
-      'Choline donor + uridine source. No mechanistic overlap with Adderall, but RCTs show attention benefits in healthy adults at 250–500mg/day, and good tolerability profile alongside other ingredients.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
+      'Choline donor + uridine source. No mechanistic overlap with Adderall. Our citicoline page rates its attention evidence as mixed: the Cochrane review found no evidence of an attention benefit in older adults with chronic cerebral disorders, and the acute attention trial in healthy adults that we cite gave it together with caffeine.',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/15846601/',
   },
 ];
 
@@ -58,7 +61,7 @@ const picks: ListiclePick[] = [
     product: productsUS.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Caffeine-free design — most useful when you want to add it to your own coffee for the L-theanine + caffeine + citicoline + tyrosine effect together. Includes 175mg L-tyrosine (below clinical dose for acute stress, but additive when paired with tyrosine-rich diet) and 250mg Cognizin citicoline. Open formula, peer-reviewed RCTs, 30-day money-back.',
+      'Caffeine-free design — most useful when you want to add it to your own coffee for the L-theanine + caffeine + citicoline + tyrosine effect together. Includes 175mg L-tyrosine (below clinical dose for acute stress, but additive when paired with tyrosine-rich diet) and 250mg Cognizin citicoline. Open formula, two University of Leeds studies (Hum Psychopharmacol 2023, PubMed 37194920; Brain Sci 2025, PubMed 40149748), 30-day money-back.',
   },
   {
     product: productsUS.find(p => p.slug === 'qualia-mind-review')!,
@@ -103,7 +106,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'What about caffeine pills, then?',
-    a: 'Caffeine alone is the most-studied legal cognitive enhancer. 100–200mg of caffeine + 100–200mg of L-theanine is the simplest evidence-backed focus stack, available cheaply at any pharmacy. The supplements on this page add other mechanisms on top, but caffeine + L-theanine is the foundation.',
+    a: 'Caffeine is a legal stimulant that works via adenosine antagonism. 100–200mg of caffeine + 100–200mg of L-theanine is the simplest evidence-backed focus stack, available cheaply at any pharmacy. The supplements on this page add other mechanisms on top, but caffeine + L-theanine is the foundation.',
   },
 ];
 

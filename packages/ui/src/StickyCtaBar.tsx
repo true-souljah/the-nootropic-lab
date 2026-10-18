@@ -15,6 +15,8 @@ interface Props {
   ctaLabel?: string;
   /** Localized accessible name of the bar (default English). */
   ariaLabel?: string;
+  /** The page locale's `uiStrings.typography.space` after `pickLabel` ('' in ja). */
+  space?: string;
 }
 
 export default function StickyCtaBar({
@@ -23,6 +25,7 @@ export default function StickyCtaBar({
   pickLabel = 'Our #1 Pick:',
   ctaLabel = 'Check Current Price →',
   ariaLabel = 'Top pick recommendation',
+  space = ' ',
 }: Props) {
   const [visible, setVisible] = useState(false);
   const [cookieDismissed, setCookieDismissed] = useState(false);
@@ -70,7 +73,7 @@ export default function StickyCtaBar({
   return (
     <div ref={barRef} className={`sticky-cta-bar ${show ? 'visible' : ''}`} role="complementary" aria-live="polite" aria-label={ariaLabel}>
       <span className="text-sm font-medium">
-        {pickLabel} {productName}
+        {pickLabel}{space}{productName}
       </span>
       <a
         href={href}

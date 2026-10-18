@@ -18,7 +18,6 @@ const DESCRIPTION =
 
 // Date the facts below were last checked against their sources.
 const VERIFIED_ON = '2026-09-29';
-const VERIFIED_ON_LABEL = '29 September 2026';
 
 const CAA_FFC_DB_URL = 'https://www.fld.caa.go.jp/caaks/cssc01/';
 
@@ -100,16 +99,21 @@ export default function Page() {
       <SchemaOrg schema={breadcrumbSchema} />
 
       <article className="max-w-4xl mx-auto px-4 py-10">
-        <nav className="text-xs text-gray-500 mb-6">
-          <Link href="/" className="hover:text-green-700">Home</Link>
+        <nav className="text-xs text-gray-500 mb-6" aria-label={uiStrings.breadcrumb.ariaLabel}>
+          <Link href="/" className="hover:text-green-700">{uiStrings.breadcrumb.home}</Link>
           {' / '}
           <span>Japanese Brain Supplements</span>
         </nav>
 
         <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 mb-4">
-          <span>Reviewed by <strong className="text-gray-700">The Nootropic Lab Editorial Team</strong></span>
+          <span className="text-gray-700">{uiStrings.productDetail.meta.reviewedBy}</span>
           <span>·</span>
-          <span>Last verified: <time dateTime={VERIFIED_ON}>{VERIFIED_ON_LABEL}</time></span>
+          <span>
+            {uiStrings.productDetail.meta.lastVerified}{uiStrings.typography.space}
+            <time dateTime={VERIFIED_ON}>
+              {new Date(`${VERIFIED_ON}T00:00:00Z`).toLocaleDateString(uiStrings.productDetail.dateLocale, { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
+            </time>
+          </span>
         </div>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
@@ -265,16 +269,13 @@ export default function Page() {
             </p>
             <p>
               This page is the explainer; for the buying comparison, use our{' '}
-              <Link href="/best-nootropics/" className="text-green-700 underline">Best Nootropics in Japan roundup</Link>{' '}
-              (also in <Link href="/ja/best-nootropics/" className="text-green-700 underline">Japanese</Link>). For picks
+              <Link href="/best-nootropics/" className="text-green-700 underline">Best Nootropics in Japan roundup</Link>. For picks
               by goal, see the{' '}
               <Link href="/best-nootropics-for-memory/" className="text-green-700 underline">best nootropics for memory</Link>{' '}
               and{' '}
               <Link href="/best-nootropics-for-focus/" className="text-green-700 underline">best nootropics for focus</Link>{' '}
               in Japan. For side-by-side data, use the{' '}
-              <Link href="/nootropic-comparison/" className="text-green-700 underline">nootropic comparator</Link>{' '}
-              or the Japanese-language{' '}
-              <Link href="/ja/hikaku/" className="text-green-700 underline">brand comparison table (比較)</Link>.
+              <Link href="/nootropic-comparison/" className="text-green-700 underline">nootropic comparator</Link>.
             </p>
           </div>
         </section>
@@ -283,10 +284,7 @@ export default function Page() {
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Personal import rules, briefly</h2>
           <div className="space-y-4 text-gray-700 leading-relaxed">
             <p>
-              Our Japanese-language{' '}
-              <Link href="/ja/yakkan-shoumei/" className="text-green-700 underline">guide to yakkan shoumei (薬監証明)</Link>{' '}
-              covers personal-import paperwork in detail. This section adds two points an English-language searcher is
-              likely to miss.
+              This section covers two points about personal import that an English-language searcher is likely to miss.
             </p>
             <p>
               <strong>The quantity guidance is written for drugs.</strong> The Ministry of Health, Labour and
@@ -332,7 +330,7 @@ export default function Page() {
         </section>
 
         <section className="my-10">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Frequently asked questions</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">{uiStrings.listicle.faqHeading}</h2>
           <div className="space-y-4">
             {faqs.map(item => (
               <div key={item.q} className="border border-gray-200 rounded-lg p-5">
@@ -345,6 +343,9 @@ export default function Page() {
 
         <Sources
           defaultOpen
+          heading={uiStrings.guide.sources}
+          expandLabel={uiStrings.guide.expand}
+          space={uiStrings.typography.space}
           sources={[
             { type: 'Regulator', label: 'Consumer Affairs Agency (消費者庁) — Foods with Function Claims (機能性表示食品)', url: 'https://www.caa.go.jp/policies/policy/food_labeling/foods_with_function_claims/' },
             { type: 'Regulator', label: 'Consumer Affairs Agency — food labelling overview in English (FFC and FOSHU terminology, PDF)', url: 'https://www.caa.go.jp/en/policy/food_labeling/assets/food_labeling_cms206_241210_22.pdf' },
@@ -372,7 +373,7 @@ export default function Page() {
           {' · '}
           <Link href="/guides/" className="text-green-700 underline">All guides</Link>
           {' · '}
-          <Link href="/methodology/" className="text-green-700 underline">Methodology</Link>
+          <Link href="/methodology/" className="text-green-700 underline">{uiStrings.nav.methodology}</Link>
         </div>
       </article>
     </PublicShell>

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     siteName: 'The Nootropic Lab',
-    locale: 'ja_JP',
+    locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ja" className={inter.variable}>
+    <html lang="en" className={inter.variable}>
       <body>
         {children}
         <CookieBanner />

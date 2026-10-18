@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Listicle, useCaseListPageEsStrings, buildAlternates} from "@nootropic/ui";
+import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
 import { productsLatam, getRegionalHealthDisclaimer } from '@nootropic/data';
@@ -28,28 +28,28 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Bacopa Monnieri',
     ingredientSlugs: ['bacopa-monnieri'],
     evidence:
-      'El ingrediente para memoria más replicado en nootrópicos. Múltiples ensayos clínicos doble ciego en adultos muestran mejor consolidación y recuerdo de la memoria tras 8–12 semanas a 300mg estandarizado al 50% de bacósidos. El inicio es lento — diario por 8+ semanas. No es un ingrediente de efecto agudo.',
-    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/24252493/',
+      'En una revisión sistemática de seis ensayos aleatorizados (Pase 2012, PubMed 22747190), todos de 12 semanas con 300–450mg de extracto al día, la Bacopa mejoró 9 de 17 pruebas de recuerdo libre de memoria. El inicio es lento — diario por 8+ semanas. No es un ingrediente de efecto agudo.',
+    citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22747190/',
   },
   {
     name: 'Melena de León (Hericium erinaceus)',
     ingredientSlugs: ['lions-mane'],
     evidence:
-      'Modula el Factor de Crecimiento Nervioso (NGF) y puede apoyar la neurogénesis. Pequeños ensayos clínicos (Mori et al. 2009 en adultos mayores con deterioro cognitivo leve) mostraron mejoras en memoria con 1g/día de extracto del cuerpo fructífero durante 16 semanas. La evidencia es prometedora pero menor que para Bacopa. Busca extracto del cuerpo fructífero, no micelio sobre grano.',
+      'Modula el Factor de Crecimiento Nervioso (NGF) y puede apoyar la neurogénesis. Pequeños ensayos clínicos (Mori et al. 2009 en adultos de 50 a 80 años con deterioro cognitivo leve) mostraron puntuaciones de función cognitiva más altas que con placebo con 3g/día durante 16 semanas. La evidencia es prometedora pero menor que para Bacopa. Busca extracto del cuerpo fructífero, no micelio sobre grano.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18844328/',
   },
   {
     name: 'Fosfatidilserina (PS)',
     ingredientSlugs: ['phosphatidylserine'],
     evidence:
-      'Componente fosfolípido de las membranas neuronales. La FDA permite una declaración de salud calificada para PS en función cognitiva en adultos mayores. La mayor parte de la evidencia clínica está en personas de 50–80 años a 100–300mg/día. Evidencia más débil en adultos jóvenes sanos. El ensayo enlazado abajo (Vakhapova et al. 2010) no es la base de la declaración de la FDA: en un ensayo clínico exploratorio de 15 semanas con 157 adultos mayores sin demencia y con quejas de memoria, la PS-DHA mejoró el recuerdo verbal inmediato frente a placebo.',
+      'Componente fosfolípido de las membranas neuronales. La FDA solo permite para la fosfatidilserina declaraciones calificadas de que "may reduce the risk of dementia" o "cognitive dysfunction in the elderly", cada una seguida de "FDA concludes that there is little scientific evidence supporting this claim" (carta de la FDA, 13 de mayo de 2003): es decir, que puede reducir el riesgo de demencia o de disfunción cognitiva en personas mayores, y que la FDA concluye que hay poca evidencia científica que respalde esa declaración. Los ensayos clínicos en adultos mayores a 100–300mg al día reportan beneficios en la memoria, aunque a menudo solo en subgrupos (ver nuestra página sobre la fosfatidilserina). Evidencia más débil en adultos jóvenes sanos. El ensayo enlazado abajo (Vakhapova et al. 2010) no es la base de la declaración de la FDA: en un ensayo clínico exploratorio de 15 semanas con 157 adultos mayores sin demencia y con quejas de memoria, la PS-DHA mejoró el recuerdo verbal inmediato frente a placebo.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {
     name: 'Citicolina (CDP-Colina)',
     ingredientSlugs: ['citicoline'],
     evidence:
-      'Donante de colina y fuente de uridina. Ensayos clínicos en adultos mayores con quejas de memoria asociadas a la edad muestran mejoras en memoria verbal y velocidad de procesamiento a 250–500mg/día durante 12+ semanas.',
+      'Donante de colina y fuente de uridina. En un ensayo con adultos de 50 a 85 años (Spiers 1996, PubMed 8624220), 1000mg al día durante 3 meses mejoraron el recuerdo diferido solo en quienes tenían una memoria relativamente ineficiente, y en un ensayo cruzado posterior con 32 de esos participantes, 2000mg al día durante 2 meses mejoraron el recuerdo inmediato y diferido.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
 ];
@@ -77,12 +77,12 @@ const picks: ListiclePick[] = [
 
 const faqItems: ListicleFAQ[] = [
   {
-    q: '¿Cuál es el nootrópico para memoria con más evidencia?',
-    a: 'Bacopa Monnieri a 300mg estandarizado al 50% de bacósidos tiene la evidencia más replicada en ensayos clínicos para consolidación de memoria en adultos sanos. La fosfatidilserina cuenta con la declaración de salud calificada por la FDA para función cognitiva en adultos mayores. La citicolina tiene buena evidencia en adultos mayores con quejas de memoria asociadas a la edad.',
+    q: '¿Qué ingredientes nootrópicos tienen evidencia de ensayos para la memoria?',
+    a: 'Bacopa Monnieri: en una revisión sistemática de seis ensayos aleatorizados de 12 semanas con 300–450mg de extracto al día (Pase 2012, PubMed 22747190), mejoró 9 de 17 pruebas de recuerdo libre de memoria, y los autores escriben que la investigación "is in its infancy", es decir, que está en sus inicios. Para la fosfatidilserina, la FDA solo permite declaraciones calificadas, como que "may reduce the risk of cognitive dysfunction in the elderly", seguida de "FDA concludes that there is little scientific evidence supporting this claim" (carta de la FDA, 13 de mayo de 2003): es decir, que puede reducir el riesgo de disfunción cognitiva en personas mayores, aunque la FDA concluye que hay poca evidencia científica que la respalde. La citicolina mejoró la memoria verbal en adultos mayores con memoria ineficiente en un ensayo (Spiers 1996, PubMed 8624220).',
   },
   {
     q: '¿Cuánto tardan en hacer efecto los nootrópicos para memoria?',
-    a: 'Bacopa: 8–12 semanas de uso diario. Melena de León: 8–16 semanas. Fosfatidilserina y citicolina: 4–12 semanas. Ninguno es un ingrediente de efecto agudo. Planifica al menos 8 semanas de dosificación constante antes de juzgar — y considera el tiempo de envío internacional (10–18 días a Latam) en tu cronograma.',
+    a: 'Bacopa: 8–12 semanas de uso diario; la mayoría de los ensayos positivos duraron 12 semanas. Melena de León: en adultos con deterioro cognitivo leve, el beneficio se fue acumulando a lo largo de 8–16 semanas. Fosfatidilserina: sus ensayos sobre la memoria duraron de 15 semanas a 12 meses. Citicolina: sus efectos sobre la memoria se midieron después de 2–3 meses. Ninguno es un ingrediente de efecto agudo. Planifica al menos 12 semanas de dosificación constante antes de juzgar — y considera el tiempo de envío internacional (10–18 días a Latam) en tu cronograma.',
   },
   {
     q: '¿Son seguros estos nootrópicos a largo plazo?',
@@ -109,11 +109,10 @@ export default function Page() {
       useCase="memory"
       pageTitle="Mejores Nootrópicos para Memoria"
       pageDescription="Ranking independiente de los mejores nootrópicos para memoria y recordación disponibles en Latinoamérica, basado en evidencia clínica."
-      heroParagraph="La memoria es el caso de uso donde los nootrópicos tienen la evidencia más replicada — principalmente de ensayos clínicos con Bacopa Monnieri durante más de 30 años. Esta página clasifica los productos disponibles para compradores en Latam que contienen Bacopa, Melena de León, fosfatidilserina o citicolina en dosis clínica o cercana a ella. Incluimos opciones internacionales (Mind Lab Pro, Qualia Mind, Nootropics Depot)."
+      heroParagraph="Para la memoria, la evidencia sobre Bacopa Monnieri que citamos es una revisión sistemática de seis ensayos aleatorizados de 12 semanas (Pase 2012). Esta página clasifica los productos disponibles para compradores en Latam que contienen Bacopa, Melena de León, fosfatidilserina o citicolina en dosis clínica o cercana a ella. Incluimos opciones internacionales (Mind Lab Pro, Qualia Mind, Nootropics Depot)."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}
-      strings={useCaseListPageEsStrings}
       siteUrl={SITE_URL}
       regulatoryPillar={{ label: 'ANMAT Disposición 2105/2022: los siete productos prohibidos (Argentina)', href: '/anmat-disposicion-2105-2022-prohibidos/' }}
       healthDisclaimer={getRegionalHealthDisclaimer('latam')}

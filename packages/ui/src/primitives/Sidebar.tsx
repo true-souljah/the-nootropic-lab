@@ -14,8 +14,11 @@ import {
   HelpCircle,
   DollarSign,
 } from 'lucide-react';
-import type { RegionalRegionCode as RegionCode } from '@nootropic/data';
+import type { RegionalRegionCode as RegionCode, UIStrings } from '@nootropic/data';
 import { ALL_REGIONS, routeAvailableIn } from '@nootropic/data';
+
+/** Rail labels: `UIStrings.nav.sidebar` of the page's locale bundle. */
+export type SidebarLabels = UIStrings['nav']['sidebar'];
 
 export interface SidebarItem {
   label: string;
@@ -29,8 +32,12 @@ export interface SidebarGroup {
 }
 
 export interface SidebarProps {
-  /** Optional override of the default groups. */
+  /** Optional override of the default groups (their labels are used as given). */
   groups?: SidebarGroup[];
+  /** Locale labels of the default groups, the footer link and the landmark (default: English). */
+  labels?: SidebarLabels;
+  /** Accessible name of the rail's `<nav>` landmark (`UIStrings.nav.primaryLandmark`). */
+  landmarkLabel?: string;
   /** Product count rendered next to the version line. */
   productCount?: number;
   /** Wordmark text (e.g. "Nootropic Lab"). */
@@ -41,32 +48,54 @@ export interface SidebarProps {
   footer?: ReactNode;
 }
 
-export const DEFAULT_GROUPS: SidebarGroup[] = [
-  {
-    label: 'Browse',
-    items: [
-      { label: 'Discover', href: '/', icon: Compass },
-      { label: 'All products', href: '/best-nootropics/', icon: LayoutGrid },
-      { label: 'Best of 2026', href: '/best-nootropics/', icon: Star },
-      { label: 'Ingredients', href: '/ingredients/', icon: FlaskConical },
-    ],
-  },
-  {
-    label: 'Tools',
-    items: [
-      { label: 'Comparator', href: '/nootropic-comparison/', icon: Columns },
-      { label: 'Dose calculator', href: '/dose-calculator/', icon: Sigma },
-      { label: 'My shortlist', href: '/shortlist/', icon: Heart },
-    ],
-  },
-  {
-    label: 'About',
-    items: [
-      { label: 'Our methodology', href: '/methodology/', icon: HelpCircle },
-      { label: 'Disclosures', href: '/methodology/#disclosures', icon: DollarSign },
-    ],
-  },
-];
+/** English labels for callers without a locale bundle; the en bundle's `nav.sidebar` (pinned by review-page-i18n-rest.test.ts). */
+export const SIDEBAR_LABELS_EN: SidebarLabels = {
+  browse: 'Browse',
+  discover: 'Discover',
+  allProducts: 'All products',
+  bestOf2026: 'Best of 2026',
+  ingredients: 'Ingredients',
+  tools: 'Tools',
+  comparator: 'Comparator',
+  doseCalculator: 'Dose calculator',
+  myShortlist: 'My shortlist',
+  about: 'About',
+  ourMethodology: 'Our methodology',
+  disclosures: 'Disclosures',
+  submitTip: 'Submit a tip →',
+};
+
+/** The rail's groups with labels from `labels`; routes and icons are the same in every locale. */
+export function sidebarGroups(labels: SidebarLabels): SidebarGroup[] {
+  return [
+    {
+      label: labels.browse,
+      items: [
+        { label: labels.discover, href: '/', icon: Compass },
+        { label: labels.allProducts, href: '/best-nootropics/', icon: LayoutGrid },
+        { label: labels.bestOf2026, href: '/best-nootropics/', icon: Star },
+        { label: labels.ingredients, href: '/ingredients/', icon: FlaskConical },
+      ],
+    },
+    {
+      label: labels.tools,
+      items: [
+        { label: labels.comparator, href: '/nootropic-comparison/', icon: Columns },
+        { label: labels.doseCalculator, href: '/dose-calculator/', icon: Sigma },
+        { label: labels.myShortlist, href: '/shortlist/', icon: Heart },
+      ],
+    },
+    {
+      label: labels.about,
+      items: [
+        { label: labels.ourMethodology, href: '/methodology/', icon: HelpCircle },
+        { label: labels.disclosures, href: '/methodology/#disclosures', icon: DollarSign },
+      ],
+    },
+  ];
+}
+
+export const DEFAULT_GROUPS: SidebarGroup[] = sidebarGroups(SIDEBAR_LABELS_EN);
 
 // Hrefs carry the trailing slash (trailingSlash: true); compare slash-insensitively
 // so "/guides/" is active on "/guides", "/guides/" and "/guides/x/".
@@ -104,17 +133,19 @@ function buildRegion(): RegionCode {
  * marks `aria-current="page"` when its href matches the active route.
  */
 export function Sidebar({
-  groups = DEFAULT_GROUPS,
+  groups,
+  labels = SIDEBAR_LABELS_EN,
+  landmarkLabel = 'Primary',
   wordmark = 'Nootropic Lab',
   meta,
   footer,
 }: SidebarProps) {
   const pathname = usePathname();
-  const regionGroups = groupsForRegion(groups, buildRegion());
+  const regionGroups = groupsForRegion(groups ?? sidebarGroups(labels), buildRegion());
 
   return (
     <nav
-      aria-label="Primary"
+      aria-label={landmarkLabel}
       className="bg-ds-side text-ds-side-ink py-5 sticky top-0 self-start min-h-screen flex flex-col"
     >
       <div className="px-[18px] pb-[22px] flex items-center gap-[10px]">
@@ -176,7 +207,7 @@ export function Sidebar({
             href="mailto:tips@thenootropiclab.com?subject=Tip%20for%20the%20Nootropic%20Lab"
             className="text-[12.5px] text-ds-side-ink hover:text-white focus-visible:outline-2 focus-visible:outline-ds-focus-ring-on-dark focus-visible:outline-offset-2 rounded"
           >
-            Submit a tip →
+            {labels.submitTip}
           </a>
         )}
       </div>
