@@ -3,14 +3,18 @@ import {
   allProductsUS, allProductsEU, allProductsCA, allProductsAU,
   allProductsJP, allProductsLatam, allProductsGCC, allProductsSEA,
   productsUS, productsEU,
-  ingredients,
+  ingredients, earnsCommission, reviewDisclosureScope,
 } from '@nootropic/data';
 import type { Product } from '@nootropic/data';
 
 // Neutonic (2026-10-15): Productivity Drink on the US and EU hosts, Brain
 // Capsules on the US host only (the capsule listings return 404 on the EU
-// market). Both link through Neutonic's own UpPromote affiliate programme
-// (10% on new customers, 30-day tracking, per affiliates.neutonic.com). CA,
+// market). The EU drink and the US capsules link through Neutonic's own
+// UpPromote affiliate programme (10% on new customers, 30-day tracking, per
+// affiliates.neutonic.com). The US drink is a no-commission retail listing:
+// its neutonic.com US page has no cart and sends buyers to Amazon, where
+// UpPromote cannot track the sale, so it links the plain product page and
+// carries "0%" (BACKLOG coop:neutonic-us-drink-amazon-only-2026-10-15). CA,
 // AU, GCC, SEA, LATAM and JP are a later wave (BACKLOG
 // coop:neutonic-wave2-regions-2026-10-15), so those catalogues omit both.
 
@@ -32,6 +36,8 @@ const OUT_OF_SCOPE: Record<string, Product[]> = {
 };
 
 const cases = Object.entries(PRODUCT_PATH).flatMap(([region, paths]) => Object.keys(paths).map((slug) => [region, slug] as const));
+// Records on the UpPromote link; the US drink is the no-commission one.
+const tracked = cases.filter(([region, slug]) => !(region === 'us' && slug === DRINK));
 
 function record(region: string, slug: string): Product {
   const p = IN_SCOPE[region].find((r) => r.slug === slug);
@@ -48,26 +54,48 @@ describe('Neutonic records on the US and EU hosts', () => {
     ]);
   });
 
-  it.each(cases)('%s/%s exists, is live, and is a Neutonic / UpPromote record', (region, slug) => {
+  it('tracks the EU drink and the US capsules; the US drink is the one untracked record', () => {
+    expect(tracked).toEqual([
+      ['us', CAPSULES],
+      ['eu', DRINK],
+    ]);
+  });
+
+  it.each(cases)('%s/%s exists, is live, and is a Neutonic record linking its neutonic.com product page', (region, slug) => {
     const p = record(region, slug);
     expect(p.discontinued).toBeUndefined();
     expect(p.noPurchaseLink).toBeUndefined();
     expect(RECOMMENDABLE[region].some((r) => r.slug === slug)).toBe(true);
     expect(p.brand).toBe('Neutonic');
-    expect(p.affiliateNetwork).toBe('UpPromote');
-    expect(p.commissionRate).toBe('10%');
-    expect(p.cookieDays).toBe(30);
     expect(p.caffeineFree).toBe(slug === CAPSULES);
-  });
-
-  it.each(cases)('%s/%s affiliateUrl is the tracked UpPromote link on the region\'s neutonic.com product page', (region, slug) => {
-    const url = new URL(record(region, slug).affiliateUrl);
+    const url = new URL(p.affiliateUrl);
     expect(url.protocol).toBe('https:');
     expect(url.hostname).toBe('www.neutonic.com');
     expect(url.pathname).toBe(PRODUCT_PATH[region][slug]);
+  });
+
+  it.each(tracked)('%s/%s earns a commission through the tracked UpPromote link', (region, slug) => {
+    const p = record(region, slug);
+    expect(p.affiliateNetwork).toBe('UpPromote');
+    expect(p.commissionRate).toBe('10%');
+    expect(p.cookieDays).toBe(30);
+    expect(earnsCommission(p)).toBe(true);
+    const url = new URL(p.affiliateUrl);
     expect(url.searchParams.get('sca_ref')).toBe(SCA_REF);
     expect(url.searchParams.get('utm_source')).toBe('uppromote');
     expect(url.searchParams.get('utm_medium')).toBe('affiliate');
+  });
+
+  it('US drink: a no-commission retail listing on the plain product page (its US page sells only via Amazon)', () => {
+    const p = record('us', DRINK);
+    expect(p.affiliateNetwork).toBe('Amazon (retail, no affiliate link)');
+    expect(p.commissionRate).toBe('0%');
+    expect(p.cookieDays).toBe(0);
+    expect(earnsCommission(p)).toBe(false);
+    expect(reviewDisclosureScope(p)).toBe('product');
+    expect(p.affiliateUrl).toBe('https://www.neutonic.com/en-us/products/tropical-ice-12pk-us');
+    expect(new URL(p.affiliateUrl).search).toBe('');
+    expect(p.affiliateUrl).not.toMatch(/sca_ref|utm_/);
   });
 
   it.each(Object.keys(PRODUCT_PATH))('%s: the drink is one can per serving, 12 cans a pack', (region) => {
