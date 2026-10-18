@@ -39,6 +39,8 @@ const REVIEW_ROUTES = [
   // PR-Q84 extension — depth across the brand-review catalog.
   '/hunter-focus-review/',
   '/brainmd-brain-memory-power-boost-review/',
+  '/neutonic-productivity-drink-review/',
+  '/neutonic-brain-capsules-review/',
 ];
 
 test.beforeEach(async ({ context }) => {
