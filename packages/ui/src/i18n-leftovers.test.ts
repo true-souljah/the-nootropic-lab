@@ -73,9 +73,10 @@ async function renderPage(region: 'ca' | 'eu' | 'latam' | 'us', route: string, p
 
 function newLeaves(locale: Locale): Map<string, string> {
   const s = getStrings(locale);
+  // `?? {}`: a bundle without the block fails the tests below, not the file's collection.
   return new Map([
     ['table.euStorefrontNote', s.table.euStorefrontNote],
-    ...leaves(s.ingredientDetail.schema, 'ingredientDetail.schema'),
+    ...leaves(s.ingredientDetail.schema ?? {}, 'ingredientDetail.schema'),
   ]);
 }
 const PLACEHOLDERS: Record<string, string[]> = {
