@@ -30,6 +30,11 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     evidence:
       'En ensayos controlados en adultos sanos, la combinación mejoró la precisión al alternar la atención entre tareas (Owen 2008: 100mg de L-teanina con 50mg de cafeína; Giesbrecht 2010, PubMed 21040626: 97mg con 40mg) y las puntuaciones de fatiga mental (Haskell 2007, PubMed 18006208: 250mg con 150mg). Foxe 2012 (PubMed 22326943) no encontró ningún beneficio adicional frente a cada compuesto por separado. En Latam la cafeína proviene fácilmente de un café local, por lo que basta con un suplemento sin cafeína que aporte L-teanina.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
+    extraCitations: [
+      { label: 'Giesbrecht 2010', url: 'https://pubmed.ncbi.nlm.nih.gov/21040626/' },
+      { label: 'Haskell 2007', url: 'https://pubmed.ncbi.nlm.nih.gov/18006208/' },
+      { label: 'Foxe 2012', url: 'https://pubmed.ncbi.nlm.nih.gov/22326943/' },
+    ],
   },
   {
     name: 'Citicolina (CDP-Colina)',

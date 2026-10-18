@@ -30,6 +30,9 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     evidence:
       'Para sesiones de estudio prolongadas, la combinación L-teanina + cafeína es la base. En el ensayo enlazado abajo (Owen 2008), la combinación mejoró la velocidad y la precisión en una tarea de cambio de atención; en un ensayo controlado (Rogers 2008, PubMed 17891480), la L-teanina no redujo significativamente el nerviosismo causado por la cafeína. 100–200mg de L-teanina + 100mg de cafeína, repetidos 4–6 horas después si es necesario. La cafeína se obtiene fácilmente de un café o mate local en cualquier país de Latam.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18681988/',
+    extraCitations: [
+      { label: 'Rogers 2008', url: 'https://pubmed.ncbi.nlm.nih.gov/17891480/' },
+    ],
   },
   {
     name: 'Bacopa Monnieri — consolidación de memoria a largo plazo',

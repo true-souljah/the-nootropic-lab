@@ -51,6 +51,9 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     evidence:
       'En una revisión sistemática de seis ensayos de 12 semanas (Pase 2012, PubMed 22747190), la Bacopa mejoró 9 de 17 pruebas de recuerdo libre de memoria; en adultos de 65 años o más (Calabrese 2008, PubMed 18611150), 300mg al día durante 12 semanas mejoraron el recuerdo diferido de palabras tras controlar el déficit cognitivo inicial.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/22747190/',
+    extraCitations: [
+      { label: 'Calabrese 2008', url: 'https://pubmed.ncbi.nlm.nih.gov/18611150/' },
+    ],
   },
 ];
 
