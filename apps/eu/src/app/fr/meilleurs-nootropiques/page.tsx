@@ -57,12 +57,12 @@ export default function MeilleursNootropiquesFR() {
         <h2 className="text-2xl font-bold text-gray-900 mb-4">
           Comparatif Nootropiques Europe {CURRENT_YEAR}
         </h2>
-        <ComparisonTable products={productsEU} market="eu" />
+        <ComparisonTable products={productsEU} market="eu" strings={uiStrings} />
       </div>
 
       <div className="mt-8 text-sm text-gray-500">
         <Link href="/best-nootropics/" className="text-green-700 underline">
-          → English version: Best Nootropics Europe {CURRENT_YEAR}
+          → Version anglaise : Best Nootropics Europe {CURRENT_YEAR}
         </Link>
       </div>
     </article>

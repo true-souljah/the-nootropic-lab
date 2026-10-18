@@ -595,7 +595,10 @@ describe('locale typography', () => {
   test('no ja string ends in a Latin colon or full stop, or in a space', () => {
     // noPurchaseLink is the English bundle on purpose (purchase-link.ts, site-owner decision 2026-10-08).
     const { noPurchaseLink: _english, ...ja } = getStrings('ja');
-    const bad = leaves(ja, 'ja').filter(([, v]) => /[:.]$|\s$/.test(v));
+    // English sentences on purpose: keys added 2026-10-15 while Japanese copy is paused
+    // (compliance:jp-japanese-paused-2026-10-13); i18n-leftovers.test.ts holds them equal to en.
+    const englishWhilePaused = /^ja\.(table\.euStorefrontNote|ingredientDetail\.schema\.)/;
+    const bad = leaves(ja, 'ja').filter(([path, v]) => !englishWhilePaused.test(path) && /[:.]$|\s$/.test(v));
     expect(bad).toEqual([]);
   });
 });

@@ -40,7 +40,7 @@ export default function FrComparerPage() {
         </p>
         <AffiliateDisclosure strings={uiStrings.disclosure} />
         <div className="mt-8">
-          <ComparisonTable products={productsCA} market="ca" />
+          <ComparisonTable products={productsCA} market="ca" strings={uiStrings} />
         </div>
         <div className="mt-8 text-sm text-gray-500">
           <a href="/nootropic-comparison/" className="text-green-700 underline">

@@ -149,7 +149,7 @@ export default function FrMeilleursNootropiquesPage() {
           <p className="text-sm text-gray-500 mb-4">
             Prix mensuels indiqués en dollars canadiens; le prix affiché au moment du paiement fait foi.
           </p>
-          <ComparisonTable products={productsCA} market="ca" />
+          <ComparisonTable products={productsCA} market="ca" strings={uiStrings} />
         </section>
 
         <section className="mt-12 bg-gray-50 rounded-xl p-6">

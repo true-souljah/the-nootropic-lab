@@ -221,6 +221,8 @@ export interface UIStrings {
     editorChoice: string;
     /** Filter chip: only products with an EU storefront. */
     euStorefront: string;
+    /** Tooltip (title) of the EU-storefront badge in the EU column; the badge text is productDetail.regionalBuying.licence.euStorefront. */
+    euStorefrontNote: string;
     /** Label of the per-month price cap slider; {price} is the formatted cap. */
     maxPrice: string;
     /** Screen-reader name of the buy-link column. */
@@ -339,7 +341,11 @@ export interface UIStrings {
       negligible: string;
     };
     category: IngredientCategoryStrings;
-    /** Category line on the related-ingredient cards (lowercase in en; the card capitalizes it). */
+    /**
+     * Category line on the related-ingredient cards (lowercase in en; the card
+     * capitalizes it), the category word of ingredient results in the search
+     * index and a JSON-LD keyword. The en strings equal Ingredient.category.
+     */
     relatedCategory: IngredientCategoryStrings;
     /** Lede under the effect-matrix heading. */
     humanTrialsOnly: string;
@@ -361,6 +367,27 @@ export interface UIStrings {
     };
     /** Template with {name} placeholder. */
     stackingLede: string;
+    /**
+     * Words the template writes into the page's JSON-LD (Article, Dataset,
+     * BreadcrumbList); the ingredient's own name, summary and effects come from
+     * the (localized) ingredient record. {name} is the ingredient name, {date}
+     * the ISO evidence-review date.
+     */
+    schema: {
+      headline: string;
+      datasetName: string;
+      datasetDescription: string;
+      keywords: { nootropic: string; cognitiveSupplement: string; clinicalTrial: string };
+      /** One measured variable: {effect}, {strength} (evidenceStrength), {studies} (studiesOne / studiesMany), {magnitude}, {notes}. */
+      effect: string;
+      /** Same, for an effect without a study count. */
+      effectNoStudies: string;
+      studiesOne: string;
+      /** {n} is the study count. */
+      studiesMany: string;
+      /** Effect size, lowercase (it sits mid-sentence). */
+      magnitude: { large: string; moderate: string; small: string; negligible: string };
+    };
   };
   /** Evidence-review strings on ingredient pages (/ingredients/<slug>/). */
   ingredientEvidence: {
@@ -976,6 +1003,7 @@ const en: UIStrings = {
     sortColumns: { score: 'score', price: 'price', moneyBack: 'money-back days', trustpilot: 'Trustpilot score' },
     editorChoice: "Editor's Choice",
     euStorefront: 'EU Storefront',
+    euStorefrontNote: 'Sold through a dedicated EU storefront priced in EUR. We do not verify regulatory compliance per product.',
     maxPrice: 'Max {price}',
     actions: 'Actions',
     scoreAria: 'Score {score} out of 10 — tap or hover for breakdown',
@@ -1087,6 +1115,18 @@ const en: UIStrings = {
       trials: 'Trials',
     },
     stackingLede: 'Ingredients that pair well with {name} and why.',
+    schema: {
+      headline: '{name} — Nootropic Ingredient Guide',
+      datasetName: '{name} — Human Clinical Effect Matrix',
+      datasetDescription:
+        "Structured human-clinical-trial evidence summary for {name}: per-effect evidence strength, magnitude, and study count. Sourced from the PubMed-indexed studies listed in the page's Sources section (evidence reviewed {date}).",
+      keywords: { nootropic: 'nootropic', cognitiveSupplement: 'cognitive supplement', clinicalTrial: 'clinical trial' },
+      effect: '{effect}: {strength} evidence ({studies}), {magnitude} effect size. {notes}',
+      effectNoStudies: '{effect}: {strength} evidence, {magnitude} effect size. {notes}',
+      studiesOne: '1 cited study',
+      studiesMany: '{n} cited studies',
+      magnitude: { large: 'large', moderate: 'moderate', small: 'small', negligible: 'negligible' },
+    },
   },
   ingredientEvidence: {
     sources: 'Sources',
@@ -1567,6 +1607,7 @@ const es: UIStrings = {
     },
     editorChoice: 'Elección editorial',
     euStorefront: 'Tienda en la UE',
+    euStorefrontNote: 'Se vende en una tienda propia de la UE con precios en EUR. No verificamos el cumplimiento normativo de cada producto.',
     maxPrice: 'Máx. {price}',
     actions: 'Acciones',
     scoreAria: 'Puntuación {score} de 10 — toca o pasa el cursor para ver el desglose',
@@ -1678,6 +1719,18 @@ const es: UIStrings = {
       trials: 'Ensayos',
     },
     stackingLede: 'Ingredientes que se combinan bien con {name} y por qué.',
+    schema: {
+      headline: '{name} — Guía de ingredientes nootrópicos',
+      datasetName: '{name} — Matriz de efectos clínicos en humanos',
+      datasetDescription:
+        'Resumen estructurado de la evidencia de ensayos clínicos en humanos sobre {name}: solidez de la evidencia, magnitud y número de estudios de cada efecto. Basado en los estudios indexados en PubMed que figuran en la sección Fuentes de la página (evidencia revisada el {date}).',
+      keywords: { nootropic: 'nootrópico', cognitiveSupplement: 'suplemento cognitivo', clinicalTrial: 'ensayo clínico' },
+      effect: '{effect}: evidencia {strength} ({studies}), tamaño del efecto {magnitude}. {notes}',
+      effectNoStudies: '{effect}: evidencia {strength}, tamaño del efecto {magnitude}. {notes}',
+      studiesOne: '1 estudio citado',
+      studiesMany: '{n} estudios citados',
+      magnitude: { large: 'grande', moderate: 'moderado', small: 'pequeño', negligible: 'insignificante' },
+    },
   },
   ingredientEvidence: {
     sources: 'Fuentes',
@@ -2164,6 +2217,7 @@ const fr: UIStrings = {
     },
     editorChoice: 'Choix de la rédaction',
     euStorefront: 'Boutique UE',
+    euStorefrontNote: 'Vendu par une boutique UE dédiée, avec des prix en EUR. Nous ne vérifions pas la conformité réglementaire de chaque produit.',
     maxPrice: 'Max. {price}',
     actions: 'Actions',
     scoreAria: 'Note de {score} sur 10 — touchez ou survolez pour voir le détail',
@@ -2275,6 +2329,18 @@ const fr: UIStrings = {
       trials: 'Essais',
     },
     stackingLede: 'Ingrédients qui se combinent bien avec {name} et pourquoi.',
+    schema: {
+      headline: '{name} — Guide des ingrédients nootropiques',
+      datasetName: '{name} — Matrice des effets cliniques chez l’humain',
+      datasetDescription:
+        'Synthèse structurée des données d’essais cliniques chez l’humain sur {name} : solidité des preuves, ampleur et nombre d’études pour chaque effet. Établie à partir des études indexées dans PubMed listées dans la section Sources de la page (preuves revues le {date}).',
+      keywords: { nootropic: 'nootropique', cognitiveSupplement: 'complément cognitif', clinicalTrial: 'essai clinique' },
+      effect: '{effect} : preuves {strength} ({studies}), ampleur de l’effet {magnitude}. {notes}',
+      effectNoStudies: '{effect} : preuves {strength}, ampleur de l’effet {magnitude}. {notes}',
+      studiesOne: '1 étude citée',
+      studiesMany: '{n} études citées',
+      magnitude: { large: 'importante', moderate: 'modérée', small: 'faible', negligible: 'négligeable' },
+    },
   },
   ingredientEvidence: {
     sources: 'Sources',
@@ -2756,6 +2822,8 @@ const ja: UIStrings = {
     sortColumns: { score: 'スコア', price: '価格', moneyBack: '返金保証の日数', trustpilot: 'Trustpilotスコア' },
     editorChoice: '編集部のおすすめ',
     euStorefront: 'EU向けストア',
+    // English: Japanese copy is paused (owner decision 2026-10-13) and no host renders the ja bundle.
+    euStorefrontNote: 'Sold through a dedicated EU storefront priced in EUR. We do not verify regulatory compliance per product.',
     maxPrice: '上限 {price}',
     actions: '操作',
     scoreAria: 'スコア 10点中{score}点 — タップまたはカーソルを合わせると内訳を表示',
@@ -2867,6 +2935,19 @@ const ja: UIStrings = {
       trials: '試験数',
     },
     stackingLede: '{name}と相性の良い成分とその理由。',
+    // English: Japanese copy is paused (owner decision 2026-10-13) and no host renders the ja bundle.
+    schema: {
+      headline: '{name} — Nootropic Ingredient Guide',
+      datasetName: '{name} — Human Clinical Effect Matrix',
+      datasetDescription:
+        "Structured human-clinical-trial evidence summary for {name}: per-effect evidence strength, magnitude, and study count. Sourced from the PubMed-indexed studies listed in the page's Sources section (evidence reviewed {date}).",
+      keywords: { nootropic: 'nootropic', cognitiveSupplement: 'cognitive supplement', clinicalTrial: 'clinical trial' },
+      effect: '{effect}: {strength} evidence ({studies}), {magnitude} effect size. {notes}',
+      effectNoStudies: '{effect}: {strength} evidence, {magnitude} effect size. {notes}',
+      studiesOne: '1 cited study',
+      studiesMany: '{n} cited studies',
+      magnitude: { large: 'large', moderate: 'moderate', small: 'small', negligible: 'negligible' },
+    },
   },
   ingredientEvidence: {
     sources: '出典',
@@ -3353,6 +3434,7 @@ const pt: UIStrings = {
     },
     editorChoice: 'Escolha editorial',
     euStorefront: 'Loja na UE',
+    euStorefrontNote: 'Vendido numa loja UE dedicada, com preços em EUR. Não verificamos a conformidade regulamentar de cada produto.',
     maxPrice: 'Máx. {price}',
     actions: 'Ações',
     scoreAria: 'Pontuação {score} em 10 — toque ou passe o cursor para ver a decomposição',
@@ -3464,6 +3546,18 @@ const pt: UIStrings = {
       trials: 'Ensaios',
     },
     stackingLede: 'Ingredientes que combinam bem com {name} e por quê.',
+    schema: {
+      headline: '{name} — Guia de ingredientes nootrópicos',
+      datasetName: '{name} — Matriz de efeitos clínicos em humanos',
+      datasetDescription:
+        'Resumo estruturado da evidência de ensaios clínicos em humanos sobre {name}: solidez da evidência, magnitude e número de estudos de cada efeito. Baseado nos estudos indexados na PubMed listados na secção Fontes da página (evidência revista em {date}).',
+      keywords: { nootropic: 'nootrópico', cognitiveSupplement: 'suplemento cognitivo', clinicalTrial: 'ensaio clínico' },
+      effect: '{effect}: evidência {strength} ({studies}), magnitude do efeito {magnitude}. {notes}',
+      effectNoStudies: '{effect}: evidência {strength}, magnitude do efeito {magnitude}. {notes}',
+      studiesOne: '1 estudo citado',
+      studiesMany: '{n} estudos citados',
+      magnitude: { large: 'grande', moderate: 'moderada', small: 'pequena', negligible: 'negligenciável' },
+    },
   },
   ingredientEvidence: {
     sources: 'Fontes',
@@ -3949,6 +4043,7 @@ const de: UIStrings = {
     },
     editorChoice: 'Empfehlung der Redaktion',
     euStorefront: 'EU-Shop',
+    euStorefrontNote: 'Über einen eigenen EU-Shop mit EUR-Preisen verkauft. Die Einhaltung der Vorschriften prüfen wir nicht je Produkt.',
     maxPrice: 'Max. {price}',
     actions: 'Aktionen',
     scoreAria: 'Bewertung {score} von 10 – tippen oder mit der Maus darauf zeigen für die Aufschlüsselung',
@@ -4060,6 +4155,18 @@ const de: UIStrings = {
       trials: 'Studien',
     },
     stackingLede: 'Inhaltsstoffe, die gut mit {name} kombinieren — und warum.',
+    schema: {
+      headline: '{name} — Ratgeber zu nootropen Inhaltsstoffen',
+      datasetName: '{name} — Matrix der klinischen Wirkungen beim Menschen',
+      datasetDescription:
+        'Strukturierte Zusammenfassung der Evidenz aus klinischen Studien am Menschen zu {name}: Evidenzstärke, Effektgröße und Studienzahl je Wirkung. Grundlage sind die in PubMed indexierten Studien im Abschnitt „Quellen“ der Seite (Evidenz geprüft am {date}).',
+      keywords: { nootropic: 'Nootropikum', cognitiveSupplement: 'kognitives Nahrungsergänzungsmittel', clinicalTrial: 'klinische Studie' },
+      effect: '{effect} — Evidenz: {strength} ({studies}), Effektgröße: {magnitude}. {notes}',
+      effectNoStudies: '{effect} — Evidenz: {strength}, Effektgröße: {magnitude}. {notes}',
+      studiesOne: '1 zitierte Studie',
+      studiesMany: '{n} zitierte Studien',
+      magnitude: { large: 'groß', moderate: 'mittel', small: 'klein', negligible: 'vernachlässigbar' },
+    },
   },
   ingredientEvidence: {
     sources: 'Quellen',
@@ -4550,6 +4657,7 @@ const frCa: UIStrings = {
     },
     editorChoice: 'Choix de la rédaction',
     euStorefront: 'Boutique dans l’UE',
+    euStorefrontNote: 'Vendu par une boutique dédiée dans l’UE, avec des prix en EUR. Nous ne vérifions pas la conformité réglementaire de chaque produit.',
     maxPrice: 'Max. {price}',
     actions: 'Actions',
     scoreAria: 'Score de {score} sur 10 — touchez ou survolez pour voir le détail',
@@ -4661,6 +4769,18 @@ const frCa: UIStrings = {
       trials: 'Essais cliniques',
     },
     stackingLede: 'Ingrédients qui se combinent bien avec {name} et les raisons pour lesquelles.',
+    schema: {
+      headline: '{name} — Guide des ingrédients nootropiques',
+      datasetName: '{name} — Matrice des effets cliniques chez l’humain',
+      datasetDescription:
+        'Synthèse structurée des données d’essais cliniques chez l’humain sur {name} : solidité des preuves, ampleur et nombre d’études pour chaque effet. Établie à partir des études indexées dans PubMed énumérées dans la section Sources de la page (preuves revues le {date}).',
+      keywords: { nootropic: 'nootropique', cognitiveSupplement: 'supplément cognitif', clinicalTrial: 'essai clinique' },
+      effect: '{effect} : preuves {strength} ({studies}), ampleur de l’effet {magnitude}. {notes}',
+      effectNoStudies: '{effect} : preuves {strength}, ampleur de l’effet {magnitude}. {notes}',
+      studiesOne: '1 étude citée',
+      studiesMany: '{n} études citées',
+      magnitude: { large: 'importante', moderate: 'modérée', small: 'faible', negligible: 'négligeable' },
+    },
   },
   ingredientEvidence: {
     sources: 'Sources',
