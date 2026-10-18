@@ -60,16 +60,24 @@ describe('readStoredConsent: the one parser every reader uses', () => {
     ['nothing stored', '', 'none'],
     ['a marked record', `${S}=${ACCEPT_ALL}`, 'current'],
     ['a marked record beside a pre-split accept', `klaro=${ACCEPT_ALL}; ${S}=${DECLINE_ALL}`, 'current'],
-    ['pre-split accept all', `klaro=${ACCEPT_ALL}`, 'legacy-ask-again'],
-    ['pre-split analytics only', `klaro=${enc({ 'google-analytics': true, 'impact-com': false })}`, 'legacy-ask-again'],
-    ['pre-split affiliate only', `klaro=${enc({ 'google-analytics': false, 'impact-com': true })}`, 'legacy-ask-again'],
-    ['pre-Impact grant of Cloudflare only', `klaro=${enc({ 'cloudflare-insights': true, 'google-analytics': false })}`, 'legacy-ask-again'],
+    ['pre-split accept all', `klaro=${ACCEPT_ALL}`, 'ask-again'],
+    ['pre-split analytics only', `klaro=${enc({ 'google-analytics': true, 'impact-com': false })}`, 'ask-again'],
+    ['pre-split affiliate only', `klaro=${enc({ 'google-analytics': false, 'impact-com': true })}`, 'ask-again'],
+    ['pre-Impact grant of Cloudflare only', `klaro=${enc({ 'cloudflare-insights': true, 'google-analytics': false })}`, 'ask-again'],
     ['pre-split decline all', `klaro=${DECLINE_ALL}`, 'legacy-refusal'],
     ['pre-Impact decline all', `klaro=${enc({ 'cloudflare-insights': false, 'google-analytics': false })}`, 'legacy-refusal'],
     ['unencoded JSON refusal', `klaro={"google-analytics":false,"impact-com":false}`, 'legacy-refusal'],
-    ['empty record', `klaro=${enc({})}`, 'legacy-ask-again'],
-    ['unreadable record', 'klaro=%E0%A4%A', 'legacy-ask-again'],
-    ['a refusal and a grant under the same name', `klaro=${DECLINE_ALL}; klaro=${ACCEPT_ALL}`, 'legacy-ask-again'],
+    ['empty pre-split record', `klaro=${enc({})}`, 'ask-again'],
+    ['malformed pre-split record (bad escape)', 'klaro=%E0%A4%A', 'ask-again'],
+    ['malformed pre-split record (bad JSON)', 'klaro=%7Bbroken', 'ask-again'],
+    ['pre-split record with non-boolean values', `klaro=${encodeURIComponent('{"google-analytics":"no","impact-com":0}')}`, 'ask-again'],
+    ['a refusal and a grant under the same name', `klaro=${DECLINE_ALL}; klaro=${ACCEPT_ALL}`, 'ask-again'],
+    ['malformed marked record (bad JSON)', `${S}=%7Bbroken`, 'ask-again'],
+    ['malformed marked record (bad escape)', `${S}=%E0%A4%A`, 'ask-again'],
+    ['marked record that is not an object', `${S}=${encodeURIComponent('[true]')}`, 'ask-again'],
+    ['marked record with non-boolean values', `${S}=${encodeURIComponent('{"google-analytics":"yes","impact-com":true}')}`, 'ask-again'],
+    ['empty marked record', `${S}=${enc({})}`, 'ask-again'],
+    ['malformed marked record beside a pre-split refusal', `klaro=${DECLINE_ALL}; ${S}=%7Bbroken`, 'ask-again'],
     ['an unrelated cookie with a similar name', `klaroX=${ACCEPT_ALL}; _ga=GA1.1`, 'none'],
   ])('%s → %s', (_label, header, kind) => {
     expect(readStoredConsent(header)).toBe(kind);
@@ -80,6 +88,10 @@ describe('readStoredConsent: the one parser every reader uses', () => {
     expect(hasStoredChoice(`klaro=${DECLINE_ALL}`)).toBe(true);
     expect(hasStoredChoice(`klaro=${ACCEPT_ALL}`)).toBe(false);
     expect(hasStoredChoice('')).toBe(false);
+    // Klaro re-asks (no confirmed choice) for an unreadable or incomplete record.
+    expect(hasStoredChoice(`${S}=%7Bbroken`)).toBe(false);
+    expect(hasStoredChoice(`klaro=%7Bbroken`)).toBe(false);
+    expect(hasStoredChoice(`${S}=${enc({ 'google-analytics': true })}`)).toBe(false);
     // StickyCtaBar reads the same parser (it can mount before the migration runs).
     expect(hasConsentChoice(`klaro=${ACCEPT_ALL}`)).toBe(false);
     expect(hasConsentChoice(`klaro=${DECLINE_ALL}`)).toBe(true);
@@ -93,7 +105,7 @@ describe('migrateStoredConsent (runs before Klaro reads its storage)', () => {
 
   it('pre-split accept: no choice, the record and every GA / Impact cookie deleted on host + parent', () => {
     const doc = cookieJar({ klaro: ACCEPT_ALL, ...TRACKERS, other: 'keep' });
-    expect(migrateStoredConsent(doc, HOST)).toBe('legacy-ask-again');
+    expect(migrateStoredConsent(doc, HOST)).toBe('ask-again');
     expect([...doc.jar.keys()]).toEqual(['other']);
     for (const name of ['klaro', ...Object.keys(TRACKERS)]) {
       expect(doc.writes.some((w) => w.startsWith(`${name}=;`) && w.includes('domain=.thenootropiclab.com'))).toBe(true);
@@ -101,6 +113,29 @@ describe('migrateStoredConsent (runs before Klaro reads its storage)', () => {
     }
     expect(doc.writes.some((w) => w.startsWith(`${S}=`))).toBe(false);
     expect(readStoredConsent(doc.cookie)).toBe('none');
+  });
+
+  // Klaro parses its record with an unguarded JSON.parse: a malformed value
+  // made it throw before rendering (no banner, dead "Cookie settings").
+  it.each([
+    ['marked', S, '%7Bbroken'],
+    ['marked, bad escape', S, '%E0%A4%A'],
+    ['marked, not an object of booleans', S, encodeURIComponent('{"google-analytics":"yes"}')],
+    ['pre-split', 'klaro', '%7Bbroken'],
+    ['pre-split, bad escape', 'klaro', '%E0%A4%A'],
+  ])('malformed %s record: no choice, the record and every GA / Impact cookie deleted', (_label, name, value) => {
+    const doc = cookieJar({ [name]: value, ...TRACKERS, other: 'keep' });
+    expect(migrateStoredConsent(doc, HOST)).toBe('ask-again');
+    expect([...doc.jar.keys()]).toEqual(['other']);
+    expect(doc.writes.some((w) => w.startsWith(`${name}=;`) && w.includes('domain=.thenootropiclab.com'))).toBe(true);
+    expect(doc.writes.some((w) => w.startsWith(`${S}=`) && !w.startsWith(`${S}=;`))).toBe(false);
+    expect(readStoredConsent(doc.cookie)).toBe('none');
+  });
+
+  it('a malformed marked record beside a pre-split refusal: both deleted, no carried refusal', () => {
+    const doc = cookieJar({ [S]: '%7Bbroken', klaro: DECLINE_ALL });
+    expect(migrateStoredConsent(doc, HOST)).toBe('ask-again');
+    expect(doc.jar.size).toBe(0);
   });
 
   it('pre-split refusal: carried forward as the marked record with every purpose declined', () => {

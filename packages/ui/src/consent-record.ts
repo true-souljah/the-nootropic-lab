@@ -22,6 +22,11 @@
 // Side effect the operator accepted: per-purpose choices saved between
 // 2026-10-06 and this change are asked once more.
 //
+// A marked record Klaro cannot read is no choice either: Klaro parses it with
+// an unguarded JSON.parse, so a malformed value made it throw before it
+// rendered (no banner, a dead "Cookie settings" control). Such a record is
+// deleted with the tracker cookies, like an unmarked grant.
+//
 // readStoredConsent() is the one parser every reader uses: the migration that
 // runs before Klaro starts (CookieBanner) and hasConsentChoice (StickyCtaBar,
 // which can mount before that migration ran).
@@ -40,10 +45,10 @@ export const LEGACY_CONSENT_COOKIE = 'klaro';
 export type StoredConsentKind =
   /** No record at all: a first visit. */
   | 'none'
-  /** A record under the marked storage name: Klaro honours it as is. */
+  /** A readable record under the marked storage name: Klaro honours it as is. */
   | 'current'
-  /** Only an unmarked record that grants something or cannot be read: ask again. */
-  | 'legacy-ask-again'
+  /** A marked record Klaro cannot read, or (with no marked record) an unmarked one that grants something or cannot be read: ask again. */
+  | 'ask-again'
   /** Only an unmarked record that grants nothing: carry it forward as every purpose declined. */
   | 'legacy-refusal';
 
@@ -55,48 +60,54 @@ function cookieValues(cookieHeader: string, name: string): string[] {
     .map((c) => c.slice(name.length + 1));
 }
 
-/** Klaro writes encodeURIComponent(JSON.stringify(consents)). */
-function parseRecord(value: string): Record<string, unknown> | null {
-  for (const candidate of [value, safeDecode(value)]) {
-    if (candidate === null) continue;
-    try {
-      const parsed: unknown = JSON.parse(candidate);
-      if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) return parsed as Record<string, unknown>;
-    } catch {
-      // not JSON in this encoding; try the next one
-    }
-  }
-  return null;
-}
-
-function safeDecode(value: string): string | null {
+/**
+ * Read a record the way Klaro does (JSON.parse(decodeURIComponent(value)),
+ * consent-manager.js loadConsents). Null unless it is an object of booleans
+ * with at least one entry, the only shape Klaro writes.
+ */
+function parseRecord(value: string): Record<string, boolean> | null {
+  let parsed: unknown;
   try {
-    return decodeURIComponent(value);
+    parsed = JSON.parse(decodeURIComponent(value));
   } catch {
     return null;
   }
+  if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return null;
+  const entries = Object.values(parsed);
+  if (entries.length === 0 || !entries.every((v) => typeof v === 'boolean')) return null;
+  return parsed as Record<string, boolean>;
 }
 
-/** True only for a readable record that lists at least one service and grants none. */
+/** True only for a readable record that grants nothing. */
 function isRefusal(value: string): boolean {
   const record = parseRecord(value);
-  if (!record) return false;
-  const entries = Object.values(record);
-  return entries.length > 0 && entries.every((v) => v === false);
+  return record !== null && Object.values(record).every((v) => v === false);
+}
+
+/** Klaro treats a record as confirmed only when it lists every configured service. */
+function coversEveryService(value: string): boolean {
+  const record = parseRecord(value);
+  return record !== null && klaroConfig.services.every((s) => typeof record[s.name] === 'boolean');
 }
 
 /** Classify the stored consent from a `document.cookie`-style header. */
 export function readStoredConsent(cookieHeader: string): StoredConsentKind {
-  if (cookieValues(cookieHeader, klaroConfig.storageName).length > 0) return 'current';
+  const marked = cookieValues(cookieHeader, klaroConfig.storageName);
+  if (marked.length > 0) return marked.every((v) => parseRecord(v) !== null) ? 'current' : 'ask-again';
   const legacy = cookieValues(cookieHeader, LEGACY_CONSENT_COOKIE);
   if (legacy.length === 0) return 'none';
-  return legacy.every(isRefusal) ? 'legacy-refusal' : 'legacy-ask-again';
+  return legacy.every(isRefusal) ? 'legacy-refusal' : 'ask-again';
 }
 
-/** True once the visitor has a choice that stands (a marked record, or a refusal about to be carried forward). */
+/**
+ * True once the visitor has a choice that stands, i.e. Klaro will not show the
+ * banner: a marked record listing every service, or a pre-split refusal about
+ * to be carried forward.
+ */
 export function hasStoredChoice(cookieHeader: string): boolean {
   const kind = readStoredConsent(cookieHeader);
-  return kind === 'current' || kind === 'legacy-refusal';
+  if (kind === 'legacy-refusal') return true;
+  return kind === 'current' && cookieValues(cookieHeader, klaroConfig.storageName).every(coversEveryService);
 }
 
 /** The marked record with every service declined, in Klaro's own cookie format. */
@@ -114,8 +125,13 @@ export function declinedRecordCookie(now: Date = new Date()): string {
 export function migrateStoredConsent(doc: CookieDocument, hostname: string, now: Date = new Date()): StoredConsentKind {
   const kind = readStoredConsent(doc.cookie);
   if (kind === 'none') return kind;
-  if (kind === 'legacy-ask-again') {
-    expireCookies(doc, hostname, [...GA_COOKIE_PATTERNS, ...IMPACT_COOKIE_PATTERNS]);
+  if (kind === 'ask-again') {
+    // An unreadable marked record goes too, so Klaro starts with no choice.
+    expireCookies(doc, hostname, [
+      ...GA_COOKIE_PATTERNS,
+      ...IMPACT_COOKIE_PATTERNS,
+      new RegExp(`^${klaroConfig.storageName}$`),
+    ]);
   } else if (kind === 'legacy-refusal') {
     doc.cookie = declinedRecordCookie(now);
   }
