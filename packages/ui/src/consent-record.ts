@@ -135,7 +135,8 @@ export function migrateStoredConsent(doc: CookieDocument, hostname: string, now:
   } else if (kind === 'legacy-refusal') {
     doc.cookie = declinedRecordCookie(now);
   }
-  // A marked record always wins; any unmarked one left beside it is stale.
+  // Any unmarked record still here is stale: a marked record (readable or not)
+  // supersedes it, and an ask-again or a carried refusal has replaced it.
   if (cookieValues(doc.cookie, LEGACY_CONSENT_COOKIE).length > 0) {
     expireCookies(doc, hostname, [new RegExp(`^${LEGACY_CONSENT_COOKIE}$`)]);
   }
