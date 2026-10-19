@@ -34,6 +34,12 @@ const SOURCES = [
     .map(n => resolve(NOTES_DIR, n)),
   // Source of the regional licence-status badge labels.
   resolve(DATA_DIR, 'regional.ts'),
+  // Spanish renderings of the records above (LATAM): a negative the English
+  // drops must not survive in its translation, and vice versa.
+  resolve(DATA_DIR, 'products-latam-es.ts'),
+  resolve(DATA_DIR, 'ingredients-es.ts'),
+  resolve(DATA_DIR, 'guides-es.ts'),
+  resolve(DATA_DIR, 'latam-countries.ts'),
   ...readdirSync(APPS_DIR)
     .map(n => resolve(APPS_DIR, n, 'src'))
     .filter(p => existsSync(p))
@@ -48,6 +54,12 @@ const UNSOURCED_NEGATIVE: RegExp[] = [
   /\bnot\b[^.]{0,40}\b(SFDA|MOHAP|HSA|NPRA|BPOM|VFA|COFEPRIS|ANVISA|ANMAT|INVIMA|DIGEMID|NPN|Health Canada)\b[^.]{0,30}\b(registered|licensed)\b/i,
   /not formally registered/i,
   /not been (formally )?registered/i,
+  // "None of the blends are registered with COFEPRIS …" (LATAM Thesis, 2026-10-19) and its
+  // Spanish rendering "Ninguna de las mezclas está registrada ante …": the same unsourced
+  // negative without the word "not".
+  /\bnone of\b[^.]{0,60}\b(is|are)\s+registered\b/i,
+  /\bningun[ao]\b[^.]{0,60}\b(está|están)\s+registrad[ao]s?\b/i,
+  /\bno\s+(está|están)\s+registrad[ao]s?\s+(ante|con|en)\b/i,
   // AU (ARTG) and JP (CAA FFC database) were queried directly on 2026-10-06,
   // but a register search that returns no row proves only that those queries
   // returned nothing on that date. Copy must say so ("no ARTG entry returned
@@ -89,6 +101,9 @@ describe('no copy asserts a product is not registered with a regulator', () => {
     expect(SOURCES.some(f => /products-au\.json$/.test(f))).toBe(true);
     expect(SOURCES.some(f => /products-jp\.json$/.test(f))).toBe(true);
     expect(SOURCES.some(f => /products-ca\.json$/.test(f))).toBe(true);
+    expect(SOURCES.some(f => /products-latam-es\.ts$/.test(f))).toBe(true);
+    expect(SOURCES.some(f => /ingredients-es\.ts$/.test(f))).toBe(true);
+    expect(SOURCES.every(f => existsSync(f))).toBe(true);
     expect(SOURCES.some(f => /apps\/ca\/src\/app\/alpha-brain-canada\/page\.tsx$/.test(f))).toBe(true);
     expect(SOURCES.some(f => /apps\/ca\/src\/app\/best-nootropics-for-studying\/page\.tsx$/.test(f))).toBe(true);
     expect(SOURCES.some(f => /apps\/au\/src\/app\/tga-listed-cognitive-supplements\/page\.tsx$/.test(f))).toBe(true);
