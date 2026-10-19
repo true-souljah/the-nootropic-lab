@@ -24,6 +24,17 @@ export interface QuizAnswers {
   mbg: MBGImportance;
 }
 
+/**
+ * Which products are listed for any of the user's goals, and whether the top
+ * match is one of them. The goal multiplier only lowers a product that is not
+ * listed, so a top match listed for none of the goals is the closest fit for
+ * the other answers, not a match for the goal.
+ */
+export function goalListing(products: Product[], top: Product, goals: QuizGoal[]): { topListed: boolean; listed: Product[] } {
+  const lists = (p: Product) => goals.some((g) => p.bestFor.includes(g));
+  return { topListed: goals.length === 0 || lists(top), listed: products.filter(lists) };
+}
+
 export function goalsFit(productBestFor: string[], userGoals: QuizGoal[]): number {
   if (userGoals.length === 0) return 1.0;
   const overlap = userGoals.filter((g) => productBestFor.includes(g)).length;
