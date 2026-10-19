@@ -79,7 +79,7 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'onnit-alpha-brain-review')!,
     rank: 4,
     whyItsHere:
-      'Caffeine-free Classic version with Bacopa + L-theanine + Alpha-GPC. National Sanitation Foundation (NSF) Certified for Sport — relevant for student athletes in drug-tested university sports. Vegetarian but not vegan per the brand\'s FAQ; capsule shell material not stated (checked 2026-10-07). Two published clinical studies on the formula. Doses are hidden in proprietary blends so clinical thresholds cannot be verified. onnit.com\'s market list names Bahrain and Oman; shipping to the other GCC states could not be confirmed from the brand\'s site on 2026-09-29 — check at checkout. We have not verified a product registration with the Saudi Food and Drug Authority (SFDA) or the Ministry of Health and Prevention (MOHAP).',
+      'Caffeine-free Classic version with Bacopa + L-theanine + Alpha-GPC. National Sanitation Foundation (NSF) Certified for Sport — relevant for student athletes in drug-tested university sports. Vegetarian but not vegan per the brand\'s FAQ; capsule shell material not stated (checked 2026-10-07). A published randomised trial of the finished formula (2016). Doses are hidden in proprietary blends so clinical thresholds cannot be verified. onnit.com\'s market list names Bahrain and Oman; shipping to the other GCC states could not be confirmed from the brand\'s site on 2026-09-29 — check at checkout. We have not verified a product registration with the Saudi Food and Drug Authority (SFDA) or the Ministry of Health and Prevention (MOHAP).',
   },
   {
     product: productsGCC.find(p => p.slug === 'thesis-nootropics-review')!,

@@ -2522,6 +2522,15 @@ const ROUND_TWENTY_UNSOURCED: RegExp[] = [
   /5% de witanólidos, solo de raíz/i,
   /Sensoril \(leaf \+ root extract\)|Sensoril is a leaf-and-root extract/i,
   /Sensoril \(extracto de hoja \+ raíz\)|Sensoril es un extracto de hoja y raíz/i,
+  // Last fix (same round): Alpha Brain's records and the GCC focus and
+  // studying pages said "two (published) clinical studies" and "The two
+  // published studies (Onnit-funded, 2016 and 2021)". Only Solomon 2016
+  // (PMID 26876224) was found; no 2021 study was (the only other registered
+  // trial, NCT07495592, ran May-June 2026 with no published results).
+  /two (published )?clinical studies/i,
+  /2016 and 2021/,
+  /dos estudios clínicos publicados/i,
+  /2016 y 2021/,
 ];
 
 describe('round twenty: retro-panel findings on rounds 16-19 follow our ingredient pages', () => {
@@ -2616,6 +2625,13 @@ describe('round twenty: retro-panel findings on rounds 16-19 follow our ingredie
       'KSM-66 (5% de witanólidos, solo de raíz) es el extracto usado en los principales ensayos sobre estrés y cognición. Sensoril es un extracto de hoja y raíz; nuestra página sobre la ashwagandha no cita ningún ensayo con Sensoril.',
       'Elige KSM-66, el extracto usado en los ensayos de nuestra página sobre la ashwagandha.',
       'Cápsula. Elige KSM-66 (extracto de raíz de espectro completo, 5% de witanólidos), el extracto usado en los ensayos de esta página; no citamos ningún ensayo con Sensoril (extracto de hoja + raíz).',
+      // Last fix
+      "Onnit's nootropic stack, backed by two clinical studies and NSF Certified for Sport.",
+      "Onnit's US nootropic stack, backed by two published clinical studies.",
+      'Two published clinical studies',
+      'The two published studies (Onnit-funded, 2016 and 2021) tested the full formula and showed statistically significant improvements in verbal memory and executive function versus placebo.',
+      'El stack nootrópico estadounidense de Onnit, respaldado por dos estudios clínicos publicados',
+      'Los dos estudios publicados (financiados por Onnit, 2016 y 2021) probaron la fórmula completa.',
     ];
     for (const s of removed) expect(ROUND_TWENTY_UNSOURCED.some(re => re.test(s)), s).toBe(true);
     for (const re of ROUND_TWENTY_UNSOURCED) expect(removed.some(s => re.test(s)), String(re)).toBe(true);
@@ -2661,6 +2677,12 @@ describe('round twenty: retro-panel findings on rounds 16-19 follow our ingredie
       'Alpha Brain tiene un ensayo aleatorizado, doble ciego y controlado con placebo publicado sobre el producto terminado (Solomon 2016, PubMed 26876224): 63 adultos de 18 a 35 años, 6 semanas, mejoró el recuerdo verbal diferido y el funcionamiento ejecutivo; uno de los autores trabajaba para Onnit Labs.',
       'This page ranks the products in our Canadian coverage that contain at least one of these four ingredients: L-theanine + caffeine, citicoline, L-tyrosine or Alpha-GPC.',
       'contienen al menos uno de estos cuatro ingredientes: L-teanina + cafeína, citicolina, L-tirosina o Alfa-GPC.',
+      "Onnit's nootropic stack, backed by a published 2016 randomised trial and NSF Certified for Sport.",
+      'A published randomised trial of the finished formula (2016)',
+      'The 2016 trial (Solomon 2016; one author worked for Onnit Labs) tested the full formula and found improved delayed verbal recall and executive functioning versus placebo.',
+      'El stack nootrópico estadounidense de Onnit, respaldado por un ensayo aleatorizado publicado en 2016',
+      'El ensayo de 2016 (Solomon 2016; uno de los autores trabajaba para Onnit Labs) probó la fórmula completa y encontró mejoras en el recuerdo verbal diferido y el funcionamiento ejecutivo frente a placebo.',
+      'Un ensayo aleatorizado publicado de la fórmula terminada (2016)',
       'We cite no trial of the pairing.',
       'L-Tyrosine is a dopamine precursor. We cite no trial of the pairing.',
       'Oat Straw (Avena sativa) extract works primarily by inhibiting phosphodiesterase type 4 (PDE4).',
