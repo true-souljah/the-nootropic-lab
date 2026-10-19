@@ -29,7 +29,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Which is better, Mind Lab Pro or Thesis?',
     a:
-      'Different philosophies. Mind Lab Pro takes a single universal formula approach — same 11 ingredients for everyone, every dose disclosed, $69/month. Thesis takes a personalisation approach — 4-week trial pack of different formulas, then you pick which works for you; on its US Clarity page a 1-month subscription is $59 a month; its site sells four formulas (Clarity, Motivation, Stress Reset and Neuroprotection, checked 8 October 2026). Mind Lab Pro\'s formula has been tested in two University of Leeds studies (the 60-day one found no improvement in choice accuracy or reaction time); personalisation has stronger user-experience data.',
+      'Different philosophies. Mind Lab Pro takes a single universal formula approach — same 11 ingredients for everyone, every dose disclosed, $69/month. Thesis takes a personalisation approach — 4-week trial pack of different formulas, then you pick which works for you; on its US Clarity page a 1-month subscription is $59 a month; its site sells four formulas (Clarity, Motivation, Stress Reset and Neuroprotection, checked 8 October 2026). Mind Lab Pro\'s formula has been tested in two University of Leeds studies (the 60-day one found no improvement in choice accuracy or reaction time).',
   },
   {
     q: 'Is Thesis personalisation evidence-based?',
@@ -71,7 +71,7 @@ const whoIsForB = [
 ];
 
 const verdictParagraph =
-  'Mind Lab Pro\'s single universal formula has been tested in two University of Leeds studies: a 30-day placebo-controlled study its authors call pseudo-randomised (PubMed 37194920) and a 60-day placebo-controlled study that found no improvement in choice accuracy or reaction time (PubMed 40149748). Thesis\'s personalised-quiz approach has stronger user-experience data and lower friction for newcomers. Mind Lab Pro is the one of the two whose formula has been tested, though weakly, in the two Leeds studies above. For buyers who value try-multiple-formulas convenience, Thesis is fair.';
+  'Mind Lab Pro\'s single universal formula has been tested in two University of Leeds studies: a 30-day placebo-controlled study its authors call pseudo-randomised (PubMed 37194920) and a 60-day placebo-controlled study that found no improvement in choice accuracy or reaction time (PubMed 40149748). Mind Lab Pro is the one of the two whose formula has been tested, though weakly, in the two Leeds studies above. For buyers who value try-multiple-formulas convenience, Thesis is fair.';
 
 export default function Page() {
   if (!productA || !productB) notFound();
