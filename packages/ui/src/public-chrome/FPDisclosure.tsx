@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { disclosureCopy } from '@nootropic/data';
+import { AMAZON_ASSOCIATES_STATEMENT, disclosureCopy } from '@nootropic/data';
 import type { DisclosureScope, UIStrings } from '@nootropic/data';
 
 export interface FPDisclosureProps {
@@ -22,6 +22,13 @@ export interface FPDisclosureProps {
    * 'product' and 'site' carry the neutral badge, never "affiliate"/広告.
    */
   scope: DisclosureScope;
+  /**
+   * The page renders an Amazon Associates buy link
+   * (`linksAmazonAssociates` over the same products as `scope`): the strip
+   * adds Amazon's required statement, verbatim and in English
+   * (AMAZON_ASSOCIATES_STATEMENT, lang="en"). Never on a page without one.
+   */
+  amazonAssociate?: boolean;
   /** Override copy for translated surfaces. */
   body?: string;
   badgeLabel?: string;
@@ -62,6 +69,7 @@ export function FPDisclosure({
   methodologyHref = '/methodology/',
   strings,
   scope,
+  amazonAssociate = false,
   body,
   badgeLabel,
   methodologyLabel = strings ? `${strings.methodology} →` : 'Read our methodology →',
@@ -81,6 +89,11 @@ export function FPDisclosure({
       <span aria-hidden="true">·</span>
       <span>
         {body ?? copy.body}{space}
+        {amazonAssociate && (
+          <>
+            <span lang="en" data-amazon-associates-statement="">{AMAZON_ASSOCIATES_STATEMENT}</span>{space}
+          </>
+        )}
         <Link
           href={methodologyHref}
           className="text-ds-accent font-medium border-b border-ds-accent pb-[1px] hover:text-ds-accent-press focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded-[2px]"

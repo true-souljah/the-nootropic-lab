@@ -3,7 +3,7 @@ import { FPDisclosure } from '../public-chrome/FPDisclosure';
 import { FPHeader } from '../public-chrome/FPHeader';
 import { FPFooter } from '../public-chrome/FPFooter';
 import type { SearchItem } from '../SearchModal';
-import { pageDisclosureScope } from '@nootropic/data';
+import { linksAmazonAssociates, pageDisclosureScope } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 
 export interface PublicShellProps {
@@ -65,6 +65,7 @@ export default function PublicShell({
           methodologyHref={methodologyHref}
           strings={uiStrings?.disclosure}
           scope={pageDisclosureScope(linkedProducts)}
+          amazonAssociate={linksAmazonAssociates(linkedProducts)}
           space={uiStrings?.typography.space}
         />
       )}

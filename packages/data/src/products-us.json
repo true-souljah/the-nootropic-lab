@@ -1175,15 +1175,6 @@
       "value": 9,
       "trust": 6
     },
-    "storePrice": {
-      "amount": 14.99,
-      "currency": "USD",
-      "text": "$14.99",
-      "pack": "300 Count",
-      "supply": "up to a 5 month supply",
-      "url": "https://www.amazon.com/Naturebell-Capsules-GinkoVida-Strength-Supplement/dp/B09F4ML3FF",
-      "checkedAt": "2026-10-09"
-    },
     "pricingModel": "one-time",
     "moneyBackDays": 60,
     "caffeineFree": true,
@@ -1191,10 +1182,10 @@
     "euCompliance": "verify",
     "trustpilotScore": null,
     "trustpilotCount": null,
-    "affiliateUrl": "https://www.amazon.com/Naturebell-Capsules-GinkoVida-Strength-Supplement/dp/B09F4ML3FF",
+    "affiliateUrl": "https://www.amazon.com/Naturebell-Capsules-GinkoVida-Strength-Supplement/dp/B09F4ML3FF?tag=souljah03-20",
     "affiliateNetwork": "Amazon Associates",
-    "commissionRate": "4%",
-    "cookieDays": 24,
+    "commissionRate": "1%",
+    "cookieDays": 1,
     "heroIngredients": [
       "Ginkgo Biloba",
       "Korean Red Ginseng"
@@ -1216,7 +1207,7 @@
     "servingsPerContainer": 150,
     "capsulesPerServing": 2,
     "summary": "NatureBell Ginkgo + Ginseng comes in a 300-capsule bottle that the brand calls up to a 5-month supply. Chinese-manufactured with US branding, available on Amazon with Prime shipping. Combines Ginkgo Biloba (clinically dosed: a 500mg extract standardised to 120mg flavone glycosides) with Panax Ginseng — a TCM-inspired pairing for cerebral blood flow and cognitive energy. Best as a budget entry point or stack addition.",
-    "whatItIs": "NatureBell is a US-registered supplement brand sourcing ingredients from Chinese manufacturers. Their Ginkgo + Ginseng formula uses 500mg of a 12:1 Ginkgo Biloba leaf extract (equivalent to 6,000mg of ginkgo per serving), standardised to 120mg flavone glycosides, paired with 50mg Korean Red Ginseng (Panax ginseng) extract. Available exclusively through Amazon with Prime shipping across the US, Canada, Australia, and select international markets. The 300-capsule bottle provides a 5-month supply — the best per-month value in this entire review.",
+    "whatItIs": "NatureBell is a US-registered supplement brand sourcing ingredients from Chinese manufacturers. Their Ginkgo + Ginseng formula uses 500mg of a 12:1 Ginkgo Biloba leaf extract (equivalent to 6,000mg of ginkgo per serving), standardised to 120mg flavone glycosides, paired with 50mg Korean Red Ginseng (Panax ginseng) extract. Available exclusively through Amazon with Prime shipping across the US, Canada, Australia, and select international markets. The 300-capsule bottle provides a 5-month supply.",
     "howItWorks": "Ginkgo Biloba improves cerebral blood flow via vasodilation and platelet-activating factor (PAF) inhibition, delivering more oxygen and glucose to neurons. Panax Ginseng contains ginsenosides that modulate NMDA receptor activity, support dopaminergic signalling, and may improve working memory under fatigue. The combination is one of the oldest TCM cognitive pairings, now supported by modern clinical evidence for Ginkgo in particular.",
     "whatToExpect": "Positive dementia trials of ginkgo ran 22–26 weeks. The label gives 50mg of Korean Red Ginseng extract with no ginsenoside amount, and we have no reference dose on file for ginseng, so most cognitive benefit comes from the properly-dosed Ginkgo component. Best used as a stack addition alongside a premium nootropic rather than a standalone solution.",
     "pros": [
@@ -1248,7 +1239,8 @@
       }
     },
     "notes": [
-      "Ingredient amounts from NatureBell's label at https://cdn.shopify.com/s/files/1/1970/8683/files/newbottleamazonpic2-03_3f7931dc-caaf-4809-bf0f-f99f20987eca.jpg?v=1758321497, checked 2026-10-08."
+      "Ingredient amounts from NatureBell's label at https://cdn.shopify.com/s/files/1/1970/8683/files/newbottleamazonpic2-03_3f7931dc-caaf-4809-bf0f-f99f20987eca.jpg?v=1758321497, checked 2026-10-08.",
+      "The price is shown on the Amazon listing we link to. Amazon's Associates rules do not allow an Amazon price copied by hand, so this page shows none (2026-10-19)."
     ]
   },
   {
@@ -2400,10 +2392,10 @@
     "euCompliance": "verify",
     "trustpilotScore": 4.8,
     "trustpilotCount": 1209,
-    "affiliateUrl": "https://www.neutonic.com/en-us/products/tropical-ice-12pk-us",
-    "affiliateNetwork": "Amazon (retail, no affiliate link)",
-    "commissionRate": "0%",
-    "cookieDays": 0,
+    "affiliateUrl": "https://www.amazon.com/dp/B0CD7QD3VK?tag=souljah03-20",
+    "affiliateNetwork": "Amazon Associates",
+    "commissionRate": "1%",
+    "cookieDays": 1,
     "heroIngredients": [
       "Citicoline",
       "L-Theanine",
@@ -2455,7 +2447,7 @@
     "summary": "A zero-sugar nootropic energy drink in a can from UK brand Neutonic. Each 355ml can gives 120mg natural caffeine, 500mg citicoline (as Cognizin®), 400mg L-theanine, 400mg rhodiola extract and 200mg Panax ginseng extract, plus eight B vitamins. Caffeine, citicoline and L-theanine meet our reference doses; the rhodiola extract states no standardisation, and we have no reference dose on file for ginseng. On neutonic.com's US store the drink is sold through Amazon: its product page has a 'Shop at Amazon' button and no neutonic.com price or checkout (checked 2026-10-15).",
     "whatItIs": "Neutonic Productivity Drink is a carbonated, ready-to-drink can from Neutonic, a UK brand whose range also includes caffeine-free Brain Capsules. One can is one serving ('Each can contains one serving'), and the vendor's recommended serving is one can a day. In the US it comes in packs of 12 cans in one flavour: Tropical Ice, Orange Sunrise, Wild Citrus, Strawberry Lemonade or Blue Raspberry. Besides the actives, the US ingredient list names carbonated water, citric acid, natural flavours, trisodium citrate, the sweeteners sucralose and acesulfame potassium, and potassium sorbate as a preservative; the vitamin blend lists thiamin, riboflavin, niacin, vitamin B6, folate (as calcium 5-methyltetrahydrofolate), vitamin B12 (as methylcobalamin), biotin and pantothenic acid, which the vendor's panel gives as 100% of the reference intake (RI). The vendor says the drink is suitable for vegetarians and vegans.",
     "howItWorks": "Caffeine (120mg) blocks adenosine receptors; at low-to-moderate doses it consistently improves alertness, vigilance, attention and reaction time, with less consistent effects on memory (McLellan 2016, a narrative review). L-theanine (400mg, twice the top of our 100-200mg reference range) is an amino acid from green tea: in an 11-study meta-analysis, caffeine plus L-theanine had moderate effects versus placebo on alertness and attention-switching accuracy (Camfield 2014), but Foxe 2012 found no added benefit over either compound alone, and in a controlled trial (Rogers 2008, PubMed 17891480) L-theanine did not significantly reduce caffeine jitteriness. Citicoline (500mg, as Cognizin®) is a precursor to acetylcholine and phosphatidylcholine; its memory evidence comes from older adults with inefficient memory at 1,000-2,000mg a day (Spiers 1996), and a Cochrane review found no evidence of an attention benefit in older adults with chronic cerebral disorders. Rhodiola is an adaptogen: small trials of the SHR-5 extract found less mental fatigue, but a 2012 systematic review rated every included study at high or unclear risk of bias, and the product page does not say which extract or standardisation is used. We have no reference dose on file for Panax ginseng. Neutonic Productivity Drink itself has not been tested in a published trial; the vendor's claims rest on ingredient-level research.",
-    "whatToExpect": "Caffeine's alerting effect typically starts within 15-45 minutes, the onset on our caffeine page; the vendor suggests a can before 'any high demand session', from a morning start to training. Each can has 120mg caffeine and the vendor recommends one can a day, advising drinkers to be mindful of their total caffeine intake, so count it toward your daily total if you also drink coffee. Citicoline's memory effects in trials were measured after 2-3 months, so a single can should not be expected to change memory. In the US, neutonic.com's product page sends buyers to Amazon and shows no price (checked 2026-10-15), so the price and any subscription or returns terms are Amazon's.",
+    "whatToExpect": "Caffeine's alerting effect typically starts within 15-45 minutes, the onset on our caffeine page; the vendor suggests a can before 'any high demand session', from a morning start to training. Each can has 120mg caffeine and the vendor recommends one can a day, advising drinkers to be mindful of their total caffeine intake, so count it toward your daily total if you also drink coffee. Citicoline's memory effects in trials were measured after 2-3 months, so a single can should not be expected to change memory. In the US, neutonic.com's product page has no checkout: it sends buyers to Amazon and shows no price (checked 2026-10-15). We link to the drink's Amazon listing as an Amazon Associate, so the price and any subscription or returns terms are Amazon's.",
     "pros": [
       "Caffeine (120mg), citicoline (500mg, as Cognizin®) and L-theanine (400mg) meet our reference doses",
       "The product page states the amount of each active per can, with no proprietary blend",
@@ -2472,7 +2464,8 @@
       "No published trial of Neutonic Productivity Drink itself; the evidence is for its ingredients"
     ],
     "notes": [
-      "Ingredient amounts from the 'what's inside' panel and full ingredients list on Neutonic's US product page, https://www.neutonic.com/en-us/products/tropical-ice-12pk-us, checked 2026-10-15."
+      "Ingredient amounts from the 'what's inside' panel and full ingredients list on Neutonic's US product page, https://www.neutonic.com/en-us/products/tropical-ice-12pk-us, checked 2026-10-15.",
+      "Our US buy link is an Amazon Associates link to the Amazon listing that neutonic.com's US 'Shop at Amazon' button opens (Amazon Standard Identification Number, ASIN, B0CD7QD3VK: Tropical Ice, 12 cans), checked 2026-10-19. The price is shown on Amazon: Amazon's Associates rules do not allow an Amazon price copied by hand, so this page shows none."
     ],
     "editorChoice": false,
     "market": "both",

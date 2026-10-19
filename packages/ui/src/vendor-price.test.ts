@@ -185,7 +185,7 @@ describe('packServings — servings from the pack count only', () => {
     '1 x Qualia Mind 2.0 - 120 count Boxed': 20, // 6 per serving
     '90 Count': 45, // 2 per serving
     '60ct.': 60, // 1 per serving
-    '300 Count': 150, // 2 per serving
+    // '300 Count' (US NatureBell) left the data 2026-10-19 with its Amazon store price; still read below.
     '180 capsules': 30, // 6 per serving
     '1 Unit': 30, // × servingsPerContainer 30
     '1 MONAT: 2 Packs, 60 Kapseln': 30, // 2 per serving; "2 Packs" is not a container count
@@ -224,6 +224,10 @@ describe('packServings — servings from the pack count only', () => {
     expect(r.ok).toBe(false);
     expect(!r.ok && r.reason).toMatch(reason);
   });
+
+  test('reads "300 Count" at 2 per serving as 150 servings (the wording US NatureBell carried until 2026-10-19)', () => {
+    expect(outcome(packServings('300 Count', { servingsPerContainer: 150, capsulesPerServing: 2 }))).toBe(150);
+  });
 });
 
 describe('statedSupplyDays — a supply length in days', () => {
@@ -234,7 +238,7 @@ describe('statedSupplyDays — a supply length in days', () => {
     '1 MONAT: 2 Packs, 60 Kapseln': 30,
     '45-day supply': 45,
     '30-day supply': 30,
-    'up to a 5 month supply': 150,
+    // 'up to a 5 month supply' (US NatureBell) left the data 2026-10-19 with its Amazon store price; still read below.
     'delivered every 4 weeks': 28,
     '30日分': 30,
     '約60日分': 60,
@@ -251,6 +255,10 @@ describe('statedSupplyDays — a supply length in days', () => {
 
   test('several different lengths refuse', () => {
     expect(statedSupplyDays('1 Month 2 Month')).toMatchObject({ ok: false, reason: expect.stringMatching(/several supply lengths/) });
+  });
+
+  test('reads "up to a 5 month supply" as 150 days (the wording US NatureBell carried until 2026-10-19)', () => {
+    expect(outcome(statedSupplyDays('up to a 5 month supply'))).toBe(150);
   });
 });
 

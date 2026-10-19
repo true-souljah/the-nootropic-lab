@@ -11,7 +11,7 @@ import { Tabs, TabPanel } from '../primitives/Tabs';
 import { ProductThumb } from '../primitives/ProductThumb';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
 import NoPurchaseLinkNotice from '../NoPurchaseLinkNotice';
-import { reviewDisclosureScope, productForm, servingAmount, servingUnit, guaranteeDays, dosingTally } from '@nootropic/data';
+import { linksAmazonAssociates, reviewDisclosureScope, productForm, servingAmount, servingUnit, guaranteeDays, dosingTally } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 import type { TabId } from './product-detail/constants';
@@ -123,6 +123,8 @@ export default function ProductDetail({
   // no-commission line for a product without an affiliate deal ("0%"); the
   // site-level line otherwise (discontinued or no purchase link here).
   const disclosureScope = reviewDisclosureScope(p);
+  // The strip adds Amazon's Associates statement when the page renders an Associates buy link.
+  const amazonAssociate = linksAmazonAssociates(discontinued ? [] : [p]);
 
   const tabItems: Array<{ id: TabId; label: string }> = [
     { id: 'overview', label: pd.tabs.overview },
@@ -150,7 +152,7 @@ export default function ProductDetail({
       searchItems={searchItems}
       uiStrings={uiStrings}
     >
-      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} scope={disclosureScope} space={space} />
+      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} scope={disclosureScope} amazonAssociate={amazonAssociate} space={space} />
       <div className="px-4 sm:px-7 pt-6 pb-10">
         {discontinued && (
           <aside

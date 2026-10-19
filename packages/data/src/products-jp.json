@@ -804,9 +804,9 @@
     "trustpilotScore": null,
     "trustpilotCount": null,
     "affiliateUrl": "https://www.amazon.co.jp/s?k=Suntory+DHA+EPA+Sesamin",
-    "affiliateNetwork": "Amazon Associates JP",
-    "commissionRate": "3%",
-    "cookieDays": 24,
+    "affiliateNetwork": "Amazon (retail, no affiliate link)",
+    "commissionRate": "0%",
+    "cookieDays": 0,
     "heroIngredients": [
       "DHA",
       "EPA",
