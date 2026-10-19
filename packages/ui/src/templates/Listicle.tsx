@@ -12,6 +12,7 @@ import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
 import { priceText } from '../price-text';
+import { PriceShort } from '../PriceShort';
 import DisclaimerText from '../DisclaimerText';
 import { Bar } from '../primitives/Bar';
 import { FaqAccordion } from '../primitives/FaqAccordion';
@@ -340,7 +341,7 @@ export default function Listicle({
                         <div className="text-[12.5px] text-ds-muted mb-4 ds-tabular">
                           {price && (
                             <>
-                              {price.short} · {servingAmount(pick.product, uiStrings)} · {guaranteeDays(pick.product.moneyBackDays, (d) => tpl(s.moneyBackDays, { days: d }))}{space}{s.moneyBackLabel}
+                              <PriceShort price={price} /> · {servingAmount(pick.product, uiStrings)} · {guaranteeDays(pick.product.moneyBackDays, (d) => tpl(s.moneyBackDays, { days: d }))}{space}{s.moneyBackLabel}
                             </>
                           )}
                         </div>

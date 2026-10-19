@@ -14,6 +14,7 @@ import type { AffiliateClickContext } from '../trackAffiliateClick';
 import { SCORE_TIERS } from './listicleRanking';
 import { servingAmount, pillarText, guaranteeDays, formatMoney, pageDisclosureScope } from '@nootropic/data';
 import { priceText, priceLocaleOf } from '../price-text';
+import { PriceShort } from '../PriceShort';
 import { tpl } from '../templateStrings';
 import type { Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
@@ -277,7 +278,7 @@ export default function BestOf({
                   <div className="flex justify-between">
                     <span>{pd.stats.price}</span>
                     <span className="text-ds-ink font-semibold">
-                      {priceText(p, uiStrings)?.short ?? '—'}
+                      <PriceShort price={priceText(p, uiStrings)} />
                     </span>
                   </div>
                   <div className="flex justify-between">

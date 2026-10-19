@@ -2,6 +2,7 @@
 // rows are selected. Renders 1-3 product cards with quick-spec dl + the
 // 3-pillar score bars. State is owned by the parent Comparator.
 
+import type { ReactNode } from 'react';
 import Link from 'next/link';
 import { X } from 'lucide-react';
 import { Card } from '../../primitives/Card';
@@ -11,6 +12,7 @@ import { ProductThumb } from '../../primitives/ProductThumb';
 import { servingAmount, pillarText, guaranteeDays } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import { priceText } from '../../price-text';
+import { PriceShort } from '../../PriceShort';
 import { tpl } from '../../templateStrings';
 
 export interface ComparatorCompareCardProps {
@@ -70,8 +72,8 @@ export function ComparatorCompareCard({ selectedProducts, uiStrings, onClear }: 
               <ScorePill score={p.score} label={tpl(pd.score.aria, { score: p.score.toFixed(1), max: (10).toFixed(1) })} />
             </div>
             <dl className="mt-3 text-[12px] text-ds-ink-soft m-0">
-              {[
-                [pd.stats.price, priceText(p, uiStrings)?.short ?? '—'],
+              {([
+                [pd.stats.price, <PriceShort price={priceText(p, uiStrings)} />],
                 [pd.stats.perServingLabel, priceText(p, uiStrings)?.perServing ?? '—'],
                 [cs.daily, servingAmount(p, uiStrings)],
                 [pd.stats.moneyBack, guaranteeDays(p.moneyBackDays, (d) => tpl(pd.stats.daysCount, { days: d }))],
@@ -79,7 +81,7 @@ export function ComparatorCompareCard({ selectedProducts, uiStrings, onClear }: 
                 [pd.stats.trustpilot, p.trustpilotScore === null
                   ? pd.stats.notAvailable
                   : `${p.trustpilotScore} (${p.trustpilotCount?.toLocaleString(pd.dateLocale) ?? pd.stats.notAvailable})`],
-              ].map(([k, v]) => (
+              ] as Array<[string, ReactNode]>).map(([k, v]) => (
                 <div
                   key={k}
                   className="flex justify-between py-[5px] border-b border-ds-border last:border-b-0"

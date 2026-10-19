@@ -204,4 +204,5 @@ export { default as RegionalAvailability } from './RegionalAvailability';
 export type { RegionalAvailabilityProps, RegionalGeoLink } from './RegionalAvailability';
 export { default as RegionalBuying } from './RegionalBuying';
 export type { RegionalBuyingProps } from './RegionalBuying';
-export { priceText, priceLocaleOf, localPriceShort, type PriceText } from './price-text';
+export { priceText, priceLocaleOf, localPriceShort, packLangAttr, type PriceText } from './price-text';
+export { PriceShort, LocalPriceShort } from './PriceShort';

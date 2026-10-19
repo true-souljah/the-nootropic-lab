@@ -51,6 +51,16 @@ export function formatMoney(money: Money, locale: string): string {
   }
 }
 
+/**
+ * Language of a store price's verbatim words (`pack`, `supply`, `directions`):
+ * the record's `lang`, else English — the record states `lang` only when the
+ * store's words are not English ("de", "ja"). Pages mark these words with it
+ * where their own language differs (WCAG 3.1.2).
+ */
+export function storePriceLang(sp: Pick<StorePrice, 'lang'>): string {
+  return sp.lang ?? 'en';
+}
+
 export type StoreSupply = { ok: true; monthsOfSupply: number; basis: string } | { ok: false; reason: string };
 
 /** Record fields the store-price derivations read. */
