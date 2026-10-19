@@ -47,6 +47,9 @@ function newLeaves(locale: Locale): Map<string, string> {
   // The eight headings are this change's chrome; the policy text (`body`,
   // en and es only, 2026-10-19) is checked in products-latam-es.test.ts.
   const { body: _editorialBody, ...editorialHeadings } = s.editorialStandards;
+  // The CSV export's header row (2026-10-19; ja carries the English text while
+  // Japanese copy is paused) is checked in csv-headers.test.ts.
+  const { csvHeaders: _csvHeaders, ...comparator } = s.comparator;
   return new Map([
     ['nav.productCount', s.nav.productCount],
     ['nav.ingredientCount', s.nav.ingredientCount],
@@ -87,7 +90,7 @@ function newLeaves(locale: Locale): Map<string, string> {
     ...leaves(s.byline, 'byline'),
     ...leaves(listicle, 'listicle'),
     ...leaves(s.bestOf, 'bestOf'),
-    ...leaves(s.comparator, 'comparator'),
+    ...leaves(comparator, 'comparator'),
     ...leaves(s.ingredientLibrary, 'ingredientLibrary'),
     ...leaves(s.geo, 'geo'),
     ...leaves(editorialHeadings, 'editorialStandards'),

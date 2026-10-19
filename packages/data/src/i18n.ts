@@ -822,6 +822,25 @@ export interface UIStrings {
     caffeine: string;
     /** Value of the caffeine row for a caffeine-free product. */
     caffeineFree: string;
+    /**
+     * Header row of the CSV export (comparator/utils.ts exportRowsToCsv), one
+     * label per column in its order.
+     */
+    csvHeaders: {
+      rank: string;
+      name: string;
+      brand: string;
+      score: string;
+      packPrice: string;
+      currency: string;
+      pack: string;
+      perMonth: string;
+      perServing: string;
+      dailyServing: string;
+      moneyBackDays: string;
+      trustpilot: string;
+      bestFor: string;
+    };
   };
   /** Ingredient index (templates/IngredientLibrary.tsx). */
   ingredientLibrary: {
@@ -1488,6 +1507,21 @@ const en: UIStrings = {
     daily: 'Daily',
     caffeine: 'Caffeine',
     caffeineFree: 'Free',
+    csvHeaders: {
+      rank: 'Rank',
+      name: 'Name',
+      brand: 'Brand',
+      score: 'Score',
+      packPrice: 'Pack price',
+      currency: 'Currency',
+      pack: 'Pack',
+      perMonth: 'Approx. per month',
+      perServing: 'Approx. per serving',
+      dailyServing: 'Daily serving',
+      moneyBackDays: 'MBG days',
+      trustpilot: 'Trustpilot',
+      bestFor: 'Best for',
+    },
   },
   ingredientLibrary: {
     heading: 'Ingredient library',
@@ -2134,6 +2168,21 @@ const es: UIStrings = {
     daily: 'Diario',
     caffeine: 'Cafeína',
     caffeineFree: 'Sin cafeína',
+    csvHeaders: {
+      rank: 'Puesto',
+      name: 'Nombre',
+      brand: 'Marca',
+      score: 'Puntuación',
+      packPrice: 'Precio del envase',
+      currency: 'Moneda',
+      pack: 'Envase',
+      perMonth: 'Aprox. por mes',
+      perServing: 'Aprox. por dosis',
+      dailyServing: 'Dosis diaria',
+      moneyBackDays: 'Días de garantía de devolución',
+      trustpilot: 'Trustpilot',
+      bestFor: 'Ideal para',
+    },
   },
   ingredientLibrary: {
     heading: 'Biblioteca de ingredientes',
@@ -2779,6 +2828,21 @@ const fr: UIStrings = {
     daily: 'Par jour',
     caffeine: 'Caféine',
     caffeineFree: 'Sans',
+    csvHeaders: {
+      rank: 'Rang',
+      name: 'Nom',
+      brand: 'Marque',
+      score: 'Note',
+      packPrice: 'Prix du conditionnement',
+      currency: 'Devise',
+      pack: 'Conditionnement',
+      perMonth: 'Env. par mois',
+      perServing: 'Env. par dose',
+      dailyServing: 'Dose quotidienne',
+      moneyBackDays: 'Jours de garantie de remboursement',
+      trustpilot: 'Trustpilot',
+      bestFor: 'Idéal pour',
+    },
   },
   ingredientLibrary: {
     heading: 'Bibliothèque d’ingrédients',
@@ -3390,6 +3454,22 @@ const ja: UIStrings = {
     daily: '1日量',
     caffeine: 'カフェイン',
     caffeineFree: 'なし',
+    // English while Japanese copy is paused (owner decision 2026-10-13); no host renders ja.
+    csvHeaders: {
+      rank: 'Rank',
+      name: 'Name',
+      brand: 'Brand',
+      score: 'Score',
+      packPrice: 'Pack price',
+      currency: 'Currency',
+      pack: 'Pack',
+      perMonth: 'Approx. per month',
+      perServing: 'Approx. per serving',
+      dailyServing: 'Daily serving',
+      moneyBackDays: 'MBG days',
+      trustpilot: 'Trustpilot',
+      bestFor: 'Best for',
+    },
   },
   ingredientLibrary: {
     heading: '成分ライブラリ',
@@ -4002,6 +4082,21 @@ const pt: UIStrings = {
     daily: 'Diário',
     caffeine: 'Cafeína',
     caffeineFree: 'Sem',
+    csvHeaders: {
+      rank: 'Posição',
+      name: 'Nome',
+      brand: 'Marca',
+      score: 'Pontuação',
+      packPrice: 'Preço da embalagem',
+      currency: 'Moeda',
+      pack: 'Embalagem',
+      perMonth: 'Aprox. por mês',
+      perServing: 'Aprox. por dose',
+      dailyServing: 'Dose diária',
+      moneyBackDays: 'Dias de garantia de reembolso',
+      trustpilot: 'Trustpilot',
+      bestFor: 'Ideal para',
+    },
   },
   ingredientLibrary: {
     heading: 'Biblioteca de ingredientes',
@@ -4613,6 +4708,21 @@ const de: UIStrings = {
     daily: 'Täglich',
     caffeine: 'Koffein',
     caffeineFree: 'Frei',
+    csvHeaders: {
+      rank: 'Rang',
+      name: 'Name',
+      brand: 'Marke',
+      score: 'Bewertung',
+      packPrice: 'Packungspreis',
+      currency: 'Währung',
+      pack: 'Packung',
+      perMonth: 'Ca. pro Monat',
+      perServing: 'Ca. pro Dosis',
+      dailyServing: 'Tagesdosis',
+      moneyBackDays: 'Tage Geld-zurück-Garantie',
+      trustpilot: 'Trustpilot',
+      bestFor: 'Ideal für',
+    },
   },
   ingredientLibrary: {
     heading: 'Inhaltsstoff-Bibliothek',
@@ -5225,6 +5335,21 @@ const frCa: UIStrings = {
     daily: 'Par jour',
     caffeine: 'Caféine',
     caffeineFree: 'Sans',
+    csvHeaders: {
+      rank: 'Rang',
+      name: 'Nom',
+      brand: 'Marque',
+      score: 'Score',
+      packPrice: 'Prix du format',
+      currency: 'Devise',
+      pack: 'Format',
+      perMonth: 'Env. par mois',
+      perServing: 'Env. par dose',
+      dailyServing: 'Dose quotidienne',
+      moneyBackDays: 'Jours de garantie de remboursement',
+      trustpilot: 'Trustpilot',
+      bestFor: 'Idéal pour',
+    },
   },
   ingredientLibrary: {
     heading: 'Bibliothèque d’ingrédients',
