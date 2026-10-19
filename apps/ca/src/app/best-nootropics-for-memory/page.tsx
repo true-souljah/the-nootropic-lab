@@ -106,7 +106,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Will these help with age-related memory loss?',
-    a: 'The evidence is strongest specifically in older adults with subjective cognitive complaints — not in clinically diagnosed dementia or Alzheimer\'s. If you or a family member is experiencing significant memory changes, see a Canadian neurologist or your family doctor. Supplements are not a treatment for dementia.',
+    a: 'Some of the supplements on this page have trial evidence in older adults, often only in subgroups: PS-DHA in older adults with memory complaints, citicoline in those with relatively inefficient memories, and Lion\'s Mane in mild cognitive impairment. If you or a family member is experiencing significant memory changes, see a Canadian neurologist or your family doctor. Supplements are not a treatment for dementia.',
   },
   {
     q: 'Lion\'s Mane: fruiting body or mycelium?',

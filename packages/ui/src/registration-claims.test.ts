@@ -2429,6 +2429,17 @@ const ROUND_TWENTY_UNSOURCED: RegExp[] = [
   /concentración tranquila leve gracias a la L-Teanina/i,
   /más energía mental y menos fatiga cognitiva/i,
   /en la velocidad de aprendizaje/i,
+  // Follow-up (same round): the same-class leftovers. The memory FAQs' "The
+  // evidence is strongest specifically in older adults with subjective
+  // cognitive complaints" (B1-013's wording now), the Thesis comparison's
+  // "For evidence-graded buyers prioritizing peer-reviewed data, Mind Lab Pro
+  // wins" (B2-035's wording now) and JP NooCube's "Within 2-4 weeks: improved
+  // mental stamina and clarity under workload" (no source; the other regions'
+  // Lutemax sentence now).
+  /evidence is strongest specifically in older adults/i,
+  /más fuerte específicamente en adultos mayores/i,
+  /prioritizing peer-reviewed data, Mind Lab Pro wins/i,
+  /improved mental stamina and clarity under workload/i,
 ];
 
 describe('round twenty: retro-panel findings on rounds 16-19 follow our ingredient pages', () => {
@@ -2492,6 +2503,11 @@ describe('round twenty: retro-panel findings on rounds 16-19 follow our ingredie
       'El extracto de paja de avena (Avena sativa) actúa principalmente inhibiendo la fosfodiesterasa tipo 4 (PDE4) y la monoaminooxidasa B (MAO-B). La inhibición de la MAO-B frena la degradación de la dopamina.',
       'En 30-60 minutos: una concentración tranquila leve gracias a la L-Teanina. En 2-4 semanas: más energía mental y menos fatiga cognitiva (Citicolina, Tirosina). A las 8-12 semanas: mejoras medibles en el recuerdo y en la velocidad de aprendizaje (Bacopa, Melena de León).',
       'Primer día: una concentración tranquila leve gracias a la L-Teanina.',
+      // Follow-up
+      "The evidence is strongest specifically in older adults with subjective cognitive complaints — not in clinically diagnosed dementia or Alzheimer's.",
+      'La evidencia es más fuerte específicamente en adultos mayores con quejas cognitivas subjetivas — no en demencia clínicamente diagnosticada ni Alzheimer.',
+      'For evidence-graded buyers prioritizing peer-reviewed data, Mind Lab Pro wins. For buyers who value try-multiple-formulas convenience, Thesis is fair.',
+      'Within 2-4 weeks: improved mental stamina and clarity under workload. At 8 weeks: modest memory improvements from Bacopa.',
     ];
     for (const s of removed) expect(ROUND_TWENTY_UNSOURCED.some(re => re.test(s)), s).toBe(true);
     for (const re of ROUND_TWENTY_UNSOURCED) expect(removed.some(s => re.test(s)), String(re)).toBe(true);
@@ -2503,7 +2519,10 @@ describe('round twenty: retro-panel findings on rounds 16-19 follow our ingredie
       'para beneficio acumulativo, planifica al menos 12 semanas de uso constante antes de juzgar.',
       'Plan for at least 12 weeks before judging long-term efficacy.',
       'Caffeine + L-theanine — improved attention switching versus placebo (Owen 2008, Giesbrecht 2010); Foxe 2012 found no added benefit over either compound alone',
-      'Mind Lab Pro is the one of the two whose formula has been tested, though weakly (one pseudo-randomised 30-day study; the 60-day study found no improvement in choice accuracy or reaction time).',
+      'Mind Lab Pro is the one of the two whose formula has been tested, though weakly: the authors of the 30-day study call it pseudo-randomised.',
+      'Mind Lab Pro is the one of the two whose formula has been tested, though weakly, in the two Leeds studies above. For buyers who value try-multiple-formulas convenience, Thesis is fair.',
+      "Some of the supplements on this page have trial evidence in older adults, often only in subgroups: PS-DHA in older adults with memory complaints, citicoline in those with relatively inefficient memories, and Lion's Mane in mild cognitive impairment. If you or a family member is experiencing significant memory changes, see a neurologist.",
+      'Lutemax: its eye-strain trials ran 6 months and disagree, so do not count on a quick eye-fatigue effect. At 8 weeks: modest memory improvements from Bacopa.',
       "Some of the supplements on this page have trial evidence in older adults, often only in subgroups: PS-DHA in older adults with memory complaints, citicoline in those with relatively inefficient memories, and Lion's Mane in mild cognitive impairment.",
       'Algunos de los suplementos de esta página tienen evidencia de ensayos en adultos mayores, a menudo solo en subgrupos: la PS-DHA en adultos mayores con quejas de memoria, la citicolina en quienes tienen una memoria relativamente ineficiente y la Melena de León en el deterioro cognitivo leve.',
       'Track changes over at least 12 weeks of consistent dosing, and longer for phosphatidylserine (15 weeks or more) and ginkgo (22–26 weeks) — ideally with a baseline cognitive measure.',

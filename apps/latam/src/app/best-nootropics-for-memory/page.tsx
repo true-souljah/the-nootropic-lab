@@ -94,7 +94,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: '¿Ayudarán con la pérdida de memoria asociada a la edad?',
-    a: 'La evidencia es más fuerte específicamente en adultos mayores con quejas cognitivas subjetivas — no en demencia clínicamente diagnosticada ni Alzheimer. Si tú o un familiar experimentan cambios significativos en la memoria, consulta a un neurólogo. Los suplementos no son tratamiento para la demencia.',
+    a: 'Algunos de los suplementos de esta página tienen evidencia de ensayos en adultos mayores, a menudo solo en subgrupos: la PS-DHA en adultos mayores con quejas de memoria, la citicolina en quienes tienen una memoria relativamente ineficiente y la Melena de León en el deterioro cognitivo leve. Si tú o un familiar experimentan cambios significativos en la memoria, consulta a un neurólogo. Los suplementos no son tratamiento para la demencia.',
   },
   {
     q: 'Melena de León: ¿cuerpo fructífero o micelio?',

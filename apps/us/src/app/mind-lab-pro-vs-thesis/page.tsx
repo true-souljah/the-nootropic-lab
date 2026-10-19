@@ -71,7 +71,7 @@ const whoIsForB = [
 ];
 
 const verdictParagraph =
-  'Mind Lab Pro\'s single universal formula has been tested in two University of Leeds studies: a 30-day placebo-controlled study its authors call pseudo-randomised (PubMed 37194920) and a 60-day placebo-controlled study that found no improvement in choice accuracy or reaction time (PubMed 40149748). Thesis\'s personalised-quiz approach has stronger user-experience data and lower friction for newcomers. For evidence-graded buyers prioritizing peer-reviewed data, Mind Lab Pro wins. For buyers who value try-multiple-formulas convenience, Thesis is fair.';
+  'Mind Lab Pro\'s single universal formula has been tested in two University of Leeds studies: a 30-day placebo-controlled study its authors call pseudo-randomised (PubMed 37194920) and a 60-day placebo-controlled study that found no improvement in choice accuracy or reaction time (PubMed 40149748). Thesis\'s personalised-quiz approach has stronger user-experience data and lower friction for newcomers. Mind Lab Pro is the one of the two whose formula has been tested, though weakly, in the two Leeds studies above. For buyers who value try-multiple-formulas convenience, Thesis is fair.';
 
 export default function Page() {
   if (!productA || !productB) notFound();
