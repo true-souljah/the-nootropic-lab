@@ -1647,7 +1647,7 @@ describe('round sixteen: energy, stack, focus- and memory-page claims follow the
       'Frente a placebo, para L-Theanine + Caffeine, un metaanálisis de 11 ECA encontró mejoras moderadas en el estado de alerta y en la precisión al alternar la atención durante las 2 primeras horas tras la dosis. Foxe 2012 no encontró ningún beneficio adicional frente a cada compuesto por separado.',
       'paired with Arabic coffee or matcha — the same pairing without a caffeine-containing supplement.',
       'priced in US dollars.',
-      'At 8-12 weeks: cumulative neuroprotective benefits from PS and pine bark. Best for users who already supplement separately',
+      "phosphatidylserine's memory trials ran 15 weeks to 12 months. Best for users who already supplement separately",
       // U2
       'Which nootropic ingredients have trial evidence for focus available in Canada?',
       'Which nootropic ingredients have trial evidence for focus in SEA?',
@@ -1727,7 +1727,7 @@ describe('round sixteen: energy, stack, focus- and memory-page claims follow the
       'Our citicoline page rates its attention evidence as mixed: the acute attention trial in healthy adults that we cite gave it together with caffeine.',
       'Nuestra página sobre la citicolina califica como mixta su evidencia sobre la atención: el ensayo agudo sobre atención en adultos sanos que citamos la administró junto con cafeína.',
       'The Cochrane review found no evidence of an attention benefit in older adults with chronic cerebral disorders; the acute attention trial in healthy adults that we cite gave citicoline together with caffeine, so citicoline’s own effect cannot be isolated.',
-      'Caffeine + L-theanine — several placebo-controlled trials (Owen 2008)',
+      'Caffeine + L-theanine — improved attention switching versus placebo (Owen 2008, Giesbrecht 2010); Foxe 2012 found no added benefit over either compound alone',
       'When combined with caffeine, the pair improved attention measures versus placebo in several trials, but in a controlled trial (Rogers 2007) theanine did not significantly reduce caffeine-induced jitteriness.',
       'Con cafeína, la combinación mejoró las medidas de atención frente a placebo en varios ensayos, pero en un ensayo controlado (Rogers 2007) L-Theanine no redujo significativamente el nerviosismo causado por la cafeína.',
       'The alpha-wave (MEG) trial on our L-Theanine page found higher alpha activity at 2 hours, and only in people with higher trait anxiety.',
@@ -1735,7 +1735,7 @@ describe('round sixteen: energy, stack, focus- and memory-page claims follow the
       "Important: unlike the US (where the FDA allows only qualified claims that phosphatidylserine 'may reduce the risk of dementia' or 'cognitive dysfunction in the elderly', with the disclaimer 'FDA concludes that there is little scientific evidence supporting this claim'), EFSA has rejected several PS health claims",
       "The EU does not authorise US-style qualified claims (the FDA allows only qualified claims that phosphatidylserine 'may reduce the risk of dementia' or 'cognitive dysfunction in the elderly', with the disclaimer 'FDA concludes that there is little scientific evidence supporting this claim') — EFSA has rejected several PS health claims",
       'Para la fosfatidilserina, la FDA solo permite declaraciones calificadas, como que "may reduce the risk of cognitive dysfunction in the elderly"',
-      'Within 30-60 minutes: subtle calm focus. Within 2-4 weeks: noticeable mental endurance under cognitive load and stress.',
+      'Timing in the trials we cite: L-Tyrosine was given about 1 hour before a demanding task (this product has 250mg; the lowest positive trial used 2,000mg); pine bark\'s cognitive studies ran 8–12 weeks (this product has 75mg, below the 100–200mg clinical dose).',
       // Attributed rationale that stays (not our claim).
       'The theory is synergistic optimisation across all cognitive systems simultaneously.',
       'work synergistically to support the function of mitochondria',
@@ -1967,7 +1967,15 @@ const ROUND_SEVENTEEN_UNSOURCED: RegExp[] = [
   // notification claims memory and attention maintenance (given in the
   // record's howItWorks with FANCL's 12-week trials); the sentence was
   // deleted, not reworded.
-  /sustained brain health maintenance/i,
+  // Widened 2026-10-19 (round twenty, B3-003): NatureBell Ginkgo + Ginseng's
+  // US whatToExpect still said "At 12+ weeks: sustained cognitive
+  // maintenance." Our ginkgo page gives no 12-week effect (positive dementia
+  // trials ran 22–26 weeks; GEM found no preventive effect); deleted.
+  /sustained (brain health|cognitive) maintenance/i,
+  // Added 2026-10-19 (round twenty, B3-004): TruBrain's pros kept "Fast onset
+  // (15-30 min) versus capsule formats" after round seventeen removed the same
+  // unsourced onset claim from its whatToExpect; deleted.
+  /Fast onset \(15-30 min\)/i,
 ];
 
 // U3: every stack note names the trial it relies on or says we cite none.
@@ -2144,6 +2152,9 @@ describe('round seventeen: mechanism, user-report and market claims follow our i
       "The price gap reflects (a) Mind Lab Pro's peer-reviewed clinical research investment, (b) trademarked extracts",
       // 2026-10-15 (round nineteen)
       'Weeks 1-2: no noticeable acute effects — this is a foundational supplement, not a stimulant. At 12+ weeks: sustained brain health maintenance. FANCL recommends 4 tablets daily.',
+      // 2026-10-19 (round twenty)
+      'Weeks 1-2: mild improvement in mental alertness from Ginkgo blood flow effects. Positive dementia trials of ginkgo ran 22–26 weeks. At 12+ weeks: sustained cognitive maintenance.',
+      'Fast onset (15-30 min) versus capsule formats',
     ];
     for (const s of removed) expect(ROUND_SEVENTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(true);
     for (const re of ROUND_SEVENTEEN_UNSOURCED) expect(removed.some(s => re.test(s)), String(re)).toBe(true);
