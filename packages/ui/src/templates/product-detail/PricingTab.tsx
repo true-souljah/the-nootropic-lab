@@ -2,7 +2,16 @@ import { Card } from '../../primitives/Card';
 import TrackedAffiliateLink from '../../TrackedAffiliateLink';
 import NoPurchaseLinkNotice from '../../NoPurchaseLinkNotice';
 import type { Product, UIStrings, VendorTerms } from '@nootropic/data';
-import { NOT_AVAILABLE, VENDOR_TERM_FIELDS, disclosureCopy, earnsCommission, purchaseUrl, reviewDisclosureScope } from '@nootropic/data';
+import {
+  AMAZON_ASSOCIATES_STATEMENT,
+  NOT_AVAILABLE,
+  VENDOR_TERM_FIELDS,
+  disclosureCopy,
+  earnsCommission,
+  isAmazonAssociatesLink,
+  purchaseUrl,
+  reviewDisclosureScope,
+} from '@nootropic/data';
 import type { PriceText } from '../../price-text';
 import { fillNodes as fill } from '../fillNodes';
 
@@ -45,6 +54,8 @@ export function PricingTab({ product: p, disclosure, strings, noticeStrings, pri
   // The page's disclosure sentence (same scope as the strip and trust note):
   // the commission sentence only next to a commission-earning buy link.
   const { sentence } = disclosureCopy(disclosure, reviewDisclosureScope(p));
+  // An Amazon Associates buy link: Amazon's required statement, verbatim (English).
+  const amazonAssociate = isAmazonAssociatesLink(p);
   const terms: VendorTerms | undefined = p.vendorTerms;
   const pageLang = strings.dateLocale.split('-')[0];
   const labels: Record<TermField, string> = {
@@ -184,11 +195,19 @@ export function PricingTab({ product: p, disclosure, strings, noticeStrings, pri
           {!commission
             ? t.noAffiliateCookie
             : typeof p.cookieDays === 'number'
-              ? fill(t.cookieTerms, { days: p.cookieDays, rate: p.commissionRate })
+              ? p.cookieDays === 1
+                ? fill(t.cookieTermsOneDay, { rate: p.commissionRate })
+                : fill(t.cookieTerms, { days: p.cookieDays, rate: p.commissionRate })
               : NOT_AVAILABLE}
         </div>
         <p className="text-[13px] text-ds-ink-soft m-0 leading-[1.55]">
-          {sentence}{space}{disclosure.ranking}
+          {sentence}{space}
+          {amazonAssociate && (
+            <>
+              <span lang="en" data-amazon-associates-statement="">{AMAZON_ASSOCIATES_STATEMENT}</span>{space}
+            </>
+          )}
+          {disclosure.ranking}
         </p>
       </Card>
     </div>

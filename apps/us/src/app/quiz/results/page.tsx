@@ -12,7 +12,7 @@ import {
   type QuizAnswers,
   type QuizGoal,
 } from '@nootropic/ui';
-import { getStrings, productsUS } from '@nootropic/data';
+import { getStrings, linksAmazonAssociates, productsUS } from '@nootropic/data';
 
 const VALID_GOALS: QuizGoal[] = ['Focus', 'Memory', 'Energy', 'Mood', 'Sleep recovery', 'Aging support'];
 
@@ -72,10 +72,11 @@ export default function QuizResultsPage() {
   // disclosure strip and the withdraw control sit outside the Suspense
   // boundary so they are in the static HTML of this page too. The static HTML
   // cannot know which products the results link, so the strip discloses at
-  // page level (CLIENT_RENDERED_BUY_LINK_ROUTES).
+  // page level (CLIENT_RENDERED_BUY_LINK_ROUTES), with the Amazon Associates
+  // statement when any product the quiz can recommend has an Associates link.
   return (
     <>
-      <FPDisclosure methodologyHref="/methodology/" strings={getStrings('en').disclosure} scope="page" />
+      <FPDisclosure methodologyHref="/methodology/" strings={getStrings('en').disclosure} scope="page" amazonAssociate={linksAmazonAssociates(productsUS)} />
       <Suspense fallback={null}>
         <ResultsBody />
       </Suspense>

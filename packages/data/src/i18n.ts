@@ -578,6 +578,8 @@ export interface UIStrings {
       affiliateCookie: string;
       /** Cookie length and commission; {days} and {rate} are filled from the record. */
       cookieTerms: string;
+      /** In place of `cookieTerms` when the cookie lasts one day (`cookieDays` 1, Amazon's 24-hour window): singular, never "1 days"; {rate} is filled from the record. */
+      cookieTermsOneDay: string;
       /** In place of `cookieTerms` when we earn no commission on the product (`earnsCommission` is false). */
       noAffiliateCookie: string;
     };
@@ -1320,6 +1322,7 @@ const en: UIStrings = {
       visitVendor: 'Visit {brand} →',
       affiliateCookie: 'Our affiliate cookie',
       cookieTerms: '{days} days · {rate} commission',
+      cookieTermsOneDay: '1 day · {rate} commission',
       noAffiliateCookie: 'None (no affiliate deal)',
     },
     pillars: {
@@ -1960,6 +1963,7 @@ const es: UIStrings = {
       visitVendor: 'Visitar {brand} →',
       affiliateCookie: 'Nuestra cookie de afiliado',
       cookieTerms: '{days} días · {rate} de comisión',
+      cookieTermsOneDay: '1 día · {rate} de comisión',
       noAffiliateCookie: 'Ninguna (sin acuerdo de afiliados)',
     },
     pillars: {
@@ -2606,6 +2610,7 @@ const fr: UIStrings = {
       visitVendor: 'Visiter {brand} →',
       affiliateCookie: 'Notre cookie d’affiliation',
       cookieTerms: '{days} jours · commission de {rate}',
+      cookieTermsOneDay: '1 jour · commission de {rate}',
       noAffiliateCookie: 'Aucun (pas d’accord d’affiliation)',
     },
     pillars: {
@@ -3217,6 +3222,7 @@ const ja: UIStrings = {
       visitVendor: '{brand}のサイトへ →',
       affiliateCookie: '当サイトのアフィリエイトCookie',
       cookieTerms: '有効期間{days}日 · 紹介料{rate}',
+      cookieTermsOneDay: '有効期間1日 · 紹介料{rate}',
       noAffiliateCookie: 'なし（アフィリエイト契約なし）',
     },
     pillars: {
@@ -3829,6 +3835,7 @@ const pt: UIStrings = {
       visitVendor: 'Visitar {brand} →',
       affiliateCookie: 'O nosso cookie de afiliado',
       cookieTerms: '{days} dias · comissão de {rate}',
+      cookieTermsOneDay: '1 dia · comissão de {rate}',
       noAffiliateCookie: 'Nenhum (sem acordo de afiliação)',
     },
     pillars: {
@@ -4440,6 +4447,7 @@ const de: UIStrings = {
       visitVendor: '{brand} besuchen →',
       affiliateCookie: 'Unser Affiliate-Cookie',
       cookieTerms: '{days} Tage · {rate} Provision',
+      cookieTermsOneDay: '1 Tag · {rate} Provision',
       noAffiliateCookie: 'Keines (keine Affiliate-Vereinbarung)',
     },
     pillars: {
@@ -5052,6 +5060,7 @@ const frCa: UIStrings = {
       visitVendor: 'Visiter {brand} →',
       affiliateCookie: 'Notre témoin d’affiliation',
       cookieTerms: '{days} jours · commission de {rate}',
+      cookieTermsOneDay: '1 jour · commission de {rate}',
       noAffiliateCookie: 'Aucun (pas d’entente d’affiliation)',
     },
     pillars: {
