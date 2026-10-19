@@ -241,7 +241,7 @@
  "packages/data/src/products-ca.ts": "2026-09-28T13:49:47+03:00",
  "packages/data/src/products-eu.json": "2026-10-15T16:08:07+03:00",
  "packages/data/src/products-eu.ts": "2026-09-28T13:49:47+03:00",
- "packages/data/src/products-gcc.json": "2026-10-19T12:32:02+03:00",
+ "packages/data/src/products-gcc.json": "2026-10-19T12:45:38+03:00",
  "packages/data/src/products-gcc.ts": "2026-09-29T12:12:05+03:00",
  "packages/data/src/products-jp.json": "2026-10-15T16:08:13+03:00",
  "packages/data/src/products-jp.ts": "2026-09-28T13:49:47+03:00",
@@ -269,5 +269,5 @@
  "packages/data/src/serving-unit.ts": "2026-10-15T16:08:07+03:00",
  "packages/data/src/sitemap-dates.ts": "2026-10-15T15:23:43+03:00",
  "packages/data/src/store-price.ts": "2026-10-13T10:40:23+03:00",
- "packages/data/src/vendor-price.ts": "2026-10-15T16:08:07+03:00"
+ "packages/data/src/vendor-price.ts": "2026-10-19T12:45:38+03:00"
 }
