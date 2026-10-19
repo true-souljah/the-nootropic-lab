@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import {
   allProductsUS, allProductsEU, allProductsCA, allProductsAU,
   allProductsJP, allProductsLatam, allProductsGCC, allProductsSEA,
-  productsUS, productsEU, productsCA, productsAU, productsGCC, productsSEA,
+  productsUS, productsEU, productsCA, productsAU, productsGCC, productsSEA, productsJP,
   ingredients, earnsCommission, reviewDisclosureScope, licenceStatus,
 } from '@nootropic/data';
 import type { Product } from '@nootropic/data';
@@ -35,8 +35,16 @@ import type { Product } from '@nootropic/data';
 // - SEA: Singapore and Malaysia are served the main GBP store, which sells the
 //   330ml can (same formula as the US/EU/CA record) and the UK-label capsules;
 //   both are tracked and carry the dated "no halal certificate shown" evidence.
-// LATAM and JP are still out of scope, so those catalogues omit every
-// Neutonic slug.
+//
+// Wave 3 (2026-10-19, same BACKLOG item):
+// - JP: Japan is served the main GBP store too (same two products and URLs as
+//   SEA), so JP carries the 330ml drink and the UK-label capsules, both tracked,
+//   as English records (Japanese copy on the JP host is paused). Both carry
+//   ffcStatus notified: false (no CAA database row, full export scanned
+//   2026-10-19) and no noPurchaseLink: every plant ingredient is on MHLW's
+//   Attachment 2 (non-medicine) list and none is on Attachment 1 (medicine-only),
+//   checked 2026-10-19 on the lists updated 2026-08-05.
+// LATAM is still out of scope, so that catalogue omits every Neutonic slug.
 
 const DRINK = 'neutonic-productivity-drink-review';
 const CAPSULES = 'neutonic-brain-capsules-review';
@@ -53,16 +61,17 @@ const PRODUCT_PATH: Record<string, Record<string, string>> = {
   au: { [AU_DRINK]: '/en-au/products/productivity-drink-aus-trop', [UK_CAPSULES]: '/en-au/products/neutonic-capsules-uk' },
   gcc: { [UK_CAPSULES]: '/en-me/products/brain-capsules-uae' },
   sea: { [DRINK]: '/products/tropical-ice-12pk', [UK_CAPSULES]: '/products/neutonic-capsules-uk' },
+  jp: { [DRINK]: '/products/tropical-ice-12pk', [UK_CAPSULES]: '/products/neutonic-capsules-uk' },
 };
 const SCA_REF = '11880392.89XMRS5MXxp';
 
 const IN_SCOPE: Record<string, Product[]> = {
-  us: allProductsUS, eu: allProductsEU, ca: allProductsCA, au: allProductsAU, gcc: allProductsGCC, sea: allProductsSEA,
+  us: allProductsUS, eu: allProductsEU, ca: allProductsCA, au: allProductsAU, gcc: allProductsGCC, sea: allProductsSEA, jp: allProductsJP,
 };
 const RECOMMENDABLE: Record<string, Product[]> = {
-  us: productsUS, eu: productsEU, ca: productsCA, au: productsAU, gcc: productsGCC, sea: productsSEA,
+  us: productsUS, eu: productsEU, ca: productsCA, au: productsAU, gcc: productsGCC, sea: productsSEA, jp: productsJP,
 };
-const OUT_OF_SCOPE: Record<string, Product[]> = { jp: allProductsJP, latam: allProductsLatam };
+const OUT_OF_SCOPE: Record<string, Product[]> = { latam: allProductsLatam };
 
 const cases = Object.entries(PRODUCT_PATH).flatMap(([region, paths]) => Object.keys(paths).map((slug) => [region, slug] as const));
 // Records on the UpPromote link; the US drink is the no-commission one.
@@ -74,8 +83,8 @@ function record(region: string, slug: string): Product {
   return p;
 }
 
-describe('Neutonic records on the US, EU, CA, AU, GCC and SEA hosts', () => {
-  it('covers the drink in us + eu + ca + sea, the US capsules in us + ca, the AU editions in au, and the UK-edition capsules in gcc + sea (guards against a silently empty case list)', () => {
+describe('Neutonic records on the US, EU, CA, AU, GCC, SEA and JP hosts', () => {
+  it('covers the drink in us + eu + ca + sea + jp, the US capsules in us + ca, the AU editions in au, and the UK-edition capsules in gcc + sea + jp (guards against a silently empty case list)', () => {
     expect(cases).toEqual([
       ['us', DRINK],
       ['us', CAPSULES],
@@ -87,6 +96,8 @@ describe('Neutonic records on the US, EU, CA, AU, GCC and SEA hosts', () => {
       ['gcc', UK_CAPSULES],
       ['sea', DRINK],
       ['sea', UK_CAPSULES],
+      ['jp', DRINK],
+      ['jp', UK_CAPSULES],
     ]);
   });
 
@@ -101,6 +112,8 @@ describe('Neutonic records on the US, EU, CA, AU, GCC and SEA hosts', () => {
       ['gcc', UK_CAPSULES],
       ['sea', DRINK],
       ['sea', UK_CAPSULES],
+      ['jp', DRINK],
+      ['jp', UK_CAPSULES],
     ]);
   });
 
@@ -187,6 +200,15 @@ describe('Neutonic records on the US, EU, CA, AU, GCC and SEA hosts', () => {
     expect(record('sea', UK_CAPSULES).storePrice).toMatchObject({
       amount: 44.99, currency: 'GBP', text: '£44.99', url: 'https://www.neutonic.com/products/neutonic-capsules-uk',
     });
+    // Japan is served the same main store in GBP (Shopify.country JP, Shopify.currency GBP, checked 2026-10-19).
+    expect(record('jp', DRINK).storePrice).toMatchObject({
+      amount: 29.99, currency: 'GBP', text: '£29.99', pack: 'Tropical Ice x 12 cans',
+      url: 'https://www.neutonic.com/products/tropical-ice-12pk', checkedAt: '2026-10-19',
+    });
+    expect(record('jp', UK_CAPSULES).storePrice).toMatchObject({
+      amount: 44.99, currency: 'GBP', text: '£44.99', pack: '90 Capsules',
+      url: 'https://www.neutonic.com/products/neutonic-capsules-uk', checkedAt: '2026-10-19',
+    });
     // The Middle East page prints "Dhs. 320.00" one-time (JSON-LD AED 320.00,
     // checked 2026-10-19); its "From Dhs. 272.00" subscription line is a "from"
     // price and is not stored.
@@ -220,6 +242,44 @@ describe('Neutonic records on the US, EU, CA, AU, GCC and SEA hosts', () => {
       const copy = [p.summary, p.whatItIs, p.whatToExpect, p.importPathway, p.regulatoryNote, ...p.pros, ...p.cons, ...[p.notes ?? []].flat()].join(' ');
       expect(copy, `${region}/${slug}`).not.toMatch(/\b(SFDA|MOHAP|BPOM|HSA|NPRA|BPJPH|JAKIM)\b/);
     }
+  });
+
+  it('JP: both records carry the 2026-10-19 CAA no-row result, no noPurchaseLink, the MHLW list check with both PDFs, and English copy only', () => {
+    const JA = /[　-〿぀-ヿㇰ-ㇿ㐀-䶿一-鿿！-～｡-ﾟ]/;
+    const strings = (v: unknown, path: string, out: { path: string; text: string }[] = []) => {
+      if (typeof v === 'string') out.push({ path, text: v });
+      else if (Array.isArray(v)) v.forEach((x, i) => strings(x, `${path}[${i}]`, out));
+      else if (v && typeof v === 'object') for (const [k, x] of Object.entries(v)) strings(x, `${path}.${k}`, out);
+      return out;
+    };
+    for (const slug of [DRINK, UK_CAPSULES]) {
+      const p = record('jp', slug);
+      expect(p.ffcStatus, `jp/${slug}`).toEqual({
+        notified: false,
+        checkedAt: '2026-10-19',
+        basis: 'no row for ニュートニック, Neutonic or Project Nootropic Ltd in the CAA database; full export (11,547 notifications) scanned 2026-10-19',
+      });
+      expect(licenceStatus(p, 'jp'), `jp/${slug}`).toMatchObject({
+        key: 'noFfcChecked', label: 'No FFC notification found (checked 2026-10-19)',
+      });
+      // Every plant ingredient is on MHLW's Attachment 2 list and none on Attachment 1 (checked 2026-10-19).
+      expect(p.noPurchaseLink, `jp/${slug}`).toBeUndefined();
+      expect(p.regulatoryNote, `jp/${slug}`).toContain('Ministry of Health, Labour and Welfare (MHLW)');
+      expect(p.regulatoryNote, `jp/${slug}`).toContain('https://www.mhlw.go.jp/content/001734637.pdf');
+      expect(p.regulatoryNote, `jp/${slug}`).toContain('https://www.mhlw.go.jp/content/001734639.pdf');
+      expect(p.regulatoryNote, `jp/${slug}`).toContain('Checked 2026-10-19');
+      expect(p.regulatoryNote, `jp/${slug}`).toContain('Foods with Function Claims (FFC)');
+      expect(p.regulatoryNote, `jp/${slug}`).toContain('Consumer Affairs Agency (CAA)');
+      expect(p.importPathway, `jp/${slug}`).toContain('https://neutonic-support.gorgias.help/en-US/articles/shipping-delivery-434455, checked 2026-10-19');
+      const copy = [p.summary, p.whatItIs, p.howItWorks, p.whatToExpect, p.importPathway, p.regulatoryNote, ...p.pros, ...p.cons, ...[p.notes ?? []].flat()].join(' ');
+      // Only the ingredient-list check is reported, never a status for the product.
+      expect(copy, `jp/${slug}`).not.toMatch(/\b(approved|legal|food-classified|permitted)\b/i);
+      // Japanese copy is paused on the JP host: the katakana brand name searched in the CAA database is the only Japanese.
+      const japanese = strings(p, `jp/${slug}`).filter((s) => JA.test(s.text)).map((s) => s.path);
+      expect(japanese, `jp/${slug}`).toEqual([`jp/${slug}.ffcStatus.basis`]);
+    }
+    expect(record('jp', DRINK).regulatoryNote).toContain('Rhodiola rosea, Panax ginseng and caffeine each appear on Attachment 2 and none of them on Attachment 1; citicoline and L-theanine are named in neither list.');
+    expect(record('jp', UK_CAPSULES).regulatoryNote).toContain('Ginkgo biloba, Bacopa monnieri, Rhodiola rosea and Panax ginseng each appear on Attachment 2 and none of them on Attachment 1; citicoline is named in neither list.');
   });
 
   it('CA: both records carry the 2026-10-19 LNHPD no-row result; AU: neither carries an AUST L number', () => {
@@ -308,6 +368,10 @@ describe('Neutonic records are absent outside their hosts', () => {
 
   it('the SEA catalogue carries the 330ml drink and the UK-edition capsules, not the US-label capsules or the AU can', () => {
     for (const slug of [CAPSULES, AU_DRINK]) expect(allProductsSEA.some((p) => p.slug === slug), `sea/${slug}`).toBe(false);
+  });
+
+  it('the JP catalogue carries the 330ml drink and the UK-edition capsules, not the US-label capsules or the AU can', () => {
+    for (const slug of [CAPSULES, AU_DRINK]) expect(allProductsJP.some((p) => p.slug === slug), `jp/${slug}`).toBe(false);
   });
 
   it.each(Object.keys(OUT_OF_SCOPE))('%s omits every Neutonic slug', (region) => {
