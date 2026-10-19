@@ -1097,9 +1097,9 @@
       "observed": "Page Not Found",
       "checkedAt": "2026-10-12"
     },
-    "affiliateNetwork": "Amazon Associates AU",
-    "commissionRate": "4%",
-    "cookieDays": 24,
+    "affiliateNetwork": "Amazon (retail, no affiliate link)",
+    "commissionRate": "0%",
+    "cookieDays": 0,
     "heroIngredients": [
       "Ginkgo Biloba",
       "Korean Red Ginseng"

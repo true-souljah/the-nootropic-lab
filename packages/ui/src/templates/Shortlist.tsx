@@ -13,7 +13,7 @@ import TrackedAffiliateLink from '../TrackedAffiliateLink';
 import { FPDisclosure } from '../public-chrome/FPDisclosure';
 import { FPTrustNote } from '../public-chrome/FPTrustNote';
 import { useShortlist, useShortlistNote } from './useShortlist';
-import { servingAmount, guaranteeDays, guaranteeDaysValue, monthlyStorePrice } from '@nootropic/data';
+import { servingAmount, guaranteeDays, guaranteeDaysValue, linksAmazonAssociates, monthlyStorePrice } from '@nootropic/data';
 import { priceText, type PriceText } from '../price-text';
 import { monthlyUSD } from './quizScoring';
 import type { Product, UIStrings } from '@nootropic/data';
@@ -170,8 +170,16 @@ export default function Shortlist({
       hideStackCta
       sidebarMeta={`${products.length} products`}
     >
-      {/* Outside the hydration gate below, so it is in the static HTML. */}
-      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} scope={DISCLOSURE_SCOPE} space={uiStrings.typography.space} />
+      {/* Outside the hydration gate below, so it is in the static HTML. Any
+          catalogue product can be a saved pick, so the Associates statement
+          follows the catalogue (CLIENT_RENDERED_BUY_LINK_ROUTES). */}
+      <FPDisclosure
+        methodologyHref="/methodology/"
+        strings={uiStrings.disclosure}
+        scope={DISCLOSURE_SCOPE}
+        amazonAssociate={linksAmazonAssociates(products)}
+        space={uiStrings.typography.space}
+      />
       <div className="px-7 pt-7 pb-10">
         {!hydrated ? (
           <Card padding={28}>

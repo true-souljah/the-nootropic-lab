@@ -270,7 +270,8 @@ describe('templates compute the scope from the products they link', () => {
     const paid = allProductsJP.filter((p) => !p.discontinued && purchaseUrl(p) !== null && earnsCommission(p));
     const unpaid = allProductsJP.filter((p) => !earnsCommission(p));
     expect(paid.length).toBeGreaterThan(0);
-    expect(unpaid.map((p) => p.slug).sort()).toEqual(['fancl-brains-review', 'hunter-focus-review']);
+    // Suntory since 2026-10-19: no Amazon Associates account in Japan (amazon-associates.test.ts).
+    expect(unpaid.map((p) => p.slug).sort()).toEqual(['fancl-brains-review', 'hunter-focus-review', 'suntory-dha-epa-sesamin-review']);
     for (const p of paid) {
       const html = review(p);
       expect(strip(html)!.text, p.slug).toContain('広告');

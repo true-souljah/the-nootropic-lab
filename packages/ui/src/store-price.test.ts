@@ -203,7 +203,8 @@ describe('perServingStorePrice / perDayStorePrice — exact baseline of every pr
     'us/qualia-mind': ['USD 7.95', QUALIA_CADENCE],
     'us/alpha-brain': ['USD 1.78', 'USD 1.78'],
     'us/nootropics-depot-lions-mane': ['USD 0.33', RANGE],
-    'us/naturebell-ginkgo-ginseng': ['USD 0.1', 'USD 0.1'],
+    // us/naturebell-ginkgo-ginseng left the baseline 2026-10-19: an Amazon
+    // Associates record shows no Amazon price copied by hand (amazon-associates.test.ts).
     'us/hunter-focus': ['USD 3', 'USD 3'],
     'us/brainmd-brain-memory-power-boost': ['USD 2.17', 'USD 2.17'],
     'us/performance-lab-caffeine-2': ['USD 1.47', RANGE],
@@ -384,7 +385,8 @@ describe('monthly figures are unchanged by the per-serving / per-day work', () =
   /**
    * monthlyStorePrice for every priced record, captured on origin/main 80b53e71 before the change;
    * records added since then carry the figure they were added with (Neutonic, 2026-10-15 and 2026-10-19;
-   * Deadline, 2026-10-19).
+   * Deadline, 2026-10-19). us/naturebell-ginkgo-ginseng ('USD 3') lost its Amazon store price on
+   * 2026-10-19 (Amazon Associates record: no hand-copied Amazon price).
    */
   const MONTHLY_BEFORE: Record<string, string | null> = {
     'us/mind-lab-pro': 'USD 69',
@@ -392,7 +394,6 @@ describe('monthly figures are unchanged by the per-serving / per-day work', () =
     'us/qualia-mind': null,
     'us/alpha-brain': 'USD 53.3',
     'us/nootropics-depot-lions-mane': 'USD 9.99',
-    'us/naturebell-ginkgo-ginseng': 'USD 3',
     'us/hunter-focus': 'USD 90',
     'us/brainmd-brain-memory-power-boost': 'USD 64.95',
     'us/performance-lab-caffeine-2': 'USD 44',

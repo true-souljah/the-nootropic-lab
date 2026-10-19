@@ -24,7 +24,14 @@
 //   - on a page in another language than English (the subtree's
 //     `<div lang="…">` wrapper, else `<html lang>`), fails any English
 //     disclosure sentence or label, and any strip / trust note / in-content
-//     notice that is not in the page's own language.
+//     notice that is not in the page's own language;
+//   - Amazon Associates (US account only): a page with a rel="sponsored" link
+//     to an Associates record's purchase URL (isAmazonAssociatesLink) must
+//     carry AMAZON_ASSOCIATES_STATEMENT in its disclosure strip, and a page
+//     without one must not carry it anywhere. A client-rendered route may link
+//     any catalogue product, so it carries the statement exactly when the
+//     region's catalogue has an Associates link. The statement is Amazon's
+//     verbatim English text on every page, so the language checks skip it.
 // Runs in CI after all 8 builds are placed (build.yml e2e job) and locally
 // via `npm run check:disclosure [region...]`.
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
@@ -33,7 +40,8 @@ import { fileURLToPath } from 'node:url';
 import {
   allProductsUS, allProductsEU, allProductsCA, allProductsAU,
   allProductsJP, allProductsLatam, allProductsGCC, allProductsSEA,
-  CLIENT_RENDERED_BUY_LINK_ROUTES, earnsCommission, getStrings, purchaseUrl,
+  AMAZON_ASSOCIATES_STATEMENT, CLIENT_RENDERED_BUY_LINK_ROUTES, earnsCommission, getStrings,
+  isAmazonAssociatesLink, purchaseUrl,
 } from '../packages/data/src/index';
 import type { Locale, Product } from '../packages/data/src/index';
 
@@ -122,15 +130,17 @@ const textOf = (html: string) => decode(html.replace(/<[^>]+>/g, ' ')).replace(/
 
 const failures: string[] = [];
 const rows: string[] = [];
-const totals = { pages: 0, withLink: 0, without: 0, strips: 0, clientRendered: 0 };
+const totals = { pages: 0, withLink: 0, without: 0, strips: 0, clientRendered: 0, associates: 0 };
 for (const region of scanRegions) {
   const commissionUrls = new Set<string>();
   const catalogueUrls = new Set<string>();
+  const associatesUrls = new Set<string>();
   for (const p of CATALOGUES[region]) {
     const url = purchaseUrl(p);
     if (url === null) continue;
     catalogueUrls.add(url);
     if (earnsCommission(p)) commissionUrls.add(url);
+    if (isAmazonAssociatesLink(p)) associatesUrls.add(url);
   }
   // A URL shared by a commission and a no-commission record cannot be judged.
   for (const p of CATALOGUES[region]) {
@@ -154,6 +164,9 @@ for (const region of scanRegions) {
   let withLink = 0;
   let without = 0;
   let clientRendered = 0;
+  // Pages whose static HTML links an Amazon Associates record, and pages that carry the statement.
+  let associatesLinkPages = 0;
+  let associatesStatements = 0;
   // Per page language: pages, and disclosure elements checked on them.
   const langs: Record<string, { pages: number; disclosures: number }> = {};
   const files = walk(out);
@@ -167,11 +180,13 @@ for (const region of scanRegions) {
     // StickyCtaBar, page CTAs); a plain citation of the same vendor page is
     // not a buy link.
     let commissionLinks = 0;
+    let associatesLinks = 0;
     for (const m of html.matchAll(/<a\b[^>]*>/gi)) {
       if (!/\srel="[^"]*\bsponsored\b/i.test(m[0])) continue;
       const href = /\shref="([^"]*)"/i.exec(m[0])?.[1];
       if (href === undefined) continue;
       const url = decode(href);
+      if (associatesUrls.has(url)) associatesLinks++;
       if (commissionUrls.has(url)) commissionLinks++;
       else if (!catalogueUrls.has(url)) {
         failures.push(`${page}: rel="sponsored" link to ${url} is not a purchase URL in the ${region} catalogue`);
@@ -192,6 +207,23 @@ for (const region of scanRegions) {
       textOf(m[1]),
     );
     const claims = PAGE_CLAIMS.filter((c) => text.includes(c));
+
+    // Amazon Associates statement: on the strip of a page that links an
+    // Associates record (a client-rendered route: when the catalogue has one),
+    // and nowhere on any other page.
+    if (associatesLinks > 0 && !clientRoutes.has(route)) associatesLinkPages++;
+    const needsStatement = clientRoutes.has(route) ? associatesUrls.size > 0 : associatesLinks > 0;
+    if (needsStatement) {
+      associatesStatements++;
+      if (!(strips[0] && textOf(strips[0][2]).includes(AMAZON_ASSOCIATES_STATEMENT))) {
+        const why = clientRoutes.has(route)
+          ? 'may render an Amazon Associates link in the browser (CLIENT_RENDERED_BUY_LINK_ROUTES)'
+          : `${associatesLinks} Amazon Associates link(s)`;
+        failures.push(`${page}: ${why}, yet no "${AMAZON_ASSOCIATES_STATEMENT}" on the disclosure strip`);
+      }
+    } else if (text.includes(AMAZON_ASSOCIATES_STATEMENT)) {
+      failures.push(`${page}: no Amazon Associates link, yet says "${AMAZON_ASSOCIATES_STATEMENT}"`);
+    }
 
     if (clientRoutes.has(route)) {
       clientRendered++;
@@ -255,6 +287,7 @@ for (const region of scanRegions) {
   totals.without += without;
   totals.strips += scope.page + scope.site + scope.product;
   totals.clientRendered += clientRendered;
+  totals.associates += associatesStatements;
   if (clientRendered !== clientRoutes.size) {
     failures.push(`${region}: checked ${clientRendered} of ${clientRoutes.size} CLIENT_RENDERED_BUY_LINK_ROUTES pages`);
   }
@@ -265,9 +298,14 @@ for (const region of scanRegions) {
       failures.push(`${region}: ${s.pages} "${lang}" page(s) but no disclosure element matched on them`);
     }
   }
+  // The catalogue has Associates links but no built page links one: the
+  // link pattern went stale, so the statement check scanned nothing.
+  if (associatesUrls.size > 0 && associatesLinkPages === 0) {
+    failures.push(`${region}: ${associatesUrls.size} Amazon Associates purchase URL(s) in the catalogue, but no built page links one`);
+  }
   rows.push(
     `  ${region.padEnd(5)} pages=${files.length} withCommissionLink=${withLink} without=${without} ` +
-      `clientRendered=${clientRendered} ` +
+      `clientRendered=${clientRendered} amazonAssociates=${associatesLinkPages}p/${associatesStatements}s ` +
       `strip page=${scope.page} site=${scope.site} product=${scope.product} none=${scope.none} ` +
       `lang ${Object.entries(langs)
         .map(([l, s]) => `${l}=${s.pages}p/${s.disclosures}d`)
@@ -292,5 +330,6 @@ console.log(
   `check-built-disclosure: OK — ${totals.withLink} page(s) with a commission-earning link all say so; ` +
     `${totals.without} page(s) without one carry no "on this page" claim; ` +
     `${totals.clientRendered} page(s) with browser-rendered buy links carry the page-level strip; ` +
+    `${totals.associates} page(s) that link an Amazon Associates record carry Amazon's statement, and no other page does; ` +
     `every disclosure is in its page's language.`,
 );

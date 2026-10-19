@@ -73,6 +73,7 @@ describe('getStrings', () => {
       attribution: ['{domain}', '{date}'],
       visitVendor: ['{brand}'],
       cookieTerms: ['{days}', '{rate}'],
+      cookieTermsOneDay: ['{rate}'],
     };
     for (const locale of ALL_LOCALES) {
       const pricing = getStrings(locale).productDetail.pricing;

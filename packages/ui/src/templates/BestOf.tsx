@@ -12,7 +12,7 @@ import TrackedAffiliateLink from '../TrackedAffiliateLink';
 import ShortlistButton from './ShortlistButton';
 import type { AffiliateClickContext } from '../trackAffiliateClick';
 import { SCORE_TIERS } from './listicleRanking';
-import { servingAmount, pillarText, guaranteeDays, formatMoney, pageDisclosureScope } from '@nootropic/data';
+import { servingAmount, pillarText, guaranteeDays, formatMoney, linksAmazonAssociates, pageDisclosureScope } from '@nootropic/data';
 import { priceText, priceLocaleOf } from '../price-text';
 import { PriceShort } from '../PriceShort';
 import { tpl } from '../templateStrings';
@@ -114,6 +114,7 @@ export default function BestOf({
   // Every ranked row renders a buy link: "on this page" only when one of
   // them earns us a commission.
   const disclosureScope = pageDisclosureScope(sorted);
+  const amazonAssociate = linksAmazonAssociates(sorted);
   const audited = products.length;
   const recommended = products.filter((p) => p.score >= recommendedCutoff).length;
   const withDoses = products.filter((p) => p.ingredientDosages.length > 0);
@@ -154,7 +155,7 @@ export default function BestOf({
       uiStrings={uiStrings}
       sidebarMeta={tpl(uiStrings.nav.productCount, { n: products.length })}
     >
-      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} scope={disclosureScope} space={uiStrings.typography.space} />
+      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} scope={disclosureScope} amazonAssociate={amazonAssociate} space={uiStrings.typography.space} />
       <div className="px-4 sm:px-7 pt-7 pb-10">
         {/* Header */}
         <div className="flex justify-between items-end mb-[18px] flex-wrap gap-4">
