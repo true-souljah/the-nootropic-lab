@@ -239,7 +239,7 @@ export const ingredientsEs: IngredientTranslation[] = [
     ],
     humanEffects: [
       { effect: 'Atención y concentración', notes: 'La revisión Cochrane no encontró evidencia de un beneficio en la atención en adultos mayores con trastornos cerebrales crónicos; el ensayo de atención aguda en adultos sanos que citamos administró citicolina junto con cafeína, así que el efecto propio de la citicolina no puede aislarse.' },
-      { effect: 'Memoria de trabajo', notes: 'Beneficio en la memoria verbal en adultos mayores con memoria ineficiente (Spiers 1996) y un efecto combinado positivo en DCL/demencia (metaanálisis de 2023, estudios de baja calidad). No se ha demostrado en adultos sanos en general.' },
+      { effect: 'Memoria verbal', notes: 'Beneficio en la memoria verbal en adultos mayores con memoria ineficiente (Spiers 1996) y un efecto combinado positivo en DCL/demencia (metaanálisis de 2023, estudios de baja calidad). No se ha demostrado en adultos sanos en general.' },
       { effect: 'Neuroprotección', notes: 'Respaldada en el ictus isquémico agudo por un ECA de dosis-respuesta (Clark 1997); no se encontró ningún ensayo en lesión cerebral traumática. Los efectos en adultos sanos no se han probado.' },
     ],
     howToTake: {
@@ -259,7 +259,7 @@ export const ingredientsEs: IngredientTranslation[] = [
       { question: 'Me dio dolor de cabeza después de tomar citicolina, ¿es normal?', answer: 'Un dolor de cabeza por citicolina en dosis estándar (250–500mg) es inusual y puede indicar que eres sensible a los compuestos colinérgicos o que ya obtienes una cantidad importante de colina de la dieta u otros suplementos. Prueba a reducir a 250mg y no la combines con Alfa-GPC ni con otras fuentes de colina el mismo día.' },
       { question: 'Cognizin frente a CDP-colina genérica: ¿importa la marca?', answer: 'Cognizin es la forma con más validación clínica y se analiza su pureza. La CDP-colina genérica puede estar bien si proviene de proveedores confiables, pero la calidad varía más. Para trabajo cognitivo crítico, la forma de marca premium vale el pequeño aumento de costo.' },
     ],
-    sourceHashes: { name: '3d4676af009b', mechanism: '09b80159eeb1', clinicalDose: '2135c280d962', timeToEffect: '95f800c9deab', studySummary: 'c4035e5ded21', benefits: '25b268bae409', sideEffects: 'a1033e3ca8ef', humanEffects: '49bd9ee9891e', howToTake: 'e5eb97cb183f', stacksWith: '25e39057f26c', faqs: '8ea162bc748e' },
+    sourceHashes: { name: '3d4676af009b', mechanism: '09b80159eeb1', clinicalDose: '2135c280d962', timeToEffect: '95f800c9deab', studySummary: 'c4035e5ded21', benefits: '25b268bae409', sideEffects: 'a1033e3ca8ef', humanEffects: '1e1b0ac45325', howToTake: 'e5eb97cb183f', stacksWith: '25e39057f26c', faqs: '8ea162bc748e' },
   },
   {
     slug: 'l-theanine',

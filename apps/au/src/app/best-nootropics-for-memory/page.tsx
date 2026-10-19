@@ -49,7 +49,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Citicoline (CDP-Choline)',
     ingredientSlugs: ['citicoline'],
     evidence:
-      'Choline donor + uridine source. In one trial in adults aged 50–85 (Spiers 1996, PubMed 8624220), 1,000mg a day for 3 months improved delayed recall only in those with relatively inefficient memories, and in a follow-up crossover of 32 of those participants, 2,000mg a day for 2 months improved immediate and delayed recall. Cognizin is the standardised form. Imported under the Personal Importation Scheme.',
+      'Choline donor + uridine source. In one trial in adults aged 50–85 (Spiers 1996, PubMed 8624220), 1,000mg a day for 3 months improved delayed recall only in those with relatively inefficient memories, and in a follow-up crossover of 32 of those participants, 2,000mg a day for 2 months improved immediate and delayed recall. Cognizin is a standardised form. Imported under the Personal Importation Scheme.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
 ];

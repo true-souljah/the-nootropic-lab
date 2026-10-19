@@ -167,7 +167,7 @@ export const ingredients: Ingredient[] = [
     productsContaining: ['mind-lab-pro-review', 'performance-lab-mind-review', 'neutonic-productivity-drink-review', 'neutonic-brain-capsules-review'],
     humanEffects: [
       { effect: 'Attention & Focus', evidenceStrength: 'mixed', magnitude: 'small', studies: 2, notes: 'The Cochrane review found no evidence of an attention benefit in older adults with chronic cerebral disorders; the acute attention trial in healthy adults that we cite gave citicoline together with caffeine, so citicoline’s own effect cannot be isolated.' },
-      { effect: 'Working Memory', evidenceStrength: 'moderate', magnitude: 'moderate', studies: 2, notes: 'Verbal-memory benefit in older adults with inefficient memory (Spiers 1996) and a positive pooled effect in MCI/dementia (2023 meta-analysis, poor study quality). Not shown in general healthy adults.' },
+      { effect: 'Verbal Memory', evidenceStrength: 'moderate', magnitude: 'moderate', studies: 2, notes: 'Verbal-memory benefit in older adults with inefficient memory (Spiers 1996) and a positive pooled effect in MCI/dementia (2023 meta-analysis, poor study quality). Not shown in general healthy adults.' },
       { effect: 'Neuroprotection', evidenceStrength: 'moderate', magnitude: 'moderate', studies: 1, notes: 'Supported for acute ischemic stroke by one dose-response RCT (Clark 1997); no traumatic brain injury trial was found. Effects in healthy adults are untested.' },
     ],
     howToTake: {

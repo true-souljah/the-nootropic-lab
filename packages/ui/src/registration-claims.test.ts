@@ -2143,8 +2143,8 @@ describe('round seventeen: mechanism, user-report and market claims follow our i
     for (const re of ROUND_SEVENTEEN_UNSOURCED) expect(removed.some(s => re.test(s)), String(re)).toBe(true);
     // The replacement wording and the out-of-scope lines named above pass.
     for (const s of [
-      'Citicoline is a choline donor. Our citicoline page rates its attention evidence as mixed and its working-memory evidence as moderate (one trial in older adults with inefficient memory, Spiers 1996). Cognizin is the standardized form.',
-      'La citicolina es un donante de colina. Nuestra página sobre la citicolina califica como mixta su evidencia sobre la atención y como moderada su evidencia sobre la memoria de trabajo (un ensayo en adultos mayores con memoria ineficiente, Spiers 1996).',
+      'Citicoline is a choline donor. Our citicoline page rates its attention evidence as mixed and its verbal-memory evidence as moderate (delayed recall improved in one trial in older adults with inefficient memory, Spiers 1996). Cognizin is a standardized form.',
+      'La citicolina es un donante de colina. Nuestra página sobre la citicolina califica como mixta su evidencia sobre la atención y como moderada su evidencia sobre la memoria verbal (el recuerdo diferido mejoró en un ensayo en adultos mayores con memoria ineficiente, Spiers 1996).',
       "It contains no caffeine. Onnit's 30-day money-back guarantee covers the first purchase of each product made directly on Onnit.com.",
       'An acute 320mg dose improved sustained task performance (2012), but the 2026 network meta-analysis found no processing-speed difference.',
       'It is a potent, reversible acetylcholinesterase inhibitor — meaning it blocks the enzyme that breaks down acetylcholine, effectively increasing acetylcholine levels throughout the brain.',

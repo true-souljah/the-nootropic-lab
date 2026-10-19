@@ -44,7 +44,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Citicoline — a choline donor',
     ingredientSlugs: ['citicoline'],
     evidence:
-      'Citicoline is a choline donor. Our citicoline page rates its attention evidence as mixed and its working-memory evidence as moderate (one trial in older adults with inefficient memory, Spiers 1996). Cognizin is the standardised form. Synthesised, not animal-derived.',
+      'Citicoline is a choline donor. Our citicoline page rates its attention evidence as mixed and its verbal-memory evidence as moderate (delayed recall improved in one trial in older adults with inefficient memory, Spiers 1996). Cognizin is a standardised form. Synthesised, not animal-derived.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
   {
