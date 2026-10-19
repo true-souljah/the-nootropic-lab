@@ -11,10 +11,11 @@ import type { Product } from '@nootropic/data';
 // Capsules on the US host only (the capsule listings return 404 on the EU
 // market). The EU drink and the US capsules link through Neutonic's own
 // UpPromote affiliate programme (10% on new customers, 30-day tracking, per
-// affiliates.neutonic.com). The US drink is a no-commission retail listing:
-// its neutonic.com US page has no cart and sends buyers to Amazon, where
-// UpPromote cannot track the sale, so it links the plain product page and
-// carries "0%" (BACKLOG coop:neutonic-us-drink-amazon-only-2026-10-15).
+// affiliates.neutonic.com). The US drink is sold only through Amazon: its
+// neutonic.com US page has no cart and sends buyers to Amazon, where UpPromote
+// cannot track the sale. Since 2026-10-19 it links that Amazon listing with the
+// site's Amazon Associates (US) tag, at the Grocery rate (1%, 24-hour window)
+// (BACKLOG coop:neutonic-us-drink-amazon-only-2026-10-15; amazon-associates.test.ts).
 //
 // Wave 2 (2026-10-19, BACKLOG coop:neutonic-wave2-regions-2026-10-15):
 // - CA: Canadian shoppers are served the US store (/en-us/), which with Canada
@@ -53,9 +54,10 @@ const UK_CAPSULES = 'neutonic-brain-capsules-uk-review';
 const DRINKS = [DRINK, AU_DRINK];
 const CAPSULE_SLUGS = [CAPSULES, UK_CAPSULES];
 
-// The product page each region's affiliate link lands on.
+// The product page each region's affiliate link lands on: neutonic.com, except
+// the US drink's Amazon listing (US_DRINK_HOST).
 const PRODUCT_PATH: Record<string, Record<string, string>> = {
-  us: { [DRINK]: '/en-us/products/tropical-ice-12pk-us', [CAPSULES]: '/en-us/products/neutonic-capsules-us' },
+  us: { [DRINK]: '/dp/B0CD7QD3VK', [CAPSULES]: '/en-us/products/neutonic-capsules-us' },
   eu: { [DRINK]: '/products/tropical-ice-12pk' },
   ca: { [DRINK]: '/en-us/products/tropical-ice-12pk-us', [CAPSULES]: '/en-us/products/neutonic-capsules-us' },
   au: { [AU_DRINK]: '/en-au/products/productivity-drink-aus-trop', [UK_CAPSULES]: '/en-au/products/neutonic-capsules-uk' },
@@ -64,6 +66,7 @@ const PRODUCT_PATH: Record<string, Record<string, string>> = {
   jp: { [DRINK]: '/products/tropical-ice-12pk', [UK_CAPSULES]: '/products/neutonic-capsules-uk' },
 };
 const SCA_REF = '11880392.89XMRS5MXxp';
+const US_DRINK_HOST = 'www.amazon.com';
 
 const IN_SCOPE: Record<string, Product[]> = {
   us: allProductsUS, eu: allProductsEU, ca: allProductsCA, au: allProductsAU, gcc: allProductsGCC, sea: allProductsSEA, jp: allProductsJP,
@@ -74,8 +77,9 @@ const RECOMMENDABLE: Record<string, Product[]> = {
 const OUT_OF_SCOPE: Record<string, Product[]> = { latam: allProductsLatam };
 
 const cases = Object.entries(PRODUCT_PATH).flatMap(([region, paths]) => Object.keys(paths).map((slug) => [region, slug] as const));
-// Records on the UpPromote link; the US drink is the no-commission one.
-const tracked = cases.filter(([region, slug]) => !(region === 'us' && slug === DRINK));
+// Records on the UpPromote link; the US drink links Amazon instead.
+const isUsDrink = (region: string, slug: string) => region === 'us' && slug === DRINK;
+const tracked = cases.filter(([region, slug]) => !isUsDrink(region, slug));
 
 function record(region: string, slug: string): Product {
   const p = IN_SCOPE[region].find((r) => r.slug === slug);
@@ -101,7 +105,7 @@ describe('Neutonic records on the US, EU, CA, AU, GCC, SEA and JP hosts', () => 
     ]);
   });
 
-  it('tracks every record except the US drink, the one untracked record', () => {
+  it('tracks every record except the US drink through UpPromote', () => {
     expect(tracked).toEqual([
       ['us', CAPSULES],
       ['eu', DRINK],
@@ -117,7 +121,7 @@ describe('Neutonic records on the US, EU, CA, AU, GCC, SEA and JP hosts', () => 
     ]);
   });
 
-  it.each(cases)('%s/%s exists, is live, and is a Neutonic record linking its neutonic.com product page', (region, slug) => {
+  it.each(cases)('%s/%s exists, is live, and is a Neutonic record linking its product page (the US drink: its Amazon listing)', (region, slug) => {
     const p = record(region, slug);
     expect(p.discontinued).toBeUndefined();
     expect(p.noPurchaseLink).toBeUndefined();
@@ -126,7 +130,7 @@ describe('Neutonic records on the US, EU, CA, AU, GCC, SEA and JP hosts', () => 
     expect(p.caffeineFree).toBe(CAPSULE_SLUGS.includes(slug));
     const url = new URL(p.affiliateUrl);
     expect(url.protocol).toBe('https:');
-    expect(url.hostname).toBe('www.neutonic.com');
+    expect(url.hostname).toBe(isUsDrink(region, slug) ? US_DRINK_HOST : 'www.neutonic.com');
     expect(url.pathname).toBe(PRODUCT_PATH[region][slug]);
   });
 
@@ -142,16 +146,20 @@ describe('Neutonic records on the US, EU, CA, AU, GCC, SEA and JP hosts', () => 
     expect(url.searchParams.get('utm_medium')).toBe('affiliate');
   });
 
-  it('US drink: a no-commission retail listing on the plain product page (its US page sells only via Amazon)', () => {
+  it('US drink: an Amazon Associates link to the Amazon listing its neutonic.com US page sends buyers to', () => {
     const p = record('us', DRINK);
-    expect(p.affiliateNetwork).toBe('Amazon (retail, no affiliate link)');
-    expect(p.commissionRate).toBe('0%');
-    expect(p.cookieDays).toBe(0);
-    expect(earnsCommission(p)).toBe(false);
-    expect(reviewDisclosureScope(p)).toBe('product');
-    expect(p.affiliateUrl).toBe('https://www.neutonic.com/en-us/products/tropical-ice-12pk-us');
-    expect(new URL(p.affiliateUrl).search).toBe('');
+    expect(p.affiliateNetwork).toBe('Amazon Associates');
+    // Grocery & Gourmet Food on Amazon: the Grocery rate on Amazon's rate card; 24-hour window.
+    expect(p.commissionRate).toBe('1%');
+    expect(p.cookieDays).toBe(1);
+    expect(earnsCommission(p)).toBe(true);
+    expect(reviewDisclosureScope(p)).toBe('page');
+    expect(p.affiliateUrl).toBe('https://www.amazon.com/dp/B0CD7QD3VK?tag=souljah03-20');
+    expect(new URL(p.affiliateUrl).searchParams.get('tag')).toBe('souljah03-20');
     expect(p.affiliateUrl).not.toMatch(/sca_ref|utm_/);
+    // The copy keeps the channel facts: no neutonic.com checkout in the US, Amazon sells it.
+    expect(p.whatToExpect).toContain("neutonic.com's product page has no checkout");
+    expect(p.whatToExpect).toContain('We link to the drink\'s Amazon listing as an Amazon Associate');
   });
 
   it.each(cases.filter(([, slug]) => DRINKS.includes(slug)))('%s/%s: the drink is one can per serving, 12 cans a pack', (region, slug) => {
@@ -176,7 +184,8 @@ describe('Neutonic records on the US, EU, CA, AU, GCC, SEA and JP hosts', () => 
       amount: 49.99, currency: 'USD', text: '$49.99', url: 'https://www.neutonic.com/en-us/products/neutonic-capsules-us',
     });
     // The US drink page's only buy button links to Amazon and prints no price
-    // (checked 2026-10-15), so the record carries no store price.
+    // (checked 2026-10-15), and an Associates record may not show an Amazon
+    // price copied by hand, so the record carries no store price.
     expect(record('us', DRINK).storePrice).toBeUndefined();
     // With Canada selected the US store prints a bare "$" and its structured
     // data says CAD (checked 2026-10-19); the AU store prints a bare "$" in AUD.
