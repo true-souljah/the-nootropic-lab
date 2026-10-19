@@ -145,6 +145,23 @@
       "fundingConflict": "not stated in abstract",
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/22747190/",
       "status": 200
+    },
+    {
+      "pmid": "23772955",
+      "doi": "10.1089/rej.2013.1431",
+      "title": "Neuropharmacological review of the nootropic herb Bacopa monnieri.",
+      "journal": "Rejuvenation Research",
+      "year": 2013,
+      "design": "review",
+      "population": "not applicable (narrative review)",
+      "n": null,
+      "dose": "not applicable",
+      "duration": "not applicable",
+      "outcome": "mechanisms of action",
+      "result": "Added 2026-10-19 (claims round 21): describes the mechanisms as 'putatively involved' and the evidence as 'Numerous animal and in vitro studies'; lists anti-oxidant neuroprotection, acetylcholinesterase inhibition and/or choline acetyltransferase activation, beta-amyloid reduction, increased cerebral blood flow, and neurotransmitter modulation (acetylcholine, serotonin, dopamine). Cited for the mechanism text only.",
+      "fundingConflict": "not checked in this round",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/23772955/",
+      "status": 200
     }
   ],
   "verdicts": [

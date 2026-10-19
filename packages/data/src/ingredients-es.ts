@@ -179,7 +179,7 @@ export const ingredientsEs: IngredientTranslation[] = [
   {
     slug: 'bacopa-monnieri',
     name: 'Bacopa Monnieri',
-    mechanism: 'Los compuestos activos de la Bacopa (bacósidos A y B) aumentan la actividad antioxidante, lo que reduce el estrés oxidativo en el tejido del hipocampo. También modula los sistemas de serotonina y acetilcolina.',
+    mechanism: 'Los mecanismos propuestos, como los efectos antioxidantes y los efectos sobre los sistemas de acetilcolina y serotonina, provienen de estudios en animales y de laboratorio (revisión de Aguiar & Borowski 2013, PubMed 23772955). En un ensayo de 12 semanas en humanos, los cambios en el BDNF, el malondialdehído y la actividad de la acetilcolinesterasa en sangre no difirieron de los del placebo (Lopresti 2025, PubMed 41091332).',
     clinicalDose: '300–450mg/día (estandarizado al menos al 50% de bacósidos)',
     timeToEffect: '8–12 semanas de uso constante (la mayoría de los ensayos positivos duraron 12 semanas)',
     studySummary: 'Un metaanálisis de 9 ECA (Kongkeaw et al., 2014, n=518) encontró que la Bacopa acortó los tiempos del Trail Making B y de reacción de elección frente a placebo, y dos ECA de 12 semanas en adultos mayores sanos (Calabrese 2008; Morgan y Stevens 2010) mejoraron el recuerdo diferido de palabras con 300mg/día. El ECA de 12 semanas más reciente (Lopresti 2025, n=101, 300mg/día) no encontró efecto sobre el aprendizaje verbal, la atención ni la memoria de trabajo, aunque sí redujo el estrés autoinformado. Un metaanálisis en red de 2026 con 29 ECA encontró que ≥600mg/día superó a 300–450mg/día en memoria de trabajo. La mejor evidencia es para el recuerdo diferido, no para efectos agudos.',
@@ -218,7 +218,7 @@ export const ingredientsEs: IngredientTranslation[] = [
       { question: '¿Cuánto tarda en hacer efecto?', answer: 'Los ensayos positivos sobre memoria midieron los resultados después de 12 semanas. No es un suplemento para evaluar en el primer mes. Pon un recordatorio en el calendario para evaluarlo alrededor de las 12 semanas, y ten en cuenta que el ensayo de 12 semanas más reciente con 300mg/día no encontró ningún beneficio cognitivo, así que los resultados varían.' },
       { question: '¿Se puede tomar Bacopa a largo plazo?', answer: 'La mayoría de los ensayos duraron 12 semanas o menos, así que los datos controlados más allá de ese plazo son escasos. El uso ayurvédico tradicional es continuo y sin ciclos, y ningún ensayo ha demostrado que los ciclos sean necesarios, pero la seguridad a largo plazo no se ha estudiado directamente.' },
     ],
-    sourceHashes: { name: 'e700f14754c2', mechanism: 'b1deb3da86d2', clinicalDose: '1cd8db3d2cfd', timeToEffect: 'b0c9c4baf5ed', studySummary: 'f0ed741861e3', benefits: '455d30c40f53', sideEffects: 'd04e9586c3dc', humanEffects: '9cf249cef5ef', howToTake: '2902a24dcc02', stacksWith: '0b6ea378d3f5', faqs: '3f40c959c8a2' },
+    sourceHashes: { name: 'e700f14754c2', mechanism: '3802034269f8', clinicalDose: '1cd8db3d2cfd', timeToEffect: 'b0c9c4baf5ed', studySummary: 'f0ed741861e3', benefits: '455d30c40f53', sideEffects: 'd04e9586c3dc', humanEffects: '9cf249cef5ef', howToTake: '2902a24dcc02', stacksWith: '0b6ea378d3f5', faqs: '3f40c959c8a2' },
   },
   {
     slug: 'citicoline',

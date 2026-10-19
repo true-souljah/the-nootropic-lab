@@ -71,6 +71,7 @@ export const CITATIONS: readonly Citation[] = [
   { pmid: '23281132', title: 'An acute, double-blind, placebo-controlled crossover study of 320 mg and 640 mg doses of a special extract of Bacopa monnieri (CDRI 08) on sustained cognitive performance.', firstAuthor: 'Downey', year: 2012 },
   { pmid: '23439798', title: 'A prospective, randomized double-blind, placebo-controlled study of safety and efficacy of a high-concentration full-spectrum extract of ashwagandha root in reducing stress and anxiety in adults.', firstAuthor: 'Chandrasekhar', year: 2012 },
   { pmid: '23515006', title: 'DHA supplementation improved both memory and reaction time in healthy young adults: a randomized controlled trial.', firstAuthor: 'Stonehouse', year: 2013 },
+  { pmid: '23772955', title: 'Neuropharmacological review of the nootropic herb Bacopa monnieri.', firstAuthor: 'Aguiar', year: 2013 },
   { pmid: '24086396', title: 'Huperzine A for Alzheimer\'s disease: a systematic review and meta-analysis of randomized clinical trials.', firstAuthor: 'Yang', year: 2013 },
   { pmid: '24235903', title: 'Caffeine effects on sleep taken 0, 3, or 6 hours before going to bed.', firstAuthor: 'Drake', year: 2013 },
   { pmid: '24252493', title: 'Meta-analysis of randomized controlled trials on cognitive effects of Bacopa monnieri extract.', firstAuthor: 'Kongkeaw', year: 2013 },
