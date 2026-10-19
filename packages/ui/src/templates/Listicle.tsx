@@ -7,7 +7,7 @@ import { FPDisclosure } from '../public-chrome/FPDisclosure';
 import { FPTrustNote } from '../public-chrome/FPTrustNote';
 import { FPHeader } from '../public-chrome/FPHeader';
 import { FPFooter } from '../public-chrome/FPFooter';
-import { FPByline, localISODate } from '../public-chrome/FPByline';
+import { FPByline } from '../public-chrome/FPByline';
 import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
@@ -17,7 +17,7 @@ import DisclaimerText from '../DisclaimerText';
 import { Bar } from '../primitives/Bar';
 import { FaqAccordion } from '../primitives/FaqAccordion';
 import { ProductThumb } from '../primitives/ProductThumb';
-import { buildPersonAuthorReference, servingAmount, pillarText, guaranteeDays, pageDisclosureScope } from '@nootropic/data';
+import { buildPersonAuthorReference, servingAmount, pillarText, guaranteeDays, pageDisclosureScope, isoDay } from '@nootropic/data';
 import type { Product, RelatedGuideUseCase, UIStrings } from '@nootropic/data';
 import { tpl } from '../templateStrings';
 import {
@@ -97,6 +97,11 @@ export interface ListicleProps {
   /** Estimated read time in minutes, displayed in FPByline. */
   readMinutes?: number;
   /**
+   * The page's content date — its sitemap <lastmod>: `sitemapDate(sitemap(), pagePath)`. Shown in the
+   * "Audited" chip and the byline, and the JSON-LD dateModified; never the build date.
+   */
+  updated: Date;
+  /**
    * Optional regional regulatory pillar (e.g. /are-nootropics-fda-approved/ on US,
    * /efsa-approved-cognitive-supplements/ on EU). Rendered as a "Read the regulatory
    * guide" callout in the Related Guides section. Drives inbound internal links to
@@ -110,8 +115,6 @@ export interface ListicleProps {
    */
   relatedCompares?: Array<{ label: string; href: string }>;
 }
-
-const TODAY = new Date();
 
 /** An evidence card's "Source" link and its `extraCitations` links share this style. */
 const EVIDENCE_CITATION_LINK_CLASS =
@@ -146,18 +149,20 @@ export default function Listicle({
   searchItems,
   uiStrings,
   readMinutes = 10,
+  updated,
 }: ListicleProps) {
   const s = uiStrings.listicle;
   const pd = uiStrings.productDetail;
   const space = uiStrings.typography.space;
   const home = uiStrings.breadcrumb.home;
-  const currentYear = TODAY.getFullYear();
+  const currentYear = new Date().getFullYear();
   const slugUrl = `${siteUrl}${pagePath}`;
-  const updatedISO = TODAY.toISOString().split('T')[0];
-  const updatedDisplay = TODAY.toLocaleDateString(uiStrings.productDetail.dateLocale, {
+  const updatedISO = isoDay(updated);
+  const updatedDisplay = updated.toLocaleDateString(uiStrings.productDetail.dateLocale, {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
+    timeZone: 'UTC',
   });
 
   // Only picks at or above LISTICLE_MIN_SCORE whose label proves one of this
@@ -176,7 +181,7 @@ export default function Listicle({
     '@type': 'Article',
     headline: `${pageTitle} ${currentYear}`,
     description: pageDescription,
-    datePublished: `${currentYear}-04-30`,
+    datePublished: '2026-04-30',
     dateModified: updatedISO,
     author: buildPersonAuthorReference(undefined, siteUrl),
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: siteUrl },
@@ -254,7 +259,7 @@ export default function Listicle({
               {heroParagraph}
             </p>
 
-            <FPByline updated={localISODate(TODAY)} updatedDisplay={updatedDisplay} minutes={readMinutes} strings={uiStrings.byline} space={space} />
+            <FPByline updated={updatedISO} updatedDisplay={updatedDisplay} minutes={readMinutes} strings={uiStrings.byline} space={space} />
 
             <aside
               role="note"

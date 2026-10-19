@@ -3,7 +3,8 @@ import { notFound } from 'next/navigation';
 import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
-import { productsGCC, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsGCC, getRegionalHealthDisclaimer, sitemapDate } from '@nootropic/data';
+import sitemap from '@/app/sitemap';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -117,6 +118,7 @@ export default function Page() {
       healthDisclaimer={getRegionalHealthDisclaimer('gcc')}
       searchItems={searchItems}
       uiStrings={uiStrings}
+      updated={sitemapDate(sitemap(), '/best-nootropics-for-memory/')}
     />
   );
 }

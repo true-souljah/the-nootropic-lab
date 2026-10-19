@@ -217,7 +217,7 @@ describe('templates compute the scope from the products they link', () => {
   test.each(['en', 'ja'] as const)('%s BestOf: strip and trust note follow the ranked rows', (locale) => {
     const s = getStrings(locale);
     const bestOf = (products: Product[]) =>
-      text(renderToStaticMarkup(createElement(BestOf, { products, uiStrings: s, refreshDate: '1 Oct 2026' })));
+      text(renderToStaticMarkup(createElement(BestOf, { products, uiStrings: s, updated: new Date('2026-10-01T00:00:00Z') })));
     assertScope(bestOf(productsUS), s, 'page', true);
     assertScope(bestOf([onnit, thesis]), s, 'site', true);
   });
@@ -229,6 +229,7 @@ describe('templates compute the scope from the products they link', () => {
         renderToStaticMarkup(
           createElement(HeadToHead, {
             productA, productB, siteUrl: 'https://example.com', faqItems: [], whoIsForA: [], whoIsForB: [], uiStrings: s,
+            updated: new Date('2026-10-01T00:00:00Z'),
           }),
         ),
       );
@@ -254,6 +255,7 @@ describe('templates compute the scope from the products they link', () => {
             faqItems: [],
             siteUrl: 'https://example.com',
             uiStrings: s,
+            updated: new Date('2026-10-01T00:00:00Z'),
           }),
         ),
       );

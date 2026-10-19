@@ -6,6 +6,8 @@ const CONTACT_EMAIL = 'editorial@thenootropiclab.com';
 import { PublicShell } from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import { SITE_URL } from '@/lib/region';
+import { sitemapDate } from '@nootropic/data';
+import sitemap from '@/app/sitemap';
 
 export const metadata: Metadata = {
   title: 'Impressum',
@@ -21,6 +23,7 @@ export default function Page() {
     <PublicShell searchItems={searchItems} uiStrings={uiStrings} hideDisclosure>
     <ImprintPage
       siteUrl={SITE_URL}
+      updated={sitemapDate(sitemap(), '/imprint/')}
       marketLabel="European Union edition"
       contactEmail={CONTACT_EMAIL}
       regionNote="Health claims about cognitive supplements published in the EU are governed by Regulation (EC) No 1924/2006. Editorial copy on this site describes ingredient mechanisms studied in clinical trials and does not assert label-grade health claims. Only EU-authorised health claims (assessed by EFSA) may appear on product labelling."

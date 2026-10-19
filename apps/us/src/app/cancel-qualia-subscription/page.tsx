@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { SubscriptionCancellationPage, PublicShell, buildAlternates } from '@nootropic/ui';
 import type { CancellationStep, CancellationFAQ } from '@nootropic/ui';
-import { getAuthorBySlug } from '@nootropic/data';
+import { getAuthorBySlug, sitemapDate } from '@nootropic/data';
+import sitemap from '@/app/sitemap';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
 
@@ -93,6 +94,7 @@ export default function Page() {
       productReviewSlug="qualia-mind-review"
       pageSlug="cancel-qualia-subscription"
       siteUrl={SITE_URL}
+      updated={sitemapDate(sitemap(), '/cancel-qualia-subscription/')}
       pageTitle="How to Cancel Your Qualia Mind / Neurohacker Subscription"
       pageDescription="Cancel your Qualia Mind subscription before the $39 intro shipment auto-renews at $139 every 4 weeks. Step-by-step + friction points + refund path."
       heroParagraph="Qualia Mind's introductory rate ($39 for the first shipment) auto-renews at $139 per shipment every 4 weeks — this is the most common reason buyers want to cancel. The flow is straightforward but has retention friction at the final step. This guide walks through cancellation + the refund path if you missed the deadline."

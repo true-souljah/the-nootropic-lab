@@ -3,7 +3,8 @@ import { notFound } from 'next/navigation';
 import { HeadToHead, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { HeadToHeadFAQ } from '@nootropic/ui';
-import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsUS, getRegionalHealthDisclaimer, sitemapDate } from '@nootropic/data';
+import sitemap from '@/app/sitemap';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -92,6 +93,7 @@ export default function Page() {
       healthDisclaimer={getRegionalHealthDisclaimer('us')}
       searchItems={searchItems}
       uiStrings={uiStrings}
+      updated={sitemapDate(sitemap(), '/mind-lab-pro-vs-alpha-brain/')}
       relatedLinks={[
         { href: '/mind-lab-pro-vs-thesis/', title: 'Mind Lab Pro vs Thesis', meta: 'Universal formula vs personalised stack — the dedicated comparison' },
       ]}

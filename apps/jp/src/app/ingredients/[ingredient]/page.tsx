@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { IngredientDetail, buildAlternates, buildOpenGraph, buildTwitter } from '@nootropic/ui';
-import { ingredients, productsJP, regionalIngredientNote, regionalTitleQualifier } from '@nootropic/data';
+import { ingredients, productsJP, regionalIngredientNote, regionalTitleQualifier, sitemapDate } from '@nootropic/data';
+import sitemap from '@/app/sitemap';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
 import { regionalProps } from '@/lib/regional';
@@ -53,6 +54,7 @@ export default async function IngredientPage({
       siteUrl={SITE_URL}
       searchItems={searchItems}
       uiStrings={uiStrings}
+      updated={sitemapDate(sitemap(), `/ingredients/${ing.slug}/`)}
       regional={{ ...regionalProps(containingProducts), note: regionalIngredientNote('jp', ing.slug) }}
     />
   );

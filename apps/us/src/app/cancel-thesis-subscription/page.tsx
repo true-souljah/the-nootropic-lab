@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { SubscriptionCancellationPage, PublicShell, buildAlternates } from '@nootropic/ui';
 import type { CancellationStep, CancellationFAQ } from '@nootropic/ui';
-import { getAuthorBySlug } from '@nootropic/data';
+import { getAuthorBySlug, sitemapDate } from '@nootropic/data';
+import sitemap from '@/app/sitemap';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
 
@@ -97,6 +98,7 @@ export default function Page() {
       productReviewSlug="thesis-nootropics-review"
       pageSlug="cancel-thesis-subscription"
       siteUrl={SITE_URL}
+      updated={sitemapDate(sitemap(), '/cancel-thesis-subscription/')}
       pageTitle="How to Cancel Your Thesis Nootropics Subscription"
       pageDescription="Cancel your Thesis Nootropics subscription per-formula. Step-by-step, with the friction points and FTC complaint path."
       heroParagraph="On Thesis's US Clarity page a 1-month subscription is $59 a month and a one-time purchase is $89 plus $6.90 shipping (checked 9 October 2026). If you signed up for the starter and continued with 2-3 formulas, each is its own subscription that must be cancelled separately. This guide walks through the per-formula cancellation flow and what to do if you want a refund on unopened packets."

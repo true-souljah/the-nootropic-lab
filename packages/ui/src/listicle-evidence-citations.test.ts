@@ -196,6 +196,7 @@ describe('Listicle renders extraCitations after the Source link', () => {
         faqItems: [],
         siteUrl: 'https://example.com',
         uiStrings: en,
+        updated: new Date('2026-10-01T00:00:00Z'),
       }),
     );
   const sourceLink = (href: string, text: string) =>

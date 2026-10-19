@@ -6,6 +6,8 @@ const CONTACT_EMAIL = 'editorial@thenootropiclab.com';
 import { PublicShell } from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import { SITE_URL } from '@/lib/region';
+import { sitemapDate } from '@nootropic/data';
+import sitemap from '@/app/sitemap';
 
 export const metadata: Metadata = {
   title: 'Imprint',
@@ -21,6 +23,7 @@ export default function Page() {
     <PublicShell searchItems={searchItems} uiStrings={uiStrings} hideDisclosure>
     <ImprintPage
       siteUrl={SITE_URL}
+      updated={sitemapDate(sitemap(), '/imprint/')}
       marketLabel="United States edition"
       contactEmail={CONTACT_EMAIL}
       regionNote="Reviews on this site are editorial content for educational purposes and do not constitute medical advice. Dietary supplement claims have not been evaluated by the U.S. Food and Drug Administration under the Dietary Supplement Health and Education Act of 1994 (DSHEA)."

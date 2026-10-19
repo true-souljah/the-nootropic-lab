@@ -2,9 +2,12 @@ import type { UIStrings } from '@nootropic/data';
 import { tpl } from '../templateStrings';
 
 export interface FPBylineProps {
-  /** The day the page was last updated, ISO YYYY-MM-DD: the `<time dateTime>` value (localISODate). */
+  /**
+   * The page's content date as ISO YYYY-MM-DD (`isoDay(updated)`): the `<time dateTime>` value. It is the
+   * day of the page's sitemap <lastmod> (`sitemapDate`), never the build date.
+   */
   updated: string;
-  /** The same day as the page locale writes it ("Oct 19, 2026", "19 oct 2026"): the visible text. */
+  /** The same day as the page locale writes it ("Oct 19, 2026", "19 oct 2026"), formatted in UTC: the visible text. */
   updatedDisplay: string;
   /** Estimated read time in minutes. */
   minutes: number;
@@ -12,16 +15,6 @@ export interface FPBylineProps {
   strings: UIStrings['byline'];
   /** The page locale's `uiStrings.typography.space` between "Updated" and the date ('' in ja, whose label ends in ：). */
   space?: string;
-}
-
-/**
- * The calendar day `date` falls on in the build's time zone, as YYYY-MM-DD:
- * the day `toLocaleDateString` prints when given no `timeZone`, so a
- * `<time dateTime>` built from it names the date its text shows.
- */
-export function localISODate(date: Date): string {
-  const pad = (n: number) => String(n).padStart(2, '0');
-  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
 }
 
 /**

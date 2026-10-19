@@ -6,6 +6,8 @@ const CONTACT_EMAIL = 'editorial@thenootropiclab.com';
 import { PublicShell } from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import { SITE_URL } from '@/lib/region';
+import { sitemapDate } from '@nootropic/data';
+import sitemap from '@/app/sitemap';
 
 export const metadata: Metadata = {
   title: 'Imprint',
@@ -21,6 +23,7 @@ export default function Page() {
     <PublicShell searchItems={searchItems} uiStrings={uiStrings} hideDisclosure>
     <ImprintPage
       siteUrl={SITE_URL}
+      updated={sitemapDate(sitemap(), '/imprint/')}
       marketLabel="Australian edition"
       contactEmail={CONTACT_EMAIL}
       regionNote="Therapeutic goods sold in Australia are regulated by the Therapeutic Goods Administration. AUST L–listed products carry pre-approved permitted indications; AUST R–registered products are higher-evidence. Editorial claim-language on this site adheres to the Therapeutic Goods Advertising Code."
