@@ -1972,8 +1972,14 @@ const ROUND_SEVENTEEN_UNSOURCED: RegExp[] = [
 
 // U3: every stack note names the trial it relies on or says we cite none.
 // Case-sensitive so that the author-year form needs a capitalised name.
+// Tightened 2026-10-19 (round twenty, B3-008): the "<n>-week trial" branch
+// passed notes that name no trial ("A 12-week trial showed the pair works
+// well."), and the author-year branch passed a capitalised sentence opener
+// ("In 2020 this pairing became popular."). The two PS<->DHA notes that relied
+// on the week branch now name Vakhapova 2010 (PMID 20523044), the week branch
+// is gone, and common sentence-opening words cannot stand in for an author.
 const STACK_NOTE_SOURCED =
-  /[Ww]e cite no trial|has not been tested|not tested together|\b[A-Z][a-z]+ (19|20)\d\d\b|\d+-week trial/;
+  /[Ww]e cite no trial|has not been tested|not tested together|\b(?!(?:In|By|Since|From|Until|After|Before|During)\b)[A-Z][a-z]+ (19|20)\d\d\b/;
 
 // "multiple peer-reviewed RCTs" (U2). U3 rewrote apps/us/src/app/mind-lab-pro-vs-*,
 // so the check scans every file with no exclusion.
@@ -2219,13 +2225,17 @@ describe('round seventeen: mechanism, user-report and market claims follow our i
     expect(STACK_NOTE_SOURCED.test('Both are adaptogens; we cite no trial of the pairing.')).toBe(true);
     expect(STACK_NOTE_SOURCED.test('Different pathways, not tested together.')).toBe(true);
     expect(STACK_NOTE_SOURCED.test('Versus placebo, the combination improved attention measures in several trials, though Foxe 2012 found no added benefit over either compound alone.')).toBe(true);
-    expect(STACK_NOTE_SOURCED.test('a 15-week trial of marine PS-DHA at 300mg/day improved immediate verbal recall')).toBe(true);
+    expect(STACK_NOTE_SOURCED.test('a 15-week trial of marine PS-DHA (Vakhapova 2010) at 300mg/day improved immediate verbal recall')).toBe(true);
     for (const s of [
       'The classic adaptogen stack. Rhodiola is activating; Ashwagandha is calming. Together they provide full-day HPA axis support.',
       'Citicoline handles acute attention and acetylcholine; Bacopa covers long-term memory consolidation.',
       'Both support dopamine availability — Oat Straw by slowing breakdown (MAO-B), Tyrosine by providing precursor.',
       'Dynamine provides acute adenosine blockade; Zynamite extends dopamine via COMT inhibition.',
       'A pairing that became popular in 2020.',
+      // 2026-10-19 (round twenty, B3-008): each passed the old pattern.
+      'In 2020 this pairing became popular.',
+      'A 12-week trial showed the pair works well.',
+      'a 15-week trial of marine PS-DHA at 300mg/day improved immediate verbal recall',
     ]) expect(STACK_NOTE_SOURCED.test(s), s).toBe(false);
     const pairs = ingredients.flatMap(i => i.stacksWith.map(p => ({ from: i.slug, to: p.slug, reason: p.reason })));
     expect(pairs.length).toBeGreaterThan(40);

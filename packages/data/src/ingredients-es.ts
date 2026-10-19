@@ -179,7 +179,7 @@ export const ingredientsEs: IngredientTranslation[] = [
   {
     slug: 'bacopa-monnieri',
     name: 'Bacopa Monnieri',
-    mechanism: 'La Bacopa mejora la comunicación sináptica al aumentar la ramificación dendrítica y la densidad sináptica. Sus compuestos activos (bacósidos A y B) facilitan la reparación de neuronas dañadas y aumentan la actividad antioxidante, lo que reduce el estrés oxidativo en el tejido del hipocampo. También modula los sistemas de serotonina y acetilcolina.',
+    mechanism: 'Los compuestos activos de la Bacopa (bacósidos A y B) aumentan la actividad antioxidante, lo que reduce el estrés oxidativo en el tejido del hipocampo. También modula los sistemas de serotonina y acetilcolina.',
     clinicalDose: '300–450mg/día (estandarizado al menos al 50% de bacósidos)',
     timeToEffect: '8–12 semanas de uso constante (la mayoría de los ensayos positivos duraron 12 semanas)',
     studySummary: 'Un metaanálisis de 9 ECA (Kongkeaw et al., 2014, n=518) encontró que la Bacopa acortó los tiempos del Trail Making B y de reacción de elección frente a placebo, y dos ECA de 12 semanas en adultos mayores sanos (Calabrese 2008; Morgan y Stevens 2010) mejoraron el recuerdo diferido de palabras con 300mg/día. El ECA de 12 semanas más reciente (Lopresti 2025, n=101, 300mg/día) no encontró efecto sobre el aprendizaje verbal, la atención ni la memoria de trabajo, aunque sí redujo el estrés autoinformado. Un metaanálisis en red de 2026 con 29 ECA encontró que ≥600mg/día superó a 300–450mg/día en memoria de trabajo. La mejor evidencia es para el recuerdo diferido, no para efectos agudos.',
@@ -218,7 +218,7 @@ export const ingredientsEs: IngredientTranslation[] = [
       { question: '¿Cuánto tarda en hacer efecto?', answer: 'Los ensayos positivos sobre memoria midieron los resultados después de 12 semanas. No es un suplemento para evaluar en el primer mes. Pon un recordatorio en el calendario para evaluarlo alrededor de las 12 semanas, y ten en cuenta que el ensayo de 12 semanas más reciente con 300mg/día no encontró ningún beneficio cognitivo, así que los resultados varían.' },
       { question: '¿Se puede tomar Bacopa a largo plazo?', answer: 'La mayoría de los ensayos duraron 12 semanas o menos, así que los datos controlados más allá de ese plazo son escasos. El uso ayurvédico tradicional es continuo y sin ciclos, y ningún ensayo ha demostrado que los ciclos sean necesarios, pero la seguridad a largo plazo no se ha estudiado directamente.' },
     ],
-    sourceHashes: { name: 'e700f14754c2', mechanism: '1a865649ae14', clinicalDose: '1cd8db3d2cfd', timeToEffect: 'b0c9c4baf5ed', studySummary: 'f0ed741861e3', benefits: '455d30c40f53', sideEffects: 'd04e9586c3dc', humanEffects: '9cf249cef5ef', howToTake: '2902a24dcc02', stacksWith: '0b6ea378d3f5', faqs: '3f40c959c8a2' },
+    sourceHashes: { name: 'e700f14754c2', mechanism: 'b1deb3da86d2', clinicalDose: '1cd8db3d2cfd', timeToEffect: 'b0c9c4baf5ed', studySummary: 'f0ed741861e3', benefits: '455d30c40f53', sideEffects: 'd04e9586c3dc', humanEffects: '9cf249cef5ef', howToTake: '2902a24dcc02', stacksWith: '0b6ea378d3f5', faqs: '3f40c959c8a2' },
   },
   {
     slug: 'citicoline',
@@ -307,7 +307,7 @@ export const ingredientsEs: IngredientTranslation[] = [
   {
     slug: 'rhodiola-rosea',
     name: 'Rhodiola Rosea',
-    mechanism: 'La Rhodiola es un adaptógeno que modula el eje HPA (hipotálamo-hipófiso-suprarrenal), reduciendo la producción de cortisol bajo estrés. Sus principales compuestos bioactivos (rosavinas y salidrosida) inhiben las enzimas monoaminooxidasa, lo que aumenta la disponibilidad de dopamina, serotonina y norepinefrina, neurotransmisores implicados en la motivación, el estado de ánimo y la resistencia cognitiva.',
+    mechanism: 'La Rhodiola es un adaptógeno que modula el eje HPA (hipotálamo-hipófiso-suprarrenal), reduciendo la producción de cortisol bajo estrés. En estudios de laboratorio, sus principales compuestos bioactivos (rosavinas y salidrosida) inhibieron las enzimas monoaminooxidasa.',
     clinicalDose: '200–600mg/día (un extracto estandarizado; los ensayos que citamos usaron SHR-5)',
     timeToEffect: 'Efectos con una sola dosis en un ECA; los ensayos con dosis repetidas duraron 2–4 semanas',
     studySummary: 'Pequeños ensayos con el extracto SHR-5 encontraron menos fatiga mental: un ECA de 2003 en 161 cadetes militares tras una sola dosis, un ensayo cruzado de 2000 en 56 médicos de guardia nocturna a lo largo de dos semanas (Darbinyan et al.) y un piloto de 2000 en estudiantes durante los exámenes. El ECA sueco sobre burnout (Olsson et al., 2008, n=60, 576mg/día) duró 28 días, no 12 semanas, y mejoró las puntuaciones de burnout y de atención frente a placebo, mientras que las puntuaciones de depresión mejoraron por igual en ambos grupos. Una revisión sistemática de 2012 de 11 ensayos calificó todos los estudios incluidos con riesgo de sesgo alto o poco claro y describió la evidencia como contradictoria.',
@@ -345,7 +345,7 @@ export const ingredientsEs: IngredientTranslation[] = [
       { question: '¿La Rhodiola puede causar ansiedad o nerviosismo?', answer: 'En una minoría de personas, sobre todo con dosis superiores a 400mg, la Rhodiola puede causar una inquietud parecida a la de un estimulante o ansiedad leve, en particular durante la primera semana. Empieza con 200mg y aumenta de forma gradual. Algunas personas la combinan con L-teanina para suavizarlo, aunque esa combinación no se ha probado en un ensayo.' },
       { question: '¿Es seguro tomar Rhodiola con antidepresivos?', answer: 'No sin supervisión médica. Los compuestos de la Rhodiola inhiben la monoaminooxidasa en estudios de laboratorio, así que una interacción con ISRS, IMAO y otros antidepresivos (incluido el síndrome serotoninérgico) es teóricamente posible; no se encontraron reportes clínicos en nuestra revisión de PubMed de 2026. Consulta siempre a tu médico si tomas algún medicamento psiquiátrico.' },
     ],
-    sourceHashes: { name: '8ef9c8a44212', mechanism: '7897a2f64ab2', clinicalDose: 'fb8dea0030b2', timeToEffect: '5ab4648e058c', studySummary: '286609ca7e58', benefits: '37918f8c0b1b', sideEffects: 'f1409ae470d6', humanEffects: '72e1fc4286c4', howToTake: '7a02ee1487ac', stacksWith: 'afe1ef661ff8', faqs: '205144fcbd1f' },
+    sourceHashes: { name: '8ef9c8a44212', mechanism: '11f12f412b04', clinicalDose: 'fb8dea0030b2', timeToEffect: '5ab4648e058c', studySummary: '286609ca7e58', benefits: '37918f8c0b1b', sideEffects: 'f1409ae470d6', humanEffects: '72e1fc4286c4', howToTake: '7a02ee1487ac', stacksWith: 'afe1ef661ff8', faqs: '205144fcbd1f' },
   },
   {
     slug: 'phosphatidylserine',
@@ -379,7 +379,7 @@ export const ingredientsEs: IngredientTranslation[] = [
     stacksWith: [
       { ingredient: 'Melena de León', reason: 'Ambos se estudian para la memoria; no citamos ningún ensayo de esta combinación.' },
       { ingredient: 'Citicolina', reason: 'La citicolina es un precursor de la fosfatidilcolina; la fosfatidilserina es un fosfolípido de las membranas de las neuronas. No citamos ningún ensayo de esta combinación.' },
-      { ingredient: 'Omega-3 (DHA)', reason: 'El DHA es un componente estructural de las membranas neuronales. Algunos productos clínicos de PS están conjugados con DHA (PS-DHA): un ensayo de 15 semanas con PS-DHA de origen marino con 300mg/día mejoró el recuerdo verbal inmediato en adultos mayores con quejas de memoria.' },
+      { ingredient: 'Omega-3 (DHA)', reason: 'El DHA es un componente estructural de las membranas neuronales. Algunos productos clínicos de PS están conjugados con DHA (PS-DHA): un ensayo de 15 semanas con PS-DHA de origen marino (Vakhapova 2010) con 300mg/día mejoró el recuerdo verbal inmediato en adultos mayores con quejas de memoria.' },
     ],
     faqs: [
       { question: 'PS de soya frente a PS de girasol: ¿cuál es mejor?', answer: 'Ambas se usan en ensayos: la PS de soya en adultos mayores con quejas de memoria (Kato-Kataoka 2010) y la PS de girasol en niños sanos, en quienes no tuvo efecto (Friling 2025). La PS derivada de girasol no contiene soya y es la opción preferida para cualquier persona con sensibilidad a la soya. Nuestra revisión de 2026 no incluyó ninguna comparación directa entre ambas.' },
@@ -387,7 +387,7 @@ export const ingredientsEs: IngredientTranslation[] = [
       { question: '¿Y la fuente de cerebro bovino que aparece en estudios más antiguos?', answer: 'Los ensayos originales con PS de la década de 1990 usaron PS derivada de corteza cerebral bovina. Esta fuente se abandonó en todo el mundo tras la preocupación por la EEB (enfermedad de las vacas locas). Toda la PS comercial actual es de origen vegetal o marino. Los ensayos posteriores con PS vegetal y marina muestran beneficios en la memoria principalmente en subgrupos de adultos mayores, así que no debe suponerse que los resultados bovinos más antiguos sean trasladables.' },
       { question: '¿La PS interactúa con los anticoagulantes?', answer: 'Nuestra revisión de PubMed de 2026 no encontró ninguna interacción clínica entre la PS y los anticoagulantes, y el principal ensayo de seguridad de la PS no recopiló datos sobre sangrado. Si tomas warfarina, aspirina u otros anticoagulantes, consulta a tu médico antes de añadir cualquier suplemento.' },
     ],
-    sourceHashes: { name: '84b783e1a205', mechanism: 'a5aadf994a2e', clinicalDose: 'b3586df4aeec', timeToEffect: 'fd2897116995', studySummary: 'd96d809304b8', benefits: 'be8718ee4d5a', sideEffects: '74e3d86af15b', humanEffects: 'faaad79b9c26', howToTake: 'ef36cb389a09', stacksWith: '392507342b88', faqs: '2b7e89608457' },
+    sourceHashes: { name: '84b783e1a205', mechanism: 'a5aadf994a2e', clinicalDose: 'b3586df4aeec', timeToEffect: 'fd2897116995', studySummary: 'd96d809304b8', benefits: 'be8718ee4d5a', sideEffects: '74e3d86af15b', humanEffects: 'faaad79b9c26', howToTake: 'ef36cb389a09', stacksWith: '147cfb6ebd97', faqs: '2b7e89608457' },
   },
   {
     slug: 'alpha-gpc',
@@ -463,12 +463,12 @@ export const ingredientsEs: IngredientTranslation[] = [
       dosage: '300–600mg/día (KSM-66)',
       timing: 'Por la noche (1–2 horas antes de dormir) para los beneficios en el sueño. Por la mañana para el manejo del cortisol y el estrés. La dosis dividida (300mg por la mañana + 300mg por la noche) es el régimen de los ensayos Chandrasekhar 2012 y Choudhary 2017 (300mg dos veces al día).',
       withFood: 'Tómala con comida para minimizar el malestar gastrointestinal (sobre todo con dosis de 600mg). La comida no afecta significativamente la absorción.',
-      forms: 'Cápsula. Exige KSM-66 (extracto de raíz de espectro completo, 5% de witanólidos) o Sensoril (extracto de hoja + raíz). Evita la ashwagandha sin estandarizar que no declare un porcentaje de witanólidos: el contenido activo puede ser insignificante.',
+      forms: 'Cápsula. Elige KSM-66 (extracto de raíz de espectro completo, 5% de witanólidos), el extracto usado en los ensayos de esta página; no citamos ningún ensayo con Sensoril (extracto de hoja + raíz). Evita la ashwagandha sin estandarizar que no declare un porcentaje de witanólidos: el contenido activo puede ser insignificante.',
     },
     stacksWith: [
       { ingredient: 'Rhodiola Rosea', reason: 'Ambos son adaptógenos; no citamos ningún ensayo de esta combinación.' },
       { ingredient: 'L-Teanina', reason: 'Ambos se estudian para la ansiedad y el estrés; no citamos ningún ensayo de esta combinación.' },
-      { ingredient: 'Fosfatidilserina', reason: 'Ambos se estudian por sus efectos sobre el cortisol; no citamos ningún ensayo de esta combinación.' },
+      { ingredient: 'Fosfatidilserina', reason: 'No citamos ningún ensayo de esta combinación.' },
     ],
     faqs: [
       { question: 'KSM-66, Sensoril o ashwagandha genérica: ¿cuál debería elegir?', answer: 'KSM-66 (5% de witanólidos, solo de raíz) es el extracto usado en los principales ensayos sobre estrés y cognición. Sensoril es un extracto de hoja y raíz; nuestra página sobre la ashwagandha no cita ningún ensayo con Sensoril. La ashwagandha genérica sin un porcentaje de witanólidos declarado no es confiable: podrías estar pagando por polvo de raíz rico en almidón con un contenido activo mínimo. Elige KSM-66, el extracto usado en los ensayos de nuestra página sobre la ashwagandha.' },
@@ -476,7 +476,7 @@ export const ingredientsEs: IngredientTranslation[] = [
       { question: '¿Es segura la ashwagandha para el uso a largo plazo?', answer: 'Faltan datos a largo plazo: la mayoría de los ensayos duran 8–12 semanas, y no se encontraron datos controlados de seguridad más allá de unos 90 días. Reportes de casos publicados relacionan la ashwagandha con lesiones hepáticas (algunos calificados como "probables" en la escala de causalidad RUCAM), y Dinamarca prohibió los complementos alimenticios de ashwagandha en 2023 porque no se pudo establecer una dosis segura. Suspéndela y consulta a un médico si presentas ictericia u orina oscura. Evítala si tienes afecciones de la tiroides (enfermedad tiroidea autoinmune), ya que los witanólidos pueden modular los niveles de hormonas tiroideas.' },
       { question: '¿La ashwagandha puede aumentar la testosterona?', answer: 'Dos ECA encontraron aumentos: 600mg/día durante 8 semanas en hombres jóvenes que empezaban un entrenamiento de fuerza elevaron la testosterona junto con mayores ganancias de fuerza (2015), y un ensayo cruzado en hombres con sobrepeso de 40–70 años encontró testosterona +14.7% y DHEA-S +18% frente a placebo, pero ningún cambio en el cortisol, la fatiga ni el vigor (Lopresti 2019). La magnitud varía según la población y el extracto.' },
     ],
-    sourceHashes: { name: 'f48263c2c9f9', mechanism: 'cc1bdea1cc19', clinicalDose: '77d574d99676', timeToEffect: '34f7d36bdeeb', studySummary: 'e23483b812a2', benefits: 'd468ea7029e0', sideEffects: '6815c74cfa8a', humanEffects: 'ec057d3d5767', howToTake: '957c85f5e358', stacksWith: 'ee4eff30a88b', faqs: 'a59548675268' },
+    sourceHashes: { name: 'f48263c2c9f9', mechanism: 'cc1bdea1cc19', clinicalDose: '77d574d99676', timeToEffect: '34f7d36bdeeb', studySummary: 'e23483b812a2', benefits: 'd468ea7029e0', sideEffects: '6815c74cfa8a', humanEffects: 'ec057d3d5767', howToTake: '041e60936bd4', stacksWith: '2aa578037f79', faqs: 'a59548675268' },
   },
   {
     slug: 'huperzine-a',
@@ -683,7 +683,7 @@ export const ingredientsEs: IngredientTranslation[] = [
       forms: 'Aceite de pescado, aceite de krill o aceite de algas (vegano). El DHA de algas evita la preocupación por los metales pesados; ningún ensayo ha comparado directamente el DHA de algas y el de pescado en resultados cognitivos.',
     },
     stacksWith: [
-      { ingredient: 'Fosfatidilserina', reason: 'El DHA es un componente estructural de las membranas neuronales. Algunos productos clínicos de PS están conjugados con DHA (PS-DHA): un ensayo de 15 semanas con PS-DHA de origen marino con 300mg/día mejoró el recuerdo verbal inmediato en adultos mayores con quejas de memoria.' },
+      { ingredient: 'Fosfatidilserina', reason: 'El DHA es un componente estructural de las membranas neuronales. Algunos productos clínicos de PS están conjugados con DHA (PS-DHA): un ensayo de 15 semanas con PS-DHA de origen marino (Vakhapova 2010) con 300mg/día mejoró el recuerdo verbal inmediato en adultos mayores con quejas de memoria.' },
       { ingredient: 'Melena de León', reason: 'Ambos se estudian para la memoria; no citamos ningún ensayo de esta combinación.' },
       { ingredient: 'Citicolina', reason: 'La citicolina es un precursor de la fosfatidilcolina; el DHA es el principal ácido graso omega-3 estructural del cerebro. No citamos ningún ensayo de esta combinación.' },
     ],
@@ -693,7 +693,7 @@ export const ingredientsEs: IngredientTranslation[] = [
       { question: '¿Es mejor el aceite de pescado o el de algas?', answer: 'El DHA es la misma molécula en ambas fuentes. El aceite de algas evita la preocupación por el mercurio y los metales pesados y es apto para vegetarianos. El aceite de pescado aporta una proporción natural de DHA+EPA. Ningún ensayo los ha comparado directamente en resultados cognitivos: elige según tu preferencia alimentaria y la calidad del producto concreto.' },
       { question: '¿Cuánto tiempo pasa hasta notar efectos cognitivos?', answer: 'El DHA actúa reconstruyendo la composición de las membranas, un proceso lento. Ambos ECA cognitivos positivos duraron 24 semanas (6 meses). No sentirás un efecto agudo como con la cafeína o la L-teanina. Piensa en el DHA como una inversión en infraestructura a largo plazo, no como un suplemento de rendimiento.' },
     ],
-    sourceHashes: { name: '158b9ff9ae1d', mechanism: 'f288c32308b5', clinicalDose: '7226276cc513', timeToEffect: '5f9853a9095b', studySummary: '3359b9d9aa80', benefits: '7d8e90ddd8b8', sideEffects: 'd75f8f4c0062', humanEffects: '150a902bcfdd', howToTake: 'be3d4fbbb20e', stacksWith: 'c46a117f84f9', faqs: 'ae0eb1adda3c' },
+    sourceHashes: { name: '158b9ff9ae1d', mechanism: 'f288c32308b5', clinicalDose: '7226276cc513', timeToEffect: '5f9853a9095b', studySummary: '3359b9d9aa80', benefits: '7d8e90ddd8b8', sideEffects: 'd75f8f4c0062', humanEffects: '150a902bcfdd', howToTake: 'be3d4fbbb20e', stacksWith: '5d39b8ae3e9e', faqs: 'ae0eb1adda3c' },
   },
   {
     slug: 'maritime-pine-bark',
@@ -826,7 +826,7 @@ export const ingredientsEs: IngredientTranslation[] = [
   {
     slug: 'oat-straw',
     name: 'Oat Straw Extract',
-    mechanism: 'El extracto de paja de avena (Avena sativa) actúa principalmente inhibiendo la fosfodiesterasa tipo 4 (PDE4) y la monoaminooxidasa B (MAO-B). La inhibición de la PDE4 aumenta los niveles de AMP cíclico en las neuronas, lo que potencia la señalización dopaminérgica. La inhibición de la MAO-B frena la degradación de la dopamina. Además, la paja de avena aumenta la producción de óxido nítrico para la vasodilatación cerebral y contiene avenantramidas, compuestos antiinflamatorios únicos.',
+    mechanism: 'El extracto de paja de avena (Avena sativa) actúa principalmente inhibiendo la fosfodiesterasa tipo 4 (PDE4). La inhibición de la PDE4 aumenta los niveles de AMP cíclico en las neuronas, lo que potencia la señalización dopaminérgica. Además, la paja de avena aumenta la producción de óxido nítrico para la vasodilatación cerebral y contiene avenantramidas, compuestos antiinflamatorios únicos.',
     clinicalDose: '430–1600mg/día en los ensayos; 800mg o menos podría ser lo óptimo: las dosis más altas rindieron menos',
     timeToEffect: 'Efectos agudos en pocas horas en ensayos de dosis única; efectos a las 4 semanas en un ensayo y ninguno en un ensayo de 12 semanas',
     studySummary: 'Cuatro ECA pequeños, todos con participación del fabricante: un ensayo de 2011 (Berry et al.) en personas mayores con una cognición inferior al promedio encontró que una sola dosis de 1600mg redujo los errores en la prueba Stroop, pero 2400mg no fueron mejores que el placebo; un ensayo de 2012 del mismo grupo encontró que 1500mg/día durante 12 semanas no tuvieron efecto sobre ninguna medida cognitiva en adultos mayores sanos (material suministrado por Frutarom); un ensayo de 2015 (Kennedy et al., con dos empleados de Frutarom como coautores) encontró que 800mg mejoraron la velocidad, el recuerdo diferido y la función ejecutiva en adultos de 40–65 años con quejas de memoria, y concluyó que la dosis óptima es de 800mg o menos; y un ensayo de 2020 (Kennedy et al., con dos empleados de Anklam Extrakt como coautores) encontró que 430–1290mg mejoraron la memoria de trabajo y la multitarea a lo largo de 4 semanas, sin efecto sobre el estado de ánimo. Ningún ensayo ha medido el flujo sanguíneo cerebral.',
@@ -851,7 +851,7 @@ export const ingredientsEs: IngredientTranslation[] = [
     },
     stacksWith: [
       { ingredient: 'Alfa-GPC', reason: 'La paja de avena se estudia para la atención; la Alfa-GPC es un precursor de colina. No citamos ningún ensayo de esta combinación.' },
-      { ingredient: 'L-Tirosina', reason: 'La paja de avena inhibe la MAO-B, lo que frena la degradación de la dopamina; la L-tirosina es un precursor de la dopamina. No citamos ningún ensayo de esta combinación.' },
+      { ingredient: 'L-Tirosina', reason: 'La L-tirosina es un precursor de la dopamina. No citamos ningún ensayo de esta combinación.' },
       { ingredient: 'Bacopa Monnieri', reason: 'La paja de avena se estudia para la atención y la Bacopa para la memoria; no citamos ningún ensayo de esta combinación.' },
     ],
     faqs: [
@@ -860,7 +860,7 @@ export const ingredientsEs: IngredientTranslation[] = [
       { question: '¿La paja de avena contiene gluten?', answer: 'La avena técnicamente no contiene gluten, pero es común que se contamine con trigo durante el procesamiento. Si tienes enfermedad celíaca o una sensibilidad grave al gluten, verifica que el suplemento esté certificado sin gluten o evítalo por completo.' },
       { question: '¿Cómo se compara con la cafeína para la concentración?', answer: 'No es un estimulante, y ningún ensayo ha comparado ambos. Los ensayos con extracto de avena encontraron pequeñas mejoras en la atención y la memoria de trabajo sin los efectos secundarios típicos de los estimulantes, pero la base de evidencia son cuatro ensayos pequeños vinculados al fabricante, mucho más escasa que la de la cafeína.' },
     ],
-    sourceHashes: { name: '6b1648c7567a', mechanism: 'fe7d99088dbf', clinicalDose: '562a815f6c9e', timeToEffect: '7665b28811dc', studySummary: 'ce4ccbcb5488', benefits: '1bf8d10e5ae6', sideEffects: 'e29abc5d1bcf', humanEffects: '7145720d1265', howToTake: '2c1fc1026907', stacksWith: 'f9bf3aaafc09', faqs: '228b5c6beb9b' },
+    sourceHashes: { name: '6b1648c7567a', mechanism: '302c081a98aa', clinicalDose: '562a815f6c9e', timeToEffect: '7665b28811dc', studySummary: 'ce4ccbcb5488', benefits: '1bf8d10e5ae6', sideEffects: 'e29abc5d1bcf', humanEffects: '7145720d1265', howToTake: '2c1fc1026907', stacksWith: '02ab624a5eb4', faqs: '228b5c6beb9b' },
   },
   {
     slug: 'zynamite',
