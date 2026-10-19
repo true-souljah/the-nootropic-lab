@@ -89,7 +89,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: '¿Cuándo debería empezar a tomar estos suplementos?',
-    a: 'La evidencia es más fuerte en adultos mayores de 50 años con quejas cognitivas subjetivas. No hay beneficio demostrado de empezar en los 30 o 40 años puramente como "prevención". Habla con tu médico de atención primaria sobre las preocupaciones cognitivas antes de iniciar cualquier suplemento, especialmente si tomas medicamentos recetados.',
+    a: 'Algunos de los suplementos de esta página tienen evidencia de ensayos en adultos mayores, a menudo solo en subgrupos: la PS-DHA en adultos mayores con quejas de memoria, la citicolina en quienes tienen una memoria relativamente ineficiente y la Melena de León en el deterioro cognitivo leve. No hay beneficio demostrado de empezar en los 30 o 40 años puramente como "prevención". Habla con tu médico de atención primaria sobre las preocupaciones cognitivas antes de iniciar cualquier suplemento, especialmente si tomas medicamentos recetados.',
   },
   {
     q: '¿Son seguros junto con medicamentos para presión arterial o colesterol?',
@@ -105,7 +105,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: '¿En cuánto tiempo notaré algo?',
-    a: 'Fosfatidilserina: sus ensayos sobre la memoria duraron de 15 semanas a 12 meses. Citicolina: sus efectos sobre la memoria se midieron después de 2–3 meses. Bacopa: 8–12 semanas; la mayoría de los ensayos positivos duraron 12 semanas. Melena de León: en adultos con deterioro cognitivo leve, el beneficio se fue acumulando a lo largo de 8–16 semanas. Ninguno es un ingrediente de efecto agudo. Haz seguimiento de los cambios durante 12 semanas de dosificación constante — idealmente con una medida cognitiva basal (los tests en línea son crudos pero mejores que el recuerdo subjetivo).',
+    a: 'Fosfatidilserina: sus ensayos sobre la memoria duraron de 15 semanas a 12 meses. Citicolina: sus efectos sobre la memoria se midieron después de 2–3 meses. Bacopa: 8–12 semanas; la mayoría de los ensayos positivos duraron 12 semanas. Melena de León: en adultos con deterioro cognitivo leve, el beneficio se fue acumulando a lo largo de 8–16 semanas. Ninguno es un ingrediente de efecto agudo. Haz seguimiento de los cambios durante al menos 12 semanas de dosificación constante, y más tiempo para la fosfatidilserina (15 semanas o más) — idealmente con una medida cognitiva basal (los tests en línea son crudos pero mejores que el recuerdo subjetivo).',
   },
 ];
 
@@ -116,7 +116,7 @@ export default function Page() {
       useCase="aging"
       pageTitle="Mejores Nootrópicos para el Cerebro Adulto Mayor"
       pageDescription="Ranking independiente de nootrópicos para adultos en Latinoamérica preocupados por cambios cognitivos asociados a la edad."
-      heroParagraph="El cambio cognitivo asociado a la edad es normal — el recuerdo de la memoria se vuelve más lento, la velocidad de procesamiento disminuye. Los suplementos de esta página tienen evidencia específicamente en adultos mayores con quejas cognitivas subjetivas. NO son tratamientos para demencia, Alzheimer ni ninguna enfermedad cognitiva clínica. Para esos casos, consulta a un neurólogo. Incluimos opciones internacionales de fórmula abierta."
+      heroParagraph="El cambio cognitivo asociado a la edad es normal — el recuerdo de la memoria se vuelve más lento, la velocidad de procesamiento disminuye. Algunos de los suplementos de esta página tienen evidencia de ensayos en adultos mayores, a menudo solo en subgrupos: la PS-DHA en adultos mayores con quejas de memoria, la citicolina en quienes tienen una memoria relativamente ineficiente y la Melena de León en el deterioro cognitivo leve. NO son tratamientos para demencia, Alzheimer ni ninguna enfermedad cognitiva clínica. Para esos casos, consulta a un neurólogo. Incluimos opciones internacionales de fórmula abierta."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}
