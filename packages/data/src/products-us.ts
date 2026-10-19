@@ -303,6 +303,25 @@ export interface Product {
    * Shape checked by `noPurchaseLinkProblem()` in validate-data.
    */
   noPurchaseLink?: NoPurchaseLink;
+  /**
+   * The page language's text for the fields that double as data keys. Set
+   * only by a translation overlay (products-latam-es.ts), never in a
+   * products-*.json record. Templates show it in place of the English;
+   * the comparator's goal filter (`bestFor`), dosing anchors, verdicts and
+   * tallies (`ingredientDosages`) and the hero-dose lookup
+   * (`heroIngredients`) keep reading the English fields.
+   */
+  display?: ProductDisplayText;
+}
+
+/** Page-language text for `bestFor`, `heroIngredients` and `ingredientDosages` (see Product.display). */
+export interface ProductDisplayText {
+  /** Same order and length as `bestFor`. */
+  bestFor: string[];
+  /** Same order and length as `heroIngredients`. */
+  heroIngredients: string[];
+  /** Same order and length as `ingredientDosages`: each row's name and label amount. */
+  ingredientDosages: Array<Pick<IngredientDosage, 'name' | 'doseInProduct'>>;
 }
 
 /** Why an edition shows no purchase link for a product. */

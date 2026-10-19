@@ -1,10 +1,21 @@
-export type { Product, EUCompliance, Market, IngredientDosage, NoPurchaseLink, NoPurchaseLinkMhlw, NoPurchaseLinkNotSold, NoPurchaseLinkIngredient, NoPurchaseLinkReason, VendorTerm, VendorTerms, StorePrice } from './products-us';
+export type { Product, ProductDisplayText, EUCompliance, Market, IngredientDosage, NoPurchaseLink, NoPurchaseLinkMhlw, NoPurchaseLinkNotSold, NoPurchaseLinkIngredient, NoPurchaseLinkReason, VendorTerm, VendorTerms, StorePrice } from './products-us';
 export { productsUS, allProductsUS } from './products-us';
 export { productsEU, allProductsEU } from './products-eu';
 export { productsCA, allProductsCA } from './products-ca';
 export { productsAU, allProductsAU } from './products-au';
 export { productsJP, allProductsJP } from './products-jp';
 export { productsLatam, allProductsLatam } from './products-latam';
+export type { LatamProductTranslation, LatamProductLocale, TranslatedLatamProductField } from './products-latam-es';
+export {
+  latamProductTranslationsEs,
+  localizeProductLatam,
+  localizedProductsLatam,
+  localizedAllProductsLatam,
+  latamProductSourceFields,
+  latamTranslationFields,
+  latamTranslationShapeProblems,
+  TRANSLATED_LATAM_PRODUCT_FIELDS,
+} from './products-latam-es';
 export { activeProducts, isDiscontinued } from './product-status';
 export type { NoPurchaseLinkStrings } from './purchase-link';
 export {
