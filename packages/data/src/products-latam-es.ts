@@ -574,6 +574,48 @@ export const latamProductTranslationsEs: LatamProductTranslation[] = [
       discontinuedNote: '74234e98afe7',
     },
   },
+  {
+    slug: 'nootropics-depot-lions-mane',
+    summary:
+      'Melena de León como ingrediente único (500mg de extracto de cuerpo fructífero por cápsula) — un punto de partida para compradores en Latam que exploran los nootrópicos por primera vez, con precio en dólares estadounidenses y sin opción de moneda local. Su laboratorio interno ISO publica un Certificado de Análisis (CoA) por lote, una señal de confianza útil al comprar suplementos desde el exterior. Se envía desde EE. UU. La marca no publica un plazo de entrega estimado para este país; consulta el plazo estimado en el checkout. Los aranceles de importación y el despacho aduanero corren por cuenta del comprador, y los compradores en Argentina enfrentan controles cambiarios que pueden complicar los pagos con tarjeta en USD.',
+    whatItIs:
+      "Nootropics Depot Lion's Mane Extract es un suplemento de un solo ingrediente que aporta extracto estandarizado de cuerpo fructífero de Hericium erinaceus a 500mg por cápsula. Nootropics Depot opera un laboratorio de análisis interno con certificación ISO y publica un CoA para cada lote — documentación que los compradores en Latam pueden usar para verificar la identidad del producto si la aduana lo cuestiona. Para compradores en Latam, el producto tiene precio exclusivamente en USD y se envía desde EE. UU. como suplemento para uso personal, y entra en estos mercados bajo las franquicias de importación personal; no hemos verificado un registro local del producto ante la Comisión Federal para la Protección contra Riesgos Sanitarios (COFEPRIS) en México, la Agência Nacional de Vigilância Sanitária (ANVISA) en Brasil, la Administración Nacional de Medicamentos, Alimentos y Tecnología Médica (ANMAT) en Argentina, el Instituto Nacional de Vigilancia de Medicamentos y Alimentos (INVIMA) en Colombia, el Instituto de Salud Pública (ISP) en Chile ni la Dirección General de Medicamentos, Insumos y Drogas (DIGEMID) en Perú. El menor valor por envío reduce la probabilidad de aranceles significativos en comparación con stacks de precio más alto.",
+    howItWorks:
+      'El cuerpo fructífero de la Melena de León contiene hericenonas, compuestos que atraviesan la barrera hematoencefálica y estimulan la síntesis del factor de crecimiento nervioso (NGF). El NGF favorece la supervivencia neuronal, el crecimiento de los axones y el mantenimiento de las neuronas del hipocampo y la corteza — las regiones responsables del aprendizaje y la memoria. Nootropics Depot usa un extracto estandarizado de cuerpo fructífero en lugar de micelio (que tiene un menor contenido de hericenonas). El resultado es un estímulo de NGF más potente y constante por cápsula.',
+    whatToExpect:
+      'La Melena de León es un suplemento de largo plazo. Ensayos piloto informaron pequeños efectos agudos en 1–2 horas. En un ensayo en adultos con deterioro cognitivo leve, las puntuaciones mejoraron tras 16 semanas con 3g al día y volvieron a bajar dentro de las 4 semanas posteriores a suspenderlo (Mori 2009). Para obtener mejores resultados, tómalo de forma constante todos los días con una comida que contenga grasa (las hericenonas son liposolubles). Este producto funciona mejor combinado con un stack de varios ingredientes (p. ej., Mind Lab Pro ya contiene Melena de León) que como suplemento principal por sí solo.',
+    pros: [
+      'Laboratorio ISO: publica un CoA por lote',
+      'Cuerpo fructífero estandarizado',
+      'La mejor relación calidad-precio entre los de un solo ingrediente',
+      'Máxima transparencia',
+      'Envío internacional declarado — envío estándar gratuito a todo el mundo en pedidos internacionales de $200 o más; no se enumeran los países, así que confírmalo en el checkout (consultado 2026-10-05)',
+    ],
+    cons: [
+      'Solo un ingrediente',
+      'Envío internacional a Latam: la marca no publica un plazo de entrega estimado para este país; consulta el plazo estimado en el checkout',
+      'Pueden aplicarse aranceles o impuestos de importación según el país de destino',
+    ],
+    bestFor: ['Un solo ingrediente', 'Salud cerebral a largo plazo', 'Crecimiento nervioso'],
+    heroIngredients: ['Melena de León (extracto estandarizado de cuerpo fructífero)'],
+    ingredientDosages: [{ name: 'Extracto de cuerpo fructífero de Melena de León (1:1)', doseInProduct: '500mg' }],
+    sourceHashes: {
+      summary: '9d77ffc2620b',
+      whatItIs: 'cec631d4adbf',
+      howItWorks: '4e0915058716',
+      whatToExpect: 'b7f135e9b001',
+      pros: '76ce7c900343',
+      cons: 'f9d420c769e4',
+      notes: '74234e98afe7',
+      bestFor: '2f163c36c78c',
+      heroIngredients: '00cac060efd1',
+      ingredientDosages: '5c90a7653103',
+      importPathway: '74234e98afe7',
+      regulatoryNote: '74234e98afe7',
+      unscoredReason: '74234e98afe7',
+      discontinuedNote: '74234e98afe7',
+    },
+  },
 ];
 
 const TRANSLATIONS: Record<LatamProductLocale, LatamProductTranslation[]> = { es: latamProductTranslationsEs };
