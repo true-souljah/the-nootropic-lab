@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { Product, RegionProfile, RegionalNote } from '@nootropic/data';
 import { getLocaleForMarket, getStrings, licenceStatus, licenceStatusText, localPrice } from '@nootropic/data';
-import { localPriceShort } from './price-text';
+import { LocalPriceShort } from './PriceShort';
 import DisclaimerText from './DisclaimerText';
 import { Card } from './primitives/Card';
 import { FaqAccordion } from './primitives/FaqAccordion';
@@ -103,7 +103,7 @@ export default function RegionalAvailability({
                   )}
                   {price && (
                     <span className="text-ds-muted ds-tabular">
-                      {L.price}{colon}<strong className="text-ds-ink">{localPriceShort(price, L.monthUnit)}</strong>
+                      {L.price}{colon}<strong className="text-ds-ink"><LocalPriceShort price={price} monthUnit={L.monthUnit} pageLocale={hostStrings.productDetail.dateLocale} /></strong>
                     </span>
                   )}
                 </div>

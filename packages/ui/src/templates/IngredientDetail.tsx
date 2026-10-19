@@ -3,7 +3,7 @@ import SchemaOrg from '../SchemaOrg';
 import { FPDisclosure } from '../public-chrome/FPDisclosure';
 import { FPHeader } from '../public-chrome/FPHeader';
 import { FPFooter } from '../public-chrome/FPFooter';
-import { FPByline } from '../public-chrome/FPByline';
+import { FPByline, localISODate } from '../public-chrome/FPByline';
 import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { FaqAccordion } from '../primitives/FaqAccordion';
@@ -209,7 +209,7 @@ export default function IngredientDetail({
               {ing.studySummary}
             </p>
 
-            <FPByline updated={updatedDisplay} minutes={readMinutes} strings={uiStrings.byline} space={space} />
+            <FPByline updated={localISODate(today)} updatedDisplay={updatedDisplay} minutes={readMinutes} strings={uiStrings.byline} space={space} />
             <p className="text-[12.5px] text-ds-muted mt-2 mb-0">
               {te.evidenceReviewed}{space}
               <time dateTime={ing.evidenceReviewedAt}>{evidenceReviewedDisplay}</time>

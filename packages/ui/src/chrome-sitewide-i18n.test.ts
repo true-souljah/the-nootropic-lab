@@ -47,6 +47,9 @@ function newLeaves(locale: Locale): Map<string, string> {
   // The eight headings are this change's chrome; the policy text (`body`,
   // en and es only, 2026-10-19) is checked in products-latam-es.test.ts.
   const { body: _editorialBody, ...editorialHeadings } = s.editorialStandards;
+  // The CSV export's header row (2026-10-19; ja carries the English text while
+  // Japanese copy is paused) is checked in csv-headers.test.ts.
+  const { csvHeaders: _csvHeaders, ...comparator } = s.comparator;
   return new Map([
     ['nav.productCount', s.nav.productCount],
     ['nav.ingredientCount', s.nav.ingredientCount],
@@ -87,7 +90,7 @@ function newLeaves(locale: Locale): Map<string, string> {
     ...leaves(s.byline, 'byline'),
     ...leaves(listicle, 'listicle'),
     ...leaves(s.bestOf, 'bestOf'),
-    ...leaves(s.comparator, 'comparator'),
+    ...leaves(comparator, 'comparator'),
     ...leaves(s.ingredientLibrary, 'ingredientLibrary'),
     ...leaves(s.geo, 'geo'),
     ...leaves(editorialHeadings, 'editorialStandards'),
@@ -299,7 +302,8 @@ describe('comparison table score buttons are named with the text they show (WCAG
     const buttons = scoreButtons(locale);
     expect(buttons.length, 'one per product in the rows and one in the mobile cards').toBe(productsUS.length * 2);
     for (const [name, shown] of buttons) {
-      expect(shown, `${locale}: visible text`).toMatch(/^\d+(\.\d+)?\/10$/);
+      // The page locale's decimal sign: "7.5/10" (en, es, ja), "7,5/10" (de, fr, pt, fr-CA).
+      expect(shown, `${locale}: visible text`).toMatch(/^\d+([.,]\d+)?\/10$/);
       expect(name, `${locale}: "${name}" does not contain "${shown}"`).toContain(shown);
     }
   });

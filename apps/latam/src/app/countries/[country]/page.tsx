@@ -8,7 +8,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 import { PublicShell } from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import { SITE_URL } from '@/lib/region';
-import { priceText } from '@nootropic/ui';
+import { priceText, PriceShort } from '@nootropic/ui';
 
 export const dynamicParams = false;
 
@@ -116,7 +116,7 @@ export default async function CountryPage({
                   <p className="text-sm text-gray-600 mb-2 line-clamp-2">{product.summary}</p>
                   <div className="flex flex-wrap gap-3 text-xs text-gray-500">
                     <span>{uiStrings.geo.score}{uiStrings.typography.space}<strong className={SCORE_TIER_TEXT_CLASS[scoreTier(product.score)]}>{`${product.score}/10`}</strong></span>
-                    {priceText(product, uiStrings) && <span>{priceText(product, uiStrings)!.short}</span>}
+                    {priceText(product, uiStrings) && <span><PriceShort price={priceText(product, uiStrings)} /></span>}
                   </div>
                 </div>
               </a>

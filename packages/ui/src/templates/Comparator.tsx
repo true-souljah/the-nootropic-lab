@@ -449,7 +449,7 @@ export default function Comparator({
                             {price.pack}
                             <span
                               className="block text-[10.5px] font-normal text-ds-muted"
-                              lang={price.packLang && price.packLang !== uiStrings.productDetail.dateLocale.split('-')[0] ? price.packLang : undefined}
+                              lang={price.packLangAttr}
                             >
                               {price.packText}
                             </span>
