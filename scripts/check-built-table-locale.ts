@@ -17,7 +17,7 @@
 //     also the EU column, the EU-storefront badge and its tooltip;
 //   - an English table label or unit shows: an en bundle value that differs
 //     from the locale's, the component's English fallbacks, "Sort by …",
-//     "… out of 10 — tap or hover for breakdown", "/mo", "30 days", "30d".
+//     "…/10 — tap or hover for breakdown", "/mo", "30 days", "30d".
 // It also fails when a page in EXPECTED is not found as a localized table page
 // (the detector went stale), and refuses to pass when it checked no page.
 //
@@ -134,7 +134,7 @@ function expectationsFor(locale: Locale, region: string): Expectation {
   const forbidden: Expectation['forbidden'] = [
     ...[...new Set(englishLabels)].map((v) => ({ what: `English label "${v}"`, test: (x: string) => x === v })),
     { what: 'English sort control "Sort by …"', test: (x) => x.startsWith('Sort by ') },
-    { what: 'English score name "… out of 10 — tap or hover for breakdown"', test: (x) => x.includes('tap or hover for breakdown') },
+    { what: 'English score name "…/10 — tap or hover for breakdown"', test: (x) => x.includes('tap or hover for breakdown') },
     { what: `English per-month unit "/${EN_PD.stats.monthUnit}"`, test: (x) => new RegExp(`/${escapeRe(EN_PD.stats.monthUnit)}\\b`).test(x) },
     { what: `English money-back days "${EN_PD.stats.daysCount}"`, test: (x) => numberPattern(EN_PD.stats.daysCount).test(x) },
     { what: `English money-back days "${EN_PD.stats.daysCountShort}"`, test: (x) => numberPattern(EN_PD.stats.daysCountShort).test(x) },
