@@ -1,7 +1,7 @@
 import { describe, test, expect } from 'vitest';
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { resolve, dirname, extname, relative } from 'node:path';
-import { euCountries, ingredients, monthlyStorePrice } from '@nootropic/data';
+import { CITATIONS, euCountries, ingredients, monthlyStorePrice } from '@nootropic/data';
 import type { Product } from '@nootropic/data';
 
 // No national product register (Health Canada NPN, SFDA/MOHAP, COFEPRIS,
@@ -1667,7 +1667,7 @@ describe('round sixteen: energy, stack, focus- and memory-page claims follow the
       'Frente a placebo, para L-Theanine + Caffeine, un metaanálisis de 11 ECA encontró mejoras moderadas en el estado de alerta y en la precisión al alternar la atención durante las 2 primeras horas tras la dosis. Foxe 2012 no encontró ningún beneficio adicional frente a cada compuesto por separado.',
       'paired with Arabic coffee or matcha — the same pairing without a caffeine-containing supplement.',
       'priced in US dollars.',
-      'At 8-12 weeks: cumulative neuroprotective benefits from PS and pine bark. Best for users who already supplement separately',
+      "phosphatidylserine's memory trials ran 15 weeks to 12 months. Best for users who already supplement separately",
       // U2
       'Which nootropic ingredients have trial evidence for focus available in Canada?',
       'Which nootropic ingredients have trial evidence for focus in SEA?',
@@ -1747,7 +1747,7 @@ describe('round sixteen: energy, stack, focus- and memory-page claims follow the
       'Our citicoline page rates its attention evidence as mixed: the acute attention trial in healthy adults that we cite gave it together with caffeine.',
       'Nuestra página sobre la citicolina califica como mixta su evidencia sobre la atención: el ensayo agudo sobre atención en adultos sanos que citamos la administró junto con cafeína.',
       'The Cochrane review found no evidence of an attention benefit in older adults with chronic cerebral disorders; the acute attention trial in healthy adults that we cite gave citicoline together with caffeine, so citicoline’s own effect cannot be isolated.',
-      'Caffeine + L-theanine — several placebo-controlled trials (Owen 2008)',
+      'Caffeine + L-theanine — improved attention switching versus placebo (Owen 2008, Giesbrecht 2010); Foxe 2012 found no added benefit over either compound alone',
       'When combined with caffeine, the pair improved attention measures versus placebo in several trials, but in a controlled trial (Rogers 2007) theanine did not significantly reduce caffeine-induced jitteriness.',
       'Con cafeína, la combinación mejoró las medidas de atención frente a placebo en varios ensayos, pero en un ensayo controlado (Rogers 2007) L-Theanine no redujo significativamente el nerviosismo causado por la cafeína.',
       'The alpha-wave (MEG) trial on our L-Theanine page found higher alpha activity at 2 hours, and only in people with higher trait anxiety.',
@@ -1755,7 +1755,7 @@ describe('round sixteen: energy, stack, focus- and memory-page claims follow the
       "Important: unlike the US (where the FDA allows only qualified claims that phosphatidylserine 'may reduce the risk of dementia' or 'cognitive dysfunction in the elderly', with the disclaimer 'FDA concludes that there is little scientific evidence supporting this claim'), EFSA has rejected several PS health claims",
       "The EU does not authorise US-style qualified claims (the FDA allows only qualified claims that phosphatidylserine 'may reduce the risk of dementia' or 'cognitive dysfunction in the elderly', with the disclaimer 'FDA concludes that there is little scientific evidence supporting this claim') — EFSA has rejected several PS health claims",
       'Para la fosfatidilserina, la FDA solo permite declaraciones calificadas, como que "may reduce the risk of cognitive dysfunction in the elderly"',
-      'Within 30-60 minutes: subtle calm focus. Within 2-4 weeks: noticeable mental endurance under cognitive load and stress.',
+      'Timing in the trials we cite: L-Tyrosine was given about 1 hour before a demanding task (this product has 250mg; the lowest positive trial used 2,000mg); pine bark\'s cognitive studies ran 8–12 weeks (this product has 75mg, below the 100–200mg clinical dose).',
       // Attributed rationale that stays (not our claim).
       'The theory is synergistic optimisation across all cognitive systems simultaneously.',
       'work synergistically to support the function of mitochondria',
@@ -1987,7 +1987,15 @@ const ROUND_SEVENTEEN_UNSOURCED: RegExp[] = [
   // notification claims memory and attention maintenance (given in the
   // record's howItWorks with FANCL's 12-week trials); the sentence was
   // deleted, not reworded.
-  /sustained brain health maintenance/i,
+  // Widened 2026-10-19 (round twenty, B3-003): NatureBell Ginkgo + Ginseng's
+  // US whatToExpect still said "At 12+ weeks: sustained cognitive
+  // maintenance." Our ginkgo page gives no 12-week effect (positive dementia
+  // trials ran 22–26 weeks; GEM found no preventive effect); deleted.
+  /sustained (brain health|cognitive) maintenance/i,
+  // Added 2026-10-19 (round twenty, B3-004): TruBrain's pros kept "Fast onset
+  // (15-30 min) versus capsule formats" after round seventeen removed the same
+  // unsourced onset claim from its whatToExpect; deleted.
+  /Fast onset \(15-30 min\)/i,
   // Follow-up from the i18n session (2026-10-19). The FDA's 13 May 2003 letter
   // (regulations.gov FDA-2002-P-0041-0020) allows two qualified claims, one for
   // dementia and one for cognitive dysfunction in the elderly, each with its own
@@ -2000,8 +2008,23 @@ const ROUND_SEVENTEEN_UNSOURCED: RegExp[] = [
 
 // U3: every stack note names the trial it relies on or says we cite none.
 // Case-sensitive so that the author-year form needs a capitalised name.
-const STACK_NOTE_SOURCED =
-  /[Ww]e cite no trial|has not been tested|not tested together|\b[A-Z][a-z]+ (19|20)\d\d\b|\d+-week trial/;
+// Tightened 2026-10-19 (round twenty, B3-008): the "<n>-week trial" branch
+// passed notes that name no trial ("A 12-week trial showed the pair works
+// well."), and the author-year branch passed a capitalised sentence opener
+// ("In 2020 this pairing became popular."). The two PS<->DHA notes that relied
+// on the week branch now name Vakhapova 2010 (PMID 20523044), the week branch
+// is gone, and common sentence-opening words cannot stand in for an author.
+// Tightened again (round twenty final pass, R20-025): any other capitalised
+// word still passed ("Study 2020 ...", "Research 2020 ..."). A name-year pair
+// now counts only when the name is the firstAuthor of a paper in
+// packages/data/src/citations.ts. The name is compared without the year,
+// because pages label Rogers 2008 while citations.ts dates PMID 17891480 2007.
+const CITED_FIRST_AUTHORS = new Set(CITATIONS.map(c => c.firstAuthor));
+const STACK_NOTE_SOURCED = {
+  test: (s: string): boolean =>
+    /[Ww]e cite no trial|has not been tested|not tested together/.test(s) ||
+    [...s.matchAll(/\b([A-Z][a-z]+) (?:19|20)\d\d\b/g)].some(m => CITED_FIRST_AUTHORS.has(m[1])),
+};
 
 // "multiple peer-reviewed RCTs" (U2). U3 rewrote apps/us/src/app/mind-lab-pro-vs-*,
 // so the check scans every file with no exclusion.
@@ -2168,6 +2191,9 @@ describe('round seventeen: mechanism, user-report and market claims follow our i
       "The price gap reflects (a) Mind Lab Pro's peer-reviewed clinical research investment, (b) trademarked extracts",
       // 2026-10-15 (round nineteen)
       'Weeks 1-2: no noticeable acute effects — this is a foundational supplement, not a stimulant. At 12+ weeks: sustained brain health maintenance. FANCL recommends 4 tablets daily.',
+      // 2026-10-19 (round twenty)
+      'Weeks 1-2: mild improvement in mental alertness from Ginkgo blood flow effects. Positive dementia trials of ginkgo ran 22–26 weeks. At 12+ weeks: sustained cognitive maintenance.',
+      'Fast onset (15-30 min) versus capsule formats',
       // 2026-10-19 (i18n session follow-up)
       "The FDA allows only a qualified claim that phosphatidylserine may reduce the risk of dementia or cognitive dysfunction in the elderly, with the disclaimer that 'FDA concludes that there is little scientific evidence supporting this claim' (FDA letter, 13 May 2003).",
       "For phosphatidylserine, the FDA allows only a qualified claim that it 'may reduce the risk of cognitive dysfunction in the elderly', followed by 'FDA concludes that there is little scientific evidence supporting this claim' (FDA letter, 13 May 2003).",
@@ -2177,12 +2203,12 @@ describe('round seventeen: mechanism, user-report and market claims follow our i
     for (const re of ROUND_SEVENTEEN_UNSOURCED) expect(removed.some(s => re.test(s)), String(re)).toBe(true);
     // The replacement wording and the out-of-scope lines named above pass.
     for (const s of [
-      'Citicoline is a choline donor. Our citicoline page rates its attention evidence as mixed and its working-memory evidence as moderate (one trial in older adults with inefficient memory, Spiers 1996). Cognizin is the standardized form.',
-      'La citicolina es un donante de colina. Nuestra página sobre la citicolina califica como mixta su evidencia sobre la atención y como moderada su evidencia sobre la memoria de trabajo (un ensayo en adultos mayores con memoria ineficiente, Spiers 1996).',
+      'Citicoline is a choline donor. Our citicoline page rates its attention evidence as mixed and its verbal-memory evidence as moderate (delayed recall improved in one trial in older adults with inefficient memory, Spiers 1996). Cognizin is a standardized form.',
+      'La citicolina es un donante de colina. Nuestra página sobre la citicolina califica como mixta su evidencia sobre la atención y como moderada su evidencia sobre la memoria verbal (el recuerdo diferido mejoró en un ensayo en adultos mayores con memoria ineficiente, Spiers 1996).',
       "It contains no caffeine. Onnit's 30-day money-back guarantee covers the first purchase of each product made directly on Onnit.com.",
       'An acute 320mg dose improved sustained task performance (2012), but the 2026 network meta-analysis found no processing-speed difference.',
       'It is a potent, reversible acetylcholinesterase inhibitor — meaning it blocks the enzyme that breaks down acetylcholine, effectively increasing acetylcholine levels throughout the brain.',
-      'Phosphatidylserine (PS) is a phospholipid that forms a critical component of neuronal cell membranes. Supplementation replenishes PS levels that decline naturally with age.',
+      'Phosphatidylserine (PS) is a phospholipid that forms a critical component of neuronal cell membranes.',
       'Phosphatidylserine (100mg Sharp-PS) is a phospholipid in neuronal cell membranes.',
       'Healthy membranes are essential for efficient signal transmission between neurons.',
       'Our Rhodiola page rates its mental-fatigue evidence as mixed.',
@@ -2257,13 +2283,20 @@ describe('round seventeen: mechanism, user-report and market claims follow our i
     expect(STACK_NOTE_SOURCED.test('Both are adaptogens; we cite no trial of the pairing.')).toBe(true);
     expect(STACK_NOTE_SOURCED.test('Different pathways, not tested together.')).toBe(true);
     expect(STACK_NOTE_SOURCED.test('Versus placebo, the combination improved attention measures in several trials, though Foxe 2012 found no added benefit over either compound alone.')).toBe(true);
-    expect(STACK_NOTE_SOURCED.test('a 15-week trial of marine PS-DHA at 300mg/day improved immediate verbal recall')).toBe(true);
+    expect(STACK_NOTE_SOURCED.test('a 15-week trial of marine PS-DHA (Vakhapova 2010) at 300mg/day improved immediate verbal recall')).toBe(true);
     for (const s of [
       'The classic adaptogen stack. Rhodiola is activating; Ashwagandha is calming. Together they provide full-day HPA axis support.',
       'Citicoline handles acute attention and acetylcholine; Bacopa covers long-term memory consolidation.',
       'Both support dopamine availability — Oat Straw by slowing breakdown (MAO-B), Tyrosine by providing precursor.',
       'Dynamine provides acute adenosine blockade; Zynamite extends dopamine via COMT inhibition.',
       'A pairing that became popular in 2020.',
+      // 2026-10-19 (round twenty, B3-008): each passed the old pattern.
+      'In 2020 this pairing became popular.',
+      'A 12-week trial showed the pair works well.',
+      'a 15-week trial of marine PS-DHA at 300mg/day improved immediate verbal recall',
+      // Round twenty final pass (R20-025): passed the capitalised-word branch.
+      'Study 2020 showed the pair works well.',
+      'Research 2020 made the pairing popular.',
     ]) expect(STACK_NOTE_SOURCED.test(s), s).toBe(false);
     const pairs = ingredients.flatMap(i => i.stacksWith.map(p => ({ from: i.slug, to: p.slug, reason: p.reason })));
     expect(pairs.length).toBeGreaterThan(40);
@@ -2312,5 +2345,381 @@ describe('round seventeen: mechanism, user-report and market claims follow our i
     expect(row?.notes).toMatch(/Pase 2012/);
     expect(row?.notes).toMatch(/Kongkeaw 2014 pooled speed-of-attention outcomes, not memory/);
     expect(bacopa!.sources.map(s => s.pmid)).toContain('22747190');
+  });
+});
+
+// Round twenty (2026-10-19, research p5/panel-retro/verified-batch1-3.json):
+// a retroactive multi-lab review of merged rounds 16-19, each finding checked
+// against main. Removed or reworded, with the source each now follows:
+// - Mind Lab Pro's 250mg citicoline "at clinically-validated doses" / "a dosis
+//   clínicamente validadas" and "delivers citicoline at clinical dose" (our
+//   citicoline evidence puts 250-500mg at the low end of studied doses; the
+//   picks now quote the mixed attention grade). B1-003.
+// - The focus FAQ's "Single-ingredient supplements claiming 'powerful focus'
+//   ... over-marketed" ("concentración potente") had no source. B1-017.
+// - Focus FAQs "plan for 8 weeks" ("planifica 8 semanas") and the Alpha Brain
+//   comparison's "at least 8 weeks" now plan for at least 12 weeks, as the
+//   memory FAQs do (the Bacopa 8-12 week onset itself is kept). B2-027.
+// - The Adderall guide's "several placebo-controlled trials (Owen 2008)" now
+//   names Owen 2008, Giesbrecht 2010 and Foxe 2012's null comparison. B1-018.
+// - "For evidence-graded buyers, Mind Lab Pro wins" overstated two weak Leeds
+//   studies (PMID 37194920, 40149748). B2-035.
+// - Aging heroes and FAQs ("evidence specifically in older adults with
+//   subjective cognitive complaints", "Most of the supplements ...", "The
+//   evidence is strongest in 50+ adults"; Spanish twins) were broader than the
+//   cards (Vakhapova 2010, Spiers 1996, Mori 2009). B1-013.
+// - "Track changes over 12 weeks" (aging) and the memory FAQs' bare "12 weeks
+//   ... before judging" were shorter than the phosphatidylserine (15 weeks to
+//   12 months), ginkgo (22-26 weeks) and DHA (about 24 weeks) trials named in
+//   the same answers. B2-029.
+// - Spiers 1996 measured delayed and immediate recall: "working-memory
+//   evidence" ("memoria de trabajo") is now verbal memory, matching the
+//   renamed citicoline row; "Cognizin is the standardised form" ("es la forma
+//   estandarizada") is now "a" form. B2-030, B2-031.
+// - Guides: "calm focus without sedation" (our L-Theanine page grades calm
+//   focus preliminary), "excellent safety records" (ashwagandha liver-injury
+//   case reports; Denmark's 2023 ban), "you are likely to notice" faster recall
+//   (Pase 2012: 9 of 17 free-recall tests; Lopresti 2025 null), and "PS levels
+//   in the brain decline with aging" / "replenishes PS levels that decline"
+//   (no source measures brain PS by age). B1-023, B2-043, B2-045, B2-046.
+// - Mechanisms and stack notes: Rhodiola's MAO inhibition "increasing
+//   availability of dopamine, serotonin, and norepinephrine" (laboratory-only
+//   per its own FAQ), Bacopa's "dendritic branching" and "repair of damaged
+//   neurons", Oat Straw's MAO-B inhibition, "Insist on KSM-66 ... or Sensoril"
+//   (we cite no Sensoril trial), and the Ashwagandha-PS note's "studied for
+//   effects on cortisol" (PS cortisol effect not re-verified). B1-028, B2-011,
+//   B2-055, B2-048, B2-053.
+// - Product timelines: Mind Lab Pro's "mild calm focus from L-Theanine",
+//   "improved mental energy and reduced cognitive fatigue" and "memory recall
+//   and learning speed"; NooCube's "Day one: mild calm focus"; Performance Lab
+//   Mind's "subtle calm focus", "noticeable mental endurance", "cumulative
+//   neuroprotective benefits from PS and pine bark" (EU: "mild focus from
+//   Tyrosine and Citicoline", "improved mental endurance ...", "neuroprotective
+//   benefits from Phosphatidylserine and pine bark"); Memo Plus Gold's
+//   "absorption improves significantly"; NatureBell's "Weeks 1-2: ... from
+//   Ginkgo blood flow effects"; FANCL BRAINs' "significantly cheaper than
+//   imported alternatives" (prices are never converted between currencies).
+//   B2-006, B2-007, B2-014, B2-010, B2-056, B3-013.
+// Every pattern had at least one hit on origin/main (dfed4f52; the three
+// products-latam-es.ts twins on 6b0d58d8, where that file first appears) and
+// has none on this branch. The scan is the round-sixteen file set.
+const ROUND_TWENTY_UNSOURCED: RegExp[] = [
+  /at clinically-validated doses/i,
+  /delivers citicoline at clinical dose/i,
+  /claiming "powerful focus"/i,
+  /plan for 8 weeks of consistent use/i,
+  /Plan for at least 8 weeks before judging/i,
+  /several placebo-controlled trials \(Owen 2008\)/i,
+  /For evidence-graded buyers, Mind Lab Pro wins/i,
+  /evidence specifically in older adults with subjective cognitive complaints/i,
+  /Most of the supplements on this page have evidence in older adults/i,
+  /evidence is strongest in 50\+ adults/i,
+  /Track changes over 12 weeks/i,
+  /consistent dosing before judging(\.| —)/i,
+  /working-memory evidence as moderate/i,
+  /Cognizin is the standardi[sz]ed form(\.| used)/i,
+  /calm focus without sedation/i,
+  /have excellent safety records/i,
+  /you are likely to notice/i,
+  /PS levels in the brain decline/i,
+  /replenishes PS levels that decline/i,
+  /increasing availability of dopamine, serotonin, and norepinephrine/i,
+  /dendritic branching/i,
+  /repair of damaged neurons/i,
+  /Insist on KSM-66/i,
+  /studied for effects on cortisol/i,
+  /Oat Straw inhibits MAO-B/i,
+  /MAO-B inhibition slows dopamine breakdown/i,
+  /\(PDE4\) and monoamine oxidase B/i,
+  /mild calm focus from L-Theanine/i,
+  /improved mental energy and reduced cognitive fatigue/i,
+  /memory recall and learning speed/i,
+  /subtle calm focus/i,
+  /noticeable mental endurance under cognitive load/i,
+  /cumulative neuroprotective benefits from PS and pine bark/i,
+  /mild focus from Tyrosine and Citicoline/i,
+  /neuroprotective benefits from Phosphatidylserine and pine bark/i,
+  /improved mental endurance and reduced cognitive fatigue/i,
+  /absorption improves significantly/i,
+  /from Ginkgo blood flow effects/i,
+  /significantly cheaper than imported/i,
+  // Spanish twins (LATAM pages, ingredients-es.ts, guides-es.ts).
+  /a dosis clínicamente validadas/i,
+  /prometen "concentración potente"/i,
+  /planifica 8 semanas de uso constante/i,
+  /evidencia específicamente en adultos mayores con quejas cognitivas subjetivas/i,
+  /más fuerte en adultos mayores de 50 años/i,
+  /seguimiento de los cambios durante 12 semanas/i,
+  /antes de juzgar — y considera/i,
+  /su evidencia sobre la memoria de trabajo/i,
+  /Cognizin es la forma estandarizada\./i,
+  /enfoque tranquilo sin sedación/i,
+  /excelente historial de seguridad/i,
+  /es probable que usted note/i,
+  /niveles de PS en el cerebro disminuyen/i,
+  /repone los niveles de PS/i,
+  /aumenta la disponibilidad de dopamina, serotonina y norepinefrina/i,
+  /ramificación dendrítica/i,
+  /reparación de neuronas dañadas/i,
+  /Exige KSM-66/i,
+  /Ambos se estudian por sus efectos sobre el cortisol/i,
+  /La paja de avena inhibe la MAO-B/i,
+  /La inhibición de la MAO-B frena/i,
+  /y la monoaminooxidasa B \(MAO-B\)/i,
+  // The LATAM Spanish product overlay (products-latam-es.ts, merged from
+  // origin/main 6b0d58d8 in this round) translated the Mind Lab Pro and
+  // NooCube whatToExpect lines above; its twins go with them.
+  /concentración tranquila leve gracias a la L-Teanina/i,
+  /más energía mental y menos fatiga cognitiva/i,
+  /en la velocidad de aprendizaje/i,
+  // Follow-up (same round): the same-class leftovers. The memory FAQs' "The
+  // evidence is strongest specifically in older adults with subjective
+  // cognitive complaints" (B1-013's wording now), the Thesis comparison's
+  // "For evidence-graded buyers prioritizing peer-reviewed data, Mind Lab Pro
+  // wins" (B2-035's wording now) and JP NooCube's "Within 2-4 weeks: improved
+  // mental stamina and clarity under workload" (no source; the other regions'
+  // Lutemax sentence now).
+  /evidence is strongest specifically in older adults/i,
+  /más fuerte específicamente en adultos mayores/i,
+  /prioritizing peer-reviewed data, Mind Lab Pro wins/i,
+  /improved mental stamina and clarity under workload/i,
+  // Final pass (same round; research p5/panel-r20/verified.json and the
+  // coordinator's checks). R20-004: the timing FAQs listed Lion's Mane, then
+  // said none of the ingredients is acute-effect (our Lion's Mane page: small
+  // acute effects in pilot trials); case-sensitive, so the qualified
+  // lower-case "none ..." that replaced them passes. R20-009: an 8-week re-test
+  // after 12-week trials. R20-014: Mind Lab Pro's and NooCube's Bacopa benefit
+  // with no dose caveat (150mg and 250mg against 300-450mg). R20-020/B2-012:
+  // Memo Plus Gold's serotonin "Bacopa fog" and absorption claims. Thesis:
+  // "stronger user-experience data". B2-016: BrainMD's 2-4 and 8-12 week
+  // timelines. B2-005: Alpha Brain "one of only two". Focus heroes:
+  // "focus-validated ... at clinical dose". Ashwagandha: KSM-66 as "the extract
+  // used in the trials" and the unsourced 5%-withanolide and Sensoril
+  // leaf-and-root specs.
+  /None (of these )?are acute-effect ingredients/,
+  /Ninguno es un ingrediente de efecto agudo/,
+  /again at 8 weeks/i,
+  /nuevamente a las 8 semanas/i,
+  /measurable improvements in memory recall/i,
+  /mejoras medibles en el recuerdo/i,
+  /At 8 weeks: modest memory improvements( from Bacopa)?\./i,
+  /as the serotonin system adjusts/i,
+  /Take with food for best absorption/i,
+  /stronger user-experience data/i,
+  /subtle improvements in word retrieval/i,
+  /cumulative membrane and mitochondrial benefits/i,
+  /one of only two (nootropics|nootropic supplements|supplements)/i,
+  /uno de solo dos suplementos/i,
+  /focus-validated/i,
+  /validados para concentración/i,
+  /is the extract used in the key stress and cognition trials/i,
+  /es el extracto usado en los principales ensayos/i,
+  /Choose KSM-66, the extract used/i,
+  /Elige KSM-66/i,
+  /\(full-spectrum root extract, 5% withanolides\)/i,
+  /\(extracto de raíz de espectro completo, 5% de witanólidos\)/i,
+  /5% withanolides from root only/i,
+  /5% de witanólidos, solo de raíz/i,
+  /Sensoril \(leaf \+ root extract\)|Sensoril is a leaf-and-root extract/i,
+  /Sensoril \(extracto de hoja \+ raíz\)|Sensoril es un extracto de hoja y raíz/i,
+  // Last fix (same round): Alpha Brain's records and the GCC focus and
+  // studying pages said "two (published) clinical studies" and "The two
+  // published studies (Onnit-funded, 2016 and 2021)". Only Solomon 2016
+  // (PMID 26876224) was found; no 2021 study was (the only other registered
+  // trial, NCT07495592, ran May-June 2026 with no published results).
+  /two (published )?clinical studies/i,
+  /2016 and 2021/,
+  /dos estudios clínicos publicados/i,
+  /2016 y 2021/,
+];
+
+describe('round twenty: retro-panel findings on rounds 16-19 follow our ingredient pages', () => {
+  test('the patterns catch the removed wording, and every pattern catches some of it', () => {
+    const removed = [
+      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses.',
+      'Among CA-shippable products, Mind Lab Pro delivers citicoline at clinical dose; Qualia Mind and Hunter Focus both pre-build caffeine + L-theanine (100mg + 200mg).',
+      'Single-ingredient supplements claiming "powerful focus" without these are typically over-marketed.',
+      'If you want a tonight-effect, look for L-theanine + caffeine; for compounded benefit, plan for 8 weeks of consistent use.',
+      'Plan for at least 8 weeks before judging long-term efficacy.',
+      'Caffeine + L-theanine — several placebo-controlled trials (Owen 2008)',
+      'For evidence-graded buyers, Mind Lab Pro wins. For price-conscious open-formula buyers, NooCube is a fair second.',
+      'The supplements on this page have evidence specifically in older adults with subjective cognitive complaints.',
+      'These supplements have evidence specifically in older adults with subjective cognitive complaints.',
+      'Most of the supplements on this page have evidence in older adults with subjective cognitive complaints.',
+      'The evidence is strongest in 50+ adults with subjective cognitive complaints.',
+      'None are acute-effect ingredients. Track changes over 12 weeks of consistent dosing — ideally with a baseline cognitive measure.',
+      'None of these are acute-effect ingredients. Plan for at least 12 weeks of consistent dosing before judging.',
+      'Plan for at least 12 weeks of consistent dosing before judging — start at the beginning of the academic term, fiscal year, or before a major project rather than the night before.',
+      'Our citicoline page rates its attention evidence as mixed and its working-memory evidence as moderate (one trial in older adults with inefficient memory, Spiers 1996). Cognizin is the standardised form.',
+      'Cognizin is the standardized form used in Mind Lab Pro.',
+      'This produces a state of calm focus without sedation.',
+      'Natural nootropics at recommended doses have excellent safety records and are sold as food supplements in most jurisdictions.',
+      'After 8–12 weeks on a Bacopa-containing stack, you are likely to notice: faster recall of names, numbers, and learned material',
+      'Healthy membranes are essential for efficient signal transmission between neurons. PS levels in the brain decline with aging.',
+      'Supplementation replenishes PS levels that decline naturally with age.',
+      'Its key bioactives (rosavins and salidroside) inhibit monoamine oxidase enzymes, increasing availability of dopamine, serotonin, and norepinephrine — neurotransmitters involved in motivation, mood, and cognitive stamina.',
+      'Bacopa enhances synaptic communication by increasing dendritic branching and synaptic density. Its active compounds (bacosides A and B) facilitate repair of damaged neurons and upregulate antioxidant activity',
+      'Its active bacosides enhance synaptic communication by promoting dendritic branching and synaptic density, support repair of damaged neurons, and modulate the acetylcholine and serotonin systems involved in learning and recall.',
+      'Capsule. Insist on KSM-66 (full-spectrum root extract, 5% withanolides) or Sensoril (leaf + root extract).',
+      'Both are studied for effects on cortisol; we cite no trial of the pairing.',
+      'Oat Straw inhibits MAO-B, which slows dopamine breakdown; L-Tyrosine is a dopamine precursor. We cite no trial of the pairing.',
+      'Oat Straw (Avena sativa) extract works primarily by inhibiting phosphodiesterase type 4 (PDE4) and monoamine oxidase B (MAO-B). PDE4 inhibition increases cyclic AMP levels in neurons, enhancing dopaminergic signalling. MAO-B inhibition slows dopamine breakdown.',
+      'Within 30-60 minutes: mild calm focus from L-Theanine. Within 2-4 weeks: improved mental energy and reduced cognitive fatigue (Citicoline, Tyrosine). At 8-12 weeks: measurable improvements in memory recall and learning speed (Bacopa, Lion\'s Mane).',
+      'Day one: mild calm focus from L-Theanine.',
+      'Within 30-60 minutes: subtle calm focus. Within 2-4 weeks: noticeable mental endurance under cognitive load and stress. At 8-12 weeks: cumulative neuroprotective benefits from PS and pine bark.',
+      "Acute (30-60 min): mild focus from Tyrosine and Citicoline's acetylcholine boost. 2-4 weeks: improved mental endurance and reduced cognitive fatigue. 8-12 weeks: memory and neuroprotective benefits from Phosphatidylserine and pine bark accumulate.",
+      'Because bacosides are fat-soluble, absorption improves significantly when the capsules are taken with a meal containing some fat.',
+      'Weeks 1-2: mild improvement in mental alertness from Ginkgo blood flow effects.',
+      'Weeks 1-2: mild alertness improvement from Ginkgo blood flow effects.',
+      'At ¥5,479 for a 30-day bag (list price on fancl.co.jp; ¥4,930 on subscription), it is significantly cheaper than imported alternatives with zero import duty or customs risk.',
+      // Spanish
+      'Fórmula abierta con 100mg de L-teanina + 250mg de citicolina Cognizin a dosis clínicamente validadas.',
+      'Los suplementos de un solo ingrediente que prometen "concentración potente" sin estos componentes suelen estar sobrevalorados por marketing.',
+      'Para un efecto inmediato busca L-teanina + cafeína; para beneficio acumulativo, planifica 8 semanas de uso constante.',
+      'Los suplementos de esta página tienen evidencia específicamente en adultos mayores con quejas cognitivas subjetivas.',
+      'La evidencia es más fuerte en adultos mayores de 50 años con quejas cognitivas subjetivas.',
+      'Haz seguimiento de los cambios durante 12 semanas de dosificación constante — idealmente con una medida cognitiva basal.',
+      'Planifica al menos 12 semanas de dosificación constante antes de juzgar — y considera el tiempo de envío internacional (10–18 días a Latam) en tu cronograma.',
+      'Nuestra página sobre la citicolina califica como mixta su evidencia sobre la atención y como moderada su evidencia sobre la memoria de trabajo (un ensayo en adultos mayores con memoria ineficiente, Spiers 1996). Cognizin es la forma estandarizada.',
+      'Esto produce un estado de enfoque tranquilo sin sedación.',
+      'Los nootrópicos naturales en las dosis recomendadas tienen un excelente historial de seguridad',
+      'Después de 8–12 semanas con un stack que contenga Bacopa, es probable que usted note: recuperación más rápida de nombres',
+      'Los niveles de PS en el cerebro disminuyen con el envejecimiento.',
+      'La suplementación repone los niveles de PS, que disminuyen de forma natural con la edad.',
+      'Sus principales compuestos bioactivos (rosavinas y salidrosida) inhiben las enzimas monoaminooxidasa, lo que aumenta la disponibilidad de dopamina, serotonina y norepinefrina.',
+      'La Bacopa mejora la comunicación sináptica al aumentar la ramificación dendrítica y la densidad sináptica. Sus compuestos activos (bacósidos A y B) facilitan la reparación de neuronas dañadas',
+      'Cápsula. Exige KSM-66 (extracto de raíz de espectro completo, 5% de witanólidos) o Sensoril (extracto de hoja + raíz).',
+      'Ambos se estudian por sus efectos sobre el cortisol; no citamos ningún ensayo de esta combinación.',
+      'La paja de avena inhibe la MAO-B, lo que frena la degradación de la dopamina; la L-tirosina es un precursor de la dopamina.',
+      'El extracto de paja de avena (Avena sativa) actúa principalmente inhibiendo la fosfodiesterasa tipo 4 (PDE4) y la monoaminooxidasa B (MAO-B). La inhibición de la MAO-B frena la degradación de la dopamina.',
+      'En 30-60 minutos: una concentración tranquila leve gracias a la L-Teanina. En 2-4 semanas: más energía mental y menos fatiga cognitiva (Citicolina, Tirosina). A las 8-12 semanas: mejoras medibles en el recuerdo y en la velocidad de aprendizaje (Bacopa, Melena de León).',
+      'Primer día: una concentración tranquila leve gracias a la L-Teanina.',
+      // Follow-up
+      "The evidence is strongest specifically in older adults with subjective cognitive complaints — not in clinically diagnosed dementia or Alzheimer's.",
+      'La evidencia es más fuerte específicamente en adultos mayores con quejas cognitivas subjetivas — no en demencia clínicamente diagnosticada ni Alzheimer.',
+      'For evidence-graded buyers prioritizing peer-reviewed data, Mind Lab Pro wins. For buyers who value try-multiple-formulas convenience, Thesis is fair.',
+      'Within 2-4 weeks: improved mental stamina and clarity under workload. At 8 weeks: modest memory improvements from Bacopa.',
+      // Final pass
+      "Lion's Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. None are acute-effect ingredients.",
+      'Citicoline: memory effects were measured after 2–3 months. None of these are acute-effect ingredients.',
+      'Citicolina: sus efectos sobre la memoria se midieron después de 2–3 meses. Ninguno es un ingrediente de efecto agudo.',
+      'test your working memory span, reading speed, or task completion time at baseline and again at 8 weeks.',
+      'mida su capacidad de memoria de trabajo, velocidad de lectura o tiempo de finalización de tareas antes de comenzar y nuevamente a las 8 semanas.',
+      "At 8-12 weeks: measurable improvements in memory recall (Bacopa; the Lion's Mane dose here, 500mg, is below the 1–1.8g used in healthy-adult trials).",
+      'A las 8-12 semanas: mejoras medibles en el recuerdo (Bacopa; la dosis de Melena de León aquí, 500mg, está por debajo de los 1–1.8g usados en ensayos con adultos sanos).',
+      'At 8 weeks: modest memory improvements from Bacopa. Delivery to Australia is quoted as within 10 business days.',
+      'At 8 weeks: modest memory improvements. The noocube.com Trustpilot profile has no reviews yet.',
+      "A minority of users notice mild digestive upset or a brief 'Bacopa fog' in the first few weeks as the serotonin system adjusts; this typically resolves.",
+      'so plan on roughly two bottles per month. Take with food for best absorption.',
+      "Thesis's personalised-quiz approach has stronger user-experience data and lower friction for newcomers.",
+      'Within 2-4 weeks: subtle improvements in word retrieval and short-term recall (Ginkgo + Huperzine A). At 8-12 weeks: cumulative membrane and mitochondrial benefits from PS and ALCAR.',
+      'It is one of only two nootropics with published clinical trial data on its specific formula.',
+      'It is one of only two nootropic supplements with published clinical trial data on its specific formula.',
+      'It is one of only two supplements in this review with published clinical trial data on its specific formula.',
+      'Es uno de solo dos suplementos de esta reseña con datos de ensayos clínicos publicados sobre su fórmula específica.',
+      'This page ranks the products in our Canadian coverage that contain at least one of the four focus-validated ingredients (L-theanine + caffeine, citicoline, L-tyrosine, Alpha-GPC) at clinical dose.',
+      'contienen al menos uno de los cuatro ingredientes validados para concentración (L-teanina + cafeína, citicolina, L-tirosina, Alfa-GPC) en dosis clínica.',
+      'KSM-66 (5% withanolides from root only) is the extract used in the key stress and cognition trials. Sensoril is a leaf-and-root extract; our ashwagandha page cites no Sensoril trial.',
+      'Choose KSM-66, the extract used in the trials on our ashwagandha page.',
+      'Capsule. Choose KSM-66 (full-spectrum root extract, 5% withanolides), the extract used in the trials on this page; we cite no Sensoril (leaf + root extract) trial.',
+      'KSM-66 (5% de witanólidos, solo de raíz) es el extracto usado en los principales ensayos sobre estrés y cognición. Sensoril es un extracto de hoja y raíz; nuestra página sobre la ashwagandha no cita ningún ensayo con Sensoril.',
+      'Elige KSM-66, el extracto usado en los ensayos de nuestra página sobre la ashwagandha.',
+      'Cápsula. Elige KSM-66 (extracto de raíz de espectro completo, 5% de witanólidos), el extracto usado en los ensayos de esta página; no citamos ningún ensayo con Sensoril (extracto de hoja + raíz).',
+      // Last fix
+      "Onnit's nootropic stack, backed by two clinical studies and NSF Certified for Sport.",
+      "Onnit's US nootropic stack, backed by two published clinical studies.",
+      'Two published clinical studies',
+      'The two published studies (Onnit-funded, 2016 and 2021) tested the full formula and showed statistically significant improvements in verbal memory and executive function versus placebo.',
+      'El stack nootrópico estadounidense de Onnit, respaldado por dos estudios clínicos publicados',
+      'Los dos estudios publicados (financiados por Onnit, 2016 y 2021) probaron la fórmula completa.',
+    ];
+    for (const s of removed) expect(ROUND_TWENTY_UNSOURCED.some(re => re.test(s)), s).toBe(true);
+    for (const re of ROUND_TWENTY_UNSOURCED) expect(removed.some(s => re.test(s)), String(re)).toBe(true);
+    // The replacement wording passes.
+    for (const s of [
+      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline (our citicoline page rates its attention evidence as mixed).',
+      'Among CA-shippable products, Mind Lab Pro contains 250mg citicoline (Cognizin); Qualia Mind and Hunter Focus both pre-build caffeine + L-theanine (100mg + 200mg).',
+      'for compounded benefit, plan for at least 12 weeks of consistent use before judging.',
+      'para beneficio acumulativo, planifica al menos 12 semanas de uso constante antes de juzgar.',
+      'Plan for at least 12 weeks before judging long-term efficacy.',
+      'Caffeine + L-theanine — improved attention switching versus placebo (Owen 2008, Giesbrecht 2010); Foxe 2012 found no added benefit over either compound alone',
+      'Mind Lab Pro is the one of the two whose formula has been tested, though weakly: the authors of the 30-day study call it pseudo-randomised.',
+      'Mind Lab Pro is the one of the two whose formula has been tested, though weakly, in the two Leeds studies above. For buyers who value try-multiple-formulas convenience, Thesis is fair.',
+      "Some of the supplements on this page have trial evidence in older adults, often only in subgroups: PS-DHA in older adults with memory complaints, citicoline in those with relatively inefficient memories, and Lion's Mane in mild cognitive impairment. If you or a family member is experiencing significant memory changes, see a neurologist.",
+      "Lutemax: its eye-strain trials ran 6 months and disagree, so do not count on a quick eye-fatigue effect. Bacopa's memory trials ran 8–12 weeks at 300–450mg extract a day (this product has 250mg).",
+      "Some of the supplements on this page have trial evidence in older adults, often only in subgroups: PS-DHA in older adults with memory complaints, citicoline in those with relatively inefficient memories, and Lion's Mane in mild cognitive impairment.",
+      'Algunos de los suplementos de esta página tienen evidencia de ensayos en adultos mayores, a menudo solo en subgrupos: la PS-DHA en adultos mayores con quejas de memoria, la citicolina en quienes tienen una memoria relativamente ineficiente y la Melena de León en el deterioro cognitivo leve.',
+      'Track changes over at least 12 weeks of consistent dosing, and longer for phosphatidylserine (15 weeks or more) and ginkgo (22–26 weeks) — ideally with a baseline cognitive measure.',
+      'Plan for at least 12 weeks of consistent dosing before judging, and longer for phosphatidylserine (15 weeks or more) — start at the beginning of the academic term.',
+      'Haz seguimiento de los cambios durante al menos 12 semanas de dosificación constante, y más tiempo para la fosfatidilserina (15 semanas o más) — idealmente con una medida cognitiva basal.',
+      'Planifica al menos 12 semanas de dosificación constante antes de juzgar, y más tiempo para la fosfatidilserina (15 semanas o más) — y considera el tiempo de envío internacional.',
+      'Our citicoline page rates its attention evidence as mixed and its verbal-memory evidence as moderate (delayed recall improved in one trial in older adults with inefficient memory, Spiers 1996). Cognizin is a standardised form.',
+      'Cognizin is a standardized form used in Mind Lab Pro.',
+      'Nuestra página sobre la citicolina califica como mixta su evidencia sobre la atención y como moderada su evidencia sobre la memoria verbal (el recuerdo diferido mejoró en un ensayo en adultos mayores con memoria ineficiente, Spiers 1996). Cognizin es una forma estandarizada.',
+      'Our L-Theanine page rates the evidence that this alpha increase brings calm focus as preliminary (one small study, which did not track subjective calm).',
+      'Natural nootropics at recommended doses were generally well tolerated in short trials and are sold as food supplements in most jurisdictions, though ashwagandha has published liver-injury case reports and Denmark banned it in food supplements in 2023 because a safe dose could not be established.',
+      'After 8–12 weeks of Bacopa at trial doses (300–450mg extract a day), trials found better scores on some memory free-recall tests (9 of 17 in the Pase 2012 review), though the newest 12-week trial at 300mg/day found no effect on verbal learning, attention or working memory.',
+      'Rhodiola is an adaptogen that modulates the HPA (hypothalamic-pituitary-adrenal) axis, reducing cortisol output under stress. In laboratory studies, its key bioactives (rosavins and salidroside) inhibited monoamine oxidase enzymes.',
+      "Bacopa's active compounds (bacosides A and B) upregulate antioxidant activity, reducing oxidative stress in hippocampal tissue.",
+      'Capsule. Choose an extract that states its withanolide content. The trials on our ashwagandha page used a high-concentration full-spectrum root extract (Chandrasekhar 2012), a root extract (Choudhary 2017) and the Shoden extract (Lopresti 2019); we cite no Sensoril trial.',
+      'Cápsula. Elige un extracto que declare su contenido de witanólidos. Los ensayos de nuestra página sobre la ashwagandha usaron un extracto de raíz de espectro completo de alta concentración (Chandrasekhar 2012), un extracto de raíz (Choudhary 2017) y el extracto Shoden (Lopresti 2019); no citamos ningún ensayo con Sensoril.',
+      "Lion's Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. Apart from small acute effects of Lion's Mane in pilot trials, none are acute-effect ingredients.",
+      "Apart from small acute effects of Lion's Mane in pilot trials, none of these are acute-effect ingredients.",
+      'Aparte de los pequeños efectos agudos de la Melena de León en ensayos piloto, ninguno es un ingrediente de efecto agudo.',
+      'test your working memory span, reading speed, or task completion time at baseline and again at around 12 weeks.',
+      'antes de comenzar y nuevamente alrededor de las 12 semanas.',
+      'At 8 weeks: modest memory improvements (Bacopa, though underdosed). Manage expectations accordingly: Bacopa is below the 300mg clinical anchor.',
+      'A minority of users notice mild digestive upset in the first few weeks; this typically resolves.',
+      'so plan on roughly two bottles per month. Taking it with a meal containing some fat is the standard advice.',
+      'Take on an empty stomach for best absorption.',
+      "Timing in the trials we cite: huperzine A trials ran 4–16 weeks, ALCAR trials at least 3 months, PS memory trials 15 weeks to 12 months and positive ginkgo dementia trials 22–26 weeks (this product's ginkgo and ALCAR doses are below those used).",
+      'Alpha Brain has a published randomised, double-blind, placebo-controlled trial of the finished product (Solomon 2016, PubMed 26876224): 63 adults aged 18–35, 6 weeks, improved delayed verbal recall and executive functioning; one author worked for Onnit Labs.',
+      'Alpha Brain tiene un ensayo aleatorizado, doble ciego y controlado con placebo publicado sobre el producto terminado (Solomon 2016, PubMed 26876224): 63 adultos de 18 a 35 años, 6 semanas, mejoró el recuerdo verbal diferido y el funcionamiento ejecutivo; uno de los autores trabajaba para Onnit Labs.',
+      'This page ranks the products in our Canadian coverage that contain at least one of these four ingredients: L-theanine + caffeine, citicoline, L-tyrosine or Alpha-GPC.',
+      'contienen al menos uno de estos cuatro ingredientes: L-teanina + cafeína, citicolina, L-tirosina o Alfa-GPC.',
+      "Onnit's nootropic stack, backed by a published 2016 randomised trial and NSF Certified for Sport.",
+      'A published randomised trial of the finished formula (2016)',
+      'The 2016 trial (Solomon 2016; one author worked for Onnit Labs) tested the full formula and found improved delayed verbal recall and executive functioning versus placebo.',
+      'El stack nootrópico estadounidense de Onnit, respaldado por un ensayo aleatorizado publicado en 2016',
+      'El ensayo de 2016 (Solomon 2016; uno de los autores trabajaba para Onnit Labs) probó la fórmula completa y encontró mejoras en el recuerdo verbal diferido y el funcionamiento ejecutivo frente a placebo.',
+      'Un ensayo aleatorizado publicado de la fórmula terminada (2016)',
+      'We cite no trial of the pairing.',
+      'L-Tyrosine is a dopamine precursor. We cite no trial of the pairing.',
+      'Oat Straw (Avena sativa) extract works primarily by inhibiting phosphodiesterase type 4 (PDE4).',
+      'Within 30-60 minutes: a single 200mg dose of L-Theanine improved choice reaction time in trials (this product has 100mg); our L-Theanine page rates its calm-focus evidence as preliminary.',
+      "Citicoline's memory trials measured effects after 2–3 months. L-Tyrosine is taken about 1 hour before a demanding task, and its lowest positive trial used 2,000mg (this product has 175mg). Bacopa's memory trials ran 8–12 weeks at 300–450mg extract a day (this product has 150mg), and the Lion's Mane dose here, 500mg, is below the 1–1.8g used in healthy-adult trials.",
+      "Timing in the trials we cite: L-Tyrosine was given about 1 hour before a demanding task (this product has 250mg; the lowest positive trial used 2,000mg); pine bark's cognitive studies ran 8–12 weeks (this product has 75mg, below the 100–200mg clinical dose); phosphatidylserine's memory trials ran 15 weeks to 12 months.",
+      'Because bacosides are fat-soluble, taking the capsules with a meal containing some fat is the standard advice.',
+      'Positive dementia trials of ginkgo ran 22–26 weeks.',
+      'At ¥5,479 for a 30-day bag (list price on fancl.co.jp; ¥4,930 on subscription); bought in Japan, it involves no import or customs step.',
+      'Nuestra página de L-Theanine califica como preliminar la evidencia de que este aumento de las ondas alfa produzca un enfoque tranquilo (un solo estudio pequeño, que no midió la calma subjetiva).',
+      'Los nootrópicos naturales en las dosis recomendadas fueron en general bien tolerados en ensayos cortos',
+      'En estudios de laboratorio, sus principales compuestos bioactivos (rosavinas y salidrosida) inhibieron las enzimas monoaminooxidasa.',
+      'Los compuestos activos de la Bacopa (bacósidos A y B) aumentan la actividad antioxidante',
+      'No citamos ningún ensayo de esta combinación.',
+      'En 30-60 minutos: una dosis única de 200mg de L-Teanina mejoró el tiempo de reacción de elección en ensayos (este producto tiene 100mg); nuestra página de L-Teanina califica como preliminar su evidencia sobre la concentración tranquila.',
+      'Los ensayos de memoria de la Bacopa duraron 8–12 semanas con 300–450mg de extracto al día (este producto tiene 150mg), y la dosis de Melena de León aquí, 500mg, está por debajo de los 1–1.8g usados en ensayos con adultos sanos.',
+    ]) expect(ROUND_TWENTY_UNSOURCED.some(re => re.test(s)), s).toBe(false);
+  });
+
+  test('no data, app or template source uses the removed wording (whitespace-normalised)', () => {
+    expect(ROUND_SIXTEEN_SOURCES.length).toBeGreaterThan(300);
+    const hits = ROUND_SIXTEEN_SOURCES.flatMap(file =>
+      normalisedMatchLines(readFileSync(file, 'utf8'), ROUND_TWENTY_UNSOURCED).map(
+        line => `${relative(REPO_ROOT, file)}:${line}`,
+      ),
+    );
+    expect(hits).toEqual([]);
+  });
+
+  test("citicoline's Spiers 1996 row is 'Verbal Memory' and the PS<->DHA stack notes name Vakhapova 2010", () => {
+    const citicoline = ingredients.find(i => i.slug === 'citicoline');
+    expect(citicoline!.humanEffects.map(e => e.effect)).toContain('Verbal Memory');
+    expect(citicoline!.humanEffects.map(e => e.effect)).not.toContain('Working Memory');
+    const ps = ingredients.find(i => i.slug === 'phosphatidylserine')!;
+    const dha = ingredients.find(i => i.slug === 'dha-omega-3')!;
+    expect(ps.stacksWith.find(p => p.slug === 'dha-omega-3')?.reason).toMatch(/\(Vakhapova 2010\)/);
+    expect(dha.stacksWith.find(p => p.slug === 'phosphatidylserine')?.reason).toMatch(/\(Vakhapova 2010\)/);
+    expect(ps.sources.map(s => s.pmid)).toContain('20523044');
   });
 });

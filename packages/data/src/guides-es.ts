@@ -69,11 +69,11 @@ export const guidesEs: GuideTranslation[] = [
       },
       {
         "heading": "Ondas cerebrales alfa y enfoque tranquilo",
-        "content": "Las ondas cerebrales alfa (8–12 Hz) se asocian con la alerta relajada, el estado mental que se experimenta durante los estados de flujo, la meditación o el trabajo creativo. L-Theanine, un aminoácido del té verde, aumenta la actividad de las ondas alfa: en estudios de EEG el aumento aparece a partir de unos 45 minutos después de la ingesta, y un ECA de 2021 encontró el efecto más claro unas 3 horas después de una dosis de 200mg. Esto produce un estado de enfoque tranquilo sin sedación. Con cafeína, la combinación mejoró las medidas de atención frente a placebo en varios ensayos, pero en un ensayo controlado (Rogers 2007) L-Theanine no redujo significativamente el nerviosismo causado por la cafeína."
+        "content": "Las ondas cerebrales alfa (8–12 Hz) se asocian con la alerta relajada, el estado mental que se experimenta durante los estados de flujo, la meditación o el trabajo creativo. L-Theanine, un aminoácido del té verde, aumenta la actividad de las ondas alfa: en estudios de EEG el aumento aparece a partir de unos 45 minutos después de la ingesta, y un ECA de 2021 encontró el efecto más claro unas 3 horas después de una dosis de 200mg. Nuestra página de L-Theanine califica como preliminar la evidencia de que este aumento de las ondas alfa produzca un enfoque tranquilo (un solo estudio pequeño, que no midió la calma subjetiva). Con cafeína, la combinación mejoró las medidas de atención frente a placebo en varios ensayos, pero en un ensayo controlado (Rogers 2007) L-Theanine no redujo significativamente el nerviosismo causado por la cafeína."
       },
       {
         "heading": "Integridad de la membrana celular y fosfolípidos",
-        "content": "Las membranas celulares neuronales están compuestas en gran parte por fosfolípidos, principalmente fosfatidilserina (PS) y fosfatidilcolina. Las membranas saludables son esenciales para una transmisión eficiente de señales entre neuronas. Los niveles de PS en el cerebro disminuyen con el envejecimiento. Citicoline es un precursor de la fosfatidilcolina."
+        "content": "Las membranas celulares neuronales están compuestas en gran parte por fosfolípidos, principalmente fosfatidilserina (PS) y fosfatidilcolina. Las membranas saludables son esenciales para una transmisión eficiente de señales entre neuronas. Citicoline es un precursor de la fosfatidilcolina."
       }
     ]
   },
@@ -96,7 +96,7 @@ export const guidesEs: GuideTranslation[] = [
       },
       {
         "heading": "Cómo se sienten los efectos acumulativos",
-        "content": "Los efectos acumulativos de los nootrópicos son sutiles por naturaleza — representan mejoras en la línea base cognitiva, no cambios agudos dramáticos. Después de 8–12 semanas con un stack que contenga Bacopa, es probable que usted note: recuperación más rápida de nombres, números y material aprendido; mejor retención de información nueva; y subjetivamente, que las cosas resultan un poco más fáciles de recordar. Estos efectos son difíciles de percibir día a día; la mejor manera de medirlos es mediante una evaluación cognitiva de referencia — mida su capacidad de memoria de trabajo, velocidad de lectura o tiempo de finalización de tareas antes de comenzar y nuevamente a las 8 semanas."
+        "content": "Los efectos acumulativos de los nootrópicos son sutiles por naturaleza — representan mejoras en la línea base cognitiva, no cambios agudos dramáticos. Tras 8–12 semanas de Bacopa a las dosis de los ensayos (300–450mg de extracto al día), los ensayos encontraron mejores resultados en algunas pruebas de recuerdo libre (9 de 17 en la revisión de Pase 2012), aunque el ensayo de 12 semanas más reciente, con 300mg/día, no encontró efecto en el aprendizaje verbal, la atención ni la memoria de trabajo. Estos efectos son difíciles de percibir día a día; la mejor manera de medirlos es mediante una evaluación cognitiva de referencia — mida su capacidad de memoria de trabajo, velocidad de lectura o tiempo de finalización de tareas antes de comenzar y nuevamente alrededor de las 12 semanas."
       },
       {
         "heading": "Lo que los nootrópicos no pueden hacer",
@@ -193,7 +193,7 @@ export const guidesEs: GuideTranslation[] = [
       },
       {
         "heading": "Perfiles de seguridad y efectos secundarios",
-        "content": "Los nootrópicos naturales en las dosis recomendadas tienen un excelente historial de seguridad y se comercializan como suplementos alimenticios en la mayoría de las jurisdicciones. Bacopa, Ashwagandha y Rhodiola tienen una larga historia de uso tradicional, pero el uso tradicional no constituye datos de seguridad sistemáticos, y los ECA modernos con estos ingredientes han durado aproximadamente entre 4 y 16 semanas: no existe un registro de seguridad controlado de varios años. Los nootrópicos sintéticos presentan perfiles de seguridad a largo plazo más inciertos, particularmente para el uso diario durante años. Modafinil y Armodafinil — disponibles solo con receta médica en la mayoría de los países — tienen una seguridad establecida a corto plazo, pero datos limitados a largo plazo."
+        "content": "Los nootrópicos naturales en las dosis recomendadas fueron en general bien tolerados en ensayos cortos y se comercializan como suplementos alimenticios en la mayoría de las jurisdicciones, aunque hay casos publicados de daño hepático con ashwagandha y Dinamarca la prohibió en complementos alimenticios en 2023 porque no se pudo establecer una dosis segura. Bacopa, Ashwagandha y Rhodiola tienen una larga historia de uso tradicional, pero el uso tradicional no constituye datos de seguridad sistemáticos, y los ECA modernos con estos ingredientes han durado aproximadamente entre 4 y 16 semanas: no existe un registro de seguridad controlado de varios años. Los nootrópicos sintéticos presentan perfiles de seguridad a largo plazo más inciertos, particularmente para el uso diario durante años. Modafinil y Armodafinil — disponibles solo con receta médica en la mayoría de los países — tienen una seguridad establecida a corto plazo, pero datos limitados a largo plazo."
       },
       {
         "heading": "Estatus regulatorio por región",

@@ -243,7 +243,7 @@ export const latamProductTranslationsEs: LatamProductTranslation[] = [
     howItWorks:
       'Mind Lab Pro actúa sobre seis vías biológicas a la vez. La Citicolina y la Fosfatidilserina apoyan el sistema colinérgico y la integridad de las membranas neuronales. La Melena de León estimula el factor de crecimiento nervioso (NGF) para la neuroplasticidad. La Bacopa Monnieri mejora la comunicación sináptica para la memoria. La Rhodiola Rosea y la L-Tirosina apoyan el equilibrio de dopamina/noradrenalina bajo estrés. La L-Teanina favorece la actividad de ondas cerebrales alfa para una concentración tranquila. Las vitaminas del grupo B (B6, B9, B12) apoyan la regulación de la homocisteína y la síntesis de neurotransmisores.',
     whatToExpect:
-      'En 30-60 minutos: una concentración tranquila leve gracias a la L-Teanina. En 2-4 semanas: más energía mental y menos fatiga cognitiva (Citicolina, Tirosina). A las 8-12 semanas: mejoras medibles en el recuerdo y en la velocidad de aprendizaje (Bacopa, Melena de León). Mind Lab Pro es un suplemento de largo plazo: los ensayos de Bacopa que citamos midieron la memoria después de 12 semanas. Los mejores resultados requieren 3+ meses de uso diario constante.',
+      'En 30-60 minutos: una dosis única de 200mg de L-Teanina mejoró el tiempo de reacción de elección en ensayos (este producto tiene 100mg); nuestra página de L-Teanina califica como preliminar su evidencia sobre la concentración tranquila. Los ensayos de memoria de la Citicolina midieron efectos tras 2–3 meses. La L-Tirosina se toma alrededor de 1 hora antes de una tarea exigente, y su ensayo positivo de menor dosis usó 2000mg (este producto tiene 175mg). Los ensayos de memoria de la Bacopa duraron 8–12 semanas con 300–450mg de extracto al día (este producto tiene 150mg), y la dosis de Melena de León aquí, 500mg, está por debajo de los 1–1.8g usados en ensayos con adultos sanos. Mind Lab Pro es un suplemento de largo plazo: los ensayos de Bacopa que citamos midieron la memoria después de 12 semanas. Los mejores resultados requieren 3+ meses de uso diario constante.',
     pros: [
       '11 ingredientes, todas las dosis declaradas',
       'Analizado por terceros, sin alérgenos',
@@ -281,7 +281,7 @@ export const latamProductTranslationsEs: LatamProductTranslation[] = [
       summary: '950042d32d75',
       whatItIs: '6697bd46e665',
       howItWorks: 'f42fa69f2e4d',
-      whatToExpect: 'ea5270280803',
+      whatToExpect: 'f0b8465d717c',
       pros: '4f3287b6a517',
       cons: 'b3e71326fb3d',
       notes: '45728b509ed4',
@@ -303,7 +303,7 @@ export const latamProductTranslationsEs: LatamProductTranslation[] = [
     howItWorks:
       'Lutemax 2020 filtra la luz azul de alta energía en la retina; los resultados de los ensayos sobre la fatiga ocular relacionada con pantallas son mixtos (un ensayo financiado por el fabricante, positivo; un ensayo de otro producto de luteína/zeaxantina, nulo en la fatiga visual autoevaluada). La colina (100mg, a partir de 250mg de bitartrato de colina VitaCholine) apoya el sistema colinérgico; la fórmula actual ya no contiene Alfa-GPC ni Huperzina A. La L-Teanina aporta una concentración tranquila. La Bacopa Monnieri actúa sobre la consolidación de la memoria a lo largo de semanas.',
     whatToExpect:
-      'Primer día: una concentración tranquila leve gracias a la L-Teanina. Lutemax: sus ensayos sobre fatiga visual duraron 6 meses y no coinciden, así que no cuentes con un efecto rápido sobre la fatiga ocular. A las 8 semanas: mejoras modestas de memoria (Bacopa, aunque con dosis insuficiente). Ajusta tus expectativas en consecuencia: la Bacopa está por debajo de la referencia clínica de 300mg. El perfil de Trustpilot de noocube.com todavía no tiene reseñas — verifica la política de cancelación antes de comprar.',
+      'Primer día: una dosis única de 200mg de L-Teanina mejoró el tiempo de reacción de elección en ensayos (este producto tiene 100mg); nuestra página de L-Teanina califica como preliminar su evidencia sobre la concentración tranquila. Lutemax: sus ensayos sobre fatiga visual duraron 6 meses y no coinciden, así que no cuentes con un efecto rápido sobre la fatiga ocular. A las 8 semanas: mejoras modestas de memoria (Bacopa, aunque con dosis insuficiente). Ajusta tus expectativas en consecuencia: la Bacopa está por debajo de la referencia clínica de 300mg. El perfil de Trustpilot de noocube.com todavía no tiene reseñas — verifica la política de cancelación antes de comprar.',
     pros: [
       'Lutemax 2020 para quienes trabajan frente a pantallas',
       'Buena relación calidad-precio a $64.99/mes',
@@ -341,7 +341,7 @@ export const latamProductTranslationsEs: LatamProductTranslation[] = [
       summary: 'fdc02ee43b9e',
       whatItIs: '24fdf4594d0c',
       howItWorks: '92be27581cb1',
-      whatToExpect: '89633329003f',
+      whatToExpect: '7573cae767ea',
       pros: '4095d302d222',
       cons: '3f3db80c0f09',
       notes: '036bc3d31885',
@@ -435,15 +435,15 @@ export const latamProductTranslationsEs: LatamProductTranslation[] = [
   {
     slug: 'onnit-alpha-brain-review',
     summary:
-      'El stack nootrópico estadounidense de Onnit, respaldado por dos estudios clínicos publicados — una señal de confianza significativa para los compradores en Latam que compran desde el exterior. Precio en dólares estadounidenses, sin opción de moneda local. Se envía desde EE. UU.; consulta el plazo de entrega estimado en el checkout. Los aranceles de importación y el despacho aduanero corren por cuenta del comprador; los compradores en Argentina deben verificar que el emisor de su tarjeta apruebe transacciones en USD dado el control cambiario. La garantía de devolución de 30 días de Onnit cubre la primera compra de cada producto realizada directamente en Onnit.com.',
+      'El stack nootrópico estadounidense de Onnit, respaldado por un ensayo aleatorizado publicado en 2016 — una señal de confianza significativa para los compradores en Latam que compran desde el exterior. Precio en dólares estadounidenses, sin opción de moneda local. Se envía desde EE. UU.; consulta el plazo de entrega estimado en el checkout. Los aranceles de importación y el despacho aduanero corren por cuenta del comprador; los compradores en Argentina deben verificar que el emisor de su tarjeta apruebe transacciones en USD dado el control cambiario. La garantía de devolución de 30 días de Onnit cubre la primera compra de cada producto realizada directamente en Onnit.com.',
     whatItIs:
-      'Alpha Brain es el nootrópico insignia de Onnit, lanzado por primera vez en 2011 y popularizado a través del pódcast de Joe Rogan. Es uno de solo dos suplementos de esta reseña con datos de ensayos clínicos publicados sobre su fórmula específica. Cuenta con la certificación "Certified for Sport" de la National Sanitation Foundation (NSF). Para compradores en Latam, Alpha Brain se vende exclusivamente en USD y se envía desde EE. UU. como suplemento importado para uso personal. No hemos verificado un registro local del producto ante la Comisión Federal para la Protección contra Riesgos Sanitarios (COFEPRIS) en México, la Agência Nacional de Vigilância Sanitária (ANVISA) en Brasil, la Administración Nacional de Medicamentos, Alimentos y Tecnología Médica (ANMAT) en Argentina, el Instituto Nacional de Vigilancia de Medicamentos y Alimentos (INVIMA) en Colombia, el Instituto de Salud Pública (ISP) en Chile ni la Dirección General de Medicamentos, Insumos y Drogas (DIGEMID) en Perú. Los aranceles de importación y el despacho aduanero corren por cuenta del comprador — la garantía de devolución de 30 días de Onnit reembolsa solo el costo del producto, no el envío.',
+      'Alpha Brain es el nootrópico insignia de Onnit, lanzado por primera vez en 2011 y popularizado a través del pódcast de Joe Rogan. Alpha Brain tiene un ensayo aleatorizado, doble ciego y controlado con placebo publicado sobre el producto terminado (Solomon 2016, PubMed 26876224): 63 adultos de 18 a 35 años, 6 semanas, mejoró el recuerdo verbal diferido y el funcionamiento ejecutivo; uno de los autores trabajaba para Onnit Labs. Cuenta con la certificación "Certified for Sport" de la National Sanitation Foundation (NSF). Para compradores en Latam, Alpha Brain se vende exclusivamente en USD y se envía desde EE. UU. como suplemento importado para uso personal. No hemos verificado un registro local del producto ante la Comisión Federal para la Protección contra Riesgos Sanitarios (COFEPRIS) en México, la Agência Nacional de Vigilância Sanitária (ANVISA) en Brasil, la Administración Nacional de Medicamentos, Alimentos y Tecnología Médica (ANMAT) en Argentina, el Instituto Nacional de Vigilancia de Medicamentos y Alimentos (INVIMA) en Colombia, el Instituto de Salud Pública (ISP) en Chile ni la Dirección General de Medicamentos, Insumos y Drogas (DIGEMID) en Perú. Los aranceles de importación y el despacho aduanero corren por cuenta del comprador — la garantía de devolución de 30 días de Onnit reembolsa solo el costo del producto, no el envío.',
     howItWorks:
-      'Alpha Brain usa tres mezclas patentadas — Onnit Flow Blend, Focus Blend y Fuel Blend — que contienen colinérgicos (Alfa-GPC), adaptógenos (Bacopa) y aminoácidos (Tirosina, Teanina). La etiqueta indica el total de cada mezcla y dos cantidades individuales (Bacopa 100mg, Huperzina A 400mcg): la Bacopa, la Alfa-GPC (como máximo 140mg) y la L-Tirosina (como máximo 650mg) no alcanzan sus dosis clínicas, y los demás componentes de las mezclas no pueden verificarse individualmente. Los dos estudios publicados (financiados por Onnit, 2016 y 2021) probaron la fórmula completa y mostraron mejoras estadísticamente significativas en la memoria verbal y la función ejecutiva frente a placebo.',
+      'Alpha Brain usa tres mezclas patentadas — Onnit Flow Blend, Focus Blend y Fuel Blend — que contienen colinérgicos (Alfa-GPC), adaptógenos (Bacopa) y aminoácidos (Tirosina, Teanina). La etiqueta indica el total de cada mezcla y dos cantidades individuales (Bacopa 100mg, Huperzina A 400mcg): la Bacopa, la Alfa-GPC (como máximo 140mg) y la L-Tirosina (como máximo 650mg) no alcanzan sus dosis clínicas, y los demás componentes de las mezclas no pueden verificarse individualmente. El ensayo de 2016 (Solomon 2016; uno de los autores trabajaba para Onnit Labs) probó la fórmula completa y encontró mejoras en el recuerdo verbal diferido y el funcionamiento ejecutivo frente a placebo.',
     whatToExpect:
       'No contiene cafeína. La garantía de devolución de 30 días de Onnit cubre la primera compra de cada producto realizada directamente en Onnit.com.',
     pros: [
-      'Dos estudios clínicos publicados',
+      'Un ensayo aleatorizado publicado de la fórmula terminada (2016)',
       'El mayor reconocimiento de marca en EE. UU.',
       'Solo 2 cápsulas',
       'Garantía de devolución de 30 días en la primera compra',
@@ -477,11 +477,11 @@ export const latamProductTranslationsEs: LatamProductTranslation[] = [
     importPathway:
       'La lista de mercados de onnit.com menciona Brasil, Argentina, Colombia, Chile y Perú (consultado 2026-09-29); el envío a México no pudo confirmarse en el sitio de la marca (su página de ayuda sobre envíos no estaba disponible) — confírmalo en el checkout.',
     sourceHashes: {
-      summary: '381d8dd2131f',
-      whatItIs: 'ca3345cee2d7',
-      howItWorks: 'b7cc91335bad',
+      summary: '94ffb13ec516',
+      whatItIs: 'c0a90e0ab8f7',
+      howItWorks: '800b71b44f91',
       whatToExpect: '805bde2a4832',
-      pros: '59744123ec60',
+      pros: '534dbe0fc1c9',
       cons: 'a8531382e7c2',
       notes: 'bdd739a2f30e',
       bestFor: '98bc79d831b9',
@@ -583,7 +583,7 @@ export const latamProductTranslationsEs: LatamProductTranslation[] = [
     howItWorks:
       'El cuerpo fructífero de la Melena de León contiene hericenonas, compuestos que atraviesan la barrera hematoencefálica y estimulan la síntesis del factor de crecimiento nervioso (NGF). El NGF favorece la supervivencia neuronal, el crecimiento de los axones y el mantenimiento de las neuronas del hipocampo y la corteza — las regiones responsables del aprendizaje y la memoria. Nootropics Depot usa un extracto estandarizado de cuerpo fructífero en lugar de micelio (que tiene un menor contenido de hericenonas). El resultado es un estímulo de NGF más potente y constante por cápsula.',
     whatToExpect:
-      'La Melena de León es un suplemento de largo plazo. Ensayos piloto informaron pequeños efectos agudos en 1–2 horas. En un ensayo en adultos con deterioro cognitivo leve, las puntuaciones mejoraron tras 16 semanas con 3g al día y volvieron a bajar dentro de las 4 semanas posteriores a suspenderlo (Mori 2009). Para obtener mejores resultados, tómalo de forma constante todos los días con una comida que contenga grasa (las hericenonas son liposolubles). Este producto funciona mejor combinado con un stack de varios ingredientes (p. ej., Mind Lab Pro ya contiene Melena de León) que como suplemento principal por sí solo.',
+      'La Melena de León es un suplemento de largo plazo. Ensayos piloto informaron pequeños efectos agudos en 1–2 horas. En un ensayo en adultos con deterioro cognitivo leve, las puntuaciones mejoraron tras 16 semanas con 3g al día y volvieron a bajar dentro de las 4 semanas posteriores a suspenderlo (Mori 2009). Con las 1–2 cápsulas al día de la etiqueta (500–1000mg), este producto alcanza como mucho el extremo inferior de las dosis de los ensayos piloto (1–1.8g) y un tercio de los 3g al día usados por Mori 2009. Para obtener mejores resultados, tómalo de forma constante todos los días con una comida que contenga grasa (las hericenonas son liposolubles). Este producto funciona mejor combinado con un stack de varios ingredientes (p. ej., Mind Lab Pro ya contiene Melena de León) que como suplemento principal por sí solo.',
     pros: [
       'Laboratorio ISO: publica un CoA por lote',
       'Cuerpo fructífero estandarizado',
@@ -603,7 +603,7 @@ export const latamProductTranslationsEs: LatamProductTranslation[] = [
       summary: '9d77ffc2620b',
       whatItIs: 'cec631d4adbf',
       howItWorks: '4e0915058716',
-      whatToExpect: 'b7f135e9b001',
+      whatToExpect: '0ba14614fc4f',
       pros: '76ce7c900343',
       cons: 'f9d420c769e4',
       notes: '74234e98afe7',

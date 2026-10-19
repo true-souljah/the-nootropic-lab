@@ -49,7 +49,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Citicoline (CDP-Choline)',
     ingredientSlugs: ['citicoline'],
     evidence:
-      'Choline donor + uridine source. In one trial in adults aged 50–85 (Spiers 1996, PubMed 8624220), 1,000mg a day for 3 months improved delayed recall only in those with relatively inefficient memories, and in a follow-up crossover of 32 of those participants, 2,000mg a day for 2 months improved immediate and delayed recall. Cognizin is the standardised form. Imported under the Personal Importation Scheme.',
+      'Choline donor + uridine source. In one trial in adults aged 50–85 (Spiers 1996, PubMed 8624220), 1,000mg a day for 3 months improved delayed recall only in those with relatively inefficient memories, and in a follow-up crossover of 32 of those participants, 2,000mg a day for 2 months improved immediate and delayed recall. Cognizin is a standardised form. Imported under the Personal Importation Scheme.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
 ];
@@ -88,7 +88,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'How long until memory nootropics work?',
-    a: 'Bacopa: 8–12 weeks of daily use; most positive trials ran 12 weeks. Lion\'s Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. Phosphatidylserine: its memory trials ran 15 weeks to 12 months. Citicoline: memory effects were measured after 2–3 months. None of these are acute-effect ingredients. Plan for at least 12 weeks of consistent dosing before judging.',
+    a: 'Bacopa: 8–12 weeks of daily use; most positive trials ran 12 weeks. Lion\'s Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. Phosphatidylserine: its memory trials ran 15 weeks to 12 months. Citicoline: memory effects were measured after 2–3 months. Apart from small acute effects of Lion\'s Mane in pilot trials, none of these are acute-effect ingredients. Plan for at least 12 weeks of consistent dosing before judging, and longer for phosphatidylserine (15 weeks or more).',
   },
   {
     q: 'Are these memory nootropics TGA-listed in Australia?',
@@ -104,7 +104,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'Will these help with age-related memory loss?',
-    a: 'The evidence is strongest specifically in older adults with subjective cognitive complaints — not in clinically diagnosed dementia or Alzheimer\'s. If you or a family member is experiencing significant memory changes, see your GP for referral. Supplements are not a treatment for dementia.',
+    a: 'Some of the supplements on this page have trial evidence in older adults, often only in subgroups: PS-DHA in older adults with memory complaints, citicoline in those with relatively inefficient memories, and Lion\'s Mane in mild cognitive impairment. If you or a family member is experiencing significant memory changes, see your GP for referral. Supplements are not a treatment for dementia.',
   },
   {
     q: 'Lion\'s Mane: fruiting body or mycelium?',

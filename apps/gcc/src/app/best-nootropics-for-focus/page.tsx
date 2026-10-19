@@ -63,7 +63,7 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design suits GCC consumers who avoid stimulants. Capsules are pullulan (NutriCaps) and the product is suitable for vegans, per the brand (checked 2026-10-07). mindlabpro.com names Saudi Arabia, the UAE, Qatar and Kuwait among its shipping territories (its FAQ, checked 2026-09-29); Bahrain and Oman are not named on that partial list, so confirm at checkout. We have not verified a product registration with the Saudi Food and Drug Authority (SFDA) or the Ministry of Health and Prevention (MOHAP).',
+      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline (our citicoline page rates its attention evidence as mixed). Caffeine-free design suits GCC consumers who avoid stimulants. Capsules are pullulan (NutriCaps) and the product is suitable for vegans, per the brand (checked 2026-10-07). mindlabpro.com names Saudi Arabia, the UAE, Qatar and Kuwait among its shipping territories (its FAQ, checked 2026-09-29); Bahrain and Oman are not named on that partial list, so confirm at checkout. We have not verified a product registration with the Saudi Food and Drug Authority (SFDA) or the Ministry of Health and Prevention (MOHAP).',
   },
   {
     product: productsGCC.find(p => p.slug === 'qualia-mind-review')!,
@@ -81,7 +81,7 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'onnit-alpha-brain-review')!,
     rank: 4,
     whyItsHere:
-      'Caffeine-free formula with Alpha-GPC, L-theanine, L-tyrosine, and Bacopa. National Sanitation Foundation (NSF) Certified for Sport — relevant for GCC athletes and military buyers facing drug-tested events. Vegetarian but not vegan per the brand\'s FAQ; capsule shell material not stated (checked 2026-10-07). Two published clinical studies on the formula. Doses are hidden in proprietary blends — you cannot verify clinical thresholds. onnit.com\'s market list names Bahrain and Oman; shipping to the other GCC states could not be confirmed from the brand\'s site on 2026-09-29 — check at checkout. We have not verified an SFDA or MOHAP product registration.',
+      'Caffeine-free formula with Alpha-GPC, L-theanine, L-tyrosine, and Bacopa. National Sanitation Foundation (NSF) Certified for Sport — relevant for GCC athletes and military buyers facing drug-tested events. Vegetarian but not vegan per the brand\'s FAQ; capsule shell material not stated (checked 2026-10-07). A published randomised trial of the finished formula (2016). Doses are hidden in proprietary blends — you cannot verify clinical thresholds. onnit.com\'s market list names Bahrain and Oman; shipping to the other GCC states could not be confirmed from the brand\'s site on 2026-09-29 — check at checkout. We have not verified an SFDA or MOHAP product registration.',
   },
 ];
 
@@ -100,7 +100,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'How long does it take a focus nootropic to work?',
-    a: 'Acute-effect ingredients (L-theanine, caffeine, Alpha-GPC, L-tyrosine) work within 30–60 minutes. Bacopa: 8–12 weeks; most positive trials ran 12 weeks. Lion\'s Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. If you want a tonight-effect, look for L-theanine + caffeine; for compounded benefit, plan for 8 weeks of consistent use.',
+    a: 'Acute-effect ingredients (L-theanine, caffeine, Alpha-GPC, L-tyrosine) work within 30–60 minutes. Bacopa: 8–12 weeks; most positive trials ran 12 weeks. Lion\'s Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. If you want a tonight-effect, look for L-theanine + caffeine; for compounded benefit, plan for at least 12 weeks of consistent use before judging.',
   },
   {
     q: 'Are focus nootropics safe to take daily?',

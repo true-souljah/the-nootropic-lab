@@ -63,7 +63,7 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design lets you pair it with kopi, matcha, or Vietnamese drip if you want caffeine alongside its L-theanine. mindlabpro.com names Singapore, Thailand, the Philippines, Indonesia and Vietnam among its shipping territories (its FAQ, checked 2026-09-29); Malaysia is not named on that partial list, so confirm at checkout. Imported as personal-use supplement — we have not verified a local product registration with the National Pharmaceutical Regulatory Agency (NPRA) in Malaysia, the Thai FDA, FDA Philippines, the Badan Pengawas Obat dan Makanan (BPOM) in Indonesia or the Vietnam Food Administration (VFA). Halal: no halal certificate shown on the brand\'s pages we fetched (checked 2026-10-07); the brand states pullulan (NutriCaps) capsules — verify acceptability for ID/MY buyers.',
+      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline (our citicoline page rates its attention evidence as mixed). Caffeine-free design lets you pair it with kopi, matcha, or Vietnamese drip if you want caffeine alongside its L-theanine. mindlabpro.com names Singapore, Thailand, the Philippines, Indonesia and Vietnam among its shipping territories (its FAQ, checked 2026-09-29); Malaysia is not named on that partial list, so confirm at checkout. Imported as personal-use supplement — we have not verified a local product registration with the National Pharmaceutical Regulatory Agency (NPRA) in Malaysia, the Thai FDA, FDA Philippines, the Badan Pengawas Obat dan Makanan (BPOM) in Indonesia or the Vietnam Food Administration (VFA). Halal: no halal certificate shown on the brand\'s pages we fetched (checked 2026-10-07); the brand states pullulan (NutriCaps) capsules — verify acceptability for ID/MY buyers.',
   },
   {
     product: productsSEA.find(p => p.slug === 'noocube-review')!,
@@ -100,7 +100,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'How long does it take a focus nootropic to work?',
-    a: 'Acute-effect ingredients (L-theanine, caffeine, Alpha-GPC, L-tyrosine) work within 30–60 minutes. Bacopa: 8–12 weeks; most positive trials ran 12 weeks. Lion\'s Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. If you want a same-day effect, look for L-theanine + caffeine; for compounded benefit over a study term or work quarter, plan for 8 weeks of consistent use.',
+    a: 'Acute-effect ingredients (L-theanine, caffeine, Alpha-GPC, L-tyrosine) work within 30–60 minutes. Bacopa: 8–12 weeks; most positive trials ran 12 weeks. Lion\'s Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. If you want a same-day effect, look for L-theanine + caffeine; for compounded benefit over a study term or work quarter, plan for at least 12 weeks of consistent use before judging.',
   },
   {
     q: 'Are focus nootropics safe to take daily in tropical SEA climates?',
@@ -119,7 +119,7 @@ export default function Page() {
       useCase="focus"
       pageTitle="Best Nootropics for Focus in SEA"
       pageDescription="Independent ranking of nootropics for focus and attention available across Southeast Asia."
-      heroParagraph="If you want to take a supplement to support focus across SEA — whether you're in a Singapore office, a KL co-working space, a Bangkok creative studio, a Manila call centre, or working remote from Bali — the question is not 'which brand?' but 'which ingredient at what dose, and how do I get it through customs?' This page ranks the products available to SEA buyers that contain at least one of the focus-validated ingredients (L-theanine + caffeine, citicoline, L-tyrosine, Lutemax 2020) at clinical dose. Regulatory status (Singapore’s Health Sciences Authority (HSA), Malaysia’s National Pharmaceutical Regulatory Agency (NPRA), Indonesia’s Badan Pengawas Obat dan Makanan (BPOM), and the Thai and Philippine Food and Drug Administrations (FDA)) and halal availability (Indonesia’s Badan Penyelenggara Jaminan Produk Halal (BPJPH) and the Department of Islamic Development Malaysia (JAKIM)) noted per pick where known."
+      heroParagraph="If you want to take a supplement to support focus across SEA — whether you're in a Singapore office, a KL co-working space, a Bangkok creative studio, a Manila call centre, or working remote from Bali — the question is not 'which brand?' but 'which ingredient at what dose, and how do I get it through customs?' This page ranks the products available to SEA buyers that contain at least one of these ingredients: L-theanine + caffeine, citicoline, L-tyrosine or Lutemax 2020. Regulatory status (Singapore’s Health Sciences Authority (HSA), Malaysia’s National Pharmaceutical Regulatory Agency (NPRA), Indonesia’s Badan Pengawas Obat dan Makanan (BPOM), and the Thai and Philippine Food and Drug Administrations (FDA)) and halal availability (Indonesia’s Badan Penyelenggara Jaminan Produk Halal (BPJPH) and the Department of Islamic Development Malaysia (JAKIM)) noted per pick where known."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

@@ -94,7 +94,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'When should I start taking these?',
-    a: 'The evidence is strongest in 50+ adults with subjective cognitive complaints. There is no benefit shown to starting in your 30s or 40s purely as "prevention." Talk with your primary care clinician about cognitive concerns before starting any supplement, especially if you take prescription medications.',
+    a: 'Some of the supplements on this page have trial evidence in older adults, often only in subgroups: PS-DHA in older adults with memory complaints, citicoline in those with relatively inefficient memories, and Lion\'s Mane in mild cognitive impairment. There is no benefit shown to starting in your 30s or 40s purely as "prevention." Talk with your primary care clinician about cognitive concerns before starting any supplement, especially if you take prescription medications.',
   },
   {
     q: 'Are these safe alongside blood-pressure or cholesterol medications?',
@@ -106,7 +106,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'How long until I notice anything?',
-    a: 'Phosphatidylserine: its memory trials ran 15 weeks to 12 months. Citicoline: memory effects were measured after 2–3 months. Bacopa: 8–12 weeks; most positive trials ran 12 weeks. Lion\'s Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. None are acute-effect ingredients. Track changes over 12 weeks of consistent dosing — ideally with a baseline cognitive measure (online tests are crude but better than subjective recall).',
+    a: 'Phosphatidylserine: its memory trials ran 15 weeks to 12 months. Citicoline: memory effects were measured after 2–3 months. Bacopa: 8–12 weeks; most positive trials ran 12 weeks. Lion\'s Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. Apart from small acute effects of Lion\'s Mane in pilot trials, none are acute-effect ingredients. Track changes over at least 12 weeks of consistent dosing, and longer for phosphatidylserine (15 weeks or more) — ideally with a baseline cognitive measure (online tests are crude but better than subjective recall).',
   },
 ];
 
@@ -117,7 +117,7 @@ export default function Page() {
       useCase="aging"
       pageTitle="Best Nootropics for Aging Brain"
       pageDescription="Independent ranking of nootropics for adults concerned about age-related cognitive changes."
-      heroParagraph="Age-related cognitive change is normal — memory recall slows, processing speed reduces. The supplements on this page have evidence specifically in older adults with subjective cognitive complaints. They are NOT treatments for dementia, Alzheimer's, or any clinical cognitive disease. For those, see a neurologist."
+      heroParagraph="Age-related cognitive change is normal — memory recall slows, processing speed reduces. Some of the supplements on this page have trial evidence in older adults, often only in subgroups: PS-DHA in older adults with memory complaints, citicoline in those with relatively inefficient memories, and Lion's Mane in mild cognitive impairment. They are NOT treatments for dementia, Alzheimer's, or any clinical cognitive disease. For those, see a neurologist."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

@@ -82,7 +82,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: '¿Cuánto tardan en hacer efecto los nootrópicos para memoria?',
-    a: 'Bacopa: 8–12 semanas de uso diario; la mayoría de los ensayos positivos duraron 12 semanas. Melena de León: en adultos con deterioro cognitivo leve, el beneficio se fue acumulando a lo largo de 8–16 semanas. Fosfatidilserina: sus ensayos sobre la memoria duraron de 15 semanas a 12 meses. Citicolina: sus efectos sobre la memoria se midieron después de 2–3 meses. Ninguno es un ingrediente de efecto agudo. Planifica al menos 12 semanas de dosificación constante antes de juzgar — y considera el tiempo de envío internacional (10–18 días a Latam) en tu cronograma.',
+    a: 'Bacopa: 8–12 semanas de uso diario; la mayoría de los ensayos positivos duraron 12 semanas. Melena de León: en adultos con deterioro cognitivo leve, el beneficio se fue acumulando a lo largo de 8–16 semanas. Fosfatidilserina: sus ensayos sobre la memoria duraron de 15 semanas a 12 meses. Citicolina: sus efectos sobre la memoria se midieron después de 2–3 meses. Aparte de los pequeños efectos agudos de la Melena de León en ensayos piloto, ninguno es un ingrediente de efecto agudo. Planifica al menos 12 semanas de dosificación constante antes de juzgar, y más tiempo para la fosfatidilserina (15 semanas o más) — y considera el tiempo de envío internacional (10–18 días a Latam) en tu cronograma.',
   },
   {
     q: '¿Son seguros estos nootrópicos a largo plazo?',
@@ -94,7 +94,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: '¿Ayudarán con la pérdida de memoria asociada a la edad?',
-    a: 'La evidencia es más fuerte específicamente en adultos mayores con quejas cognitivas subjetivas — no en demencia clínicamente diagnosticada ni Alzheimer. Si tú o un familiar experimentan cambios significativos en la memoria, consulta a un neurólogo. Los suplementos no son tratamiento para la demencia.',
+    a: 'Algunos de los suplementos de esta página tienen evidencia de ensayos en adultos mayores, a menudo solo en subgrupos: la PS-DHA en adultos mayores con quejas de memoria, la citicolina en quienes tienen una memoria relativamente ineficiente y la Melena de León en el deterioro cognitivo leve. Si tú o un familiar experimentan cambios significativos en la memoria, consulta a un neurólogo. Los suplementos no son tratamiento para la demencia.',
   },
   {
     q: 'Melena de León: ¿cuerpo fructífero o micelio?',
