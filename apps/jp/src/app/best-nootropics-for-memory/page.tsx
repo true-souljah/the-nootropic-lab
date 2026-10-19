@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
-import { productsJP, getRegionalHealthDisclaimer, sitemapDate } from '@nootropic/data';
+import { productsJP, getRegionalHealthDisclaimer, ingredients, sitemapDate } from '@nootropic/data';
 import sitemap from '@/app/sitemap';
 import { SITE_URL } from '@/lib/region';
 
@@ -42,14 +42,14 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'DHA (Docosahexaenoic Acid) — FFC-notified in Japan',
     ingredientSlugs: ['dha-omega-3'],
     evidence:
-      'By our count of the Consumer Affairs Agency\'s FFC database (export of 2026-10-06), DHA is listed as a functional ingredient in 105 of the 563 active Foods with Function Claims (FFC) notifications whose claim mentions memory or cognitive function. The brain is approximately 60% fat by dry weight and DHA is its primary structural omega-3. The positive memory trials we reviewed used 900mg–1.2g DHA/day for 24 weeks or longer (see our DHA ingredient page). Of the domestic picks on this page, Suntory DHA & EPA + Sesamin EX is the DHA product; FANCL BRAINs is not — its notified functional ingredients are bacopa saponins and matured hop bitter acids (notification G425).',
+      'By our count of the Consumer Affairs Agency\'s FFC database (export of 2026-10-06), DHA is listed as a functional ingredient in 105 of the 563 active Foods with Function Claims (FFC) notifications whose claim mentions memory or cognitive function. The brain is approximately 60% fat by dry weight and DHA is its primary structural omega-3. The positive memory trials we reviewed used 900mg–1.2g DHA/day for 24 weeks or longer. Of the domestic picks on this page, Suntory DHA & EPA + Sesamin EX is the DHA product; FANCL BRAINs is not — its notified functional ingredients are bacopa saponins and matured hop bitter acids (notification G425).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20434961/',
   },
   {
     name: 'Phosphatidylserine (PS)',
     ingredientSlugs: ['phosphatidylserine'],
     evidence:
-      'Phospholipid component of brain cell membranes. The FDA allows phosphatidylserine only qualified claims that it \'may reduce the risk of dementia\' or \'cognitive dysfunction in the elderly\', each followed by \'FDA concludes that there is little scientific evidence supporting this claim\' (FDA letter, 13 May 2003). RCTs in older adults at 100–300mg a day report memory benefits, though often only in subgroups (see our phosphatidylserine page). The trial linked below (Vakhapova et al. 2010) is not the basis of the FDA claim: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo. Used in Mind Lab Pro (100mg Sharp-PS).',
+      'Phospholipid component of brain cell membranes. The FDA allows phosphatidylserine only qualified claims that it \'may reduce the risk of dementia\' or \'cognitive dysfunction in the elderly\', each followed by \'FDA concludes that there is little scientific evidence supporting this claim\' (FDA letter, 13 May 2003). RCTs in older adults at 100–300mg a day report memory benefits, though often only in subgroups. The trial linked below (Vakhapova et al. 2010) is not the basis of the FDA claim: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo. Used in Mind Lab Pro (100mg Sharp-PS).',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
 ];
@@ -111,6 +111,7 @@ export default function Page() {
       pageDescription="Independent ranking of the best nootropics for memory and recall available in Japan, based on clinical evidence."
       heroParagraph="Memory is the use case where Japan's regulatory landscape and the global nootropics evidence base intersect most directly. Domestic brands target this use case too: FANCL BRAINs is notified under Japan's Food with Function Claims system administered by the Consumer Affairs Agency (CAA, 消費者庁; notification G425), while no FFC notification was found for Suntory DHA & EPA + Sesamin EX in the CAA database (export scanned 2026-10-06). They target middle-aged and older adults via DHA (Suntory) and bacopa saponins plus matured hop bitter acids (FANCL). Imported international stacks add the Bacopa and Lion's Mane evidence base — including Mori et al. 2009, the foundational Lion's Mane RCT conducted in Japan."
       ingredientMechanism={ingredientMechanism}
+      ingredientPages={ingredients}
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}

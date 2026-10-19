@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
-import { productsUS, getRegionalHealthDisclaimer, sitemapDate } from '@nootropic/data';
+import { productsUS, getRegionalHealthDisclaimer, ingredients, sitemapDate } from '@nootropic/data';
 import sitemap from '@/app/sitemap';
 import { SITE_URL } from '@/lib/region';
 
@@ -123,6 +123,7 @@ export default function Page() {
       pageDescription="Independent ranking of nootropics that may support attention. NOT a replacement for prescription ADHD medication. Always consult a clinician."
       heroParagraph="If you have ADHD or suspect you do, the right step is a clinical evaluation — not a supplement. This page covers what the evidence says about nootropic ingredients with attention-adjacent benefits, ranks the products in our coverage that contain them at clinical dose, and explains the limits clearly. Read the disclaimer first."
       ingredientMechanism={ingredientMechanism}
+      ingredientPages={ingredients}
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}

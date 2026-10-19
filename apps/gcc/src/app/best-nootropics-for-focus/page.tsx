@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
-import { productsGCC, getRegionalHealthDisclaimer, sitemapDate } from '@nootropic/data';
+import { productsGCC, getRegionalHealthDisclaimer, ingredients, sitemapDate } from '@nootropic/data';
 import sitemap from '@/app/sitemap';
 import { SITE_URL } from '@/lib/region';
 
@@ -122,6 +122,7 @@ export default function Page() {
       pageDescription="Independent ranking of the best nootropics for focus available in the GCC. Halal status and SFDA/MOHAP registration noted per pick."
       heroParagraph="If you want to take a supplement to support focus in the GCC, three things matter beyond the ingredient list: halal compliance, SFDA (Saudi) or MOHAP (UAE) registration status, and capsule source (plant-based HPMC/pullulan vs. animal-derived gelatin). This page ranks focus-relevant products for GCC buyers — imported international stacks such as Mind Lab Pro and Qualia Mind — with each pick annotated for halal status, registration, and whether the brand ships to the GCC. Distribution channels: BinSina, Aster, Life Pharmacy (UAE); Al-Dawaa, Nahdi (KSA); iHerb Saudi-compliant DC for many international imports."
       ingredientMechanism={ingredientMechanism}
+      ingredientPages={ingredients}
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}

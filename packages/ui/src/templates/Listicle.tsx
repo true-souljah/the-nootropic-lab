@@ -17,8 +17,8 @@ import DisclaimerText from '../DisclaimerText';
 import { Bar } from '../primitives/Bar';
 import { FaqAccordion } from '../primitives/FaqAccordion';
 import { ProductThumb } from '../primitives/ProductThumb';
-import { buildPersonAuthorReference, servingAmount, pillarText, guaranteeDays, linksAmazonAssociates, pageDisclosureScope, isoDay } from '@nootropic/data';
-import type { Product, RelatedGuideUseCase, UIStrings } from '@nootropic/data';
+import { buildPersonAuthorReference, servingAmount, pillarText, guaranteeDays, linksAmazonAssociates, pageDisclosureScope, getStrings, isoDay } from '@nootropic/data';
+import type { Ingredient, Product, RelatedGuideUseCase, UIStrings } from '@nootropic/data';
 import { tpl } from '../templateStrings';
 import {
   alsoConsideredText,
@@ -38,7 +38,8 @@ export interface ListicleFAQ {
  * One "What the evidence actually says" card. `ingredientSlugs` names the
  * ingredient-library pages the card is about (see ListicleEvidenceIngredients):
  * rule (b) ranks a pick only when its label proves, for at least one card,
- * every ingredient the card lists at our reference dose.
+ * every ingredient the card lists at our reference dose. The card links each
+ * of those pages after its citation links (see `ingredientPages`).
  */
 export interface ListicleIngredientMechanism extends ListicleEvidenceIngredients {
   name: string;
@@ -78,6 +79,14 @@ export interface ListicleProps {
   /** Hero paragraph rendered as dek below H1. */
   heroParagraph: string;
   ingredientMechanism: ListicleIngredientMechanism[];
+  /**
+   * The ingredient pages this host builds (/ingredients/<slug>/), named in the
+   * page language: the list the region's ingredients/[ingredient] route builds
+   * (`ingredients`; `localizedIngredients('es')` on LATAM). An evidence card
+   * links each of its `ingredientSlugs` found here, and renders no link for a
+   * slug that is not.
+   */
+  ingredientPages: readonly Pick<Ingredient, 'slug' | 'name'>[];
   picks: ListiclePick[];
   faqItems: ListicleFAQ[];
   siteUrl: string;
@@ -116,7 +125,7 @@ export interface ListicleProps {
   relatedCompares?: Array<{ label: string; href: string }>;
 }
 
-/** An evidence card's "Source" link and its `extraCitations` links share this style. */
+/** An evidence card's "Source" link, its `extraCitations` links and its ingredient-page links share this style. */
 const EVIDENCE_CITATION_LINK_CLASS =
   'inline-block mt-2 text-[12.5px] text-ds-accent underline focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded';
 
@@ -138,6 +147,7 @@ export default function Listicle({
   pageDescription,
   heroParagraph,
   ingredientMechanism,
+  ingredientPages,
   picks,
   faqItems,
   regulatoryPillar,
@@ -177,6 +187,8 @@ export default function Listicle({
   const linked = ranked.map((pick) => pick.product);
   const disclosureScope = pageDisclosureScope(linked);
   const amazonAssociate = linksAmazonAssociates(linked);
+  const ingredientPageBySlug = new Map(ingredientPages.map((page) => [page.slug, page]));
+  const ingredientPageLink = s.ingredientPageLink ?? getStrings('en').listicle.ingredientPageLink!;
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -306,6 +318,20 @@ export default function Listicle({
                         </a>
                       </Fragment>
                     ))}
+                    {item.ingredientSlugs
+                      .flatMap((slug) => ingredientPageBySlug.get(slug) ?? [])
+                      .map((page, i) => (
+                        <Fragment key={page.slug}>
+                          {(i !== 0 || Boolean(item.citationUrl) || Boolean(item.extraCitations?.length)) && (
+                            <span aria-hidden="true" className="text-[12.5px] text-ds-muted">
+                              {' · '}
+                            </span>
+                          )}
+                          <Link href={`/ingredients/${page.slug}/`} className={EVIDENCE_CITATION_LINK_CLASS}>
+                            {tpl(ingredientPageLink, { name: page.name })}
+                          </Link>
+                        </Fragment>
+                      ))}
                   </Card>
                 ))}
               </div>

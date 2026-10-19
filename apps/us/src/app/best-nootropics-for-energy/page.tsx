@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
-import { productsUS, getRegionalHealthDisclaimer, sitemapDate } from '@nootropic/data';
+import { productsUS, getRegionalHealthDisclaimer, ingredients, sitemapDate } from '@nootropic/data';
 import sitemap from '@/app/sitemap';
 import { SITE_URL } from '@/lib/region';
 
@@ -120,6 +120,7 @@ export default function Page() {
       pageDescription="Independent ranking of nootropics for sustained cognitive energy. Caffeine + L-theanine, Rhodiola, citicoline."
       heroParagraph="For sustained cognitive energy, this page looks at layered stacks: caffeine + L-theanine for the acute effect, Rhodiola for fatigue resistance, citicoline + B-vitamins for the underlying cognitive-demand support. This page ranks the products in our coverage that combine these ingredients at evidence-backed doses."
       ingredientMechanism={ingredientMechanism}
+      ingredientPages={ingredients}
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}

@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
-import { productsLatam, getRegionalHealthDisclaimer, sitemapDate } from '@nootropic/data';
+import { productsLatam, getRegionalHealthDisclaimer, localizedIngredients, sitemapDate } from '@nootropic/data';
 import sitemap from '@/app/sitemap';
 import { SITE_URL } from '@/lib/region';
 
@@ -43,7 +43,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Fosfatidilserina (PS)',
     ingredientSlugs: ['phosphatidylserine'],
     evidence:
-      'Componente fosfolípido de las membranas neuronales. La FDA solo permite para la fosfatidilserina declaraciones calificadas de que "may reduce the risk of dementia" o "cognitive dysfunction in the elderly", cada una seguida de "FDA concludes that there is little scientific evidence supporting this claim" (carta de la FDA, 13 de mayo de 2003): es decir, que puede reducir el riesgo de demencia o de disfunción cognitiva en personas mayores, y que la FDA concluye que hay poca evidencia científica que respalde esa declaración. Los ensayos clínicos en adultos mayores a 100–300mg al día reportan beneficios en la memoria, aunque a menudo solo en subgrupos (ver nuestra página sobre la fosfatidilserina). Evidencia más débil en adultos jóvenes sanos. El ensayo enlazado abajo (Vakhapova et al. 2010) no es la base de la declaración de la FDA: en un ensayo clínico exploratorio de 15 semanas con 157 adultos mayores sin demencia y con quejas de memoria, la PS-DHA mejoró el recuerdo verbal inmediato frente a placebo.',
+      'Componente fosfolípido de las membranas neuronales. La FDA solo permite para la fosfatidilserina declaraciones calificadas de que "may reduce the risk of dementia" o "cognitive dysfunction in the elderly", cada una seguida de "FDA concludes that there is little scientific evidence supporting this claim" (carta de la FDA, 13 de mayo de 2003): es decir, que puede reducir el riesgo de demencia o de disfunción cognitiva en personas mayores, y que la FDA concluye que hay poca evidencia científica que respalde esa declaración. Los ensayos clínicos en adultos mayores a 100–300mg al día reportan beneficios en la memoria, aunque a menudo solo en subgrupos. Evidencia más débil en adultos jóvenes sanos. El ensayo enlazado abajo (Vakhapova et al. 2010) no es la base de la declaración de la FDA: en un ensayo clínico exploratorio de 15 semanas con 157 adultos mayores sin demencia y con quejas de memoria, la PS-DHA mejoró el recuerdo verbal inmediato frente a placebo.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {
@@ -112,6 +112,7 @@ export default function Page() {
       pageDescription="Ranking independiente de los mejores nootrópicos para memoria y recordación disponibles en Latinoamérica, basado en evidencia clínica."
       heroParagraph="Para la memoria, la evidencia sobre Bacopa Monnieri que citamos es una revisión sistemática de seis ensayos aleatorizados de 12 semanas (Pase 2012). Esta página clasifica los productos disponibles para compradores en Latam que contienen Bacopa, Melena de León, fosfatidilserina o citicolina en dosis clínica o cercana a ella. Incluimos opciones internacionales (Mind Lab Pro, Qualia Mind, Nootropics Depot)."
       ingredientMechanism={ingredientMechanism}
+      ingredientPages={localizedIngredients('es')}
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}

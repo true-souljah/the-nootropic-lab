@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
-import { productsLatam, getRegionalHealthDisclaimer, sitemapDate } from '@nootropic/data';
+import { productsLatam, getRegionalHealthDisclaimer, localizedIngredients, sitemapDate } from '@nootropic/data';
 import sitemap from '@/app/sitemap';
 import { SITE_URL } from '@/lib/region';
 
@@ -117,6 +117,7 @@ export default function Page() {
       pageDescription="Ranking independiente de los mejores nootrópicos para concentración y atención disponibles en Latinoamérica. Cada selección contiene un ingrediente con dosis clínica."
       heroParagraph="Si quieres tomar un suplemento para apoyar la concentración, la pregunta no es '¿qué marca?' sino '¿qué ingrediente y a qué dosis?'. Esta página clasifica los productos disponibles para compradores en Latam que contienen al menos uno de estos cuatro ingredientes: L-teanina + cafeína, citicolina, L-tirosina o Alfa-GPC. Incluimos opciones internacionales (Mind Lab Pro, Qualia Mind, NooCube)."
       ingredientMechanism={ingredientMechanism}
+      ingredientPages={localizedIngredients('es')}
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}
