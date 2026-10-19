@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import {
   allProductsUS, allProductsEU, allProductsCA, allProductsAU,
   allProductsJP, allProductsLatam, allProductsGCC, allProductsSEA,
-  productsUS, productsEU, productsCA, productsAU,
+  productsUS, productsEU, productsCA, productsAU, productsGCC, productsSEA,
   ingredients, earnsCommission, reviewDisclosureScope, licenceStatus,
 } from '@nootropic/data';
 import type { Product } from '@nootropic/data';
@@ -25,8 +25,18 @@ import type { Product } from '@nootropic/data';
 //   Energy Drink (106mg caffeine per 330ml, six B vitamins in the ingredient
 //   list), and the UK-label Brain Capsules (no bacoside standardisation
 //   printed), so each is its own record and slug; both are tracked.
-// GCC, SEA, LATAM and JP are still out of scope, so those catalogues omit
-// every Neutonic slug.
+//
+// Wave 2b (2026-10-19, same BACKLOG item):
+// - GCC: the Middle East store (/en-me/, UAE + Saudi Arabia, AED) lists only
+//   the UK-label Brain Capsules (its drink URLs return 404), so GCC carries that
+//   one record, tracked. It has no store price: the page prints "Dhs. 320.00",
+//   a mark the store-price parser does not read (vendor-price.ts), and the
+//   record never stores a price text the page does not print.
+// - SEA: Singapore and Malaysia are served the main GBP store, which sells the
+//   330ml can (same formula as the US/EU/CA record) and the UK-label capsules;
+//   both are tracked and carry the dated "no halal certificate shown" evidence.
+// LATAM and JP are still out of scope, so those catalogues omit every
+// Neutonic slug.
 
 const DRINK = 'neutonic-productivity-drink-review';
 const CAPSULES = 'neutonic-brain-capsules-review';
@@ -41,14 +51,18 @@ const PRODUCT_PATH: Record<string, Record<string, string>> = {
   eu: { [DRINK]: '/products/tropical-ice-12pk' },
   ca: { [DRINK]: '/en-us/products/tropical-ice-12pk-us', [CAPSULES]: '/en-us/products/neutonic-capsules-us' },
   au: { [AU_DRINK]: '/en-au/products/productivity-drink-aus-trop', [UK_CAPSULES]: '/en-au/products/neutonic-capsules-uk' },
+  gcc: { [UK_CAPSULES]: '/en-me/products/brain-capsules-uae' },
+  sea: { [DRINK]: '/products/tropical-ice-12pk', [UK_CAPSULES]: '/products/neutonic-capsules-uk' },
 };
 const SCA_REF = '11880392.89XMRS5MXxp';
 
-const IN_SCOPE: Record<string, Product[]> = { us: allProductsUS, eu: allProductsEU, ca: allProductsCA, au: allProductsAU };
-const RECOMMENDABLE: Record<string, Product[]> = { us: productsUS, eu: productsEU, ca: productsCA, au: productsAU };
-const OUT_OF_SCOPE: Record<string, Product[]> = {
-  jp: allProductsJP, latam: allProductsLatam, gcc: allProductsGCC, sea: allProductsSEA,
+const IN_SCOPE: Record<string, Product[]> = {
+  us: allProductsUS, eu: allProductsEU, ca: allProductsCA, au: allProductsAU, gcc: allProductsGCC, sea: allProductsSEA,
 };
+const RECOMMENDABLE: Record<string, Product[]> = {
+  us: productsUS, eu: productsEU, ca: productsCA, au: productsAU, gcc: productsGCC, sea: productsSEA,
+};
+const OUT_OF_SCOPE: Record<string, Product[]> = { jp: allProductsJP, latam: allProductsLatam };
 
 const cases = Object.entries(PRODUCT_PATH).flatMap(([region, paths]) => Object.keys(paths).map((slug) => [region, slug] as const));
 // Records on the UpPromote link; the US drink is the no-commission one.
@@ -60,8 +74,8 @@ function record(region: string, slug: string): Product {
   return p;
 }
 
-describe('Neutonic records on the US, EU, CA and AU hosts', () => {
-  it('covers the drink in us + eu + ca, the capsules in us + ca, and the AU editions in au (guards against a silently empty case list)', () => {
+describe('Neutonic records on the US, EU, CA, AU, GCC and SEA hosts', () => {
+  it('covers the drink in us + eu + ca + sea, the US capsules in us + ca, the AU editions in au, and the UK-edition capsules in gcc + sea (guards against a silently empty case list)', () => {
     expect(cases).toEqual([
       ['us', DRINK],
       ['us', CAPSULES],
@@ -70,6 +84,9 @@ describe('Neutonic records on the US, EU, CA and AU hosts', () => {
       ['ca', CAPSULES],
       ['au', AU_DRINK],
       ['au', UK_CAPSULES],
+      ['gcc', UK_CAPSULES],
+      ['sea', DRINK],
+      ['sea', UK_CAPSULES],
     ]);
   });
 
@@ -81,6 +98,9 @@ describe('Neutonic records on the US, EU, CA and AU hosts', () => {
       ['ca', CAPSULES],
       ['au', AU_DRINK],
       ['au', UK_CAPSULES],
+      ['gcc', UK_CAPSULES],
+      ['sea', DRINK],
+      ['sea', UK_CAPSULES],
     ]);
   });
 
@@ -135,7 +155,7 @@ describe('Neutonic records on the US, EU, CA and AU hosts', () => {
     expect(caps.servingsPerContainer).toBe(30);
   });
 
-  it('store prices are the linked store\'s own, in its currency; the US drink page states none', () => {
+  it('store prices are the linked store\'s own, in its currency; the US drink page states none, and the GCC page\'s "Dhs." price is not stored', () => {
     expect(record('eu', DRINK).storePrice).toMatchObject({
       amount: 35.99, currency: 'EUR', text: '€35,99', url: 'https://www.neutonic.com/products/tropical-ice-12pk',
     });
@@ -159,6 +179,45 @@ describe('Neutonic records on the US, EU, CA and AU hosts', () => {
     expect(record('au', UK_CAPSULES).storePrice).toMatchObject({
       amount: 92.99, currency: 'AUD', text: '$92.99', url: 'https://www.neutonic.com/en-au/products/neutonic-capsules-uk',
     });
+    // Singapore and Malaysia are served the main store in GBP (checked 2026-10-19).
+    // The drink page is the EU record's page too, priced in EUR with an EU country selected.
+    expect(record('sea', DRINK).storePrice).toMatchObject({
+      amount: 29.99, currency: 'GBP', text: '£29.99', url: 'https://www.neutonic.com/products/tropical-ice-12pk',
+    });
+    expect(record('sea', UK_CAPSULES).storePrice).toMatchObject({
+      amount: 44.99, currency: 'GBP', text: '£44.99', url: 'https://www.neutonic.com/products/neutonic-capsules-uk',
+    });
+    // The Middle East page prints "Dhs. 320.00" (JSON-LD AED 320.00, checked
+    // 2026-10-19); the parser reads no "Dhs." mark, so the record states the
+    // printed price in its notes and carries no store price.
+    expect(record('gcc', UK_CAPSULES).storePrice).toBeUndefined();
+    expect(record('gcc', UK_CAPSULES).notes).toContainEqual(expect.stringContaining("'Dhs. 320.00'"));
+  });
+
+  it('SEA: both records show no halal certificate on the brand pages fetched on 2026-10-19; GCC carries no halal fields', () => {
+    for (const slug of [DRINK, UK_CAPSULES]) {
+      const p = record('sea', slug);
+      expect(p.halalCertified, `sea/${slug}`).toBe(false);
+      expect(p.halalCheckedAt, `sea/${slug}`).toBe('2026-10-19');
+      expect(p.halalBasis, `sea/${slug}`).toMatch(/^No halal certificate or statement on neutonic\.com's product pages/);
+      expect(licenceStatus(p, 'sea'), `sea/${slug}`).toMatchObject({
+        key: 'noHalalChecked', label: 'No halal certificate shown by the brand (checked 2026-10-19)',
+      });
+    }
+    const gcc = record('gcc', UK_CAPSULES);
+    expect([gcc.halalCertified, gcc.halalCheckedAt, gcc.halalBasis]).toEqual([undefined, undefined, undefined]);
+  });
+
+  it('GCC and SEA: shipping evidence cites the store\'s own shipping page with its check date, and no regulator status is claimed', () => {
+    expect(record('gcc', UK_CAPSULES).importPathway).toContain('https://www.neutonic.com/en-me/pages/shipping-returns, checked 2026-10-19');
+    for (const slug of [DRINK, UK_CAPSULES]) {
+      expect(record('sea', slug).importPathway, `sea/${slug}`).toContain('https://www.neutonic.com/pages/shipping-returns, checked 2026-10-19');
+    }
+    for (const [region, slug] of cases.filter(([r]) => r === 'gcc' || r === 'sea')) {
+      const p = record(region, slug);
+      const copy = [p.summary, p.whatItIs, p.whatToExpect, p.importPathway, p.regulatoryNote, ...p.pros, ...p.cons, ...[p.notes ?? []].flat()].join(' ');
+      expect(copy, `${region}/${slug}`).not.toMatch(/\b(SFDA|MOHAP|BPOM|HSA|NPRA|BPJPH|JAKIM)\b/);
+    }
   });
 
   it('CA: both records carry the 2026-10-19 LNHPD no-row result; AU: neither carries an AUST L number', () => {
@@ -239,6 +298,14 @@ describe('Neutonic records are absent outside their hosts', () => {
 
   it('the AU catalogue carries only the AU editions (its store sells neither US product)', () => {
     for (const slug of [DRINK, CAPSULES]) expect(allProductsAU.some((p) => p.slug === slug), `au/${slug}`).toBe(false);
+  });
+
+  it('the GCC catalogue carries only the UK-edition capsules (the Middle East store sells no drink, 404 on 2026-10-19)', () => {
+    for (const slug of [DRINK, CAPSULES, AU_DRINK]) expect(allProductsGCC.some((p) => p.slug === slug), `gcc/${slug}`).toBe(false);
+  });
+
+  it('the SEA catalogue carries the 330ml drink and the UK-edition capsules, not the US-label capsules or the AU can', () => {
+    for (const slug of [CAPSULES, AU_DRINK]) expect(allProductsSEA.some((p) => p.slug === slug), `sea/${slug}`).toBe(false);
   });
 
   it.each(Object.keys(OUT_OF_SCOPE))('%s omits every Neutonic slug', (region) => {

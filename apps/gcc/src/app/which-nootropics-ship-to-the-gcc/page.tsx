@@ -16,14 +16,18 @@ const PATH = '/which-nootropics-ship-to-the-gcc/';
 const PAGE_URL = `${SITE_URL}${PATH}`;
 const TITLE = 'Which Nootropic Brands Ship to the UAE, Saudi Arabia, Qatar, Kuwait, Bahrain and Oman?';
 const DESCRIPTION =
-  'Brand by brand, what each nootropic brand in our GCC catalogue says on its own website about delivery to the six Gulf states, checked 29 September 2026, plus the iHerb storefronts and what we could not confirm.';
+  'Brand by brand, what each nootropic brand in our GCC catalogue says on its own website about delivery to the six Gulf states, checked between 29 September and 19 October 2026, plus the iHerb storefronts and what we could not confirm.';
 
-// Date every brand page below was last checked. Sourced fact sheet:
+// Date every brand page below was last checked, except Neutonic's, added with
+// that product and read on NEUTONIC_CHECKED_ON_LABEL. Sourced fact sheet:
 // nootropics-research/2026-09/p5/gcc-what-ships.json (fetched 2026-09-29).
 // Rule: a "does not ship" statement is only made where the brand's own FAQ or
 // shipping page says so. Shopify meta.json country lists are never used.
 const VERIFIED_ON = '2026-09-29';
 const VERIFIED_ON_LABEL = '29 September 2026';
+const NEUTONIC_CHECKED_ON_LABEL = '19 October 2026';
+// Last content change: the Neutonic row.
+const PAGE_MODIFIED_ON = '2026-10-19';
 
 interface BrandRow {
   brand: string;
@@ -97,6 +101,15 @@ const brandRows: BrandRow[] = [
     sourceUrl: 'https://www.euyansang.com.sg/en/shipping-and-returns',
     fallback: 'Email the international-enquiry address on that page (comms@euyansang.com).',
   },
+  {
+    brand: 'Neutonic',
+    reviewSlug: 'neutonic-brain-capsules-uk-review',
+    direct:
+      'Named: the UAE. The Middle East store’s shipping page says “Free shipping on all orders to UAE.” and “We are currently delivering to UAE, other ME countries will be sent from UK”. Saudi Arabia is served by the same store, in UAE dirhams, but has no section of its own; Qatar, Kuwait, Bahrain and Oman are not named (checked 2026-10-19).',
+    sourceLabel: 'Neutonic — Shipping Information (Middle East store)',
+    sourceUrl: 'https://www.neutonic.com/en-me/pages/shipping-returns',
+    fallback: 'Outside the UAE, check at checkout: the page warns “there may now be additional charges to pay on delivery of your goods”.',
+  },
 ];
 
 const iherbStorefronts = [
@@ -122,7 +135,7 @@ const articleSchema = {
   headline: 'Which nootropic brands ship to the GCC?',
   description: DESCRIPTION,
   datePublished: VERIFIED_ON,
-  dateModified: VERIFIED_ON,
+  dateModified: PAGE_MODIFIED_ON,
   author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
   publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   mainEntityOfPage: PAGE_URL,
@@ -190,7 +203,8 @@ export default function Page() {
         <p id="hero-paragraph" className="text-lg text-gray-600 mb-6 leading-relaxed">
           This page records, brand by brand, what each brand in our GCC catalogue says on its own website about
           delivery to the UAE, Saudi Arabia, Qatar, Kuwait, Bahrain and Oman. We checked every page on{' '}
-          {VERIFIED_ON_LABEL}. Where a brand&apos;s own site does not say, we write &ldquo;not confirmed&rdquo; instead
+          {VERIFIED_ON_LABEL}, except Neutonic&apos;s, which we read on {NEUTONIC_CHECKED_ON_LABEL} when we added it.
+          Where a brand&apos;s own site does not say, we write &ldquo;not confirmed&rdquo; instead
           of guessing. For our product rankings, see{' '}
           <Link href="/best-nootropics/" className="text-green-700 underline">the best nootropics for the GCC</Link>.
         </p>
@@ -204,7 +218,8 @@ export default function Page() {
           <ul className="text-sm text-gray-800 leading-relaxed space-y-2">
             <li>
               <strong>Named by the brand:</strong> Mind Lab Pro&apos;s shipping page names Saudi Arabia, the UAE,
-              Qatar and Kuwait.
+              Qatar and Kuwait. Neutonic&apos;s Middle East store names the UAE and sends other Middle East orders
+              from the UK.
             </li>
             <li>
               <strong>Not shipped direct:</strong> Qualia Mind&apos;s FAQ limits direct international orders to five
@@ -228,12 +243,12 @@ export default function Page() {
           </p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border border-gray-200 rounded-lg">
-              <caption className="sr-only">Direct shipping to the six GCC states, per each brand&apos;s own website, checked {VERIFIED_ON_LABEL}</caption>
+              <caption className="sr-only">Direct shipping to the six GCC states, per each brand&apos;s own website, checked {VERIFIED_ON_LABEL} (Neutonic: {NEUTONIC_CHECKED_ON_LABEL})</caption>
               <thead className="bg-gray-50">
                 <tr>
                   <th scope="col" className="text-left p-3 font-semibold text-gray-900">Brand</th>
                   <th scope="col" className="text-left p-3 font-semibold text-gray-900">Direct shipping to the GCC</th>
-                  <th scope="col" className="text-left p-3 font-semibold text-gray-900">Source (brand page, checked {VERIFIED_ON})</th>
+                  <th scope="col" className="text-left p-3 font-semibold text-gray-900">Source (brand page, checked {VERIFIED_ON} unless the row says otherwise)</th>
                   <th scope="col" className="text-left p-3 font-semibold text-gray-900">Fallback</th>
                 </tr>
               </thead>
@@ -288,6 +303,7 @@ export default function Page() {
             <li>Whether Mind Lab Pro ships to Bahrain and Oman: they are not named on a list the brand calls partial.</li>
             <li>Whether NooCube delivers to any GCC state: its FAQ says only that delivery times elsewhere may vary.</li>
             <li>Whether Onnit or Thesis ships to any GCC state: we could not confirm it from either brand&apos;s site.</li>
+            <li>Neutonic&apos;s delivery terms outside the UAE: its Middle East shipping page says only that other Middle East countries are sent from the UK.</li>
             <li>Which of our catalogue products are listed on each iHerb GCC storefront.</li>
             <li>
               Personal-import quantity limits for any GCC state. We could not confirm them against a live official page
