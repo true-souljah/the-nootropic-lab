@@ -9,11 +9,11 @@ _Tick `- [x]` to mark an item done, then commit. Grouped by priority, then sourc
 - [ ] **Cooperation: Double Wood Supplements — affiliate via Impact (10% new / 2% existing, 30d)** — `doublewoodsupplements.com` · Verified at doublewoodsupplements.com/pages/affiliate… <!--id:gsc:96bef663d1f1019a-->
 - [ ] **Cooperation: Life Extension Europe — affiliate (10%, 30d, EU storefronts)** — `lifeextensioneurope.com` · Verified at lifeextensioneurope.com/membership/affilia… <!--id:gsc:dbaa0a5d38545e5e-->
 - [ ] **Push 'blackmores brain active' review from pos 11 to page 1** — `/blackmores-brain-active-review` · 31 impr · pos 11.1 <!--id:gsc:35a5b25c2f2b2a5b-->
-- [ ] **Push 'eu yan sang brainmax' from pos 14.2 to page 1** — `/eu-yan-sang-brainmax-review/` · 33 impr · pos 14.2 <!--id:gsc:20e355b326f2a5ce-->
+- [x] **Push 'eu yan sang brainmax' from pos 14.2 to page 1** — `/eu-yan-sang-brainmax-review/` · 33 impr · pos 14.2 · REACHED 2026-10-19, no change shipped (gsc.db, last 28 days to 2026-10-17, per-host property): sea.thenootropiclab.com average position 8.5 on 108 impressions, 4 clicks (previous 28 days 10.3); gcc.thenootropiclab.com 4.8 on 5 impressions. <!--id:gsc:20e355b326f2a5ce-->
 - [ ] **Push 'nootropics avis' from pos 24.5 to page 1** — `/fr/meilleurs-nootropiques/` · 60 impr · pos 24.5 <!--id:gsc:a6cc6c80b6f3d622-->
 - [ ] **Push /countries/peru to page 1** — `/countries/peru` · 18 impr · 0 clk · pos 18.4 — best-ranking page on the… <!--id:gsc:752d33c335ee2fe0-->
-- [ ] **Push EU Yan Sang Brainmax review from pos 12.8 onto page 1** — `/eu-yan-sang-brainmax-review/` · 16 impr · 0 clk · pos 12.8 (90d). Positioned just off… <!--id:gsc:7eb82f85ddfabf60-->
-- [ ] **Push Eu Yan Sang BrainMax review to page 1** — `/eu-yan-sang-brainmax-review` · 53 impr · pos 11.3 <!--id:gsc:60728af4ae868de2-->
+- [x] **Push EU Yan Sang Brainmax review from pos 12.8 onto page 1** — `/eu-yan-sang-brainmax-review/` · 16 impr · 0 clk · pos 12.8 (90d). Positioned just off… · REACHED 2026-10-19, no change shipped: same page as gsc:20e355b326f2a5ce (SEA position 8.5 on 108 impressions over the last 28 days to 2026-10-17). <!--id:gsc:7eb82f85ddfabf60-->
+- [x] **Push Eu Yan Sang BrainMax review to page 1** — `/eu-yan-sang-brainmax-review` · 53 impr · pos 11.3 · REACHED 2026-10-19, no change shipped: same page as gsc:20e355b326f2a5ce (SEA position 8.5 on 108 impressions over the last 28 days to 2026-10-17). <!--id:gsc:60728af4ae868de2-->
 
 ### Other
 - [ ] **Education Tier 1: expand How Nootropics Work (514 → ≥1,800 words) and How to Stack (556 → ≥2,300 words)** — stacking cluster 513 impr @ pos 80 <!--id:content:edu-how-work-stack-->
