@@ -94,8 +94,10 @@ describe('footer columns per region only link pages that exist on that host', ()
     const au = filterColumnsForRegion(columnsFromStrings(getStrings('en')), 'au');
     const h2h = au.find((c) => c.id === 'footer-col-head-to-head')!.links.map((l) => l.href);
     expect(h2h).toEqual(['/blackmores-brain-active-vs-mind-lab-pro/', '/nootropic-comparison/']);
+    // au keeps every column but Tools, whose routes are US-only (an emptied column is dropped).
     const ids = au.map((c) => c.id);
-    expect(ids).toEqual(us.map((c) => c.id));
+    expect(ids).toEqual(us.map((c) => c.id).filter((id) => id !== 'footer-col-tools'));
+    expect(us.map((c) => c.id)).toContain('footer-col-tools');
   });
 });
 

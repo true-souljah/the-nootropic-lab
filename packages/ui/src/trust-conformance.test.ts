@@ -111,16 +111,20 @@ describe('disclosure strings — present and translated in every locale', () => 
 
 describe('money templates — inline disclosure next to the first CTA', () => {
   const TEMPLATES = ['ProductDetail.tsx', 'BestOf.tsx', 'Listicle.tsx', 'HeadToHead.tsx'];
+  // ProductDetail (server: chrome, strip) renders ProductDetailBody (client: trust note, CTAs).
+  const PARTS: Record<string, string[]> = { 'ProductDetail.tsx': ['ProductDetail.tsx', 'ProductDetailBody.tsx'] };
+  const templateSource = (tpl: string) =>
+    (PARTS[tpl] ?? [tpl]).map((f) => readFileSync(join(UI_SRC, 'templates', f), 'utf8')).join('\n');
 
   it.each(TEMPLATES)('%s renders FPTrustNote with the locale disclosure bundle', (tpl) => {
-    const src = readFileSync(join(UI_SRC, 'templates', tpl), 'utf8');
+    const src = templateSource(tpl);
     expect(src).toMatch(/<FPTrustNote\s+strings=\{uiStrings\.disclosure\}/);
     // The top strip is localised too.
     expect(src).toMatch(/<FPDisclosure[^>]*strings=\{uiStrings\.disclosure\}/);
   });
 
   it.each(TEMPLATES)('%s places FPTrustNote before the first TrackedAffiliateLink', (tpl) => {
-    const src = readFileSync(join(UI_SRC, 'templates', tpl), 'utf8');
+    const src = templateSource(tpl);
     const body = src.slice(src.indexOf('return ('));
     const note = body.indexOf('<FPTrustNote');
     const cta = body.indexOf('<TrackedAffiliateLink');
@@ -131,7 +135,7 @@ describe('money templates — inline disclosure next to the first CTA', () => {
   });
 
   it('ProductDetail labels verifiedAt "Last verified", updatedAt "Updated", with no build-date fallback', () => {
-    const src = readFileSync(join(UI_SRC, 'templates', 'ProductDetail.tsx'), 'utf8');
+    const src = readFileSync(join(UI_SRC, 'templates', 'ProductDetailBody.tsx'), 'utf8');
     expect(src).toMatch(/verifiedAt\s*\?\?\s*p\.updatedAt/);
     // Label follows the source field: lastVerified only when verifiedAt exists.
     expect(src).toMatch(/verifiedAt\s*\?\s*pd\.meta\.lastVerified\s*:\s*pd\.meta\.updated/);
@@ -146,7 +150,7 @@ describe('product review tabs — no hard-coded English commission copy', () => 
     // The sentence comes from the bundle through the page's disclosure scope
     // (disclosure.inline only next to a commission-earning buy link).
     expect(src).toMatch(/disclosureCopy\(disclosure,\s*reviewDisclosureScope\(p\)\)/);
-    const pd = readFileSync(join(UI_SRC, 'templates', 'ProductDetail.tsx'), 'utf8');
+    const pd = readFileSync(join(UI_SRC, 'templates', 'ProductDetailBody.tsx'), 'utf8');
     expect(pd).toMatch(/<PricingTab[^>]*disclosure=\{uiStrings\.disclosure\}/);
   });
 });

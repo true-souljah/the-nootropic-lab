@@ -24,7 +24,7 @@ function count(haystack: string, needle: string): number {
   return haystack.split(needle).length - 1;
 }
 
-// The AppShell sidebar reads the build-time region (fails closed when unset).
+// The footer and the header's phone menu read the build-time region (fail closed when unset).
 afterEach(() => {
   vi.unstubAllEnvs();
 });
@@ -136,7 +136,7 @@ describe('PillarsTab / DosingTab source — no English text nodes', () => {
   });
 
   test('ProductDetail passes the locale bundle to both tabs', () => {
-    const pd = readFileSync(join(UI_SRC, 'templates', 'ProductDetail.tsx'), 'utf8');
+    const pd = readFileSync(join(UI_SRC, 'templates', 'ProductDetailBody.tsx'), 'utf8');
     expect(pd).toMatch(/<DosingTab[^>]*strings=\{pd\}/);
     expect(pd).toMatch(/<PillarsTab[^>]*strings=\{pd\}/);
   });

@@ -14,7 +14,9 @@ import { join } from 'node:path';
 const TEMPLATES_DIR = join(__dirname, 'templates');
 const APPS_DIR = join(__dirname, '..', '..', '..', 'apps');
 
-// The AppShell commercial templates that render TrackedAffiliateLink CTAs.
+// The commercial templates that render TrackedAffiliateLink CTAs (BestOf and
+// Comparator in AppShell; ProductDetail, in the shared PublicShell chrome
+// since 2026-10-19, renders the strip and ProductDetailBody the CTAs).
 const MONEY_TEMPLATES = ['ProductDetail.tsx', 'BestOf.tsx', 'Comparator.tsx'];
 
 const regionApps = readdirSync(APPS_DIR).filter((d) =>
