@@ -65,6 +65,7 @@ const EFFECT_ROWS: Record<string, Record<string, string>> = {
   },
   'l-theanine': {
     'calm-focus': 'Calm Focus (Alpha Waves)',
+    'la concentración tranquila': 'Calm Focus (Alpha Waves)',
     'this alpha increase brings calm focus': 'Calm Focus (Alpha Waves)',
     'este aumento de las ondas alfa produzca un enfoque tranquilo': 'Calm Focus (Alpha Waves)',
   },

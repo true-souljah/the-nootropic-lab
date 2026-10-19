@@ -2357,8 +2357,9 @@ describe('round seventeen: mechanism, user-report and market claims follow our i
 //   Ginkgo blood flow effects"; FANCL BRAINs' "significantly cheaper than
 //   imported alternatives" (prices are never converted between currencies).
 //   B2-006, B2-007, B2-014, B2-010, B2-056, B3-013.
-// Every pattern had at least one hit on origin/main dfed4f52 and has none on
-// this branch. The scan is the round-sixteen file set.
+// Every pattern had at least one hit on origin/main (dfed4f52; the three
+// products-latam-es.ts twins on 6b0d58d8, where that file first appears) and
+// has none on this branch. The scan is the round-sixteen file set.
 const ROUND_TWENTY_UNSOURCED: RegExp[] = [
   /at clinically-validated doses/i,
   /delivers citicoline at clinical dose/i,
@@ -2422,6 +2423,12 @@ const ROUND_TWENTY_UNSOURCED: RegExp[] = [
   /La paja de avena inhibe la MAO-B/i,
   /La inhibición de la MAO-B frena/i,
   /y la monoaminooxidasa B \(MAO-B\)/i,
+  // The LATAM Spanish product overlay (products-latam-es.ts, merged from
+  // origin/main 6b0d58d8 in this round) translated the Mind Lab Pro and
+  // NooCube whatToExpect lines above; its twins go with them.
+  /concentración tranquila leve gracias a la L-Teanina/i,
+  /más energía mental y menos fatiga cognitiva/i,
+  /en la velocidad de aprendizaje/i,
 ];
 
 describe('round twenty: retro-panel findings on rounds 16-19 follow our ingredient pages', () => {
@@ -2483,6 +2490,8 @@ describe('round twenty: retro-panel findings on rounds 16-19 follow our ingredie
       'Ambos se estudian por sus efectos sobre el cortisol; no citamos ningún ensayo de esta combinación.',
       'La paja de avena inhibe la MAO-B, lo que frena la degradación de la dopamina; la L-tirosina es un precursor de la dopamina.',
       'El extracto de paja de avena (Avena sativa) actúa principalmente inhibiendo la fosfodiesterasa tipo 4 (PDE4) y la monoaminooxidasa B (MAO-B). La inhibición de la MAO-B frena la degradación de la dopamina.',
+      'En 30-60 minutos: una concentración tranquila leve gracias a la L-Teanina. En 2-4 semanas: más energía mental y menos fatiga cognitiva (Citicolina, Tirosina). A las 8-12 semanas: mejoras medibles en el recuerdo y en la velocidad de aprendizaje (Bacopa, Melena de León).',
+      'Primer día: una concentración tranquila leve gracias a la L-Teanina.',
     ];
     for (const s of removed) expect(ROUND_TWENTY_UNSOURCED.some(re => re.test(s)), s).toBe(true);
     for (const re of ROUND_TWENTY_UNSOURCED) expect(removed.some(s => re.test(s)), String(re)).toBe(true);
@@ -2524,6 +2533,8 @@ describe('round twenty: retro-panel findings on rounds 16-19 follow our ingredie
       'En estudios de laboratorio, sus principales compuestos bioactivos (rosavinas y salidrosida) inhibieron las enzimas monoaminooxidasa.',
       'Los compuestos activos de la Bacopa (bacósidos A y B) aumentan la actividad antioxidante',
       'No citamos ningún ensayo de esta combinación.',
+      'En 30-60 minutos: una dosis única de 200mg de L-Teanina mejoró el tiempo de reacción de elección en ensayos (este producto tiene 100mg); nuestra página de L-Teanina califica como preliminar su evidencia sobre la concentración tranquila.',
+      'A las 8-12 semanas: mejoras medibles en el recuerdo (Bacopa; la dosis de Melena de León aquí, 500mg, está por debajo de los 1–1.8g usados en ensayos con adultos sanos).',
     ]) expect(ROUND_TWENTY_UNSOURCED.some(re => re.test(s)), s).toBe(false);
   });
 
