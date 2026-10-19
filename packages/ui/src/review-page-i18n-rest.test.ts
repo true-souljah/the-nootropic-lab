@@ -30,13 +30,19 @@ import { PALETTE_STRINGS_EN } from './templates/CommandPalette';
 // ("Local price", "Status", the regulator and licence line), the "Best of"
 // breadcrumb and the AppShell chrome (sidebar rail, "Build my stack", menu and
 // search labels). They now render UIStrings; the record's own text stays as
-// recorded.
+// recorded. Since 2026-10-19 the review page has the shared editorial chrome
+// (PublicShell: FPHeader with its phone menu, FPFooter) instead of AppShell.
 
 const UI_SRC = __dirname;
 
 /** Rendered text: React escapes quotes and ampersands. */
 function text(html: string): string {
   return html.replace(/&#x27;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, '&');
+}
+
+/** `s` as a literal inside a RegExp. */
+function escapeRe(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
 afterEach(() => {
@@ -143,19 +149,29 @@ describe('Review page chrome — no English on JP (ja) and LATAM (es) review pag
         expect(html, `English "${fragment}"`).not.toContain(`="${fragment}`);
       }
 
-      // App shell: breadcrumb, top bar, search trigger, sidebar rail.
-      expect(html).toContain(`>${pd.breadcrumbBestOf}<`);
-      expect(html).toContain(`>${s.nav.buildMyStack}<`);
+      // Shared editorial chrome (2026-10-19): the banner header with its
+      // primary nav, phone menu button and search trigger, the breadcrumb,
+      // and the contentinfo footer.
+      expect(html).toContain('<header role="banner"');
+      expect(html).toContain('<footer role="contentinfo"');
+      expect(html).toContain(`aria-label="${s.nav.primaryLandmark}"`);
       expect(html).toContain(`aria-label="${s.nav.openMenu}"`);
+      const crumbs = /<nav aria-label="([^"]*)"[^>]*><ol\b[\s\S]*?<\/ol><\/nav>/.exec(html);
+      expect(crumbs?.[1], 'breadcrumb nav').toBe(s.breadcrumb.ariaLabel);
+      expect(crumbs![0]).toMatch(new RegExp(`<a [^>]*href="/"[^>]*>${escapeRe(s.breadcrumb.home)}</a>`));
+      // next/link drops the trailing slash outside a trailingSlash app build.
+      expect(crumbs![0]).toMatch(new RegExp(`<a [^>]*href="/best-nootropics/?"[^>]*>${escapeRe(s.nav.bestNootropics)}</a>`));
+      expect(crumbs![0]).toMatch(new RegExp(`<li aria-current="page"[^>]*>${escapeRe(product.name)}</li>`));
       // The search trigger is named by its content: the visible word, then the
       // spoken shortcut in visually hidden text (the ⌘K key cap is aria-hidden).
       // No aria-label: one would have to contain the visible text, ⌘K's "K"
       // included (WCAG 2.5.3, axe-core 4.14 label-content-name-mismatch).
       expect(html).toContain(`<span>${s.nav.search}</span><span class="ds-sr-only"> (Command+K)</span>`);
       expect(html).not.toContain(`aria-label="${s.nav.search} (Command+K)"`);
-      expect(html).toContain(`aria-label="${s.nav.primaryLandmark}"`);
-      for (const label of [s.nav.sidebar.browse, s.nav.sidebar.discover, s.nav.sidebar.allProducts, s.nav.sidebar.bestOf2026, s.nav.sidebar.tools, s.nav.sidebar.comparator, s.nav.sidebar.about, s.nav.sidebar.ourMethodology, s.nav.sidebar.disclosures, s.nav.sidebar.submitTip]) {
-        expect(html).toContain(`>${label}<`);
+      // No AppShell output: no sidebar rail or its 240px column, no "Build my stack".
+      expect(html).not.toContain('lg:grid-cols-[240px_1fr]');
+      for (const label of [s.nav.buildMyStack, s.nav.sidebar.browse, s.nav.sidebar.discover, s.nav.sidebar.allProducts, s.nav.sidebar.bestOf2026, s.nav.sidebar.submitTip]) {
+        expect(html).not.toContain(`>${label}<`);
       }
 
       // Overview tab: the verdict line keeps the product name in its tier colour.
@@ -262,6 +278,7 @@ describe('English fallbacks for callers without a bundle are the en bundle', () 
   test.each([
     ['templates/AppShell.tsx', 10],
     ['templates/CommandPalette.tsx', 1],
+    ['public-chrome/FPHeader.tsx', 5],
   ] as const)('%s: every `?? \'…\'` fallback equals the en value at the same path', (file, expected) => {
     const src = readFileSync(join(UI_SRC, file), 'utf8');
     const fallbacks = [...src.matchAll(/(?:uiStrings|strings)\?\.([\w.]+) \?\? '([^']*)'/g)];
@@ -274,11 +291,19 @@ describe('English fallbacks for callers without a bundle are the en bundle', () 
 });
 
 describe('Review-page chrome source — no English literals', () => {
+  // The review page and its shared chrome (PublicShell, FPHeader with the
+  // phone menu, FPFooter since 2026-10-19); AppShell and its rail still
+  // frame the best-of hub and the comparator.
   const FILES = [
     'templates/ProductDetail.tsx',
+    'templates/ProductDetailBody.tsx',
     'templates/product-detail/OverviewTab.tsx',
     'templates/product-detail/ReviewsTab.tsx',
     'RegionalBuying.tsx',
+    'templates/PublicShell.tsx',
+    'public-chrome/FPHeader.tsx',
+    'public-chrome/MobileMenu.tsx',
+    'public-chrome/FPFooter.tsx',
     'templates/AppShell.tsx',
     'primitives/Sidebar.tsx',
     'templates/CommandPalette.tsx',
@@ -324,7 +349,7 @@ describe('Review-page chrome source — no English literals', () => {
   });
 
   test('ProductDetail passes the locale bundle to the Overview and Reviews tabs and the "Buying in" block', () => {
-    const pd = readFileSync(join(UI_SRC, 'templates', 'ProductDetail.tsx'), 'utf8');
+    const pd = readFileSync(join(UI_SRC, 'templates', 'ProductDetailBody.tsx'), 'utf8');
     expect(pd).toMatch(/<OverviewTab[^>]*strings=\{pd\}/);
     expect(pd).toMatch(/<ReviewsTab[^>]*strings=\{pd\}/);
     expect(pd).toMatch(/<RegionalBuying[^>]*strings=\{pd\}/);

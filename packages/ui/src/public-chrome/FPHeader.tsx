@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import CommandPalette from '../templates/CommandPalette';
 import { BrandMark } from '../primitives/BrandMark';
+import { MobileMenu } from './MobileMenu';
+import { regionFooterColumns } from './FPFooter';
 import type { SearchItem } from '../SearchModal';
 import type { UIStrings } from '@nootropic/data';
 
@@ -51,10 +53,16 @@ export function navFromStrings(strings: UIStrings): FPNavLink[] {
   ];
 }
 
+/** Footer columns the phone menu repeats below the primary links. */
+const MENU_SECTION_IDS = ['footer-col-best-by-goal', 'footer-col-by-region'];
+
 /**
  * FPHeader — sticky white header for public/SEO surfaces. Brand mark
  * (green flask), 5 nav links, ⌘K search trigger, and the "Open comparator"
- * indigo CTA. Search opens a modal when `searchItems` is provided.
+ * indigo CTA. Search opens a modal when `searchItems` is provided. Below
+ * `md:` the links move into MobileMenu (the same 5 links, then the footer's
+ * best-by-goal and by-region columns for this host) and the CTA is hidden
+ * below `sm:` (the footer links the comparator).
  *
  * Resolution precedence for every localized surface:
  *   1. explicit override prop (caller knows best)
@@ -77,6 +85,15 @@ export function FPHeader({
   const resolvedNav = nav ?? (strings ? navFromStrings(strings) : DEFAULT_NAV);
   const resolvedNavLandmark = strings?.nav.primaryLandmark ?? 'Primary';
   const resolvedCtaLabel = ctaLabel ?? strings?.nav.openComparator ?? 'Open comparator →';
+  // Plain data for the client menu, resolved here on the server; the region
+  // filter fails closed on an unset NEXT_PUBLIC_REGION, as FPFooter does.
+  const menuSections = regionFooterColumns(strings).filter((col) => MENU_SECTION_IDS.includes(col.id));
+  const menuLabels = {
+    openMenu: strings?.nav.openMenu ?? 'Open menu',
+    closeMenu: strings?.nav.closeMenu ?? 'Close menu',
+    drawerLabel: strings?.nav.drawerLabel ?? 'Primary navigation',
+    primaryLandmark: resolvedNavLandmark,
+  };
 
   return (
     <header
@@ -97,45 +114,50 @@ export function FPHeader({
           PR-Q25 (#89) — wrap the 5 primary-nav links in a `hidden md:flex`
           container so the chrome reflows at 320px viewport (closes the
           WCAG 1.4.10 violation surfaced by PR-Q24 e2e/us-reflow.spec.ts).
-          On mobile, navigation paths reduce to: brand link, CommandPalette
-          (which carries its own `md:hidden` icon-only trigger), and the
-          CTA. The full nav remains reachable via search (CommandPalette
-          indexes all 5 nav targets via the search-pages additions from
-          PR-Q10) AND via FPFooter columns on every public page — both
-          satisfy WCAG 2.4.6 Multiple Ways. The outer `<nav>` keeps its
-          `aria-label` stable across breakpoints (the landmark name
-          describes purpose, not contents — per WAI-ARIA 1.2 landmark
-          naming guidance).
+          On phones the header shows the brand link, CommandPalette (its own
+          `md:hidden` icon-only trigger), the CTA from `sm:` up, and the
+          MobileMenu button, whose dialog lists the same 5 links. The nav
+          is also reachable via search (CommandPalette indexes all 5 nav
+          targets via the search-pages additions from PR-Q10) AND via
+          FPFooter columns on every public page (WCAG 2.4.5 Multiple Ways).
+          The outer `<nav>` keeps its `aria-label` stable across breakpoints
+          (the landmark name describes purpose, not contents — per WAI-ARIA
+          1.2 landmark naming guidance).
         */}
-        <nav aria-label={resolvedNavLandmark} className="flex items-center gap-3 md:gap-6">
-          <div className="hidden md:flex items-center gap-6">
-            {resolvedNav.map((item) => (
+        <div className="flex items-center gap-3">
+          <nav aria-label={resolvedNavLandmark} className="flex items-center gap-3 md:gap-6">
+            <div className="hidden md:flex items-center gap-6">
+              {resolvedNav.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-[13.5px] text-ds-ink-soft font-medium hover:text-ds-ink focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded-[4px]"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+
+            {searchItems && searchItems.length > 0 && (
+              <>
+                <span className="hidden md:inline-block w-px h-[18px] bg-ds-border" aria-hidden="true" />
+                <CommandPalette items={searchItems} strings={strings} />
+              </>
+            )}
+
+            {!hideCta && (
               <Link
-                key={item.href}
-                href={item.href}
-                className="text-[13.5px] text-ds-ink-soft font-medium hover:text-ds-ink focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded-[4px]"
+                href={ctaHref}
+                className="hidden sm:inline-flex bg-ds-accent text-white px-[14px] py-[8px] rounded-[8px] text-[13px] font-semibold no-underline hover:bg-ds-accent-press focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
               >
-                {item.label}
+                {resolvedCtaLabel}
               </Link>
-            ))}
-          </div>
+            )}
+          </nav>
 
-          {searchItems && searchItems.length > 0 && (
-            <>
-              <span className="hidden md:inline-block w-px h-[18px] bg-ds-border" aria-hidden="true" />
-              <CommandPalette items={searchItems} strings={strings} />
-            </>
-          )}
-
-          {!hideCta && (
-            <Link
-              href={ctaHref}
-              className="bg-ds-accent text-white px-[14px] py-[8px] rounded-[8px] text-[13px] font-semibold no-underline hover:bg-ds-accent-press focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
-            >
-              {resolvedCtaLabel}
-            </Link>
-          )}
-        </nav>
+          {/* md:hidden button; its dialog sits outside the header's <nav> landmark. */}
+          <MobileMenu brandLabel={brandLabel} labels={menuLabels} nav={resolvedNav} sections={menuSections} />
+        </div>
       </div>
 
     </header>

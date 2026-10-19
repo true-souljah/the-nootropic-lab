@@ -71,6 +71,14 @@ const DEFAULT_COLUMNS: FPFooterColumn[] = [
     ],
   },
   {
+    id: 'footer-col-tools',
+    heading: 'Tools',
+    links: [
+      { label: 'Dose calculator', href: '/dose-calculator/' },
+      { label: 'My shortlist', href: '/shortlist/' },
+    ],
+  },
+  {
     id: 'footer-col-about',
     heading: 'About',
     links: [
@@ -97,19 +105,22 @@ const REGIONAL_HEAD_TO_HEAD: Partial<Record<RegionCode, FPFooterLink[]>> = {
  * Keep only links whose route exists on `region`'s host (GSC 404 cleanup,
  * 2026-09: the ADHD/energy/mood best-of pages and the US head-to-heads were
  * linked from every region's footer but exist only in apps/us). Cross-region
- * absolute URLs (the By-region column) always pass.
+ * absolute URLs (the By-region column) always pass. A column left with no
+ * link is dropped (Tools: /dose-calculator/ and /shortlist/ are US-only).
  */
 export function filterColumnsForRegion(columns: FPFooterColumn[], region: RegionCode): FPFooterColumn[] {
   const regional = REGIONAL_HEAD_TO_HEAD[region] ?? [];
-  return columns.map((col) => {
-    const kept = col.links.filter((l) => !l.href.startsWith('/') || routeAvailableIn(l.href, region));
-    if (col.id !== 'footer-col-head-to-head' || regional.length === 0) return { ...col, links: kept };
-    // Regional head-to-heads go before the trailing "All comparisons →" link.
-    const last = kept[kept.length - 1];
-    const isAll = last?.href === '/nootropic-comparison/';
-    const links = isAll ? [...kept.slice(0, -1), ...regional, last] : [...kept, ...regional];
-    return { ...col, links };
-  });
+  return columns
+    .map((col) => {
+      const kept = col.links.filter((l) => !l.href.startsWith('/') || routeAvailableIn(l.href, region));
+      if (col.id !== 'footer-col-head-to-head' || regional.length === 0) return { ...col, links: kept };
+      // Regional head-to-heads go before the trailing "All comparisons →" link.
+      const last = kept[kept.length - 1];
+      const isAll = last?.href === '/nootropic-comparison/';
+      const links = isAll ? [...kept.slice(0, -1), ...regional, last] : [...kept, ...regional];
+      return { ...col, links };
+    })
+    .filter((col) => col.links.length > 0);
 }
 
 function isRegionCode(value: string | undefined): value is RegionCode {
@@ -133,7 +144,17 @@ function resolveBuildRegion(): RegionCode {
 }
 
 /**
- * Build the 4-column FPFooter structure from a UIStrings bundle. Brand-name
+ * The footer's link columns on this build's host: from `strings` (English
+ * defaults without a bundle), filtered for NEXT_PUBLIC_REGION (fails closed
+ * when it is unset). FPHeader's phone menu reuses the best-by-goal and
+ * by-region columns from here.
+ */
+export function regionFooterColumns(strings?: UIStrings): FPFooterColumn[] {
+  return filterColumnsForRegion(strings ? columnsFromStrings(strings) : DEFAULT_COLUMNS, resolveBuildRegion());
+}
+
+/**
+ * Build the 5-column FPFooter structure from a UIStrings bundle. Brand-name
  * link labels in the Head-to-head column stay English (proper nouns); only
  * "All comparisons →" is translated. URLs are identical across locales
  * (canonical English slugs — non-EN locales use rel="alternate" not different
@@ -183,6 +204,15 @@ export function columnsFromStrings(strings: UIStrings): FPFooterColumn[] {
       ],
     },
     {
+      // US-only routes: filterColumnsForRegion drops the column on other hosts.
+      id: 'footer-col-tools',
+      heading: strings.nav.sidebar.tools,
+      links: [
+        { label: strings.nav.sidebar.doseCalculator, href: '/dose-calculator/' },
+        { label: strings.nav.sidebar.myShortlist, href: '/shortlist/' },
+      ],
+    },
+    {
       id: 'footer-col-about',
       heading: f.about.heading,
       links: [
@@ -196,6 +226,16 @@ export function columnsFromStrings(strings: UIStrings): FPFooterColumn[] {
     },
   ];
 }
+
+/**
+ * Grid tracks by link-column count: the brand column, then one track per link
+ * column from `md:` (4 columns) or `lg:` (5, on the US host), collapsing below
+ * that for reflow (WCAG 1.4.10). Whole class strings so Tailwind sees them.
+ */
+const GRID_BY_COLUMN_COUNT: Record<number, string> = {
+  4: 'grid-cols-1 sm:grid-cols-2 md:grid-cols-[1.2fr_1fr_1fr_1fr_1fr]',
+  5: 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[1.2fr_1fr_1fr_1fr_1fr_1fr]',
+};
 
 const CURRENT_YEAR = new Date().getFullYear();
 const DEFAULT_LAST_AUDIT_ISO = '2026-04-28';
@@ -240,9 +280,8 @@ export function FPFooter({
   brandLabel = 'Nootropic Lab',
   copyrightLine,
 }: FPFooterProps) {
-  const resolvedColumns =
-    columns ??
-    filterColumnsForRegion(strings ? columnsFromStrings(strings) : DEFAULT_COLUMNS, resolveBuildRegion());
+  const resolvedColumns = columns ?? regionFooterColumns(strings);
+  const gridColumns = GRID_BY_COLUMN_COUNT[resolvedColumns.length] ?? GRID_BY_COLUMN_COUNT[4];
   const resolvedTagline =
     tagline ??
     strings?.footer.tagline ??
@@ -268,11 +307,12 @@ export function FPFooter({
       <div className="max-w-[1200px] mx-auto">
         {/*
           PR-Q25 (#89): single column below `sm:`, two columns below `md:`,
-          full 5-column desktop layout from `md:` up. Tailwind v4 arbitrary-
-          value grid columns mirror the previous inline `'1.2fr repeat(4, 1fr)'`
-          at desktop width while collapsing for mobile reflow (WCAG 1.4.10).
+          full desktop layout from `md:` up (`lg:` with the US Tools column).
+          Tailwind v4 arbitrary-value grid columns mirror the previous inline
+          `'1.2fr repeat(4, 1fr)'` at desktop width while collapsing for
+          mobile reflow (WCAG 1.4.10). Tracks: GRID_BY_COLUMN_COUNT.
         */}
-        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-[1.2fr_1fr_1fr_1fr_1fr]">
+        <div className={`grid gap-8 ${gridColumns}`}>
           <div>
             <div className="flex items-center gap-[10px] mb-[14px]">
               <BrandMark size={24} color="#5fcf86" />

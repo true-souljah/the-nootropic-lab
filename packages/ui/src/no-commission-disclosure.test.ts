@@ -47,7 +47,7 @@ function count(haystack: string, needle: string): number {
   return haystack.split(needle).length - 1;
 }
 
-// The AppShell sidebar reads the build-time region (fails closed when unset).
+// The footer and the header's phone menu read the build-time region (fail closed when unset).
 afterEach(() => {
   vi.unstubAllEnvs();
 });
