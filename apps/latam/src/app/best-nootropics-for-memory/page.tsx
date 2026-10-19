@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
-import { productsLatam, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsLatam, getRegionalHealthDisclaimer, localizedIngredients } from '@nootropic/data';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -111,6 +111,7 @@ export default function Page() {
       pageDescription="Ranking independiente de los mejores nootrópicos para memoria y recordación disponibles en Latinoamérica, basado en evidencia clínica."
       heroParagraph="Para la memoria, la evidencia sobre Bacopa Monnieri que citamos es una revisión sistemática de seis ensayos aleatorizados de 12 semanas (Pase 2012). Esta página clasifica los productos disponibles para compradores en Latam que contienen Bacopa, Melena de León, fosfatidilserina o citicolina en dosis clínica o cercana a ella. Incluimos opciones internacionales (Mind Lab Pro, Qualia Mind, Nootropics Depot)."
       ingredientMechanism={ingredientMechanism}
+      ingredientPages={localizedIngredients('es')}
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}

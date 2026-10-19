@@ -3,7 +3,7 @@ import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, relative } from 'node:path';
-import { CITATIONS, getStrings, productsEU } from '@nootropic/data';
+import { CITATIONS, getStrings, ingredients, productsEU } from '@nootropic/data';
 import Listicle, { type ListicleIngredientMechanism } from './templates/Listicle';
 
 // Evidence-card citations (2026-10-15). A "What the evidence actually says"
@@ -178,6 +178,8 @@ describe('evidence cards link every study their text names by PubMed ID', () => 
 describe('Listicle renders extraCitations after the Source link', () => {
   beforeEach(() => {
     vi.stubEnv('NEXT_PUBLIC_REGION', 'eu');
+    // Every app builds with trailingSlash: true; next/link reads it from here.
+    vi.stubEnv('__NEXT_TRAILING_SLASH', 'true');
   });
   afterEach(() => {
     vi.unstubAllEnvs();
@@ -192,6 +194,7 @@ describe('Listicle renders extraCitations after the Source link', () => {
         pageDescription: 'd',
         heroParagraph: 'h',
         ingredientMechanism,
+        ingredientPages: ingredients,
         picks: [{ product: mlpEU, whyItsHere: 'w', rank: 1 }],
         faqItems: [],
         siteUrl: 'https://example.com',
@@ -201,6 +204,9 @@ describe('Listicle renders extraCitations after the Source link', () => {
   const sourceLink = (href: string, text: string) =>
     `<a href="${href}" target="_blank" rel="noopener noreferrer" class="inline-block mt-2 text-[12.5px] text-ds-accent underline focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded">${text}</a>`;
   const separator = '<span aria-hidden="true" class="text-[12.5px] text-ds-muted"> · </span>';
+  /** Since 2026-10-19 each card also links its ingredientSlugs' pages, after its citations. */
+  const ingredientPageLink = (slug: string, text: string) =>
+    `<a class="inline-block mt-2 text-[12.5px] text-ds-accent underline focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded" href="/ingredients/${slug}/">${text}</a>`;
   /** The card body after its evidence paragraph, up to the card's closing tag. */
   const cardLinks = (html: string, evidence: string) => {
     const at = html.indexOf(`>${evidence}</p>`);
@@ -209,11 +215,15 @@ describe('Listicle renders extraCitations after the Source link', () => {
     return html.slice(from, html.indexOf('</div>', from));
   };
 
-  it('a card without extraCitations renders only its Source link, exactly as before', () => {
+  it('a card without extraCitations renders its Source link, then its ingredient-page link', () => {
     const html = render([
       { name: 'Citicoline', evidence: 'e1', ingredientSlugs: ['citicoline'], citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/15846601/' },
     ]);
-    expect(cardLinks(html, 'e1')).toBe(sourceLink('https://pubmed.ncbi.nlm.nih.gov/15846601/', en.listicle.sourceLink));
+    expect(cardLinks(html, 'e1')).toBe(
+      sourceLink('https://pubmed.ncbi.nlm.nih.gov/15846601/', en.listicle.sourceLink) +
+        separator +
+        ingredientPageLink('citicoline', 'Our Citicoline (CDP-Choline) page'),
+    );
   });
 
   it('each extra study is its own link, in the Source link style, labelled with its author-year name', () => {
@@ -234,7 +244,11 @@ describe('Listicle renders extraCitations after the Source link', () => {
         separator +
         sourceLink('https://pubmed.ncbi.nlm.nih.gov/21040626/', 'Giesbrecht 2010') +
         separator +
-        sourceLink('https://pubmed.ncbi.nlm.nih.gov/22326943/', 'Foxe 2012'),
+        sourceLink('https://pubmed.ncbi.nlm.nih.gov/22326943/', 'Foxe 2012') +
+        separator +
+        ingredientPageLink('l-theanine', 'Our L-Theanine page') +
+        separator +
+        ingredientPageLink('caffeine', 'Our Caffeine page'),
     );
   });
 
@@ -247,6 +261,10 @@ describe('Listicle renders extraCitations after the Source link', () => {
         extraCitations: [{ label: 'Calabrese 2008', url: 'https://pubmed.ncbi.nlm.nih.gov/18611150/' }],
       },
     ]);
-    expect(cardLinks(html, 'e3')).toBe(sourceLink('https://pubmed.ncbi.nlm.nih.gov/18611150/', 'Calabrese 2008'));
+    expect(cardLinks(html, 'e3')).toBe(
+      sourceLink('https://pubmed.ncbi.nlm.nih.gov/18611150/', 'Calabrese 2008') +
+        separator +
+        ingredientPageLink('bacopa-monnieri', 'Our Bacopa Monnieri page'),
+    );
   });
 });

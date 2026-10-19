@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
-import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsUS, getRegionalHealthDisclaimer, ingredients } from '@nootropic/data';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -116,6 +116,7 @@ export default function Page() {
       pageDescription="Independent ranking of the best nootropics for memory and recall, based on clinical evidence."
       heroParagraph="For memory, the Bacopa Monnieri evidence we cite is a systematic review of six 12-week randomized trials (Pase 2012). This page ranks the products in our coverage that contain Bacopa, Lion's Mane, phosphatidylserine, or citicoline at or near clinical dose."
       ingredientMechanism={ingredientMechanism}
+      ingredientPages={ingredients}
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}

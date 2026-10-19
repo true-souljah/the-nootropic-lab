@@ -698,6 +698,14 @@ export interface UIStrings {
     evidenceIntro: string;
     /** Link to an evidence card's source. */
     sourceLink: string;
+    /**
+     * Link from an evidence card to an ingredient page the card is about (one
+     * per `ingredientSlugs` entry); {name} is the ingredient's name on that
+     * page. Set in en and es only; a locale without it shows en's text. No
+     * page renders a listicle in fr, pt, de, fr-CA or ja: every edition but
+     * LATAM uses the en bundle (guarded in listicle-ingredient-links.test.ts).
+     */
+    ingredientPageLink?: string;
     /** Picks heading; {useCase} is `useCaseLabels[useCase]`, or the page's use-case slug fragment. */
     ourPicksFor: string;
     picksIntro: string;
@@ -1425,6 +1433,7 @@ const en: UIStrings = {
     evidenceIntro:
       'For each ingredient below, we link directly to the peer-reviewed source. Ingredient mechanism is not the same as product efficacy — a product can include the right ingredient at the wrong dose.',
     sourceLink: 'Source →',
+    ingredientPageLink: 'Our {name} page',
     ourPicksFor: 'Our picks for {useCase}',
     picksIntro: 'Ranked by how well each product matches the evidence above + our 5-pillar editorial audit.',
     topPick: 'Top pick',
@@ -2080,6 +2089,7 @@ const es: UIStrings = {
     evidenceIntro:
       'Para cada ingrediente a continuación, enlazamos directamente a la fuente revisada por expertos. El mecanismo del ingrediente no es lo mismo que la eficacia del producto — un producto puede incluir el ingrediente correcto en la dosis incorrecta.',
     sourceLink: 'Fuente →',
+    ingredientPageLink: 'Nuestra página sobre {name}',
     ourPicksFor: 'Nuestras selecciones para {useCase}',
     picksIntro:
       'Clasificadas según qué tan bien cada producto coincide con la evidencia anterior + nuestra auditoría editorial de 5 pilares.',

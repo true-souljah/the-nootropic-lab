@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
-import { productsCA, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsCA, getRegionalHealthDisclaimer, ingredients } from '@nootropic/data';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -123,6 +123,7 @@ export default function Page() {
       pageDescription="Independent ranking of nootropics for sustained study sessions, available to Canadian students. Focus + memory consolidation + safety for daily use."
       heroParagraph="Studying combines two distinct cognitive demands: sustained focus during study sessions and memory consolidation between them. The best study stack covers both — acute-effect focus ingredients (L-theanine + caffeine) plus daily-use memory ingredients (Bacopa, citicoline). This page ranks the products available to Canadian buyers that include both."
       ingredientMechanism={ingredientMechanism}
+      ingredientPages={ingredients}
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}

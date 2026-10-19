@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
-import { productsJP, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsJP, getRegionalHealthDisclaimer, ingredients } from '@nootropic/data';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -113,6 +113,7 @@ export default function Page() {
       pageDescription="Independent ranking of nootropics for sustained study sessions in Japan. Focus + memory consolidation + safety for daily use."
       heroParagraph="Studying combines two distinct cognitive demands: sustained focus during study sessions and memory consolidation between them. The best study stack for Japanese students covers both — acute-effect focus ingredients (L-theanine + caffeine, naturally present in matcha) plus daily-use memory ingredients (Bacopa, citicoline, DHA). This page ranks the products available in Japan that include both, mixing imported stacks with FFC-notified domestic options."
       ingredientMechanism={ingredientMechanism}
+      ingredientPages={ingredients}
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}

@@ -68,11 +68,17 @@ describe('Listicle strings are complete in every locale', () => {
   const LOCALES: Locale[] = ['es', 'fr', 'ja', 'pt', 'de', 'fr-CA'];
   const en = getStrings('en').listicle;
   const keys = Object.keys(en) as (keyof typeof en)[];
+  // Set in en and es only, the bundles of the editions that render a listicle
+  // (2026-10-19); a locale without it shows en's text.
+  // listicle-ingredient-links.test.ts checks every app rendering a Listicle
+  // uses a bundle that carries it.
+  const EN_ES_ONLY: (keyof typeof en)[] = ['ingredientPageLink'];
 
   it.each(LOCALES)('%s has every key, and translates it (not copied from English)', (locale) => {
     const own = getStrings(locale).listicle;
-    expect(Object.keys(own).sort()).toEqual([...keys].sort());
-    for (const key of keys.filter((k) => k !== 'useCaseLabels')) {
+    const expected = locale === 'es' ? keys : keys.filter((k) => !EN_ES_ONLY.includes(k));
+    expect(Object.keys(own).sort()).toEqual([...expected].sort());
+    for (const key of expected.filter((k) => k !== 'useCaseLabels')) {
       expect(JSON.stringify(own[key]), `${locale} ${key}`).not.toBe(JSON.stringify(en[key]));
     }
   });

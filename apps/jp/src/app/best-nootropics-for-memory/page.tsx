@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
-import { productsJP, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsJP, getRegionalHealthDisclaimer, ingredients } from '@nootropic/data';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -110,6 +110,7 @@ export default function Page() {
       pageDescription="Independent ranking of the best nootropics for memory and recall available in Japan, based on clinical evidence."
       heroParagraph="Memory is the use case where Japan's regulatory landscape and the global nootropics evidence base intersect most directly. Domestic brands target this use case too: FANCL BRAINs is notified under Japan's Food with Function Claims system administered by the Consumer Affairs Agency (CAA, 消費者庁; notification G425), while no FFC notification was found for Suntory DHA & EPA + Sesamin EX in the CAA database (export scanned 2026-10-06). They target middle-aged and older adults via DHA (Suntory) and bacopa saponins plus matured hop bitter acids (FANCL). Imported international stacks add the Bacopa and Lion's Mane evidence base — including Mori et al. 2009, the foundational Lion's Mane RCT conducted in Japan."
       ingredientMechanism={ingredientMechanism}
+      ingredientPages={ingredients}
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}

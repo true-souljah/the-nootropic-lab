@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
-import { productsLatam, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsLatam, getRegionalHealthDisclaimer, localizedIngredients } from '@nootropic/data';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -118,6 +118,7 @@ export default function Page() {
       pageDescription="Ranking independiente de nootrópicos para adultos en Latinoamérica preocupados por cambios cognitivos asociados a la edad."
       heroParagraph="El cambio cognitivo asociado a la edad es normal — el recuerdo de la memoria se vuelve más lento, la velocidad de procesamiento disminuye. Algunos de los suplementos de esta página tienen evidencia de ensayos en adultos mayores, a menudo solo en subgrupos: la PS-DHA en adultos mayores con quejas de memoria, la citicolina en quienes tienen una memoria relativamente ineficiente y la Melena de León en el deterioro cognitivo leve. NO son tratamientos para demencia, Alzheimer ni ninguna enfermedad cognitiva clínica. Para esos casos, consulta a un neurólogo. Incluimos opciones internacionales de fórmula abierta."
       ingredientMechanism={ingredientMechanism}
+      ingredientPages={localizedIngredients('es')}
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}

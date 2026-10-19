@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
-import { productsSEA, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsSEA, getRegionalHealthDisclaimer, ingredients } from '@nootropic/data';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -113,6 +113,7 @@ export default function Page() {
       pageDescription="Independent ranking of nootropics for sustained study sessions across Southeast Asia. Focus + memory consolidation + safety for daily use."
       heroParagraph="Studying combines two distinct cognitive demands: sustained focus during study sessions and memory consolidation between them. The best study stack covers both — acute-effect focus ingredients (L-theanine + caffeine) plus daily-use memory ingredients (Bacopa/Brahmi, citicoline). This page ranks the products available to SEA students that include both, with notes on price (rupiah, ringgit, baht, peso, dong), distribution (Shopee, Lazada, TikTok Shop, Watsons, Guardian, Unity, Boots, Mercury Drug, cross-border iHerb), regulatory import status (Singapore’s Health Sciences Authority (HSA), Malaysia’s National Pharmaceutical Regulatory Agency (NPRA), Indonesia’s Badan Pengawas Obat dan Makanan (BPOM), and the Thai and Philippine Food and Drug Administrations (FDA)), and halal certification (Indonesia’s Badan Penyelenggara Jaminan Produk Halal (BPJPH) and the Department of Islamic Development Malaysia (JAKIM)) where known."
       ingredientMechanism={ingredientMechanism}
+      ingredientPages={ingredients}
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}

@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
-import { productsGCC, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsGCC, getRegionalHealthDisclaimer, ingredients } from '@nootropic/data';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -110,6 +110,7 @@ export default function Page() {
       pageDescription="Independent ranking of the best memory nootropics available in the GCC, with halal status and SFDA/MOHAP registration noted per pick."
       heroParagraph="For memory, the Bacopa Monnieri evidence we cite is a systematic review of six 12-week randomised trials (Pase 2012), and the FDA allows phosphatidylserine only a qualified claim, for which it concludes there is little scientific evidence. For GCC buyers, the question is not just 'does it work?' but 'is it halal?', 'is it SFDA or MOHAP registered?', and 'is the capsule plant-based or animal-derived?'. This page ranks memory products for buyers in Saudi Arabia, the UAE, Qatar, Kuwait, Bahrain, and Oman — imported international brands such as Mind Lab Pro and Qualia Mind, with each pick noting whether the brand ships to the GCC. Distribution: BinSina, Aster, Life Pharmacy (UAE); Al-Dawaa, Nahdi (KSA); iHerb Saudi-compliant DC for many international imports."
       ingredientMechanism={ingredientMechanism}
+      ingredientPages={ingredients}
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}

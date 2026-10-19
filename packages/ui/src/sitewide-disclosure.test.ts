@@ -7,6 +7,7 @@ import {
   allProductsUS, allProductsJP, productsUS, productsEU,
   CLIENT_RENDERED_BUY_LINK_ROUTES,
   disclosureCopy, earnsCommission, getStrings, pageDisclosureScope, purchaseUrl, reviewDisclosureScope,
+  ingredients, localizedIngredients,
 } from '@nootropic/data';
 import type { DisclosureScope, Locale, Product } from '@nootropic/data';
 import { FPDisclosure } from './public-chrome/FPDisclosure';
@@ -250,6 +251,7 @@ describe('templates compute the scope from the products they link', () => {
             pageDescription: 'd',
             heroParagraph: 'h',
             ingredientMechanism: [{ name: 'Citicoline', evidence: 'e', ingredientSlugs: ['citicoline'] }],
+            ingredientPages: locale === 'es' ? localizedIngredients('es') : ingredients,
             picks: [{ product, whyItsHere: 'w', rank: 1 }],
             faqItems: [],
             siteUrl: 'https://example.com',

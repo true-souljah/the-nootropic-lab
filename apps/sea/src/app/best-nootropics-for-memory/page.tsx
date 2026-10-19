@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
-import { productsSEA, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsSEA, getRegionalHealthDisclaimer, ingredients } from '@nootropic/data';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -110,6 +110,7 @@ export default function Page() {
       pageDescription="Independent ranking of memory nootropics available to buyers across Southeast Asia. Bacopa, Lion's Mane, PS, citicoline."
       heroParagraph="For memory, the Bacopa Monnieri (known across SEA as Brahmi) evidence we cite is a systematic review of six 12-week randomized trials (Pase 2012). This page ranks the products available to SEA buyers that contain Bacopa, Lion's Mane, phosphatidylserine, or citicoline at or near clinical dose. Regulatory status (Singapore’s Health Sciences Authority (HSA), Malaysia’s National Pharmaceutical Regulatory Agency (NPRA), Indonesia’s Badan Pengawas Obat dan Makanan (BPOM), and the Thai and Philippine Food and Drug Administrations (FDA)), distribution route (Shopee, Lazada, TikTok Shop, Watsons, Guardian, Unity, Boots, Mercury Drug, cross-border iHerb), and halal availability (Indonesia’s Badan Penyelenggara Jaminan Produk Halal (BPJPH) and the Department of Islamic Development Malaysia (JAKIM)) noted per pick where known."
       ingredientMechanism={ingredientMechanism}
+      ingredientPages={ingredients}
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}

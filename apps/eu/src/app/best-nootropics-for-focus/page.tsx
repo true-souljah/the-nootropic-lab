@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
-import { productsEU, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsEU, getRegionalHealthDisclaimer, ingredients } from '@nootropic/data';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -115,6 +115,7 @@ export default function Page() {
       pageDescription="Independent EU ranking of nootropics for focus and attention. EUR pricing, EU storefronts, ingredient framing that avoids unauthorised EU health claims."
       heroParagraph="If you want a focus supplement in the EU, the question is not 'which brand?' but 'which ingredient at what dose, from which store?' This page ranks the products in our EU coverage, marks which ones ship from an EU storefront at EUR pricing, and includes only products that contain at least one of these ingredients: L-theanine + caffeine, citicoline, L-tyrosine or Alpha-GPC."
       ingredientMechanism={ingredientMechanism}
+      ingredientPages={ingredients}
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}

@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
-import { productsCA, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsCA, getRegionalHealthDisclaimer, ingredients } from '@nootropic/data';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -127,6 +127,7 @@ export default function Page() {
       pageDescription="Independent ranking of the best nootropics for memory and recall available to Canadian buyers, based on clinical evidence."
       heroParagraph="For memory, the Bacopa Monnieri evidence we cite is a systematic review of six 12-week randomized trials (Pase 2012). This page ranks the products available to Canadian buyers (licensed by Health Canada with a Natural Product Number (NPN), or imported for personal use) that contain Bacopa, Lion's Mane, phosphatidylserine, citicoline, or Ginkgo at or near clinical dose."
       ingredientMechanism={ingredientMechanism}
+      ingredientPages={ingredients}
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}

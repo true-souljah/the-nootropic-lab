@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
-import { productsEU, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsEU, getRegionalHealthDisclaimer, ingredients } from '@nootropic/data';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -114,6 +114,7 @@ export default function Page() {
       pageDescription="Independent EU ranking of nootropics for memory and recall, based on clinical evidence. EU storefronts marked."
       heroParagraph="For memory, the Bacopa Monnieri evidence we cite is a systematic review of six 12-week randomised trials (Pase 2012). This page ranks the products in our EU coverage that contain Bacopa, Lion's Mane, phosphatidylserine, or citicoline at or near clinical dose. EU labels describe these ingredients in mechanism terms (under Regulation (EC) No 1924/2006, with claims assessed by the European Food Safety Authority, EFSA); for phosphatidylserine, EFSA's 2010 opinion concluded that 'a cause and effect relationship cannot be established'."
       ingredientMechanism={ingredientMechanism}
+      ingredientPages={ingredients}
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}

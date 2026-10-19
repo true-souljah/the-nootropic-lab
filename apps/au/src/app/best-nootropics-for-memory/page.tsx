@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
-import { productsAU, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsAU, getRegionalHealthDisclaimer, ingredients } from '@nootropic/data';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -121,6 +121,7 @@ export default function Page() {
       pageDescription="Independent ranking of nootropics for memory and recall available to Australian buyers, based on clinical evidence and TGA Personal Importation rules."
       heroParagraph="For memory, the Bacopa Monnieri evidence we cite is a systematic review of six 12-week randomised trials (Pase 2012). This page ranks the products available to Australian buyers that contain Bacopa, Lion's Mane, phosphatidylserine, or citicoline at or near clinical dose. None of the multi-ingredient stacks below returned an Australian Register of Therapeutic Goods (ARTG) entry when we searched the Therapeutic Goods Administration (TGA) databases on 2026-10-06; they import under the Personal Importation Scheme. TGA-listed Australian options for single-ingredient Bacopa or ginkgo are noted in the FAQ."
       ingredientMechanism={ingredientMechanism}
+      ingredientPages={ingredients}
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}

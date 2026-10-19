@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
-import { productsJP, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsJP, getRegionalHealthDisclaimer, ingredients } from '@nootropic/data';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -110,6 +110,7 @@ export default function Page() {
       pageDescription="Independent ranking of nootropics for adults in Japan concerned about age-related cognitive changes."
       heroParagraph="Japan's median age, 49.4 years in 2024, is the highest of any country or area with at least a million people (UN World Population Prospects 2024), and 563 of the 6,451 active Foods with Function Claims (FFC, 機能性表示食品) notifications make a claim about memory or cognitive function (Consumer Affairs Agency database export, 2026-10-06). Domestic brands target this demographic via DHA (Suntory DHA & EPA + Sesamin EX; no FFC notification found in the Consumer Affairs Agency (CAA) database, export scanned 2026-10-06) and bacopa saponins plus matured hop bitter acids (FANCL BRAINs, FFC notification G425). International stacks add Lion's Mane (the evidence base established in Japan via Mori et al. 2009) and clinical-dose citicoline. Some of these supplements have trial evidence in older adults, often only in subgroups: PS-DHA in older adults with memory complaints, citicoline in those with relatively inefficient memories, and Lion's Mane in mild cognitive impairment. They are NOT treatments for dementia (認知症), Alzheimer's, or any clinical cognitive disease. For those, see a Japanese neurologist."
       ingredientMechanism={ingredientMechanism}
+      ingredientPages={ingredients}
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}

@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
-import { productsSEA, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsSEA, getRegionalHealthDisclaimer, ingredients } from '@nootropic/data';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -120,6 +120,7 @@ export default function Page() {
       pageDescription="Independent ranking of nootropics for SEA adults concerned about age-related cognitive changes."
       heroParagraph="Age-related cognitive change is normal — memory recall slows, processing speed reduces. Some of the supplements on this page have trial evidence in older adults, often only in subgroups: PS-DHA in older adults with memory complaints, citicoline in those with relatively inefficient memories, and Lion's Mane in mild cognitive impairment. They are NOT treatments for dementia, Alzheimer's, or any clinical cognitive disease. For those, see a neurologist at NUH/SGH (Singapore), UMMC (Malaysia), Siriraj (Thailand), PGH (Philippines), or your equivalent regional centre. This page ranks imported stacks for SEA buyers, noting where a brand does not ship to the region. Halal status (Indonesia’s Badan Penyelenggara Jaminan Produk Halal (BPJPH) and the Department of Islamic Development Malaysia (JAKIM)), distribution route, and import notes per country (Singapore’s Health Sciences Authority (HSA), Malaysia’s National Pharmaceutical Regulatory Agency (NPRA), Indonesia’s Badan Pengawas Obat dan Makanan (BPOM), and the Thai and Philippine Food and Drug Administrations (FDA)) included where known."
       ingredientMechanism={ingredientMechanism}
+      ingredientPages={ingredients}
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}
