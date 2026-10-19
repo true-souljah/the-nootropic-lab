@@ -64,9 +64,13 @@ describe('QuizResults — a top match listed for none of the goals is not recomm
   });
 
   test('three goals (possible through the results URL): listed as "a, b or c"', () => {
-    const answers: QuizAnswers = { goals: ['Mood', 'Sleep recovery', 'Aging support'], caffeine: 'Moderate', budget: 60, mbg: 'Not important' };
+    // Aging support now matches "Long-term brain health", so the three goals
+    // here pair the two uncovered ones with Focus at a $30 budget, where no
+    // caffeine-free product listed for focus fits.
+    const answers: QuizAnswers = { goals: ['Mood', 'Sleep recovery', 'Focus'], caffeine: 'Very sensitive', budget: 30, mbg: 'Not important' };
     const top = topOf(answers);
-    expect(pageText(answers)).toContain(`${top.name} is the closest match, but it isn't listed for mood, sleep recovery or aging support.`);
+    expect(top.bestFor).not.toContain('Focus');
+    expect(pageText(answers)).toContain(`${top.name} is the closest match, but it isn't listed for mood, sleep recovery or focus.`);
   });
 
   test('a top match listed for the goal keeps the recommendation', () => {
