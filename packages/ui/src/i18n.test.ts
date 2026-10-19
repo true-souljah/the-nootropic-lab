@@ -284,11 +284,23 @@ describe('getStrings', () => {
       }
     });
 
-    test('ja strings are in Japanese script (do-not-translate acronyms excepted)', () => {
+    /**
+     * English in ja on purpose: changed while Japanese copy is paused
+     * (compliance:jp-japanese-paused-2026-10-13; no host renders ja), so the
+     * ja value is the en text (2026-10-19: the palette's "{score}/10", WCAG
+     * 2.5.3). Same rule as the 2026-10-15 keys in i18n-leftovers.test.ts.
+     */
+    const JA_ENGLISH_WHILE_PAUSED = ['search.palette.scoreAria'];
+
+    test('ja strings are in Japanese script (do-not-translate acronyms and English-while-paused keys excepted)', () => {
       for (const [path, text] of restLeaves('ja')) {
-        if (exempt(path, 'ja')) continue;
+        if (exempt(path, 'ja') || JA_ENGLISH_WHILE_PAUSED.includes(path)) continue;
         expect(text, `ja ${path}`).toMatch(/[぀-ヿ一-鿿]/);
       }
+    });
+
+    test('ja English-while-paused keys carry the en text', () => {
+      for (const path of JA_ENGLISH_WHILE_PAUSED) expect(restLeaves('ja').get(path), `ja ${path}`).toBe(enLeaves.get(path));
     });
 
     test.each(['es', 'fr', 'pt', 'de', 'fr-CA'] as Locale[])('%s strings differ from en (do-not-translate list excepted)', (locale) => {

@@ -31,7 +31,7 @@ export const PALETTE_STRINGS_EN: PaletteStrings = {
   categories: { ingredients: 'Ingredients', products: 'Products', comparisons: 'Comparisons', guides: 'Guides', other: 'Other' },
   hints: { navigate: 'navigate', open: 'open', close: 'close' },
   indexed: '{n} indexed',
-  scoreAria: ', score {score} out of 10',
+  scoreAria: ', score {score}/10',
   gradeAria: ', evidence grade {grade}',
 };
 
@@ -536,7 +536,19 @@ function Section({
   );
 }
 
-function ResultRow({
+/**
+ * One result option (exported for command-palette-label-in-name.test.ts).
+ *
+ * The option is named by its content, with no aria-label: an aria-label
+ * replaces the content and must contain the visible text (WCAG 2.5.3 Label in
+ * Name), and that text includes the letter tile ("M"), the score pill ("7.5")
+ * and the "↵" key cap, which axe-core 4.14's label-content-name-mismatch counts
+ * although they are aria-hidden. The name is the title, then the score or
+ * evidence grade and the " — " before the description in visually hidden
+ * text, then the description: "Mind Lab Pro, score 7.5/10 — …". The tile, the
+ * pill and the key cap only repeat or decorate that text and stay aria-hidden.
+ */
+export function ResultRow({
   strings,
   item,
   active,
@@ -553,16 +565,15 @@ function ResultRow({
   onMouseEnter: () => void;
   onClick: () => void;
 }) {
-  // Build a single aria-label that includes the meta value so screen
-  // readers announce score / grade as part of the option name (per the
-  // M6 a11y review — listbox options speak their accessible name, not
-  // arbitrary visual children).
+  // The score / grade is part of the option's name (per the M6 a11y review —
+  // listbox options speak their accessible name, not arbitrary visual
+  // children), spoken right after the title.
   const metaSpoken = item.meta?.score !== undefined
     ? strings.scoreAria.replace('{score}', item.meta.score.toFixed(1))
     : item.meta?.grade
       ? strings.gradeAria.replace('{grade}', item.meta.grade)
       : '';
-  const ariaLabel = `${item.title}${metaSpoken}${item.description ? ` — ${item.description}` : ''}`;
+  const spokenAfterTitle = `${metaSpoken}${item.description ? ' — ' : ''}`;
 
   return (
     <Link
@@ -570,7 +581,6 @@ function ResultRow({
       id={id}
       role="option"
       aria-selected={active}
-      aria-label={ariaLabel}
       data-result-index={dataIndex}
       // WCAG combobox pattern (PR-Q51): the input owns the
       // listbox via aria-activedescendant; rows must NOT be Tab
@@ -591,13 +601,16 @@ function ResultRow({
     >
       <CategoryTile category={item.category} title={item.title} grade={item.meta?.grade} />
       <div className="flex-1 min-w-0">
-        <div className="font-semibold text-[14px] text-ds-ink truncate">{item.title}</div>
+        <div className="font-semibold text-[14px] text-ds-ink truncate">
+          {item.title}
+          {spokenAfterTitle && <span className="ds-sr-only">{spokenAfterTitle}</span>}
+        </div>
         {item.description && (
           <div className="text-[12px] text-ds-muted truncate">{item.description}</div>
         )}
       </div>
       {/* Right-aligned meta — aria-hidden because the score/grade is
-          already in the option's aria-label above. */}
+          already spoken after the title (visually hidden text above). */}
       <div className="flex items-center gap-2 shrink-0" aria-hidden="true">
         {item.meta?.score !== undefined && <ScorePill score={item.meta.score} />}
         {active && (

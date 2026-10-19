@@ -297,7 +297,11 @@ export interface UIStrings {
       hints: { navigate: string; open: string; close: string };
       /** Footer count; {n} is the number of indexed items. */
       indexed: string;
-      /** Appended to a product row's accessible name; {score} is the score with one decimal. */
+      /**
+       * Spoken after a product row's title, in visually hidden text that is
+       * part of the option's name; {score} is the score with one decimal. It
+       * reads "{score}/10" in every locale, like the score buttons (WCAG 2.5.3).
+       */
       scoreAria: string;
       /** Appended to an ingredient row's accessible name; {grade} is A, B or C. */
       gradeAria: string;
@@ -1083,7 +1087,7 @@ const en: UIStrings = {
       categories: { ingredients: 'Ingredients', products: 'Products', comparisons: 'Comparisons', guides: 'Guides', other: 'Other' },
       hints: { navigate: 'navigate', open: 'open', close: 'close' },
       indexed: '{n} indexed',
-      scoreAria: ', score {score} out of 10',
+      scoreAria: ', score {score}/10',
       gradeAria: ', evidence grade {grade}',
     },
   },
@@ -1723,7 +1727,7 @@ const es: UIStrings = {
       categories: { ingredients: 'Ingredientes', products: 'Productos', comparisons: 'Comparativas', guides: 'Guías', other: 'Otros' },
       hints: { navigate: 'navegar', open: 'abrir', close: 'cerrar' },
       indexed: '{n} indexados',
-      scoreAria: ', puntuación {score} sobre 10',
+      scoreAria: ', puntuación {score}/10',
       gradeAria: ', grado de evidencia {grade}',
     },
   },
@@ -2354,7 +2358,7 @@ const fr: UIStrings = {
       categories: { ingredients: 'Ingrédients', products: 'Produits', comparisons: 'Comparatifs', guides: 'Guides', other: 'Autres' },
       hints: { navigate: 'naviguer', open: 'ouvrir', close: 'fermer' },
       indexed: '{n} indexés',
-      scoreAria: ', note de {score} sur 10',
+      scoreAria: ', note de {score}/10',
       gradeAria: ', niveau de preuve {grade}',
     },
     pages: {
@@ -2977,7 +2981,9 @@ const ja: UIStrings = {
       categories: { ingredients: '成分', products: '製品', comparisons: '比較', guides: 'ガイド', other: 'その他' },
       hints: { navigate: '移動', open: '開く', close: '閉じる' },
       indexed: '{n}件を収録',
-      scoreAria: '、スコア10点中{score}点',
+      // English while Japanese copy is paused (compliance:jp-japanese-paused-2026-10-13;
+      // no host renders ja). i18n.test.ts holds it equal to en.
+      scoreAria: ', score {score}/10',
       gradeAria: '、エビデンス評価{grade}',
     },
   },
@@ -3590,7 +3596,7 @@ const pt: UIStrings = {
       categories: { ingredients: 'Ingredientes', products: 'Produtos', comparisons: 'Comparações', guides: 'Guias', other: 'Outros' },
       hints: { navigate: 'navegar', open: 'abrir', close: 'fechar' },
       indexed: '{n} indexados',
-      scoreAria: ', pontuação {score} em 10',
+      scoreAria: ', pontuação {score}/10',
       gradeAria: ', grau de evidência {grade}',
     },
   },
@@ -4201,7 +4207,7 @@ const de: UIStrings = {
       categories: { ingredients: 'Inhaltsstoffe', products: 'Produkte', comparisons: 'Vergleiche', guides: 'Ratgeber', other: 'Sonstiges' },
       hints: { navigate: 'navigieren', open: 'öffnen', close: 'schließen' },
       indexed: '{n} indexiert',
-      scoreAria: ', Bewertung {score} von 10',
+      scoreAria: ', Bewertung {score}/10',
       gradeAria: ', Evidenzgrad {grade}',
     },
   },
@@ -4802,7 +4808,7 @@ const frCa: UIStrings = {
       categories: { ingredients: 'Ingrédients', products: 'Produits', comparisons: 'Comparatifs', guides: 'Guides', other: 'Autres' },
       hints: { navigate: 'naviguer', open: 'ouvrir', close: 'fermer' },
       indexed: '{n} indexés',
-      scoreAria: ', score de {score} sur 10',
+      scoreAria: ', score de {score}/10',
       gradeAria: ', niveau de preuve {grade}',
     },
     pages: {
