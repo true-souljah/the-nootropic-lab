@@ -31,16 +31,21 @@ const ISO_CODES = ['USD', 'EUR', 'CAD', 'AUD', 'JPY', 'SGD', 'PHP', 'GBP', 'NZD'
 const PREFIX_CURRENCY: Readonly<Record<string, string>> = {
   'US$': 'USD', 'CA$': 'CAD', 'C$': 'CAD', 'AU$': 'AUD', 'A$': 'AUD', 'S$': 'SGD', 'NZ$': 'NZD', 'HK$': 'HKD',
   $: '$', '€': 'EUR', '£': 'GBP', '¥': 'JPY', '￥': 'JPY', '₱': 'PHP',
+  // UAE dirham spelling (neutonic.com's UAE store prints "Dhs. 320.00", JSON-LD priceCurrency AED, 2026-10-19); a Moroccan dirham (MAD) store would need its own mark.
+  'Dhs.': 'AED', 'Dh.': 'AED',
 };
 const SUFFIX_CURRENCY: Readonly<Record<string, string>> = { '€': 'EUR', '円': 'JPY' };
 const AMOUNT = String.raw`\d[\d.,]*\d|\d`;
 const PRICE = new RegExp(
-  String.raw`(US\$|CA\$|C\$|AU\$|A\$|S\$|NZ\$|HK\$|\$|€|£|¥|￥|₱|\b(?:${ISO_CODES.join('|')})\b)\s?(${AMOUNT})` +
+  String.raw`(US\$|CA\$|C\$|AU\$|A\$|S\$|NZ\$|HK\$|\$|€|£|¥|￥|₱|\bDhs?\.|\b(?:${ISO_CODES.join('|')})\b)\s?(${AMOUNT})` +
     String.raw`|(${AMOUNT})\s?(€|円|\b(?:${ISO_CODES.join('|')})\b)`,
   'gu',
 );
-/** "from" / "starting at" prices are minimums, not the price of a pack. */
-const FROM_PRICE = /(?:^|[\s(|])(?:from|starting at|ab|desde|à partir de)\s+\S*\d|[～〜]/iu;
+/** "from" / "starting at" prices are minimums, not the price of a pack; a spaced mark ("From Dhs. 272.00", "from AED 272") counts too. */
+const FROM_PRICE = new RegExp(
+  String.raw`(?:^|[\s(|])(?:from|starting at|ab|desde|à partir de)\s+(?:(?:Dhs?\.|\b(?:${ISO_CODES.join('|')})\b)\s?)?\S*\d|[～〜]`,
+  'iu',
+);
 
 /** True when the quote is a "from" / "starting at" minimum rather than a pack's price. */
 export function isFromPrice(text: string): boolean {

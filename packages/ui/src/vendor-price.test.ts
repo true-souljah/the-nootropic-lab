@@ -1,6 +1,7 @@
 import { describe, test, expect } from 'vitest';
 import {
   parseAmount, parseQuotedPrices, quoteSupply, packServings, statedSupplyDays, dailyServings, servingsInPack,
+  storePriceProblems,
   allProductsUS, allProductsEU, allProductsCA, allProductsAU,
   allProductsJP, allProductsLatam, allProductsGCC, allProductsSEA,
 } from '@nootropic/data';
@@ -50,6 +51,8 @@ describe('parseQuotedPrices', () => {
     ['5,479円 カートに入れる 商品番号：5248', 'JPY', 5479],
     ['1 Pouch (1 month supply) ₱1,680', 'PHP', 1680],
     ['Price reduced to S$69.90', 'SGD', 69.9],
+    ['Dhs. 320.00', 'AED', 320],
+    ['Dh. 320.00', 'AED', 320],
   ])('"%s" → %s %s', (text, currency, amount) => {
     const { prices, problems } = parseQuotedPrices(text);
     expect(problems).toEqual([]);
@@ -67,6 +70,21 @@ describe('parseQuotedPrices', () => {
 
   test('an ambiguous number is reported, not read', () => {
     expect(parseQuotedPrices('€12,3456').problems).toEqual(['ambiguous price "€12,3456"']);
+  });
+
+  test('"Dhs." is the UAE dirham (AED); a "From Dhs." subscription price is still refused as a "from" price', () => {
+    // neutonic.com's UAE store prints "Dhs. 320.00" one-time and "From Dhs. 272.00" on subscription (JSON-LD AED, 2026-10-19).
+    const priced = (text: string, amount: number, currency = 'AED'): Product => ({
+      ...allProductsGCC[0],
+      storePrice: { amount, currency, text, pack: '90 Capsules', url: 'https://www.neutonic.com/en-me/products/brain-capsules-uae', checkedAt: '2026-10-19' },
+    });
+    expect(storePriceProblems(priced('Dhs. 320.00', 320))).toEqual([]);
+    expect(storePriceProblems(priced('From Dhs. 272.00', 272)).join('\n')).toMatch(/"from" price/);
+    // A spaced ISO mark is a "from" price as well, and plain "from" wording without a price is not one.
+    expect(storePriceProblems(priced('From AED 272.00', 272)).join('\n')).toMatch(/"from" price/);
+    expect(storePriceProblems(priced('Dhs. 320.00 · take 3 capsules from day 1', 320))).toEqual([]);
+    // "Dhs." never stands for the Moroccan dirham here: that store would need its own mark.
+    expect(storePriceProblems(priced('Dhs. 320.00', 320, 'MAD')).join('\n')).toMatch(/contradicts its text/);
   });
 });
 

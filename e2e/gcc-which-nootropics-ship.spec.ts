@@ -27,9 +27,10 @@ test.describe('GCC /which-nootropics-ship-to-the-gcc/', () => {
     await expect(verdict).toBeVisible();
     await expect(verdict).toContainText('Mind Lab Pro');
 
-    // One row per brand, each linking its review page.
-    await expect(page.locator('main table tbody tr')).toHaveCount(7);
+    // One row per brand, each linking its review page (Neutonic added 2026-10-19).
+    await expect(page.locator('main table tbody tr')).toHaveCount(8);
     await expect(page.locator('main a[href="/mind-lab-pro-review/"]').first()).toBeVisible();
+    await expect(page.locator('main a[href="/neutonic-brain-capsules-uk-review/"]').first()).toBeVisible();
     await expect(page.locator('main a[href="https://www.qualialife.com/faqs/do-we-ship-internationally"]').first()).toBeVisible();
 
     // The page has no buy link (the iHerb links are plain), so it carries the

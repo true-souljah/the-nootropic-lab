@@ -257,6 +257,7 @@ describe('perServingStorePrice / perDayStorePrice — exact baseline of every pr
     'gcc/alpha-brain': ['USD 1.78', 'USD 1.78'],
     'gcc/nootropics-depot-lions-mane': ['USD 0.33', RANGE],
     'gcc/eu-yan-sang-brainmax': ['SGD 3', 'SGD 3'],
+    'gcc/neutonic-brain-capsules-uk': ['AED 10.67', 'AED 10.67'],
     'sea/mind-lab-pro': ['USD 2.3', NO_FREQUENCY],
     'sea/noocube': ['USD 2.17', 'USD 2.17'],
     'sea/qualia-mind': ['USD 7.95', QUALIA_CADENCE],
@@ -264,6 +265,9 @@ describe('perServingStorePrice / perDayStorePrice — exact baseline of every pr
     'sea/nootropics-depot-lions-mane': ['USD 0.33', RANGE],
     'sea/eu-yan-sang-brainmax': ['SGD 3', 'SGD 3'],
     'sea/supershrooms-focus-nootropic': ['refused: "1 Pouch" needs servingsPerContainer, which the record lacks', 'PHP 56'],
+    // Same directions wording as the EU drink, so the same per-day refusal.
+    'sea/neutonic-productivity-drink': ['GBP 2.5', 'refused: supply: no supply length stated; directions: no dose stated'],
+    'sea/neutonic-brain-capsules-uk': ['GBP 1.5', 'GBP 1.5'],
   };
 
   test('matches the committed baseline exactly (no record missing, none extra)', () => {
@@ -292,10 +296,16 @@ describe('perServingStorePrice / perDayStorePrice — exact baseline of every pr
    * read "as seen from the region's country"): one URL, one price per currency.
    * neutonic.com's US capsule page prices in USD for US shoppers and in CAD with
    * Canada selected (Shopify markets; JSON-LD priceCurrency CAD, checked
-   * 2026-10-19). Records quoting such a page are compared per currency; every
-   * other URL must show one set of figures whatever the region.
+   * 2026-10-19). Its main-store drink page prices in EUR with an EU country
+   * selected (checked 2026-10-15) and in GBP with Singapore or Malaysia selected
+   * (Shopify.currency GBP, JSON-LD priceCurrency GBP, checked 2026-10-19).
+   * Records quoting such a page are compared per currency; every other URL must
+   * show one set of figures whatever the region.
    */
-  const COUNTRY_PRICED_PAGES = new Set(['https://www.neutonic.com/en-us/products/neutonic-capsules-us']);
+  const COUNTRY_PRICED_PAGES = new Set([
+    'https://www.neutonic.com/en-us/products/neutonic-capsules-us',
+    'https://www.neutonic.com/products/tropical-ice-12pk',
+  ]);
 
   test('records quoting the same store page show the same figures', () => {
     const byUrl = new Map<string, { key: string; figures: unknown[] }[]>();
@@ -428,6 +438,7 @@ describe('monthly figures are unchanged by the per-serving / per-day work', () =
     'gcc/alpha-brain': 'USD 53.3',
     'gcc/nootropics-depot-lions-mane': 'USD 9.99',
     'gcc/eu-yan-sang-brainmax': 'SGD 89.9',
+    'gcc/neutonic-brain-capsules-uk': 'AED 320',
     'sea/mind-lab-pro': 'USD 69',
     'sea/noocube': 'USD 64.99',
     'sea/qualia-mind': null,
@@ -435,6 +446,8 @@ describe('monthly figures are unchanged by the per-serving / per-day work', () =
     'sea/nootropics-depot-lions-mane': 'USD 9.99',
     'sea/eu-yan-sang-brainmax': 'SGD 89.9',
     'sea/supershrooms-focus-nootropic': 'PHP 1680',
+    'sea/neutonic-productivity-drink': 'GBP 74.97',
+    'sea/neutonic-brain-capsules-uk': 'GBP 44.99',
   };
 
   test('every priced record keeps its pre-change per-month figure', () => {
@@ -463,6 +476,10 @@ describe('priceText — per-unit and source lines as each edition renders them',
     ['ca', 'neutonic-brain-capsules', '≈ $2.40/serving', '≈ $2.40/day'],
     ['au', 'neutonic-smarter-energy-drink', '≈ $4.75/serving', null],
     ['au', 'neutonic-brain-capsules-uk', '≈ $3.10/serving', '≈ $3.10/day'],
+    // Intl puts a no-break space between an ISO currency code and the amount.
+    ['gcc', 'neutonic-brain-capsules-uk', '≈ AED 10.67/serving', '≈ AED 10.67/day'],
+    ['sea', 'neutonic-productivity-drink', '≈ £2.50/serving', null],
+    ['sea', 'neutonic-brain-capsules-uk', '≈ £1.50/serving', '≈ £1.50/day'],
     ['jp', 'hunter-focus', '≈ $3/serving', '≈ $3/day'],
     ['jp', 'suntory-dha-epa-sesamin', '≈ ￥191/serving', '≈ ￥191/day'],
     ['jp', 'fancl-brains', null, '≈ ￥183/day'],
