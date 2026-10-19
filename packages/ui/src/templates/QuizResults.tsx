@@ -19,6 +19,7 @@ import {
 } from './quizScoring';
 import { guaranteeDays, getStrings, NO_PURCHASE_LINK_STRINGS } from '@nootropic/data';
 import { priceText } from '../price-text';
+import { LISTICLE_MIN_SCORE, formatListicleScore } from './listicleRanking';
 
 // The quiz runs on the US site only (its budget is in dollars), so prices are
 // written the US way; each stays in its store's own currency.
@@ -60,6 +61,12 @@ export default function QuizResults({
   const { topListed, listed } = goalListing(products, top, answers.goals);
   const goalTextOr = joinWords(answers.goals.map((g) => g.toLowerCase()), 'or');
   const otherAnswers = `${answers.caffeine.toLowerCase()} to caffeine, $${answers.budget}/month budget`;
+  // A listed top match is recommended only at or above the bar a listicle pick
+  // needs to be ranked (operator decision 2026-10-19); below it, it is the
+  // closest match too.
+  const recommended = topListed && top.score >= LISTICLE_MIN_SCORE;
+  const bar = formatListicleScore(LISTICLE_MIN_SCORE);
+  const listedAtBar = listed.filter((p) => p !== top && p.score >= LISTICLE_MIN_SCORE);
 
   return (
     <div
@@ -73,10 +80,10 @@ export default function QuizResults({
 
       <main id="quiz-results-main-content" className="max-w-[760px] mx-auto px-6 pt-7 pb-12">
         <div className="mb-4">
-          <Chip tone="accent">{topListed ? `Your match · ${result.confidence}% confidence` : 'Closest match'}</Chip>
+          <Chip tone="accent">{recommended ? `Your match · ${result.confidence}% confidence` : 'Closest match'}</Chip>
         </div>
 
-        {topListed ? (
+        {recommended ? (
           <>
             <h1 className="text-[36px] font-bold tracking-[-0.02em] leading-[1.1] m-0 mb-4 text-ds-ink">
               You should try <span className="text-ds-accent">{top.name}</span>.
@@ -84,6 +91,19 @@ export default function QuizResults({
             <p className="text-[16px] text-ds-ink-soft m-0 mb-8 leading-[1.6]">
               Based on your answers — {goalText}, {answers.caffeine.toLowerCase()} to caffeine, $
               {`${answers.budget}/month budget`} — {top.name} is the strongest match in our coverage.{' '}
+              {top.summary}
+            </p>
+          </>
+        ) : topListed ? (
+          <>
+            <h1 className="text-[36px] font-bold tracking-[-0.02em] leading-[1.1] m-0 mb-4 text-ds-ink">
+              <span className="text-ds-accent">{top.name}</span> is the closest match, but it scores {formatListicleScore(top.score)}/10, below the {bar} we need to recommend a product.
+            </h1>
+            <p className="text-[16px] text-ds-ink-soft m-0 mb-8 leading-[1.6]">
+              {`It is listed for ${goalTextOr} and fits your answers best — ${otherAnswers}.`}
+              {listedAtBar.length > 0
+                ? ` ${joinWords(listedAtBar.map((p) => p.name), 'and')} ${listedAtBar.length === 1 ? 'is' : 'are'} listed for ${goalTextOr} too and score${listedAtBar.length === 1 ? 's' : ''} ${bar} or more, but rank${listedAtBar.length === 1 ? 's' : ''} below it on your answers as a whole.`
+                : ''}{' '}
               {top.summary}
             </p>
           </>
@@ -113,7 +133,7 @@ export default function QuizResults({
             className="absolute top-0 left-6 bg-ds-accent text-white text-[10px] uppercase tracking-[0.14em] font-bold px-3 py-1 rounded-b-[6px]"
             aria-hidden="true"
           >
-            {topListed ? 'Our pick for you' : 'Closest match'}
+            {recommended ? 'Our pick for you' : 'Closest match'}
           </div>
 
           <div className="flex gap-5 items-start mt-3 flex-wrap">
