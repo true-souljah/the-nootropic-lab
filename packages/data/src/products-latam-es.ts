@@ -23,13 +23,18 @@
 // VitaCholine, Nutricog, Lutemax 2020, Onnit Flow Blend, Clarity, Motivation,
 // Stress Reset, Neuroprotection, Zembrin, SmartSeed, Sabroxy), Trustpilot,
 // study citations ("Mori 2009") and Latin binomials. Register: tú, as on the
-// LATAM ingredient and best-of pages. Decimals use a point (es-419). Ingredient
-// names follow ingredients-es.ts: a Spanish common name only where the LATAM
-// pages already use one (Melena de León, Citicolina, L-Teanina, L-Tirosina,
-// Cafeína, Fosfatidilserina, Alfa-GPC, Huperzina A, corteza de pino marítimo);
-// other ingredient names keep their English form, and only the generic words
-// around them are translated (vitamin, extract, root, seed, mushroom).
-// Regulator names already in Spanish stay; ANVISA keeps its Portuguese name.
+// LATAM ingredient and best-of pages. Decimals use a point (es-419). Names:
+// (1) an ingredient with a LATAM ingredient page is written exactly as
+// ingredients-es.ts writes it (Melena de León, Citicolina, L-Teanina,
+// L-Tirosina, Cafeína, Fosfatidilserina, Alfa-GPC, Huperzina A, corteza de
+// pino marítimo; Bacopa Monnieri, Rhodiola Rosea, Ginkgo Biloba,
+// Ashwagandha, Acetyl-L-Carnitine, Oat Straw Extract and Dynamine stay as
+// there); (2) brand, blend, formula and extract names and Latin binomials stay
+// as written; (3) any other vitamin, mineral, plant or compound takes its
+// standard Spanish name (Vitamina B6, Taurina, Uña de gato, Azafrán,
+// Pterostilbeno), and generic words around a name are translated (extract,
+// root, seed, mushroom). Regulator names already in Spanish stay; ANVISA
+// keeps its Portuguese name.
 // English proper names that contain English function words (certification
 // names) are kept in double quotes.
 //
@@ -283,6 +288,66 @@ export const latamProductTranslationsEs: LatamProductTranslation[] = [
       bestFor: '94d2459b035d',
       heroIngredients: '819e5ca1aff7',
       ingredientDosages: 'b17cdf0715c0',
+      importPathway: '74234e98afe7',
+      regulatoryNote: '74234e98afe7',
+      unscoredReason: '74234e98afe7',
+      discontinuedNote: '74234e98afe7',
+    },
+  },
+  {
+    slug: 'noocube-review',
+    summary:
+      'Fórmula sólida anclada en Lutemax 2020, a $64.99 USD por un frasco de 30 porciones — los precios están en USD, sin opción de moneda local. La marca no publica un plazo de entrega estimado para este país; consulta el plazo estimado en el checkout. Los aranceles de importación y el despacho aduanero corren por cuenta del comprador; los compradores en Argentina pueden enfrentar restricciones por el control cambiario en las transacciones con tarjeta en USD. Nota: el perfil de Trustpilot de noocube.com todavía no tiene reseñas — verifica de forma independiente antes de comprar.',
+    whatItIs:
+      'NooCube es un stack nootrópico de 12 ingredientes fabricado por Wolfson Brands, un gran fabricante de suplementos. Su rasgo más destacado para quienes trabajan muchas horas frente a pantallas es Lutemax 2020 — un extracto patentado de luteína y zeaxantina con evidencia mixta sobre la fatiga visual por pantallas: un ensayo de 6 meses financiado por el fabricante de Lutemax encontró menos fatiga visual y cansancio ocular autoevaluados (Stringham 2017), pero un ensayo de 2025 con otro producto de luteína/zeaxantina no encontró cambios en la fatiga visual autoevaluada (Lopresti 2025). Para compradores en Latam, NooCube tiene precio exclusivamente en USD y se envía internacionalmente como suplemento para uso personal, y entra en estos mercados bajo las franquicias de importación personal; no hemos verificado un registro local del producto ante la Comisión Federal para la Protección contra Riesgos Sanitarios (COFEPRIS) en México, la Agência Nacional de Vigilância Sanitária (ANVISA) en Brasil, la Administración Nacional de Medicamentos, Alimentos y Tecnología Médica (ANMAT) en Argentina, el Instituto Nacional de Vigilancia de Medicamentos y Alimentos (INVIMA) en Colombia, el Instituto de Salud Pública (ISP) en Chile ni la Dirección General de Medicamentos, Insumos y Drogas (DIGEMID) en Perú. Los aranceles varían según el país y corren por cuenta del comprador.',
+    howItWorks:
+      'Lutemax 2020 filtra la luz azul de alta energía en la retina; los resultados de los ensayos sobre la fatiga ocular relacionada con pantallas son mixtos (un ensayo financiado por el fabricante, positivo; un ensayo de otro producto de luteína/zeaxantina, nulo en la fatiga visual autoevaluada). La colina (100mg, a partir de 250mg de bitartrato de colina VitaCholine) apoya el sistema colinérgico; la fórmula actual ya no contiene Alfa-GPC ni Huperzina A. La L-Teanina aporta una concentración tranquila. La Bacopa Monnieri actúa sobre la consolidación de la memoria a lo largo de semanas.',
+    whatToExpect:
+      'Primer día: una concentración tranquila leve gracias a la L-Teanina. Lutemax: sus ensayos sobre fatiga visual duraron 6 meses y no coinciden, así que no cuentes con un efecto rápido sobre la fatiga ocular. A las 8 semanas: mejoras modestas de memoria (Bacopa, aunque con dosis insuficiente). Ajusta tus expectativas en consecuencia: la Bacopa está por debajo de la referencia clínica de 300mg. El perfil de Trustpilot de noocube.com todavía no tiene reseñas — verifica la política de cancelación antes de comprar.',
+    pros: [
+      'Lutemax 2020 para quienes trabajan frente a pantallas',
+      'Buena relación calidad-precio a $64.99/mes',
+      'Garantía de devolución de 60 días',
+      'Envía internacionalmente — sus preguntas frecuentes indican Europa, Canadá y Australia en un plazo de 10 días hábiles y dicen que la entrega en otros lugares puede variar; la entrega en Latinoamérica no está confirmada (consultado 2026-10-05)',
+    ],
+    cons: [
+      'Sin reseñas en el perfil de Trustpilot de noocube.com (consultado 2026-09-28)',
+      'Algunos ingredientes con dosis insuficiente',
+      'Problemas para cancelar la suscripción (BBB)',
+      'Envío internacional a Latam: la marca no publica un plazo de entrega estimado para este país; consulta el plazo estimado en el checkout',
+      'Pueden aplicarse aranceles o impuestos de importación según el país de destino',
+    ],
+    notes: [
+      'Los precios por compra al por mayor cambiaron en junio de 2026: suministro de 5 meses a $194.99 USD (antes, 6 meses por $180). Los compradores en Latam que importen directamente verán aumentos de precio equivalentes en BRL/MXN.',
+      'Cantidades de ingredientes según la etiqueta de NooCube en https://noocube.com/cdn/shop/t/90/assets/noocube-label-usa-v3.jpg?v=141477061997521322691727969792, consultada 2026-10-08.',
+    ],
+    bestFor: ['Concentración', 'Trabajo frente a pantallas', 'Económico'],
+    heroIngredients: ['Lutemax 2020', 'Bacopa Monnieri', 'Panax Ginseng', 'VitaCholine', 'Uña de gato', 'Resveratrol', 'L-Teanina', 'Pterostilbeno'],
+    ingredientDosages: [
+      { name: 'Vitamina B1 (tiamina HCl)', doseInProduct: '1.1mg' },
+      { name: 'Vitamina B12 (cianocobalamina)', doseInProduct: '2.5mcg' },
+      { name: 'Biotina (D-biotina)', doseInProduct: '50mcg' },
+      { name: 'Colina (VitaCholine)', doseInProduct: '100mg (a partir de 250mg de bitartrato de colina)' },
+      { name: 'Extracto de Bacopa Monnieri (planta, 20% de bacósidos)', doseInProduct: '250mg' },
+      { name: 'L-Tirosina', doseInProduct: '250mg' },
+      { name: 'Extracto concentrado de uña de gato (corteza de Uncaria tomentosa)', doseInProduct: '175mg (extracto 4:1)' },
+      { name: 'L-Teanina', doseInProduct: '100mg' },
+      { name: 'Extracto concentrado de Panax Ginseng', doseInProduct: '20mg (extracto 8:1, equivalente a 160mg de polvo de Panax Ginseng)' },
+      { name: 'Lutemax 2020 (extracto de flor de cempasúchil, Tagetes erecta)', doseInProduct: '20mg' },
+      { name: 'Trans-resveratrol (raíz de Polygonum cuspidatum)', doseInProduct: '14.3mg' },
+      { name: 'Pterostilbeno', doseInProduct: '140mcg' },
+    ],
+    sourceHashes: {
+      summary: 'fdc02ee43b9e',
+      whatItIs: '24fdf4594d0c',
+      howItWorks: '92be27581cb1',
+      whatToExpect: '89633329003f',
+      pros: '4095d302d222',
+      cons: '3f3db80c0f09',
+      notes: '036bc3d31885',
+      bestFor: '54181b2ba159',
+      heroIngredients: '19f90e91de7e',
+      ingredientDosages: 'aa0e9670dc72',
       importPathway: '74234e98afe7',
       regulatoryNote: '74234e98afe7',
       unscoredReason: '74234e98afe7',
