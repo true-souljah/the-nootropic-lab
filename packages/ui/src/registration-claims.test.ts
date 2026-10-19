@@ -2483,6 +2483,45 @@ const ROUND_TWENTY_UNSOURCED: RegExp[] = [
   /más fuerte específicamente en adultos mayores/i,
   /prioritizing peer-reviewed data, Mind Lab Pro wins/i,
   /improved mental stamina and clarity under workload/i,
+  // Final pass (same round; research p5/panel-r20/verified.json and the
+  // coordinator's checks). R20-004: the timing FAQs listed Lion's Mane, then
+  // said none of the ingredients is acute-effect (our Lion's Mane page: small
+  // acute effects in pilot trials); case-sensitive, so the qualified
+  // lower-case "none ..." that replaced them passes. R20-009: an 8-week re-test
+  // after 12-week trials. R20-014: Mind Lab Pro's and NooCube's Bacopa benefit
+  // with no dose caveat (150mg and 250mg against 300-450mg). R20-020/B2-012:
+  // Memo Plus Gold's serotonin "Bacopa fog" and absorption claims. Thesis:
+  // "stronger user-experience data". B2-016: BrainMD's 2-4 and 8-12 week
+  // timelines. B2-005: Alpha Brain "one of only two". Focus heroes:
+  // "focus-validated ... at clinical dose". Ashwagandha: KSM-66 as "the extract
+  // used in the trials" and the unsourced 5%-withanolide and Sensoril
+  // leaf-and-root specs.
+  /None (of these )?are acute-effect ingredients/,
+  /Ninguno es un ingrediente de efecto agudo/,
+  /again at 8 weeks/i,
+  /nuevamente a las 8 semanas/i,
+  /measurable improvements in memory recall/i,
+  /mejoras medibles en el recuerdo/i,
+  /At 8 weeks: modest memory improvements( from Bacopa)?\./i,
+  /as the serotonin system adjusts/i,
+  /Take with food for best absorption/i,
+  /stronger user-experience data/i,
+  /subtle improvements in word retrieval/i,
+  /cumulative membrane and mitochondrial benefits/i,
+  /one of only two (nootropics|nootropic supplements|supplements)/i,
+  /uno de solo dos suplementos/i,
+  /focus-validated/i,
+  /validados para concentración/i,
+  /is the extract used in the key stress and cognition trials/i,
+  /es el extracto usado en los principales ensayos/i,
+  /Choose KSM-66, the extract used/i,
+  /Elige KSM-66/i,
+  /\(full-spectrum root extract, 5% withanolides\)/i,
+  /\(extracto de raíz de espectro completo, 5% de witanólidos\)/i,
+  /5% withanolides from root only/i,
+  /5% de witanólidos, solo de raíz/i,
+  /Sensoril \(leaf \+ root extract\)|Sensoril is a leaf-and-root extract/i,
+  /Sensoril \(extracto de hoja \+ raíz\)|Sensoril es un extracto de hoja y raíz/i,
 ];
 
 describe('round twenty: retro-panel findings on rounds 16-19 follow our ingredient pages', () => {
@@ -2551,6 +2590,32 @@ describe('round twenty: retro-panel findings on rounds 16-19 follow our ingredie
       'La evidencia es más fuerte específicamente en adultos mayores con quejas cognitivas subjetivas — no en demencia clínicamente diagnosticada ni Alzheimer.',
       'For evidence-graded buyers prioritizing peer-reviewed data, Mind Lab Pro wins. For buyers who value try-multiple-formulas convenience, Thesis is fair.',
       'Within 2-4 weeks: improved mental stamina and clarity under workload. At 8 weeks: modest memory improvements from Bacopa.',
+      // Final pass
+      "Lion's Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. None are acute-effect ingredients.",
+      'Citicoline: memory effects were measured after 2–3 months. None of these are acute-effect ingredients.',
+      'Citicolina: sus efectos sobre la memoria se midieron después de 2–3 meses. Ninguno es un ingrediente de efecto agudo.',
+      'test your working memory span, reading speed, or task completion time at baseline and again at 8 weeks.',
+      'mida su capacidad de memoria de trabajo, velocidad de lectura o tiempo de finalización de tareas antes de comenzar y nuevamente a las 8 semanas.',
+      "At 8-12 weeks: measurable improvements in memory recall (Bacopa; the Lion's Mane dose here, 500mg, is below the 1–1.8g used in healthy-adult trials).",
+      'A las 8-12 semanas: mejoras medibles en el recuerdo (Bacopa; la dosis de Melena de León aquí, 500mg, está por debajo de los 1–1.8g usados en ensayos con adultos sanos).',
+      'At 8 weeks: modest memory improvements from Bacopa. Delivery to Australia is quoted as within 10 business days.',
+      'At 8 weeks: modest memory improvements. The noocube.com Trustpilot profile has no reviews yet.',
+      "A minority of users notice mild digestive upset or a brief 'Bacopa fog' in the first few weeks as the serotonin system adjusts; this typically resolves.",
+      'so plan on roughly two bottles per month. Take with food for best absorption.',
+      "Thesis's personalised-quiz approach has stronger user-experience data and lower friction for newcomers.",
+      'Within 2-4 weeks: subtle improvements in word retrieval and short-term recall (Ginkgo + Huperzine A). At 8-12 weeks: cumulative membrane and mitochondrial benefits from PS and ALCAR.',
+      'It is one of only two nootropics with published clinical trial data on its specific formula.',
+      'It is one of only two nootropic supplements with published clinical trial data on its specific formula.',
+      'It is one of only two supplements in this review with published clinical trial data on its specific formula.',
+      'Es uno de solo dos suplementos de esta reseña con datos de ensayos clínicos publicados sobre su fórmula específica.',
+      'This page ranks the products in our Canadian coverage that contain at least one of the four focus-validated ingredients (L-theanine + caffeine, citicoline, L-tyrosine, Alpha-GPC) at clinical dose.',
+      'contienen al menos uno de los cuatro ingredientes validados para concentración (L-teanina + cafeína, citicolina, L-tirosina, Alfa-GPC) en dosis clínica.',
+      'KSM-66 (5% withanolides from root only) is the extract used in the key stress and cognition trials. Sensoril is a leaf-and-root extract; our ashwagandha page cites no Sensoril trial.',
+      'Choose KSM-66, the extract used in the trials on our ashwagandha page.',
+      'Capsule. Choose KSM-66 (full-spectrum root extract, 5% withanolides), the extract used in the trials on this page; we cite no Sensoril (leaf + root extract) trial.',
+      'KSM-66 (5% de witanólidos, solo de raíz) es el extracto usado en los principales ensayos sobre estrés y cognición. Sensoril es un extracto de hoja y raíz; nuestra página sobre la ashwagandha no cita ningún ensayo con Sensoril.',
+      'Elige KSM-66, el extracto usado en los ensayos de nuestra página sobre la ashwagandha.',
+      'Cápsula. Elige KSM-66 (extracto de raíz de espectro completo, 5% de witanólidos), el extracto usado en los ensayos de esta página; no citamos ningún ensayo con Sensoril (extracto de hoja + raíz).',
     ];
     for (const s of removed) expect(ROUND_TWENTY_UNSOURCED.some(re => re.test(s)), s).toBe(true);
     for (const re of ROUND_TWENTY_UNSOURCED) expect(removed.some(s => re.test(s)), String(re)).toBe(true);
@@ -2580,7 +2645,22 @@ describe('round twenty: retro-panel findings on rounds 16-19 follow our ingredie
       'After 8–12 weeks of Bacopa at trial doses (300–450mg extract a day), trials found better scores on some memory free-recall tests (9 of 17 in the Pase 2012 review), though the newest 12-week trial at 300mg/day found no effect on verbal learning, attention or working memory.',
       'Rhodiola is an adaptogen that modulates the HPA (hypothalamic-pituitary-adrenal) axis, reducing cortisol output under stress. In laboratory studies, its key bioactives (rosavins and salidroside) inhibited monoamine oxidase enzymes.',
       "Bacopa's active compounds (bacosides A and B) upregulate antioxidant activity, reducing oxidative stress in hippocampal tissue.",
-      'Capsule. Choose KSM-66 (full-spectrum root extract, 5% withanolides), the extract used in the trials on this page; we cite no Sensoril (leaf + root extract) trial.',
+      'Capsule. Choose an extract that states its withanolide content. The trials on our ashwagandha page used a high-concentration full-spectrum root extract (Chandrasekhar 2012), a root extract (Choudhary 2017) and the Shoden extract (Lopresti 2019); we cite no Sensoril trial.',
+      'Cápsula. Elige un extracto que declare su contenido de witanólidos. Los ensayos de nuestra página sobre la ashwagandha usaron un extracto de raíz de espectro completo de alta concentración (Chandrasekhar 2012), un extracto de raíz (Choudhary 2017) y el extracto Shoden (Lopresti 2019); no citamos ningún ensayo con Sensoril.',
+      "Lion's Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. Apart from small acute effects of Lion's Mane in pilot trials, none are acute-effect ingredients.",
+      "Apart from small acute effects of Lion's Mane in pilot trials, none of these are acute-effect ingredients.",
+      'Aparte de los pequeños efectos agudos de la Melena de León en ensayos piloto, ninguno es un ingrediente de efecto agudo.',
+      'test your working memory span, reading speed, or task completion time at baseline and again at around 12 weeks.',
+      'antes de comenzar y nuevamente alrededor de las 12 semanas.',
+      'At 8 weeks: modest memory improvements (Bacopa, though underdosed). Manage expectations accordingly: Bacopa is below the 300mg clinical anchor.',
+      'A minority of users notice mild digestive upset in the first few weeks; this typically resolves.',
+      'so plan on roughly two bottles per month. Taking it with a meal containing some fat is the standard advice.',
+      'Take on an empty stomach for best absorption.',
+      "Timing in the trials we cite: huperzine A trials ran 4–16 weeks, ALCAR trials at least 3 months, PS memory trials 15 weeks to 12 months and positive ginkgo dementia trials 22–26 weeks (this product's ginkgo and ALCAR doses are below those used).",
+      'Alpha Brain has a published randomised, double-blind, placebo-controlled trial of the finished product (Solomon 2016, PubMed 26876224): 63 adults aged 18–35, 6 weeks, improved delayed verbal recall and executive functioning; one author worked for Onnit Labs.',
+      'Alpha Brain tiene un ensayo aleatorizado, doble ciego y controlado con placebo publicado sobre el producto terminado (Solomon 2016, PubMed 26876224): 63 adultos de 18 a 35 años, 6 semanas, mejoró el recuerdo verbal diferido y el funcionamiento ejecutivo; uno de los autores trabajaba para Onnit Labs.',
+      'This page ranks the products in our Canadian coverage that contain at least one of these four ingredients: L-theanine + caffeine, citicoline, L-tyrosine or Alpha-GPC.',
+      'contienen al menos uno de estos cuatro ingredientes: L-teanina + cafeína, citicolina, L-tirosina o Alfa-GPC.',
       'We cite no trial of the pairing.',
       'L-Tyrosine is a dopamine precursor. We cite no trial of the pairing.',
       'Oat Straw (Avena sativa) extract works primarily by inhibiting phosphodiesterase type 4 (PDE4).',
