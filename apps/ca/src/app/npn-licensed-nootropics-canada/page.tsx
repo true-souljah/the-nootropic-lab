@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
-import { productsCA, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsCA, getRegionalHealthDisclaimer, sitemapDate, isoDay } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
+import sitemap from '@/app/sitemap';
 
 const PAGE_URL = `${SITE_URL}/npn-licensed-nootropics-canada/`;
-const auditDateIso = new Date().toISOString().split('T')[0];
+const updated = sitemapDate(sitemap(), '/npn-licensed-nootropics-canada/');
 
 
 export const metadata: Metadata = {
@@ -36,7 +37,7 @@ const articleSchema = {
   headline: 'NPN-Licensed Nootropics in Canada — Health Canada NHP Framework',
   description: 'Explainer of the Natural Health Products Regulations and NPN licensing in Canada, with audit of the Canadian nootropic catalog.',
   datePublished: '2026-05-05',
-  dateModified: auditDateIso,
+  dateModified: isoDay(updated),
   author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
   publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   reviewedBy: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
@@ -96,7 +97,7 @@ export default function Page() {
         <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 mb-4">
           <span>Reviewed by <strong className="text-gray-700">The Nootropic Lab Editorial Team</strong></span>
           <span>·</span>
-          <span>Last updated: {new Date().toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+          <span>Last updated: {updated.toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</span>
         </div>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">

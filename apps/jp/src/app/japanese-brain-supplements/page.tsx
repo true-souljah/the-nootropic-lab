@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter, PublicShell } from '@nootropic/ui';
+import { sitemapDate, isoDay } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
+import sitemap from '@/app/sitemap';
 
 // Every factual sentence on this page maps to the sourced fact sheet
 // nootropics-research/2026-09/p5/jp-english-guide.json (fetched 2026-09-29).
@@ -35,7 +37,8 @@ const articleSchema = {
   headline: 'What are "Japanese vitamins for the brain"? FFC-notified supplements vs. imported nootropics',
   description: DESCRIPTION,
   datePublished: VERIFIED_ON,
-  dateModified: VERIFIED_ON,
+  // The page's sitemap <lastmod>, so the two never disagree.
+  dateModified: isoDay(sitemapDate(sitemap(), PATH)),
   author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
   publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   mainEntityOfPage: PAGE_URL,

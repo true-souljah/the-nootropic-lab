@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ComparisonTable, AffiliateDisclosure, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
-import { productsEU } from '@nootropic/data';
+import { productsEU, sitemapDate } from '@nootropic/data';
+import sitemap from '@/app/sitemap';
 import { searchItems, uiStrings } from '@/lib/search-fr';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -22,10 +23,11 @@ export default function MeilleursNootropiquesFR() {
     <article className="max-w-5xl mx-auto px-4 py-10" lang="fr">
       <div className="mb-2 text-xs text-gray-500">
         Dernière mise à jour :{' '}
-        {new Date().toLocaleDateString('fr-FR', {
+        {sitemapDate(sitemap(), '/fr/meilleurs-nootropiques/').toLocaleDateString('fr-FR', {
           year: 'numeric',
           month: 'long',
           day: 'numeric',
+          timeZone: 'UTC',
         })}
       </div>
       <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">

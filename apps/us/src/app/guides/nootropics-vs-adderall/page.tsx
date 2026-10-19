@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SchemaOrg, buildAlternates} from '@nootropic/ui';
-import { buildPersonAuthorReference } from '@nootropic/data';
+import { buildPersonAuthorReference, routeDates, isoDay } from '@nootropic/data';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -25,13 +25,17 @@ export const metadata: Metadata = {
   twitter: { card: 'summary' },
 };
 
+// Noindex, so not in the sitemap: the content date sitemap-dates gives a
+// static page (its page.tsx), never the build date.
+const updated = routeDates('us').page('guides/nootropics-vs-adderall');
+
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: `Nootropics vs Adderall ${CURRENT_YEAR}: Honest Comparison`,
   description: 'Adderall is a prescription stimulant; nootropics are supplements. They are not equivalents.',
-  datePublished: `${CURRENT_YEAR}-04-30`,
-  dateModified: new Date().toISOString().split('T')[0],
+  datePublished: '2026-04-30',
+  dateModified: isoDay(updated),
   author: buildPersonAuthorReference(undefined, SITE_URL),
   publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
 };
@@ -101,7 +105,7 @@ export default function Page() {
           <span>·</span>
           <span>
             Last updated:{' '}
-            {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            {updated.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
           </span>
         </div>
 
