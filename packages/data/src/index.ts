@@ -114,7 +114,7 @@ export type { JPPrefecture } from './jp-prefectures';
 export { jpPrefectures } from './jp-prefectures';
 export type { SearchItem, SearchItemMeta } from './search';
 export { buildSearchIndex } from './search';
-export type { Locale, UIStrings, RegionStrings, LicenceStatusStrings, RelatedGuideUseCase, IngredientCategoryStrings } from './i18n';
+export type { Locale, UIStrings, RegionStrings, LicenceStatusStrings, RelatedGuideUseCase, IngredientCategoryStrings, EditorialStandardsBody } from './i18n';
 export { getStrings, getLocaleForMarket } from './i18n';
 export { buildRegionSearchContext } from './region-search';
 export type { RegionSearchContext } from './region-search';
