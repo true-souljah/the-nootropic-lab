@@ -39,7 +39,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'How long until each takes effect?',
     a:
-      'Both contain ingredients with mixed onset profiles. L-theanine (in both) acts within 30–60 minutes. Bacopa Monnieri (in both) needs 8–12 weeks of consistent use; most positive trials ran 12 weeks. Plan for at least 8 weeks before judging long-term efficacy.',
+      'Both contain ingredients with mixed onset profiles. L-theanine (in both) acts within 30–60 minutes. Bacopa Monnieri (in both) needs 8–12 weeks of consistent use; most positive trials ran 12 weeks. Plan for at least 12 weeks before judging long-term efficacy.',
   },
   {
     q: 'Do they offer money-back guarantees?',

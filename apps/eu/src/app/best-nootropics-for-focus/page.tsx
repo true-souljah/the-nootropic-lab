@@ -63,7 +63,7 @@ const picks: ListiclePick[] = [
     product: productsEU.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses, plus L-tyrosine. Caffeine-free design lets you pair it with your own coffee or matcha if you want caffeine alongside its L-theanine. Priced in euros on the brand\'s EU store, with EU orders shipped from a European depot per the brand — the strongest EU-storefront focus pick in our coverage.',
+      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline (our citicoline page rates its attention evidence as mixed), plus L-tyrosine. Caffeine-free design lets you pair it with your own coffee or matcha if you want caffeine alongside its L-theanine. Priced in euros on the brand\'s EU store, with EU orders shipped from a European depot per the brand — the strongest EU-storefront focus pick in our coverage.',
   },
   {
     product: productsEU.find(p => p.slug === 'brainzyme-focus-pro-review')!,
@@ -82,11 +82,11 @@ const picks: ListiclePick[] = [
 const faqItems: ListicleFAQ[] = [
   {
     q: 'Which nootropic ingredients have trial evidence for focus available in the EU?',
-    a: 'L-theanine with caffeine: in trials in healthy adults the pair improved attention-switching accuracy (Owen 2008, 100mg L-theanine with 50mg caffeine; Giesbrecht 2010, PubMed 21040626, 97mg with 40mg), though Foxe 2012 (PubMed 22326943) found no added benefit over either compound alone. That is trial evidence, not a label claim: no caffeine alertness claim is authorised in the EU. Our citicoline page rates its attention evidence as mixed: the acute attention trial in healthy adults that we cite gave it together with caffeine. Citicoline has Novel Food authorisation in the EU. Single-ingredient supplements claiming "powerful focus" without these are typically over-marketed.',
+    a: 'L-theanine with caffeine: in trials in healthy adults the pair improved attention-switching accuracy (Owen 2008, 100mg L-theanine with 50mg caffeine; Giesbrecht 2010, PubMed 21040626, 97mg with 40mg), though Foxe 2012 (PubMed 22326943) found no added benefit over either compound alone. That is trial evidence, not a label claim: no caffeine alertness claim is authorised in the EU. Our citicoline page rates its attention evidence as mixed: the acute attention trial in healthy adults that we cite gave it together with caffeine. Citicoline has Novel Food authorisation in the EU.',
   },
   {
     q: 'How long does it take a focus nootropic to work?',
-    a: 'Acute-effect ingredients (L-theanine, caffeine, Alpha-GPC, L-tyrosine) work within 30–60 minutes. Bacopa: 8–12 weeks; most positive trials ran 12 weeks. Lion\'s Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. If you want a tonight-effect, look for L-theanine + caffeine; for compounded benefit, plan for 8 weeks of consistent use.',
+    a: 'Acute-effect ingredients (L-theanine, caffeine, Alpha-GPC, L-tyrosine) work within 30–60 minutes. Bacopa: 8–12 weeks; most positive trials ran 12 weeks. Lion\'s Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. If you want a tonight-effect, look for L-theanine + caffeine; for compounded benefit, plan for at least 12 weeks of consistent use before judging.',
   },
   {
     q: 'Do you verify that these products comply with EU rules?',
@@ -113,7 +113,7 @@ export default function Page() {
       useCase="focus"
       pageTitle="Best Nootropics for Focus (EU)"
       pageDescription="Independent EU ranking of nootropics for focus and attention. EUR pricing, EU storefronts, ingredient framing that avoids unauthorised EU health claims."
-      heroParagraph="If you want a focus supplement in the EU, the question is not 'which brand?' but 'which ingredient at what dose, from which store?' This page ranks the products in our EU coverage, marks which ones ship from an EU storefront at EUR pricing, and includes only products that contain at least one focus-validated ingredient (L-theanine + caffeine, citicoline, L-tyrosine, Alpha-GPC) at or near clinical dose."
+      heroParagraph="If you want a focus supplement in the EU, the question is not 'which brand?' but 'which ingredient at what dose, from which store?' This page ranks the products in our EU coverage, marks which ones ship from an EU storefront at EUR pricing, and includes only products that contain at least one of these ingredients: L-theanine + caffeine, citicoline, L-tyrosine or Alpha-GPC."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

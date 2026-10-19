@@ -192,6 +192,7 @@ describe('packServings — servings from the pack count only', () => {
     '240粒入/約60日分': 60, // 4 per serving; "約60日分" is a duration, not read
     '3g x 30 sachets': 30, // 1 per serving
     '90 Capsules': 30, // 3 per serving
+    '90 capsules': 30, // 3 per serving (Deadline)
     'Tropical Ice x 12 cans': 12, // 1 can per serving (form "can")
     '30日分': 'no pack count stated in the quote (a supply length is not a count)',
     '1 Pouch': '"1 Pouch" needs servingsPerContainer, which the record lacks',
@@ -232,6 +233,7 @@ describe('statedSupplyDays — a supply length in days', () => {
     '1 month supply': 30,
     '1 MONAT: 2 Packs, 60 Kapseln': 30,
     '45-day supply': 45,
+    '30-day supply': 30,
     'up to a 5 month supply': 150,
     'delivered every 4 weeks': 28,
     '30日分': 30,
@@ -277,6 +279,7 @@ describe('dailyServings — a daily dose only from plain directions', () => {
     'Simply take 2 easy-to-swallow capsules of Noocube with water. It can be taken with or without food.': 'no daily frequency stated',
     'Take 1 capsule for stimulation.': 'no daily frequency stated',
     'Nehmen Sie 2 Kapseln, 60 Minuten nach dem Essen.': 'no daily frequency stated',
+    'Three capsules in the morning': 'no daily frequency stated',
     // A daily frequency without a "take N" dose the parser reads.
     'One can per day is our recommended serving.': 'no dose stated',
     // A range is not one dose.

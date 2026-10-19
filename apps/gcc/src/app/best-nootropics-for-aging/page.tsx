@@ -100,7 +100,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'How long until I notice anything?',
-    a: 'Phosphatidylserine: its memory trials ran 15 weeks to 12 months. Citicoline: memory effects were measured after 2–3 months. Bacopa: 8–12 weeks; most positive trials ran 12 weeks. Lion\'s Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. None are acute-effect ingredients. Track changes over 12 weeks of consistent dosing — ideally with a baseline cognitive measure (online tests are crude but better than subjective recall).',
+    a: 'Phosphatidylserine: its memory trials ran 15 weeks to 12 months. Citicoline: memory effects were measured after 2–3 months. Bacopa: 8–12 weeks; most positive trials ran 12 weeks. Lion\'s Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. Apart from small acute effects of Lion\'s Mane in pilot trials, none are acute-effect ingredients. Track changes over at least 12 weeks of consistent dosing, and longer for phosphatidylserine (15 weeks or more) — ideally with a baseline cognitive measure (online tests are crude but better than subjective recall).',
   },
 ];
 
@@ -111,7 +111,7 @@ export default function Page() {
       useCase="aging"
       pageTitle="Best Nootropics for Aging Brain in the GCC"
       pageDescription="Independent ranking of nootropics for adults concerned about age-related cognitive changes, available in the GCC."
-      heroParagraph="Age-related cognitive change is normal — memory recall slows, processing speed reduces. Most of the supplements on this page have evidence in older adults with subjective cognitive complaints. They are NOT treatments for dementia, Alzheimer's, or any clinical cognitive disease. For those, see a neurologist. For GCC older buyers, the additional considerations are halal compliance, capsule source (plant-based HPMC/pullulan vs. animal-derived gelatin), SFDA/MOHAP registration, and ease of access without international shipping. This page ranks age-relevant products for GCC buyers — imported international stacks such as Mind Lab Pro and Qualia Mind, with each pick noting whether the brand ships to the GCC. Distribution: BinSina, Aster, Life Pharmacy (UAE); Al-Dawaa, Nahdi (KSA); iHerb Saudi-compliant DC for international imports."
+      heroParagraph="Age-related cognitive change is normal — memory recall slows, processing speed reduces. Some of the supplements on this page have trial evidence in older adults, often only in subgroups: PS-DHA in older adults with memory complaints, citicoline in those with relatively inefficient memories, and Lion's Mane in mild cognitive impairment. They are NOT treatments for dementia, Alzheimer's, or any clinical cognitive disease. For those, see a neurologist. For GCC older buyers, the additional considerations are halal compliance, capsule source (plant-based HPMC/pullulan vs. animal-derived gelatin), SFDA/MOHAP registration, and ease of access without international shipping. This page ranks age-relevant products for GCC buyers — imported international stacks such as Mind Lab Pro and Qualia Mind, with each pick noting whether the brand ships to the GCC. Distribution: BinSina, Aster, Life Pharmacy (UAE); Al-Dawaa, Nahdi (KSA); iHerb Saudi-compliant DC for international imports."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

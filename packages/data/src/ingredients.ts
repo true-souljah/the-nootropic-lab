@@ -112,7 +112,7 @@ export const ingredients: Ingredient[] = [
     slug: 'bacopa-monnieri',
     name: 'Bacopa Monnieri',
     category: 'herb',
-    mechanism: 'Bacopa enhances synaptic communication by increasing dendritic branching and synaptic density. Its active compounds (bacosides A and B) facilitate repair of damaged neurons and upregulate antioxidant activity, reducing oxidative stress in hippocampal tissue. It also modulates serotonin and acetylcholine systems.',
+    mechanism: 'Bacopa\'s active compounds (bacosides A and B) upregulate antioxidant activity, reducing oxidative stress in hippocampal tissue. It also modulates serotonin and acetylcholine systems.',
     clinicalDose: '300–450mg/day (standardised to at least 50% bacosides)',
     timeToEffect: '8–12 weeks of consistent use (most positive trials ran 12 weeks)',
     studySummary: 'A meta-analysis of 9 RCTs (Kongkeaw et al., 2014, n=518) found Bacopa shortened Trail Making B and choice reaction times versus placebo, and two 12-week RCTs in healthy older adults (Calabrese 2008; Morgan & Stevens 2010) improved delayed word recall at 300mg/day. The newest 12-week RCT (Lopresti 2025, n=101, 300mg/day) found no effect on verbal learning, attention or working memory, though it did reduce self-reported stress. A 2026 network meta-analysis of 29 RCTs found ≥600mg/day beat 300–450mg/day for working memory. Best evidence is for delayed recall rather than acute effects.',
@@ -164,10 +164,10 @@ export const ingredients: Ingredient[] = [
     studySummary: 'An RCT in healthy older adults (Spiers et al., 1996) found 1000mg/day improved delayed verbal recall in people with relatively inefficient memory, with 2000mg/day improving immediate and delayed recall. A 2023 meta-analysis found a positive effect on cognitive status in MCI and dementia, but rated study quality poor with a high risk of bias. The 2005 Cochrane review found benefit on memory and behaviour in older adults with chronic cerebral disorders but no evidence of benefit on attention. In acute ischemic stroke, a dose-response RCT (Clark 1997) found better functional outcomes, with 500mg the optimal dose.',
     benefits: ['Verbal memory in older adults with weaker memory', 'Cognitive status in MCI and dementia (low-quality evidence)', 'Functional recovery after ischemic stroke (one RCT)'],
     sideEffects: ['Very well tolerated — no drug-related serious adverse events in the stroke dose-response RCT', 'Rare: headache at very high doses', 'Insomnia if taken late in the day'],
-    productsContaining: ['mind-lab-pro-review', 'performance-lab-mind-review', 'neutonic-productivity-drink-review', 'neutonic-brain-capsules-review', 'neutonic-smarter-energy-drink-review', 'neutonic-brain-capsules-uk-review'],
+    productsContaining: ['mind-lab-pro-review', 'performance-lab-mind-review', 'neutonic-productivity-drink-review', 'neutonic-brain-capsules-review', 'neutonic-smarter-energy-drink-review', 'neutonic-brain-capsules-uk-review', 'deadline-focus-pill-review'],
     humanEffects: [
       { effect: 'Attention & Focus', evidenceStrength: 'mixed', magnitude: 'small', studies: 2, notes: 'The Cochrane review found no evidence of an attention benefit in older adults with chronic cerebral disorders; the acute attention trial in healthy adults that we cite gave citicoline together with caffeine, so citicoline’s own effect cannot be isolated.' },
-      { effect: 'Working Memory', evidenceStrength: 'moderate', magnitude: 'moderate', studies: 2, notes: 'Verbal-memory benefit in older adults with inefficient memory (Spiers 1996) and a positive pooled effect in MCI/dementia (2023 meta-analysis, poor study quality). Not shown in general healthy adults.' },
+      { effect: 'Verbal Memory', evidenceStrength: 'moderate', magnitude: 'moderate', studies: 2, notes: 'Verbal-memory benefit in older adults with inefficient memory (Spiers 1996) and a positive pooled effect in MCI/dementia (2023 meta-analysis, poor study quality). Not shown in general healthy adults.' },
       { effect: 'Neuroprotection', evidenceStrength: 'moderate', magnitude: 'moderate', studies: 1, notes: 'Supported for acute ischemic stroke by one dose-response RCT (Clark 1997); no traumatic brain injury trial was found. Effects in healthy adults are untested.' },
     ],
     howToTake: {
@@ -207,7 +207,7 @@ export const ingredients: Ingredient[] = [
     studySummary: 'A 2026 meta-analysis of 31 RCTs (n=1,168) found a single 200mg dose taken 30–60 minutes before testing improved choice reaction time; its acute stress effect was modest and driven by high-risk-of-bias studies, and anxiety effects were inconsistent. With caffeine, an 11-study meta-analysis (Camfield 2014) found moderate effects versus placebo on alertness and attention-switching accuracy; Kahathuduwa 2016 found additive effects with no interaction, and Foxe 2012 found no added benefit over either compound alone. The one alpha-wave (MEG) trial found higher alpha activity at 2 hours, and only in people with higher trait anxiety.',
     benefits: ['Faster reaction time after a single 200mg dose', 'Better attention with caffeine than with placebo in several trials', 'Small improvements in subjective sleep quality'],
     sideEffects: ['Extremely well tolerated — no serious adverse events across a 31-RCT meta-analysis', 'Possible mild sedation at high doses', 'Generally considered very safe'],
-    productsContaining: ['mind-lab-pro-review', 'noocube-review', 'thesis-nootropics-review', 'brainzyme-focus-pro-review', 'performance-lab-caffeine-2-review', 'pre-lab-pro-review', 'neutonic-productivity-drink-review', 'neutonic-smarter-energy-drink-review'],
+    productsContaining: ['mind-lab-pro-review', 'noocube-review', 'thesis-nootropics-review', 'brainzyme-focus-pro-review', 'performance-lab-caffeine-2-review', 'pre-lab-pro-review', 'neutonic-productivity-drink-review', 'neutonic-smarter-energy-drink-review', 'deadline-focus-pill-review'],
     humanEffects: [
       { effect: 'Calm Focus (Alpha Waves)', evidenceStrength: 'preliminary', magnitude: 'small', studies: 1, notes: 'White 2016 (n=34) found higher resting alpha activity 2 hours after dosing — not at 45 minutes — and only in participants with higher trait anxiety; it did not track subjective calm or cortisol.' },
       { effect: 'Anxiety & Stress', evidenceStrength: 'mixed', magnitude: 'small', studies: 2, notes: 'The 2026 31-RCT meta-analysis found anxiety effects inconsistent and non-significant (except one 400mg/day clinical trial) and a modest acute stress effect driven by high-risk-of-bias studies; White 2016 found lower subjective stress 1 hour post-dose. Rogers 2008 found no acute anxiolytic effect at 200mg.' },
@@ -251,13 +251,13 @@ export const ingredients: Ingredient[] = [
     slug: 'rhodiola-rosea',
     name: 'Rhodiola Rosea',
     category: 'adaptogen',
-    mechanism: "Rhodiola is an adaptogen that modulates the HPA (hypothalamic-pituitary-adrenal) axis, reducing cortisol output under stress. Its key bioactives (rosavins and salidroside) inhibit monoamine oxidase enzymes, increasing availability of dopamine, serotonin, and norepinephrine — neurotransmitters involved in motivation, mood, and cognitive stamina.",
+    mechanism: "Rhodiola is an adaptogen that modulates the HPA (hypothalamic-pituitary-adrenal) axis, reducing cortisol output under stress. In laboratory studies, its key bioactives (rosavins and salidroside) inhibited monoamine oxidase enzymes.",
     clinicalDose: '200–600mg/day (a standardised extract; the trials we cite used SHR-5)',
     timeToEffect: 'Single-dose effects in one RCT; repeated-dose trials ran 2–4 weeks',
     studySummary: 'Small SHR-5 extract trials found less mental fatigue: a 2003 RCT in 161 military cadets after a single dose, a 2000 crossover trial in 56 physicians on night duty over two weeks (Darbinyan et al.), and a 2000 pilot in students during exams. The Swedish burnout RCT (Olsson et al., 2008, n=60, 576mg/day) ran 28 days — not 12 weeks — and improved burnout and attention scores versus placebo, while depression scores improved equally in both groups. A 2012 systematic review of 11 trials rated every included study at high or unclear risk of bias and called the evidence contradictory.',
     benefits: ['Mental fatigue reduction (small, low-quality trials)', 'Burnout and attention scores in stress-related fatigue (one 28-day RCT)'],
     sideEffects: ['Generally safe; no side effects were reported in the night-duty physician trial', 'Mild activation/restlessness initially', 'MAO inhibitors and antidepressants: theoretical interaction based on laboratory MAO inhibition, no clinical reports found — ask your doctor before combining', 'Avoid late evening dosing'],
-    productsContaining: ['mind-lab-pro-review', 'qualia-mind-review', 'neutonic-productivity-drink-review', 'neutonic-brain-capsules-review', 'neutonic-smarter-energy-drink-review', 'neutonic-brain-capsules-uk-review'],
+    productsContaining: ['mind-lab-pro-review', 'qualia-mind-review', 'neutonic-productivity-drink-review', 'neutonic-brain-capsules-review', 'neutonic-smarter-energy-drink-review', 'neutonic-brain-capsules-uk-review', 'deadline-focus-pill-review'],
     humanEffects: [
       { effect: 'Mental Fatigue Reduction', evidenceStrength: 'mixed', magnitude: 'moderate', studies: 4, notes: 'Positive single-dose (cadets), two-week (night-duty physicians) and 20-day (students) trials, but the 2012 systematic review found only 3 of 5 mental-fatigue trials positive, all at high or unclear risk of bias.' },
       { effect: 'Stress Resilience', evidenceStrength: 'preliminary', magnitude: 'small', studies: 2, notes: 'Olsson 2008 found a different cortisol awakening response versus placebo over 28 days; the underlying trials are small and methodologically limited.' },
@@ -295,7 +295,7 @@ export const ingredients: Ingredient[] = [
     slug: 'phosphatidylserine',
     name: 'Phosphatidylserine',
     category: 'cholinergic',
-    mechanism: 'Phosphatidylserine (PS) is a phospholipid that forms a critical component of neuronal cell membranes. Supplementation replenishes PS levels that decline naturally with age.',
+    mechanism: 'Phosphatidylserine (PS) is a phospholipid that forms a critical component of neuronal cell membranes.',
     clinicalDose: '100–300mg/day (benefit shown mainly in older adults with memory complaints or MCI)',
     timeToEffect: 'Memory trials ran 15 weeks to 12 months; no trial established an earlier onset',
     studySummary: "RCTs in older adults with memory complaints or mild cognitive impairment report memory benefits, though often only in subgroups: soy PS at 100–300mg/day for 6 months helped only participants with low baseline scores (Kato-Kataoka 2010), and marine PS-DHA at 300mg/day improved immediate verbal recall in an exploratory 15-week trial (Vakhapova 2010). A 2026 network meta-analysis in MCI/Alzheimer's found PS 100mg improved MMSE but not the Alzheimer's Disease Assessment Scale–Cognitive Subscale (ADAS-Cog). In healthy children, a 12-week RCT of 100mg sunflower PS found no effect on primary or secondary outcomes (Friling 2025; authors include staff of IFF, the product's manufacturer). A positive 2024 MCI trial (Duan 2024; BYHEALTH co-authors) gave only 31.5mg PS inside a multi-ingredient formula. The FDA allows two qualified claims, that it may reduce the risk of dementia and that it may reduce the risk of cognitive dysfunction in the elderly, each with the disclaimer that 'FDA concludes that there is little scientific evidence supporting this claim' (FDA letter, 13 May 2003).",
@@ -317,7 +317,7 @@ export const ingredients: Ingredient[] = [
     stacksWith: [
       { ingredient: "Lion's Mane", slug: 'lions-mane', reason: 'Both are studied for memory; we cite no trial of the pairing.' },
       { ingredient: 'Citicoline', slug: 'citicoline', reason: 'Citicoline is a precursor to phosphatidylcholine; phosphatidylserine is a phospholipid in neuronal cell membranes. We cite no trial of the pairing.' },
-      { ingredient: 'Omega-3 (DHA)', slug: 'dha-omega-3', reason: 'DHA is a structural component of neuronal membranes. Some clinical PS products are DHA-conjugated (PS-DHA): a 15-week trial of marine PS-DHA at 300mg/day improved immediate verbal recall in older adults with memory complaints.' },
+      { ingredient: 'Omega-3 (DHA)', slug: 'dha-omega-3', reason: 'DHA is a structural component of neuronal membranes. Some clinical PS products are DHA-conjugated (PS-DHA): a 15-week trial of marine PS-DHA (Vakhapova 2010) at 300mg/day improved immediate verbal recall in older adults with memory complaints.' },
     ],
     faqs: [
       { question: 'Soy-derived vs sunflower PS — which is better?', answer: 'Both are used in trials: soy PS in older adults with memory complaints (Kato-Kataoka 2010) and sunflower PS in healthy children, where it had no effect (Friling 2025). Sunflower-derived PS is soy-free and is the preferred option for anyone with soy sensitivity. No head-to-head comparison of the two was part of our 2026 review.' },
@@ -401,15 +401,15 @@ export const ingredients: Ingredient[] = [
       dosage: '300–600mg/day (KSM-66)',
       timing: 'Evening (1–2 hours before bed) for sleep benefits. Morning for cortisol and stress management. Split dosing (300mg AM + 300mg PM) is the regimen of the Chandrasekhar 2012 and Choudhary 2017 trials (300mg twice daily).',
       withFood: 'Take with food to minimise GI upset (particularly with 600mg doses). Absorption is not significantly affected by food.',
-      forms: 'Capsule. Insist on KSM-66 (full-spectrum root extract, 5% withanolides) or Sensoril (leaf + root extract). Avoid unstandardised ashwagandha with no withanolide percentage stated — active content may be negligible.',
+      forms: 'Capsule. Choose an extract that states its withanolide content. The trials on our ashwagandha page used a high-concentration full-spectrum root extract (Chandrasekhar 2012), a root extract (Choudhary 2017) and the Shoden extract (Lopresti 2019); we cite no Sensoril trial. Avoid unstandardised ashwagandha with no withanolide percentage stated — active content may be negligible.',
     },
     stacksWith: [
       { ingredient: 'Rhodiola Rosea', slug: 'rhodiola-rosea', reason: 'Both are adaptogens; we cite no trial of the pairing.' },
       { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'Both are studied for anxiety and stress; we cite no trial of the pairing.' },
-      { ingredient: 'Phosphatidylserine', slug: 'phosphatidylserine', reason: 'Both are studied for effects on cortisol; we cite no trial of the pairing.' },
+      { ingredient: 'Phosphatidylserine', slug: 'phosphatidylserine', reason: 'We cite no trial of the pairing.' },
     ],
     faqs: [
-      { question: 'KSM-66 vs Sensoril vs generic ashwagandha — which should I choose?', answer: 'KSM-66 (5% withanolides from root only) is the extract used in the key stress and cognition trials. Sensoril is a leaf-and-root extract; our ashwagandha page cites no Sensoril trial. Generic ashwagandha without a stated withanolide percentage is unreliable — you may be paying for starchy root powder with minimal active content. Choose KSM-66, the extract used in the trials on our ashwagandha page.' },
+      { question: 'KSM-66 vs Sensoril vs generic ashwagandha — which should I choose?', answer: 'Choose an extract that states its withanolide content. The trials on our ashwagandha page used a high-concentration full-spectrum root extract (Chandrasekhar 2012), a root extract (Choudhary 2017) and the Shoden extract (Lopresti 2019); we cite no Sensoril trial. Generic ashwagandha without a stated withanolide percentage is unreliable — you may be paying for starchy root powder with minimal active content.' },
       { question: 'Will ashwagandha make me tired during the day?', answer: "The tiredness effect is most pronounced when taken at night, where it reduces sleep latency. Ashwagandha doesn't deplete energy. Some people find 600mg in the morning slightly sedating — if so, reduce to 300mg or shift to evening only." },
       { question: 'Is ashwagandha safe for long-term use?', answer: 'Long-term data is missing: most trials run 8–12 weeks, and no controlled safety data beyond about 90 days was found. Published case reports link ashwagandha to liver injury (some scored "probable" on the RUCAM causality scale), and Denmark banned ashwagandha food supplements in 2023 because a safe dose could not be established. Stop and see a doctor if you develop jaundice or dark urine. Avoid if you have thyroid conditions (autoimmune thyroid disease) as withanolides can modulate thyroid hormone levels.' },
       { question: 'Can ashwagandha increase testosterone?', answer: 'Two RCTs found increases: 600mg/day for 8 weeks in young men starting resistance training raised testosterone alongside greater strength gains (2015), and a crossover trial in overweight men aged 40–70 found testosterone +14.7% and DHEA-S +18% versus placebo — but no change in cortisol, fatigue or vigour (Lopresti 2019). The magnitude varies by population and extract.' },
@@ -522,7 +522,7 @@ export const ingredients: Ingredient[] = [
     studySummary: 'A 2016 review (McLellan, Caldwell & Lieberman — a narrative review, not a meta-analysis) found low-to-moderate doses (~40–300mg) consistently improve alertness, vigilance, attention and reaction time, with less consistent effects on memory and executive function. A 2010 Cochrane review of shift workers and a 2026 meta-analysis of 7 military sleep-loss RCTs confirmed gains in attention, vigilance and complex task performance. Side effects rise with dose, and the European Food Safety Authority (EFSA, 2015) sets 200mg per single dose and 400mg/day as safe for healthy adults — 200mg/day for pregnant women.',
     benefits: ['Increased alertness', 'Faster reaction time', 'Sustained attention during sleep loss', 'Improved physical performance above ~200mg'],
     sideEffects: ['Pregnancy: EFSA advises limiting habitual intake to 200mg/day from all sources', 'Panic disorder: in a meta-analysis, 53.9% of people with panic disorder had a panic attack after high-dose caffeine (~400–750mg) versus 1.7% of healthy controls — avoid or keep doses low', 'Headache, abdominal discomfort, rapid heart rate, insomnia and anxiety rise with dose, especially above ~6mg/kg (~420mg for a 70kg adult)', 'Insomnia: 400mg taken even 6 hours before bedtime reduced total sleep time', 'Tolerance development', 'Withdrawal headaches'],
-    productsContaining: ['hunter-focus-review', 'performance-lab-caffeine-2-review', 'pre-lab-pro-review', 'neutonic-productivity-drink-review', 'neutonic-smarter-energy-drink-review'],
+    productsContaining: ['hunter-focus-review', 'performance-lab-caffeine-2-review', 'pre-lab-pro-review', 'neutonic-productivity-drink-review', 'neutonic-smarter-energy-drink-review', 'deadline-focus-pill-review'],
     humanEffects: [
       { effect: 'Alertness & Wakefulness', evidenceStrength: 'strong', magnitude: 'large', studies: 2, notes: 'Most robust effect of caffeine: consistent after low-to-moderate doses (McLellan 2016); vigilance/response performance SMD 0.73 during sleep loss (2026 military meta-analysis).' },
       { effect: 'Reaction Time', evidenceStrength: 'strong', magnitude: 'moderate', studies: 3, notes: 'Improved orientation/attention in the Cochrane shift-worker review and consistent response-time gains during sleep loss; one of the more tolerance-resistant effects.' },
@@ -627,7 +627,7 @@ export const ingredients: Ingredient[] = [
       forms: 'Fish oil, krill oil, or algal oil (vegan). Algal DHA avoids heavy metal concerns; no head-to-head trial has compared algal and fish DHA on cognitive outcomes.',
     },
     stacksWith: [
-      { ingredient: 'Phosphatidylserine', slug: 'phosphatidylserine', reason: 'DHA is a structural component of neuronal membranes. Some clinical PS products are DHA-conjugated (PS-DHA): a 15-week trial of marine PS-DHA at 300mg/day improved immediate verbal recall in older adults with memory complaints.' },
+      { ingredient: 'Phosphatidylserine', slug: 'phosphatidylserine', reason: 'DHA is a structural component of neuronal membranes. Some clinical PS products are DHA-conjugated (PS-DHA): a 15-week trial of marine PS-DHA (Vakhapova 2010) at 300mg/day improved immediate verbal recall in older adults with memory complaints.' },
       { ingredient: "Lion's Mane", slug: 'lions-mane', reason: 'Both are studied for memory; we cite no trial of the pairing.' },
       { ingredient: 'Citicoline', slug: 'citicoline', reason: 'Citicoline is a precursor to phosphatidylcholine; DHA is the primary structural omega-3 fatty acid in the brain. We cite no trial of the pairing.' },
     ],
@@ -786,7 +786,7 @@ export const ingredients: Ingredient[] = [
     slug: 'oat-straw',
     name: 'Oat Straw Extract',
     category: 'herb',
-    mechanism: 'Oat Straw (Avena sativa) extract works primarily by inhibiting phosphodiesterase type 4 (PDE4) and monoamine oxidase B (MAO-B). PDE4 inhibition increases cyclic AMP levels in neurons, enhancing dopaminergic signalling. MAO-B inhibition slows dopamine breakdown. Additionally, oat straw increases nitric oxide production for cerebral vasodilation and contains avenanthramides — unique anti-inflammatory compounds.',
+    mechanism: 'Oat Straw (Avena sativa) extract works primarily by inhibiting phosphodiesterase type 4 (PDE4). PDE4 inhibition increases cyclic AMP levels in neurons, enhancing dopaminergic signalling. Additionally, oat straw increases nitric oxide production for cerebral vasodilation and contains avenanthramides — unique anti-inflammatory compounds.',
     clinicalDose: '430–1600mg/day in trials; 800mg or less may be optimal — higher doses underperformed',
     timeToEffect: 'Acute effects within hours in single-dose trials; 4-week effects in one trial, none in a 12-week trial',
     studySummary: 'Four small RCTs, all with manufacturer involvement: a 2011 trial (Berry et al.) in elderly people with below-average cognition found a single 1600mg dose reduced Stroop errors, but 2400mg did no better than placebo; a 2012 trial by the same group found 1500mg/day for 12 weeks had no effect on any cognitive measure in healthy older adults (material supplied by Frutarom); a 2015 trial (Kennedy et al., two Frutarom employees as co-authors) found 800mg improved speed, delayed recall and executive function in adults 40–65 with memory complaints, concluding the optimal dose is at or below 800mg; and a 2020 trial (Kennedy et al., two Anklam Extrakt employees as co-authors) found 430–1290mg improved working memory and multitasking over 4 weeks, with no effect on mood. No trial has measured cerebral blood flow.',
@@ -805,7 +805,7 @@ export const ingredients: Ingredient[] = [
     },
     stacksWith: [
       { ingredient: 'Alpha-GPC', slug: 'alpha-gpc', reason: 'Oat Straw is studied for attention; Alpha-GPC is a choline precursor. We cite no trial of the pairing.' },
-      { ingredient: 'L-Tyrosine', slug: 'l-tyrosine', reason: 'Oat Straw inhibits MAO-B, which slows dopamine breakdown; L-Tyrosine is a dopamine precursor. We cite no trial of the pairing.' },
+      { ingredient: 'L-Tyrosine', slug: 'l-tyrosine', reason: 'L-Tyrosine is a dopamine precursor. We cite no trial of the pairing.' },
       { ingredient: 'Bacopa Monnieri', slug: 'bacopa-monnieri', reason: 'Oat Straw is studied for attention, Bacopa for memory; we cite no trial of the pairing.' },
     ],
     faqs: [
@@ -871,7 +871,7 @@ export const ingredients: Ingredient[] = [
     studySummary: 'Only three human RCTs have tested methylliberine. The only one measuring cognition with methylliberine alone (La Monica et al., 2023, n=25, 100mg/day) found better self-rated concentration, motivation, mood and energy, but a negligible effect on objective cognitive tests (Stroop, Trail Making B). A 4-week safety trial (VanDusseldorp et al., 2020, n=125, 100–150mg/day) found no clinically significant cardiovascular or blood changes; it did not test cognition. A third trial (Cintineo 2022) tested it only inside a caffeine + theacrine combination. Both methylliberine-specific trials were funded in whole or part by Compound Solutions, which sells Dynamine, and a La Monica co-author holds patents on methylliberine.',
     benefits: ['Better self-rated energy, mood and motivation (one small RCT)', 'No clinically significant heart rate or blood pressure change over 4 weeks at 100–150mg'],
     sideEffects: ['Limited safety data: three human RCTs, both methylliberine-specific trials funded by the manufacturer', 'Objective cognition: no measurable effect on Stroop or Trail Making tests in the only trial that tested it', 'Mild GI discomfort possible', 'Possible interaction with caffeine (additive stimulation)', 'Not recommended during pregnancy (precautionary: no pregnancy data)'],
-    productsContaining: ['thesis-nootropics-review'],
+    productsContaining: ['thesis-nootropics-review', 'deadline-focus-pill-review'],
     humanEffects: [
       { effect: 'Subjective Energy', evidenceStrength: 'preliminary', magnitude: 'moderate', studies: 1, notes: 'La Monica 2023 (n=25, 100mg/day for 3 days): higher self-rated energy and sustained energy versus placebo over the 3 hours after dosing.' },
       { effect: 'Focus & Motivation', evidenceStrength: 'mixed', magnitude: 'small', studies: 1, notes: 'Self-rated concentration and motivation improved, but objective tests (Stroop, Trail Making B) in the same trial showed a negligible effect on cognitive function.' },
