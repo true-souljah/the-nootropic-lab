@@ -99,6 +99,19 @@ describe('licenceStatus', () => {
     });
     expect(licenceStatus({ ...base, halalCertified: undefined }, 'sea')).toBeNull();
   });
+  test('AU: domesticSupply (vendor ships from stock inside Australia) shows no import status; without it, personal importation', () => {
+    const base = productsUS[0];
+    const domesticSupply = { basis: "Product page states 'This product ships from within AU'", checkedAt: '2026-10-19' };
+    expect(licenceStatus({ ...base, austl: undefined, domesticSupply }, 'au')).toBeNull();
+    expect(licenceStatus({ ...base, austl: undefined, domesticSupply: undefined }, 'au')).toEqual({
+      label: 'Personal Importation Scheme',
+      tone: 'neutral',
+      key: 'personalImportation',
+      values: {},
+    });
+    // An AUST L number is still shown for a product that is also stocked locally.
+    expect(licenceStatus({ ...base, austl: '123456', domesticSupply }, 'au')?.key).toBe('austl');
+  });
   test('regions without a licence concept return null rather than a made-up label', () => {
     expect(licenceStatus(productsUS[0], 'us')).toBeNull();
     expect(licenceStatus(productsGCC[0], 'gcc')).toBeNull();
