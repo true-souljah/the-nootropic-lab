@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ProductDetail, SchemaOrg, buildAlternates} from '@nootropic/ui';
-import { allProductsLatam, productsLatam, regionsWithProduct, headToHeadFor, buildProductSchema, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { allProductsLatam, localizeProductLatam, localizedProductsLatam, regionsWithProduct, headToHeadFor, buildProductSchema, getRegionalHealthDisclaimer } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
 import { regionalProductProps } from '@/lib/regional';
@@ -23,8 +23,8 @@ export async function generateMetadata({
   const { slug } = await params;
   const product = allProductsLatam.find((p) => p.slug === slug);
   if (!product) return {};
-  const title = `${product.name} Review ${CURRENT_YEAR} — Independent Score & Ingredient Audit`;
-  const description = `Independent review of ${product.name}. Score: ${product.score}/10. Clinical dosing audit, pros and cons, and full affiliate disclosure.`;
+  const title = `Reseña de ${product.name} ${CURRENT_YEAR}: puntuación independiente y auditoría de ingredientes`;
+  const description = `Reseña independiente de ${product.name}. Puntuación: ${product.score}/10. Auditoría de dosis clínicas, pros y contras, y divulgación completa de afiliados.`;
   return {
     title,
     description,
@@ -40,10 +40,12 @@ export default async function ProductReviewPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const product = allProductsLatam.find((p) => p.slug === slug);
-  if (!product) notFound();
+  const record = allProductsLatam.find((p) => p.slug === slug);
+  if (!record) notFound();
+  // Spanish prose from products-latam-es.ts; data keys stay English-sourced.
+  const product = localizeProductLatam(record, 'es');
 
-  const alternatives = productsLatam
+  const alternatives = localizedProductsLatam('es')
     .filter((p) => p.slug !== product.slug)
     .sort((a, b) => b.score - a.score)
     .slice(0, 3);
@@ -54,9 +56,9 @@ export default async function ProductReviewPage({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: 'Best Nootropics', item: `${SITE_URL}/best-nootropics/` },
-      { '@type': 'ListItem', position: 3, name: `${product.name} Review` },
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: 'Los Mejores Nootrópicos', item: `${SITE_URL}/best-nootropics/` },
+      { '@type': 'ListItem', position: 3, name: `Reseña de ${product.name}` },
     ],
   };
 

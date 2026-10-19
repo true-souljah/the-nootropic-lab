@@ -53,10 +53,14 @@ export function DosingTab({ product: p, strings }: DosingTabProps) {
               </tr>
             </thead>
             <tbody>
-              {p.ingredientDosages.map((d) => {
+              {p.ingredientDosages.map((d, i) => {
                 // The row data stays English (validate-data pins `clinicalDose`
                 // to the anchor string or NO_REFERENCE_DOSE); the Clinical cell
                 // and the chip render the locale's text for the same anchor.
+                // Name and label amount show the record's page-language text
+                // (Product.display) when it has one; the anchor and verdict
+                // always come from the English row.
+                const shown = p.display?.ingredientDosages[i] ?? d;
                 const anchor = dosingAnchorFor(d);
                 const verdict = !anchor
                   ? { tone: 'neutral' as const, text: t.verdict.notScored }
@@ -67,8 +71,8 @@ export function DosingTab({ product: p, strings }: DosingTabProps) {
                       : { tone: 'bad' as const, text: t.verdict.under };
                 return (
                   <tr key={d.name} className="border-b border-ds-border last:border-b-0">
-                    <td className="py-3 pr-3 font-medium text-ds-ink">{d.name}</td>
-                    <td className="py-3 px-3 text-right ds-tabular text-ds-ink">{d.doseInProduct}</td>
+                    <td className="py-3 pr-3 font-medium text-ds-ink">{shown.name}</td>
+                    <td className="py-3 px-3 text-right ds-tabular text-ds-ink">{shown.doseInProduct}</td>
                     <td className="py-3 px-3 text-right ds-tabular text-ds-muted">
                       {anchor ? t.anchorDose[anchor.ingredientSlug] : t.noReferenceDose}
                     </td>

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Comparator, SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
-import { productsLatam } from '@nootropic/data';
+import { localizedProductsLatam } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
 
@@ -15,6 +15,8 @@ export const metadata: Metadata = {
 };
 
 export default function ComparisonToolPage() {
+  // Spanish "best for" tags (products-latam-es.ts); the goal filter still matches the English tags.
+  const productsLatam = localizedProductsLatam('es');
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
