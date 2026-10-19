@@ -233,7 +233,9 @@ describe('cross-page evidence ratings quote the humanEffects rows in ingredients
     const found: string[] = [];
     for (const file of SOURCES) {
       const text = readFileSync(file, 'utf8');
-      if (!/page (?:rates|grades)|califica/i.test(text)) continue;
+      // Raw-text shortcut; \s+ so a sentence wrapped between "page" and
+      // "rates" across JSX lines is not skipped before flatten() joins it.
+      if (!/page\s+(?:rates|grades)|califica/i.test(text)) continue;
       const { flat, lineAt } = flatten(text);
       const { ratings, unparsed } = extractRatings(flat);
       const where = (i: number) => `${relative(REPO_ROOT, file)}:${lineAt(i)}`;

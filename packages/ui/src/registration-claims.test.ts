@@ -1,7 +1,7 @@
 import { describe, test, expect } from 'vitest';
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { resolve, dirname, extname, relative } from 'node:path';
-import { euCountries, ingredients, monthlyStorePrice } from '@nootropic/data';
+import { CITATIONS, euCountries, ingredients, monthlyStorePrice } from '@nootropic/data';
 import type { Product } from '@nootropic/data';
 
 // No national product register (Health Canada NPN, SFDA/MOHAP, COFEPRIS,
@@ -2014,8 +2014,17 @@ const ROUND_SEVENTEEN_UNSOURCED: RegExp[] = [
 // ("In 2020 this pairing became popular."). The two PS<->DHA notes that relied
 // on the week branch now name Vakhapova 2010 (PMID 20523044), the week branch
 // is gone, and common sentence-opening words cannot stand in for an author.
-const STACK_NOTE_SOURCED =
-  /[Ww]e cite no trial|has not been tested|not tested together|\b(?!(?:In|By|Since|From|Until|After|Before|During)\b)[A-Z][a-z]+ (19|20)\d\d\b/;
+// Tightened again (round twenty final pass, R20-025): any other capitalised
+// word still passed ("Study 2020 ...", "Research 2020 ..."). A name-year pair
+// now counts only when the name is the firstAuthor of a paper in
+// packages/data/src/citations.ts. The name is compared without the year,
+// because pages label Rogers 2008 while citations.ts dates PMID 17891480 2007.
+const CITED_FIRST_AUTHORS = new Set(CITATIONS.map(c => c.firstAuthor));
+const STACK_NOTE_SOURCED = {
+  test: (s: string): boolean =>
+    /[Ww]e cite no trial|has not been tested|not tested together/.test(s) ||
+    [...s.matchAll(/\b([A-Z][a-z]+) (?:19|20)\d\d\b/g)].some(m => CITED_FIRST_AUTHORS.has(m[1])),
+};
 
 // "multiple peer-reviewed RCTs" (U2). U3 rewrote apps/us/src/app/mind-lab-pro-vs-*,
 // so the check scans every file with no exclusion.
@@ -2285,6 +2294,9 @@ describe('round seventeen: mechanism, user-report and market claims follow our i
       'In 2020 this pairing became popular.',
       'A 12-week trial showed the pair works well.',
       'a 15-week trial of marine PS-DHA at 300mg/day improved immediate verbal recall',
+      // Round twenty final pass (R20-025): passed the capitalised-word branch.
+      'Study 2020 showed the pair works well.',
+      'Research 2020 made the pairing popular.',
     ]) expect(STACK_NOTE_SOURCED.test(s), s).toBe(false);
     const pairs = ingredients.flatMap(i => i.stacksWith.map(p => ({ from: i.slug, to: p.slug, reason: p.reason })));
     expect(pairs.length).toBeGreaterThan(40);
