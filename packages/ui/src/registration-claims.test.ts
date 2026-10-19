@@ -2383,7 +2383,8 @@ describe('round seventeen: mechanism, user-report and market claims follow our i
 //   and the bare "shown to promote neurotrophic factor expression" (Mori 2008,
 //   PMID 18758067: hericenones C, D and E did not promote NGF gene expression;
 //   Tsai 2021, PMID 34361662: erinacine A, from the mycelium, crossed the rat
-//   blood-brain barrier; no human trial has measured NGF).
+//   blood-brain barrier; we found no human trial that measured NGF, from a
+//   title screen, so copy says "we found no", never "no human trial has").
 // Every pattern had at least one hit on origin/main 9d016ff9 and has none on
 // this branch. The global lists scan the round-sixteen file set; the Alpha
 // Brain list scans only the Alpha Brain records (every products-*.json and the
@@ -2426,6 +2427,9 @@ const ROUND_TWENTY_ONE_CLAIMS: RegExp[] = [
   /Modulates Nerve Growth Factor \(NGF\) and may support neurogenesis/i,
   /hericenones and erinacines that stimulate the synthesis/i,
   /hericenones and erinacines shown to promote/i,
+  // Follow-up (same round): the human-NGF search was a title screen, so an
+  // absence is "we found no human trial", not "no human trial has".
+  /No human trial has (yet )?measured NGF/i,
 ];
 
 const ROUND_TWENTY_ONE_CLAIMS_ES: RegExp[] = [
@@ -2449,6 +2453,7 @@ const ROUND_TWENTY_ONE_CLAIMS_ES: RegExp[] = [
   /Modula el Factor de Crecimiento Nervioso/i,
   /hericenonas y erinacinas que estimulan la síntesis/i,
   /que, según se ha demostrado, promueven la expresión/i,
+  /Ningún ensayo en humanos ha medido (todavía )?(los niveles de |el )?NGF/i,
 ];
 
 // Alpha Brain records only. "Certified for Sport" may appear solely in the
@@ -2504,6 +2509,8 @@ describe("round twenty-one claims: NSF, Mind Lab Pro testing, oat/Bacopa/Lion's 
       'Modulates Nerve Growth Factor (NGF) and may support neurogenesis.',
       "Lion's Mane (Hericium erinaceus) contains hericenones and erinacines that stimulate the synthesis of Nerve Growth Factor (NGF) in cell and animal studies.",
       "Lion's Mane contains hericenones and erinacines shown to promote neurotrophic factor expression, including NGF (Nerve Growth Factor);",
+      'No human trial has yet measured NGF levels after supplementation.',
+      'No human trial has measured NGF.',
     ];
     const removedEs = [
       'El extracto de paja de avena (Avena sativa) actúa principalmente inhibiendo la fosfodiesterasa tipo 4 (PDE4). La inhibición de la PDE4 aumenta los niveles de AMP cíclico en las neuronas, lo que potencia la señalización dopaminérgica. Además, la paja de avena aumenta la producción de óxido nítrico para la vasodilatación cerebral y contiene avenantramidas, compuestos antiinflamatorios únicos.',
@@ -2517,6 +2524,8 @@ describe("round twenty-one claims: NSF, Mind Lab Pro testing, oat/Bacopa/Lion's 
       'Modula el Factor de Crecimiento Nervioso (NGF) y puede apoyar la neurogénesis.',
       'La Melena de León (Hericium erinaceus) contiene hericenonas y erinacinas que estimulan la síntesis del factor de crecimiento nervioso (NGF) en estudios celulares y en animales.',
       "Lion's Mane contiene hericenonas y erinacinas que, según se ha demostrado, promueven la expresión de factores neurotróficos, incluido el NGF (Factor de Crecimiento Nervioso);",
+      'Ningún ensayo en humanos ha medido todavía los niveles de NGF tras la suplementación.',
+      'Ningún ensayo en humanos ha medido el NGF.',
     ];
     const removedAlphaBrain = [
       "Onnit's nootropic stack, backed by a published 2016 randomised trial and NSF Certified for Sport. Sold direct to Australian buyers by the brand. Well suited for Australian athletes and mainstream shoppers.",
@@ -2553,17 +2562,20 @@ describe("round twenty-one claims: NSF, Mind Lab Pro testing, oat/Bacopa/Lion's 
       "Bacopa Monnieri's proposed antioxidant, acetylcholine and serotonin effects come from animal and laboratory studies.",
       'Its proposed effects on the acetylcholine and serotonin systems come from animal and laboratory studies.',
       'Los efectos antioxidantes y sobre la acetilcolina y la serotonina que se proponen para la Bacopa Monnieri provienen de estudios en animales y de laboratorio.',
-      "Lion's Mane extracts raised Nerve Growth Factor (NGF) in cell and mouse studies, but in one cell study the fruiting body's hericenones did not (Mori 2008); the compound shown to reach the brain, erinacine A, comes from the mycelium and was tested in rats (Tsai 2021). No human trial has measured NGF.",
+      "Lion's Mane extracts raised Nerve Growth Factor (NGF) in cell and mouse studies, but in one cell study the fruiting body's hericenones did not (Mori 2008); the compound shown to reach the brain, erinacine A, comes from the mycelium and was tested in rats (Tsai 2021). We found no human trial that measured NGF.",
       'Nootropics Depot uses a standardised fruiting body extract rather than mycelium.',
       'For best results, take consistently every day.',
       "Lion's Mane extracts raised Nerve Growth Factor (NGF) in cell and animal studies.",
       "Lion's Mane (500mg) extracts raised Nerve Growth Factor (NGF) in cell and animal studies.",
-      'Extracts raised Nerve Growth Factor (NGF) in cell and animal studies; no human trial has measured NGF.',
+      'Extracts raised Nerve Growth Factor (NGF) in cell and animal studies; we found no human trial that measured NGF.',
       "Lion's Mane contains hericenones and erinacines shown in cell and animal studies to promote neurotrophic factor expression, including NGF (Nerve Growth Factor);",
       'Los extractos de Melena de León elevaron el factor de crecimiento nervioso (NGF) en estudios celulares y en animales.',
-      'Sus extractos elevaron el Factor de Crecimiento Nervioso (NGF) en estudios celulares y en animales; ningún ensayo en humanos ha medido el NGF.',
+      'Sus extractos elevaron el Factor de Crecimiento Nervioso (NGF) en estudios celulares y en animales; no encontramos ningún ensayo en humanos que midiera el NGF.',
       "Lion's Mane contiene hericenonas y erinacinas que, según se ha demostrado en estudios celulares y en animales, promueven la expresión de factores neurotróficos, incluido el NGF (Factor de Crecimiento Nervioso);",
       'Tómalo de forma constante todos los días.',
+      'We found no human trial that measured NGF levels after supplementation.',
+      'No encontramos ningún ensayo en humanos que midiera los niveles de NGF tras la suplementación.',
+      'No encontramos ningún ensayo en humanos que midiera el NGF.',
     ]) expect(all.some(re => re.test(s)), s).toBe(false);
   });
 
@@ -2629,7 +2641,7 @@ describe("round twenty-one claims: NSF, Mind Lab Pro testing, oat/Bacopa/Lion's 
     expect(bySlug('oat-straw').sources.map(s => s.pmid)).toContain('23221935');
     expect(bySlug('bacopa-monnieri').sources.map(s => s.pmid)).toEqual(expect.arrayContaining(['23772955', '41091332']));
     expect(bySlug('lions-mane').sources.map(s => s.pmid)).toEqual(expect.arrayContaining(['18758067', '34361662']));
-    expect(bySlug('lions-mane').mechanism).toMatch(/No human trial has yet measured NGF levels after supplementation\./);
+    expect(bySlug('lions-mane').mechanism).toMatch(/We found no human trial that measured NGF levels after supplementation\./);
     const allowed = new Set(CITATIONS.map(c => c.pmid));
     for (const pmid of ['23221935', '23772955', '18758067', '34361662']) expect(allowed.has(pmid), pmid).toBe(true);
   });

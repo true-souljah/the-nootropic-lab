@@ -35,7 +35,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Melena de León (Hericium erinaceus)',
     ingredientSlugs: ['lions-mane'],
     evidence:
-      'Sus extractos elevaron el Factor de Crecimiento Nervioso (NGF) en estudios celulares y en animales; ningún ensayo en humanos ha medido el NGF. Pequeños ensayos clínicos (Mori et al. 2009 en adultos de 50 a 80 años con deterioro cognitivo leve) mostraron puntuaciones de función cognitiva más altas que con placebo con 3g/día durante 16 semanas. La evidencia es prometedora pero menor que para Bacopa. Busca extracto del cuerpo fructífero, no micelio sobre grano.',
+      'Sus extractos elevaron el Factor de Crecimiento Nervioso (NGF) en estudios celulares y en animales; no encontramos ningún ensayo en humanos que midiera el NGF. Pequeños ensayos clínicos (Mori et al. 2009 en adultos de 50 a 80 años con deterioro cognitivo leve) mostraron puntuaciones de función cognitiva más altas que con placebo con 3g/día durante 16 semanas. La evidencia es prometedora pero menor que para Bacopa. Busca extracto del cuerpo fructífero, no micelio sobre grano.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18844328/',
   },
   {

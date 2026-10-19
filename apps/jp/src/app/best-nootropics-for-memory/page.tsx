@@ -34,7 +34,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Lion\'s Mane (Hericium erinaceus / ヤマブシタケ)',
     ingredientSlugs: ['lions-mane'],
     evidence:
-      'Extracts raised Nerve Growth Factor (NGF) in cell and animal studies; no human trial has measured NGF. Mori et al. 2009 — a small RCT in Japanese adults aged 50–80 with mild cognitive impairment — showed higher cognitive function scores than placebo at 3g/day over 16 weeks. The Lion\'s Mane evidence base is uniquely Japanese in origin. Look for fruiting-body extract, not mycelium-on-grain.',
+      'Extracts raised Nerve Growth Factor (NGF) in cell and animal studies; we found no human trial that measured NGF. Mori et al. 2009 — a small RCT in Japanese adults aged 50–80 with mild cognitive impairment — showed higher cognitive function scores than placebo at 3g/day over 16 weeks. The Lion\'s Mane evidence base is uniquely Japanese in origin. Look for fruiting-body extract, not mycelium-on-grain.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18844328/',
   },
   {
