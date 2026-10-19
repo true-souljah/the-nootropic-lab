@@ -437,7 +437,7 @@ export const latamProductTranslationsEs: LatamProductTranslation[] = [
     summary:
       'El stack nootrópico estadounidense de Onnit, respaldado por un ensayo aleatorizado publicado en 2016 — una señal de confianza significativa para los compradores en Latam que compran desde el exterior. Precio en dólares estadounidenses, sin opción de moneda local. Se envía desde EE. UU.; consulta el plazo de entrega estimado en el checkout. Los aranceles de importación y el despacho aduanero corren por cuenta del comprador; los compradores en Argentina deben verificar que el emisor de su tarjeta apruebe transacciones en USD dado el control cambiario. La garantía de devolución de 30 días de Onnit cubre la primera compra de cada producto realizada directamente en Onnit.com.',
     whatItIs:
-      'Alpha Brain es el nootrópico insignia de Onnit, lanzado por primera vez en 2011 y popularizado a través del pódcast de Joe Rogan. Alpha Brain tiene un ensayo aleatorizado, doble ciego y controlado con placebo publicado sobre el producto terminado (Solomon 2016, PubMed 26876224): 63 adultos de 18 a 35 años, 6 semanas, mejoró el recuerdo verbal diferido y el funcionamiento ejecutivo; uno de los autores trabajaba para Onnit Labs. Cuenta con la certificación "Certified for Sport" de la National Sanitation Foundation (NSF). Para compradores en Latam, Alpha Brain se vende exclusivamente en USD y se envía desde EE. UU. como suplemento importado para uso personal. No hemos verificado un registro local del producto ante la Comisión Federal para la Protección contra Riesgos Sanitarios (COFEPRIS) en México, la Agência Nacional de Vigilância Sanitária (ANVISA) en Brasil, la Administración Nacional de Medicamentos, Alimentos y Tecnología Médica (ANMAT) en Argentina, el Instituto Nacional de Vigilancia de Medicamentos y Alimentos (INVIMA) en Colombia, el Instituto de Salud Pública (ISP) en Chile ni la Dirección General de Medicamentos, Insumos y Drogas (DIGEMID) en Perú. Los aranceles de importación y el despacho aduanero corren por cuenta del comprador — la garantía de devolución de 30 días de Onnit reembolsa solo el costo del producto, no el envío.',
+      'Alpha Brain es el nootrópico insignia de Onnit, lanzado por primera vez en 2011 y popularizado a través del pódcast de Joe Rogan. Alpha Brain tiene un ensayo aleatorizado, doble ciego y controlado con placebo publicado sobre el producto terminado (Solomon 2016, PubMed 26876224): 63 adultos de 18 a 35 años, 6 semanas, mejoró el recuerdo verbal diferido y el funcionamiento ejecutivo; uno de los autores trabajaba para Onnit Labs. Alpha Brain no figura en el directorio "Certified for Sport" de NSF (National Sanitation Foundation), consultado 2026-10-19. Onnit dice que fabrica sus productos en instalaciones con certificación NSF de GMP (Good Manufacturing Practice, buenas prácticas de fabricación), que es una certificación de la fábrica, no una certificación del producto para el deporte con controles antidopaje. Para compradores en Latam, Alpha Brain se vende exclusivamente en USD y se envía desde EE. UU. como suplemento importado para uso personal. No hemos verificado un registro local del producto ante la Comisión Federal para la Protección contra Riesgos Sanitarios (COFEPRIS) en México, la Agência Nacional de Vigilância Sanitária (ANVISA) en Brasil, la Administración Nacional de Medicamentos, Alimentos y Tecnología Médica (ANMAT) en Argentina, el Instituto Nacional de Vigilancia de Medicamentos y Alimentos (INVIMA) en Colombia, el Instituto de Salud Pública (ISP) en Chile ni la Dirección General de Medicamentos, Insumos y Drogas (DIGEMID) en Perú. Los aranceles de importación y el despacho aduanero corren por cuenta del comprador — la garantía de devolución de 30 días de Onnit reembolsa solo el costo del producto, no el envío.',
     howItWorks:
       'Alpha Brain usa tres mezclas patentadas — Onnit Flow Blend, Focus Blend y Fuel Blend — que contienen colinérgicos (Alfa-GPC), adaptógenos (Bacopa) y aminoácidos (Tirosina, Teanina). La etiqueta indica el total de cada mezcla y dos cantidades individuales (Bacopa 100mg, Huperzina A 400mcg): la Bacopa, la Alfa-GPC (como máximo 140mg) y la L-Tirosina (como máximo 650mg) no alcanzan sus dosis clínicas, y los demás componentes de las mezclas no pueden verificarse individualmente. El ensayo de 2016 (Solomon 2016; uno de los autores trabajaba para Onnit Labs) probó la fórmula completa y encontró mejoras en el recuerdo verbal diferido y el funcionamiento ejecutivo frente a placebo.',
     whatToExpect:
@@ -447,7 +447,6 @@ export const latamProductTranslationsEs: LatamProductTranslation[] = [
       'El mayor reconocimiento de marca en EE. UU.',
       'Solo 2 cápsulas',
       'Garantía de devolución de 30 días en la primera compra',
-      'Certificación "NSF Certified for Sport"',
       'La lista de mercados de onnit.com menciona Brasil, Argentina, Colombia, Chile y Perú (consultado 2026-09-29)',
     ],
     cons: [
@@ -478,10 +477,10 @@ export const latamProductTranslationsEs: LatamProductTranslation[] = [
       'La lista de mercados de onnit.com menciona Brasil, Argentina, Colombia, Chile y Perú (consultado 2026-09-29); el envío a México no pudo confirmarse en el sitio de la marca (su página de ayuda sobre envíos no estaba disponible) — confírmalo en el checkout.',
     sourceHashes: {
       summary: '94ffb13ec516',
-      whatItIs: 'c0a90e0ab8f7',
+      whatItIs: '764478ca7c45',
       howItWorks: '800b71b44f91',
       whatToExpect: '805bde2a4832',
-      pros: '534dbe0fc1c9',
+      pros: '567590e06541',
       cons: 'a8531382e7c2',
       notes: 'bdd739a2f30e',
       bestFor: '98bc79d831b9',

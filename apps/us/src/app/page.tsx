@@ -49,7 +49,7 @@ const features = [
   },
   {
     icon: '✅',
-    title: 'NSF & third-party tested',
+    title: 'Third-party testing first',
     desc: 'We prioritise products with independent third-party testing and flag brands with documented BBB or subscription complaints.',
   },
   {
