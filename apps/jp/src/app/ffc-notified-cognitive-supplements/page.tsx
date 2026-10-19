@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter, PublicShell, DisclaimerText } from '@nootropic/ui';
-import { productsJP, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsJP, getRegionalHealthDisclaimer, sitemapDate, isoDay } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
+import sitemap from '@/app/sitemap';
 
 const PAGE_URL = `${SITE_URL}/ffc-notified-cognitive-supplements/`;
-const auditDateIso = new Date().toISOString().split('T')[0];
+const updated = sitemapDate(sitemap(), '/ffc-notified-cognitive-supplements/');
 
 
 export const metadata: Metadata = {
@@ -39,7 +40,7 @@ const articleSchema = {
   headline: 'FFC-Notified Cognitive Supplements in Japan — 機能性表示食品 + FOSHU',
   description: 'Explainer of Japan\'s Consumer Affairs Agency notification regime for cognitive supplements, with audit of the Japanese nootropic catalog and personal-import threshold reference.',
   datePublished: '2026-05-05',
-  dateModified: auditDateIso,
+  dateModified: isoDay(updated),
   author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
   publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   reviewedBy: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
@@ -99,7 +100,7 @@ export default function Page() {
         <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 mb-4">
           <span className="text-gray-700">{uiStrings.productDetail.meta.reviewedBy}</span>
           <span>·</span>
-          <span>{`${uiStrings.productDetail.meta.updated}${uiStrings.typography.space}${new Date().toLocaleDateString(uiStrings.productDetail.dateLocale, { year: 'numeric', month: 'long', day: 'numeric' })}`}</span>
+          <span>{`${uiStrings.productDetail.meta.updated}${uiStrings.typography.space}${updated.toLocaleDateString(uiStrings.productDetail.dateLocale, { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}`}</span>
         </div>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">

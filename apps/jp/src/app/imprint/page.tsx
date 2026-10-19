@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
 import { ImprintPage, LanguageRuns, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
-import { jpImprintNoteParts } from '@nootropic/data';
+import { jpImprintNoteParts, sitemapDate } from '@nootropic/data';
 
 const CONTACT_EMAIL = 'editorial@thenootropiclab.com';
 
 import { PublicShell } from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import { SITE_URL } from '@/lib/region';
+import sitemap from '@/app/sitemap';
 
 export const metadata: Metadata = {
   title: 'Imprint / 運営者情報',
@@ -22,6 +23,7 @@ export default function Page() {
     <PublicShell searchItems={searchItems} uiStrings={uiStrings} hideDisclosure>
     <ImprintPage
       siteUrl={SITE_URL}
+      updated={sitemapDate(sitemap(), '/imprint/')}
       marketLabel="Japanese edition"
       contactEmail={CONTACT_EMAIL}
       regionNote={<LanguageRuns parts={jpImprintNoteParts} />}

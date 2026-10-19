@@ -14,9 +14,12 @@ import {
   auditProductsForAnmat,
   productsLatam,
   getRegionalHealthDisclaimer,
+  sitemapDate,
+  isoDay,
 } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
+import sitemap from '@/app/sitemap';
 
 const PAGE_URL = `${SITE_URL}/anmat-disposicion-2105-2022-prohibidos/`;
 
@@ -43,12 +46,14 @@ const nonCompliantCount = audit.length - compliantCount;
 // Artículo 1 names products of two brands; the ingredient matcher cannot see
 // a brand, so check it separately before claiming no catalogue product is one.
 const catalogueBrandMatches = productsLatam.filter(p => /newmind|pure\s*nootropics/i.test(`${p.brand} ${p.name}`));
-const auditDate = new Date().toLocaleDateString('es-AR', {
+// The page's content date (its sitemap <lastmod>), never the build date.
+const updated = sitemapDate(sitemap(), '/anmat-disposicion-2105-2022-prohibidos/');
+const auditDate = updated.toLocaleDateString('es-AR', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
+  timeZone: 'UTC',
 });
-const auditDateIso = new Date().toISOString().split('T')[0];
 
 // Schema.org Article
 const articleSchema = {
@@ -57,7 +62,7 @@ const articleSchema = {
   headline: PAGE_TITLE,
   description: PAGE_DESCRIPTION,
   datePublished: '2026-05-05',
-  dateModified: auditDateIso,
+  dateModified: isoDay(updated),
   author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
   publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   reviewedBy: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },

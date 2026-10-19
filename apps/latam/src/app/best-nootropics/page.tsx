@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { BestOf, SchemaOrg, Card, Chip, FaqAccordion, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
-import { localizedProductsLatam, buildPersonAuthorReference } from '@nootropic/data';
+import { localizedProductsLatam, buildPersonAuthorReference, sitemapDate, isoDay } from '@nootropic/data';
+import sitemap from '@/app/sitemap';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
 import { priceText, PriceShort } from '@nootropic/ui';
@@ -26,7 +27,8 @@ export default function BestNootropicsLatamPage() {
   // Spanish record prose (products-latam-es.ts): card summaries, tags, the pick's summary.
   const productsLatam = localizedProductsLatam('es');
   const winner = productsLatam.find((p) => p.editorChoice)!;
-  const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: `Los Mejores Nootrópicos en Latinoamérica ${CURRENT_YEAR}`, datePublished: '2026-01-15', dateModified: new Date().toISOString().split('T')[0], author: buildPersonAuthorReference(undefined, SITE_URL), publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL } };
+  const updated = sitemapDate(sitemap(), '/best-nootropics/');
+  const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: `Los Mejores Nootrópicos en Latinoamérica ${CURRENT_YEAR}`, datePublished: '2026-01-15', dateModified: isoDay(updated), author: buildPersonAuthorReference(undefined, SITE_URL), publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL } };
   const itemListSchema = { '@context': 'https://schema.org', '@type': 'ItemList', name: `Los Mejores Suplementos Nootrópicos en Latinoamérica ${CURRENT_YEAR}`, itemListElement: productsLatam.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.name, url: `${SITE_URL}/${p.slug}/` })) };
 
   return (
@@ -37,7 +39,7 @@ export default function BestNootropicsLatamPage() {
         products={productsLatam}
         breadcrumbs={[{ label: uiStrings.productDetail.breadcrumbBestOf, href: '/best-nootropics/' }]}
         hero={{ eyebrow: `Latinoamérica · Auditado ${CURRENT_YEAR}`, h1: `Los Mejores Nootrópicos en Latinoamérica ${CURRENT_YEAR}`, dek: 'Confirma en el checkout si la marca envía a tu país. Marcas evaluadas por su evidencia e ingredientes; no verificamos su conformidad con los reguladores de cada país.' }}
-        searchItems={searchItems} uiStrings={uiStrings} trackingSurface="best_of_latam"
+        searchItems={searchItems} uiStrings={uiStrings} updated={updated} trackingSurface="best_of_latam"
         preList={
           <div className="flex flex-col gap-5">
             <Card variant="subdued" padding={20} className="border-l-[3px] border-l-ds-warn" as="aside" aria-labelledby="latam-note-heading">

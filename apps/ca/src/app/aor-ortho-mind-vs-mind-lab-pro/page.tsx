@@ -3,7 +3,8 @@ import { notFound } from 'next/navigation';
 import { HeadToHead, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { HeadToHeadFAQ } from '@nootropic/ui';
-import { productsCA, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsCA, getRegionalHealthDisclaimer, sitemapDate } from '@nootropic/data';
+import sitemap from '@/app/sitemap';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -92,6 +93,7 @@ export default function Page() {
       healthDisclaimer={getRegionalHealthDisclaimer('ca')}
       searchItems={searchItems}
       uiStrings={uiStrings}
+      updated={sitemapDate(sitemap(), '/aor-ortho-mind-vs-mind-lab-pro/')}
     />
   );
 }

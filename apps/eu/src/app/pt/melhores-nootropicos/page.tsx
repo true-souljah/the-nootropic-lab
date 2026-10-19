@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ComparisonTable, AffiliateDisclosure, SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
-import { productsEU, buildPersonAuthorReference } from '@nootropic/data';
+import { productsEU, buildPersonAuthorReference, sitemapDate, isoDay } from '@nootropic/data';
+import sitemap from '@/app/sitemap';
 import { searchItems, uiStrings } from '@/lib/search-pt';
 import { SITE_URL } from '@/lib/region';
 
@@ -18,11 +19,12 @@ export const metadata: Metadata = {
 };
 
 export default function MelhoresNootropicosPT() {
+  const updated = sitemapDate(sitemap(), '/pt/melhores-nootropicos/');
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: `Os Melhores Nootrópicos na Europa ${CURRENT_YEAR}`,
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: isoDay(updated),
     author: buildPersonAuthorReference(undefined, SITE_URL),
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab EU', url: SITE_URL },
     inLanguage: 'pt-PT',
@@ -47,10 +49,11 @@ export default function MelhoresNootropicosPT() {
       <article className="max-w-5xl mx-auto px-4 py-10" lang="pt-PT">
       <div className="mb-2 text-xs text-gray-500">
         Última actualização:{' '}
-        {new Date().toLocaleDateString('pt-PT', {
+        {updated.toLocaleDateString('pt-PT', {
           year: 'numeric',
           month: 'long',
           day: 'numeric',
+          timeZone: 'UTC',
         })}
       </div>
       <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">

@@ -104,6 +104,38 @@ export function routeDates(region: RegionCode) {
   };
 }
 
+/** A sitemap entry as the region apps build it (an item of Next's MetadataRoute.Sitemap). */
+export interface SitemapEntryDate {
+  url: string;
+  lastModified?: string | Date;
+}
+
+/**
+ * The <lastmod> the region's sitemap gives the page at `path` (`'/best-nootropics/'`):
+ * the one date a page shows as updated — byline, date chip, "Last updated" line —
+ * and puts in its JSON-LD dateModified, so they and the sitemap name the same
+ * day (2026-10-19: templates stamped the build time while the sitemap carried
+ * the content date). Pass the app's own sitemap: `sitemapDate(sitemap(), path)`.
+ *
+ * Fail-closed: a path with no single sitemap entry throws at build time.
+ */
+export function sitemapDate(entries: readonly SitemapEntryDate[], path: string): Date {
+  const hits = entries.filter((e) => new URL(e.url).pathname === path);
+  if (hits.length !== 1 || hits[0].lastModified === undefined) {
+    throw new Error(
+      `sitemap-dates: ${hits.length} sitemap entr${hits.length === 1 ? 'y' : 'ies'} with a lastModified for "${path}" — ` +
+        `a page that shows an updated date needs exactly one entry in its app's sitemap.ts.`,
+    );
+  }
+  const lastModified = hits[0].lastModified;
+  return typeof lastModified === 'string' ? latestDate(lastModified) : lastModified;
+}
+
+/** `date`'s day as the sitemap writes it: YYYY-MM-DD in UTC (Next serialises lastModified with toISOString()). */
+export function isoDay(date: Date): string {
+  return date.toISOString().slice(0, 10);
+}
+
 function geoData(region: RegionCode): string {
   const file = GEO_DATA[region];
   if (!file) throw new Error(`sitemap-dates: region "${region}" has no geo data file`);

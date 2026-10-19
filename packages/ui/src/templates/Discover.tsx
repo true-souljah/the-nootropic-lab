@@ -44,6 +44,11 @@ export interface DiscoverProps {
   };
   /** Optional "extra" block rendered after the product grid (e.g. category cards). */
   afterGrid?: ReactNode;
+  /**
+   * The page's content date as YYYY-MM-DD — `isoDay(sitemapDate(sitemap(), '/'))`. The "Top pick" chip
+   * names its month, so the server render and the browser agree and a rebuild never moves it.
+   */
+  updated: string;
 }
 
 const FILTER_OPTIONS = ['All', 'Focus', 'Memory', 'Energy', 'Caffeine-free', 'Under $50'] as const;
@@ -79,6 +84,7 @@ export default function Discover({
   comparatorHref = '/nootropic-comparison/',
   welcomeCard,
   afterGrid,
+  updated,
 }: DiscoverProps) {
   const [filter, setFilter] = useState<Filter>('All');
 
@@ -114,8 +120,7 @@ export default function Discover({
     return { audited, underdosedPct, avgCost };
   }, [products]);
 
-  const now = new Date();
-  const month = MONTHS[now.getMonth()];
+  const month = MONTHS[Number(updated.slice(5, 7)) - 1];
 
   const welcomeTitle =
     welcomeCard?.title ??

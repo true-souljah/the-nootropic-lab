@@ -3,7 +3,8 @@ import { notFound } from 'next/navigation';
 import { HeadToHead, buildAlternates, buildOpenGraph, buildTwitter } from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { HeadToHeadFAQ } from '@nootropic/ui';
-import { allProductsAU, productsAU, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { allProductsAU, productsAU, getRegionalHealthDisclaimer, sitemapDate } from '@nootropic/data';
+import sitemap from '@/app/sitemap';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -95,6 +96,7 @@ export default function Page() {
       healthDisclaimer={getRegionalHealthDisclaimer('au')}
       searchItems={searchItems}
       uiStrings={uiStrings}
+      updated={sitemapDate(sitemap(), '/blackmores-brain-active-vs-mind-lab-pro/')}
     />
   );
 }

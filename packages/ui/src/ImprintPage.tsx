@@ -14,6 +14,8 @@ interface Props {
    * A node, so a bilingual note can mark its other-language half (JP: `<span lang="ja">`).
    */
   regionNote?: ReactNode;
+  /** The page's content date — its sitemap <lastmod>: `sitemapDate(sitemap(), '/imprint/')`. The "Last updated" line. */
+  updated: Date;
 }
 
 /**
@@ -25,7 +27,7 @@ interface Props {
  * equivalent). All copy is editorial-entity scoped and contains no Person
  * references.
  */
-export default function ImprintPage({ siteUrl, marketLabel, contactEmail, regionNote }: Props) {
+export default function ImprintPage({ siteUrl, marketLabel, contactEmail, regionNote, updated }: Props) {
   const pageUrl = `${siteUrl}/imprint/`;
 
   const schema = {
@@ -114,7 +116,7 @@ export default function ImprintPage({ siteUrl, marketLabel, contactEmail, region
 
         <p className="text-xs text-gray-500 mt-12">
           Last updated:{' '}
-          {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          {updated.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
         </p>
       </article>
     </>

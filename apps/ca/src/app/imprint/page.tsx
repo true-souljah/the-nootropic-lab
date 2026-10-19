@@ -6,6 +6,8 @@ const CONTACT_EMAIL = 'editorial@thenootropiclab.com';
 import { PublicShell } from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import { SITE_URL } from '@/lib/region';
+import { sitemapDate } from '@nootropic/data';
+import sitemap from '@/app/sitemap';
 
 export const metadata: Metadata = {
   title: 'Imprint',
@@ -26,6 +28,7 @@ export default function Page() {
     <PublicShell searchItems={searchItems} uiStrings={uiStrings} hideDisclosure>
     <ImprintPage
       siteUrl={SITE_URL}
+      updated={sitemapDate(sitemap(), '/imprint/')}
       marketLabel="Canadian edition"
       contactEmail={CONTACT_EMAIL}
       regionNote="Natural health products available in Canada are regulated by Health Canada under the Natural Health Products Regulations. Where a product holds an NPN (Natural Product Number), Health Canada says that number “assures consumers that the product has been reviewed and approved by Health Canada for safety and efficacy”; it also states, “To be licensed in Canada, natural health products must be safe, effective, of high quality” (canada.ca, checked 2026-10-08). A cross-border import without an NPN has not been through that Health Canada assessment."

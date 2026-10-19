@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
-import { productsSEA, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsSEA, getRegionalHealthDisclaimer, sitemapDate, isoDay } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
+import sitemap from '@/app/sitemap';
 
 const PAGE_URL = `${SITE_URL}/halal-nootropics-indonesia-bpjph/`;
 // Fixed dates, never the build date. The BPJPH register was searched for every
@@ -13,7 +14,8 @@ const PAGE_URL = `${SITE_URL}/halal-nootropics-indonesia-bpjph/`;
 // before that 2026-10-07: brand-page halal check + PP 42/2024 dates).
 const bpjphSearchDateIso = '2026-07-20';
 const neutonicAddedIso = '2026-10-19';
-const pageModifiedIso = '2026-10-19';
+// "Last updated" and dateModified: the page's sitemap <lastmod>.
+const updated = sitemapDate(sitemap(), '/halal-nootropics-indonesia-bpjph/');
 
 
 export const metadata: Metadata = {
@@ -85,7 +87,7 @@ const articleSchema = {
   headline: 'Halal Nootropic Supplements in SEA — BPJPH + JAKIM Mandatory Compliance',
   description: 'Per-country regulator + Halal-certification reference for cognitive supplements sold across Southeast Asia (SG, MY, ID, PH, TH, VN).',
   datePublished: '2026-05-05',
-  dateModified: pageModifiedIso,
+  dateModified: isoDay(updated),
   author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
   publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   reviewedBy: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
@@ -147,7 +149,7 @@ export default function Page() {
         <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 mb-4">
           <span>Reviewed by <strong className="text-gray-700">The Nootropic Lab Editorial Team</strong></span>
           <span>·</span>
-          <span>Last updated: {new Date(pageModifiedIso).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</span>
+          <span>Last updated: {updated.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</span>
         </div>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">

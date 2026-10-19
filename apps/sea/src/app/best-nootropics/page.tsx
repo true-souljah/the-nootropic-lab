@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { BestOf, SchemaOrg, Card, Chip, FaqAccordion, NoPurchaseLinkNotice, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
-import { productsSEA, buildPersonAuthorReference, purchaseUrl } from '@nootropic/data';
+import { productsSEA, buildPersonAuthorReference, purchaseUrl, sitemapDate, isoDay } from '@nootropic/data';
+import sitemap from '@/app/sitemap';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
 import { priceText } from '@nootropic/ui';
@@ -25,7 +26,8 @@ const faqItems = [
 export default function BestNootropicsSEAPage() {
   const winner = productsSEA.find((p) => p.editorChoice)!;
   const winnerUrl = purchaseUrl(winner);
-  const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: `Best Nootropics in Southeast Asia ${CURRENT_YEAR}`, datePublished: '2026-01-15', dateModified: new Date().toISOString().split('T')[0], author: buildPersonAuthorReference(undefined, SITE_URL), publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL } };
+  const updated = sitemapDate(sitemap(), '/best-nootropics/');
+  const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: `Best Nootropics in Southeast Asia ${CURRENT_YEAR}`, datePublished: '2026-01-15', dateModified: isoDay(updated), author: buildPersonAuthorReference(undefined, SITE_URL), publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL } };
   const itemListSchema = { '@context': 'https://schema.org', '@type': 'ItemList', name: `Best Nootropic Supplements SEA ${CURRENT_YEAR}`, itemListElement: productsSEA.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.name, url: `${SITE_URL}/${p.slug}/` })) };
 
   return (
@@ -36,7 +38,7 @@ export default function BestNootropicsSEAPage() {
         products={productsSEA}
         breadcrumbs={[{ label: 'Best of', href: '/best-nootropics/' }]}
         hero={{ eyebrow: `Southeast Asia · Audited ${CURRENT_YEAR}`, h1: `Best Nootropics in Southeast Asia ${CURRENT_YEAR}`, dek: 'Regulatory framework notes for Singapore, Malaysia, Thailand, Philippines, Indonesia and Vietnam: HSA, NPRA, FDA Thailand, FDA Philippines, BPOM, MOH Vietnam. Confirm shipping with the brand before you buy.' }}
-        searchItems={searchItems} uiStrings={uiStrings} trackingSurface="best_of_sea"
+        searchItems={searchItems} uiStrings={uiStrings} updated={updated} trackingSurface="best_of_sea"
         preList={
           <div className="flex flex-col gap-5">
             <Card variant="subdued" padding={20} className="border-l-[3px] border-l-ds-warn" as="aside" aria-labelledby="sea-note-heading">

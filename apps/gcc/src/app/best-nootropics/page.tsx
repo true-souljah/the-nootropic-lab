@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { BestOf, SchemaOrg, Card, Chip, FaqAccordion, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
-import { productsGCC, buildPersonAuthorReference } from '@nootropic/data';
+import { productsGCC, buildPersonAuthorReference, sitemapDate, isoDay } from '@nootropic/data';
+import sitemap from '@/app/sitemap';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
 import { priceText } from '@nootropic/ui';
@@ -24,7 +25,8 @@ const faqItems = [
 
 export default function BestNootropicsGCCPage() {
   const winner = productsGCC.find((p) => p.editorChoice)!;
-  const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: `Best Nootropics in the GCC ${CURRENT_YEAR}`, datePublished: '2026-01-15', dateModified: new Date().toISOString().split('T')[0], author: buildPersonAuthorReference(undefined, SITE_URL), publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL } };
+  const updated = sitemapDate(sitemap(), '/best-nootropics/');
+  const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: `Best Nootropics in the GCC ${CURRENT_YEAR}`, datePublished: '2026-01-15', dateModified: isoDay(updated), author: buildPersonAuthorReference(undefined, SITE_URL), publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL } };
   const itemListSchema = { '@context': 'https://schema.org', '@type': 'ItemList', name: `Best Nootropic Supplements GCC ${CURRENT_YEAR}`, itemListElement: productsGCC.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.name, url: `${SITE_URL}/${p.slug}/` })) };
 
   return (
@@ -35,7 +37,7 @@ export default function BestNootropicsGCCPage() {
         products={productsGCC}
         breadcrumbs={[{ label: 'Best of', href: '/best-nootropics/' }]}
         hero={{ eyebrow: `GCC · Audited ${CURRENT_YEAR}`, h1: `Best Nootropics in the GCC ${CURRENT_YEAR}`, dek: 'Each product is marked caffeine-free or caffeinated, and we record each brand’s capsule-shell statement and whether a halal certificate is shown (none of the brands we checked shows one, checked 2026-10-07); rankings are not adjusted for either. Each review notes whether the brand ships to Saudi Arabia, UAE, Qatar, Kuwait, Bahrain and Oman — several do not.' }}
-        searchItems={searchItems} uiStrings={uiStrings} trackingSurface="best_of_gcc"
+        searchItems={searchItems} uiStrings={uiStrings} updated={updated} trackingSurface="best_of_gcc"
         preList={
           <div className="flex flex-col gap-5">
             <Card variant="subdued" padding={20} className="border-l-[3px] border-l-ds-warn" as="aside" aria-labelledby="gcc-note-heading">

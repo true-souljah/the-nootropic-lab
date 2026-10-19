@@ -171,7 +171,8 @@ export type { HeadToHeadPage } from './head-to-head';
 export { HEAD_TO_HEAD_PAGES, headToHeadFor } from './head-to-head';
 
 // Sitemap <lastmod> from content history (2026-09 GSC work)
-export { routeDates, contentFileDate, latestDate } from './sitemap-dates';
+export { routeDates, contentFileDate, latestDate, sitemapDate, isoDay } from './sitemap-dates';
+export type { SitemapEntryDate } from './sitemap-dates';
 
 // PubMed citation allow-list (2026-10-06 citation audit)
 export type { Citation } from './citations';

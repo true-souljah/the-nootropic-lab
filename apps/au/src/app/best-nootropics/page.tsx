@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { BestOf, SchemaOrg, Card, Chip, FaqAccordion, NoPurchaseLinkNotice, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
-import { productsAU, buildPersonAuthorReference, purchaseUrl } from '@nootropic/data';
+import { productsAU, buildPersonAuthorReference, purchaseUrl, sitemapDate, isoDay } from '@nootropic/data';
+import sitemap from '@/app/sitemap';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
 import { priceText } from '@nootropic/ui';
@@ -32,7 +33,8 @@ const goalLinks = [
 export default function BestNootropicsAUPage() {
   const winner = productsAU.find((p) => p.editorChoice)!;
   const winnerUrl = purchaseUrl(winner);
-  const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: `Best Nootropics in Australia ${CURRENT_YEAR}`, datePublished: '2026-01-15', dateModified: new Date().toISOString().split('T')[0], author: buildPersonAuthorReference(undefined, SITE_URL), publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL } };
+  const updated = sitemapDate(sitemap(), '/best-nootropics/');
+  const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: `Best Nootropics in Australia ${CURRENT_YEAR}`, datePublished: '2026-01-15', dateModified: isoDay(updated), author: buildPersonAuthorReference(undefined, SITE_URL), publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL } };
   const itemListSchema = { '@context': 'https://schema.org', '@type': 'ItemList', name: `Best Nootropic Supplements Australia ${CURRENT_YEAR}`, itemListElement: productsAU.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.name, url: `${SITE_URL}/${p.slug}/` })) };
 
   return (
@@ -43,7 +45,7 @@ export default function BestNootropicsAUPage() {
         products={productsAU}
         breadcrumbs={[{ label: 'Best of', href: '/best-nootropics/' }]}
         hero={{ eyebrow: `Australia · Audited ${CURRENT_YEAR}`, h1: `Best Nootropics in Australia ${CURRENT_YEAR}`, dek: 'Under the TGA Personal Importation Scheme, individuals can import up to a 3-month supply for personal use, subject to its conditions. Below: every product with confirmed Australian shipping.' }}
-        searchItems={searchItems} uiStrings={uiStrings} trackingSurface="best_of_au"
+        searchItems={searchItems} uiStrings={uiStrings} updated={updated} trackingSurface="best_of_au"
         preList={
           <div className="flex flex-col gap-5">
             <Card variant="subdued" padding={20} className="border-l-[3px] border-l-ds-warn" as="aside" aria-labelledby="au-note-heading">

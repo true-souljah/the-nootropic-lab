@@ -226,7 +226,7 @@ describe('the Associates statement renders only beside an Associates link', () =
     expect(shell([mlp])).not.toContain(AMAZON_ASSOCIATES_STATEMENT);
 
     const bestOf = (products: Product[]) =>
-      renderToStaticMarkup(createElement(BestOf, { products, uiStrings: s, refreshDate: '1 Oct 2026' }));
+      renderToStaticMarkup(createElement(BestOf, { products, uiStrings: s, updated: new Date('2026-10-01T00:00:00Z') }));
     expect(strip(bestOf(productsUS))).toContain(AMAZON_ASSOCIATES_STATEMENT);
     expect(bestOf(others)).not.toContain(AMAZON_ASSOCIATES_STATEMENT);
 
@@ -234,6 +234,7 @@ describe('the Associates statement renders only beside an Associates link', () =
       renderToStaticMarkup(
         createElement(HeadToHead, {
           productA, productB, siteUrl: 'https://example.com', faqItems: [], whoIsForA: [], whoIsForB: [], uiStrings: s,
+          updated: new Date('2026-10-01T00:00:00Z'),
         }),
       );
     expect(strip(h2h(mlp, naturebell))).toContain(AMAZON_ASSOCIATES_STATEMENT);

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { ComparisonTable, AffiliateDisclosure, SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
-import { productsUS } from '@nootropic/data';
+import { productsUS, sitemapDate } from '@nootropic/data';
+import sitemap from '@/app/sitemap';
 import { searchItems, uiStrings } from '@/lib/search-es';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -34,10 +35,11 @@ export default function EsMejoresNootropicosPage() {
       <article className="max-w-5xl mx-auto px-4 py-10">
         <div className="mb-2 text-xs text-gray-500">
           Última actualización:{' '}
-          {new Date().toLocaleDateString('es-US', {
+          {sitemapDate(sitemap(), '/es/mejores-nootropicos/').toLocaleDateString('es-US', {
             year: 'numeric',
             month: 'long',
             day: 'numeric',
+            timeZone: 'UTC',
           })}
         </div>
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">

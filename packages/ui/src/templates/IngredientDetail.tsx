@@ -3,14 +3,14 @@ import SchemaOrg from '../SchemaOrg';
 import { FPDisclosure } from '../public-chrome/FPDisclosure';
 import { FPHeader } from '../public-chrome/FPHeader';
 import { FPFooter } from '../public-chrome/FPFooter';
-import { FPByline, localISODate } from '../public-chrome/FPByline';
+import { FPByline } from '../public-chrome/FPByline';
 import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { FaqAccordion } from '../primitives/FaqAccordion';
 import RegionalAvailability from '../RegionalAvailability';
 import Sources from '../Sources';
 import type { RegionalAvailabilityProps } from '../RegionalAvailability';
-import { buildPersonAuthorReference } from '@nootropic/data';
+import { buildPersonAuthorReference, isoDay } from '@nootropic/data';
 import type { Ingredient, Product, UIStrings } from '@nootropic/data';
 import type { SearchItem } from '../SearchModal';
 import { SCORE_TIER_TEXT_CLASS, scoreTier } from './listicleRanking';
@@ -28,6 +28,11 @@ export interface IngredientDetailProps {
   uiStrings: UIStrings;
   /** Estimated read time in minutes, displayed in FPByline. */
   readMinutes?: number;
+  /**
+   * The page's content date — its sitemap <lastmod>: `sitemapDate(sitemap(), '/ingredients/<slug>/')`.
+   * Shown in the byline and the JSON-LD dateModified; never the build date.
+   */
+  updated: Date;
   /** Region-specific block (availability, licence, local price, local guides). */
   regional?: Omit<RegionalAvailabilityProps, 'subjectName' | 'id'>;
 }
@@ -63,6 +68,7 @@ export default function IngredientDetail({
   uiStrings,
   readMinutes = 8,
   regional,
+  updated,
 }: IngredientDetailProps) {
   const t = uiStrings.ingredientDetail;
   const te = uiStrings.ingredientEvidence;
@@ -88,12 +94,12 @@ export default function IngredientDetail({
     [t.howToLabels.forms, ing.howToTake.forms, false],
   ];
 
-  const currentYear = new Date().getFullYear();
-  const today = new Date();
-  const updatedDisplay = today.toLocaleDateString(uiStrings.productDetail.dateLocale, {
+  const updatedISO = isoDay(updated);
+  const updatedDisplay = updated.toLocaleDateString(uiStrings.productDetail.dateLocale, {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
+    timeZone: 'UTC',
   });
   // ISO YYYY-MM-DD formatted in UTC so the rendered day never shifts with the
   // build machine's timezone.
@@ -112,8 +118,8 @@ export default function IngredientDetail({
     '@type': 'Article',
     headline: tpl(ts.headline, { name: ing.name }),
     description: ing.studySummary,
-    datePublished: `${currentYear}-04-30`,
-    dateModified: today.toISOString().split('T')[0],
+    datePublished: '2026-04-30',
+    dateModified: updatedISO,
     author: buildPersonAuthorReference(undefined, siteUrl),
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: siteUrl },
     reviewedBy: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: siteUrl },
@@ -209,7 +215,7 @@ export default function IngredientDetail({
               {ing.studySummary}
             </p>
 
-            <FPByline updated={localISODate(today)} updatedDisplay={updatedDisplay} minutes={readMinutes} strings={uiStrings.byline} space={space} />
+            <FPByline updated={updatedISO} updatedDisplay={updatedDisplay} minutes={readMinutes} strings={uiStrings.byline} space={space} />
             <p className="text-[12.5px] text-ds-muted mt-2 mb-0">
               {te.evidenceReviewed}{space}
               <time dateTime={ing.evidenceReviewedAt}>{evidenceReviewedDisplay}</time>

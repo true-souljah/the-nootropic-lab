@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { BestOf, SchemaOrg, Card, Chip, FaqAccordion, NoPurchaseLinkNotice, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
-import { productsCA, buildPersonAuthorReference, getRegionalHealthDisclaimer, purchaseUrl } from '@nootropic/data';
+import { productsCA, buildPersonAuthorReference, getRegionalHealthDisclaimer, purchaseUrl, sitemapDate, isoDay } from '@nootropic/data';
+import sitemap from '@/app/sitemap';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
 import { priceText } from '@nootropic/ui';
@@ -53,11 +54,12 @@ const goalLinks = [
 export default function BestNootropicsCAPage() {
   const winner = productsCA.find((p) => p.editorChoice)!;
   const winnerUrl = purchaseUrl(winner);
+  const updated = sitemapDate(sitemap(), '/best-nootropics/');
   const articleSchema = {
     '@context': 'https://schema.org', '@type': 'Article',
     headline: `Best Nootropics in Canada ${CURRENT_YEAR}`,
     datePublished: '2026-01-15',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: isoDay(updated),
     author: buildPersonAuthorReference(undefined, SITE_URL),
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   };
@@ -81,6 +83,7 @@ export default function BestNootropicsCAPage() {
         }}
         searchItems={searchItems}
         uiStrings={uiStrings}
+        updated={updated}
         trackingSurface="best_of_ca"
         healthDisclaimer={getRegionalHealthDisclaimer('ca')}
       regulatoryPillar={{ label: 'NPN-licensed nootropics in Canada', href: '/npn-licensed-nootropics-canada/' }}

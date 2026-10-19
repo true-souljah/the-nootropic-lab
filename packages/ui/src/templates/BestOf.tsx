@@ -32,8 +32,11 @@ export interface BestOfProps {
   };
   /** Optional override of stat tiles. By default, derives from `products`. */
   stats?: Array<{ label: string; value: string; tone?: 'good' | 'bad' | 'neutral' }>;
-  /** Refresh date displayed in the subtitle (defaults to today). */
-  refreshDate?: string;
+  /**
+   * The page's content date — its sitemap <lastmod>: `sitemapDate(sitemap(), path)`. Shown as the
+   * subtitle's "refreshed" date; never the build date.
+   */
+  updated: Date;
   /** Methodology version displayed in the subtitle. */
   methodologyVersion?: string;
   /**
@@ -79,10 +82,10 @@ const MONTHS_SHORT = [
   'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
 ];
 
-/** "12 Oct 2026" on English pages; the locale's own short date elsewhere. */
+/** "12 Oct 2026" on English pages; the locale's own short date elsewhere. The UTC day, as the sitemap gives it. */
 function formatDate(d: Date, dateLocale: string): string {
-  if (dateLocale.startsWith('en')) return `${d.getDate()} ${MONTHS_SHORT[d.getMonth()]} ${d.getFullYear()}`;
-  return d.toLocaleDateString(dateLocale, { year: 'numeric', month: 'short', day: 'numeric' });
+  if (dateLocale.startsWith('en')) return `${d.getUTCDate()} ${MONTHS_SHORT[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
+  return d.toLocaleDateString(dateLocale, { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' });
 }
 
 /**
@@ -97,7 +100,7 @@ export default function BestOf({
   breadcrumbs,
   hero,
   stats,
-  refreshDate,
+  updated,
   methodologyVersion = 'v3.2',
   recommendedCutoff = SCORE_TIERS.good,
   searchItems,
@@ -144,7 +147,7 @@ export default function BestOf({
   ];
   const tiles = stats ?? defaultStats;
 
-  const refresh = refreshDate ?? formatDate(new Date(), pd.dateLocale);
+  const refresh = formatDate(updated, pd.dateLocale);
   const subtitle = tpl(bo.subtitle, { audited, listed: sorted.length, version: methodologyVersion, date: refresh });
 
   return (

@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { Discover, SchemaOrg, Card, buildAlternates} from '@nootropic/ui';
-import { productsUS, guidesForRegion } from '@nootropic/data';
+import { productsUS, guidesForRegion, sitemapDate, isoDay } from '@nootropic/data';
+import sitemap from '@/app/sitemap';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
 
@@ -95,6 +96,7 @@ export default function HomePage() {
         mode="collapsed"
         searchItems={searchItems}
         uiStrings={uiStrings}
+        updated={isoDay(sitemapDate(sitemap(), '/'))}
         hero={{
           eyebrow: `US Market · Evidence-Graded · Audited ${CURRENT_YEAR}`,
           h1: 'The Independent US Guide to Cognitive Supplements',
