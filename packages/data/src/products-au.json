@@ -1863,6 +1863,10 @@
       "Ingredient amounts from the 'what's inside' panel, the label advisory and the full ingredients list on Neutonic's Australian product page, https://www.neutonic.com/en-au/products/productivity-drink-aus-trop, checked 2026-10-19.",
       "The keyword 'Neutonic' returned no matching results in the Therapeutic Goods Administration (TGA) search of the Australian Register of Therapeutic Goods (ARTG) or in its cancellations-by-sponsor database (searched 2026-10-19). The can is sold as an energy drink whose label carries a caffeine advisory statement rather than an AUST number."
     ],
+    "domesticSupply": {
+      "basis": "The Australian product page states 'This product ships from within AU' (https://www.neutonic.com/en-au/products/productivity-drink-aus-trop).",
+      "checkedAt": "2026-10-19"
+    },
     "editorChoice": false,
     "market": "au",
     "updatedAt": "2026-10-19",

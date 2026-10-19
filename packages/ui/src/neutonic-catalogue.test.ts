@@ -3,7 +3,7 @@ import {
   allProductsUS, allProductsEU, allProductsCA, allProductsAU,
   allProductsJP, allProductsLatam, allProductsGCC, allProductsSEA,
   productsUS, productsEU, productsCA, productsAU,
-  ingredients, earnsCommission, reviewDisclosureScope,
+  ingredients, earnsCommission, reviewDisclosureScope, licenceStatus,
 } from '@nootropic/data';
 import type { Product } from '@nootropic/data';
 
@@ -167,6 +167,18 @@ describe('Neutonic records on the US, EU, CA and AU hosts', () => {
       expect(record('ca', slug).npnStatus?.npn, `ca/${slug}`).toBeUndefined();
     }
     for (const slug of [AU_DRINK, UK_CAPSULES]) expect(record('au', slug).austl, `au/${slug}`).toBeUndefined();
+  });
+
+  it('AU: the drink ships from within AU (no import chip); the UK-edition capsules ship from the UK (personal importation)', () => {
+    const drink = record('au', AU_DRINK);
+    expect(drink.domesticSupply).toEqual({
+      basis: "The Australian product page states 'This product ships from within AU' (https://www.neutonic.com/en-au/products/productivity-drink-aus-trop).",
+      checkedAt: '2026-10-19',
+    });
+    expect(licenceStatus(drink, 'au')).toBeNull();
+    const capsules = record('au', UK_CAPSULES);
+    expect(capsules.domesticSupply).toBeUndefined();
+    expect(licenceStatus(capsules, 'au')?.key).toBe('personalImportation');
   });
 
   it('AU drink: 106mg caffeine from green coffee bean extract, and only the six B vitamins its ingredient list names', () => {
