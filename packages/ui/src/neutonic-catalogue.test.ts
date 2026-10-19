@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import {
   allProductsUS, allProductsEU, allProductsCA, allProductsAU,
   allProductsJP, allProductsLatam, allProductsGCC, allProductsSEA,
-  productsUS, productsEU,
+  productsUS, productsEU, productsCA, productsAU,
   ingredients, earnsCommission, reviewDisclosureScope,
 } from '@nootropic/data';
 import type { Product } from '@nootropic/data';
@@ -14,25 +14,40 @@ import type { Product } from '@nootropic/data';
 // affiliates.neutonic.com). The US drink is a no-commission retail listing:
 // its neutonic.com US page has no cart and sends buyers to Amazon, where
 // UpPromote cannot track the sale, so it links the plain product page and
-// carries "0%" (BACKLOG coop:neutonic-us-drink-amazon-only-2026-10-15). CA,
-// AU, GCC, SEA, LATAM and JP are a later wave (BACKLOG
-// coop:neutonic-wave2-regions-2026-10-15), so those catalogues omit both.
+// carries "0%" (BACKLOG coop:neutonic-us-drink-amazon-only-2026-10-15).
+//
+// Wave 2 (2026-10-19, BACKLOG coop:neutonic-wave2-regions-2026-10-15):
+// - CA: Canadian shoppers are served the US store (/en-us/), which with Canada
+//   selected prices both US products in CAD and sells them through its own cart
+//   (no Amazon button), so both CA records are tracked. Same SKUs as the US
+//   records, so same slugs and formulas.
+// - AU: the Australian store (/en-au/) sells a different can, the Smarter
+//   Energy Drink (106mg caffeine per 330ml, six B vitamins in the ingredient
+//   list), and the UK-label Brain Capsules (no bacoside standardisation
+//   printed), so each is its own record and slug; both are tracked.
+// GCC, SEA, LATAM and JP are still out of scope, so those catalogues omit
+// every Neutonic slug.
 
 const DRINK = 'neutonic-productivity-drink-review';
 const CAPSULES = 'neutonic-brain-capsules-review';
+const AU_DRINK = 'neutonic-smarter-energy-drink-review';
+const UK_CAPSULES = 'neutonic-brain-capsules-uk-review';
+const DRINKS = [DRINK, AU_DRINK];
+const CAPSULE_SLUGS = [CAPSULES, UK_CAPSULES];
 
 // The product page each region's affiliate link lands on.
 const PRODUCT_PATH: Record<string, Record<string, string>> = {
   us: { [DRINK]: '/en-us/products/tropical-ice-12pk-us', [CAPSULES]: '/en-us/products/neutonic-capsules-us' },
   eu: { [DRINK]: '/products/tropical-ice-12pk' },
+  ca: { [DRINK]: '/en-us/products/tropical-ice-12pk-us', [CAPSULES]: '/en-us/products/neutonic-capsules-us' },
+  au: { [AU_DRINK]: '/en-au/products/productivity-drink-aus-trop', [UK_CAPSULES]: '/en-au/products/neutonic-capsules-uk' },
 };
 const SCA_REF = '11880392.89XMRS5MXxp';
 
-const IN_SCOPE: Record<string, Product[]> = { us: allProductsUS, eu: allProductsEU };
-const RECOMMENDABLE: Record<string, Product[]> = { us: productsUS, eu: productsEU };
+const IN_SCOPE: Record<string, Product[]> = { us: allProductsUS, eu: allProductsEU, ca: allProductsCA, au: allProductsAU };
+const RECOMMENDABLE: Record<string, Product[]> = { us: productsUS, eu: productsEU, ca: productsCA, au: productsAU };
 const OUT_OF_SCOPE: Record<string, Product[]> = {
-  ca: allProductsCA, au: allProductsAU, jp: allProductsJP,
-  latam: allProductsLatam, gcc: allProductsGCC, sea: allProductsSEA,
+  jp: allProductsJP, latam: allProductsLatam, gcc: allProductsGCC, sea: allProductsSEA,
 };
 
 const cases = Object.entries(PRODUCT_PATH).flatMap(([region, paths]) => Object.keys(paths).map((slug) => [region, slug] as const));
@@ -45,19 +60,27 @@ function record(region: string, slug: string): Product {
   return p;
 }
 
-describe('Neutonic records on the US and EU hosts', () => {
-  it('covers the drink in us + eu and the capsules in us only (guards against a silently empty case list)', () => {
+describe('Neutonic records on the US, EU, CA and AU hosts', () => {
+  it('covers the drink in us + eu + ca, the capsules in us + ca, and the AU editions in au (guards against a silently empty case list)', () => {
     expect(cases).toEqual([
       ['us', DRINK],
       ['us', CAPSULES],
       ['eu', DRINK],
+      ['ca', DRINK],
+      ['ca', CAPSULES],
+      ['au', AU_DRINK],
+      ['au', UK_CAPSULES],
     ]);
   });
 
-  it('tracks the EU drink and the US capsules; the US drink is the one untracked record', () => {
+  it('tracks every record except the US drink, the one untracked record', () => {
     expect(tracked).toEqual([
       ['us', CAPSULES],
       ['eu', DRINK],
+      ['ca', DRINK],
+      ['ca', CAPSULES],
+      ['au', AU_DRINK],
+      ['au', UK_CAPSULES],
     ]);
   });
 
@@ -67,7 +90,7 @@ describe('Neutonic records on the US and EU hosts', () => {
     expect(p.noPurchaseLink).toBeUndefined();
     expect(RECOMMENDABLE[region].some((r) => r.slug === slug)).toBe(true);
     expect(p.brand).toBe('Neutonic');
-    expect(p.caffeineFree).toBe(slug === CAPSULES);
+    expect(p.caffeineFree).toBe(CAPSULE_SLUGS.includes(slug));
     const url = new URL(p.affiliateUrl);
     expect(url.protocol).toBe('https:');
     expect(url.hostname).toBe('www.neutonic.com');
@@ -98,15 +121,15 @@ describe('Neutonic records on the US and EU hosts', () => {
     expect(p.affiliateUrl).not.toMatch(/sca_ref|utm_/);
   });
 
-  it.each(Object.keys(PRODUCT_PATH))('%s: the drink is one can per serving, 12 cans a pack', (region) => {
-    const drink = record(region, DRINK);
+  it.each(cases.filter(([, slug]) => DRINKS.includes(slug)))('%s/%s: the drink is one can per serving, 12 cans a pack', (region, slug) => {
+    const drink = record(region, slug);
     expect(drink.form).toBe('can');
     expect(drink.capsulesPerServing).toBe(1);
     expect(drink.servingsPerContainer).toBe(12);
   });
 
-  it('US: the capsules are 3 capsules per serving, 30 servings a bottle', () => {
-    const caps = record('us', CAPSULES);
+  it.each(cases.filter(([, slug]) => CAPSULE_SLUGS.includes(slug)))('%s/%s: the capsules are 3 capsules per serving, 30 servings a bottle', (region, slug) => {
+    const caps = record(region, slug);
     expect(caps.form).toBeUndefined();
     expect(caps.capsulesPerServing).toBe(3);
     expect(caps.servingsPerContainer).toBe(30);
@@ -122,6 +145,43 @@ describe('Neutonic records on the US and EU hosts', () => {
     // The US drink page's only buy button links to Amazon and prints no price
     // (checked 2026-10-15), so the record carries no store price.
     expect(record('us', DRINK).storePrice).toBeUndefined();
+    // With Canada selected the US store prints a bare "$" and its structured
+    // data says CAD (checked 2026-10-19); the AU store prints a bare "$" in AUD.
+    expect(record('ca', DRINK).storePrice).toMatchObject({
+      amount: 52, currency: 'CAD', text: '$52.00', url: 'https://www.neutonic.com/en-us/products/tropical-ice-12pk-us',
+    });
+    expect(record('ca', CAPSULES).storePrice).toMatchObject({
+      amount: 72, currency: 'CAD', text: '$72.00', url: 'https://www.neutonic.com/en-us/products/neutonic-capsules-us',
+    });
+    expect(record('au', AU_DRINK).storePrice).toMatchObject({
+      amount: 56.99, currency: 'AUD', text: '$56.99', url: 'https://www.neutonic.com/en-au/products/productivity-drink-aus-trop',
+    });
+    expect(record('au', UK_CAPSULES).storePrice).toMatchObject({
+      amount: 92.99, currency: 'AUD', text: '$92.99', url: 'https://www.neutonic.com/en-au/products/neutonic-capsules-uk',
+    });
+  });
+
+  it('CA: both records carry the 2026-10-19 LNHPD no-row result; AU: neither carries an AUST L number', () => {
+    for (const slug of [DRINK, CAPSULES]) {
+      expect(record('ca', slug).npnStatus, `ca/${slug}`).toMatchObject({ status: 'pip', checkedAt: '2026-10-19' });
+      expect(record('ca', slug).npnStatus?.npn, `ca/${slug}`).toBeUndefined();
+    }
+    for (const slug of [AU_DRINK, UK_CAPSULES]) expect(record('au', slug).austl, `au/${slug}`).toBeUndefined();
+  });
+
+  it('AU drink: 106mg caffeine from green coffee bean extract, and only the six B vitamins its ingredient list names', () => {
+    const rows = record('au', AU_DRINK).ingredientDosages;
+    expect(rows.find((r) => /caffeine/i.test(r.name))).toMatchObject({ name: 'Natural Caffeine (from green coffee bean extract)', doseInProduct: '106mg' });
+    const vitamins = rows.find((r) => /vitamin/i.test(r.name))!;
+    expect(vitamins.name).toBe('B vitamins (B1, B2, B3, B6, B12, pantothenic acid)');
+    // The panel says "8 B Vitamins", but the ingredient list has no folate or biotin.
+    expect(vitamins.name).not.toMatch(/\b8\b|eight|folate|biotin/i);
+  });
+
+  it('AU UK-edition capsules: the bacopa row prints no standardisation, so its dose is not proven adequate', () => {
+    const bacopa = record('au', UK_CAPSULES).ingredientDosages.find((r) => /bacopa/i.test(r.name))!;
+    expect(bacopa).toMatchObject({ name: 'Bacopa Monnieri (whole plant extract)', doseInProduct: '300mg', adequatelyDosed: null });
+    expect(bacopa.name).not.toMatch(/%|bacosid/i);
   });
 
   it('no hands-on, legacy price or vendor-terms keys; returns-only policy is not a money-back guarantee', () => {
@@ -143,12 +203,12 @@ describe('Neutonic records on the US and EU hosts', () => {
 
   it('ingredient pages list the records that contain each ingredient', () => {
     const expected: Record<string, string[]> = {
-      citicoline: [DRINK, CAPSULES],
-      'rhodiola-rosea': [DRINK, CAPSULES],
-      caffeine: [DRINK],
-      'l-theanine': [DRINK],
-      'bacopa-monnieri': [CAPSULES],
-      'ginkgo-biloba': [CAPSULES],
+      citicoline: [DRINK, CAPSULES, AU_DRINK, UK_CAPSULES],
+      'rhodiola-rosea': [DRINK, CAPSULES, AU_DRINK, UK_CAPSULES],
+      caffeine: [DRINK, AU_DRINK],
+      'l-theanine': [DRINK, AU_DRINK],
+      'bacopa-monnieri': [CAPSULES, UK_CAPSULES],
+      'ginkgo-biloba': [CAPSULES, UK_CAPSULES],
     };
     for (const [ingredientSlug, slugs] of Object.entries(expected)) {
       const ingredient = ingredients.find((i) => i.slug === ingredientSlug);
@@ -160,15 +220,19 @@ describe('Neutonic records on the US and EU hosts', () => {
   });
 });
 
-describe('Neutonic records are absent outside their wave-1 hosts', () => {
+describe('Neutonic records are absent outside their hosts', () => {
   it('the EU catalogue omits Brain Capsules (not sold on the EU market, 404 on 2026-10-15)', () => {
     expect(allProductsEU.some((p) => p.slug === CAPSULES)).toBe(false);
   });
 
-  it.each(Object.keys(OUT_OF_SCOPE))('%s omits both slugs', (region) => {
+  it('the AU catalogue carries only the AU editions (its store sells neither US product)', () => {
+    for (const slug of [DRINK, CAPSULES]) expect(allProductsAU.some((p) => p.slug === slug), `au/${slug}`).toBe(false);
+  });
+
+  it.each(Object.keys(OUT_OF_SCOPE))('%s omits every Neutonic slug', (region) => {
     const list = OUT_OF_SCOPE[region];
     expect(list.length, `${region} catalogue is empty`).toBeGreaterThan(0);
-    for (const slug of [DRINK, CAPSULES]) {
+    for (const slug of [DRINK, CAPSULES, AU_DRINK, UK_CAPSULES]) {
       expect(list.some((p) => p.slug === slug), `${region}/${slug}`).toBe(false);
     }
   });

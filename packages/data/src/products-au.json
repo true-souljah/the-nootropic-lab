@@ -1752,5 +1752,235 @@
         "lang": "en"
       }
     }
+  },
+  {
+    "id": "neutonic-smarter-energy-drink",
+    "name": "Neutonic Smarter Energy Drink",
+    "brand": "Neutonic",
+    "slug": "neutonic-smarter-energy-drink-review",
+    "bestFor": [
+      "Focus",
+      "Energy",
+      "Pill-averse users"
+    ],
+    "score": 7.1,
+    "scoreBreakdown": {
+      "ingredients": 8,
+      "dosing": 7.5,
+      "transparency": 7,
+      "value": 5,
+      "trust": 7
+    },
+    "storePrice": {
+      "amount": 56.99,
+      "currency": "AUD",
+      "text": "$56.99",
+      "pack": "Tropical Ice x 12 cans",
+      "directions": "One can per day is our recommended serving.",
+      "url": "https://www.neutonic.com/en-au/products/productivity-drink-aus-trop",
+      "checkedAt": "2026-10-19"
+    },
+    "pricingModel": "both",
+    "moneyBackDays": null,
+    "caffeineFree": false,
+    "euStorefront": false,
+    "euCompliance": "verify",
+    "trustpilotScore": 4.8,
+    "trustpilotCount": 1209,
+    "affiliateUrl": "https://www.neutonic.com/en-au/products/productivity-drink-aus-trop?sca_ref=11880392.89XMRS5MXxp&utm_source=uppromote&utm_medium=affiliate&utm_campaign=263773",
+    "affiliateNetwork": "UpPromote",
+    "commissionRate": "10%",
+    "cookieDays": 30,
+    "heroIngredients": [
+      "Citicoline",
+      "L-Theanine",
+      "Caffeine",
+      "Rhodiola Rosea",
+      "Panax Ginseng"
+    ],
+    "ingredientDosages": [
+      {
+        "name": "Natural Caffeine (from green coffee bean extract)",
+        "doseInProduct": "106mg",
+        "clinicalDose": "100-200mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Citicoline (Cognizin®)",
+        "doseInProduct": "500mg",
+        "clinicalDose": "250-500mg/day",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Rhodiola Rosea (extract)",
+        "doseInProduct": "400mg",
+        "clinicalDose": "200-600mg/day",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "L-Theanine",
+        "doseInProduct": "400mg",
+        "clinicalDose": "100-200mg/day",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Panax Ginseng (herb extract)",
+        "doseInProduct": "200mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "B vitamins (B1, B2, B3, B6, B12, pantothenic acid)",
+        "doseInProduct": "100% RI",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      }
+    ],
+    "servingsPerContainer": 12,
+    "capsulesPerServing": 1,
+    "form": "can",
+    "summary": "A zero-sugar energy drink in a 330ml can that UK brand Neutonic sells on its Australian store, with a different formula from the Productivity Drink it sells in the US and Europe. Each can gives 106mg natural caffeine (from green coffee bean extract), 500mg citicoline (as Cognizin®), 400mg L-theanine, 400mg rhodiola extract and 200mg Panax ginseng, plus B vitamins. Caffeine, citicoline and L-theanine meet our reference doses; the rhodiola extract states no standardisation, and we have no reference dose on file for ginseng. A 12-can pack costs $56.99 one-time on neutonic.com's Australian store and ships from within Australia (checked 2026-10-19).",
+    "whatItIs": "Neutonic Smarter Energy Drink is the carbonated can Neutonic sells on its Australian store (/en-au/). It has the same five actives as the brand's Productivity Drink, but 106mg caffeine per 330ml can instead of 120mg. The product page says each can 'Contains 1 serving', and its label advisory reads: 'Contains caffeine: 106 mg per 330 mL serve (32 mg/100 mL). Not recommended for children, pregnant or lactating women, or individuals sensitive to caffeine. Consume no more than one can (330 mL) per day.' On the Australian store it comes in packs of 12 cans in Tropical Ice or Orange Sunrise. Besides the actives, the ingredient list names carbonated water, the acidity regulators citric acid and malic acid, natural flavour, the sweeteners sucralose and acesulfame potassium, and the preservatives sodium benzoate and potassium sorbate; the caffeine comes from green coffee bean extract standardised to 98% caffeine. The 'what's inside' panel says '100% RI 8 B Vitamins', but the full ingredients list names six: niacin, pantothenic acid, riboflavin, vitamin B6, thiamin and vitamin B12 (as cyanocobalamin), with no folate or biotin. The vendor says the drink is suitable for vegetarians and vegans.",
+    "howItWorks": "Caffeine (106mg) blocks adenosine receptors; at low-to-moderate doses it consistently improves alertness, vigilance, attention and reaction time, with less consistent effects on memory (McLellan 2016, a narrative review). L-theanine (400mg, twice the top of our 100-200mg reference range) is an amino acid from green tea: in an 11-study meta-analysis, caffeine plus L-theanine had moderate effects versus placebo on alertness and attention-switching accuracy (Camfield 2014), but Foxe 2012 found no added benefit over either compound alone, and in a controlled trial (Rogers 2008, PubMed 17891480) L-theanine did not significantly reduce caffeine jitteriness. Citicoline (500mg, as Cognizin®) is a precursor to acetylcholine and phosphatidylcholine; its memory evidence comes from older adults with inefficient memory at 1,000-2,000mg a day (Spiers 1996), and a Cochrane review found no evidence of an attention benefit in older adults with chronic cerebral disorders. Rhodiola is an adaptogen: small trials of the SHR-5 extract found less mental fatigue, but a 2012 systematic review rated every included study at high or unclear risk of bias, and the product page does not say which extract or standardisation is used. We have no reference dose on file for Panax ginseng. Neutonic Smarter Energy Drink itself has not been tested in a published trial; the vendor's claims rest on ingredient-level research.",
+    "whatToExpect": "Caffeine's alerting effect typically starts within 15-45 minutes, the onset on our caffeine page; the vendor suggests a can before 'any high demand session', from a morning start to training. Each can has 106mg caffeine and the label says to consume no more than one can a day, so count it toward your daily total if you also drink coffee. The product page's FAQ and 'What to expect' copy still say 120mg; the label advisory and the 'what's inside' panel say 106mg, the figure we use. Citicoline's memory effects in trials were measured after 2-3 months, so a single can should not be expected to change memory. On neutonic.com's Australian store a 12-can pack costs $56.99 one-time or $48.45 a delivery on a subscription (Subscribe & Save 15%, delivered every 4, 6, 8 or 12 weeks), checked 2026-10-19. The product page says it 'ships from within AU', and the Australian shipping page says: 'Free shipping on all AUS stocked product subscriptions or single orders of 2 packs+.' and 'Standard shipping from $9 (varies by state). Orders are typically delivered within 1–3 business days from dispatch.' (neutonic.com/en-au/pages/shipping-returns, checked 2026-10-19).",
+    "pros": [
+      "Caffeine (106mg), citicoline (500mg, as Cognizin®) and L-theanine (400mg) meet our reference doses",
+      "The product page states the amount of each active per can, with no proprietary blend",
+      "Zero sugar",
+      "Ships from within Australia, free on subscriptions or on single orders of 2 packs or more (neutonic.com Australian shipping page, checked 2026-10-19)",
+      "Ready-to-drink can, an option for people who would rather not swallow capsules",
+      "Strong Trustpilot profile for neutonic.com: 4.8/5 from 1,209 reviews (checked 2026-10-15)"
+    ],
+    "cons": [
+      "The product page contradicts itself: its FAQ says 120mg caffeine per can while the label advisory says 106mg, and its 'what's inside' panel claims more B vitamins than the six its ingredient list names",
+      "The rhodiola extract states no standardisation, and we have no reference dose on file for Panax ginseng (200mg)",
+      "12 cans per pack: at the label's limit of one can a day, a pack lasts 12 days",
+      "106mg caffeine per can; not for anyone avoiding stimulants",
+      "Sweetened with sucralose and acesulfame potassium",
+      "No published trial of Neutonic Smarter Energy Drink itself; the evidence is for its ingredients"
+    ],
+    "notes": [
+      "Ingredient amounts from the 'what's inside' panel, the label advisory and the full ingredients list on Neutonic's Australian product page, https://www.neutonic.com/en-au/products/productivity-drink-aus-trop, checked 2026-10-19.",
+      "The keyword 'Neutonic' returned no matching results in the Therapeutic Goods Administration (TGA) search of the Australian Register of Therapeutic Goods (ARTG) or in its cancellations-by-sponsor database (searched 2026-10-19). The can is sold as an energy drink whose label carries a caffeine advisory statement rather than an AUST number."
+    ],
+    "editorChoice": false,
+    "market": "au",
+    "updatedAt": "2026-10-19",
+    "trustpilotCheckedAt": "2026-10-15",
+    "verifiedAt": "2026-10-19"
+  },
+  {
+    "id": "neutonic-brain-capsules-uk",
+    "name": "Neutonic Brain Capsules (UK edition)",
+    "brand": "Neutonic",
+    "slug": "neutonic-brain-capsules-uk-review",
+    "bestFor": [
+      "Focus",
+      "Memory",
+      "Stim-free focus"
+    ],
+    "score": 5.9,
+    "scoreBreakdown": {
+      "ingredients": 8,
+      "dosing": 2.5,
+      "transparency": 7,
+      "value": 7,
+      "trust": 7
+    },
+    "storePrice": {
+      "amount": 92.99,
+      "currency": "AUD",
+      "text": "$92.99",
+      "pack": "90 Capsules",
+      "directions": "Take 3 capsules on the daily as part of your routine.",
+      "url": "https://www.neutonic.com/en-au/products/neutonic-capsules-uk",
+      "checkedAt": "2026-10-19"
+    },
+    "pricingModel": "both",
+    "moneyBackDays": null,
+    "caffeineFree": true,
+    "euStorefront": false,
+    "euCompliance": "verify",
+    "trustpilotScore": 4.8,
+    "trustpilotCount": 1209,
+    "affiliateUrl": "https://www.neutonic.com/en-au/products/neutonic-capsules-uk?sca_ref=11880392.89XMRS5MXxp&utm_source=uppromote&utm_medium=affiliate&utm_campaign=263773",
+    "affiliateNetwork": "UpPromote",
+    "commissionRate": "10%",
+    "cookieDays": 30,
+    "heroIngredients": [
+      "Citicoline",
+      "Bacopa Monnieri",
+      "Rhodiola Rosea",
+      "Ginkgo Biloba",
+      "Panax Ginseng"
+    ],
+    "ingredientDosages": [
+      {
+        "name": "Citicoline (Cognizin®)",
+        "doseInProduct": "500mg",
+        "clinicalDose": "250-500mg/day",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Rhodiola Rosea (root extract)",
+        "doseInProduct": "400mg",
+        "clinicalDose": "200-600mg/day",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Bacopa Monnieri (whole plant extract)",
+        "doseInProduct": "300mg",
+        "clinicalDose": "300-450mg/day (≥50% bacosides)",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Panax Ginseng (root)",
+        "doseInProduct": "200mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Ginkgo Biloba (leaf extract)",
+        "doseInProduct": "120mg",
+        "clinicalDose": "240mg/day (24/6 extract)",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "8 B vitamins (B1, B2, B3, B6, folate, B12, biotin, pantothenic acid)",
+        "doseInProduct": "100% RI",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      }
+    ],
+    "servingsPerContainer": 30,
+    "capsulesPerServing": 3,
+    "summary": "Caffeine-free nootropic capsules from UK brand Neutonic, in the UK-label edition its Australian store sells and ships from the UK. Three capsules give 500mg citicoline (as Cognizin®), 400mg rhodiola extract, 300mg Bacopa monnieri extract, 200mg Panax ginseng and 120mg ginkgo biloba extract, plus eight B vitamins. Citicoline meets our reference dose; this label prints no bacoside standardisation for the bacopa (the US label states 55% bacosides), so the bacopa dose cannot be checked against our reference. Ginkgo is half our 240mg reference dose, the rhodiola extract states no standardisation, and we have no reference dose on file for ginseng.",
+    "whatItIs": "Neutonic Brain Capsules (UK edition) are the caffeine-free capsules Neutonic sells on its Australian store (/en-au/), shipped from the UK. They carry the UK label rather than the US one: the actives and amounts are the same as on the US bottle, but this label prints no bacoside standardisation for the bacopa extract (the US label states 55% bacosides), its ingredient list names 'Panax Ginseng Root' where its dose panel says '200mg Panax Ginseng Extract', and the capsule shell is rice hull concentrate and hypromellose coloured with iron oxide and titanium dioxide. A bottle holds 90 capsules, 30 daily servings of 3; the vendor says the capsules can be taken together or spread through the day. The vitamin blend lists niacin, pantothenic acid, biotin, vitamin B6, thiamin, riboflavin, folic acid (as calcium 5-methyltetrahydrofolate) and vitamin B12 (as cyanocobalamin), which the vendor's panel gives as 100% of the reference intake (RI). The vendor says the capsules are suitable for vegetarians and vegans.",
+    "howItWorks": "Citicoline (500mg, as Cognizin®) is a precursor to acetylcholine and phosphatidylcholine; its memory evidence comes from older adults with inefficient memory at 1,000-2,000mg a day (Spiers 1996), and a Cochrane review found no evidence of an attention benefit in older adults with chronic cerebral disorders. Bacopa (300mg) has the most memory evidence here: two 12-week trials in healthy older adults improved delayed word recall at 300mg a day (Calabrese 2008; Morgan & Stevens 2010), though the newest 12-week trial at that dose (Lopresti 2025) found no effect on verbal learning, attention or working memory. Our reference dose is for an extract with at least 50% bacosides, and this label does not print the bacoside content. The positive ginkgo trials were in dementia, mainly at 240mg a day of the EGb 761 extract for 22-26 weeks (Tan 2015 meta-analysis); this product has 120mg with no standardisation on the product page, and the GEM trial found no preventive effect on dementia in people aged 75 and over. Rhodiola is an adaptogen: small trials of the SHR-5 extract found less mental fatigue, but a 2012 systematic review rated every included study at high or unclear risk of bias, and the product page does not say which extract or standardisation is used. We have no reference dose on file for Panax ginseng. Brain Capsules themselves have not been tested in a published trial; the vendor's claims rest on ingredient-level research.",
+    "whatToExpect": "Brain Capsules are built for daily use rather than a quick effect: the vendor recommends taking them every day for at least 30 days to experience the full benefits, and the positive bacopa memory trials ran for 12 weeks. There is no caffeine, so the timing is flexible, and the vendor says they can be taken alongside its caffeinated drink. Take 3 capsules a day. Our bacopa page notes digestive effects (increased stool frequency, abdominal cramps, nausea) at 300mg a day in a 12-week trial in older adults, so taking the capsules with food may help. On neutonic.com's Australian store a bottle costs $92.99 one-time for 90 capsules (30 servings) or $79.04 a delivery on a subscription (Subscribe & Save 15%, delivered every 4, 6, 8 or 12 weeks), checked 2026-10-19. The product page says 'This product ships from the UK', and the Australian shipping page says: 'Products shipped from the UK are charged at international shipping rates and are not eligible for free shipping.' It gives UK dispatches as 'Standard = Typically Delivered within 10-20 business days from dispatch' and 'Express = Typically Delivered within 2 - 6 business days from dispatch' (neutonic.com/en-au/pages/shipping-returns, checked 2026-10-19).",
+    "pros": [
+      "Caffeine-free",
+      "Citicoline (500mg, as Cognizin®) meets our reference dose",
+      "The product page states the amount of each active, with no proprietary blend",
+      "Strong Trustpilot profile for neutonic.com: 4.8/5 from 1,209 reviews (checked 2026-10-15)"
+    ],
+    "cons": [
+      "This label prints no bacoside standardisation for its 300mg bacopa extract (the US label states 55% bacosides), so the bacopa dose cannot be checked against our reference",
+      "Ginkgo biloba (120mg) is half our 240mg reference dose, with no standardisation on the product page",
+      "The rhodiola extract states no standardisation, and we have no reference dose on file for Panax ginseng (200mg)",
+      "Ships from the UK: charged at international shipping rates and not eligible for free shipping (neutonic.com Australian shipping page, checked 2026-10-19)",
+      "Three capsules per daily serving",
+      "Our ginkgo page notes a raised bleeding risk with blood thinners such as warfarin: ask your doctor first if you take one",
+      "No published trial of Brain Capsules themselves; the evidence is for the ingredients"
+    ],
+    "notes": [
+      "Ingredient amounts from the 'what's inside' panel and full ingredients list on Neutonic's Australian product page, https://www.neutonic.com/en-au/products/neutonic-capsules-uk, checked 2026-10-19; Neutonic's UK product page, https://www.neutonic.com/products/neutonic-capsules-uk, prints the same ingredient list.",
+      "The keyword 'Neutonic' returned no matching results in the Therapeutic Goods Administration (TGA) search of the Australian Register of Therapeutic Goods (ARTG) or in its cancellations-by-sponsor database (searched 2026-10-19); the product page shows no AUST number."
+    ],
+    "editorChoice": false,
+    "market": "both",
+    "updatedAt": "2026-10-19",
+    "trustpilotCheckedAt": "2026-10-15",
+    "verifiedAt": "2026-10-19"
   }
 ]
