@@ -66,6 +66,7 @@ export const CITATIONS: readonly Citation[] = [
   { pmid: '22690320', title: 'Chronic effects of a wild green oat extract supplementation on cognitive performance in older adults: a randomised, double-blind, placebo-controlled, crossover trial.', firstAuthor: 'Wong', year: 2012 },
   { pmid: '22696350', title: 'Omega 3 fatty acid for the prevention of cognitive decline and dementia.', firstAuthor: 'Sydenham', year: 2012 },
   { pmid: '22747190', title: 'The cognitive-enhancing effects of Bacopa monnieri: a systematic review of randomized, controlled human clinical trials.', firstAuthor: 'Pase', year: 2012 },
+  { pmid: '23221935', title: 'Chronic consumption of a wild green oat extract (Neuravena) improves brachial flow-mediated dilatation and cerebrovascular responsiveness in older adults.', firstAuthor: 'Wong', year: 2013 },
   { pmid: '23235666', title: 'Huperzine A for mild cognitive impairment.', firstAuthor: 'Yue', year: 2012 },
   { pmid: '23281132', title: 'An acute, double-blind, placebo-controlled crossover study of 320 mg and 640 mg doses of a special extract of Bacopa monnieri (CDRI 08) on sustained cognitive performance.', firstAuthor: 'Downey', year: 2012 },
   { pmid: '23439798', title: 'A prospective, randomized double-blind, placebo-controlled study of safety and efficacy of a high-concentration full-spectrum extract of ashwagandha root in reducing stress and anxiety in adults.', firstAuthor: 'Chandrasekhar', year: 2012 },
