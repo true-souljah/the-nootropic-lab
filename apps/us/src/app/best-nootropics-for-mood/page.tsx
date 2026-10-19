@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
-import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsUS, getRegionalHealthDisclaimer, ingredients } from '@nootropic/data';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -119,6 +119,7 @@ export default function Page() {
       pageDescription="Independent ranking of nootropics with mood-adjacent benefits in healthy adults. NOT a treatment for depression or anxiety."
       heroParagraph="Mood support is one of the harder use cases to evaluate honestly — the placebo effect is large, the YMYL stakes are high, and the clinical evidence is weakest exactly where buyers want certainty. This page covers what the evidence actually says about Rhodiola, L-theanine, Bacopa, and saffron for mood-adjacent benefits in healthy adults. Not a substitute for mental health care."
       ingredientMechanism={ingredientMechanism}
+      ingredientPages={ingredients}
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}

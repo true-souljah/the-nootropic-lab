@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
-import { productsLatam, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsLatam, getRegionalHealthDisclaimer, localizedIngredients } from '@nootropic/data';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -120,6 +120,7 @@ export default function Page() {
       pageDescription="Ranking independiente de nootrópicos para sesiones de estudio prolongadas para estudiantes en Latinoamérica. Concentración + consolidación de memoria + seguridad para uso diario."
       heroParagraph="Estudiar combina dos demandas cognitivas distintas: concentración sostenida durante las sesiones de estudio y consolidación de memoria entre ellas. El mejor stack de estudio cubre ambas — ingredientes de efecto agudo para concentración (L-teanina + cafeína) más ingredientes de uso diario para memoria (Bacopa, citicolina). Esta página clasifica los productos disponibles para estudiantes en Latam que incluyen ambos. Considera el tiempo de envío internacional (10–18 días) al planificar para el inicio del cuatrimestre."
       ingredientMechanism={ingredientMechanism}
+      ingredientPages={localizedIngredients('es')}
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}

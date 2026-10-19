@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
-import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsUS, getRegionalHealthDisclaimer, ingredients } from '@nootropic/data';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -123,6 +123,7 @@ export default function Page() {
       pageDescription="No supplement is equivalent to Adderall. This page covers what the evidence actually shows about over-the-counter ingredients with any mechanistic adjacency to prescription stimulants."
       heroParagraph="There is no over-the-counter substitute for Adderall. This page exists because the search query is high-volume and the existing top-ranking pages are misleading. Below: an honest review of which supplement ingredients share any mechanism with prescription stimulants, what the clinical evidence actually shows, and which products in our coverage contain them at clinical dose."
       ingredientMechanism={ingredientMechanism}
+      ingredientPages={ingredients}
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}
