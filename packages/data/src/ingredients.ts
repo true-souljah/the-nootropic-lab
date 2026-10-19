@@ -48,7 +48,7 @@ export interface IngredientSource {
 export interface Ingredient {
   slug: string;
   name: string;
-  category: 'adaptogen' | 'cholinergic' | 'mushroom' | 'amino' | 'herb' | 'vitamin';
+  category: 'adaptogen' | 'cholinergic' | 'mushroom' | 'amino' | 'herb' | 'vitamin' | 'mineral';
   mechanism: string;
   clinicalDose: string;
   timeToEffect: string;
@@ -952,7 +952,7 @@ export const ingredients: Ingredient[] = [
   {
     slug: 'magnesium',
     name: 'Magnesium',
-    category: 'vitamin',
+    category: 'mineral',
     mechanism: 'Magnesium is an essential mineral. Supplement doses should be compared as elemental magnesium, not as the weight of the salt: 414mg of magnesium oxide provides 250mg of elemental magnesium, and 1g of Magtein (magnesium L-threonate) about 75mg. Trials have used magnesium oxide, citrate, chloride, bisglycinate and L-threonate, and evidence from one form does not transfer to another; we found no human trial of magnesium taurate on sleep, mood, anxiety or cognition. Effects may depend on magnesium status: in one trial, people with lower dietary magnesium gained more (an exploratory finding), and trials rarely measure baseline status.',
     clinicalDose: '250–500mg/day of elemental magnesium in the positive bisglycinate and magnesium oxide sleep trials; citrate at 320mg/day did not beat placebo; L-threonate trials used 1–2g of product (about 75–150mg elemental)',
     timeToEffect: 'Sleep trials lasted 20 days to 8 weeks; the bisglycinate benefit was measured at 4 weeks',
@@ -1203,11 +1203,7 @@ export const ingredients: Ingredient[] = [
       withFood: 'The trials set no rule; one sleep trial gave the tablets after meals.',
       forms: 'Tablets, capsules, dried leaf or drinks. The extract in the two placebo-controlled sleep trials we cite is Relissa, an aqueous leaf extract standardised to 17–23% hydroxycinnamic acid derivatives in a phospholipid carrier; other trials used dried leaf, other standardised extracts or rosmarinic-acid extracts. A label that does not state the extract type or standardisation cannot be matched to any trial.',
     },
-    stacksWith: [
-      { ingredient: 'L-Theanine', slug: 'l-theanine', reason: 'A formula of L-theanine, lemon balm, valerian and saffron did not improve actigraphy sleep measures or sleep-quality scores more than placebo over 6 weeks in 64 adults with impaired sleep (Gutiérrez-Romero 2024).' },
-      { ingredient: 'Magnesium', slug: 'magnesium', reason: 'We found no trial combining lemon balm with magnesium; we cite no trial of the pairing.' },
-      { ingredient: 'Tart Cherry', slug: 'tart-cherry', reason: 'We found no trial combining lemon balm with tart cherry; we cite no trial of the pairing.' },
-    ],
+    stacksWith: [],
     faqs: [
       { question: 'Does any lemon balm extract work the same way?', answer: 'No. The two placebo-controlled sleep trials we cite used one branded phospholipid-carrier extract at 400mg/day. Trials of dried leaf, other extracts or herbal combinations are not evidence for it, and a product that does not state its extract type or standardisation cannot be compared with them.' },
       { question: 'What dose was tested for sleep?', answer: '400mg/day of the phospholipid-carrier extract, as two 200mg tablets, in its two placebo-controlled trials. 200mg/day was tested only in an open-label study without placebo, where sleep scores improved half as much as at 400mg/day (−15% vs −30%). 200mg is also below the lowest single dose (300mg) in the calm and memory study.' },

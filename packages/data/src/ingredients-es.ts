@@ -1175,18 +1175,14 @@ export const ingredientsEs: IngredientTranslation[] = [
       withFood: 'Los ensayos no fijan ninguna regla; un ensayo de sueño dio los comprimidos después de las comidas.',
       forms: 'Comprimidos, cápsulas, hoja seca o bebidas. El extracto de los dos ensayos de sueño controlados con placebo que citamos es Relissa, un extracto acuoso de hoja estandarizado al 17–23% de derivados del ácido hidroxicinámico con un portador de fosfolípidos; otros ensayos usaron hoja seca, otros extractos estandarizados o extractos de ácido rosmarínico. Una etiqueta que no indique el tipo de extracto ni su estandarización no puede compararse con ningún ensayo.',
     },
-    stacksWith: [
-      { ingredient: 'L-Teanina', reason: 'Una fórmula de L-teanina, melisa, valeriana y azafrán no mejoró las medidas de sueño por actigrafía ni las puntuaciones de calidad del sueño más que el placebo durante 6 semanas en 64 adultos con sueño alterado (Gutiérrez-Romero 2024).' },
-      { ingredient: 'Magnesium', reason: 'No encontramos ningún ensayo que combine la melisa con magnesio; no citamos ningún ensayo de esta combinación.' },
-      { ingredient: 'Tart Cherry', reason: 'No encontramos ningún ensayo que combine la melisa con cereza ácida; no citamos ningún ensayo de esta combinación.' },
-    ],
+    stacksWith: [],
     faqs: [
       { question: '¿Cualquier extracto de melisa funciona igual?', answer: 'No. Los dos ensayos de sueño controlados con placebo que citamos usaron un solo extracto de marca con portador de fosfolípidos a 400mg/día. Los ensayos con hoja seca, otros extractos o combinaciones de hierbas no son evidencia para él, y un producto que no indique su tipo de extracto ni su estandarización no puede compararse con ellos.' },
       { question: '¿Qué dosis se probó para el sueño?', answer: '400mg/día del extracto con portador de fosfolípidos, como dos comprimidos de 200mg, en sus dos ensayos controlados con placebo. 200mg/día solo se probaron en un estudio abierto sin placebo, donde las puntuaciones de sueño mejoraron la mitad que con 400mg/día (−15% frente a −30%). 200mg también están por debajo de la dosis única más baja (300mg) del estudio de calma y memoria.' },
       { question: '¿La melisa me dará somnolencia al día siguiente?', answer: 'Se desconoce. Una sola dosis de 900mg redujo la alerta autoevaluada en un estudio de laboratorio, pero ningún ensayo midió los efectos al día siguiente de una dosis nocturna.' },
       { question: '¿Quién financió la investigación?', answer: 'Entre los autores del ensayo cruzado de sueño están el director científico y consultores de Pharmextracta, fabricante del producto probado, y el estudio abierto declaró que Relissa es una marca registrada de Indena. No se encontró ninguna replicación independiente de los resultados sobre el sueño.' },
     ],
-    sourceHashes: { name: 'd357d411278a', mechanism: '268b21d86cca', clinicalDose: '52359847168c', timeToEffect: 'a0d850f4806a', studySummary: 'b8ebc041cfc0', benefits: '3404e19eb490', sideEffects: 'fd3adc6ecb39', humanEffects: '921c8167d429', howToTake: '5d9fc417793e', stacksWith: 'a182277a3408', faqs: 'caf4dacc2294' },
+    sourceHashes: { name: 'd357d411278a', mechanism: '268b21d86cca', clinicalDose: '52359847168c', timeToEffect: 'a0d850f4806a', studySummary: 'b8ebc041cfc0', benefits: '3404e19eb490', sideEffects: 'fd3adc6ecb39', humanEffects: '921c8167d429', howToTake: '5d9fc417793e', stacksWith: '4f53cda18c2b', faqs: 'caf4dacc2294' },
   },
 ];
 
