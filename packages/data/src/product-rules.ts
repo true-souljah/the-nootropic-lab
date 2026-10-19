@@ -244,11 +244,33 @@ export function halalEvidenceProblem(
   return null;
 }
 
+const DOMESTIC_SUPPLY_KEYS = ['basis', 'checkedAt'];
+
+/**
+ * Why `domesticSupply` is malformed (one line per problem), or [] when it is
+ * absent or valid. It hides the import-status chip, so it must carry the
+ * vendor statement it rests on: a non-empty `basis` and a real `checkedAt`
+ * date (YYYY-MM-DD); any other key is rejected (a typo would silently render
+ * nothing).
+ */
+export function domesticSupplyProblems(value: unknown): string[] {
+  if (value === undefined) return [];
+  if (value === null || typeof value !== 'object' || Array.isArray(value)) return ['domesticSupply is not an object'];
+  const record = value as Record<string, unknown>;
+  const problems: string[] = [];
+  for (const key of Object.keys(record)) {
+    if (!DOMESTIC_SUPPLY_KEYS.includes(key)) problems.push(`domesticSupply has an unknown key "${key}" (allowed: ${DOMESTIC_SUPPLY_KEYS.join(', ')})`);
+  }
+  if (typeof record.basis !== 'string' || !record.basis.trim()) problems.push('domesticSupply.basis is empty');
+  if (!isIsoDate(record.checkedAt)) problems.push(`domesticSupply.checkedAt is not an ISO date (YYYY-MM-DD): ${JSON.stringify(record.checkedAt)}`);
+  return problems;
+}
+
 /** All rule violations for one record. */
 export function productRuleProblems(
   product: Pick<
     Product,
-    'affiliateUrl' | 'ingredientDosages' | 'discontinued' | 'form' | 'score' | 'scoreBreakdown' | 'unscoredReason' | 'halalCertified' | 'halalCheckedAt' | 'halalBasis' | 'vendorTerms'
+    'affiliateUrl' | 'ingredientDosages' | 'discontinued' | 'form' | 'score' | 'scoreBreakdown' | 'unscoredReason' | 'halalCertified' | 'halalCheckedAt' | 'halalBasis' | 'vendorTerms' | 'domesticSupply'
   > &
     Partial<Pick<Product, 'capsulesPerServing'>>,
 ): string[] {
@@ -264,5 +286,6 @@ export function productRuleProblems(
   const halal = halalEvidenceProblem(product);
   if (halal) problems.push(halal);
   problems.push(...vendorTermsProblems(product.vendorTerms));
+  problems.push(...domesticSupplyProblems(product.domesticSupply));
   return problems;
 }

@@ -1889,5 +1889,250 @@
         "lang": "en"
       }
     }
+  },
+  {
+    "id": "neutonic-productivity-drink",
+    "name": "Neutonic Productivity Drink",
+    "brand": "Neutonic",
+    "slug": "neutonic-productivity-drink-review",
+    "bestFor": [
+      "Focus",
+      "Energy",
+      "Pill-averse users"
+    ],
+    "score": 7.3,
+    "scoreBreakdown": {
+      "ingredients": 8,
+      "dosing": 7.5,
+      "transparency": 8,
+      "value": 5,
+      "trust": 7
+    },
+    "storePrice": {
+      "amount": 52,
+      "currency": "CAD",
+      "text": "$52.00",
+      "pack": "Tropical Ice x 12 cans",
+      "directions": "One can per day is our recommended serving.",
+      "url": "https://www.neutonic.com/en-us/products/tropical-ice-12pk-us",
+      "checkedAt": "2026-10-19"
+    },
+    "pricingModel": "both",
+    "moneyBackDays": null,
+    "caffeineFree": false,
+    "euStorefront": false,
+    "euCompliance": "verify",
+    "trustpilotScore": 4.8,
+    "trustpilotCount": 1209,
+    "affiliateUrl": "https://www.neutonic.com/en-us/products/tropical-ice-12pk-us?sca_ref=11880392.89XMRS5MXxp&utm_source=uppromote&utm_medium=affiliate&utm_campaign=263773",
+    "affiliateNetwork": "UpPromote",
+    "commissionRate": "10%",
+    "cookieDays": 30,
+    "heroIngredients": [
+      "Citicoline",
+      "L-Theanine",
+      "Caffeine",
+      "Rhodiola Rosea",
+      "Panax Ginseng"
+    ],
+    "ingredientDosages": [
+      {
+        "name": "Natural Caffeine",
+        "doseInProduct": "120mg",
+        "clinicalDose": "100-200mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Citicoline (Cognizin®)",
+        "doseInProduct": "500mg",
+        "clinicalDose": "250-500mg/day",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Rhodiola Rosea (root extract)",
+        "doseInProduct": "400mg",
+        "clinicalDose": "200-600mg/day",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "L-Theanine",
+        "doseInProduct": "400mg",
+        "clinicalDose": "100-200mg/day",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Panax Ginseng (root extract)",
+        "doseInProduct": "200mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "8 B vitamins (B1, B2, B3, B6, folate, B12, biotin, pantothenic acid)",
+        "doseInProduct": "100% RI",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      }
+    ],
+    "servingsPerContainer": 12,
+    "capsulesPerServing": 1,
+    "form": "can",
+    "summary": "A zero-sugar nootropic energy drink in a can from UK brand Neutonic. Each 355ml can gives 120mg natural caffeine, 500mg citicoline (as Cognizin®), 400mg L-theanine, 400mg rhodiola extract and 200mg Panax ginseng extract, plus eight B vitamins. Caffeine, citicoline and L-theanine meet our reference doses; the rhodiola extract states no standardisation, and we have no reference dose on file for ginseng. Canadian shoppers are served neutonic.com's US store, which with Canada selected sells a 12-can pack for $52.00 in Canadian dollars, one-time, through its own cart (checked 2026-10-19).",
+    "whatItIs": "Neutonic Productivity Drink is a carbonated, ready-to-drink can from Neutonic, a UK brand whose range also includes caffeine-free Brain Capsules. One can is one serving ('Each can contains one serving'), and the vendor's recommended serving is one can a day. Canadian shoppers are served neutonic.com's US store (/en-us/), which sells the US edition in packs of 12 x 355ml cans in one flavour (Tropical Ice, Orange Sunrise, Strawberry Lemonade, Wild Citrus or Blue Raspberry) or as a mixed-flavour pack. Besides the actives, the US ingredient list names carbonated water, citric acid, natural flavours, trisodium citrate, the sweeteners sucralose and acesulfame potassium, and potassium sorbate as a preservative; the vitamin blend lists thiamin, riboflavin, niacin, vitamin B6, folate (as calcium 5-methyltetrahydrofolate), vitamin B12 (as methylcobalamin), biotin and pantothenic acid, which the vendor's panel gives as 100% of the reference intake (RI). The vendor says the drink is suitable for vegetarians and vegans. We found no Natural Product Number (NPN) for Neutonic as a brand name or licence holder in Health Canada's Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-19); a licence can be held under another name, so look for an eight-digit NPN on the label.",
+    "howItWorks": "Caffeine (120mg) blocks adenosine receptors; at low-to-moderate doses it consistently improves alertness, vigilance, attention and reaction time, with less consistent effects on memory (McLellan 2016, a narrative review). L-theanine (400mg, twice the top of our 100-200mg reference range) is an amino acid from green tea: in an 11-study meta-analysis, caffeine plus L-theanine had moderate effects versus placebo on alertness and attention-switching accuracy (Camfield 2014), but Foxe 2012 found no added benefit over either compound alone, and in a controlled trial (Rogers 2008, PubMed 17891480) L-theanine did not significantly reduce caffeine jitteriness. Citicoline (500mg, as Cognizin®) is a precursor to acetylcholine and phosphatidylcholine; its memory evidence comes from older adults with inefficient memory at 1,000-2,000mg a day (Spiers 1996), and a Cochrane review found no evidence of an attention benefit in older adults with chronic cerebral disorders. Rhodiola is an adaptogen: small trials of the SHR-5 extract found less mental fatigue, but a 2012 systematic review rated every included study at high or unclear risk of bias, and the product page does not say which extract or standardisation is used. We have no reference dose on file for Panax ginseng. Neutonic Productivity Drink itself has not been tested in a published trial; the vendor's claims rest on ingredient-level research.",
+    "whatToExpect": "Caffeine's alerting effect typically starts within 15-45 minutes, the onset on our caffeine page; the vendor suggests a can before 'any high demand session', from a morning start to training. Each can has 120mg caffeine and the vendor recommends one can a day, advising drinkers to be mindful of their total caffeine intake, so count it toward your daily total if you also drink coffee. Citicoline's memory effects in trials were measured after 2-3 months, so a single can should not be expected to change memory. With Canada selected, neutonic.com's US product page prices a 12-can pack at $52.00 one-time or $44.20 a delivery on a subscription (Subscribe & Save 15%, delivered every 4, 6, 8 or 12 weeks), in Canadian dollars, checked 2026-10-19; the store converts these prices itself, so they can change from day to day. Its US shipping page has no Canada-specific terms and says 'Final shipping fees are calculated at checkout based on weight and location' (neutonic.com/en-us/pages/shipping-returns, checked 2026-10-19).",
+    "pros": [
+      "Caffeine (120mg), citicoline (500mg, as Cognizin®) and L-theanine (400mg) meet our reference doses",
+      "The product page states the amount of each active per can, with no proprietary blend",
+      "Zero sugar",
+      "Ready-to-drink can, an option for people who would rather not swallow capsules",
+      "Canadian shoppers check out on neutonic.com in Canadian dollars, one-time or on a subscription (checked 2026-10-19)",
+      "Strong Trustpilot profile for neutonic.com: 4.8/5 from 1,209 reviews (checked 2026-10-15)"
+    ],
+    "cons": [
+      "No Canada-specific shipping terms: neutonic.com's US shipping page says final shipping fees are calculated at checkout based on weight and location (checked 2026-10-19)",
+      "Canadian-dollar prices are the store's own conversion and can change from day to day",
+      "The rhodiola extract states no standardisation, and we have no reference dose on file for Panax ginseng (200mg)",
+      "12 cans per pack: at the recommended one can a day, a pack lasts 12 days",
+      "120mg caffeine per can; not for anyone avoiding stimulants",
+      "Sweetened with sucralose and acesulfame potassium",
+      "No Natural Product Number (NPN) found for Neutonic (LNHPD, 2026-10-19); check the label",
+      "No published trial of Neutonic Productivity Drink itself; the evidence is for its ingredients"
+    ],
+    "notes": [
+      "Ingredient amounts from the 'what's inside' panel and full ingredients list on Neutonic's US product page as served with Canada selected, https://www.neutonic.com/en-us/products/tropical-ice-12pk-us, checked 2026-10-19.",
+      "With Canada selected the page prints the price as '$52.00' (one-time) and '$44.20' (Subscribe & Save 15%), with no CA$ prefix; the page's structured data gives the currency as CAD (checked 2026-10-19)."
+    ],
+    "editorChoice": false,
+    "market": "both",
+    "updatedAt": "2026-10-19",
+    "npnStatus": {
+      "status": "pip",
+      "checkedAt": "2026-10-19",
+      "basis": "no row for Neutonic as brand name or licence holder; full LNHPD register export via the productlicence API (307,528 rows) scanned case-insensitively on 2026-10-19"
+    },
+    "trustpilotCheckedAt": "2026-10-15",
+    "verifiedAt": "2026-10-19"
+  },
+  {
+    "id": "neutonic-brain-capsules",
+    "name": "Neutonic Brain Capsules",
+    "brand": "Neutonic",
+    "slug": "neutonic-brain-capsules-review",
+    "bestFor": [
+      "Focus",
+      "Memory",
+      "Stim-free focus"
+    ],
+    "score": 6.9,
+    "scoreBreakdown": {
+      "ingredients": 8,
+      "dosing": 5,
+      "transparency": 8,
+      "value": 7,
+      "trust": 7
+    },
+    "storePrice": {
+      "amount": 72,
+      "currency": "CAD",
+      "text": "$72.00",
+      "pack": "90 Capsules",
+      "directions": "Take 3 capsules on the daily as part of your routine.",
+      "url": "https://www.neutonic.com/en-us/products/neutonic-capsules-us",
+      "checkedAt": "2026-10-19"
+    },
+    "pricingModel": "both",
+    "moneyBackDays": null,
+    "caffeineFree": true,
+    "euStorefront": false,
+    "euCompliance": "verify",
+    "trustpilotScore": 4.8,
+    "trustpilotCount": 1209,
+    "affiliateUrl": "https://www.neutonic.com/en-us/products/neutonic-capsules-us?sca_ref=11880392.89XMRS5MXxp&utm_source=uppromote&utm_medium=affiliate&utm_campaign=263773",
+    "affiliateNetwork": "UpPromote",
+    "commissionRate": "10%",
+    "cookieDays": 30,
+    "heroIngredients": [
+      "Citicoline",
+      "Bacopa Monnieri",
+      "Rhodiola Rosea",
+      "Ginkgo Biloba",
+      "Panax Ginseng"
+    ],
+    "ingredientDosages": [
+      {
+        "name": "Citicoline (Cognizin®)",
+        "doseInProduct": "500mg",
+        "clinicalDose": "250-500mg/day",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Rhodiola Rosea (root extract)",
+        "doseInProduct": "400mg",
+        "clinicalDose": "200-600mg/day",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Bacopa Monnieri (whole plant extract, 55% bacosides)",
+        "doseInProduct": "300mg",
+        "clinicalDose": "300-450mg/day (≥50% bacosides)",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Panax Ginseng (root extract)",
+        "doseInProduct": "200mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      },
+      {
+        "name": "Ginkgo Biloba (leaf extract)",
+        "doseInProduct": "120mg",
+        "clinicalDose": "240mg/day (24/6 extract)",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "8 B vitamins (B1, B2, B3, B6, folate, B12, biotin, pantothenic acid)",
+        "doseInProduct": "100% RI",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      }
+    ],
+    "servingsPerContainer": 30,
+    "capsulesPerServing": 3,
+    "summary": "Caffeine-free nootropic capsules from UK brand Neutonic. Three capsules give 500mg citicoline (as Cognizin®), 400mg rhodiola extract, 300mg Bacopa monnieri extract (55% bacosides), 200mg Panax ginseng extract and 120mg ginkgo biloba extract, plus eight B vitamins. Citicoline and bacopa meet our reference doses; ginkgo is half our 240mg reference dose, the rhodiola extract states no standardisation, and we have no reference dose on file for ginseng. Canadian shoppers are served neutonic.com's US store, which with Canada selected sells a 90-capsule bottle for $72.00 in Canadian dollars, one-time (checked 2026-10-19).",
+    "whatItIs": "Neutonic Brain Capsules are the caffeine-free capsule version of Neutonic's formula. Canadian shoppers are served neutonic.com's US store (/en-us/), which sells this US edition. The vendor describes them as its core formula (Cognizin®, rhodiola, Panax ginseng and eight B vitamins) plus two additions, Bacopa monnieri and ginkgo biloba. A bottle holds 90 capsules, 30 daily servings of 3; the vendor says the capsules can be taken together or spread through the day. The other ingredients listed are rice hull concentrate, a hypromellose capsule, silica, magnesium stearate and dicalcium phosphate; the vitamin blend lists thiamin, riboflavin, niacin, vitamin B6, folate (as calcium 5-methyltetrahydrofolate), vitamin B12 (as cyanocobalamin), biotin and pantothenic acid, which the vendor's panel gives as 100% of the reference intake (RI). The vendor says the capsules are suitable for vegetarians and vegans. We found no Natural Product Number (NPN) for Neutonic as a brand name or licence holder in Health Canada's Licensed Natural Health Products Database (LNHPD) (full register export searched, 2026-10-19); a licence can be held under another name, so look for an eight-digit NPN on the label.",
+    "howItWorks": "Citicoline (500mg, as Cognizin®) is a precursor to acetylcholine and phosphatidylcholine; its memory evidence comes from older adults with inefficient memory at 1,000-2,000mg a day (Spiers 1996), and a Cochrane review found no evidence of an attention benefit in older adults with chronic cerebral disorders. Bacopa (300mg, 55% bacosides) has the most memory evidence here: two 12-week trials in healthy older adults improved delayed word recall at 300mg a day (Calabrese 2008; Morgan & Stevens 2010), though the newest 12-week trial at that dose (Lopresti 2025) found no effect on verbal learning, attention or working memory. The positive ginkgo trials were in dementia, mainly at 240mg a day of the EGb 761 extract for 22-26 weeks (Tan 2015 meta-analysis); this product has 120mg with no standardisation on the product page, and the GEM trial found no preventive effect on dementia in people aged 75 and over. Rhodiola is an adaptogen: small trials of the SHR-5 extract found less mental fatigue, but a 2012 systematic review rated every included study at high or unclear risk of bias, and the product page does not say which extract or standardisation is used. We have no reference dose on file for Panax ginseng. Brain Capsules themselves have not been tested in a published trial; the vendor's claims rest on ingredient-level research.",
+    "whatToExpect": "Brain Capsules are built for daily use rather than a quick effect: the vendor recommends taking them every day for at least 30 days to experience the full benefits, and the positive bacopa memory trials ran for 12 weeks. There is no caffeine, so the timing is flexible, and the vendor says they can be taken alongside its caffeinated Productivity Drink. Take 3 capsules a day. Our bacopa page notes digestive effects (increased stool frequency, abdominal cramps, nausea) at 300mg a day in a 12-week trial in older adults, so taking the capsules with food may help. With Canada selected, neutonic.com's US product page prices a bottle at $72.00 one-time for 90 capsules (30 servings) or $61.20 a delivery on a subscription (Subscribe & Save 15%, delivered every 4, 6, 8 or 12 weeks), in Canadian dollars, checked 2026-10-19; the store converts these prices itself, so they can change from day to day. Its US shipping page has no Canada-specific terms and says 'Final shipping fees are calculated at checkout based on weight and location' (neutonic.com/en-us/pages/shipping-returns, checked 2026-10-19).",
+    "pros": [
+      "Caffeine-free",
+      "Citicoline (500mg, as Cognizin®) and bacopa (300mg, 55% bacosides) meet our reference doses",
+      "The product page states the amount of each active, with no proprietary blend",
+      "Bacopa standardisation (55% bacosides) printed in the ingredient list",
+      "Canadian shoppers check out on neutonic.com in Canadian dollars, one-time or on a subscription (checked 2026-10-19)",
+      "Strong Trustpilot profile for neutonic.com: 4.8/5 from 1,209 reviews (checked 2026-10-15)"
+    ],
+    "cons": [
+      "Ginkgo biloba (120mg) is half our 240mg reference dose, with no standardisation on the product page",
+      "The rhodiola extract states no standardisation, and we have no reference dose on file for Panax ginseng (200mg)",
+      "Three capsules per daily serving",
+      "Our ginkgo page notes a raised bleeding risk with blood thinners such as warfarin: ask your doctor first if you take one",
+      "No Canada-specific shipping terms: neutonic.com's US shipping page says final shipping fees are calculated at checkout based on weight and location (checked 2026-10-19)",
+      "Canadian-dollar prices are the store's own conversion and can change from day to day",
+      "No Natural Product Number (NPN) found for Neutonic (LNHPD, 2026-10-19); check the label",
+      "No published trial of Brain Capsules themselves; the evidence is for the ingredients"
+    ],
+    "notes": [
+      "Ingredient amounts from the 'what's inside' panel and full ingredients list on Neutonic's US product page as served with Canada selected, https://www.neutonic.com/en-us/products/neutonic-capsules-us, checked 2026-10-19.",
+      "With Canada selected the page prints the price as '$72.00' (one-time) and '$61.20' (Subscribe & Save 15%), with no CA$ prefix; the page's structured data gives the currency as CAD. The store converts its prices into Canadian dollars itself: the same bottle's structured data showed CAD 73.00 on 2026-10-18 and CAD 72.00 on 2026-10-19."
+    ],
+    "editorChoice": false,
+    "market": "both",
+    "updatedAt": "2026-10-19",
+    "npnStatus": {
+      "status": "pip",
+      "checkedAt": "2026-10-19",
+      "basis": "no row for Neutonic as brand name or licence holder; full LNHPD register export via the productlicence API (307,528 rows) scanned case-insensitively on 2026-10-19"
+    },
+    "trustpilotCheckedAt": "2026-10-15",
+    "verifiedAt": "2026-10-19"
   }
 ]

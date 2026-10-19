@@ -44,6 +44,9 @@ function newLeaves(locale: Locale): Map<string, string> {
   const i = s.ingredientDetail;
   const g = s.guide;
   const { useCaseLabels: _useCaseLabels, ...listicle } = s.listicle;
+  // The eight headings are this change's chrome; the policy text (`body`,
+  // en and es only, 2026-10-19) is checked in products-latam-es.test.ts.
+  const { body: _editorialBody, ...editorialHeadings } = s.editorialStandards;
   return new Map([
     ['nav.productCount', s.nav.productCount],
     ['nav.ingredientCount', s.nav.ingredientCount],
@@ -87,7 +90,7 @@ function newLeaves(locale: Locale): Map<string, string> {
     ...leaves(s.comparator, 'comparator'),
     ...leaves(s.ingredientLibrary, 'ingredientLibrary'),
     ...leaves(s.geo, 'geo'),
-    ...leaves(s.editorialStandards, 'editorialStandards'),
+    ...leaves(editorialHeadings, 'editorialStandards'),
     ...leaves(s.shortlist, 'shortlist'),
   ]);
 }

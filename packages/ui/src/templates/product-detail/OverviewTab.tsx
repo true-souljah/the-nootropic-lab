@@ -45,16 +45,19 @@ export function OverviewTab({ product: p, strings }: OverviewTabProps) {
         <Card padding={20}>
           <h3 className="text-[14px] font-semibold m-0 mb-3 text-ds-ink">{t.heroIngredients}</h3>
           <ul className="list-none p-0 m-0 flex flex-col gap-2">
-            {p.heroIngredients.slice(0, 6).map((name) => {
-              const dose = p.ingredientDosages.find(
+            {p.heroIngredients.slice(0, 6).map((name, i) => {
+              // The lookup matches the English names; the page shows the
+              // record's page-language text (Product.display) when it has one.
+              const doseIndex = p.ingredientDosages.findIndex(
                 (d) => d.name.toLowerCase().includes(name.toLowerCase()) || name.toLowerCase().includes(d.name.toLowerCase())
               );
+              const dose = doseIndex === -1 ? undefined : p.display?.ingredientDosages[doseIndex] ?? p.ingredientDosages[doseIndex];
               return (
                 <li
                   key={name}
                   className="flex justify-between gap-3 py-[6px] border-b border-ds-border last:border-b-0"
                 >
-                  <span className="text-[13.5px] font-semibold text-ds-ink">{name}</span>
+                  <span className="text-[13.5px] font-semibold text-ds-ink">{p.display?.heroIngredients[i] ?? name}</span>
                   {dose && (
                     <span className="text-[12.5px] font-bold text-ds-accent ds-tabular">
                       {dose.doseInProduct}
