@@ -1,0 +1,358 @@
+{
+  "slug": "tart-cherry",
+  "generatedAt": "2026-10-19T07:21:13Z",
+  "compoundNote": "Tart cherry here means Montmorency tart cherry (Prunus cerasus) as juice, concentrate or powder. The sleep literature is dominated by juice and concentrate (typically 30 mL concentrate or 240 mL juice, once or twice a day); the product form on the Performance Lab Sleep label is CherryPURE, a branded powdered whole Montmorency tart cherry, stated as 500 mg at a 50:1 concentrated ratio per 2-capsule serving (the ratio and its basis are label claims we could not verify). PubMed shows CherryPURE only in two exercise trials at 480 mg/day, with no sleep outcome. Cherry-industry bodies fund much of this work (CherryPharm, Cherry Marketing Institute); funding is recorded per study. Melatonin in cherry juice is trace-level (about 0.135 micrograms in a juice dose in one analysis), so any sleep effect is not established to run through dietary melatonin. Evidence for sleep is small, short, mixed and mostly in juice; two trials that tested capsule or powder forms were null. No pooled meta-analysis exists. All pubmedUrl status values are 203 because NCBI served a bot-challenge page to curl; see statusNote.",
+  "ourClaims": null,
+  "studies": [
+    {
+      "pmid": "22038497",
+      "doi": "10.1007/s00394-011-0263-7",
+      "title": "Effect of tart cherry juice (Prunus cerasus) on melatonin levels and enhanced sleep quality",
+      "journal": "European journal of nutrition",
+      "year": 2012,
+      "design": "randomised, double-blind, placebo-controlled crossover (Howatson et al.)",
+      "population": "20 healthy volunteers (men and women; ages not in the abstract)",
+      "n": 20,
+      "dose": "Amount of concentrate NOT in the abstract and the primary full text is paywalled (Springer). A 2025 systematic review (PMC12438961) describes it as 30 mL of concentrate per serving, 60 mL/day, and prints a melatonin figure with garbled units ('42.6 lg/30 mL'); this was NOT verified against the primary paper and the review is internally inconsistent about the volume.",
+      "form": "Montmorency tart cherry juice concentrate vs placebo",
+      "duration": "7 days per arm",
+      "outcome": "Urinary 6-sulfatoxymelatonin (melatonin metabolite), actigraphy sleep, subjective sleep questionnaires",
+      "result": "Total urinary melatonin content higher on cherry juice (P<0.05; no difference between baseline and placebo). Time in bed, total sleep time and sleep efficiency all significantly increased (P<0.05) on cherry juice. No change in melatonin circadian timing; trend to higher mesor and amplitude. Authors conclude exogenous melatonin from the juice is beneficial for sleep duration and quality. 7-day crossover, n=20, juice concentrate (not powder).",
+      "fundingConflict": "NOT VERIFIED: full text paywalled (Springer); the funding/conflict statement could not be read. PubMed lists no grants and no COI statement.",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/22038497/",
+      "status": 200,
+      "statusNote": "HTTP 200 via Firecrawl fetch of pubmedUrl on 2026-10-19 (page citation_pmid 22038497, title matched); curl got a 203 bot challenge."
+    },
+    {
+      "pmid": "20438325",
+      "doi": "10.1089/jmf.2009.0096",
+      "title": "Effects of a tart cherry juice beverage on the sleep of older adults with insomnia: a pilot study",
+      "journal": "Journal of medicinal food",
+      "year": 2010,
+      "design": "randomised, double-blind, placebo-controlled crossover pilot (Pigeon et al.)",
+      "population": "15 older adults with chronic insomnia, otherwise healthy (mean age 71.6, SD 5.4; 7 women)",
+      "n": 15,
+      "dose": "two 8-ounce (about 240 mL) servings per day, one at 8-10 am and one 1-2 h before bed. Manufacturer data (unpublished, quoted in the paper): one 8 oz serving about 60 mg anthocyanins and 550 mg total phenolics, 'the equivalent of 50 whole tart cherries'. No melatonin content stated in the sections read.",
+      "form": "CherryPharm proprietary tart cherry juice blend vs placebo beverage",
+      "duration": "2 weeks per arm, 2-week washout",
+      "outcome": "Sleep diary (sleep latency, wake after sleep onset, total sleep time, sleep efficiency) and Insomnia Severity Index",
+      "result": "Versus placebo, significant reductions in ISI (P<.05) and wake after sleep onset (P<.01; cherry 62.1 min vs placebo 79.1 min, baseline 78.9). No significant between-group difference for sleep latency, total sleep time or sleep efficiency. Placebo also raised total sleep time within-group (P<.05). No improvement in fatigue, depression or anxiety. Authors call the effects modest and far smaller than CBT-I or hypnotics.",
+      "fundingConflict": "Read in full text (PMC3133468): 'CherryPharm, Inc., the maker of the tart cherry juice, funded this research study in its entirety. No other competing financial interests exist.' One author also receives salary support from an NIH K23 grant.",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/20438325/",
+      "status": 200,
+      "statusNote": "HTTP 200 via Firecrawl fetch of pubmedUrl on 2026-10-19 (page citation_pmid 20438325, title matched); curl got a 203 bot challenge."
+    },
+    {
+      "pmid": "28901958",
+      "doi": "10.1097/MJT.0000000000000584",
+      "title": "Pilot Study of the Tart Cherry Juice for the Treatment of Insomnia and Investigation of Mechanisms",
+      "journal": "American journal of therapeutics",
+      "year": 2018,
+      "design": "randomised, placebo-controlled, balanced crossover pilot (Losso et al.) with polysomnography",
+      "population": "Adults older than 50 with insomnia; 11 randomised, 8 completers (mean age 68; 5 women); 3 excluded for sleep apnoea",
+      "n": 8,
+      "dose": "240 mL twice daily (480 mL/day). Full text: the dose is 'juice derived from 100 g of cherries' and contains melatonin equivalent to 0.135 micrograms, versus the 0.5-5 mg recommended for sleep, so the authors argue the effect is not due to melatonin.",
+      "form": "Indian Summer tart cherry juice (Montmorency) vs placebo",
+      "duration": "2 weeks per arm, 2-week washout",
+      "outcome": "Polysomnography, 5 sleep questionnaires, kynurenine-to-tryptophan ratio, prostaglandin E2, IDO (in vitro mechanism work)",
+      "result": "Total sleep time on polysomnography +84 min (SD 61.7; P=0.0182). Sleep onset latency, wake after sleep onset, number of awakenings and PSG sleep efficiency did not differ (P=0.96, 0.75, 0.78, 0.19). Pittsburgh Sleep Quality Index sleep efficiency improved (P=0.03); the other questionnaires showed no significant differences. Kynurenine-to-tryptophan ratio and PGE2 fell. Only 8 completers.",
+      "fundingConflict": "Read in full text (PMC5617749): 'This trial was supported by the Cherry Marketing Institute which had nothing to do with the design of the trial', plus NIH centre grants (NIDDK, NCCAM/ODS, NIGMS); 'Conflicts of interest: none'.",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/28901958/",
+      "status": 200,
+      "statusNote": "HTTP 200 via Firecrawl fetch of pubmedUrl on 2026-10-19 (page citation_pmid 28901958, title matched); curl got a 203 bot challenge."
+    },
+    {
+      "pmid": "39683518",
+      "doi": "10.3390/nu16234125",
+      "title": "Commonly Used Dose of Montmorency Tart Cherry Powder Does Not Improve Sleep or Inflammation Outcomes in Individuals with Overweight or Obesity",
+      "journal": "Nutrients",
+      "year": 2024,
+      "design": "randomised, placebo-controlled crossover",
+      "population": "34 adults with sleep problems and overweight or obesity (mean BMI 32.1)",
+      "n": 34,
+      "dose": "500 mg per day of '100% Montmorency tart cherry powder' (whole US Montmorency cherries, no additives or excipients; Shoreline Fruit), taken as two capsules one hour before bed; placebo 460 mg corn starch. The authors state 500 mg is similar in anthocyanin and polyphenol content to 2 oz of concentrate (their own statement, not an independently established equivalence).",
+      "form": "powdered whole Montmorency tart cherry in capsules vs corn starch",
+      "duration": "14 days per arm, at least 10-day washout",
+      "outcome": "Total, deep and REM sleep, nocturnal sleep (Zmachine and/or Fitbit); PSQI, Sleep Quality Scale, ISI; CRP, TNF-alpha, IL-6, IL-8, IL-10, IL-17A",
+      "result": "No significant effect on any sleep or inflammation measure (p>0.05 for all). Authors conclude that studies in people with overweight or obesity should test higher doses than the commonly recommended 500 mg.",
+      "fundingConflict": "Read in full text (PMC11644614): 'This research was funded by the Cherry Marketing Institute. The APC was funded by the Cherry Marketing Institute.' Authors declare no conflicts and say the funder had no role in design, analysis or the decision to publish. Industry-funded null result.",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/39683518/",
+      "status": 200,
+      "statusNote": "HTTP 200 via Firecrawl fetch of pubmedUrl on 2026-10-19 (page citation_pmid 39683518, title matched); curl got a 203 bot challenge."
+    },
+    {
+      "pmid": "35790450",
+      "doi": "10.1177/02601060221111230",
+      "title": "Montmorency tart cherry supplementation does not impact sleep, body composition, cellular health, or blood pressure in healthy adults",
+      "journal": "Nutrition and health",
+      "year": 2026,
+      "design": "randomised, placebo-controlled, four-arm (juice, juice placebo, capsules, capsule placebo); electronic publication 2022, issue year 2026 in PubMed",
+      "population": "44 healthy adults with completed sleep records",
+      "n": 44,
+      "dose": "juice arm: two 240 mL bottles per day; capsule arm: two capsules per day of powdered Montmorency tart cherry (mg per capsule not in the abstract; full text paywalled)",
+      "form": "Montmorency tart cherry juice and powdered capsules vs placebos",
+      "duration": "30 days",
+      "outcome": "Daily sleep questionnaire (time and quality); body composition, cellular health, blood pressure",
+      "result": "No significant difference in sleep time or quality between groups (both rose over 30 days in all groups, including placebo). Capsule groups lost about 0.7 kg body mass (14 days vs baseline, 30 vs 14 days); no other body composition, cellular health or blood pressure effect. Authors note the result conflicts with earlier tart cherry sleep data.",
+      "fundingConflict": "NOT VERIFIED: full text paywalled (SAGE). PubMed COI statement: 'declared no potential conflicts of interest'; no grants listed. Funding source not read.",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/35790450/",
+      "status": 200,
+      "statusNote": "HTTP 200 via Firecrawl fetch of pubmedUrl on 2026-10-19 (page citation_pmid 35790450, title matched); curl got a 203 bot challenge."
+    },
+    {
+      "pmid": "36011907",
+      "doi": "10.3390/ijerph191610272",
+      "title": "Effects of Short-Term Intake of Montmorency Tart Cherry Juice on Sleep Quality after Intermittent Exercise in Elite Female Field Hockey Players: A Randomized Controlled Trial",
+      "journal": "International journal of environmental research and public health",
+      "year": 2022,
+      "design": "randomised, double-blind, placebo-controlled parallel (Chung et al.)",
+      "population": "19 elite female field hockey players (placebo n=9, cherry n=10)",
+      "n": 19,
+      "dose": "30 mL of tart cherry concentrate diluted to 200 mL (manufacturer: about 48 cherries per 30 mL), 5 servings in 48 h after intermittent exhaustion exercise (200 mL morning and evening on days 1-2, morning on day 3)",
+      "form": "tart cherry juice (diluted concentrate, Organicmaru) vs placebo drink",
+      "duration": "5-day study, 48 h of dosing",
+      "outcome": "Actigraphy sleep after exhaustive exercise; plasma melatonin and cortisol",
+      "result": "No group x time effect on melatonin or cortisol. Actigraphy interactions: total time in bed (p=0.015), wake after sleep onset (p=0.044), movement index (p=0.031). Authors say sleep quality may improve without a change in melatonin level. Small athlete sample, short exposure after a strenuous protocol.",
+      "fundingConflict": "Read in full text (PMC9408103): funded by the Dongguk University Research Fund of 2022; 'The authors declare that they have no competing interest.'",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/36011907/",
+      "status": 203,
+      "statusNote": "HTTP 203 from curl on 2026-10-19 (NCBI bot-challenge page, not a 200); PMID, title, journal and year confirmed via NCBI E-utilities esummary (HTTP 200). Full text read via Europe PMC (PMC9408103)."
+    },
+    {
+      "pmid": "35564709",
+      "doi": "10.3390/ijerph19095317",
+      "title": "Effects of Montmorency Tart Cherry and Blueberry Juice on Cardiometabolic and Other Health-Related Outcomes: A Three-Arm Placebo Randomized Controlled Trial",
+      "journal": "International journal of environmental research and public health",
+      "year": 2022,
+      "design": "randomised, placebo-controlled three-arm parallel trial (tart cherry, blueberry, placebo); sleep a secondary measure",
+      "population": "45 adults (the paper's discussion calls them healthy adults)",
+      "n": 45,
+      "dose": "30 mL of Montmorency tart cherry concentrate diluted in 100 mL water, twice daily (60 mL/day; ActiveEdge UK product, 102 kcal per 30 mL per the manufacturer)",
+      "form": "tart cherry concentrate vs blueberry concentrate vs placebo concentrate",
+      "duration": "20 days",
+      "outcome": "Primary: systolic blood pressure. Secondary incl. sleep efficacy (PSQI, Insomnia Severity Index, Epworth Sleepiness Scale), psychological wellbeing, lipids",
+      "result": "Primary outcome (systolic BP) null. The abstract reports no sleep result. In the full-text results table no sleep measure (PSQI, ISI, ESS) carries the significance marker for any arm; the only marked values are wellbeing scores (the abstract attributes the wellbeing and lipid improvements to the blueberry arm). Read as: no detectable sleep effect; we did not re-analyse the data. Baseline PSQI was already low (about 4.5-5.7), so little room to improve.",
+      "fundingConflict": "Read in full text (PMC9103925): sponsor University of Central Lancashire, no external funding; supplementation provided by ActiveEdge (Nutrition) Ltd (the statement was read up to 'who did not have any input i...'; the remainder was not read). 'The authors declare no conflict of interest.'",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/35564709/",
+      "status": 203,
+      "statusNote": "HTTP 203 from curl on 2026-10-19 (NCBI bot-challenge page, not a 200); PMID, title, journal and year confirmed via NCBI E-utilities esummary (HTTP 200). Full text read via Europe PMC (PMC9103925)."
+    },
+    {
+      "pmid": "31512550",
+      "doi": "10.1177/0260106019875911",
+      "title": "The effects of a sleep/recovery supplement: 'Night Time Recharge' on sleep parameters in young adults",
+      "journal": "Nutrition and health",
+      "year": 2019,
+      "design": "randomised, double-blind, placebo-controlled crossover (Simper et al.)",
+      "population": "20 young active adults (9 female) with mildly poor sleep",
+      "n": 20,
+      "dose": "Marketed product 'Night Time Recharge' containing cherry extract; a 2025 systematic review (PMC12438961) describes it as 1000 mg of cherry (not verified against the primary paper; full text paywalled). The authors report no detectable melatonin in the supplement by LC-MS and attribute a latency effect to its tryptophan content.",
+      "form": "multi-ingredient sleep/recovery supplement containing cherry extract vs placebo",
+      "duration": "7 days per arm",
+      "outcome": "Accelerometer sleep parameters; urinary 6-sulphatoxymelatonin",
+      "result": "Urinary 6-SMT higher on the supplement (28.95 vs 4.0 ng/ml, p<0.001) even though no melatonin was found in the product. No significant effect on any sleep parameter except sleep latency (p=0.001). Dietary tryptophan intake was slightly higher in the supplement week (1236 vs 1149 mg, p=0.047). Cannot be attributed to cherry alone.",
+      "fundingConflict": "NOT VERIFIED: full text paywalled. PubMed lists no grants and no COI statement.",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/31512550/",
+      "status": 203,
+      "statusNote": "HTTP 203 from curl on 2026-10-19 (NCBI bot-challenge page, not a 200); PMID, title, journal and year confirmed via NCBI E-utilities esummary (HTTP 200)."
+    },
+    {
+      "pmid": "36094342",
+      "doi": "10.1249/MSS.0000000000003040",
+      "title": "Nutritional Modulation of Sleep Latency, Duration, and Efficiency: A Randomized, Repeated-Measures, Double-Blind Deception Study",
+      "journal": "Medicine and science in sports and exercise",
+      "year": 2023,
+      "design": "randomised, repeated-measures, double-blind deception crossover; 3-day familiarisation then 3-day intervention and placebo trials",
+      "population": "16 healthy young adults (9 men, 7 women; age 24 +/- 3)",
+      "n": 16,
+      "dose": "Blend of tryptophan, glycine, magnesium, tart cherry powder and L-theanine; the individual doses are NOT in the abstract and the paper is paywalled (not verified). This is the closest published analogue to the Performance Lab Sleep ingredient set (magnesium, tart cherry, tryptophan, lemon balm) but it contains glycine and theanine, not lemon balm.",
+      "form": "multi-ingredient nutritional blend vs placebo",
+      "duration": "3 days per arm",
+      "outcome": "PSQI, Core Consensus Sleep Diary, Karolinska Sleepiness Scale; actigraphy; urinary metabolomics",
+      "result": "Blend trial: sleep onset latency -24 +/- 25 min (P=0.002), total sleep time +22 +/- 32 min (P=0.01), sleep efficiency +2.4% (P=0.03), less morning sleepiness (P=0.02). 75% of participants stayed blinded to sleep being the outcome; 56% subjectively reported better sleep on the blend. Urinary 6-sulfatoxymelatonin among altered metabolites. The effect cannot be assigned to the cherry component, and the exposure was 3 days.",
+      "fundingConflict": "NOT VERIFIED: paywalled (Ovid/LWW). PubMed lists no grants and no COI statement.",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/36094342/",
+      "status": 200,
+      "statusNote": "HTTP 200 via Firecrawl fetch of pubmedUrl on 2026-10-19 (page citation_pmid 36094342, title matched); curl got a 203 bot challenge."
+    },
+    {
+      "pmid": "42836311",
+      "doi": "10.1080/24733938.2026.2741064",
+      "title": "Individual effects of a nutritional supplementation blend on sleep in professional under-17 footballers: a replicate crossover trial",
+      "journal": "Science & medicine in football",
+      "year": 2026,
+      "design": "two-cycle replicate crossover, randomised sequences (n-of-1 style)",
+      "population": "12 male youth professional footballers (age 16.1 +/- 0.4) after match play",
+      "n": 12,
+      "dose": "per condition: 15,000 mg cherry juice concentrate, 220 mg cherry extract, 250 mg cocoa extract, 200 mg tryptophan, 100 mg 5-HTP, 3,000 mg glycine, 300 mg magnesium, 200 mg theanine (all from the abstract); placebo was a 40 g carbohydrate gel",
+      "form": "multi-ingredient blend with cherry juice concentrate and cherry extract",
+      "duration": "2 days per condition, two cycles",
+      "outcome": "Wrist actigraphy: time asleep, wake after sleep onset, sleep latency, sleep efficiency",
+      "result": "Trivial replicate-averaged effects on all sleep outcomes; between-cycle correlations of individual responses trivial (r -0.25 to 0.17, all p>=0.43). No meaningful individual responders. A negative result for a blend that included tryptophan, magnesium and a large cherry dose.",
+      "fundingConflict": "NOT VERIFIED: PubMed lists no grants and no COI statement; full text not read.",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/42836311/",
+      "status": 203,
+      "statusNote": "HTTP 203 from curl on 2026-10-19 (NCBI bot-challenge page, not a 200); PMID, title, journal and year confirmed via NCBI E-utilities esummary (HTTP 200)."
+    },
+    {
+      "pmid": "40964149",
+      "doi": "10.1002/fsn3.70923",
+      "title": "The Effect of Tart Cherry on Sleep Quality and Sleep Disorders: A Systematic Review",
+      "journal": "Food science & nutrition",
+      "year": 2025,
+      "design": "systematic review (qualitative; no pooled meta-analysis), PubMed/Scholar/ScienceDirect/Scopus/EMBASE searched January 2025",
+      "population": "7 interventional studies of tart cherry and sleep, sleep disorders, melatonin, inflammation (mixed populations)",
+      "n": null,
+      "dose": "heterogeneous: juice, concentrate and powder; doses and durations varied widely",
+      "form": "tart cherry juice, concentrate, powder or supplements",
+      "duration": "varied by included study (not tabulated here)",
+      "outcome": "Sleep quality, duration, efficiency, melatonin, inflammation, oxidative stress",
+      "result": "Three of seven studies reported improved sleep indicators (duration, efficiency or onset); three reported higher melatonin; two reported lower inflammatory markers. Authors: evidence 'limited and heterogeneous', with large differences in dose, duration and population; high-quality trials needed. This is the only review located that is specific to tart cherry and sleep; no meta-analysis with pooled effect sizes was found.",
+      "fundingConflict": "COI statement in PubMed: 'The authors declare no conflicts of interest.' No grants listed. Review itself; included trials carry their own funding (see above).",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/40964149/",
+      "status": 203,
+      "statusNote": "HTTP 203 from curl on 2026-10-19 (NCBI bot-challenge page, not a 200); PMID, title, journal and year confirmed via NCBI E-utilities esummary (HTTP 200). Full text read via Europe PMC (PMC12438961)."
+    },
+    {
+      "pmid": "26578852",
+      "doi": "10.1186/s12970-015-0102-y",
+      "title": "Effects of powdered Montmorency tart cherry supplementation on an acute bout of intense lower body strength exercise in resistance trained males",
+      "journal": "Journal of the International Society of Sports Nutrition",
+      "year": 2015,
+      "design": "randomised, double-blind, placebo-controlled (exercise trial; no sleep outcome)",
+      "population": "23 healthy resistance-trained men (aged about 21)",
+      "n": 23,
+      "dose": "480 mg/day CherryPURE capsules",
+      "form": "CherryPURE powdered Montmorency tart cherry vs placebo",
+      "duration": "10 days including the exercise bout",
+      "outcome": "Muscle soreness and strength recovery, muscle damage, inflammation (no sleep or melatonin outcome in the abstract)",
+      "result": "Lower soreness in the vastus lateralis (p=0.024) and some lower muscle-damage markers; no effect on inflammatory or oxidative-stress markers. Listed ONLY to show that the CherryPURE brand name appears in PubMed trials at about 480 mg/day, none of which measured sleep. Not evidence for sleep.",
+      "fundingConflict": "NOT VERIFIED: PubMed lists no grants and no COI statement; full text not read.",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/26578852/",
+      "status": 203,
+      "statusNote": "HTTP 203 from curl on 2026-10-19 (NCBI bot-challenge page, not a 200); PMID, title, journal and year confirmed via NCBI E-utilities esummary (HTTP 200)."
+    },
+    {
+      "pmid": "27231439",
+      "doi": "10.1186/s12970-016-0133-z",
+      "title": "Effects of powdered Montmorency tart cherry supplementation on acute endurance exercise performance in aerobically trained individuals",
+      "journal": "Journal of the International Society of Sports Nutrition",
+      "year": 2016,
+      "design": "randomised, double-blind, placebo-controlled (exercise trial; no sleep outcome)",
+      "population": "27 endurance-trained runners and triathletes (18 men, 9 women; aged about 22)",
+      "n": 27,
+      "dose": "480 mg/day CherryPURE capsules (rice flour placebo)",
+      "form": "CherryPURE powdered Montmorency tart cherry vs placebo",
+      "duration": "10 days including a half-marathon",
+      "outcome": "Half-marathon time, muscle damage, inflammation, soreness (no sleep or melatonin outcome in the abstract)",
+      "result": "Tart cherry group finished the half-marathon about 13% faster (p=0.001) with lower inflammatory markers over time (p=0.017). Small, unusual effect size; included ONLY to show CherryPURE brand use at 480 mg/day. Not evidence for sleep.",
+      "fundingConflict": "NOT VERIFIED: PubMed lists no grants and no COI statement; full text not read.",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/27231439/",
+      "status": 203,
+      "statusNote": "HTTP 203 from curl on 2026-10-19 (NCBI bot-challenge page, not a 200); PMID, title, journal and year confirmed via NCBI E-utilities esummary (HTTP 200)."
+    }
+  ],
+  "verdicts": [
+    {
+      "claim": "Sleep duration/quality/efficiency, healthy adults (juice or concentrate)",
+      "verdict": "mixed",
+      "reason": "Two small positive trials with juice or concentrate (Howatson 2012, n=20, 7 days, actigraphy: time in bed, total sleep time, efficiency up; Chung 2022, n=19 athletes, 48 h: time in bed, WASO and movement index improved) against two null trials in healthy adults (PMID 35790450, n=44, 30 days, juice and capsule arms; PMID 35564709, n=45, 20 days, concentrate, sleep a secondary measure). Samples are tiny, follow-ups are 1 to 4 weeks, and the positive Howatson paper is paywalled so its dose and funding could not be read. No pooled estimate exists.",
+      "pmids": [
+        "22038497",
+        "36011907",
+        "35790450",
+        "35564709"
+      ]
+    },
+    {
+      "claim": "Sleep in older adults with insomnia (juice)",
+      "verdict": "preliminary",
+      "reason": "Two crossover pilots, 15 and 8 completers. Pigeon 2010 (CherryPharm blend, 240 mL twice daily, 2 weeks): insomnia severity and wake after sleep onset improved vs placebo, but sleep latency, total sleep time and efficiency did not; the maker funded it entirely. Losso 2018 (240 mL twice daily, 2 weeks): polysomnographic total sleep time +84 min but latency, WASO and PSG efficiency unchanged and most questionnaires null; Cherry Marketing Institute funded it. Neither finding has been independently replicated, and the first is sponsor-funded, so this is hypothesis-generating only.",
+      "pmids": [
+        "20438325",
+        "28901958"
+      ]
+    },
+    {
+      "claim": "Sleep in clinical populations with other conditions (poor sleep with overweight or obesity)",
+      "verdict": "preliminary",
+      "reason": "One industry-funded crossover (n=34, 500 mg Montmorency powder 1 h before bed, 14 days) found no effect on any sleep or inflammation measure. Graded preliminary because it is a single null trial, not because there is positive evidence. Treat as no benefit shown.",
+      "pmids": [
+        "39683518"
+      ]
+    },
+    {
+      "claim": "Sleep from powdered/capsule tart cherry (the form used in Performance Lab Sleep)",
+      "verdict": "preliminary",
+      "reason": "No trial of a cherry powder or capsule used alone showed a sleep benefit. The two trials that included a capsule or powder arm were null (PMID 39683518: 500 mg, n=34; PMID 35790450: capsule arm within a n=44 trial). All positive single-ingredient sleep trials used juice or concentrate. The equivalence of powder to juice for sleep is not established (the 500 mg trial authors argue it matches 2 oz of concentrate by anthocyanin and polyphenol content, an assertion by the authors, not a tested bioequivalence).",
+      "pmids": [
+        "39683518",
+        "35790450",
+        "20438325",
+        "28901958",
+        "22038497"
+      ]
+    },
+    {
+      "claim": "Melatonin (urinary 6-sulfatoxymelatonin or plasma) increase from tart cherry",
+      "verdict": "mixed",
+      "reason": "Higher urinary 6-SMT after juice concentrate (Howatson 2012) and after a cherry-extract product (Simper 2019, 28.95 vs 4.0 ng/ml) but that product contained no detectable melatonin; no change in plasma melatonin in the hockey trial. The Losso full text puts the melatonin in a juice dose at about 0.135 micrograms versus the 0.5-5 mg doses used for sleep, so food melatonin is unlikely to explain any sleep effect. A raised urinary metabolite is not itself a sleep outcome.",
+      "pmids": [
+        "22038497",
+        "31512550",
+        "36011907",
+        "28901958"
+      ]
+    },
+    {
+      "claim": "Sleep from multi-ingredient blends that include tart cherry plus tryptophan/magnesium",
+      "verdict": "mixed",
+      "reason": "One 3-day crossover (n=16) of a tryptophan, glycine, magnesium, tart cherry powder and theanine blend improved latency (-24 min), sleep time (+22 min) and efficiency, whereas a 2-day replicate crossover (n=12 youth footballers) of a larger blend (cherry concentrate 15 g, tryptophan 200 mg, magnesium 300 mg, glycine 3 g and others) found trivial effects, and the cherry-extract product Night Time Recharge improved only sleep latency in 20 adults. None isolates cherry, none matches the Performance Lab Sleep formula, and exposures were 2 to 7 days.",
+      "pmids": [
+        "36094342",
+        "42836311",
+        "31512550"
+      ]
+    },
+    {
+      "claim": "Pooled evidence (meta-analysis) for tart cherry on sleep",
+      "verdict": "preliminary",
+      "reason": "No meta-analysis with pooled effect sizes was located. The only tart-cherry-specific review is a 2025 qualitative systematic review of 7 studies (3 with improved sleep indicators), which calls the evidence limited and heterogeneous.",
+      "pmids": [
+        "40964149"
+      ]
+    }
+  ],
+  "doseAssessment": {
+    "trialRange": "Positive sleep results in humans used JUICE or CONCENTRATE, not powder: Pigeon 2010 two 8 oz (about 240 mL) servings/day for 14 days (older adults with insomnia; PSG-free diary data); Losso 2018 240 mL twice daily for 14 days (older adults; juice from 100 g cherries per dose, melatonin about 0.135 micrograms); Howatson 2012 concentrate for 7 days (amount in the paywalled paper; a secondary source says 30 mL twice daily, not verified); Chung 2022 30 mL concentrate diluted to 200 mL, 5 servings in 48 h. Null or negative trials: 500 mg/day Montmorency powder capsules for 14 days (PMID 39683518); capsules and 2 x 240 mL juice for 30 days (PMID 35790450); 30 mL concentrate twice daily for 20 days (PMID 35564709). CherryPURE (the brand on the Performance Lab label) appears in PubMed only in two exercise trials at 480 mg/day, with no sleep outcome.",
+    "ourDoseWithinRange": null,
+    "suggestedText": "Performance Lab Sleep lists 500 mg of CherryPURE whole Montmorency tart cherry (50:1 concentrated ratio) per 2-capsule serving. That is the same milligram amount (500 mg of whole Montmorency powder, two capsules before bed) that produced NO sleep benefit in an industry-funded 14-day crossover of 34 adults with poor sleep and overweight or obesity (PMID 39683518), and it is a powder rather than the juice or concentrate that all the positive sleep trials used. Whether a '50:1' concentrate powder is equivalent to the unconcentrated powder in that trial, or to 2 oz of juice concentrate, is NOT established: the 50:1 ratio is a label claim we could not verify, we found no published analysis of CherryPURE, and the trial authors' statement that 500 mg powder matches 2 oz concentrate by anthocyanin and polyphenol content is their own claim. So the label dose is inside the range tested for powder (and that range was null), but its relationship to the juice doses that worked cannot be stated; do not convert 500 mg to millilitres of juice on the page."
+  },
+  "safetySignals": [
+    {
+      "signal": "Juice and concentrate formats carry sugar and energy: a 30 mL concentrate dose is about 102 kcal per the manufacturer (the 20-day trial used 60 mL/day). Not relevant to a capsule, but relevant when comparing with the juice trials.",
+      "pmid": "35564709",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35564709/",
+      "title": "Effects of Montmorency Tart Cherry and Blueberry Juice on Cardiometabolic and Other Health-Related Outcomes: A Three-Arm Placebo Randomized Controlled Trial",
+      "year": 2022
+    },
+    {
+      "signal": "Losso 2018 screened for obstructive sleep apnoea by polysomnography: 3 of 11 randomised participants with insomnia had sleep apnoea and were excluded and referred, so the 'insomnia' group in cherry-juice trials may include untreated sleep disorders.",
+      "pmid": "28901958",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28901958/",
+      "title": "Pilot Study of the Tart Cherry Juice for the Treatment of Insomnia and Investigation of Mechanisms",
+      "year": 2018
+    }
+  ],
+  "gaps": [
+    "No randomised sleep trial of a CherryPURE-labelled product was found: a PubMed search for 'CherryPURE' returned only two exercise trials (PMID 26578852, PMID 27231439) at 480 mg/day, neither with a sleep or melatonin outcome.",
+    "Every positive single-ingredient sleep result used juice or concentrate (Pigeon 2010, Losso 2018, Howatson 2012, Chung 2022). The two trials that included a capsule or powder arm were null (PMID 39683518, PMID 35790450). No head-to-head juice vs powder sleep comparison and no pharmacokinetic bridge between a '50:1' powder and juice was found.",
+    "Both older-adult insomnia trials are tiny crossover pilots (15 and 8 completers), 2 weeks each, and both were funded by cherry industry bodies (CherryPharm in full, Cherry Marketing Institute). The 2024 null trial was also Cherry Marketing Institute funded. No independent large RCT exists. A trial protocol exists (CherryZZZ, PMID 41901097: 16 oz juice/day vs placebo for 4 weeks, 20 older adults with insomnia) but no results had been published at search time.",
+    "Howatson 2012 (PMID 22038497), the main healthy-adult positive trial, is paywalled: the dose, participant ages, melatonin assay values and funding could not be read. The dose given in the notes comes from a 2025 secondary review that is internally inconsistent and was not checked against the primary paper.",
+    "Functional content of the juice 'melatonin' is minuscule (Losso: about 0.135 micrograms per dose), and the 6-SMT rise in a product with undetectable melatonin (PMID 31512550) means the melatonin mechanism is unproven. The suggested alternative mechanism (procyanidin B-2, IDO, tryptophan availability) comes from 8 completers plus Caco-2 cell work, not from replicated human data.",
+    "Doses for the blend trials (PMID 36094342, tryptophan/glycine/magnesium/tart cherry/theanine) are not in the abstract and the paper is paywalled; the funding is unverified. The magnesium and tryptophan doses in the Performance Lab formula (100 mg and 200 mg) are not tested here.",
+    "No Montmorency tart cherry sleep RCT in adolescents, shift workers, perimenopausal women or people on sleep medication was found; no trial longer than 30 days was found for sleep; no adverse-event data beyond the abstracts were found (abstracts rarely report safety; no serious tart-cherry-specific adverse events were reported in any cited abstract, which is not the same as proving safety).",
+    "No meta-analysis with pooled effects exists; the 2025 systematic review (PMID 40964149) is qualitative, reports 3 of 7 studies with improved sleep indicators and calls the evidence limited and heterogeneous.",
+    "The official pubmedUrl check could not return HTTP 200 from curl (NCBI returns a 203 challenge page); PMIDs, titles, journals and years were instead verified via E-utilities esummary (HTTP 200)."
+  ]
+}

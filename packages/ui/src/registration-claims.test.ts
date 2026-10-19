@@ -34,6 +34,12 @@ const SOURCES = [
     .map(n => resolve(NOTES_DIR, n)),
   // Source of the regional licence-status badge labels.
   resolve(DATA_DIR, 'regional.ts'),
+  // Spanish renderings of the records above (LATAM): a negative the English
+  // drops must not survive in its translation, and vice versa.
+  resolve(DATA_DIR, 'products-latam-es.ts'),
+  resolve(DATA_DIR, 'ingredients-es.ts'),
+  resolve(DATA_DIR, 'guides-es.ts'),
+  resolve(DATA_DIR, 'latam-countries.ts'),
   ...readdirSync(APPS_DIR)
     .map(n => resolve(APPS_DIR, n, 'src'))
     .filter(p => existsSync(p))
@@ -48,6 +54,12 @@ const UNSOURCED_NEGATIVE: RegExp[] = [
   /\bnot\b[^.]{0,40}\b(SFDA|MOHAP|HSA|NPRA|BPOM|VFA|COFEPRIS|ANVISA|ANMAT|INVIMA|DIGEMID|NPN|Health Canada)\b[^.]{0,30}\b(registered|licensed)\b/i,
   /not formally registered/i,
   /not been (formally )?registered/i,
+  // "None of the blends are registered with COFEPRIS …" (LATAM Thesis, 2026-10-19) and its
+  // Spanish rendering "Ninguna de las mezclas está registrada ante …": the same unsourced
+  // negative without the word "not".
+  /\bnone of\b[^.]{0,60}\b(is|are)\s+registered\b/i,
+  /\bningun[ao]\b[^.]{0,60}\b(está|están)\s+registrad[ao]s?\b/i,
+  /\bno\s+(está|están)\s+registrad[ao]s?\s+(ante|con|en)\b/i,
   // AU (ARTG) and JP (CAA FFC database) were queried directly on 2026-10-06,
   // but a register search that returns no row proves only that those queries
   // returned nothing on that date. Copy must say so ("no ARTG entry returned
@@ -89,6 +101,9 @@ describe('no copy asserts a product is not registered with a regulator', () => {
     expect(SOURCES.some(f => /products-au\.json$/.test(f))).toBe(true);
     expect(SOURCES.some(f => /products-jp\.json$/.test(f))).toBe(true);
     expect(SOURCES.some(f => /products-ca\.json$/.test(f))).toBe(true);
+    expect(SOURCES.some(f => /products-latam-es\.ts$/.test(f))).toBe(true);
+    expect(SOURCES.some(f => /ingredients-es\.ts$/.test(f))).toBe(true);
+    expect(SOURCES.every(f => existsSync(f))).toBe(true);
     expect(SOURCES.some(f => /apps\/ca\/src\/app\/alpha-brain-canada\/page\.tsx$/.test(f))).toBe(true);
     expect(SOURCES.some(f => /apps\/ca\/src\/app\/best-nootropics-for-studying\/page\.tsx$/.test(f))).toBe(true);
     expect(SOURCES.some(f => /apps\/au\/src\/app\/tga-listed-cognitive-supplements\/page\.tsx$/.test(f))).toBe(true);
@@ -1981,6 +1996,14 @@ const ROUND_SEVENTEEN_UNSOURCED: RegExp[] = [
   // (15-30 min) versus capsule formats" after round seventeen removed the same
   // unsourced onset claim from its whatToExpect; deleted.
   /Fast onset \(15-30 min\)/i,
+  // Follow-up from the i18n session (2026-10-19). The FDA's 13 May 2003 letter
+  // (regulations.gov FDA-2002-P-0041-0020) allows two qualified claims, one for
+  // dementia and one for cognitive dysfunction in the elderly, each with its own
+  // disclaimer; "only a qualified claim that … dementia or cognitive
+  // dysfunction" merged them into one. "GCC consumers expect Halal-certified
+  // supplements" claimed something of all GCC consumers with no source.
+  /only a qualified (health )?claim that/i,
+  /GCC consumers expect/i,
 ];
 
 // U3: every stack note names the trial it relies on or says we cite none.
@@ -2162,6 +2185,10 @@ describe('round seventeen: mechanism, user-report and market claims follow our i
       // 2026-10-19 (round twenty)
       'Weeks 1-2: mild improvement in mental alertness from Ginkgo blood flow effects. Positive dementia trials of ginkgo ran 22–26 weeks. At 12+ weeks: sustained cognitive maintenance.',
       'Fast onset (15-30 min) versus capsule formats',
+      // 2026-10-19 (i18n session follow-up)
+      "The FDA allows only a qualified claim that phosphatidylserine may reduce the risk of dementia or cognitive dysfunction in the elderly, with the disclaimer that 'FDA concludes that there is little scientific evidence supporting this claim' (FDA letter, 13 May 2003).",
+      "For phosphatidylserine, the FDA allows only a qualified claim that it 'may reduce the risk of cognitive dysfunction in the elderly', followed by 'FDA concludes that there is little scientific evidence supporting this claim' (FDA letter, 13 May 2003).",
+      'GCC consumers expect Halal-certified supplements. Capsule shells (gelatin vs HPMC vegetable cellulose) are a meaningful differentiator.',
     ];
     for (const s of removed) expect(ROUND_SEVENTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(true);
     for (const re of ROUND_SEVENTEEN_UNSOURCED) expect(removed.some(s => re.test(s)), String(re)).toBe(true);
@@ -2236,6 +2263,10 @@ describe('round seventeen: mechanism, user-report and market claims follow our i
       // 2026-10-15 (round nineteen): the FANCL BRAINs line after the deletion.
       'Weeks 1-2: no noticeable acute effects — this is a foundational supplement, not a stimulant. FANCL recommends 4 tablets daily.',
       'FANCL cites a 12-week trial of bacopa saponins at 12.5mg/day and 12-week trials of matured hop bitter acids at 35mg/day.',
+      // 2026-10-19 (i18n session follow-up): the replacement wording.
+      "The FDA allows two qualified claims, one that phosphatidylserine may reduce the risk of dementia in the elderly and one that it may reduce the risk of cognitive dysfunction in the elderly, each with the disclaimer that 'FDA concludes that there is little scientific evidence supporting this claim' (FDA letter, 13 May 2003).",
+      "For phosphatidylserine, the FDA allows two qualified claims, one of them that it 'may reduce the risk of cognitive dysfunction in the elderly', each followed by 'FDA concludes that there is little scientific evidence supporting this claim' (FDA letter, 13 May 2003).",
+      'Many GCC consumers prefer Halal-certified supplements. Capsule shells (gelatin vs HPMC vegetable cellulose) are a meaningful differentiator.',
     ]) expect(ROUND_SEVENTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(false);
   });
 

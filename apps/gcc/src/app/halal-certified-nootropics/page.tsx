@@ -12,10 +12,10 @@ const auditDateIso = new Date().toISOString().split('T')[0];
 export const metadata: Metadata = {
   title: 'Halal-Certified Cognitive Supplements (GCC): Capsule Source, Certifying Authorities & SFDA Status',
   description:
-    'GCC consumers expect Halal-certified supplements. Capsule shells (gelatin vs HPMC vegetable cellulose) are a meaningful differentiator. Guide to Halal certifying authorities and what we could confirm about their recognition in the GCC, plus audit of our nootropic catalog.',
+    'Many GCC consumers prefer Halal-certified supplements. Capsule shells (gelatin vs HPMC vegetable cellulose) are a meaningful differentiator. Guide to Halal certifying authorities and what we could confirm about their recognition in the GCC, plus audit of our nootropic catalog.',
   alternates: buildAlternates({ regionCode: 'gcc', path: '/halal-certified-nootropics/', availableInRegions: ['gcc'] }),
-  openGraph: buildOpenGraph({ regionCode: 'gcc', path: '/halal-certified-nootropics/', title: 'Halal-Certified Cognitive Supplements (GCC): Capsule Source, Certifying Authorities & SFDA Status', description: 'GCC consumers expect Halal-certified supplements. Capsule shells (gelatin vs HPMC vegetable cellulose) are a meaningful differentiator. Guide to Halal certifying authorities and what we could confirm about their recognition in the GCC, plus audit of our nootropic catalog.' }),
-  twitter: buildTwitter({ title: 'Halal-Certified Cognitive Supplements (GCC): Capsule Source, Certifying Authorities & SFDA Status', description: 'GCC consumers expect Halal-certified supplements. Capsule shells (gelatin vs HPMC vegetable cellulose) are a meaningful differentiator. Guide to Halal certifying authorities and what we could confirm about their recognition in the GCC, plus audit of our nootropic catalog.' }),
+  openGraph: buildOpenGraph({ regionCode: 'gcc', path: '/halal-certified-nootropics/', title: 'Halal-Certified Cognitive Supplements (GCC): Capsule Source, Certifying Authorities & SFDA Status', description: 'Many GCC consumers prefer Halal-certified supplements. Capsule shells (gelatin vs HPMC vegetable cellulose) are a meaningful differentiator. Guide to Halal certifying authorities and what we could confirm about their recognition in the GCC, plus audit of our nootropic catalog.' }),
+  twitter: buildTwitter({ title: 'Halal-Certified Cognitive Supplements (GCC): Capsule Source, Certifying Authorities & SFDA Status', description: 'Many GCC consumers prefer Halal-certified supplements. Capsule shells (gelatin vs HPMC vegetable cellulose) are a meaningful differentiator. Guide to Halal certifying authorities and what we could confirm about their recognition in the GCC, plus audit of our nootropic catalog.' }),
 };
 
 interface HalalAuthority {
@@ -41,7 +41,9 @@ const halalAuthorities: HalalAuthority[] = [
 
 // Verified 2026-09-29 against each brand's own page (fact sheet:
 // nootropics-research/2026-09/p5/gcc-halal.json); the rows dated 2026-10-07
-// were re-checked that day (p5/halal-evidence.json). "No halal certificate is
+// were re-checked that day (p5/halal-evidence.json); the Neutonic row was added
+// with the product on 2026-10-19 (neutonic.com product, collection, shipping and
+// help pages, read 2026-10-18 and 2026-10-19). "No halal certificate is
 // claimed" means none was found on that page, not that the product is not halal.
 const AUDIT_CHECKED_ON = '29 September 2026';
 
@@ -62,6 +64,7 @@ const capsuleAudit: CapsuleAuditRow[] = [
   { slug: 'thesis-nootropics-review', name: 'Thesis', format: 'The brand’s FAQ says “All our ingredients are vegan and free from gluten, eggs, and nuts”, without a certified-vegan guarantee. The capsule material is not named on the Clarity product page (checked 2026-10-07).', halalClaim: 'No halal certificate is claimed on the brand’s pages (checked 2026-10-07).', sourceLabel: 'takethesis.com — Clarity', sourceUrl: 'https://takethesis.com/products/clarity' },
   { slug: 'nootropics-depot-lions-mane', name: 'Nootropics Depot Lion’s Mane', format: 'The product page carries “LACTOSE FREE”, “GLUTEN FREE”, “NON-GMO” and “VEGAN” badges. The capsule material is not named on the product page (checked 2026-10-07).', halalClaim: 'No halal certificate is claimed on the brand’s page (checked 2026-10-07).', sourceLabel: 'nootropicsdepot.com — Lion’s Mane 8:1 Extract capsules', sourceUrl: 'https://nootropicsdepot.com/lions-mane-mushroom-capsules-8-1-extract' },
   { slug: 'eu-yan-sang-brainmax-review', name: 'Eu Yan Sang BrainMAX+', format: 'Sold as 3g sachets (30 per box), not capsules, so there is no capsule shell.', halalClaim: 'BrainMAX+ is not among the 77 items in the Singapore store’s “Halal Certified” category, and its product page has no halal text (checked 2026-10-07).', sourceLabel: 'euyansang.com.sg — BrainMAX+', sourceUrl: 'https://www.euyansang.com.sg/en/brainmax-888842543107.html' },
+  { slug: 'neutonic-brain-capsules-uk-review', name: 'Neutonic Brain Capsules (UK edition)', format: 'The ingredient list starts “Capsule Shell (Rice Hull Concentrate, Hypromellose, Colours (Iron Oxide, Titanium Dioxide))”, and the product FAQ answers “Yes” to whether the capsules suit vegetarians and vegans (checked 2026-10-19).', halalClaim: 'No halal certificate is claimed on the brand’s product, collection, shipping or help pages (checked 2026-10-19).', sourceLabel: 'neutonic.com — Brain Capsules (Middle East store)', sourceUrl: 'https://www.neutonic.com/en-me/products/brain-capsules-uae' },
 ];
 
 const articleSchema = {
@@ -257,13 +260,14 @@ export default function Page() {
           <p className="text-sm text-gray-700 leading-relaxed mb-4">
             We track <strong>{productsGCC.length} products</strong> in our GCC catalog. On {AUDIT_CHECKED_ON} we
             checked each brand&apos;s own product or ingredients page for its capsule material and for any halal
-            certificate claim; rows marked &ldquo;checked 2026-10-07&rdquo; were re-checked on 7 October 2026.
+            certificate claim; rows marked &ldquo;checked 2026-10-07&rdquo; were re-checked on 7 October 2026,
+            and the Neutonic row, added with that product, was checked on 19 October 2026.
             &ldquo;No halal certificate is claimed&rdquo; means we found none on that page, not that
             the product is not halal. We never fabricate certifications.
           </p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border border-gray-200 rounded-lg">
-              <caption className="sr-only">Capsule material and halal-certificate claims per product, from each brand&apos;s own page, checked {AUDIT_CHECKED_ON} (re-checked 2026-10-07 where a row says so)</caption>
+              <caption className="sr-only">Capsule material and halal-certificate claims per product, from each brand&apos;s own page, checked {AUDIT_CHECKED_ON} (re-checked 2026-10-07, or first checked 2026-10-19, where a row says so)</caption>
               <thead className="bg-gray-50">
                 <tr>
                   <th scope="col" className="text-left p-3 font-semibold text-gray-900">Product</th>

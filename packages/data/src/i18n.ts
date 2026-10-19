@@ -21,6 +21,7 @@ export interface IngredientCategoryStrings {
   amino: string;
   herb: string;
   vitamin: string;
+  mineral: string;
 }
 
 /**
@@ -1125,6 +1126,7 @@ const en: UIStrings = {
       amino: 'Amino Acid',
       herb: 'Herb',
       vitamin: 'Vitamin',
+      mineral: 'Mineral',
     },
     relatedCategory: {
       adaptogen: 'adaptogen',
@@ -1133,6 +1135,7 @@ const en: UIStrings = {
       amino: 'amino',
       herb: 'herb',
       vitamin: 'vitamin',
+      mineral: 'mineral',
     },
     humanTrialsOnly: 'Based on human clinical trials only. Animal and in-vitro data excluded.',
     evidenceStrength: { strong: 'strong', moderate: 'moderate', preliminary: 'preliminary', mixed: 'mixed' },
@@ -1763,6 +1766,7 @@ const es: UIStrings = {
       amino: 'Aminoácido',
       herb: 'Hierba',
       vitamin: 'Vitamina',
+      mineral: 'Mineral',
     },
     relatedCategory: {
       adaptogen: 'adaptógeno',
@@ -1771,6 +1775,7 @@ const es: UIStrings = {
       amino: 'aminoácido',
       herb: 'hierba',
       vitamin: 'vitamina',
+      mineral: 'mineral',
     },
     humanTrialsOnly: 'Basado solo en ensayos clínicos en humanos. Se excluyen los datos en animales e in vitro.',
     evidenceStrength: { strong: 'sólida', moderate: 'moderada', preliminary: 'preliminar', mixed: 'mixta' },
@@ -2407,6 +2412,7 @@ const fr: UIStrings = {
       amino: 'Acide aminé',
       herb: 'Plante',
       vitamin: 'Vitamine',
+      mineral: 'Minéral',
     },
     relatedCategory: {
       adaptogen: 'adaptogène',
@@ -2415,6 +2421,7 @@ const fr: UIStrings = {
       amino: 'acide aminé',
       herb: 'plante',
       vitamin: 'vitamine',
+      mineral: 'minéral',
     },
     humanTrialsOnly: 'Fondé uniquement sur des essais cliniques chez l’humain. Données animales et in vitro exclues.',
     evidenceStrength: { strong: 'solides', moderate: 'modérées', preliminary: 'préliminaires', mixed: 'mitigées' },
@@ -3013,6 +3020,7 @@ const ja: UIStrings = {
       amino: 'アミノ酸',
       herb: 'ハーブ',
       vitamin: 'ビタミン',
+      mineral: 'ミネラル',
     },
     relatedCategory: {
       adaptogen: 'アダプトゲン',
@@ -3021,6 +3029,7 @@ const ja: UIStrings = {
       amino: 'アミノ酸',
       herb: 'ハーブ',
       vitamin: 'ビタミン',
+      mineral: 'ミネラル',
     },
     humanTrialsOnly: 'ヒトを対象とした臨床試験のみに基づいています。動物実験と試験管内（in vitro）のデータは除外しています。',
     evidenceStrength: { strong: '強い', moderate: '中程度', preliminary: '予備的', mixed: '一貫しない' },
@@ -3624,6 +3633,7 @@ const pt: UIStrings = {
       amino: 'Aminoácido',
       herb: 'Erva',
       vitamin: 'Vitamina',
+      mineral: 'Mineral',
     },
     relatedCategory: {
       adaptogen: 'adaptógeno',
@@ -3632,6 +3642,7 @@ const pt: UIStrings = {
       amino: 'aminoácido',
       herb: 'erva',
       vitamin: 'vitamina',
+      mineral: 'mineral',
     },
     humanTrialsOnly: 'Baseado apenas em ensaios clínicos em humanos. Dados em animais e in vitro excluídos.',
     evidenceStrength: { strong: 'forte', moderate: 'moderada', preliminary: 'preliminar', mixed: 'mista' },
@@ -4233,6 +4244,7 @@ const de: UIStrings = {
       amino: 'Aminosäure',
       herb: 'Heilkraut',
       vitamin: 'Vitamin',
+      mineral: 'Mineralstoff',
     },
     relatedCategory: {
       adaptogen: 'Adaptogen',
@@ -4241,6 +4253,7 @@ const de: UIStrings = {
       amino: 'Aminosäure',
       herb: 'Heilkraut',
       vitamin: 'Vitamin',
+      mineral: 'Mineralstoff',
     },
     humanTrialsOnly: 'Nur auf Grundlage klinischer Studien am Menschen. Tier- und In-vitro-Daten ausgeschlossen.',
     evidenceStrength: { strong: 'stark', moderate: 'mäßig', preliminary: 'vorläufig', mixed: 'uneinheitlich' },
@@ -4847,6 +4860,7 @@ const frCa: UIStrings = {
       amino: 'Acide aminé',
       herb: 'Plante médicinale',
       vitamin: 'Vitamine',
+      mineral: 'Minéral',
     },
     relatedCategory: {
       adaptogen: 'adaptogène',
@@ -4855,6 +4869,7 @@ const frCa: UIStrings = {
       amino: 'acide aminé',
       herb: 'plante médicinale',
       vitamin: 'vitamine',
+      mineral: 'minéral',
     },
     humanTrialsOnly: 'Fondé uniquement sur des essais cliniques chez l’humain. Les données animales et in vitro sont exclues.',
     evidenceStrength: { strong: 'solides', moderate: 'modérées', preliminary: 'préliminaires', mixed: 'mitigées' },

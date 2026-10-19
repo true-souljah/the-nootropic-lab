@@ -38,6 +38,8 @@ const REVIEW_ROUTES = [
   '/blackmores-brain-active-review/',
   '/eu-yan-sang-brainmax-review/',
   '/naturebell-ginkgo-ginseng-review/',
+  '/neutonic-productivity-drink-review/',
+  '/neutonic-brain-capsules-uk-review/',
 ];
 
 test.beforeEach(async ({ context }) => {

@@ -35,6 +35,7 @@ const REVIEW_ROUTES = [
   '/thesis-nootropics-review/',
   '/nootropics-depot-lions-mane/',
   '/eu-yan-sang-brainmax-review/',
+  '/neutonic-brain-capsules-uk-review/',
 ];
 
 test.beforeEach(async ({ context }) => {
