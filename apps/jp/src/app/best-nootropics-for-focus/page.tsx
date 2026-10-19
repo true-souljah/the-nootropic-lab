@@ -113,7 +113,7 @@ export default function Page() {
       useCase="focus"
       pageTitle="Best Nootropics for Focus in Japan"
       pageDescription="Independent ranking of the best nootropics for focus and attention available in Japan. Each pick must contain a clinically-dosed focus ingredient."
-      heroParagraph="If you want to take a supplement to support focus in Japan, the question is not 'which brand?' but 'which ingredient at what dose?' This page ranks the products available to Japanese buyers — imported international stacks bought under Ministry of Health, Labour and Welfare (MHLW) personal-import rules — that contain at least one focus-validated ingredient (L-theanine + caffeine, citicoline, L-tyrosine, Alpha-GPC) at clinical dose. Domestic brands (FFC-notified FANCL BRAINs, plus Suntory) target memory and brain health rather than acute focus and appear on our memory page."
+      heroParagraph="If you want to take a supplement to support focus in Japan, the question is not 'which brand?' but 'which ingredient at what dose?' This page ranks the products available to Japanese buyers — imported international stacks bought under Ministry of Health, Labour and Welfare (MHLW) personal-import rules — that contain at least one of these ingredients: L-theanine + caffeine, citicoline, L-tyrosine or Alpha-GPC. Domestic brands (FFC-notified FANCL BRAINs, plus Suntory) target memory and brain health rather than acute focus and appear on our memory page."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

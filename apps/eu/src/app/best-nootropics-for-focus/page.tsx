@@ -113,7 +113,7 @@ export default function Page() {
       useCase="focus"
       pageTitle="Best Nootropics for Focus (EU)"
       pageDescription="Independent EU ranking of nootropics for focus and attention. EUR pricing, EU storefronts, ingredient framing that avoids unauthorised EU health claims."
-      heroParagraph="If you want a focus supplement in the EU, the question is not 'which brand?' but 'which ingredient at what dose, from which store?' This page ranks the products in our EU coverage, marks which ones ship from an EU storefront at EUR pricing, and includes only products that contain at least one focus-validated ingredient (L-theanine + caffeine, citicoline, L-tyrosine, Alpha-GPC) at or near clinical dose."
+      heroParagraph="If you want a focus supplement in the EU, the question is not 'which brand?' but 'which ingredient at what dose, from which store?' This page ranks the products in our EU coverage, marks which ones ship from an EU storefront at EUR pricing, and includes only products that contain at least one of these ingredients: L-theanine + caffeine, citicoline, L-tyrosine or Alpha-GPC."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}

@@ -123,7 +123,7 @@ export default function Page() {
       useCase="focus"
       pageTitle="Best Nootropics for Focus in Canada"
       pageDescription="Independent ranking of the best nootropics for focus and attention available to Canadian buyers. Each pick must contain a clinically-dosed focus ingredient."
-      heroParagraph="If you want to take a supplement to support focus, the question is not 'which brand?' but 'which ingredient at what dose?' This page ranks the products in our Canadian coverage that contain at least one of the four focus-validated ingredients (L-theanine + caffeine, citicoline, L-tyrosine, Alpha-GPC) at clinical dose. Health Canada NPN status is noted where applicable."
+      heroParagraph="If you want to take a supplement to support focus, the question is not 'which brand?' but 'which ingredient at what dose?' This page ranks the products in our Canadian coverage that contain at least one of these four ingredients: L-theanine + caffeine, citicoline, L-tyrosine or Alpha-GPC. Health Canada NPN status is noted where applicable."
       ingredientMechanism={ingredientMechanism}
       picks={picks}
       faqItems={faqItems}
