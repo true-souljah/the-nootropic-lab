@@ -2594,5 +2594,124 @@
     "updatedAt": "2026-10-15",
     "trustpilotCheckedAt": "2026-10-15",
     "verifiedAt": "2026-10-15"
+  },
+  {
+    "id": "deadline-focus-pill",
+    "name": "Deadline Focus Pill",
+    "brand": "Deadline",
+    "slug": "deadline-focus-pill-review",
+    "bestFor": [
+      "Focus",
+      "Energy",
+      "Productivity"
+    ],
+    "score": 7.4,
+    "scoreBreakdown": {
+      "ingredients": 7,
+      "dosing": 8,
+      "transparency": 9,
+      "value": 6,
+      "trust": 5
+    },
+    "storePrice": {
+      "amount": 129,
+      "currency": "USD",
+      "text": "$129",
+      "pack": "90 capsules",
+      "supply": "30-day supply",
+      "directions": "Three capsules in the morning",
+      "url": "https://deadline.co/products/deadline-focus-pill",
+      "checkedAt": "2026-10-19"
+    },
+    "pricingModel": "both",
+    "moneyBackDays": 90,
+    "caffeineFree": false,
+    "euStorefront": false,
+    "euCompliance": "verify",
+    "trustpilotScore": 3.8,
+    "trustpilotCount": 2,
+    "affiliateUrl": "https://deadline.co/products/deadline-focus-pill?bg_ref=iwGH36v1Uc",
+    "affiliateNetwork": "Deadline affiliate programme (BixGrow)",
+    "commissionRate": "40%",
+    "cookieDays": null,
+    "heroIngredients": [
+      "Caffeine",
+      "L-Theanine",
+      "Citicoline",
+      "Rhodiola Rosea",
+      "Dynamine",
+      "Theacrine"
+    ],
+    "ingredientDosages": [
+      {
+        "name": "Citicoline (Cognizin®)",
+        "doseInProduct": "500mg",
+        "clinicalDose": "250-500mg/day",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Rhodiola Rosea (root extract, Rhodiolife®, 3% rosavins)",
+        "doseInProduct": "500mg",
+        "clinicalDose": "200-600mg/day",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "L-Theanine",
+        "doseInProduct": "200mg",
+        "clinicalDose": "100-200mg/day",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Caffeine (about 137 mg total: 111 mg zümXR® extended-release material and 85 mg Coffeeberry® coffee fruit extract, both 70% caffeine)",
+        "doseInProduct": "137mg",
+        "clinicalDose": "100-200mg",
+        "adequatelyDosed": true
+      },
+      {
+        "name": "Dynamine (methylliberine)",
+        "doseInProduct": "75mg",
+        "clinicalDose": "100-150mg/day",
+        "adequatelyDosed": false
+      },
+      {
+        "name": "Theacrine (TeaCrine®)",
+        "doseInProduct": "50mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
+      }
+    ],
+    "servingsPerContainer": 30,
+    "capsulesPerServing": 3,
+    "summary": "A caffeinated focus capsule from Deadline, a new brand whose store listing for the product was created on 4 July 2026. Three capsules give about 137mg caffeine from two 70% caffeine materials (111mg zümXR® extended-release caffeine and 85mg Coffeeberry® coffee fruit extract), plus 75mg methylliberine (Dynamine®), 50mg theacrine (TeaCrine®), 500mg citicoline (as Cognizin®), 500mg Rhodiolife® rhodiola extract (3% rosavins) and 200mg L-theanine, with each amount on the label and no proprietary blend. Caffeine, citicoline, rhodiola and L-theanine meet our reference doses; Dynamine is below ours, and we have no reference dose on file for theacrine.",
+    "whatItIs": "Deadline Focus Pill is a stimulant-based focus supplement that Deadline sells on deadline.co, as a one-time purchase or a subscription. A bottle holds 90 capsules, 30 servings of 3 capsules; the vendor's directions are three capsules in the morning, and its FAQ adds that taking it after 2pm is 'at your own risk'. Besides the actives, the label lists microcrystalline cellulose, the capsule and printing ink (hypromellose, calcium carbonate, shellac, propylene glycol, red and black iron oxide for colour), calcium laurate and silica. The product page carries the vendor's own badges for manufacture in the USA with globally-sourced ingredients, non-GMO inputs and current Good Manufacturing Practice (cGMP); these are Deadline's statements. Deadline publishes a formula changelog (https://deadline.co/pages/changelog): version 1.0 is the formula shipping now, and version 1.1 is listed as 'in the lab' (a higher-rosavin rhodiola standardisation and a citicoline increase under evaluation, to ship only if it beats v1.0).",
+    "howItWorks": "Caffeine (about 137mg) blocks adenosine receptors; at low-to-moderate doses it consistently improves alertness, vigilance, attention and reaction time, with less consistent effects on memory (McLellan 2016, a narrative review). About 78mg of it comes from zümXR®, which the vendor describes as releasing its caffeine over hours; we cite no trial of that release profile. L-theanine (200mg, the top of our 100-200mg reference range) is an amino acid from green tea: in an 11-study meta-analysis, caffeine plus L-theanine had moderate effects versus placebo on alertness and attention-switching accuracy (Camfield 2014), but Foxe 2012 found no added benefit over either compound alone, and in a controlled trial (Rogers 2008, PubMed 17891480) L-theanine did not significantly reduce caffeine jitteriness. Citicoline (500mg, as Cognizin®) is a precursor to acetylcholine and phosphatidylcholine; its memory evidence comes from older adults with inefficient memory at 1,000-2,000mg a day (Spiers 1996), and a Cochrane review found no evidence of an attention benefit in older adults with chronic cerebral disorders. Rhodiola is an adaptogen: small trials of the SHR-5 extract found less mental fatigue, but a 2012 systematic review rated every included study at high or unclear risk of bias; this label names Rhodiolife® standardised to 3% rosavins. Methylliberine (Dynamine®, 75mg) is a purine alkaloid structurally related to caffeine and theacrine; the only trial that tested it alone for cognition (La Monica 2023, 25 people, 100mg a day) found better self-rated concentration and energy but a negligible effect on objective cognitive tests, and Deadline itself says it is there 'for a smoother ride, not a brain boost'. We have no reference dose on file for theacrine (TeaCrine®, 50mg). Deadline Focus Pill itself has not been tested in a published trial; the vendor says the timelines on its page come from the individual ingredient studies, not from a trial of Deadline itself.",
+    "whatToExpect": "Caffeine's alerting effect typically starts within 15-45 minutes, the onset on our caffeine page; the vendor says its fast actives are designed to peak in 30-60 minutes. One serving brings about 137mg caffeine plus 75mg methylliberine and 50mg theacrine, so count it toward your daily caffeine: the vendor's FAQ warns that a 200mg coffee on top puts you near 340mg, and our caffeine page notes that the European Food Safety Authority (EFSA) sets 200mg per single dose and 400mg a day as safe for healthy adults. Deadline's product page says it is not for pregnant or nursing women, under-18s or people with a known medical condition (consult a physician), and adds 'Sensitive to caffeine? Start low.' The vendor's FAQ gives about 140mg caffeine (80mg from zümXR® and 60mg from Coffeeberry®), which does not match the panel's 111mg and 85mg of 70% caffeine material (about 78mg and 60mg), so we use the panel's 'about 137 mg'. Citicoline's memory effects in trials were measured after 2-3 months. In the US a bottle costs $129 one-time (90 capsules, 30 servings, $4.30 a serving) or $99 for the first subscription order and then $99 every 4 weeks, with no minimum term (deadline.co subscription policy, checked 2026-10-19). Deadline ships to the United States only, free on every order; orders leave its US warehouse within 1 business day and typically arrive 3–5 business days after dispatch (https://deadline.co/policies/shipping-policy, checked 2026-10-19).",
+    "pros": [
+      "Caffeine (about 137mg), citicoline (500mg, as Cognizin®), rhodiola (500mg, 3% rosavins) and L-theanine (200mg) meet our reference doses",
+      "The label states the amount of each active and the rhodiola standardisation, with no proprietary blend",
+      "90-day money-back guarantee on the first order, even if the bottle is opened or empty (deadline.co refund policy, checked 2026-10-19)",
+      "Free shipping on every order to the United States (https://deadline.co/policies/shipping-policy, checked 2026-10-19)",
+      "Published formula changelog: version 1.0 is current and version 1.1 is listed as 'in the lab' (https://deadline.co/pages/changelog)",
+      "The subscription can be cancelled, skipped or rescheduled at any time, with no minimum terms or cancellation fees (deadline.co subscription policy, checked 2026-10-19)"
+    ],
+    "cons": [
+      "A stimulant formula: about 137mg caffeine per serving plus 75mg methylliberine and 50mg theacrine; not for anyone avoiding stimulants, and the product page says it is not for pregnant or nursing women or under-18s",
+      "Dynamine (75mg methylliberine) is below our 100mg reference dose, and we have no reference dose on file for theacrine (50mg)",
+      "The money-back guarantee covers the first order only (one bottle), claimed by email within 90 days of receiving the first shipment and usable once per customer and household; subscription renewals are not covered (deadline.co refund policy, checked 2026-10-19)",
+      "A new brand: its store listing for the product was created on 4 July 2026, and its Trustpilot profile has two reviews (3.8/5, checked 2026-10-19)",
+      "$4.30 a serving at the $129 one-time price",
+      "The FAQ's caffeine figure (about 140mg) does not match the Supplement Facts panel (about 137mg)",
+      "We found no published lab test results for the product on deadline.co (checked 2026-10-19)",
+      "No published trial of Deadline Focus Pill itself; the evidence is for its ingredients"
+    ],
+    "notes": [
+      "Ingredient amounts from the Supplement Facts panel on Deadline's product page, https://deadline.co/products/deadline-focus-pill, checked 2026-10-19.",
+      "The caffeine row totals the panel's two 70% caffeine materials (111mg zümXR® extended-release caffeine and 85mg Coffeeberry® coffee fruit extract), matching the panel's own 'About 137 mg caffeine per serving'; listing them as separate caffeine rows would count the caffeine twice."
+    ],
+    "editorChoice": false,
+    "market": "us",
+    "updatedAt": "2026-10-19",
+    "trustpilotCheckedAt": "2026-10-19",
+    "verifiedAt": "2026-10-19"
   }
 ]

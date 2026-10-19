@@ -41,6 +41,7 @@ const REVIEW_ROUTES = [
   '/brainmd-brain-memory-power-boost-review/',
   '/neutonic-productivity-drink-review/',
   '/neutonic-brain-capsules-review/',
+  '/deadline-focus-pill-review/',
 ];
 
 test.beforeEach(async ({ context }) => {
