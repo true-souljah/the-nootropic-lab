@@ -14,6 +14,7 @@ import {
   budgetFit,
   mbgFit,
   monthlyUSD,
+  goalListing,
   type QuizAnswers,
 } from './quizScoring';
 import { guaranteeDays, getStrings, NO_PURCHASE_LINK_STRINGS } from '@nootropic/data';
@@ -54,6 +55,11 @@ export default function QuizResults({
     : answers.goals.length === 1
       ? answers.goals[0].toLowerCase()
       : `${answers.goals[0].toLowerCase()} and ${answers.goals[1].toLowerCase()}`;
+  // A top match listed for none of the goals is only the closest fit for the
+  // other answers: say so instead of recommending it for the goal.
+  const { topListed, listed } = goalListing(products, top, answers.goals);
+  const goalTextOr = joinWords(answers.goals.map((g) => g.toLowerCase()), 'or');
+  const otherAnswers = `${answers.caffeine.toLowerCase()} to caffeine, $${answers.budget}/month budget`;
 
   return (
     <div
@@ -67,17 +73,33 @@ export default function QuizResults({
 
       <main id="quiz-results-main-content" className="max-w-[760px] mx-auto px-6 pt-7 pb-12">
         <div className="mb-4">
-          <Chip tone="accent">Your match · {result.confidence}% confidence</Chip>
+          <Chip tone="accent">{topListed ? `Your match · ${result.confidence}% confidence` : 'Closest match'}</Chip>
         </div>
 
-        <h1 className="text-[36px] font-bold tracking-[-0.02em] leading-[1.1] m-0 mb-4 text-ds-ink">
-          You should try <span className="text-ds-accent">{top.name}</span>.
-        </h1>
-        <p className="text-[16px] text-ds-ink-soft m-0 mb-8 leading-[1.6]">
-          Based on your answers — {goalText}, {answers.caffeine.toLowerCase()} to caffeine, $
-          {`${answers.budget}/month budget`} — {top.name} is the strongest match in our coverage.{' '}
-          {top.summary}
-        </p>
+        {topListed ? (
+          <>
+            <h1 className="text-[36px] font-bold tracking-[-0.02em] leading-[1.1] m-0 mb-4 text-ds-ink">
+              You should try <span className="text-ds-accent">{top.name}</span>.
+            </h1>
+            <p className="text-[16px] text-ds-ink-soft m-0 mb-8 leading-[1.6]">
+              Based on your answers — {goalText}, {answers.caffeine.toLowerCase()} to caffeine, $
+              {`${answers.budget}/month budget`} — {top.name} is the strongest match in our coverage.{' '}
+              {top.summary}
+            </p>
+          </>
+        ) : (
+          <>
+            <h1 className="text-[36px] font-bold tracking-[-0.02em] leading-[1.1] m-0 mb-4 text-ds-ink">
+              <span className="text-ds-accent">{top.name}</span> is the closest match, but it isn&apos;t listed for {goalTextOr}.
+            </h1>
+            <p className="text-[16px] text-ds-ink-soft m-0 mb-8 leading-[1.6]">
+              {listed.length === 0
+                ? `None of the ${products.length} products we review is listed for ${goalTextOr} yet. ${top.name} is the closest fit for your other answers — ${otherAnswers}.`
+                : `${joinWords(listed.map((p) => p.name), 'and')} ${listed.length === 1 ? 'is' : 'are'} listed for ${goalTextOr} but rank${listed.length === 1 ? 's' : ''} below ${top.name} on your answers as a whole — ${otherAnswers}.`}{' '}
+              {top.summary}
+            </p>
+          </>
+        )}
 
         {/* Inline disclosure directly above the first buy link. The results
             render in the browser from the query string, so the page-level
@@ -91,7 +113,7 @@ export default function QuizResults({
             className="absolute top-0 left-6 bg-ds-accent text-white text-[10px] uppercase tracking-[0.14em] font-bold px-3 py-1 rounded-b-[6px]"
             aria-hidden="true"
           >
-            Our pick for you
+            {topListed ? 'Our pick for you' : 'Closest match'}
           </div>
 
           <div className="flex gap-5 items-start mt-3 flex-wrap">
@@ -216,6 +238,11 @@ export default function QuizResults({
       </main>
     </div>
   );
+}
+
+/** "A", "A and B", "A, B and C" (or "or"). The results URL can carry more than two goals. */
+function joinWords(words: string[], conj: 'and' | 'or'): string {
+  return words.length <= 1 ? words.join('') : `${words.slice(0, -1).join(', ')} ${conj} ${words[words.length - 1]}`;
 }
 
 function FitRow({
