@@ -6,7 +6,9 @@ import EUBadge from './EUBadge';
 import NoPurchaseLinkNotice from './NoPurchaseLinkNotice';
 import { guaranteeDays, purchaseUrl, NO_PURCHASE_LINK_STRINGS, REGION_PROFILES, getStrings, formatMoney } from '@nootropic/data';
 import { priceText } from './price-text';
+import { PriceShort } from './PriceShort';
 import { tpl } from './templateStrings';
+import { formatScore } from './templates/listicleRanking';
 
 type SortKey = 'score' | 'price' | 'moneyBackDays' | 'trustpilotScore';
 type SortDir = 'asc' | 'desc';
@@ -230,7 +232,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                   <ScoreTooltip score={p.score} breakdown={p.scoreBreakdown} strings={ui} />
                 </td>
                 <td className="p-3 font-semibold">
-                  {prices.get(p.slug)?.short ?? '—'}
+                  <PriceShort price={prices.get(p.slug)} />
                 </td>
                 <td className="p-3 text-center">
                   {p.caffeineFree ? (
@@ -257,7 +259,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                             : 'text-red-600 font-semibold'
                         }
                       >
-                        {`${p.trustpilotScore}/5`}
+                        {`${formatScore(p.trustpilotScore, pd.dateLocale)}/5`}
                       </span>
                       {p.trustpilotCount !== null && (
                         <span className="text-xs text-gray-500 ml-1">
@@ -313,7 +315,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
               <div className="grid grid-cols-2 gap-2 text-sm mb-3">
                 <div>
                   <span className="text-gray-500">{t?.price || 'Price'}{colon}</span>
-                  <strong>{prices.get(p.slug)?.short ?? '—'}</strong>
+                  <strong><PriceShort price={prices.get(p.slug)} /></strong>
                 </div>
                 <div>
                   <span className="text-gray-500">{t?.moneyBack || 'Money-back'}{colon}</span>
@@ -335,7 +337,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                           : 'text-red-600'
                       }
                     >
-                      {`${p.trustpilotScore}/5`}
+                      {`${formatScore(p.trustpilotScore, pd.dateLocale)}/5`}
                     </strong>
                   ) : (
                     <span className="text-gray-500">{t?.na || 'N/A'}</span>

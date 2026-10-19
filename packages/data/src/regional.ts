@@ -1,6 +1,6 @@
 import type { Product } from './products-us';
 import { getStrings, type LicenceStatusStrings } from './i18n';
-import { monthlyStorePrice, type Money } from './store-price';
+import { monthlyStorePrice, storePriceLang, type Money } from './store-price';
 import { regionalNotesCA } from './regional-notes/ca';
 import { regionalNotesEU } from './regional-notes/eu';
 import { regionalNotesAU } from './regional-notes/au';
@@ -205,6 +205,8 @@ export interface LocalPrice {
   pack: Money;
   /** The vendor's own pack wording ("90 Count", "Servings per container: 30"). */
   packText: string;
+  /** Language of `packText` (storePriceLang: "en" unless the record says otherwise). */
+  packLang: string;
   /** Per month in the same currency, only when the pack's supply is stated (store-price.ts). */
   monthly: Money | null;
   /** Intl locale of the region, for formatting. */
@@ -219,6 +221,7 @@ export function localPrice(product: Product, region: RegionCode): LocalPrice | n
   return {
     pack: { amount: sp.amount, currency: sp.currency },
     packText: sp.pack,
+    packLang: storePriceLang(sp),
     monthly: monthly && { amount: monthly.amount, currency: monthly.currency },
     locale: REGION_PROFILES[region].priceLocale,
   };

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import Link from 'next/link';
 import AppShell from './AppShell';
 import { FPDisclosure } from '../public-chrome/FPDisclosure';
@@ -22,6 +22,7 @@ import { ReviewsTab } from './product-detail/ReviewsTab';
 import { PricingTab } from './product-detail/PricingTab';
 import RegionalBuying from '../RegionalBuying';
 import { priceText } from '../price-text';
+import { PriceShort } from '../PriceShort';
 import type { RegionalBuyingProps } from '../RegionalBuying';
 import DisclaimerText from '../DisclaimerText';
 import { SCORE_TIER_TEXT_CLASS, scoreTier } from './listicleRanking';
@@ -131,9 +132,9 @@ export default function ProductDetail({
     ...(discontinued ? [] : [{ id: 'pricing' as const, label: pd.tabs.pricing }]),
   ];
 
-  const priceStat: [string, string, boolean] = [
+  const priceStat: [string, ReactNode, boolean] = [
     pd.stats.price,
-    priceText(p, uiStrings)?.short ?? '—',
+    <PriceShort price={priceText(p, uiStrings)} />,
     false,
   ];
 
@@ -361,7 +362,7 @@ export default function ProductDetail({
                   <div className="flex items-center gap-2">
                     <span className={`${SCORE_TIER_TEXT_CLASS[scoreTier(alt.score)]} font-bold text-[13px] ds-tabular`}>{`${alt.score}/10`}</span>
                     {priceText(alt, uiStrings) && (
-                      <span className="text-[12px] text-ds-muted ds-tabular">{priceText(alt, uiStrings)!.short}</span>
+                      <span className="text-[12px] text-ds-muted ds-tabular"><PriceShort price={priceText(alt, uiStrings)} /></span>
                     )}
                   </div>
                 </Link>

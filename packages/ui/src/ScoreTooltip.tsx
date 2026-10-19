@@ -1,19 +1,22 @@
 'use client';
 import { useState } from 'react';
-import { pillarText } from '@nootropic/data';
+import { NOT_AVAILABLE } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
-import { SCORE_TIER_TEXT_CLASS, scoreTier } from './templates/listicleRanking';
+import { SCORE_TIER_TEXT_CLASS, formatScore, scoreTier } from './templates/listicleRanking';
 import { tpl } from './templateStrings';
 
 interface Props {
   score: number;
   breakdown: Product['scoreBreakdown'];
-  /** Page-locale bundle: the score's accessible name, the tooltip heading and the pillar names. */
+  /** Page-locale bundle: the score's accessible name, the tooltip heading, the pillar names and the number format. */
   strings: UIStrings;
 }
 
 export default function ScoreTooltip({ score, breakdown, strings }: Props) {
   const [open, setOpen] = useState(false);
+  // "7,5/10" on a de/fr/pt/fr-CA page; the accessible name carries the same text (WCAG 2.5.3).
+  const locale = strings.productDetail.dateLocale;
+  const scoreShown = formatScore(score, locale);
 
   return (
     <div className="relative inline-block">
@@ -24,10 +27,10 @@ export default function ScoreTooltip({ score, breakdown, strings }: Props) {
         onFocus={() => setOpen(true)}
         onBlur={() => setOpen(false)}
         className={`font-bold ${SCORE_TIER_TEXT_CLASS[scoreTier(score)]} cursor-help border-b border-dashed border-current`}
-        aria-label={tpl(strings.table.scoreAria, { score })}
+        aria-label={tpl(strings.table.scoreAria, { score: scoreShown })}
         aria-expanded={open}
       >
-        {`${score}/10`}
+        {`${scoreShown}/10`}
       </button>
       {open && (
         <div role="tooltip" className="absolute z-20 bottom-full left-0 mb-2 bg-white border border-gray-200 shadow-lg rounded p-3 w-52 text-xs">
@@ -38,7 +41,7 @@ export default function ScoreTooltip({ score, breakdown, strings }: Props) {
               <div className="score-bar flex-1">
                 <div className="score-bar-fill" style={{ width: `${(val ?? 0) * 10}%` }} />
               </div>
-              <span className="w-4 text-right font-semibold text-gray-700">{pillarText(val)}</span>
+              <span className="w-4 text-right font-semibold text-gray-700">{val === null ? NOT_AVAILABLE : formatScore(val, locale)}</span>
             </div>
           ))}
         </div>

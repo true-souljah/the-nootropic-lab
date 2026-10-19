@@ -54,6 +54,17 @@ export function formatListicleScore(score: number): string {
 }
 
 /**
+ * A score, rating or pillar value as the page's locale writes the number: the
+ * decimals it has, with the locale's decimal sign — "7.5" in en-US, es-419 and
+ * ja-JP, "7,5" in de-DE, fr-FR, pt-PT and fr-CA; "8" stays "8". `locale` is
+ * the bundle's `productDetail.dateLocale`, the locale the review counts beside
+ * these scores are already formatted in.
+ */
+export function formatScore(score: number, locale: string): string {
+  return score.toLocaleString(locale);
+}
+
+/**
  * The machine-readable side of one "What the evidence actually says" card: the
  * ingredient-library pages (ingredients.ts slugs) the card is about — both for
  * a combination card ("L-Theanine + Caffeine"), none when the library has no
