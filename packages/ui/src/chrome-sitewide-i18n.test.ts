@@ -299,7 +299,8 @@ describe('comparison table score buttons are named with the text they show (WCAG
     const buttons = scoreButtons(locale);
     expect(buttons.length, 'one per product in the rows and one in the mobile cards').toBe(productsUS.length * 2);
     for (const [name, shown] of buttons) {
-      expect(shown, `${locale}: visible text`).toMatch(/^\d+(\.\d+)?\/10$/);
+      // The page locale's decimal sign: "7.5/10" (en, es, ja), "7,5/10" (de, fr, pt, fr-CA).
+      expect(shown, `${locale}: visible text`).toMatch(/^\d+([.,]\d+)?\/10$/);
       expect(name, `${locale}: "${name}" does not contain "${shown}"`).toContain(shown);
     }
   });

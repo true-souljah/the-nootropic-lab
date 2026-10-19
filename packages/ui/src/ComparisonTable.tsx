@@ -7,6 +7,7 @@ import NoPurchaseLinkNotice from './NoPurchaseLinkNotice';
 import { guaranteeDays, purchaseUrl, NO_PURCHASE_LINK_STRINGS, REGION_PROFILES, getStrings, formatMoney } from '@nootropic/data';
 import { priceText } from './price-text';
 import { tpl } from './templateStrings';
+import { formatScore } from './templates/listicleRanking';
 
 type SortKey = 'score' | 'price' | 'moneyBackDays' | 'trustpilotScore';
 type SortDir = 'asc' | 'desc';
@@ -257,7 +258,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                             : 'text-red-600 font-semibold'
                         }
                       >
-                        {`${p.trustpilotScore}/5`}
+                        {`${formatScore(p.trustpilotScore, pd.dateLocale)}/5`}
                       </span>
                       {p.trustpilotCount !== null && (
                         <span className="text-xs text-gray-500 ml-1">
@@ -335,7 +336,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                           : 'text-red-600'
                       }
                     >
-                      {`${p.trustpilotScore}/5`}
+                      {`${formatScore(p.trustpilotScore, pd.dateLocale)}/5`}
                     </strong>
                   ) : (
                     <span className="text-gray-500">{t?.na || 'N/A'}</span>
