@@ -34,7 +34,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Lion\'s Mane (Hericium erinaceus)',
     ingredientSlugs: ['lions-mane'],
     evidence:
-      'Modulates Nerve Growth Factor (NGF) and may support neurogenesis. Small RCTs (notably Mori et al. 2009 in adults aged 50–80 with mild cognitive impairment) showed higher cognitive function scores than placebo at 3g/day over 16 weeks. Look for fruiting-body extract, not mycelium-on-grain. Lion\'s Mane fruiting body has traditional EU food use; mycelium-grain blends are scrutinised under Novel Food rules.',
+      'Extracts raised Nerve Growth Factor (NGF) in cell and animal studies; no human trial has measured NGF. Small RCTs (notably Mori et al. 2009 in adults aged 50–80 with mild cognitive impairment) showed higher cognitive function scores than placebo at 3g/day over 16 weeks. Look for fruiting-body extract, not mycelium-on-grain. Lion\'s Mane fruiting body has traditional EU food use; mycelium-grain blends are scrutinised under Novel Food rules.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/18844328/',
   },
   {
