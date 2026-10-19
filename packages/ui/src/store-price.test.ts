@@ -246,6 +246,9 @@ describe('perServingStorePrice / perDayStorePrice — exact baseline of every pr
     'jp/hunter-focus': ['USD 3', 'USD 3'],
     'jp/fancl-brains': ['refused: no pack count stated in the quote (a supply length is not a count)', 'JPY 183'],
     'jp/suntory-dha-epa-sesamin': ['JPY 191', 'JPY 191'],
+    // The SEA records' store pages, as served with Japan selected: same GBP figures.
+    'jp/neutonic-productivity-drink': ['GBP 2.5', 'refused: supply: no supply length stated; directions: no dose stated'],
+    'jp/neutonic-brain-capsules-uk': ['GBP 1.5', 'GBP 1.5'],
     'latam/mind-lab-pro': ['USD 2.3', RANGE],
     'latam/noocube': ['USD 2.17', 'USD 2.17'],
     'latam/qualia-mind': ['USD 7.95', QUALIA_CADENCE],
@@ -297,8 +300,8 @@ describe('perServingStorePrice / perDayStorePrice — exact baseline of every pr
    * neutonic.com's US capsule page prices in USD for US shoppers and in CAD with
    * Canada selected (Shopify markets; JSON-LD priceCurrency CAD, checked
    * 2026-10-19). Its main-store drink page prices in EUR with an EU country
-   * selected (checked 2026-10-15) and in GBP with Singapore or Malaysia selected
-   * (Shopify.currency GBP, JSON-LD priceCurrency GBP, checked 2026-10-19).
+   * selected (checked 2026-10-15) and in GBP with Singapore, Malaysia or Japan
+   * selected (Shopify.currency GBP, JSON-LD priceCurrency GBP, checked 2026-10-19).
    * Records quoting such a page are compared per currency; every other URL must
    * show one set of figures whatever the region.
    */
@@ -427,6 +430,8 @@ describe('monthly figures are unchanged by the per-serving / per-day work', () =
     'jp/hunter-focus': 'USD 90',
     'jp/fancl-brains': 'JPY 5479',
     'jp/suntory-dha-epa-sesamin': 'JPY 5729',
+    'jp/neutonic-productivity-drink': 'GBP 74.97',
+    'jp/neutonic-brain-capsules-uk': 'GBP 44.99',
     'latam/mind-lab-pro': 'USD 69',
     'latam/noocube': 'USD 64.99',
     'latam/qualia-mind': null,
@@ -483,6 +488,9 @@ describe('priceText — per-unit and source lines as each edition renders them',
     ['jp', 'hunter-focus', '≈ $3/serving', '≈ $3/day'],
     ['jp', 'suntory-dha-epa-sesamin', '≈ ￥191/serving', '≈ ￥191/day'],
     ['jp', 'fancl-brains', null, '≈ ￥183/day'],
+    // GBP in the JP edition's ja-JP price locale.
+    ['jp', 'neutonic-productivity-drink', '≈ £2.50/serving', null],
+    ['jp', 'neutonic-brain-capsules-uk', '≈ £1.50/serving', '≈ £1.50/day'],
   ] as [string, string, string | null, string | null][])('%s %s → %s · %s', (region, id, perServing, perDay) => {
     const p = EDITIONS[region][0].find((x) => x.id === id)!;
     const t = priceText(p, editionStrings(region))!;

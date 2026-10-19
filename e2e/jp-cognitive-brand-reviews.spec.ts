@@ -32,6 +32,8 @@ const REVIEW_ROUTES = [
   '/hunter-focus-review/',
   '/fancl-brains-review/',
   '/suntory-dha-epa-sesamin-review/',
+  '/neutonic-productivity-drink-review/',
+  '/neutonic-brain-capsules-uk-review/',
 ];
 
 test.beforeEach(async ({ context }) => {
