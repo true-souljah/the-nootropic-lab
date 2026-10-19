@@ -1509,6 +1509,11 @@ describe('round sixteen: energy, stack, focus- and memory-page claims follow the
       'apps/eu/src/app/best-nootropics-for-aging/page.tsx',
       'apps/eu/src/app/best-nootropics-for-memory/page.tsx',
       'apps/ca/src/app/best-nootropics-for-memory/page.tsx',
+      // 2026-10-19: the LATAM Spanish product records, country notes and
+      // editorial-standards policy text (their Spanish twins above apply).
+      'packages/data/src/products-latam-es.ts',
+      'packages/data/src/latam-countries.ts',
+      'packages/data/src/i18n.ts',
     ]) expect(ROUND_SIXTEEN_SOURCES.some(p => relative(REPO_ROOT, p) === f), f).toBe(true);
   });
 
@@ -2015,6 +2020,8 @@ describe('round seventeen: mechanism, user-report and market claims follow our i
       'apps/jp/src/app/best-nootropics-for-aging/page.tsx',
       'apps/latam/src/app/best-nootropics-for-aging/page.tsx',
       'packages/data/src/products-jp.json',
+      // 2026-10-19: the LATAM Spanish product records.
+      'packages/data/src/products-latam-es.ts',
     ]) expect(ROUND_SIXTEEN_SOURCES.some(p => relative(REPO_ROOT, p) === f), f).toBe(true);
   });
 
