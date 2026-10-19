@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { RegionalBuying as RegionalBuyingData, UIStrings } from '@nootropic/data';
 import { licenceStatusText } from '@nootropic/data';
 import { Card } from './primitives/Card';
-import { localPriceShort } from './price-text';
+import { LocalPriceShort } from './PriceShort';
 import type { RegionalGeoLink } from './RegionalAvailability';
 
 /**
@@ -40,7 +40,7 @@ export default function RegionalBuying({ data, geoLinks, strings, id = 'regional
             <div>
               <dt className="text-[11px] uppercase tracking-[0.12em] font-semibold text-ds-muted">{t.price}</dt>
               <dd className="m-0 text-[15px] font-bold text-ds-ink ds-tabular">
-                {localPriceShort(data.price, t.monthUnit)}
+                <LocalPriceShort price={data.price} monthUnit={t.monthUnit} pageLocale={strings.dateLocale} />
               </dd>
             </div>
           )}

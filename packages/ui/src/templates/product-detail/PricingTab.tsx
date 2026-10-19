@@ -144,7 +144,7 @@ export function PricingTab({ product: p, disclosure, strings, noticeStrings, pri
               <span className="text-[32px] font-bold tracking-[-0.02em] ds-tabular text-ds-accent">{price.pack}</span>
             </div>
             <p className="text-[12.5px] text-ds-muted m-0 mt-1 text-right ds-tabular" data-store-price-pack>
-              <span lang={price.packLang && price.packLang !== pageLang ? price.packLang : undefined}>{price.packText}</span>
+              <span lang={price.packLangAttr}>{price.packText}</span>
               {price.monthly ? ` · ${price.monthly}` : ''}
             </p>
             {(price.perServing || price.perDay) && (

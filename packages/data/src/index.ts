@@ -68,6 +68,7 @@ export {
   monthlyStorePrice,
   sharedCurrency,
   storePriceProblems,
+  storePriceLang,
 } from './store-price';
 export { NOT_AVAILABLE, outOfTen, pillarText, guaranteeDays, guaranteeDaysValue } from './display-values';
 export type { DosingAnchor, DosingBasis } from './dosing-anchors';

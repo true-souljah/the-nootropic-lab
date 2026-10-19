@@ -27,7 +27,7 @@ export default function CookiePolicyPage() {
     <PublicShell searchItems={searchItems} uiStrings={uiStrings} hideDisclosure>
     <article className="max-w-3xl mx-auto px-4 py-10">
       <h1 className="text-3xl font-bold text-gray-900 mb-6">Política de Cookies</h1>
-      <p className="text-sm text-gray-500 mb-8">Última actualización: 6 de octubre de 2026</p>
+      <p className="text-sm text-gray-500 mb-8">Última actualización: 12 de octubre de 2026</p>
 
       <div className="prose prose-gray prose-sm max-w-none space-y-6">
         <section>
@@ -63,7 +63,7 @@ export default function CookiePolicyPage() {
             heading="Estrictamente necesarias (siempre activas)"
             labels={LABELS}
             rows={[
-              ['klaro', 'Este sitio (gestor de consentimiento)', 'Guarda tu elección de consentimiento para cada finalidad: qué servicios permitiste o rechazaste.', '365 días'],
+              ['klaro-consent', 'Este sitio (gestor de consentimiento)', 'Guarda tu elección de consentimiento para cada finalidad: qué servicios permitiste o rechazaste.', '365 días'],
             ]}
           />
           <CookieTable
@@ -136,7 +136,7 @@ export default function CookiePolicyPage() {
             </li>
             <li>
               <strong>En tu navegador:</strong> puedes eliminar o bloquear cookies en la
-              configuración de tu navegador. Si eliminas la cookie <strong>klaro</strong>, el banner
+              configuración de tu navegador. Si eliminas la cookie <strong>klaro-consent</strong>, el banner
               de consentimiento volverá a aparecer en tu próxima visita.
             </li>
           </ul>

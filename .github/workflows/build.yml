@@ -175,6 +175,9 @@ jobs:
       # sort controls, units, buttons and mobile labels are in the page's
       # language — no English fallback from a call site without `strings`.
       - run: npm run check:table-locale
+      # Datetime gate over all 8 builds: every <time> names an ISO date in its
+      # datetime attribute (or text) — FPByline once put "Oct 19, 2026" there.
+      - run: npm run check:datetime
       - run: npm run test:e2e -- --shard=${{ matrix.shard }}/3
       - uses: actions/upload-artifact@v7
         if: failure()

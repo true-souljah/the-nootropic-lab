@@ -12,6 +12,7 @@ import './styles/klaro-overrides.css';
 import { klaroConfig } from './klaro-config';
 import { applyActiveLangToKlaroConfig } from './klaro-lang';
 import { needsReloadAfterWithdrawal } from './analytics-consent';
+import { hasStoredChoice, migrateStoredConsent } from './consent-record';
 
 interface KlaroManager {
   /** Klaro sets this once a choice is stored; its UI hides Accept all / Decline all while true. */
@@ -30,12 +31,13 @@ interface KlaroModule {
 /** Fired on `window` whenever the visitor saves a consent choice (accept, decline or save). */
 export const CONSENT_CHOICE_EVENT = 'nootropic:consent-choice';
 
-/** Name of Klaro's consent cookie (`klaroConfig.cookieName`). */
-const KLARO_COOKIE = klaroConfig.cookieName;
-
-/** True once the visitor has made a consent choice (Klaro's cookie exists). */
+/**
+ * True once the visitor has a consent choice that stands: a per-purpose
+ * record, or a pre-split refusal that is carried forward. A pre-split accept
+ * is no choice (operator decision 8): the banner asks again.
+ */
 export function hasConsentChoice(cookieHeader: string): boolean {
-  return cookieHeader.split(';').some((c) => c.trim().startsWith(`${KLARO_COOKIE}=`));
+  return hasStoredChoice(cookieHeader);
 }
 
 // Klaro ships no .d.ts; cast the dynamic import once at the boundary.
@@ -107,6 +109,10 @@ declare global {
 export default function CookieBanner() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
+    // Before Klaro reads its storage: a pre-split accept becomes no choice
+    // (its tracker cookies deleted), a pre-split refusal the per-purpose
+    // all-declined record (operator decision 8).
+    migrateStoredConsent(document, window.location.hostname);
     let cancelled = false;
     (async () => {
       const Klaro = await loadKlaro();

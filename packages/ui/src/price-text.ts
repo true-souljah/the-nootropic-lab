@@ -3,6 +3,7 @@ import {
   monthlyStorePrice,
   perServingStorePrice,
   perDayStorePrice,
+  storePriceLang,
   type LocalPrice,
   type Money,
   type Product,
@@ -21,8 +22,10 @@ export interface PriceText {
   pack: string;
   /** What the pack price buys, verbatim from the vendor ("90 Count"). */
   packText: string;
-  /** Language of `packText` when it is not English ("de", "ja"); null for English. */
-  packLang: string | null;
+  /** Language of `packText` (storePriceLang: "en" unless the record says "de", "ja", …). */
+  packLang: string;
+  /** The `lang` `packText` needs on this page (packLangAttr against the strings' locale); undefined where the languages match. */
+  packLangAttr: string | undefined;
   /** "≈ US$53.30/mo", or null when the supply is not stated. */
   monthly: string | null;
   /** The shortest honest form: the monthly figure when there is one, else "US$79.95 · 90 Count". */
@@ -49,6 +52,16 @@ export function priceLocaleOf(strings: PriceStrings): string {
   return strings.priceLocale ?? strings.productDetail.dateLocale;
 }
 
+/**
+ * The `lang` a store's verbatim words in `textLang` need on a page written in
+ * `pageLocale` (a bundle's `productDetail.dateLocale`, "es-419"): their
+ * language where it differs from the page's ("en" on an es page, "de" on an en
+ * page), else undefined — nothing to mark (WCAG 3.1.2).
+ */
+export function packLangAttr(textLang: string, pageLocale: string): string | undefined {
+  return textLang.split('-')[0] === pageLocale.split('-')[0] ? undefined : textLang;
+}
+
 /** The record's store price as display text; null when the record has no store price. */
 export function priceText(
   product: Pick<Product, 'storePrice' | 'servingsPerContainer' | 'capsulesPerServing' | 'form'>,
@@ -63,10 +76,12 @@ export function priceText(
   const monthly = m ? `≈ ${formatMoney(m, locale)}/${stats.monthUnit}` : null;
   const s = perServingStorePrice(product);
   const d = perDayStorePrice(product);
+  const packLang = storePriceLang(sp);
   return {
     pack,
     packText: sp.pack,
-    packLang: sp.lang ?? null,
+    packLang,
+    packLangAttr: packLangAttr(packLang, strings.productDetail.dateLocale),
     monthly,
     short: monthly ?? `${pack} · ${sp.pack}`,
     monthlyMoney: m && { amount: m.amount, currency: m.currency },

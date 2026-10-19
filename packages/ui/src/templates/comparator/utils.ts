@@ -123,20 +123,22 @@ export function buildViewQueryString(opts: {
  */
 export function exportRowsToCsv(rows: Product[], strings: UIStrings): void {
   if (typeof document === 'undefined') return;
+  // Header words in the page's language.
+  const h = strings.comparator.csvHeaders;
   const headers = [
-    'Rank',
-    'Name',
-    'Brand',
-    'Score',
-    'Pack price',
-    'Currency',
-    'Pack',
-    'Approx. per month',
-    'Approx. per serving',
-    'Daily serving',
-    'MBG days',
-    'Trustpilot',
-    'Best for',
+    h.rank,
+    h.name,
+    h.brand,
+    h.score,
+    h.packPrice,
+    h.currency,
+    h.pack,
+    h.perMonth,
+    h.perServing,
+    h.dailyServing,
+    h.moneyBackDays,
+    h.trustpilot,
+    h.bestFor,
   ];
   const perServingAmount = (p: Product) => {
     const s = perServingStorePrice(p);
@@ -155,7 +157,9 @@ export function exportRowsToCsv(rows: Product[], strings: UIStrings): void {
     servingAmount(p, strings),
     guaranteeDaysValue(p.moneyBackDays),
     p.trustpilotScore ?? '',
-    p.bestFor.join('; '),
+    // The tags as the page shows them: a translation overlay's display text
+    // where there is one (LATAM), otherwise the record's own tags.
+    (p.display?.bestFor ?? p.bestFor).join('; '),
   ]);
   const csv = [headers, ...lines]
     .map((row) => row.map((cell) => `"${String(cell).replace(/"/g, '""')}"`).join(','))
