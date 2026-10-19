@@ -216,7 +216,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                 </td>
                 <td className="p-3">
                   <div className="flex flex-wrap gap-1">
-                    {p.bestFor.slice(0, 2).map(tag => (
+                    {(p.display?.bestFor ?? p.bestFor).slice(0, 2).map(tag => (
                       <span
                         key={tag}
                         className="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded-full"

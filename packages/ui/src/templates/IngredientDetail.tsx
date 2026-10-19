@@ -73,9 +73,10 @@ export default function IngredientDetail({
     { id: 'effects', label: t.toc.effects },
     { id: 'benefits', label: t.toc.benefits },
     { id: 'how-to', label: t.toc.howTo },
-    { id: 'stacking', label: t.toc.stacking },
+    // Sections without content are not rendered, so they are not listed either.
+    ...(ing.stacksWith.length > 0 ? [{ id: 'stacking', label: t.toc.stacking }] : []),
     { id: 'faq', label: t.toc.faq },
-    { id: 'products', label: t.toc.products },
+    ...(containingProducts.length > 0 ? [{ id: 'products', label: t.toc.products }] : []),
     ...(regional ? [{ id: 'regional', label: regional.region.labels.toc }] : []),
     { id: 'related', label: t.toc.related },
   ];
@@ -335,27 +336,30 @@ export default function IngredientDetail({
               </Card>
             </section>
 
-            <section id="stacking" className="mt-9">
-              <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-1 text-ds-ink">{t.sections.stacking}</h2>
-              <p className="text-[13px] text-ds-muted mb-4">{tpl(t.stackingLede, { name: ing.name })}</p>
-              <div className="flex flex-col gap-3">
-                {ing.stacksWith.map((pair) => (
-                  <Card key={pair.ingredient} padding={16}>
-                    <div className="flex gap-4">
-                      <div className="shrink-0 w-28">
-                        <Link
-                          href={`/ingredients/${pair.slug}/`}
-                          className="text-[13.5px] font-semibold text-ds-accent hover:text-ds-accent-press underline focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded leading-tight block"
-                        >
-                          {pair.ingredient}
-                        </Link>
+            {/* "Ingredients that pair well with …": nothing to say means no section. */}
+            {ing.stacksWith.length > 0 && (
+              <section id="stacking" className="mt-9">
+                <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-1 text-ds-ink">{t.sections.stacking}</h2>
+                <p className="text-[13px] text-ds-muted mb-4">{tpl(t.stackingLede, { name: ing.name })}</p>
+                <div className="flex flex-col gap-3">
+                  {ing.stacksWith.map((pair) => (
+                    <Card key={pair.ingredient} padding={16}>
+                      <div className="flex gap-4">
+                        <div className="shrink-0 w-28">
+                          <Link
+                            href={`/ingredients/${pair.slug}/`}
+                            className="text-[13.5px] font-semibold text-ds-accent hover:text-ds-accent-press underline focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded leading-tight block"
+                          >
+                            {pair.ingredient}
+                          </Link>
+                        </div>
+                        <p className="text-[13.5px] text-ds-ink-soft leading-[1.65] m-0">{pair.reason}</p>
                       </div>
-                      <p className="text-[13.5px] text-ds-ink-soft leading-[1.65] m-0">{pair.reason}</p>
-                    </div>
-                  </Card>
-                ))}
-              </div>
-            </section>
+                    </Card>
+                  ))}
+                </div>
+              </section>
+            )}
 
             <section id="faq" className="mt-9">
               <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-4 text-ds-ink">{t.sections.faq}</h2>

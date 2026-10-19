@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import type { UIStrings } from '@nootropic/data';
+import { getStrings, type UIStrings } from '@nootropic/data';
+import { fillNodes } from './templates/fillNodes';
 
 /**
  * Editorial Standards section appended to /methodology/ pages across the
@@ -17,132 +18,91 @@ import type { UIStrings } from '@nootropic/data';
  * (EU Reg 1924/2006, ANMAT, etc.) lives in each app's methodology page.tsx
  * around this shared section.
  *
- * The headings come from the page locale (`strings`); the policy text below
- * them is English on every edition until the methodology body is translated.
+ * The headings and the policy text come from the page locale (`strings`,
+ * `strings.body`). Only en and es carry the policy text; a locale without it
+ * shows en's (no page renders this section in another locale).
  */
 export default function EditorialStandardsSection({ strings }: { strings: UIStrings['editorialStandards'] }) {
+  const body = strings.body ?? getStrings('en').editorialStandards.body!;
   return (
     <>
       <section className="my-12">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">{strings.heading}</h2>
-        <p className="text-sm text-gray-600 mb-6 leading-relaxed">
-          Beyond the 5-pillar scoring framework, every page on this site is produced under the following
-          editorial standards. These standards apply to all 8 regional editions and govern how content is
-          researched, reviewed, corrected, and disclosed.
-        </p>
+        <p className="text-sm text-gray-600 mb-6 leading-relaxed">{body.intro}</p>
 
         <div className="space-y-5">
           <div className="border border-gray-200 rounded-xl p-5">
             <h3 className="font-bold text-gray-900 mb-2">{strings.reviewProtocol}</h3>
-            <p className="text-sm text-gray-700 leading-relaxed">
-              Products are evaluated from manufacturer-published ingredient lists, regulatory filings,
-              and third-party Certificates of Analysis when available. Each label dose of an ingredient
-              with a reference dose on our ingredient pages is compared with that dose, taken from
-              peer-reviewed clinical trials; ingredients without one are listed but not scored.
-            </p>
+            <p className="text-sm text-gray-700 leading-relaxed">{body.reviewProtocol}</p>
           </div>
 
           <div className="border border-gray-200 rounded-xl p-5">
             <h3 className="font-bold text-gray-900 mb-2">{strings.conflictOfInterest}</h3>
             <p className="text-sm text-gray-700 leading-relaxed mb-2">
-              We earn affiliate commissions from links on commercial pages. Affiliate relationships
-              <strong> do not</strong> influence:
+              {fillNodes(body.conflictIntro, { doNot: <strong>{body.conflictDoNot}</strong> })}
             </p>
             <ul className="list-disc list-inside text-sm text-gray-700 leading-relaxed space-y-1 ml-2">
-              <li>5-pillar scores (set before any affiliate program is evaluated)</li>
-              <li>Listicle ranking position (driven by score + use-case fit only)</li>
-              <li>Pros/cons content (criticism is preserved even on affiliate-active products)</li>
-              <li>Clinical-dose audit verdicts (purely data-driven against PubMed-indexed RCTs)</li>
+              {body.conflictItems.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
             </ul>
-            <p className="text-sm text-gray-700 leading-relaxed mt-2">
-              We do not accept payment for reviews, sponsored content placements, or guaranteed-position
-              promotion. Affiliate disclosures appear at the top of every commercial page, before the
-              first call-to-action, in compliance with FTC 16 CFR Part 255 (US), ASA CAP Code (UK), and
-              equivalent advertising codes in each region we publish.
-            </p>
+            <p className="text-sm text-gray-700 leading-relaxed mt-2">{body.conflictOutro}</p>
           </div>
 
           <div className="border border-gray-200 rounded-xl p-5">
             <h3 className="font-bold text-gray-900 mb-2">{strings.sourceCitation}</h3>
-            <p className="text-sm text-gray-700 leading-relaxed">
-              Clinical-dose claims are sourced from PubMed-indexed human randomized controlled trials,
-              meta-analyses, and Examine.com syntheses. Regulatory claims are sourced from primary
-              regulator documents (FDA, EFSA, TGA, Health Canada, MHLW Consumer Affairs Agency, ANMAT,
-              ANVISA, COFEPRIS, SFDA, BPOM, HSA, NPRA, JAKIM, BPJPH). When a claim cannot be sourced
-              from primary literature or a primary regulator, it is either omitted or flagged as
-              "limited evidence" / "manufacturer claim only". We do not cite secondary aggregators
-              (Healthline, Verywell) as primary sources for clinical claims.
-            </p>
+            <p className="text-sm text-gray-700 leading-relaxed">{body.sourceCitation}</p>
           </div>
 
           <div className="border border-gray-200 rounded-xl p-5">
             <h3 className="font-bold text-gray-900 mb-2">{strings.correction}</h3>
-            <p className="text-sm text-gray-700 leading-relaxed mb-2">
-              We aim to respond to substantive editorial corrections within 5 business days and to
-              update or retract incorrect content within 10 business days of verification. When a
-              correction is made:
-            </p>
+            <p className="text-sm text-gray-700 leading-relaxed mb-2">{body.correctionIntro}</p>
             <ul className="list-disc list-inside text-sm text-gray-700 leading-relaxed space-y-1 ml-2">
-              <li>The page&apos;s <code className="text-xs bg-gray-100 px-1 rounded">dateModified</code> Article-schema field is updated to reflect the change.</li>
-              <li>For factual corrections (dose values, regulatory status, brand ownership), the prior
-              statement is replaced and a brief note is added to the page when the correction is
-              material to a reader&apos;s purchase decision.</li>
-              <li>We do not silently delete published claims. Significant corrections to scored
-              comparisons trigger a re-score under the same 5-pillar framework with a visible date.</li>
+              {body.correctionItems.map((item) => (
+                <li key={item}>
+                  {fillNodes(item, { field: <code className="text-xs bg-gray-100 px-1 rounded">dateModified</code> })}
+                </li>
+              ))}
             </ul>
             <p className="text-sm text-gray-700 leading-relaxed mt-2">
-              Send corrections to{' '}
-              <a href="mailto:editorial@thenootropiclab.com" className="text-green-700 underline">
-                editorial@thenootropiclab.com
-              </a>
-              . Include the page URL, the specific claim, and a primary source supporting the correct
-              version.
+              {fillNodes(body.correctionContact, {
+                email: (
+                  <a href="mailto:editorial@thenootropiclab.com" className="text-green-700 underline">
+                    editorial@thenootropiclab.com
+                  </a>
+                ),
+              })}
             </p>
           </div>
 
           <div className="border border-gray-200 rounded-xl p-5">
             <h3 className="font-bold text-gray-900 mb-2">{strings.teamIdentity}</h3>
-            <p className="text-sm text-gray-700 leading-relaxed">
-              The Nootropic Lab operates as an independent editorial collective. We do not disclose
-              individual contributors by name and do not
-              feature personal brands within reviews. This is a deliberate choice: it keeps the focus
-              on the methodology and the data, and reduces the risk that a single contributor&apos;s
-              preferences disproportionately influence rankings. Every review applies the same 5-pillar
-              framework documented above; consistency is the credibility signal, not authority by
-              persona.
-            </p>
+            <p className="text-sm text-gray-700 leading-relaxed">{body.teamIdentity}</p>
           </div>
 
           <div className="border border-gray-200 rounded-xl p-5">
             <h3 className="font-bold text-gray-900 mb-2">{strings.regionalFraming}</h3>
-            <p className="text-sm text-gray-700 leading-relaxed">
-              Each regional edition of this site applies the YMYL disclaimer language mandated or
-              expected by that region&apos;s primary regulator: DSHEA (US FDA), Reg (EC) 1924/2006 +
-              EFSA register (EU), Health Canada NPN (CA), TGA Therapeutic Goods Advertising Code (AU),
-              PMD Act + FFC + FOSHU (JP), ANVISA / COFEPRIS / ANMAT (LATAM, with a catalogue check
-              against the substances named in the seven products prohibited by ANMAT Disposición
-              2105/2022 for Argentine traffic), SFDA + Halal certification
-              (GCC), HSA + BPOM + NPRA + Halal mandatory ID/MY (SEA). Cognitive claims that are not
-              approved by the relevant regulator are reframed as ingredient mechanisms or consumer
-              experience and never asserted as label-grade health claims.
-            </p>
+            <p className="text-sm text-gray-700 leading-relaxed">{body.regionalFraming}</p>
           </div>
         </div>
       </section>
 
       <section className="my-12 bg-blue-50 border border-blue-200 rounded-xl p-6">
         <h2 className="text-xl font-bold text-blue-900 mb-3">{strings.contact}</h2>
-        <p className="text-sm text-gray-700 leading-relaxed mb-2">
-          Editorial corrections, regulatory inquiries, partnership requests:
-        </p>
+        <p className="text-sm text-gray-700 leading-relaxed mb-2">{body.contactLead}</p>
         <p className="text-sm text-gray-700 leading-relaxed">
           <a href="mailto:editorial@thenootropiclab.com" className="text-blue-700 underline font-medium">
             editorial@thenootropiclab.com
           </a>
         </p>
         <p className="text-xs text-gray-500 mt-3 leading-relaxed">
-          For full publisher information see our{' '}
-          <Link href="/imprint/" className="text-blue-700 underline">imprint</Link>.
+          {fillNodes(body.imprintNote, {
+            imprint: (
+              <Link href="/imprint/" className="text-blue-700 underline">
+                {body.imprintLink}
+              </Link>
+            ),
+          })}
         </p>
       </section>
     </>

@@ -1,10 +1,21 @@
-export type { Product, EUCompliance, Market, IngredientDosage, NoPurchaseLink, NoPurchaseLinkMhlw, NoPurchaseLinkNotSold, NoPurchaseLinkIngredient, NoPurchaseLinkReason, VendorTerm, VendorTerms, StorePrice } from './products-us';
+export type { Product, ProductDisplayText, EUCompliance, Market, IngredientDosage, NoPurchaseLink, NoPurchaseLinkMhlw, NoPurchaseLinkNotSold, NoPurchaseLinkIngredient, NoPurchaseLinkReason, VendorTerm, VendorTerms, StorePrice } from './products-us';
 export { productsUS, allProductsUS } from './products-us';
 export { productsEU, allProductsEU } from './products-eu';
 export { productsCA, allProductsCA } from './products-ca';
 export { productsAU, allProductsAU } from './products-au';
 export { productsJP, allProductsJP } from './products-jp';
 export { productsLatam, allProductsLatam } from './products-latam';
+export type { LatamProductTranslation, LatamProductLocale, TranslatedLatamProductField } from './products-latam-es';
+export {
+  latamProductTranslationsEs,
+  localizeProductLatam,
+  localizedProductsLatam,
+  localizedAllProductsLatam,
+  latamProductSourceFields,
+  latamTranslationFields,
+  latamTranslationShapeProblems,
+  TRANSLATED_LATAM_PRODUCT_FIELDS,
+} from './products-latam-es';
 export { activeProducts, isDiscontinued } from './product-status';
 export type { NoPurchaseLinkStrings } from './purchase-link';
 export {
@@ -103,7 +114,7 @@ export type { JPPrefecture } from './jp-prefectures';
 export { jpPrefectures } from './jp-prefectures';
 export type { SearchItem, SearchItemMeta } from './search';
 export { buildSearchIndex } from './search';
-export type { Locale, UIStrings, RegionStrings, LicenceStatusStrings, RelatedGuideUseCase, IngredientCategoryStrings } from './i18n';
+export type { Locale, UIStrings, RegionStrings, LicenceStatusStrings, RelatedGuideUseCase, IngredientCategoryStrings, EditorialStandardsBody } from './i18n';
 export { getStrings, getLocaleForMarket } from './i18n';
 export { buildRegionSearchContext } from './region-search';
 export type { RegionSearchContext } from './region-search';

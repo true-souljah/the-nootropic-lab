@@ -44,6 +44,9 @@ function newLeaves(locale: Locale): Map<string, string> {
   const i = s.ingredientDetail;
   const g = s.guide;
   const { useCaseLabels: _useCaseLabels, ...listicle } = s.listicle;
+  // The eight headings are this change's chrome; the policy text (`body`,
+  // en and es only, 2026-10-19) is checked in products-latam-es.test.ts.
+  const { body: _editorialBody, ...editorialHeadings } = s.editorialStandards;
   return new Map([
     ['nav.productCount', s.nav.productCount],
     ['nav.ingredientCount', s.nav.ingredientCount],
@@ -87,7 +90,7 @@ function newLeaves(locale: Locale): Map<string, string> {
     ...leaves(s.comparator, 'comparator'),
     ...leaves(s.ingredientLibrary, 'ingredientLibrary'),
     ...leaves(s.geo, 'geo'),
-    ...leaves(s.editorialStandards, 'editorialStandards'),
+    ...leaves(editorialHeadings, 'editorialStandards'),
     ...leaves(s.shortlist, 'shortlist'),
   ]);
 }
@@ -144,8 +147,9 @@ const PLACEHOLDERS: Record<string, string[]> = {
 /**
  * Identical to en on purpose: Trustpilot is a brand name; "Actions" and
  * "Commission" are the same word in French; fr-CA writes "score" (its bundle
- * already says "Notre score"). Every other new string differs from en, and
- * every other ja string contains Japanese script.
+ * already says "Notre score"); "mineral" is the same word in Spanish and
+ * Portuguese. Every other new string differs from en, and every other ja
+ * string contains Japanese script.
  */
 const DO_NOT_TRANSLATE: Record<string, Locale[]> = {
   'comparator.columns.trustpilot': ['es', 'fr', 'ja', 'pt', 'de', 'fr-CA'],
@@ -153,13 +157,14 @@ const DO_NOT_TRANSLATE: Record<string, Locale[]> = {
   'bestOf.commission': ['fr', 'fr-CA'],
   'table.sortColumns.score': ['fr-CA'],
   'comparator.columns.score': ['fr-CA'],
+  'ingredientDetail.relatedCategory.mineral': ['es', 'pt'],
 };
 const exempt = (path: string, locale: Locale) => DO_NOT_TRANSLATE[path]?.includes(locale) ?? false;
 const enLeaves = newLeaves('en');
 
 describe('new chrome strings (2026-10-12): every locale, every key', () => {
-  test('the scan is non-empty: 187 new strings in en', () => {
-    expect(enLeaves.size).toBe(187);
+  test('the scan is non-empty: 188 new strings in en', () => {
+    expect(enLeaves.size).toBe(188);
   });
 
   test.each(ALL_LOCALES)('%s has every key, non-empty', (locale) => {
