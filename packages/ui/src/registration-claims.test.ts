@@ -2596,6 +2596,34 @@ describe("round twenty-one claims: NSF, Mind Lab Pro testing, oat/Bacopa/Lion's 
     expect(hits).toEqual([]);
   });
 
+  // Follow-up (same round): Alpha Brain's "Athletes" tag rested only on the
+  // removed NSF claim, and Nootropics Depot Lion's Mane's "Nerve growth" tag on
+  // NGF, which we found no human trial measuring. Neither tag is a filter
+  // option (Discover, the comparator and the quiz match fixed goal lists).
+  test("Alpha Brain is not tagged for athletes and Lion's Mane not for nerve growth", () => {
+    const productFiles = readdirSync(DATA_DIR).filter(n => /^products-.*\.json$/.test(n));
+    const tagged = (id: string) =>
+      productFiles.flatMap(n =>
+        (JSON.parse(readFileSync(resolve(DATA_DIR, n), 'utf8')) as Array<{ id: string; bestFor: string[] }>)
+          .filter(p => p.id === id)
+          .map(p => ({ where: n, bestFor: p.bestFor })),
+      );
+    const alphaBrain = tagged('alpha-brain');
+    const lionsMane = tagged('nootropics-depot-lions-mane');
+    expect(alphaBrain.length).toBe(6);
+    expect(lionsMane.length).toBe(4);
+    const es = (slug: string) => latamProductTranslationsEs.filter(t => t.slug === slug).map(t => t.bestFor);
+    expect(es('onnit-alpha-brain-review').length).toBe(1);
+    expect(es('nootropics-depot-lions-mane').length).toBe(1);
+    const hits = [
+      ...alphaBrain.filter(r => r.bestFor.includes('Athletes')).map(r => `${r.where}: alpha-brain "Athletes"`),
+      ...lionsMane.filter(r => r.bestFor.includes('Nerve growth')).map(r => `${r.where}: lions-mane "Nerve growth"`),
+      ...es('onnit-alpha-brain-review').filter(b => b.includes('Deportistas')).map(() => 'products-latam-es.ts: "Deportistas"'),
+      ...es('nootropics-depot-lions-mane').filter(b => b.includes('Crecimiento nervioso')).map(() => 'products-latam-es.ts: "Crecimiento nervioso"'),
+    ];
+    expect(hits).toEqual([]);
+  });
+
   test('the new mechanism sources are cited and on the allow-list', () => {
     const bySlug = (slug: string) => ingredients.find(i => i.slug === slug)!;
     expect(bySlug('oat-straw').sources.map(s => s.pmid)).toContain('23221935');
