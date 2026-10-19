@@ -30,7 +30,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Which is better, Mind Lab Pro or NooCube?',
     a:
-      'Both disclose every ingredient dose openly — the differentiator is brand trust. Mind Lab Pro has been tested in two University of Leeds studies — a 30-day placebo-controlled study its authors call pseudo-randomised (PubMed 37194920) and a 60-day placebo-controlled study that found no improvement in choice accuracy or reaction time (PubMed 40149748) — and carries a 30-day Performance Promise. NooCube is part of the Wolfson Brands portfolio with affiliate-marketing-heavy positioning. Mind Lab Pro is the safer pick for transparency-minded buyers; NooCube competes on price and bundle offers.',
+      'Both disclose every ingredient dose openly — the differentiator is brand trust. Mind Lab Pro has been tested in two University of Leeds studies — a 30-day placebo-controlled study its authors call pseudo-randomised (PubMed 37194920) and a 60-day placebo-controlled study that found no improvement in choice accuracy or reaction time (PubMed 40149748) — and carries a 30-day Performance Promise. NooCube is part of the Wolfson Brands portfolio with affiliate-marketing-heavy positioning. Mind Lab Pro is the stronger pick for transparency-minded buyers; NooCube competes on price and bundle offers.',
   },
   {
     q: 'Are both caffeine-free?',
@@ -45,7 +45,7 @@ const faqItems: HeadToHeadFAQ[] = [
   {
     q: 'Which has better third-party testing?',
     a:
-      'Mind Lab Pro publishes Clean Label Project certification + Lab Door + Consumer Lab independent verifications. NooCube discloses GMP-certified manufacturing but third-party testing details are less prominent on their public site. For Clean Label transparency, Mind Lab Pro wins.',
+      'Mind Lab Pro is Clean Label Project certified: the Clean Label Project certificate for Performance Lab Group lists Mind Lab Pro from December 2022, and the certificate was reissued in April 2026. Labdoor scores Mind Lab Pro 99.5/100 but marks that certification as expired. ConsumerLab says a product under the Mind Lab Pro brand was approved in its Quality Certification Program, but the report is paywalled, so we cannot tell which product was tested. NooCube\'s homepage says the brand has paid for third-party testing and that each small batch is made in a GMP (Good Manufacturing Practice) certified facility, but it names no testing body (all checked 19 October 2026). Of the two, Mind Lab Pro is the one with a current certification we could check on the certifier\'s own site.',
   },
   {
     q: 'Is NooCube a scam?',
@@ -61,7 +61,7 @@ const faqItems: HeadToHeadFAQ[] = [
 
 const whoIsForA = [
   'Want a formula tested in two placebo-controlled University of Leeds studies (the 60-day one found no improvement in choice accuracy or reaction time)',
-  'Care about Clean Label + Consumer Lab third-party verification',
+  'Want a product with a current Clean Label Project certification',
   'Are willing to pay premium for trademarked extracts (Cognizin, Sharp-PS)',
 ];
 
@@ -73,7 +73,7 @@ const whoIsForB = [
 ];
 
 const verdictParagraph =
-  'Both are open-formula products — neither hides doses behind proprietary blends. The differentiator is brand trust signals: Mind Lab Pro has two University of Leeds studies behind it (the 60-day one found no improvement in choice accuracy or reaction time) and Clean Label / Consumer Lab third-party testing; NooCube carries a 60-day refund window and lower per-bottle pricing on bundles. Mind Lab Pro is the one of the two whose formula has been tested, though weakly: the authors of the 30-day study call it pseudo-randomised. For price-conscious open-formula buyers, NooCube is a fair second.';
+  'Both are open-formula products — neither hides doses behind proprietary blends. The differentiator is brand trust signals: Mind Lab Pro has two University of Leeds studies behind it (the 60-day one found no improvement in choice accuracy or reaction time) and a current Clean Label Project certification; NooCube carries a 60-day refund window and lower per-bottle pricing on bundles. Mind Lab Pro is the one of the two whose formula has been tested, though weakly: the authors of the 30-day study call it pseudo-randomised. For price-conscious open-formula buyers, NooCube is a fair second.';
 
 export default function Page() {
   if (!productA || !productB) notFound();

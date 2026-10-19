@@ -82,7 +82,7 @@ const picks: ListiclePick[] = [
     product: productsGCC.find(p => p.slug === 'onnit-alpha-brain-review')!,
     rank: 4,
     whyItsHere:
-      'Caffeine-free formula with Alpha-GPC, L-theanine, L-tyrosine, and Bacopa. National Sanitation Foundation (NSF) Certified for Sport — relevant for GCC athletes and military buyers facing drug-tested events. Vegetarian but not vegan per the brand\'s FAQ; capsule shell material not stated (checked 2026-10-07). A published randomised trial of the finished formula (2016). Doses are hidden in proprietary blends — you cannot verify clinical thresholds. onnit.com\'s market list names Bahrain and Oman; shipping to the other GCC states could not be confirmed from the brand\'s site on 2026-09-29 — check at checkout. We have not verified an SFDA or MOHAP product registration.',
+      'Caffeine-free formula with Alpha-GPC, L-theanine, L-tyrosine, and Bacopa. Not listed in the Certified for Sport directory of NSF (National Sanitation Foundation), checked 2026-10-19; Onnit says it makes its products in NSF-certified GMP (Good Manufacturing Practice) facilities, a factory certification, not a product certification for drug-tested sport. Vegetarian but not vegan per the brand\'s FAQ; capsule shell material not stated (checked 2026-10-07). A published randomised trial of the finished formula (2016). Doses are hidden in proprietary blends — you cannot verify clinical thresholds. onnit.com\'s market list names Bahrain and Oman; shipping to the other GCC states could not be confirmed from the brand\'s site on 2026-09-29 — check at checkout. We have not verified an SFDA or MOHAP product registration.',
   },
 ];
 

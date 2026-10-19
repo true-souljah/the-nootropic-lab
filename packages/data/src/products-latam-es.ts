@@ -241,7 +241,7 @@ export const latamProductTranslationsEs: LatamProductTranslation[] = [
     whatItIs:
       'Mind Lab Pro es un stack nootrópico de 11 ingredientes que vende Performance Lab Group Ltd (Royal Leamington Spa, Reino Unido) según los términos de mindlabpro.com (las propias publicaciones de la marca dicen que lo formuló Opti-Nutra en el Reino Unido; consultado 2026-10-08), diseñado para cubrir memoria, concentración, energía mental, estado de ánimo y salud cerebral a largo plazo sin cafeína ni mezclas patentadas. Opti-Nutra Ltd es el nombre anterior de Performance Lab Ltd (Companies House 09439153; consultado 2026-10-09). Para compradores en Latam, se vende exclusivamente en USD, sin pago en moneda local. El producto se envía internacionalmente desde el Reino Unido; no hemos verificado un registro local del producto ante la Comisión Federal para la Protección contra Riesgos Sanitarios (COFEPRIS) en México, la Agência Nacional de Vigilância Sanitária (ANVISA) en Brasil, la Administración Nacional de Medicamentos, Alimentos y Tecnología Médica (ANMAT) en Argentina, el Instituto Nacional de Vigilancia de Medicamentos y Alimentos (INVIMA) en Colombia, el Instituto de Salud Pública (ISP) en Chile ni la Dirección General de Medicamentos, Insumos y Drogas (DIGEMID) en Perú — entra como suplemento importado para uso personal; confirma en el checkout si envía a tu país.',
     howItWorks:
-      'Mind Lab Pro actúa sobre seis vías biológicas a la vez. La Citicolina y la Fosfatidilserina apoyan el sistema colinérgico y la integridad de las membranas neuronales. La Melena de León estimula el factor de crecimiento nervioso (NGF) para la neuroplasticidad. La Bacopa Monnieri mejora la comunicación sináptica para la memoria. La Rhodiola Rosea y la L-Tirosina apoyan el equilibrio de dopamina/noradrenalina bajo estrés. La L-Teanina favorece la actividad de ondas cerebrales alfa para una concentración tranquila. Las vitaminas del grupo B (B6, B9, B12) apoyan la regulación de la homocisteína y la síntesis de neurotransmisores.',
+      'Mind Lab Pro actúa sobre seis vías biológicas a la vez. La Citicolina y la Fosfatidilserina apoyan el sistema colinérgico y la integridad de las membranas neuronales. Los extractos de Melena de León elevaron el factor de crecimiento nervioso (NGF) en estudios celulares y en animales. Los efectos antioxidantes y sobre la acetilcolina y la serotonina que se proponen para la Bacopa Monnieri provienen de estudios en animales y de laboratorio. La Rhodiola Rosea y la L-Tirosina apoyan el equilibrio de dopamina/noradrenalina bajo estrés. La L-Teanina favorece la actividad de ondas cerebrales alfa para una concentración tranquila. Las vitaminas del grupo B (B6, B9, B12) apoyan la regulación de la homocisteína y la síntesis de neurotransmisores.',
     whatToExpect:
       'En 30-60 minutos: una dosis única de 200mg de L-Teanina mejoró el tiempo de reacción de elección en ensayos (este producto tiene 100mg); nuestra página de L-Teanina califica como preliminar su evidencia sobre la concentración tranquila. Los ensayos de memoria de la Citicolina midieron efectos tras 2–3 meses. La L-Tirosina se toma alrededor de 1 hora antes de una tarea exigente, y su ensayo positivo de menor dosis usó 2000mg (este producto tiene 175mg). Los ensayos de memoria de la Bacopa duraron 8–12 semanas con 300–450mg de extracto al día (este producto tiene 150mg), y la dosis de Melena de León aquí, 500mg, está por debajo de los 1–1.8g usados en ensayos con adultos sanos. Mind Lab Pro es un suplemento de largo plazo: los ensayos de Bacopa que citamos midieron la memoria después de 12 semanas. Los mejores resultados requieren 3+ meses de uso diario constante.',
     pros: [
@@ -280,7 +280,7 @@ export const latamProductTranslationsEs: LatamProductTranslation[] = [
     sourceHashes: {
       summary: '950042d32d75',
       whatItIs: '6697bd46e665',
-      howItWorks: 'f42fa69f2e4d',
+      howItWorks: '45336ca320c6',
       whatToExpect: 'f0b8465d717c',
       pros: '4f3287b6a517',
       cons: 'b3e71326fb3d',
@@ -437,7 +437,7 @@ export const latamProductTranslationsEs: LatamProductTranslation[] = [
     summary:
       'El stack nootrópico estadounidense de Onnit, respaldado por un ensayo aleatorizado publicado en 2016 — una señal de confianza significativa para los compradores en Latam que compran desde el exterior. Precio en dólares estadounidenses, sin opción de moneda local. Se envía desde EE. UU.; consulta el plazo de entrega estimado en el checkout. Los aranceles de importación y el despacho aduanero corren por cuenta del comprador; los compradores en Argentina deben verificar que el emisor de su tarjeta apruebe transacciones en USD dado el control cambiario. La garantía de devolución de 30 días de Onnit cubre la primera compra de cada producto realizada directamente en Onnit.com.',
     whatItIs:
-      'Alpha Brain es el nootrópico insignia de Onnit, lanzado por primera vez en 2011 y popularizado a través del pódcast de Joe Rogan. Alpha Brain tiene un ensayo aleatorizado, doble ciego y controlado con placebo publicado sobre el producto terminado (Solomon 2016, PubMed 26876224): 63 adultos de 18 a 35 años, 6 semanas, mejoró el recuerdo verbal diferido y el funcionamiento ejecutivo; uno de los autores trabajaba para Onnit Labs. Cuenta con la certificación "Certified for Sport" de la National Sanitation Foundation (NSF). Para compradores en Latam, Alpha Brain se vende exclusivamente en USD y se envía desde EE. UU. como suplemento importado para uso personal. No hemos verificado un registro local del producto ante la Comisión Federal para la Protección contra Riesgos Sanitarios (COFEPRIS) en México, la Agência Nacional de Vigilância Sanitária (ANVISA) en Brasil, la Administración Nacional de Medicamentos, Alimentos y Tecnología Médica (ANMAT) en Argentina, el Instituto Nacional de Vigilancia de Medicamentos y Alimentos (INVIMA) en Colombia, el Instituto de Salud Pública (ISP) en Chile ni la Dirección General de Medicamentos, Insumos y Drogas (DIGEMID) en Perú. Los aranceles de importación y el despacho aduanero corren por cuenta del comprador — la garantía de devolución de 30 días de Onnit reembolsa solo el costo del producto, no el envío.',
+      'Alpha Brain es el nootrópico insignia de Onnit, lanzado por primera vez en 2011 y popularizado a través del pódcast de Joe Rogan. Alpha Brain tiene un ensayo aleatorizado, doble ciego y controlado con placebo publicado sobre el producto terminado (Solomon 2016, PubMed 26876224): 63 adultos de 18 a 35 años, 6 semanas, mejoró el recuerdo verbal diferido y el funcionamiento ejecutivo; uno de los autores trabajaba para Onnit Labs. Alpha Brain no figura en el directorio "Certified for Sport" de NSF (National Sanitation Foundation), consultado 2026-10-19. Onnit dice que fabrica sus productos en instalaciones con certificación NSF de GMP (Good Manufacturing Practice, buenas prácticas de fabricación), que es una certificación de la fábrica, no una certificación del producto para el deporte con controles antidopaje. Para compradores en Latam, Alpha Brain se vende exclusivamente en USD y se envía desde EE. UU. como suplemento importado para uso personal. No hemos verificado un registro local del producto ante la Comisión Federal para la Protección contra Riesgos Sanitarios (COFEPRIS) en México, la Agência Nacional de Vigilância Sanitária (ANVISA) en Brasil, la Administración Nacional de Medicamentos, Alimentos y Tecnología Médica (ANMAT) en Argentina, el Instituto Nacional de Vigilancia de Medicamentos y Alimentos (INVIMA) en Colombia, el Instituto de Salud Pública (ISP) en Chile ni la Dirección General de Medicamentos, Insumos y Drogas (DIGEMID) en Perú. Los aranceles de importación y el despacho aduanero corren por cuenta del comprador — la garantía de devolución de 30 días de Onnit reembolsa solo el costo del producto, no el envío.',
     howItWorks:
       'Alpha Brain usa tres mezclas patentadas — Onnit Flow Blend, Focus Blend y Fuel Blend — que contienen colinérgicos (Alfa-GPC), adaptógenos (Bacopa) y aminoácidos (Tirosina, Teanina). La etiqueta indica el total de cada mezcla y dos cantidades individuales (Bacopa 100mg, Huperzina A 400mcg): la Bacopa, la Alfa-GPC (como máximo 140mg) y la L-Tirosina (como máximo 650mg) no alcanzan sus dosis clínicas, y los demás componentes de las mezclas no pueden verificarse individualmente. El ensayo de 2016 (Solomon 2016; uno de los autores trabajaba para Onnit Labs) probó la fórmula completa y encontró mejoras en el recuerdo verbal diferido y el funcionamiento ejecutivo frente a placebo.',
     whatToExpect:
@@ -447,7 +447,6 @@ export const latamProductTranslationsEs: LatamProductTranslation[] = [
       'El mayor reconocimiento de marca en EE. UU.',
       'Solo 2 cápsulas',
       'Garantía de devolución de 30 días en la primera compra',
-      'Certificación "NSF Certified for Sport"',
       'La lista de mercados de onnit.com menciona Brasil, Argentina, Colombia, Chile y Perú (consultado 2026-09-29)',
     ],
     cons: [
@@ -460,7 +459,7 @@ export const latamProductTranslationsEs: LatamProductTranslation[] = [
       'Fórmula según la tabla Supplement Facts de la página del producto (https://www.onnit.com/products/alpha-brain-90-ct, consultada 2026-10-08): por 2 cápsulas, Vitamina B6 10mg; Onnit Flow Blend 650mg (L-Tirosina, L-Teanina, Oat Straw Extract, Fosfatidilserina); extracto de corteza de uña de gato 350mg; Onnit Focus Blend 240mg (Alfa-GPC, extracto de Bacopa 100mg, extracto de licopodio dentado que aporta Huperzina A 400mcg); Onnit Fuel Blend 60mg (L-Leucina, Pterostilbeno). Las dosis de referencia son las de las páginas de ingredientes de este sitio.',
       'La garantía de devolución de Onnit es de 30 días, para la primera compra de cada producto realizada directamente en Onnit.com, y reembolsa el costo del producto pero no el envío (https://help.onnit.com/en-US/30-day-money-back-guarantee-6327406, consultado 2026-10-08).',
     ],
-    bestFor: ['Público general', 'Reconocimiento de marca', 'Deportistas'],
+    bestFor: ['Público general', 'Reconocimiento de marca'],
     heroIngredients: ['L-Teanina', 'Huperzina A', 'Vitamina B6', 'Alfa-GPC', 'Fosfatidilserina'],
     ingredientDosages: [
       { name: 'Bacopa Monnieri (Focus Blend)', doseInProduct: '100mg' },
@@ -478,13 +477,13 @@ export const latamProductTranslationsEs: LatamProductTranslation[] = [
       'La lista de mercados de onnit.com menciona Brasil, Argentina, Colombia, Chile y Perú (consultado 2026-09-29); el envío a México no pudo confirmarse en el sitio de la marca (su página de ayuda sobre envíos no estaba disponible) — confírmalo en el checkout.',
     sourceHashes: {
       summary: '94ffb13ec516',
-      whatItIs: 'c0a90e0ab8f7',
+      whatItIs: '764478ca7c45',
       howItWorks: '800b71b44f91',
       whatToExpect: '805bde2a4832',
-      pros: '534dbe0fc1c9',
+      pros: '567590e06541',
       cons: 'a8531382e7c2',
       notes: 'bdd739a2f30e',
-      bestFor: '98bc79d831b9',
+      bestFor: 'dfdf01e5a25a',
       heroIngredients: 'dec48d0006ad',
       ingredientDosages: 'd902de0ef96e',
       importPathway: '2262c719be2d',
@@ -581,9 +580,9 @@ export const latamProductTranslationsEs: LatamProductTranslation[] = [
     whatItIs:
       "Nootropics Depot Lion's Mane Extract es un suplemento de un solo ingrediente que aporta extracto estandarizado de cuerpo fructífero de Hericium erinaceus a 500mg por cápsula. Nootropics Depot opera un laboratorio de análisis interno con certificación ISO y publica un CoA para cada lote — documentación que los compradores en Latam pueden usar para verificar la identidad del producto si la aduana lo cuestiona. Para compradores en Latam, el producto tiene precio exclusivamente en USD y se envía desde EE. UU. como suplemento para uso personal, y entra en estos mercados bajo las franquicias de importación personal; no hemos verificado un registro local del producto ante la Comisión Federal para la Protección contra Riesgos Sanitarios (COFEPRIS) en México, la Agência Nacional de Vigilância Sanitária (ANVISA) en Brasil, la Administración Nacional de Medicamentos, Alimentos y Tecnología Médica (ANMAT) en Argentina, el Instituto Nacional de Vigilancia de Medicamentos y Alimentos (INVIMA) en Colombia, el Instituto de Salud Pública (ISP) en Chile ni la Dirección General de Medicamentos, Insumos y Drogas (DIGEMID) en Perú. El menor valor por envío reduce la probabilidad de aranceles significativos en comparación con stacks de precio más alto.",
     howItWorks:
-      'El cuerpo fructífero de la Melena de León contiene hericenonas, compuestos que atraviesan la barrera hematoencefálica y estimulan la síntesis del factor de crecimiento nervioso (NGF). El NGF favorece la supervivencia neuronal, el crecimiento de los axones y el mantenimiento de las neuronas del hipocampo y la corteza — las regiones responsables del aprendizaje y la memoria. Nootropics Depot usa un extracto estandarizado de cuerpo fructífero en lugar de micelio (que tiene un menor contenido de hericenonas). El resultado es un estímulo de NGF más potente y constante por cápsula.',
+      'Los extractos de Melena de León elevaron el factor de crecimiento nervioso (NGF) en estudios con células y con ratones, pero en un estudio celular las hericenonas del cuerpo fructífero no lo hicieron (Mori 2008); el compuesto que se ha demostrado que llega al cerebro, la erinacina A, proviene del micelio y se probó en ratas (Tsai 2021). No encontramos ningún ensayo en humanos que midiera el NGF. El NGF favorece la supervivencia neuronal, el crecimiento de los axones y el mantenimiento de las neuronas del hipocampo y la corteza — las regiones responsables del aprendizaje y la memoria. Nootropics Depot usa un extracto estandarizado de cuerpo fructífero en lugar de micelio.',
     whatToExpect:
-      'La Melena de León es un suplemento de largo plazo. Ensayos piloto informaron pequeños efectos agudos en 1–2 horas. En un ensayo en adultos con deterioro cognitivo leve, las puntuaciones mejoraron tras 16 semanas con 3g al día y volvieron a bajar dentro de las 4 semanas posteriores a suspenderlo (Mori 2009). Con las 1–2 cápsulas al día de la etiqueta (500–1000mg), este producto alcanza como mucho el extremo inferior de las dosis de los ensayos piloto (1–1.8g) y un tercio de los 3g al día usados por Mori 2009. Para obtener mejores resultados, tómalo de forma constante todos los días con una comida que contenga grasa (las hericenonas son liposolubles). Este producto funciona mejor combinado con un stack de varios ingredientes (p. ej., Mind Lab Pro ya contiene Melena de León) que como suplemento principal por sí solo.',
+      'La Melena de León es un suplemento de largo plazo. Ensayos piloto informaron pequeños efectos agudos en 1–2 horas. En un ensayo en adultos con deterioro cognitivo leve, las puntuaciones mejoraron tras 16 semanas con 3g al día y volvieron a bajar dentro de las 4 semanas posteriores a suspenderlo (Mori 2009). Con las 1–2 cápsulas al día de la etiqueta (500–1000mg), este producto alcanza como mucho el extremo inferior de las dosis de los ensayos piloto (1–1.8g) y un tercio de los 3g al día usados por Mori 2009. Para obtener mejores resultados, tómalo de forma constante todos los días. Este producto funciona mejor combinado con un stack de varios ingredientes (p. ej., Mind Lab Pro ya contiene Melena de León) que como suplemento principal por sí solo.',
     pros: [
       'Laboratorio ISO: publica un CoA por lote',
       'Cuerpo fructífero estandarizado',
@@ -596,18 +595,18 @@ export const latamProductTranslationsEs: LatamProductTranslation[] = [
       'Envío internacional a Latam: la marca no publica un plazo de entrega estimado para este país; consulta el plazo estimado en el checkout',
       'Pueden aplicarse aranceles o impuestos de importación según el país de destino',
     ],
-    bestFor: ['Un solo ingrediente', 'Salud cerebral a largo plazo', 'Crecimiento nervioso'],
+    bestFor: ['Un solo ingrediente', 'Salud cerebral a largo plazo'],
     heroIngredients: ['Melena de León (extracto estandarizado de cuerpo fructífero)'],
     ingredientDosages: [{ name: 'Extracto de cuerpo fructífero de Melena de León (1:1)', doseInProduct: '500mg' }],
     sourceHashes: {
       summary: '9d77ffc2620b',
       whatItIs: 'cec631d4adbf',
-      howItWorks: '4e0915058716',
-      whatToExpect: '0ba14614fc4f',
+      howItWorks: '78a69885ee77',
+      whatToExpect: '83a3b9024ad1',
       pros: '76ce7c900343',
       cons: 'f9d420c769e4',
       notes: '74234e98afe7',
-      bestFor: '2f163c36c78c',
+      bestFor: 'a17a3bdda3e5',
       heroIngredients: '00cac060efd1',
       ingredientDosages: '5c90a7653103',
       importPathway: '74234e98afe7',

@@ -86,6 +86,42 @@
       "fundingConflict": "Study conducted at The Center for Applied Health Sciences, a contract research organization; specific product sponsor not stated in retrieved abstract.",
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/38140277/",
       "status": 200
+    },
+    {
+      "pmid": "18758067",
+      "doi": "10.1248/bpb.31.1727",
+      "title": "Nerve growth factor-inducing activity of Hericium erinaceus in 1321N1 human astrocytoma cells.",
+      "journal": "Biological & Pharmaceutical Bulletin",
+      "year": 2008,
+      "design": "cell and mouse study",
+      "population": "1321N1 human astrocytoma cells; mice",
+      "n": null,
+      "dose": "Lion's Mane extract (cells); feed containing Lion's Mane powder (mice)",
+      "form": "extract and dry powder; hericenones C, D and E tested separately",
+      "duration": "not applicable",
+      "outcome": "NGF mRNA expression",
+      "result": "Added 2026-10-19 (claims round 21): the extract raised NGF mRNA in the cells and in mouse hippocampus, but hericenones C, D and E 'failed to promote NGF gene expression'; the authors conclude the active compounds 'are not hericenones'. Cited for the mechanism text only.",
+      "fundingConflict": "not checked in this round",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/18758067/",
+      "status": 200
+    },
+    {
+      "pmid": "34361662",
+      "doi": "10.3390/molecules26154510",
+      "title": "Preclinical Bioavailability, Tissue Distribution, and Protein Binding Studies of Erinacine A, a Bioactive Compound from Hericium erinaceus Mycelia Using Validated LC-MS/MS Method.",
+      "journal": "Molecules",
+      "year": 2021,
+      "design": "rat study",
+      "population": "rats",
+      "n": null,
+      "dose": "not recorded in this round",
+      "form": "erinacine A from Hericium erinaceus mycelia",
+      "duration": "not applicable",
+      "outcome": "bioavailability, tissue distribution and protein binding of erinacine A",
+      "result": "Added 2026-10-19 (claims round 21): 'the first to show that erinacine A can penetrate the blood-brain barrier of rats'. Erinacine A comes from the mycelium, not the fruiting body. PubMed's record omits the italic species name from the title; restored here as citations.ts does for PMID 41683696. Cited for the mechanism text only.",
+      "fundingConflict": "not checked in this round",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/34361662/",
+      "status": 200
     }
   ],
   "verdicts": [

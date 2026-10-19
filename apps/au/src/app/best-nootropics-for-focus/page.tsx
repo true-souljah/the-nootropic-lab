@@ -77,7 +77,7 @@ const picks: ListiclePick[] = [
     product: productsAU.find(p => p.slug === 'onnit-alpha-brain-review')!,
     rank: 3,
     whyItsHere:
-      'Contains Alpha-GPC, L-theanine, and Bacopa, but doses are hidden inside proprietary blends. Caffeine-free Classic version. Most internationally recognised nootropic brand for Australian buyers, National Sanitation Foundation (NSF) Certified for Sport — relevant for drug-tested Australian athletes. Sold direct to Australian buyers by the brand; check the delivery estimate for Australia at checkout.',
+      'Contains Alpha-GPC, L-theanine, and Bacopa, but doses are hidden inside proprietary blends. Caffeine-free Classic version. Most internationally recognised nootropic brand for Australian buyers. Not listed in the Certified for Sport directory of NSF (National Sanitation Foundation), checked 2026-10-19; Onnit says it makes its products in NSF-certified GMP (Good Manufacturing Practice) facilities, a factory certification, not a product certification for drug-tested sport. Sold direct to Australian buyers by the brand; check the delivery estimate for Australia at checkout.',
   },
   {
     product: productsAU.find(p => p.slug === 'noocube-review')!,

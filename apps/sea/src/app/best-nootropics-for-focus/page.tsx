@@ -82,7 +82,7 @@ const picks: ListiclePick[] = [
     product: productsSEA.find(p => p.slug === 'onnit-alpha-brain-review')!,
     rank: 4,
     whyItsHere:
-      'Caffeine-free Classic version + National Sanitation Foundation (NSF) Certified for Sport (relevant for Singapore/Malaysian competitive athletes subject to anti-doping). Bacopa, Alpha-GPC, and L-theanine present but doses hidden in proprietary blends. Strong global brand recognition makes it easier to research locally in English and Bahasa. Ships from the US as a personal-use supplement; no published SEA delivery estimate.',
+      'Caffeine-free Classic version. Not listed in the Certified for Sport directory of NSF (National Sanitation Foundation), checked 2026-10-19; Onnit says it makes its products in NSF-certified GMP (Good Manufacturing Practice) facilities, a factory certification, not a product certification for drug-tested sport. Bacopa, Alpha-GPC, and L-theanine present but doses hidden in proprietary blends. Strong global brand recognition makes it easier to research locally in English and Bahasa. Ships from the US as a personal-use supplement; no published SEA delivery estimate.',
   },
 ];
 

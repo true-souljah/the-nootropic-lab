@@ -3,6 +3,7 @@ import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { resolve, dirname, extname, relative } from 'node:path';
 import { CITATIONS, euCountries, ingredients, monthlyStorePrice } from '@nootropic/data';
 import type { Product } from '@nootropic/data';
+import { latamProductTranslationsEs } from '@nootropic/data';
 
 // No national product register (Health Canada NPN, SFDA/MOHAP, COFEPRIS,
 // ANVISA, NPRA, BPOM, VFA, ...) was ever checked for the products we review;
@@ -2345,6 +2346,309 @@ describe('round seventeen: mechanism, user-report and market claims follow our i
     expect(row?.notes).toMatch(/Pase 2012/);
     expect(row?.notes).toMatch(/Kongkeaw 2014 pooled speed-of-attention outcomes, not memory/);
     expect(bacopa!.sources.map(s => s.pmid)).toContain('22747190');
+  });
+});
+
+// Round twenty-one claims (2026-10-19, fix/claims-followup-round21-2026-10;
+// sources checked by the session on 2026-10-19). Removed or reworded, with
+// the source each now follows:
+// - Alpha Brain "NSF Certified for Sport" (records, pros, summaries and the
+//   AU/GCC/SEA listicles) and the sentences built on it ("suitable for
+//   drug-tested athletes", "anti-doping", "athletics community", "Well suited
+//   for Australian athletes"). NSF Certified for Sport's directory (2,581
+//   listings, fetched 2026-10-19) lists no Onnit product; Onnit says only that
+//   it manufactures in NSF-certified GMP facilities. The US homepage card
+//   "NSF & third-party tested" named a certification no listed product holds.
+// - Mind Lab Pro vs NooCube: "Clean Label Project certification + Lab Door +
+//   Consumer Lab independent verifications ... Mind Lab Pro wins" (Labdoor's
+//   certification is expired; ConsumerLab's report is paywalled, so the tested
+//   product is unknown), "Clean Label + / / Consumer Lab" testing and "safer
+//   pick" (nothing here measures safety).
+// - Oat straw: "works primarily by inhibiting PDE4 ... enhancing dopaminergic
+//   signalling ... nitric oxide for cerebral vasodilation ... unique
+//   anti-inflammatory compounds" (Wong 2012, PMID 22690320: mechanism
+//   "currently unknown"; in vitro MAO-B and PDE4 only) and "No trial has
+//   measured cerebral blood flow" (Wong 2013, PMID 23221935, measured
+//   cerebrovascular responsiveness).
+// - Bacopa: "active compounds (bacosides A and B) ... oxidative stress in
+//   hippocampal tissue ... modulates serotonin and acetylcholine",
+//   "enhances synaptic communication for memory" and Memo Plus Gold's "active
+//   bacosides modulate ..." (Aguiar & Borowski 2013, PMID 23772955:
+//   "putatively involved", animal and in vitro studies; Lopresti 2025, PMID
+//   41091332: no group differences in BDNF, malondialdehyde or AChE activity).
+// - Lion's Mane: hericenones that "cross the blood-brain barrier and
+//   stimulate NGF", "lower hericenone content", "more potent and consistent
+//   NGF stimulus", "hericenones are fat-soluble", "stimulates Nerve Growth
+//   Factor ... neuroplasticity", "Modulates NGF and may support neurogenesis"
+//   and the guide's "contains hericenones and erinacines shown (in cell and
+//   animal studies) to promote neurotrophic factor expression", which credits
+//   hericenones (panel follow-up: now "extracts raised neurotrophic factors
+//   ... which compounds are responsible is disputed") (Mori 2008,
+//   PMID 18758067: hericenones C, D and E did not promote NGF gene expression;
+//   Tsai 2021, PMID 34361662: erinacine A, from the mycelium, crossed the rat
+//   blood-brain barrier; we found no human trial that measured NGF, from a
+//   title screen, so copy says "we found no", never "no human trial has").
+// Every pattern had at least one hit on origin/main 9d016ff9 and has none on
+// this branch. The global lists scan the round-sixteen file set; the Alpha
+// Brain list scans only the Alpha Brain records (every products-*.json and the
+// LATAM Spanish overlay), so a future, verified Certified for Sport listing of
+// another product is not blocked.
+const ROUND_TWENTY_ONE_CLAIMS: RegExp[] = [
+  // A: listicle tails and the US homepage card.
+  /relevant for drug-tested Australian athletes/i,
+  /relevant if you compete in drug-tested university sport/i,
+  /facing drug-tested events/i,
+  /student athletes in drug-tested university sports/i,
+  /competitive athletes subject to anti-doping\)/i,
+  /NSF & third-party tested/i,
+  // B
+  /Lab Door \+ Consumer Lab/i,
+  /third-party testing details are less prominent/i,
+  /For Clean Label transparency, Mind Lab Pro wins/i,
+  /Clean Label \+ Consumer Lab/i,
+  /Clean Label \/ Consumer Lab/i,
+  /safer pick for transparency/i,
+  // C
+  /works primarily by inhibiting phosphodiesterase/i,
+  /PDE4 inhibition increases cyclic AMP/i,
+  /nitric oxide production for cerebral vasodilation/i,
+  /unique anti-inflammatory compounds/i,
+  /No trial has measured cerebral blood flow/i,
+  // D
+  /bacosides A and B/,
+  /oxidative stress in hippocampal tissue/i,
+  /It also modulates serotonin and acetylcholine systems/i,
+  /enhances synaptic communication for memory/i,
+  /active bacosides modulate/i,
+  // E
+  /contains hericenones, compounds that cross the blood-brain barrier/i,
+  /lower hericenone content/i,
+  /more potent and consistent NGF stimulus/i,
+  /hericenones are fat-soluble/i,
+  /stimulates Nerve Growth Factor/i,
+  /stimulates NGF for long-term neuroplasticity/i,
+  /Modulates Nerve Growth Factor \(NGF\) and may support neurogenesis/i,
+  /hericenones and erinacines that stimulate the synthesis/i,
+  /hericenones and erinacines shown (in cell and animal studies )?to promote/i,
+  // Follow-up (same round): the human-NGF search was a title screen, so an
+  // absence is "we found no human trial", not "no human trial has".
+  /No human trial has (yet )?measured NGF/i,
+];
+
+const ROUND_TWENTY_ONE_CLAIMS_ES: RegExp[] = [
+  // C
+  /actúa principalmente inhibiendo la fosfodiesterasa/i,
+  /La inhibición de la PDE4 aumenta/i,
+  /óxido nítrico para la vasodilatación cerebral/i,
+  /compuestos antiinflamatorios únicos/i,
+  /Ningún ensayo ha medido el flujo sanguíneo cerebral/i,
+  // D
+  /bacósidos A y B/,
+  /estrés oxidativo en el tejido del hipocampo/i,
+  /También modula los sistemas de serotonina y acetilcolina/i,
+  /mejora la comunicación sináptica para la memoria/i,
+  // E
+  /contiene hericenonas, compuestos que atraviesan la barrera/i,
+  /menor contenido de hericenonas/i,
+  /estímulo de NGF más potente/i,
+  /las hericenonas son liposolubles/i,
+  /estimula el factor de crecimiento nervioso/i,
+  /Modula el Factor de Crecimiento Nervioso/i,
+  /hericenonas y erinacinas que estimulan la síntesis/i,
+  /que, según se ha demostrado( en estudios celulares y en animales)?, promueven la expresión/i,
+  /Ningún ensayo en humanos ha medido (todavía )?(los niveles de |el )?NGF/i,
+];
+
+// Alpha Brain records only. "Certified for Sport" may appear solely in the
+// "not listed in the Certified for Sport directory of NSF" sentence (Spanish:
+// 'el directorio "Certified for Sport" de NSF').
+const ROUND_TWENTY_ONE_CLAIMS_ALPHA_BRAIN: RegExp[] = [
+  /Certified for Sport(?! directory of NSF|" de NSF)/i,
+  /drug-tested athletes/i,
+  /anti-doping/i,
+  /athletics community/i,
+  /suited for Australian athletes/i,
+  /Cuenta con la certificación/i,
+  /Certificación "NSF/i,
+];
+
+function roundTwentyOneStrings(value: unknown): string[] {
+  if (typeof value === 'string') return [value];
+  if (Array.isArray(value)) return value.flatMap(roundTwentyOneStrings);
+  if (value && typeof value === 'object') return Object.values(value).flatMap(roundTwentyOneStrings);
+  return [];
+}
+
+describe("round twenty-one claims: NSF, Mind Lab Pro testing, oat/Bacopa/Lion's Mane mechanisms", () => {
+  test('the patterns catch the removed wording, and every pattern catches some of it', () => {
+    const removed = [
+      // A
+      'Most internationally recognised nootropic brand for Australian buyers, National Sanitation Foundation (NSF) Certified for Sport — relevant for drug-tested Australian athletes.',
+      'National Sanitation Foundation (NSF) Certified for Sport — relevant if you compete in drug-tested university sport.',
+      'National Sanitation Foundation (NSF) Certified for Sport — relevant for GCC athletes and military buyers facing drug-tested events.',
+      'National Sanitation Foundation (NSF) Certified for Sport — relevant for student athletes in drug-tested university sports.',
+      'Caffeine-free Classic version + National Sanitation Foundation (NSF) Certified for Sport (relevant for Singapore/Malaysian competitive athletes subject to anti-doping).',
+      'NSF & third-party tested',
+      // B
+      'Mind Lab Pro publishes Clean Label Project certification + Lab Door + Consumer Lab independent verifications. NooCube discloses GMP-certified manufacturing but third-party testing details are less prominent on their public site. For Clean Label transparency, Mind Lab Pro wins.',
+      'Care about Clean Label + Consumer Lab third-party verification',
+      'and Clean Label / Consumer Lab third-party testing;',
+      'Mind Lab Pro is the safer pick for transparency-minded buyers;',
+      // C
+      'Oat Straw (Avena sativa) extract works primarily by inhibiting phosphodiesterase type 4 (PDE4). PDE4 inhibition increases cyclic AMP levels in neurons, enhancing dopaminergic signalling. Additionally, oat straw increases nitric oxide production for cerebral vasodilation and contains avenanthramides — unique anti-inflammatory compounds.',
+      'with no effect on mood. No trial has measured cerebral blood flow.',
+      // D
+      "Bacopa's active compounds (bacosides A and B) upregulate antioxidant activity, reducing oxidative stress in hippocampal tissue. It also modulates serotonin and acetylcholine systems.",
+      'Bacopa Monnieri enhances synaptic communication for memory.',
+      'Bacopa Monnieri enhances synaptic communication for memory consolidation.',
+      'Its active bacosides modulate the acetylcholine and serotonin systems involved in learning and recall.',
+      // E
+      "Lion's Mane fruiting body contains hericenones, compounds that cross the blood-brain barrier and stimulate Nerve Growth Factor (NGF) synthesis.",
+      'Nootropics Depot uses a standardised fruiting body extract rather than mycelium (which has a lower hericenone content). The result is a more potent and consistent NGF stimulus per capsule.',
+      'For best results, take consistently every day with a fat-containing meal (hericenones are fat-soluble).',
+      "Lion's Mane stimulates Nerve Growth Factor (NGF) for neuroplasticity.",
+      "Lion's Mane stimulates Nerve Growth Factor for long-term neuroplasticity.",
+      "Hunter Focus covers multiple cognitive pathways: Lion's Mane (500mg) stimulates NGF for long-term neuroplasticity.",
+      'Modulates Nerve Growth Factor (NGF) and may support neurogenesis.',
+      "Lion's Mane (Hericium erinaceus) contains hericenones and erinacines that stimulate the synthesis of Nerve Growth Factor (NGF) in cell and animal studies.",
+      "Lion's Mane contains hericenones and erinacines shown to promote neurotrophic factor expression, including NGF (Nerve Growth Factor);",
+      "Lion's Mane contains hericenones and erinacines shown in cell and animal studies to promote neurotrophic factor expression, including NGF (Nerve Growth Factor);",
+      'No human trial has yet measured NGF levels after supplementation.',
+      'No human trial has measured NGF.',
+    ];
+    const removedEs = [
+      'El extracto de paja de avena (Avena sativa) actúa principalmente inhibiendo la fosfodiesterasa tipo 4 (PDE4). La inhibición de la PDE4 aumenta los niveles de AMP cíclico en las neuronas, lo que potencia la señalización dopaminérgica. Además, la paja de avena aumenta la producción de óxido nítrico para la vasodilatación cerebral y contiene avenantramidas, compuestos antiinflamatorios únicos.',
+      'sin efecto sobre el estado de ánimo. Ningún ensayo ha medido el flujo sanguíneo cerebral.',
+      'Los compuestos activos de la Bacopa (bacósidos A y B) aumentan la actividad antioxidante, lo que reduce el estrés oxidativo en el tejido del hipocampo. También modula los sistemas de serotonina y acetilcolina.',
+      'La Bacopa Monnieri mejora la comunicación sináptica para la memoria.',
+      'El cuerpo fructífero de la Melena de León contiene hericenonas, compuestos que atraviesan la barrera hematoencefálica y estimulan la síntesis del factor de crecimiento nervioso (NGF).',
+      'Nootropics Depot usa un extracto estandarizado de cuerpo fructífero en lugar de micelio (que tiene un menor contenido de hericenonas). El resultado es un estímulo de NGF más potente y constante por cápsula.',
+      'tómalo de forma constante todos los días con una comida que contenga grasa (las hericenonas son liposolubles).',
+      'La Melena de León estimula el factor de crecimiento nervioso (NGF) para la neuroplasticidad.',
+      'Modula el Factor de Crecimiento Nervioso (NGF) y puede apoyar la neurogénesis.',
+      'La Melena de León (Hericium erinaceus) contiene hericenonas y erinacinas que estimulan la síntesis del factor de crecimiento nervioso (NGF) en estudios celulares y en animales.',
+      "Lion's Mane contiene hericenonas y erinacinas que, según se ha demostrado, promueven la expresión de factores neurotróficos, incluido el NGF (Factor de Crecimiento Nervioso);",
+      "Lion's Mane contiene hericenonas y erinacinas que, según se ha demostrado en estudios celulares y en animales, promueven la expresión de factores neurotróficos, incluido el NGF (Factor de Crecimiento Nervioso);",
+      'Ningún ensayo en humanos ha medido todavía los niveles de NGF tras la suplementación.',
+      'Ningún ensayo en humanos ha medido el NGF.',
+    ];
+    const removedAlphaBrain = [
+      "Onnit's nootropic stack, backed by a published 2016 randomised trial and NSF Certified for Sport. Sold direct to Australian buyers by the brand. Well suited for Australian athletes and mainstream shoppers.",
+      'National Sanitation Foundation (NSF) Certified for Sport makes it suitable for Australian drug-tested athletes.',
+      'It carries National Sanitation Foundation (NSF) Certified for Sport status -- making it suitable for drug-tested athletes, including competitive sports participants in the GCC.',
+      'NSF Certified for Sport -- relevant for GCC\'s large fitness and athletics community.',
+      'NSF Certified for Sport -- relevant for competitive athletes in the region subject to anti-doping rules.',
+      'It is National Sanitation Foundation (NSF) Certified for Sport.',
+      'NSF Certified for Sport',
+      'Cuenta con la certificación "Certified for Sport" de la National Sanitation Foundation (NSF).',
+      'Certificación "NSF Certified for Sport"',
+    ];
+    for (const s of removed) expect(ROUND_TWENTY_ONE_CLAIMS.some(re => re.test(s)), s).toBe(true);
+    for (const re of ROUND_TWENTY_ONE_CLAIMS) expect(removed.some(s => re.test(s)), String(re)).toBe(true);
+    for (const s of removedEs) expect(ROUND_TWENTY_ONE_CLAIMS_ES.some(re => re.test(s)), s).toBe(true);
+    for (const re of ROUND_TWENTY_ONE_CLAIMS_ES) expect(removedEs.some(s => re.test(s)), String(re)).toBe(true);
+    for (const s of removedAlphaBrain) expect(ROUND_TWENTY_ONE_CLAIMS_ALPHA_BRAIN.some(re => re.test(s)), s).toBe(true);
+    for (const re of ROUND_TWENTY_ONE_CLAIMS_ALPHA_BRAIN) expect(removedAlphaBrain.some(s => re.test(s)), String(re)).toBe(true);
+    // The replacement wording passes.
+    const all = [...ROUND_TWENTY_ONE_CLAIMS, ...ROUND_TWENTY_ONE_CLAIMS_ES, ...ROUND_TWENTY_ONE_CLAIMS_ALPHA_BRAIN];
+    for (const s of [
+      'Alpha Brain is not listed in the Certified for Sport directory of NSF (National Sanitation Foundation), checked 2026-10-19. Onnit says it makes its products in NSF-certified GMP (Good Manufacturing Practice) facilities, which is a factory certification, not a product certification for drug-tested sport.',
+      'Not listed in the Certified for Sport directory of NSF (National Sanitation Foundation), checked 2026-10-19; Onnit says it makes its products in NSF-certified GMP (Good Manufacturing Practice) facilities, a factory certification, not a product certification for drug-tested sport.',
+      'Alpha Brain no figura en el directorio "Certified for Sport" de NSF (National Sanitation Foundation), consultado 2026-10-19. Onnit dice que fabrica sus productos en instalaciones con certificación NSF de GMP (Good Manufacturing Practice, buenas prácticas de fabricación), que es una certificación de la fábrica, no una certificación del producto para el deporte con controles antidopaje.',
+      "Onnit's nootropic stack, backed by a published 2016 randomised trial. Sold direct to Australian buyers by the brand. Well suited for mainstream shoppers.",
+      'Third-party testing first',
+      'Mind Lab Pro is Clean Label Project certified: the Clean Label Project certificate for Performance Lab Group lists Mind Lab Pro from December 2022, and the certificate was reissued in April 2026. Labdoor scores Mind Lab Pro 99.5/100 but marks that certification as expired. ConsumerLab says a product under the Mind Lab Pro brand was approved in its Quality Certification Program, but the report is paywalled, so we cannot tell which product was tested.',
+      'Want a product with a current Clean Label Project certification',
+      'and a current Clean Label Project certification;',
+      'Mind Lab Pro is the stronger pick for transparency-minded buyers;',
+      'The human trials we cite tested branded green oat herb extracts (Neuravena in all but one), not oat straw, and the authors of the 12-week cognition trial call the mechanism unknown (Wong 2012). In laboratory assays the Neuravena extract inhibited monoamine oxidase B (MAO-B) and phosphodiesterase-4 (PDE4); no study we found measured cyclic AMP or dopamine signalling in neurons after taking it. Avenanthramides raised nitric oxide production in cultured human aortic smooth-muscle cells, but how much of them the extract contains is not known.',
+      'En ensayos de laboratorio, el extracto Neuravena inhibió la monoaminooxidasa B (MAO-B) y la fosfodiesterasa-4 (PDE4); ningún estudio que encontramos midió el AMP cíclico ni la señalización de la dopamina en las neuronas tras tomarlo.',
+      'Proposed mechanisms, such as antioxidant effects and effects on the acetylcholine and serotonin systems, come from animal and laboratory studies (Aguiar & Borowski 2013 review, PubMed 23772955).',
+      "Bacopa Monnieri's proposed antioxidant, acetylcholine and serotonin effects come from animal and laboratory studies.",
+      'Its proposed effects on the acetylcholine and serotonin systems come from animal and laboratory studies.',
+      'Los efectos antioxidantes y sobre la acetilcolina y la serotonina que se proponen para la Bacopa Monnieri provienen de estudios en animales y de laboratorio.',
+      "Lion's Mane extracts raised Nerve Growth Factor (NGF) in cell and mouse studies, but in one cell study the fruiting body's hericenones did not (Mori 2008); the compound shown to reach the brain, erinacine A, comes from the mycelium and was tested in rats (Tsai 2021). We found no human trial that measured NGF.",
+      'Nootropics Depot uses a standardised fruiting body extract rather than mycelium.',
+      'For best results, take consistently every day.',
+      "Lion's Mane extracts raised Nerve Growth Factor (NGF) in cell and animal studies.",
+      "Lion's Mane (500mg) extracts raised Nerve Growth Factor (NGF) in cell and animal studies.",
+      'Extracts raised Nerve Growth Factor (NGF) in cell and animal studies; we found no human trial that measured NGF.',
+      "Lion's Mane extracts raised neurotrophic factors, including NGF (Nerve Growth Factor), in cell and animal studies, though which compounds are responsible is disputed (hericenones did not in Mori 2008);",
+      'Los extractos de Melena de León elevaron el factor de crecimiento nervioso (NGF) en estudios celulares y en animales.',
+      'Sus extractos elevaron el Factor de Crecimiento Nervioso (NGF) en estudios celulares y en animales; no encontramos ningún ensayo en humanos que midiera el NGF.',
+      'los extractos de Lion\'s Mane elevaron factores neurotróficos, incluido el NGF (Factor de Crecimiento Nervioso), en estudios celulares y en animales, aunque qué compuestos son responsables es objeto de debate (las hericenonas no lo hicieron en Mori 2008);',
+      'Tómalo de forma constante todos los días.',
+      'We found no human trial that measured NGF levels after supplementation.',
+      'No encontramos ningún ensayo en humanos que midiera los niveles de NGF tras la suplementación.',
+      'No encontramos ningún ensayo en humanos que midiera el NGF.',
+    ]) expect(all.some(re => re.test(s)), s).toBe(false);
+  });
+
+  test('no data, app or template source uses the removed wording (whitespace-normalised)', () => {
+    expect(ROUND_SIXTEEN_SOURCES.length).toBeGreaterThan(300);
+    const hits = ROUND_SIXTEEN_SOURCES.flatMap(file =>
+      normalisedMatchLines(readFileSync(file, 'utf8'), [...ROUND_TWENTY_ONE_CLAIMS, ...ROUND_TWENTY_ONE_CLAIMS_ES]).map(
+        line => `${relative(REPO_ROOT, file)}:${line}`,
+      ),
+    );
+    expect(hits).toEqual([]);
+  });
+
+  test('no Alpha Brain record or LATAM Spanish entry claims NSF Certified for Sport', () => {
+    const productFiles = readdirSync(DATA_DIR).filter(n => /^products-.*\.json$/.test(n));
+    const records = productFiles.flatMap(n =>
+      (JSON.parse(readFileSync(resolve(DATA_DIR, n), 'utf8')) as Array<{ id: string }>)
+        .filter(p => p.id === 'alpha-brain')
+        .map(p => ({ where: n, p: p as unknown })),
+    );
+    const es = latamProductTranslationsEs.filter(t => t.slug === 'onnit-alpha-brain-review');
+    // Six regions carry Alpha Brain (us, au, ca, gcc, latam, sea), and LATAM has one Spanish entry.
+    expect(records.length).toBe(6);
+    expect(es.length).toBe(1);
+    const hits = [...records, ...es.map(t => ({ where: 'products-latam-es.ts', p: t as unknown }))].flatMap(({ where, p }) =>
+      roundTwentyOneStrings(p).flatMap(s =>
+        ROUND_TWENTY_ONE_CLAIMS_ALPHA_BRAIN.filter(re => re.test(s)).map(re => `${where}: ${re} in "${s.slice(0, 80)}"`),
+      ),
+    );
+    expect(hits).toEqual([]);
+  });
+
+  // Follow-up (same round): Alpha Brain's "Athletes" tag rested only on the
+  // removed NSF claim, and Nootropics Depot Lion's Mane's "Nerve growth" tag on
+  // NGF, which we found no human trial measuring. Neither tag is a filter
+  // option (Discover, the comparator and the quiz match fixed goal lists).
+  test("Alpha Brain is not tagged for athletes and Lion's Mane not for nerve growth", () => {
+    const productFiles = readdirSync(DATA_DIR).filter(n => /^products-.*\.json$/.test(n));
+    const tagged = (id: string) =>
+      productFiles.flatMap(n =>
+        (JSON.parse(readFileSync(resolve(DATA_DIR, n), 'utf8')) as Array<{ id: string; bestFor: string[] }>)
+          .filter(p => p.id === id)
+          .map(p => ({ where: n, bestFor: p.bestFor })),
+      );
+    const alphaBrain = tagged('alpha-brain');
+    const lionsMane = tagged('nootropics-depot-lions-mane');
+    expect(alphaBrain.length).toBe(6);
+    expect(lionsMane.length).toBe(4);
+    const es = (slug: string) => latamProductTranslationsEs.filter(t => t.slug === slug).map(t => t.bestFor);
+    expect(es('onnit-alpha-brain-review').length).toBe(1);
+    expect(es('nootropics-depot-lions-mane').length).toBe(1);
+    const hits = [
+      ...alphaBrain.filter(r => r.bestFor.includes('Athletes')).map(r => `${r.where}: alpha-brain "Athletes"`),
+      ...lionsMane.filter(r => r.bestFor.includes('Nerve growth')).map(r => `${r.where}: lions-mane "Nerve growth"`),
+      ...es('onnit-alpha-brain-review').filter(b => b.includes('Deportistas')).map(() => 'products-latam-es.ts: "Deportistas"'),
+      ...es('nootropics-depot-lions-mane').filter(b => b.includes('Crecimiento nervioso')).map(() => 'products-latam-es.ts: "Crecimiento nervioso"'),
+    ];
+    expect(hits).toEqual([]);
+  });
+
+  test('the new mechanism sources are cited and on the allow-list', () => {
+    const bySlug = (slug: string) => ingredients.find(i => i.slug === slug)!;
+    expect(bySlug('oat-straw').sources.map(s => s.pmid)).toContain('23221935');
+    expect(bySlug('bacopa-monnieri').sources.map(s => s.pmid)).toEqual(expect.arrayContaining(['23772955', '41091332']));
+    expect(bySlug('lions-mane').sources.map(s => s.pmid)).toEqual(expect.arrayContaining(['18758067', '34361662']));
+    expect(bySlug('lions-mane').mechanism).toMatch(/We found no human trial that measured NGF levels after supplementation\./);
+    const allowed = new Set(CITATIONS.map(c => c.pmid));
+    for (const pmid of ['23221935', '23772955', '18758067', '34361662']) expect(allowed.has(pmid), pmid).toBe(true);
   });
 });
 

@@ -83,6 +83,24 @@
       "fundingConflict": "Two co-authors (Bonnländer, Lang) employed by Anklam Extrakt GmbH, the material manufacturer — manufacturer co-authored",
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/32485993/",
       "status": 200
+    },
+    {
+      "pmid": "23221935",
+      "doi": "10.1097/HJH.0b013e32835b04d4",
+      "title": "Chronic consumption of a wild green oat extract (Neuravena) improves brachial flow-mediated dilatation and cerebrovascular responsiveness in older adults",
+      "journal": "Journal of Hypertension",
+      "year": 2013,
+      "design": "RCT, double-blind, placebo-controlled, crossover",
+      "population": "healthy older adults (>60 years)",
+      "n": 37,
+      "dose": "1500mg/day",
+      "brandedExtract": "Neuravena (named in the title)",
+      "duration": "two 12-week crossover arms (24 weeks)",
+      "outcome": "brachial flow-mediated dilatation; cerebrovascular responsiveness",
+      "result": "Added 2026-10-19 (claims round 21): cerebrovascular responsiveness rose 42% versus placebo. Cited for the mechanism text only; it measured no cognitive outcome.",
+      "fundingConflict": "not checked in this round",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/23221935/",
+      "status": 200
     }
   ],
   "verdicts": [
