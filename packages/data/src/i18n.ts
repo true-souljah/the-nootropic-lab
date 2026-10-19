@@ -227,7 +227,10 @@ export interface UIStrings {
     maxPrice: string;
     /** Screen-reader name of the buy-link column. */
     actions: string;
-    /** Accessible name of a score cell; {score} is the score. */
+    /**
+     * Accessible name of a score cell; {score} is the score. It must contain
+     * the visible text "{score}/10" as written (WCAG 2.5.3 Label in Name).
+     */
     scoreAria: string;
     /** Heading of the score tooltip. */
     scoreBreakdown: string;
@@ -1006,7 +1009,7 @@ const en: UIStrings = {
     euStorefrontNote: 'Sold through a dedicated EU storefront priced in EUR. We do not verify regulatory compliance per product.',
     maxPrice: 'Max {price}',
     actions: 'Actions',
-    scoreAria: 'Score {score} out of 10 — tap or hover for breakdown',
+    scoreAria: 'Score {score}/10 — tap or hover for breakdown',
     scoreBreakdown: 'Score breakdown',
   },
   breadcrumb: {
@@ -1610,7 +1613,7 @@ const es: UIStrings = {
     euStorefrontNote: 'Se vende en una tienda propia de la UE con precios en EUR. No verificamos el cumplimiento normativo de cada producto.',
     maxPrice: 'Máx. {price}',
     actions: 'Acciones',
-    scoreAria: 'Puntuación {score} de 10 — toca o pasa el cursor para ver el desglose',
+    scoreAria: 'Puntuación {score}/10 — toca o pasa el cursor para ver el desglose',
     scoreBreakdown: 'Desglose de la puntuación',
   },
   breadcrumb: {
@@ -2220,7 +2223,7 @@ const fr: UIStrings = {
     euStorefrontNote: 'Vendu par une boutique UE dédiée, avec des prix en EUR. Nous ne vérifions pas la conformité réglementaire de chaque produit.',
     maxPrice: 'Max. {price}',
     actions: 'Actions',
-    scoreAria: 'Note de {score} sur 10 — touchez ou survolez pour voir le détail',
+    scoreAria: 'Note de {score}/10 — touchez ou survolez pour voir le détail',
     scoreBreakdown: 'Détail de la note',
   },
   breadcrumb: {
@@ -2826,7 +2829,7 @@ const ja: UIStrings = {
     euStorefrontNote: 'Sold through a dedicated EU storefront priced in EUR. We do not verify regulatory compliance per product.',
     maxPrice: '上限 {price}',
     actions: '操作',
-    scoreAria: 'スコア 10点中{score}点 — タップまたはカーソルを合わせると内訳を表示',
+    scoreAria: 'スコア {score}/10 — タップまたはカーソルを合わせると内訳を表示',
     scoreBreakdown: 'スコアの内訳',
   },
   breadcrumb: {
@@ -3437,7 +3440,7 @@ const pt: UIStrings = {
     euStorefrontNote: 'Vendido numa loja UE dedicada, com preços em EUR. Não verificamos a conformidade regulamentar de cada produto.',
     maxPrice: 'Máx. {price}',
     actions: 'Ações',
-    scoreAria: 'Pontuação {score} em 10 — toque ou passe o cursor para ver a decomposição',
+    scoreAria: 'Pontuação {score}/10 — toque ou passe o cursor para ver a decomposição',
     scoreBreakdown: 'Decomposição da pontuação',
   },
   breadcrumb: {
@@ -4046,7 +4049,7 @@ const de: UIStrings = {
     euStorefrontNote: 'Über einen eigenen EU-Shop mit EUR-Preisen verkauft. Die Einhaltung der Vorschriften prüfen wir nicht je Produkt.',
     maxPrice: 'Max. {price}',
     actions: 'Aktionen',
-    scoreAria: 'Bewertung {score} von 10 – tippen oder mit der Maus darauf zeigen für die Aufschlüsselung',
+    scoreAria: 'Bewertung {score}/10 – tippen oder mit der Maus darauf zeigen für die Aufschlüsselung',
     scoreBreakdown: 'Aufschlüsselung der Bewertung',
   },
   breadcrumb: {
@@ -4660,7 +4663,7 @@ const frCa: UIStrings = {
     euStorefrontNote: 'Vendu par une boutique dédiée dans l’UE, avec des prix en EUR. Nous ne vérifions pas la conformité réglementaire de chaque produit.',
     maxPrice: 'Max. {price}',
     actions: 'Actions',
-    scoreAria: 'Score de {score} sur 10 — touchez ou survolez pour voir le détail',
+    scoreAria: 'Score de {score}/10 — touchez ou survolez pour voir le détail',
     scoreBreakdown: 'Détail du score',
   },
   breadcrumb: {

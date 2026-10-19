@@ -116,11 +116,12 @@ test.describe('AU /best-nootropics-for-focus/ — CommandPalette ⌘K modal (WCA
     await page.keyboard.press('Escape');
     await expect(page.locator('[role="dialog"]:not(#klaro-cookie-notice)')).toHaveCount(0);
     // After Escape, CommandPalette restores focus to the trigger button.
-    // Use Playwright auto-wait against aria-label="Search (⌘K)" — the
+    // Use Playwright auto-wait against the trigger's accessible name
+    // "Search (Command+K)" (named by its content since 2026-10-19) — the
     // textContent snapshot via evaluate() races briefly with React's
     // focus-restore effect; toBeFocused() waits up to the timeout for
     // the restore to settle.
-    await expect(page.locator('button[aria-label*="Search"]').first()).toBeFocused();
+    await expect(page.getByRole('button', { name: 'Search (Command+K)', exact: true })).toBeFocused();
   });
 
   test('Tab inside the modal cycles between focusable elements (focus trap on AU catalog)', async ({ page }) => {

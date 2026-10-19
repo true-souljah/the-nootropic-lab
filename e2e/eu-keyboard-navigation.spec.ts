@@ -126,7 +126,7 @@ test.describe('EU /best-nootropics-for-focus/ (en-EU) — CommandPalette ⌘K mo
     await expect(page.locator('[role="dialog"]:not(#klaro-cookie-notice)')).toBeAttached();
     await page.keyboard.press('Escape');
     await expect(page.locator('[role="dialog"]:not(#klaro-cookie-notice)')).toHaveCount(0);
-    await expect(page.locator('button[aria-label*="Search"]').first()).toBeFocused();
+    await expect(page.getByRole('button', { name: 'Search (Command+K)', exact: true })).toBeFocused();
   });
 
   test('Tab inside the modal loops focus on the input (PR-Q51 trap fix, EU catalog)', async ({ page }) => {
