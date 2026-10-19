@@ -243,7 +243,7 @@ export const latamProductTranslationsEs: LatamProductTranslation[] = [
     howItWorks:
       'Mind Lab Pro actúa sobre seis vías biológicas a la vez. La Citicolina y la Fosfatidilserina apoyan el sistema colinérgico y la integridad de las membranas neuronales. La Melena de León estimula el factor de crecimiento nervioso (NGF) para la neuroplasticidad. La Bacopa Monnieri mejora la comunicación sináptica para la memoria. La Rhodiola Rosea y la L-Tirosina apoyan el equilibrio de dopamina/noradrenalina bajo estrés. La L-Teanina favorece la actividad de ondas cerebrales alfa para una concentración tranquila. Las vitaminas del grupo B (B6, B9, B12) apoyan la regulación de la homocisteína y la síntesis de neurotransmisores.',
     whatToExpect:
-      'En 30-60 minutos: una dosis única de 200mg de L-Teanina mejoró el tiempo de reacción de elección en ensayos (este producto tiene 100mg); nuestra página de L-Teanina califica como preliminar su evidencia sobre la concentración tranquila. Los ensayos de memoria de la Citicolina midieron efectos tras 2–3 meses. La L-Tirosina se toma alrededor de 1 hora antes de una tarea exigente, y su ensayo positivo de menor dosis usó 2000mg (este producto tiene 175mg). A las 8-12 semanas: mejoras medibles en el recuerdo (Bacopa; la dosis de Melena de León aquí, 500mg, está por debajo de los 1–1.8g usados en ensayos con adultos sanos). Mind Lab Pro es un suplemento de largo plazo: los ensayos de Bacopa que citamos midieron la memoria después de 12 semanas. Los mejores resultados requieren 3+ meses de uso diario constante.',
+      'En 30-60 minutos: una dosis única de 200mg de L-Teanina mejoró el tiempo de reacción de elección en ensayos (este producto tiene 100mg); nuestra página de L-Teanina califica como preliminar su evidencia sobre la concentración tranquila. Los ensayos de memoria de la Citicolina midieron efectos tras 2–3 meses. La L-Tirosina se toma alrededor de 1 hora antes de una tarea exigente, y su ensayo positivo de menor dosis usó 2000mg (este producto tiene 175mg). Los ensayos de memoria de la Bacopa duraron 8–12 semanas con 300–450mg de extracto al día (este producto tiene 150mg), y la dosis de Melena de León aquí, 500mg, está por debajo de los 1–1.8g usados en ensayos con adultos sanos. Mind Lab Pro es un suplemento de largo plazo: los ensayos de Bacopa que citamos midieron la memoria después de 12 semanas. Los mejores resultados requieren 3+ meses de uso diario constante.',
     pros: [
       '11 ingredientes, todas las dosis declaradas',
       'Analizado por terceros, sin alérgenos',
@@ -281,7 +281,7 @@ export const latamProductTranslationsEs: LatamProductTranslation[] = [
       summary: '950042d32d75',
       whatItIs: '6697bd46e665',
       howItWorks: 'f42fa69f2e4d',
-      whatToExpect: 'a9ca2ad5a655',
+      whatToExpect: 'f0b8465d717c',
       pros: '4f3287b6a517',
       cons: 'b3e71326fb3d',
       notes: '45728b509ed4',

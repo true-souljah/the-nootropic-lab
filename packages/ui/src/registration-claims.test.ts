@@ -2553,7 +2553,7 @@ describe('round twenty: retro-panel findings on rounds 16-19 follow our ingredie
       'Mind Lab Pro is the one of the two whose formula has been tested, though weakly: the authors of the 30-day study call it pseudo-randomised.',
       'Mind Lab Pro is the one of the two whose formula has been tested, though weakly, in the two Leeds studies above. For buyers who value try-multiple-formulas convenience, Thesis is fair.',
       "Some of the supplements on this page have trial evidence in older adults, often only in subgroups: PS-DHA in older adults with memory complaints, citicoline in those with relatively inefficient memories, and Lion's Mane in mild cognitive impairment. If you or a family member is experiencing significant memory changes, see a neurologist.",
-      'Lutemax: its eye-strain trials ran 6 months and disagree, so do not count on a quick eye-fatigue effect. At 8 weeks: modest memory improvements from Bacopa.',
+      "Lutemax: its eye-strain trials ran 6 months and disagree, so do not count on a quick eye-fatigue effect. Bacopa's memory trials ran 8–12 weeks at 300–450mg extract a day (this product has 250mg).",
       "Some of the supplements on this page have trial evidence in older adults, often only in subgroups: PS-DHA in older adults with memory complaints, citicoline in those with relatively inefficient memories, and Lion's Mane in mild cognitive impairment.",
       'Algunos de los suplementos de esta página tienen evidencia de ensayos en adultos mayores, a menudo solo en subgrupos: la PS-DHA en adultos mayores con quejas de memoria, la citicolina en quienes tienen una memoria relativamente ineficiente y la Melena de León en el deterioro cognitivo leve.',
       'Track changes over at least 12 weeks of consistent dosing, and longer for phosphatidylserine (15 weeks or more) and ginkgo (22–26 weeks) — ideally with a baseline cognitive measure.',
@@ -2573,7 +2573,7 @@ describe('round twenty: retro-panel findings on rounds 16-19 follow our ingredie
       'L-Tyrosine is a dopamine precursor. We cite no trial of the pairing.',
       'Oat Straw (Avena sativa) extract works primarily by inhibiting phosphodiesterase type 4 (PDE4).',
       'Within 30-60 minutes: a single 200mg dose of L-Theanine improved choice reaction time in trials (this product has 100mg); our L-Theanine page rates its calm-focus evidence as preliminary.',
-      "Citicoline's memory trials measured effects after 2–3 months. L-Tyrosine is taken about 1 hour before a demanding task, and its lowest positive trial used 2,000mg (this product has 175mg). At 8-12 weeks: measurable improvements in memory recall (Bacopa; the Lion's Mane dose here, 500mg, is below the 1–1.8g used in healthy-adult trials).",
+      "Citicoline's memory trials measured effects after 2–3 months. L-Tyrosine is taken about 1 hour before a demanding task, and its lowest positive trial used 2,000mg (this product has 175mg). Bacopa's memory trials ran 8–12 weeks at 300–450mg extract a day (this product has 150mg), and the Lion's Mane dose here, 500mg, is below the 1–1.8g used in healthy-adult trials.",
       "Timing in the trials we cite: L-Tyrosine was given about 1 hour before a demanding task (this product has 250mg; the lowest positive trial used 2,000mg); pine bark's cognitive studies ran 8–12 weeks (this product has 75mg, below the 100–200mg clinical dose); phosphatidylserine's memory trials ran 15 weeks to 12 months.",
       'Because bacosides are fat-soluble, taking the capsules with a meal containing some fat is the standard advice.',
       'Positive dementia trials of ginkgo ran 22–26 weeks.',
@@ -2584,7 +2584,7 @@ describe('round twenty: retro-panel findings on rounds 16-19 follow our ingredie
       'Los compuestos activos de la Bacopa (bacósidos A y B) aumentan la actividad antioxidante',
       'No citamos ningún ensayo de esta combinación.',
       'En 30-60 minutos: una dosis única de 200mg de L-Teanina mejoró el tiempo de reacción de elección en ensayos (este producto tiene 100mg); nuestra página de L-Teanina califica como preliminar su evidencia sobre la concentración tranquila.',
-      'A las 8-12 semanas: mejoras medibles en el recuerdo (Bacopa; la dosis de Melena de León aquí, 500mg, está por debajo de los 1–1.8g usados en ensayos con adultos sanos).',
+      'Los ensayos de memoria de la Bacopa duraron 8–12 semanas con 300–450mg de extracto al día (este producto tiene 150mg), y la dosis de Melena de León aquí, 500mg, está por debajo de los 1–1.8g usados en ensayos con adultos sanos.',
     ]) expect(ROUND_TWENTY_UNSOURCED.some(re => re.test(s)), s).toBe(false);
   });
 
