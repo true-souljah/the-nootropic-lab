@@ -606,7 +606,9 @@ export function ResultRow({
           {spokenAfterTitle && <span className="ds-sr-only">{spokenAfterTitle}</span>}
         </div>
         {item.description && (
-          <div className="text-[12px] text-ds-muted truncate">{item.description}</div>
+          // ds-muted on the active row's accent-soft highlight is 4.47:1,
+          // under WCAG 1.4.3's 4.5:1 for this 12px text; ds-ink-soft is 7.9:1.
+          <div className={`text-[12px] truncate ${active ? 'text-ds-ink-soft' : 'text-ds-muted'}`}>{item.description}</div>
         )}
       </div>
       {/* Right-aligned meta — aria-hidden because the score/grade is
