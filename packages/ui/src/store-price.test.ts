@@ -211,6 +211,8 @@ describe('perServingStorePrice / perDayStorePrice — exact baseline of every pr
     'us/performance-lab-energy': ['USD 2.3', NO_FREQUENCY],
     'us/performance-lab-omega-3': ['USD 1.63', NO_FREQUENCY],
     'us/neutonic-brain-capsules': ['USD 1.67', 'USD 1.67'],
+    // "30-day supply" gives the per-day figure; "Three capsules in the morning" states no daily frequency.
+    'us/deadline-focus-pill': ['USD 4.3', 'USD 4.3'],
     'eu/mind-lab-pro': ['EUR 2.17', RANGE],
     'eu/noocube': ['USD 2.17', 'USD 2.17'],
     'eu/brainzyme-focus-pro': ['EUR 1.06', 'EUR 1.06'],
@@ -381,7 +383,8 @@ describe('perServingStorePrice / perDayStorePrice — exact baseline of every pr
 describe('monthly figures are unchanged by the per-serving / per-day work', () => {
   /**
    * monthlyStorePrice for every priced record, captured on origin/main 80b53e71 before the change;
-   * records added since then carry the figure they were added with (Neutonic, 2026-10-15 and 2026-10-19).
+   * records added since then carry the figure they were added with (Neutonic, 2026-10-15 and 2026-10-19;
+   * Deadline, 2026-10-19).
    */
   const MONTHLY_BEFORE: Record<string, string | null> = {
     'us/mind-lab-pro': 'USD 69',
@@ -397,6 +400,7 @@ describe('monthly figures are unchanged by the per-serving / per-day work', () =
     'us/performance-lab-energy': 'USD 69',
     'us/performance-lab-omega-3': 'USD 49',
     'us/neutonic-brain-capsules': 'USD 49.99',
+    'us/deadline-focus-pill': 'USD 129',
     'eu/mind-lab-pro': 'EUR 64.95',
     'eu/noocube': 'USD 64.99',
     'eu/brainzyme-focus-pro': 'EUR 31.75',
@@ -473,6 +477,7 @@ describe('priceText — per-unit and source lines as each edition renders them',
     ['us', 'mind-lab-pro', '≈ $2.30/serving', null],
     ['us', 'pre-lab-pro', '≈ $2.95/serving', null],
     ['us', 'neutonic-brain-capsules', '≈ $1.67/serving', '≈ $1.67/day'],
+    ['us', 'deadline-focus-pill', '≈ $4.30/serving', '≈ $4.30/day'],
     ['eu', 'brainzyme-focus-pro', '≈ €1.06/serving', '≈ €1.06/day'],
     ['eu', 'pre-lab-pro', '≈ €2.25/serving', null],
     ['eu', 'neutonic-productivity-drink', '≈ €3/serving', null],
