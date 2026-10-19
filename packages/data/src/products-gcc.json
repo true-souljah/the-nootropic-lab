@@ -1302,6 +1302,15 @@
       "value": 7,
       "trust": 7
     },
+    "storePrice": {
+      "amount": 320,
+      "currency": "AED",
+      "text": "Dhs. 320.00",
+      "pack": "90 Capsules",
+      "directions": "Take 3 capsules on the daily as part of your routine.",
+      "url": "https://www.neutonic.com/en-me/products/brain-capsules-uae",
+      "checkedAt": "2026-10-19"
+    },
     "pricingModel": "both",
     "moneyBackDays": null,
     "caffeineFree": true,

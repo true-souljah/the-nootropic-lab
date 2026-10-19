@@ -29,9 +29,9 @@ import type { Product } from '@nootropic/data';
 // Wave 2b (2026-10-19, same BACKLOG item):
 // - GCC: the Middle East store (/en-me/, UAE + Saudi Arabia, AED) lists only
 //   the UK-label Brain Capsules (its drink URLs return 404), so GCC carries that
-//   one record, tracked. It has no store price: the page prints "Dhs. 320.00",
-//   a mark the store-price parser does not read (vendor-price.ts), and the
-//   record never stores a price text the page does not print.
+//   one record, tracked. Its store price is the page's printed "Dhs. 320.00",
+//   read as AED (vendor-price.ts maps the UAE "Dhs." mark; the page's JSON-LD
+//   says AED 320.00, 2026-10-19).
 // - SEA: Singapore and Malaysia are served the main GBP store, which sells the
 //   330ml can (same formula as the US/EU/CA record) and the UK-label capsules;
 //   both are tracked and carry the dated "no halal certificate shown" evidence.
@@ -155,7 +155,7 @@ describe('Neutonic records on the US, EU, CA, AU, GCC and SEA hosts', () => {
     expect(caps.servingsPerContainer).toBe(30);
   });
 
-  it('store prices are the linked store\'s own, in its currency; the US drink page states none, and the GCC page\'s "Dhs." price is not stored', () => {
+  it('store prices are the linked store\'s own, in its currency; the US drink page states none', () => {
     expect(record('eu', DRINK).storePrice).toMatchObject({
       amount: 35.99, currency: 'EUR', text: '€35,99', url: 'https://www.neutonic.com/products/tropical-ice-12pk',
     });
@@ -187,11 +187,13 @@ describe('Neutonic records on the US, EU, CA, AU, GCC and SEA hosts', () => {
     expect(record('sea', UK_CAPSULES).storePrice).toMatchObject({
       amount: 44.99, currency: 'GBP', text: '£44.99', url: 'https://www.neutonic.com/products/neutonic-capsules-uk',
     });
-    // The Middle East page prints "Dhs. 320.00" (JSON-LD AED 320.00, checked
-    // 2026-10-19); the parser reads no "Dhs." mark, so the record states the
-    // printed price in its notes and carries no store price.
-    expect(record('gcc', UK_CAPSULES).storePrice).toBeUndefined();
-    expect(record('gcc', UK_CAPSULES).notes).toContainEqual(expect.stringContaining("'Dhs. 320.00'"));
+    // The Middle East page prints "Dhs. 320.00" one-time (JSON-LD AED 320.00,
+    // checked 2026-10-19); its "From Dhs. 272.00" subscription line is a "from"
+    // price and is not stored.
+    expect(record('gcc', UK_CAPSULES).storePrice).toMatchObject({
+      amount: 320, currency: 'AED', text: 'Dhs. 320.00', pack: '90 Capsules',
+      url: 'https://www.neutonic.com/en-me/products/brain-capsules-uae', checkedAt: '2026-10-19',
+    });
   });
 
   it('SEA: both records show no halal certificate on the brand pages fetched on 2026-10-19; GCC carries no halal fields', () => {
