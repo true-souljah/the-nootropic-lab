@@ -870,6 +870,13 @@ export interface UIStrings {
     teamIdentity: string;
     regionalFraming: string;
     contact: string;
+    /**
+     * The section's policy text (2026-10-19). Set in en and es only; a
+     * locale without it shows en's text. No page renders this section in
+     * fr, pt, de, fr-CA or ja: every edition but LATAM uses the en bundle
+     * (guarded in products-latam-es.test.ts).
+     */
+    body?: EditorialStandardsBody;
   };
   /** Shortlist toggle (templates/ShortlistButton.tsx). */
   shortlist: {
@@ -889,6 +896,35 @@ export interface UIStrings {
     /** Between a sentence, or a label that ends in its own punctuation, and what follows it (a value, link, button or count). Empty in ja. */
     space: string;
   };
+}
+
+/**
+ * Policy text of the editorial-standards section on /methodology/
+ * (EditorialStandardsSection), one entry per paragraph or list item. `{name}`
+ * placeholders are filled with elements by the component: {doNot} the
+ * emphasized word(s), {field} the dateModified code span, {email} the
+ * corrections mailto link, {imprint} the imprint link (text `imprintLink`).
+ */
+export interface EditorialStandardsBody {
+  intro: string;
+  reviewProtocol: string;
+  /** Contains {doNot}. */
+  conflictIntro: string;
+  conflictDoNot: string;
+  conflictItems: string[];
+  conflictOutro: string;
+  sourceCitation: string;
+  correctionIntro: string;
+  /** The first item contains {field}. */
+  correctionItems: string[];
+  /** Contains {email}. */
+  correctionContact: string;
+  teamIdentity: string;
+  regionalFraming: string;
+  contactLead: string;
+  /** Contains {imprint}. */
+  imprintNote: string;
+  imprintLink: string;
 }
 
 const en: UIStrings = {
@@ -1482,6 +1518,40 @@ const en: UIStrings = {
     teamIdentity: '5. Editorial-team identity',
     regionalFraming: '6. Region-specific regulatory framing',
     contact: 'Editorial contact',
+    body: {
+      intro:
+        'Beyond the 5-pillar scoring framework, every page on this site is produced under the following editorial standards. These standards apply to all 8 regional editions and govern how content is researched, reviewed, corrected, and disclosed.',
+      reviewProtocol:
+        'Products are evaluated from manufacturer-published ingredient lists, regulatory filings, and third-party Certificates of Analysis when available. Each label dose of an ingredient with a reference dose on our ingredient pages is compared with that dose, taken from peer-reviewed clinical trials; ingredients without one are listed but not scored.',
+      conflictIntro: 'We earn affiliate commissions from links on commercial pages. Affiliate relationships {doNot} influence:',
+      conflictDoNot: 'do not',
+      conflictItems: [
+        '5-pillar scores (set before any affiliate program is evaluated)',
+        'Listicle ranking position (driven by score + use-case fit only)',
+        'Pros/cons content (criticism is preserved even on affiliate-active products)',
+        'Clinical-dose audit verdicts (purely data-driven against PubMed-indexed RCTs)',
+      ],
+      conflictOutro:
+        'We do not accept payment for reviews, sponsored content placements, or guaranteed-position promotion. Affiliate disclosures appear at the top of every commercial page, before the first call-to-action, in compliance with FTC 16 CFR Part 255 (US), ASA CAP Code (UK), and equivalent advertising codes in each region we publish.',
+      sourceCitation:
+        'Clinical-dose claims are sourced from PubMed-indexed human randomized controlled trials, meta-analyses, and Examine.com syntheses. Regulatory claims are sourced from primary regulator documents (FDA, EFSA, TGA, Health Canada, MHLW Consumer Affairs Agency, ANMAT, ANVISA, COFEPRIS, SFDA, BPOM, HSA, NPRA, JAKIM, BPJPH). When a claim cannot be sourced from primary literature or a primary regulator, it is either omitted or flagged as "limited evidence" / "manufacturer claim only". We do not cite secondary aggregators (Healthline, Verywell) as primary sources for clinical claims.',
+      correctionIntro:
+        'We aim to respond to substantive editorial corrections within 5 business days and to update or retract incorrect content within 10 business days of verification. When a correction is made:',
+      correctionItems: [
+        "The page's {field} Article-schema field is updated to reflect the change.",
+        "For factual corrections (dose values, regulatory status, brand ownership), the prior statement is replaced and a brief note is added to the page when the correction is material to a reader's purchase decision.",
+        'We do not silently delete published claims. Significant corrections to scored comparisons trigger a re-score under the same 5-pillar framework with a visible date.',
+      ],
+      correctionContact:
+        'Send corrections to {email}. Include the page URL, the specific claim, and a primary source supporting the correct version.',
+      teamIdentity:
+        "The Nootropic Lab operates as an independent editorial collective. We do not disclose individual contributors by name and do not feature personal brands within reviews. This is a deliberate choice: it keeps the focus on the methodology and the data, and reduces the risk that a single contributor's preferences disproportionately influence rankings. Every review applies the same 5-pillar framework documented above; consistency is the credibility signal, not authority by persona.",
+      regionalFraming:
+        "Each regional edition of this site applies the YMYL disclaimer language mandated or expected by that region's primary regulator: DSHEA (US FDA), Reg (EC) 1924/2006 + EFSA register (EU), Health Canada NPN (CA), TGA Therapeutic Goods Advertising Code (AU), PMD Act + FFC + FOSHU (JP), ANVISA / COFEPRIS / ANMAT (LATAM, with a catalogue check against the substances named in the seven products prohibited by ANMAT Disposición 2105/2022 for Argentine traffic), SFDA + Halal certification (GCC), HSA + BPOM + NPRA + Halal mandatory ID/MY (SEA). Cognitive claims that are not approved by the relevant regulator are reframed as ingredient mechanisms or consumer experience and never asserted as label-grade health claims.",
+      contactLead: 'Editorial corrections, regulatory inquiries, partnership requests:',
+      imprintNote: 'For full publisher information see our {imprint}.',
+      imprintLink: 'imprint',
+    },
   },
   shortlist: {
     save: 'Save',
@@ -2094,6 +2164,40 @@ const es: UIStrings = {
     teamIdentity: '5. Identidad del equipo editorial',
     regionalFraming: '6. Marco regulatorio por región',
     contact: 'Contacto editorial',
+    body: {
+      intro:
+        'Más allá del marco de puntuación de 5 pilares, cada página de este sitio se elabora conforme a los siguientes estándares editoriales. Estos estándares se aplican a las 8 ediciones regionales y rigen cómo se investiga, revisa, corrige y divulga el contenido.',
+      reviewProtocol:
+        'Los productos se evalúan a partir de las listas de ingredientes publicadas por el fabricante, los registros regulatorios y, cuando están disponibles, los Certificados de Análisis de terceros. Cada dosis de etiqueta de un ingrediente que tiene una dosis de referencia en nuestras páginas de ingredientes se compara con esa dosis, tomada de ensayos clínicos revisados por pares; los ingredientes sin dosis de referencia se muestran, pero no se puntúan.',
+      conflictIntro: 'Ganamos comisiones de afiliado por los enlaces de las páginas comerciales. Las relaciones de afiliación {doNot} influyen en:',
+      conflictDoNot: 'no',
+      conflictItems: [
+        'Las puntuaciones de 5 pilares (se fijan antes de evaluar cualquier programa de afiliados)',
+        'La posición en los rankings de las listas (determinada solo por la puntuación y el ajuste al caso de uso)',
+        'El contenido de pros y contras (las críticas se mantienen incluso en productos con afiliación activa)',
+        'Los veredictos de la auditoría de dosis clínicas (basados únicamente en datos, frente a ECA indexados en PubMed)',
+      ],
+      conflictOutro:
+        'No aceptamos pagos por reseñas, por colocaciones de contenido patrocinado ni por promociones con posición garantizada. Las divulgaciones de afiliados aparecen en la parte superior de cada página comercial, antes del primer llamado a la acción, conforme a la norma FTC 16 CFR Part 255 (EE. UU.), el código CAP de la ASA (Reino Unido) y los códigos publicitarios equivalentes de cada región en la que publicamos.',
+      sourceCitation:
+        'Las afirmaciones sobre dosis clínicas se basan en ensayos controlados aleatorizados en humanos indexados en PubMed, metaanálisis y síntesis de Examine.com. Las afirmaciones regulatorias se basan en documentos primarios de los reguladores (FDA, EFSA, TGA, Health Canada, la Consumer Affairs Agency del MHLW, ANMAT, ANVISA, COFEPRIS, SFDA, BPOM, HSA, NPRA, JAKIM, BPJPH). Cuando una afirmación no puede respaldarse con literatura primaria o con un regulador primario, se omite o se marca como "evidencia limitada" / "solo afirmación del fabricante". No citamos agregadores secundarios (Healthline, Verywell) como fuentes primarias para afirmaciones clínicas.',
+      correctionIntro:
+        'Procuramos responder a las correcciones editoriales sustanciales en un plazo de 5 días hábiles y actualizar o retirar el contenido incorrecto en un plazo de 10 días hábiles desde su verificación. Cuando se hace una corrección:',
+      correctionItems: [
+        'El campo {field} del esquema Article de la página se actualiza para reflejar el cambio.',
+        'En las correcciones de hechos (valores de dosis, situación regulatoria, propiedad de la marca), la afirmación anterior se reemplaza y se añade una breve nota en la página cuando la corrección es relevante para la decisión de compra del lector.',
+        'No eliminamos en silencio afirmaciones publicadas. Las correcciones importantes en comparaciones puntuadas generan una nueva puntuación bajo el mismo marco de 5 pilares, con una fecha visible.',
+      ],
+      correctionContact:
+        'Envía tus correcciones a {email}. Incluye la URL de la página, la afirmación concreta y una fuente primaria que respalde la versión correcta.',
+      teamIdentity:
+        'The Nootropic Lab funciona como un colectivo editorial independiente. No revelamos los nombres de los colaboradores individuales y no presentamos marcas personales en las reseñas. Es una decisión deliberada: mantiene el foco en la metodología y los datos, y reduce el riesgo de que las preferencias de un solo colaborador influyan de forma desproporcionada en los rankings. Cada reseña aplica el mismo marco de 5 pilares documentado arriba; la coherencia es la señal de credibilidad, no la autoridad de una persona.',
+      regionalFraming:
+        'Cada edición regional de este sitio aplica el lenguaje de descargo YMYL que exige o espera el regulador principal de esa región: DSHEA (FDA de EE. UU.), Reg. (CE) 1924/2006 + registro de la EFSA (UE), NPN de Health Canada (CA), Therapeutic Goods Advertising Code de la TGA (AU), Ley PMD + FFC + FOSHU (JP), ANVISA / COFEPRIS / ANMAT (LATAM, con una verificación del catálogo frente a las sustancias nombradas en los siete productos que la ANMAT prohíbe en la Disposición 2105/2022 para el tráfico de Argentina), SFDA + certificación Halal (GCC), HSA + BPOM + NPRA + Halal obligatorio en ID/MY (SEA). Las afirmaciones cognitivas que no aprueba el regulador correspondiente se reformulan como mecanismos de los ingredientes o como experiencia del consumidor, y nunca se presentan como declaraciones de salud de nivel de etiqueta.',
+      contactLead: 'Correcciones editoriales, consultas regulatorias, solicitudes de colaboración:',
+      imprintNote: 'Para ver la información completa del editor, consulta nuestro {imprint}.',
+      imprintLink: 'Aviso legal',
+    },
   },
   shortlist: {
     save: 'Guardar',

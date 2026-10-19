@@ -495,7 +495,7 @@ export default function Comparator({
                       className="px-[14px] py-3 text-ds-muted text-[12px]"
                       style={{ flex: '0 0 180px' }}
                     >
-                      {p.bestFor.join(' · ')}
+                      {(p.display?.bestFor ?? p.bestFor).join(' · ')}
                     </div>
                     {showCommission && (
                       <div
