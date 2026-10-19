@@ -417,45 +417,59 @@ export default function HeadToHead({
         </Card>
 
         {/* Side-by-side specs */}
-        <h2 className="text-[26px] font-bold tracking-[-0.02em] mt-11 mb-3">{s.quickSpecsHeading}</h2>
+        <h2 id="quick-specs-heading" className="text-[26px] font-bold tracking-[-0.02em] mt-11 mb-3">{s.quickSpecsHeading}</h2>
         <Card padding={0}>
+          {/* A focusable, labelled scroll region: on phones the 120px label
+              column left ~60px per product, too narrow for prices such as
+              "$2.30/serving", which pushed the page sideways. The rows keep
+              their columns (min 440px) and scroll inside the card; at 440px
+              and wider nothing changes. */}
           <div
-            className="grid bg-ds-card-sub border-b border-ds-border px-[22px] py-3 text-[11px] uppercase tracking-[0.1em] font-bold text-ds-muted"
-            style={{ gridTemplateColumns: '120px 1fr 1fr' }}
+            role="region"
+            aria-labelledby="quick-specs-heading"
+            tabIndex={0}
+            className="overflow-x-auto overscroll-x-contain focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
           >
-            <div>{s.spec}</div>
-            <div className="text-center">{productA.name}</div>
-            <div className="text-center">{productB.name}</div>
-          </div>
-          {specRows.map((row) => (
-            <div
-              key={row.label}
-              className="grid px-[22px] py-[13px] border-b border-ds-border last:border-b-0 items-center text-[13.5px]"
-              style={{ gridTemplateColumns: '120px 1fr 1fr' }}
-            >
-              <div className="text-ds-muted font-medium">{row.label}</div>
+            <div className="min-w-[440px]">
               <div
-                className={`text-center px-2 py-1 rounded-[6px] ${
-                  row.winner === 'a'
-                    ? 'bg-ds-accent-soft text-ds-accent font-bold'
-                    : 'text-ds-ink font-medium'
-                }`}
+                className="grid bg-ds-card-sub border-b border-ds-border px-[22px] py-3 text-[11px] uppercase tracking-[0.1em] font-bold text-ds-muted"
+                style={{ gridTemplateColumns: '120px 1fr 1fr' }}
               >
-                {row.a}
-                {row.winner === 'a' && ' ✓'}
+                <div>{s.spec}</div>
+                <div className="text-center">{productA.name}</div>
+                <div className="text-center">{productB.name}</div>
               </div>
-              <div
-                className={`text-center px-2 py-1 rounded-[6px] ${
-                  row.winner === 'b'
-                    ? 'bg-ds-accent-soft text-ds-accent font-bold'
-                    : 'text-ds-ink font-medium'
-                }`}
-              >
-                {row.b}
-                {row.winner === 'b' && ' ✓'}
-              </div>
+              {specRows.map((row) => (
+                <div
+                  key={row.label}
+                  className="grid px-[22px] py-[13px] border-b border-ds-border last:border-b-0 items-center text-[13.5px]"
+                  style={{ gridTemplateColumns: '120px 1fr 1fr' }}
+                >
+                  <div className="text-ds-muted font-medium">{row.label}</div>
+                  <div
+                    className={`text-center px-2 py-1 rounded-[6px] ${
+                      row.winner === 'a'
+                        ? 'bg-ds-accent-soft text-ds-accent font-bold'
+                        : 'text-ds-ink font-medium'
+                    }`}
+                  >
+                    {row.a}
+                    {row.winner === 'a' && ' ✓'}
+                  </div>
+                  <div
+                    className={`text-center px-2 py-1 rounded-[6px] ${
+                      row.winner === 'b'
+                        ? 'bg-ds-accent-soft text-ds-accent font-bold'
+                        : 'text-ds-ink font-medium'
+                    }`}
+                  >
+                    {row.b}
+                    {row.winner === 'b' && ' ✓'}
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </Card>
 
         {/* Clinical dosing table */}

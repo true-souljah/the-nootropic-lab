@@ -137,9 +137,14 @@ export function ProductDetailBody({
 
       {/* Header card */}
       <Card padding={24} className="mb-4">
+        {/* The title column grows from an 8rem basis (it was flex-1, a 0 basis), so
+            on phones the row wraps and the score moves to its own line (ml-auto keeps
+            it at the right edge) instead of squeezing the product name to ~46px,
+            where it ran over the score. Rows wide enough for all three are laid
+            out as before. */}
         <div className="flex gap-[22px] items-start flex-wrap">
           <ProductThumb product={p} size={72} variant="lg" eager />
-          <div className="flex-1 min-w-0">
+          <div className="grow basis-32 min-w-0">
             <div
               role="group"
               aria-label={pd.chipGroupLabel}
@@ -197,7 +202,7 @@ export function ProductDetailBody({
               )}
             </div>
           </div>
-          <div className="text-right">
+          <div className="ml-auto text-right">
             <div className="text-[11px] uppercase tracking-[0.12em] font-semibold text-ds-muted">
               {pd.score.label}
             </div>
