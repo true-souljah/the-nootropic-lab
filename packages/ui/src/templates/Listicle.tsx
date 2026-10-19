@@ -17,7 +17,7 @@ import DisclaimerText from '../DisclaimerText';
 import { Bar } from '../primitives/Bar';
 import { FaqAccordion } from '../primitives/FaqAccordion';
 import { ProductThumb } from '../primitives/ProductThumb';
-import { buildPersonAuthorReference, servingAmount, pillarText, guaranteeDays, pageDisclosureScope, isoDay } from '@nootropic/data';
+import { buildPersonAuthorReference, servingAmount, pillarText, guaranteeDays, linksAmazonAssociates, pageDisclosureScope, isoDay } from '@nootropic/data';
 import type { Product, RelatedGuideUseCase, UIStrings } from '@nootropic/data';
 import { tpl } from '../templateStrings';
 import {
@@ -174,7 +174,9 @@ export default function Listicle({
   const alsoConsideredCopy = alsoConsideredText(s, alsoConsidered);
   const howWeChoose = howWeChooseParts(s);
   // Only ranked picks render a buy link ("Also considered" has none).
-  const disclosureScope = pageDisclosureScope(ranked.map((pick) => pick.product));
+  const linked = ranked.map((pick) => pick.product);
+  const disclosureScope = pageDisclosureScope(linked);
+  const amazonAssociate = linksAmazonAssociates(linked);
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -220,7 +222,7 @@ export default function Listicle({
       <a href="#main-content" tabIndex={0} className="ds-skip-link">
         {uiStrings.nav.skipToContent}
       </a>
-      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} scope={disclosureScope} space={space} />
+      <FPDisclosure methodologyHref="/methodology/" strings={uiStrings.disclosure} scope={disclosureScope} amazonAssociate={amazonAssociate} space={space} />
       <FPHeader searchItems={searchItems} strings={uiStrings} />
 
       <main id="main-content" className="max-w-[1200px] mx-auto px-6 pt-7">

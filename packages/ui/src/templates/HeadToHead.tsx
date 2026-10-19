@@ -13,7 +13,7 @@ import { ScorePill } from '../primitives/ScorePill';
 import { Bar } from '../primitives/Bar';
 import { FaqAccordion } from '../primitives/FaqAccordion';
 import { ProductThumb } from '../primitives/ProductThumb';
-import { buildPersonAuthorReference, servingAmount, servingsComparable, outOfTen, guaranteeDays, pageDisclosureScope, isoDay } from '@nootropic/data';
+import { buildPersonAuthorReference, servingAmount, servingsComparable, outOfTen, guaranteeDays, linksAmazonAssociates, pageDisclosureScope, isoDay } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import {
   headToHeadPageEnDefaults,
@@ -163,7 +163,9 @@ export default function HeadToHead({
   const winner = productA.score >= productB.score ? productA : productB;
   const loser = winner === productA ? productB : productA;
   // Each side card renders a buy link unless the product is discontinued.
-  const disclosureScope = pageDisclosureScope([productA, productB].filter((p) => !p.discontinued));
+  const linked = [productA, productB].filter((p) => !p.discontinued);
+  const disclosureScope = pageDisclosureScope(linked);
+  const amazonAssociate = linksAmazonAssociates(linked);
   const ingredientRows = buildIngredientRows(productA, productB);
 
   const articleSchema = {
@@ -293,7 +295,7 @@ export default function HeadToHead({
       <SchemaOrg schema={itemListSchema} />
       <SchemaOrg schema={breadcrumbSchema} />
 
-      <FPDisclosure methodologyHref={methodologyHref} strings={uiStrings.disclosure} scope={disclosureScope} space={space} />
+      <FPDisclosure methodologyHref={methodologyHref} strings={uiStrings.disclosure} scope={disclosureScope} amazonAssociate={amazonAssociate} space={space} />
       <a href="#main-content" tabIndex={0} className="ds-skip-link">
         {uiStrings?.nav.skipToContent ?? 'Skip to main content'}
       </a>

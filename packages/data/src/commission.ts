@@ -96,3 +96,37 @@ export function disclosureCopy(
   if (scope === 'page') return { badge: d.badge, sentence: d.inline };
   return { badge: d.neutralBadge, sentence: scope === 'product' ? d.noCommission : d.siteWide };
 }
+
+// ── Amazon Associates (US programme only; tag souljah03-20, owner 2026-10-19) ──
+// Only the US (amazon.com) account exists: Amazon records in the other regions
+// link untagged listings and carry the "0%" convention. amazon-associates.test.ts
+// pins both; scripts/check-built-disclosure.ts checks the statement below on
+// the built pages.
+
+/** `affiliateNetwork` of a record whose buy link is an Amazon Associates (US) link. */
+export const AMAZON_ASSOCIATES_NETWORK = 'Amazon Associates';
+
+/**
+ * The statement Amazon's Associates Program Operating Agreement requires
+ * wherever the site uses Associates links, verbatim. It is never translated:
+ * a non-English page carries it in English, marked lang="en".
+ */
+export const AMAZON_ASSOCIATES_STATEMENT = 'As an Amazon Associate I earn from qualifying purchases.';
+
+type AssociatesProduct = Parameters<typeof purchaseUrl>[0] & Pick<Product, 'affiliateNetwork'>;
+
+/** True when the product's buy link in this edition is an Amazon Associates link. */
+export function isAmazonAssociatesLink(product: AssociatesProduct): boolean {
+  return product.affiliateNetwork === AMAZON_ASSOCIATES_NETWORK && purchaseUrl(product) !== null;
+}
+
+/**
+ * Whether a page carries an Amazon Associates link, from the products it
+ * renders a buy link for (the same list as its pageDisclosureScope; on a
+ * CLIENT_RENDERED_BUY_LINK_ROUTES page, every product it may render). Its
+ * disclosure strip then adds AMAZON_ASSOCIATES_STATEMENT (FPDisclosure
+ * `amazonAssociate`); a page without one never carries the statement.
+ */
+export function linksAmazonAssociates(linkedProducts: readonly AssociatesProduct[]): boolean {
+  return linkedProducts.some(isAmazonAssociatesLink);
+}

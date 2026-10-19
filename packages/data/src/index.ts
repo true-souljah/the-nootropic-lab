@@ -29,8 +29,12 @@ export {
 } from './purchase-link';
 export type { DisclosureScope } from './commission';
 export {
+  AMAZON_ASSOCIATES_NETWORK,
+  AMAZON_ASSOCIATES_STATEMENT,
   CLIENT_RENDERED_BUY_LINK_ROUTES,
   earnsCommission,
+  isAmazonAssociatesLink,
+  linksAmazonAssociates,
   NO_COMMISSION_RATE_VALUES,
   pageDisclosureScope,
   reviewDisclosureScope,
