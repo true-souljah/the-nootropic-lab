@@ -113,7 +113,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'How long until I notice anything?',
-    a: 'Phosphatidylserine: its memory trials ran 15 weeks to 12 months. Citicoline: memory effects were measured after 2–3 months. Bacopa: 8–12 weeks; most positive trials ran 12 weeks. Lion\'s Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. Ginkgo: positive dementia trials ran 22–26 weeks. None are acute-effect ingredients. Track changes over at least 12 weeks of consistent dosing, and longer for phosphatidylserine (15 weeks or more) and ginkgo (22–26 weeks) — ideally with a baseline cognitive measure.',
+    a: 'Phosphatidylserine: its memory trials ran 15 weeks to 12 months. Citicoline: memory effects were measured after 2–3 months. Bacopa: 8–12 weeks; most positive trials ran 12 weeks. Lion\'s Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. Ginkgo: positive dementia trials ran 22–26 weeks. Apart from small acute effects of Lion\'s Mane in pilot trials, none are acute-effect ingredients. Track changes over at least 12 weeks of consistent dosing, and longer for phosphatidylserine (15 weeks or more) and ginkgo (22–26 weeks) — ideally with a baseline cognitive measure.',
   },
   {
     q: 'Can I buy these in a Canadian store?',

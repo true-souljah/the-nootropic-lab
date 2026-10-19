@@ -676,7 +676,7 @@ export const guides: Guide[] = [
       },
       {
         heading: 'What cumulative effects feel like',
-        content: "Cumulative nootropic effects are subtle by nature — they represent improvements in cognitive baseline, not dramatic acute shifts. After 8–12 weeks of Bacopa at trial doses (300–450mg extract a day), trials found better scores on some memory free-recall tests (9 of 17 in the Pase 2012 review), though the newest 12-week trial at 300mg/day found no effect on verbal learning, attention or working memory. These effects are difficult to notice day-to-day; the best way to measure them is cognitive benchmarking — test your working memory span, reading speed, or task completion time at baseline and again at 8 weeks.",
+        content: "Cumulative nootropic effects are subtle by nature — they represent improvements in cognitive baseline, not dramatic acute shifts. After 8–12 weeks of Bacopa at trial doses (300–450mg extract a day), trials found better scores on some memory free-recall tests (9 of 17 in the Pase 2012 review), though the newest 12-week trial at 300mg/day found no effect on verbal learning, attention or working memory. These effects are difficult to notice day-to-day; the best way to measure them is cognitive benchmarking — test your working memory span, reading speed, or task completion time at baseline and again at around 12 weeks.",
       },
       {
         heading: 'What nootropics cannot do',

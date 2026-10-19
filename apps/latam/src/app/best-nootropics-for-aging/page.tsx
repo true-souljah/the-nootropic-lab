@@ -105,7 +105,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: '¿En cuánto tiempo notaré algo?',
-    a: 'Fosfatidilserina: sus ensayos sobre la memoria duraron de 15 semanas a 12 meses. Citicolina: sus efectos sobre la memoria se midieron después de 2–3 meses. Bacopa: 8–12 semanas; la mayoría de los ensayos positivos duraron 12 semanas. Melena de León: en adultos con deterioro cognitivo leve, el beneficio se fue acumulando a lo largo de 8–16 semanas. Ninguno es un ingrediente de efecto agudo. Haz seguimiento de los cambios durante al menos 12 semanas de dosificación constante, y más tiempo para la fosfatidilserina (15 semanas o más) — idealmente con una medida cognitiva basal (los tests en línea son crudos pero mejores que el recuerdo subjetivo).',
+    a: 'Fosfatidilserina: sus ensayos sobre la memoria duraron de 15 semanas a 12 meses. Citicolina: sus efectos sobre la memoria se midieron después de 2–3 meses. Bacopa: 8–12 semanas; la mayoría de los ensayos positivos duraron 12 semanas. Melena de León: en adultos con deterioro cognitivo leve, el beneficio se fue acumulando a lo largo de 8–16 semanas. Aparte de los pequeños efectos agudos de la Melena de León en ensayos piloto, ninguno es un ingrediente de efecto agudo. Haz seguimiento de los cambios durante al menos 12 semanas de dosificación constante, y más tiempo para la fosfatidilserina (15 semanas o más) — idealmente con una medida cognitiva basal (los tests en línea son crudos pero mejores que el recuerdo subjetivo).',
   },
 ];
 

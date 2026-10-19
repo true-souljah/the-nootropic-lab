@@ -94,7 +94,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'How long until memory nootropics work?',
-    a: 'Bacopa: 8–12 weeks of daily use; most positive trials ran 12 weeks. Lion\'s Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. Phosphatidylserine: its memory trials ran 15 weeks to 12 months. Citicoline: memory effects were measured after 2–3 months. Ginkgo: positive dementia trials ran 22–26 weeks. None of these are acute-effect ingredients. Plan for at least 12 weeks of consistent dosing before judging, and longer for phosphatidylserine (15 weeks or more) and ginkgo (22–26 weeks).',
+    a: 'Bacopa: 8–12 weeks of daily use; most positive trials ran 12 weeks. Lion\'s Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. Phosphatidylserine: its memory trials ran 15 weeks to 12 months. Citicoline: memory effects were measured after 2–3 months. Ginkgo: positive dementia trials ran 22–26 weeks. Apart from small acute effects of Lion\'s Mane in pilot trials, none of these are acute-effect ingredients. Plan for at least 12 weeks of consistent dosing before judging, and longer for phosphatidylserine (15 weeks or more) and ginkgo (22–26 weeks).',
   },
   {
     q: 'Are memory nootropics regulated by Health Canada?',
