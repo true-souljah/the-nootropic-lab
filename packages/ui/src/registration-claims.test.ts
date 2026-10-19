@@ -1988,6 +1988,14 @@ const ROUND_SEVENTEEN_UNSOURCED: RegExp[] = [
   // record's howItWorks with FANCL's 12-week trials); the sentence was
   // deleted, not reworded.
   /sustained brain health maintenance/i,
+  // Follow-up from the i18n session (2026-10-19). The FDA's 13 May 2003 letter
+  // (regulations.gov FDA-2002-P-0041-0020) allows two qualified claims, one for
+  // dementia and one for cognitive dysfunction in the elderly, each with its own
+  // disclaimer; "only a qualified claim that … dementia or cognitive
+  // dysfunction" merged them into one. "GCC consumers expect Halal-certified
+  // supplements" claimed something of all GCC consumers with no source.
+  /only a qualified (health )?claim that/i,
+  /GCC consumers expect/i,
 ];
 
 // U3: every stack note names the trial it relies on or says we cite none.
@@ -2160,6 +2168,10 @@ describe('round seventeen: mechanism, user-report and market claims follow our i
       "The price gap reflects (a) Mind Lab Pro's peer-reviewed clinical research investment, (b) trademarked extracts",
       // 2026-10-15 (round nineteen)
       'Weeks 1-2: no noticeable acute effects — this is a foundational supplement, not a stimulant. At 12+ weeks: sustained brain health maintenance. FANCL recommends 4 tablets daily.',
+      // 2026-10-19 (i18n session follow-up)
+      "The FDA allows only a qualified claim that phosphatidylserine may reduce the risk of dementia or cognitive dysfunction in the elderly, with the disclaimer that 'FDA concludes that there is little scientific evidence supporting this claim' (FDA letter, 13 May 2003).",
+      "For phosphatidylserine, the FDA allows only a qualified claim that it 'may reduce the risk of cognitive dysfunction in the elderly', followed by 'FDA concludes that there is little scientific evidence supporting this claim' (FDA letter, 13 May 2003).",
+      'GCC consumers expect Halal-certified supplements. Capsule shells (gelatin vs HPMC vegetable cellulose) are a meaningful differentiator.',
     ];
     for (const s of removed) expect(ROUND_SEVENTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(true);
     for (const re of ROUND_SEVENTEEN_UNSOURCED) expect(removed.some(s => re.test(s)), String(re)).toBe(true);
@@ -2234,6 +2246,10 @@ describe('round seventeen: mechanism, user-report and market claims follow our i
       // 2026-10-15 (round nineteen): the FANCL BRAINs line after the deletion.
       'Weeks 1-2: no noticeable acute effects — this is a foundational supplement, not a stimulant. FANCL recommends 4 tablets daily.',
       'FANCL cites a 12-week trial of bacopa saponins at 12.5mg/day and 12-week trials of matured hop bitter acids at 35mg/day.',
+      // 2026-10-19 (i18n session follow-up): the replacement wording.
+      "The FDA allows two qualified claims, one that phosphatidylserine may reduce the risk of dementia in the elderly and one that it may reduce the risk of cognitive dysfunction in the elderly, each with the disclaimer that 'FDA concludes that there is little scientific evidence supporting this claim' (FDA letter, 13 May 2003).",
+      "For phosphatidylserine, the FDA allows two qualified claims, one of them that it 'may reduce the risk of cognitive dysfunction in the elderly', each followed by 'FDA concludes that there is little scientific evidence supporting this claim' (FDA letter, 13 May 2003).",
+      'Many GCC consumers prefer Halal-certified supplements. Capsule shells (gelatin vs HPMC vegetable cellulose) are a meaningful differentiator.',
     ]) expect(ROUND_SEVENTEEN_UNSOURCED.some(re => re.test(s)), s).toBe(false);
   });
 
