@@ -2148,7 +2148,7 @@ describe('round seventeen: mechanism, user-report and market claims follow our i
       "It contains no caffeine. Onnit's 30-day money-back guarantee covers the first purchase of each product made directly on Onnit.com.",
       'An acute 320mg dose improved sustained task performance (2012), but the 2026 network meta-analysis found no processing-speed difference.',
       'It is a potent, reversible acetylcholinesterase inhibitor — meaning it blocks the enzyme that breaks down acetylcholine, effectively increasing acetylcholine levels throughout the brain.',
-      'Phosphatidylserine (PS) is a phospholipid that forms a critical component of neuronal cell membranes. Supplementation replenishes PS levels that decline naturally with age.',
+      'Phosphatidylserine (PS) is a phospholipid that forms a critical component of neuronal cell membranes.',
       'Phosphatidylserine (100mg Sharp-PS) is a phospholipid in neuronal cell membranes.',
       'Healthy membranes are essential for efficient signal transmission between neurons.',
       'Our Rhodiola page rates its mental-fatigue evidence as mixed.',

@@ -295,7 +295,7 @@ export const ingredients: Ingredient[] = [
     slug: 'phosphatidylserine',
     name: 'Phosphatidylserine',
     category: 'cholinergic',
-    mechanism: 'Phosphatidylserine (PS) is a phospholipid that forms a critical component of neuronal cell membranes. Supplementation replenishes PS levels that decline naturally with age.',
+    mechanism: 'Phosphatidylserine (PS) is a phospholipid that forms a critical component of neuronal cell membranes.',
     clinicalDose: '100–300mg/day (benefit shown mainly in older adults with memory complaints or MCI)',
     timeToEffect: 'Memory trials ran 15 weeks to 12 months; no trial established an earlier onset',
     studySummary: "RCTs in older adults with memory complaints or mild cognitive impairment report memory benefits, though often only in subgroups: soy PS at 100–300mg/day for 6 months helped only participants with low baseline scores (Kato-Kataoka 2010), and marine PS-DHA at 300mg/day improved immediate verbal recall in an exploratory 15-week trial (Vakhapova 2010). A 2026 network meta-analysis in MCI/Alzheimer's found PS 100mg improved MMSE but not the Alzheimer's Disease Assessment Scale–Cognitive Subscale (ADAS-Cog). In healthy children, a 12-week RCT of 100mg sunflower PS found no effect on primary or secondary outcomes (Friling 2025; authors include staff of IFF, the product's manufacturer). A positive 2024 MCI trial (Duan 2024; BYHEALTH co-authors) gave only 31.5mg PS inside a multi-ingredient formula. The FDA allows only a qualified claim that it may reduce the risk of dementia or cognitive dysfunction in the elderly, with the disclaimer that 'FDA concludes that there is little scientific evidence supporting this claim' (FDA letter, 13 May 2003).",
