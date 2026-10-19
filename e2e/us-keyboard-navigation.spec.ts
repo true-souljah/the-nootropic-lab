@@ -121,11 +121,12 @@ test.describe('US /best-nootropics-for-focus/ — CommandPalette ⌘K modal (WCA
     // Modal removed.
     await expect(page.locator('[role="dialog"]:not(#klaro-cookie-notice)')).toHaveCount(0);
     // Focus returned to the trigger. Use Playwright auto-wait
-    // (`toBeFocused()` on the aria-label anchor) instead of a
+    // (`toBeFocused()` on the trigger's accessible name) instead of a
     // synchronous evaluate() snapshot — the snapshot races React's
     // brief focus-restore effect. Same fix pattern applied to AU
-    // in PR-Q49; this brings US to parity. PR-Q50.
-    await expect(page.locator('button[aria-label*="Search"]').first()).toBeFocused();
+    // in PR-Q49; this brings US to parity. PR-Q50. The desktop
+    // trigger is named by its content since 2026-10-19 (no aria-label).
+    await expect(page.getByRole('button', { name: 'Search (Command+K)', exact: true })).toBeFocused();
   });
 
   test('Tab inside the modal cycles between focusable elements (focus trap)', async ({ page }) => {

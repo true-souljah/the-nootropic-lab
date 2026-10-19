@@ -117,9 +117,23 @@ test.describe('JP accessibility-tree behavioral correctness on /best-nootropics-
         label.includes('⌘'),
         `Button aria-label "${label}" contains raw ⌘ (U+2318 PLACE OF INTEREST SIGN). ` +
           `Many AT engines (NVDA / JAWS / VoiceOver) pronounce this as "place of interest sign", not "command". ` +
-          `Preferred: keep ⌘K in a <kbd> child (visible only, aria-hidden=true); use "Search" or "Search (Command K)" in aria-label.`,
+          `Preferred: keep ⌘K in a <kbd> child (visible only, aria-hidden=true); spell the chord out as "(Command+K)" in visually hidden text.`,
       ).toBe(false);
     }
+
+    // The desktop trigger has no aria-label since 2026-10-19 (WCAG 2.5.3
+    // Label in Name: an aria-label must contain the visible text, ⌘K's "K"
+    // included). It is named by its content: the visible word plus the
+    // visually hidden " (Command+K)", the ⌘K <kbd> aria-hidden. The probe
+    // above only reads aria-label values, so check the computed names too.
+    await expect(
+      page.getByRole('button', { name: 'Search (Command+K)', exact: true }),
+      'the desktop trigger is named "Search (Command+K)"',
+    ).toHaveCount(1);
+    await expect(
+      page.getByRole('button', { name: /⌘/ }),
+      'no button name contains raw ⌘ (U+2318 PLACE OF INTEREST SIGN)',
+    ).toHaveCount(0);
   });
 
   test('no focused element has a computed role of "generic" (AT users always hear a meaningful role)', async ({ page }) => {

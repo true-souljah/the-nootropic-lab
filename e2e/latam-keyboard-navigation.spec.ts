@@ -14,8 +14,8 @@ import { test, expect } from '@playwright/test';
 //   skip-link text       — Saltar al contenido principal
 //   "Comparator" CTA     — comparador (already covered by the
 //                          existing regex)
-//   Search aria-label    — "Buscar (Command+K)" (page language since
-//                          2026-10-12)
+//   Search trigger name  — "Buscar (Command+K)" (page language since
+//                          2026-10-12; from its content since 2026-10-19)
 //
 // Tab-trap probe types "depot" — substring match on Nootropics
 // Depot Lion's Mane in the LATAM catalog.
@@ -107,7 +107,7 @@ test.describe('LATAM /best-nootropics-for-focus/ — CommandPalette ⌘K modal (
     await expect(page.locator('[role="dialog"]:not(#klaro-cookie-notice)')).toBeAttached();
     await page.keyboard.press('Escape');
     await expect(page.locator('[role="dialog"]:not(#klaro-cookie-notice)')).toHaveCount(0);
-    await expect(page.locator('button[aria-label*="Buscar"]').first()).toBeFocused();
+    await expect(page.getByRole('button', { name: 'Buscar (Command+K)', exact: true })).toBeFocused();
   });
 
   test('Tab inside the modal loops focus on the input (PR-Q51 portfolio-wide trap fix)', async ({ page }) => {
