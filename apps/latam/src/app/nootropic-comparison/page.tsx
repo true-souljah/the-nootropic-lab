@@ -6,12 +6,15 @@ import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
+const TITLE = 'Comparador de Nootrópicos: Filtra y Compara Lado a Lado (Latam)';
+const DESCRIPTION = 'Filtra por objetivo, precio, calificación, cafeína y tienda en la UE. Ordena por puntuación, precio, valor o Trustpilot. Elige hasta 3 productos para compararlos lado a lado.';
+
 export const metadata: Metadata = {
-  title: 'Nootropic Comparator — Filter and Compare Side-by-Side (LATAM)',
-  description: 'Filter by goal, price, grade, caffeine, and EU storefront. Sort by score, price, value, or Trustpilot. Pick up to 3 products to compare side-by-side.',
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: buildAlternates({ regionCode: 'latam', path: '/nootropic-comparison/' }),
-  openGraph: buildOpenGraph({ regionCode: 'latam', path: '/nootropic-comparison/', title: 'Nootropic Comparator — Filter and Compare Side-by-Side (LATAM)', description: 'Filter by goal, price, grade, caffeine, and EU storefront. Sort by score, price, value, or Trustpilot. Pick up to 3 products to compare side-by-side.' }),
-  twitter: buildTwitter({ title: 'Nootropic Comparator — Filter and Compare Side-by-Side (LATAM)', description: 'Filter by goal, price, grade, caffeine, and EU storefront. Sort by score, price, value, or Trustpilot. Pick up to 3 products to compare side-by-side.' }),
+  openGraph: buildOpenGraph({ regionCode: 'latam', path: '/nootropic-comparison/', title: TITLE, description: DESCRIPTION }),
+  twitter: buildTwitter({ title: TITLE, description: DESCRIPTION }),
 };
 
 export default function ComparisonToolPage() {
@@ -20,7 +23,7 @@ export default function ComparisonToolPage() {
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: `Best Nootropic Supplements ${CURRENT_YEAR}`,
+    name: `Los Mejores Suplementos Nootrópicos ${CURRENT_YEAR}`,
     itemListElement: productsLatam.map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,

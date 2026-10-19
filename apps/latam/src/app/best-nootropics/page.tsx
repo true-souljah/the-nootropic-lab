@@ -27,7 +27,7 @@ export default function BestNootropicsLatamPage() {
   const productsLatam = localizedProductsLatam('es');
   const winner = productsLatam.find((p) => p.editorChoice)!;
   const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: `Los Mejores Nootrópicos en Latinoamérica ${CURRENT_YEAR}`, datePublished: '2026-01-15', dateModified: new Date().toISOString().split('T')[0], author: buildPersonAuthorReference(undefined, SITE_URL), publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL } };
-  const itemListSchema = { '@context': 'https://schema.org', '@type': 'ItemList', name: `Best Nootropic Supplements Latam ${CURRENT_YEAR}`, itemListElement: productsLatam.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.name, url: `${SITE_URL}/${p.slug}/` })) };
+  const itemListSchema = { '@context': 'https://schema.org', '@type': 'ItemList', name: `Los Mejores Suplementos Nootrópicos en Latinoamérica ${CURRENT_YEAR}`, itemListElement: productsLatam.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.name, url: `${SITE_URL}/${p.slug}/` })) };
 
   return (
     <>
