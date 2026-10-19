@@ -432,6 +432,67 @@ export const latamProductTranslationsEs: LatamProductTranslation[] = [
       discontinuedNote: '74234e98afe7',
     },
   },
+  {
+    slug: 'onnit-alpha-brain-review',
+    summary:
+      'El stack nootrópico estadounidense de Onnit, respaldado por dos estudios clínicos publicados — una señal de confianza significativa para los compradores en Latam que compran desde el exterior. Precio en dólares estadounidenses, sin opción de moneda local. Se envía desde EE. UU.; consulta el plazo de entrega estimado en el checkout. Los aranceles de importación y el despacho aduanero corren por cuenta del comprador; los compradores en Argentina deben verificar que el emisor de su tarjeta apruebe transacciones en USD dado el control cambiario. La garantía de devolución de 30 días de Onnit cubre la primera compra de cada producto realizada directamente en Onnit.com.',
+    whatItIs:
+      'Alpha Brain es el nootrópico insignia de Onnit, lanzado por primera vez en 2011 y popularizado a través del pódcast de Joe Rogan. Es uno de solo dos suplementos de esta reseña con datos de ensayos clínicos publicados sobre su fórmula específica. Cuenta con la certificación "Certified for Sport" de la National Sanitation Foundation (NSF). Para compradores en Latam, Alpha Brain se vende exclusivamente en USD y se envía desde EE. UU. como suplemento importado para uso personal. No hemos verificado un registro local del producto ante la Comisión Federal para la Protección contra Riesgos Sanitarios (COFEPRIS) en México, la Agência Nacional de Vigilância Sanitária (ANVISA) en Brasil, la Administración Nacional de Medicamentos, Alimentos y Tecnología Médica (ANMAT) en Argentina, el Instituto Nacional de Vigilancia de Medicamentos y Alimentos (INVIMA) en Colombia, el Instituto de Salud Pública (ISP) en Chile ni la Dirección General de Medicamentos, Insumos y Drogas (DIGEMID) en Perú. Los aranceles de importación y el despacho aduanero corren por cuenta del comprador — la garantía de devolución de 30 días de Onnit reembolsa solo el costo del producto, no el envío.',
+    howItWorks:
+      'Alpha Brain usa tres mezclas patentadas — Onnit Flow Blend, Focus Blend y Fuel Blend — que contienen colinérgicos (Alfa-GPC), adaptógenos (Bacopa) y aminoácidos (Tirosina, Teanina). La etiqueta indica el total de cada mezcla y dos cantidades individuales (Bacopa 100mg, Huperzina A 400mcg): la Bacopa, la Alfa-GPC (como máximo 140mg) y la L-Tirosina (como máximo 650mg) no alcanzan sus dosis clínicas, y los demás componentes de las mezclas no pueden verificarse individualmente. Los dos estudios publicados (financiados por Onnit, 2016 y 2021) probaron la fórmula completa y mostraron mejoras estadísticamente significativas en la memoria verbal y la función ejecutiva frente a placebo.',
+    whatToExpect:
+      'No contiene cafeína. La garantía de devolución de 30 días de Onnit cubre la primera compra de cada producto realizada directamente en Onnit.com.',
+    pros: [
+      'Dos estudios clínicos publicados',
+      'El mayor reconocimiento de marca en EE. UU.',
+      'Solo 2 cápsulas',
+      'Garantía de devolución de 30 días en la primera compra',
+      'Certificación "NSF Certified for Sport"',
+      'La lista de mercados de onnit.com menciona Brasil, Argentina, Colombia, Chile y Perú (consultado 2026-09-29)',
+    ],
+    cons: [
+      'Las mezclas patentadas ocultan las dosis',
+      'Problemas para cancelar la suscripción',
+      'Envío internacional a Latam: consulta el plazo de entrega estimado en el checkout',
+      'Pueden aplicarse aranceles o impuestos de importación según el país de destino',
+    ],
+    notes: [
+      'Fórmula según la tabla Supplement Facts de la página del producto (https://www.onnit.com/products/alpha-brain-90-ct, consultada 2026-10-08): por 2 cápsulas, Vitamina B6 10mg; Onnit Flow Blend 650mg (L-Tirosina, L-Teanina, Oat Straw Extract, Fosfatidilserina); extracto de corteza de uña de gato 350mg; Onnit Focus Blend 240mg (Alfa-GPC, extracto de Bacopa 100mg, extracto de licopodio dentado que aporta Huperzina A 400mcg); Onnit Fuel Blend 60mg (L-Leucina, Pterostilbeno). Las dosis de referencia son las de las páginas de ingredientes de este sitio.',
+      'La garantía de devolución de Onnit es de 30 días, para la primera compra de cada producto realizada directamente en Onnit.com, y reembolsa el costo del producto pero no el envío (https://help.onnit.com/en-US/30-day-money-back-guarantee-6327406, consultado 2026-10-08).',
+    ],
+    bestFor: ['Público general', 'Reconocimiento de marca', 'Deportistas'],
+    heroIngredients: ['L-Teanina', 'Huperzina A', 'Vitamina B6', 'Alfa-GPC', 'Fosfatidilserina'],
+    ingredientDosages: [
+      { name: 'Bacopa Monnieri (Focus Blend)', doseInProduct: '100mg' },
+      { name: 'Alfa-GPC (Focus Blend)', doseInProduct: 'No declarada; como máximo 140mg (mezcla de 240mg, incl. 100mg de Bacopa)' },
+      { name: 'Huperzina A (licopodio dentado, Focus Blend)', doseInProduct: '400mcg' },
+      { name: 'L-Tirosina (Flow Blend)', doseInProduct: 'No declarada; como máximo 650mg (total de la mezcla)' },
+      { name: 'L-Teanina (Flow Blend)', doseInProduct: 'No declarada (parte de una mezcla de 650mg)' },
+      { name: 'Fosfatidilserina (Flow Blend)', doseInProduct: 'No declarada (parte de una mezcla de 650mg)' },
+      { name: 'Oat Straw Extract (Flow Blend)', doseInProduct: 'No declarada (parte de una mezcla de 650mg)' },
+      { name: 'Extracto de corteza de uña de gato', doseInProduct: '350mg' },
+      { name: 'Vitamina B6 (piridoxina HCl)', doseInProduct: '10mg' },
+      { name: 'L-Leucina + Pterostilbeno (Fuel Blend)', doseInProduct: '60mg (total de la mezcla)' },
+    ],
+    importPathway:
+      'La lista de mercados de onnit.com menciona Brasil, Argentina, Colombia, Chile y Perú (consultado 2026-09-29); el envío a México no pudo confirmarse en el sitio de la marca (su página de ayuda sobre envíos no estaba disponible) — confírmalo en el checkout.',
+    sourceHashes: {
+      summary: '381d8dd2131f',
+      whatItIs: 'ca3345cee2d7',
+      howItWorks: 'b7cc91335bad',
+      whatToExpect: '805bde2a4832',
+      pros: '59744123ec60',
+      cons: 'a8531382e7c2',
+      notes: 'bdd739a2f30e',
+      bestFor: '98bc79d831b9',
+      heroIngredients: 'dec48d0006ad',
+      ingredientDosages: 'd902de0ef96e',
+      importPathway: '2262c719be2d',
+      regulatoryNote: '74234e98afe7',
+      unscoredReason: '74234e98afe7',
+      discontinuedNote: '74234e98afe7',
+    },
+  },
 ];
 
 const TRANSLATIONS: Record<LatamProductLocale, LatamProductTranslation[]> = { es: latamProductTranslationsEs };
