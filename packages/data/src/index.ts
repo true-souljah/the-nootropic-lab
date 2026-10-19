@@ -40,7 +40,7 @@ export type { ProductImage, ProductImageFile, ProductImageVariant } from './prod
 export { PRODUCT_IMAGE_SIZES, productImages, productImage } from './product-images';
 export type { ProductForm } from './serving-unit';
 export { PRODUCT_FORMS, productForm, servingUnit, servingAmount, servingsComparable } from './serving-unit';
-export { affiliateUrlProblem, formulaProblem, formProblem, productRuleProblems, scoreProblem, weightedScore, roundToTenth, dosingScore, pillarWeightPercent, UNSCORABLE_PILLARS, PILLAR_WEIGHTS, halalEvidenceProblem, HALAL_CERTIFIERS, vendorTermsProblems, VENDOR_TERM_FIELDS } from './product-rules';
+export { affiliateUrlProblem, formulaProblem, formProblem, productRuleProblems, scoreProblem, weightedScore, roundToTenth, dosingScore, pillarWeightPercent, UNSCORABLE_PILLARS, PILLAR_WEIGHTS, halalEvidenceProblem, HALAL_CERTIFIERS, vendorTermsProblems, VENDOR_TERM_FIELDS, domesticSupplyProblems } from './product-rules';
 export type { QuotedPrice, QuoteSupply, SupplyFields, PackServings, StatedSupplyDays, DailyServings } from './vendor-price';
 export {
   DAYS_PER_MONTH,

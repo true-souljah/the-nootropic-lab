@@ -113,7 +113,7 @@ test.describe('SEA /best-nootropics-for-focus/ — CommandPalette ⌘K modal (WC
     await expect(page.locator('[role="dialog"]:not(#klaro-cookie-notice)')).toBeAttached();
     await page.keyboard.press('Escape');
     await expect(page.locator('[role="dialog"]:not(#klaro-cookie-notice)')).toHaveCount(0);
-    await expect(page.locator('button[aria-label*="Search"]').first()).toBeFocused();
+    await expect(page.getByRole('button', { name: 'Search (Command+K)', exact: true })).toBeFocused();
   });
 
   test('Tab inside the modal cycles between focusable elements (focus trap on SEA catalog)', async ({ page }) => {

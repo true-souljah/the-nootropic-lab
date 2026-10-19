@@ -32,14 +32,17 @@ const listingCategories: ListingCategory[] = [
 ];
 
 // ARTG status of every AU catalogue record (active and discontinued). Every
-// record was queried directly on 2026-10-06 in the ARTG search
+// record in firstPassRows was queried directly on 2026-10-06 in the ARTG search
 // (tga.gov.au/resources/artg?keywords=) and in the TGA cancellations-by-sponsor
 // database, by product name and by sponsor; the queries quoted below are the
 // ones logged in the 2026-10-06 register check. A no-entry result is published
 // only as "no matching entry returned for these queries on that date", never
 // as "not on the ARTG". Blackmores Brain Active is the only record with ARTG
 // history (two sponsor-cancelled entries); do not add an AUST number without
-// an ARTG hit.
+// an ARTG hit. The two Neutonic records added later (neutonicRows) were
+// searched on 2026-10-19 in the same two databases by the single keyword
+// 'Neutonic', which covers product and sponsor text; both returned "There
+// were no matching results."
 interface ArtgRow {
   slug: string;
   name: string;
@@ -53,7 +56,7 @@ const noEntry = (product: string[], sponsor: string[]) =>
 const PERFORMANCE_LAB_SPONSOR = ['Performance Lab', 'Opti-Nutra', 'Optinutra'];
 const PERFORMANCE_LAB_NOTE = 'Sold direct through performancelab.com; no AUST number shown on the product page.';
 
-const artgRows: ArtgRow[] = [
+const firstPassRows: ArtgRow[] = [
   { slug: 'mind-lab-pro-review', name: 'Mind Lab Pro', found: noEntry(['Mind Lab Pro'], PERFORMANCE_LAB_SPONSOR), note: 'Sold direct through the brand\'s Australian storefront (au.mindlabpro.com); no AUST number shown on the storefront product page.' },
   { slug: 'noocube-review', name: 'NooCube', found: noEntry(['NooCube'], ['Wolfson Brands', 'Wolfson']), note: 'Sold direct through the brand\'s Australian storefront (noocube.com.au); no AUST number shown on the storefront product page.' },
   { slug: 'performance-lab-mind-review', name: 'Performance Lab Mind', found: noEntry(['Performance Lab Mind'], PERFORMANCE_LAB_SPONSOR), note: 'Sold direct through the brand\'s own storefront; no AUST number shown on the storefront product page.' },
@@ -67,6 +70,14 @@ const artgRows: ArtgRow[] = [
   { slug: 'performance-lab-energy-review', name: 'Performance Lab Energy', found: noEntry(['Performance Lab Energy'], PERFORMANCE_LAB_SPONSOR), note: PERFORMANCE_LAB_NOTE },
   { slug: 'performance-lab-omega-3-review', name: 'Performance Lab Omega-3', found: noEntry(['Performance Lab Omega-3'], PERFORMANCE_LAB_SPONSOR), note: PERFORMANCE_LAB_NOTE },
 ];
+
+const NEUTONIC_FOUND = 'No matching entry returned for the keyword \'Neutonic\' (product or sponsor) in the ARTG search or the cancellations-by-sponsor database (tga.gov.au, searched 2026-10-19)';
+const neutonicRows: ArtgRow[] = [
+  { slug: 'neutonic-smarter-energy-drink-review', name: 'Neutonic Smarter Energy Drink', found: NEUTONIC_FOUND, note: 'Sold through neutonic.com\'s Australian store and ships from within Australia (product page, checked 19 October 2026). It is sold as a canned energy drink whose label carries a caffeine advisory statement rather than an AUST number.' },
+  { slug: 'neutonic-brain-capsules-uk-review', name: 'Neutonic Brain Capsules (UK edition)', found: NEUTONIC_FOUND, note: 'Sold through neutonic.com\'s Australian store and ships from the UK (product page, checked 19 October 2026); no AUST number shown on the product page.' },
+];
+
+const artgRows: ArtgRow[] = [...firstPassRows, ...neutonicRows];
 
 // Fail the build if the table drifts from the catalogue (a record added,
 // removed or renamed without an ARTG check).
@@ -189,7 +200,8 @@ export default function Page() {
           the Therapeutic Goods Administration (TGA)&rdquo; (<a href="https://www.tga.gov.au/products/regulations-all-products/advertising/specialised-advertising-issues-and-topics/claim-tga-approved-must-not-be-used-advertising" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline">TGA, checked 6 October 2026</a>).
           Listed (AUST L) medicines have not been assessed by the TGA for
           efficacy before sale. None of the {artgRows.length} products in our Australian catalogue returned a current
-          ARTG entry when we searched on 6 October 2026. This
+          ARTG entry when we searched ({firstPassRows.length} of them on 6 October 2026, the {neutonicRows.length} Neutonic
+          products on 19 October 2026). This
           page explains what each category means, how to read AUST numbers on labels, and how the Therapeutic
           Goods Advertising Code 2021 governs claim language for cognitive products. It also covers the ARTG
           status of every product in our Australian catalogue, the{' '}
@@ -224,11 +236,12 @@ export default function Page() {
         <section id="artg-status" className="my-10">
           <h2 className="text-2xl font-bold text-gray-900 mb-3">ARTG status of the products we review in Australia</h2>
           <p className="text-sm text-gray-700 leading-relaxed mb-4">
-            On 6 October 2026 we queried all {artgRows.length} products in our Australian catalogue directly, by
+            On 6 October 2026 we queried the {firstPassRows.length} products then in our Australian catalogue directly, by
             product name and by sponsor, in two TGA databases: the ARTG search
             (<code>tga.gov.au/resources/artg?keywords=</code>) and the cancellations-by-sponsor database
-            (<code>tga.gov.au/resources/cancellations-by-sponsors?keywords=</code>). None returned a current ARTG
-            entry. Blackmores Brain Active is the only one with an ARTG history: two entries, 227270 and 227319, both
+            (<code>tga.gov.au/resources/cancellations-by-sponsors?keywords=</code>). On 19 October 2026 we searched
+            both databases for the keyword &lsquo;Neutonic&rsquo;, which covers product and sponsor names, for the{' '}
+            {neutonicRows.length} Neutonic products added since. None returned a current ARTG entry. Blackmores Brain Active is the only one with an ARTG history: two entries, 227270 and 227319, both
             cancelled at the sponsor&apos;s request (in 2014 and 2021). A &ldquo;no matching entry&rdquo; result means
             only that the queries listed returned no matching row on that date; it does not prove a product was never
             entered under another name or sponsor, and the cancellations database covers sponsor-requested
@@ -236,7 +249,7 @@ export default function Page() {
           </p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border border-gray-200">
-              <caption className="sr-only">ARTG status of each product in our Australian catalogue, searched 6 October 2026</caption>
+              <caption className="sr-only">ARTG status of each product in our Australian catalogue, searched 6 October 2026 (Neutonic products: 19 October 2026)</caption>
               <thead className="bg-gray-50 text-left">
                 <tr>
                   <th scope="col" className="p-3 border-b border-gray-200">Product</th>
@@ -402,7 +415,7 @@ export default function Page() {
             { type: 'Regulatory', label: 'TGA — Permitted Indications for listed medicines', url: 'https://www.tga.gov.au/resources/resource/guidance/permissible-indications-listed-medicines' },
             { type: 'Regulatory', label: 'TGA — Blackmores Brain Active: cancelled under s30(1)(c) (ARTG 227270; checked 2026-10-06)', url: 'https://www.tga.gov.au/resources/cancellations-by-sponsors/blackmores-brain-active-cancelled-under-s301c' },
             { type: 'Regulatory', label: 'TGA — Blackmores Brain Active: cancelled under Section 30(1)(c) of the Act (ARTG 227319; checked 2026-10-06)', url: 'https://www.tga.gov.au/resources/cancellations-by-sponsors/blackmores-brain-active-cancelled-under-section-301c-act' },
-            { type: 'Regulatory', label: 'TGA — Cancellations by sponsors database (searched 2026-10-06)', url: 'https://www.tga.gov.au/resources/cancellations-by-sponsors' },
+            { type: 'Regulatory', label: 'TGA — Cancellations by sponsors database (searched 2026-10-06; Neutonic 2026-10-19)', url: 'https://www.tga.gov.au/resources/cancellations-by-sponsors' },
             { type: 'Regulatory', label: 'TGA — Supply a therapeutic good: "In most cases this involves entry of the product in the Australian Register of Therapeutic Goods (ARTG)" (checked 2026-10-06)', url: 'https://www.tga.gov.au/products/regulations-all-products/overview-applying-market-authorisation/supply-therapeutic-good' },
             { type: 'Regulatory', label: 'TGA — The claim \'TGA approved\' must not be used in advertising (ARTG inclusion is not an endorsement; checked 2026-10-06)', url: 'https://www.tga.gov.au/products/regulations-all-products/advertising/specialised-advertising-issues-and-topics/claim-tga-approved-must-not-be-used-advertising' },
             { type: 'Regulatory', label: 'TGA — Personal Importation Scheme', url: 'https://www.tga.gov.au/products/unapproved-therapeutic-goods/access-pathways/personal-importation-scheme' },

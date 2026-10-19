@@ -230,6 +230,18 @@ export interface Product {
   importPathway?: string;
   regulatoryNote?: string;
   /**
+   * The vendor states the product is stocked and dispatched inside the
+   * region. Suppresses the import-status chip (read by the AU licence line:
+   * a record without an AUST L number would otherwise show "Personal
+   * Importation Scheme"). Never set without a quoted vendor statement:
+   * `basis` quotes it with its page URL, `checkedAt` (YYYY-MM-DD) is when it
+   * was read. Shape checked by domesticSupplyProblems (product-rules.ts).
+   */
+  domesticSupply?: {
+    basis: string;
+    checkedAt: string;
+  };
+  /**
    * Halal certification status. Meaningful primarily on products served by
    * the SEA + GCC market apps, where halal is a federal-law requirement for
    * Indonesian (BPJPH) and Malaysian (JAKIM) consumers and a strong trust
