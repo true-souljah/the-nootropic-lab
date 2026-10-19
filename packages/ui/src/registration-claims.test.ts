@@ -2380,7 +2380,10 @@ describe('round seventeen: mechanism, user-report and market claims follow our i
 //   stimulate NGF", "lower hericenone content", "more potent and consistent
 //   NGF stimulus", "hericenones are fat-soluble", "stimulates Nerve Growth
 //   Factor ... neuroplasticity", "Modulates NGF and may support neurogenesis"
-//   and the bare "shown to promote neurotrophic factor expression" (Mori 2008,
+//   and the guide's "contains hericenones and erinacines shown (in cell and
+//   animal studies) to promote neurotrophic factor expression", which credits
+//   hericenones (panel follow-up: now "extracts raised neurotrophic factors
+//   ... which compounds are responsible is disputed") (Mori 2008,
 //   PMID 18758067: hericenones C, D and E did not promote NGF gene expression;
 //   Tsai 2021, PMID 34361662: erinacine A, from the mycelium, crossed the rat
 //   blood-brain barrier; we found no human trial that measured NGF, from a
@@ -2426,7 +2429,7 @@ const ROUND_TWENTY_ONE_CLAIMS: RegExp[] = [
   /stimulates NGF for long-term neuroplasticity/i,
   /Modulates Nerve Growth Factor \(NGF\) and may support neurogenesis/i,
   /hericenones and erinacines that stimulate the synthesis/i,
-  /hericenones and erinacines shown to promote/i,
+  /hericenones and erinacines shown (in cell and animal studies )?to promote/i,
   // Follow-up (same round): the human-NGF search was a title screen, so an
   // absence is "we found no human trial", not "no human trial has".
   /No human trial has (yet )?measured NGF/i,
@@ -2452,7 +2455,7 @@ const ROUND_TWENTY_ONE_CLAIMS_ES: RegExp[] = [
   /estimula el factor de crecimiento nervioso/i,
   /Modula el Factor de Crecimiento Nervioso/i,
   /hericenonas y erinacinas que estimulan la síntesis/i,
-  /que, según se ha demostrado, promueven la expresión/i,
+  /que, según se ha demostrado( en estudios celulares y en animales)?, promueven la expresión/i,
   /Ningún ensayo en humanos ha medido (todavía )?(los niveles de |el )?NGF/i,
 ];
 
@@ -2509,6 +2512,7 @@ describe("round twenty-one claims: NSF, Mind Lab Pro testing, oat/Bacopa/Lion's 
       'Modulates Nerve Growth Factor (NGF) and may support neurogenesis.',
       "Lion's Mane (Hericium erinaceus) contains hericenones and erinacines that stimulate the synthesis of Nerve Growth Factor (NGF) in cell and animal studies.",
       "Lion's Mane contains hericenones and erinacines shown to promote neurotrophic factor expression, including NGF (Nerve Growth Factor);",
+      "Lion's Mane contains hericenones and erinacines shown in cell and animal studies to promote neurotrophic factor expression, including NGF (Nerve Growth Factor);",
       'No human trial has yet measured NGF levels after supplementation.',
       'No human trial has measured NGF.',
     ];
@@ -2524,6 +2528,7 @@ describe("round twenty-one claims: NSF, Mind Lab Pro testing, oat/Bacopa/Lion's 
       'Modula el Factor de Crecimiento Nervioso (NGF) y puede apoyar la neurogénesis.',
       'La Melena de León (Hericium erinaceus) contiene hericenonas y erinacinas que estimulan la síntesis del factor de crecimiento nervioso (NGF) en estudios celulares y en animales.',
       "Lion's Mane contiene hericenonas y erinacinas que, según se ha demostrado, promueven la expresión de factores neurotróficos, incluido el NGF (Factor de Crecimiento Nervioso);",
+      "Lion's Mane contiene hericenonas y erinacinas que, según se ha demostrado en estudios celulares y en animales, promueven la expresión de factores neurotróficos, incluido el NGF (Factor de Crecimiento Nervioso);",
       'Ningún ensayo en humanos ha medido todavía los niveles de NGF tras la suplementación.',
       'Ningún ensayo en humanos ha medido el NGF.',
     ];
@@ -2568,10 +2573,10 @@ describe("round twenty-one claims: NSF, Mind Lab Pro testing, oat/Bacopa/Lion's 
       "Lion's Mane extracts raised Nerve Growth Factor (NGF) in cell and animal studies.",
       "Lion's Mane (500mg) extracts raised Nerve Growth Factor (NGF) in cell and animal studies.",
       'Extracts raised Nerve Growth Factor (NGF) in cell and animal studies; we found no human trial that measured NGF.',
-      "Lion's Mane contains hericenones and erinacines shown in cell and animal studies to promote neurotrophic factor expression, including NGF (Nerve Growth Factor);",
+      "Lion's Mane extracts raised neurotrophic factors, including NGF (Nerve Growth Factor), in cell and animal studies, though which compounds are responsible is disputed (hericenones did not in Mori 2008);",
       'Los extractos de Melena de León elevaron el factor de crecimiento nervioso (NGF) en estudios celulares y en animales.',
       'Sus extractos elevaron el Factor de Crecimiento Nervioso (NGF) en estudios celulares y en animales; no encontramos ningún ensayo en humanos que midiera el NGF.',
-      "Lion's Mane contiene hericenonas y erinacinas que, según se ha demostrado en estudios celulares y en animales, promueven la expresión de factores neurotróficos, incluido el NGF (Factor de Crecimiento Nervioso);",
+      'los extractos de Lion\'s Mane elevaron factores neurotróficos, incluido el NGF (Factor de Crecimiento Nervioso), en estudios celulares y en animales, aunque qué compuestos son responsables es objeto de debate (las hericenonas no lo hicieron en Mori 2008);',
       'Tómalo de forma constante todos los días.',
       'We found no human trial that measured NGF levels after supplementation.',
       'No encontramos ningún ensayo en humanos que midiera los niveles de NGF tras la suplementación.',
