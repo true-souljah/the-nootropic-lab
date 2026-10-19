@@ -8,9 +8,10 @@ import {
   buildTwitter,
   PublicShell,
 } from '@nootropic/ui';
-import { getRegionalHealthDisclaimer } from '@nootropic/data';
+import { getRegionalHealthDisclaimer, sitemapDate, isoDay } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
+import sitemap from '@/app/sitemap';
 
 const PATH = '/which-nootropics-ship-to-the-gcc/';
 const PAGE_URL = `${SITE_URL}${PATH}`;
@@ -26,8 +27,6 @@ const DESCRIPTION =
 const VERIFIED_ON = '2026-09-29';
 const VERIFIED_ON_LABEL = '29 September 2026';
 const NEUTONIC_CHECKED_ON_LABEL = '19 October 2026';
-// Last content change: the Neutonic row.
-const PAGE_MODIFIED_ON = '2026-10-19';
 
 interface BrandRow {
   brand: string;
@@ -135,7 +134,8 @@ const articleSchema = {
   headline: 'Which nootropic brands ship to the GCC?',
   description: DESCRIPTION,
   datePublished: VERIFIED_ON,
-  dateModified: PAGE_MODIFIED_ON,
+  // The page's sitemap <lastmod>, so the two never disagree.
+  dateModified: isoDay(sitemapDate(sitemap(), PATH)),
   author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
   publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   mainEntityOfPage: PAGE_URL,

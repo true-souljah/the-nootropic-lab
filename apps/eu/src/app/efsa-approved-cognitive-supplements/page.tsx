@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
-import { productsEU, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsEU, getRegionalHealthDisclaimer, sitemapDate, isoDay } from '@nootropic/data';
+import sitemap from '@/app/sitemap';
 
 const PAGE_URL = `${SITE_URL}/efsa-approved-cognitive-supplements/`;
-const auditDateIso = new Date().toISOString().split('T')[0];
+const updated = sitemapDate(sitemap(), '/efsa-approved-cognitive-supplements/');
 
 import { PublicShell } from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
@@ -53,7 +54,7 @@ const articleSchema = {
   headline: 'EU-Authorised Cognitive Health Claims for Supplements',
   description: 'The EU-authorised (EFSA-assessed) cognitive-claim list under Regulation (EC) No 1924/2006, checked against the EU register, with conditions of use, plus caffeine claims that were never authorised, on-hold botanicals and refused claims.',
   datePublished: '2026-05-05',
-  dateModified: auditDateIso,
+  dateModified: isoDay(updated),
   author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
   publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   reviewedBy: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
@@ -120,7 +121,7 @@ export default function Page() {
         <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 mb-4">
           <span>Reviewed by <strong className="text-gray-700">The Nootropic Lab Editorial Team</strong></span>
           <span>·</span>
-          <span>Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+          <span>Last updated: {updated.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</span>
         </div>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">

@@ -6,6 +6,8 @@ const CONTACT_EMAIL = 'editorial@thenootropiclab.com';
 import { PublicShell } from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import { SITE_URL } from '@/lib/region';
+import { sitemapDate } from '@nootropic/data';
+import sitemap from '@/app/sitemap';
 
 export const metadata: Metadata = {
   title: 'Imprint',
@@ -21,6 +23,7 @@ export default function Page() {
     <PublicShell searchItems={searchItems} uiStrings={uiStrings} hideDisclosure>
     <ImprintPage
       siteUrl={SITE_URL}
+      updated={sitemapDate(sitemap(), '/imprint/')}
       marketLabel="GCC edition (Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, Oman)"
       contactEmail={CONTACT_EMAIL}
       regionNote="Dietary supplements sold in Saudi Arabia are regulated by the Saudi Food and Drug Authority (SFDA); in the UAE by the Ministry of Health and Prevention (MOHAP). Which halal certifying authorities each GCC regulator accepts was not confirmed in our 2026-10-05 check. We surface Halal certification per product where verifiable and never fabricate certifications."

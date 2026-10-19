@@ -132,7 +132,7 @@ describe('source guard: no disclaimer renders as a bare string', () => {
       'packages/ui/src/templates/BestOf.tsx',
       'packages/ui/src/templates/HeadToHead.tsx',
       'packages/ui/src/templates/Listicle.tsx',
-      'packages/ui/src/templates/ProductDetail.tsx',
+      'packages/ui/src/templates/ProductDetailBody.tsx',
       'packages/ui/src/RegionalAvailability.tsx',
       'apps/jp/src/app/ffc-notified-cognitive-supplements/page.tsx',
     ]) {

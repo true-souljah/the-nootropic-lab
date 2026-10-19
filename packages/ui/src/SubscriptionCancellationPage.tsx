@@ -45,6 +45,8 @@ interface Props {
   faqItems: CancellationFAQ[];
   /** Optional FTC complaint URL or escalation path */
   ftcComplaintNote?: string;
+  /** The page's content date — its sitemap <lastmod>: `sitemapDate(sitemap(), '/<pageSlug>/')`. The "Last updated" line. */
+  updated: Date;
 }
 
 export default function SubscriptionCancellationPage({
@@ -60,6 +62,7 @@ export default function SubscriptionCancellationPage({
   watchouts,
   faqItems,
   ftcComplaintNote,
+  updated,
 }: Props) {
   const currentYear = new Date().getFullYear();
   const pageUrl = `${siteUrl}/${pageSlug}/`;
@@ -107,7 +110,7 @@ export default function SubscriptionCancellationPage({
           <span>·</span>
           <span>
             Last updated:{' '}
-            {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            {updated.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
           </span>
         </div>
 

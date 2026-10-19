@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { ComparisonTable, AffiliateDisclosure, StickyCtaBar, NoPurchaseLinkNotice, SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
-import { productsCA, buildPersonAuthorReference, purchaseUrl } from '@nootropic/data';
+import { productsCA, buildPersonAuthorReference, purchaseUrl, sitemapDate, isoDay } from '@nootropic/data';
+import sitemap from '@/app/sitemap';
 import { searchItems, uiStrings } from '@/lib/search-fr-ca';
 import { SITE_URL } from '@/lib/region';
 import { priceText, PriceShort } from '@nootropic/ui';
@@ -46,13 +47,14 @@ const faqItems = [
 export default function FrMeilleursNootropiquesPage() {
   const winner = productsCA.find(p => p.editorChoice)!;
   const winnerUrl = purchaseUrl(winner);
+  const updated = sitemapDate(sitemap(), '/fr/meilleurs-nootropiques/');
 
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: `Les meilleurs nootropiques au Canada ${CURRENT_YEAR}`,
     datePublished: '2026-01-15',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: isoDay(updated),
     author: buildPersonAuthorReference(undefined, SITE_URL),
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   };
@@ -88,10 +90,11 @@ export default function FrMeilleursNootropiquesPage() {
       <article className="max-w-5xl mx-auto px-4 py-10">
         <div className="mb-2 text-xs text-gray-500">
           Dernière mise à jour :{' '}
-          {new Date().toLocaleDateString('fr-CA', {
+          {updated.toLocaleDateString('fr-CA', {
             year: 'numeric',
             month: 'long',
             day: 'numeric',
+            timeZone: 'UTC',
           })}
         </div>
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">

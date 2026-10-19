@@ -25,7 +25,8 @@ export interface PublicShellProps {
   linkedProducts?: readonly Product[];
   /**
    * When true, suppress the disclosure strip altogether (privacy policy,
-   * imprint, cookie policy, 404).
+   * imprint, cookie policy, 404), or when the page renders its own strip
+   * (ProductDetail, scoped by reviewDisclosureScope).
    */
   hideDisclosure?: boolean;
   /**

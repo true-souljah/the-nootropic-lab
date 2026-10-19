@@ -73,6 +73,7 @@ describe('Listicle links each evidence card to the ingredient pages it lists', (
         faqItems: [],
         siteUrl: 'https://example.com',
         uiStrings,
+        updated: new Date('2026-10-01T00:00:00Z'),
       }),
     );
 

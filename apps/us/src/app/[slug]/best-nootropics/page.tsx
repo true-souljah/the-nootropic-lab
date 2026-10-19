@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { BestOf, SchemaOrg, Card, Chip, ScorePill, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
-import { productsUS, guaranteeDays } from '@nootropic/data';
+import { productsUS, guaranteeDays, sitemapDate } from '@nootropic/data';
+import sitemap from '@/app/sitemap';
 import { searchItems, uiStrings } from '@/lib/search';
 import { priceText } from '@nootropic/ui';
 
@@ -286,6 +287,7 @@ export default async function StateNootropicsPage({
         }}
         searchItems={searchItems}
         uiStrings={uiStrings}
+        updated={sitemapDate(sitemap(), `/${state.slug}/best-nootropics/`)}
         trackingSurface="best_of_state"
         preList={
           <div className="flex flex-col gap-5">

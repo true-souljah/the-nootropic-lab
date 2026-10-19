@@ -178,6 +178,10 @@ jobs:
       # Datetime gate over all 8 builds: every <time> names an ISO date in its
       # datetime attribute (or text) — FPByline once put "Oct 19, 2026" there.
       - run: npm run check:datetime
+      # Date-consistency gate over all 8 builds: each page's byline "Updated"
+      # <time> and JSON-LD dateModified name the day its sitemap <lastmod>
+      # names — the templates once stamped the build time on every rebuild.
+      - run: npm run check:dates-consistent
       - run: npm run test:e2e -- --shard=${{ matrix.shard }}/3
       - uses: actions/upload-artifact@v7
         if: failure()

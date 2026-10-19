@@ -6,14 +6,14 @@ import { FPDisclosure } from '../public-chrome/FPDisclosure';
 import { FPTrustNote } from '../public-chrome/FPTrustNote';
 import { FPHeader } from '../public-chrome/FPHeader';
 import { FPFooter } from '../public-chrome/FPFooter';
-import { FPByline, localISODate } from '../public-chrome/FPByline';
+import { FPByline } from '../public-chrome/FPByline';
 import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
 import { Bar } from '../primitives/Bar';
 import { FaqAccordion } from '../primitives/FaqAccordion';
 import { ProductThumb } from '../primitives/ProductThumb';
-import { buildPersonAuthorReference, servingAmount, servingsComparable, outOfTen, guaranteeDays, linksAmazonAssociates, pageDisclosureScope } from '@nootropic/data';
+import { buildPersonAuthorReference, servingAmount, servingsComparable, outOfTen, guaranteeDays, linksAmazonAssociates, pageDisclosureScope, isoDay } from '@nootropic/data';
 import type { Product, UIStrings } from '@nootropic/data';
 import {
   headToHeadPageEnDefaults,
@@ -61,6 +61,11 @@ export interface HeadToHeadProps {
   uiStrings: UIStrings;
   /** Estimated read time in minutes (FPByline). */
   readMinutes?: number;
+  /**
+   * The page's content date — its sitemap <lastmod>: `sitemapDate(sitemap(), '/a-vs-b/')`. Shown in the
+   * "Head-to-head" chip and the byline, and the JSON-LD dateModified; never the build date.
+   */
+  updated: Date;
   /**
    * Extra cards appended to the "Read individual reviews" grid — used to
    * cross-link a sibling comparison when a query keeps landing on the wrong
@@ -141,16 +146,18 @@ export default function HeadToHead({
   searchItems,
   uiStrings,
   readMinutes = 9,
+  updated,
 }: HeadToHeadProps) {
   const s: HeadToHeadPageStrings = { ...headToHeadPageEnDefaults, ...strings };
   const citationFooter = tplLink(s.citationFooter);
   const space = uiStrings.typography.space;
   const currentYear = new Date().getFullYear();
-  const today = new Date();
-  const updatedDisplay = today.toLocaleDateString(uiStrings?.productDetail.dateLocale ?? 'en-US', {
+  const updatedISO = isoDay(updated);
+  const updatedDisplay = updated.toLocaleDateString(uiStrings?.productDetail.dateLocale ?? 'en-US', {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
+    timeZone: 'UTC',
   });
 
   const winner = productA.score >= productB.score ? productA : productB;
@@ -165,8 +172,8 @@ export default function HeadToHead({
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: `${productA.name} vs ${productB.name} ${currentYear}: Head-to-Head Clinical Dosing Audit`,
-    datePublished: `${currentYear}-04-30`,
-    dateModified: today.toISOString().split('T')[0],
+    datePublished: '2026-04-30',
+    dateModified: updatedISO,
     author: buildPersonAuthorReference(undefined, siteUrl),
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: siteUrl },
     reviewedBy: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: siteUrl },
@@ -320,7 +327,7 @@ export default function HeadToHead({
           </p>
         </header>
 
-        <FPByline updated={localISODate(today)} updatedDisplay={updatedDisplay} minutes={readMinutes} strings={uiStrings.byline} space={space} />
+        <FPByline updated={updatedISO} updatedDisplay={updatedDisplay} minutes={readMinutes} strings={uiStrings.byline} space={space} />
 
         {healthDisclaimer && (
           <aside

@@ -32,6 +32,7 @@ function render(slug: string, withProducts: boolean): string {
       relatedIngredients={[]}
       siteUrl="https://thenootropiclab.com"
       uiStrings={uiStrings}
+      updated={new Date('2026-10-01T00:00:00Z')}
     />,
   );
 }

@@ -361,7 +361,7 @@ describe('source guard: no CTA reads the vendor URL around purchaseUrl()', () =>
       'packages/ui/src/TrackedAffiliateLink.tsx',
       'packages/ui/src/ComparisonTable.tsx',
       'packages/ui/src/StickyCtaBar.tsx',
-      'packages/ui/src/templates/ProductDetail.tsx',
+      'packages/ui/src/templates/ProductDetailBody.tsx',
       'apps/jp/src/app/best-nootropics/page.tsx',
     ]) {
       expect(SCANNED, must).toContain(must);

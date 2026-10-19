@@ -89,7 +89,7 @@ describe('PricingTab — no fixed promises', () => {
   });
 
   test('ProductDetail passes the locale bundle to PricingTab', () => {
-    const pd = readFileSync(join(UI_SRC, 'templates', 'ProductDetail.tsx'), 'utf8');
+    const pd = readFileSync(join(UI_SRC, 'templates', 'ProductDetailBody.tsx'), 'utf8');
     expect(pd).toMatch(/<PricingTab[^>]*strings=\{pd\}/);
   });
 });

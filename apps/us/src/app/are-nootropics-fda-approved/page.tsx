@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
-import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsUS, getRegionalHealthDisclaimer, sitemapDate, isoDay } from '@nootropic/data';
+import sitemap from '@/app/sitemap';
 
 const PAGE_URL = `${SITE_URL}/are-nootropics-fda-approved/`;
-const auditDateIso = new Date().toISOString().split('T')[0];
+const updated = sitemapDate(sitemap(), '/are-nootropics-fda-approved/');
 
 import { PublicShell } from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
@@ -34,7 +35,7 @@ const articleSchema = {
   headline: 'Are Nootropics FDA Approved? DSHEA Framework Explained',
   description: 'Explainer of how the FDA regulates nootropic supplements under the Dietary Supplement Health and Education Act of 1994 (DSHEA), with structure-function vs disease-claim taxonomy.',
   datePublished: '2026-05-05',
-  dateModified: auditDateIso,
+  dateModified: isoDay(updated),
   author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
   publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   reviewedBy: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
@@ -94,7 +95,7 @@ export default function Page() {
         <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 mb-4">
           <span>Reviewed by <strong className="text-gray-700">The Nootropic Lab Editorial Team</strong></span>
           <span>·</span>
-          <span>Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+          <span>Last updated: {updated.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</span>
         </div>
 
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">

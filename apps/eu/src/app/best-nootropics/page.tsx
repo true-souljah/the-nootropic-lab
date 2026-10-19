@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { BestOf, SchemaOrg, Card, Chip, FaqAccordion, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
-import { productsEU, buildPersonAuthorReference } from '@nootropic/data';
+import { productsEU, buildPersonAuthorReference, sitemapDate, isoDay } from '@nootropic/data';
+import sitemap from '@/app/sitemap';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
 import { priceText } from '@nootropic/ui';
@@ -46,13 +47,14 @@ const goalLinks = [
 
 export default function BestNootropicsEUPage() {
   const winner = productsEU.find((p) => p.editorChoice)!;
+  const updated = sitemapDate(sitemap(), '/best-nootropics/');
 
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: TITLE,
-    datePublished: `${CURRENT_YEAR}-01-15`,
-    dateModified: new Date().toISOString().split('T')[0],
+    datePublished: '2026-01-15',
+    dateModified: isoDay(updated),
     author: buildPersonAuthorReference(undefined, SITE_URL),
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab EU', url: SITE_URL },
   };
@@ -84,6 +86,7 @@ export default function BestNootropicsEUPage() {
         }}
         searchItems={searchItems}
         uiStrings={uiStrings}
+        updated={updated}
         trackingSurface="best_of_eu"
         preList={
           <div className="flex flex-col gap-5">

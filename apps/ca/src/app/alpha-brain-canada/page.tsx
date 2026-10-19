@@ -11,9 +11,10 @@ import {
   buildTwitter,
   PublicShell,
 } from '@nootropic/ui';
-import { productsCA, getRegionalHealthDisclaimer, earnsCommission } from '@nootropic/data';
+import { productsCA, getRegionalHealthDisclaimer, earnsCommission, sitemapDate, isoDay } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
+import sitemap from '@/app/sitemap';
 
 const PATH = '/alpha-brain-canada/';
 const PAGE_URL = `${SITE_URL}${PATH}`;
@@ -66,7 +67,8 @@ const articleSchema = {
   headline: 'Alpha Brain in Canada: how to buy it, what it costs, and NPN-licensed alternatives',
   description: DESCRIPTION,
   datePublished: VERIFIED_ON,
-  dateModified: LNHPD_CHECKED_ON,
+  // The page's sitemap <lastmod>, so the two never disagree.
+  dateModified: isoDay(sitemapDate(sitemap(), PATH)),
   author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
   publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   mainEntityOfPage: PAGE_URL,

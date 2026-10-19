@@ -14,6 +14,9 @@ const CLS_BUDGET = 0.1; // Core Web Vitals "Good"
 const SETTLE_MS = 3000;
 
 const PAGES = ['/best-nootropics/', '/mind-lab-pro-review/', '/nootropic-comparison/'];
+// Review pages moved to the shared editorial chrome (PublicShell, 2026-10-19):
+// no sidebar rail there, so the static-rail check runs on the AppShell pages only.
+const APPSHELL_PAGES = ['/best-nootropics/', '/nootropic-comparison/'];
 
 interface Shift {
   value: number;
@@ -68,7 +71,7 @@ async function measureCls(page: import('@playwright/test').Page, url: string): P
   });
 }
 
-test.describe('US — desktop CLS on AppShell pages (1440×900)', () => {
+test.describe('US — desktop CLS on AppShell and review pages (1440×900)', () => {
   for (const path of PAGES) {
     test(`${path} CLS ≤ ${CLS_BUDGET} at 1440 px`, async ({ page }) => {
       const { cls, shifts } = await measureCls(page, path);
@@ -76,10 +79,12 @@ test.describe('US — desktop CLS on AppShell pages (1440×900)', () => {
         cls,
         `CLS ${cls.toFixed(4)} exceeds ${CLS_BUDGET}. Shifts: ${JSON.stringify(shifts, null, 2)}`,
       ).toBeLessThanOrEqual(CLS_BUDGET);
-      // The fix must keep the desktop rail, not remove it.
+      // The fix must keep the desktop rail (on review pages: FPHeader's primary nav), not remove it.
       await expect(page.getByRole('navigation', { name: 'Primary', exact: true })).toBeVisible();
     });
+  }
 
+  for (const path of APPSHELL_PAGES) {
     test(`${path} static HTML already contains the desktop sidebar rail`, async ({ request }) => {
       const res = await request.get(path);
       expect(res.status()).toBe(200);

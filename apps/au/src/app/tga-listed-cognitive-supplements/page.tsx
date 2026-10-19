@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SchemaOrg, Sources, buildAlternates, buildOpenGraph, buildTwitter, PublicShell} from '@nootropic/ui';
-import { allProductsAU, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { allProductsAU, getRegionalHealthDisclaimer, sitemapDate, isoDay } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
+import sitemap from '@/app/sitemap';
 
 const PAGE_URL = `${SITE_URL}/tga-listed-cognitive-supplements/`;
-const auditDateIso = new Date().toISOString().split('T')[0];
+const updated = sitemapDate(sitemap(), '/tga-listed-cognitive-supplements/');
 
 
 export const metadata: Metadata = {
@@ -120,7 +121,7 @@ const articleSchema = {
   headline: 'TGA-Listed Cognitive Supplements — Australia',
   description: 'Explainer of the Therapeutic Goods Administration\'s ARTG listing framework (AUST L / AUST L(A) / AUST R) for cognitive supplements, with audit of the Australian nootropic catalog.',
   datePublished: '2026-05-05',
-  dateModified: auditDateIso,
+  dateModified: isoDay(updated),
   author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
   publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   reviewedBy: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },

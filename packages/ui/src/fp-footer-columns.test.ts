@@ -1,7 +1,7 @@
 import { describe, test, expect } from 'vitest';
-import { getStrings } from '@nootropic/data';
+import { ALL_REGIONS, getStrings } from '@nootropic/data';
 import type { Locale } from '@nootropic/data';
-import { columnsFromStrings } from './public-chrome/FPFooter';
+import { columnsFromStrings, filterColumnsForRegion } from './public-chrome/FPFooter';
 
 // Tests for columnsFromStrings + the reshaped UIStrings.footer added in
 // PR-Q9 (2026-06-02). Before this fix, FPFooter rendered a hardcoded
@@ -18,24 +18,25 @@ import { columnsFromStrings } from './public-chrome/FPFooter';
 const ALL_LOCALES: Locale[] = ['en', 'es', 'fr', 'ja', 'pt', 'de', 'fr-CA'];
 
 describe('columnsFromStrings — output shape', () => {
-  test('returns 4 columns in the canonical order', () => {
+  test('returns 5 columns in the canonical order', () => {
     const cols = columnsFromStrings(getStrings('en'));
-    expect(cols).toHaveLength(4);
+    expect(cols).toHaveLength(5);
     expect(cols.map((c) => c.id)).toEqual([
       'footer-col-best-by-goal',
       'footer-col-head-to-head',
       'footer-col-by-region',
+      'footer-col-tools',
       'footer-col-about',
     ]);
   });
 
-  test('every column has a non-empty heading + stable id + ≥4 links', () => {
+  test('every column has a non-empty heading + stable id + ≥4 links (Tools: its 2)', () => {
     for (const locale of ALL_LOCALES) {
       const cols = columnsFromStrings(getStrings(locale));
       for (const col of cols) {
         expect(col.heading, `${locale} ${col.id} heading`).toBeTruthy();
         expect(col.id, `${locale} id`).toMatch(/^footer-col-/);
-        expect(col.links.length, `${locale} ${col.id} link count`).toBeGreaterThanOrEqual(4);
+        expect(col.links.length, `${locale} ${col.id} link count`).toBeGreaterThanOrEqual(col.id === 'footer-col-tools' ? 2 : 4);
         for (const link of col.links) {
           expect(link.label, `${locale} ${col.id} link label`).toBeTruthy();
           expect(link.href, `${locale} ${col.id} link href`).toBeTruthy();
@@ -85,7 +86,7 @@ describe('columnsFromStrings — output shape', () => {
 describe('columnsFromStrings — localization correctness', () => {
   test('en bundle yields English column headings', () => {
     const headings = columnsFromStrings(getStrings('en')).map((c) => c.heading);
-    expect(headings).toEqual(['Best by goal', 'Head-to-head', 'By region', 'About']);
+    expect(headings).toEqual(['Best by goal', 'Head-to-head', 'By region', 'Tools', 'About']);
   });
 
   test('es bundle yields Spanish column headings (LATAM)', () => {
@@ -94,6 +95,7 @@ describe('columnsFromStrings — localization correctness', () => {
       'Mejores por objetivo',
       'Frente a frente',
       'Por región',
+      'Herramientas',
       'Acerca de',
     ]);
   });
@@ -104,17 +106,18 @@ describe('columnsFromStrings — localization correctness', () => {
       'Meilleurs par objectif',
       'Face-à-face',
       'Par région',
+      'Outils',
       'À propos',
     ]);
   });
 
   test('ja bundle yields Japanese column headings', () => {
     const headings = columnsFromStrings(getStrings('ja')).map((c) => c.heading);
-    expect(headings).toEqual(['目的別ベスト', '直接比較', '地域別', '運営者情報']);
+    expect(headings).toEqual(['目的別ベスト', '直接比較', '地域別', 'ツール', '運営者情報']);
   });
 
   test('non-English bundles never leak an English column heading (WCAG 3.1.2 regression guard)', () => {
-    const englishHeadings = new Set(['Best by goal', 'Head-to-head', 'By region', 'About']);
+    const englishHeadings = new Set(['Best by goal', 'Head-to-head', 'By region', 'Tools', 'About']);
     for (const locale of ALL_LOCALES) {
       if (locale === 'en') continue;
       const headings = columnsFromStrings(getStrings(locale)).map((c) => c.heading);
@@ -197,5 +200,44 @@ describe('columnsFromStrings — by-region column covers all 8 hosts', () => {
       }
       for (const link of col!.links) expect(link.label, `${locale} ${link.href} label`).toBeTruthy();
     }
+  });
+});
+
+describe('Tools column — US host only (2026-10-19)', () => {
+  // The review page's sidebar rail linked the dose calculator and the
+  // shortlist; with the shared chrome the footer carries them, on the one
+  // host that has those routes. A column left empty is dropped.
+  const en = getStrings('en');
+
+  test('scans all 8 regions (non-empty input)', () => {
+    expect(ALL_REGIONS).toHaveLength(8);
+  });
+
+  test('us: Tools before About, with the dose calculator and the shortlist', () => {
+    const cols = filterColumnsForRegion(columnsFromStrings(en), 'us');
+    expect(cols.map((c) => c.id)).toEqual([
+      'footer-col-best-by-goal',
+      'footer-col-head-to-head',
+      'footer-col-by-region',
+      'footer-col-tools',
+      'footer-col-about',
+    ]);
+    const tools = cols.find((c) => c.id === 'footer-col-tools')!;
+    expect(tools.heading).toBe(en.nav.sidebar.tools);
+    expect(tools.links).toEqual([
+      { label: en.nav.sidebar.doseCalculator, href: '/dose-calculator/' },
+      { label: en.nav.sidebar.myShortlist, href: '/shortlist/' },
+    ]);
+  });
+
+  test.each(ALL_REGIONS.filter((r) => r !== 'us'))('%s: no Tools column, the other 4 columns stay', (region) => {
+    const cols = filterColumnsForRegion(columnsFromStrings(en), region);
+    expect(cols.map((c) => c.id)).toEqual([
+      'footer-col-best-by-goal',
+      'footer-col-head-to-head',
+      'footer-col-by-region',
+      'footer-col-about',
+    ]);
+    for (const col of cols) expect(col.links.length, `${region} ${col.id}`).toBeGreaterThan(0);
   });
 });

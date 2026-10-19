@@ -94,7 +94,7 @@ const TIER_COMPONENTS = [
   'templates/BestOf.tsx',
   'templates/Comparator.tsx',
   'templates/HeadToHead.tsx',
-  'templates/ProductDetail.tsx',
+  'templates/ProductDetailBody.tsx',
   'templates/product-detail/OverviewTab.tsx',
 ];
 

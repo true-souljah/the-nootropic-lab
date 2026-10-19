@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { BestOf, SchemaOrg, Card, Chip, FaqAccordion, buildAlternates, buildOpenGraph, buildTwitter} from '@nootropic/ui';
-import { productsUS, buildPersonAuthorReference } from '@nootropic/data';
+import { productsUS, buildPersonAuthorReference, sitemapDate, isoDay } from '@nootropic/data';
+import sitemap from '@/app/sitemap';
 import { searchItems, uiStrings } from '@/lib/search';
 import { SITE_URL } from '@/lib/region';
 import { priceText } from '@nootropic/ui';
@@ -55,13 +56,14 @@ const recommendedReading = [
 
 export default function BestNootropicsUSPage() {
   const winner = productsUS.find((p) => p.editorChoice)!;
+  const updated = sitemapDate(sitemap(), '/best-nootropics/');
 
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: `Best Nootropics ${CURRENT_YEAR}: Evidence-Graded & Ranked`,
     datePublished: '2026-01-15',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: isoDay(updated),
     author: buildPersonAuthorReference(undefined, SITE_URL),
     publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
   };
@@ -93,6 +95,7 @@ export default function BestNootropicsUSPage() {
         }}
         searchItems={searchItems}
         uiStrings={uiStrings}
+        updated={updated}
         trackingSurface="best_of_us"
         preList={
           <Card variant="subdued" padding={20} className="border-l-[3px] border-l-ds-accent">
