@@ -32,7 +32,8 @@ export default function StickyCtaBar({
 
   useEffect(() => {
     // The bar waits until the consent banner is out of the way, i.e. the
-    // visitor has made a Klaro choice (stored in Klaro's `klaro` cookie).
+    // visitor has a Klaro choice that stands (see consent-record.ts; this can
+    // run before CookieBanner migrates a pre-split record).
     // It previously polled a `cookie-consent` localStorage key nothing ever
     // wrote, so the bar never appeared.
     if (hasConsentChoice(document.cookie)) setCookieDismissed(true);

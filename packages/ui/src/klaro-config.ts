@@ -13,8 +13,10 @@
 // Impact.com the separate "affiliate" purpose (Affiliate attribution). The
 // first layer keeps one-click Accept all / Decline all; "Configure" opens the
 // modal with one toggle per purpose, off until the visitor switches it on.
-// Klaro stores consent per service (`{"google-analytics":…,"impact-com":…}`),
-// so choices stored before the split keep their meaning unchanged.
+// Klaro stores consent per service (`{"google-analytics":…,"impact-com":…}`).
+// Choices stored before the split covered both purposes with one click, so
+// they are not honoured as per-purpose choices: see consent-record.ts
+// (operator decision 8, 2026-10-08).
 //
 // Every string the notice and the modal render is set here for every locale
 // (see consent-basic-mode.test.ts) rather than left to Klaro's bundled
@@ -48,7 +50,12 @@ export interface KlaroConfig {
   version: number;
   elementID: string;
   storageMethod: 'cookie' | 'localStorage';
-  cookieName: string;
+  /**
+   * Name of the cookie Klaro stores the per-purpose choice in. Not `klaro`:
+   * records under that name predate the purpose split and are migrated by
+   * consent-record.ts before Klaro reads its storage (operator decision 8).
+   */
+  storageName: string;
   cookieExpiresAfterDays: number;
   default: boolean;
   mustConsent: boolean;
@@ -76,7 +83,9 @@ export const klaroConfig: KlaroConfig = {
   version: 1,
   elementID: 'klaro',
   storageMethod: 'cookie',
-  cookieName: 'klaro',
+  // Klaro's own fresh-start mechanism (it keeps no config version in the
+  // record): a new storage name marks records saved with separate purposes.
+  storageName: 'klaro-consent',
   cookieExpiresAfterDays: 365,
   default: false,
   mustConsent: false,

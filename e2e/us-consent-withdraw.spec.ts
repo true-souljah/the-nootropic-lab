@@ -14,6 +14,10 @@ import { test, expect } from '@playwright/test';
 // packages/ui/src/consent-basic-mode.test.ts. Trackers are aborted so no hit
 // leaves the test.
 
+// Klaro's per-purpose record (klaroConfig.storageName). Operator decision 8
+// moved it off the pre-split `klaro` cookie; see us-consent-legacy-choice.spec.ts.
+const CONSENT_COOKIE = 'klaro-consent';
+
 test.beforeEach(async ({ context }) => {
   await context.route(/googletagmanager\.com|google-analytics\.com|impactcdn\.com|impact\.com/, (r) => r.abort());
 });
@@ -37,7 +41,7 @@ for (const choice of ['Decline all', 'Accept all'] as const) {
     // Withdraw / change in one click, stored in the same 365-day cookie.
     await page.locator('#klaro .cookie-notice').getByRole('button', { name: 'Decline all' }).click();
     await expect(page.locator('#klaro .cookie-notice:not(.cookie-notice-hidden)')).toHaveCount(0);
-    const klaro = (await page.context().cookies()).find((c) => c.name === 'klaro');
+    const klaro = (await page.context().cookies()).find((c) => c.name === CONSENT_COOKIE);
     expect(klaro && decodeURIComponent(klaro.value)).toContain('"google-analytics":false');
   });
 }
@@ -61,7 +65,7 @@ async function trackerLog(page: import('@playwright/test').Page) {
 }
 
 async function klaroConsents(page: import('@playwright/test').Page) {
-  const c = (await page.context().cookies()).find((k) => k.name === 'klaro');
+  const c = (await page.context().cookies()).find((k) => k.name === CONSENT_COOKIE);
   return c ? (JSON.parse(decodeURIComponent(c.value)) as Record<string, boolean>) : null;
 }
 
