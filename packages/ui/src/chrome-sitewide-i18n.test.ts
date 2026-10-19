@@ -43,7 +43,9 @@ function newLeaves(locale: Locale): Map<string, string> {
   const t = s.table;
   const i = s.ingredientDetail;
   const g = s.guide;
-  const { useCaseLabels: _useCaseLabels, ...listicle } = s.listicle;
+  // The evidence-card ingredient-page link (`ingredientPageLink`, en and es
+  // only, 2026-10-19) is checked in listicle-ingredient-links.test.ts.
+  const { useCaseLabels: _useCaseLabels, ingredientPageLink: _ingredientPageLink, ...listicle } = s.listicle;
   // The eight headings are this change's chrome; the policy text (`body`,
   // en and es only, 2026-10-19) is checked in products-latam-es.test.ts.
   const { body: _editorialBody, ...editorialHeadings } = s.editorialStandards;

@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
-import { productsEU, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsEU, getRegionalHealthDisclaimer, ingredients } from '@nootropic/data';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -27,7 +27,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Phosphatidylserine (PS)',
     ingredientSlugs: ['phosphatidylserine'],
     evidence:
-      'Phospholipid component of brain cell membranes. RCTs in older adults at 100–300mg a day report memory benefits, though often only in subgroups (see our phosphatidylserine page). Important: in the US, the FDA allows only qualified claims that phosphatidylserine \'may reduce the risk of dementia\' or \'cognitive dysfunction in the elderly\', with the disclaimer \'FDA concludes that there is little scientific evidence supporting this claim\'. EFSA\'s 2010 opinion on five phosphatidylserine claims found the substance \'not sufficiently characterised in relation to the claimed effects\' and concluded that \'a cause and effect relationship cannot be established\'; the FDA\'s 2003 review, by contrast, looked at trials in people already diagnosed with dementia or cognitive dysfunction. The trial linked below (Vakhapova et al. 2010) is separate from these regulatory decisions: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo.',
+      'Phospholipid component of brain cell membranes. RCTs in older adults at 100–300mg a day report memory benefits, though often only in subgroups. Important: in the US, the FDA allows only qualified claims that phosphatidylserine \'may reduce the risk of dementia\' or \'cognitive dysfunction in the elderly\', with the disclaimer \'FDA concludes that there is little scientific evidence supporting this claim\'. EFSA\'s 2010 opinion on five phosphatidylserine claims found the substance \'not sufficiently characterised in relation to the claimed effects\' and concluded that \'a cause and effect relationship cannot be established\'; the FDA\'s 2003 review, by contrast, looked at trials in people already diagnosed with dementia or cognitive dysfunction. The trial linked below (Vakhapova et al. 2010) is separate from these regulatory decisions: in an exploratory 15-week RCT of 157 non-demented older adults with memory complaints, PS-DHA improved immediate verbal recall versus placebo.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {
@@ -113,6 +113,7 @@ export default function Page() {
       pageDescription="Independent EU ranking of nootropics for adults concerned about age-related cognitive changes."
       heroParagraph="Age-related cognitive change is normal — memory recall slows, processing speed reduces. Some of the supplements on this page have trial evidence in older adults, often only in subgroups: PS-DHA in older adults with memory complaints, citicoline in those with relatively inefficient memories, and Lion's Mane in mild cognitive impairment. They are NOT treatments for dementia, Alzheimer's, or any clinical cognitive disease — and EU brands cannot legally claim otherwise under Regulation (EC) No 1924/2006 (with claims assessed by the European Food Safety Authority, EFSA). For clinical concerns, see your GP for referral to a neurologist."
       ingredientMechanism={ingredientMechanism}
+      ingredientPages={ingredients}
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}

@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Listicle, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
 import type { ListicleFAQ, ListicleIngredientMechanism, ListiclePick } from "@nootropic/ui";
-import { productsLatam, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsLatam, getRegionalHealthDisclaimer, localizedIngredients } from '@nootropic/data';
 import { SITE_URL } from '@/lib/region';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -28,7 +28,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Fosfatidilserina (PS) — declaración calificada de la FDA',
     ingredientSlugs: ['phosphatidylserine'],
     evidence:
-      'La FDA solo permite para la fosfatidilserina declaraciones calificadas de que "may reduce the risk of dementia" o "cognitive dysfunction in the elderly", cada una seguida de "FDA concludes that there is little scientific evidence supporting this claim" (carta de la FDA, 13 de mayo de 2003): es decir, que puede reducir el riesgo de demencia o de disfunción cognitiva en personas mayores, y que la FDA concluye que hay poca evidencia científica que respalde esa declaración. Los ensayos clínicos en adultos mayores a 100–300mg al día reportan beneficios en la memoria, aunque a menudo solo en subgrupos (ver nuestra página sobre la fosfatidilserina). El ensayo enlazado abajo (Vakhapova et al. 2010) no es la base de la declaración de la FDA: en un ensayo clínico exploratorio de 15 semanas con 157 adultos mayores sin demencia y con quejas de memoria, la PS-DHA mejoró el recuerdo verbal inmediato frente a placebo.',
+      'La FDA solo permite para la fosfatidilserina declaraciones calificadas de que "may reduce the risk of dementia" o "cognitive dysfunction in the elderly", cada una seguida de "FDA concludes that there is little scientific evidence supporting this claim" (carta de la FDA, 13 de mayo de 2003): es decir, que puede reducir el riesgo de demencia o de disfunción cognitiva en personas mayores, y que la FDA concluye que hay poca evidencia científica que respalde esa declaración. Los ensayos clínicos en adultos mayores a 100–300mg al día reportan beneficios en la memoria, aunque a menudo solo en subgrupos. El ensayo enlazado abajo (Vakhapova et al. 2010) no es la base de la declaración de la FDA: en un ensayo clínico exploratorio de 15 semanas con 157 adultos mayores sin demencia y con quejas de memoria, la PS-DHA mejoró el recuerdo verbal inmediato frente a placebo.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/',
   },
   {
@@ -118,6 +118,7 @@ export default function Page() {
       pageDescription="Ranking independiente de nootrópicos para adultos en Latinoamérica preocupados por cambios cognitivos asociados a la edad."
       heroParagraph="El cambio cognitivo asociado a la edad es normal — el recuerdo de la memoria se vuelve más lento, la velocidad de procesamiento disminuye. Algunos de los suplementos de esta página tienen evidencia de ensayos en adultos mayores, a menudo solo en subgrupos: la PS-DHA en adultos mayores con quejas de memoria, la citicolina en quienes tienen una memoria relativamente ineficiente y la Melena de León en el deterioro cognitivo leve. NO son tratamientos para demencia, Alzheimer ni ninguna enfermedad cognitiva clínica. Para esos casos, consulta a un neurólogo. Incluimos opciones internacionales de fórmula abierta."
       ingredientMechanism={ingredientMechanism}
+      ingredientPages={localizedIngredients('es')}
       picks={picks}
       faqItems={faqItems}
       siteUrl={SITE_URL}

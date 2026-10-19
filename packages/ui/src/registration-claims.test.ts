@@ -2723,3 +2723,61 @@ describe('round twenty: retro-panel findings on rounds 16-19 follow our ingredie
     expect(ps.sources.map(s => s.pmid)).toContain('20523044');
   });
 });
+
+// Round twenty-one (2026-10-19, round twenty's follow-up item 1): evidence
+// cards pointed readers at ingredient pages they did not link. The
+// phosphatidylserine cards on the aging and memory listicles of all eight
+// editions said "(see our phosphatidylserine page)" (LATAM "(ver nuestra
+// página sobre la fosfatidilserina)"), and the JP DHA cards "(see our DHA
+// ingredient page)", but the card template never rendered `ingredientSlugs`.
+// Each card now links the pages in its ingredientSlugs ("Our
+// Phosphatidylserine page", "Nuestra página sobre Fosfatidilserina"; checked
+// on every listicle in listicle-ingredient-links.test.ts) and the
+// parenthetical is dropped. A plain-text "(see our … page)" / "(ver nuestra
+// página …)" pointer is now forbidden in any data, app or template source:
+// link the page instead. Every pattern had at least one hit on origin/main
+// (6a11d2d5) and has none on this branch. The scan is the round-sixteen file
+// set.
+const ROUND_TWENTY_ONE_UNLINKED: RegExp[] = [
+  /\(see our [^()]{1,60}? page\)/i,
+  /\(ver nuestra página (?:sobre|de) [^()]{1,60}\)/i,
+];
+
+describe('round twenty-one: evidence cards link the ingredient pages they point to', () => {
+  test('the patterns catch the removed wording, and every pattern catches some of it', () => {
+    const removed = [
+      'RCTs in older adults at 100–300mg a day report memory benefits, though often only in subgroups (see our phosphatidylserine page).',
+      'The positive memory trials we reviewed used 900mg–1.2g DHA/day for 24 weeks or longer; the trial in adults aged 55 and over used 900mg/day (see our DHA ingredient page).',
+      'The positive memory trials we reviewed used 900mg–1.2g DHA/day for 24 weeks or longer (see our DHA ingredient page).',
+      'Los ensayos clínicos en adultos mayores a 100–300mg al día reportan beneficios en la memoria, aunque a menudo solo en subgrupos (ver nuestra página sobre la fosfatidilserina).',
+    ];
+    for (const s of removed) expect(ROUND_TWENTY_ONE_UNLINKED.some(re => re.test(s)), s).toBe(true);
+    for (const re of ROUND_TWENTY_ONE_UNLINKED) expect(removed.some(s => re.test(s)), String(re)).toBe(true);
+    // The replacement wording, the link labels, and the page references the
+    // cards now link (the citicoline cards) pass.
+    for (const s of [
+      'RCTs in older adults at 100–300mg a day report memory benefits, though often only in subgroups.',
+      'The positive memory trials we reviewed used 900mg–1.2g DHA/day for 24 weeks or longer; the trial in adults aged 55 and over used 900mg/day.',
+      'The positive memory trials we reviewed used 900mg–1.2g DHA/day for 24 weeks or longer.',
+      'Los ensayos clínicos en adultos mayores a 100–300mg al día reportan beneficios en la memoria, aunque a menudo solo en subgrupos.',
+      'Our Phosphatidylserine page',
+      'Our DHA (Omega-3) page',
+      'Nuestra página sobre Fosfatidilserina',
+      'Our citicoline page rates its attention evidence as mixed: the Cochrane review found no evidence of an attention benefit in older adults with chronic cerebral disorders.',
+      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline (our citicoline page rates its attention evidence as mixed).',
+      'Nuestra página sobre la citicolina califica como mixta su evidencia sobre la atención.',
+      '250mg de citicolina Cognizin (nuestra página sobre la citicolina califica como mixta su evidencia sobre la atención).',
+      'Of the two, only Ginkgo has dementia-trial evidence (see the Ginkgo entry above).',
+    ]) expect(ROUND_TWENTY_ONE_UNLINKED.some(re => re.test(s)), s).toBe(false);
+  });
+
+  test('no data, app or template source uses the removed wording (whitespace-normalised)', () => {
+    expect(ROUND_SIXTEEN_SOURCES.length).toBeGreaterThan(300);
+    const hits = ROUND_SIXTEEN_SOURCES.flatMap(file =>
+      normalisedMatchLines(readFileSync(file, 'utf8'), ROUND_TWENTY_ONE_UNLINKED).map(
+        line => `${relative(REPO_ROOT, file)}:${line}`,
+      ),
+    );
+    expect(hits).toEqual([]);
+  });
+});
