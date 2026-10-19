@@ -174,6 +174,8 @@ describe('product data — form', () => {
     ['us', 'performance-lab-omega-3-review', 'softgel', 3],
     ['us', 'neutonic-productivity-drink-review', 'can', 1],
     ['eu', 'neutonic-productivity-drink-review', 'can', 1],
+    ['ca', 'neutonic-productivity-drink-review', 'can', 1],
+    ['au', 'neutonic-smarter-energy-drink-review', 'can', 1],
   ] as const)('%s/%s is a %s product (%i per serving)', (region, slug, form, count) => {
     const record = CATALOGUES[region].find((p) => p.slug === slug);
     expect(record, `${region}/${slug} missing`).toBeDefined();

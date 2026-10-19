@@ -40,6 +40,8 @@ const REVIEW_ROUTES = [
   '/pre-lab-pro-review/',
   '/performance-lab-energy-review/',
   '/performance-lab-omega-3-review/',
+  '/neutonic-productivity-drink-review/',
+  '/neutonic-brain-capsules-review/',
 ];
 
 test.beforeEach(async ({ context }) => {

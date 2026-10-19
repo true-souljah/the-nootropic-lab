@@ -49,10 +49,20 @@
     "imageUrl": "https://www.neutonic.com/cdn/shop/files/BrainCapsulesUS.png?v=1786453193",
     "fetchedAt": "2026-10-15"
   },
+  "neutonic-brain-capsules-uk": {
+    "sourcePageUrl": "https://www.neutonic.com/en-au/products/neutonic-capsules-uk",
+    "imageUrl": "https://www.neutonic.com/cdn/shop/files/BrainCapsulesUAE.png?v=1786454324",
+    "fetchedAt": "2026-10-19"
+  },
   "neutonic-productivity-drink": {
     "sourcePageUrl": "https://www.neutonic.com/en-us/products/tropical-ice-12pk-us",
     "imageUrl": "https://www.neutonic.com/cdn/shop/files/ProductivityDrinkUS-TI.png?v=1786453548",
     "fetchedAt": "2026-10-15"
+  },
+  "neutonic-smarter-energy-drink": {
+    "sourcePageUrl": "https://www.neutonic.com/en-au/products/productivity-drink-aus-trop",
+    "imageUrl": "https://www.neutonic.com/cdn/shop/files/ProductivityDrinkAU-TI.png?v=1786454267",
+    "fetchedAt": "2026-10-19"
   },
   "noocube": {
     "sourcePageUrl": "https://www.noocube.com/products/bottle",
