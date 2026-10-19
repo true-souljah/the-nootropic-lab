@@ -72,7 +72,7 @@ const whoIsForB = [
 ];
 
 const verdictParagraph =
-  'Both are open-formula products — neither hides doses behind proprietary blends. The differentiator is brand trust signals: Mind Lab Pro has two University of Leeds studies behind it (the 60-day one found no improvement in choice accuracy or reaction time) and Clean Label / Consumer Lab third-party testing; NooCube carries a 60-day refund window and lower per-bottle pricing on bundles. For evidence-graded buyers, Mind Lab Pro wins. For price-conscious open-formula buyers, NooCube is a fair second.';
+  'Both are open-formula products — neither hides doses behind proprietary blends. The differentiator is brand trust signals: Mind Lab Pro has two University of Leeds studies behind it (the 60-day one found no improvement in choice accuracy or reaction time) and Clean Label / Consumer Lab third-party testing; NooCube carries a 60-day refund window and lower per-bottle pricing on bundles. Mind Lab Pro is the one of the two whose formula has been tested, though weakly (one pseudo-randomised 30-day study; the 60-day study found no improvement in choice accuracy or reaction time). For price-conscious open-formula buyers, NooCube is a fair second.';
 
 export default function Page() {
   if (!productA || !productB) notFound();

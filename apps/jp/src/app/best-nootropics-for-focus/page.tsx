@@ -63,7 +63,7 @@ const picks: ListiclePick[] = [
     product: productsJP.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline at clinically-validated doses. Caffeine-free design pairs naturally with your morning coffee or matcha if you want caffeine alongside its L-theanine. Ships from the UK to Japan in 5–20 working days by tracked airmail or 2–7 working days by DHL courier (per mindlabpro.com, checked 2026-09-29), priced in US dollars.',
+      'Open formula with 100mg L-theanine + 250mg Cognizin citicoline (our citicoline page rates its attention evidence as mixed). Caffeine-free design pairs naturally with your morning coffee or matcha if you want caffeine alongside its L-theanine. Ships from the UK to Japan in 5–20 working days by tracked airmail or 2–7 working days by DHL courier (per mindlabpro.com, checked 2026-09-29), priced in US dollars.',
   },
   {
     product: productsJP.find(p => p.slug === 'hunter-focus-review')!,
@@ -94,7 +94,7 @@ const faqItems: ListicleFAQ[] = [
   },
   {
     q: 'How long does it take a focus nootropic to work?',
-    a: 'Acute-effect ingredients (L-theanine, caffeine, Alpha-GPC, L-tyrosine) work within 30–60 minutes. Bacopa: 8–12 weeks; most positive trials ran 12 weeks. Lion\'s Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. If you want a same-day effect, look for L-theanine + caffeine; for compounded benefit, plan for 8 weeks of consistent use.',
+    a: 'Acute-effect ingredients (L-theanine, caffeine, Alpha-GPC, L-tyrosine) work within 30–60 minutes. Bacopa: 8–12 weeks; most positive trials ran 12 weeks. Lion\'s Mane: in adults with mild cognitive impairment the benefit built over 8–16 weeks. If you want a same-day effect, look for L-theanine + caffeine; for compounded benefit, plan for at least 12 weeks of consistent use before judging.',
   },
   {
     q: 'Are focus nootropics safe to take daily?',

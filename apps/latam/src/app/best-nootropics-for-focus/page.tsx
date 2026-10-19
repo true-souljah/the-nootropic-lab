@@ -64,7 +64,7 @@ const picks: ListiclePick[] = [
     product: productsLatam.find(p => p.slug === 'mind-lab-pro-review')!,
     rank: 1,
     whyItsHere:
-      'Fórmula abierta con 100mg de L-teanina + 250mg de citicolina Cognizin a dosis clínicamente validadas. El diseño sin cafeína permite combinarlo con tu café o mate local si quieres cafeína junto a su L-teanina. Confirma en el checkout si la marca envía a tu país. Los aranceles de importación y el despacho aduanero corren por cuenta del comprador; los argentinos deben verificar que su tarjeta procese cargos en USD pese al control cambiario.',
+      'Fórmula abierta con 100mg de L-teanina + 250mg de citicolina Cognizin (nuestra página sobre la citicolina califica como mixta su evidencia sobre la atención). El diseño sin cafeína permite combinarlo con tu café o mate local si quieres cafeína junto a su L-teanina. Confirma en el checkout si la marca envía a tu país. Los aranceles de importación y el despacho aduanero corren por cuenta del comprador; los argentinos deben verificar que su tarjeta procese cargos en USD pese al control cambiario.',
   },
   {
     product: productsLatam.find(p => p.slug === 'qualia-mind-review')!,
@@ -83,11 +83,11 @@ const picks: ListiclePick[] = [
 const faqItems: ListicleFAQ[] = [
   {
     q: '¿Qué ingredientes nootrópicos tienen evidencia de ensayos para la concentración?',
-    a: 'L-teanina con cafeína: en ensayos en adultos sanos la combinación mejoró la precisión al alternar la atención entre tareas (Owen 2008, 100mg de L-teanina con 50mg de cafeína; Giesbrecht 2010, PubMed 21040626, 97mg con 40mg), aunque Foxe 2012 (PubMed 22326943) no encontró ningún beneficio adicional frente a cada compuesto por separado. Nuestra página sobre la citicolina califica como mixta su evidencia sobre la atención: el ensayo agudo sobre atención en adultos sanos que citamos la administró junto con cafeína. Los suplementos de un solo ingrediente que prometen "concentración potente" sin estos componentes suelen estar sobrevalorados por marketing.',
+    a: 'L-teanina con cafeína: en ensayos en adultos sanos la combinación mejoró la precisión al alternar la atención entre tareas (Owen 2008, 100mg de L-teanina con 50mg de cafeína; Giesbrecht 2010, PubMed 21040626, 97mg con 40mg), aunque Foxe 2012 (PubMed 22326943) no encontró ningún beneficio adicional frente a cada compuesto por separado. Nuestra página sobre la citicolina califica como mixta su evidencia sobre la atención: el ensayo agudo sobre atención en adultos sanos que citamos la administró junto con cafeína.',
   },
   {
     q: '¿Cuánto tarda en hacer efecto un nootrópico de concentración?',
-    a: 'Los ingredientes de efecto agudo (L-teanina, cafeína, Alfa-GPC, L-tirosina) actúan en 30–60 minutos. Bacopa: 8–12 semanas; la mayoría de los ensayos positivos duraron 12 semanas. Melena de León: en adultos con deterioro cognitivo leve, el beneficio se fue acumulando a lo largo de 8–16 semanas. Para un efecto inmediato busca L-teanina + cafeína; para beneficio acumulativo, planifica 8 semanas de uso constante.',
+    a: 'Los ingredientes de efecto agudo (L-teanina, cafeína, Alfa-GPC, L-tirosina) actúan en 30–60 minutos. Bacopa: 8–12 semanas; la mayoría de los ensayos positivos duraron 12 semanas. Melena de León: en adultos con deterioro cognitivo leve, el beneficio se fue acumulando a lo largo de 8–16 semanas. Para un efecto inmediato busca L-teanina + cafeína; para beneficio acumulativo, planifica al menos 12 semanas de uso constante antes de juzgar.',
   },
   {
     q: '¿Son seguros los nootrópicos de concentración para uso diario?',
