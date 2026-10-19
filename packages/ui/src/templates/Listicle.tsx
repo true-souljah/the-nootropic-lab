@@ -7,7 +7,7 @@ import { FPDisclosure } from '../public-chrome/FPDisclosure';
 import { FPTrustNote } from '../public-chrome/FPTrustNote';
 import { FPHeader } from '../public-chrome/FPHeader';
 import { FPFooter } from '../public-chrome/FPFooter';
-import { FPByline } from '../public-chrome/FPByline';
+import { FPByline, localISODate } from '../public-chrome/FPByline';
 import { Card } from '../primitives/Card';
 import { Chip } from '../primitives/Chip';
 import { ScorePill } from '../primitives/ScorePill';
@@ -253,7 +253,7 @@ export default function Listicle({
               {heroParagraph}
             </p>
 
-            <FPByline updated={updatedDisplay} minutes={readMinutes} strings={uiStrings.byline} space={space} />
+            <FPByline updated={localISODate(TODAY)} updatedDisplay={updatedDisplay} minutes={readMinutes} strings={uiStrings.byline} space={space} />
 
             <aside
               role="note"

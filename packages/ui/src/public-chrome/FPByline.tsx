@@ -2,8 +2,10 @@ import type { UIStrings } from '@nootropic/data';
 import { tpl } from '../templateStrings';
 
 export interface FPBylineProps {
-  /** ISO date string or human-formatted date (rendered as-is). */
+  /** The day the page was last updated, ISO YYYY-MM-DD: the `<time dateTime>` value (localISODate). */
   updated: string;
+  /** The same day as the page locale writes it ("Oct 19, 2026", "19 oct 2026"): the visible text. */
+  updatedDisplay: string;
   /** Estimated read time in minutes. */
   minutes: number;
   /** Page-locale byline strings (team credit, "Updated", read time, fact-check badge). */
@@ -13,17 +15,27 @@ export interface FPBylineProps {
 }
 
 /**
+ * The calendar day `date` falls on in the build's time zone, as YYYY-MM-DD:
+ * the day `toLocaleDateString` prints when given no `timeZone`, so a
+ * `<time dateTime>` built from it names the date its text shows.
+ */
+export function localISODate(date: Date): string {
+  const pad = (n: number) => String(n).padStart(2, '0');
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
+}
+
+/**
  * FPByline — meta row sitting under H1 + dek on every editorial page.
  * Per Phase 5: team credit only, no named author, no medical reviewer.
  * The ✓ Fact-checked badge is the EEAT trust signal.
  */
-export function FPByline({ updated, minutes, strings, space = ' ' }: FPBylineProps) {
+export function FPByline({ updated, updatedDisplay, minutes, strings, space = ' ' }: FPBylineProps) {
   return (
     <div className="flex items-center gap-[14px] text-[12.5px] text-ds-muted py-[14px] border-y border-ds-border flex-wrap">
       <span className="text-ds-ink font-semibold">{strings.attribution}</span>
       <span aria-hidden="true">·</span>
       <span>
-        {strings.updated}{space}<time dateTime={updated}>{updated}</time>
+        {strings.updated}{space}<time dateTime={updated}>{updatedDisplay}</time>
       </span>
       <span aria-hidden="true">·</span>
       <span>{tpl(strings.readTime, { minutes })}</span>
