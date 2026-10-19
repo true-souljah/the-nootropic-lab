@@ -147,7 +147,12 @@ describe('Review page chrome — no English on JP (ja) and LATAM (es) review pag
       expect(html).toContain(`>${pd.breadcrumbBestOf}<`);
       expect(html).toContain(`>${s.nav.buildMyStack}<`);
       expect(html).toContain(`aria-label="${s.nav.openMenu}"`);
-      expect(html).toContain(`aria-label="${s.nav.search} (Command+K)"`);
+      // The search trigger is named by its content: the visible word, then the
+      // spoken shortcut in visually hidden text (the ⌘K key cap is aria-hidden).
+      // No aria-label: one would have to contain the visible text, ⌘K's "K"
+      // included (WCAG 2.5.3, axe-core 4.14 label-content-name-mismatch).
+      expect(html).toContain(`<span>${s.nav.search}</span><span class="ds-sr-only"> (Command+K)</span>`);
+      expect(html).not.toContain(`aria-label="${s.nav.search} (Command+K)"`);
       expect(html).toContain(`aria-label="${s.nav.primaryLandmark}"`);
       for (const label of [s.nav.sidebar.browse, s.nav.sidebar.discover, s.nav.sidebar.allProducts, s.nav.sidebar.bestOf2026, s.nav.sidebar.tools, s.nav.sidebar.comparator, s.nav.sidebar.about, s.nav.sidebar.ourMethodology, s.nav.sidebar.disclosures, s.nav.sidebar.submitTip]) {
         expect(html).toContain(`>${label}<`);
