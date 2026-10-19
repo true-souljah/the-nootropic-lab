@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SchemaOrg, buildAlternates, buildOpenGraph, buildTwitter, scoreTier, SCORE_TIER_TEXT_CLASS } from '@nootropic/ui';
-import { latamCountries, productsLatam, buildPersonAuthorReference } from '@nootropic/data';
+import { latamCountries, localizedProductsLatam, buildPersonAuthorReference } from '@nootropic/data';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -33,7 +33,8 @@ export async function generateMetadata({
   };
 }
 
-const topProducts = productsLatam.slice().sort((a, b) => b.score - a.score).slice(0, 3);
+// Spanish summaries from products-latam-es.ts.
+const topProducts = localizedProductsLatam('es').sort((a, b) => b.score - a.score).slice(0, 3);
 
 export default async function CountryPage({
   params,
