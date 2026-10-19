@@ -44,6 +44,22 @@ describe('QuizResults — a listed product below the listicle bar is not recomme
     expect(pageText(answers)).toContain(`${names} ${atBar.length === 1 ? 'is' : 'are'} listed for energy too`);
   });
 
+  test('no listed product meets the bar: no sentence about stronger listed products', () => {
+    // Today every goal has a listed product at the bar, so this branch is
+    // reached by leaving the energy products at the bar out of the catalogue.
+    const products = productsUS.filter((p) => !(p.bestFor.includes('Energy') && p.score >= LISTICLE_MIN_SCORE));
+    const answers: QuizAnswers = { goals: ['Energy'], caffeine: 'Very sensitive', budget: 58, mbg: 'Not important' };
+    const top = scoreQuiz(products, answers)!.top.product;
+    expect(top.bestFor).toContain('Energy');
+    expect(top.score).toBeLessThan(LISTICLE_MIN_SCORE);
+    const html = renderToStaticMarkup(<QuizResults products={products} answers={answers} />);
+    const text = html.replace(/<[^>]+>/g, '').replace(/&#x27;/g, "'").replace(/&amp;/g, '&').replace(/\s+/g, ' ');
+
+    expect(text).toContain(`${top.name} is the closest match, but it scores ${formatListicleScore(top.score)}/10, below the ${bar} we need to recommend a product.`);
+    expect(text).toContain('It is listed for energy and fits your answers best — very sensitive to caffeine, $58/month budget.');
+    expect(text).not.toContain('listed for energy too');
+  });
+
   test('a listed top match at or above the bar keeps the recommendation', () => {
     const answers: QuizAnswers = { goals: ['Focus'], caffeine: 'Very sensitive', budget: 70, mbg: 'Somewhat important' };
     const top = scoreQuiz(productsUS, answers)!.top.product;
