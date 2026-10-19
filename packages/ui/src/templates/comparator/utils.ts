@@ -157,7 +157,9 @@ export function exportRowsToCsv(rows: Product[], strings: UIStrings): void {
     servingAmount(p, strings),
     guaranteeDaysValue(p.moneyBackDays),
     p.trustpilotScore ?? '',
-    p.bestFor.join('; '),
+    // The tags as the page shows them: a translation overlay's display text
+    // where there is one (LATAM), otherwise the record's own tags.
+    (p.display?.bestFor ?? p.bestFor).join('; '),
   ]);
   const csv = [headers, ...lines]
     .map((row) => row.map((cell) => `"${String(cell).replace(/"/g, '""')}"`).join(','))
