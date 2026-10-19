@@ -8,6 +8,7 @@ import {
   scoreProblem,
   weightedScore,
   halalEvidenceProblem,
+  domesticSupplyProblems,
   outOfTen,
   pillarText,
   guaranteeDays,
@@ -283,6 +284,37 @@ describe('halalEvidenceProblem — halal status needs dated evidence (2026-10-07
     const withHalal = all.filter((p) => p.halalCertified !== undefined);
     expect(withHalal.length).toBeGreaterThanOrEqual(10);
     for (const p of withHalal) expect(halalEvidenceProblem(p), p.slug).toBeNull();
+  });
+});
+
+describe('domesticSupplyProblems — hiding the import chip needs a dated vendor statement (2026-10-19)', () => {
+  const basis = "The product page states 'This product ships from within AU' (https://shop.example/p/x).";
+
+  test('absent is not checked; a dated, non-empty basis passes', () => {
+    expect(domesticSupplyProblems(undefined)).toEqual([]);
+    expect(domesticSupplyProblems({ basis, checkedAt: '2026-10-19' })).toEqual([]);
+  });
+
+  test('basis must be non-empty, checkedAt a real YYYY-MM-DD date, and no other keys', () => {
+    expect(domesticSupplyProblems(null)).toEqual(['domesticSupply is not an object']);
+    expect(domesticSupplyProblems('ships from AU')).toEqual(['domesticSupply is not an object']);
+    expect(domesticSupplyProblems({ basis: '  ', checkedAt: '2026-10-19' })).toEqual(['domesticSupply.basis is empty']);
+    expect(domesticSupplyProblems({ basis })).toEqual(['domesticSupply.checkedAt is not an ISO date (YYYY-MM-DD): undefined']);
+    expect(domesticSupplyProblems({ basis, checkedAt: '2026-02-30' })).toEqual(['domesticSupply.checkedAt is not an ISO date (YYYY-MM-DD): "2026-02-30"']);
+    expect(domesticSupplyProblems({ basis, checkAt: '2026-10-19' })).toEqual([
+      'domesticSupply has an unknown key "checkAt" (allowed: basis, checkedAt)',
+      'domesticSupply.checkedAt is not an ISO date (YYYY-MM-DD): undefined',
+    ]);
+  });
+
+  test('productRuleProblems reports it, and every real record passes', () => {
+    expect(productRuleProblems({ affiliateUrl: 'https://shop.example/p/x', ...scored, domesticSupply: { basis, checkedAt: '' } })).toEqual([
+      'domesticSupply.checkedAt is not an ISO date (YYYY-MM-DD): ""',
+    ]);
+    const all = [...allProductsUS, ...allProductsEU, ...allProductsCA, ...allProductsAU, ...allProductsJP, ...allProductsLatam, ...allProductsGCC, ...allProductsSEA];
+    const withDomesticSupply = all.filter((p) => p.domesticSupply !== undefined);
+    expect(withDomesticSupply.length).toBeGreaterThanOrEqual(1);
+    for (const p of withDomesticSupply) expect(domesticSupplyProblems(p.domesticSupply), p.slug).toEqual([]);
   });
 });
 

@@ -82,6 +82,12 @@ const NAMES_KEPT_IN_ENGLISH = new Set([
   'Zynamite (Mangifera indica)',
   'Dynamine (Methylliberine)',
   'Curcumin (Longvida)',
+  'Magnesium',
+  'Tart Cherry (Montmorency)',
+  'Tart Cherry',
+  'L-Tryptophan',
+  'Nicotinamide Riboside (NR)',
+  'Lemon Balm (Melissa officinalis)',
 ]);
 
 /**

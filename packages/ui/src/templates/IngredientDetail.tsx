@@ -73,9 +73,10 @@ export default function IngredientDetail({
     { id: 'effects', label: t.toc.effects },
     { id: 'benefits', label: t.toc.benefits },
     { id: 'how-to', label: t.toc.howTo },
-    { id: 'stacking', label: t.toc.stacking },
+    // Sections without content are not rendered, so they are not listed either.
+    ...(ing.stacksWith.length > 0 ? [{ id: 'stacking', label: t.toc.stacking }] : []),
     { id: 'faq', label: t.toc.faq },
-    { id: 'products', label: t.toc.products },
+    ...(containingProducts.length > 0 ? [{ id: 'products', label: t.toc.products }] : []),
     ...(regional ? [{ id: 'regional', label: regional.region.labels.toc }] : []),
     { id: 'related', label: t.toc.related },
   ];
@@ -101,10 +102,15 @@ export default function IngredientDetail({
     { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' },
   );
 
+  // JSON-LD words in the page's language; the name, summary and effects come
+  // from the (localized) ingredient record. The Organization names stay as
+  // they are: "The Nootropic Lab Editorial Team" is also the author of every
+  // page (buildPersonAuthorReference), one entity on every host.
+  const ts = t.schema;
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: `${ing.name} — Nootropic Ingredient Guide`,
+    headline: tpl(ts.headline, { name: ing.name }),
     description: ing.studySummary,
     datePublished: `${currentYear}-04-30`,
     dateModified: today.toISOString().split('T')[0],
@@ -115,10 +121,16 @@ export default function IngredientDetail({
   const datasetSchema = {
     '@context': 'https://schema.org',
     '@type': 'Dataset',
-    name: `${ing.name} — Human Clinical Effect Matrix`,
-    description: `Structured human-clinical-trial evidence summary for ${ing.name}: per-effect evidence strength, magnitude, and study count. Sourced from the PubMed-indexed studies listed in the page's Sources section (evidence reviewed ${ing.evidenceReviewedAt}).`,
+    name: tpl(ts.datasetName, { name: ing.name }),
+    description: tpl(ts.datasetDescription, { name: ing.name, date: ing.evidenceReviewedAt }),
     url: `${siteUrl}/ingredients/${ing.slug}/`,
-    keywords: [ing.name, ing.category, 'nootropic', 'cognitive supplement', 'clinical trial'],
+    keywords: [
+      ing.name,
+      t.relatedCategory[ing.category],
+      ts.keywords.nootropic,
+      ts.keywords.cognitiveSupplement,
+      ts.keywords.clinicalTrial,
+    ],
     isAccessibleForFree: true,
     license: 'https://creativecommons.org/licenses/by/4.0/',
     creator: { '@type': 'Organization', name: 'The Nootropic Lab', url: siteUrl },
@@ -130,7 +142,13 @@ export default function IngredientDetail({
     variableMeasured: ing.humanEffects.map((e) => ({
       '@type': 'PropertyValue',
       name: e.effect,
-      description: `${e.effect}: ${e.evidenceStrength} evidence${e.studies !== undefined ? ` (${e.studies} cited ${e.studies === 1 ? 'study' : 'studies'})` : ''}, ${e.magnitude} effect size. ${e.notes}`,
+      description: tpl(e.studies !== undefined ? ts.effect : ts.effectNoStudies, {
+        effect: e.effect,
+        strength: t.evidenceStrength[e.evidenceStrength],
+        studies: e.studies === 1 ? ts.studiesOne : tpl(ts.studiesMany, { n: e.studies ?? 0 }),
+        magnitude: ts.magnitude[e.magnitude],
+        notes: e.notes,
+      }),
       additionalType: e.evidenceStrength,
     })),
     citation: ing.studySummary,
@@ -139,8 +157,8 @@ export default function IngredientDetail({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
-      { '@type': 'ListItem', position: 2, name: 'Ingredients', item: `${siteUrl}/ingredients/` },
+      { '@type': 'ListItem', position: 1, name: uiStrings.breadcrumb.home, item: siteUrl },
+      { '@type': 'ListItem', position: 2, name: uiStrings.breadcrumb.ingredients, item: `${siteUrl}/ingredients/` },
       { '@type': 'ListItem', position: 3, name: ing.name },
     ],
   };
@@ -318,27 +336,30 @@ export default function IngredientDetail({
               </Card>
             </section>
 
-            <section id="stacking" className="mt-9">
-              <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-1 text-ds-ink">{t.sections.stacking}</h2>
-              <p className="text-[13px] text-ds-muted mb-4">{tpl(t.stackingLede, { name: ing.name })}</p>
-              <div className="flex flex-col gap-3">
-                {ing.stacksWith.map((pair) => (
-                  <Card key={pair.ingredient} padding={16}>
-                    <div className="flex gap-4">
-                      <div className="shrink-0 w-28">
-                        <Link
-                          href={`/ingredients/${pair.slug}/`}
-                          className="text-[13.5px] font-semibold text-ds-accent hover:text-ds-accent-press underline focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded leading-tight block"
-                        >
-                          {pair.ingredient}
-                        </Link>
+            {/* "Ingredients that pair well with …": nothing to say means no section. */}
+            {ing.stacksWith.length > 0 && (
+              <section id="stacking" className="mt-9">
+                <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-1 text-ds-ink">{t.sections.stacking}</h2>
+                <p className="text-[13px] text-ds-muted mb-4">{tpl(t.stackingLede, { name: ing.name })}</p>
+                <div className="flex flex-col gap-3">
+                  {ing.stacksWith.map((pair) => (
+                    <Card key={pair.ingredient} padding={16}>
+                      <div className="flex gap-4">
+                        <div className="shrink-0 w-28">
+                          <Link
+                            href={`/ingredients/${pair.slug}/`}
+                            className="text-[13.5px] font-semibold text-ds-accent hover:text-ds-accent-press underline focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded leading-tight block"
+                          >
+                            {pair.ingredient}
+                          </Link>
+                        </div>
+                        <p className="text-[13.5px] text-ds-ink-soft leading-[1.65] m-0">{pair.reason}</p>
                       </div>
-                      <p className="text-[13.5px] text-ds-ink-soft leading-[1.65] m-0">{pair.reason}</p>
-                    </div>
-                  </Card>
-                ))}
-              </div>
-            </section>
+                    </Card>
+                  ))}
+                </div>
+              </section>
+            )}
 
             <section id="faq" className="mt-9">
               <h2 className="text-[24px] font-bold tracking-[-0.02em] mb-4 text-ds-ink">{t.sections.faq}</h2>

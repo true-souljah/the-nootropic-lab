@@ -1,6 +1,7 @@
 import { describe, test, expect } from 'vitest';
 import {
   parseAmount, parseQuotedPrices, quoteSupply, packServings, statedSupplyDays, dailyServings, servingsInPack,
+  storePriceProblems,
   allProductsUS, allProductsEU, allProductsCA, allProductsAU,
   allProductsJP, allProductsLatam, allProductsGCC, allProductsSEA,
 } from '@nootropic/data';
@@ -50,6 +51,8 @@ describe('parseQuotedPrices', () => {
     ['5,479円 カートに入れる 商品番号：5248', 'JPY', 5479],
     ['1 Pouch (1 month supply) ₱1,680', 'PHP', 1680],
     ['Price reduced to S$69.90', 'SGD', 69.9],
+    ['Dhs. 320.00', 'AED', 320],
+    ['Dh. 320.00', 'AED', 320],
   ])('"%s" → %s %s', (text, currency, amount) => {
     const { prices, problems } = parseQuotedPrices(text);
     expect(problems).toEqual([]);
@@ -67,6 +70,21 @@ describe('parseQuotedPrices', () => {
 
   test('an ambiguous number is reported, not read', () => {
     expect(parseQuotedPrices('€12,3456').problems).toEqual(['ambiguous price "€12,3456"']);
+  });
+
+  test('"Dhs." is the UAE dirham (AED); a "From Dhs." subscription price is still refused as a "from" price', () => {
+    // neutonic.com's UAE store prints "Dhs. 320.00" one-time and "From Dhs. 272.00" on subscription (JSON-LD AED, 2026-10-19).
+    const priced = (text: string, amount: number, currency = 'AED'): Product => ({
+      ...allProductsGCC[0],
+      storePrice: { amount, currency, text, pack: '90 Capsules', url: 'https://www.neutonic.com/en-me/products/brain-capsules-uae', checkedAt: '2026-10-19' },
+    });
+    expect(storePriceProblems(priced('Dhs. 320.00', 320))).toEqual([]);
+    expect(storePriceProblems(priced('From Dhs. 272.00', 272)).join('\n')).toMatch(/"from" price/);
+    // A spaced ISO mark is a "from" price as well, and plain "from" wording without a price is not one.
+    expect(storePriceProblems(priced('From AED 272.00', 272)).join('\n')).toMatch(/"from" price/);
+    expect(storePriceProblems(priced('Dhs. 320.00 · take 3 capsules from day 1', 320))).toEqual([]);
+    // "Dhs." never stands for the Moroccan dirham here: that store would need its own mark.
+    expect(storePriceProblems(priced('Dhs. 320.00', 320, 'MAD')).join('\n')).toMatch(/contradicts its text/);
   });
 });
 
@@ -173,6 +191,9 @@ describe('packServings — servings from the pack count only', () => {
     '1 MONAT: 2 Packs, 60 Kapseln': 30, // 2 per serving; "2 Packs" is not a container count
     '240粒入/約60日分': 60, // 4 per serving; "約60日分" is a duration, not read
     '3g x 30 sachets': 30, // 1 per serving
+    '90 Capsules': 30, // 3 per serving
+    '90 capsules': 30, // 3 per serving (Deadline)
+    'Tropical Ice x 12 cans': 12, // 1 can per serving (form "can")
     '30日分': 'no pack count stated in the quote (a supply length is not a count)',
     '1 Pouch': '"1 Pouch" needs servingsPerContainer, which the record lacks',
   };
@@ -196,6 +217,7 @@ describe('packServings — servings from the pack count only', () => {
     ['60 CAPSULES | Servings per container: 20', CAPSULES, /several pack sizes/],
     ['1 Unit 2 Bottles', CAPSULES, /several pack counts/],
     ['3g x 30 sachets', CAPSULES, /counts sachets but the record's form is capsule/],
+    ['Tropical Ice x 12 cans', CAPSULES, /counts cans but the record's form is capsule/],
     ['90 Count', { servingsPerContainer: 45, capsulesPerServing: 0 }, /needs capsulesPerServing/],
   ] as [string, Parameters<typeof packServings>[1], RegExp][])('refuses "%s"', (text, record, reason) => {
     const r = packServings(text, record);
@@ -211,6 +233,7 @@ describe('statedSupplyDays — a supply length in days', () => {
     '1 month supply': 30,
     '1 MONAT: 2 Packs, 60 Kapseln': 30,
     '45-day supply': 45,
+    '30-day supply': 30,
     'up to a 5 month supply': 150,
     'delivered every 4 weeks': 28,
     '30日分': 30,
@@ -245,6 +268,7 @@ describe('dailyServings — a daily dose only from plain directions', () => {
     'you should take 6 a day': 1,
     'Take 4 capsules daily with food for optimal cognitive support.': 1, // 4 per serving
     'Take 1 sachet once daily.': 1,
+    'Take 3 capsules on the daily as part of your routine.': 1, // 3 per serving
     '【１日の目安】4粒': 1, // full-width "１" (NFKC), 4 per serving
     'You can get started with Qualia Mind simply by taking your daily serving early in the morning with a large glass of water, with or without food.': 1,
     // No daily frequency stated (time of day, or no frequency at all; German is not read).
@@ -255,6 +279,9 @@ describe('dailyServings — a daily dose only from plain directions', () => {
     'Simply take 2 easy-to-swallow capsules of Noocube with water. It can be taken with or without food.': 'no daily frequency stated',
     'Take 1 capsule for stimulation.': 'no daily frequency stated',
     'Nehmen Sie 2 Kapseln, 60 Minuten nach dem Essen.': 'no daily frequency stated',
+    'Three capsules in the morning': 'no daily frequency stated',
+    // A daily frequency without a "take N" dose the parser reads.
+    'One can per day is our recommended serving.': 'no dose stated',
     // A range is not one dose.
     'Take 2 to 4 capsules per day in the morning or early afternoon on an empty stomach.': 'states a dose range, not one dose',
     'take 1-2 daily with or without food': 'states a dose range, not one dose',

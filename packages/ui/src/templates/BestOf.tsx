@@ -251,7 +251,7 @@ export default function BestOf({
                     ) : (
                       <Chip tone="warn">{pd.chips.hasCaffeine}</Chip>
                     )}
-                    {p.bestFor.slice(0, 3).map((b) => (
+                    {(p.display?.bestFor ?? p.bestFor).slice(0, 3).map((b) => (
                       <Chip key={b}>{b}</Chip>
                     ))}
                   </div>

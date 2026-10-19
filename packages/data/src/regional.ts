@@ -169,7 +169,10 @@ export function licenceStatus(product: Product, region: RegionCode): LicenceStat
       return npn.checkedAt ? status('noNpnChecked', 'neutral', { date: npn.checkedAt }) : status('noNpn', 'neutral');
     }
     case 'au':
-      return product.austl ? status('austl', 'good', { austl: product.austl }) : status('personalImportation', 'neutral');
+      if (product.austl) return status('austl', 'good', { austl: product.austl });
+      // The vendor ships it from stock inside Australia: no import status to show.
+      if (product.domesticSupply) return null;
+      return status('personalImportation', 'neutral');
     case 'jp': {
       const ffc = product.ffcStatus;
       if (!ffc) return null;

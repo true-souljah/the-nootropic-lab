@@ -216,7 +216,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                 </td>
                 <td className="p-3">
                   <div className="flex flex-wrap gap-1">
-                    {p.bestFor.slice(0, 2).map(tag => (
+                    {(p.display?.bestFor ?? p.bestFor).slice(0, 2).map(tag => (
                       <span
                         key={tag}
                         className="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded-full"
@@ -241,7 +241,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
                 </td>
                 {market === 'eu' && (
                   <td className="p-3">
-                    {p.euStorefront ? <EUBadge euStorefront /> : <span className="text-gray-500">—</span>}
+                    {p.euStorefront ? <EUBadge euStorefront strings={ui} /> : <span className="text-gray-500">—</span>}
                   </td>
                 )}
                 <td className="p-3">{guaranteeDays(p.moneyBackDays, (d) => tpl(pd.stats.daysCount, { days: d }))}</td>
@@ -344,7 +344,7 @@ export default function ComparisonTable({ products, market, strings }: Props) {
               </div>
               {market === 'eu' && p.euStorefront && (
                 <div className="mb-3">
-                  <EUBadge euStorefront />
+                  <EUBadge euStorefront strings={ui} />
                 </div>
               )}
               {buyLink(

@@ -86,6 +86,8 @@ export const guideSources: Record<string, GuideSource[]> = {
     { pmid: '19016404', url: 'https://pubmed.ncbi.nlm.nih.gov/19016404/', title: 'A randomised, double-blind, placebo-controlled, parallel-group study of SHR-5 Rhodiola rosea in stress-related fatigue', year: 2009, supports: 'Rhodiola mental-fatigue timeline and placebo-effect framing' },
     { pmid: '17585971', url: 'https://pubmed.ncbi.nlm.nih.gov/17585971/', title: 'Tyrosine supplementation mitigates working memory decrements during cold exposure', year: 2007, supports: 'L-tyrosine acute stress-performance claim' },
     { pmid: '42761483', url: 'https://pubmed.ncbi.nlm.nih.gov/42761483/', title: 'Acute caffeine supplementation as a nutrition-based strategy to mitigate sleep-loss-related cognitive and operational performance impairments in military personnel', year: 2026, supports: 'Nuance for the sleep-vs-supplements comparative claim' },
+    { pmid: '22747190', url: 'https://pubmed.ncbi.nlm.nih.gov/22747190/', title: 'The cognitive-enhancing effects of Bacopa monnieri: a systematic review of randomized, controlled human clinical trials.', year: 2012, supports: 'Bacopa: six 12-week trials at 300-450mg extract a day improved 9 of 17 memory free-recall tests (Pase 2012)' },
+    { pmid: '41091332', url: 'https://pubmed.ncbi.nlm.nih.gov/41091332/', title: 'The Effects of a Bacopa monnieri Extract (Bacumen) on Cognition, Stress, and Fatigue in Healthy Adults: A Randomized, Double-Blind, Placebo-Controlled Trial', year: 2025, supports: 'Bacopa: the newest 12-week trial (Lopresti 2025, 300mg/day) found no effect on verbal learning, attention or working memory' },
   ],
   'how-to-stack-nootropics': [
     { pmid: '24946991', url: 'https://pubmed.ncbi.nlm.nih.gov/24946991/', title: 'Acute effects of tea constituents L-theanine, caffeine, and epigallocatechin gallate on cognitive function and mood: a systematic review and meta-analysis', year: 2014, supports: 'L-theanine+caffeine attention effects versus placebo, with an honest jitteriness/anxiety caveat' },
@@ -646,11 +648,11 @@ export const guides: Guide[] = [
       },
       {
         heading: 'Alpha brain waves and calm focus',
-        content: 'Alpha brain waves (8–12 Hz) are associated with relaxed alertness — the mental state experienced during flow states, meditation, or creative work. L-Theanine, an amino acid from green tea, increases alpha-wave activity: in EEG studies the increase appears from around 45 minutes after ingestion, and a 2021 RCT found the clearest effect about 3 hours after a 200mg dose. This produces a state of calm focus without sedation. When combined with caffeine, the pair improved attention measures versus placebo in several trials, but in a controlled trial (Rogers 2007) theanine did not significantly reduce caffeine-induced jitteriness.',
+        content: 'Alpha brain waves (8–12 Hz) are associated with relaxed alertness — the mental state experienced during flow states, meditation, or creative work. L-Theanine, an amino acid from green tea, increases alpha-wave activity: in EEG studies the increase appears from around 45 minutes after ingestion, and a 2021 RCT found the clearest effect about 3 hours after a 200mg dose. Our L-Theanine page rates the evidence that this alpha increase brings calm focus as preliminary (one small study, which did not track subjective calm). When combined with caffeine, the pair improved attention measures versus placebo in several trials, but in a controlled trial (Rogers 2007) theanine did not significantly reduce caffeine-induced jitteriness.',
       },
       {
         heading: 'Cell membrane integrity and phospholipids',
-        content: "Neuronal cell membranes are composed largely of phospholipids — primarily phosphatidylserine (PS) and phosphatidylcholine. Healthy membranes are essential for efficient signal transmission between neurons. PS levels in the brain decline with aging. Citicoline is a precursor to phosphatidylcholine.",
+        content: "Neuronal cell membranes are composed largely of phospholipids — primarily phosphatidylserine (PS) and phosphatidylcholine. Healthy membranes are essential for efficient signal transmission between neurons. Citicoline is a precursor to phosphatidylcholine.",
       },
     ],
   },
@@ -674,7 +676,7 @@ export const guides: Guide[] = [
       },
       {
         heading: 'What cumulative effects feel like',
-        content: "Cumulative nootropic effects are subtle by nature — they represent improvements in cognitive baseline, not dramatic acute shifts. After 8–12 weeks on a Bacopa-containing stack, you are likely to notice: faster recall of names, numbers, and learned material; improved retention of new information; and subjectively, things feeling slightly easier to remember. These effects are difficult to notice day-to-day; the best way to measure them is cognitive benchmarking — test your working memory span, reading speed, or task completion time at baseline and again at 8 weeks.",
+        content: "Cumulative nootropic effects are subtle by nature — they represent improvements in cognitive baseline, not dramatic acute shifts. After 8–12 weeks of Bacopa at trial doses (300–450mg extract a day), trials found better scores on some memory free-recall tests (9 of 17 in the Pase 2012 review), though the newest 12-week trial at 300mg/day found no effect on verbal learning, attention or working memory. These effects are difficult to notice day-to-day; the best way to measure them is cognitive benchmarking — test your working memory span, reading speed, or task completion time at baseline and again at around 12 weeks.",
       },
       {
         heading: 'What nootropics cannot do',
@@ -774,7 +776,7 @@ export const guides: Guide[] = [
       },
       {
         heading: 'Safety and side effect profiles',
-        content: 'Natural nootropics at recommended doses have excellent safety records and are sold as food supplements in most jurisdictions. Bacopa, Ashwagandha, and Rhodiola have a long history of traditional use, but traditional use is not systematic safety data, and modern RCTs of these ingredients have run for roughly 4 to 16 weeks — there is no multi-year controlled safety record. Synthetic nootropics carry more uncertain long-term safety profiles, particularly for daily use over years. Modafinil and Armodafinil — prescription-only in most countries — have established short-term safety but limited long-term data.',
+        content: 'Natural nootropics at recommended doses were generally well tolerated in short trials and are sold as food supplements in most jurisdictions, though ashwagandha has published liver-injury case reports and Denmark banned it in food supplements in 2023 because a safe dose could not be established. Bacopa, Ashwagandha, and Rhodiola have a long history of traditional use, but traditional use is not systematic safety data, and modern RCTs of these ingredients have run for roughly 4 to 16 weeks — there is no multi-year controlled safety record. Synthetic nootropics carry more uncertain long-term safety profiles, particularly for daily use over years. Modafinil and Armodafinil — prescription-only in most countries — have established short-term safety but limited long-term data.',
       },
       {
         heading: 'Regulatory status by region',

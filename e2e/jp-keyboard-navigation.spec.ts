@@ -15,7 +15,7 @@ import { test, expect } from '@playwright/test';
 //
 //   skip-link text       — Skip to main content
 //   "Comparator" CTA     — Open comparator →
-//   Search aria-label    — "Search (Command+K)"
+//   Search trigger name  — "Search (Command+K)" (from its content)
 //
 // Tab-trap probe types "fancl" — substring match on FANCL Brains in
 // the JP catalog (FANCL is a Japanese supplement chain; the product
@@ -113,7 +113,7 @@ test.describe('JP /best-nootropics-for-focus/ — CommandPalette ⌘K modal (WCA
     await expect(page.locator('[role="dialog"]:not(#klaro-cookie-notice)')).toBeAttached();
     await page.keyboard.press('Escape');
     await expect(page.locator('[role="dialog"]:not(#klaro-cookie-notice)')).toHaveCount(0);
-    await expect(page.locator('button[aria-label*="Search"]').first()).toBeFocused();
+    await expect(page.getByRole('button', { name: 'Search (Command+K)', exact: true })).toBeFocused();
   });
 
   test('Tab inside the modal loops focus on the input (PR-Q51 portfolio-wide trap fix)', async ({ page }) => {

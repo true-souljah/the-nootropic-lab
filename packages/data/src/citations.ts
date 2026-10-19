@@ -90,6 +90,7 @@ export const CITATIONS: readonly Citation[] = [
   { pmid: '26618715', title: 'Acute effects of a wild green-oat (Avena sativa) extract on cognitive function in middle-aged adults: A double-blind, placebo-controlled, within-subjects trial.', firstAuthor: 'Kennedy', year: 2015 },
   { pmid: '26797633', title: 'Anti-Stress, Behavioural and Magnetoencephalography Effects of an L-Theanine-Based Nutrient Drink: A Randomised, Double-Blind, Placebo-Controlled, Crossover Trial.', firstAuthor: 'White', year: 2016 },
   { pmid: '26869148', title: 'Acute effects of theanine, caffeine and theanine-caffeine combination on attention.', firstAuthor: 'Kahathuduwa', year: 2016 },
+  { pmid: '26876224', title: 'A randomized, double-blind, placebo controlled, parallel group, efficacy study of alpha BRAIN® administered orally.', firstAuthor: 'Solomon', year: 2016 },
   { pmid: '26958257', title: 'Ginkgo and Warfarin Interaction in a Large Veterans Administration Population.', firstAuthor: 'Stoddard', year: 2015 },
   { pmid: '27236454', title: 'Piracetam for Aphasia in Post-stroke Patients: A Systematic Review and Meta-analysis of Randomized Controlled Trials.', firstAuthor: 'Zhang', year: 2016 },
   { pmid: '27612937', title: 'A review of caffeine\'s effects on cognitive, physical and occupational performance.', firstAuthor: 'McLellan', year: 2016 },

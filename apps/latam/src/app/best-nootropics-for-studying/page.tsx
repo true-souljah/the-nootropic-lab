@@ -45,7 +45,7 @@ const ingredientMechanism: ListicleIngredientMechanism[] = [
     name: 'Citicolina — un donante de colina',
     ingredientSlugs: ['citicoline'],
     evidence:
-      'La citicolina es un donante de colina. Nuestra página sobre la citicolina califica como mixta su evidencia sobre la atención y como moderada su evidencia sobre la memoria de trabajo (un ensayo en adultos mayores con memoria ineficiente, Spiers 1996). Cognizin es la forma estandarizada.',
+      'La citicolina es un donante de colina. Nuestra página sobre la citicolina califica como mixta su evidencia sobre la atención y como moderada su evidencia sobre la memoria verbal (el recuerdo diferido mejoró en un ensayo en adultos mayores con memoria ineficiente, Spiers 1996). Cognizin es una forma estandarizada.',
     citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/8624220/',
   },
   {

@@ -21,6 +21,7 @@ export interface IngredientCategoryStrings {
   amino: string;
   herb: string;
   vitamin: string;
+  mineral: string;
 }
 
 /**
@@ -221,11 +222,16 @@ export interface UIStrings {
     editorChoice: string;
     /** Filter chip: only products with an EU storefront. */
     euStorefront: string;
+    /** Tooltip (title) of the EU-storefront badge in the EU column; the badge text is productDetail.regionalBuying.licence.euStorefront. */
+    euStorefrontNote: string;
     /** Label of the per-month price cap slider; {price} is the formatted cap. */
     maxPrice: string;
     /** Screen-reader name of the buy-link column. */
     actions: string;
-    /** Accessible name of a score cell; {score} is the score. */
+    /**
+     * Accessible name of a score cell; {score} is the score. It must contain
+     * the visible text "{score}/10" as written (WCAG 2.5.3 Label in Name).
+     */
     scoreAria: string;
     /** Heading of the score tooltip. */
     scoreBreakdown: string;
@@ -291,7 +297,11 @@ export interface UIStrings {
       hints: { navigate: string; open: string; close: string };
       /** Footer count; {n} is the number of indexed items. */
       indexed: string;
-      /** Appended to a product row's accessible name; {score} is the score with one decimal. */
+      /**
+       * Spoken after a product row's title, in visually hidden text that is
+       * part of the option's name; {score} is the score with one decimal. It
+       * reads "{score}/10" in every locale, like the score buttons (WCAG 2.5.3).
+       */
       scoreAria: string;
       /** Appended to an ingredient row's accessible name; {grade} is A, B or C. */
       gradeAria: string;
@@ -339,7 +349,11 @@ export interface UIStrings {
       negligible: string;
     };
     category: IngredientCategoryStrings;
-    /** Category line on the related-ingredient cards (lowercase in en; the card capitalizes it). */
+    /**
+     * Category line on the related-ingredient cards (lowercase in en; the card
+     * capitalizes it), the category word of ingredient results in the search
+     * index and a JSON-LD keyword. The en strings equal Ingredient.category.
+     */
     relatedCategory: IngredientCategoryStrings;
     /** Lede under the effect-matrix heading. */
     humanTrialsOnly: string;
@@ -361,6 +375,27 @@ export interface UIStrings {
     };
     /** Template with {name} placeholder. */
     stackingLede: string;
+    /**
+     * Words the template writes into the page's JSON-LD (Article, Dataset,
+     * BreadcrumbList); the ingredient's own name, summary and effects come from
+     * the (localized) ingredient record. {name} is the ingredient name, {date}
+     * the ISO evidence-review date.
+     */
+    schema: {
+      headline: string;
+      datasetName: string;
+      datasetDescription: string;
+      keywords: { nootropic: string; cognitiveSupplement: string; clinicalTrial: string };
+      /** One measured variable: {effect}, {strength} (evidenceStrength), {studies} (studiesOne / studiesMany), {magnitude}, {notes}. */
+      effect: string;
+      /** Same, for an effect without a study count. */
+      effectNoStudies: string;
+      studiesOne: string;
+      /** {n} is the study count. */
+      studiesMany: string;
+      /** Effect size, lowercase (it sits mid-sentence). */
+      magnitude: { large: string; moderate: string; small: string; negligible: string };
+    };
   };
   /** Evidence-review strings on ingredient pages (/ingredients/<slug>/). */
   ingredientEvidence: {
@@ -390,7 +425,7 @@ export interface UIStrings {
       /** Prefix before brand name in the meta line: "By {brand}". */
       by: string;
       /** Descriptor between brand and pack count, per `Product.form`. */
-      productDescriptorByForm: { capsule: string; tablet: string; sachet: string; shot: string; powder: string; softgel: string };
+      productDescriptorByForm: { capsule: string; tablet: string; sachet: string; shot: string; powder: string; softgel: string; can: string };
       /** Label before the record's last-edit date (`updatedAt`), used when no `verifiedAt`. */
       updated: string;
       /** Label before the record's verification date (`verifiedAt`), e.g. "Last verified:". */
@@ -426,9 +461,9 @@ export interface UIStrings {
       /** Stat label for the per-day serving, whatever the product's form. */
       dailyServing: string;
       /** Unit label per `Product.form`, shown after `capsulesPerServing`. */
-      units: { capsule: string; tablet: string; sachet: string; shot: string; powder: string; softgel: string };
+      units: { capsule: string; tablet: string; sachet: string; shot: string; powder: string; softgel: string; can: string };
       /** Same labels for a count of exactly 1 ("1 sachet", not "1 sachets"). */
-      unitsSingular: { capsule: string; tablet: string; sachet: string; shot: string; powder: string; softgel: string };
+      unitsSingular: { capsule: string; tablet: string; sachet: string; shot: string; powder: string; softgel: string; can: string };
       moneyBack: string;
       /** "days" suffix for the money-back-guarantee value. */
       days: string;
@@ -839,6 +874,13 @@ export interface UIStrings {
     teamIdentity: string;
     regionalFraming: string;
     contact: string;
+    /**
+     * The section's policy text (2026-10-19). Set in en and es only; a
+     * locale without it shows en's text. No page renders this section in
+     * fr, pt, de, fr-CA or ja: every edition but LATAM uses the en bundle
+     * (guarded in products-latam-es.test.ts).
+     */
+    body?: EditorialStandardsBody;
   };
   /** Shortlist toggle (templates/ShortlistButton.tsx). */
   shortlist: {
@@ -858,6 +900,35 @@ export interface UIStrings {
     /** Between a sentence, or a label that ends in its own punctuation, and what follows it (a value, link, button or count). Empty in ja. */
     space: string;
   };
+}
+
+/**
+ * Policy text of the editorial-standards section on /methodology/
+ * (EditorialStandardsSection), one entry per paragraph or list item. `{name}`
+ * placeholders are filled with elements by the component: {doNot} the
+ * emphasized word(s), {field} the dateModified code span, {email} the
+ * corrections mailto link, {imprint} the imprint link (text `imprintLink`).
+ */
+export interface EditorialStandardsBody {
+  intro: string;
+  reviewProtocol: string;
+  /** Contains {doNot}. */
+  conflictIntro: string;
+  conflictDoNot: string;
+  conflictItems: string[];
+  conflictOutro: string;
+  sourceCitation: string;
+  correctionIntro: string;
+  /** The first item contains {field}. */
+  correctionItems: string[];
+  /** Contains {email}. */
+  correctionContact: string;
+  teamIdentity: string;
+  regionalFraming: string;
+  contactLead: string;
+  /** Contains {imprint}. */
+  imprintNote: string;
+  imprintLink: string;
 }
 
 const en: UIStrings = {
@@ -976,9 +1047,10 @@ const en: UIStrings = {
     sortColumns: { score: 'score', price: 'price', moneyBack: 'money-back days', trustpilot: 'Trustpilot score' },
     editorChoice: "Editor's Choice",
     euStorefront: 'EU Storefront',
+    euStorefrontNote: 'Sold through a dedicated EU storefront priced in EUR. We do not verify regulatory compliance per product.',
     maxPrice: 'Max {price}',
     actions: 'Actions',
-    scoreAria: 'Score {score} out of 10 — tap or hover for breakdown',
+    scoreAria: 'Score {score}/10 — tap or hover for breakdown',
     scoreBreakdown: 'Score breakdown',
   },
   breadcrumb: {
@@ -1015,7 +1087,7 @@ const en: UIStrings = {
       categories: { ingredients: 'Ingredients', products: 'Products', comparisons: 'Comparisons', guides: 'Guides', other: 'Other' },
       hints: { navigate: 'navigate', open: 'open', close: 'close' },
       indexed: '{n} indexed',
-      scoreAria: ', score {score} out of 10',
+      scoreAria: ', score {score}/10',
       gradeAria: ', evidence grade {grade}',
     },
   },
@@ -1058,6 +1130,7 @@ const en: UIStrings = {
       amino: 'Amino Acid',
       herb: 'Herb',
       vitamin: 'Vitamin',
+      mineral: 'Mineral',
     },
     relatedCategory: {
       adaptogen: 'adaptogen',
@@ -1066,6 +1139,7 @@ const en: UIStrings = {
       amino: 'amino',
       herb: 'herb',
       vitamin: 'vitamin',
+      mineral: 'mineral',
     },
     humanTrialsOnly: 'Based on human clinical trials only. Animal and in-vitro data excluded.',
     evidenceStrength: { strong: 'strong', moderate: 'moderate', preliminary: 'preliminary', mixed: 'mixed' },
@@ -1087,6 +1161,18 @@ const en: UIStrings = {
       trials: 'Trials',
     },
     stackingLede: 'Ingredients that pair well with {name} and why.',
+    schema: {
+      headline: '{name} — Nootropic Ingredient Guide',
+      datasetName: '{name} — Human Clinical Effect Matrix',
+      datasetDescription:
+        "Structured human-clinical-trial evidence summary for {name}: per-effect evidence strength, magnitude, and study count. Sourced from the PubMed-indexed studies listed in the page's Sources section (evidence reviewed {date}).",
+      keywords: { nootropic: 'nootropic', cognitiveSupplement: 'cognitive supplement', clinicalTrial: 'clinical trial' },
+      effect: '{effect}: {strength} evidence ({studies}), {magnitude} effect size. {notes}',
+      effectNoStudies: '{effect}: {strength} evidence, {magnitude} effect size. {notes}',
+      studiesOne: '1 cited study',
+      studiesMany: '{n} cited studies',
+      magnitude: { large: 'large', moderate: 'moderate', small: 'small', negligible: 'negligible' },
+    },
   },
   ingredientEvidence: {
     sources: 'Sources',
@@ -1106,7 +1192,7 @@ const en: UIStrings = {
     },
     meta: {
       by: 'By',
-      productDescriptorByForm: { capsule: 'daily nootropic capsule', tablet: 'daily nootropic tablet', sachet: 'daily nootropic sachet', shot: 'daily nootropic shot', powder: 'daily nootropic drink powder', softgel: 'daily nootropic softgel' },
+      productDescriptorByForm: { capsule: 'daily nootropic capsule', tablet: 'daily nootropic tablet', sachet: 'daily nootropic sachet', shot: 'daily nootropic shot', powder: 'daily nootropic drink powder', softgel: 'daily nootropic softgel', can: 'daily nootropic drink' },
       updated: 'Updated:',
       lastVerified: 'Last verified:',
       reviewedBy: 'Reviewed by The Nootropic Lab editorial team',
@@ -1126,8 +1212,8 @@ const en: UIStrings = {
       perDayLabel: 'Per day',
       capsules: 'Caps',
       dailyServing: 'Daily serving',
-      units: { capsule: 'caps', tablet: 'tablets', sachet: 'sachets', shot: 'shots', powder: 'scoops', softgel: 'softgels' },
-      unitsSingular: { capsule: 'cap', tablet: 'tablet', sachet: 'sachet', shot: 'shot', powder: 'scoop', softgel: 'softgel' },
+      units: { capsule: 'caps', tablet: 'tablets', sachet: 'sachets', shot: 'shots', powder: 'scoops', softgel: 'softgels', can: 'cans' },
+      unitsSingular: { capsule: 'cap', tablet: 'tablet', sachet: 'sachet', shot: 'shot', powder: 'scoop', softgel: 'softgel', can: 'can' },
       moneyBack: 'MBG',
       days: 'days',
       daysCount: '{days} days',
@@ -1436,6 +1522,40 @@ const en: UIStrings = {
     teamIdentity: '5. Editorial-team identity',
     regionalFraming: '6. Region-specific regulatory framing',
     contact: 'Editorial contact',
+    body: {
+      intro:
+        'Beyond the 5-pillar scoring framework, every page on this site is produced under the following editorial standards. These standards apply to all 8 regional editions and govern how content is researched, reviewed, corrected, and disclosed.',
+      reviewProtocol:
+        'Products are evaluated from manufacturer-published ingredient lists, regulatory filings, and third-party Certificates of Analysis when available. Each label dose of an ingredient with a reference dose on our ingredient pages is compared with that dose, taken from peer-reviewed clinical trials; ingredients without one are listed but not scored.',
+      conflictIntro: 'We earn affiliate commissions from links on commercial pages. Affiliate relationships {doNot} influence:',
+      conflictDoNot: 'do not',
+      conflictItems: [
+        '5-pillar scores (set before any affiliate program is evaluated)',
+        'Listicle ranking position (driven by score + use-case fit only)',
+        'Pros/cons content (criticism is preserved even on affiliate-active products)',
+        'Clinical-dose audit verdicts (purely data-driven against PubMed-indexed RCTs)',
+      ],
+      conflictOutro:
+        'We do not accept payment for reviews, sponsored content placements, or guaranteed-position promotion. Affiliate disclosures appear at the top of every commercial page, before the first call-to-action, in compliance with FTC 16 CFR Part 255 (US), ASA CAP Code (UK), and equivalent advertising codes in each region we publish.',
+      sourceCitation:
+        'Clinical-dose claims are sourced from PubMed-indexed human randomized controlled trials, meta-analyses, and Examine.com syntheses. Regulatory claims are sourced from primary regulator documents (FDA, EFSA, TGA, Health Canada, MHLW Consumer Affairs Agency, ANMAT, ANVISA, COFEPRIS, SFDA, BPOM, HSA, NPRA, JAKIM, BPJPH). When a claim cannot be sourced from primary literature or a primary regulator, it is either omitted or flagged as "limited evidence" / "manufacturer claim only". We do not cite secondary aggregators (Healthline, Verywell) as primary sources for clinical claims.',
+      correctionIntro:
+        'We aim to respond to substantive editorial corrections within 5 business days and to update or retract incorrect content within 10 business days of verification. When a correction is made:',
+      correctionItems: [
+        "The page's {field} Article-schema field is updated to reflect the change.",
+        "For factual corrections (dose values, regulatory status, brand ownership), the prior statement is replaced and a brief note is added to the page when the correction is material to a reader's purchase decision.",
+        'We do not silently delete published claims. Significant corrections to scored comparisons trigger a re-score under the same 5-pillar framework with a visible date.',
+      ],
+      correctionContact:
+        'Send corrections to {email}. Include the page URL, the specific claim, and a primary source supporting the correct version.',
+      teamIdentity:
+        "The Nootropic Lab operates as an independent editorial collective. We do not disclose individual contributors by name and do not feature personal brands within reviews. This is a deliberate choice: it keeps the focus on the methodology and the data, and reduces the risk that a single contributor's preferences disproportionately influence rankings. Every review applies the same 5-pillar framework documented above; consistency is the credibility signal, not authority by persona.",
+      regionalFraming:
+        "Each regional edition of this site applies the YMYL disclaimer language mandated or expected by that region's primary regulator: DSHEA (US FDA), Reg (EC) 1924/2006 + EFSA register (EU), Health Canada NPN (CA), TGA Therapeutic Goods Advertising Code (AU), PMD Act + FFC + FOSHU (JP), ANVISA / COFEPRIS / ANMAT (LATAM, with a catalogue check against the substances named in the seven products prohibited by ANMAT Disposición 2105/2022 for Argentine traffic), SFDA + Halal certification (GCC), HSA + BPOM + NPRA + Halal mandatory ID/MY (SEA). Cognitive claims that are not approved by the relevant regulator are reframed as ingredient mechanisms or consumer experience and never asserted as label-grade health claims.",
+      contactLead: 'Editorial corrections, regulatory inquiries, partnership requests:',
+      imprintNote: 'For full publisher information see our {imprint}.',
+      imprintLink: 'imprint',
+    },
   },
   shortlist: {
     save: 'Save',
@@ -1567,9 +1687,10 @@ const es: UIStrings = {
     },
     editorChoice: 'Elección editorial',
     euStorefront: 'Tienda en la UE',
+    euStorefrontNote: 'Se vende en una tienda propia de la UE con precios en EUR. No verificamos el cumplimiento normativo de cada producto.',
     maxPrice: 'Máx. {price}',
     actions: 'Acciones',
-    scoreAria: 'Puntuación {score} de 10 — toca o pasa el cursor para ver el desglose',
+    scoreAria: 'Puntuación {score}/10 — toca o pasa el cursor para ver el desglose',
     scoreBreakdown: 'Desglose de la puntuación',
   },
   breadcrumb: {
@@ -1606,7 +1727,7 @@ const es: UIStrings = {
       categories: { ingredients: 'Ingredientes', products: 'Productos', comparisons: 'Comparativas', guides: 'Guías', other: 'Otros' },
       hints: { navigate: 'navegar', open: 'abrir', close: 'cerrar' },
       indexed: '{n} indexados',
-      scoreAria: ', puntuación {score} sobre 10',
+      scoreAria: ', puntuación {score}/10',
       gradeAria: ', grado de evidencia {grade}',
     },
   },
@@ -1649,6 +1770,7 @@ const es: UIStrings = {
       amino: 'Aminoácido',
       herb: 'Hierba',
       vitamin: 'Vitamina',
+      mineral: 'Mineral',
     },
     relatedCategory: {
       adaptogen: 'adaptógeno',
@@ -1657,6 +1779,7 @@ const es: UIStrings = {
       amino: 'aminoácido',
       herb: 'hierba',
       vitamin: 'vitamina',
+      mineral: 'mineral',
     },
     humanTrialsOnly: 'Basado solo en ensayos clínicos en humanos. Se excluyen los datos en animales e in vitro.',
     evidenceStrength: { strong: 'sólida', moderate: 'moderada', preliminary: 'preliminar', mixed: 'mixta' },
@@ -1678,6 +1801,18 @@ const es: UIStrings = {
       trials: 'Ensayos',
     },
     stackingLede: 'Ingredientes que se combinan bien con {name} y por qué.',
+    schema: {
+      headline: '{name} — Guía de ingredientes nootrópicos',
+      datasetName: '{name} — Matriz de efectos clínicos en humanos',
+      datasetDescription:
+        'Resumen estructurado de la evidencia de ensayos clínicos en humanos sobre {name}: solidez de la evidencia, magnitud y número de estudios de cada efecto. Basado en los estudios indexados en PubMed que figuran en la sección Fuentes de la página (evidencia revisada el {date}).',
+      keywords: { nootropic: 'nootrópico', cognitiveSupplement: 'suplemento cognitivo', clinicalTrial: 'ensayo clínico' },
+      effect: '{effect}: evidencia {strength} ({studies}), tamaño del efecto {magnitude}. {notes}',
+      effectNoStudies: '{effect}: evidencia {strength}, tamaño del efecto {magnitude}. {notes}',
+      studiesOne: '1 estudio citado',
+      studiesMany: '{n} estudios citados',
+      magnitude: { large: 'grande', moderate: 'moderado', small: 'pequeño', negligible: 'insignificante' },
+    },
   },
   ingredientEvidence: {
     sources: 'Fuentes',
@@ -1697,7 +1832,7 @@ const es: UIStrings = {
     },
     meta: {
       by: 'Por',
-      productDescriptorByForm: { capsule: 'cápsula nootrópica diaria', tablet: 'comprimido nootrópico diario', sachet: 'sobre nootrópico diario', shot: 'shot nootrópico diario', powder: 'polvo nootrópico para beber', softgel: 'cápsula blanda nootrópica diaria' },
+      productDescriptorByForm: { capsule: 'cápsula nootrópica diaria', tablet: 'comprimido nootrópico diario', sachet: 'sobre nootrópico diario', shot: 'shot nootrópico diario', powder: 'polvo nootrópico para beber', softgel: 'cápsula blanda nootrópica diaria', can: 'bebida nootrópica diaria' },
       updated: 'Actualizado:',
       lastVerified: 'Última verificación:',
       reviewedBy: 'Revisado por el equipo editorial de The Nootropic Lab',
@@ -1717,8 +1852,8 @@ const es: UIStrings = {
       perDayLabel: 'Por día',
       capsules: 'Cáps.',
       dailyServing: 'Dosis diaria',
-      units: { capsule: 'cáps.', tablet: 'comprimidos', sachet: 'sobres', shot: 'shots', powder: 'cacitos', softgel: 'cápsulas blandas' },
-      unitsSingular: { capsule: 'cáp.', tablet: 'comprimido', sachet: 'sobre', shot: 'shot', powder: 'cacito', softgel: 'cápsula blanda' },
+      units: { capsule: 'cáps.', tablet: 'comprimidos', sachet: 'sobres', shot: 'shots', powder: 'cacitos', softgel: 'cápsulas blandas', can: 'latas' },
+      unitsSingular: { capsule: 'cáp.', tablet: 'comprimido', sachet: 'sobre', shot: 'shot', powder: 'cacito', softgel: 'cápsula blanda', can: 'lata' },
       moneyBack: 'Garantía',
       days: 'días',
       daysCount: '{days} días',
@@ -2033,6 +2168,40 @@ const es: UIStrings = {
     teamIdentity: '5. Identidad del equipo editorial',
     regionalFraming: '6. Marco regulatorio por región',
     contact: 'Contacto editorial',
+    body: {
+      intro:
+        'Más allá del marco de puntuación de 5 pilares, cada página de este sitio se elabora conforme a los siguientes estándares editoriales. Estos estándares se aplican a las 8 ediciones regionales y rigen cómo se investiga, revisa, corrige y divulga el contenido.',
+      reviewProtocol:
+        'Los productos se evalúan a partir de las listas de ingredientes publicadas por el fabricante, los registros regulatorios y, cuando están disponibles, los Certificados de Análisis de terceros. Cada dosis de etiqueta de un ingrediente que tiene una dosis de referencia en nuestras páginas de ingredientes se compara con esa dosis, tomada de ensayos clínicos revisados por pares; los ingredientes sin dosis de referencia se muestran, pero no se puntúan.',
+      conflictIntro: 'Ganamos comisiones de afiliado por los enlaces de las páginas comerciales. Las relaciones de afiliación {doNot} influyen en:',
+      conflictDoNot: 'no',
+      conflictItems: [
+        'Las puntuaciones de 5 pilares (se fijan antes de evaluar cualquier programa de afiliados)',
+        'La posición en los rankings de las listas (determinada solo por la puntuación y el ajuste al caso de uso)',
+        'El contenido de pros y contras (las críticas se mantienen incluso en productos con afiliación activa)',
+        'Los veredictos de la auditoría de dosis clínicas (basados únicamente en datos, frente a ECA indexados en PubMed)',
+      ],
+      conflictOutro:
+        'No aceptamos pagos por reseñas, por colocaciones de contenido patrocinado ni por promociones con posición garantizada. Las divulgaciones de afiliados aparecen en la parte superior de cada página comercial, antes del primer llamado a la acción, conforme a la norma FTC 16 CFR Part 255 (EE. UU.), el código CAP de la ASA (Reino Unido) y los códigos publicitarios equivalentes de cada región en la que publicamos.',
+      sourceCitation:
+        'Las afirmaciones sobre dosis clínicas se basan en ensayos controlados aleatorizados en humanos indexados en PubMed, metaanálisis y síntesis de Examine.com. Las afirmaciones regulatorias se basan en documentos primarios de los reguladores (FDA, EFSA, TGA, Health Canada, la Consumer Affairs Agency del MHLW, ANMAT, ANVISA, COFEPRIS, SFDA, BPOM, HSA, NPRA, JAKIM, BPJPH). Cuando una afirmación no puede respaldarse con literatura primaria o con un regulador primario, se omite o se marca como "evidencia limitada" / "solo afirmación del fabricante". No citamos agregadores secundarios (Healthline, Verywell) como fuentes primarias para afirmaciones clínicas.',
+      correctionIntro:
+        'Procuramos responder a las correcciones editoriales sustanciales en un plazo de 5 días hábiles y actualizar o retirar el contenido incorrecto en un plazo de 10 días hábiles desde su verificación. Cuando se hace una corrección:',
+      correctionItems: [
+        'El campo {field} del esquema Article de la página se actualiza para reflejar el cambio.',
+        'En las correcciones de hechos (valores de dosis, situación regulatoria, propiedad de la marca), la afirmación anterior se reemplaza y se añade una breve nota en la página cuando la corrección es relevante para la decisión de compra del lector.',
+        'No eliminamos en silencio afirmaciones publicadas. Las correcciones importantes en comparaciones puntuadas generan una nueva puntuación bajo el mismo marco de 5 pilares, con una fecha visible.',
+      ],
+      correctionContact:
+        'Envía tus correcciones a {email}. Incluye la URL de la página, la afirmación concreta y una fuente primaria que respalde la versión correcta.',
+      teamIdentity:
+        'The Nootropic Lab funciona como un colectivo editorial independiente. No revelamos los nombres de los colaboradores individuales y no presentamos marcas personales en las reseñas. Es una decisión deliberada: mantiene el foco en la metodología y los datos, y reduce el riesgo de que las preferencias de un solo colaborador influyan de forma desproporcionada en los rankings. Cada reseña aplica el mismo marco de 5 pilares documentado arriba; la coherencia es la señal de credibilidad, no la autoridad de una persona.',
+      regionalFraming:
+        'Cada edición regional de este sitio aplica el lenguaje de descargo YMYL que exige o espera el regulador principal de esa región: DSHEA (FDA de EE. UU.), Reg. (CE) 1924/2006 + registro de la EFSA (UE), NPN de Health Canada (CA), Therapeutic Goods Advertising Code de la TGA (AU), Ley PMD + FFC + FOSHU (JP), ANVISA / COFEPRIS / ANMAT (LATAM, con una verificación del catálogo frente a las sustancias nombradas en los siete productos que la ANMAT prohíbe en la Disposición 2105/2022 para el tráfico de Argentina), SFDA + certificación Halal (GCC), HSA + BPOM + NPRA + Halal obligatorio en ID/MY (SEA). Las afirmaciones cognitivas que no aprueba el regulador correspondiente se reformulan como mecanismos de los ingredientes o como experiencia del consumidor, y nunca se presentan como declaraciones de salud de nivel de etiqueta.',
+      contactLead: 'Correcciones editoriales, consultas regulatorias, solicitudes de colaboración:',
+      imprintNote: 'Para ver la información completa del editor, consulta nuestro {imprint}.',
+      imprintLink: 'Aviso legal',
+    },
   },
   shortlist: {
     save: 'Guardar',
@@ -2164,9 +2333,10 @@ const fr: UIStrings = {
     },
     editorChoice: 'Choix de la rédaction',
     euStorefront: 'Boutique UE',
+    euStorefrontNote: 'Vendu par une boutique UE dédiée, avec des prix en EUR. Nous ne vérifions pas la conformité réglementaire de chaque produit.',
     maxPrice: 'Max. {price}',
     actions: 'Actions',
-    scoreAria: 'Note de {score} sur 10 — touchez ou survolez pour voir le détail',
+    scoreAria: 'Note de {score}/10 — touchez ou survolez pour voir le détail',
     scoreBreakdown: 'Détail de la note',
   },
   breadcrumb: {
@@ -2188,7 +2358,7 @@ const fr: UIStrings = {
       categories: { ingredients: 'Ingrédients', products: 'Produits', comparisons: 'Comparatifs', guides: 'Guides', other: 'Autres' },
       hints: { navigate: 'naviguer', open: 'ouvrir', close: 'fermer' },
       indexed: '{n} indexés',
-      scoreAria: ', note de {score} sur 10',
+      scoreAria: ', note de {score}/10',
       gradeAria: ', niveau de preuve {grade}',
     },
     pages: {
@@ -2246,6 +2416,7 @@ const fr: UIStrings = {
       amino: 'Acide aminé',
       herb: 'Plante',
       vitamin: 'Vitamine',
+      mineral: 'Minéral',
     },
     relatedCategory: {
       adaptogen: 'adaptogène',
@@ -2254,6 +2425,7 @@ const fr: UIStrings = {
       amino: 'acide aminé',
       herb: 'plante',
       vitamin: 'vitamine',
+      mineral: 'minéral',
     },
     humanTrialsOnly: 'Fondé uniquement sur des essais cliniques chez l’humain. Données animales et in vitro exclues.',
     evidenceStrength: { strong: 'solides', moderate: 'modérées', preliminary: 'préliminaires', mixed: 'mitigées' },
@@ -2275,6 +2447,18 @@ const fr: UIStrings = {
       trials: 'Essais',
     },
     stackingLede: 'Ingrédients qui se combinent bien avec {name} et pourquoi.',
+    schema: {
+      headline: '{name} — Guide des ingrédients nootropiques',
+      datasetName: '{name} — Matrice des effets cliniques chez l’humain',
+      datasetDescription:
+        'Synthèse structurée des données d’essais cliniques chez l’humain sur {name} : solidité des preuves, ampleur et nombre d’études pour chaque effet. Établie à partir des études indexées dans PubMed listées dans la section Sources de la page (preuves revues le {date}).',
+      keywords: { nootropic: 'nootropique', cognitiveSupplement: 'complément cognitif', clinicalTrial: 'essai clinique' },
+      effect: '{effect} : preuves {strength} ({studies}), ampleur de l’effet {magnitude}. {notes}',
+      effectNoStudies: '{effect} : preuves {strength}, ampleur de l’effet {magnitude}. {notes}',
+      studiesOne: '1 étude citée',
+      studiesMany: '{n} études citées',
+      magnitude: { large: 'importante', moderate: 'modérée', small: 'faible', negligible: 'négligeable' },
+    },
   },
   ingredientEvidence: {
     sources: 'Sources',
@@ -2294,7 +2478,7 @@ const fr: UIStrings = {
     },
     meta: {
       by: 'Par',
-      productDescriptorByForm: { capsule: 'capsule nootropique quotidienne', tablet: 'comprimé nootropique quotidien', sachet: 'sachet nootropique quotidien', shot: 'shot nootropique quotidien', powder: 'poudre nootropique à diluer', softgel: 'capsule molle nootropique quotidienne' },
+      productDescriptorByForm: { capsule: 'capsule nootropique quotidienne', tablet: 'comprimé nootropique quotidien', sachet: 'sachet nootropique quotidien', shot: 'shot nootropique quotidien', powder: 'poudre nootropique à diluer', softgel: 'capsule molle nootropique quotidienne', can: 'boisson nootropique quotidienne' },
       updated: 'Mis à jour :',
       lastVerified: 'Dernière vérification :',
       reviewedBy: "Évalué par l'équipe éditoriale de The Nootropic Lab",
@@ -2314,8 +2498,8 @@ const fr: UIStrings = {
       perDayLabel: 'Par jour',
       capsules: 'Caps.',
       dailyServing: 'Dose quotidienne',
-      units: { capsule: 'gélules', tablet: 'comprimés', sachet: 'sachets', shot: 'shots', powder: 'doses', softgel: 'capsules molles' },
-      unitsSingular: { capsule: 'gélule', tablet: 'comprimé', sachet: 'sachet', shot: 'shot', powder: 'dose', softgel: 'capsule molle' },
+      units: { capsule: 'gélules', tablet: 'comprimés', sachet: 'sachets', shot: 'shots', powder: 'doses', softgel: 'capsules molles', can: 'canettes' },
+      unitsSingular: { capsule: 'gélule', tablet: 'comprimé', sachet: 'sachet', shot: 'shot', powder: 'dose', softgel: 'capsule molle', can: 'canette' },
       moneyBack: 'Garantie',
       days: 'jours',
       daysCount: '{days} jours',
@@ -2756,9 +2940,11 @@ const ja: UIStrings = {
     sortColumns: { score: 'スコア', price: '価格', moneyBack: '返金保証の日数', trustpilot: 'Trustpilotスコア' },
     editorChoice: '編集部のおすすめ',
     euStorefront: 'EU向けストア',
+    // English: Japanese copy is paused (owner decision 2026-10-13) and no host renders the ja bundle.
+    euStorefrontNote: 'Sold through a dedicated EU storefront priced in EUR. We do not verify regulatory compliance per product.',
     maxPrice: '上限 {price}',
     actions: '操作',
-    scoreAria: 'スコア 10点中{score}点 — タップまたはカーソルを合わせると内訳を表示',
+    scoreAria: 'スコア {score}/10 — タップまたはカーソルを合わせると内訳を表示',
     scoreBreakdown: 'スコアの内訳',
   },
   breadcrumb: {
@@ -2795,7 +2981,9 @@ const ja: UIStrings = {
       categories: { ingredients: '成分', products: '製品', comparisons: '比較', guides: 'ガイド', other: 'その他' },
       hints: { navigate: '移動', open: '開く', close: '閉じる' },
       indexed: '{n}件を収録',
-      scoreAria: '、スコア10点中{score}点',
+      // English while Japanese copy is paused (compliance:jp-japanese-paused-2026-10-13;
+      // no host renders ja). i18n.test.ts holds it equal to en.
+      scoreAria: ', score {score}/10',
       gradeAria: '、エビデンス評価{grade}',
     },
   },
@@ -2838,6 +3026,7 @@ const ja: UIStrings = {
       amino: 'アミノ酸',
       herb: 'ハーブ',
       vitamin: 'ビタミン',
+      mineral: 'ミネラル',
     },
     relatedCategory: {
       adaptogen: 'アダプトゲン',
@@ -2846,6 +3035,7 @@ const ja: UIStrings = {
       amino: 'アミノ酸',
       herb: 'ハーブ',
       vitamin: 'ビタミン',
+      mineral: 'ミネラル',
     },
     humanTrialsOnly: 'ヒトを対象とした臨床試験のみに基づいています。動物実験と試験管内（in vitro）のデータは除外しています。',
     evidenceStrength: { strong: '強い', moderate: '中程度', preliminary: '予備的', mixed: '一貫しない' },
@@ -2867,6 +3057,19 @@ const ja: UIStrings = {
       trials: '試験数',
     },
     stackingLede: '{name}と相性の良い成分とその理由。',
+    // English: Japanese copy is paused (owner decision 2026-10-13) and no host renders the ja bundle.
+    schema: {
+      headline: '{name} — Nootropic Ingredient Guide',
+      datasetName: '{name} — Human Clinical Effect Matrix',
+      datasetDescription:
+        "Structured human-clinical-trial evidence summary for {name}: per-effect evidence strength, magnitude, and study count. Sourced from the PubMed-indexed studies listed in the page's Sources section (evidence reviewed {date}).",
+      keywords: { nootropic: 'nootropic', cognitiveSupplement: 'cognitive supplement', clinicalTrial: 'clinical trial' },
+      effect: '{effect}: {strength} evidence ({studies}), {magnitude} effect size. {notes}',
+      effectNoStudies: '{effect}: {strength} evidence, {magnitude} effect size. {notes}',
+      studiesOne: '1 cited study',
+      studiesMany: '{n} cited studies',
+      magnitude: { large: 'large', moderate: 'moderate', small: 'small', negligible: 'negligible' },
+    },
   },
   ingredientEvidence: {
     sources: '出典',
@@ -2886,7 +3089,7 @@ const ja: UIStrings = {
     },
     meta: {
       by: '販売：',
-      productDescriptorByForm: { capsule: '毎日のノートロピクスカプセル', tablet: '毎日のノートロピクス錠剤', sachet: '毎日のノートロピクス分包', shot: '毎日のノートロピクスショット', powder: 'ノートロピクスパウダー', softgel: '毎日のノートロピクスソフトジェル' },
+      productDescriptorByForm: { capsule: '毎日のノートロピクスカプセル', tablet: '毎日のノートロピクス錠剤', sachet: '毎日のノートロピクス分包', shot: '毎日のノートロピクスショット', powder: 'ノートロピクスパウダー', softgel: '毎日のノートロピクスソフトジェル', can: '毎日のノートロピクスドリンク' },
       updated: '更新日：',
       lastVerified: '最終確認日：',
       reviewedBy: 'The Nootropic Lab 編集部による評価',
@@ -2906,8 +3109,8 @@ const ja: UIStrings = {
       perDayLabel: '1日あたり',
       capsules: 'カプセル',
       dailyServing: '1日の目安量',
-      units: { capsule: 'カプセル', tablet: '錠', sachet: '包', shot: '本', powder: 'スクープ', softgel: 'ソフトジェル' },
-      unitsSingular: { capsule: 'カプセル', tablet: '錠', sachet: '包', shot: '本', powder: 'スクープ', softgel: 'ソフトジェル' },
+      units: { capsule: 'カプセル', tablet: '錠', sachet: '包', shot: '本', powder: 'スクープ', softgel: 'ソフトジェル', can: '缶' },
+      unitsSingular: { capsule: 'カプセル', tablet: '錠', sachet: '包', shot: '本', powder: 'スクープ', softgel: 'ソフトジェル', can: '缶' },
       moneyBack: '返金保証',
       days: '日間',
       daysCount: '{days}日間',
@@ -3353,9 +3556,10 @@ const pt: UIStrings = {
     },
     editorChoice: 'Escolha editorial',
     euStorefront: 'Loja na UE',
+    euStorefrontNote: 'Vendido numa loja UE dedicada, com preços em EUR. Não verificamos a conformidade regulamentar de cada produto.',
     maxPrice: 'Máx. {price}',
     actions: 'Ações',
-    scoreAria: 'Pontuação {score} em 10 — toque ou passe o cursor para ver a decomposição',
+    scoreAria: 'Pontuação {score}/10 — toque ou passe o cursor para ver a decomposição',
     scoreBreakdown: 'Decomposição da pontuação',
   },
   breadcrumb: {
@@ -3392,7 +3596,7 @@ const pt: UIStrings = {
       categories: { ingredients: 'Ingredientes', products: 'Produtos', comparisons: 'Comparações', guides: 'Guias', other: 'Outros' },
       hints: { navigate: 'navegar', open: 'abrir', close: 'fechar' },
       indexed: '{n} indexados',
-      scoreAria: ', pontuação {score} em 10',
+      scoreAria: ', pontuação {score}/10',
       gradeAria: ', grau de evidência {grade}',
     },
   },
@@ -3435,6 +3639,7 @@ const pt: UIStrings = {
       amino: 'Aminoácido',
       herb: 'Erva',
       vitamin: 'Vitamina',
+      mineral: 'Mineral',
     },
     relatedCategory: {
       adaptogen: 'adaptógeno',
@@ -3443,6 +3648,7 @@ const pt: UIStrings = {
       amino: 'aminoácido',
       herb: 'erva',
       vitamin: 'vitamina',
+      mineral: 'mineral',
     },
     humanTrialsOnly: 'Baseado apenas em ensaios clínicos em humanos. Dados em animais e in vitro excluídos.',
     evidenceStrength: { strong: 'forte', moderate: 'moderada', preliminary: 'preliminar', mixed: 'mista' },
@@ -3464,6 +3670,18 @@ const pt: UIStrings = {
       trials: 'Ensaios',
     },
     stackingLede: 'Ingredientes que combinam bem com {name} e por quê.',
+    schema: {
+      headline: '{name} — Guia de ingredientes nootrópicos',
+      datasetName: '{name} — Matriz de efeitos clínicos em humanos',
+      datasetDescription:
+        'Resumo estruturado da evidência de ensaios clínicos em humanos sobre {name}: solidez da evidência, magnitude e número de estudos de cada efeito. Baseado nos estudos indexados na PubMed listados na secção Fontes da página (evidência revista em {date}).',
+      keywords: { nootropic: 'nootrópico', cognitiveSupplement: 'suplemento cognitivo', clinicalTrial: 'ensaio clínico' },
+      effect: '{effect}: evidência {strength} ({studies}), magnitude do efeito {magnitude}. {notes}',
+      effectNoStudies: '{effect}: evidência {strength}, magnitude do efeito {magnitude}. {notes}',
+      studiesOne: '1 estudo citado',
+      studiesMany: '{n} estudos citados',
+      magnitude: { large: 'grande', moderate: 'moderada', small: 'pequena', negligible: 'negligenciável' },
+    },
   },
   ingredientEvidence: {
     sources: 'Fontes',
@@ -3483,7 +3701,7 @@ const pt: UIStrings = {
     },
     meta: {
       by: 'Por',
-      productDescriptorByForm: { capsule: 'cápsula nootrópica diária', tablet: 'comprimido nootrópico diário', sachet: 'sachê nootrópico diário', shot: 'shot nootrópico diário', powder: 'pó nootrópico para beber', softgel: 'cápsula gelatinosa nootrópica diária' },
+      productDescriptorByForm: { capsule: 'cápsula nootrópica diária', tablet: 'comprimido nootrópico diário', sachet: 'sachê nootrópico diário', shot: 'shot nootrópico diário', powder: 'pó nootrópico para beber', softgel: 'cápsula gelatinosa nootrópica diária', can: 'bebida nootrópica diária' },
       updated: 'Atualizado:',
       lastVerified: 'Última verificação:',
       reviewedBy: 'Avaliado pela equipa editorial do The Nootropic Lab',
@@ -3503,8 +3721,8 @@ const pt: UIStrings = {
       perDayLabel: 'Por dia',
       capsules: 'Cáps.',
       dailyServing: 'Dose diária',
-      units: { capsule: 'cáps.', tablet: 'comprimidos', sachet: 'sachês', shot: 'shots', powder: 'doses', softgel: 'cápsulas gelatinosas' },
-      unitsSingular: { capsule: 'cáp.', tablet: 'comprimido', sachet: 'sachê', shot: 'shot', powder: 'dose', softgel: 'cápsula gelatinosa' },
+      units: { capsule: 'cáps.', tablet: 'comprimidos', sachet: 'sachês', shot: 'shots', powder: 'doses', softgel: 'cápsulas gelatinosas', can: 'latas' },
+      unitsSingular: { capsule: 'cáp.', tablet: 'comprimido', sachet: 'sachê', shot: 'shot', powder: 'dose', softgel: 'cápsula gelatinosa', can: 'lata' },
       moneyBack: 'Garantia',
       days: 'dias',
       daysCount: '{days} dias',
@@ -3949,9 +4167,10 @@ const de: UIStrings = {
     },
     editorChoice: 'Empfehlung der Redaktion',
     euStorefront: 'EU-Shop',
+    euStorefrontNote: 'Über einen eigenen EU-Shop mit EUR-Preisen verkauft. Die Einhaltung der Vorschriften prüfen wir nicht je Produkt.',
     maxPrice: 'Max. {price}',
     actions: 'Aktionen',
-    scoreAria: 'Bewertung {score} von 10 – tippen oder mit der Maus darauf zeigen für die Aufschlüsselung',
+    scoreAria: 'Bewertung {score}/10 – tippen oder mit der Maus darauf zeigen für die Aufschlüsselung',
     scoreBreakdown: 'Aufschlüsselung der Bewertung',
   },
   breadcrumb: {
@@ -3988,7 +4207,7 @@ const de: UIStrings = {
       categories: { ingredients: 'Inhaltsstoffe', products: 'Produkte', comparisons: 'Vergleiche', guides: 'Ratgeber', other: 'Sonstiges' },
       hints: { navigate: 'navigieren', open: 'öffnen', close: 'schließen' },
       indexed: '{n} indexiert',
-      scoreAria: ', Bewertung {score} von 10',
+      scoreAria: ', Bewertung {score}/10',
       gradeAria: ', Evidenzgrad {grade}',
     },
   },
@@ -4031,6 +4250,7 @@ const de: UIStrings = {
       amino: 'Aminosäure',
       herb: 'Heilkraut',
       vitamin: 'Vitamin',
+      mineral: 'Mineralstoff',
     },
     relatedCategory: {
       adaptogen: 'Adaptogen',
@@ -4039,6 +4259,7 @@ const de: UIStrings = {
       amino: 'Aminosäure',
       herb: 'Heilkraut',
       vitamin: 'Vitamin',
+      mineral: 'Mineralstoff',
     },
     humanTrialsOnly: 'Nur auf Grundlage klinischer Studien am Menschen. Tier- und In-vitro-Daten ausgeschlossen.',
     evidenceStrength: { strong: 'stark', moderate: 'mäßig', preliminary: 'vorläufig', mixed: 'uneinheitlich' },
@@ -4060,6 +4281,18 @@ const de: UIStrings = {
       trials: 'Studien',
     },
     stackingLede: 'Inhaltsstoffe, die gut mit {name} kombinieren — und warum.',
+    schema: {
+      headline: '{name} — Ratgeber zu nootropen Inhaltsstoffen',
+      datasetName: '{name} — Matrix der klinischen Wirkungen beim Menschen',
+      datasetDescription:
+        'Strukturierte Zusammenfassung der Evidenz aus klinischen Studien am Menschen zu {name}: Evidenzstärke, Effektgröße und Studienzahl je Wirkung. Grundlage sind die in PubMed indexierten Studien im Abschnitt „Quellen“ der Seite (Evidenz geprüft am {date}).',
+      keywords: { nootropic: 'Nootropikum', cognitiveSupplement: 'kognitives Nahrungsergänzungsmittel', clinicalTrial: 'klinische Studie' },
+      effect: '{effect} — Evidenz: {strength} ({studies}), Effektgröße: {magnitude}. {notes}',
+      effectNoStudies: '{effect} — Evidenz: {strength}, Effektgröße: {magnitude}. {notes}',
+      studiesOne: '1 zitierte Studie',
+      studiesMany: '{n} zitierte Studien',
+      magnitude: { large: 'groß', moderate: 'mittel', small: 'klein', negligible: 'vernachlässigbar' },
+    },
   },
   ingredientEvidence: {
     sources: 'Quellen',
@@ -4079,7 +4312,7 @@ const de: UIStrings = {
     },
     meta: {
       by: 'Von',
-      productDescriptorByForm: { capsule: 'tägliche Nootropika-Kapsel', tablet: 'tägliche Nootropika-Tablette', sachet: 'täglicher Nootropika-Beutel', shot: 'täglicher Nootropika-Shot', powder: 'Nootropika-Trinkpulver', softgel: 'tägliche Nootropika-Weichkapsel' },
+      productDescriptorByForm: { capsule: 'tägliche Nootropika-Kapsel', tablet: 'tägliche Nootropika-Tablette', sachet: 'täglicher Nootropika-Beutel', shot: 'täglicher Nootropika-Shot', powder: 'Nootropika-Trinkpulver', softgel: 'tägliche Nootropika-Weichkapsel', can: 'tägliches Nootropika-Getränk' },
       updated: 'Aktualisiert:',
       lastVerified: 'Zuletzt geprüft:',
       reviewedBy: 'Geprüft von der Redaktion von The Nootropic Lab',
@@ -4099,8 +4332,8 @@ const de: UIStrings = {
       perDayLabel: 'Pro Tag',
       capsules: 'Kapseln',
       dailyServing: 'Tagesdosis',
-      units: { capsule: 'Kapseln', tablet: 'Tabletten', sachet: 'Beutel', shot: 'Shots', powder: 'Messlöffel', softgel: 'Weichkapseln' },
-      unitsSingular: { capsule: 'Kapsel', tablet: 'Tablette', sachet: 'Beutel', shot: 'Shot', powder: 'Messlöffel', softgel: 'Weichkapsel' },
+      units: { capsule: 'Kapseln', tablet: 'Tabletten', sachet: 'Beutel', shot: 'Shots', powder: 'Messlöffel', softgel: 'Weichkapseln', can: 'Dosen' },
+      unitsSingular: { capsule: 'Kapsel', tablet: 'Tablette', sachet: 'Beutel', shot: 'Shot', powder: 'Messlöffel', softgel: 'Weichkapsel', can: 'Dose' },
       moneyBack: 'Geld-zurück',
       days: 'Tage',
       daysCount: '{days} Tage',
@@ -4550,9 +4783,10 @@ const frCa: UIStrings = {
     },
     editorChoice: 'Choix de la rédaction',
     euStorefront: 'Boutique dans l’UE',
+    euStorefrontNote: 'Vendu par une boutique dédiée dans l’UE, avec des prix en EUR. Nous ne vérifions pas la conformité réglementaire de chaque produit.',
     maxPrice: 'Max. {price}',
     actions: 'Actions',
-    scoreAria: 'Score de {score} sur 10 — touchez ou survolez pour voir le détail',
+    scoreAria: 'Score de {score}/10 — touchez ou survolez pour voir le détail',
     scoreBreakdown: 'Détail du score',
   },
   breadcrumb: {
@@ -4574,7 +4808,7 @@ const frCa: UIStrings = {
       categories: { ingredients: 'Ingrédients', products: 'Produits', comparisons: 'Comparatifs', guides: 'Guides', other: 'Autres' },
       hints: { navigate: 'naviguer', open: 'ouvrir', close: 'fermer' },
       indexed: '{n} indexés',
-      scoreAria: ', score de {score} sur 10',
+      scoreAria: ', score de {score}/10',
       gradeAria: ', niveau de preuve {grade}',
     },
     pages: {
@@ -4632,6 +4866,7 @@ const frCa: UIStrings = {
       amino: 'Acide aminé',
       herb: 'Plante médicinale',
       vitamin: 'Vitamine',
+      mineral: 'Minéral',
     },
     relatedCategory: {
       adaptogen: 'adaptogène',
@@ -4640,6 +4875,7 @@ const frCa: UIStrings = {
       amino: 'acide aminé',
       herb: 'plante médicinale',
       vitamin: 'vitamine',
+      mineral: 'minéral',
     },
     humanTrialsOnly: 'Fondé uniquement sur des essais cliniques chez l’humain. Les données animales et in vitro sont exclues.',
     evidenceStrength: { strong: 'solides', moderate: 'modérées', preliminary: 'préliminaires', mixed: 'mitigées' },
@@ -4661,6 +4897,18 @@ const frCa: UIStrings = {
       trials: 'Essais cliniques',
     },
     stackingLede: 'Ingrédients qui se combinent bien avec {name} et les raisons pour lesquelles.',
+    schema: {
+      headline: '{name} — Guide des ingrédients nootropiques',
+      datasetName: '{name} — Matrice des effets cliniques chez l’humain',
+      datasetDescription:
+        'Synthèse structurée des données d’essais cliniques chez l’humain sur {name} : solidité des preuves, ampleur et nombre d’études pour chaque effet. Établie à partir des études indexées dans PubMed énumérées dans la section Sources de la page (preuves revues le {date}).',
+      keywords: { nootropic: 'nootropique', cognitiveSupplement: 'supplément cognitif', clinicalTrial: 'essai clinique' },
+      effect: '{effect} : preuves {strength} ({studies}), ampleur de l’effet {magnitude}. {notes}',
+      effectNoStudies: '{effect} : preuves {strength}, ampleur de l’effet {magnitude}. {notes}',
+      studiesOne: '1 étude citée',
+      studiesMany: '{n} études citées',
+      magnitude: { large: 'importante', moderate: 'modérée', small: 'faible', negligible: 'négligeable' },
+    },
   },
   ingredientEvidence: {
     sources: 'Sources',
@@ -4680,7 +4928,7 @@ const frCa: UIStrings = {
     },
     meta: {
       by: 'Par',
-      productDescriptorByForm: { capsule: 'capsule nootropique quotidienne', tablet: 'comprimé nootropique quotidien', sachet: 'sachet nootropique quotidien', shot: 'shot nootropique quotidien', powder: 'poudre nootropique à diluer', softgel: 'capsule molle nootropique quotidienne' },
+      productDescriptorByForm: { capsule: 'capsule nootropique quotidienne', tablet: 'comprimé nootropique quotidien', sachet: 'sachet nootropique quotidien', shot: 'shot nootropique quotidien', powder: 'poudre nootropique à diluer', softgel: 'capsule molle nootropique quotidienne', can: 'boisson nootropique quotidienne' },
       updated: 'Mis à jour :',
       lastVerified: 'Dernière vérification :',
       reviewedBy: "Évalué par l'équipe éditoriale de The Nootropic Lab",
@@ -4696,8 +4944,8 @@ const frCa: UIStrings = {
       perDayLabel: 'Par jour',
       capsules: 'Gélules',
       dailyServing: 'Dose quotidienne',
-      units: { capsule: 'gélules', tablet: 'comprimés', sachet: 'sachets', shot: 'shots', powder: 'doses', softgel: 'capsules molles' },
-      unitsSingular: { capsule: 'gélule', tablet: 'comprimé', sachet: 'sachet', shot: 'shot', powder: 'dose', softgel: 'capsule molle' },
+      units: { capsule: 'gélules', tablet: 'comprimés', sachet: 'sachets', shot: 'shots', powder: 'doses', softgel: 'capsules molles', can: 'canettes' },
+      unitsSingular: { capsule: 'gélule', tablet: 'comprimé', sachet: 'sachet', shot: 'shot', powder: 'dose', softgel: 'capsule molle', can: 'canette' },
       moneyBack: 'Remboursement',
       days: 'jours',
       daysCount: '{days} jours',

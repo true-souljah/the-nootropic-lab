@@ -149,8 +149,8 @@ export interface Product {
   servingsPerContainer: number;
   /**
    * Units of `form` per daily serving (capsules, tablets, sachets, shots,
-   * powder scoops or softgels — the name predates `form`). Render it through
-   * `servingAmount()` / `servingUnit()` (serving-unit.ts), never with
+   * powder scoops, softgels or cans — the name predates `form`). Render it
+   * through `servingAmount()` / `servingUnit()` (serving-unit.ts), never with
    * hard-coded capsule wording.
    */
   capsulesPerServing: number;
@@ -158,9 +158,10 @@ export interface Product {
    * Dosage form of one unit. Absent = `'capsule'` (the default for most
    * records). `'powder'` = one scoop of a drink powder. `'softgel'` = a soft
    * gel capsule (gelatin or plant-based shell), such as an omega-3 NutriGel.
+   * `'can'` = one ready-to-drink can, such as Neutonic Productivity Drink.
    * Validated by `formProblem()` in product-rules.ts.
    */
-  form?: 'capsule' | 'tablet' | 'sachet' | 'shot' | 'powder' | 'softgel';
+  form?: 'capsule' | 'tablet' | 'sachet' | 'shot' | 'powder' | 'softgel' | 'can';
   summary: string;
   whatItIs: string;
   howItWorks: string;
@@ -228,6 +229,18 @@ export interface Product {
   distributionChannelsSea?: string[];
   importPathway?: string;
   regulatoryNote?: string;
+  /**
+   * The vendor states the product is stocked and dispatched inside the
+   * region. Suppresses the import-status chip (read by the AU licence line:
+   * a record without an AUST L number would otherwise show "Personal
+   * Importation Scheme"). Never set without a quoted vendor statement:
+   * `basis` quotes it with its page URL, `checkedAt` (YYYY-MM-DD) is when it
+   * was read. Shape checked by domesticSupplyProblems (product-rules.ts).
+   */
+  domesticSupply?: {
+    basis: string;
+    checkedAt: string;
+  };
   /**
    * Halal certification status. Meaningful primarily on products served by
    * the SEA + GCC market apps, where halal is a federal-law requirement for
@@ -302,6 +315,25 @@ export interface Product {
    * Shape checked by `noPurchaseLinkProblem()` in validate-data.
    */
   noPurchaseLink?: NoPurchaseLink;
+  /**
+   * The page language's text for the fields that double as data keys. Set
+   * only by a translation overlay (products-latam-es.ts), never in a
+   * products-*.json record. Templates show it in place of the English;
+   * the comparator's goal filter (`bestFor`), dosing anchors, verdicts and
+   * tallies (`ingredientDosages`) and the hero-dose lookup
+   * (`heroIngredients`) keep reading the English fields.
+   */
+  display?: ProductDisplayText;
+}
+
+/** Page-language text for `bestFor`, `heroIngredients` and `ingredientDosages` (see Product.display). */
+export interface ProductDisplayText {
+  /** Same order and length as `bestFor`. */
+  bestFor: string[];
+  /** Same order and length as `heroIngredients`. */
+  heroIngredients: string[];
+  /** Same order and length as `ingredientDosages`: each row's name and label amount. */
+  ingredientDosages: Array<Pick<IngredientDosage, 'name' | 'doseInProduct'>>;
 }
 
 /** Why an edition shows no purchase link for a product. */

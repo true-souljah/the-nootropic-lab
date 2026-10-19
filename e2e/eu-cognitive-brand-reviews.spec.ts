@@ -31,6 +31,7 @@ const REVIEW_ROUTES = [
   '/performance-lab-mind-review/',
   '/brainzyme-focus-pro-review/',
   '/hunter-focus-review/',
+  '/neutonic-productivity-drink-review/',
 ];
 
 // Discontinued products (Performance Lab Mind 2026-09-28) keep their review

@@ -24,9 +24,38 @@ export interface QuizAnswers {
   mbg: MBGImportance;
 }
 
+/**
+ * The product `bestFor` tags each quiz goal matches. The quiz describes
+ * "Aging support" as "Long-term brain health", so it also matches that tag
+ * (operator decision 2026-10-19).
+ */
+const GOAL_TAGS: Record<QuizGoal, readonly string[]> = {
+  Focus: ['Focus'],
+  Memory: ['Memory'],
+  Energy: ['Energy'],
+  Mood: ['Mood'],
+  'Sleep recovery': ['Sleep recovery'],
+  'Aging support': ['Aging support', 'Long-term brain health'],
+};
+
+export function listsGoal(productBestFor: string[], goal: QuizGoal): boolean {
+  return GOAL_TAGS[goal].some((tag) => productBestFor.includes(tag));
+}
+
+/**
+ * Which products are listed for any of the user's goals, and whether the top
+ * match is one of them. The goal multiplier only lowers a product that is not
+ * listed, so a top match listed for none of the goals is the closest fit for
+ * the other answers, not a match for the goal.
+ */
+export function goalListing(products: Product[], top: Product, goals: QuizGoal[]): { topListed: boolean; listed: Product[] } {
+  const lists = (p: Product) => goals.some((g) => listsGoal(p.bestFor, g));
+  return { topListed: goals.length === 0 || lists(top), listed: products.filter(lists) };
+}
+
 export function goalsFit(productBestFor: string[], userGoals: QuizGoal[]): number {
   if (userGoals.length === 0) return 1.0;
-  const overlap = userGoals.filter((g) => productBestFor.includes(g)).length;
+  const overlap = userGoals.filter((g) => listsGoal(productBestFor, g)).length;
   if (userGoals.length === 2) {
     if (overlap === 2) return 1.2;
     if (overlap === 1) return 0.85;

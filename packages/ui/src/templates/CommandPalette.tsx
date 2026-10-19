@@ -31,7 +31,7 @@ export const PALETTE_STRINGS_EN: PaletteStrings = {
   categories: { ingredients: 'Ingredients', products: 'Products', comparisons: 'Comparisons', guides: 'Guides', other: 'Other' },
   hints: { navigate: 'navigate', open: 'open', close: 'close' },
   indexed: '{n} indexed',
-  scoreAria: ', score {score} out of 10',
+  scoreAria: ', score {score}/10',
   gradeAria: ', evidence grade {grade}',
 };
 
@@ -290,19 +290,22 @@ export default function CommandPalette({
         ref={triggerRef}
         type="button"
         onClick={handleOpen}
-        // aria-label uses "Command+K" — the spoken-friendly form
-        // of the keyboard shortcut. The visible ⌘K via the <kbd>
-        // child is decorative (aria-hidden=true) so AT users only
-        // ever hear the spelled-out chord. PR-Q67 fix: many AT
-        // engines (NVDA / JAWS / VoiceOver) pronounce ⌘ U+2318
-        // PLACE OF INTEREST SIGN literally as "place of interest
-        // sign", not as "command" — making the shortcut hint
-        // unrecognisable.
-        aria-label={`${trigger} (Command+K)`}
+        // The name comes from the content: the visible word, then the
+        // visually hidden " (Command+K)", so AT users hear
+        // "Search (Command+K)". The visible ⌘K <kbd> is aria-hidden.
+        // PR-Q67: many AT engines (NVDA / JAWS / VoiceOver) pronounce
+        // ⌘ U+2318 PLACE OF INTEREST SIGN literally as "place of
+        // interest sign", not as "command", so ⌘ must never reach
+        // the name. No aria-label: an aria-label overrides the content
+        // and must contain the visible text (WCAG 2.5.3 Label in Name),
+        // and that text includes the "K" of the <kbd>. axe-core 4.14's
+        // label-content-name-mismatch flags "Search (Command+K)" for
+        // this, because it drops parenthesised text before comparing.
         className="hidden md:inline-flex items-center gap-2 bg-ds-card-sub border border-ds-border text-ds-muted text-[13px] px-3 py-[6px] rounded-[8px] hover:text-ds-ink hover:border-ds-border-strong focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
       >
         <Search size={14} strokeWidth={2} aria-hidden={true} />
         <span>{trigger}</span>
+        <span className="ds-sr-only"> (Command+K)</span>
         <kbd
           aria-hidden="true"
           className="text-[11px] bg-ds-card border border-ds-border px-[6px] py-[1px] rounded-[4px] font-medium text-ds-muted"
@@ -533,7 +536,19 @@ function Section({
   );
 }
 
-function ResultRow({
+/**
+ * One result option (exported for command-palette-label-in-name.test.ts).
+ *
+ * The option is named by its content, with no aria-label: an aria-label
+ * replaces the content and must contain the visible text (WCAG 2.5.3 Label in
+ * Name), and that text includes the letter tile ("M"), the score pill ("7.5")
+ * and the "↵" key cap, which axe-core 4.14's label-content-name-mismatch counts
+ * although they are aria-hidden. The name is the title, then the score or
+ * evidence grade and the " — " before the description in visually hidden
+ * text, then the description: "Mind Lab Pro, score 7.5/10 — …". The tile, the
+ * pill and the key cap only repeat or decorate that text and stay aria-hidden.
+ */
+export function ResultRow({
   strings,
   item,
   active,
@@ -550,16 +565,15 @@ function ResultRow({
   onMouseEnter: () => void;
   onClick: () => void;
 }) {
-  // Build a single aria-label that includes the meta value so screen
-  // readers announce score / grade as part of the option name (per the
-  // M6 a11y review — listbox options speak their accessible name, not
-  // arbitrary visual children).
+  // The score / grade is part of the option's name (per the M6 a11y review —
+  // listbox options speak their accessible name, not arbitrary visual
+  // children), spoken right after the title.
   const metaSpoken = item.meta?.score !== undefined
     ? strings.scoreAria.replace('{score}', item.meta.score.toFixed(1))
     : item.meta?.grade
       ? strings.gradeAria.replace('{grade}', item.meta.grade)
       : '';
-  const ariaLabel = `${item.title}${metaSpoken}${item.description ? ` — ${item.description}` : ''}`;
+  const spokenAfterTitle = `${metaSpoken}${item.description ? ' — ' : ''}`;
 
   return (
     <Link
@@ -567,7 +581,6 @@ function ResultRow({
       id={id}
       role="option"
       aria-selected={active}
-      aria-label={ariaLabel}
       data-result-index={dataIndex}
       // WCAG combobox pattern (PR-Q51): the input owns the
       // listbox via aria-activedescendant; rows must NOT be Tab
@@ -588,13 +601,18 @@ function ResultRow({
     >
       <CategoryTile category={item.category} title={item.title} grade={item.meta?.grade} />
       <div className="flex-1 min-w-0">
-        <div className="font-semibold text-[14px] text-ds-ink truncate">{item.title}</div>
+        <div className="font-semibold text-[14px] text-ds-ink truncate">
+          {item.title}
+          {spokenAfterTitle && <span className="ds-sr-only">{spokenAfterTitle}</span>}
+        </div>
         {item.description && (
-          <div className="text-[12px] text-ds-muted truncate">{item.description}</div>
+          // ds-muted on the active row's accent-soft highlight is 4.47:1,
+          // under WCAG 1.4.3's 4.5:1 for this 12px text; ds-ink-soft is 7.9:1.
+          <div className={`text-[12px] truncate ${active ? 'text-ds-ink-soft' : 'text-ds-muted'}`}>{item.description}</div>
         )}
       </div>
       {/* Right-aligned meta — aria-hidden because the score/grade is
-          already in the option's aria-label above. */}
+          already spoken after the title (visually hidden text above). */}
       <div className="flex items-center gap-2 shrink-0" aria-hidden="true">
         {item.meta?.score !== undefined && <ScorePill score={item.meta.score} />}
         {active && (

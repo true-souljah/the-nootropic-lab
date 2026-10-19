@@ -44,6 +44,9 @@ function newLeaves(locale: Locale): Map<string, string> {
   const i = s.ingredientDetail;
   const g = s.guide;
   const { useCaseLabels: _useCaseLabels, ...listicle } = s.listicle;
+  // The eight headings are this change's chrome; the policy text (`body`,
+  // en and es only, 2026-10-19) is checked in products-latam-es.test.ts.
+  const { body: _editorialBody, ...editorialHeadings } = s.editorialStandards;
   return new Map([
     ['nav.productCount', s.nav.productCount],
     ['nav.ingredientCount', s.nav.ingredientCount],
@@ -87,7 +90,7 @@ function newLeaves(locale: Locale): Map<string, string> {
     ...leaves(s.comparator, 'comparator'),
     ...leaves(s.ingredientLibrary, 'ingredientLibrary'),
     ...leaves(s.geo, 'geo'),
-    ...leaves(s.editorialStandards, 'editorialStandards'),
+    ...leaves(editorialHeadings, 'editorialStandards'),
     ...leaves(s.shortlist, 'shortlist'),
   ]);
 }
@@ -144,8 +147,9 @@ const PLACEHOLDERS: Record<string, string[]> = {
 /**
  * Identical to en on purpose: Trustpilot is a brand name; "Actions" and
  * "Commission" are the same word in French; fr-CA writes "score" (its bundle
- * already says "Notre score"). Every other new string differs from en, and
- * every other ja string contains Japanese script.
+ * already says "Notre score"); "mineral" is the same word in Spanish and
+ * Portuguese. Every other new string differs from en, and every other ja
+ * string contains Japanese script.
  */
 const DO_NOT_TRANSLATE: Record<string, Locale[]> = {
   'comparator.columns.trustpilot': ['es', 'fr', 'ja', 'pt', 'de', 'fr-CA'],
@@ -153,13 +157,14 @@ const DO_NOT_TRANSLATE: Record<string, Locale[]> = {
   'bestOf.commission': ['fr', 'fr-CA'],
   'table.sortColumns.score': ['fr-CA'],
   'comparator.columns.score': ['fr-CA'],
+  'ingredientDetail.relatedCategory.mineral': ['es', 'pt'],
 };
 const exempt = (path: string, locale: Locale) => DO_NOT_TRANSLATE[path]?.includes(locale) ?? false;
 const enLeaves = newLeaves('en');
 
 describe('new chrome strings (2026-10-12): every locale, every key', () => {
-  test('the scan is non-empty: 187 new strings in en', () => {
-    expect(enLeaves.size).toBe(187);
+  test('the scan is non-empty: 188 new strings in en', () => {
+    expect(enLeaves.size).toBe(188);
   });
 
   test.each(ALL_LOCALES)('%s has every key, non-empty', (locale) => {
@@ -204,7 +209,9 @@ describe('new chrome strings (2026-10-12): every locale, every key', () => {
     expect(tpl(s.byline.readTime, { minutes: 8 })).toBe('8 min read');
     expect(tpl(s.ingredientDetail.topStacks, { name: 'Ashwagandha' })).toBe('Top stacks containing Ashwagandha');
     expect(s.ingredientDetail.humanTrialsOnly).toBe('Based on human clinical trials only. Animal and in-vitro data excluded.');
-    expect(tpl(s.table.scoreAria, { score: 7.5 })).toBe('Score 7.5 out of 10 — tap or hover for breakdown');
+    // "7.5/10", not "7.5 out of 10" since 2026-10-19: the name must contain the
+    // score button's visible "7.5/10" (WCAG 2.5.3; see the Label in Name test).
+    expect(tpl(s.table.scoreAria, { score: 7.5 })).toBe('Score 7.5/10 — tap or hover for breakdown');
     expect(tpl(s.bestOf.subtitle, { audited: 5, listed: 5, version: 'v3.2', date: '12 Oct 2026' })).toBe(
       '5 audited · 5 listed · methodology v3.2 · refreshed 12 Oct 2026',
     );
@@ -273,6 +280,28 @@ describe('comparison table sort controls are named in words, never record fields
     const html = text(renderToStaticMarkup(createElement(ComparisonTable, { products: productsUS, market: 'us' })));
     expect(html).toContain('aria-label="Sort by Trustpilot score"');
     expect(html).not.toMatch(/Sort by (trustpilotScore|moneyBackDays)/);
+  });
+});
+
+// WCAG 2.5.3 Label in Name (axe-core 4.14 label-content-name-mismatch, no
+// longer experimental): an aria-label replaces the button's text, so it must
+// contain the text the button shows. The score buttons showed "7.5/10" but were
+// named "Score 7.5 out of 10 — …" ("Note de 7.5 sur 10", "スコア 10点中7.5点", …),
+// so a speech-input user saying what they see matched nothing.
+describe('comparison table score buttons are named with the text they show (WCAG 2.5.3)', () => {
+  /** [accessible name, visible text] of each ScoreTooltip button (desktop rows and mobile cards). */
+  function scoreButtons(locale: Locale): Array<[string, string]> {
+    const html = text(renderToStaticMarkup(createElement(ComparisonTable, { products: productsUS, market: 'us', strings: getStrings(locale) })));
+    return [...html.matchAll(/<button class="[^"]*\bcursor-help\b[^"]*" aria-label="([^"]*)"[^>]*>([^<]*)<\/button>/g)].map((m) => [m[1], m[2]]);
+  }
+
+  test.each(ALL_LOCALES)('%s: every score button name contains its visible "x/10"', (locale) => {
+    const buttons = scoreButtons(locale);
+    expect(buttons.length, 'one per product in the rows and one in the mobile cards').toBe(productsUS.length * 2);
+    for (const [name, shown] of buttons) {
+      expect(shown, `${locale}: visible text`).toMatch(/^\d+(\.\d+)?\/10$/);
+      expect(name, `${locale}: "${name}" does not contain "${shown}"`).toContain(shown);
+    }
   });
 });
 
@@ -595,7 +624,10 @@ describe('locale typography', () => {
   test('no ja string ends in a Latin colon or full stop, or in a space', () => {
     // noPurchaseLink is the English bundle on purpose (purchase-link.ts, site-owner decision 2026-10-08).
     const { noPurchaseLink: _english, ...ja } = getStrings('ja');
-    const bad = leaves(ja, 'ja').filter(([, v]) => /[:.]$|\s$/.test(v));
+    // English sentences on purpose: keys added 2026-10-15 while Japanese copy is paused
+    // (compliance:jp-japanese-paused-2026-10-13); i18n-leftovers.test.ts holds them equal to en.
+    const englishWhilePaused = /^ja\.(table\.euStorefrontNote|ingredientDetail\.schema\.)/;
+    const bad = leaves(ja, 'ja').filter(([path, v]) => !englishWhilePaused.test(path) && /[:.]$|\s$/.test(v));
     expect(bad).toEqual([]);
   });
 });
