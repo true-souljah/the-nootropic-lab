@@ -17,8 +17,10 @@ import BestOf from './templates/BestOf';
 import HeadToHead from './templates/HeadToHead';
 import ProductDetail from './templates/ProductDetail';
 
-// Amazon Associates (owner 2026-10-19): the site has a US (amazon.com) account
-// only, tag souljah03-20. Facts from Amazon's Standard Commission Income
+// Amazon Associates (owner 2026-10-19; account map read 2026-10-20): the site's
+// only tagged links go to the US (amazon.com) store, tag souljah03-20; the US
+// account also has seven linked stores (CA souljah04-20, UK, DE, FR, IT, PL, BE)
+// that no record links to yet. Facts from Amazon's Standard Commission Income
 // Statement and Operating Agreement (read 2026-10-19):
 // - Grocery and Health & Personal Care pay 1.00%; the attribution window is
 //   24 hours, stored as cookieDays 1 and rendered "1 day";
@@ -26,8 +28,10 @@ import ProductDetail from './templates/ProductDetail';
 //   purchases." wherever it uses Associates links;
 // - an Amazon price copied by hand may not be shown, so an Associates record
 //   carries no amazon.* store price.
-// Canada, Australia, Singapore and Japan have no account: their Amazon links
-// stay untagged and the records carry the "0%" no-commission convention.
+// Australia, Singapore and Japan have no account, and the Canada store has no
+// NatureBell listing to tag (amazon.ca/dp/B09F4ML3FF returned 404 on
+// 2026-10-20): those Amazon links stay untagged and the records carry the
+// "0%" no-commission convention.
 // scripts/check-built-disclosure.ts checks the statement on the built pages.
 
 const TAG = 'souljah03-20';
