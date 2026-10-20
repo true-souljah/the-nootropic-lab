@@ -123,3 +123,26 @@ details > summary:focus-visible {
     font-size: 16px !important;
   }
 }
+
+/* Phones (Tailwind's max-md range): a word longer than its line breaks
+   instead of widening the page. Bare URLs in the review pages' source notes
+   and long ingredient names in the 44px heading ("Phosphatidylserine") made
+   pages scroll sideways (live sweep 2026-10-19; gate: npm run
+   check:overflow). break-word, not anywhere: a word that fits is never
+   split. Desktop is untouched. */
+@media (width < 48rem) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  li,
+  dt,
+  dd,
+  blockquote,
+  figcaption {
+    overflow-wrap: break-word;
+  }
+}

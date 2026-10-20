@@ -242,7 +242,9 @@ export default function DoseCalculator({
           </div>
         </div>
 
-        <div className="grid gap-5 items-start" style={{ gridTemplateColumns: '1.4fr 1fr' }}>
+        {/* One column below md: the inline 1.4fr/1fr pair had no phone layout,
+            so the summary column's min-content pushed the page sideways. */}
+        <div className="grid gap-5 items-start grid-cols-1 md:grid-cols-[1.4fr_1fr]">
           {/* Editor */}
           <div>
             <Card padding={0}>

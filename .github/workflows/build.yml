@@ -221,3 +221,11 @@ jobs:
           name: out-${{ matrix.app }}
           path: apps/${{ matrix.app }}/out
           retention-days: 1
+
+      # Phone gate over this region's build (the bits Cloudflare deploys):
+      # every page at 375px and 320px in the runner's preinstalled Google
+      # Chrome; fails when any page scrolls sideways or a page cannot be
+      # loaded or measured. @playwright/test is in the production install
+      # above (next's optional peer), so nothing else is installed.
+      - name: No horizontal scroll on phones (every page × 375/320px)
+        run: npm run check:overflow -- ${{ matrix.app }}
