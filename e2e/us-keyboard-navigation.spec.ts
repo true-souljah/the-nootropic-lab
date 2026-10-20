@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { comparatorReachableInFooter } from './footer-comparator-keyboard';
 
 // Keyboard-navigation coverage for surfaces axe-core can't audit:
 // tab order, focus management, modal escape behavior, focus trap, and
@@ -167,11 +168,11 @@ test.describe('US /best-nootropics-for-focus/ — CommandPalette ⌘K modal (WCA
 });
 
 test.describe('US /best-nootropics-for-focus/ — primary nav tab order (WCAG 2.4.3 Focus Order)', () => {
-  test('Tab order: skip-link is first, primary nav reached within 10 stops, search trigger and CTA present', async ({ page }) => {
+  test('Tab order: skip-link is first, primary nav reached within 10 stops, search trigger present', async ({ page }) => {
     await page.goto('/best-nootropics-for-focus/');
     // Walk the first 12 Tab stops and capture each. 12 is enough to
     // reach: skip-link → optional disclosure links → brand → 5 nav
-    // items → search trigger → CTA. Anything longer risks hitting
+    // items → search trigger. Anything longer risks hitting
     // breadcrumb or main content.
     const stops: string[] = [];
     for (let i = 0; i < 12; i++) {
@@ -194,10 +195,9 @@ test.describe('US /best-nootropics-for-focus/ — primary nav tab order (WCAG 2.
       stops.some((s) => /Search|⌘K|Ctrl/i.test(s)),
       `stops=${JSON.stringify(stops)}`,
     ).toBe(true);
-    // The "Open comparator" CTA OR a localized variant is reachable.
-    expect(
-      stops.some((s) => /comparator|comparador|comparateur|comparer|Vergleich/i.test(s)),
-      `stops=${JSON.stringify(stops)}`,
-    ).toBe(true);
   });
+
+  // The header has no comparator button since 2026-10-19 (canvas header);
+  // the comparator stays a keyboard stop in the footer.
+  comparatorReachableInFooter('/best-nootropics-for-focus/');
 });

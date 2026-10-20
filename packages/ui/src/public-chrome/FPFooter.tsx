@@ -130,9 +130,10 @@ function isRegionCode(value: string | undefined): value is RegionCode {
 /**
  * Build-time region of the app being compiled (`env.NEXT_PUBLIC_REGION` in
  * each apps/<region>/next.config.ts). Fails closed: a missing or unknown tag
- * aborts the build rather than shipping a footer with cross-region dead links.
+ * aborts the build rather than shipping a footer with cross-region dead links
+ * (or a header naming the wrong edition: FPHeader's region label uses it too).
  */
-function resolveBuildRegion(): RegionCode {
+export function resolveBuildRegion(): RegionCode {
   const tag = process.env.NEXT_PUBLIC_REGION;
   if (!isRegionCode(tag)) {
     throw new Error(

@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { comparatorReachableInFooter } from './footer-comparator-keyboard';
 
 // Keyboard-navigation coverage on the LATAM Playwright project.
 // Companion to us-keyboard-navigation, au-keyboard-navigation,
@@ -12,10 +13,11 @@ import { test, expect } from '@playwright/test';
 // /en/ — Spanish is the primary). Localized chrome:
 //
 //   skip-link text       — Saltar al contenido principal
-//   "Comparator" CTA     — comparador (already covered by the
-//                          existing regex)
 //   Search trigger name  — "Buscar (Command+K)" (page language since
 //                          2026-10-12; from its content since 2026-10-19)
+//
+// The header has no comparator button since 2026-10-19 (canvas header);
+// the footer's comparator link is checked instead.
 //
 // Tab-trap probe types "depot" — substring match on Nootropics
 // Depot Lion's Mane in the LATAM catalog.
@@ -146,7 +148,7 @@ test.describe('LATAM /best-nootropics-for-focus/ — CommandPalette ⌘K modal (
 });
 
 test.describe('LATAM /best-nootropics-for-focus/ — primary nav tab order (WCAG 2.4.3 Focus Order)', () => {
-  test('Tab order: skip-link is first, primary nav reached within 12 stops, search trigger and comparador present', async ({ page }) => {
+  test('Tab order: skip-link is first, primary nav reached within 12 stops, search trigger present', async ({ page }) => {
     await page.goto('/best-nootropics-for-focus/');
     const stops: string[] = [];
     for (let i = 0; i < 12; i++) {
@@ -169,11 +171,7 @@ test.describe('LATAM /best-nootropics-for-focus/ — primary nav tab order (WCAG
       stops.some((s) => /Search|Buscar|⌘K|Ctrl/i.test(s)),
       `stops=${JSON.stringify(stops)}`,
     ).toBe(true);
-    // Comparator: es-LATAM variant is `comparador` (already in the
-    // existing regex from us-keyboard original).
-    expect(
-      stops.some((s) => /comparator|comparador|comparateur|comparer|Vergleich|比較/i.test(s)),
-      `stops=${JSON.stringify(stops)}`,
-    ).toBe(true);
   });
+
+  comparatorReachableInFooter('/best-nootropics-for-focus/');
 });

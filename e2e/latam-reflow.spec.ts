@@ -10,8 +10,6 @@ import { test, expect } from '@playwright/test';
 //   EN "Skip to main content" (21 chars)
 //      vs ES "Saltar al contenido principal" (29 chars, +38%)
 //   EN "About" (5 chars) vs ES "Acerca de" (9 chars, +80%)
-//   EN "Open comparator →" (17 chars)
-//      vs ES "Abrir comparador →" (18 chars, +6%)
 //   EN "Primary" landmark vs ES "Navegación principal" (+186%)
 //
 // The PR-Q25 (#89) responsive grid fixes were tuned against English

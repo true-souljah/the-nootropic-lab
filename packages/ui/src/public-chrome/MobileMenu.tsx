@@ -28,8 +28,9 @@ export interface MobileMenuProps {
 const DIALOG_ID = 'fp-mobile-menu';
 
 /**
- * MobileMenu — the phone menu of FPHeader (below `md:`, where the header's
- * primary links are hidden). The button opens a native modal `<dialog>`
+ * MobileMenu — the phone and tablet menu of FPHeader (below `lg:`, 1024px,
+ * where the header's primary links are hidden: the full header row does not
+ * fit at 768). The button opens a native modal `<dialog>`
  * (showModal: the page behind is inert, Escape closes it) with the brand, a
  * close button, the primary links and the link groups FPHeader passes.
  *
@@ -52,8 +53,8 @@ export function MobileMenu({ brandLabel, labels, nav, sections }: MobileMenuProp
     const root = document.documentElement;
     const overflow = root.style.overflow;
     root.style.overflow = 'hidden';
-    // The menu button is md:hidden; a viewport that grows past it closes the menu.
-    const wide = window.matchMedia('(min-width: 768px)');
+    // The menu button is lg:hidden; a viewport that grows past it closes the menu.
+    const wide = window.matchMedia('(min-width: 1024px)');
     const onWide = (e: MediaQueryListEvent) => {
       if (e.matches) dialog.close();
     };
@@ -97,7 +98,7 @@ export function MobileMenu({ brandLabel, labels, nav, sections }: MobileMenuProp
         aria-label={labels.openMenu}
         aria-expanded={open}
         aria-controls={DIALOG_ID}
-        className="md:hidden inline-flex items-center justify-center w-11 h-11 text-ds-ink-soft hover:text-ds-ink hover:bg-ds-bg rounded-md focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
+        className="lg:hidden inline-flex items-center justify-center w-11 h-11 text-ds-ink-soft hover:text-ds-ink hover:bg-ds-bg rounded-md focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
       >
         <Menu size={20} strokeWidth={2} aria-hidden={true} />
       </button>

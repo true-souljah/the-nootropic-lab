@@ -253,7 +253,7 @@ export default function CommandPalette({
     // tabIndex={-1} (see Row component) so the input is the only
     // Tab stop inside the dialog. Without explicit Tab handling
     // here, Tab from the input escapes to background page
-    // focusables (Open comparator CTA, primary nav). Loop Tab
+    // focusables (primary nav, page links). Loop Tab
     // back to the input to keep focus trapped while the dialog
     // is open. Esc closes; arrows navigate the list.
     if (e.key === 'Tab') {

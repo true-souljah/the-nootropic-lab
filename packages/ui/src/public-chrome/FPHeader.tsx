@@ -2,9 +2,9 @@ import Link from 'next/link';
 import CommandPalette from '../templates/CommandPalette';
 import { BrandMark } from '../primitives/BrandMark';
 import { MobileMenu } from './MobileMenu';
-import { regionFooterColumns } from './FPFooter';
+import { regionFooterColumns, resolveBuildRegion } from './FPFooter';
 import type { SearchItem } from '../SearchModal';
-import type { UIStrings } from '@nootropic/data';
+import { getStrings, type UIStrings } from '@nootropic/data';
 
 export interface FPNavLink {
   label: string;
@@ -12,18 +12,13 @@ export interface FPNavLink {
 }
 
 export interface FPHeaderProps {
-  /** Nav links rendered between brand and CTA. Defaults to English Phase-2 set. */
+  /** Nav links rendered between the brand and the search trigger. Defaults to English Phase-2 set. */
   nav?: FPNavLink[];
   /** Search index — when provided, the search button opens an in-place modal. */
   searchItems?: SearchItem[];
   /** Locale strings (for the modal). */
   strings?: UIStrings;
-  /** "Open comparator" CTA destination. */
-  ctaHref?: string;
-  ctaLabel?: string;
   brandLabel?: string;
-  /** When true, omit the comparator CTA (e.g. on the comparator page itself). */
-  hideCta?: boolean;
 }
 
 const DEFAULT_NAV: FPNavLink[] = [
@@ -58,11 +53,13 @@ const MENU_SECTION_IDS = ['footer-col-best-by-goal', 'footer-col-by-region'];
 
 /**
  * FPHeader — sticky white header for public/SEO surfaces. Brand mark
- * (green flask), 5 nav links, ⌘K search trigger, and the "Open comparator"
- * indigo CTA. Search opens a modal when `searchItems` is provided. Below
- * `md:` the links move into MobileMenu (the same 5 links, then the footer's
- * best-by-goal and by-region columns for this host) and the CTA is hidden
- * below `sm:` (the footer links the comparator).
+ * (green flask), 5 nav links, the edition label (this host's region name, as
+ * the footer's By-region column words it) and the ⌘K search trigger. Search
+ * opens a modal when `searchItems` is provided. Below `lg:` the links move
+ * into MobileMenu (the same 5 links, then the footer's best-by-goal and
+ * by-region columns for this host); the edition label shows from `md:`.
+ * There is no comparator button (design decisions 15–16): the footer links
+ * the comparator on every host.
  *
  * Resolution precedence for every localized surface:
  *   1. explicit override prop (caller knows best)
@@ -77,14 +74,14 @@ export function FPHeader({
   nav,
   searchItems,
   strings,
-  ctaHref = '/nootropic-comparison/',
-  ctaLabel,
   brandLabel = 'Nootropic Lab',
-  hideCta = false,
 }: FPHeaderProps) {
   const resolvedNav = nav ?? (strings ? navFromStrings(strings) : DEFAULT_NAV);
   const resolvedNavLandmark = strings?.nav.primaryLandmark ?? 'Primary';
-  const resolvedCtaLabel = ctaLabel ?? strings?.nav.openComparator ?? 'Open comparator →';
+  // This host's region in the page's own language; fails closed on an unset
+  // NEXT_PUBLIC_REGION, as the footer does.
+  const editionLabel = (strings ?? getStrings('en')).footer.byRegion[resolveBuildRegion()];
+  const hasSearch = searchItems !== undefined && searchItems.length > 0;
   // Plain data for the client menu, resolved here on the server; the region
   // filter fails closed on an unset NEXT_PUBLIC_REGION, as FPFooter does.
   const menuSections = regionFooterColumns(strings).filter((col) => MENU_SECTION_IDS.includes(col.id));
@@ -111,13 +108,16 @@ export function FPHeader({
         </Link>
 
         {/*
-          PR-Q25 (#89) — wrap the 5 primary-nav links in a `hidden md:flex`
+          PR-Q25 (#89) — wrap the 5 primary-nav links in a hidden-until-wide
           container so the chrome reflows at 320px viewport (closes the
           WCAG 1.4.10 violation surfaced by PR-Q24 e2e/us-reflow.spec.ts).
-          On phones the header shows the brand link, CommandPalette (its own
-          `md:hidden` icon-only trigger), the CTA from `sm:` up, and the
-          MobileMenu button, whose dialog lists the same 5 links. The nav
-          is also reachable via search (CommandPalette indexes all 5 nav
+          The links show from `lg:` (1024px), not `md:`: the canvas header
+          (brand, 5 links, edition label, search) needs 843–952px across
+          the locales and 768 leaves 720 (operator decision, 2026-10-20).
+          Below `lg:` the header shows the brand link, the edition label
+          from `md:`, CommandPalette (icon-only below `md:`) and the
+          MobileMenu button, whose dialog lists the same 5 links. The nav is
+          also reachable via search (CommandPalette indexes all 5 nav
           targets via the search-pages additions from PR-Q10) AND via
           FPFooter columns on every public page (WCAG 2.4.5 Multiple Ways).
           The outer `<nav>` keeps its `aria-label` stable across breakpoints
@@ -126,7 +126,7 @@ export function FPHeader({
         */}
         <div className="flex items-center gap-3">
           <nav aria-label={resolvedNavLandmark} className="flex items-center gap-3 md:gap-6">
-            <div className="hidden md:flex items-center gap-6">
+            <div className="hidden lg:flex items-center gap-6">
               {resolvedNav.map((item) => (
                 <Link
                   key={item.href}
@@ -138,24 +138,18 @@ export function FPHeader({
               ))}
             </div>
 
-            {searchItems && searchItems.length > 0 && (
-              <>
-                <span className="hidden md:inline-block w-px h-[18px] bg-ds-border" aria-hidden="true" />
-                <CommandPalette items={searchItems} strings={strings} />
-              </>
-            )}
+            {/* Separates the links from the label and search, so it shows only with the links. */}
+            {hasSearch && <span className="hidden lg:inline-block w-px h-[18px] bg-ds-border" aria-hidden="true" />}
 
-            {!hideCta && (
-              <Link
-                href={ctaHref}
-                className="hidden sm:inline-flex bg-ds-accent text-white px-[14px] py-[8px] rounded-[8px] text-[13px] font-semibold no-underline hover:bg-ds-accent-press focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
-              >
-                {resolvedCtaLabel}
-              </Link>
-            )}
+            {/* Edition label: plain text, not a control (canvas: hidden on phones). */}
+            <span className="hidden md:inline-flex items-center whitespace-nowrap text-[13px] text-ds-muted px-[10px] py-[6px] border border-ds-border rounded-full">
+              {editionLabel}
+            </span>
+
+            {hasSearch && <CommandPalette items={searchItems} strings={strings} />}
           </nav>
 
-          {/* md:hidden button; its dialog sits outside the header's <nav> landmark. */}
+          {/* lg:hidden button; its dialog sits outside the header's <nav> landmark. */}
           <MobileMenu brandLabel={brandLabel} labels={menuLabels} nav={resolvedNav} sections={menuSections} />
         </div>
       </div>

@@ -253,14 +253,16 @@ export default function Listicle({
         </nav>
 
         {/*
-          PR-Q25 (#89): page-level grid collapses to a single column
-          below `md:` so the 320px sidebar doesn't force horizontal
-          overflow at 320px viewport (WCAG 1.4.10 Reflow). Tailwind v4
-          arbitrary value syntax `md:grid-cols-[1fr_320px]` mirrors the
-          previous inline `gridTemplateColumns: '1fr 320px'` at desktop
-          width.
+          PR-Q25 (#89): page-level grid collapses to a single column so the
+          320px sidebar doesn't force horizontal overflow (WCAG 1.4.10
+          Reflow). Tailwind v4 arbitrary value syntax
+          `lg:grid-cols-[1fr_320px]` mirrors the previous inline
+          `gridTemplateColumns: '1fr 320px'` at desktop width. Two columns
+          start at `lg:` (1024px), as the header's links do: from `md:` the
+          aside overflowed the page at 768 (to 805px on US; operator
+          decision 2026-10-20). Below `lg:` the aside follows the article.
         */}
-        <div className="grid gap-12 items-start grid-cols-1 md:grid-cols-[1fr_320px]">
+        <div className="grid gap-12 items-start grid-cols-1 lg:grid-cols-[1fr_320px]">
           <article>
             <Chip tone="accent">{s.audited} · {updatedDisplay}</Chip>
             <h1 className="text-[40px] font-bold leading-[1.1] tracking-[-0.025em] mt-3 mb-3 text-ds-ink">
@@ -556,7 +558,8 @@ export default function Listicle({
             </Card>
           </article>
 
-          <aside className="sticky top-[90px] self-start">
+          {/* Sticky only beside the article (lg:); stacked below it, it is the last row. */}
+          <aside className="lg:sticky lg:top-[90px] lg:self-start">
             <Card padding={20}>
               <div className="text-[11px] uppercase tracking-[0.12em] text-ds-muted font-semibold mb-3">
                 {s.inThisGuide}

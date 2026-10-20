@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { comparatorReachableInFooter } from './footer-comparator-keyboard';
 
 // Keyboard-navigation coverage on the EU Playwright project.
 // Companion to us / au / gcc / sea / jp / latam / ca keyboard specs.
@@ -11,19 +12,16 @@ import { test, expect } from '@playwright/test';
 // reflow (8/8), status-messages (8/8), keyboard (8/8).
 //
 // EU is the most-localized region — 4 chrome locales render
-// distinct skip-link + comparator strings:
+// distinct skip-link strings:
 //
 //   en-EU root /best-nootropics-for-focus/:
 //     skip-link  — "Skip to main content"
-//     comparator — "Open comparator"
 //   de  /de/:    skip — "Zum Hauptinhalt springen"
-//                comparator — "Vergleich"
 //   fr  /fr/:    skip — "Aller au contenu principal"
-//                comparator — "comparateur"
 //   pt  /pt/:    skip — "Ir para o conteúdo principal"
-//                comparator — "comparador"
 //
-// All 3 comparator variants are already in the existing regex.
+// The header has no comparator button since 2026-10-19 (canvas header);
+// the footer's comparator link is checked from the en-EU root.
 // The skip-link regex is widened in this spec to cover the 3 new
 // EU locale variants alongside EN, Saltar (es), and スキップ (ja).
 //
@@ -192,11 +190,9 @@ test.describe('EU /best-nootropics-for-focus/ (en-EU) — primary nav tab order'
       stops.some((s) => /Search|⌘K|Ctrl/i.test(s)),
       `stops=${JSON.stringify(stops)}`,
     ).toBe(true);
-    expect(
-      stops.some((s) => /comparator|comparador|comparateur|comparer|Vergleich|比較/i.test(s)),
-      `stops=${JSON.stringify(stops)}`,
-    ).toBe(true);
   });
+
+  comparatorReachableInFooter('/best-nootropics-for-focus/');
 });
 
 // Nested-locale sanity blocks — verify the chrome locale-flip

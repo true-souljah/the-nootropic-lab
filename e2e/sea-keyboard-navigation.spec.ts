@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { comparatorReachableInFooter } from './footer-comparator-keyboard';
 
 // Keyboard-navigation coverage on the SEA Playwright project.
 // Companion to us-keyboard-navigation (PR-Q22 #86, Q48 #112, Q50 #114),
@@ -153,7 +154,7 @@ test.describe('SEA /best-nootropics-for-focus/ — CommandPalette ⌘K modal (WC
 });
 
 test.describe('SEA /best-nootropics-for-focus/ — primary nav tab order (WCAG 2.4.3 Focus Order)', () => {
-  test('Tab order: skip-link is first, primary nav reached within 12 stops, search trigger and CTA present', async ({ page }) => {
+  test('Tab order: skip-link is first, primary nav reached within 12 stops, search trigger present', async ({ page }) => {
     await page.goto('/best-nootropics-for-focus/');
     const stops: string[] = [];
     for (let i = 0; i < 12; i++) {
@@ -174,9 +175,8 @@ test.describe('SEA /best-nootropics-for-focus/ — primary nav tab order (WCAG 2
       stops.some((s) => /Search|⌘K|Ctrl/i.test(s)),
       `stops=${JSON.stringify(stops)}`,
     ).toBe(true);
-    expect(
-      stops.some((s) => /comparator|comparador|comparateur|comparer|Vergleich/i.test(s)),
-      `stops=${JSON.stringify(stops)}`,
-    ).toBe(true);
   });
+
+  // No comparator button in the header since 2026-10-19; the footer links it.
+  comparatorReachableInFooter('/best-nootropics-for-focus/');
 });

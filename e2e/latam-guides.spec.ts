@@ -88,9 +88,10 @@ test.describe('LATAM chrome localization (PR-Q8 #72 — WCAG 3.1.2)', () => {
     await expect(nav.getByRole('link', { name: 'Acerca de' })).toBeAttached();
   });
 
-  test('FPHeader CTA renders the Spanish "Abrir comparador" label', async ({ page }) => {
+  test('FPHeader names the edition in Spanish ("América Latina") and has no comparator button', async ({ page }) => {
     await page.goto('/');
-    await expect(page.getByRole('link', { name: /Abrir comparador/ })).toBeAttached();
+    await expect(page.getByRole('banner').getByText('América Latina', { exact: true })).toBeAttached();
+    await expect(page.getByRole('banner').locator('a[href*="/nootropic-comparison"]')).toHaveCount(0);
   });
 
   test('Skip-link renders the Spanish "Saltar al contenido principal" string', async ({ page }) => {

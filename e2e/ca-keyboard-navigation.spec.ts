@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { comparatorReachableInFooter } from './footer-comparator-keyboard';
 
 // Keyboard-navigation coverage on the CA Playwright project.
 // Companion to us / au / gcc / sea / jp / latam keyboard specs.
@@ -11,11 +12,11 @@ import { test, expect } from '@playwright/test';
 //
 //   en-CA root:
 //     skip-link text — "Skip to main content"
-//     comparator     — "Open comparator"
 //   fr-CA /fr/:
 //     skip-link text — "Aller au contenu principal"
-//     comparator     — "comparateur" (already covered by existing
-//                       regex — fr is predicted from the start)
+//
+// The header has no comparator button since 2026-10-19 (canvas header);
+// the footer's comparator link is checked from the en-CA root.
 //
 // The spec is split into two route blocks:
 //   1. Full 6-test contract on the en-CA root (mirror of US/AU/GCC).
@@ -174,11 +175,9 @@ test.describe('CA /best-nootropics-for-focus/ (en-CA) — primary nav tab order'
       stops.some((s) => /Search|⌘K|Ctrl/i.test(s)),
       `stops=${JSON.stringify(stops)}`,
     ).toBe(true);
-    expect(
-      stops.some((s) => /comparator|comparador|comparateur|comparer|Vergleich|比較/i.test(s)),
-      `stops=${JSON.stringify(stops)}`,
-    ).toBe(true);
   });
+
+  comparatorReachableInFooter('/best-nootropics-for-focus/');
 });
 
 test.describe('CA /fr/meilleurs-nootropiques/ (fr-CA chrome) — skip-link + modal sanity', () => {
@@ -221,7 +220,5 @@ test.describe('CA /fr/meilleurs-nootropiques/ (fr-CA chrome) — skip-link + mod
       ).toBeAttached({ timeout: 500 });
     }).toPass({ timeout: 5000, intervals: [100, 250, 500, 1000] });
     await expect(page.locator('[role="dialog"]:not(#klaro-cookie-notice)')).toBeAttached();
-    // Verify the comparator-equivalent label "comparateur" appears
-    // in the nav tab order on the fr-CA chrome (regex covers it).
   });
 });
