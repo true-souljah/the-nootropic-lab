@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { HeadToHead, buildAlternates} from "@nootropic/ui";
 import { searchItems, uiStrings } from "@/lib/search";
-import type { HeadToHeadFAQ } from '@nootropic/ui';
+import type { HeadToHeadFAQ, Source } from '@nootropic/ui';
 import { productsUS, getRegionalHealthDisclaimer, sitemapDate } from '@nootropic/data';
 import sitemap from '@/app/sitemap';
 import { SITE_URL } from '@/lib/region';
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 
 const faqItems: HeadToHeadFAQ[] = [
   {
-    q: 'Which is better, Mind Lab Pro or NooCube?',
+    q: 'NooCube vs Mind Lab Pro: which is better?',
     a:
       'Both disclose every ingredient dose openly — the differentiator is brand trust. Mind Lab Pro has been tested in two University of Leeds studies — a 30-day placebo-controlled study its authors call pseudo-randomised (PubMed 37194920) and a 60-day placebo-controlled study that found no improvement in choice accuracy or reaction time (PubMed 40149748) — and carries a 30-day Performance Promise. NooCube is part of the Wolfson Brands portfolio with affiliate-marketing-heavy positioning. Mind Lab Pro is the stronger pick for transparency-minded buyers; NooCube competes on price and bundle offers.',
   },
@@ -75,6 +75,23 @@ const whoIsForB = [
 const verdictParagraph =
   'Both are open-formula products — neither hides doses behind proprietary blends. The differentiator is brand trust signals: Mind Lab Pro has two University of Leeds studies behind it (the 60-day one found no improvement in choice accuracy or reaction time) and a current Clean Label Project certification; NooCube carries a 60-day refund window and lower per-bottle pricing on bundles. Mind Lab Pro is the one of the two whose formula has been tested, though weakly: the authors of the 30-day study call it pseudo-randomised. For price-conscious open-formula buyers, NooCube is a fair second.';
 
+const sources: Source[] = [
+  {
+    type: 'Clinical trial',
+    label:
+      'Abbott-Imboden C, Gonzalez Y, Utley A (2023). Efficacy of the nootropic supplement Mind Lab Pro on memory in adults: Double blind, placebo-controlled study. Hum Psychopharmacol 38(4):e2872. PubMed 37194920',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/37194920/',
+  },
+  {
+    type: 'Clinical trial',
+    label:
+      'O\'Reilly D, Bolam J, Delis I, Utley A (2025). Effect of a Plant-Based Nootropic Supplement on Perceptual Decision-Making and Brain Network Interdependencies: A Randomised, Double-Blinded, and Placebo-Controlled Study. Brain Sci 15(3):226. PubMed 40149748 (60 days of Mind Lab Pro, per its methods)',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/40149748/',
+  },
+  { type: 'Brand', label: 'Mind Lab Pro product page', url: 'https://www.mindlabpro.com/products/mind-lab-pro' },
+  { type: 'Brand', label: 'NooCube official site', url: 'https://noocube.com/' },
+];
+
 export default function Page() {
   if (!productA || !productB) notFound();
   return (
@@ -90,6 +107,10 @@ export default function Page() {
       searchItems={searchItems}
       uiStrings={uiStrings}
       updated={sitemapDate(sitemap(), '/mind-lab-pro-vs-noocube/')}
+      sources={sources}
+      relatedLinks={[
+        { href: '/mind-lab-pro-vs-qualia-mind/', title: 'Mind Lab Pro vs Qualia Mind', meta: '2 capsules vs 6, caffeine-free vs 100 mg caffeine' },
+      ]}
     />
   );
 }
