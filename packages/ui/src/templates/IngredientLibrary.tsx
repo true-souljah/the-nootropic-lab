@@ -103,7 +103,7 @@ export default function IngredientLibrary({
         {/* Header */}
         <div className="flex justify-between items-end mb-[18px] flex-wrap gap-4">
           <div>
-            <h1 className="text-[24px] font-bold tracking-[-0.02em] m-0 text-ds-ink">
+            <h1 id="ingredient-library-heading" className="text-[24px] font-bold tracking-[-0.02em] m-0 text-ds-ink">
               {hero?.h1 ?? s.heading}
             </h1>
             <p className="text-[13px] text-ds-muted mt-1 max-w-[680px] m-0">
@@ -160,66 +160,80 @@ export default function IngredientLibrary({
           </Card>
         ) : (
           <Card padding={0}>
+            {/* A focusable, labelled scroll region: the five-column rows had no
+                phone layout, so on a 320–375px phone the columns were squeezed
+                to a word per line and still pushed the page sideways. The rows
+                keep their columns (min 640px) and scroll inside the card; at
+                640px and wider nothing changes. */}
             <div
-              className="grid px-[18px] py-3 border-b border-ds-border text-[11px] uppercase tracking-[0.1em] text-ds-muted font-semibold"
-              style={{ gridTemplateColumns: '60px 1.4fr 1fr 80px 2fr' }}
+              role="region"
+              aria-labelledby="ingredient-library-heading"
+              tabIndex={0}
+              className="overflow-x-auto overscroll-x-contain focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
             >
-              <div>{s.columns.grade}</div>
-              <div>{s.columns.ingredient}</div>
-              <div>{s.columns.clinicalDose}</div>
-              <div className="text-right">{s.columns.trials}</div>
-              <div>{s.columns.ourTake}</div>
-            </div>
-            {visible.map(({ ing, grade: g, trials }) => {
-              const m = GRADE_META[g];
-              return (
-                <article
-                  key={ing.slug}
-                  className="grid gap-3 px-[18px] py-4 border-b border-ds-border last:border-b-0 items-center"
+              <div className="min-w-[640px]">
+                <div
+                  className="grid px-[18px] py-3 border-b border-ds-border text-[11px] uppercase tracking-[0.1em] text-ds-muted font-semibold"
                   style={{ gridTemplateColumns: '60px 1.4fr 1fr 80px 2fr' }}
                 >
-                  <div>
-                    <div
-                      className={`w-[34px] h-[34px] rounded-[8px] grid place-items-center text-[16px] font-extrabold ${m.bg} ${m.text}`}
-                      aria-label={tpl(s.gradeAria, { grade: g })}
+                  <div>{s.columns.grade}</div>
+                  <div>{s.columns.ingredient}</div>
+                  <div>{s.columns.clinicalDose}</div>
+                  <div className="text-right">{s.columns.trials}</div>
+                  <div>{s.columns.ourTake}</div>
+                </div>
+                {visible.map(({ ing, grade: g, trials }) => {
+                  const m = GRADE_META[g];
+                  return (
+                    <article
+                      key={ing.slug}
+                      className="grid gap-3 px-[18px] py-4 border-b border-ds-border last:border-b-0 items-center"
+                      style={{ gridTemplateColumns: '60px 1.4fr 1fr 80px 2fr' }}
                     >
-                      {g}
-                    </div>
-                  </div>
-                  <div className="min-w-0">
-                    <Link
-                      href={`/ingredients/${ing.slug}/`}
-                      className="font-semibold text-[14px] text-ds-ink hover:text-ds-accent focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded block truncate"
-                    >
-                      {ing.name}
-                    </Link>
-                    <div className="text-[12px] text-ds-muted mt-[2px] leading-[1.4]">
-                      {ing.mechanism.split('.')[0]}.
-                    </div>
-                  </div>
-                  <div className="text-[13px] text-ds-ink-soft ds-tabular leading-[1.4]">
-                    {ing.clinicalDose}
-                  </div>
-                  <div className="text-right">
-                    <SparkBars
-                      values={ing.humanEffects.map((e) => e.studies ?? 0)}
-                      colorClass={
-                        g === 'A' ? 'bg-ds-good' : g === 'B' ? 'bg-ds-warn' : 'bg-ds-bad'
-                      }
-                      summary={tpl(s.studyCounts, {
-                        name: ing.name,
-                        counts: ing.humanEffects.map((e) => `${e.studies ?? s.notCounted}`).join(', '),
-                      })}
-                      height={20}
-                    />
-                    <div className="text-[12px] text-ds-muted mt-[2px] ds-tabular">{trials}</div>
-                  </div>
-                  <div className="text-[13px] text-ds-ink-soft leading-[1.55] line-clamp-3">
-                    {ing.studySummary}
-                  </div>
-                </article>
-              );
-            })}
+                      <div>
+                        <div
+                          className={`w-[34px] h-[34px] rounded-[8px] grid place-items-center text-[16px] font-extrabold ${m.bg} ${m.text}`}
+                          aria-label={tpl(s.gradeAria, { grade: g })}
+                        >
+                          {g}
+                        </div>
+                      </div>
+                      <div className="min-w-0">
+                        <Link
+                          href={`/ingredients/${ing.slug}/`}
+                          className="font-semibold text-[14px] text-ds-ink hover:text-ds-accent focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded block truncate"
+                        >
+                          {ing.name}
+                        </Link>
+                        <div className="text-[12px] text-ds-muted mt-[2px] leading-[1.4]">
+                          {ing.mechanism.split('.')[0]}.
+                        </div>
+                      </div>
+                      <div className="text-[13px] text-ds-ink-soft ds-tabular leading-[1.4]">
+                        {ing.clinicalDose}
+                      </div>
+                      <div className="text-right">
+                        <SparkBars
+                          values={ing.humanEffects.map((e) => e.studies ?? 0)}
+                          colorClass={
+                            g === 'A' ? 'bg-ds-good' : g === 'B' ? 'bg-ds-warn' : 'bg-ds-bad'
+                          }
+                          summary={tpl(s.studyCounts, {
+                            name: ing.name,
+                            counts: ing.humanEffects.map((e) => `${e.studies ?? s.notCounted}`).join(', '),
+                          })}
+                          height={20}
+                        />
+                        <div className="text-[12px] text-ds-muted mt-[2px] ds-tabular">{trials}</div>
+                      </div>
+                      <div className="text-[13px] text-ds-ink-soft leading-[1.55] line-clamp-3">
+                        {ing.studySummary}
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+            </div>
           </Card>
         )}
       </div>

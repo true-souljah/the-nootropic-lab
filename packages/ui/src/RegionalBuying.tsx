@@ -35,7 +35,10 @@ export default function RegionalBuying({ data, geoLinks, strings, id = 'regional
     <section id={id} className="mt-10" aria-labelledby={`${id}-heading`}>
       <h2 id={`${id}-heading`} className="text-[18px] font-bold text-ds-ink mb-3">{t.heading[region]}</h2>
       <Card variant="subdued" padding={20}>
-        <dl className="grid sm:grid-cols-2 gap-x-6 gap-y-3 m-0">
+        {/* grid-cols-1 (a minmax(0,1fr) track) below sm: the implicit `auto`
+            column grew to the widest unbreakable value and pushed the page
+            sideways on phones (GCC/SEA reviews, 2026-10-19). */}
+        <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 m-0">
           {data.price && (
             <div>
               <dt className="text-[11px] uppercase tracking-[0.12em] font-semibold text-ds-muted">{t.price}</dt>
