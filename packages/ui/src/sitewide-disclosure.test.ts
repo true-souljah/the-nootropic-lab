@@ -85,7 +85,8 @@ function assertScope(html: string, s: ReturnType<typeof getStrings>, scope: Disc
 
 const mlp = allProductsUS.find((p) => p.slug === 'mind-lab-pro-review')!;
 const qualia = allProductsUS.find((p) => p.slug === 'qualia-mind-review')!;
-const onnit = allProductsUS.find((p) => p.slug === 'onnit-alpha-brain-review')!;
+// US Nootropics Depot: a linked no-commission record (US Alpha Brain earns since 2026-10-21, Amazon interim).
+const depot = allProductsUS.find((p) => p.slug === 'nootropics-depot-lions-mane')!;
 const thesis = allProductsUS.find((p) => p.slug === 'thesis-nootropics-review')!;
 /** A commission product's record with no affiliate deal (the wiring under test, not catalogue data). */
 const zero = (p: Product): Product => ({ ...p, commissionRate: '0%' });
@@ -107,7 +108,7 @@ describe('fixtures', () => {
   test('the records used here exist with the commission state the tests assume', () => {
     expect(earnsCommission(mlp) && purchaseUrl(mlp) !== null && !mlp.discontinued).toBe(true);
     expect(earnsCommission(qualia) && purchaseUrl(qualia) !== null && !qualia.discontinued).toBe(true);
-    expect(earnsCommission(onnit)).toBe(false);
+    expect(earnsCommission(depot) === false && purchaseUrl(depot) !== null && !depot.discontinued).toBe(true);
     expect(earnsCommission(thesis)).toBe(false);
     expect(purchaseUrl(blocked(mlp))).toBeNull();
   });
@@ -117,8 +118,8 @@ describe('pageDisclosureScope / reviewDisclosureScope', () => {
   test.each([
     ['no linked products', [], 'site'],
     ['one commission product', [mlp], 'page'],
-    ['only no-commission products', [onnit, thesis], 'site'],
-    ['a commission product among no-commission ones', [onnit, mlp, thesis], 'page'],
+    ['only no-commission products', [depot, thesis], 'site'],
+    ['a commission product among no-commission ones', [depot, mlp, thesis], 'page'],
     ['a commission product without a purchase link here', [blocked(mlp)], 'site'],
   ] as const)('%s → %s', (_label, linked, expected) => {
     expect(pageDisclosureScope(linked as readonly Product[])).toBe(expected);
@@ -126,8 +127,8 @@ describe('pageDisclosureScope / reviewDisclosureScope', () => {
 
   test.each([
     ['commission, linked', mlp, 'page'],
-    ['no commission, linked', onnit, 'product'],
-    ['no commission, discontinued', { ...onnit, discontinued: { note: 'x' } } as Product, 'product'],
+    ['no commission, linked', depot, 'product'],
+    ['no commission, discontinued', { ...depot, discontinued: { note: 'x' } } as Product, 'product'],
     ['commission, discontinued (no buy link)', { ...mlp, discontinued: { note: 'x' } } as Product, 'site'],
     ['commission, no purchase link in this edition', blocked(mlp), 'site'],
   ] as const)('review page: %s → %s', (_label, product, expected) => {
@@ -201,10 +202,10 @@ describe('templates compute the scope from the products they link', () => {
     const s = getStrings(locale);
     const shell = (linkedProducts?: Product[]) =>
       text(renderToStaticMarkup(createElement(PublicShell, { uiStrings: s, linkedProducts, children: createElement('p', null, 'x') })));
-    assertScope(shell([mlp, onnit]), s, 'page', false);
+    assertScope(shell([mlp, depot]), s, 'page', false);
     assertScope(shell(undefined), s, 'site', false);
     assertScope(shell([]), s, 'site', false);
-    assertScope(shell([onnit, thesis]), s, 'site', false);
+    assertScope(shell([depot, thesis]), s, 'site', false);
     assertScope(shell([blocked(mlp)]), s, 'site', false);
   });
 
@@ -220,7 +221,7 @@ describe('templates compute the scope from the products they link', () => {
     const bestOf = (products: Product[]) =>
       text(renderToStaticMarkup(createElement(BestOf, { products, uiStrings: s, updated: new Date('2026-10-01T00:00:00Z') })));
     assertScope(bestOf(productsUS), s, 'page', true);
-    assertScope(bestOf([onnit, thesis]), s, 'site', true);
+    assertScope(bestOf([depot, thesis]), s, 'site', true);
   });
 
   test.each(['en', 'ja'] as const)('%s HeadToHead: strip and trust note follow the two side cards', (locale) => {
@@ -234,10 +235,10 @@ describe('templates compute the scope from the products they link', () => {
           }),
         ),
       );
-    assertScope(h2h(mlp, onnit), s, 'page', true);
-    assertScope(h2h(onnit, thesis), s, 'site', true);
+    assertScope(h2h(mlp, depot), s, 'page', true);
+    assertScope(h2h(depot, thesis), s, 'site', true);
     // A discontinued commission product renders no buy link.
-    assertScope(h2h({ ...mlp, discontinued: { note: 'Discontinued.' } } as Product, onnit), s, 'site', true);
+    assertScope(h2h({ ...mlp, discontinued: { note: 'Discontinued.' } } as Product, depot), s, 'site', true);
   });
 
   test.each(['en', 'es'] as const)('%s Listicle: strip and trust note follow the ranked picks', (locale) => {

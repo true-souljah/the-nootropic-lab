@@ -42,19 +42,20 @@ function mainOf(html: string): string {
 
 const bySlug = (slug: string) => allProductsUS.find((p) => p.slug === slug)!;
 const mlp = bySlug('mind-lab-pro-review');
-const onnit = bySlug('onnit-alpha-brain-review');
+// US Nootropics Depot: a linked no-commission record (US Alpha Brain earns since 2026-10-21, Amazon interim).
+const depot = bySlug('nootropics-depot-lions-mane');
 const discontinued = bySlug('performance-lab-mind-review');
 
 describe('review page — shared editorial chrome', () => {
   test('fixtures: a linked commission product, a no-commission product, a discontinued one', () => {
     expect(earnsCommission(mlp) && purchaseUrl(mlp) !== null && !mlp.discontinued).toBe(true);
-    expect(earnsCommission(onnit)).toBe(false);
+    expect(earnsCommission(depot) === false && purchaseUrl(depot) !== null && !depot.discontinued).toBe(true);
     expect(discontinued.discontinued).toBeTruthy();
   });
 
   test.each([
     ['commission product with its buy link', mlp, 'page'],
-    ['no-commission product', onnit, 'product'],
+    ['no-commission product', depot, 'product'],
     ['discontinued product (no buy link)', discontinued, 'site'],
   ] as const)('%s: exactly one disclosure strip, first in <main>, scope "%s"', (_label, product, scope) => {
     const html = render(product);
