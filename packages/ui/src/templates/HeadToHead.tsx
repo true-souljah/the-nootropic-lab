@@ -339,6 +339,25 @@ export default function HeadToHead({
           </aside>
         )}
 
+        {/* TLDR verdict — first, so readers get the answer in the first screen
+            (before the side cards, which stack on a phone). The trust note stays
+            below it, directly above the first affiliate CTAs. */}
+        <Card variant="subdued" padding={22} className="mt-6">
+          <div className="text-[11.5px] tracking-[0.14em] uppercase font-bold text-ds-muted mb-2">
+            {s.verdict}
+          </div>
+          <h2 className="text-[22px] font-bold tracking-[-0.02em] m-0 mb-2">
+            <span className="text-ds-accent">{tpl(s.winnerHeadline, { name: winner.name })}</span>
+          </h2>
+          <p className="text-[14px] text-ds-ink-soft m-0 leading-[1.65]">{computedVerdict}</p>
+          <Link
+            href={methodologyHref}
+            className="inline-block mt-3 text-[13px] font-semibold text-ds-accent underline hover:text-ds-accent-press focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded-[2px]"
+          >
+            {uiStrings.disclosure.methodology} →
+          </Link>
+        </Card>
+
         {/* Inline disclosure directly above the first affiliate CTAs. */}
         <FPTrustNote strings={uiStrings.disclosure} scope={disclosureScope} methodologyHref={methodologyHref} className="mt-6" space={space} />
 
@@ -398,23 +417,6 @@ export default function HeadToHead({
             <div className="text-[28px] font-extrabold text-ds-muted tracking-[-0.04em]">VS</div>
           </div>
         </div>
-
-        {/* TLDR verdict */}
-        <Card variant="subdued" padding={22} className="mt-6">
-          <div className="text-[11.5px] tracking-[0.14em] uppercase font-bold text-ds-muted mb-2">
-            {s.verdict}
-          </div>
-          <h2 className="text-[22px] font-bold tracking-[-0.02em] m-0 mb-2">
-            <span className="text-ds-accent">{tpl(s.winnerHeadline, { name: winner.name })}</span>
-          </h2>
-          <p className="text-[14px] text-ds-ink-soft m-0 leading-[1.65]">{computedVerdict}</p>
-          <Link
-            href={methodologyHref}
-            className="inline-block mt-3 text-[13px] font-semibold text-ds-accent underline hover:text-ds-accent-press focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2 rounded-[2px]"
-          >
-            {uiStrings.disclosure.methodology} →
-          </Link>
-        </Card>
 
         {/* Side-by-side specs */}
         <h2 id="quick-specs-heading" className="text-[26px] font-bold tracking-[-0.02em] mt-11 mb-3">{s.quickSpecsHeading}</h2>
