@@ -7,8 +7,30 @@ import { test, expect, type Page } from '@playwright/test';
 // <dialog> with the header's links and the footer's best-by-goal and
 // by-region columns. review-shared-shell.test.tsx checks the static markup;
 // this spec checks layout and the menu's keyboard and focus behaviour.
+//
+// Operator decision 2026-10-20: tablets (768–1023px) get the phone header
+// plus the edition label, since the full row (brand, 5 links, label, search)
+// needs 843–952px across the locales and 768 leaves 720; the 5 links show
+// from 1024.
 
 const REVIEW = '/mind-lab-pro-review/';
+const LISTICLE = '/best-nootropics-for-focus/';
+
+/** The header's 5 primary links (the dialog's copies render only while it is open). */
+const headerLinks = (page: Page) => page.locator('header[role="banner"] nav[aria-label="Primary"] a');
+
+/** Page width, and the right edge of the header's furthest visible box (closed dialog excluded). */
+function headerFit(page: Page): Promise<{ innerWidth: number; scrollWidth: number; headerRight: number }> {
+  return page.evaluate(() => {
+    let headerRight = 0;
+    for (const el of document.querySelectorAll('header[role="banner"] *')) {
+      if (el.closest('dialog')) continue;
+      const r = el.getBoundingClientRect();
+      if (r.width > 0 && r.height > 0) headerRight = Math.max(headerRight, r.right);
+    }
+    return { innerWidth: window.innerWidth, scrollWidth: document.documentElement.scrollWidth, headerRight };
+  });
+}
 
 test.beforeEach(async ({ context }) => {
   // Consent already chosen, so the Klaro banner is not in the way.
@@ -36,10 +58,13 @@ test.describe('desktop 1440×900', () => {
     await expect(page.getByRole('banner')).toBeVisible();
     await expect(page.getByRole('contentinfo')).toBeVisible();
     await expect(page.locator('[class*="240px"]')).toHaveCount(0);
-    // Desktop header as before: the primary links show, the phone menu button does not.
+    // Desktop header: the primary links show, the phone menu button does not.
     await expect(page.getByRole('navigation', { name: 'Primary', exact: true }).getByRole('link', { name: 'Ingredients' })).toBeVisible();
-    await expect(page.getByRole('link', { name: 'Open comparator →' })).toBeVisible();
     await expect(page.getByRole('button', { name: 'Open menu' })).toBeHidden();
+    // The canvas header (decisions 15–16): the edition label, no comparator button.
+    await expect(page.getByRole('banner').getByText('United States', { exact: true })).toBeVisible();
+    await expect(page.getByRole('banner').locator('a[href*="/nootropic-comparison"]')).toHaveCount(0);
+    await expect(page.getByRole('link', { name: 'Open comparator →' })).toHaveCount(0);
 
     const content = page.locator('#main-content > div:not([role="note"])');
     await expect(content).toHaveCount(1);
@@ -51,6 +76,55 @@ test.describe('desktop 1440×900', () => {
   });
 });
 
+for (const viewport of [
+  { width: 768, height: 1024 },
+  { width: 1023, height: 800 },
+]) {
+  test.describe(`tablet ${viewport.width}×${viewport.height}`, () => {
+    test.use({ viewport });
+
+    for (const path of [REVIEW, LISTICLE]) {
+      test(`${path}: menu button and edition label, the 5 links only in the menu, no overflow`, async ({ page }) => {
+        const res = await page.goto(path);
+        expect(res?.status()).toBe(200);
+        await expect(page.getByRole('button', { name: 'Open menu' })).toBeVisible();
+        await expect(headerLinks(page)).toHaveCount(5);
+        for (const link of await headerLinks(page).all()) await expect(link).toBeHidden();
+        await expect(page.getByRole('banner').getByText('United States', { exact: true })).toBeVisible();
+        const fit = await headerFit(page);
+        expect(fit.scrollWidth, JSON.stringify(fit)).toBeLessThanOrEqual(fit.innerWidth);
+        expect(fit.headerRight, JSON.stringify(fit)).toBeLessThanOrEqual(fit.innerWidth);
+      });
+    }
+  });
+}
+
+test.describe('desktop 1024×768', () => {
+  test.use({ viewport: { width: 1024, height: 768 } });
+
+  for (const path of [REVIEW, LISTICLE]) {
+    test(`${path}: the 5 links on one line, no menu button, no overflow`, async ({ page }) => {
+      const res = await page.goto(path);
+      expect(res?.status()).toBe(200);
+      await expect(page.getByRole('button', { name: 'Open menu' })).toBeHidden();
+      await expect(headerLinks(page)).toHaveCount(5);
+      for (const link of await headerLinks(page).all()) {
+        await expect(link).toBeVisible();
+        // One line: no taller than its own line box.
+        const { height, lineHeight } = await link.evaluate((el) => ({
+          height: el.getBoundingClientRect().height,
+          lineHeight: parseFloat(getComputedStyle(el).lineHeight),
+        }));
+        expect(height, await link.textContent() ?? '').toBeLessThanOrEqual(lineHeight + 1);
+      }
+      await expect(page.getByRole('banner').getByText('United States', { exact: true })).toBeVisible();
+      const fit = await headerFit(page);
+      expect(fit.scrollWidth, JSON.stringify(fit)).toBeLessThanOrEqual(fit.innerWidth);
+      expect(fit.headerRight, JSON.stringify(fit)).toBeLessThanOrEqual(fit.innerWidth);
+    });
+  }
+});
+
 test.describe('phone 390×844', () => {
   test.use({ viewport: { width: 390, height: 844 } });
 
@@ -60,6 +134,8 @@ test.describe('phone 390×844', () => {
     const button = page.getByRole('button', { name: 'Open menu' });
     await expect(button).toBeVisible();
     await expect(button).toHaveAttribute('aria-expanded', 'false');
+    // The edition label is hidden below md: (canvas).
+    await expect(page.getByRole('banner').getByText('United States', { exact: true })).toBeHidden();
     const size = await button.boundingBox();
     expect(size!.width).toBeGreaterThanOrEqual(44);
     expect(size!.height).toBeGreaterThanOrEqual(44);

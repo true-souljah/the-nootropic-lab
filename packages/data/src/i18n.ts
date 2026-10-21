@@ -68,8 +68,6 @@ export interface UIStrings {
     closeMenu: string;
     /** aria-label for the primary `<nav>` landmark in public chrome. WCAG 3.1.2. */
     primaryLandmark: string;
-    /** Label on the indigo "Open comparator" CTA in FPHeader. WCAG 3.1.2. */
-    openComparator: string;
     /** Skip-link target text in PublicShell (first focusable element). WCAG 3.1.2 + 2.4.1. */
     skipToContent: string;
     /** AppShell top-bar link to the comparator. */
@@ -973,7 +971,6 @@ const en: UIStrings = {
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
     primaryLandmark: 'Primary',
-    openComparator: 'Open comparator →',
     skipToContent: 'Skip to main content',
     buildMyStack: 'Build my stack',
     drawerLabel: 'Primary navigation',
@@ -1625,7 +1622,6 @@ const es: UIStrings = {
     openMenu: 'Abrir menú',
     closeMenu: 'Cerrar menú',
     primaryLandmark: 'Navegación principal',
-    openComparator: 'Abrir comparador →',
     skipToContent: 'Saltar al contenido principal',
     buildMyStack: 'Crear mi stack',
     drawerLabel: 'Navegación principal',
@@ -2288,7 +2284,6 @@ const fr: UIStrings = {
     openMenu: 'Ouvrir le menu',
     closeMenu: 'Fermer le menu',
     primaryLandmark: 'Navigation principale',
-    openComparator: 'Ouvrir le comparateur →',
     skipToContent: 'Aller au contenu principal',
     buildMyStack: 'Composer mon stack',
     drawerLabel: 'Navigation principale',
@@ -2916,7 +2911,6 @@ const ja: UIStrings = {
     openMenu: 'メニューを開く',
     closeMenu: 'メニューを閉じる',
     primaryLandmark: 'メインナビゲーション',
-    openComparator: '比較ツールを開く →',
     skipToContent: 'メインコンテンツへスキップ',
     buildMyStack: 'マイスタックを作る',
     drawerLabel: 'メインナビゲーション',
@@ -3544,7 +3538,6 @@ const pt: UIStrings = {
     openMenu: 'Abrir menu',
     closeMenu: 'Fechar menu',
     primaryLandmark: 'Navegação principal',
-    openComparator: 'Abrir comparador →',
     skipToContent: 'Ir para o conteúdo principal',
     buildMyStack: 'Montar o meu stack',
     drawerLabel: 'Navegação principal',
@@ -4171,7 +4164,6 @@ const de: UIStrings = {
     openMenu: 'Menü öffnen',
     closeMenu: 'Menü schließen',
     primaryLandmark: 'Hauptnavigation',
-    openComparator: 'Vergleichstool öffnen →',
     skipToContent: 'Zum Hauptinhalt springen',
     buildMyStack: 'Mein Stack zusammenstellen',
     drawerLabel: 'Hauptnavigation',
@@ -4803,7 +4795,6 @@ const frCa: UIStrings = {
     openMenu: 'Ouvrir le menu',
     closeMenu: 'Fermer le menu',
     primaryLandmark: 'Navigation principale',
-    openComparator: 'Ouvrir le comparateur →',
     skipToContent: 'Aller au contenu principal',
     buildMyStack: 'Composer mon stack',
     drawerLabel: 'Navigation principale',

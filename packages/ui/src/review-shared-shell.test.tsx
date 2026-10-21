@@ -100,28 +100,29 @@ describe('review page — shared editorial chrome', () => {
     }
   });
 
-  test('the phone menu button is closed and controls an empty <dialog>; no heading before the h1', () => {
+  test('the menu button (phones and tablets) is closed and controls an empty <dialog>; no heading before the h1', () => {
     const html = render(mlp);
     const header = html.slice(html.indexOf('<header'), html.indexOf('</header>'));
     const button = /<button[^>]*aria-controls="fp-mobile-menu"[^>]*>/.exec(header)?.[0];
     expect(button, 'menu button in the header').toBeDefined();
     expect(button).toContain(`aria-label="${en.nav.openMenu}"`);
     expect(button).toContain('aria-expanded="false"');
-    expect(button).toMatch(/class="md:hidden /);
+    // Shown below lg: (1024px) since 2026-10-20: the full header row does not fit at 768.
+    expect(button).toMatch(/class="lg:hidden /);
     expect(header).toMatch(new RegExp(`<dialog id="fp-mobile-menu" aria-label="${en.nav.drawerLabel}"[^>]*></dialog>`));
     // The menu's section headings render only while it is open (document outline starts at the h1).
     expect(/<h([1-6])\b/.exec(html)?.[1]).toBe('1');
   });
 
-  test('the comparator CTA is hidden below sm: (phones reach it through the footer)', () => {
+  test('no comparator button in the header (canvas); the footer links the comparator', () => {
     const html = render(mlp);
     const header = html.slice(html.indexOf('<header'), html.indexOf('</header>'));
     // next/link drops the trailing slash outside a trailingSlash app build.
-    const cta = /<a [^>]*href="\/nootropic-comparison\/?"[^>]*>/.exec(header)?.[0];
-    expect(cta, 'comparator CTA in the header').toBeDefined();
-    expect(cta).toContain('class="hidden sm:inline-flex ');
+    expect(header).not.toMatch(/href="\/nootropic-comparison\/?"/);
     const footer = html.slice(html.indexOf('<footer'));
-    expect(footer).toMatch(/href="\/nootropic-comparison\/?"/);
+    expect(footer).toMatch(new RegExp(`<a [^>]*href="/nootropic-comparison/?"[^>]*>${en.footer.headToHead.allComparisons}</a>`));
+    // The header names the edition instead (fp-header-nav.test.ts covers every host).
+    expect(header).toContain(`>${en.footer.byRegion.us}</span>`);
   });
 
   test('footer: Tools column (5 link columns) on the US host, the 4-column grid elsewhere', () => {

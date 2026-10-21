@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { comparatorReachableInFooter } from './footer-comparator-keyboard';
 
 // Keyboard-navigation coverage on the JP Playwright project.
 // Companion to us-keyboard-navigation (Q22 #86, Q48 #112, Q50 #114),
@@ -14,8 +15,10 @@ import { test, expect } from '@playwright/test';
 // pending legal advice), so the chrome labels are the en ones:
 //
 //   skip-link text       — Skip to main content
-//   "Comparator" CTA     — Open comparator →
 //   Search trigger name  — "Search (Command+K)" (from its content)
+//
+// The header has no comparator button since 2026-10-19 (canvas header);
+// the footer's comparator link is checked instead.
 //
 // Tab-trap probe types "fancl" — substring match on FANCL Brains in
 // the JP catalog (FANCL is a Japanese supplement chain; the product
@@ -153,7 +156,7 @@ test.describe('JP /best-nootropics-for-focus/ — CommandPalette ⌘K modal (WCA
 });
 
 test.describe('JP /best-nootropics-for-focus/ — primary nav tab order (WCAG 2.4.3 Focus Order)', () => {
-  test('Tab order: skip-link is first, primary nav reached within 12 stops, search trigger and comparator present', async ({ page }) => {
+  test('Tab order: skip-link is first, primary nav reached within 12 stops, search trigger present', async ({ page }) => {
     await page.goto('/best-nootropics-for-focus/');
     const stops: string[] = [];
     for (let i = 0; i < 12; i++) {
@@ -175,9 +178,7 @@ test.describe('JP /best-nootropics-for-focus/ — primary nav tab order (WCAG 2.
       stops.some((s) => /Search|⌘K|Ctrl/i.test(s)),
       `stops=${JSON.stringify(stops)}`,
     ).toBe(true);
-    expect(
-      stops.some((s) => /comparator/i.test(s)),
-      `stops=${JSON.stringify(stops)}`,
-    ).toBe(true);
   });
+
+  comparatorReachableInFooter('/best-nootropics-for-focus/');
 });

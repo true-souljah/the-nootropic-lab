@@ -278,7 +278,8 @@ describe('English fallbacks for callers without a bundle are the en bundle', () 
   test.each([
     ['templates/AppShell.tsx', 10],
     ['templates/CommandPalette.tsx', 1],
-    ['public-chrome/FPHeader.tsx', 5],
+    // 4 since 2026-10-19: the comparator button (and its nav.openComparator fallback) left the header.
+    ['public-chrome/FPHeader.tsx', 4],
   ] as const)('%s: every `?? \'…\'` fallback equals the en value at the same path', (file, expected) => {
     const src = readFileSync(join(UI_SRC, file), 'utf8');
     const fallbacks = [...src.matchAll(/(?:uiStrings|strings)\?\.([\w.]+) \?\? '([^']*)'/g)];

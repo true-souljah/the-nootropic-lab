@@ -75,8 +75,8 @@ test.describe('US — WCAG 2.4.13 Focus Appearance (Level AA in WCAG 2.2)', () =
     await page.waitForLoadState('networkidle');
 
     // Walk 12 Tab stops — enough to reach skip-link, top-bar links,
-    // primary nav, search trigger, comparator CTA, and the first 1-2
-    // intra-content links. Probe AFTER each Tab so the focused element
+    // primary nav, search trigger, and the first 1-2 intra-content
+    // links. Probe AFTER each Tab so the focused element
     // is current and getComputedStyle reflects :focus-visible state.
     const probes: FocusedProbe[] = [];
     const MAX_STOPS = 12;

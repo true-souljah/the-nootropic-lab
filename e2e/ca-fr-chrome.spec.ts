@@ -97,9 +97,12 @@ test.describe('CA /fr/* chrome localization (PR-Q8 #72 — WCAG 3.1.2)', () => {
     await expect(nav.getByRole('link', { name: 'À propos' })).toBeAttached();
   });
 
-  test('FPHeader CTA renders the French "Ouvrir le comparateur" label', async ({ page }) => {
+  test('FPHeader names the edition and has no comparator button; the footer comparator link is French', async ({ page }) => {
     await page.goto('/fr/meilleurs-nootropiques/');
-    await expect(page.getByRole('link', { name: /Ouvrir le comparateur/ })).toBeAttached();
+    // Canvas header (2026-10-19): fr-CA words this host "Canada", as en does.
+    await expect(page.getByRole('banner').getByText('Canada', { exact: true })).toBeAttached();
+    await expect(page.getByRole('banner').locator('a[href*="/nootropic-comparison"]')).toHaveCount(0);
+    await expect(page.getByRole('contentinfo').getByRole('link', { name: 'Toutes les comparaisons →' })).toBeAttached();
   });
 
   test('Skip-link renders the French "Aller au contenu principal" string', async ({ page }) => {

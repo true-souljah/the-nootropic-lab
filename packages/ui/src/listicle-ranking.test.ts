@@ -1,4 +1,6 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
+import { createElement } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import * as data from '@nootropic/data';
@@ -15,6 +17,7 @@ import {
   splitListiclePicks,
   type ListicleEvidenceIngredients,
 } from './templates/listicleRanking';
+import Listicle from './templates/Listicle';
 import { getStrings, type Locale } from '@nootropic/data';
 
 /** The Listicle's strings: UIStrings.listicle (moved there from templateStrings.ts on 2026-10-12). */
@@ -356,6 +359,44 @@ describe('Listicle template wiring', () => {
     expect(src).not.toMatch(/\bpicks\.(map|length|sort|filter|forEach|slice)\b|\.\.\.picks\b/);
     expect(src).toMatch(/numberOfItems:\s*ranked\.length/);
     expect(src).toMatch(/itemListElement:\s*ranked\.map/);
+  });
+
+  // Operator decision 2026-10-20: the article and the 320px "In this guide"
+  // aside sit side by side from lg: (1024px), as the header's links do; from
+  // md: the aside overflowed the page at 768 (to 805px on US). Below lg: the
+  // aside follows the article, and is sticky only beside it.
+  describe('page layout', () => {
+    afterEach(() => {
+      vi.unstubAllEnvs();
+    });
+
+    it('two columns from lg: (none from md:); the aside is sticky only from lg:', () => {
+      vi.stubEnv('NEXT_PUBLIC_REGION', 'eu');
+      const mlpEU = data.productsEU.find((p) => p.slug === 'mind-lab-pro-review')!;
+      const html = renderToStaticMarkup(
+        createElement(Listicle, {
+          useCase: 'memory',
+          pageTitle: 't',
+          pageDescription: 'd',
+          heroParagraph: 'h',
+          ingredientMechanism: [{ name: 'PS', evidence: 'e1', ingredientSlugs: ['phosphatidylserine'], citationUrl: 'https://pubmed.ncbi.nlm.nih.gov/20523044/' }],
+          ingredientPages: data.ingredients,
+          picks: [{ product: mlpEU, whyItsHere: 'w', rank: 1 }],
+          faqItems: [],
+          siteUrl: 'https://example.com',
+          uiStrings: getStrings('en'),
+          updated: new Date('2026-10-01T00:00:00Z'),
+        }),
+      );
+      const main = html.slice(html.indexOf('<main'), html.indexOf('</main>'));
+      const grid = /<div class="(grid gap-12 [^"]*)"><article>/.exec(main)?.[1];
+      expect(grid, 'the page grid around the article').toBeDefined();
+      expect(grid!.split(' ')).toEqual(expect.arrayContaining(['grid-cols-1', 'lg:grid-cols-[1fr_320px]']));
+      expect(grid).not.toMatch(/\bmd:grid-cols-/);
+      expect(html).not.toContain('md:grid-cols-[1fr_320px]');
+      const asides = [...main.matchAll(/<aside class="([^"]*)">/g)].map((m) => m[1]);
+      expect(asides).toEqual(['lg:sticky lg:top-[90px] lg:self-start']);
+    });
   });
 
   it('the also-considered section renders no affiliate link', () => {
