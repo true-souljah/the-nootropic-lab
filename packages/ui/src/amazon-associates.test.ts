@@ -32,6 +32,10 @@ import ProductDetail from './templates/ProductDetail';
 // NatureBell listing to tag (amazon.ca/dp/B09F4ML3FF returned 404 on
 // 2026-10-20): those Amazon links stay untagged and the records carry the
 // "0%" no-commission convention.
+// Operator decision 2026-10-21: a US record whose brand programme is not joined
+// links its amazon.com listing as an interim. US Onnit Alpha Brain (ASIN
+// B07WP7Q5BF, 90 Count, sold by ONNIT) is the first, until Onnit's own
+// programme (Impact) is approved; its onnit.com store price left the record.
 // scripts/check-built-disclosure.ts checks the statement on the built pages.
 
 const TAG = 'souljah03-20';
@@ -76,7 +80,7 @@ afterEach(() => {
 
 describe('catalogue: Amazon links are tagged in the US only', () => {
   test('finds the Amazon records (non-empty input)', () => {
-    expect(amazonRecords(allProductsUS).map((p) => p.id).sort()).toEqual(['naturebell-ginkgo-ginseng', 'neutonic-productivity-drink']);
+    expect(amazonRecords(allProductsUS).map((p) => p.id).sort()).toEqual(['alpha-brain', 'naturebell-ginkgo-ginseng', 'neutonic-productivity-drink']);
     const others = Object.entries(OTHER_REGIONS).flatMap(([region, products]) => amazonRecords(products).map((p) => `${region}/${p.id}`));
     expect(others.sort()).toEqual([
       'au/naturebell-ginkgo-ginseng',
@@ -114,7 +118,7 @@ describe('catalogue: Amazon links are tagged in the US only', () => {
 
   test('no Associates record carries an Amazon store price (no hand-copied Amazon prices)', () => {
     const associates = Object.values(ALL_REGIONS).flat().filter((p) => p.affiliateNetwork === AMAZON_ASSOCIATES_NETWORK);
-    expect(associates.length).toBe(2);
+    expect(associates.length).toBe(3);
     for (const p of associates) {
       if (p.storePrice) expect(isAmazonHost(p.storePrice.url), p.id).toBe(false);
     }
@@ -138,6 +142,12 @@ describe('catalogue: Amazon links are tagged in the US only', () => {
       currency: 'JPY', url: 'https://www.amazon.co.jp/dp/B00A693YIA',
     });
   });
+
+  test('us/alpha-brain (interim): the 90 Count listing, and no store price (a price shown must be the linked store\'s own)', () => {
+    const p = record(allProductsUS, 'alpha-brain');
+    expect(p.affiliateUrl).toBe(`https://www.amazon.com/dp/B07WP7Q5BF?tag=${TAG}`);
+    expect(p.storePrice).toBeUndefined();
+  });
 });
 
 describe('cookie window: one day is "1 day" in every locale', () => {
@@ -150,7 +160,7 @@ describe('cookie window: one day is "1 day" in every locale', () => {
   });
 
   test('the US review pages render "1 day · 1% commission", never "1 days"', () => {
-    for (const id of ['naturebell-ginkgo-ginseng', 'neutonic-productivity-drink']) {
+    for (const id of ['alpha-brain', 'naturebell-ginkgo-ginseng', 'neutonic-productivity-drink']) {
       const html = review(record(allProductsUS, id), 'us');
       expect(html, id).toContain('1 day · 1% commission');
       expect(html, id).not.toMatch(/\b1 days\b/);
@@ -173,7 +183,7 @@ describe('the Associates statement renders only beside an Associates link', () =
     }
   });
 
-  test.each(['naturebell-ginkgo-ginseng', 'neutonic-productivity-drink'])(
+  test.each(['alpha-brain', 'naturebell-ginkgo-ginseng', 'neutonic-productivity-drink'])(
     'us/%s review page: the statement on the strip and in the Pricing block, beside the commission sentence',
     (id) => {
       const s = getStrings('en');
@@ -211,8 +221,8 @@ describe('the Associates statement renders only beside an Associates link', () =
         rendered++;
       }
     }
-    // Every record in the 8 catalogues except the two US Associates records.
-    expect(rendered).toBe(Object.values(ALL_REGIONS).flat().length - 2);
+    // Every record in the 8 catalogues except the three US Associates records.
+    expect(rendered).toBe(Object.values(ALL_REGIONS).flat().length - 3);
     expect(rendered).toBeGreaterThan(80);
   });
 

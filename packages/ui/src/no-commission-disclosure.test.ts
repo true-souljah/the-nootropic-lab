@@ -4,7 +4,8 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import {
   allProductsUS, allProductsEU, allProductsCA, allProductsAU,
   allProductsJP, allProductsLatam, allProductsGCC, allProductsSEA,
-  earnsCommission, getLocaleForMarket, getStrings, NO_COMMISSION_RATE_VALUES, purchaseUrl,
+  AMAZON_ASSOCIATES_NETWORK, earnsCommission, getLocaleForMarket, getStrings, isAmazonAssociatesLink,
+  NO_COMMISSION_RATE_VALUES, purchaseUrl,
 } from '@nootropic/data';
 import type { Locale, Product } from '@nootropic/data';
 import ProductDetail from './templates/ProductDetail';
@@ -104,11 +105,20 @@ describe('catalogue commissionRate values', () => {
     }
   });
 
-  test('the records #351 moved to "0%" earn no commission', () => {
+  test('the records #351 moved to "0%" earn no commission (US Alpha Brain left the set for the Amazon interim)', () => {
     const slugs = ['onnit-alpha-brain-review', 'thesis-nootropics-review', 'nootropics-depot-lions-mane'];
     const hits = RECORDS.filter(({ product }) => slugs.includes(product.slug));
     expect(hits.length).toBe(14);
-    for (const { region, product } of hits) expect(earnsCommission(product), `${region} ${product.slug}`).toBe(false);
+    // Operator decision 2026-10-21: US Alpha Brain links its amazon.com listing as an
+    // Amazon Associate until Onnit's own programme (Impact) is approved.
+    const interim = hits.filter(({ region, product }) => region === 'us' && product.slug === 'onnit-alpha-brain-review');
+    expect(interim.length).toBe(1);
+    expect(interim[0].product.affiliateNetwork).toBe(AMAZON_ASSOCIATES_NETWORK);
+    expect(earnsCommission(interim[0].product)).toBe(true);
+    expect(isAmazonAssociatesLink(interim[0].product)).toBe(true);
+    const zero = hits.filter((h) => !interim.includes(h));
+    expect(zero.length).toBe(13);
+    for (const { region, product } of zero) expect(earnsCommission(product), `${region} ${product.slug}`).toBe(false);
   });
 });
 
@@ -187,12 +197,14 @@ describe('review pages — the commission sentence only where we earn one', () =
 
   test.each(ALL_LOCALES)('%s bundle: same split for a no-commission and an affiliated product', (locale) => {
     const s = getStrings(locale);
-    const onnit = allProductsUS.find((p) => p.slug === 'onnit-alpha-brain-review')!;
+    // US Nootropics Depot: a linked no-commission record (US Alpha Brain earns since 2026-10-21).
+    const depot = allProductsUS.find((p) => p.slug === 'nootropics-depot-lions-mane')!;
     const mlp = allProductsUS.find((p) => p.slug === 'mind-lab-pro-review')!;
-    expect(earnsCommission(onnit)).toBe(false);
+    expect(earnsCommission(depot)).toBe(false);
+    expect(purchaseUrl(depot)).not.toBeNull();
     expect(earnsCommission(mlp)).toBe(true);
 
-    const none = renderReview(onnit, locale, 'us');
+    const none = renderReview(depot, locale, 'us');
     for (const sentence of COMMISSION_SENTENCES) expect(none).not.toContain(sentence);
     expect(count(none, s.disclosure.noCommission)).toBe(3);
 
