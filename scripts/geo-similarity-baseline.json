@@ -1,0 +1,446 @@
+{
+  "generatedAt": "2026-10-26T15:16:55.671Z",
+  "sourceCommit": "d63aa3b344ef092d85ec884a1bd9eb72eb1bb185",
+  "threshold": 0.45,
+  "tolerance": 0.02,
+  "pairs": {
+    "about/index.html": {
+      "au": 0.1892,
+      "ca": 0.2343,
+      "eu": 0.1739,
+      "gcc": 0.2179,
+      "jp": 0.2239,
+      "us": 0.313
+    },
+    "best-nootropics-for-aging/index.html": {
+      "au": 0.2074,
+      "ca": 0.2694,
+      "eu": 0.2321,
+      "gcc": 0.331,
+      "jp": 0.166,
+      "us": 0.3784
+    },
+    "best-nootropics-for-focus/index.html": {
+      "au": 0.174,
+      "ca": 0.1754,
+      "eu": 0.1538,
+      "gcc": 0.171,
+      "jp": 0.1738,
+      "us": 0.1892
+    },
+    "best-nootropics-for-memory/index.html": {
+      "au": 0.2326,
+      "ca": 0.2452,
+      "eu": 0.2069,
+      "gcc": 0.2845,
+      "jp": 0.2111,
+      "us": 0.3462
+    },
+    "best-nootropics-for-studying/index.html": {
+      "au": 0.2085,
+      "ca": 0.2082,
+      "eu": 0.2265,
+      "gcc": 0.2126,
+      "jp": 0.218,
+      "us": 0.2352
+    },
+    "best-nootropics/index.html": {
+      "au": 0.1287,
+      "ca": 0.0991,
+      "eu": 0.0594,
+      "gcc": 0.1608,
+      "jp": 0.1102,
+      "us": 0.0992
+    },
+    "blackmores-brain-active-review/index.html": {
+      "au": 0.4727
+    },
+    "contact/index.html": {
+      "au": 1,
+      "ca": 0.5613,
+      "eu": 0.6525,
+      "gcc": 1,
+      "jp": 0.7021,
+      "us": 1
+    },
+    "cookie-policy/index.html": {
+      "au": 1,
+      "ca": 1,
+      "eu": 1,
+      "gcc": 1,
+      "jp": 1,
+      "us": 1
+    },
+    "countries/index.html": {
+      "eu": 0.0326,
+      "gcc": 0.4098
+    },
+    "eu-yan-sang-brainmax-review/index.html": {
+      "gcc": 0.4603
+    },
+    "guides/how-nootropics-work/index.html": {
+      "au": 0.3811,
+      "ca": 0.3704,
+      "eu": 0.3536,
+      "gcc": 0.3634,
+      "jp": 0.3666,
+      "us": 0.4799
+    },
+    "guides/how-to-stack-nootropics/index.html": {
+      "au": 0.3866,
+      "ca": 0.3934,
+      "eu": 0.3765,
+      "gcc": 0.3901,
+      "jp": 0.3652,
+      "us": 0.4968
+    },
+    "guides/index.html": {
+      "au": 0.8264,
+      "ca": 0.7987,
+      "eu": 0.8429,
+      "gcc": 0.8662,
+      "jp": 0.8351,
+      "us": 0.461
+    },
+    "guides/natural-vs-synthetic-nootropics/index.html": {
+      "au": 0.6601,
+      "ca": 0.6599,
+      "eu": 0.67,
+      "gcc": 0.6458,
+      "jp": 0.6634,
+      "us": 0.671
+    },
+    "guides/nootropics-for-focus-vs-memory/index.html": {
+      "au": 0.6866,
+      "ca": 0.6859,
+      "eu": 0.6961,
+      "gcc": 0.6729,
+      "jp": 0.6898,
+      "us": 0.6972
+    },
+    "guides/what-are-nootropics/index.html": {
+      "au": 0.349,
+      "ca": 0.3425,
+      "eu": 0.3395,
+      "gcc": 0.3564,
+      "jp": 0.3421,
+      "us": 0.0101
+    },
+    "guides/what-to-expect/index.html": {
+      "au": 0.6805,
+      "ca": 0.68,
+      "eu": 0.6901,
+      "gcc": 0.6667,
+      "jp": 0.6837,
+      "us": 0.6912
+    },
+    "imprint/index.html": {
+      "au": 0.6777,
+      "ca": 0.6152,
+      "eu": 0.6667,
+      "gcc": 0.6463,
+      "jp": 0.6645,
+      "us": 0.6747
+    },
+    "index.html": {
+      "au": 0.167,
+      "ca": 0.156,
+      "eu": 0.1066,
+      "gcc": 0.1663,
+      "jp": 0.1104,
+      "us": 0.0234
+    },
+    "ingredients/acetyl-l-carnitine/index.html": {
+      "au": 0.7917,
+      "ca": 0.7862,
+      "eu": 0.799,
+      "gcc": 0.7908,
+      "jp": 0.7985,
+      "us": 0.7763
+    },
+    "ingredients/alpha-gpc/index.html": {
+      "au": 0.4553,
+      "ca": 0.4854,
+      "eu": 0.4839,
+      "gcc": 0.5025,
+      "jp": 0.4981,
+      "us": 0.5948
+    },
+    "ingredients/ashwagandha/index.html": {
+      "au": 0.8,
+      "ca": 0.7852,
+      "eu": 0.8055,
+      "gcc": 0.7939,
+      "jp": 0.8035,
+      "us": 0.7944
+    },
+    "ingredients/bacopa-monnieri/index.html": {
+      "au": 0.4818,
+      "ca": 0.4798,
+      "eu": 0.4785,
+      "gcc": 0.5422,
+      "jp": 0.5093,
+      "us": 0.5873
+    },
+    "ingredients/caffeine/index.html": {
+      "au": 0.7608,
+      "ca": 0.7473,
+      "eu": 0.7703,
+      "gcc": 0.7707,
+      "jp": 0.7922,
+      "us": 0.7515
+    },
+    "ingredients/citicoline/index.html": {
+      "au": 0.4535,
+      "ca": 0.4493,
+      "eu": 0.4539,
+      "gcc": 0.4806,
+      "jp": 0.4793,
+      "us": 0.5452
+    },
+    "ingredients/dha-omega-3/index.html": {
+      "au": 0.7974,
+      "ca": 0.7831,
+      "eu": 0.8027,
+      "gcc": 0.7977,
+      "jp": 0.8029,
+      "us": 0.7923
+    },
+    "ingredients/dynamine/index.html": {
+      "au": 0.7701,
+      "ca": 0.7566,
+      "eu": 0.7749,
+      "gcc": 0.7687,
+      "jp": 0.7796,
+      "us": 0.7697
+    },
+    "ingredients/ginkgo-biloba/index.html": {
+      "au": 0.7703,
+      "ca": 0.7436,
+      "eu": 0.7612,
+      "gcc": 0.7403,
+      "jp": 0.7708,
+      "us": 0.7377
+    },
+    "ingredients/huperzine-a/index.html": {
+      "au": 0.8029,
+      "ca": 0.7894,
+      "eu": 0.8076,
+      "gcc": 0.7794,
+      "jp": 0.8124,
+      "us": 0.7729
+    },
+    "ingredients/index.html": {
+      "au": 1,
+      "ca": 1,
+      "eu": 1,
+      "gcc": 1,
+      "jp": 1,
+      "us": 1
+    },
+    "ingredients/l-theanine/index.html": {
+      "au": 0.4971,
+      "ca": 0.4803,
+      "eu": 0.505,
+      "gcc": 0.5561,
+      "jp": 0.538,
+      "us": 0.5939
+    },
+    "ingredients/l-tryptophan/index.html": {
+      "au": 0.8292,
+      "ca": 0.8169,
+      "eu": 0.8333,
+      "gcc": 0.808,
+      "jp": 0.8376,
+      "us": 0.8217
+    },
+    "ingredients/l-tyrosine/index.html": {
+      "au": 0.7361,
+      "ca": 0.7256,
+      "eu": 0.7354,
+      "gcc": 0.7523,
+      "jp": 0.7697,
+      "us": 0.7402
+    },
+    "ingredients/lemon-balm/index.html": {
+      "au": 0.8362,
+      "ca": 0.8244,
+      "eu": 0.8402,
+      "gcc": 0.8157,
+      "jp": 0.8444,
+      "us": 0.829
+    },
+    "ingredients/lions-mane/index.html": {
+      "au": 0.5093,
+      "ca": 0.5086,
+      "eu": 0.5177,
+      "gcc": 0.5081,
+      "jp": 0.5394,
+      "us": 0.6092
+    },
+    "ingredients/longvida-curcumin/index.html": {
+      "au": 0.8109,
+      "ca": 0.7977,
+      "eu": 0.8154,
+      "gcc": 0.788,
+      "jp": 0.82,
+      "us": 0.8025
+    },
+    "ingredients/lutemax-2020/index.html": {
+      "au": 0.8549,
+      "ca": 0.8427,
+      "eu": 0.8597,
+      "gcc": 0.8389,
+      "jp": 0.8596,
+      "us": 0.8511
+    },
+    "ingredients/magnesium/index.html": {
+      "au": 0.8537,
+      "ca": 0.8428,
+      "eu": 0.8573,
+      "gcc": 0.8349,
+      "jp": 0.8611,
+      "us": 0.8473
+    },
+    "ingredients/maritime-pine-bark/index.html": {
+      "au": 0.7929,
+      "ca": 0.7774,
+      "eu": 0.7982,
+      "gcc": 0.7722,
+      "jp": 0.7991,
+      "us": 0.7874
+    },
+    "ingredients/nicotinamide-riboside/index.html": {
+      "au": 0.8717,
+      "ca": 0.8619,
+      "eu": 0.8749,
+      "gcc": 0.8549,
+      "jp": 0.8784,
+      "us": 0.8661
+    },
+    "ingredients/oat-straw/index.html": {
+      "au": 0.7919,
+      "ca": 0.7803,
+      "eu": 0.7788,
+      "gcc": 0.7717,
+      "jp": 0.7833,
+      "us": 0.7899
+    },
+    "ingredients/phosphatidylserine/index.html": {
+      "au": 0.6421,
+      "ca": 0.7701,
+      "eu": 0.7899,
+      "gcc": 0.7768,
+      "jp": 0.7875,
+      "us": 0.767
+    },
+    "ingredients/rhodiola-rosea/index.html": {
+      "au": 0.7445,
+      "ca": 0.7479,
+      "eu": 0.7519,
+      "gcc": 0.7371,
+      "jp": 0.7648,
+      "us": 0.7465
+    },
+    "ingredients/tart-cherry/index.html": {
+      "au": 0.8371,
+      "ca": 0.8252,
+      "eu": 0.8411,
+      "gcc": 0.8166,
+      "jp": 0.8452,
+      "us": 0.8299
+    },
+    "ingredients/zynamite/index.html": {
+      "au": 0.7758,
+      "ca": 0.761,
+      "eu": 0.781,
+      "gcc": 0.75,
+      "jp": 0.7862,
+      "us": 0.7659
+    },
+    "methodology/index.html": {
+      "au": 1,
+      "ca": 1,
+      "eu": 0.8161,
+      "gcc": 1,
+      "jp": 1,
+      "us": 0.9837
+    },
+    "mind-lab-pro-review/index.html": {
+      "au": 0.464,
+      "ca": 0.4361,
+      "eu": 0.4148,
+      "gcc": 0.472,
+      "jp": 0.4859,
+      "us": 0.5194
+    },
+    "naturebell-ginkgo-ginseng-review/index.html": {
+      "au": 0.4587,
+      "ca": 0.4091,
+      "us": 0.2985
+    },
+    "neutonic-brain-capsules-uk-review/index.html": {
+      "au": 0.6044,
+      "gcc": 0.5468,
+      "jp": 0.5988
+    },
+    "neutonic-productivity-drink-review/index.html": {
+      "ca": 0.4542,
+      "eu": 0.5254,
+      "jp": 0.5439,
+      "us": 0.4527
+    },
+    "noocube-review/index.html": {
+      "au": 0.473,
+      "ca": 0.4878,
+      "eu": 0.4782,
+      "gcc": 0.4992,
+      "jp": 0.4122,
+      "us": 0.5906
+    },
+    "nootropic-comparison/index.html": {
+      "au": 0.2887,
+      "ca": 0.239,
+      "eu": 0.1836,
+      "gcc": 0.2741,
+      "jp": 0.2438,
+      "us": 0.1924
+    },
+    "nootropics-depot-lions-mane/index.html": {
+      "gcc": 0.4949,
+      "us": 0.545
+    },
+    "onnit-alpha-brain-review/index.html": {
+      "au": 0.5926,
+      "ca": 0.5137,
+      "gcc": 0.5122,
+      "us": 0.5278
+    },
+    "privacy-policy/index.html": {
+      "au": 1,
+      "ca": 1,
+      "eu": 1,
+      "gcc": 1,
+      "jp": 1,
+      "us": 1
+    },
+    "qualia-mind-review/index.html": {
+      "au": 0.5504,
+      "ca": 0.5544,
+      "gcc": 0.5476,
+      "us": 0.5945
+    },
+    "terms-of-use/index.html": {
+      "au": 1,
+      "ca": 1,
+      "eu": 1,
+      "gcc": 1,
+      "jp": 1,
+      "us": 1
+    },
+    "thesis-nootropics-review/index.html": {
+      "gcc": 0.6072,
+      "us": 0.684
+    }
+  }
+}

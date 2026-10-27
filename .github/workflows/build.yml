@@ -182,6 +182,9 @@ jobs:
       # <time> and JSON-LD dateModified name the day its sitemap <lastmod>
       # names — the templates once stamped the build time on every rebuild.
       - run: npm run check:dates-consistent
+      # Cross-geo similarity gate: every SEA page vs the same-path English page
+      # of each other region (8-gram Jaccard, ratcheting baseline, fail closed).
+      - run: npm run check:geo-similarity
       - run: npm run test:e2e -- --shard=${{ matrix.shard }}/3
       - uses: actions/upload-artifact@v7
         if: failure()
