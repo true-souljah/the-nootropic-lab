@@ -185,6 +185,10 @@ jobs:
       # Cross-geo similarity gate: every SEA page vs the same-path English page
       # of each other region (8-gram Jaccard, ratcheting baseline, fail closed).
       - run: npm run check:geo-similarity
+      # Review-claims gate over all 8 builds: no "✓ Fact-checked" badge (any
+      # language), no reviewer byline, no JSON-LD reviewedBy/medicalReviewer that
+      # is not a backed Person (operator decision 2026-10-29).
+      - run: npm run check:review-claims
       - run: npm run test:e2e -- --shard=${{ matrix.shard }}/3
       - uses: actions/upload-artifact@v7
         if: failure()
