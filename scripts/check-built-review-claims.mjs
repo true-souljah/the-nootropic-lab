@@ -8,7 +8,8 @@
 // regulatory pages). For every built page under apps/<region>/out/ this gate
 // fails when:
 //   - a badge or reviewer phrase from PHRASES appears (case-insensitive, with
-//     &nbsp;/&#160, hyphens, soft hyphens and zero-width spaces normalised, in
+//     HTML entities decoded and no-break spaces, dashes, soft hyphens and
+//     zero-width spaces normalised, in
 //     the raw HTML and with tags replaced by a space or removed, so markup cannot
 //     split it, even inside a word);
 //   - a JSON-LD `reviewedBy` or `medicalReviewer` (at any depth) is not a Person
@@ -40,11 +41,26 @@ const PHRASES = [
   'revisado médicamente por',
 ];
 
-const normalise = (s) =>
+/** Named entities a renderer could use for the badge or the 7 languages' letters. */
+const NAMED = {
+  amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ', shy: '\u00ad', check: '✓', checkmark: '✓',
+  aacute: 'á', agrave: 'à', acirc: 'â', atilde: 'ã', auml: 'ä', ccedil: 'ç', eacute: 'é', egrave: 'è',
+  ecirc: 'ê', iacute: 'í', ntilde: 'ñ', oacute: 'ó', ocirc: 'ô', otilde: 'õ', ouml: 'ö', uacute: 'ú',
+  uuml: 'ü', szlig: 'ß',
+};
+const codePoint = (m, n) => (n >= 0 && n <= 0x10ffff ? String.fromCodePoint(n) : m);
+const decodeEntities = (s) =>
   s
-    .replace(/&(?:shy|#173|#xad|#8203|#x200b);?|[­​]/gi, '')
-    .replace(/&(?:nbsp|#160|#xa0);?/gi, ' ')
-    .replace(/[-‐‑]/g, ' ')
+    .replace(/&#x([0-9a-f]+);?/gi, (m, h) => codePoint(m, parseInt(h, 16)))
+    .replace(/&#(\d+);?/g, (m, d) => codePoint(m, Number(d)))
+    .replace(/&([a-z]+);/gi, (m, n) => NAMED[n.toLowerCase()] ?? m);
+/** Decode entities; drop soft hyphens and zero-width spaces; dashes and no-break spaces become
+ *  spaces; whitespace runs collapse; lower-case. Applied to the page and to PHRASES alike. */
+const normalise = (s) =>
+  decodeEntities(s)
+    .replace(/[\u00ad\u200b]/g, '')
+    .replace(/[\u00a0\u202f]/g, ' ')
+    .replace(/[-\u2010-\u2013\u2212]/g, ' ')
     .replace(/\s+/g, ' ')
     .toLowerCase();
 const NEEDLES = PHRASES.map((p) => [p, normalise(p)]);
