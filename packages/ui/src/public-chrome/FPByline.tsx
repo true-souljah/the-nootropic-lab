@@ -11,7 +11,7 @@ export interface FPBylineProps {
   updatedDisplay: string;
   /** Estimated read time in minutes. */
   minutes: number;
-  /** Page-locale byline strings (team credit, "Updated", read time, fact-check badge). */
+  /** Page-locale byline strings (team credit, "Updated", read time). */
   strings: UIStrings['byline'];
   /** The page locale's `uiStrings.typography.space` between "Updated" and the date ('' in ja, whose label ends in ：). */
   space?: string;
@@ -20,7 +20,8 @@ export interface FPBylineProps {
 /**
  * FPByline — meta row sitting under H1 + dek on every editorial page.
  * Per Phase 5: team credit only, no named author, no medical reviewer.
- * The ✓ Fact-checked badge is the EEAT trust signal.
+ * No fact-check badge: nobody fact-checks pages separately (operator decision
+ * 2026-10-29, review-team-claims = A); scripts/check-built-review-claims.mjs keeps it out.
  */
 export function FPByline({ updated, updatedDisplay, minutes, strings, space = ' ' }: FPBylineProps) {
   return (
@@ -32,10 +33,6 @@ export function FPByline({ updated, updatedDisplay, minutes, strings, space = ' 
       </span>
       <span aria-hidden="true">·</span>
       <span>{tpl(strings.readTime, { minutes })}</span>
-      <span className="flex-1" aria-hidden="true" />
-      <span className="inline-flex items-center gap-[5px] bg-ds-good-soft text-ds-good-ink px-2 py-[2px] rounded-full text-[11.5px] font-semibold">
-        {strings.factChecked}
-      </span>
     </div>
   );
 }

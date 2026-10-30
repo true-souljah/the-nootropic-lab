@@ -168,8 +168,9 @@ const exempt = (path: string, locale: Locale) => DO_NOT_TRANSLATE[path]?.include
 const enLeaves = newLeaves('en');
 
 describe('new chrome strings (2026-10-12): every locale, every key', () => {
-  test('the scan is non-empty: 188 new strings in en', () => {
-    expect(enLeaves.size).toBe(188);
+  // 187 since 2026-10-29: byline.factChecked ("✓ Fact-checked") was removed (review-team-claims = A).
+  test('the scan is non-empty: 187 new strings in en', () => {
+    expect(enLeaves.size).toBe(187);
   });
 
   test.each(ALL_LOCALES)('%s has every key, non-empty', (locale) => {

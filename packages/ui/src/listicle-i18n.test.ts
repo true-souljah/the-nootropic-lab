@@ -100,8 +100,8 @@ describe('Listicle strings are complete in every locale', () => {
       'Mind Lab Pro dosing score',
     );
     expect(tpl(s.ourPicksFor, { useCase: s.useCaseLabels.memory ?? 'memory' })).toBe('Our picks for memory');
-    expect(`${ui.byline.attribution} · ${ui.byline.updated} · ${tpl(ui.byline.readTime, { minutes: 10 })} · ${ui.byline.factChecked}`).toBe(
-      'By The Nootropic Lab editorial team · Updated · 10 min read · ✓ Fact-checked',
+    expect(`${ui.byline.attribution} · ${ui.byline.updated} · ${tpl(ui.byline.readTime, { minutes: 10 })}`).toBe(
+      'By The Nootropic Lab editorial team · Updated · 10 min read',
     );
     expect(s.useCaseLabels).toEqual({});
   });

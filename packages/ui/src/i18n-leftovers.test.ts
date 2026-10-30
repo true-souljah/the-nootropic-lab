@@ -353,7 +353,7 @@ describe('LATAM ingredient pages write their JSON-LD in Spanish', () => {
     const dataset = byType(blocks, 'Dataset');
     const crumbs = byType(blocks, 'BreadcrumbList');
     expect(article.headline).toBe(`${ing.name} — Nootropic Ingredient Guide`);
-    expect(article.reviewedBy.name).toBe('The Nootropic Lab Editorial Team');
+    expect(article.reviewedBy).toBeUndefined();
     expect(dataset.name).toBe(`${ing.name} — Human Clinical Effect Matrix`);
     expect(dataset.description).toBe(
       `Structured human-clinical-trial evidence summary for ${ing.name}: per-effect evidence strength, magnitude, and study count. Sourced from the PubMed-indexed studies listed in the page's Sources section (evidence reviewed ${ing.evidenceReviewedAt}).`,

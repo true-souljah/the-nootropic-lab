@@ -675,7 +675,6 @@ export interface UIStrings {
    */
   byline: {
     attribution: string;
-    factChecked: string;
     /** Label before the date. */
     updated: string;
     /** {minutes} is the estimated read time. */
@@ -1420,7 +1419,6 @@ const en: UIStrings = {
   },
   byline: {
     attribution: 'By The Nootropic Lab editorial team',
-    factChecked: '✓ Fact-checked',
     updated: 'Updated',
     readTime: '{minutes} min read',
   },
@@ -2076,7 +2074,6 @@ const es: UIStrings = {
   },
   byline: {
     attribution: 'Por el equipo editorial de The Nootropic Lab',
-    factChecked: '✓ Datos verificados',
     updated: 'Actualizado',
     readTime: '{minutes} min de lectura',
   },
@@ -2738,7 +2735,6 @@ const fr: UIStrings = {
   },
   byline: {
     attribution: 'Par l’équipe éditoriale de The Nootropic Lab',
-    factChecked: '✓ Vérifié',
     updated: 'Mis à jour le',
     readTime: '{minutes} min de lecture',
   },
@@ -3364,7 +3360,6 @@ const ja: UIStrings = {
   },
   byline: {
     attribution: '執筆：The Nootropic Lab 編集チーム',
-    factChecked: '✓ ファクトチェック済み',
     updated: '更新日：',
     readTime: '{minutes}分で読めます',
   },
@@ -3992,7 +3987,6 @@ const pt: UIStrings = {
   },
   byline: {
     attribution: 'Pela equipa editorial do The Nootropic Lab',
-    factChecked: '✓ Factos verificados',
     updated: 'Atualizado',
     readTime: '{minutes} min de leitura',
   },
@@ -4618,7 +4612,6 @@ const de: UIStrings = {
   },
   byline: {
     attribution: 'Von der Redaktion von The Nootropic Lab',
-    factChecked: '✓ Faktengeprüft',
     updated: 'Aktualisiert',
     readTime: '{minutes} Min. Lesezeit',
   },
@@ -5245,7 +5238,6 @@ const frCa: UIStrings = {
   },
   byline: {
     attribution: 'Par l’équipe éditoriale de The Nootropic Lab',
-    factChecked: '✓ Faits vérifiés',
     updated: 'Mis à jour le',
     readTime: '{minutes} min de lecture',
   },

@@ -65,7 +65,6 @@ const articleSchema = {
   dateModified: isoDay(updated),
   author: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
   publisher: { '@type': 'Organization', name: 'The Nootropic Lab', url: SITE_URL },
-  reviewedBy: { '@type': 'Organization', name: 'The Nootropic Lab Editorial Team', url: SITE_URL },
 };
 
 // Dataset schema — the seven products named in Artículo 1 as structured data
