@@ -8,7 +8,7 @@ export const REGIONS = {
   ca: { siteUrl: 'https://ca.thenootropiclab.com', hreflang: 'en-CA' },
   au: { siteUrl: 'https://au.thenootropiclab.com', hreflang: 'en-AU' },
   jp: { siteUrl: 'https://jp.thenootropiclab.com', hreflang: 'en-JP' },
-  latam: { siteUrl: 'https://latam.thenootropiclab.com', hreflang: 'es-419' },
+  latam: { siteUrl: 'https://latam.thenootropiclab.com', hreflang: 'es' },
   gcc: { siteUrl: 'https://gcc.thenootropiclab.com', hreflang: 'en-AE' },
   sea: { siteUrl: 'https://sea.thenootropiclab.com', hreflang: 'en-SG' },
 } as const;
@@ -26,7 +26,7 @@ export type RegionCode = keyof typeof REGIONS;
  * siblings. Pages not in any cluster keep the plain cross-region behaviour.
  *
  * Only English-primary regions with localized subtrees are listed (EU de/fr/pt,
- * US es, CA fr). JP is English-primary (en-JP) while its Japanese copy is paused
+ * US es-US, CA fr). JP is English-primary (en-JP) while its Japanese copy is paused
  * pending legal advice (owner decision 2026-10-13; the /ja/ subtree is gone), so
  * it has no locale cluster. (audit OPT-3b)
  */
@@ -40,10 +40,13 @@ export const LOCALE_CLUSTERS: Partial<Record<RegionCode, ReadonlyArray<Record<st
       pt: '/pt/melhores-nootropicos/',
     },
   ],
+  // Plain `es` belongs to the LATAM host (REGIONS.latam), and /es/ is the
+  // US-market Spanish edition, so it carries es-US; Google does not support
+  // es-419 (only ISO 639-1 language + ISO 3166-1 Alpha 2 region codes).
   us: [
-    { 'en-US': '/', es: '/es/' },
-    { 'en-US': '/best-nootropics/', es: '/es/mejores-nootropicos/' },
-    { 'en-US': '/nootropic-comparison/', es: '/es/comparar/' },
+    { 'en-US': '/', 'es-US': '/es/' },
+    { 'en-US': '/best-nootropics/', 'es-US': '/es/mejores-nootropicos/' },
+    { 'en-US': '/nootropic-comparison/', 'es-US': '/es/comparar/' },
   ],
   ca: [
     { 'en-CA': '/', fr: '/fr/' },
