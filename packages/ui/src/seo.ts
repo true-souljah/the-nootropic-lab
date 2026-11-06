@@ -26,7 +26,7 @@ export type RegionCode = keyof typeof REGIONS;
  * siblings. Pages not in any cluster keep the plain cross-region behaviour.
  *
  * Only English-primary regions with localized subtrees are listed (EU de/fr/pt,
- * US es-US, CA fr). JP is English-primary (en-JP) while its Japanese copy is paused
+ * US es-US, CA fr-CA). JP is English-primary (en-JP) while its Japanese copy is paused
  * pending legal advice (owner decision 2026-10-13; the /ja/ subtree is gone), so
  * it has no locale cluster. (audit OPT-3b)
  */
@@ -49,9 +49,9 @@ export const LOCALE_CLUSTERS: Partial<Record<RegionCode, ReadonlyArray<Record<st
     { 'en-US': '/nootropic-comparison/', 'es-US': '/es/comparar/' },
   ],
   ca: [
-    { 'en-CA': '/', fr: '/fr/' },
-    { 'en-CA': '/best-nootropics/', fr: '/fr/meilleurs-nootropiques/' },
-    { 'en-CA': '/nootropic-comparison/', fr: '/fr/comparer/' },
+    { 'en-CA': '/', 'fr-CA': '/fr/' },
+    { 'en-CA': '/best-nootropics/', 'fr-CA': '/fr/meilleurs-nootropiques/' },
+    { 'en-CA': '/nootropic-comparison/', 'fr-CA': '/fr/comparer/' },
   ],
 };
 
