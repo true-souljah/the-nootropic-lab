@@ -136,8 +136,30 @@ describe('buildAlternates — locale clusters (OPT-3b)', () => {
       path: '/fr/comparer/',
       availableInRegions: ['ca'],
     });
-    expect(fr.languages['fr']).toBe('https://ca.thenootropiclab.com/fr/comparer/');
+    expect(fr.languages['fr-CA']).toBe('https://ca.thenootropiclab.com/fr/comparer/');
+    expect(fr.languages['fr']).toBeUndefined();
     expect(fr.languages['en-CA']).toBe('https://ca.thenootropiclab.com/nootropic-comparison/');
+  });
+
+  test('CA English pages list fr-CA (not fr); CA /fr/ pages list en-CA back', () => {
+    const caPairs = [
+      { enPath: '/', frPath: '/fr/' },
+      { enPath: '/best-nootropics/', frPath: '/fr/meilleurs-nootropiques/' },
+      { enPath: '/nootropic-comparison/', frPath: '/fr/comparer/' },
+    ];
+    for (const { enPath, frPath } of caPairs) {
+      const en = buildAlternates({ regionCode: 'ca', path: enPath });
+      expect(en.languages['fr-CA']).toBe('https://ca.thenootropiclab.com' + frPath);
+      expect(en.languages['fr']).toBeUndefined();
+
+      const fr = buildAlternates({
+        regionCode: 'ca',
+        path: frPath,
+        availableInRegions: ['ca'],
+      });
+      expect(fr.languages['en-CA']).toBe('https://ca.thenootropiclab.com' + enPath);
+      expect(fr.languages['en-CA']).toBe(en.canonical);
+    }
   });
 
   test('non-clustered pages keep the plain cross-region behaviour (no regression)', () => {
@@ -188,10 +210,7 @@ describe('buildAlternates — Google-supported hreflang codes', () => {
     return groups;
   }
 
-  // Pre-existing (EU /fr/ and CA /fr/ both carry plain `fr`), left as they are
-  // because this change only replaces es-419; the open item is in BACKLOG.md.
-  // Delete an entry when it is fixed.
-  const KNOWN_COLLISIONS = ['/ fr', '/best-nootropics/ fr'];
+  const KNOWN_COLLISIONS: string[] = [];
 
   test('every hreflang value has a form Google supports', () => {
     const codes = new Set<string>();
