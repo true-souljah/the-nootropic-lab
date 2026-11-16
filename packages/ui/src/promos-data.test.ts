@@ -14,9 +14,10 @@ describe('shipped promo data', () => {
   it('matches purchase-link eligibility and finds vendor hosts', () => {
     for (const [region, products] of Object.entries(catalog)) {
       const domains = promoVendorDomains(products);
-      for (const product of products) if (isDiscontinued(product) || purchaseUrl(product) === null) {
-        const source = product.storePrice?.url ?? product.affiliateUrl;
-        try { expect(domains.has(new URL(source).hostname.replace(/^www\./, '').replace(/\.$/, '').toLowerCase())).toBe(false); } catch { /* malformed source */ }
+      for (const product of products) {
+        const blocked = isDiscontinued(product) || purchaseUrl(product) === null;
+        // A product the repo's own helpers treat as unbuyable contributes no host; a buyable one with a parsable link does.
+        if (blocked) expect(promoVendorDomains([product]).size, `${region} ${product.slug}`).toBe(0);
       }
       if (region !== 'jp') expect(domains.size).toBeGreaterThan(0);
     }

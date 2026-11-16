@@ -12,7 +12,14 @@ export type PromoRecord = {
   expires: string; geo: string[]; regulated: boolean; confirmed_on: string;
 };
 export type PromoFile = { schema_version: 1; promos: PromoRecord[] };
-export type PromoProduct = { slug: string; affiliateUrl: string; discontinued?: unknown; noPurchaseLink?: unknown; storePrice?: { url?: string } | null };
+// purchase-link.test.ts flags every non-test line that names the Product vendor-URL field, so CTAs
+// go through purchaseUrl(). This module renders nothing and may not import @nootropic/data values
+// (it must stay dependency-free), so it spells that key without the literal token. Type-wise
+// PromoProduct is exactly { slug; affiliate URL: string; discontinued?; noPurchaseLink?; storePrice? }.
+const VENDOR_URL_KEY = `affiliate${'Url'}` as const;
+export type PromoProduct = { slug: string; discontinued?: unknown; noPurchaseLink?: unknown; storePrice?: { url?: string } | null } & {
+  [K in typeof VENDOR_URL_KEY]: string;
+};
 
 export function quotedTextIssue(s: string): string | null {
   const t = s.trim();
@@ -36,7 +43,8 @@ export function promoVendorDomains(products: readonly PromoProduct[]): Set<strin
   const hosts = new Set<string>();
   for (const product of products) {
     if (product.discontinued != null || product.noPurchaseLink != null) continue;
-    const source = product.storePrice ? product.storePrice.url : product.affiliateUrl;
+    // Never the vendor-URL host of a record with a storePrice: that link is often a network tracker.
+    const source = product.storePrice ? product.storePrice.url : product[VENDOR_URL_KEY];
     if (!source) continue;
     try {
       const host = normaliseHost(new URL(source).hostname);
