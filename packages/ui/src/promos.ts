@@ -53,7 +53,17 @@ export function promoVendorDomains(products: readonly PromoProduct[]): Set<strin
   }
   return hosts;
 }
+// A bare public suffix such as co.uk would suffix-match every vendor host under it
+// (shop.example.co.uk), so it can never be a vendor_domain. Best-effort list, not the Public Suffix
+// List (this module stays dependency-free): the multi-label suffixes of the promo regions' markets.
+// A single-label TLD needs no entry: normaliseHost refuses a host with fewer than two labels.
+const PUBLIC_SUFFIXES: ReadonlySet<string> = new Set([
+  'co.uk', 'org.uk', 'me.uk', 'com.au', 'net.au', 'org.au', 'co.nz', 'co.jp', 'ne.jp', 'or.jp',
+  'com.br', 'com.mx', 'com.ar', 'com.co', 'com.pe', 'com.cl', 'com.sg', 'com.my', 'co.th', 'co.id',
+  'com.ph', 'com.vn', 'co.za', 'co.ae', 'com.sa', 'com.qa', 'com.kw', 'com.bh', 'com.om', 'ae.org',
+]);
 export function vendorDomainMatches(domain: string, hosts: ReadonlySet<string>): boolean {
+  if (PUBLIC_SUFFIXES.has(domain)) return false;
   return [...hosts].some((host) => host === domain || host.endsWith(`.${domain}`));
 }
 

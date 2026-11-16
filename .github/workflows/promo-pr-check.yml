@@ -28,8 +28,23 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: '20'
+      # Why the base tree: on pull_request the checkout is the PR's merge commit, so the PR's own
+      # copy of the checker (scripts/check-promo-pr.ts, promo-pr-scope.ts, promos.ts, package.json,
+      # the packages/data/src catalogue, and any .npmrc, which can swap the shell npm run uses)
+      # would judge the PR. So run the base branch's tree: the checker reads the PR's changes
+      # from git objects (git diff/show at HEAD_SHA), never from the working tree. Bootstrap: on
+      # the PR that adds the checker the base has none yet, so that one PR runs its own copy.
+      # Residual limit: a PR can still edit this workflow file, and pull_request runs the PR's
+      # version of it; closing that needs repo settings (owner review of .github/ or a ruleset),
+      # which only the repo owner can change.
       - name: Check promo PR scope
-        run: npm run check:promo-pr
+        run: |
+          if git cat-file -e "$BASE_SHA:scripts/check-promo-pr.ts" 2>/dev/null; then
+            git checkout --quiet --detach "$BASE_SHA"
+          else
+            echo "Base $BASE_SHA has no promo checker yet (bootstrap PR): running this PR's copy."
+          fi
+          npm run check:promo-pr
         env:
           HEAD_REF: ${{ github.event.pull_request.head.ref }}
           PR_TITLE: ${{ github.event.pull_request.title }}

@@ -14,7 +14,13 @@ describe('promo PR scope', () => {
   it.each(['promo/x', 'promotion-auto/x'])('does not recognise %s', (headRef) => expect(isPromoPr({ headRef, title: 'x' })).toBe(false));
   it('allows one valid promo file', () => expect(check().ok).toBe(true));
   it.each(['package.json', 'packages/data/src/content-dates.json', 'packages/data/promos/jp.json'])('rejects forbidden path %s', (bad) => expect(check({ changedPaths: [path, bad] }).ok).toBe(false));
-  it('rejects an empty promo PR', () => expect(check({ changedPaths: [] }).ok).toBe(false));
+  // A promo PR may never touch the checker that judges it (the workflow also runs the base copy).
+  it.each(['scripts/check-promo-pr.ts', 'packages/ui/src/promo-pr-scope.ts', 'packages/ui/src/promos.ts', '.github/workflows/promo-pr-check.yml'])('rejects a promo-auto PR touching only checker file %s', (bad) => {
+    const result = check({ headRef: 'promo-auto/x', changedPaths: [bad], head: {} });
+    expect(result.ok).toBe(false);
+    expect(result.violations).toEqual([`disallowed path: ${bad}`]);
+  });
+  it('rejects an empty promo PR', () =>expect(check({ changedPaths: [] }).ok).toBe(false));
   it('reports invalid head data', () => expect(check({ head: { [path]: { schema_version: 1, promos: [{ ...row(), expires: 'bad' }] } } }).violations.join('\n')).toMatch(/promos.json invalid/));
   it('allows auto percent non-regulated additions', () => expect(check({ headRef: 'promo-auto/x' }).ok).toBe(true));
   it.each([row({ kind: 'free-item' }), row({ regulated: true })])('rejects ineligible automatic addition', (bad) => expect(check({ headRef: 'promo-auto/x', head: { [path]: doc([bad]) } }).ok).toBe(false));
