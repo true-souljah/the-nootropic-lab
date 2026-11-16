@@ -20,7 +20,7 @@ describe('promo PR scope', () => {
     expect(result.ok).toBe(false);
     expect(result.violations).toEqual([`disallowed path: ${bad}`]);
   });
-  it('rejects an empty promo PR', () =>expect(check({ changedPaths: [] }).ok).toBe(false));
+  it('rejects an empty promo PR', () => expect(check({ changedPaths: [] }).ok).toBe(false));
   it('reports invalid head data', () => expect(check({ head: { [path]: { schema_version: 1, promos: [{ ...row(), expires: 'bad' }] } } }).violations.join('\n')).toMatch(/promos.json invalid/));
   it('allows auto percent non-regulated additions', () => expect(check({ headRef: 'promo-auto/x' }).ok).toBe(true));
   it.each([row({ kind: 'free-item' }), row({ regulated: true })])('rejects ineligible automatic addition', (bad) => expect(check({ headRef: 'promo-auto/x', head: { [path]: doc([bad]) } }).ok).toBe(false));
