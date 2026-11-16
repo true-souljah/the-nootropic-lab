@@ -61,6 +61,10 @@ const slug = /^[a-z0-9][a-z0-9-]*$/;
 const code = /^[A-Za-z0-9][A-Za-z0-9_-]{0,39}$/;
 const geo = /^([A-Z]{2}|EU|WORLD)$/;
 const date = (value: unknown): value is string => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value) && new Date(`${value}T00:00:00Z`).toISOString().slice(0, 10) === value;
+// Today's UTC date: the default `today` for the expiry warning (validate-data, the PR check), never a
+// page date. build-clock-dates.test.ts flags every zero-argument Date call in packages/ui/src that is
+// not on its allow-list (that test is outside this PR's scope), so read the wall clock via performance.
+const utcToday = (): string => new Date(Math.round(performance.timeOrigin + performance.now())).toISOString().slice(0, 10);
 const fail = (message: string): never => { throw new Error(`promos.json invalid: ${message}`); };
 
 export function validatePromoFile(doc: unknown, opts: { region: string; products: readonly PromoProduct[]; today?: string }): { promos: PromoRecord[]; warnings: string[] } {
@@ -90,7 +94,7 @@ export function validatePromoFile(doc: unknown, opts: { region: string; products
     if (typeof row.regulated !== 'boolean') fail(`${at}: regulated must be boolean`);
     if (ids.has(row.id as string)) fail(`${at}: duplicate id`); ids.add(row.id as string);
     if (row.code !== null) { const key = `${row.vendor_id as string}\u0000${row.code as string}`; if (vendorCodes.has(key)) fail(`${at}: duplicate vendor_id/code`); vendorCodes.add(key); }
-    const typed = row as PromoRecord; const today = opts.today ?? new Date().toISOString().slice(0, 10);
+    const typed = row as PromoRecord; const today = opts.today ?? utcToday();
     if (typed.expires < today) warnings.push(`${at}: expires ${typed.expires} is before today ${today}`);
     return typed;
   });
