@@ -1,5 +1,7 @@
 // Lightweight, dependency-free validation gate for product data.
 // Fails (exit 1) on missing required fields, non-numeric score, or duplicate id within a region.
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import {
   allProductsUS, allProductsEU, allProductsCA, allProductsAU,
   allProductsJP, allProductsLatam, allProductsGCC, allProductsSEA,
@@ -9,6 +11,7 @@ import {
   storePriceProblems,
 } from '../packages/data/src/index';
 import type { Product, RegionalRegionCode } from '../packages/data/src/index';
+import { PROMO_REGIONS, PROMO_HELD_REGIONS, PROMO_DIR, validatePromoFile } from '../packages/ui/src/promos';
 
 // Full lists: discontinued records still render a review page, so they are validated too.
 const regions: Record<string, unknown[]> = {
@@ -279,6 +282,34 @@ for (const [region, products] of Object.entries(regions)) {
 failed += blockProblems;
 if (blockProblems === 0) {
   console.log(`ok no-purchase-link: ${blocked.length} record(s) without a purchase link${blocked.length ? ` (${blocked.join(', ')})` : ''}`);
+}
+
+// Promo rows deliberately live outside packages/data/src so their routine
+// updates never require content-dates.json changes.
+const promoDirectory = join(process.cwd(), PROMO_DIR);
+for (const region of PROMO_REGIONS) {
+  const file = join(promoDirectory, `${region}.json`);
+  if (!existsSync(file)) {
+    console.error(`FAIL promos ${region}: file missing`);
+    failed++;
+    continue;
+  }
+  try {
+    const result = validatePromoFile(JSON.parse(readFileSync(file, 'utf8')), { region, products: regions[region] as never[] });
+    console.log(`ok promos ${region}: ${result.promos.length} row(s)`);
+    for (const warning of result.warnings) console.warn(`warn promos ${region}: ${warning}`);
+  } catch (error) {
+    console.error(`FAIL promos ${region}: ${(error as Error).message}`);
+    failed++;
+  }
+}
+const allowedPromoFiles = new Set(PROMO_REGIONS.map((region) => `${region}.json`));
+if (existsSync(promoDirectory)) for (const entry of readdirSync(promoDirectory)) {
+  if (!allowedPromoFiles.has(entry)) { console.error(`FAIL promos: unexpected entry ${entry}`); failed++; }
+}
+for (const region of PROMO_HELD_REGIONS) if (existsSync(join(promoDirectory, `${region}.json`))) {
+  console.error(`FAIL promos ${region}: held region, no promo file may exist`);
+  failed++;
 }
 
 if (failed > 0) {

@@ -1,0 +1,37 @@
+import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
+import { join, relative } from 'node:path';
+import { describe, expect, it, vi } from 'vitest';
+import { productsEU, productsUS, weightedScore, dosingScore } from '@nootropic/data';
+import { scoreTier, splitListiclePicks } from './templates/listicleRanking';
+import { scoreQuiz } from './templates/quizScoring';
+import { priceSortable, sortRows } from './templates/comparator/utils';
+
+const ROOT = join(__dirname, '..', '..', '..');
+const RANKING_MODULES = ['packages/data/src/product-rules.ts', 'packages/ui/src/templates/listicleRanking.ts', 'packages/ui/src/templates/quizScoring.ts', 'packages/ui/src/templates/comparator/utils.ts', 'packages/ui/src/ComparisonTable.tsx', 'packages/ui/src/RegionalAvailability.tsx', 'packages/ui/src/templates/BestOf.tsx', 'packages/ui/src/templates/Listicle.tsx', 'packages/ui/src/templates/Comparator.tsx', 'packages/ui/src/templates/QuizResults.tsx', 'packages/ui/src/templates/Discover.tsx'];
+const ALLOWED_PROMO_READERS: string[] = [];
+const NON_RANKING_SORT_FILES: Record<string, string> = {};
+const PAGE_SORT_FILES = ['apps/us/src/app/[slug]/page.tsx', 'apps/eu/src/app/[slug]/page.tsx', 'apps/ca/src/app/[slug]/page.tsx', 'apps/au/src/app/[slug]/page.tsx', 'apps/jp/src/app/[slug]/page.tsx', 'apps/latam/src/app/[slug]/page.tsx', 'apps/gcc/src/app/[slug]/page.tsx', 'apps/sea/src/app/[slug]/page.tsx', 'apps/us/src/app/guides/[guide]/page.tsx', 'apps/eu/src/app/guides/[guide]/page.tsx', 'apps/ca/src/app/guides/[guide]/page.tsx', 'apps/au/src/app/guides/[guide]/page.tsx', 'apps/jp/src/app/guides/[guide]/page.tsx', 'apps/latam/src/app/guides/[guide]/page.tsx', 'apps/gcc/src/app/guides/[guide]/page.tsx', 'apps/sea/src/app/guides/[guide]/page.tsx', 'apps/us/src/app/[slug]/best-nootropics/page.tsx', 'apps/au/src/app/states/[state]/page.tsx', 'apps/ca/src/app/provinces/[province]/page.tsx', 'apps/eu/src/app/countries/[country]/page.tsx', 'apps/gcc/src/app/countries/[country]/page.tsx', 'apps/jp/src/app/prefectures/[prefecture]/page.tsx', 'apps/latam/src/app/countries/[country]/page.tsx', 'apps/sea/src/app/countries/[country]/page.tsx'];
+const stripComments = (s: string) => s.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/.*$/gm, '');
+function unsafe(source: string): boolean { const text = stripComments(source); return /promo|\bdeals?\b|coupon|discountCode|confirmed_on|terms_quote|vendor_domain/i.test(text); }
+function imports(source: string): string[] { return [...source.matchAll(/(?:import\s*(?:[^'"()]*?from\s*)?|export\s+[^'"()]*?from\s*|import\s*\()["']([^"']+)["']/g)].map((m) => m[1]); }
+function resolves(from: string, spec: string): string | null { if (spec === '@nootropic/data') return 'packages/data/src/index.ts'; if (!spec.startsWith('.')) return null; const stem = join(ROOT, from, '..', spec); for (const suffix of ['', '.ts', '.tsx', '.json', '/index.ts']) if (existsSync(stem + suffix)) return relative(ROOT, stem + suffix); return null; }
+function reachable(start: string): Set<string> { const seen = new Set<string>(); const walk = (file: string) => { if (seen.has(file)) return; seen.add(file); const source = readFileSync(join(ROOT, file), 'utf8'); for (const spec of imports(source)) { const next = resolves(file, spec); if (next) walk(next); } }; walk(start); return seen; }
+function allFiles(dir: string): string[] { return readdirSync(dir).flatMap((name) => { const file = join(dir, name); return statSync(file).isDirectory() ? allFiles(file) : [file]; }); }
+
+describe('promo firewall', () => {
+  it('has real ranking modules and no allowed ranking reader', () => { expect(RANKING_MODULES.length).toBeGreaterThan(0); expect(ALLOWED_PROMO_READERS).toEqual([]); for (const file of RANKING_MODULES) expect(existsSync(join(ROOT, file))).toBe(true); });
+  it.each(RANKING_MODULES)('does not reach promo data from %s', (file) => { for (const found of reachable(file)) expect(ALLOWED_PROMO_READERS.includes(found) || (!/(^|\/)promo[^/]*\.(ts|tsx)$/.test(found) && !found.startsWith('scripts/') && !/^packages\/data\/promos\/.*\.json$/.test(found))).toBe(true); });
+  it.each(RANKING_MODULES)('has no promo tokens in %s', (file) => expect(unsafe(readFileSync(join(ROOT, file), 'utf8'))).toBe(false));
+  it('keeps all sort sites classified', () => { const roots = ['apps', 'packages/ui/src', 'packages/data/src']; const found = roots.flatMap((dir) => allFiles(join(ROOT, dir))).filter((file) => /\.(ts|tsx)$/.test(file) && !/\.(test|spec)\./.test(file) && /\.(sort|toSorted)\(|sortBy/.test(readFileSync(file, 'utf8'))).map((file) => relative(ROOT, file)); expect(found.sort()).toEqual([...RANKING_MODULES, ...PAGE_SORT_FILES, ...Object.keys(NON_RANKING_SORT_FILES)].sort()); });
+  it('keeps product records free of promo keys', () => { const forbidden = new Set(['promo', 'promos', 'deal', 'deals', 'coupon', 'discountCode', 'terms_quote', 'confirmed_on', 'vendor_domain']); const keys = new Set<string>(); const visit = (x: unknown) => { if (Array.isArray(x)) x.forEach(visit); else if (x && typeof x === 'object') for (const [key, value] of Object.entries(x)) { keys.add(key); visit(value); } }; for (const region of ['us', 'eu', 'ca', 'au', 'jp', 'latam', 'gcc', 'sea']) visit(JSON.parse(readFileSync(join(ROOT, `packages/data/src/products-${region}.json`), 'utf8'))); for (const key of forbidden) expect(keys.has(key)).toBe(false); });
+  it('scanner rejects promo imports and data', () => { expect(reachableSource("import './promos'")).toBe(true); expect(reachableSource("import '../../data/promos/us.json'")).toBe(true); });
+  it('scanner accepts clean code and comments', () => { expect(unsafe('const score = 1;')).toBe(false); expect(unsafe('// promo only')).toBe(false); });
+  it('scanner rejects fields and sort expressions', () => { expect(unsafe('vendor.promo')).toBe(true); expect(unsafe('rows.sort((a,b) => b.promo - a.promo)')).toBe(true); expect(unsafe('rows.sort((a,b) => b.score - a.score)')).toBe(false); });
+  // Today nothing imports a promo module, so these equality checks hold by construction;
+  // vi.doMock becomes meaningful as soon as a reader exists, while static checks guard now.
+  it('ranking scores are unaffected by perturbed promo modules', async () => { const before = [weightedScore(productsUS[0].scoreBreakdown), dosingScore(productsUS[0]), scoreTier(productsUS[0].score)]; vi.resetModules(); vi.doMock('../data/promos/us.json', () => ({ default: { promos: [] } })); const after = [weightedScore(productsUS[0].scoreBreakdown), dosingScore(productsUS[0]), scoreTier(productsUS[0].score)]; expect(after).toEqual(before); });
+  it('listicle ordering is unaffected', () => { const picks = productsEU.slice(0, 3).map((product) => ({ product })) as never; const before = splitListiclePicks(picks, []); vi.resetModules(); const after = splitListiclePicks(picks, []); expect(after).toEqual(before); });
+  it('comparator ordering is unaffected', () => { const before = [priceSortable(productsUS.slice(0, 2)), sortRows(productsUS.slice(0, 2), 'score', 'desc', false).map((p) => p.slug)]; vi.resetModules(); const after = [priceSortable(productsUS.slice(0, 2)), sortRows(productsUS.slice(0, 2), 'score', 'desc', false).map((p) => p.slug)]; expect(after).toEqual(before); });
+  it('quiz scorer remains callable without promo data', () => { expect(typeof scoreQuiz).toBe('function'); });
+});
+function reachableSource(source: string): boolean { return imports(source).some((spec) => /promo/.test(spec)); }

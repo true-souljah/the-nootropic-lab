@@ -1,0 +1,37 @@
+name: Promo PR check
+
+# A PR whose head branch is promo-auto/* or promo-review/*, or whose title starts
+# "promo:", may change only packages/data/promos/<region>.json. promo-auto/* PRs may
+# add or change only non-regulated percent, fixed and shipping rows (removals always
+# fine). Any other PR passes (the job must always report: it is a required check).
+# Design: portfolio-hub build plan 4.4/4.5; the hub's per-site push (PR 15) uses these
+# branch names.
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, edited]
+
+permissions:
+  contents: read
+
+jobs:
+  promo-scope:
+    name: Promo PR scope
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '20'
+      - name: Check promo PR scope
+        run: npm run check:promo-pr
+        env:
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}

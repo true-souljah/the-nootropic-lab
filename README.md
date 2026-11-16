@@ -47,6 +47,10 @@ one build slot across the account, and production merges waited 30+ minutes
 there. Deploy a single region by hand with
 `gh workflow run deploy.yml -f region=<region>`.
 
+## Promo data
+
+Promo rows live in `packages/data/promos/<region>.json` (us, eu, ca, au, latam, gcc, sea; none for jp: held). They sit outside `packages/data/src` on purpose, so a promo change never touches `content-dates.json`. The hub writes them by PR; do not hand-edit except to remove a row. A row is plain text: no link, HTML or Markdown in `headline` or `terms_quote`; `expires` is required; `vendor_domain` must be a vendor store host of that region's catalogue. `npm run validate-data` checks every file; `packages/ui/src/promos.ts` is the schema. No ranking, score or sort code may read a promo field: `packages/ui/src/promo-firewall.test.ts` fails if one does. PRs from `promo-auto/*` or `promo-review/*` (or titled `promo:`) may change only the promo files (`Promo PR scope` check, `scripts/check-promo-pr.ts`).
+
 ## Affiliate links: UberNet (Performance Lab, Mind Lab Pro, Pre Lab Pro)
 
 The Performance Lab family (Performance Lab, Mind Lab Pro, Pre Lab Pro) is
