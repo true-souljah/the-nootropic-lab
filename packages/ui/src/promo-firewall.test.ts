@@ -137,7 +137,17 @@ function forbiddenImportsOf(source: string, as: string): string[] {
   return forbiddenReach(importSpecifiers(source).map((spec) => resolveSpecifier(as, spec)).filter((x): x is string => x !== null));
 }
 
-const SORT_CALL = /\.(sort|toSorted)\s*\(|\bsortBy\b/g;
+/**
+ * A sort call: `.sort(` / `.toSorted(` with any whitespace or an optional call (`?.(`) before the
+ * paren, or a `sortBy...` helper. Bracket access (`xs['sort'](...)`) and `Array.prototype.sort.call`
+ * are not matched: the scanner catches ordinary call syntax, not deliberate obfuscation.
+ */
+const SORT_CALL = /\.(sort|toSorted)\s*(?:\?\.\s*)?\(|sortBy\w*/g;
+
+/** File discovery uses the same pattern; a fresh non-global copy, since `.test` on a /g regex carries lastIndex. */
+function hasSortCall(source: string): boolean {
+  return new RegExp(SORT_CALL.source).test(source);
+}
 
 /**
  * Each sort statement in the source: the receiver expression (walked back to the statement start,
@@ -200,7 +210,7 @@ const SCANNED = [
   'packages/data/src',
 ].flatMap((dir) => sourceFiles(join(ROOT, dir)).map((f) => relative(ROOT, f)));
 
-const SORT_FILES = SCANNED.filter((f) => /\.(sort|toSorted)\(|sortBy/.test(read(f))).sort();
+const SORT_FILES = SCANNED.filter((f) => hasSortCall(read(f))).sort();
 
 // ---- scanner self-tests --------------------------------------------------------------------
 
@@ -243,6 +253,38 @@ describe('promo firewall scanners (in-memory sources)', () => {
     const good = sortStatements('let x = 1;\nconst rows = products.sort((a, b) => b.score - a.score);');
     expect(good).toEqual(['\nconst rows = products.sort((a, b) => b.score - a.score)']);
     expect(promoTokens(good[0])).toEqual([]);
+  });
+
+  it('discovers a sort call with a space before the paren and flags a promo token in it', () => {
+    const src = 'const rows = products.sort ((a, b) => b.promo - a.promo);';
+    expect(hasSortCall(src)).toBe(true);
+    expect(sortStatements(src)).toEqual(['const rows = products.sort ((a, b) => b.promo - a.promo)']);
+    expect(promoTokens(sortStatements(src)[0])).not.toEqual([]);
+    expect(hasSortCall('const sorted = true;\nresort(rows);')).toBe(false);
+  });
+
+  it('discovers a sort call split across lines and flags a promo token in it', () => {
+    const src = 'const rows = products\n  .toSorted\n  ((a, b) => b.promo - a.promo);';
+    expect(hasSortCall(src)).toBe(true);
+    expect(sortStatements(src)).toEqual(['const rows = products\n  .toSorted\n  ((a, b) => b.promo - a.promo)']);
+    expect(promoTokens(sortStatements(src)[0])).not.toEqual([]);
+  });
+
+  it('discovers optional-chained sort calls and flags a promo token in them', () => {
+    const chained = 'const rows = products?.sort((a, b) => b.promo - a.promo);';
+    const optionalCall = 'const rows = products.sort?.((a, b) => b.promo - a.promo);';
+    for (const src of [chained, optionalCall]) {
+      expect(hasSortCall(src), src).toBe(true);
+      expect(sortStatements(src), src).toEqual([src.slice(0, -1)]);
+      expect(promoTokens(sortStatements(src)[0]), src).not.toEqual([]);
+    }
+  });
+
+  it('discovers a sortBy helper whose name extends sortBy and keeps its arguments', () => {
+    const src = 'const top = sortByPrice(rows, (r) => r.coupon);';
+    expect(hasSortCall(src)).toBe(true);
+    expect(sortStatements(src)).toEqual(['const top = sortByPrice(rows, (r) => r.coupon)']);
+    expect(promoTokens(sortStatements(src)[0])).not.toEqual([]);
   });
 });
 
