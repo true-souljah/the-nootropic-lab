@@ -1,0 +1,60 @@
+name: Promo PR check
+
+# A PR whose head branch is promo-auto/* or promo-review/*, or whose title starts
+# "promo:", may change only packages/data/promos/<region>.json. promo-auto/* PRs may
+# add or change only non-regulated percent, fixed and shipping rows, and never a row
+# that was regulated in the base (removals always fine). Any other PR passes (the job
+# must always report: it is a required check).
+# Design: portfolio-hub build plan 4.4/4.5; the hub's per-site push (PR 15) uses these
+# branch names.
+#
+# Why pull_request_target: this is a required check, so the code that decides it must
+# not come from the PR it judges. Under pull_request a PR could edit this file,
+# scripts/check-promo-pr.ts, promo-pr-scope.ts, promos.ts, package.json, the
+# packages/data/src catalogue or an .npmrc (which can swap the shell npm run uses) and
+# pass its own check. pull_request_target takes this workflow from the base branch; the
+# job checks out the base sha, runs only base code (there is no install step), and
+# fetches the PR head as git objects that the script reads with
+# `git diff`/`git show <sha>:<path>`. PR code is never checked out, installed or
+# executed here, so changes to this check take effect only after merge.
+
+on:
+  pull_request_target:
+    branches: [main]
+    types: [opened, synchronize, reopened, edited]
+
+permissions:
+  contents: read
+
+jobs:
+  promo-scope:
+    name: Promo PR scope
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout base
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      # Objects only: nothing from the PR lands in the working tree. The repo is public,
+      # so this fetch needs no token (persist-credentials is off).
+      - name: Fetch PR head objects
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: git fetch --no-tags origin "refs/pull/${PR_NUMBER}/head"
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '20'
+
+      - name: Check promo PR scope
+        run: npm run check:promo-pr
+        env:
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}

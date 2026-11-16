@@ -35,6 +35,7 @@
     "check:dates-consistent": "npx --yes tsx scripts/check-built-dates-consistent.ts",
     "check:geo-similarity": "npx --yes tsx scripts/check-built-geo-similarity.ts",
     "check:review-claims": "node scripts/check-built-review-claims.mjs",
+    "check:promo-pr": "npx --yes tsx scripts/check-promo-pr.ts",
     "check:overflow": "node scripts/check-mobile-overflow.mjs",
     "content-dates": "node scripts/content-dates.mjs",
     "check": "npm run validate-data",
