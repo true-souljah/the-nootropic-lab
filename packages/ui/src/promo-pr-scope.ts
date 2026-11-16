@@ -19,9 +19,16 @@ export function checkPromoPr(input: { headRef: string; title: string; changedPat
     catch (error) { violations.push(`${path}: ${(error as Error).message}`); continue; }
     if (PROMO_BRANCH_AUTO.test(input.headRef)) {
       const oldRows = (input.base[path] as { promos?: unknown[] } | undefined)?.promos;
-      const oldById = new Map((Array.isArray(oldRows) ? oldRows : []).filter((x): x is { id: string } => !!x && typeof x === 'object' && typeof (x as { id?: unknown }).id === 'string').map((x) => [x.id, x]));
+      const oldById = new Map((Array.isArray(oldRows) ? oldRows : []).filter((x): x is { id: string; regulated?: unknown } => !!x && typeof x === 'object' && typeof (x as { id?: unknown }).id === 'string').map((x) => [x.id, x]));
       const rows = (input.head[path] as { promos: { id: string; regulated: boolean; kind: string }[] }).promos;
-      for (const row of rows) if (JSON.stringify(oldById.get(row.id)) !== JSON.stringify(row) && (row.regulated || !(AUTO_MERGE_KINDS as readonly string[]).includes(row.kind))) violations.push(`${path}: promo "${row.id}" is not eligible for promo-auto`);
+      for (const row of rows) {
+        const old = oldById.get(row.id);
+        if (JSON.stringify(old) === JSON.stringify(row)) continue;
+        // A row regulated in the base stays under review: flipping it to regulated: false here
+        // would otherwise pass as an ordinary non-regulated row.
+        if (old?.regulated) violations.push(`${path}: promo-auto row "${row.id}" was regulated in the base; change it in a promo-review PR`);
+        else if (row.regulated || !(AUTO_MERGE_KINDS as readonly string[]).includes(row.kind)) violations.push(`${path}: promo "${row.id}" is not eligible for promo-auto`);
+      }
     }
   }
   return { promo, ok: violations.length === 0, violations };

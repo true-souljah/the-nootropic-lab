@@ -25,6 +25,17 @@ describe('promo PR scope', () => {
   it('allows auto percent non-regulated additions', () => expect(check({ headRef: 'promo-auto/x' }).ok).toBe(true));
   it.each([row({ kind: 'free-item' }), row({ regulated: true })])('rejects ineligible automatic addition', (bad) => expect(check({ headRef: 'promo-auto/x', head: { [path]: doc([bad]) } }).ok).toBe(false));
   it('rejects changed auto rows but allows removals', () => { expect(check({ headRef: 'promo-auto/x', base: { [path]: doc() }, head: { [path]: doc([row({ kind: 'other' })]) } }).ok).toBe(false); expect(check({ headRef: 'promo-auto/x', base: { [path]: doc() }, head: { [path]: doc([]) } }).ok).toBe(true); });
+  describe('a row regulated in the base', () => {
+    const regulatedBase = { [path]: doc([row({ regulated: true })]) };
+    it('rejects flipping it to non-regulated under promo-auto', () => {
+      const result = check({ headRef: 'promo-auto/x', base: regulatedBase, head: { [path]: doc([row({ regulated: false })]) } });
+      expect(result.ok).toBe(false);
+      expect(result.violations).toEqual([`${path}: promo-auto row "examplelab-save" was regulated in the base; change it in a promo-review PR`]);
+    });
+    it('passes the same flip under promo-review', () => expect(check({ headRef: 'promo-review/x', base: regulatedBase, head: { [path]: doc([row({ regulated: false })]) } })).toEqual({ promo: true, ok: true, violations: [] }));
+    it('still permits removing it under promo-auto', () => expect(check({ headRef: 'promo-auto/x', base: regulatedBase, head: { [path]: doc([]) } })).toEqual({ promo: true, ok: true, violations: [] }));
+    it('passes it unchanged under promo-auto', () => expect(check({ headRef: 'promo-auto/x', base: regulatedBase, head: { [path]: doc([row({ regulated: true })]) } })).toEqual({ promo: true, ok: true, violations: [] }));
+  });
   it('allows regulated and other rows for review', () => expect(check({ head: { [path]: doc([row({ kind: 'other', regulated: true })]) } }).ok).toBe(true));
   it('title marker enforces paths but not auto eligibility', () => expect(check({ headRef: 'feature/x', title: 'promo: x', head: { [path]: doc([row({ kind: 'other', regulated: true })]) } }).ok).toBe(true));
   it('rejects deleted head files', () => expect(check({ head: {} }).ok).toBe(false));
