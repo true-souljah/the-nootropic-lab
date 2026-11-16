@@ -2,13 +2,24 @@ name: Promo PR check
 
 # A PR whose head branch is promo-auto/* or promo-review/*, or whose title starts
 # "promo:", may change only packages/data/promos/<region>.json. promo-auto/* PRs may
-# add or change only non-regulated percent, fixed and shipping rows (removals always
-# fine). Any other PR passes (the job must always report: it is a required check).
+# add or change only non-regulated percent, fixed and shipping rows, and never a row
+# that was regulated in the base (removals always fine). Any other PR passes (the job
+# must always report: it is a required check).
 # Design: portfolio-hub build plan 4.4/4.5; the hub's per-site push (PR 15) uses these
 # branch names.
+#
+# Why pull_request_target: this is a required check, so the code that decides it must
+# not come from the PR it judges. Under pull_request a PR could edit this file,
+# scripts/check-promo-pr.ts, promo-pr-scope.ts, promos.ts, package.json, the
+# packages/data/src catalogue or an .npmrc (which can swap the shell npm run uses) and
+# pass its own check. pull_request_target takes this workflow from the base branch; the
+# job checks out the base sha, runs only base code (there is no install step), and
+# fetches the PR head as git objects that the script reads with
+# `git diff`/`git show <sha>:<path>`. PR code is never checked out, installed or
+# executed here, so changes to this check take effect only after merge.
 
 on:
-  pull_request:
+  pull_request_target:
     branches: [main]
     types: [opened, synchronize, reopened, edited]
 
@@ -22,29 +33,26 @@ jobs:
     timeout-minutes: 5
 
     steps:
-      - uses: actions/checkout@v7
+      - name: Checkout base
+        uses: actions/checkout@v7
         with:
+          ref: ${{ github.event.pull_request.base.sha }}
           fetch-depth: 0
+          persist-credentials: false
+
+      # Objects only: nothing from the PR lands in the working tree. The repo is public,
+      # so this fetch needs no token (persist-credentials is off).
+      - name: Fetch PR head objects
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: git fetch --no-tags origin "refs/pull/${PR_NUMBER}/head"
+
       - uses: actions/setup-node@v7
         with:
           node-version: '20'
-      # Why the base tree: on pull_request the checkout is the PR's merge commit, so the PR's own
-      # copy of the checker (scripts/check-promo-pr.ts, promo-pr-scope.ts, promos.ts, package.json,
-      # the packages/data/src catalogue, and any .npmrc, which can swap the shell npm run uses)
-      # would judge the PR. So run the base branch's tree: the checker reads the PR's changes
-      # from git objects (git diff/show at HEAD_SHA), never from the working tree. Bootstrap: on
-      # the PR that adds the checker the base has none yet, so that one PR runs its own copy.
-      # Residual limit: a PR can still edit this workflow file, and pull_request runs the PR's
-      # version of it; closing that needs repo settings (owner review of .github/ or a ruleset),
-      # which only the repo owner can change.
+
       - name: Check promo PR scope
-        run: |
-          if git cat-file -e "$BASE_SHA:scripts/check-promo-pr.ts" 2>/dev/null; then
-            git checkout --quiet --detach "$BASE_SHA"
-          else
-            echo "Base $BASE_SHA has no promo checker yet (bootstrap PR): running this PR's copy."
-          fi
-          npm run check:promo-pr
+        run: npm run check:promo-pr
         env:
           HEAD_REF: ${{ github.event.pull_request.head.ref }}
           PR_TITLE: ${{ github.event.pull_request.title }}
