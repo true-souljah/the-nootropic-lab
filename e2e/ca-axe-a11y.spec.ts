@@ -62,6 +62,12 @@ test.describe('CA routes — axe-core WCAG 2.1 A/AA (serious + critical only)', 
     const blockers = blockingViolations(results);
     expect(blockers, summarize(blockers)).toHaveLength(0);
   });
+
+  test('/deals/ has no serious or critical a11y violations', async ({ page }) => {
+    const results = await runAxe(page, '/deals/');
+    const blockers = blockingViolations(results);
+    expect(blockers, summarize(blockers)).toHaveLength(0);
+  });
 });
 
 test.describe('CA routes — axe-core informational (logged, not failed)', () => {

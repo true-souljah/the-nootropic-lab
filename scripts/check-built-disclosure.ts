@@ -84,6 +84,7 @@ const EN = getStrings('en').disclosure;
 // another language.
 const EN_SENTENCES = [
   EN.text, EN.inline, EN.noCommission, EN.siteWide, EN.ranking,
+  getStrings('en').deals.linkDisclosure,
   'We earn a commission when you buy through our links.',
   'Our scores are computed before commissions are checked.',
 ];

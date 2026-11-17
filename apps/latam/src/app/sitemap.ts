@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/anmat-disposicion-2105-2022-prohibidos/`, lastModified: d.productListing('anmat-disposicion-2105-2022-prohibidos'), changeFrequency: 'monthly', priority: 0.75 },
     { url: `${BASE}/imprint/`, lastModified: d.page('imprint'), changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE}/methodology/`, lastModified: d.page('methodology'), changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${BASE}/deals/`, lastModified: d.page('deals'), changeFrequency: 'weekly', priority: 0.6 },
     { url: `${BASE}/about/`, lastModified: d.page('about'), changeFrequency: 'monthly', priority: 0.5 },
     { url: `${BASE}/contact/`, lastModified: d.page('contact'), changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE}/privacy-policy/`, lastModified: d.page('privacy-policy'), changeFrequency: 'yearly', priority: 0.3 },

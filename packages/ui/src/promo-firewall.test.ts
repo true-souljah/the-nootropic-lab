@@ -10,7 +10,8 @@ import { scoreTier, splitListiclePicks } from './templates/listicleRanking';
 import { scoreQuiz, type QuizAnswers } from './templates/quizScoring';
 import { priceSortable, sortRows } from './templates/comparator/utils';
 import type { SortDir, SortKey } from './templates/comparator/constants';
-import { PROMO_REGIONS } from './promos';
+import { PROMO_REGIONS, offersForOrderedProducts, promoProductHost, vendorDomainMatches, type PromoRecord } from './promos';
+import { productsByScore } from './templates/productOrder';
 
 const ROOT = join(__dirname, '..', '..', '..');
 
@@ -27,10 +28,31 @@ const RANKING_MODULES = [
   'packages/ui/src/templates/Comparator.tsx',
   'packages/ui/src/templates/QuizResults.tsx',
   'packages/ui/src/templates/Discover.tsx',
+  // The score order the Deals page walks (productsByScore): a ranking module, so it may reach no promo code.
+  'packages/ui/src/templates/productOrder.ts',
 ];
 
-/** Files allowed to read promo data (PR 17 adds the deals page here). A ranking module may never be listed. */
-const ALLOWED_PROMO_READERS: string[] = [];
+/** The seven promo regions' Deals page wrappers (jp is held and has none). */
+const DEALS_PAGE_WRAPPERS = [
+  'apps/us/src/app/deals/page.tsx',
+  'apps/eu/src/app/deals/page.tsx',
+  'apps/ca/src/app/deals/page.tsx',
+  'apps/au/src/app/deals/page.tsx',
+  'apps/latam/src/app/deals/page.tsx',
+  'apps/gcc/src/app/deals/page.tsx',
+  'apps/sea/src/app/deals/page.tsx',
+];
+
+/**
+ * Files allowed to read promo data: the validator/reader module, the Deals page template and the
+ * seven region wrappers (build plan PR 17). A ranking module may never be listed, and the ranking
+ * graph test ignores this list (a ranking module reaching even an allowed reader fails).
+ */
+const ALLOWED_PROMO_READERS: string[] = [
+  'packages/ui/src/promos.ts',
+  'packages/ui/src/templates/DealsPage.tsx',
+  ...DEALS_PAGE_WRAPPERS,
+];
 
 /** Files that sort something unrelated to product ranking: path -> reason. Empty today. */
 const NON_RANKING_SORT_FILES: Record<string, string> = {};
@@ -123,18 +145,44 @@ function reachableFrom(start: string, read: (file: string) => string = (f) => re
   return seen;
 }
 
-/** Reachable files that are promo modules, scripts or promo data (minus the allowed readers). */
-function forbiddenReach(files: Iterable<string>): string[] {
-  return [...files].filter(
-    (f) =>
-      !ALLOWED_PROMO_READERS.includes(f) &&
-      (/(^|\/)promo[^/]*\.(ts|tsx)$/.test(f) || f.startsWith('scripts/') || /^packages\/data\/promos\/[^/]*\.json$/.test(f)),
-  );
+/** A promo module (`promo*.ts(x)`) or a promo data file (`packages/data/promos/*.json`). */
+function isPromoTarget(f: string): boolean {
+  return /(^|\/)promo[^/]*\.(ts|tsx)$/.test(f) || /^packages\/data\/promos\/[^/]*\.json$/.test(f);
+}
+
+/**
+ * Reachable files that are promo modules, scripts or promo data, minus `allowed`. The ranking
+ * tests pass `[]`: a ranking module may not reach even an allowed reader.
+ */
+function forbiddenReach(files: Iterable<string>, allowed: readonly string[] = []): string[] {
+  return [...files].filter((f) => !allowed.includes(f) && (isPromoTarget(f) || f.startsWith('scripts/')));
 }
 
 /** Forbidden imports of an in-memory source pretending to live at `as` (one level deep). */
 function forbiddenImportsOf(source: string, as: string): string[] {
   return forbiddenReach(importSpecifiers(source).map((spec) => resolveSpecifier(as, spec)).filter((x): x is string => x !== null));
+}
+
+/** The promo modules and promo files a source (living at `as`) value-imports directly. */
+function promoImportsOf(source: string, as: string): string[] {
+  return importSpecifiers(source)
+    .map((spec) => resolveSpecifier(as, spec))
+    .filter((x): x is string => x !== null && isPromoTarget(x));
+}
+
+/**
+ * Files that read promo data but are not allowed readers. A promo module importing another promo
+ * module (promo-pr-scope.ts -> promos.ts) is promo code, not a page: the ranking graph covers it.
+ */
+function unlistedPromoReaders(files: ReadonlyArray<{ file: string; source: string }>, allowed: readonly string[]): string[] {
+  return files
+    .filter(({ file, source }) => !isPromoTarget(file) && !allowed.includes(file) && promoImportsOf(source, file).length > 0)
+    .map(({ file }) => file);
+}
+
+/** Allowed readers whose code (comments stripped) contains a sort call. */
+function readersThatSort(files: ReadonlyArray<{ file: string; source: string }>): string[] {
+  return files.filter(({ source }) => hasSortCall(stripComments(source))).map(({ file }) => file);
 }
 
 /**
@@ -286,6 +334,40 @@ describe('promo firewall scanners (in-memory sources)', () => {
     expect(sortStatements(src)).toEqual(['const top = sortByPrice(rows, (r) => r.coupon)']);
     expect(promoTokens(sortStatements(src)[0])).not.toEqual([]);
   });
+
+  it('the ranking graph ignores the allow-list: an allowed reader reached from a ranking module still fails', () => {
+    const reach = ['packages/ui/src/templates/BestOf.tsx', 'packages/ui/src/promos.ts', 'packages/data/promos/us.json'];
+    expect(forbiddenReach(reach, [])).toEqual(['packages/ui/src/promos.ts', 'packages/data/promos/us.json']);
+    expect(forbiddenReach(reach, ALLOWED_PROMO_READERS)).toEqual(['packages/data/promos/us.json']);
+    expect(forbiddenReach(reach)).toEqual(forbiddenReach(reach, []));
+  });
+
+  it('flags a page that imports a promo module or promo JSON without being an allowed reader', () => {
+    const page = 'apps/us/src/app/best-nootropics/page.tsx';
+    const files = [
+      { file: page, source: "import { validatePromoFile } from '../../../../../packages/ui/src/promos';\n" },
+      { file: 'apps/eu/src/app/x/page.tsx', source: "import promos from '../../../../../packages/data/promos/eu.json';\n" },
+      { file: 'packages/ui/src/templates/Example.tsx', source: "import type { PromoRecord } from '../promos';\nexport const x = 1;\n" },
+      { file: 'apps/us/src/app/deals/page.tsx', source: "import promosDoc from '../../../../../packages/data/promos/us.json';\n" },
+      { file: 'packages/ui/src/promo-pr-scope.ts', source: "import { PROMO_REGIONS } from './promos';\n" },
+    ];
+    expect(unlistedPromoReaders(files, ALLOWED_PROMO_READERS)).toEqual([page, 'apps/eu/src/app/x/page.tsx']);
+    expect(unlistedPromoReaders(files, [])).toEqual([page, 'apps/eu/src/app/x/page.tsx', 'apps/us/src/app/deals/page.tsx']);
+  });
+
+  it('flags an allowed reader that sorts and passes one that only walks a given order', () => {
+    const files = [
+      { file: 'packages/ui/src/templates/DealsPage.tsx', source: 'const cards = offers.sort((a, b) => b.discount - a.discount);' },
+      { file: 'packages/ui/src/promos.ts', source: 'const rows = items.toSorted ((a, b) => a.expires.localeCompare(b.expires));' },
+      { file: 'apps/us/src/app/deals/page.tsx', source: '// rows are never sorted here: .sort( in a comment\nconst cards = ordered.map((p) => p.slug);' },
+    ];
+    expect(readersThatSort(files)).toEqual(['packages/ui/src/templates/DealsPage.tsx', 'packages/ui/src/promos.ts']);
+  });
+
+  it('flags a promo word in the score-order helper source', () => {
+    expect(promoTokens('export const productsByScore = (xs) => [...xs].sort((a, b) => b.score - a.score);')).toEqual([]);
+    expect(promoTokens('export const byScore = (xs) => [...xs].sort((a, b) => b.score - a.score + (b.deal ? 1 : 0));')).not.toEqual([]);
+  });
 });
 
 // ---- repo scan -----------------------------------------------------------------------------
@@ -300,8 +382,13 @@ describe('promo firewall (repo scan)', () => {
 
   it.each(RANKING_MODULES)('%s reaches no promo module, script or promo data', (file) => {
     const reach = reachableFrom(file);
-    expect(reach.size).toBeGreaterThan(1);
-    expect(forbiddenReach(reach)).toEqual([]);
+    // The walk ran: a module whose code imports or re-exports anything reaches more than itself; a
+    // module with no import at all (productOrder.ts, one pure function) reaches exactly itself. The
+    // keyword test is independent of importSpecifiers, so a walker that stops reading imports fails.
+    if (/\bimport\b|\bexport\b[^;]*\bfrom\s*['"]/.test(stripComments(read(file)))) expect(reach.size).toBeGreaterThan(1);
+    else expect([...reach]).toEqual([file]);
+    // Empty allow-list on purpose: a ranking module may not reach even an allowed promo reader.
+    expect(forbiddenReach(reach, [])).toEqual([]);
   });
 
   it.each(RANKING_MODULES)('%s names no promo token outside comments', (file) => {
@@ -347,11 +434,41 @@ describe('promo firewall (repo scan)', () => {
     expect(keys.size).toBeGreaterThan(10);
     expect(forbidden.filter((k) => keys.has(k))).toEqual([]);
   });
+
+  it('the allowed readers are the Deals files: they exist, there are 9, and jp has no Deals page', () => {
+    expect(ALLOWED_PROMO_READERS).toHaveLength(9);
+    expect(DEALS_PAGE_WRAPPERS.map((f) => f.split('/')[1])).toEqual([...PROMO_REGIONS]);
+    for (const file of ALLOWED_PROMO_READERS) expect(isFile(join(ROOT, file)), file).toBe(true);
+    expect(existsSync(join(ROOT, 'apps/jp/src/app/deals'))).toBe(false);
+  });
+
+  it('only the allowed readers import a promo module or promo JSON (apps/*/src, packages/ui/src, packages/data/src)', () => {
+    const files = SCANNED.map((file) => ({ file, source: read(file) }));
+    expect(files.length).toBeGreaterThan(100);
+    expect(unlistedPromoReaders(files, ALLOWED_PROMO_READERS)).toEqual([]);
+    // The scan sees the real readers: every wrapper imports its region's JSON and DealsPage imports promos.ts.
+    for (const file of DEALS_PAGE_WRAPPERS) {
+      const region = file.split('/')[1];
+      expect(promoImportsOf(read(file), file), file).toEqual([`packages/data/promos/${region}.json`]);
+    }
+    expect(promoImportsOf(read('packages/ui/src/templates/DealsPage.tsx'), 'packages/ui/src/templates/DealsPage.tsx')).toEqual(['packages/ui/src/promos.ts']);
+  });
+
+  it('the offer list component (client) imports no promo module or promo file', () => {
+    const file = 'packages/ui/src/templates/DealsList.client.tsx';
+    expect(promoImportsOf(read(file), file)).toEqual([]);
+    expect(forbiddenReach(reachableFrom(file), [])).toEqual([]);
+  });
+
+  it.each(ALLOWED_PROMO_READERS)('allowed reader %s contains no sort call', (file) => {
+    expect(readersThatSort([{ file, source: read(file) }])).toEqual([]);
+  });
 });
 
 // ---- behavioural perturbation --------------------------------------------------------------
-// Today nothing imports a promo module, so after === before holds by construction: these cases
-// start to bite only once a promo reader exists. The static checks above are the live guard.
+// No ranking module imports a promo module, so after === before holds by construction for the
+// ranking functions; the static checks above are the live guard. The Deals reader (PR 17) is
+// checked directly: its offers must follow productsByScore whatever the promo rows say.
 
 const KINDS = ['percent', 'fixed', 'free-item', 'code-only', 'shipping', 'other'];
 const PERTURBED = {
@@ -429,6 +546,63 @@ describe('promo firewall (behavioural perturbation)', () => {
     const data = await import('@nootropic/data');
     const after = compute(mod.scoreQuiz, [...data.productsUS], [...data.productsEU]);
     expect(after).toEqual(before);
+  });
+
+  // The Deals reader (PR 17): offers follow productsByScore whatever the promo rows say.
+  describe.each([
+    { region: 'us', catalogue: productsUS },
+    { region: 'eu', catalogue: productsEU },
+  ])('offersForOrderedProducts on the $region catalogue', ({ catalogue }) => {
+    const TODAY = '2032-01-01';
+    const ordered = productsByScore(catalogue);
+    const hosts = [...new Set(ordered.map((p) => promoProductHost(p)).filter((h): h is string => h !== null))];
+    // PERTURBED's rows (every kind, code shape, regulated flag), pointed at real catalogue hosts and live on TODAY.
+    const rows: PromoRecord[] = PERTURBED.promos.map((p, i) => ({
+      ...(p as unknown as PromoRecord),
+      vendor_domain: hosts[i % hosts.length],
+      starts: i % 2 ? '1970-01-01' : null,
+      expires: i % 3 ? '9999-12-31' : TODAY,
+    }));
+    const vendorOrder = (promos: PromoRecord[]) =>
+      offersForOrderedProducts(ordered, promos, TODAY).map((card) => promoProductHost(card.products[0]));
+    const firstIndex = (promos: PromoRecord[]) =>
+      offersForOrderedProducts(ordered, promos, TODAY).map((card) => ordered.indexOf(card.products[0]));
+    const shuffle = (xs: PromoRecord[]) => xs.map((x, i) => [((i * 7919) % 101) / 101, x] as const).sort((a, b) => a[0] - b[0]).map(([, x]) => x);
+
+    it('cards follow productsByScore, for the file order, reversed and shuffled', () => {
+      expect(hosts.length).toBeGreaterThan(1);
+      const base = vendorOrder(rows);
+      expect(base.length).toBe(rows.length);
+      // Each vendor's cards sit where its highest-scoring product sits.
+      const idx = firstIndex(rows);
+      expect(idx.every((v, i) => i === 0 || v >= idx[i - 1])).toBe(true);
+      const expected = rows
+        .map((r) =>
+          ordered.findIndex((p) => {
+            const h = promoProductHost(p);
+            return h !== null && vendorDomainMatches(r.vendor_domain, new Set([h]));
+          }),
+        )
+        .filter((i) => i >= 0);
+      expect([...idx].sort((a, b) => a - b)).toEqual([...expected].sort((a, b) => a - b));
+      expect(vendorOrder([...rows].reverse())).toEqual(base);
+      expect(vendorOrder(shuffle(rows))).toEqual(base);
+    });
+
+    it('editing kind, code, expires, headline, terms and regulated never changes the order', () => {
+      const base = vendorOrder(rows);
+      const edited = rows.map((r, i) => ({
+        ...r,
+        kind: (['percent', 'fixed', 'free-item', 'code-only', 'shipping', 'other'] as const)[(i * 5) % 6],
+        code: i % 2 ? null : `SAMPLE${99 - i}`,
+        expires: i % 2 ? TODAY : '9999-12-30',
+        headline: `Save ${99 - i}% on everything`,
+        terms_quote: 'Any order',
+        regulated: !r.regulated,
+      }));
+      expect(vendorOrder(edited)).toEqual(base);
+      expect(vendorOrder(shuffle(edited).reverse())).toEqual(base);
+    });
   });
 
   it('comparator sortRows and priceSortable ignore promo data', async () => {

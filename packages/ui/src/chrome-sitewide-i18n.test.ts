@@ -633,7 +633,9 @@ describe('locale typography', () => {
     const { noPurchaseLink: _english, ...ja } = getStrings('ja');
     // English sentences on purpose: keys added 2026-10-15 while Japanese copy is paused
     // (compliance:jp-japanese-paused-2026-10-13); i18n-leftovers.test.ts holds them equal to en.
-    const englishWhilePaused = /^ja\.(table\.euStorefrontNote|ingredientDetail\.schema\.)/;
+    // The deals block (2026-11-17, build plan PR 17) is the same case: deals-strings.test.ts holds
+    // every ja deals value equal to en, and no host renders it (jp has no Deals page).
+    const englishWhilePaused = /^ja\.(table\.euStorefrontNote|ingredientDetail\.schema\.|deals\.)/;
     const bad = leaves(ja, 'ja').filter(([path, v]) => !englishWhilePaused.test(path) && /[:.]$|\s$/.test(v));
     expect(bad).toEqual([]);
   });

@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     { url: `${BASE}/`, lastModified: d.productListing(''), changeFrequency: 'weekly', priority: 1.0 },
     { url: `${BASE}/best-nootropics/`, lastModified: d.productListing('best-nootropics'), changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${BASE}/deals/`, lastModified: d.page('deals'), changeFrequency: 'weekly', priority: 0.6 },
     { url: `${BASE}/mind-lab-pro-vs-alpha-brain/`, lastModified: d.productListing('mind-lab-pro-vs-alpha-brain'), changeFrequency: 'weekly', priority: 0.85 },
     { url: `${BASE}/mind-lab-pro-vs-qualia-mind/`, lastModified: d.productListing('mind-lab-pro-vs-qualia-mind'), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE}/alpha-brain-vs-qualia-mind/`, lastModified: d.productListing('alpha-brain-vs-qualia-mind'), changeFrequency: 'weekly', priority: 0.75 },
