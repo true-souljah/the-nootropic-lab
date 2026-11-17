@@ -1,4 +1,7 @@
 // Dependency-free promo schema shared by validation and the PR scope check.
+import type { Product } from '@nootropic/data';
+export { utcToday } from './templates/dealsState';
+import { utcToday } from './templates/dealsState';
 export const PROMO_DIR = 'packages/data/promos';
 export const PROMO_REGIONS = ['us', 'eu', 'ca', 'au', 'latam', 'gcc', 'sea'] as const;
 export const PROMO_HELD_REGIONS = ['jp'] as const;
@@ -39,17 +42,21 @@ export function normaliseHost(host: string): string | null {
   return /^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)+$/.test(value) ? value : null;
 }
 
+export function promoProductHost(product: PromoProduct): string | null {
+  if (product.discontinued != null || product.noPurchaseLink != null) return null;
+  const source = product.storePrice ? product.storePrice.url : product[VENDOR_URL_KEY];
+  if (!source) return null;
+  try {
+    const host = normaliseHost(new URL(source).hostname);
+    return host && !/(^|\.)amazon\.[a-z.]+$/.test(host) ? host : null;
+  } catch { return null; }
+}
+
 export function promoVendorDomains(products: readonly PromoProduct[]): Set<string> {
   const hosts = new Set<string>();
   for (const product of products) {
-    if (product.discontinued != null || product.noPurchaseLink != null) continue;
-    // Never the vendor-URL host of a record with a storePrice: that link is often a network tracker.
-    const source = product.storePrice ? product.storePrice.url : product[VENDOR_URL_KEY];
-    if (!source) continue;
-    try {
-      const host = normaliseHost(new URL(source).hostname);
-      if (host && !/(^|\.)amazon\.[a-z.]+$/.test(host)) hosts.add(host);
-    } catch { /* invalid catalogue links do not establish a vendor */ }
+    const host = promoProductHost(product);
+    if (host) hosts.add(host);
   }
   return hosts;
 }
@@ -74,8 +81,27 @@ const date = (value: unknown): value is string => typeof value === 'string' && /
 // Today's UTC date: the default `today` for the expiry warning (validate-data, the PR check), never a
 // page date. build-clock-dates.test.ts flags every zero-argument Date call in packages/ui/src that is
 // not on its allow-list (that test is outside this PR's scope), so read the wall clock via performance.
-const utcToday = (): string => new Date(Math.round(performance.timeOrigin + performance.now())).toISOString().slice(0, 10);
 const fail = (message: string): never => { throw new Error(`promos.json invalid: ${message}`); };
+
+export type DealCard = { promo: PromoRecord; products: Product[] };
+export function offersForOrderedProducts(orderedProducts: readonly Product[], promos: readonly PromoRecord[], today: string): DealCard[] {
+  const cards: DealCard[] = [];
+  const emitted = new Set<string>();
+  for (const product of orderedProducts) {
+    const host = promoProductHost(product);
+    if (!host) continue;
+    for (const promo of promos) {
+      if (emitted.has(promo.id) || promo.starts !== null && promo.starts > today || promo.expires < today) continue;
+      if (!vendorDomainMatches(promo.vendor_domain, new Set([host]))) continue;
+      const matches = orderedProducts.filter((candidate) => {
+        const candidateHost = promoProductHost(candidate);
+        return candidateHost !== null && vendorDomainMatches(promo.vendor_domain, new Set([candidateHost]));
+      });
+      if (matches.length) { cards.push({ promo, products: matches }); emitted.add(promo.id); }
+    }
+  }
+  return cards;
+}
 
 export function validatePromoFile(doc: unknown, opts: { region: string; products: readonly PromoProduct[]; today?: string }): { promos: PromoRecord[]; warnings: string[] } {
   if (PROMO_HELD_REGIONS.includes(opts.region as 'jp')) fail(`region "${opts.region}" is held`);

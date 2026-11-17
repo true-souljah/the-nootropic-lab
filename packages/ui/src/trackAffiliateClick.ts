@@ -32,7 +32,8 @@ export interface AffiliateClickContext {
     | 'best_of_sea'
     | 'best_of_state'
     | 'discover'
-    | 'product_detail';
+    | 'product_detail'
+    | 'deals';
 }
 
 declare global {

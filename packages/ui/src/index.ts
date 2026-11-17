@@ -81,6 +81,7 @@ export type { FPFooterProps, FPFooterColumn, FPFooterLink } from './public-chrom
 
 // Public templates (Stack redesign — M2B)
 export { default as Listicle } from './templates/Listicle';
+export { default as DealsPage } from './templates/DealsPage';
 export type {
   ListicleProps,
   ListicleFAQ,

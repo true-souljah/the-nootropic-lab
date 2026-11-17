@@ -193,6 +193,7 @@ export interface UIStrings {
      */
     ranking: string;
   };
+  deals: Record<string, string> & { kind: Record<string, string> };
   table: {
     product: string;
     bestFor: string;
@@ -928,6 +929,10 @@ export interface UIStrings {
   };
 }
 
+const DEALS_EN = {
+  metaTitle: 'Vendor deals we have confirmed', metaDescription: 'Discount offers for products we review. Each is confirmed on the vendor\'s own page or in an authenticated email from the vendor, and shows the date we confirmed it.', heading: 'Deals', lede: 'Discount offers for products we review. We list an offer only after confirming it on the vendor\'s own page or in an authenticated email from the vendor, and we show the date we confirmed it.', listLabel: 'Confirmed offers', confirmHeading: 'How these offers are confirmed', confirmBody1: 'We list an offer only after we have confirmed it on the vendor\'s own website, or in an authenticated email from the vendor. The confirmed-on date is shown on every offer.', confirmBody2: 'The vendor sets its offer and can change or end it at any time. Headlines and terms below are quoted exactly as the vendor wrote them. Every offer shows its end date.', orderingNote: 'Listed in the order of our product review scores. Discount size, expiry and commission never change the order.', filterOff: 'Only ending soon', filterOn: 'Show all offers', statusAll: 'Offers listed: {n}', statusSoon: 'Offers ending soon shown: {n}', soonEmptyTitle: 'No offers end soon', soonEmptyBody: 'None of the current offers ends in the next {days} days. Turn off the filter to see all offers.', kind: { percent: 'Percentage discount', fixed: 'Fixed amount off', freeItem: 'Free item', codeOnly: 'Code-only offer', shipping: 'Free shipping', other: 'Offer' }, quoteHeadline: "Vendor's text, quoted", quoteTerms: 'Vendor terms, quoted', codeLabel: 'Code', noCode: 'No code needed', copy: 'Copy code', copied: 'Copied', copiedStatus: 'Code {code} copied to clipboard', copyFailed: 'Copy failed. Select the code text and copy it manually.', confirmedOn: 'Confirmed on', endsLabel: 'Ends', endedLabel: 'Ended', availableIn: 'Available in', productsHeading: 'Products with this offer', linkDisclosure: 'We earn a commission if you buy through this link.', buy: 'Buy at {brand}', review: 'Read our review of {product}', endsSoonChip: 'Ends soon — {date}', endedChip: 'Ended {date}', endedNote: 'This offer ended on {date}. The code is no longer shown.', regulatedChip: 'Regulated offer', regulatedLabel: 'Regulated offer — read before ordering', emptyTitle: 'No confirmed offers right now', emptyBody: 'We list an offer only after confirming it on the vendor\'s own page or in an authenticated email from the vendor. Right now we have no confirmed offers. When we confirm one, it appears here with the date we confirmed it. We do not list codes we cannot confirm.', emptyLink: 'See our top-ranked products', allEndedChip: 'All offers ended', allEndedTitle: 'Every offer on this page has ended', allEndedBody: 'This page was built on {date} and the offers shown have since passed their end dates. Ended offers are removed at the next rebuild; new confirmed offers appear here.'
+};
+
 /**
  * Policy text of the editorial-standards section on /methodology/
  * (EditorialStandardsSection), one entry per paragraph or list item. `{name}`
@@ -957,7 +962,7 @@ export interface EditorialStandardsBody {
   imprintLink: string;
 }
 
-const en: UIStrings = {
+const en: Omit<UIStrings, 'deals'> = {
   nav: {
     bestNootropics: 'Best Nootropics',
     compare: 'Compare',
@@ -1607,7 +1612,7 @@ const en: UIStrings = {
   typography: { colon: ': ', space: ' ' },
 };
 
-const es: UIStrings = {
+const es: Omit<UIStrings, 'deals'> = {
   nav: {
     bestNootropics: 'Los Mejores',
     compare: 'Comparar',
@@ -2268,7 +2273,7 @@ const es: UIStrings = {
   typography: { colon: ': ', space: ' ' },
 };
 
-const fr: UIStrings = {
+const fr: Omit<UIStrings, 'deals'> = {
   nav: {
     bestNootropics: 'Les Meilleurs',
     compare: 'Comparer',
@@ -2894,7 +2899,7 @@ const fr: UIStrings = {
   typography: { colon: '\u00a0: ', space: ' ' },
 };
 
-const ja: UIStrings = {
+const ja: Omit<UIStrings, 'deals'> = {
   nav: {
     bestNootropics: 'ベスト',
     compare: '比較',
@@ -3520,7 +3525,7 @@ const ja: UIStrings = {
   typography: { colon: '：', space: '' },
 };
 
-const pt: UIStrings = {
+const pt: Omit<UIStrings, 'deals'> = {
   nav: {
     bestNootropics: 'Os Melhores',
     compare: 'Comparar',
@@ -4145,7 +4150,7 @@ const pt: UIStrings = {
   typography: { colon: ': ', space: ' ' },
 };
 
-const de: UIStrings = {
+const de: Omit<UIStrings, 'deals'> = {
   nav: {
     bestNootropics: 'Beste Nootropika',
     compare: 'Vergleichen',
@@ -4775,7 +4780,7 @@ const de: UIStrings = {
 // "GDPR", "Santé Canada" not "Health Canada", "courriel" not "e-mail".
 // `dateLocale: 'fr-CA'` carries the BCP-47 code for Intl.DateTimeFormat.
 // Native-speaker review recommended before final ship.
-const frCa: UIStrings = {
+const frCa: Omit<UIStrings, 'deals'> = {
   nav: {
     bestNootropics: 'Meilleurs Nootropiques',
     compare: 'Comparer',
@@ -5397,10 +5402,10 @@ const frCa: UIStrings = {
   typography: { colon: '\u00a0: ', space: ' ' },
 };
 
-const translations: Record<Locale, UIStrings> = { en, es, fr, ja, pt, de, 'fr-CA': frCa };
+const translations: Record<Locale, Omit<UIStrings, 'deals'>> = { en, es, fr, ja, pt, de, 'fr-CA': frCa };
 
 export function getStrings(locale: Locale): UIStrings {
-  return translations[locale] || translations.en;
+  return { ...(translations[locale] || translations.en), deals: DEALS_EN };
 }
 
 // JP is English: Japanese copy on the JP host is paused until a Japanese

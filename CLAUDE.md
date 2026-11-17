@@ -17,4 +17,4 @@
 
 - Promo rows are data only: `packages/data/promos/<region>.json`, written by the hub's PRs. Never add a score, rank or weight field, and never read a promo from a ranking, score or sort function (promo-firewall test).
 - A PR that is a promo PR (branch `promo-auto/*` or `promo-review/*`, or title `promo:`) touches only promo files. Only `promo-auto/*` PRs may be auto-merged, and only for non-regulated percent, fixed and shipping rows.
-- No promo row, page or badge ships without the deals-page PR (build plan PR 17).
+- The Deals page (`/deals/`) is the only promo reader (`packages/ui/src/promos.ts`, `templates/DealsPage.tsx`, the seven `apps/<r>/src/app/deals/page.tsx`; the promo-firewall test lists them). There is no promo badge on any other page. A new promo reader needs the firewall test updated in the same PR; never add a ranking module to that list.

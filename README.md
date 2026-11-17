@@ -5,6 +5,10 @@
 Eight-region Next.js 16 monorepo for The Nootropic Lab. Each region ships as a
 static export deployed to its own Cloudflare Pages site.
 
+## Deals page
+
+`/deals/` is available in US, EU, CA, AU, LATAM, GCC and SEA, but not JP. Promo data is read only by the Deals reader; offers follow product review score order and expiry is hidden in the reader's browser. No promo badge appears elsewhere.
+
 ## Layout
 
 ```

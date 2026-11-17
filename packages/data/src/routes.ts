@@ -28,6 +28,7 @@ export const ALL_REGIONS: readonly RegionCode[] = ['us', 'eu', 'ca', 'au', 'jp',
 
 /** Static routes present only in the listed regions. Paths are slash-normalised (`/x`). */
 export const REGION_ONLY_ROUTES: Readonly<Record<string, readonly RegionCode[]>> = {
+  '/deals': ['us', 'eu', 'ca', 'au', 'latam', 'gcc', 'sea'],
   '/best-nootropics-for-adhd': ['us'],
   '/best-nootropics-for-energy': ['us'],
   '/best-nootropics-for-mood': ['us'],
