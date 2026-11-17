@@ -2,7 +2,7 @@
 // so the list renders with `builtOn` as "today", exactly the first, hydration-safe render).
 // Fixtures are invented: vendors and products on .example hosts, codes like SAMPLE10, dates
 // relative to the injected build date. No real vendor, product or code.
-import { describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { getStrings, getRegionalHealthDisclaimer, type Product } from '@nootropic/data';
 import DealsList, { type DealCardView, type DealOfferView, type DealsLabels } from './templates/DealsList.client';
@@ -65,6 +65,14 @@ const text = (html: string) =>
   html.replace(/<[^>]+>/g, ' ').replace(/&#x27;/g, "'").replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/\s+/g, ' ');
 const count = (html: string, needle: string) => html.split(needle).length - 1;
 const main = (html: string) => /<main[^>]*>([\s\S]*)<\/main>/.exec(html)?.[1] ?? '';
+
+beforeEach(() => {
+  // Every app builds with trailingSlash: true; next/link reads it from here.
+  vi.stubEnv('__NEXT_TRAILING_SLASH', 'true');
+});
+afterEach(() => {
+  vi.unstubAllEnvs();
+});
 
 describe('DealsList (server render with the build date)', () => {
   it('an active offer with a code: code, copy button, and the commission sentence right before the buy link', () => {
@@ -200,7 +208,11 @@ describe('DealsList (server render with the build date)', () => {
 });
 
 describe('DealsPage', () => {
-  const page = (promosDoc: unknown, products: Product[]) =>
+  beforeEach(() => {
+    // The page chrome (FPHeader, FPFooter) resolves its region from the build env.
+    vi.stubEnv('NEXT_PUBLIC_REGION', 'us');
+  });
+  const page =(promosDoc: unknown, products: Product[]) =>
     renderToStaticMarkup(
       <DealsPage
         regionCode="us"
