@@ -16,6 +16,14 @@ import { productsByScore } from './productOrder';
 import DealsList from './DealsList.client';
 import type { SearchItem } from '../SearchModal';
 
+/** One market a region's host covers (country, province or state) and the delivery note its record carries. */
+export interface DealsMarket {
+  name: string;
+  /** That market's existing guide page on this host, e.g. `/countries/singapore/`. */
+  href: string;
+  note: string;
+}
+
 export interface DealsPageProps {
   /** One of the seven promo regions; jp is held and has no Deals page. */
   regionCode: (typeof PROMO_REGIONS)[number];
@@ -27,10 +35,16 @@ export interface DealsPageProps {
   searchItems?: SearchItem[];
   healthDisclaimer: string;
   dateLocale: string;
+  /**
+   * The markets this host covers, in the order of the region's own records (`*-countries.ts`,
+   * `ca-provinces.ts`, `au-states.ts`), each with its record's delivery/import note. Omitted for a
+   * region without such a list (us): the section does not render.
+   */
+  markets?: readonly DealsMarket[];
   backHref?: string;
 }
 
-export default function DealsPage({ regionCode, products, promosDoc, strings, searchItems, healthDisclaimer, dateLocale }: DealsPageProps) {
+export default function DealsPage({ regionCode, products, promosDoc, strings, searchItems, healthDisclaimer, dateLocale, markets = [] }: DealsPageProps) {
   const today = utcToday();
   const { promos } = validatePromoFile(promosDoc, { region: regionCode, products, today });
   const ordered = productsByScore(products);
@@ -88,6 +102,27 @@ export default function DealsPage({ regionCode, products, promosDoc, strings, se
             }}
             dateLocale={dateLocale}
           />
+        )}
+
+        {markets.length > 0 && (
+          <section aria-labelledby="deals-markets-heading" className="mt-10">
+            <h2 id="deals-markets-heading" className="text-[18px] font-bold text-ds-ink m-0 mb-3">
+              {strings.productDetail.regionalBuying.heading[regionCode]}
+            </h2>
+            <ul className="list-none m-0 p-0 grid gap-3">
+              {markets.map((m) => (
+                <li key={m.href}>
+                  <Link
+                    href={m.href}
+                    className="text-[14px] font-semibold text-ds-accent underline focus-visible:outline-2 focus-visible:outline-ds-focus-ring focus-visible:outline-offset-2"
+                  >
+                    {m.name}
+                  </Link>
+                  <p className="text-[14px] text-ds-ink-soft leading-relaxed m-0 mt-1">{m.note}</p>
+                </li>
+              ))}
+            </ul>
+          </section>
         )}
 
         <section aria-labelledby="deals-health-disclaimer-heading" className="mt-10 pt-6 border-t border-ds-border">

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { DealsPage, buildAlternates, buildOpenGraph, buildTwitter } from '@nootropic/ui';
-import { localizedProductsLatam, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { localizedProductsLatam, latamCountries, getRegionalHealthDisclaimer } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import promosDoc from '../../../../../packages/data/promos/latam.json';
 
@@ -27,6 +27,7 @@ export default function DealsLatamPage() {
       searchItems={searchItems}
       healthDisclaimer={getRegionalHealthDisclaimer('latam')}
       dateLocale={uiStrings.productDetail.dateLocale}
+      markets={latamCountries.map((c) => ({ name: c.name, href: `/countries/${c.slug}/`, note: c.shippingNote }))}
     />
   );
 }

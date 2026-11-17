@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { DealsPage, buildAlternates, buildOpenGraph, buildTwitter } from '@nootropic/ui';
-import { productsCA, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsCA, caProvinces, getRegionalHealthDisclaimer } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import promosDoc from '../../../../../packages/data/promos/ca.json';
 
@@ -25,6 +25,7 @@ export default function DealsCAPage() {
       searchItems={searchItems}
       healthDisclaimer={getRegionalHealthDisclaimer('ca')}
       dateLocale={uiStrings.productDetail.dateLocale}
+      markets={caProvinces.map((p) => ({ name: p.name, href: `/provinces/${p.slug}/`, note: p.note }))}
     />
   );
 }

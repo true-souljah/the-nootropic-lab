@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { DealsPage, buildAlternates, buildOpenGraph, buildTwitter } from '@nootropic/ui';
-import { productsAU, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsAU, auStates, getRegionalHealthDisclaimer } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import promosDoc from '../../../../../packages/data/promos/au.json';
 
@@ -25,6 +25,7 @@ export default function DealsAUPage() {
       searchItems={searchItems}
       healthDisclaimer={getRegionalHealthDisclaimer('au')}
       dateLocale={uiStrings.productDetail.dateLocale}
+      markets={auStates.map((s) => ({ name: s.name, href: `/states/${s.slug}/`, note: s.note }))}
     />
   );
 }

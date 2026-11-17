@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { DealsPage, buildAlternates, buildOpenGraph, buildTwitter } from '@nootropic/ui';
-import { productsSEA, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsSEA, seaCountries, getRegionalHealthDisclaimer } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import promosDoc from '../../../../../packages/data/promos/sea.json';
 
@@ -25,6 +25,7 @@ export default function DealsSEAPage() {
       searchItems={searchItems}
       healthDisclaimer={getRegionalHealthDisclaimer('sea')}
       dateLocale={uiStrings.productDetail.dateLocale}
+      markets={seaCountries.map((c) => ({ name: c.name, href: `/countries/${c.slug}/`, note: c.shippingNote }))}
     />
   );
 }

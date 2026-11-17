@@ -280,4 +280,35 @@ describe('DealsPage', () => {
       expect(near.test(text(html))).toBe(false);
     }
   });
+
+  it("the region's markets: each links its guide page with its own note, in the given order; no section without a list", () => {
+    vi.stubEnv('NEXT_PUBLIC_REGION', 'sea');
+    const markets = [
+      { name: 'Examplestan', href: '/countries/examplestan/', note: 'Parcels to Examplestan arrive as personal-use imports.' },
+      { name: 'Sampleland', href: '/countries/sampleland/', note: 'Check the delivery estimate to Sampleland at checkout.' },
+    ];
+    const html = renderToStaticMarkup(
+      <DealsPage
+        regionCode="sea"
+        products={[ALPHA]}
+        promosDoc={{ schema_version: 1, promos: [] }}
+        strings={en}
+        healthDisclaimer={getRegionalHealthDisclaimer('sea')}
+        dateLocale="en-SG"
+        markets={markets}
+      />,
+    );
+    expect(html).toMatch(new RegExp(`<h2 id="deals-markets-heading"[^>]*>${en.productDetail.regionalBuying.heading.sea}</h2>`));
+    for (const m of markets) {
+      expect(html).toMatch(new RegExp(`<a [^>]*href="${m.href}"[^>]*>${m.name}</a>`));
+      expect(text(html)).toContain(m.note);
+    }
+    expect(html.indexOf('Examplestan')).toBeLessThan(html.indexOf('Sampleland'));
+    // After the offers or empty state, before the health disclaimer; it adds no buy link.
+    expect(html.indexOf('id="deals-empty-heading"')).toBeLessThan(html.indexOf('id="deals-markets-heading"'));
+    expect(html.indexOf('id="deals-markets-heading"')).toBeLessThan(html.indexOf('id="deals-health-disclaimer-heading"'));
+    expect(html).not.toMatch(/rel="[^"]*sponsored/);
+    expect(html).toContain('data-disclosure-scope="site"');
+    expect(page({ schema_version: 1, promos: [] }, [ALPHA])).not.toContain('deals-markets-heading');
+  });
 });

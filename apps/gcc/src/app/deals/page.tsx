@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { DealsPage, buildAlternates, buildOpenGraph, buildTwitter } from '@nootropic/ui';
-import { productsGCC, getRegionalHealthDisclaimer } from '@nootropic/data';
+import { productsGCC, gccCountries, getRegionalHealthDisclaimer } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import promosDoc from '../../../../../packages/data/promos/gcc.json';
 
@@ -25,6 +25,7 @@ export default function DealsGCCPage() {
       searchItems={searchItems}
       healthDisclaimer={getRegionalHealthDisclaimer('gcc')}
       dateLocale={uiStrings.productDetail.dateLocale}
+      markets={gccCountries.map((c) => ({ name: c.name, href: `/countries/${c.slug}/`, note: c.shippingNote }))}
     />
   );
 }
