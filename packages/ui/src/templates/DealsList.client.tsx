@@ -13,7 +13,7 @@ import { ScorePill } from '../primitives/ScorePill';
 import { ProductThumb } from '../primitives/ProductThumb';
 import TrackedAffiliateLink from '../TrackedAffiliateLink';
 import { tpl } from '../templateStrings';
-import { ENDING_SOON_DAYS, offerState, utcToday } from './dealsState';
+import { ENDING_SOON_DAYS, offerState, watchUtcDay } from './dealsState';
 
 /** The serialisable offer fields the list renders (a subset of the validated record). */
 export type DealOfferView = {
@@ -72,11 +72,13 @@ export default function DealsList({ cards, builtOn, labels, dateLocale }: DealsL
   const [status, setStatus] = useState<{ id: string; text: string } | null>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // The reader's own UTC date, once after mount: an offer that ended since the build loses its
-  // code, copy button and links (removed from the DOM, not hidden).
+  // The reader's own UTC date after mount, again at each UTC midnight and when the page becomes
+  // visible again (watchUtcDay): an offer that has ended since the build, or ends while the page is
+  // open, loses its code, copy button and links (removed from the DOM, not hidden).
   useEffect(() => {
-    setToday(utcToday());
+    const stopWatching = watchUtcDay(setToday);
     return () => {
+      stopWatching();
       if (timer.current) clearTimeout(timer.current);
     };
   }, []);

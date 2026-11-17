@@ -3,6 +3,8 @@
 // Fixtures are invented: vendors and products on .example hosts, codes like SAMPLE10, dates
 // relative to the injected build date. No real vendor, product or code.
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { act } from 'react';
+import { createRoot } from 'react-dom/client';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { getStrings, getRegionalHealthDisclaimer, type Product } from '@nootropic/data';
 import DealsList, { type DealCardView, type DealOfferView, type DealsLabels } from './templates/DealsList.client';
@@ -310,5 +312,192 @@ describe('DealsPage', () => {
     expect(html).not.toMatch(/rel="[^"]*sponsored/);
     expect(html).toContain('data-disclosure-scope="site"');
     expect(page({ schema_version: 1, promos: [] }, [ALPHA])).not.toContain('deals-markets-heading');
+  });
+});
+
+// ---- the reader's browser: a page left open across 00:00 UTC ---------------------------------
+// renderToStaticMarkup runs no effect and no DOM library is installed, so these cases mount the
+// list with react-dom/client into the minimal DOM below (only the calls React makes for this
+// tree) and move the reader's clock with fake timers.
+const HTML_NS = 'http://www.w3.org/1999/xhtml';
+class FakeNode extends EventTarget {
+  parentNode: FakeNode | null = null;
+  childNodes: FakeNode[] = [];
+  nodeValue: string | null = null;
+  constructor(
+    readonly nodeType: number,
+    readonly nodeName: string,
+    readonly ownerDocument: FakeDocument | null,
+  ) {
+    super();
+  }
+  get firstChild() {
+    return this.childNodes[0] ?? null;
+  }
+  get lastChild() {
+    return this.childNodes[this.childNodes.length - 1] ?? null;
+  }
+  get nextSibling(): FakeNode | null {
+    const siblings = this.parentNode?.childNodes ?? [];
+    return siblings[siblings.indexOf(this) + 1] ?? null;
+  }
+  get textContent(): string {
+    return this.nodeType === 3 ? (this.nodeValue ?? '') : this.childNodes.map((c) => c.textContent).join('');
+  }
+  set textContent(value: string) {
+    if (this.nodeType === 3) {
+      this.nodeValue = value;
+      return;
+    }
+    for (const child of this.childNodes) child.parentNode = null;
+    this.childNodes = [];
+    if (value) this.appendChild(new FakeNode(3, '#text', this.ownerDocument)).nodeValue = value;
+  }
+  insertBefore(child: FakeNode, before: FakeNode | null): FakeNode {
+    child.parentNode?.removeChild(child);
+    const at = before ? this.childNodes.indexOf(before) : -1;
+    this.childNodes.splice(at < 0 ? this.childNodes.length : at, 0, child);
+    child.parentNode = this;
+    return child;
+  }
+  appendChild(child: FakeNode): FakeNode {
+    return this.insertBefore(child, null);
+  }
+  removeChild(child: FakeNode): FakeNode {
+    this.childNodes.splice(this.childNodes.indexOf(child), 1);
+    child.parentNode = null;
+    return child;
+  }
+}
+class FakeElement extends FakeNode {
+  readonly tagName: string;
+  readonly attributes = new Map<string, string>();
+  readonly style = { setProperty() {}, removeProperty() {} };
+  constructor(
+    tag: string,
+    doc: FakeDocument,
+    readonly namespaceURI = HTML_NS,
+  ) {
+    super(1, tag.toUpperCase(), doc);
+    this.tagName = tag.toUpperCase();
+  }
+  setAttribute(name: string, value: string) {
+    this.attributes.set(name, String(value));
+  }
+  getAttribute(name: string) {
+    return this.attributes.get(name) ?? null;
+  }
+  removeAttribute(name: string) {
+    this.attributes.delete(name);
+  }
+}
+class FakeDocument extends FakeNode {
+  visibilityState = 'visible';
+  readonly activeElement = null;
+  readonly defaultView = { document: this, event: undefined, HTMLIFrameElement: class {} };
+  readonly documentElement = new FakeElement('html', this);
+  readonly body = this.documentElement.appendChild(new FakeElement('body', this)) as FakeElement;
+  constructor() {
+    super(9, '#document', null);
+    this.appendChild(this.documentElement);
+  }
+  createElement(tag: string) {
+    return new FakeElement(tag, this);
+  }
+  createElementNS(ns: string, tag: string) {
+    return new FakeElement(tag, this, ns);
+  }
+  createTextNode(value: string) {
+    const node = new FakeNode(3, '#text', this);
+    node.nodeValue = value;
+    return node;
+  }
+}
+const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+function outerHtml(node: FakeNode): string {
+  if (!(node instanceof FakeElement)) return esc(node.nodeValue ?? '');
+  const tag = node.tagName.toLowerCase();
+  const attrs = [...node.attributes].map(([name, value]) => ` ${name}="${esc(value)}"`).join('');
+  return `<${tag}${attrs}>${node.childNodes.map(outerHtml).join('')}</${tag}>`;
+}
+
+/** DealsList mounted in the fake browser; `html()` is the live DOM, serialised. */
+function mountList(cards: DealCardView[], builtOn: string) {
+  const doc = new FakeDocument();
+  vi.stubGlobal('window', doc.defaultView);
+  vi.stubGlobal('document', doc);
+  vi.stubGlobal('self', globalThis); // next/link's idle-callback fallback calls self.setTimeout
+  vi.stubGlobal('IS_REACT_ACT_ENVIRONMENT', true);
+  const container = doc.body.appendChild(doc.createElement('div'));
+  const root = createRoot(container as unknown as Element);
+  act(() => {
+    root.render(<DealsList cards={cards} builtOn={builtOn} labels={LABELS} dateLocale="en-US" />);
+  });
+  return {
+    html: () => outerHtml(container),
+    show(visibility: string) {
+      act(() => {
+        doc.visibilityState = visibility;
+        doc.dispatchEvent(new Event('visibilitychange'));
+      });
+    },
+    unmount: () =>
+      act(() => {
+        root.unmount();
+      }),
+  };
+}
+
+describe("DealsList in the reader's browser: a page left open across 00:00 UTC (fake timers)", () => {
+  const LAST_DAY = '2032-06-10';
+  const cards = (): DealCardView[] => [
+    { promo: offer('alpha-last', { code: 'SAMPLE10', expires: LAST_DAY }), products: [ALPHA] },
+    { promo: offer('beta-live', { code: 'SAMPLE20' }), products: [BETA] },
+  ];
+  let mounted: ReturnType<typeof mountList> | null = null;
+  beforeEach(() => {
+    vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout', 'Date'] });
+  });
+  afterEach(() => {
+    mounted?.unmount();
+    mounted = null;
+    vi.useRealTimers();
+    vi.unstubAllGlobals();
+  });
+
+  /** The ended card lost its code, copy button, commission sentence and buy link; the live card kept them. */
+  const expectAlphaEnded = (html: string) => {
+    expect(html).not.toContain('SAMPLE10');
+    expect(html).not.toContain(buyHref(ALPHA));
+    expect(count(text(html), en.deals.copy)).toBe(1);
+    expect(count(html, en.deals.linkDisclosure)).toBe(1);
+    expect(text(html)).toContain('This offer ended on June 10, 2032. The code is no longer shown.');
+    expect(text(html)).toContain('Read our review of Alpha Labs alpha-focus');
+    expect(html).toContain('SAMPLE20');
+    expect(html).toContain(buyHref(BETA));
+  };
+
+  it('an offer read on its expiry day loses its code, copy button and buy link at the next 00:00 UTC, without a reload', () => {
+    vi.setSystemTime(new Date(`${LAST_DAY}T23:59:00Z`));
+    mounted = mountList(cards(), '2032-06-01');
+    const before = mounted.html();
+    expect(before).toContain('SAMPLE10');
+    expect(before).toContain(buyHref(ALPHA));
+    expect(count(text(before), en.deals.copy)).toBe(2);
+    act(() => {
+      vi.advanceTimersByTime(60_000);
+    });
+    expectAlphaEnded(mounted.html());
+  });
+
+  it('a page shown again after 00:00 UTC passed with timers held (device asleep) drops the ended offer at once', () => {
+    vi.setSystemTime(new Date(`${LAST_DAY}T22:00:00Z`));
+    mounted = mountList(cards(), '2032-06-01');
+    expect(mounted.html()).toContain('SAMPLE10');
+    vi.setSystemTime(new Date('2032-06-11T07:00:00Z')); // the clock moved, no timer fired
+    mounted.show('hidden');
+    expect(mounted.html()).toContain('SAMPLE10');
+    mounted.show('visible');
+    expectAlphaEnded(mounted.html());
   });
 });

@@ -37,6 +37,9 @@ const ALLOWED: Record<string, Array<{ code: string; reason: string }>> = {
     { code: 'new Date()', reason: 'default `now` for the consent cookie expiry and migration: the reader’s clock, in the browser' },
     { code: 'new Date()', reason: 'default `now` for the consent cookie expiry and migration: the reader’s clock, in the browser' },
   ],
+  'packages/ui/src/templates/dealsState.ts': [
+    { code: 'new Date()', reason: 'default `now` of watchUtcDay (Deals page offer expiry): the reader’s clock, in the browser, after mount' },
+  ],
 };
 
 const CURRENT_TIME = /\bnew\s+Date\s*\(\s*\)|(?<![\w.$])Date\s*\(\s*\)|\bDate\.now\s*\(\s*\)/g;
