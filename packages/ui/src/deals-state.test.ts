@@ -16,4 +16,12 @@ describe('deal dates', () => {
   it('uses the documented window', () => expect(ENDING_SOON_DAYS).toBe(7));
   it('ends before a later start as ended first', () => expect(state('2032-02-12', '2032-02-10', '2032-02-11')).toBe('ended'));
   it('keeps null starts active', () => expect(state(null, '2032-02-20', '2032-02-10')).toBe('active'));
+  it('crosses a month and a year boundary by UTC days', () => {
+    expect(state(null, '2033-01-03', '2032-12-27')).toBe('ending-soon');
+    expect(state(null, '2033-01-04', '2032-12-27')).toBe('active');
+  });
+  it('an upcoming offer is never active or ending soon, whatever its end date', () => {
+    for (const expires of ['2032-02-12', '2032-02-18', '2032-09-01']) expect(state('2032-02-11', expires, '2032-02-10')).toBe('upcoming');
+  });
+  it('reads the clock without an argument and returns a UTC day', () => expect(utcToday()).toMatch(/^\d{4}-\d{2}-\d{2}$/));
 });

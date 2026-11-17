@@ -193,7 +193,74 @@ export interface UIStrings {
      */
     ranking: string;
   };
-  deals: Record<string, string> & { kind: Record<string, string> };
+  /**
+   * The /deals/ page (DealsPage, DealsList). `{placeholders}` are filled by
+   * the template. `linkDisclosure` sits next to each buy link of a product we
+   * earn a commission on; the page strip still comes from `disclosure`.
+   * ja carries the English text (Japanese copy paused, owner decision 2026-10-13).
+   */
+  deals: {
+    metaTitle: string;
+    metaDescription: string;
+    heading: string;
+    lede: string;
+    listLabel: string;
+    confirmHeading: string;
+    confirmBody1: string;
+    confirmBody2: string;
+    orderingNote: string;
+    filterOff: string;
+    filterOn: string;
+    /** Contains {n}. */
+    statusAll: string;
+    /** Contains {n}. */
+    statusSoon: string;
+    soonEmptyTitle: string;
+    /** Contains {days}. */
+    soonEmptyBody: string;
+    kind: {
+      percent: string;
+      fixed: string;
+      freeItem: string;
+      codeOnly: string;
+      shipping: string;
+      other: string;
+    };
+    quoteHeadline: string;
+    quoteTerms: string;
+    codeLabel: string;
+    noCode: string;
+    copy: string;
+    copied: string;
+    /** Contains {code}. */
+    copiedStatus: string;
+    copyFailed: string;
+    confirmedOn: string;
+    endsLabel: string;
+    endedLabel: string;
+    availableIn: string;
+    productsHeading: string;
+    linkDisclosure: string;
+    /** Contains {brand}. */
+    buy: string;
+    /** Contains {product}. */
+    review: string;
+    /** Contains {date}. */
+    endsSoonChip: string;
+    /** Contains {date}. */
+    endedChip: string;
+    /** Contains {date}. */
+    endedNote: string;
+    regulatedChip: string;
+    regulatedLabel: string;
+    emptyTitle: string;
+    emptyBody: string;
+    emptyLink: string;
+    allEndedChip: string;
+    allEndedTitle: string;
+    /** Contains {date}. */
+    allEndedBody: string;
+  };
   table: {
     product: string;
     bestFor: string;
@@ -929,10 +996,6 @@ export interface UIStrings {
   };
 }
 
-const DEALS_EN = {
-  metaTitle: 'Vendor deals we have confirmed', metaDescription: 'Discount offers for products we review. Each is confirmed on the vendor\'s own page or in an authenticated email from the vendor, and shows the date we confirmed it.', heading: 'Deals', lede: 'Discount offers for products we review. We list an offer only after confirming it on the vendor\'s own page or in an authenticated email from the vendor, and we show the date we confirmed it.', listLabel: 'Confirmed offers', confirmHeading: 'How these offers are confirmed', confirmBody1: 'We list an offer only after we have confirmed it on the vendor\'s own website, or in an authenticated email from the vendor. The confirmed-on date is shown on every offer.', confirmBody2: 'The vendor sets its offer and can change or end it at any time. Headlines and terms below are quoted exactly as the vendor wrote them. Every offer shows its end date.', orderingNote: 'Listed in the order of our product review scores. Discount size, expiry and commission never change the order.', filterOff: 'Only ending soon', filterOn: 'Show all offers', statusAll: 'Offers listed: {n}', statusSoon: 'Offers ending soon shown: {n}', soonEmptyTitle: 'No offers end soon', soonEmptyBody: 'None of the current offers ends in the next {days} days. Turn off the filter to see all offers.', kind: { percent: 'Percentage discount', fixed: 'Fixed amount off', freeItem: 'Free item', codeOnly: 'Code-only offer', shipping: 'Free shipping', other: 'Offer' }, quoteHeadline: "Vendor's text, quoted", quoteTerms: 'Vendor terms, quoted', codeLabel: 'Code', noCode: 'No code needed', copy: 'Copy code', copied: 'Copied', copiedStatus: 'Code {code} copied to clipboard', copyFailed: 'Copy failed. Select the code text and copy it manually.', confirmedOn: 'Confirmed on', endsLabel: 'Ends', endedLabel: 'Ended', availableIn: 'Available in', productsHeading: 'Products with this offer', linkDisclosure: 'We earn a commission if you buy through this link.', buy: 'Buy at {brand}', review: 'Read our review of {product}', endsSoonChip: 'Ends soon — {date}', endedChip: 'Ended {date}', endedNote: 'This offer ended on {date}. The code is no longer shown.', regulatedChip: 'Regulated offer', regulatedLabel: 'Regulated offer — read before ordering', emptyTitle: 'No confirmed offers right now', emptyBody: 'We list an offer only after confirming it on the vendor\'s own page or in an authenticated email from the vendor. Right now we have no confirmed offers. When we confirm one, it appears here with the date we confirmed it. We do not list codes we cannot confirm.', emptyLink: 'See our top-ranked products', allEndedChip: 'All offers ended', allEndedTitle: 'Every offer on this page has ended', allEndedBody: 'This page was built on {date} and the offers shown have since passed their end dates. Ended offers are removed at the next rebuild; new confirmed offers appear here.'
-};
-
 /**
  * Policy text of the editorial-standards section on /methodology/
  * (EditorialStandardsSection), one entry per paragraph or list item. `{name}`
@@ -962,7 +1025,61 @@ export interface EditorialStandardsBody {
   imprintLink: string;
 }
 
-const en: Omit<UIStrings, 'deals'> = {
+// English source of the /deals/ strings; `ja` reuses it unchanged (Japanese copy paused, owner decision 2026-10-13).
+const DEALS_EN: UIStrings['deals'] = {
+  metaTitle: 'Vendor deals we have confirmed',
+  metaDescription: "Discount offers for products we review. Each is confirmed on the vendor's own page or in an authenticated email from the vendor, and shows the date we confirmed it.",
+  heading: 'Deals',
+  lede: "Discount offers for products we review. We list an offer only after confirming it on the vendor's own page or in an authenticated email from the vendor, and we show the date we confirmed it.",
+  listLabel: 'Confirmed offers',
+  confirmHeading: 'How these offers are confirmed',
+  confirmBody1: "We list an offer only after we have confirmed it on the vendor's own website, or in an authenticated email from the vendor. The confirmed-on date is shown on every offer.",
+  confirmBody2: 'The vendor sets its offer and can change or end it at any time. Headlines and terms below are quoted exactly as the vendor wrote them. Every offer shows its end date.',
+  orderingNote: 'Listed in the order of our product review scores. Discount size, expiry and commission never change the order.',
+  filterOff: 'Only ending soon',
+  filterOn: 'Show all offers',
+  statusAll: 'Offers listed: {n}',
+  statusSoon: 'Offers ending soon shown: {n}',
+  soonEmptyTitle: 'No offers end soon',
+  soonEmptyBody: 'None of the current offers ends in the next {days} days. Turn off the filter to see all offers.',
+  kind: {
+    percent: 'Percentage discount',
+    fixed: 'Fixed amount off',
+    freeItem: 'Free item',
+    codeOnly: 'Code-only offer',
+    shipping: 'Free shipping',
+    other: 'Offer',
+  },
+  quoteHeadline: "Vendor's text, quoted",
+  quoteTerms: 'Vendor terms, quoted',
+  codeLabel: 'Code',
+  noCode: 'No code needed',
+  copy: 'Copy code',
+  copied: 'Copied',
+  copiedStatus: 'Code {code} copied to clipboard',
+  copyFailed: 'Copy failed. Select the code text and copy it manually.',
+  confirmedOn: 'Confirmed on',
+  endsLabel: 'Ends',
+  endedLabel: 'Ended',
+  availableIn: 'Available in',
+  productsHeading: 'Products with this offer',
+  linkDisclosure: 'We earn a commission if you buy through this link.',
+  buy: 'Buy at {brand}',
+  review: 'Read our review of {product}',
+  endsSoonChip: 'Ends soon — {date}',
+  endedChip: 'Ended {date}',
+  endedNote: 'This offer ended on {date}. The code is no longer shown.',
+  regulatedChip: 'Regulated offer',
+  regulatedLabel: 'Regulated offer — read before ordering',
+  emptyTitle: 'No confirmed offers right now',
+  emptyBody: "We list an offer only after confirming it on the vendor's own page or in an authenticated email from the vendor. Right now we have no confirmed offers. When we confirm one, it appears here with the date we confirmed it. We do not list codes we cannot confirm.",
+  emptyLink: 'See our top-ranked products',
+  allEndedChip: 'All offers ended',
+  allEndedTitle: 'Every offer on this page has ended',
+  allEndedBody: 'This page was built on {date} and the offers shown have since passed their end dates. Ended offers are removed at the next rebuild; new confirmed offers appear here.',
+};
+
+const en: UIStrings = {
   nav: {
     bestNootropics: 'Best Nootropics',
     compare: 'Compare',
@@ -1056,6 +1173,7 @@ const en: Omit<UIStrings, 'deals'> = {
     siteWide: 'Some pages on this site contain affiliate links; we may earn a commission when you buy through them.',
     ranking: 'Our scores and rankings follow our published methodology; commissions do not influence them.',
   },
+  deals: DEALS_EN,
   table: {
     product: 'Product',
     bestFor: 'Best For',
@@ -1612,7 +1730,7 @@ const en: Omit<UIStrings, 'deals'> = {
   typography: { colon: ': ', space: ' ' },
 };
 
-const es: Omit<UIStrings, 'deals'> = {
+const es: UIStrings = {
   nav: {
     bestNootropics: 'Los Mejores',
     compare: 'Comparar',
@@ -1705,6 +1823,58 @@ const es: Omit<UIStrings, 'deals'> = {
     noCommission: 'No ganamos ninguna comisión por este producto; no tenemos un acuerdo de afiliados para él.',
     siteWide: 'Algunas páginas de este sitio contienen enlaces de afiliados; podemos ganar una comisión si compra a través de ellos.',
     ranking: 'Nuestras puntuaciones y clasificaciones siguen nuestra metodología publicada; las comisiones no influyen en ellas.',
+  },
+  deals: {
+    metaTitle: 'Ofertas de proveedores que hemos confirmado',
+    metaDescription: 'Ofertas de descuento para productos que reseñamos. Cada una está confirmada en la página del propio proveedor o en un correo electrónico autenticado del proveedor, y muestra la fecha en que la confirmamos.',
+    heading: 'Ofertas',
+    lede: 'Ofertas de descuento para productos que reseñamos. Solo publicamos una oferta después de confirmarla en la página del propio proveedor o en un correo electrónico autenticado del proveedor, y mostramos la fecha en que la confirmamos.',
+    listLabel: 'Ofertas confirmadas',
+    confirmHeading: 'Cómo confirmamos estas ofertas',
+    confirmBody1: 'Solo publicamos una oferta después de confirmarla en el sitio web del propio proveedor o en un correo electrónico autenticado del proveedor. Cada oferta muestra la fecha de confirmación.',
+    confirmBody2: 'El proveedor define su oferta y puede cambiarla o terminarla en cualquier momento. Los titulares y las condiciones que siguen se citan tal como los escribió el proveedor. Cada oferta muestra su fecha de finalización.',
+    orderingNote: 'Ordenadas según las puntuaciones de nuestras reseñas de productos. El tamaño del descuento, el vencimiento y la comisión nunca cambian el orden.',
+    filterOff: 'Solo las que terminan pronto',
+    filterOn: 'Mostrar todas las ofertas',
+    statusAll: 'Ofertas publicadas: {n}',
+    statusSoon: 'Ofertas que terminan pronto: {n}',
+    soonEmptyTitle: 'Ninguna oferta termina pronto',
+    soonEmptyBody: 'Ninguna de las ofertas actuales termina en los próximos {days} días. Desactive el filtro para ver todas las ofertas.',
+    kind: {
+      percent: 'Descuento porcentual',
+      fixed: 'Descuento de monto fijo',
+      freeItem: 'Artículo gratis',
+      codeOnly: 'Oferta solo con código',
+      shipping: 'Envío gratis',
+      other: 'Oferta',
+    },
+    quoteHeadline: 'Texto del proveedor, citado',
+    quoteTerms: 'Condiciones del proveedor, citadas',
+    codeLabel: 'Código',
+    noCode: 'No se necesita código',
+    copy: 'Copiar código',
+    copied: 'Copiado',
+    copiedStatus: 'Código {code} copiado al portapapeles',
+    copyFailed: 'No se pudo copiar. Seleccione el texto del código y cópielo manualmente.',
+    confirmedOn: 'Confirmada el',
+    endsLabel: 'Termina',
+    endedLabel: 'Terminó',
+    availableIn: 'Disponible en',
+    productsHeading: 'Productos con esta oferta',
+    linkDisclosure: 'Ganamos una comisión si compra a través de este enlace.',
+    buy: 'Comprar en {brand}',
+    review: 'Lea nuestra reseña de {product}',
+    endsSoonChip: 'Termina pronto — {date}',
+    endedChip: 'Terminó el {date}',
+    endedNote: 'Esta oferta terminó el {date}. El código ya no se muestra.',
+    regulatedChip: 'Oferta regulada',
+    regulatedLabel: 'Oferta regulada — léala antes de comprar',
+    emptyTitle: 'No hay ofertas confirmadas en este momento',
+    emptyBody: 'Solo publicamos una oferta después de confirmarla en la página del propio proveedor o en un correo electrónico autenticado del proveedor. En este momento no tenemos ofertas confirmadas. Cuando confirmemos una, aparecerá aquí con la fecha en que la confirmamos. No publicamos códigos que no podemos confirmar.',
+    emptyLink: 'Ver nuestros productos mejor clasificados',
+    allEndedChip: 'Todas las ofertas terminaron',
+    allEndedTitle: 'Todas las ofertas de esta página terminaron',
+    allEndedBody: 'Esta página se generó el {date} y las ofertas mostradas ya pasaron su fecha de finalización. Las ofertas terminadas se eliminan en la próxima actualización del sitio; las nuevas ofertas confirmadas aparecen aquí.',
   },
   table: {
     product: 'Producto',
@@ -2273,7 +2443,7 @@ const es: Omit<UIStrings, 'deals'> = {
   typography: { colon: ': ', space: ' ' },
 };
 
-const fr: Omit<UIStrings, 'deals'> = {
+const fr: UIStrings = {
   nav: {
     bestNootropics: 'Les Meilleurs',
     compare: 'Comparer',
@@ -2366,6 +2536,58 @@ const fr: Omit<UIStrings, 'deals'> = {
     noCommission: 'Nous ne touchons aucune commission sur ce produit : nous n’avons aucun accord d’affiliation le concernant.',
     siteWide: 'Certaines pages de ce site contiennent des liens affiliés ; nous pouvons toucher une commission si vous achetez via ces liens.',
     ranking: "Nos notes et classements suivent notre méthodologie publiée ; les commissions ne les influencent pas.",
+  },
+  deals: {
+    metaTitle: 'Offres de vendeurs que nous avons confirmées',
+    metaDescription: 'Des offres de réduction sur les produits que nous évaluons. Chacune est confirmée sur la page du vendeur lui-même ou dans un e-mail authentifié du vendeur, et indique la date à laquelle nous l’avons confirmée.',
+    heading: 'Bons plans',
+    lede: 'Des offres de réduction sur les produits que nous évaluons. Nous ne publions une offre qu’après l’avoir confirmée sur la page du vendeur lui-même ou dans un e-mail authentifié du vendeur, et nous indiquons la date de cette confirmation.',
+    listLabel: 'Offres confirmées',
+    confirmHeading: 'Comment ces offres sont confirmées',
+    confirmBody1: 'Nous ne publions une offre qu’après l’avoir confirmée sur le site du vendeur lui-même, ou dans un e-mail authentifié du vendeur. La date de confirmation figure sur chaque offre.',
+    confirmBody2: 'Le vendeur fixe son offre et peut la modifier ou y mettre fin à tout moment. Les accroches et les conditions ci-dessous sont citées telles que le vendeur les a rédigées. Chaque offre indique sa date de fin.',
+    orderingNote: 'Classées selon les notes de nos évaluations de produits. Le montant de la réduction, la date de fin et la commission ne changent jamais l’ordre.',
+    filterOff: 'Seulement celles qui se terminent bientôt',
+    filterOn: 'Afficher toutes les offres',
+    statusAll: 'Offres affichées : {n}',
+    statusSoon: 'Offres se terminant bientôt affichées : {n}',
+    soonEmptyTitle: 'Aucune offre ne se termine bientôt',
+    soonEmptyBody: 'Aucune des offres actuelles ne se termine dans les {days} prochains jours. Désactivez le filtre pour voir toutes les offres.',
+    kind: {
+      percent: 'Réduction en pourcentage',
+      fixed: 'Montant fixe déduit',
+      freeItem: 'Article offert',
+      codeOnly: 'Offre avec code uniquement',
+      shipping: 'Livraison gratuite',
+      other: 'Offre',
+    },
+    quoteHeadline: 'Texte du vendeur, cité',
+    quoteTerms: 'Conditions du vendeur, citées',
+    codeLabel: 'Code promo',
+    noCode: 'Aucun code nécessaire',
+    copy: 'Copier le code',
+    copied: 'Copié',
+    copiedStatus: 'Code {code} copié dans le presse-papiers',
+    copyFailed: 'La copie a échoué. Sélectionnez le texte du code et copiez-le manuellement.',
+    confirmedOn: 'Confirmée le',
+    endsLabel: 'Se termine le',
+    endedLabel: 'Terminée le',
+    availableIn: 'Disponible en',
+    productsHeading: 'Produits concernés par cette offre',
+    linkDisclosure: 'Nous touchons une commission si vous achetez via ce lien.',
+    buy: 'Acheter chez {brand}',
+    review: 'Lire notre évaluation de {product}',
+    endsSoonChip: 'Se termine bientôt — {date}',
+    endedChip: 'Terminée le {date}',
+    endedNote: 'Cette offre s’est terminée le {date}. Le code n’est plus affiché.',
+    regulatedChip: 'Offre réglementée',
+    regulatedLabel: 'Offre réglementée — à lire avant de commander',
+    emptyTitle: 'Aucune offre confirmée pour le moment',
+    emptyBody: 'Nous ne publions une offre qu’après l’avoir confirmée sur la page du vendeur lui-même ou dans un e-mail authentifié du vendeur. Pour le moment, nous n’avons aucune offre confirmée. Dès que nous en confirmons une, elle apparaît ici avec la date de sa confirmation. Nous ne publions pas de codes que nous ne pouvons pas confirmer.',
+    emptyLink: 'Voir nos produits les mieux classés',
+    allEndedChip: 'Toutes les offres sont terminées',
+    allEndedTitle: 'Toutes les offres de cette page sont terminées',
+    allEndedBody: 'Cette page a été générée le {date} et les offres affichées ont depuis dépassé leur date de fin. Les offres terminées sont retirées lors de la prochaine mise à jour du site ; les nouvelles offres confirmées apparaissent ici.',
   },
   table: {
     product: 'Produit',
@@ -2899,7 +3121,7 @@ const fr: Omit<UIStrings, 'deals'> = {
   typography: { colon: '\u00a0: ', space: ' ' },
 };
 
-const ja: Omit<UIStrings, 'deals'> = {
+const ja: UIStrings = {
   nav: {
     bestNootropics: 'ベスト',
     compare: '比較',
@@ -2993,6 +3215,8 @@ const ja: Omit<UIStrings, 'deals'> = {
     siteWide: '当サイトの一部のページにはアフィリエイトリンクが含まれており、そのリンクから商品を購入されると当サイトが紹介料を受け取る場合があります。',
     ranking: 'スコアと順位は公開している評価方法に基づいて決定しており、紹介料の影響は受けません。',
   },
+  // English on purpose: Japanese copy is paused (owner decision 2026-10-13) and the JP host has no /deals/ page.
+  deals: DEALS_EN,
   table: {
     product: '製品',
     bestFor: '最適な用途',
@@ -3525,7 +3749,7 @@ const ja: Omit<UIStrings, 'deals'> = {
   typography: { colon: '：', space: '' },
 };
 
-const pt: Omit<UIStrings, 'deals'> = {
+const pt: UIStrings = {
   nav: {
     bestNootropics: 'Os Melhores',
     compare: 'Comparar',
@@ -3618,6 +3842,58 @@ const pt: Omit<UIStrings, 'deals'> = {
     noCommission: 'Não recebemos qualquer comissão por este produto; não temos nenhum acordo de afiliação para ele.',
     siteWide: 'Algumas páginas deste site contêm links de afiliados; podemos receber uma comissão se comprar através deles.',
     ranking: 'As nossas pontuações e classificações seguem a nossa metodologia publicada; as comissões não as influenciam.',
+  },
+  deals: {
+    metaTitle: 'Ofertas de vendedores que confirmámos',
+    metaDescription: 'Ofertas de desconto para produtos que analisamos. Cada uma é confirmada na página do próprio vendedor ou num e-mail autenticado do vendedor, e mostra a data em que a confirmámos.',
+    heading: 'Ofertas',
+    lede: 'Ofertas de desconto para produtos que analisamos. Só publicamos uma oferta depois de a confirmar na página do próprio vendedor ou num e-mail autenticado do vendedor, e mostramos a data em que a confirmámos.',
+    listLabel: 'Ofertas confirmadas',
+    confirmHeading: 'Como confirmamos estas ofertas',
+    confirmBody1: 'Só publicamos uma oferta depois de a termos confirmado no site do próprio vendedor ou num e-mail autenticado do vendedor. A data de confirmação aparece em cada oferta.',
+    confirmBody2: 'O vendedor define a sua oferta e pode alterá-la ou terminá-la a qualquer momento. Os títulos e as condições abaixo são citados exatamente como o vendedor os escreveu. Cada oferta mostra a sua data de fim.',
+    orderingNote: 'Ordenadas pelas pontuações das nossas análises de produtos. O valor do desconto, a data de fim e a comissão nunca alteram a ordem.',
+    filterOff: 'Só as que terminam em breve',
+    filterOn: 'Mostrar todas as ofertas',
+    statusAll: 'Ofertas listadas: {n}',
+    statusSoon: 'Ofertas a terminar em breve: {n}',
+    soonEmptyTitle: 'Nenhuma oferta termina em breve',
+    soonEmptyBody: 'Nenhuma das ofertas atuais termina nos próximos {days} dias. Desative o filtro para ver todas as ofertas.',
+    kind: {
+      percent: 'Desconto percentual',
+      fixed: 'Desconto de valor fixo',
+      freeItem: 'Artigo grátis',
+      codeOnly: 'Oferta só com código',
+      shipping: 'Envio grátis',
+      other: 'Oferta',
+    },
+    quoteHeadline: 'Texto do vendedor, citado',
+    quoteTerms: 'Condições do vendedor, citadas',
+    codeLabel: 'Código',
+    noCode: 'Não é preciso código',
+    copy: 'Copiar código',
+    copied: 'Copiado',
+    copiedStatus: 'Código {code} copiado para a área de transferência',
+    copyFailed: 'Não foi possível copiar. Selecione o texto do código e copie-o manualmente.',
+    confirmedOn: 'Confirmada em',
+    endsLabel: 'Termina',
+    endedLabel: 'Terminou',
+    availableIn: 'Disponível em',
+    productsHeading: 'Produtos com esta oferta',
+    linkDisclosure: 'Recebemos uma comissão se comprar através desta ligação.',
+    buy: 'Comprar na {brand}',
+    review: 'Leia a nossa análise de {product}',
+    endsSoonChip: 'Termina em breve — {date}',
+    endedChip: 'Terminou a {date}',
+    endedNote: 'Esta oferta terminou a {date}. O código já não é mostrado.',
+    regulatedChip: 'Oferta regulamentada',
+    regulatedLabel: 'Oferta regulamentada — leia antes de encomendar',
+    emptyTitle: 'De momento não há ofertas confirmadas',
+    emptyBody: 'Só publicamos uma oferta depois de a confirmar na página do próprio vendedor ou num e-mail autenticado do vendedor. De momento não temos ofertas confirmadas. Quando confirmarmos uma, aparece aqui com a data em que a confirmámos. Não publicamos códigos que não conseguimos confirmar.',
+    emptyLink: 'Ver os nossos produtos mais bem classificados',
+    allEndedChip: 'Todas as ofertas terminaram',
+    allEndedTitle: 'Todas as ofertas desta página terminaram',
+    allEndedBody: 'Esta página foi gerada a {date} e as ofertas mostradas já passaram a sua data de fim. As ofertas terminadas são removidas na próxima atualização do site; as novas ofertas confirmadas aparecem aqui.',
   },
   table: {
     product: 'Produto',
@@ -4150,7 +4426,7 @@ const pt: Omit<UIStrings, 'deals'> = {
   typography: { colon: ': ', space: ' ' },
 };
 
-const de: Omit<UIStrings, 'deals'> = {
+const de: UIStrings = {
   nav: {
     bestNootropics: 'Beste Nootropika',
     compare: 'Vergleichen',
@@ -4243,6 +4519,58 @@ const de: Omit<UIStrings, 'deals'> = {
     noCommission: 'Für dieses Produkt erhalten wir keine Provision; wir haben dafür keine Affiliate-Vereinbarung.',
     siteWide: 'Einige Seiten dieser Website enthalten Affiliate-Links; wenn Sie über diese Links kaufen, erhalten wir möglicherweise eine Provision.',
     ranking: 'Unsere Bewertungen und Rankings folgen unserer veröffentlichten Methodik; Provisionen haben keinen Einfluss darauf.',
+  },
+  deals: {
+    metaTitle: 'Von uns bestätigte Händlerangebote',
+    metaDescription: 'Rabattangebote für Produkte, die wir bewerten. Jedes ist auf der eigenen Seite des Händlers oder in einer authentifizierten E-Mail des Händlers bestätigt und zeigt das Datum unserer Bestätigung.',
+    heading: 'Angebote',
+    lede: 'Rabattangebote für Produkte, die wir bewerten. Wir führen ein Angebot erst auf, nachdem wir es auf der eigenen Seite des Händlers oder in einer authentifizierten E-Mail des Händlers bestätigt haben, und wir zeigen das Datum unserer Bestätigung.',
+    listLabel: 'Bestätigte Angebote',
+    confirmHeading: 'Wie wir diese Angebote bestätigen',
+    confirmBody1: 'Wir führen ein Angebot erst auf, nachdem wir es auf der eigenen Website des Händlers oder in einer authentifizierten E-Mail des Händlers bestätigt haben. Das Bestätigungsdatum steht bei jedem Angebot.',
+    confirmBody2: 'Der Händler legt sein Angebot fest und kann es jederzeit ändern oder beenden. Überschriften und Bedingungen unten sind genau so zitiert, wie der Händler sie geschrieben hat. Jedes Angebot zeigt sein Enddatum.',
+    orderingNote: 'Sortiert nach den Bewertungen aus unseren Produkttests. Rabatthöhe, Ablaufdatum und Provision ändern die Reihenfolge nie.',
+    filterOff: 'Nur bald endende',
+    filterOn: 'Alle Angebote anzeigen',
+    statusAll: 'Aufgeführte Angebote: {n}',
+    statusSoon: 'Angezeigte bald endende Angebote: {n}',
+    soonEmptyTitle: 'Kein Angebot endet bald',
+    soonEmptyBody: 'Keines der aktuellen Angebote endet in den nächsten {days} Tagen. Schalten Sie den Filter aus, um alle Angebote zu sehen.',
+    kind: {
+      percent: 'Prozentrabatt',
+      fixed: 'Fester Betrag Rabatt',
+      freeItem: 'Gratisartikel',
+      codeOnly: 'Angebot nur mit Code',
+      shipping: 'Kostenloser Versand',
+      other: 'Angebot',
+    },
+    quoteHeadline: 'Text des Händlers, zitiert',
+    quoteTerms: 'Bedingungen des Händlers, zitiert',
+    codeLabel: 'Gutscheincode',
+    noCode: 'Kein Code nötig',
+    copy: 'Code kopieren',
+    copied: 'Kopiert',
+    copiedStatus: 'Code {code} in die Zwischenablage kopiert',
+    copyFailed: 'Kopieren fehlgeschlagen. Markieren Sie den Code und kopieren Sie ihn von Hand.',
+    confirmedOn: 'Bestätigt am',
+    endsLabel: 'Endet am',
+    endedLabel: 'Endete am',
+    availableIn: 'Verfügbar in',
+    productsHeading: 'Produkte mit diesem Angebot',
+    linkDisclosure: 'Wenn Sie über diesen Link kaufen, erhalten wir eine Provision.',
+    buy: 'Bei {brand} kaufen',
+    review: 'Unseren Test von {product} lesen',
+    endsSoonChip: 'Endet bald — {date}',
+    endedChip: 'Endete am {date}',
+    endedNote: 'Dieses Angebot endete am {date}. Der Code wird nicht mehr angezeigt.',
+    regulatedChip: 'Reguliertes Angebot',
+    regulatedLabel: 'Reguliertes Angebot — vor der Bestellung lesen',
+    emptyTitle: 'Derzeit keine bestätigten Angebote',
+    emptyBody: 'Wir führen ein Angebot erst auf, nachdem wir es auf der eigenen Seite des Händlers oder in einer authentifizierten E-Mail des Händlers bestätigt haben. Derzeit haben wir keine bestätigten Angebote. Sobald wir eines bestätigen, erscheint es hier mit dem Datum unserer Bestätigung. Codes, die wir nicht bestätigen können, führen wir nicht auf.',
+    emptyLink: 'Unsere bestbewerteten Produkte ansehen',
+    allEndedChip: 'Alle Angebote beendet',
+    allEndedTitle: 'Alle Angebote auf dieser Seite sind beendet',
+    allEndedBody: 'Diese Seite wurde am {date} erstellt, und die gezeigten Angebote haben ihr Enddatum inzwischen überschritten. Beendete Angebote werden bei der nächsten Aktualisierung der Website entfernt; neue bestätigte Angebote erscheinen hier.',
   },
   table: {
     product: 'Produkt',
@@ -4780,7 +5108,7 @@ const de: Omit<UIStrings, 'deals'> = {
 // "GDPR", "Santé Canada" not "Health Canada", "courriel" not "e-mail".
 // `dateLocale: 'fr-CA'` carries the BCP-47 code for Intl.DateTimeFormat.
 // Native-speaker review recommended before final ship.
-const frCa: Omit<UIStrings, 'deals'> = {
+const frCa: UIStrings = {
   nav: {
     bestNootropics: 'Meilleurs Nootropiques',
     compare: 'Comparer',
@@ -4873,6 +5201,58 @@ const frCa: Omit<UIStrings, 'deals'> = {
     noCommission: 'Nous ne touchons aucune commission sur ce produit : nous n’avons aucune entente d’affiliation le concernant.',
     siteWide: "Certaines pages de ce site contiennent des liens affiliés; nous pouvons toucher une commission si vous effectuez un achat par l'entremise de ces liens.",
     ranking: 'Nos notes et nos classements suivent notre méthodologie publiée; les commissions ne les influencent pas.',
+  },
+  deals: {
+    metaTitle: 'Aubaines de détaillants que nous avons confirmées',
+    metaDescription: 'Des offres de rabais sur les produits que nous évaluons. Chacune est confirmée sur la page du détaillant lui-même ou dans un courriel authentifié du détaillant, et indique la date à laquelle nous l’avons confirmée.',
+    heading: 'Aubaines',
+    lede: 'Des offres de rabais sur les produits que nous évaluons. Nous n’affichons une offre qu’après l’avoir confirmée sur la page du détaillant lui-même ou dans un courriel authentifié du détaillant, et nous indiquons la date de cette confirmation.',
+    listLabel: 'Offres confirmées',
+    confirmHeading: 'Comment nous confirmons ces offres',
+    confirmBody1: 'Nous n’affichons une offre qu’après l’avoir confirmée sur le site Web du détaillant lui-même, ou dans un courriel authentifié du détaillant. La date de confirmation est indiquée sur chaque offre.',
+    confirmBody2: 'Le détaillant fixe son offre et peut la modifier ou y mettre fin en tout temps. Les accroches et les conditions ci-dessous sont citées telles que le détaillant les a rédigées. Chaque offre indique sa date de fin.',
+    orderingNote: 'Présentées selon les notes de nos évaluations de produits. Le montant du rabais, la date de fin et la commission ne changent jamais l’ordre.',
+    filterOff: 'Seulement celles qui prennent fin bientôt',
+    filterOn: 'Afficher toutes les offres',
+    statusAll: 'Offres affichées : {n}',
+    statusSoon: 'Offres qui prennent fin bientôt : {n}',
+    soonEmptyTitle: 'Aucune offre ne prend fin bientôt',
+    soonEmptyBody: 'Aucune des offres actuelles ne prend fin dans les {days} prochains jours. Désactivez le filtre pour voir toutes les offres.',
+    kind: {
+      percent: 'Rabais en pourcentage',
+      fixed: 'Rabais d’un montant fixe',
+      freeItem: 'Article gratuit',
+      codeOnly: 'Offre avec code seulement',
+      shipping: 'Livraison gratuite',
+      other: 'Offre',
+    },
+    quoteHeadline: 'Texte du détaillant, cité',
+    quoteTerms: 'Conditions du détaillant, citées',
+    codeLabel: 'Code promotionnel',
+    noCode: 'Aucun code requis',
+    copy: 'Copier le code',
+    copied: 'Copié',
+    copiedStatus: 'Code {code} copié dans le presse-papiers',
+    copyFailed: 'La copie n’a pas fonctionné. Sélectionnez le texte du code et copiez-le vous-même.',
+    confirmedOn: 'Confirmée le',
+    endsLabel: 'Prend fin le',
+    endedLabel: 'A pris fin le',
+    availableIn: 'Offerte en',
+    productsHeading: 'Produits visés par cette offre',
+    linkDisclosure: 'Nous touchons une commission si vous effectuez un achat par l’entremise de ce lien.',
+    buy: 'Acheter chez {brand}',
+    review: 'Lire notre évaluation de {product}',
+    endsSoonChip: 'Prend fin bientôt — {date}',
+    endedChip: 'A pris fin le {date}',
+    endedNote: 'Cette offre a pris fin le {date}. Le code n’est plus affiché.',
+    regulatedChip: 'Offre réglementée',
+    regulatedLabel: 'Offre réglementée — à lire avant de commander',
+    emptyTitle: 'Aucune offre confirmée en ce moment',
+    emptyBody: 'Nous n’affichons une offre qu’après l’avoir confirmée sur la page du détaillant lui-même ou dans un courriel authentifié du détaillant. En ce moment, nous n’avons aucune offre confirmée. Dès que nous en confirmons une, elle apparaît ici avec la date de sa confirmation. Nous n’affichons pas de codes que nous ne pouvons pas confirmer.',
+    emptyLink: 'Voir nos produits les mieux classés',
+    allEndedChip: 'Toutes les offres ont pris fin',
+    allEndedTitle: 'Toutes les offres de cette page ont pris fin',
+    allEndedBody: 'Cette page a été générée le {date} et les offres affichées ont depuis dépassé leur date de fin. Les offres terminées sont retirées à la prochaine mise à jour du site; les nouvelles offres confirmées apparaissent ici.',
   },
   table: {
     product: 'Produit',
@@ -5402,10 +5782,10 @@ const frCa: Omit<UIStrings, 'deals'> = {
   typography: { colon: '\u00a0: ', space: ' ' },
 };
 
-const translations: Record<Locale, Omit<UIStrings, 'deals'>> = { en, es, fr, ja, pt, de, 'fr-CA': frCa };
+const translations: Record<Locale, UIStrings> = { en, es, fr, ja, pt, de, 'fr-CA': frCa };
 
 export function getStrings(locale: Locale): UIStrings {
-  return { ...(translations[locale] || translations.en), deals: DEALS_EN };
+  return translations[locale] || translations.en;
 }
 
 // JP is English: Japanese copy on the JP host is paused until a Japanese

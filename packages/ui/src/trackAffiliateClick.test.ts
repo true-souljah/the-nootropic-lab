@@ -51,6 +51,16 @@ describe('trackAffiliateClick', () => {
     });
   });
 
+  it('reports the deals surface with its position (Deals page buy links)', () => {
+    const gtag = vi.fn();
+    g.window = { gtag, __nlGa: { ...granted } };
+
+    trackAffiliateClick({ product: product(), position: 2, surface: 'deals' });
+
+    expect(gtag).toHaveBeenCalledOnce();
+    expect(gtag.mock.calls[0]![2]).toMatchObject({ product: 'mind-lab-pro', position: 2, surface: 'deals', affiliate_partner: 'Mind Lab Pro' });
+  });
+
   it('degrades to affiliate_status=unknown and empty link_domain when affiliate data is missing', () => {
     const gtag = vi.fn();
     g.window = { gtag, __nlGa: { ...granted } };

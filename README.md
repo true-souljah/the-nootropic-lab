@@ -7,7 +7,18 @@ static export deployed to its own Cloudflare Pages site.
 
 ## Deals page
 
-`/deals/` is available in US, EU, CA, AU, LATAM, GCC and SEA, but not JP. Promo data is read only by the Deals reader; offers follow product review score order and expiry is hidden in the reader's browser. No promo badge appears elsewhere.
+`/deals/` exists in `us`, `eu`, `ca`, `au`, `latam`, `gcc` and `sea`; `jp` is held and has no
+Deals page (`REGION_ONLY_ROUTES` in `packages/data/src/routes.ts`).
+
+- Data: `packages/data/promos/<region>.json`, read only through the Deals files:
+  `packages/ui/src/promos.ts`, `packages/ui/src/templates/DealsPage.tsx` and the seven
+  `apps/<r>/src/app/deals/page.tsx` (the promo-firewall test lists them and fails any other reader).
+- Order: offers follow our review scores only (the vendor's highest-scoring product,
+  `productsByScore`). Discount size, expiry, kind, code and commission never reorder anything.
+- Expiry: the build drops offers outside their dates; in the reader's browser an offer that has
+  ended since the build loses its code, copy button and buy links (removed from the page).
+- With no confirmed offer the page shows its empty state, no buy link and the site-level strip.
+- No promo badge on any other page, and no link to `/deals/` from the header, footer or other pages.
 
 ## Layout
 

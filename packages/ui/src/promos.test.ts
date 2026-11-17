@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { normaliseHost, quotedTextIssue, validatePromoFile, vendorDomainMatches, type PromoRecord, type PromoProduct } from './promos';
+import type { Product } from '@nootropic/data';
+import { normaliseHost, offersForOrderedProducts, promoProductHost, promoVendorDomains, quotedTextIssue, validatePromoFile, vendorDomainMatches, type PromoRecord, type PromoProduct } from './promos';
 
 const products: PromoProduct[] = [{ slug: 'examplelab', affiliateUrl: 'https://tracker.example/x', storePrice: { url: 'https://examplelab.example/p' } }];
 const row = (patch: Partial<PromoRecord> = {}): PromoRecord => ({ id: 'examplelab-save', vendor_id: 'examplelab', vendor_domain: 'examplelab.example', kind: 'percent', headline: 'Save 10% on selected bottles', terms_quote: 'Free shipping, no minimum', code: 'SAVE10', starts: null, expires: '2099-12-31', geo: ['EU'], regulated: false, confirmed_on: '2026-11-01', ...patch });
@@ -36,4 +37,84 @@ describe('promo schema', () => {
   it.each(['jp', 'xx'])('rejects region %s', (region) => expect(() => valid({ schema_version: 1, promos: [] }, region)).toThrow());
   it.each(['us', 'eu', 'ca', 'au', 'latam', 'gcc', 'sea'])('accepts region %s', (region) => expect(valid({ schema_version: 1, promos: [] }, region).promos).toEqual([]));
   it('normalises hosts', () => { expect(normaliseHost('WWW.Example.COM.')).toBe('example.com'); expect(normaliseHost('not a host')).toBeNull(); expect(normaliseHost('localhost')).toBeNull(); });
+});
+
+// ---- the Deals page reader: promoProductHost and offersForOrderedProducts (build plan PR 17) ----
+
+describe('promoProductHost', () => {
+  const cases: [string, PromoProduct, string | null][] = [
+    ['storePrice host, not the tracker', products[0], 'examplelab.example'],
+    ['affiliate host without a storePrice', { slug: 'a', affiliateUrl: 'https://www.alphavendor.example/x' }, 'alphavendor.example'],
+    ['discontinued', { ...products[0], discontinued: { on: '2026-01-01' } }, null],
+    ['noPurchaseLink', { ...products[0], noPurchaseLink: { reason: 'x' } }, null],
+    ['Amazon', { slug: 'a', affiliateUrl: 'https://www.amazon.com/x' }, null],
+    ['unparsable link', { slug: 'a', affiliateUrl: 'not a url' }, null],
+  ];
+  it.each(cases)('%s', (_, product, host) => {
+    expect(promoProductHost(product)).toBe(host);
+    // promoVendorDomains is built from the same rule, so the two never drift.
+    expect([...promoVendorDomains([product])]).toEqual(host === null ? [] : [host]);
+  });
+});
+
+describe('offersForOrderedProducts', () => {
+  const TODAY = '2032-03-10';
+  const item = (slug: string, host: string, score: number, extra: Record<string, unknown> = {}): Product =>
+    ({ slug, name: `${slug} name`, brand: `${slug} brand`, score, affiliateUrl: `https://${host}/p`, ...extra }) as unknown as Product;
+  // Already in score order (the caller passes productsByScore output).
+  const ordered = [item('alpha', 'alpha.example', 9), item('beta', 'shop.beta.example', 8), item('gamma', 'alpha.example', 7), item('delta', 'delta.example', 6)];
+  const promo = (id: string, vendor_domain: string, patch: Partial<PromoRecord> = {}) => row({ id, vendor_id: id, vendor_domain, code: 'SAMPLE10', ...patch });
+  const PROMOS = [promo('p-delta', 'delta.example'), promo('p-beta', 'beta.example'), promo('p-alpha', 'alpha.example'), promo('p-alpha-2', 'alpha.example', { code: null, kind: 'shipping' })];
+  const order = (promos: PromoRecord[]) => offersForOrderedProducts(ordered, promos, TODAY).map((c) => c.promo.id);
+  const permutations = <T,>(xs: T[]): T[][] => (xs.length <= 1 ? [xs] : xs.flatMap((x, i) => permutations([...xs.slice(0, i), ...xs.slice(i + 1)]).map((rest) => [x, ...rest])));
+
+  it('cards follow the product order, whatever the file order', () => {
+    const byVendor = (ids: string[]) => ids.map((id) => id.replace(/-2$/, ''));
+    for (const perm of permutations(PROMOS)) expect(byVendor(order(perm))).toEqual(['p-alpha', 'p-alpha', 'p-beta', 'p-delta']);
+  });
+
+  it('editing kind, code, expires, headline or regulated never changes the card order', () => {
+    const before = order(PROMOS);
+    const edits: Partial<PromoRecord>[] = [
+      { kind: 'fixed' }, { kind: 'other' }, { code: null }, { code: 'SAMPLE99' }, { expires: '2032-03-10' }, { expires: '2099-12-31' },
+      { headline: 'Save 90% today' }, { regulated: true },
+    ];
+    for (const edit of edits) for (let i = 0; i < PROMOS.length; i++) {
+      const edited = PROMOS.map((p, j) => (j === i ? { ...p, ...edit } : p));
+      expect(order(edited), JSON.stringify(edit)).toEqual(before);
+    }
+  });
+
+  it('drops offers outside their date window and keeps the boundary days', () => {
+    const promos = [
+      promo('ended', 'alpha.example', { expires: '2032-03-09' }),
+      promo('not-yet', 'alpha.example', { starts: '2032-03-11' }),
+      promo('last-day', 'alpha.example', { expires: TODAY }),
+      promo('first-day', 'alpha.example', { starts: TODAY }),
+    ];
+    expect(order(promos)).toEqual(['last-day', 'first-day']);
+  });
+
+  it('a promo matching two products lists both, in the given (score) order', () => {
+    const cards = offersForOrderedProducts(ordered, [promo('p-alpha', 'alpha.example')], TODAY);
+    expect(cards).toHaveLength(1);
+    expect(cards[0].products.map((p) => p.slug)).toEqual(['alpha', 'gamma']);
+  });
+
+  it('a promo matching no product is dropped', () => {
+    expect(order([promo('nobody', 'nobody.example'), promo('p-delta', 'delta.example')])).toEqual(['p-delta']);
+  });
+
+  it('excludes discontinued, no-link and Amazon products from the match', () => {
+    const list = [
+      item('gone', 'eps.example', 9, { discontinued: { on: '2030-01-01' } }),
+      item('nolink', 'eps.example', 8, { noPurchaseLink: { reason: 'x' } }),
+      item('amz', 'www.amazon.com', 7),
+      item('kept', 'eps.example', 6),
+    ];
+    const cards = offersForOrderedProducts(list, [promo('eps', 'eps.example'), promo('amz', 'amazon.com')], TODAY);
+    expect(cards.map((c) => [c.promo.id, c.products.map((p) => p.slug)])).toEqual([['eps', ['kept']]]);
+  });
+
+  it('returns no card for an empty promo file', () => expect(offersForOrderedProducts(ordered, [], TODAY)).toEqual([]));
 });

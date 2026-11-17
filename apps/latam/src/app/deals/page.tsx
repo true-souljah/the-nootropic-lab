@@ -1,2 +1,32 @@
-import type { Metadata } from 'next'; import { DealsPage, buildAlternates, buildOpenGraph, buildTwitter } from '@nootropic/ui'; import { productsLatam, getRegionalHealthDisclaimer } from '@nootropic/data'; import { searchItems, uiStrings } from '@/lib/search'; import promosDoc from '../../../../../packages/data/promos/latam.json';
-export const metadata: Metadata = { title: { absolute: uiStrings.deals.metaTitle }, description: uiStrings.deals.metaDescription, alternates: buildAlternates({ regionCode: 'latam', path: '/deals/' }), openGraph: buildOpenGraph({ regionCode: 'latam', path: '/deals/', title: uiStrings.deals.metaTitle, description: uiStrings.deals.metaDescription }), twitter: buildTwitter({ title: uiStrings.deals.metaTitle, description: uiStrings.deals.metaDescription }) }; export default function Page() { return <DealsPage regionCode="latam" products={productsLatam} promosDoc={promosDoc} strings={uiStrings} searchItems={searchItems} healthDisclaimer={getRegionalHealthDisclaimer('latam')} dateLocale={uiStrings.productDetail.dateLocale} />; }
+import type { Metadata } from 'next';
+import { DealsPage, buildAlternates, buildOpenGraph, buildTwitter } from '@nootropic/ui';
+import { localizedProductsLatam, getRegionalHealthDisclaimer, REGION_ONLY_ROUTES } from '@nootropic/data';
+import { searchItems, uiStrings } from '@/lib/search';
+import promosDoc from '../../../../../packages/data/promos/latam.json';
+
+const TITLE = uiStrings.deals.metaTitle;
+const DESCRIPTION = uiStrings.deals.metaDescription;
+
+export const metadata: Metadata = {
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: buildAlternates({ regionCode: 'latam', path: '/deals/', availableInRegions: REGION_ONLY_ROUTES['/deals'] }),
+  openGraph: buildOpenGraph({ regionCode: 'latam', path: '/deals/', title: TITLE, description: DESCRIPTION }),
+  twitter: buildTwitter({ title: TITLE, description: DESCRIPTION }),
+};
+
+export default function DealsLatamPage() {
+  // The Spanish record prose, as on /best-nootropics/.
+  const products = localizedProductsLatam('es');
+  return (
+    <DealsPage
+      regionCode="latam"
+      products={products}
+      promosDoc={promosDoc}
+      strings={uiStrings}
+      searchItems={searchItems}
+      healthDisclaimer={getRegionalHealthDisclaimer('latam')}
+      dateLocale={uiStrings.productDetail.dateLocale}
+    />
+  );
+}
