@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { DealsPage, buildAlternates, buildOpenGraph, buildTwitter } from '@nootropic/ui';
-import { productsUS, getRegionalHealthDisclaimer, REGION_ONLY_ROUTES } from '@nootropic/data';
+import { productsUS, getRegionalHealthDisclaimer } from '@nootropic/data';
 import { searchItems, uiStrings } from '@/lib/search';
 import promosDoc from '../../../../../packages/data/promos/us.json';
 
@@ -10,7 +10,7 @@ const DESCRIPTION = uiStrings.deals.metaDescription;
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  alternates: buildAlternates({ regionCode: 'us', path: '/deals/', availableInRegions: REGION_ONLY_ROUTES['/deals'] }),
+  alternates: buildAlternates({ regionCode: 'us', path: '/deals/', availableInRegions: ['us', 'eu', 'ca', 'au', 'latam', 'gcc', 'sea'] }),
   openGraph: buildOpenGraph({ regionCode: 'us', path: '/deals/', title: TITLE, description: DESCRIPTION }),
   twitter: buildTwitter({ title: TITLE, description: DESCRIPTION }),
 };
