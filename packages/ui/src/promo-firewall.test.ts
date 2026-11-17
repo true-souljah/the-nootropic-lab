@@ -382,7 +382,11 @@ describe('promo firewall (repo scan)', () => {
 
   it.each(RANKING_MODULES)('%s reaches no promo module, script or promo data', (file) => {
     const reach = reachableFrom(file);
-    expect(reach.size).toBeGreaterThan(1);
+    // The walk ran: a module whose code imports or re-exports anything reaches more than itself; a
+    // module with no import at all (productOrder.ts, one pure function) reaches exactly itself. The
+    // keyword test is independent of importSpecifiers, so a walker that stops reading imports fails.
+    if (/\bimport\b|\bexport\b[^;]*\bfrom\s*['"]/.test(stripComments(read(file)))) expect(reach.size).toBeGreaterThan(1);
+    else expect([...reach]).toEqual([file]);
     // Empty allow-list on purpose: a ranking module may not reach even an allowed promo reader.
     expect(forbiddenReach(reach, [])).toEqual([]);
   });
