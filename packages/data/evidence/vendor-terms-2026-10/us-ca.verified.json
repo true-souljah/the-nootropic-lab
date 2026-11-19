@@ -742,7 +742,7 @@
    "checkedAt": "2026-11-19",
    "shipping": {
     "value": "Free shipping on all orders to the USA (vendor ships within the United States only)",
-    "quote": "We offer free shipping on all orders to the USA.",
+    "quote": "We offer free shipping on all orders to the USA",
     "url": "https://alphacino.com/policies/shipping-policy",
     "extraQuotes": [
      {
@@ -765,18 +765,7 @@
    },
    "guaranteeDays": {
     "value": null,
-    "quote": "Only regular-priced items may be refunded, unfortunately sale items cannot be refunded.",
-    "url": "https://alphacino.com/policies/refund-policy",
-    "extraQuotes": [
-     {
-      "quote": "Change of mind is not acceptable. No return or refund will be processed.",
-      "url": "https://alphacino.com/policies/refund-policy"
-     }
-    ],
-    "verify": {
-     "status": "PASS",
-     "detail": "direct"
-    }
+    "reason": "the product page advertises a money-back guarantee that the refund policy contradicts ('Change of mind is not acceptable. No return or refund will be processed.' / 'Only regular-priced items may be refunded, unfortunately sale items cannot be refunded.' (https://alphacino.com/policies/refund-policy)); left out on the operator's instruction of 2026-11-18"
    }
   }
  ],

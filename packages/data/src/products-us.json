@@ -117,13 +117,8 @@
     "vendorTerms": {
       "checkedAt": "2026-11-19",
       "shipping": {
-        "text": "We offer free shipping on all orders to the USA.",
+        "text": "We offer free shipping on all orders to the USA",
         "url": "https://alphacino.com/policies/shipping-policy",
-        "lang": "en"
-      },
-      "guarantee": {
-        "text": "Only regular-priced items may be refunded, unfortunately sale items cannot be refunded.",
-        "url": "https://alphacino.com/policies/refund-policy",
         "lang": "en"
       }
     }
