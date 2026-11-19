@@ -15,7 +15,7 @@ const REGIONS = ['us', 'eu', 'ca', 'au', 'jp', 'latam', 'gcc', 'sea'] as const;
 
 // Active products with no vendor image: Memo Plus Gold has no vendor-owned
 // page (manifest 2026-10-07; the operator must supply one).
-const ACTIVE_WITHOUT_IMAGE = ['memo-plus-gold', 'alphacino'];
+const ACTIVE_WITHOUT_IMAGE = ['alphacino', 'memo-plus-gold'];
 // Discontinued products keep their review page (monogram) — no current
 // vendor page to take a pack-shot from.
 const DISCONTINUED_WITHOUT_IMAGE = ['blackmores-brain-active', 'performance-lab-mind'];
