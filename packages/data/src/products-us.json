@@ -9,6 +9,22 @@
       "Steady energy",
       "Men"
     ],
+    "score": 7,
+    "scoreBreakdown": {
+      "ingredients": 8,
+      "dosing": 7.5,
+      "transparency": 7,
+      "value": 6,
+      "trust": 4
+    },
+    "storePrice": {
+      "amount": 44.61,
+      "currency": "USD",
+      "text": "$44.61",
+      "pack": "One Pack",
+      "url": "https://alphacino.com/products/alphacino-mushroom-coffee",
+      "checkedAt": "2026-11-18"
+    },
     "pricingModel": "both",
     "moneyBackDays": null,
     "caffeineFree": false,
@@ -16,6 +32,10 @@
     "euCompliance": "verify",
     "trustpilotScore": null,
     "trustpilotCount": null,
+    "affiliateUrl": "https://alphacino.com/products/alphacino-mushroom-coffee",
+    "affiliateNetwork": "Alphacino Direct",
+    "commissionRate": "0%",
+    "cookieDays": 0,
     "heroIngredients": [
       "KSM-66 Ashwagandha",
       "Lion's Mane",
@@ -26,31 +46,45 @@
     "ingredientDosages": [
       {
         "name": "Black Maca Root 4:1 Extract",
-        "doseInProduct": "224 mg"
+        "doseInProduct": "224 mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "S7™ Blend",
-        "doseInProduct": "50 mg"
+        "doseInProduct": "50 mg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "KSM-66® Ashwagandha",
-        "doseInProduct": "600 mg"
+        "doseInProduct": "600 mg",
+        "clinicalDose": "300-600mg/day (KSM-66)",
+        "adequatelyDosed": true
       },
       {
         "name": "Lion's Mane Extract",
-        "doseInProduct": "500 mg"
+        "doseInProduct": "500 mg",
+        "clinicalDose": "1000-1800mg/day",
+        "adequatelyDosed": false
       },
       {
         "name": "L-Theanine",
-        "doseInProduct": "100 mg"
+        "doseInProduct": "100 mg",
+        "clinicalDose": "100-200mg/day",
+        "adequatelyDosed": true
       },
       {
         "name": "Vitamin D (Cholecalciferol)",
-        "doseInProduct": "83.3 mcg"
+        "doseInProduct": "83.3 mcg",
+        "clinicalDose": "No reference dose on file",
+        "adequatelyDosed": null
       },
       {
         "name": "Natural Caffeine (Green Tea & Coffee)",
-        "doseInProduct": "100 mg"
+        "doseInProduct": "100 mg",
+        "clinicalDose": "100-200mg",
+        "adequatelyDosed": true
       }
     ],
     "servingsPerContainer": 30,
@@ -70,8 +104,29 @@
       "No independent reviews found: vendor widget only, no Trustpilot profile",
       "No published legal entity; certification badges are image-only, with no certificate document published anywhere fetched"
     ],
+    "notes": [
+      "Ingredient amounts from the Supplement Facts panel quoted on the product page (https://alphacino.com/products/alphacino-mushroom-coffee, checked 2026-11-18); the S7™ Blend's 50 mg is the printed blend total, and the blend's seven plant extracts are not itemised on the label.",
+      "The one-time price is the product page's current sale price: \"One Pack $44.61 $49.97\" under a Special Offer banner, checked 2026-11-18.",
+      "The buy link is the vendor's own product page: no affiliate or partner programme exists on alphacino.com (no programme page is linked from the product or home page, checked 2026-11-18), so this site earns no commission on it."
+    ],
     "editorChoice": false,
-    "market": "us"
+    "market": "us",
+    "updatedAt": "2026-11-18",
+    "trustpilotCheckedAt": "2026-11-18",
+    "verifiedAt": "2026-11-18",
+    "vendorTerms": {
+      "checkedAt": "2026-11-19",
+      "shipping": {
+        "text": "We offer free shipping on all orders to the USA.",
+        "url": "https://alphacino.com/policies/shipping-policy",
+        "lang": "en"
+      },
+      "guarantee": {
+        "text": "Only regular-priced items may be refunded, unfortunately sale items cannot be refunded.",
+        "url": "https://alphacino.com/policies/refund-policy",
+        "lang": "en"
+      }
+    }
   },
   {
     "id": "mind-lab-pro",

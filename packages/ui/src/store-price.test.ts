@@ -215,6 +215,8 @@ describe('perServingStorePrice / perDayStorePrice — exact baseline of every pr
     'us/neutonic-brain-capsules': ['USD 1.67', 'USD 1.67'],
     // "30-day supply" gives the per-day figure; "Three capsules in the morning" states no daily frequency.
     'us/deadline-focus-pill': ['USD 4.3', 'USD 4.3'],
+    // "One Pack" states no pack count and the record states no supply length, so both refuse.
+    'us/alphacino': ['refused: no pack count stated in the quote (a supply length is not a count)', 'refused: no pack size or supply stated in the quote'],
     'eu/mind-lab-pro': ['EUR 2.17', RANGE],
     'eu/noocube': ['USD 2.17', 'USD 2.17'],
     'eu/brainzyme-focus-pro': ['EUR 1.06', 'EUR 1.06'],
@@ -404,6 +406,7 @@ describe('monthly figures are unchanged by the per-serving / per-day work', () =
     'us/performance-lab-omega-3': 'USD 49',
     'us/neutonic-brain-capsules': 'USD 49.99',
     'us/deadline-focus-pill': 'USD 129',
+    'us/alphacino': null,
     'eu/mind-lab-pro': 'EUR 64.95',
     'eu/noocube': 'USD 64.99',
     'eu/brainzyme-focus-pro': 'EUR 31.75',

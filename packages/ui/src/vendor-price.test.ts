@@ -196,6 +196,7 @@ describe('packServings — servings from the pack count only', () => {
     'Tropical Ice x 12 cans': 12, // 1 can per serving (form "can")
     '30日分': 'no pack count stated in the quote (a supply length is not a count)',
     '1 Pouch': '"1 Pouch" needs servingsPerContainer, which the record lacks',
+    'One Pack': 'no pack count stated in the quote (a supply length is not a count)',
   };
 
   test('every stored pack wording is in the table, and reads as listed for each record', () => {

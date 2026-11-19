@@ -735,6 +735,49 @@
      "detail": "direct"
     }
    }
+  },
+  {
+   "id": "alphacino",
+   "slug": "alphacino-mushroom-coffee-for-men",
+   "checkedAt": "2026-11-19",
+   "shipping": {
+    "value": "Free shipping on all orders to the USA (vendor ships within the United States only)",
+    "quote": "We offer free shipping on all orders to the USA.",
+    "url": "https://alphacino.com/policies/shipping-policy",
+    "extraQuotes": [
+     {
+      "quote": "Currently, we only ship within the United States.",
+      "url": "https://alphacino.com/policies/shipping-policy"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   },
+   "cancellation": {
+    "value": null,
+    "reason": "the product page answers automated reads with HTTP 429, so its quote could not be re-verified on 2026-11-19"
+   },
+   "oneTimePrice": {
+    "value": null,
+    "reason": "the product page answers automated reads with HTTP 429, so its quote could not be re-verified on 2026-11-19"
+   },
+   "guaranteeDays": {
+    "value": null,
+    "quote": "Only regular-priced items may be refunded, unfortunately sale items cannot be refunded.",
+    "url": "https://alphacino.com/policies/refund-policy",
+    "extraQuotes": [
+     {
+      "quote": "Change of mind is not acceptable. No return or refund will be processed.",
+      "url": "https://alphacino.com/policies/refund-policy"
+     }
+    ],
+    "verify": {
+     "status": "PASS",
+     "detail": "direct"
+    }
+   }
   }
  ],
  "ca": [
