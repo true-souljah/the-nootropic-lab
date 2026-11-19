@@ -1,5 +1,79 @@
 [
   {
+    "id": "alphacino",
+    "name": "Alphacino Mushroom Coffee for Men",
+    "brand": "Alphacino",
+    "slug": "alphacino-mushroom-coffee-for-men",
+    "bestFor": [
+      "Sharp focus",
+      "Steady energy",
+      "Men"
+    ],
+    "pricingModel": "both",
+    "moneyBackDays": null,
+    "caffeineFree": false,
+    "euStorefront": false,
+    "euCompliance": "verify",
+    "trustpilotScore": null,
+    "trustpilotCount": null,
+    "heroIngredients": [
+      "KSM-66 Ashwagandha",
+      "Lion's Mane",
+      "Black Maca",
+      "L-Theanine",
+      "Vitamin D"
+    ],
+    "ingredientDosages": [
+      {
+        "name": "Black Maca Root 4:1 Extract",
+        "doseInProduct": "224 mg"
+      },
+      {
+        "name": "S7™ Blend",
+        "doseInProduct": "50 mg"
+      },
+      {
+        "name": "KSM-66® Ashwagandha",
+        "doseInProduct": "600 mg"
+      },
+      {
+        "name": "Lion's Mane Extract",
+        "doseInProduct": "500 mg"
+      },
+      {
+        "name": "L-Theanine",
+        "doseInProduct": "100 mg"
+      },
+      {
+        "name": "Vitamin D (Cholecalciferol)",
+        "doseInProduct": "83.3 mcg"
+      },
+      {
+        "name": "Natural Caffeine (Green Tea & Coffee)",
+        "doseInProduct": "100 mg"
+      }
+    ],
+    "servingsPerContainer": 30,
+    "capsulesPerServing": 1,
+    "form": "powder",
+    "summary": "A mushroom coffee for men that mixes Lion's Mane, KSM-66 Ashwagandha, Black Maca and L-Theanine into robusta coffee — one scoop, hot or iced.",
+    "whatItIs": "Alphacino Mushroom Coffee for Men, sold by alphacino.com, a Shopify storefront with no published legal entity; the vendor ships within the United States only.",
+    "howItWorks": "One scoop, hot or iced; each pack holds 30 one-scoop servings, and a pack can last up to 30 days depending on daily usage.",
+    "whatToExpect": "Free shipping on all orders to the USA (DHL Express, UPS & USPS, transit time 5-8 days); returns only for the wrong or defective product — change of mind is not acceptable and sale items cannot be refunded.",
+    "pros": [
+      "Label doses printed per serving, including KSM-66® Ashwagandha 600 mg, Lion's Mane Extract 500 mg and L-Theanine 100 mg",
+      "Buy Once — No Subscription offered; the subscription renews every 30 days, cancel anytime",
+      "Claims are kept to structure/function with explicit disclaimers"
+    ],
+    "cons": [
+      "The refund policy excludes change of mind and sale items, while every current price on the product page is a sale price",
+      "No independent reviews found: vendor widget only, no Trustpilot profile",
+      "No published legal entity; certification badges are image-only, with no certificate document published anywhere fetched"
+    ],
+    "editorChoice": false,
+    "market": "us"
+  },
+  {
     "id": "mind-lab-pro",
     "name": "Mind Lab Pro",
     "brand": "Performance Lab",
